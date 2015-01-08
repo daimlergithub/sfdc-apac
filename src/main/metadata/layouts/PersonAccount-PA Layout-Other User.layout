@@ -592,7 +592,6 @@
         <fields>Vehicle__c</fields>
         <fields>Warranty_Type__c</fields>
         <fields>Warranty_Status__c</fields>
-        <relatedList>Warranty__c.Dealer__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -600,7 +599,6 @@
         <fields>Vehicle__c</fields>
         <fields>Warranty_Type__c</fields>
         <fields>Warranty_Status__c</fields>
-        <relatedList>Warranty__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

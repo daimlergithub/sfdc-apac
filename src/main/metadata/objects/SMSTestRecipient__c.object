@@ -74,19 +74,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>TestRecipientGroup__c</fullName>
-        <externalId>false</externalId>
-        <label>Test Recipient Group</label>
-        <referenceTo>TestRecipientGroup__c</referenceTo>
-        <relationshipLabel>SMSTestRecipients</relationshipLabel>
-        <relationshipName>SMSTestRecipients</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
-    </fields>
-    <fields>
         <fullName>TestRecipientName__c</fullName>
         <deleteConstraint>Restrict</deleteConstraint>
         <externalId>false</externalId>
