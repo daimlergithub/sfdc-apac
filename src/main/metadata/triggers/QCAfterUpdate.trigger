@@ -32,10 +32,13 @@ trigger QCAfterUpdate on QC__c (after update) {
         if(!qc.Calibration__c && qc.status__c == 'Complete' && qc.status__c != Trigger.oldMap.get(qc.Id).status__c) {
             QCForShare.add(qc);
         }
-        
+ 
+		// TODO Kernel fix
+		/*
         if(qc.Survey_Result__c != null && Trigger.oldMap.get(qc.Id).Approved__c != 'Yes' && qc.Approved__c == 'Yes') {
             SurveyResultIds.add(qc.Survey_Result__c);
         }
+		*/
         
         //If field value changed, create new QC history records
         if(qc.PACI__c != Trigger.oldMap.get(qc.Id).PACI__c) {

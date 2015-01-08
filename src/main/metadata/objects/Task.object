@@ -14206,58 +14206,6 @@ window.location.reload(true);
 }</url>
     </webLinks>
     <webLinks>
-        <fullName>Redo_MBDA</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Redo</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)} 
-
-var recordTypes = sforce.connection.query(&apos;select id, name from RecordType where DeveloperName = \&apos;MBDA_Survey_Result\&apos; and  SobjectType = \&apos;Survey_Result__c\&apos;&apos;); 
-var tempRecordTypeId = &apos;&apos;;
-if(recordTypes.size &gt; 0){
-    var records = recordTypes.getArray(&apos;records&apos;);
-    tempRecordTypeId = records[0].Id;
-	// Delete old surveies
-	var oldSurvies = sforce.connection.query(&apos;select Id from Survey_Result__c where MBDA_Order__c = \&apos;{!Task.What}\&apos;&apos;);
-    if(oldSurvies.size &gt; 0)
-	{
-	    var oldSurvyIds = [];
-		var records = oldSurvies.getArray(&apos;records&apos;);
-		for(var i=0; i &lt; records.length; i++)
-		{
-		    oldSurvyIds.push(records[i].Id);
-		}
-		sforce.connection.deleteIds(oldSurvyIds);
-	}
-} 
-else {
-    alert(&quot;MBDA Survey Result can&apos;t be used.Please contact System Administrator&quot;);
-}
-var url = &apos;/a1Q/e?&amp;isdtp=vw&amp;RecordType=&apos; + tempRecordTypeId + &apos;&amp;ent=01I900000017wy2&apos;;
-var accId = &apos;{!Task.Who}&apos;; 
-var accName = &apos;&apos;;
-var contacts = sforce.connection.query(&apos;select id, name, AccountId, Account.Name from Contact where Id = \&apos;&apos; + accId + &apos;\&apos;&apos;); 
-if(contacts.size &gt; 0) {
-    var records = contacts.getArray(&apos;records&apos;);
-    accName = records[0].Account.Name;
-    url += &apos;&amp;CF00N90000006ZqXG_lkid=&apos; + records[0].AccountId + &apos;&amp;CF00N90000006ZqXG=&apos; + accName;
-}
-var orderId = &apos;{!Task.What}&apos;; 
-var orderName = &apos;&apos;;
-var orders = sforce.connection.query(&apos;select Id, Name, OrderNumber from Order where Id = \&apos;&apos; + orderId + &apos;\&apos;&apos;);
-if(orders.size &gt; 0) {
-	var records = orders.getArray(&apos;records&apos;);
-	orderName = records[0].OrderNumber;
-	url +=  &apos;&amp;CF00NN0000000w1TU=&apos; + orderName + &apos;&amp;CF00NN0000000w1TU_lkid=&apos; + orderId;
-}
-
-window.open(url, &apos;NewSurvey&apos;, &apos;height=600,width=600,top=50,left=50,toolbar=no,menubar=no,scrollbars=yes,resizable=yes,location=no,status=no&apos;);</url>
-    </webLinks>
-    <webLinks>
         <fullName>Redo_Survey</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
