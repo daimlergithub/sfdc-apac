@@ -120,17 +120,11 @@
     <tab>standard-Account</tab>
     <tab>standard-Contact</tab>
     <tab>standard-Case</tab>
-    <tab>standard-Opportunity</tab>
     <tab>standard-Lead</tab>
     <tab>standard-Knowledge</tab>
     <tab>standard-LiveAgent</tab>
-    <tab>Change_Request__c</tab>
     <tab>Account_Link__c</tab>
     <workspaceMappings>
-        <mapping>
-            <fieldName>AccountId</fieldName>
-            <tab>standard-Opportunity</tab>
-        </mapping>
         <mapping>
             <fieldName>AccountId</fieldName>
             <tab>standard-Case</tab>
@@ -153,9 +147,6 @@
         </mapping>
         <mapping>
             <tab>Account_Link__c</tab>
-        </mapping>
-        <mapping>
-            <tab>Change_Request__c</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>

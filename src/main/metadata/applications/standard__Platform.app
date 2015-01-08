@@ -9,6 +9,5 @@
     <tab>standard-Contact</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
-    <tab>Change_Request__c</tab>
     <tab>Account_Link__c</tab>
 </CustomApplication>

@@ -8,11 +8,9 @@
     <tab>standard-Lead</tab>
     <tab>standard-Account</tab>
     <tab>standard-Contact</tab>
-    <tab>standard-Opportunity</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
     <tab>standard-Product2</tab>
     <tab>standard-Forecasting3</tab>
-    <tab>Change_Request__c</tab>
     <tab>Account_Link__c</tab>
 </CustomApplication>

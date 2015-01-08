@@ -17,10 +17,6 @@
                 <field>Campaign__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Required</behavior>
-                <field>Dealer_City__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Start_Date__c</field>
             </layoutItems>

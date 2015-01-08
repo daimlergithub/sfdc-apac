@@ -6795,19 +6795,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_CityEN&quot;</descrip
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Dealer_City__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Dealer City</label>
-        <referenceTo>Dealer_City__c</referenceTo>
-        <relationshipLabel>Accounts</relationshipLabel>
-        <relationshipName>Accounts</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Dealer_Complaint_Manager_Email__c</fullName>
         <description>Email of Complaint Manager from GSSN</description>
         <externalId>false</externalId>

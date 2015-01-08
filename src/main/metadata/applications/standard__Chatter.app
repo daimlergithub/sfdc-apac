@@ -6,6 +6,5 @@
     <tab>standard-OtherUserProfile</tab>
     <tab>standard-CollaborationGroup</tab>
     <tab>standard-File</tab>
-    <tab>Change_Request__c</tab>
     <tab>Account_Link__c</tab>
 </CustomApplication>

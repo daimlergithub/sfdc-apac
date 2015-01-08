@@ -65,7 +65,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>External_System__c</fields>
-        <fields>External_Key__c</fields>
         <relatedList>External_Picklist__c.Integration_Picklist__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>

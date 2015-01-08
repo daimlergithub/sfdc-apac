@@ -24,7 +24,6 @@
     <tab>Socia_Media</tab>
     <tab>Campaign_Calendar</tab>
     <tab>Mass_Assign_Tasks</tab>
-    <tab>Maintanence_Station__c</tab>
     <tab>SMSReplyHistory__c</tab>
     <tab>QlikViewAfterSales1</tab>
     <tab>QlikviewCAC1</tab>

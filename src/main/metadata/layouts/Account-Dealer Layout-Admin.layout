@@ -434,7 +434,6 @@
         <fields>Role__c</fields>
         <fields>System__c</fields>
         <fields>Vehicle__c</fields>
-        <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

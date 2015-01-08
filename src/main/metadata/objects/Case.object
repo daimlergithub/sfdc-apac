@@ -9942,21 +9942,6 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Email_Group__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>Demo purpose. Delete it after demo.</description>
-        <externalId>false</externalId>
-        <label>Email Group</label>
-        <referenceTo>Email_Mapping_Table__c</referenceTo>
-        <relationshipLabel>Cases</relationshipLabel>
-        <relationshipName>Cases</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Email_Status__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -11023,20 +11008,6 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Maintanence_Station__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Maintanence Station</label>
-        <referenceTo>Maintanence_Station__c</referenceTo>
-        <relationshipLabel>Cases</relationshipLabel>
-        <relationshipName>Cases</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Mileage__c</fullName>

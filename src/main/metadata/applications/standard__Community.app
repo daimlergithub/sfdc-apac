@@ -4,10 +4,8 @@
     <tab>standard-Chatter</tab>
     <tab>standard-Contact</tab>
     <tab>standard-Account</tab>
-    <tab>standard-Idea</tab>
     <tab>standard-Answers</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
-    <tab>Change_Request__c</tab>
     <tab>Account_Link__c</tab>
 </CustomApplication>

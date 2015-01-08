@@ -34,11 +34,7 @@
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Due_Date__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Change_Request__c</field>
-            </layoutItems>
+            </layoutItems>            
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

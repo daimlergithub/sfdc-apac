@@ -82,19 +82,6 @@
         <writeRequiresMasterRead>true</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>Dealer_City__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer City</label>
-        <referenceTo>Dealer_City__c</referenceTo>
-        <relationshipLabel>Campaign Cities</relationshipLabel>
-        <relationshipName>Campaign_Cities</relationshipName>
-        <relationshipOrder>1</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
-        <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>true</writeRequiresMasterRead>
-    </fields>
-    <fields>
         <fullName>End_Date__c</fullName>
         <description>To be updated by trigger to summarize the latest End Date among all Participating Dealers of this Campaign City. Read only on page layout.</description>
         <externalId>false</externalId>
