@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Account List</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Account Lists</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account List Detail --></label>
+        <name>Detail__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

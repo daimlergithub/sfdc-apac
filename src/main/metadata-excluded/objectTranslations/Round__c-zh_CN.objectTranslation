@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Case Status --></value>
+    </caseValues>
+    <fields>
+        <label><!-- Case Status --></label>
+        <name>Case_Status__c</name>
+        <picklistValues>
+            <masterLabel>Blocked</masterLabel>
+            <translation>受阻</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fail</masterLabel>
+            <translation>失败</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>In Progress</masterLabel>
+            <translation>进行中</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Start</masterLabel>
+            <translation>未开始</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pass</masterLabel>
+            <translation>通过</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Test Cases1 --></label>
+        <name>Test_Cases1__c</name>
+        <relationshipLabel><!-- Case_status --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Test Round --></label>
+        <name>Test_Round__c</name>
+        <relationshipLabel><!-- Case_status --></relationshipLabel>
+    </fields>
+    <layouts>
+        <layout>Round Relation Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Case status number --></nameFieldLabel>
+</CustomObjectTranslation>

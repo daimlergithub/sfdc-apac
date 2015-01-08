@@ -1,0 +1,1014 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>活动销售线索</value>
+    </caseValues>
+    <fields>
+        <label><!-- CAC SourceId --></label>
+        <name>CAC_SourceId__c</name>
+    </fields>
+    <fields>
+        <label>活动备注</label>
+        <name>Campaign_Notes__c</name>
+    </fields>
+    <fields>
+        <label>活动标题</label>
+        <name>Campaign_Title__c</name>
+    </fields>
+    <fields>
+        <label>市场活动</label>
+        <name>Campaign__c</name>
+        <relationshipLabel>活动销售线索</relationshipLabel>
+    </fields>
+    <fields>
+        <label>中央活动名称</label>
+        <name>Central_Campaign_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Check  Lead Account Id --></label>
+        <name>Check_Lead_Account_Id__c</name>
+    </fields>
+    <fields>
+        <label>联系人</label>
+        <name>Contact__c</name>
+        <relationshipLabel>活动销售线索</relationshipLabel>
+    </fields>
+    <fields>
+        <label>被EP业务创建</label>
+        <name>Created_By_EP_Transaction__c</name>
+    </fields>
+    <fields>
+        <label>第一次导入</label>
+        <name>FirstTimeImported__c</name>
+    </fields>
+    <fields>
+        <label>启用</label>
+        <name>Is_Active__c</name>
+    </fields>
+    <fields>
+        <label>上次成功呼叫时间</label>
+        <name>Last_Successful_Call__c</name>
+    </fields>
+    <fields>
+        <label>*销售线索/客户ID</label>
+        <name>Lead_Account_Id__c</name>
+    </fields>
+    <fields>
+        <label>销售线索数据来源</label>
+        <name>Lead_DataSource__c</name>
+        <picklistValues>
+            <masterLabel>3rd party data</masterLabel>
+            <translation>第三方数据</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BBAC</masterLabel>
+            <translation>北京奔驰</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealers</masterLabel>
+            <translation>经销商</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-mail</masterLabel>
+            <translation>电子邮件</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation>活动现场</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friends recommend</masterLabel>
+            <translation>朋友推荐</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IB Call</masterLabel>
+            <translation>电话呼入</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Magazine</masterLabel>
+            <translation>梅赛德斯-奔驰杂志</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB website</masterLabel>
+            <translation>官方网站</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Media advertisement</masterLabel>
+            <translation>媒体广告</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz</masterLabel>
+            <translation>梅赛德斯-奔驰</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OB Call</masterLabel>
+            <translation>电话呼出</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partners</masterLabel>
+            <translation>合作伙伴</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Searching engine</masterLabel>
+            <translation>搜索引擎</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social media</masterLabel>
+            <translation>社交网络</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web/Mobile Phone</masterLabel>
+            <translation>网站/手机</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>奔驰驾驶学院</masterLabel>
+            <translation><!-- 奔驰驾驶学院 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>梅赛德斯-奔驰金融</masterLabel>
+            <translation><!-- 梅赛德斯-奔驰金融 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>销售线索数据子来源</label>
+        <name>Lead_DataSubSource__c</name>
+        <picklistValues>
+            <masterLabel>A web special</masterLabel>
+            <translation><!-- A web special --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>APP</masterLabel>
+            <translation><!-- APP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Air China</masterLabel>
+            <translation>中国航空</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auto Show</masterLabel>
+            <translation>车展</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auto show information</masterLabel>
+            <translation>车展信息</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autohome</masterLabel>
+            <translation>汽车之家</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Axciom</masterLabel>
+            <translation>Axciom</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B web special</masterLabel>
+            <translation>B web special</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BMBS</masterLabel>
+            <translation>BMBS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Baidu</masterLabel>
+            <translation>百度</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bank of communications</masterLabel>
+            <translation>交通银行</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bitauto</masterLabel>
+            <translation>易车网</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blue Focus</masterLabel>
+            <translation>蓝色光标</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bookshelf</masterLabel>
+            <translation>时尚书架</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C 63 AMG web special</masterLabel>
+            <translation><!-- C 63 AMG web special --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C Coupe web special</masterLabel>
+            <translation><!-- C Coupe web special --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C coupe webspecial</masterLabel>
+            <translation><!-- C coupe webspecial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C web special</masterLabel>
+            <translation>C web special</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C web special-PC</masterLabel>
+            <translation><!-- C web special-PC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C web special-mobile</masterLabel>
+            <translation><!-- C web special-mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C-GE web special</masterLabel>
+            <translation><!-- C-GE web special --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA web special</masterLabel>
+            <translation><!-- CLA web special --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLS Shooting Break web special</masterLabel>
+            <translation><!-- CLS Shooting Break web special --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLS web special</masterLabel>
+            <translation><!-- CLS web special --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COACH</masterLabel>
+            <translation><!-- COACH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>China News</masterLabel>
+            <translation>中国新闻网</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>China Unicom</masterLabel>
+            <translation>中国联通</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>China telecom / 189 mailbox</masterLabel>
+            <translation>中国电信/189信箱</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cooperation media</masterLabel>
+            <translation>合作媒体</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>D&amp;G</masterLabel>
+            <translation>D&amp;G</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DMS</masterLabel>
+            <translation>DMS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealers nomination</masterLabel>
+            <translation>经销商推荐</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dunhill</masterLabel>
+            <translation>登喜路</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E Cabriolet web special</masterLabel>
+            <translation><!-- E Cabriolet web special --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E Coupe web special</masterLabel>
+            <translation><!-- E Coupe web special --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E web special</masterLabel>
+            <translation>E web special</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E web special-Mobile</masterLabel>
+            <translation><!-- E web special-Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-mail</masterLabel>
+            <translation>E-Mail</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eastmoney</masterLabel>
+            <translation>东方财富</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Energy source</masterLabel>
+            <translation>安瑞索思</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FT</masterLabel>
+            <translation><!-- FT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fax</masterLabel>
+            <translation>传真</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Feichangzhun</masterLabel>
+            <translation>飞常准</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FlightManager</masterLabel>
+            <translation>航班管家</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G2</masterLabel>
+            <translation>G2</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLK web special</masterLabel>
+            <translation>GLK web special</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Google</masterLabel>
+            <translation>谷歌</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HUGO BOSS</masterLabel>
+            <translation>Hugo Boss</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hexun</masterLabel>
+            <translation><!-- Hexun --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IB Call</masterLabel>
+            <translation>直接呼入</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ifeng</masterLabel>
+            <translation><!-- Ifeng --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inmobi</masterLabel>
+            <translation><!-- Inmobi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interaction through</masterLabel>
+            <translation>互动通</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Internet Info Agency</masterLabel>
+            <translation><!-- Internet Info Agency --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jingdong mall</masterLabel>
+            <translation>京东商城</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jinritoutiao</masterLabel>
+            <translation>今日头条</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Letv</masterLabel>
+            <translation>乐视</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Arena</masterLabel>
+            <translation><!-- MB Arena --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBCL</masterLabel>
+            <translation><!-- MBCL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBDA</masterLabel>
+            <translation><!-- MBDA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MBDE</masterLabel>
+            <translation><!-- MBDE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML web special</masterLabel>
+            <translation>ML web special</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Magazine Response Card</masterLabel>
+            <translation>杂志反馈卡</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes - Benz _ contact us _ product manual and price list</masterLabel>
+            <translation>梅赛德斯-奔驰_联系我们_产品手册及价格表</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes - Benz _ contact us _ star gruppo</masterLabel>
+            <translation>梅赛德斯-奔驰_联系我们_星睿</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes - Benz _ contact us _ test drive</masterLabel>
+            <translation>梅赛德斯-奔驰_联系我们_试驾</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes - Benz interactive community</masterLabel>
+            <translation>梅赛德斯-奔驰互动社区</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes - Benz website _ pre-sale</masterLabel>
+            <translation>梅赛德斯-奔驰_联系我们_预售</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz E-brochure and price list</masterLabel>
+            <translation>梅赛德斯-奔驰电子车书及价格表</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz E-newsletter</masterLabel>
+            <translation>梅赛德斯-奔驰电子期刊</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz Financial</masterLabel>
+            <translation>梅赛德斯-奔驰金融</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile</masterLabel>
+            <translation><!-- Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile-EMC</masterLabel>
+            <translation><!-- Mobile-EMC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile-MEC</masterLabel>
+            <translation>Mobile-MEC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NetEase</masterLabel>
+            <translation>网易</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OB Call</masterLabel>
+            <translation>电话呼出</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ogilvy</masterLabel>
+            <translation>奥美</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Event</masterLabel>
+            <translation>其它活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PM2.5</masterLabel>
+            <translation>PM2.5</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pcauto</masterLabel>
+            <translation>太平洋汽车网</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>People</masterLabel>
+            <translation>人民网</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PowerScreen</masterLabel>
+            <translation><!-- PowerScreen --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>QQ</masterLabel>
+            <translation>腾讯</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Road rescue switching</masterLabel>
+            <translation>道路救援转接</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S Web special</masterLabel>
+            <translation><!-- S Web special --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S web special-Mobile</masterLabel>
+            <translation><!-- S web special-Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SL web special</masterLabel>
+            <translation><!-- SL web special --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLK web special</masterLabel>
+            <translation><!-- SLK web special --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SNS</masterLabel>
+            <translation>SNS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SSI</masterLabel>
+            <translation>SSI</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Short message</masterLabel>
+            <translation>短信息</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sina</masterLabel>
+            <translation><!-- Sina --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sina Blog</masterLabel>
+            <translation>sina微博</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sina-EMC</masterLabel>
+            <translation><!-- Sina-EMC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sina-MEC</masterLabel>
+            <translation>Sina-MEC</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Site information</masterLabel>
+            <translation>网站信息</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Skynod</masterLabel>
+            <translation>天世通</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SoHu</masterLabel>
+            <translation>搜狐</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TNT</masterLabel>
+            <translation>TNT</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taobao station</masterLabel>
+            <translation>淘宝网站</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telephone</masterLabel>
+            <translation>电话</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tmall Sina Alipay</masterLabel>
+            <translation>天猫新浪支付宝</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used car</masterLabel>
+            <translation>二手车</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VVIP</masterLabel>
+            <translation>VVIP</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle administration office</masterLabel>
+            <translation>车管所</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Voice mail</masterLabel>
+            <translation>语音邮箱</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wedo</masterLabel>
+            <translation><!-- Wedo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wifi</masterLabel>
+            <translation><!-- Wifi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>XCP</masterLabel>
+            <translation>新车评网</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Xcar</masterLabel>
+            <translation>爱卡汽车网</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Youku</masterLabel>
+            <translation><!-- Youku --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>baidu Brandzone</masterLabel>
+            <translation><!-- baidu Brandzone --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eDM-Mobile</masterLabel>
+            <translation><!-- eDM-Mobile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eDM-PC</masterLabel>
+            <translation><!-- eDM-PC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eMB</masterLabel>
+            <translation><!-- eMB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>edm_PotentialCustome</masterLabel>
+            <translation><!-- edm_PotentialCustome --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iDaily</masterLabel>
+            <translation>每日环球视野</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>iQiyi</masterLabel>
+            <translation>爱奇艺</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>mymb</masterLabel>
+            <translation><!-- mymb --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart interactive community</masterLabel>
+            <translation>smart互动社区</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart official website</masterLabel>
+            <translation>smart官网</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart_ contact us _ pre-sale</masterLabel>
+            <translation>smart_联系我们_预售</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart_ contact us _ product manual and price list</masterLabel>
+            <translation>smart_联系我们_产品手册及价格表</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart_ contact us _ test drive</masterLabel>
+            <translation>smart_联系我们_试驾</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>在线活动注册</masterLabel>
+            <translation><!-- 在线活动注册 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>多盟</masterLabel>
+            <translation><!-- 多盟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安沃</masterLabel>
+            <translation><!-- 安沃 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>梅赛德斯-奔驰网站_售后</masterLabel>
+            <translation><!-- 梅赛德斯-奔驰网站_售后 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>汽车点评</masterLabel>
+            <translation><!-- 汽车点评 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>直邮</masterLabel>
+            <translation><!-- 直邮 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>网通社</masterLabel>
+            <translation><!-- 网通社 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>贷款数据</masterLabel>
+            <translation><!-- 贷款数据 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>车主俱乐部</masterLabel>
+            <translation><!-- 车主俱乐部 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>车展2012</masterLabel>
+            <translation><!-- 车展2012 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>销售线索信息子来源</label>
+        <name>Lead_InfoSourceSub__c</name>
+        <picklistValues>
+            <masterLabel>AMG WebSite</masterLabel>
+            <translation>AMG网站</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Advertising</masterLabel>
+            <translation>广告</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Air China</masterLabel>
+            <translation>中国航空</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Artron</masterLabel>
+            <translation>雅昌</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auto Show</masterLabel>
+            <translation>车展</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B web special</masterLabel>
+            <translation>B web special</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brochure &amp; Price List</masterLabel>
+            <translation>产品小册子&amp;价格表</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>China Telecom/189 email</masterLabel>
+            <translation>中国电信/189信箱</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chinese radio network</masterLabel>
+            <translation>中国广播网</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Show Room</masterLabel>
+            <translation>经销商展厅</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer message contact</masterLabel>
+            <translation>经销商短信联系</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer telephone contact</masterLabel>
+            <translation>经销商电话联系</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer website</masterLabel>
+            <translation>经销商网站</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Friend Recommendation</masterLabel>
+            <translation>好友推荐</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB official website</masterLabel>
+            <translation>MB官方网站</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML web special</masterLabel>
+            <translation>ML web special</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz E-brochure and price list</masterLabel>
+            <translation>梅赛德斯-奔驰电子车书及价格表</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz E-newsletter</masterLabel>
+            <translation>梅赛德斯-奔驰电子期刊</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz Message Contact</masterLabel>
+            <translation>梅赛德斯-奔驰短信联系</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mercedes-Benz Telephone Contact</masterLabel>
+            <translation>梅赛德斯-奔驰电话联系</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile Phone Web</masterLabel>
+            <translation>手机网站</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Event</masterLabel>
+            <translation>其它活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Mail</masterLabel>
+            <translation>其它直邮</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Web, Community, Blog</masterLabel>
+            <translation>其它网站,社区,博客</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other websites, community, blog</masterLabel>
+            <translation>其它网站,社区,博客</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Products range cards</masterLabel>
+            <translation>产品范围卡</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sina Blog</masterLabel>
+            <translation>sina博客</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sina Microblog</masterLabel>
+            <translation>新浪微博</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telephone Query Service</masterLabel>
+            <translation>电话查询服务</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Third Party (Partner) Mail _Bank of Communication</masterLabel>
+            <translation>第三方（合作伙伴）直邮_交通银行</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Third Party (Partner) Mail_Minsheng Bank</masterLabel>
+            <translation>第三方（合作伙伴）直邮_民生银行</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Third Party Message Contact</masterLabel>
+            <translation>第三方短信联系</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Third Party Telephone Contact</masterLabel>
+            <translation>委托第三方电话联系</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>User Guide</masterLabel>
+            <translation>用户指南</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart Official Website (incl. smart community)</masterLabel>
+            <translation>smart官方网站（包含smart公社）</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart community</masterLabel>
+            <translation>smart公社</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart official website</masterLabel>
+            <translation>smart官方网站</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>销售线索信息来源</label>
+        <name>Lead_InfoSource__c</name>
+        <picklistValues>
+            <masterLabel>Dealer Exhibition Hall</masterLabel>
+            <translation>经销商展厅</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation>电子邮件</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation>活动现场</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail</masterLabel>
+            <translation>邮件</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Message</masterLabel>
+            <translation>信息</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Newspaper/Magazine</masterLabel>
+            <translation>报纸/杂志</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outdoor Advertising</masterLabel>
+            <translation>户外广告</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partners</masterLabel>
+            <translation>合作伙伴</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Radio</masterLabel>
+            <translation>广播</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV Advertising</masterLabel>
+            <translation>电视广告</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Telephone Contact</masterLabel>
+            <translation>电话沟通</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Web/Mobile Phone</masterLabel>
+            <translation>网站/手机</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>销售线索来源</label>
+        <name>Lead_Source__c</name>
+        <picklistValues>
+            <masterLabel>Autoshow</masterLabel>
+            <translation>车展</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BMBS</masterLabel>
+            <translation>BMBS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data marketing</masterLabel>
+            <translation>数据营销</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer</masterLabel>
+            <translation>经销商</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IB</masterLabel>
+            <translation>呼入电话</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Magazine</masterLabel>
+            <translation>奔驰杂志</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online Registration</masterLabel>
+            <translation>在线注册</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partnership Event</masterLabel>
+            <translation>合作伙伴与活动</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>销售线索</label>
+        <name>Lead__c</name>
+        <relationshipLabel>活动销售线索</relationshipLabel>
+    </fields>
+    <fields>
+        <label>参与状态</label>
+        <name>Participate_Status__c</name>
+    </fields>
+    <fields>
+        <label>是否参与</label>
+        <name>Participate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Call Successful --></label>
+        <name>R_Call_Successful__c</name>
+    </fields>
+    <fields>
+        <label><!-- Converted Leads  Auto Show --></label>
+        <name>R_Converted_Leads_Auto_Show__c</name>
+    </fields>
+    <fields>
+        <label><!-- Converted Leads Non Auto Show --></label>
+        <name>R_Converted_Leads_Non_Auto_Show__c</name>
+    </fields>
+    <fields>
+        <label><!-- Generate Leads Volume --></label>
+        <name>R_Generate_Leads_Volume__c</name>
+    </fields>
+    <fields>
+        <label><!-- SuccessfulCall --></label>
+        <name>R_SuccessfulCall__c</name>
+    </fields>
+    <fields>
+        <label><!-- Task Genereated Amount --></label>
+        <name>R_Task_Genereated_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- isCampaingLead --></label>
+        <name>R_isCampaingLead__c</name>
+    </fields>
+    <fields>
+        <label>注册日期</label>
+        <name>RegistrationDate__c</name>
+    </fields>
+    <fields>
+        <label>成功呼叫次数</label>
+        <name>Successful_Call_Number__c</name>
+    </fields>
+    <fields>
+        <label>是否生成任务</label>
+        <name>Task_Generated__c</name>
+    </fields>
+    <fields>
+        <label>被EP业务更新</label>
+        <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <layouts>
+        <layout>Campaign Lead Layout</layout>
+        <sections>
+            <label>自定义链接</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>备注信息</label>
+            <section>Note Information</section>
+        </sections>
+        <sections>
+            <label>来源信息</label>
+            <section>Source Information</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>活动销售线索编号</nameFieldLabel>
+    <validationRules>
+        <errorMessage><!-- You can not change Registration Date --></errorMessage>
+        <name>Can_Not_Change_Registration_Date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- This Field can not be selected CAC Campaign Level. --></errorMessage>
+        <name>Do_Not_Select_CAC_Campaign</name>
+    </validationRules>
+    <webLinks>
+        <label>新市场活动线索</label>
+        <name>New_Campaign_Lead</name>
+    </webLinks>
+</CustomObjectTranslation>

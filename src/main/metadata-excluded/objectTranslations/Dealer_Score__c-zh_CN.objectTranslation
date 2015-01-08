@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>经销商积分</value>
+    </caseValues>
+    <fields>
+        <label>经销商分支</label>
+        <name>Dealer_Branch_Name__c</name>
+    </fields>
+    <fields>
+        <label>经销商名称</label>
+        <name>Dealer_Name__c</name>
+        <relationshipLabel>经销商积分</relationshipLabel>
+    </fields>
+    <fields>
+        <label>积分月份</label>
+        <name>Score_Month__c</name>
+    </fields>
+    <fields>
+        <label>积分发布</label>
+        <name>Score_Status__c</name>
+    </fields>
+    <fields>
+        <label>积分年份</label>
+        <name>Score_Year__c</name>
+    </fields>
+    <fields>
+        <label>积分</label>
+        <name>Score__c</name>
+    </fields>
+    <layouts>
+        <layout>Dealer Score Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Dealer Score Number</nameFieldLabel>
+    <validationRules>
+        <errorMessage><!-- You cann&apos;t update this record when status is Active. --></errorMessage>
+        <name>Locked_Record_When_Status_is_Active</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Score shoulde greater than 0. --></errorMessage>
+        <name>Score_should_greater_than_zero</name>
+    </validationRules>
+</CustomObjectTranslation>

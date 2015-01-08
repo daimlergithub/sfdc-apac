@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>质检结果追踪</value>
+    </caseValues>
+    <fields>
+        <label>沟通</label>
+        <name>Action__c</name>
+    </fields>
+    <fields>
+        <label>日期</label>
+        <name>Date__c</name>
+    </fields>
+    <fields>
+        <label>QC</label>
+        <name>QC__c</name>
+        <relationshipLabel><!-- QC Result Tracking --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>用户</label>
+        <name>User__c</name>
+        <relationshipLabel><!-- QC Result Tracking --></relationshipLabel>
+    </fields>
+    <nameFieldLabel>Name</nameFieldLabel>
+</CustomObjectTranslation>

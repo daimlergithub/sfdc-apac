@@ -1,0 +1,2545 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label>陪同人员姓名</label>
+        <name>Accompany_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- CAC SourceId --></label>
+        <name>CAC_SourceId__c</name>
+    </fields>
+    <fields>
+        <label>活动城市</label>
+        <name>CampaignCity__c</name>
+        <picklistValues>
+            <masterLabel>七台河市</masterLabel>
+            <translation><!-- 七台河市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>万州区</masterLabel>
+            <translation><!-- 万州区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>万盛区</masterLabel>
+            <translation><!-- 万盛区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三亚市</masterLabel>
+            <translation><!-- 三亚市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三明市</masterLabel>
+            <translation><!-- 三明市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>三门峡市</masterLabel>
+            <translation><!-- 三门峡市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上海市</masterLabel>
+            <translation><!-- 上海市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上虞市</masterLabel>
+            <translation><!-- 上虞市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>上饶市</masterLabel>
+            <translation><!-- 上饶市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>东丽区</masterLabel>
+            <translation><!-- 东丽区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>东城区</masterLabel>
+            <translation><!-- 东城区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>东莞市</masterLabel>
+            <translation><!-- 东莞市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>东营市</masterLabel>
+            <translation><!-- 东营市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>东阳市</masterLabel>
+            <translation><!-- 东阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中卫市</masterLabel>
+            <translation><!-- 中卫市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>中山市</masterLabel>
+            <translation><!-- 中山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>丰台区</masterLabel>
+            <translation><!-- 丰台区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>丰都县</masterLabel>
+            <translation><!-- 丰都县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>临夏州</masterLabel>
+            <translation><!-- 临夏州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>临汾市</masterLabel>
+            <translation><!-- 临汾市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>临沂市</masterLabel>
+            <translation><!-- 临沂市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>临沧市</masterLabel>
+            <translation><!-- 临沧市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>临海市</masterLabel>
+            <translation><!-- 临海市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>丹东市</masterLabel>
+            <translation><!-- 丹东市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>丹阳市</masterLabel>
+            <translation><!-- 丹阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>丽水市</masterLabel>
+            <translation><!-- 丽水市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>丽江市</masterLabel>
+            <translation><!-- 丽江市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>义乌市</masterLabel>
+            <translation><!-- 义乌市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>乌兰察布市</masterLabel>
+            <translation><!-- 乌兰察布市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>乌海市</masterLabel>
+            <translation><!-- 乌海市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>乌鲁木齐市</masterLabel>
+            <translation><!-- 乌鲁木齐市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>乐山市</masterLabel>
+            <translation><!-- 乐山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>乐清市</masterLabel>
+            <translation><!-- 乐清市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>九江市</masterLabel>
+            <translation><!-- 九江市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>九龙坡区</masterLabel>
+            <translation><!-- 九龙坡区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>云林县</masterLabel>
+            <translation><!-- 云林县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>云浮市</masterLabel>
+            <translation><!-- 云浮市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>云阳县</masterLabel>
+            <translation><!-- 云阳县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>亳州市</masterLabel>
+            <translation><!-- 亳州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>仙桃市</masterLabel>
+            <translation><!-- 仙桃市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>任丘</masterLabel>
+            <translation><!-- 任丘 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>伊春市</masterLabel>
+            <translation><!-- 伊春市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>伊犁州</masterLabel>
+            <translation><!-- 伊犁州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>余姚市</masterLabel>
+            <translation><!-- 余姚市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>佛山市</masterLabel>
+            <translation><!-- 佛山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>佳木斯市</masterLabel>
+            <translation><!-- 佳木斯市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>保定市</masterLabel>
+            <translation><!-- 保定市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>保山市</masterLabel>
+            <translation><!-- 保山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>信阳市</masterLabel>
+            <translation><!-- 信阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>克孜勒苏州</masterLabel>
+            <translation><!-- 克孜勒苏州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>克拉玛依市</masterLabel>
+            <translation><!-- 克拉玛依市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>六安市</masterLabel>
+            <translation><!-- 六安市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>六盘水市</masterLabel>
+            <translation><!-- 六盘水市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>兰州市</masterLabel>
+            <translation><!-- 兰州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>兴安盟</masterLabel>
+            <translation><!-- 兴安盟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>其他</masterLabel>
+            <translation><!-- 其他 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>内江市</masterLabel>
+            <translation><!-- 内江市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>凉山州</masterLabel>
+            <translation><!-- 凉山州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>包头市</masterLabel>
+            <translation><!-- 包头市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北京市</masterLabel>
+            <translation><!-- 北京市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北海市</masterLabel>
+            <translation><!-- 北海市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北碚区</masterLabel>
+            <translation><!-- 北碚区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>北辰区</masterLabel>
+            <translation><!-- 北辰区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>十堰市</masterLabel>
+            <translation><!-- 十堰市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南京市</masterLabel>
+            <translation><!-- 南京市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南充市</masterLabel>
+            <translation><!-- 南充市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南宁市</masterLabel>
+            <translation><!-- 南宁市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南安市</masterLabel>
+            <translation><!-- 南安市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南岸区</masterLabel>
+            <translation><!-- 南岸区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南川区</masterLabel>
+            <translation><!-- 南川区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南平市</masterLabel>
+            <translation><!-- 南平市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南开区</masterLabel>
+            <translation><!-- 南开区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南投县</masterLabel>
+            <translation><!-- 南投县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南昌市</masterLabel>
+            <translation><!-- 南昌市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南汇区</masterLabel>
+            <translation><!-- 南汇区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南通市</masterLabel>
+            <translation><!-- 南通市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>南阳市</masterLabel>
+            <translation><!-- 南阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>博尔塔拉州</masterLabel>
+            <translation><!-- 博尔塔拉州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>卢湾区</masterLabel>
+            <translation><!-- 卢湾区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>厦门市</masterLabel>
+            <translation><!-- 厦门市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>双桥区</masterLabel>
+            <translation><!-- 双桥区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>双鸭山市</masterLabel>
+            <translation><!-- 双鸭山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台东县</masterLabel>
+            <translation><!-- 台东县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台中县</masterLabel>
+            <translation><!-- 台中县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台中市</masterLabel>
+            <translation><!-- 台中市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台北县</masterLabel>
+            <translation><!-- 台北县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台北市</masterLabel>
+            <translation><!-- 台北市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台南县</masterLabel>
+            <translation><!-- 台南县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台南市</masterLabel>
+            <translation><!-- 台南市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>台州市</masterLabel>
+            <translation><!-- 台州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>合川区</masterLabel>
+            <translation><!-- 合川区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>合肥市</masterLabel>
+            <translation><!-- 合肥市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>吉安市</masterLabel>
+            <translation><!-- 吉安市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>吉林市</masterLabel>
+            <translation><!-- 吉林市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>吐鲁番地区</masterLabel>
+            <translation><!-- 吐鲁番地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>吕梁市</masterLabel>
+            <translation><!-- 吕梁市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>吴忠市</masterLabel>
+            <translation><!-- 吴忠市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>吴江区</masterLabel>
+            <translation><!-- 吴江区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>周口市</masterLabel>
+            <translation><!-- 周口市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>呼伦贝尔市</masterLabel>
+            <translation><!-- 呼伦贝尔市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>呼和浩特市</masterLabel>
+            <translation><!-- 呼和浩特市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>和平区</masterLabel>
+            <translation><!-- 和平区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>和田地区</masterLabel>
+            <translation><!-- 和田地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>咸宁市</masterLabel>
+            <translation><!-- 咸宁市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>咸阳市</masterLabel>
+            <translation><!-- 咸阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>哈密地区</masterLabel>
+            <translation><!-- 哈密地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>哈尔滨市</masterLabel>
+            <translation><!-- 哈尔滨市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>唐山市</masterLabel>
+            <translation><!-- 唐山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>商丘市</masterLabel>
+            <translation><!-- 商丘市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>商洛市</masterLabel>
+            <translation><!-- 商洛市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>喀什地区</masterLabel>
+            <translation><!-- 喀什地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>嘉义县</masterLabel>
+            <translation><!-- 嘉义县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>嘉义市</masterLabel>
+            <translation><!-- 嘉义市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>嘉兴市</masterLabel>
+            <translation><!-- 嘉兴市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>嘉定区</masterLabel>
+            <translation><!-- 嘉定区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>嘉峪关市</masterLabel>
+            <translation><!-- 嘉峪关市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>四平市</masterLabel>
+            <translation><!-- 四平市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>固原市</masterLabel>
+            <translation><!-- 固原市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>垫江县</masterLabel>
+            <translation><!-- 垫江县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>城口县</masterLabel>
+            <translation><!-- 城口县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>基隆市</masterLabel>
+            <translation><!-- 基隆市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>塔城地区</masterLabel>
+            <translation><!-- 塔城地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>塘沽区</masterLabel>
+            <translation><!-- 塘沽区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>增城市</masterLabel>
+            <translation><!-- 增城市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大兴区</masterLabel>
+            <translation><!-- 大兴区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大兴安岭地区</masterLabel>
+            <translation><!-- 大兴安岭地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大同市</masterLabel>
+            <translation><!-- 大同市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大庆市</masterLabel>
+            <translation><!-- 大庆市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大渡口区</masterLabel>
+            <translation><!-- 大渡口区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大港区</masterLabel>
+            <translation><!-- 大港区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大理州</masterLabel>
+            <translation><!-- 大理州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大足县</masterLabel>
+            <translation><!-- 大足县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>大连市</masterLabel>
+            <translation><!-- 大连市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天水市</masterLabel>
+            <translation><!-- 天水市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>天津市</masterLabel>
+            <translation><!-- 天津市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>太仓市</masterLabel>
+            <translation><!-- 太仓市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>太原市</masterLabel>
+            <translation><!-- 太原市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>奉节县</masterLabel>
+            <translation><!-- 奉节县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>奉贤区</masterLabel>
+            <translation><!-- 奉贤区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>威海市</masterLabel>
+            <translation><!-- 威海市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>娄底市</masterLabel>
+            <translation><!-- 娄底市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>孝感市</masterLabel>
+            <translation><!-- 孝感市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宁德市</masterLabel>
+            <translation><!-- 宁德市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宁河县</masterLabel>
+            <translation><!-- 宁河县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宁波市</masterLabel>
+            <translation><!-- 宁波市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安庆市</masterLabel>
+            <translation><!-- 安庆市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安康市</masterLabel>
+            <translation><!-- 安康市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安阳市</masterLabel>
+            <translation><!-- 安阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>安顺市</masterLabel>
+            <translation><!-- 安顺市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>定西市</masterLabel>
+            <translation><!-- 定西市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宜兰县</masterLabel>
+            <translation><!-- 宜兰县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宜兴市</masterLabel>
+            <translation><!-- 宜兴市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宜宾市</masterLabel>
+            <translation><!-- 宜宾市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宜昌市</masterLabel>
+            <translation><!-- 宜昌市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宜春市</masterLabel>
+            <translation><!-- 宜春市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宝坻区</masterLabel>
+            <translation><!-- 宝坻区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宝山区</masterLabel>
+            <translation><!-- 宝山区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宝鸡市</masterLabel>
+            <translation><!-- 宝鸡市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宣城市</masterLabel>
+            <translation><!-- 宣城市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宣武区</masterLabel>
+            <translation><!-- 宣武区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宿州市</masterLabel>
+            <translation><!-- 宿州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>宿迁市</masterLabel>
+            <translation><!-- 宿迁市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>密云县</masterLabel>
+            <translation><!-- 密云县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>富阳市</masterLabel>
+            <translation><!-- 富阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>屏东县</masterLabel>
+            <translation><!-- 屏东县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>山南地区</masterLabel>
+            <translation><!-- 山南地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>岳阳市</masterLabel>
+            <translation><!-- 岳阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>崇左市</masterLabel>
+            <translation><!-- 崇左市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>崇文区</masterLabel>
+            <translation><!-- 崇文区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>崇明县</masterLabel>
+            <translation><!-- 崇明县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>嵊州市</masterLabel>
+            <translation><!-- 嵊州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>巢湖市</masterLabel>
+            <translation><!-- 巢湖市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>巫山县</masterLabel>
+            <translation><!-- 巫山县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>巫溪县</masterLabel>
+            <translation><!-- 巫溪县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>巴中市</masterLabel>
+            <translation><!-- 巴中市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>巴南区</masterLabel>
+            <translation><!-- 巴南区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>巴彦淖尔市</masterLabel>
+            <translation><!-- 巴彦淖尔市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>巴音郭楞蒙古自治州</masterLabel>
+            <translation><!-- 巴音郭楞蒙古自治州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常州市</masterLabel>
+            <translation><!-- 常州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常德市</masterLabel>
+            <translation><!-- 常德市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>常熟市</masterLabel>
+            <translation><!-- 常熟市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平凉市</masterLabel>
+            <translation><!-- 平凉市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平谷区</masterLabel>
+            <translation><!-- 平谷区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>平顶山市</masterLabel>
+            <translation><!-- 平顶山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>广元市</masterLabel>
+            <translation><!-- 广元市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>广安市</masterLabel>
+            <translation><!-- 广安市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>广州市</masterLabel>
+            <translation><!-- 广州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>庆阳市</masterLabel>
+            <translation><!-- 庆阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>库尔勒市</masterLabel>
+            <translation><!-- 库尔勒市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>廊坊市</masterLabel>
+            <translation><!-- 廊坊市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>延吉市</masterLabel>
+            <translation><!-- 延吉市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>延安市</masterLabel>
+            <translation><!-- 延安市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>延庆县</masterLabel>
+            <translation><!-- 延庆县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>延边州</masterLabel>
+            <translation><!-- 延边州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>开县</masterLabel>
+            <translation><!-- 开县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>开封市</masterLabel>
+            <translation><!-- 开封市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>张家口市</masterLabel>
+            <translation><!-- 张家口市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>张家港市</masterLabel>
+            <translation><!-- 张家港市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>张家界市</masterLabel>
+            <translation><!-- 张家界市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>张掖市</masterLabel>
+            <translation><!-- 张掖市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>彭水苗族土家族自治县</masterLabel>
+            <translation><!-- 彭水苗族土家族自治县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>彰化县</masterLabel>
+            <translation><!-- 彰化县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>徐州市</masterLabel>
+            <translation><!-- 徐州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>徐汇区</masterLabel>
+            <translation><!-- 徐汇区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>德宏州</masterLabel>
+            <translation><!-- 德宏州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>德州市</masterLabel>
+            <translation><!-- 德州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>德阳市</masterLabel>
+            <translation><!-- 德阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>忠县</masterLabel>
+            <translation><!-- 忠县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>忻州市</masterLabel>
+            <translation><!-- 忻州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>怀化市</masterLabel>
+            <translation><!-- 怀化市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>怀柔区</masterLabel>
+            <translation><!-- 怀柔区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>怒江州</masterLabel>
+            <translation><!-- 怒江州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>思茅市</masterLabel>
+            <translation><!-- 思茅市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>恩施州</masterLabel>
+            <translation><!-- 恩施州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>惠州市</masterLabel>
+            <translation><!-- 惠州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>慈溪市</masterLabel>
+            <translation><!-- 慈溪市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>成都市</masterLabel>
+            <translation><!-- 成都市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>房山区</masterLabel>
+            <translation><!-- 房山区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>扬中市</masterLabel>
+            <translation><!-- 扬中市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>扬州市</masterLabel>
+            <translation><!-- 扬州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>承德市</masterLabel>
+            <translation><!-- 承德市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>抚州市</masterLabel>
+            <translation><!-- 抚州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>抚顺市</masterLabel>
+            <translation><!-- 抚顺市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>拉萨市</masterLabel>
+            <translation><!-- 拉萨市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>揭阳市</masterLabel>
+            <translation><!-- 揭阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>攀枝花市</masterLabel>
+            <translation><!-- 攀枝花市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>文山州</masterLabel>
+            <translation><!-- 文山州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新乡市</masterLabel>
+            <translation><!-- 新乡市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新余市</masterLabel>
+            <translation><!-- 新余市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新竹县</masterLabel>
+            <translation><!-- 新竹县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>新竹市</masterLabel>
+            <translation><!-- 新竹市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>无锡市</masterLabel>
+            <translation><!-- 无锡市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日喀则地区</masterLabel>
+            <translation><!-- 日喀则地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>日照市</masterLabel>
+            <translation><!-- 日照市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昆山市</masterLabel>
+            <translation><!-- 昆山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昆明市</masterLabel>
+            <translation><!-- 昆明市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昌吉州</masterLabel>
+            <translation><!-- 昌吉州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昌都地区</masterLabel>
+            <translation><!-- 昌都地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>昭通市</masterLabel>
+            <translation><!-- 昭通市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>晋中市</masterLabel>
+            <translation><!-- 晋中市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>晋城市</masterLabel>
+            <translation><!-- 晋城市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>普洱市</masterLabel>
+            <translation><!-- 普洱市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>普陀区</masterLabel>
+            <translation><!-- 普陀区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>景德镇市</masterLabel>
+            <translation><!-- 景德镇市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>曲靖市</masterLabel>
+            <translation><!-- 曲靖市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>朔州市</masterLabel>
+            <translation><!-- 朔州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>朝阳市</masterLabel>
+            <translation><!-- 朝阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>本溪市</masterLabel>
+            <translation><!-- 本溪市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>来宾市</masterLabel>
+            <translation><!-- 来宾市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>杨浦区</masterLabel>
+            <translation><!-- 杨浦区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>杭州市</masterLabel>
+            <translation><!-- 杭州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>松原市</masterLabel>
+            <translation><!-- 松原市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>松江区</masterLabel>
+            <translation><!-- 松江区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>林芝地区</masterLabel>
+            <translation><!-- 林芝地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>果洛州</masterLabel>
+            <translation><!-- 果洛州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>枣庄市</masterLabel>
+            <translation><!-- 枣庄市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>柳州市</masterLabel>
+            <translation><!-- 柳州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>株洲市</masterLabel>
+            <translation><!-- 株洲市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>桂林市</masterLabel>
+            <translation><!-- 桂林市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>桃园县</masterLabel>
+            <translation><!-- 桃园县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>梁平县</masterLabel>
+            <translation><!-- 梁平县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>梅州市</masterLabel>
+            <translation><!-- 梅州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>梧州市</masterLabel>
+            <translation><!-- 梧州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>楚雄州</masterLabel>
+            <translation><!-- 楚雄州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>榆林市</masterLabel>
+            <translation><!-- 榆林市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武威市</masterLabel>
+            <translation><!-- 武威市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武安市</masterLabel>
+            <translation><!-- 武安市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武汉市</masterLabel>
+            <translation><!-- 武汉市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武清区</masterLabel>
+            <translation><!-- 武清区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>武隆县</masterLabel>
+            <translation><!-- 武隆县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>毕节地区</masterLabel>
+            <translation><!-- 毕节地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>永川区</masterLabel>
+            <translation><!-- 永川区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>永州市</masterLabel>
+            <translation><!-- 永州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>永康市</masterLabel>
+            <translation><!-- 永康市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>汉中市</masterLabel>
+            <translation><!-- 汉中市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>汉沽区</masterLabel>
+            <translation><!-- 汉沽区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>汕头市</masterLabel>
+            <translation><!-- 汕头市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>汕尾市</masterLabel>
+            <translation><!-- 汕尾市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>江北区</masterLabel>
+            <translation><!-- 江北区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>江津区</masterLabel>
+            <translation><!-- 江津区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>江门市</masterLabel>
+            <translation><!-- 江门市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>江阴市</masterLabel>
+            <translation><!-- 江阴市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>池州市</masterLabel>
+            <translation><!-- 池州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>沈阳市</masterLabel>
+            <translation><!-- 沈阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>沙坪坝区</masterLabel>
+            <translation><!-- 沙坪坝区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>沧州市</masterLabel>
+            <translation><!-- 沧州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>河东区</masterLabel>
+            <translation><!-- 河东区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>河北区</masterLabel>
+            <translation><!-- 河北区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>河池市</masterLabel>
+            <translation><!-- 河池市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>河源市</masterLabel>
+            <translation><!-- 河源市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>河西区</masterLabel>
+            <translation><!-- 河西区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>泉州市</masterLabel>
+            <translation><!-- 泉州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>泰安市</masterLabel>
+            <translation><!-- 泰安市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>泰州市</masterLabel>
+            <translation><!-- 泰州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>泸州市</masterLabel>
+            <translation><!-- 泸州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>洛阳市</masterLabel>
+            <translation><!-- 洛阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>津南区</masterLabel>
+            <translation><!-- 津南区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>济南市</masterLabel>
+            <translation><!-- 济南市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>济宁市</masterLabel>
+            <translation><!-- 济宁市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>济源市</masterLabel>
+            <translation><!-- 济源市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>浦东新区</masterLabel>
+            <translation><!-- 浦东新区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>海东地区</masterLabel>
+            <translation><!-- 海东地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>海北州</masterLabel>
+            <translation><!-- 海北州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>海南州</masterLabel>
+            <translation><!-- 海南州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>海口市</masterLabel>
+            <translation><!-- 海口市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>海宁市</masterLabel>
+            <translation><!-- 海宁市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>海淀区</masterLabel>
+            <translation><!-- 海淀区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>海西州</masterLabel>
+            <translation><!-- 海西州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>海门市</masterLabel>
+            <translation><!-- 海门市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>涪陵区</masterLabel>
+            <translation><!-- 涪陵区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>淄博市</masterLabel>
+            <translation><!-- 淄博市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>淮北市</masterLabel>
+            <translation><!-- 淮北市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>淮南市</masterLabel>
+            <translation><!-- 淮南市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>淮安市</masterLabel>
+            <translation><!-- 淮安市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>深圳市</masterLabel>
+            <translation><!-- 深圳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>清远市</masterLabel>
+            <translation><!-- 清远市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>渝中区</masterLabel>
+            <translation><!-- 渝中区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>渝北区</masterLabel>
+            <translation><!-- 渝北区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>温岭市</masterLabel>
+            <translation><!-- 温岭市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>温州市</masterLabel>
+            <translation><!-- 温州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>渭南市</masterLabel>
+            <translation><!-- 渭南市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>湖州市</masterLabel>
+            <translation><!-- 湖州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>湘潭市</masterLabel>
+            <translation><!-- 湘潭市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>湘西州</masterLabel>
+            <translation><!-- 湘西州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>湛江市</masterLabel>
+            <translation><!-- 湛江市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>溧阳市</masterLabel>
+            <translation><!-- 溧阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>滁州市</masterLabel>
+            <translation><!-- 滁州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>滨州市</masterLabel>
+            <translation><!-- 滨州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>漯河市</masterLabel>
+            <translation><!-- 漯河市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>漳州市</masterLabel>
+            <translation><!-- 漳州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>潍坊市</masterLabel>
+            <translation><!-- 潍坊市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>潮州市</masterLabel>
+            <translation><!-- 潮州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>潼南县</masterLabel>
+            <translation><!-- 潼南县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>澎湖县</masterLabel>
+            <translation><!-- 澎湖县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>澳门特区</masterLabel>
+            <translation><!-- 澳门特区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>濮阳市</masterLabel>
+            <translation><!-- 濮阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>烟台市</masterLabel>
+            <translation><!-- 烟台市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>焦作市</masterLabel>
+            <translation><!-- 焦作市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>牡丹江市</masterLabel>
+            <translation><!-- 牡丹江市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>玉林市</masterLabel>
+            <translation><!-- 玉林市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>玉树州</masterLabel>
+            <translation><!-- 玉树州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>玉溪市</masterLabel>
+            <translation><!-- 玉溪市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>珠海市</masterLabel>
+            <translation><!-- 珠海市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>琼海市</masterLabel>
+            <translation><!-- 琼海市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>瑞安市</masterLabel>
+            <translation><!-- 瑞安市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>璧山县</masterLabel>
+            <translation><!-- 璧山县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>甘南州</masterLabel>
+            <translation><!-- 甘南州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>甘孜州</masterLabel>
+            <translation><!-- 甘孜州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>白城市</masterLabel>
+            <translation><!-- 白城市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>白山市</masterLabel>
+            <translation><!-- 白山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>白银市</masterLabel>
+            <translation><!-- 白银市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>百色市</masterLabel>
+            <translation><!-- 百色市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>益阳市</masterLabel>
+            <translation><!-- 益阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>盐城市</masterLabel>
+            <translation><!-- 盐城市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>盘锦市</masterLabel>
+            <translation><!-- 盘锦市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>眉山市</masterLabel>
+            <translation><!-- 眉山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>石嘴山市</masterLabel>
+            <translation><!-- 石嘴山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>石家庄市</masterLabel>
+            <translation><!-- 石家庄市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>石景山区</masterLabel>
+            <translation><!-- 石景山区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>石柱土家族自治县</masterLabel>
+            <translation><!-- 石柱土家族自治县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>石狮市</masterLabel>
+            <translation><!-- 石狮市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>福州市</masterLabel>
+            <translation><!-- 福州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>福清市</masterLabel>
+            <translation><!-- 福清市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>福鼎市</masterLabel>
+            <translation><!-- 福鼎市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>秀山土家族苗族自治县</masterLabel>
+            <translation><!-- 秀山土家族苗族自治县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>秦皇岛市</masterLabel>
+            <translation><!-- 秦皇岛市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>綦江县</masterLabel>
+            <translation><!-- 綦江县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>红桥区</masterLabel>
+            <translation><!-- 红桥区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>红河州</masterLabel>
+            <translation><!-- 红河州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>绍兴市</masterLabel>
+            <translation><!-- 绍兴市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>绥化市</masterLabel>
+            <translation><!-- 绥化市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>绵阳市</masterLabel>
+            <translation><!-- 绵阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>聊城市</masterLabel>
+            <translation><!-- 聊城市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>肇庆市</masterLabel>
+            <translation><!-- 肇庆市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>自贡市</masterLabel>
+            <translation><!-- 自贡市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>舟山市</masterLabel>
+            <translation><!-- 舟山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>芜湖市</masterLabel>
+            <translation><!-- 芜湖市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>花莲县</masterLabel>
+            <translation><!-- 花莲县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>苏州市</masterLabel>
+            <translation><!-- 苏州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>苗栗县</masterLabel>
+            <translation><!-- 苗栗县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>茂名市</masterLabel>
+            <translation><!-- 茂名市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>荆州市</masterLabel>
+            <translation><!-- 荆州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>荆门市</masterLabel>
+            <translation><!-- 荆门市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>荣成市</masterLabel>
+            <translation><!-- 荣成市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>荣昌县</masterLabel>
+            <translation><!-- 荣昌县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>莆田市</masterLabel>
+            <translation><!-- 莆田市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>莱芜市</masterLabel>
+            <translation><!-- 莱芜市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>菏泽市</masterLabel>
+            <translation><!-- 菏泽市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>萍乡市</masterLabel>
+            <translation><!-- 萍乡市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>营口市</masterLabel>
+            <translation><!-- 营口市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>葫芦岛市</masterLabel>
+            <translation><!-- 葫芦岛市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蓟县</masterLabel>
+            <translation><!-- 蓟县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>虹口区</masterLabel>
+            <translation><!-- 虹口区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>蚌埠市</masterLabel>
+            <translation><!-- 蚌埠市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>衡水市</masterLabel>
+            <translation><!-- 衡水市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>衡阳市</masterLabel>
+            <translation><!-- 衡阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>衢州市</masterLabel>
+            <translation><!-- 衢州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>襄樊市</masterLabel>
+            <translation><!-- 襄樊市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>襄阳市</masterLabel>
+            <translation><!-- 襄阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>西双版纳州</masterLabel>
+            <translation><!-- 西双版纳州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>西城区</masterLabel>
+            <translation><!-- 西城区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>西宁市</masterLabel>
+            <translation><!-- 西宁市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>西安市</masterLabel>
+            <translation><!-- 西安市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>西青区</masterLabel>
+            <translation><!-- 西青区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>许昌市</masterLabel>
+            <translation><!-- 许昌市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>诸暨市</masterLabel>
+            <translation><!-- 诸暨市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>贵港市</masterLabel>
+            <translation><!-- 贵港市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>贵阳市</masterLabel>
+            <translation><!-- 贵阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>贺州市</masterLabel>
+            <translation><!-- 贺州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>资阳市</masterLabel>
+            <translation><!-- 资阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>赣州市</masterLabel>
+            <translation><!-- 赣州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>赤峰市</masterLabel>
+            <translation><!-- 赤峰市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>辽源市</masterLabel>
+            <translation><!-- 辽源市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>辽阳市</masterLabel>
+            <translation><!-- 辽阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>达州市</masterLabel>
+            <translation><!-- 达州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>运城市</masterLabel>
+            <translation><!-- 运城市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>连云港市</masterLabel>
+            <translation><!-- 连云港市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>连江县</masterLabel>
+            <translation><!-- 连江县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>迪庆州</masterLabel>
+            <translation><!-- 迪庆州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>通化市</masterLabel>
+            <translation><!-- 通化市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>通州区</masterLabel>
+            <translation><!-- 通州区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>通辽市</masterLabel>
+            <translation><!-- 通辽市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>遂宁市</masterLabel>
+            <translation><!-- 遂宁市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>遵义市</masterLabel>
+            <translation><!-- 遵义市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>邢台市</masterLabel>
+            <translation><!-- 邢台市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>那曲地区</masterLabel>
+            <translation><!-- 那曲地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>邯郸市</masterLabel>
+            <translation><!-- 邯郸市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>邵阳市</masterLabel>
+            <translation><!-- 邵阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>郑州市</masterLabel>
+            <translation><!-- 郑州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>郴州市</masterLabel>
+            <translation><!-- 郴州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鄂尔多斯市</masterLabel>
+            <translation><!-- 鄂尔多斯市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鄂州市</masterLabel>
+            <translation><!-- 鄂州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>酉阳土家族苗族自治县</masterLabel>
+            <translation><!-- 酉阳土家族苗族自治县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>酒泉市</masterLabel>
+            <translation><!-- 酒泉市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>重庆市</masterLabel>
+            <translation><!-- 重庆市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>金华市</masterLabel>
+            <translation><!-- 金华市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>金山区</masterLabel>
+            <translation><!-- 金山区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>金昌市</masterLabel>
+            <translation><!-- 金昌市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>金门县</masterLabel>
+            <translation><!-- 金门县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>钦州市</masterLabel>
+            <translation><!-- 钦州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>铁岭市</masterLabel>
+            <translation><!-- 铁岭市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>铜仁市</masterLabel>
+            <translation><!-- 铜仁市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>铜川市</masterLabel>
+            <translation><!-- 铜川市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>铜梁县</masterLabel>
+            <translation><!-- 铜梁县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>铜陵市</masterLabel>
+            <translation><!-- 铜陵市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>银川市</masterLabel>
+            <translation><!-- 银川市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>锡林郭勒盟</masterLabel>
+            <translation><!-- 锡林郭勒盟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>锦州市</masterLabel>
+            <translation><!-- 锦州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>镇江市</masterLabel>
+            <translation><!-- 镇江市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>长宁区</masterLabel>
+            <translation><!-- 长宁区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>长寿区</masterLabel>
+            <translation><!-- 长寿区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>长春市</masterLabel>
+            <translation><!-- 长春市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>长沙市</masterLabel>
+            <translation><!-- 长沙市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>长治市</masterLabel>
+            <translation><!-- 长治市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>门头沟区</masterLabel>
+            <translation><!-- 门头沟区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>闵行区</masterLabel>
+            <translation><!-- 闵行区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>闸北区</masterLabel>
+            <translation><!-- 闸北区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>阜新市</masterLabel>
+            <translation><!-- 阜新市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>阜阳市</masterLabel>
+            <translation><!-- 阜阳市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>防城港市</masterLabel>
+            <translation><!-- 防城港市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>阳江市</masterLabel>
+            <translation><!-- 阳江市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>阳泉市</masterLabel>
+            <translation><!-- 阳泉市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>阿克苏地区</masterLabel>
+            <translation><!-- 阿克苏地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>阿勒泰地区</masterLabel>
+            <translation><!-- 阿勒泰地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>阿坝州</masterLabel>
+            <translation><!-- 阿坝州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>阿拉善盟</masterLabel>
+            <translation><!-- 阿拉善盟 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>阿里地区</masterLabel>
+            <translation><!-- 阿里地区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>陇南市</masterLabel>
+            <translation><!-- 陇南市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>随州市</masterLabel>
+            <translation><!-- 随州市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>雅安市</masterLabel>
+            <translation><!-- 雅安市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青岛市</masterLabel>
+            <translation><!-- 青岛市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>青浦区</masterLabel>
+            <translation><!-- 青浦区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>静安区</masterLabel>
+            <translation><!-- 静安区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>静海县</masterLabel>
+            <translation><!-- 静海县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鞍山市</masterLabel>
+            <translation><!-- 鞍山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>韶关市</masterLabel>
+            <translation><!-- 韶关市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>顺义区</masterLabel>
+            <translation><!-- 顺义区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>香港特区</masterLabel>
+            <translation><!-- 香港特区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>马鞍山市</masterLabel>
+            <translation><!-- 马鞍山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>驻马店市</masterLabel>
+            <translation><!-- 驻马店市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>高雄县</masterLabel>
+            <translation><!-- 高雄县 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>高雄市</masterLabel>
+            <translation><!-- 高雄市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鸡西市</masterLabel>
+            <translation><!-- 鸡西市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鹤壁市</masterLabel>
+            <translation><!-- 鹤壁市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鹤岗市</masterLabel>
+            <translation><!-- 鹤岗市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>鹰潭市</masterLabel>
+            <translation><!-- 鹰潭市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>黄冈市</masterLabel>
+            <translation><!-- 黄冈市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>黄南州</masterLabel>
+            <translation><!-- 黄南州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>黄山市</masterLabel>
+            <translation><!-- 黄山市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>黄浦区</masterLabel>
+            <translation><!-- 黄浦区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>黄石市</masterLabel>
+            <translation><!-- 黄石市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>黑河市</masterLabel>
+            <translation><!-- 黑河市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>黔东南州</masterLabel>
+            <translation><!-- 黔东南州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>黔南州</masterLabel>
+            <translation><!-- 黔南州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>黔江区</masterLabel>
+            <translation><!-- 黔江区 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>黔西南州</masterLabel>
+            <translation><!-- 黔西南州 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>齐齐哈尔市</masterLabel>
+            <translation><!-- 齐齐哈尔市 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>龙岩市</masterLabel>
+            <translation><!-- 龙岩市 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Campaign Execution Type --></label>
+        <name>Campaign_Execution_Type__c</name>
+    </fields>
+    <fields>
+        <label>省份</label>
+        <name>Campaign_Province__c</name>
+        <picklistValues>
+            <masterLabel>Anhui</masterLabel>
+            <translation>安徽</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Beijing</masterLabel>
+            <translation>北京</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chongqing</masterLabel>
+            <translation>重庆</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fujian</masterLabel>
+            <translation>福建</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gansu</masterLabel>
+            <translation>甘肃</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guangdong</masterLabel>
+            <translation>广东</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guangxi</masterLabel>
+            <translation>广西</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Guizhou</masterLabel>
+            <translation>贵州</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hainan</masterLabel>
+            <translation>海南</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hebei</masterLabel>
+            <translation>河北</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Heilongjiang</masterLabel>
+            <translation>黑龙江</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Henan</masterLabel>
+            <translation>河南</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hongkong</masterLabel>
+            <translation>香港</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hubei</masterLabel>
+            <translation>湖北</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hunan</masterLabel>
+            <translation>湖南</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inner Mongolia</masterLabel>
+            <translation>内蒙古</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jiangsu</masterLabel>
+            <translation>江苏</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jiangxi</masterLabel>
+            <translation>江西</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jilin</masterLabel>
+            <translation>吉林</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Liaoning</masterLabel>
+            <translation>辽宁</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Macau</masterLabel>
+            <translation>澳门</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ningxia</masterLabel>
+            <translation>宁夏</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Qinghai</masterLabel>
+            <translation>青海</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shaanxi</masterLabel>
+            <translation>陕西</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shandong</masterLabel>
+            <translation>山东</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shanghai</masterLabel>
+            <translation>上海</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shanxi</masterLabel>
+            <translation>山西</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sichuan</masterLabel>
+            <translation>四川</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taiwan</masterLabel>
+            <translation>台湾</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tianjin</masterLabel>
+            <translation>天津</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tibet</masterLabel>
+            <translation>西藏</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Xinjiang</masterLabel>
+            <translation>新疆</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yunnan</masterLabel>
+            <translation>云南</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Zhejiang</masterLabel>
+            <translation>浙江</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>被EP业务创建</label>
+        <name>Created_By_EP_Transaction__c</name>
+    </fields>
+    <fields>
+        <label>间隔天数</label>
+        <name>Interval_Days__c</name>
+    </fields>
+    <fields>
+        <label><!-- Latest Status --></label>
+        <name>Latest_Status__c</name>
+    </fields>
+    <fields>
+        <name>LeadSource</name>
+        <picklistValues>
+            <masterLabel>After-Sales Event</masterLabel>
+            <translation>售后活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autoshow</masterLabel>
+            <translation>车展</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BMBS</masterLabel>
+            <translation>BMBS</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DM</masterLabel>
+            <translation>直邮</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Data marketing</masterLabel>
+            <translation>数据营销</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer</masterLabel>
+            <translation>经销商</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IB</masterLabel>
+            <translation>呼入电话</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Magazine</masterLabel>
+            <translation>奔驰杂志</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online Registration</masterLabel>
+            <translation>在线注册</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partnership Event</masterLabel>
+            <translation>合作伙伴与活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMS</masterLabel>
+            <translation>短信</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>成员最近更新时间</label>
+        <name>Member_Latest_Update_Time__c</name>
+    </fields>
+    <fields>
+        <label>是否新增</label>
+        <name>Newly_Added__c</name>
+    </fields>
+    <fields>
+        <label>礼包描述</label>
+        <name>Package_Description__c</name>
+    </fields>
+    <fields>
+        <label>礼包名称</label>
+        <name>Package_Name__c</name>
+    </fields>
+    <fields>
+        <label>参加日期</label>
+        <name>Participate_Date__c</name>
+    </fields>
+    <fields>
+        <label>参加经销商名称</label>
+        <name>Participating_Dealer_Name__c</name>
+    </fields>
+    <fields>
+        <label>参加经销商/礼包</label>
+        <name>Participating_Dealer_Package__c</name>
+        <relationshipLabel>活动成员</relationshipLabel>
+    </fields>
+    <fields>
+        <label>注册日期</label>
+        <name>Registration_Date__c</name>
+    </fields>
+    <fields>
+        <label>注册备注</label>
+        <name>Registration_Notes__c</name>
+    </fields>
+    <fields>
+        <name>Salutation</name>
+        <picklistValues>
+            <masterLabel>Mr.</masterLabel>
+            <translation>先生</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mrs.</masterLabel>
+            <translation>女士</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Unknown</masterLabel>
+            <translation>未知</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>源活动合作伙伴</label>
+        <name>Source_Campaign_Partner__c</name>
+        <relationshipLabel>活动成员</relationshipLabel>
+    </fields>
+    <fields>
+        <name>Status</name>
+        <picklistValues>
+            <masterLabel>A</masterLabel>
+            <translation><!-- A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A-ALL</masterLabel>
+            <translation><!-- A-ALL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A-代金券</masterLabel>
+            <translation><!-- A-代金券 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A-净化器&amp;滤网</masterLabel>
+            <translation><!-- A-净化器&amp;滤网 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B</masterLabel>
+            <translation><!-- B --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C</masterLabel>
+            <translation><!-- C --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decline</masterLabel>
+            <translation>拒绝</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Don&apos;t Participated</masterLabel>
+            <translation>不参与</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Failed/No Response</masterLabel>
+            <translation>失败/无回复</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead</masterLabel>
+            <translation>潜在客户</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New</masterLabel>
+            <translation>新</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Not Sent</masterLabel>
+            <translation><!-- Not Sent --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Participated</masterLabel>
+            <translation>参与过</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pending</masterLabel>
+            <translation>等待回复</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Registered</masterLabel>
+            <translation>已登记</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Responded</masterLabel>
+            <translation>已回复</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent</masterLabel>
+            <translation>发送</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sent02</masterLabel>
+            <translation>发送02</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>不参加活动</masterLabel>
+            <translation><!-- 不参加活动 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>再次确认报名成功</masterLabel>
+            <translation><!-- 再次确认报名成功 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>只咨询不报名</masterLabel>
+            <translation><!-- 只咨询不报名 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>合格车主</masterLabel>
+            <translation><!-- 合格车主 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已交订金</masterLabel>
+            <translation><!-- 已交订金 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已付定金</masterLabel>
+            <translation><!-- 已付定金 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已出席活动</masterLabel>
+            <translation><!-- 已出席活动 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已加进</masterLabel>
+            <translation><!-- 已加进 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已发送</masterLabel>
+            <translation><!-- 已发送 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已回复</masterLabel>
+            <translation><!-- 已回复 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已开始</masterLabel>
+            <translation><!-- 已开始 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已报名</masterLabel>
+            <translation><!-- 已报名 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已拒绝</masterLabel>
+            <translation><!-- 已拒绝 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已收到</masterLabel>
+            <translation><!-- 已收到 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已核实为车主并报名</masterLabel>
+            <translation><!-- 已核实为车主并报名 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已沟通</masterLabel>
+            <translation><!-- 已沟通 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已注册</masterLabel>
+            <translation><!-- 已注册 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已登记</masterLabel>
+            <translation><!-- 已登记 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>已购买</masterLabel>
+            <translation><!-- 已购买 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>成功回访</masterLabel>
+            <translation><!-- 成功回访 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>成功邀请</masterLabel>
+            <translation><!-- 成功邀请 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>报名</masterLabel>
+            <translation><!-- 报名 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>报名成功</masterLabel>
+            <translation><!-- 报名成功 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>收到短信</masterLabel>
+            <translation><!-- 收到短信 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未交订金</masterLabel>
+            <translation><!-- 未交订金 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未发送</masterLabel>
+            <translation><!-- 未发送 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未完成问卷</masterLabel>
+            <translation><!-- 未完成问卷 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未开始</masterLabel>
+            <translation><!-- 未开始 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未成功沟通</masterLabel>
+            <translation><!-- 未成功沟通 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未报名</masterLabel>
+            <translation><!-- 未报名 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未收到</masterLabel>
+            <translation><!-- 未收到 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未收到短信</masterLabel>
+            <translation><!-- 未收到短信 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未沟通</masterLabel>
+            <translation><!-- 未沟通 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未确认</masterLabel>
+            <translation><!-- 未确认 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>未购买</masterLabel>
+            <translation><!-- 未购买 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>确定不出席</masterLabel>
+            <translation><!-- 确定不出席 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>确定出席</masterLabel>
+            <translation><!-- 确定出席 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>确认不出席</masterLabel>
+            <translation><!-- 确认不出席 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>确认不参加</masterLabel>
+            <translation><!-- 确认不参加 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>确认出席</masterLabel>
+            <translation><!-- 确认出席 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>确认参加</masterLabel>
+            <translation><!-- 确认参加 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>经销商未跟进</masterLabel>
+            <translation><!-- 经销商未跟进 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>问卷成功</masterLabel>
+            <translation><!-- 问卷成功 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>任务是否产生</label>
+        <name>Task_Generated__c</name>
+    </fields>
+    <fields>
+        <label>被EP业务更新</label>
+        <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <fields>
+        <label>车辆/投诉 ID</label>
+        <name>Vehicle_Case_ID__c</name>
+    </fields>
+    <fields>
+        <label>方案号</label>
+        <name>formula_num__c</name>
+    </fields>
+    <layouts>
+        <layout>Campaign Member Page Layout</layout>
+        <sections>
+            <label>反馈信息</label>
+            <section>Response Information</section>
+        </sections>
+    </layouts>
+    <webLinks>
+        <label><!-- De_Dup --></label>
+        <name>De_Dup</name>
+    </webLinks>
+</CustomObjectTranslation>

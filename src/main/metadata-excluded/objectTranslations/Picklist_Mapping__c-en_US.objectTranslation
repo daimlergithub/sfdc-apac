@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Picklist Mapping</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Picklist Mappings</value>
+    </caseValues>
+    <fields>
+        <help><!-- Used for updates by Data Loader only. --></help>
+        <label><!-- External Key --></label>
+        <name>External_Key__c</name>
+    </fields>
+    <fields>
+        <help><!-- The API name of a field mentioned by an object named in Object Name in SFDC. --></help>
+        <label><!-- Field Name --></label>
+        <name>Field_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Should be checked if this LOV is used in EP only and does not relate to a picklist in SFDC. --></help>
+        <label><!-- Integration Only --></label>
+        <name>Integration_Only__c</name>
+    </fields>
+    <fields>
+        <help><!-- The API name of an object in SFDC. --></help>
+        <label><!-- Object Name --></label>
+        <name>Object_Name__c</name>
+    </fields>
+    <layouts>
+        <layout>Picklist Mapping Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- If Integration Only is not set, you have to define an Object Name and a Field Name otherwise you must not set Object Name and Field Name. --></errorMessage>
+        <name>Integration_Only_Validation</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The LOV name may consist of latin upper cases, arabic numbers and underlines only. --></errorMessage>
+        <name>LOV_Name_Syntax</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- The syntax of the external key must match PM-{000000}. --></errorMessage>
+        <name>Validate_External_Key_Syntax</name>
+    </validationRules>
+</CustomObjectTranslation>

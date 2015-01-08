@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Unit of Work</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Units of Work</value>
+    </caseValues>
+    <fields>
+        <label><!-- Complexity --></label>
+        <name>Complexity__c</name>
+    </fields>
+    <fields>
+        <label><!-- CPU Time (msec) --></label>
+        <name>CpuTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- EPA Transaction IDs --></label>
+        <name>EPA_Transaction_IDs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Error Message --></label>
+        <name>Error_Message__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of records touched by DML statements. --></help>
+        <label><!-- Number of DML Records --></label>
+        <name>NumDmlRecords__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of DML statements issued --></help>
+        <label><!-- Number of DML Statements --></label>
+        <name>NumDmlStatements__c</name>
+    </fields>
+    <fields>
+        <label><!-- Number of SOQL Queries --></label>
+        <name>NumSoqlQueries__c</name>
+    </fields>
+    <fields>
+        <help><!-- Number of records retrieved by SOQL queries. --></help>
+        <label><!-- Number of SOQL Records --></label>
+        <name>NumSoqlRecords__c</name>
+    </fields>
+    <fields>
+        <label><!-- Run Time (msec) --></label>
+        <name>RunTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Status --></label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>FAILED</masterLabel>
+            <translation><!-- FAILED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PENDING</masterLabel>
+            <translation><!-- PENDING --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PROCESSED</masterLabel>
+            <translation><!-- PROCESSED --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- TriggeredDateTime --></label>
+        <name>TriggeredDateTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>ATOMIC_MULTIPLE</masterLabel>
+            <translation><!-- ATOMIC_MULTIPLE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ATOMIC_SINGLE</masterLabel>
+            <translation><!-- ATOMIC_SINGLE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COMPOUND_MULTIPLE_TYPES</masterLabel>
+            <translation><!-- COMPOUND_MULTIPLE_TYPES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>COMPOUND_SAME_TYPE</masterLabel>
+            <translation><!-- COMPOUND_SAME_TYPE --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Unit of Transfer --></label>
+        <name>UnitOfTransfer__c</name>
+        <relationshipLabel><!-- Units of Work --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- UnitOfWorkId --></label>
+        <name>UnitOfWorkId__c</name>
+    </fields>
+    <layouts>
+        <layout>EpAdapterUnitOfWork-Layout</layout>
+        <sections>
+            <label><!-- Benutzerdefinierte Links --></label>
+            <section>Benutzerdefinierte Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Delete_Multiple --></label>
+        <name>Delete_Multiple</name>
+    </webLinks>
+</CustomObjectTranslation>

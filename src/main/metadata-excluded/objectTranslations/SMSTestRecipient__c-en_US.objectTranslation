@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>SMS Test Recipient</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>SMSTestRecipients</value>
+    </caseValues>
+    <fields>
+        <label><!-- Is Active? --></label>
+        <name>IsActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile --></label>
+        <name>Mobile__c</name>
+    </fields>
+    <fields>
+        <label><!-- Test Recipient Group --></label>
+        <name>TestRecipientGroup__c</name>
+        <relationshipLabel><!-- SMSTestRecipients --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Test Recipient Name --></label>
+        <name>TestRecipientName__c</name>
+        <relationshipLabel><!-- SMSTestRecipients --></relationshipLabel>
+    </fields>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Event Tool Kit Quota</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Event Tool Kit Quota1</value>
+    </caseValues>
+    <fields>
+        <label><!-- Q1 Amount --></label>
+        <name>Q1_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q2 Amount --></label>
+        <name>Q2_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q3 Amount --></label>
+        <name>Q3_Amount__c</name>
+    </fields>
+    <fields>
+        <label><!-- Q4 Amount --></label>
+        <name>Q4_Amount__c</name>
+    </fields>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

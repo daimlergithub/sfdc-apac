@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>测试用短信收件人</value>
+    </caseValues>
+    <fields>
+        <label>是否有效？</label>
+        <name>IsActive__c</name>
+    </fields>
+    <fields>
+        <label>手机号</label>
+        <name>Mobile__c</name>
+    </fields>
+    <fields>
+        <label>测试收件人组</label>
+        <name>TestRecipientGroup__c</name>
+        <relationshipLabel>短信测试收件人</relationshipLabel>
+    </fields>
+    <fields>
+        <label>测试收件人姓名</label>
+        <name>TestRecipientName__c</name>
+        <relationshipLabel>短信测试收件人</relationshipLabel>
+    </fields>
+    <nameFieldLabel>SMS Test Recipient ID</nameFieldLabel>
+</CustomObjectTranslation>

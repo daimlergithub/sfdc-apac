@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Aftersales --></value>
+    </caseValues>
+    <fields>
+        <label>合并</label>
+        <name>R_MERGE__c</name>
+    </fields>
+    <fields>
+        <help><!-- The branch of the dealer --></help>
+        <label>分部</label>
+        <name>Service_Branch__c</name>
+    </fields>
+    <fields>
+        <help><!-- Job code for the service type --></help>
+        <label>工作代码</label>
+        <name>Service_Code__c</name>
+    </fields>
+    <fields>
+        <help><!-- The service consultant involved in the service --></help>
+        <label>服务顾问</label>
+        <name>Service_Consultant__c</name>
+    </fields>
+    <fields>
+        <label>服务联系人</label>
+        <name>Service_Contact__c</name>
+        <relationshipLabel><!-- Aftersales (Service_Contact) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- The service content for this aftersale, e.g. repair, paint --></help>
+        <label>服务内容</label>
+        <name>Service_Content__c</name>
+        <picklistValues>
+            <masterLabel>Body &amp; paint repair</masterLabel>
+            <translation>钣金和喷漆</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Repair</masterLabel>
+            <translation>一般维修</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Routine Service</masterLabel>
+            <translation>常规保养</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Routine Service incl. repair</masterLabel>
+            <translation>保养加维修</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- The date when the vehicle comes in for service --></help>
+        <label>接收时间</label>
+        <name>Service_Date_In__c</name>
+    </fields>
+    <fields>
+        <help><!-- The date when complete the service and send vehicle back to customer --></help>
+        <label>完成时间</label>
+        <name>Service_Date_Out__c</name>
+    </fields>
+    <fields>
+        <help><!-- Service/Invoice date --></help>
+        <label>服务时间</label>
+        <name>Service_Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Code of the dealer that deliver the service --></help>
+        <label>服务经销商</label>
+        <name>Service_Dealer__c</name>
+        <relationshipLabel><!-- Aftersales (Service Dealer) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Detailed description of service --></help>
+        <label>服务详情</label>
+        <name>Service_Details__c</name>
+    </fields>
+    <fields>
+        <help><!-- Value Currency for Invoice --></help>
+        <label>发票币种</label>
+        <name>Service_Invoice_Currency__c</name>
+        <picklistValues>
+            <masterLabel>EUR</masterLabel>
+            <translation>欧元</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HKD</masterLabel>
+            <translation>港币</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>JPY</masterLabel>
+            <translation>日元</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RMB</masterLabel>
+            <translation>人民币</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>USD</masterLabel>
+            <translation>美元</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Invoice number for the service --></help>
+        <label>发票号</label>
+        <name>Service_Invoice_Number__c</name>
+    </fields>
+    <fields>
+        <help><!-- Invoice amount for the service --></help>
+        <label>发票金额</label>
+        <name>Service_Invoice_Value__c</name>
+    </fields>
+    <fields>
+        <help><!-- Mileage at service time --></help>
+        <label>里程</label>
+        <name>Service_Mileage__c</name>
+    </fields>
+    <fields>
+        <label>没有付费的主要原因</label>
+        <name>Service_PaymentStatus_Reason__c</name>
+        <picklistValues>
+            <masterLabel>Goodwill</masterLabel>
+            <translation>善意索赔</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance</masterLabel>
+            <translation>被保险范围</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Warranty</masterLabel>
+            <translation>保修期内</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Whether the service was paid in full, in part of not at all --></help>
+        <label>顾客是否为此服务付费</label>
+        <name>Service_Payment_Status__c</name>
+        <picklistValues>
+            <masterLabel>Full</masterLabel>
+            <translation>全部付</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>No</masterLabel>
+            <translation>没有付费</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partially</masterLabel>
+            <translation>付了一部分</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Position number (for several items in the service) --></help>
+        <label>程序代码</label>
+        <name>Service_Position__c</name>
+    </fields>
+    <fields>
+        <label>服务车辆</label>
+        <name>Service_Vehicle__c</name>
+        <relationshipLabel><!-- Aftersales --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>是否有效</label>
+        <name>Valid__c</name>
+    </fields>
+    <layouts>
+        <layout>CAC Aftersales</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>发票信息</label>
+            <section>Invoice Infomation</section>
+        </sections>
+        <sections>
+            <label>付费信息</label>
+            <section>Payment Information</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Service No* --></nameFieldLabel>
+    <validationRules>
+        <errorMessage><!-- It&apos;s not allowed to change service number. --></errorMessage>
+        <name>Service_No_Read_Only</name>
+    </validationRules>
+</CustomObjectTranslation>
