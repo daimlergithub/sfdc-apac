@@ -569,15 +569,6 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Campaign__c</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>CREATEDBY_USER</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>LAST_UPDATE</fields>
-        <relatedList>Campaign_Survey_Result__c.Account__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
         <fields>Sales_Contact__c</fields>
         <fields>Sales_Vehicle_ID__c</fields>
         <fields>Sales_Contract_Date__c</fields>
@@ -585,20 +576,6 @@
         <fields>Sales_Invoice_Date__c</fields>
         <fields>Sales_Person__c</fields>
         <relatedList>Sales__c.Sales_Dealer__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Contact__c</fields>
-        <fields>Vehicle__c</fields>
-        <fields>Warranty_Type__c</fields>
-        <fields>Warranty_Status__c</fields>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Dealer__c</fields>
-        <fields>Vehicle__c</fields>
-        <fields>Warranty_Type__c</fields>
-        <fields>Warranty_Status__c</fields>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -742,17 +719,6 @@
         <relatedList>Lead__c.Contact__c</relatedList>
         <sortField>NAME</sortField>
         <sortOrder>Desc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>SSI_Record__c</fields>
-        <fields>CompanyName__c</fields>
-        <fields>CustomerName__c</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <fields>LAST_UPDATE</fields>
-        <relatedList>Survey_Result__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

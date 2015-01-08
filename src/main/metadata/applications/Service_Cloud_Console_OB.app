@@ -137,7 +137,6 @@
     <tab>standard-Case</tab>
     <tab>standard-Account</tab>
     <tab>QC__c</tab>
-    <tab>Survey_Result__c</tab>
     <tab>standard-report</tab>
     <tab>Account_Link__c</tab>
     <workspaceMappings>
@@ -160,9 +159,6 @@
         </mapping>
         <mapping>
             <tab>Tasks</tab>
-        </mapping>
-        <mapping>
-            <tab>Survey_Result__c</tab>
         </mapping>
         <mapping>
             <tab>standard-Knowledge</tab>

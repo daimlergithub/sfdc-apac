@@ -2873,34 +2873,6 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Survey_Result__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Survey Result</label>
-        <lookupFilter>
-            <active>true</active>
-            <booleanFilter>1 OR 2</booleanFilter>
-            <filterItems>
-                <field>Survey_Result__c.SSI_Record__c</field>
-                <operation>equals</operation>
-                <valueField>$Source.SSI__c</valueField>
-            </filterItems>
-            <filterItems>
-                <field>Survey_Result__c.smart_SSI_Record__c</field>
-                <operation>equals</operation>
-                <valueField>$Source.smart_SSI__c</valueField>
-            </filterItems>
-            <isOptional>true</isOptional>
-        </lookupFilter>
-        <referenceTo>Survey_Result__c</referenceTo>
-        <relationshipLabel>QC</relationshipLabel>
-        <relationshipName>QC</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Survey_Type__c</fullName>
         <externalId>false</externalId>
         <formula>Survey_Result__r.RecordType.Name</formula>
@@ -3122,57 +3094,6 @@ MAX(
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>Approve_SSI_QC</fullName>
-        <booleanFilter>1 AND 2 AND 3 AND 4 AND 5  AND 6</booleanFilter>
-        <columns>NAME</columns>
-        <columns>SSI__c</columns>
-        <columns>Approved__c</columns>
-        <columns>Survey_Result__c</columns>
-        <columns>CSR_Name__c</columns>
-        <columns>Qualified__c</columns>
-        <columns>Completed_Time__c</columns>
-        <columns>OWNER.ALIAS</columns>
-        <columns>Total_Score_1__c</columns>
-        <columns>UPDATEDBY_USER</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>Status__c</field>
-            <operation>equals</operation>
-            <value>Complete</value>
-        </filters>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>QC__c.SSI_QC</value>
-        </filters>
-        <filters>
-            <field>Approved__c</field>
-            <operation>notEqual</operation>
-            <value>Yes</value>
-        </filters>
-        <filters>
-            <field>Qualified__c</field>
-            <operation>equals</operation>
-            <value>Pass</value>
-        </filters>
-        <filters>
-            <field>CREATED_DATE</field>
-            <operation>greaterOrEqual</operation>
-            <value>11/11/2013 12:00 AM</value>
-        </filters>
-        <filters>
-            <field>Calibration__c</field>
-            <operation>equals</operation>
-            <value>0</value>
-        </filters>
-        <label>所有待审核的质检任务</label>
-        <language>en_US</language>
-        <sharedTo>
-            <role>QC_SSI</role>
-            <role>QC_Supervisor</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>GeneralCQC</fullName>
         <columns>NAME</columns>
         <columns>Status__c</columns>
@@ -3204,7 +3125,6 @@ MAX(
         <columns>SSI__c</columns>
         <columns>Status__c</columns>
         <columns>Survey_Type__c</columns>
-        <columns>Survey_Result__c</columns>
         <columns>Appeal__c</columns>
         <columns>Approved__c</columns>
         <columns>NAME</columns>
@@ -3231,7 +3151,6 @@ MAX(
         <columns>CSR_Name__c</columns>
         <columns>Status__c</columns>
         <columns>Qualified__c</columns>
-        <columns>Survey_Result__c</columns>
         <columns>Survey_Type__c</columns>
         <columns>Calibration__c</columns>
         <columns>RECORDTYPE</columns>
@@ -3284,7 +3203,6 @@ MAX(
         <fullName>SSI_QC_Queue</fullName>
         <columns>CSR_Name__c</columns>
         <columns>SSI__c</columns>
-        <columns>Survey_Result__c</columns>
         <columns>Status__c</columns>
         <columns>Survey_Type__c</columns>
         <columns>CREATED_DATE</columns>
