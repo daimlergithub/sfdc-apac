@@ -1,0 +1,44 @@
+<apex:page standardController="FAQ_Notice__c" extensions="FAQNoticeControllerExtension">
+    <style>
+        #thePage{
+            margin:10px;
+        }
+    </style>
+ 
+    <div style="display:none;" id="noticeTitle">{!noticeTitle}</div>
+    <apex:pageBlock mode="view">
+
+            <apex:pageBlockTable value="{!results}" var="notice" rendered="{!NOT(ISNULL(results))}">
+                <!--apex:column value="{!notice.Name}" onclick="window.open('{!URLFOR($Action.FAQ_Notice__c.View,notice.id)}')"  /-->
+                <apex:column headerValue="{!$ObjectType.FAQ_Notice__c.fields.Name.Label}" width="60%" >
+                    <a href="/apex/FAQNoticeDetial?id={!notice.id}&isdtp=vw">{!notice.Name}</a>
+                </apex:column>                
+                <apex:column headerValue="{!$ObjectType.FAQ_Notice__c.fields.FAQ_Title__c.Label}" width="35%">
+                    <a href="javascript:srcUp('/articles/FAQs/{!notice.FAQ_Title__c}?&isdtp=vw')">View FAQ Detail</a>                    
+                </apex:column>
+            </apex:pageBlockTable>
+
+    </apex:pageBlock>
+    <apex:includeScript value="/support/console/25.0/integration.js"/>
+
+    <script>
+
+        setInterval(function(){window.location.href = window.location.href;},60000);
+         
+        function getFeedItemBody() {
+            var title = document.getElementById('noticeTitle');
+            //alert(title); 
+            return title==null?'12':title.innerHTML;        
+        }        
+        
+        var feedItems = getFeedItemBody();  
+        //alert(feedItems );       
+        sforce.console.setCustomConsoleComponentButtonText(feedItems, scrollButtonText);
+        
+        function scrollButtonText() {                   
+             sforce.console.scrollCustomConsoleComponentButtonText(150, 5, true, function(result){});
+        }
+       
+    </script>
+
+</apex:page>

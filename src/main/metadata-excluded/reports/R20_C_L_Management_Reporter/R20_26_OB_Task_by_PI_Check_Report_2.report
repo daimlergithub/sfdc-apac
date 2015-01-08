@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Lead__c.R_No_IP_Lead__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA6</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>No IP Total</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(Lead__c.R_IsLead__c:SUM==0,0,Lead__c.R_No_IP_Lead__c:SUM/Lead__c.R_IsLead__c:SUM)</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA7</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>No IP Rate</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Lead__c.R_check_Is_Qualify__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA8</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>QP Total</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>if(Lead__c.R_IsLead__c:SUM==0,0,Lead__c.R_check_Is_Qualify__c:SUM/Lead__c.R_IsLead__c:SUM)</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA9</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>QP Rate</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_27888374</developerName>
+        <masterLabel>Account Type</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Lead__c$Contact__c.Status__c</sourceColumnName>
+        <useOther>false</useOther>
+        <values>
+            <sourceValues>
+                <sourceValue>Customer</sourceValue>
+            </sourceValues>
+            <value>MB Owner</value>
+        </values>
+        <values>
+            <sourceValues>
+                <sourceValue>Ex-Customer</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Prospect</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>VIP</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Unknown</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Other</sourceValue>
+            </sourceValues>
+            <sourceValues>
+                <sourceValue>Driving Academy</sourceValue>
+            </sourceValues>
+            <value>Non MB Owner</value>
+        </values>
+    </buckets>
+    <columns>
+        <field>Lead__c$EuroVIN__c</field>
+    </columns>
+    <description>R20-26 OB Task by PI Check Report</description>
+    <filter>
+        <criteriaItems>
+            <column>Lead__c$Interested_Vehicle_Brand__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c$Interested_Vehicle_Class__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c$Purchase_Time__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c.Campaign_Leads__r.Activities$RecordType</column>
+            <operator>equals</operator>
+            <value>Task.OB_Call</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>BucketField_27888374</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Campaign_Leads__r$Campaign__c.CAC_Campaign_Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Campaign_Leads__r$Campaign__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>R20-26 OB Task by PI Check Report -Part2</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Leads_with_Campaign_Leads_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

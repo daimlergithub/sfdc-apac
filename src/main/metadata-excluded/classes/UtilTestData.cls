@@ -1,0 +1,741 @@
+/*
+    Type:       Utility for preparing test data
+    Purpose:    Prepare Test data for Unit Test
+    User Story: 
+    Used By:    DealerSearchControllerTest.cls, 
+                AccountMergeControllerTest.cls,
+                CarModelComparisonControllerTest.cls,
+                SelectAssignedDealerController.cls,
+                TriggerVehicleRelationshipTest.cls,
+                TriggerSalesTest.cls,
+                TriggerAftersalesTest.cls,
+                TriggerAccountTest.cls
+                TriggerCampaignLeadTest.cls
+                DMRequestTriggerHandlerTest.cls
+                EDMControllerExtensionTest.cls
+                FAQNoticeControllerExtensionTest.cls
+                ScheduleCreateOutboundEmailTest.cls
+                ScheduleSendOutboundEmailTest.cls
+    ---------------------------------------------------------------
+    History:
+    
+    1. Mouse Created on 2013-03-13
+    2. Chris Overwrite createUser method by RoleName and ProfileName on 2013-03-14
+    3. Mouse add Singleton and simple factory pattern to this class on 2013-03-15
+    4. Mouse add test data of lead management on 2013-04-24
+*/
+@isTest
+Public class UtilTestData {
+    private static Map<String, Id> recordTypeMap;
+    private static Map<String, Id> roleMap;
+    private static Map<String, Id> profileMap;
+    
+    public final static String ACCOUNT_RT_PERSON_ACCOUNT = 'Person Account';
+    public final static String ACCOUNT_RT_DEALER = 'Dealer';
+
+    public final static String LEAD_RT_SALES_LEADS = 'Sales Leads';
+
+    public final static String CAMPAIGN_RT_CAMPAIGN_EXECUTION = 'Campaign Execution - Simple';
+    public final static String CAMPAIGN_RT_CAC_CAMPAIGN = 'CAC Campaign';
+    public final static String CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN = 'Central Marketing Campaign';
+    public final static String CASE_RT_MB_COMPLAINT = 'MB Complaint';
+    public final static String CASE_RT_CHRYSLER_COMPLAINT = 'Chrysler Complaint';
+
+    public final static String TASK_RT_SMS = 'SMS';
+    public final static String TASK_RT_EDM = 'eDM';
+    public final static String TASK_RT_DM = 'DM';
+    public final static String TASK_RT_OB = 'OB';
+
+    public final static Integer BATCH_SIZE = 101;
+    
+    // Initiate recordTypeMap
+    private static Map<String, Id> getRecordTypeMapInstance() {
+        if (recordTypeMap == null) {
+            recordTypeMap = new Map<String, Id>();
+            for (RecordType rt : [SELECT Id, Name, SobjectType FROM RecordType LIMIT 1000]) {
+                recordTypeMap.put(rt.Name + rt.SobjectType, rt.Id);
+            }
+        }
+        
+        return recordTypeMap;
+    }
+    
+    // Initiate roleMap
+    private static Map<String, Id> getUserRoleMapInstance() {
+        if (roleMap == null) {
+            roleMap = new Map<String, Id>();
+            for (UserRole role : [SELECT Id, Name FROM UserRole LIMIT 1000]) {
+                roleMap.put(role.Name, role.Id);
+            }
+        }
+        
+        return roleMap;
+    }
+    
+    // Initiate profileMap
+    private static Map<String, Id> getProfileMapInstance() {
+        if (profileMap == null) {
+            profileMap = new Map<String, Id>();
+            for (Profile prof : [SELECT Id, Name FROM Profile LIMIT 1000]) {
+                profileMap.put(prof.Name, prof.Id);
+            }
+        }
+        
+        return profileMap;
+    }
+    
+    // Get UserRoleId by Role Name
+    private static Id getUserRoleId(String roleName) {
+        return getUserRoleMapInstance().get(roleName);
+    }
+    
+    // Get ProfileId by Profile Name
+    private static Id getProfileId(String profileName) {
+        return getProfileMapInstance().get(profileName);
+    }
+    
+    // Create Test User
+    private static User createUser(Id userRoleId, Id profileId) {
+        User usr = new User();
+        usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
+        usr.UserRoleId = userRoleId;
+        usr.ProfileId = profileId;
+        usr.LastName = 'Test User';
+        usr.Email = 'test001@daimler.com.full';
+        usr.Alias = 'test';
+        usr.TimeZoneSidKey = 'Asia/Shanghai';
+        usr.EmailEncodingKey = 'UTF-8';
+        usr.LanguageLocaleKey = 'en_US';
+        usr.localesidkey='en_US';
+        usr.isActive = true;
+        insert usr;
+        return usr;
+    }
+
+    // Create Test User by Role Name and Profile Name
+    public static User createUser(String roleName, String profileName) {
+        return createUser(getUserRoleId(roleName), 
+                          getProfileId(profileName));
+    }
+
+    public static Sobject createSobject(Sobject so, String recordTypeName) {
+        initiateSobject(so, recordTypeName);
+        
+        insert so;
+        return so;
+    }
+
+    public static List<Sobject> createSobjects(List<Sobject> sos, String recordTypeName) {
+        initiateSobjects(sos, recordTypeName);
+
+        insert sos;
+        return sos;
+    }
+    
+    // Initiate sobjects which number is BATCH_SIZE
+    private static List<Sobject> initiateSobjects(List<Sobject> sos, String recordTypeName) {
+        for (Sobject so : sos) {
+            initiateSobject(so, recordTypeName);
+        }
+
+        return sos;
+    }
+    
+    private static Sobject initiateSobject(Sobject so, String recordTypeName) {
+        if (so instanceof Account) {
+            if (recordTypeName == ACCOUNT_RT_PERSON_ACCOUNT) {
+                initiatePersonAccount(so);
+            }
+            else if (recordTypeName == ACCOUNT_RT_DEALER) {
+                initiateDealer(so);
+            }
+        }
+        else if (so instanceof Dealer_City__c) {
+            initiateDealerCity(so);
+        }
+        else if (so instanceof Contact) {
+            initiateContact(so);
+        }
+        else if (so instanceof Vehicle__c) {
+            initiateVehicle(so);
+        }
+        else if (so instanceof Vehicle_Relationship__c) {
+            initiateVehicleRelationship(so);
+        }
+        else if (so instanceof Sales__c) {
+            initiateSales(so);
+        }
+        else if (so instanceof Aftersales__c) {
+            initiateAftersales(so);
+        }
+        else if (so instanceof Car_Model__c) {
+            initiateCarModel(so);
+        }
+        else if (so instanceof Attribute__c) {
+            initiateAttribute(so);
+        }
+        else if (so instanceof Car_Model_Attribute__c) {
+            initiateCarModelAttribute(so);
+        }
+        else if (so instanceof Lead__c) {
+            if (recordTypeName == LEAD_RT_SALES_LEADS) {
+                initiateSalesLead(so);
+            }
+        }
+        else if (so instanceof Campaign_Lead__c) {
+            initiateCampaignLead(so);
+        }
+        else if (so instanceof Campaign) {
+            if (recordTypeName == CAMPAIGN_RT_CAMPAIGN_EXECUTION) {
+                initiateCampaignExecution(so);
+            }
+            else if (recordTypeName == CAMPAIGN_RT_CAC_CAMPAIGN) {
+                initiateCACCampaign(so);
+            }
+            else if (recordTypeName == CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN) {
+                initiateCentralMKTCampaign(so);
+            }
+        }
+        else if (so instanceof CampaignMember) {
+            initiateCampaignMember(so);
+        }
+        else if (so instanceof Campaign_Package__c) {
+            initiateCampaignPackage(so);
+        }
+        else if (so instanceof Participating_Dealer__c) {
+            initiateParticipatingDealer(so);
+        }
+        else if (so instanceof Campaign_Offering__c) {
+            initateCampaignOffering(so);
+        }
+        else if (so instanceof Package_Item__c) {
+            initiatePackageItem(so);
+        }
+        else if (so instanceof Outbound_Email__c) {
+            initiateOutboundEmail(so);
+        }
+        else if (so instanceof Attachment) {
+            initiateAttachment(so);
+        }
+        else if (so instanceof Case) {
+            if (recordTypeName == CASE_RT_MB_COMPLAINT) {
+                initiateMBComplaintCase(so);
+            }
+            else if (recordTypeName == CASE_RT_CHRYSLER_COMPLAINT) {
+                initiateChryslerComplaintCase(so);
+            }
+        }
+        else if (so instanceof Task) {
+            if (recordTypeName == TASK_RT_SMS) {
+                initiateSMSTask(so);
+            }
+            else if (recordTypeName == TASK_RT_OB) {
+                initiateOBTask(so);
+            }
+            else if (recordTypeName == TASK_RT_DM) {
+                initiateDMTask(so);
+            }
+            else if (recordTypeName == TASK_RT_EDM) {
+                initiateEDMTask(so);
+            }
+        }
+
+        return so;
+    }
+    
+    // Create Unsaved Dealer City
+    private static void initiateDealerCity(Sobject so) {
+        Dealer_City__c dealerCity = (Dealer_City__c)so;
+        dealerCity.Name = dealerCity.Name == null ?
+            '朝阳区' : dealerCity.Name;
+        dealerCity.Region__c = dealerCity.Region__c == null ?
+            'N' : dealerCity.Region__c;
+        dealerCity.Province__c = dealerCity.Province__c == null ?
+            'Beijing' : dealerCity.Province__c;
+    }
+
+    // Create Unsaved Dealer
+    private static void initiateDealer(Sobject so) {
+        Account acc = (Account)so;
+
+        acc.RecordTypeId = 
+            getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + 'Account');
+        acc.Dealer_Alternate_Name__c = 'Test Alternate';
+        acc.Phone = '021-000000';
+        acc.Dealer_GC_Code__c = 'gc code';
+        acc.Dealer_GS_Code__c = 'gs code';
+        acc.Name = acc.Name == null ? 'test dealer' : acc.Name;
+        acc.Dealer_MB_Sub_Region__c = acc.Dealer_MB_Sub_Region__c == null ?
+            'North1' : acc.Dealer_MB_Sub_Region__c;
+    }
+    
+    // Create Unsaved Person Account
+    // N.B. Name is read only for Person Account
+    private static void initiatePersonAccount(Sobject so) {
+        Account acc = (Account)so;
+
+        acc.RecordTypeId = 
+            getRecordTypeMapInstance().get(ACCOUNT_RT_PERSON_ACCOUNT + 'Account');
+        // acc.Name = 'Test';
+        acc.LastName = 'Customer';
+        acc.Gender__c = '0=Male';
+        acc.ZipCode__c = '200235';
+        acc.Type = acc.Type == null ? '0=Company' : acc.Type;
+        acc.Phone = acc.Phone == null ? '1234567' : acc.Phone;
+        acc.Area_Code__c = '010';
+        acc.Status__c = acc.Status__c == null ? '0=Customer' : acc.Status__c;
+    }
+
+    // Create Unsaved Contact
+    private static void initiateContact(Sobject so) {
+        Contact con = (Contact)so;
+        con.FirstName = 'Someone';
+        con.LastName = 'Benz';
+    }
+
+    // Create Unsaved Vehicle
+    // UsVIN__c Length must be 17, 
+    // EuroVIN__c length must be 17 or 18
+    private static void initiateVehicle(Sobject so) {
+        Vehicle__c vehicle = (Vehicle__c)so;
+
+        vehicle.UsVIN__c = 'usvin111111111111'; 
+        vehicle.EuroVIN__c = 'eurovin1234567890';
+        vehicle.Brand__c = 'MB';
+        vehicle.Class__c = 'A-Class';
+        vehicle.Model__c = '130i';
+        vehicle.Colour__c = '40 ';
+        vehicle.CommissionNumber__c = '123456';
+    }
+    
+    // Create Unsaved Vehicle Relationship
+    private static void initiateVehicleRelationship(Sobject so) {
+        Vehicle_Relationship__c relationship = (Vehicle_Relationship__c)so;
+
+        relationship.RegistrationProvince__c = '上海';
+        relationship.Registration_City__c = '上海';
+        relationship.Status__c = '0=Previously Owned';
+        relationship.Main_Usage__c = '0=Taxi';
+        relationship.Ownership__c = '1=Company';
+        relationship.Car_Relation__c = 'User';
+        relationship.New_Used__c = '0=New';
+        relationship.Validity__c = 'Unknown';
+        relationship.Purchase_Date__c = System.today();
+        relationship.Registration_Date__c = System.today();
+    }
+
+    // Create Unsaved Sales
+    // If some field value are null, system will suibianly assign a value to it.
+    private static void initiateSales(Sobject so) {
+        Sales__c sales = (Sales__c)so;
+
+        sales.Name = 'test sales';
+        sales.Valid__c = 'Unknow';
+        
+        sales.Sales_Handover_Date__c = sales.Sales_Handover_Date__c == null ? 
+           System.today() : sales.Sales_Handover_Date__c;
+           
+        sales.Sales_Invoice_Date__c = sales.Sales_Invoice_Date__c == null ? 
+           System.today() : sales.Sales_Invoice_Date__c;
+           
+        sales.Sales_Contract_Date__c = sales.Sales_Contract_Date__c == null ? 
+           System.today() : sales.Sales_Contract_Date__c;
+           
+        sales.Sales_Person__c = sales.Sales_Person__c == null ? 'test' : 
+           sales.Sales_Person__c;
+           
+        sales.Sales_Dealer__c = sales.Sales_Dealer__c == null ? 
+           createSobject(new Account(), ACCOUNT_RT_DEALER).Id : sales.Sales_Dealer__c;
+    }
+
+    // Create Unsaved Aftersales
+    private static void initiateAftersales(Sobject so) {
+        Aftersales__c aftersales = (Aftersales__c)so;
+
+        aftersales.Name = 'test aftersales';
+        aftersales.Valid__c = false;
+        aftersales.Service_Dealer__c = aftersales.Service_Dealer__c == null ? 
+           createSobject(new Account(), ACCOUNT_RT_DEALER).Id : aftersales.Service_Dealer__c;
+    }
+    
+    // Create Unsaved Car Model
+    private static void initiateCarModel(Sobject so) {
+        Car_Model__c carModel = (Car_Model__c)so;
+
+        carModel.Name = carModel.Name == null ? 'test Benz' : 
+           carModel.Name;
+        carModel.Brand__c = 'MB';
+        carModel.Model__c = 'B200';
+        carModel.Series__c = 'A-Class';
+        carModel.Description__c = 'Good Niubi Car';
+    }
+    
+    // Create Unsaved Attribute
+    private static void initiateAttribute(Sobject so) {
+        Attribute__c attr = (Attribute__c)so;
+
+        attr.Name = attr.Name == null ? '市场价' : attr.Name;
+        attr.Attribute_Category__c = attr.Attribute_Category__c == null ?
+           '基本参数' : attr.Attribute_Category__c;
+        attr.Attribute_Type__c = attr.Attribute_Type__c == null ? 
+           '价格' : attr.Attribute_Type__c;
+        attr.Description__c = 'Niubi Attribute';
+    }
+
+    // Create Unsaved Car Model Attribute
+    private static void initiateCarModelAttribute(Sobject so) {
+        Car_Model_Attribute__c carModelAttr = (Car_Model_Attribute__c)so;
+
+        carModelAttr.Attribute__c = carModelAttr.Attribute__c == null ?
+           createSobject(new Attribute__c(), null).Id : carModelAttr.Attribute__c;
+        
+        carModelAttr.Car_Model__c = carModelAttr.Car_Model__c == null ?
+           createSobject(new Car_Model__c(), null).Id : carModelAttr.Car_Model__c;
+        
+        carModelAttr.Value__c = '1000000';
+        carModelAttr.Description__c = '好贵呀, 好好呀，好……呀';
+    }
+    
+    // Create Unsaved Lead which record type is Sales Leads
+    private static void initiateSalesLead(Sobject so) {
+        Lead__c lead = (Lead__c)so;
+
+        lead.Contact__c = lead.Contact__c == null ? 
+           createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id : 
+           lead.Contact__c;
+        
+        lead.CAC_Lead_Status__c = lead.CAC_Lead_Status__c == null ? 
+            'Qualified' : lead.CAC_Lead_Status__c;
+
+        lead.Lead_Type__c = 'New Car';
+        lead.Lead_Desired_Service__c = 'Test Drive;Trade-In';
+        lead.Purchase_Time__c = '0 - 3 months';
+
+        // Interested Vehicle Information
+        lead.Interested_Vehicle_Brand__c = lead.Interested_Vehicle_Brand__c == null ? 
+           'MB' : lead.Interested_Vehicle_Brand__c;
+        lead.Interested_Vehicle_Class__c = lead.Interested_Vehicle_Class__c == null ? 
+           'A-Class' : lead.Interested_Vehicle_Class__c;
+        lead.Interested_Vehicle_Model__c = lead.Interested_Vehicle_Model__c == null ? 
+           'A160' : lead.Interested_Vehicle_Model__c;
+
+        // Trade-In Vehicle Information
+        lead.Trade_In_MB_Vehicle_Model__c = lead.Trade_In_MB_Vehicle_Model__c == null ? 
+           '奔驰汽车' : lead.Trade_In_MB_Vehicle_Model__c;
+        lead.Trade_In_Vehicle_Brand__c = lead.Trade_In_Vehicle_Brand__c == null ? 
+           'C230' : lead.Trade_In_Vehicle_Brand__c;
+        lead.Trade_In_Vehicle_Class__c = lead.Trade_In_Vehicle_Class__c == null ? 
+           'C-CLASS' : lead.Trade_In_Vehicle_Class__c;
+        lead.Trade_In_Other_Vehicle_Model__c = lead.Trade_In_Other_Vehicle_Model__c == null ? 
+           'other model' : lead.Trade_In_Other_Vehicle_Model__c;
+
+        lead.Bought_Vehicle_Brand__c = 'MB';
+        lead.Bought_Vehicle_Class__c = 'A-Class';
+        lead.Bought_Vehicle_Model__c = 'A160';
+    }
+    
+    // Create Unsaved Campaign Lead which Lead__c
+    private static void initiateCampaignLead(Sobject so) {
+        Campaign_Lead__c campaignLead = (Campaign_Lead__c)so;
+
+        campaignLead.Lead__c = campaignLead.Lead__c == null ? 
+           createSobject(new Lead__c(), LEAD_RT_SALES_LEADS).Id : campaignLead.Lead__c;
+           
+        campaignLead.Campaign__c = campaignLead.Campaign__c == null ? 
+           createSobject(new Campaign(), CAMPAIGN_RT_CAMPAIGN_EXECUTION).Id : 
+           campaignLead.Campaign__c;
+
+        campaignLead.Lead_Source__c = 'Dealer';
+        campaignLead.Lead_InfoSource__c = 'Event';
+    }
+    
+    // Create Unsaved Campaign Members
+    private static void initiateCampaignMember(Sobject so) {
+        CampaignMember member = (CampaignMember)so;
+        member.CampaignId = member.CampaignId == null ? 
+            createSobject(new Campaign(), CAMPAIGN_RT_CAMPAIGN_EXECUTION).Id :
+            member.CampaignId;
+
+        // We need to get PersonContactId by PersonAccountId
+        if (member.ContactId == null){
+            Account personAccount = (Account)createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT);
+            personAccount = [SELECT Id, PersonContactId 
+                             FROM Account WHERE Id = :personAccount.Id];
+            member.ContactId = personAccount.PersonContactId;
+        }
+
+        member.Status = 'Sent';
+        member.Registration_Notes__c = member.Registration_Notes__c == null ?
+            'Test Registration Notes': member.Registration_Notes__c;
+    }
+
+    // CampaignMemberStatus is a strange thing, you know that.
+    // So we need zhe mo zuo
+    public static void createCampaignMemberStatus(Campaign cam) {
+        List<CampaignMemberStatus> cmsToInsert = new List<CampaignMemberStatus>();
+        CampaignMemberStatus cms2 = new CampaignMemberStatus(
+            CampaignId = cam.Id,
+            Label = 'Lead',
+            HasResponded = true,
+            IsDefault = false,
+            SortOrder = 4
+        );
+                                                             
+        CampaignMemberStatus cms3 = new CampaignMemberStatus(
+            CampaignId = cam.Id,
+            Label = 'Participated',
+            HasResponded = true,
+            IsDefault = false,
+            SortOrder = 5
+        );    
+                                                                                                                                        
+        CampaignMemberStatus cms4 = new CampaignMemberStatus(
+            CampaignId = cam.Id,
+            Label = 'Registered',
+            HasResponded = true,
+            IsDefault = false,
+            SortOrder = 6
+        );
+                                                             
+        CampaignMemberStatus cms5 = new CampaignMemberStatus(
+            CampaignId = cam.Id,
+            Label = 'Failed/No Response',
+            HasResponded = true,
+            IsDefault = false,
+            SortOrder = 7
+        );
+        cmsToInsert.addAll(new List<CampaignMemberStatus> {cms2, cms3, cms4, cms5});
+        insert cmsToInsert;
+    }
+
+    // Create Unsaved Campaign which record type is Campaign Execution
+    private static void initiateCampaignExecution(Sobject so) {
+        Campaign cam = (Campaign)so;
+
+        Id campaignExecutionRecordTypeId = 
+           getRecordTypeMapInstance().get(CAMPAIGN_RT_CAMPAIGN_EXECUTION + 'Campaign');
+        cam.RecordTypeId = campaignExecutionRecordTypeId;
+        
+        cam.ParentId = cam.ParentId == null ? 
+            createSobject(new Campaign(), CAMPAIGN_RT_CAC_CAMPAIGN).Id : cam.ParentId;
+
+        cam.Name = 'Test Campaign Execution';
+        cam.Campaign_Code__c = String.valueOf(Math.rint(Math.random() * 10000000));
+        cam.Execution_Type__c = 'OB Call';
+    }
+    
+    // Create Unsaved Campaign which record type is CAC Campaign
+    private static void initiateCACCampaign(Sobject so) {
+        Campaign cam = (Campaign)so;
+
+        Id cacCampaignRecordTypeId = 
+           getRecordTypeMapInstance().get(CAMPAIGN_RT_CAC_CAMPAIGN + 'Campaign');
+        cam.RecordTypeId = cacCampaignRecordTypeId;
+
+        cam.ParentId = cam.ParentId == null ? 
+            createSobject(new Campaign(), CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN).Id : 
+            cam.ParentId;
+
+        cam.Name = 'Test CAC Campaign';
+        cam.Campaign_Code__c = String.valueOf(Math.rint(Math.random() * 10000000));
+
+        cam.Task_De_dup_by__c = cam.Task_De_dup_by__c == null ?
+            'Account' : cam.Task_De_dup_by__c;
+        cam.Task_De_dup_Range__c = cam.Task_De_dup_Range__c == null ?
+            'By CAC Campaign' : cam.Task_De_dup_Range__c;
+    }
+    
+    // Create Unsaved Campaign which record type is Central Marketing Campaign
+    private static void initiateCentralMKTCampaign(Sobject so) {
+        Campaign cam = (Campaign)so;
+
+        Id centralMKTCampaignRecordTypeId = 
+           getRecordTypeMapInstance().get(CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN + 'Campaign');
+        cam.RecordTypeId = centralMKTCampaignRecordTypeId;
+
+        cam.Name = 'Test Central MKT Campaign';
+        cam.Campaign_Code__c = String.valueOf(Math.rint(Math.random() * 10000000));
+
+        cam.Type = 'CRM Acquisition Program';
+        cam.Status = 'Planned';
+        cam.Campaign_Objectives__c = 'na many many danzi';
+        cam.Description = 'na de yue more yue good';
+        cam.StartDate = System.today();
+        cam.EndDate = System.today() + 10;
+    }
+
+    // Create Unsaved Participating Dealer (Just CAC Marketing Campaign has)
+    private static void initiateParticipatingDealer(Sobject so) {
+        Participating_Dealer__c partDealer = (Participating_Dealer__c)so;
+
+        partDealer.Campaign__c = partDealer.Campaign__c == null ?
+            createSobject(new Campaign(), CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN).Id :
+            partDealer.Campaign__c;
+
+        partDealer.Dealer__c = partDealer.Dealer__c == null ?
+            createSobject(new Account(), ACCOUNT_RT_DEALER).Id :
+            partDealer.Dealer__c;
+
+        partDealer.Campaign_Package__c = partDealer.Campaign_Package__c == null ?
+            createSobject(new Campaign_Package__c(), null).Id :
+            partDealer.Campaign_Package__c;
+
+        partDealer.Session_Start_Date__c = System.today();
+        partDealer.Session_End_Date__c = System.today() + 10;
+    }
+
+    // Create Unsaved Campaign Package (Just CAC Marketing Campaign has)
+    private static void initiateCampaignPackage(Sobject so) {
+        Campaign_Package__c camPackage = (Campaign_Package__c)so;
+
+        camPackage.Campaign__c = camPackage.Campaign__c == null ?
+            createSobject(new Campaign(), CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN).Id :
+            camPackage.Campaign__c;
+
+        camPackage.Name = camPackage.Name == null ?
+            'Test Campaign Package': camPackage.Name;
+        camPackage.Package_Description__c = camPackage.Package_Description__c == null ?
+            'hao bao ya' : camPackage.Package_Description__c;
+    }
+
+    // Create unsaved Campaign Offering(Detail Object of Campaign)
+    private static void initateCampaignOffering(Sobject so) {
+        Campaign_Offering__c offering = (Campaign_Offering__c)so;
+
+        offering.Campaign__c = offering.Campaign__c == null ?
+            createSobject(new Campaign(), CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN).Id :
+            offering.Campaign__c;
+
+        offering.Description__c = 'Can I bu miao shu ma?';
+        offering.Start_Date__c = System.today();
+        offering.End_date__c = System.today() + 5;
+    }
+
+    // Create Unsaved Package_Item__c(The detail object of Campaign Offering and Campaign Package)
+    private static void initiatePackageItem(Sobject so) {
+        Package_Item__c packageItem = (Package_Item__c)so;
+
+        packageItem.Offering__c = packageItem.Offering__c == null ?
+            createSobject(new Campaign_Offering__c(), null).Id :
+            packageItem.Offering__c;
+
+        packageItem.Package_Name__c = packageItem.Package_Name__c == null ?
+            createSobject(new Campaign_Package__c(), null).Id :
+            packageItem.Package_Name__c;
+
+        packageItem.Unique_ID__c = String.valueOf(Math.rint(Math.random() * 1000000));
+    }
+
+    // Create Unsaved Outbound_Email__c
+    private static void initiateOutboundEmail(Sobject so) {
+        Outbound_Email__c email = (Outbound_Email__c)so;
+
+        email.TargetObjectId__c = email.TargetObjectId__c == null ?
+            createSobject(new Account(), ACCOUNT_RT_DEALER).Id :
+            email.TargetObjectId__c;
+
+        email.ToAddresses__c = 'mouse@email.com';
+        email.Subject__c = 'subject';
+        email.Status__c = 'Not Sent';
+        email.Html_Body__c = 'ABC';
+    }
+
+    // Create Unsaved Attachment
+    private static void initiateAttachment(Sobject so) {
+        Attachment att = (Attachment)so;
+
+        // att.ParentId is populated before
+        att.Description = 'Description';
+        att.Name = 'Test';
+        att.Body = Blob.valueOf('Test');
+    }
+
+    // Create Unsaved MB Complaint Case
+    private static void initiateMBComplaintCase(sobject so) {
+        Case ca = (Case)so;
+
+        ca.RecordTypeId = getRecordTypeMapInstance().get(CASE_RT_MB_COMPLAINT + 'Case');
+        ca.AccountId = ca.AccountId == null ?
+            createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :
+            ca.AccountId;
+
+        ca.Complaint_Date__c = System.today();
+    }
+
+    // Create Unsaved Chrysler Complaint Case
+    private static void initiateChryslerComplaintCase(sobject so) {
+        Case ca = (Case)so;
+
+        ca.RecordTypeId = getRecordTypeMapInstance().get(CASE_RT_CHRYSLER_COMPLAINT + 'Case');
+        ca.AccountId = ca.AccountId == null ?
+            createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :
+            ca.AccountId;
+
+        ca.Complaint_Date__c = System.today();
+        ca.Case_Type__c = 'After-Sales';
+        ca.Case_SubType__c = 'Fire or Gasbag Case';
+        ca.Dealer_Contact__c = 'Yes';
+        ca.Status = 'Wating for Reply';
+        ca.Priority = 'Green-less than twice';
+    }
+
+    // Create SMS Task
+    private static void initiateSMSTask(Sobject so) {
+        Task task = (Task)so;
+        task.RecordTypeId = getRecordTypeMapInstance().get(TASK_RT_SMS + 'Task');
+        task.Subject = 'Test';
+        task.WhatId = task.WhatId == null ?
+            createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :
+            task.WhatId;
+
+        task.Activity_Status__c = task.Activity_Status__c == null ?
+            'Need Verification' : task.Activity_Status__c;
+        task.Status = 'Open';
+        task.Priority__c = '普通';
+    }
+
+    // Create OB Task
+    private static void initiateOBTask(Sobject so) {
+        Task task = (Task)so;
+        task.RecordTypeId = getRecordTypeMapInstance().get(TASK_RT_OB + 'Task');
+        task.Subject = 'Test';
+        task.WhatId = task.WhatId == null ?
+            createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :
+            task.WhatId;
+
+        task.Activity_Status__c = task.Activity_Status__c == null ?
+            'not started' : task.Activity_Status__c;
+        task.Status = 'Open';
+        task.Priority__c = '普通';
+    }
+
+    // Create DM Task
+    private static void initiateDMTask(Sobject so) {
+        Task task = (Task)so;
+        task.RecordTypeId = getRecordTypeMapInstance().get(TASK_RT_DM + 'Task');
+        task.Subject = 'Test';
+        task.WhatId = task.WhatId == null ?
+            createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :
+            task.WhatId;
+
+        task.Activity_Status__c = task.Activity_Status__c == null ?
+            'Open' : task.Activity_Status__c;
+        task.Status = 'Open';
+        task.Priority__c = '普通';
+    }
+
+    // Create eDM Task
+    private static void initiateEDMTask(Sobject so) {
+        Task task = (Task)so;
+        task.RecordTypeId = getRecordTypeMapInstance().get(TASK_RT_EDM + 'Task');
+        task.Subject = 'Test';
+        task.WhatId = task.WhatId == null ?
+            createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :
+            task.WhatId;
+
+        task.Activity_Status__c = task.Activity_Status__c == null ?
+            'Pending' : task.Activity_Status__c;
+        task.Status = 'Open';
+        task.Priority__c = '普通';
+    }
+}

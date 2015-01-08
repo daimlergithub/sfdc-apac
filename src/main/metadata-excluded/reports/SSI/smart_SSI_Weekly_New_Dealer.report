@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>smart_SSI_Cleansing_result__c.Dealer__c</field>
+    </columns>
+    <columns>
+        <field>smart_SSI_Cleansing_result__c.DealerName__c</field>
+    </columns>
+    <columns>
+        <field>smart_SSI_Cleansing_result__c.DealerTotal__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>smart_SSI_Cleansing_result__c.Type__c</column>
+            <operator>equals</operator>
+            <value>Weekly New Dealers</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>smart SSI Weekly New Dealer</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$smart_SSI_Cleansing_result__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>smart_SSI_Cleansing_result__c.SSI_Created_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

@@ -1,0 +1,57 @@
+<apex:page controller="QCMassCalibrationController" tabStyle="QC__c">
+    <script type="text/javascript">
+        
+        function checkAll(cb){
+            var inputElem = document.getElementsByTagName("input");
+            for (var i = 0; i < inputElem.length; i++) {
+                if (inputElem[i].id.indexOf("checkedone") != -1) {
+                    inputElem[i].checked = cb.checked;
+                }
+            };
+        }
+
+        function doSelect(){
+
+        }
+    </script>
+    <apex:form >
+        <!-- 错误提示 -->
+        <apex:pageMessages id="message" />
+        <apex:sectionHeader title="{!$Label.QC_Mass_Calibration_Title}"/>
+        <!-- 最外层pageBlock -->
+        <apex:pageBlock title="{!$Label.Mass_Calibration_Page_Block_Title}" id="resultBlock">
+            
+            <!-- pageBlock上的选择按钮，上下两个 -->
+            
+            <apex:pageBlockButtons >
+                <apex:commandButton value="{!$Label.QC_Mass_Calibration_Page_Button}" action="{!massCalibrate}" status="Selected_QCs" rerender="message"/>
+            </apex:pageBlockButtons>
+
+            <!-- 提交后的状态栏 -->
+            <apex:actionStatus id="Selected_QCs" startText="starting...">
+                <apex:facet name="start">
+                    <div style="width: 500px;">
+                    <img src="/img/loading24.gif" style="vertical-align:middle;" />
+                    <span style="margin-left: 10px; font-size: 12px; font-weight: bold; color: #000000;">
+                            {!$Label.QC_Mass_Calibration_Please_Wait}</span>
+                    </div>
+                </apex:facet>
+            </apex:actionStatus>
+
+            <!-- 搜索结果页面 -->
+            <apex:pageBlockTable value="{!qcUsers}" var="user">
+                <!-- 结果列 -->
+                <apex:column >
+                    <apex:facet name="header">
+                        <apex:inputCheckbox onclick="checkAll(this);"/>
+                    </apex:facet>
+                    <apex:inputCheckbox value="{!user.selected}" id="checkedone" />
+                </apex:column>
+
+                <apex:column headerValue="{!$Label.QC_Mass_Calibration_Column_One}" value="{!user.qc.Name}" />
+                <apex:column headerValue="{!$Label.QC_Mass_Calibration_Column_Two}" value="{!user.qc.UserRole.Name}" />
+                <apex:column headerValue="{!$Label.QC_Mass_Calibration_Column_Three}" value="{!user.amount}" />
+            </apex:pageBlockTable>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

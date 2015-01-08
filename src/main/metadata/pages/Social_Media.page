@@ -1,0 +1,37 @@
+<apex:page >
+  <title>title</title>
+  <head> <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> </head>
+  <body onunload="clearInput()">
+    <div id='div'>
+      <div>
+        <form id='form'>
+          <text>Last Name: </text><input id='lastname' value=''></input>
+          <text>First Name: </text><input id='firstname' value=''></input>
+          <text>Tel: </text><input id='phoneNumber' value=''></input>
+          <text>SM.ID: </text><input id='smId' value=''></input>
+        </form>
+        <input type="button" id="anchor" href="" target="_blank" onClick="getUrl()" value="Search"></input>
+      </div>
+    </div>
+    <script type="text/javascript" encoding="UTF-8">
+    {
+        function getUrl()
+        {
+            var $lastname = document.getElementById("lastname").value;
+            var $firstname = document.getElementById("firstname").value;
+            var $phoneNumber = document.getElementById("phoneNumber").value;
+            var $smId = document.getElementById("smId").value;
+            var $url = "https://c.ap1.visual.force.com/apex/SocialAccountPage?firstname=" + $firstname + "&lastname=" + $lastname + "&phone=" + $phoneNumber + "&smId=" + $smId;
+            //document.write($url)
+            window.open($url);
+        }
+
+        function clearInput(){
+            document.getElementById("name").value='';
+            document.getElementById("phoneNumber").value='';
+            document.getElementById("smId").value='';
+        }
+    }
+    </script>
+  </body>
+</apex:page>

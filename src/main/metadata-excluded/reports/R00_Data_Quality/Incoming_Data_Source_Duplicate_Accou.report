@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Rejected_Duplicate_Log__c.R_checkRecordID__c:SUM+Account.R_Confirmed_by_user__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Checked Duplicate Volume</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>if(PARENTGROUPVAL(Account.R_Datasource_Count__c:SUM,Account.Data_Source__c)=0,0, Rejected_Duplicate_Log__c.R_checkRecordID__c:SUM+Account.R_Confirmed_by_user__c:SUM/PARENTGROUPVAL(Account.R_Datasource_Count__c:SUM,Account.Data_Source__c))</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <downGroupingContext>Account$Data_Source__c</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Checked Duplicate Ratio</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Rejected_Duplicate_Log__c.R_checkRecordID__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>De-dupe Data Volume</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>if(PARENTGROUPVAL(Account.R_Datasource_Count__c:SUM,Account.Data_Source__c)=0,0, Rejected_Duplicate_Log__c.R_checkRecordID__c:SUM/PARENTGROUPVAL(Account.R_Datasource_Count__c:SUM,Account.Data_Source__c))</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA4</developerName>
+        <downGroupingContext>Account$Data_Source__c</downGroupingContext>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>De-dupe Data Ratio</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Account.R_Confirmed_by_user__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Rejected Data Volume</description>
+        <developerName>FORMULA5</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Rejected Data Volume</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <columns>
+        <field>Account$R_remark__c</field>
+    </columns>
+    <description>Incoming Data Source Duplicate Report (Account)</description>
+    <filter>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <column>Account$Created_By_EP_Transaction__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Updated_By_EP_Transactions__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Account$Data_Source__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>Incoming Data Source Duplicate (Account)</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Accounts_with_Rejected_Duplicate_Log__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

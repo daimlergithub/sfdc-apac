@@ -1,0 +1,39 @@
+Dear Recipient,
+
+The following Inquiry Case is created from Customer Assistance Center and pending for your feedback:
+
+Customer Number: {!Account.ID_Number__c} 
+Customer Type: {!Account.Type}
+Customer Status:  {!Account.Status__c} 
+Customer Name: {!Account.Name} 
+Customer Gender: {!Account.Gender__c} 
+Customer Birth date:{!Account.PersonBirthdate} 
+Customer Age Range: {!Account.Age_Range__c} 
+Customer Preferred Contact Method: {!Account.Preferred_Contact_Method__c} 
+Mobile:{!Account.PersonMobilePhone} 
+Phone: {!Account.PersonHomePhone} 
+Extension Number: {!Account.Extension_Number__c}
+Fax:  {!Account.Fax}
+Email: {!Account.PersonEmail}
+Preferred Language: {!Account.Preferred_Language__c} 
+City: {!Account.City_CN__c}
+Address:  {!Account.Primary_Address__c} Zip Code: {!Account.ZipCode__c} 
+Area Code: {!Account.Area_Code__c} 
+Education: {!Account.Education__c}
+Industry: {!Account.Industry} 
+Occupation: {!Account.Occupation__c} 
+Job: {!Account.Job__c} 
+Company: {!Account.Company_Name__c}
+Department:{!Account.PersonDepartment} 
+Driver License Year: {!Account.Driver_License_Year__c}
+Info Source: {!Account.Info_Source__c} 
+Data Source:{!Account.System_Data_Source__c}
+Dealer: {!Account.Main_Dealer__c}
+Hobby: {!Account.Hobby__c}  
+Case Number: {!Case.CaseNumber}
+Case Type: {!Case.Case_Type__c}
+Case Subtype: {!Case.Case_SubType__c}
+Subject: {!Case.Subject}
+Description: {!Case.Description}
+
+ Customer Assistance Center

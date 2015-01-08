@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>Defect__c.Assigned_To__c</field>
+    </columns>
+    <columns>
+        <field>Defect__c.Priority__c</field>
+    </columns>
+    <columns>
+        <field>Defect__c.Defect_Category__c</field>
+    </columns>
+    <columns>
+        <field>Defect__c.Defect_description__c</field>
+    </columns>
+    <columns>
+        <field>Defect__c.Close_Comment__c</field>
+    </columns>
+    <columns>
+        <field>Defect__c.Status__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Defect__c.Market_Country__c</column>
+            <operator>equals</operator>
+            <value>China</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Defect__c.Testing_Phase__c</column>
+            <operator>contains</operator>
+            <value>UAT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Defect__c.Status__c</column>
+            <operator>equals</operator>
+            <value>Fixed,Deployed,Deployed and Verified,Rejected</value>
+        </criteriaItems>
+        <language>zh_CN</language>
+    </filter>
+    <format>Tabular</format>
+    <name>UAT Defect temp- sean</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$Defect__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Defect__c.Detected_on_Date__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

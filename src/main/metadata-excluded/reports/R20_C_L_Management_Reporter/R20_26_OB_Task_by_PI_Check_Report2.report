@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Activity.R_Has_Activity__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>OB Total</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Activity.R_Successful_OB_Call__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA6</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Successful OB</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>if(Activity.R_Has_Activity__c:SUM&lt;&gt;0,Activity.R_Successful_OB_Call__c:SUM/Activity.R_Has_Activity__c:SUM,0)</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA7</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Successful OB Rate</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Lead__c$Successful_Call_Number__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$EuroVIN__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Campaign_Leads__r.Activities$Activity_Status__c</field>
+    </columns>
+    <description>R20-26 OB Task by PI Check Report</description>
+    <filter>
+        <criteriaItems>
+            <column>Lead__c.Campaign_Leads__r.Activities$Task_RecordType_Name__c</column>
+            <operator>equals</operator>
+            <value>OB Task</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c.Campaign_Leads__r.Activities$CreatedDate</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c.Campaign_Leads__r.Activities$ActivityDate</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c.Campaign_Leads__r.Activities$Activity_Date__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c$Purchase_Time__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Campaign_Leads__r$Campaign__c.CAC_Campaign_Type__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Campaign_Leads__r$Campaign__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>R20-26 OB Task by PI Check Report -Part1</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Leads_with_Campaign_Leads_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

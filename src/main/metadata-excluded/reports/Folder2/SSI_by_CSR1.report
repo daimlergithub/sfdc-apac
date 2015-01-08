@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <buckets>
+        <bucketType>picklist</bucketType>
+        <developerName>BucketField_19282645</developerName>
+        <masterLabel>Activity Status</masterLabel>
+        <nullTreatment>n</nullTreatment>
+        <sourceColumnName>Activity.Activity_Status__c</sourceColumnName>
+        <useOther>false</useOther>
+    </buckets>
+    <description>临时报表</description>
+    <filter>
+        <criteriaItems>
+            <column>RECORDTYPE</column>
+            <operator>equals</operator>
+            <value>Task.SSI_Task</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>CREATED_DATE</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Activity.Activity_Status__c</column>
+            <operator>startsWith</operator>
+            <value>,not started,no answer,need call back,busy,reject,wrong number,no such person,invalid data,reservation,failed to send SMS,failed to send Email,failed to send fax,invalid call,call transfer,Need Verification,Sent,Failed,Open,Returned,Success,Fail-Technical,Fail-Content,Fail-Blacklist,Pending,Click,Subscribe,Unsubscribe,Hard Bounced,Soft Bounced,Requested,Valid,Invalid,Error,Successful,QC Successful,Number Does Not Exist,Unanswered,Fax,Engaged,Phone Shut Down,Insufficient Fund,Number Expired,Out of Service,Voice Mail,Call Limitation,Wrong Number (Not the person&apos;s phone number within the address book),Unauthorized Dealer,Unable to Contact Qualified Interviewee,Interviewed,Language Obstacle,No Purchase,Other Status,Expired,Interview Reservation,Other Status (Transfer to dealer),Rejection During the Probing Question Phase,Rejection During the Main Part of the Interview,Vehicle Sold,Politely Decline,Did Not Fully Participating in Car</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Activity.Activity_Status__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Activity.Dealer_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>SUBJECT</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>SSI by CSR</name>
+    <params>
+        <name>closed</name>
+        <value>all</value>
+    </params>
+    <params>
+        <name>type</name>
+        <value>t</value>
+    </params>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Activity</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>LAST_UPDATE</dateColumn>
+        <interval>INTERVAL_THISMONTH</interval>
+    </timeFrameFilter>
+</Report>

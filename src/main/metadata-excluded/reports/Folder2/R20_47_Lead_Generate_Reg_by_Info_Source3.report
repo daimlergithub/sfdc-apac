@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>if(Lead__c.R_IsLead__c:SUM==0,0,Lead__c.R_Leads_with_PI_6m__c:SUM/Lead__c.R_IsLead__c:SUM)</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Leads PI&lt;=6m %</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Lead__c.R_Generate_Leads_Volume__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Generate Lead</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Lead__c.R_Leads_with_PI_6m__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Leads PI&lt;=6m</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>if(Lead__c.R_IsLead__c:SUM==0,0,Lead__c.R_Generate_Leads_Volume__c:SUM/Lead__c.R_IsLead__c:SUM)</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA4</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Generate Leads %</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <field>Lead__c$Name</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Campaign_Leads__r$Name</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Campaign_Leads__r.Activities$Subject</field>
+    </columns>
+    <description>Campaign Status Weekly Report - Leads Generation &amp; Registration by Info Source
+可以自建报表，需删除</description>
+    <filter>
+        <criteriaItems>
+            <column>Lead__c.Campaign_Leads__r$Campaign__c.Name</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c$Lead_DataSource__c</column>
+            <operator>equals</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c.Campaign_Leads__r$Successful_Call_Number__c</column>
+            <operator>equals</operator>
+            <value>1</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c$Lead_InfoSource__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c$Lead_InfoSourceSub__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>R20-47 Lead Generate&amp;Reg by Info Source</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Leads_w_Campaign_Leads_w_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CURRENT</interval>
+    </timeFrameFilter>
+</Report>

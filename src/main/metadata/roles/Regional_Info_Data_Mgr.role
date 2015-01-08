@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Regional Info Data Manager</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Regional Info Data Mgr</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>BMBS_Regional</parentRole>
+</Role>

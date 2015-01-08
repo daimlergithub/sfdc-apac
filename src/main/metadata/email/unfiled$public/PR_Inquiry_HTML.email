@@ -1,0 +1,40 @@
+尊敬的 CRM Team ：</br>
+</br>
+　　您好！</br>
+</br>
+　　附件是客服中心在{!Case.CreatedDate} ，收集到客户反映危机营销问题的信息，共 1 条，需回复，详细信息如下：</br>
+</br>
+　　　　客户记录类型:{!Account.Type}</br>
+　　　　客户状态:{!Account.Status__c} </br>
+　　　　客户名:{!Account.Name} </br>
+　　　　性别:{!Account.Gender__c} </br>
+　　　　手机:{!Account.PersonMobilePhone} </br>
+　　　　区号:{!Account.Area_Code__c} </br>
+　　　　家庭电话:{!Account.PersonHomePhone} </br>
+　　　　公司电话:{!Account.Phone} </br>
+　　　　公司分机:{!Account.Extension_Number__c} </br>
+　　　　传真:{!Account.Fax} </br>
+　　　　电子邮件:{!Account.PersonEmail} </br>
+　　　　优先语言:{!Account.Preferred_Language__c} </br>
+　　　　省/自治区/直辖市:{!Account.Province__c} </br>
+　　　　城市名（中文）:{!Account.City_CN__c} </br>
+　　　　主地址:{!Account.Primary_Address__c} </br>
+　　　　邮政编码:{!Account.ZipCode__c} </br>
+　　　　信息来源:{!Account.Info_Source__c} </br>
+　　　　系统信息来源:{!Account.System_Data_Source__c} </br>
+　　　　主题:{!Case.Subject} </br>
+　　　　咨询/投诉类型:{!Case.Case_Type__c} </br>
+　　　　个案来源:{!Case.Case_Source__c} </br>
+　　　　车系1:{!Case.CarClassOne__c}</br>
+　　　　车型1:{!Case.CarModelOne__c}</br> 
+　　　　车系2:{!Case.CarClassTwo__c}</br>
+　　　　车型2:{!Case.CarModelTwo__c}</br> 
+　　　　车系3:{!Case.CarClassThree__c}</br>
+　　　　车型3:{!Case.CarModelThree__c}</br> 
+　　　　描述:{!Case.Description} </br>
+</br>
+如有不够详尽之处或疑问，请发送电子邮件至  Hotline.MBCL@bertelsmann.com.cn ，或者致电010-84798888-8853，我们会及时为您解答，非常感谢您配合与支持！</br>
+</br>
+祝您愉快！</br>
+</br>
+梅赛德斯-奔驰中国客服中心

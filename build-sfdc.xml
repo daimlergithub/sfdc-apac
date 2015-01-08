@@ -1,0 +1,96 @@
+<project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" default="deploy">
+
+    <property file="build.properties"/>
+	<property environment="env"/>
+	
+	<target name="init">
+		<mkdir dir="tmp"/>
+	</target>
+	
+	<target name="deploy" depends="init, deploy01, deploy02, deploy10, deploy20"/>
+	
+	<target name="deploy01">
+		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="true" proxyHost="141.77.17.155" proxyPort="8080" deployRoot="src/main/metadata">
+			<sf:typeset name="objects">
+			    <sf:include name="Region_City_Mapping__c"/>
+				<sf:include name="Dealer_City__c"/>
+				<!--sf:include name="Tool_Kit__c"/-->
+				<sf:include name="Model_Mapping__c"/>
+				<sf:include name="Picklist_Mapping__c"/>
+				<sf:include name="Integration_Picklist__c"/>
+				<sf:include name="External_Picklist__c"/>
+				<sf:include name="Social_Media_Account__c"/>
+			</sf:typeset>
+		</sf:deploy>
+    </target>
+	
+	<target name="deploy02">
+		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="true" proxyHost="141.77.17.155" proxyPort="8080" deployRoot="src/main/metadata">
+			<sf:typeset name="objects">
+				<sf:include name="Contact"/>
+			    <sf:include name="Account"/>
+			</sf:typeset>
+		</sf:deploy>
+    </target>
+
+	<target name="deploy10">
+		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="true" proxyHost="141.77.17.155" proxyPort="8080" deployRoot="src/main/metadata">
+			<sf:typeset name="objects">
+			    <sf:include name=".*__c"/>
+				<!-- deploy01 -->
+				<sf:exclude name="Region_City_Mapping__c"/>
+			    <sf:exclude name="Dealer_City__c"/>
+				<!--sf:exclude name="Tool_Kit__c"/-->
+				<sf:exclude name="Model_Mapping__c"/>
+				<sf:exclude name="Picklist_Mapping__c"/>
+				<sf:exclude name="Integration_Picklist__c"/>
+				<sf:exclude name="External_Picklist__c"/>
+				<sf:exclude name="Social_Media_Account__c"/>
+				<!-- data dictionary -->
+		    	<sf:exclude name="SystemObject__c"/>
+				<sf:exclude name="ObjectField__c"/>
+				<!-- PMO -->
+				<sf:exclude name="Round__c"/>
+		    	<sf:exclude name="Change_Request__c"/>
+		    	<sf:exclude name="Defect__c"/>
+				<sf:exclude name="Develop_Task__c"/>
+		    	<sf:exclude name="Interface__c"/>
+		    	<sf:exclude name="Issue__c"/>
+				<sf:exclude name="Iteration__c"/>
+		    	<sf:exclude name="Mapping__c"/>
+	    		<sf:exclude name="PMP__c"/>
+				<sf:exclude name="Release__c"/>
+    			<sf:exclude name="Project_Overview__c"/>
+    			<sf:exclude name="Requirement_User_Story__c"/>
+				<sf:exclude name="Requirement_UserStory__c"/>
+				<sf:exclude name="Resource_Report__c"/>
+				<sf:exclude name="Scenarios__c"/>
+				<sf:exclude name="Status_Report__c"/>
+				<sf:exclude name="Test_Case__c"/>
+				<sf:exclude name="Test_Cases__c"/>
+				<sf:exclude name="Test_Plan__c"/>
+	    		<sf:exclude name="Test_Result__c"/>
+	    		<sf:exclude name="Test_Round__c"/>
+				<sf:exclude name="Test_Run__c"/>
+				<sf:exclude name="Test_Step__c"/>
+				<sf:exclude name="Test_Step_Result__c"/>
+				<sf:exclude name="Test_step1__c"/>
+				<sf:exclude name="Ticket__c"/>
+				<sf:exclude name="Time_sheet__c"/>
+				<sf:exclude name="Time_Sheet_Detail__c"/>
+				<sf:exclude name="Travel_Cost__c"/>
+			</sf:typeset>
+		</sf:deploy>
+    </target>
+	
+	<target name="deploy20">
+		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="true" proxyHost="141.77.17.155" proxyPort="8080" deployRoot="src/main/metadata">
+			<sf:typeset name="objects">
+				<sf:exclude name="Account"/>
+				<sf:exclude name="Contact"/>
+			    <sf:exclude name=".*__c"/>
+			</sf:typeset>
+		</sf:deploy>
+    </target>
+	
+</project>

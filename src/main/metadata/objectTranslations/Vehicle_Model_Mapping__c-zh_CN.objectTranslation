@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>车型对应列表</value>
+    </caseValues>
+    <fields>
+        <label><!-- Brand --></label>
+        <name>Brand__c</name>
+    </fields>
+    <fields>
+        <label><!-- Class --></label>
+        <name>Class__c</name>
+    </fields>
+    <fields>
+        <label><!-- SSI Model --></label>
+        <name>SSI_Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Source Model --></label>
+        <name>Source_Model__c</name>
+    </fields>
+    <fields>
+        <label><!-- Target Model --></label>
+        <name>Target_Model__c</name>
+    </fields>
+    <layouts>
+        <layout>Vehicle Model Mapping Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Vehicle Model Mapping Code</nameFieldLabel>
+</CustomObjectTranslation>

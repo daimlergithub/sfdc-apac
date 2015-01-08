@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>投诉详情 / 解决方案</value>
+    </caseValues>
+    <fields>
+        <label>操作</label>
+        <name>Action__c</name>
+    </fields>
+    <fields>
+        <label>投诉</label>
+        <name>Case__c</name>
+        <relationshipLabel>投诉详情</relationshipLabel>
+    </fields>
+    <fields>
+        <label>操作人</label>
+        <name>Created_By__c</name>
+        <relationshipLabel><!-- Complaint Descriptions / Resolutions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>日期/时间</label>
+        <name>Date_Time__c</name>
+    </fields>
+    <fields>
+        <label>描述</label>
+        <name>Description__c</name>
+    </fields>
+    <layouts>
+        <layout>Complaint Description Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>投诉详情 / 解决方案</nameFieldLabel>
+    <webLinks>
+        <label>查看全部</label>
+        <name>View_All</name>
+    </webLinks>
+</CustomObjectTranslation>

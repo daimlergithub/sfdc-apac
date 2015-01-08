@@ -1,0 +1,10 @@
+Dear{!Contact.LastName}{!Contact.FirstName},
+
+Thank you for contacting customer support.  Your new partner portal password can be found below.
+Please click on this link to login to the Dealer Portal: 
+https://ap1.salesforce.com/secur/login_portal.jsp?orgId=00D90000000iVgl&portalId=06090000000M0aK 
+
+Thank you,
+
+{!User_Name}
+{!Organization.Name} Customer Support

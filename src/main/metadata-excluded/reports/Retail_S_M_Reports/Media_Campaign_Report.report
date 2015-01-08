@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>IF(Retail_Campaign__c.Actual_Lead__c:SUM != 0, Retail_Campaign__c.Actual_Expense__c:SUM / Retail_Campaign__c.Actual_Lead__c:SUM, Retail_Campaign__c.Actual_Expense__c:SUM)</calculatedFormula>
+        <datatype>currency</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>单个潜客成本</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>IF(Retail_Campaign__c.Actual_Order__c:SUM != 0, Retail_Campaign__c.Actual_Expense__c:SUM / Retail_Campaign__c.Actual_Order__c:SUM, Retail_Campaign__c.Actual_Expense__c:SUM)</calculatedFormula>
+        <datatype>currency</datatype>
+        <developerName>FORMULA2</developerName>
+        <isActive>false</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>单个订单成本</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Retail_Campaign__c$Actual_Expense__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Retail_Campaign__c$Feedback_Status__c</column>
+            <operator>equals</operator>
+            <value>Approved</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Retail_Campaign__c$Record_Type_Name__c</column>
+            <operator>equals</operator>
+            <value>S&amp;M Media Retail Campaign</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Summary</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Retail_Campaign__c$Dealer_Region__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Retail_Campaign__c$Dealer_Name__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>线上活动KPI统计</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Monthly_Campaign__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Retail_Campaign__c$Actual_End_Date__c</dateColumn>
+        <interval>INTERVAL_THISMONTH</interval>
+    </timeFrameFilter>
+</Report>

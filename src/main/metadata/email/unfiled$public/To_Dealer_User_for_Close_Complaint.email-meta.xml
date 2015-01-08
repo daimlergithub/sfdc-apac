@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>GB2312</encodingKey>
+    <name>To Dealer User for Close Complaint</name>
+    <style>none</style>
+    <subject>关闭此投诉</subject>
+    <type>text</type>
+</EmailTemplate>

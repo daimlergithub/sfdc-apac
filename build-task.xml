@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Task" basedir="." default="jar">
+
+	<presetdef name="javac">
+		<javac includeantruntime="false" />
+	</presetdef>
+
+    <target name="clean" description="Delete all generated files">
+        <delete dir="classes/task"/>
+        <delete dir="classes/deployer"/>
+        <delete file="lib-task/sfdc-deployment-tasks.jar"/>
+    </target>
+
+    <target name="compile" depends="clean" description="Compiles the Task">
+        <javac srcdir="src/main/java" destdir="classes" includes="task/**,deployer/**" classpath="lib/ant.jar;lib/commons-lang3-3.3.2.jar;lib/enterprise-api.jar;lib/metadata-api.jar;lib/force-wsc-33.0.0-uber.jar;lib/commons-codec-1.10.jar"/>
+    </target>
+
+    <target name="jar" depends="compile" description="JARs the Task">
+        <jar destfile="lib-task/sfdc-deployment-tasks.jar">
+        	<fileset dir="src/main/resources" includes="task/antlib.xml"/>
+        	<fileset dir="classes" includes="task/**"/>
+        	<fileset dir="classes" includes="deployer/**"/>
+        </jar>
+    </target>
+
+</project>

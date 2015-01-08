@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Lead__c.R_Leads_Total__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Total Valid Leads</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>if(Lead__c.R_Leads_Total__c:SUM==0,0,Lead__c.R_IsActiveLead__c:SUM/ Lead__c.R_Leads_Total__c:SUM)</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Active Leads %</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>if(Lead__c.R_CallSuccessful__c:SUM=0,0,Lead__c.R_ConvertedLeads__c:SUM/Lead__c.R_CallSuccessful__c:SUM)</calculatedFormula>
+        <datatype>percent</datatype>
+        <developerName>FORMULA4</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Conversion Rate</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Lead__c$R_IsLostLead__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Lead__c$R_IsActiveLead__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Lead__c$R_ConvertedLeads__c</field>
+    </columns>
+    <columns>
+        <aggregateTypes>Sum</aggregateTypes>
+        <field>Lead__c$R_CallSuccessful__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$Name</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Campaign_Leads__r$Name</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Campaign_Leads__r$Successful_Call_Number__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c.Campaign_Leads__r.Activities$Subject</field>
+    </columns>
+    <description>autoshow conversion report
+可以自建报表，需删除</description>
+    <filter>
+        <criteriaItems>
+            <column>Lead__c.Campaign_Leads__r$Campaign__c</column>
+            <operator>equals</operator>
+            <value>2013 Shanghai_Autoshow-A_</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Campaign_Leads__r$Campaign__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>R20-36 Conversion Result by Campaign</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Leads_with_Campaign_Leads_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead__c$Proxy_Date_Time__c</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

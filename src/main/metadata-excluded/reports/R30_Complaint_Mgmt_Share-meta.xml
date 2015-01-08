@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>R30 Complaint Mgmt Share</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <role>AS_Service_Technical_Director</role>
+        <role>PL_WL_Team</role>
+        <role>Regional_CRM_Mgr_E</role>
+        <role>Regional_CRM_Mgr_N</role>
+        <role>Regional_CRM_Mgr_S</role>
+        <role>Regional_CRM_Mgr_W</role>
+        <role>Service_Technical_Manager_E</role>
+        <role>Service_Technical_Manager_N</role>
+        <role>Service_Technical_Manager_S</role>
+        <role>Service_Technical_Manager_W</role>
+    </sharedTo>
+</ReportFolder>

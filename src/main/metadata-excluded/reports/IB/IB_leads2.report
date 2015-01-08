@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Lead__c$Name</field>
+    </columns>
+    <columns>
+        <field>Lead__c$R_Lead18ID__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$CAC_Lead_Status__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$Interested_Vehicle_Brand__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$Interested_Vehicle_Class__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$Interested_Vehicle_Model__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$Purchase_Time__c</field>
+    </columns>
+    <columns>
+        <field>Lead__c$CreatedDate</field>
+    </columns>
+    <filter>
+        <booleanFilter>(1 OR 3) AND 2</booleanFilter>
+        <criteriaItems>
+            <column>Lead__c$CreatedBy</column>
+            <operator>equals</operator>
+            <value>李 春淼,孙 颖,李 树杰,杨 晓冬,刘 迪,张 婷婷,赵 习永,杨 丽蓉,赵 妍,于 兴,黄 晓妍,顾 瑶,陈 伊骏,闫 玉岭,王 燕芬,刘 红,荆 晶</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c$RecordType</column>
+            <operator>equals</operator>
+            <value>Lead__c.Sales_Leads</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Lead__c$CreatedBy</column>
+            <operator>equals</operator>
+            <value>徐 美玲,邵 梅,许 亮,赵 越,苏 艳飞,李 红,王 美静,王 丹丹,何 高飞,江 冯,王 海,杨 树,张 宁,罗 成,贾 娜</value>
+        </criteriaItems>
+        <language>zh_CN</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c$RecordType</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c$CreatedBy</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>IB 创建leads 统计</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Leads__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead__c$CreatedDate</dateColumn>
+        <endDate>2014-02-06</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2014-01-31</startDate>
+    </timeFrameFilter>
+</Report>

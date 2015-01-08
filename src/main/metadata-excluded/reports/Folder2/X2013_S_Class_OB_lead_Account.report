@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account$Name</field>
+    </columns>
+    <columns>
+        <field>Account$Gender__c</field>
+    </columns>
+    <columns>
+        <field>Account$PersonContact.MobilePhone</field>
+    </columns>
+    <columns>
+        <field>Account.Lead_Contact__r$Name</field>
+    </columns>
+    <columns>
+        <field>Account.Lead_Contact__r$Lead_DataSource__c</field>
+    </columns>
+    <columns>
+        <field>Account.Lead_Contact__r$Lead_DataSubSource__c</field>
+    </columns>
+    <columns>
+        <field>Account.Lead_Contact__r$Collectioner_Notes__c</field>
+    </columns>
+    <columns>
+        <field>Account.Lead_Contact__r$Interested_Vehicle_Brand__c</field>
+    </columns>
+    <columns>
+        <field>Account.Lead_Contact__r$Interested_Vehicle_Class__c</field>
+    </columns>
+    <columns>
+        <field>Account.Lead_Contact__r$Interested_Vehicle_Model__c</field>
+    </columns>
+    <columns>
+        <field>Account.Lead_Contact__r$Purchase_Time__c</field>
+    </columns>
+    <columns>
+        <field>Account.Lead_Contact__r$Lead_Desired_Service__c</field>
+    </columns>
+    <columns>
+        <field>Account.Lead_Contact__r$Assigned_Dealer__c</field>
+    </columns>
+    <description>可以自建报表，需删除</description>
+    <filter>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
+        <criteriaItems>
+            <column>Account.Lead_Contact__r.Campaign_Leads__r$Campaign__c</column>
+            <operator>equals</operator>
+            <value>2013 全新S-Class车辆销售线索核实 - OB</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Lead_Contact__r.Campaign_Leads__r$Campaign__c</column>
+            <operator>equals</operator>
+            <value>2013 全新S-Class车辆上市</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Lead_Contact__r$Lead_DataSource__c</column>
+            <operator>notEqual</operator>
+            <value>IB Call</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>2013 全新S-Class车辆销售线索核实 - OB产生的lead和客户</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>account_with_lead_and_campaign_lead__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <sortColumn>Account$PersonContact.MobilePhone</sortColumn>
+    <sortOrder>Asc</sortOrder>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

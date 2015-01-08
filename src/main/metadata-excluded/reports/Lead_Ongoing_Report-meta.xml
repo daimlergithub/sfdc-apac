@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>Lead Ongoing(followUP) Report</name>
+    <publicFolderAccess>ReadWrite</publicFolderAccess>
+    <sharedTo>
+        <role>Campaign_Specialist</role>
+        <role>Data_Service_Manager</role>
+        <role>Data_Service_Specialist</role>
+        <role>IB_CSR</role>
+        <role>IB_Supervisor</role>
+        <role>IB_TL</role>
+        <role>IT_Manager</role>
+        <role>OB_CSR</role>
+        <role>OB_Supervisor</role>
+        <role>OB_TL</role>
+    </sharedTo>
+</ReportFolder>

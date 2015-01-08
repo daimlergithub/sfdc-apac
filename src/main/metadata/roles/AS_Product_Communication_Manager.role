@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>AS Product Communication Manager</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>AS Product Communication Manager</name>
+    <opportunityAccessLevel>None</opportunityAccessLevel>
+    <parentRole>AS_Marketing_Director</parentRole>
+</Role>

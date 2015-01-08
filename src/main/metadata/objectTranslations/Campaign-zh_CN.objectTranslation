@@ -1,0 +1,1696 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <label>线上/线下</label>
+        <name>ATL_BTL__c</name>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation>活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Media</masterLabel>
+            <translation>媒体</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>大区总费用</label>
+        <name>Actual_Region_Expense__c</name>
+    </fields>
+    <fields>
+        <label>审批到期日</label>
+        <name>Approval_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Auto Number --></label>
+        <name>Auto_Number__c</name>
+    </fields>
+    <fields>
+        <label>资格结束日期</label>
+        <name>BP_End_Date__c</name>
+    </fields>
+    <fields>
+        <label>季度数</label>
+        <name>BP_Quarter__c</name>
+    </fields>
+    <fields>
+        <label>资格开始日期</label>
+        <name>BP_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label>状态</label>
+        <name>BP_Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation>已激活</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation>已关闭</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>批次间隔天数</label>
+        <name>Batch_Interval_Days__c</name>
+    </fields>
+    <fields>
+        <label>批次数量</label>
+        <name>Batch_Size__c</name>
+    </fields>
+    <fields>
+        <label>品牌</label>
+        <name>Brand__c</name>
+        <picklistValues>
+            <masterLabel>AMG</masterLabel>
+            <translation>AMG</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB</masterLabel>
+            <translation>奔驰轿车</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>StarElite</masterLabel>
+            <translation>StarElite</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart</masterLabel>
+            <translation>smart</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>是否按感兴趣车型生成任务</label>
+        <name>By_Lead_Interested_Vehicle_Class__c</name>
+    </fields>
+    <fields>
+        <label>CAC 活动查重标准</label>
+        <name>CAC_Campaign_Task_De_dup_by__c</name>
+    </fields>
+    <fields>
+        <label>CAC 活动类型</label>
+        <name>CAC_Campaign_Type__c</name>
+        <picklistValues>
+            <masterLabel>Ad-hoc</masterLabel>
+            <translation>随机</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auto Show</masterLabel>
+            <translation>车展</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Competitions and Sales</masterLabel>
+            <translation>销售推广活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finance</masterLabel>
+            <translation>金融</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Interview</masterLabel>
+            <translation>调研</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loyalty Program</masterLabel>
+            <translation>忠诚计划</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Car Launch</masterLabel>
+            <translation>新车上市</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ongoing</masterLabel>
+            <translation>不间断</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Product Issue</masterLabel>
+            <translation>产品问题</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recall</masterLabel>
+            <translation>召回</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>CAC 活动种类</label>
+        <name>CAC_Frequency_Category__c</name>
+        <picklistValues>
+            <masterLabel>Ad Hoc</masterLabel>
+            <translation>随机</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regular-Continuous</masterLabel>
+            <translation>连续的</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regular-Periodic</masterLabel>
+            <translation>定期的</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>CAC 来源ID</label>
+        <name>CAC_SourceId__c</name>
+    </fields>
+    <fields>
+        <label>产地</label>
+        <name>CBU_PbP__c</name>
+        <picklistValues>
+            <masterLabel>CBU</masterLabel>
+            <translation><!-- CBU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CBU&amp;PbP</masterLabel>
+            <translation><!-- CBU&amp;PbP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PbP</masterLabel>
+            <translation><!-- PbP --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>活动渠道</label>
+        <name>Campaign_Channels__c</name>
+        <picklistValues>
+            <masterLabel>Call</masterLabel>
+            <translation>电话</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation>电子邮件</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mail</masterLabel>
+            <translation>直邮</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMS</masterLabel>
+            <translation>短信</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social Media</masterLabel>
+            <translation>社会化媒体</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Website</masterLabel>
+            <translation>网站</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>活动代码</label>
+        <name>Campaign_Code__c</name>
+    </fields>
+    <fields>
+        <label>活动形式</label>
+        <name>Campaign_Format__c</name>
+        <picklistValues>
+            <masterLabel>Autoshow</masterLabel>
+            <translation>车展</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DM</masterLabel>
+            <translation>直邮</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Visit</masterLabel>
+            <translation>拜访经销商</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Event</masterLabel>
+            <translation>活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online</masterLabel>
+            <translation>在线</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom Visit</masterLabel>
+            <translation>展厅参观</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Drive</masterLabel>
+            <translation>试驾</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>活动目标</label>
+        <name>Campaign_Objectives__c</name>
+    </fields>
+    <fields>
+        <label>活动邀请类型</label>
+        <name>Campaign_Offer_Type__c</name>
+        <picklistValues>
+            <masterLabel>Event Participation</masterLabel>
+            <translation>活动参与</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incentive</masterLabel>
+            <translation>奖励</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Drive</masterLabel>
+            <translation>试驾</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>活动合作伙伴</label>
+        <name>Campaign_Partner__c</name>
+        <relationshipLabel>市场活动</relationshipLabel>
+    </fields>
+    <fields>
+        <label>活动响应渠道</label>
+        <name>Campaign_Response_Channels__c</name>
+        <picklistValues>
+            <masterLabel>Call</masterLabel>
+            <translation>电话</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Email</masterLabel>
+            <translation>电子邮件</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Online Registration</masterLabel>
+            <translation>在线注册</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMS</masterLabel>
+            <translation>短信</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Social Media</masterLabel>
+            <translation>社会化媒体</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Visit Dealer</masterLabel>
+            <translation>拜访经销商</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>活动类型</label>
+        <name>Campaign_Type__c</name>
+        <picklistValues>
+            <masterLabel>Familiarization workshop for dormant customers</masterLabel>
+            <translation>出保爱车讲堂</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Familiarization workshop for new vehicle owners</masterLabel>
+            <translation>首保爱车讲堂</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Idle Hour Promotion</masterLabel>
+            <translation>离峰工时促销</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Insurance Promotion</masterLabel>
+            <translation>保险促销</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maintenance Promotion</masterLabel>
+            <translation>保养促销</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing Survey</masterLabel>
+            <translation>市场调研</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Customer Acquisition</masterLabel>
+            <translation>主动招揽客户活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>POM/Advertisement</masterLabel>
+            <translation>广告宣传/宣传物料</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Parts Cross Promotion</masterLabel>
+            <translation>配件交叉促销</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Promotion on Technical accessories and collections</masterLabel>
+            <translation>选装配件及精品促销</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Service Product Promotion</masterLabel>
+            <translation>服务产品促销</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Used-car buy-back/Trade-in</masterLabel>
+            <translation>二手车评估回购/新车金融置换</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VEP(Seasonal Check)</masterLabel>
+            <translation>车辆季节性免费检测</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>活动推广车系</label>
+        <name>Car_Model__c</name>
+        <picklistValues>
+            <masterLabel>A-CLASS</masterLabel>
+            <translation><!-- A-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B-CLASS</masterLabel>
+            <translation><!-- B-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C-CLASS</masterLabel>
+            <translation><!-- C-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C-Class Estate</masterLabel>
+            <translation><!-- C-Class Estate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C-Coupe</masterLabel>
+            <translation><!-- C-Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C55 AMG</masterLabel>
+            <translation><!-- C55 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C63 AMG</masterLabel>
+            <translation><!-- C63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CL-CLASS</masterLabel>
+            <translation><!-- CL-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA-Class</masterLabel>
+            <translation><!-- CLA-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLK-CLASS</masterLabel>
+            <translation><!-- CLK-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLS-CLASS</masterLabel>
+            <translation><!-- CLS-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLS63 AMG</masterLabel>
+            <translation><!-- CLS63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Concept Car</masterLabel>
+            <translation><!-- Concept Car --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E Coupe Sport</masterLabel>
+            <translation><!-- E Coupe Sport --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-CLASS</masterLabel>
+            <translation><!-- E-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class Cabriolet</masterLabel>
+            <translation><!-- E-Class Cabriolet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class Coupe</masterLabel>
+            <translation><!-- E-Class Coupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class Sport Sedan</masterLabel>
+            <translation><!-- E-Class Sport Sedan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E55 AMG</masterLabel>
+            <translation><!-- E55 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E63 AMG</masterLabel>
+            <translation><!-- E63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G-CLASS</masterLabel>
+            <translation><!-- G-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G55 AMG</masterLabel>
+            <translation><!-- G55 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G63 AMG</masterLabel>
+            <translation><!-- G63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G65 AMG</masterLabel>
+            <translation><!-- G65 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL 63 AMG</masterLabel>
+            <translation><!-- GL 63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL-CLASS</masterLabel>
+            <translation><!-- GL-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLA 45 AMG</masterLabel>
+            <translation><!-- GLA 45 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLA-Class</masterLabel>
+            <translation><!-- GLA-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLK-CLASS</masterLabel>
+            <translation><!-- GLK-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GenericModel</masterLabel>
+            <translation><!-- GenericModel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML 55 AMG</masterLabel>
+            <translation><!-- ML 55 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML-CLASS</masterLabel>
+            <translation><!-- ML-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML63 AMG</masterLabel>
+            <translation><!-- ML63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R-CLASS</masterLabel>
+            <translation><!-- R-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S 63 AMG</masterLabel>
+            <translation><!-- S 63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S 63 L AMG</masterLabel>
+            <translation><!-- S 63 L AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S-CLASS</masterLabel>
+            <translation><!-- S-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S55 AMG</masterLabel>
+            <translation><!-- S55 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S65 AMG</masterLabel>
+            <translation><!-- S65 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SL-CLASS</masterLabel>
+            <translation><!-- SL-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SL55 AMG</masterLabel>
+            <translation><!-- SL55 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SL63 AMG</masterLabel>
+            <translation><!-- SL63 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLK-CLASS</masterLabel>
+            <translation><!-- SLK-CLASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLK55 AMG</masterLabel>
+            <translation><!-- SLK55 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLS AMG</masterLabel>
+            <translation><!-- SLS AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TRUCKS</masterLabel>
+            <translation><!-- TRUCKS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart</masterLabel>
+            <translation><!-- smart --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>车系</label>
+        <name>Class__c</name>
+        <picklistValues>
+            <masterLabel>A-Class</masterLabel>
+            <translation><!-- A-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AMG</masterLabel>
+            <translation><!-- AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>B-Class</masterLabel>
+            <translation><!-- B-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>C-Class</masterLabel>
+            <translation><!-- C-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CL-Class</masterLabel>
+            <translation><!-- CL-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLA-Class</masterLabel>
+            <translation><!-- CLA-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLK-Class</masterLabel>
+            <translation><!-- CLK-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLS-Class</masterLabel>
+            <translation><!-- CLS-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E-Class</masterLabel>
+            <translation><!-- E-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>G-Class</masterLabel>
+            <translation><!-- G-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GL-Class</masterLabel>
+            <translation><!-- GL-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLA 45 AMG</masterLabel>
+            <translation><!-- GLA 45 AMG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLA-Class</masterLabel>
+            <translation><!-- GLA-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLK-Class</masterLabel>
+            <translation><!-- GLK-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ML-Class</masterLabel>
+            <translation><!-- ML-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R-Class</masterLabel>
+            <translation><!-- R-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S-Class</masterLabel>
+            <translation><!-- S-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SL-Class</masterLabel>
+            <translation><!-- SL-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SLK-Class</masterLabel>
+            <translation><!-- SLK-Class --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>smart</masterLabel>
+            <translation><!-- smart --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Date for the campaign close to dealer. --></help>
+        <label>关闭时间</label>
+        <name>Closed_Date__c</name>
+    </fields>
+    <fields>
+        <label>内容预览</label>
+        <name>Content_Preview__c</name>
+    </fields>
+    <fields>
+        <label>是否生成任务</label>
+        <name>Create_Task__c</name>
+    </fields>
+    <fields>
+        <label>是否生成唯一码</label>
+        <name>Create_Unique_Code__c</name>
+    </fields>
+    <fields>
+        <label>直邮材料</label>
+        <name>DM_Material__c</name>
+        <relationshipLabel>市场活动</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- System sum up from Retail Campaign. --></help>
+        <label>经销商预算</label>
+        <name>Dealer_Budget__c</name>
+    </fields>
+    <fields>
+        <label>活动级别</label>
+        <name>Driven__c</name>
+        <picklistValues>
+            <masterLabel>Campaign Organized by BMBS</masterLabel>
+            <translation>厂家活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Campaign Organized by Dealer</masterLabel>
+            <translation>自主活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Extended Activities from BMBS’s Campaign</masterLabel>
+            <translation>厂家活动配套活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Local Campaign on Festivals</masterLabel>
+            <translation>本地节日活动</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>活动类型</label>
+        <name>Event_Type__c</name>
+        <picklistValues>
+            <masterLabel>Auto Show</masterLabel>
+            <translation>地方车展</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charity</masterLabel>
+            <translation>赞助/慈善</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Festival</masterLabel>
+            <translation>事件/节日营销</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Joint Event</masterLabel>
+            <translation>联合品牌活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Car Launch</masterLabel>
+            <translation>新车上市发布</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Showroom</masterLabel>
+            <translation>新店开业</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prints relevant</masterLabel>
+            <translation>制作物相关</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Road Show</masterLabel>
+            <translation>外展/路演</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Showroom Event</masterLabel>
+            <translation>展厅活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sports Marketing</masterLabel>
+            <translation>体育营销活动</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Test Drive</masterLabel>
+            <translation>试乘试驾</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>活动执行类型</label>
+        <name>Execution_Type__c</name>
+        <picklistValues>
+            <masterLabel>DM</masterLabel>
+            <translation>直邮</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MMS</masterLabel>
+            <translation>彩信</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OB Call</masterLabel>
+            <translation>电话呼出</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SMS</masterLabel>
+            <translation>短信</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Segmentation Only</masterLabel>
+            <translation>只细分</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>eDM</masterLabel>
+            <translation>电子邮件</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>预期销售线索百分比（%）</label>
+        <name>Expected_Lead__c</name>
+    </fields>
+    <fields>
+        <label>预期参与百分比（%）</label>
+        <name>Expected_Participation__c</name>
+    </fields>
+    <fields>
+        <label>预期注册百分比（%）</label>
+        <name>Expected_Registration__c</name>
+    </fields>
+    <fields>
+        <label>问卷URL</label>
+        <name>Flow_URL__c</name>
+    </fields>
+    <fields>
+        <label>索引</label>
+        <name>Index__c</name>
+    </fields>
+    <fields>
+        <label>执行前的间隔天数</label>
+        <name>Interval_Before_Execution_Days__c</name>
+    </fields>
+    <fields>
+        <label>执行前的间隔小时数</label>
+        <name>Interval_Before_Execution_Hours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Is Parent Campaign Active --></label>
+        <name>Is_Parent_Campaign_Active__c</name>
+    </fields>
+    <fields>
+        <label>最高目标车龄</label>
+        <name>Max_Car_Age__c</name>
+    </fields>
+    <fields>
+        <label>媒体类型</label>
+        <name>Media_Type__c</name>
+        <picklistValues>
+            <masterLabel>Broadcast</masterLabel>
+            <translation>广播</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Digital</masterLabel>
+            <translation>数字媒体</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Magazine</masterLabel>
+            <translation>杂志</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobile</masterLabel>
+            <translation>手机</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Newspaper</masterLabel>
+            <translation>报纸</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OOH</masterLabel>
+            <translation>户外</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TV</masterLabel>
+            <translation>电视</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>最低目标车龄</label>
+        <name>Min_Car_Age__c</name>
+    </fields>
+    <fields>
+        <label>OB 短信模板</label>
+        <name>OBSMSTemplate__c</name>
+        <relationshipLabel><!-- Campaigns (OB) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>其他活动类型</label>
+        <name>Other_Event_Type__c</name>
+    </fields>
+    <fields>
+        <label>其他媒体类型</label>
+        <name>Other_Media_Type__c</name>
+    </fields>
+    <fields>
+        <label>参与的区域-省</label>
+        <name>Participating_Region_Province__c</name>
+        <picklistValues>
+            <masterLabel>All</masterLabel>
+            <translation>所有</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E	Anhui</masterLabel>
+            <translation>E 安徽</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E	Jiangsu</masterLabel>
+            <translation>E 江苏</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E	Jiangxi</masterLabel>
+            <translation>E 江西</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E	Shanghai</masterLabel>
+            <translation>E 上海</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E All</masterLabel>
+            <translation>E 所有</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E Fujian</masterLabel>
+            <translation>E 福建</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>E Zhejiang</masterLabel>
+            <translation>E 浙江</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N	Beijing</masterLabel>
+            <translation>N 北京</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N	Hebei</masterLabel>
+            <translation>N 河北</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N	Heilongjiang</masterLabel>
+            <translation>N 黑龙江</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N	Henan</masterLabel>
+            <translation>N 河南</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N	Inner Mongolia</masterLabel>
+            <translation>N 内蒙古</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N	Jilin</masterLabel>
+            <translation>N 吉林</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N	Liaoning</masterLabel>
+            <translation>N 辽宁</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N	Shandong</masterLabel>
+            <translation>N 山东</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N	Shanxi</masterLabel>
+            <translation>N 山西</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N	Tianjin</masterLabel>
+            <translation>N 天津</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N All</masterLabel>
+            <translation>N 所有</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S	Guangdong</masterLabel>
+            <translation>S 广东</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S	Guangxi</masterLabel>
+            <translation>S 广西</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S	Guizhou</masterLabel>
+            <translation>S 贵州</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S	Hainan</masterLabel>
+            <translation>S 海南</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S	Hubei</masterLabel>
+            <translation>S 湖北</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S	Hunan</masterLabel>
+            <translation>S 湖南</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S All</masterLabel>
+            <translation>S 所有</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W	Chongqing</masterLabel>
+            <translation>S 重庆</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W	Gansu</masterLabel>
+            <translation>N 甘肃</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W	Ningxia</masterLabel>
+            <translation>N 宁夏</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W	Qinghai</masterLabel>
+            <translation>N 青海</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W	Shaanxi</masterLabel>
+            <translation>N 陕西</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W	Sichuan</masterLabel>
+            <translation>S 四川</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W	Tibet</masterLabel>
+            <translation>N 西藏</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W	Xinjiang</masterLabel>
+            <translation>N 新疆</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W	Yunnan</masterLabel>
+            <translation>S 云南</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>W All</masterLabel>
+            <translation>W 所有</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>计划结束时间</label>
+        <name>Plan_End_Date__c</name>
+    </fields>
+    <fields>
+        <label>计划开始时间</label>
+        <name>Plan_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label>上一次活动执行</label>
+        <name>Previous_Campaign_Execution__c</name>
+        <relationshipLabel>下一次活动执行</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Date for the campaign publish to dealer. --></help>
+        <label>发布时间</label>
+        <name>Publish_Date_del__c</name>
+    </fields>
+    <fields>
+        <label>主要活动目的</label>
+        <name>Purpose__c</name>
+        <picklistValues>
+            <masterLabel>Acquisition</masterLabel>
+            <translation>主动集客</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Brand Enhancement</masterLabel>
+            <translation>品牌提升</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Increase Sales</masterLabel>
+            <translation>销售促进</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loyalty</masterLabel>
+            <translation>客户忠诚度</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>问卷调查</label>
+        <name>Questionnaire__c</name>
+        <relationshipLabel>活动执行</relationshipLabel>
+    </fields>
+    <fields>
+        <label>是否已准备好执行</label>
+        <name>Ready_to_Execute__c</name>
+    </fields>
+    <fields>
+        <label>刷新活动成员</label>
+        <name>Refresh_Campaign_Members__c</name>
+    </fields>
+    <fields>
+        <label>区域最佳活动量</label>
+        <name>Region_Best_Number__c</name>
+    </fields>
+    <fields>
+        <label>大区总预算</label>
+        <name>Region_Budget__c</name>
+    </fields>
+    <fields>
+        <label>推荐结束日期</label>
+        <name>Region_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label>区域推荐活动量</label>
+        <name>Region_Recommend_Number__c</name>
+    </fields>
+    <fields>
+        <label>大区</label>
+        <name>Region__c</name>
+        <picklistValues>
+            <masterLabel>Eastern</masterLabel>
+            <translation>东区</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Northern</masterLabel>
+            <translation>北区</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Southern</masterLabel>
+            <translation>南区</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Western</masterLabel>
+            <translation>西区</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>结束时间</label>
+        <name>Repeat_End__c</name>
+    </fields>
+    <fields>
+        <label>重复频率</label>
+        <name>Repeat_Frequency__c</name>
+        <picklistValues>
+            <masterLabel>Bi-Weekly</masterLabel>
+            <translation>双周</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daily</masterLabel>
+            <translation>每天</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Monthly</masterLabel>
+            <translation>每月</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Quarterly</masterLabel>
+            <translation>每季度</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Weekly</masterLabel>
+            <translation>每周</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yearly</masterLabel>
+            <translation>每年</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>开始时间</label>
+        <name>Repeat_From__c</name>
+    </fields>
+    <fields>
+        <label>是否为重复活动</label>
+        <name>Repeated_Campaign__c</name>
+    </fields>
+    <fields>
+        <label>资源渠道</label>
+        <name>Resource_Channels__c</name>
+        <picklistValues>
+            <masterLabel>3rd Party Database</masterLabel>
+            <translation>第三方数据库</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dealer Database</masterLabel>
+            <translation>经销商数据库</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MB Database</masterLabel>
+            <translation>奔驰数据库</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>报名结束日期</label>
+        <name>Retail_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label>报名开始日期</label>
+        <name>Retail_Start_Date__c</name>
+    </fields>
+    <fields>
+        <label>短信任务审核</label>
+        <name>SMS_Task_Verified__c</name>
+    </fields>
+    <fields>
+        <label>SQL 语句</label>
+        <name>SQL_Statement__c</name>
+    </fields>
+    <fields>
+        <label>范围/量</label>
+        <name>Scale_Volume__c</name>
+    </fields>
+    <fields>
+        <label>细分报告ID</label>
+        <name>Segmentation_Report_ID__c</name>
+    </fields>
+    <fields>
+        <name>Status</name>
+        <picklistValues>
+            <masterLabel>Approved</masterLabel>
+            <translation>审批通过</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cancelled</masterLabel>
+            <translation>取消</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Closed</masterLabel>
+            <translation>关闭</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Confirmed</masterLabel>
+            <translation>确认</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Planned</masterLabel>
+            <translation>计划</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Published</masterLabel>
+            <translation>已发布</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Started</masterLabel>
+            <translation>已开始</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>提交到期日</label>
+        <name>Submission_Due_Date__c</name>
+    </fields>
+    <fields>
+        <label>生成任务类型</label>
+        <name>Task_Created_By__c</name>
+        <picklistValues>
+            <masterLabel>Case</masterLabel>
+            <translation>个案</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contact</masterLabel>
+            <translation>联系人</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead</masterLabel>
+            <translation>销售线索</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation>无</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vehicle</masterLabel>
+            <translation>车辆</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>任务去重范围</label>
+        <name>Task_De_dup_Range__c</name>
+        <picklistValues>
+            <masterLabel>By CAC Campaign</masterLabel>
+            <translation>按CAC活动查重</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>By Campaign Execution</masterLabel>
+            <translation>按自活动执行查重</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation>不查重</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- De-dup within same type of campaign execution --></help>
+        <label>任务去重类型</label>
+        <name>Task_De_dup_by__c</name>
+        <picklistValues>
+            <masterLabel>Account</masterLabel>
+            <translation>客户</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lead</masterLabel>
+            <translation>销售线索</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>None</masterLabel>
+            <translation>无</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>模板名称</label>
+        <name>Template_Name__c</name>
+    </fields>
+    <fields>
+        <help><!-- Select Callscript, eDM name,  SMS or MMS template based on the Execution Type --></help>
+        <label>SMS/eDM 模板</label>
+        <name>Template__c</name>
+        <relationshipLabel>活动执行</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Region Budget + Dealer Budget --></help>
+        <label>预算汇总</label>
+        <name>Total_Budget__c</name>
+    </fields>
+    <fields>
+        <name>Type</name>
+        <picklistValues>
+            <masterLabel>CRM Acquisition Program</masterLabel>
+            <translation>CRM获得流程</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CRM Loyalty Program</masterLabel>
+            <translation>CRM忠诚流程</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation>其他</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Updated By EP Transactions --></label>
+        <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <layouts>
+        <layout>CAC CRM Campaign Layout</layout>
+        <sections>
+            <label>预期结果</label>
+            <section>Expected Outcome</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CAC Campaign Layout</layout>
+        <sections>
+            <label>查重详细信息</label>
+            <section>De-dup Details</section>
+        </sections>
+        <sections>
+            <label>计划详细信息</label>
+            <section>Scheduling Details</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Campaign Execution Complex layout</layout>
+        <sections>
+            <label>自定义链接</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>批次处理</label>
+            <section>Execution Batch</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label>与上次执行的间隔</label>
+            <section>Interval Before This Execution</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label>SQL语句</label>
+            <section>SQL Statement</section>
+        </sections>
+        <sections>
+            <label>市场活动细分设置</label>
+            <section>Segmentation Settings</section>
+        </sections>
+        <sections>
+            <label>模板</label>
+            <section>Template</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Campaign Execution Complex layout-Activate/Suspend SMS Batch</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Execution Batch --></label>
+            <section>Execution Batch</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Interval Before This Execution --></label>
+            <section>Interval Before This Execution</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- SQL Statement --></label>
+            <section>SQL Statement</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation Settings --></label>
+            <section>Segmentation Settings</section>
+        </sections>
+        <sections>
+            <label><!-- Template --></label>
+            <section>Template</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Campaign Execution Simple layout</layout>
+        <sections>
+            <label>自定义链接</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label>与上次执行的间隔</label>
+            <section>Interval Before This Execution</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label>市场活动细分设置</label>
+            <section>Segmentation Settings</section>
+        </sections>
+        <sections>
+            <label>模板</label>
+            <section>Template</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Campaign Execution Simple layout-Activate/Suspend SMS Batch</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Interval Before This Execution --></label>
+            <section>Interval Before This Execution</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation Settings --></label>
+            <section>Segmentation Settings</section>
+        </sections>
+        <sections>
+            <label><!-- Template --></label>
+            <section>Template</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Campaign Execution layout</layout>
+        <sections>
+            <label>自定义链接</label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label>批次处理</label>
+            <section>Execution Batch</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label>与上次执行的间隔</label>
+            <section>Interval Before This Execution</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label>市场活动细分设置</label>
+            <section>Segmentation Settings</section>
+        </sections>
+        <sections>
+            <label>模板</label>
+            <section>Template</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Campaign Execution layout-Activate/Suspend SMS Batch</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Execution Batch --></label>
+            <section>Execution Batch</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+        <sections>
+            <label><!-- Interval Before This Execution --></label>
+            <section>Interval Before This Execution</section>
+        </sections>
+        <sections>
+            <label><!-- New Section --></label>
+            <section>New Section</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation Settings --></label>
+            <section>Segmentation Settings</section>
+        </sections>
+        <sections>
+            <label><!-- Template --></label>
+            <section>Template</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Central Campaign Layout</layout>
+        <sections>
+            <label>预期结果</label>
+            <section>Expected Outcome</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>MB BP</layout>
+        <sections>
+            <label><!-- BP Date --></label>
+            <section>BP Date</section>
+        </sections>
+        <sections>
+            <label><!-- BP Number --></label>
+            <section>BP Number</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>S&amp;M Event BMBS Campaign</layout>
+        <sections>
+            <label>预算信息</label>
+            <section>Financial Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>S&amp;M Media BMBS Campaign</layout>
+        <sections>
+            <label>预算信息</label>
+            <section>Financial Information</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>smart BP</layout>
+        <sections>
+            <label><!-- BP Date --></label>
+            <section>BP Date</section>
+        </sections>
+        <sections>
+            <label><!-- BP Number --></label>
+            <section>BP Number</section>
+        </sections>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Fields --></label>
+            <section>Fields</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- AS BMBS Campaign --></label>
+        <name>AS_BMBS_Campaign</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CAC CRM Campaign --></label>
+        <name>CAC_CRM_Campaign</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CAC Campaign --></label>
+        <name>CAC_Campaign</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CAS Marketing Campaign --></label>
+        <name>CAS_Marketing_Campaign</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Campaign Execution - Simple --></label>
+        <name>Campaign_Execution</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Campaign Execution - Complex --></label>
+        <name>Campaign_Execution_Complex</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Central Marketing Campaign --></label>
+        <name>Central_Marketing_Campaign</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- MB Best Practice --></label>
+        <name>MB_Best_Practice</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- S&amp;M Event BMBS Campaign --></label>
+        <name>S_M_Event_BMBS_Campaign</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- S&amp;M Media BMBS Campaign --></label>
+        <name>S_M_Media_BMBS_Campaign</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- smart Best Practice --></label>
+        <name>smart_Best_Practice</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage>当活动执行类型为直邮时，直邮材料必填！</errorMessage>
+        <name>DM_Material_is_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cann&apos;t change this record when Status is published or closed. --></errorMessage>
+        <name>Locked_for_BMBS_when_Published</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- You cann&apos;t change this record when Status is published. --></errorMessage>
+        <name>Locked_for_MB_BP_when_Published</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- “BP Start Date”, “BP End Date”, “Retail Start Date”, “Retail Due Date”, “Region Due Date”, “Region Best Number” and “Region Recommend Number” are required. --></errorMessage>
+        <name>MB_BP_fields_are_required_when_Publish</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>只有市场活动状态等于开始时，此市场活动才能启用！</errorMessage>
+        <name>Only_Started_Campaign_can_be_activated</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>只能选择相同CAC活动下的活动执行！</errorMessage>
+        <name>Previous_Campaign_Execution_Parent</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>只有活动执行类型为短信时，短信任务审核字段才能勾选！</errorMessage>
+        <name>SMS_Task_Verified_is_True</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>当活动执行类型为短信或电子邮件时，短信/电子邮件模板必填！</errorMessage>
+        <name>SMS_eDM_Template_is_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage>当新建CAC市场活动时，不能勾选启用！</errorMessage>
+        <name>not_check_active_when_new_cac_camapgin</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Create_Batch_Tasks --></label>
+        <name>Create_Batch_Tasks</name>
+    </webLinks>
+    <webLinks>
+        <label>创建CAC活动</label>
+        <name>Create_CAC_Campaign</name>
+    </webLinks>
+    <webLinks>
+        <label>创建复杂的活动执行</label>
+        <name>Create_Complex_Execution</name>
+    </webLinks>
+    <webLinks>
+        <label>创建简单的活动执行</label>
+        <name>Create_Simple_Execution</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- De_Dup --></label>
+        <name>De_Dup</name>
+    </webLinks>
+    <webLinks>
+        <label>删除</label>
+        <name>Delete</name>
+    </webLinks>
+    <webLinks>
+        <label>创建经销商最佳活动</label>
+        <name>Generate_Retail_BP</name>
+    </webLinks>
+    <webLinks>
+        <label>创建经销商最佳活动</label>
+        <name>Generate_Retail_BP_smart</name>
+    </webLinks>
+    <webLinks>
+        <label>管理参与经销商</label>
+        <name>Manage_Participating_Dealers</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ViewAllCampaignMembers --></label>
+        <name>ViewAllCampaignMembers</name>
+    </webLinks>
+    <webLinks>
+        <label>查看活动影响报表</label>
+        <name>ViewCampaignInfluenceReport</name>
+    </webLinks>
+    <webLinks>
+        <label>查看上一个市场活动的成员</label>
+        <name>View_Previous_Campaign_Members</name>
+    </webLinks>
+</CustomObjectTranslation>

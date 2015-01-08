@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>CUST_NAME</field>
+    </columns>
+    <columns>
+        <field>SMSReplyHistory__c.TaskID__c</field>
+    </columns>
+    <columns>
+        <field>SMSReplyHistory__c.ValidReply__c</field>
+    </columns>
+    <columns>
+        <field>SMSReplyHistory__c.ResponseContent__c</field>
+    </columns>
+    <columns>
+        <field>SMSReplyHistory__c.RespondTime__c</field>
+    </columns>
+    <format>Tabular</format>
+    <name>SMS Reply History Check</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>CustomEntity$SMSReplyHistory__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>SMSReplyHistory__c.RespondTime__c</dateColumn>
+        <endDate>2014-12-19</endDate>
+        <interval>INTERVAL_CUSTOM</interval>
+        <startDate>2014-12-19</startDate>
+    </timeFrameFilter>
+</Report>

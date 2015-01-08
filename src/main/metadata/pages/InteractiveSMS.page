@@ -1,0 +1,141 @@
+<apex:page controller="InteractiveSMSController" sidebar="false" readOnly="true" tabStyle="Interactive_SMS_Report__tab" 
+    contentType="{!IF(isExport, 'application/vnd.ms-excel#Interaction_SMS_Report.xls', 'text/html')}" cache="true">
+    
+    <apex:outputPanel rendered="{!NOT(isExport)}">
+    <script type="text/javascript">
+        window.onload = function(){
+            self.focus();
+        }
+    </script>
+    </apex:outputPanel>
+    
+    <apex:pageBlock rendered="{!NOT(isExport)}">
+        <apex:form >
+        <apex:pageMessages ></apex:pageMessages> 
+        <div>
+            <div style="float:left; font-size:12px; font-weight:bold; margin: 0 10px;">
+                <div style="height:30px; padding-top:4px; text-align:right;">{!$Label.Response_Date_From}</div>
+                <div style="height:30px; text-align:right;">{!$Label.Response_Date_To}</div>
+            </div>
+            <div style="float:left;">
+                <div style="height:30px;"><apex:inputField value="{!startTask.Activity_Date__c}"/></div>
+                <div style="height:30px;"><apex:inputField value="{!endTask.Activity_Date__c}"/></div>
+            </div>
+            <div style="float:left;">
+                <apex:commandButton value="{!$Label.Search}" action="{!searchTaskInfos}" 
+                    style="font-size:13px; width:80px; height:30px; margin-top:10px; margin-left:10px;"/>
+                <apex:commandButton value="Export" action="{!exportData}" 
+                    style="font-size:13px; width:80px; height:30px; margin-top:10px; margin-left:10px;"/>
+            </div>
+        </div>
+        <div style="clear:both;"/>
+        </apex:form>
+        
+        ----- Records: {!taskInfos.size} ------
+
+        <apex:pageBlockTable value="{!taskInfos}" var="info">
+            <apex:column value="{!info.startCallTime}" headerValue="{!$Label.Task_Start_Call_Time}"/>
+            <apex:column headerValue="{!$Label.Task_Subject}">
+                <apex:outputLink value="/{!info.ibCallTask.Id}" target="_blank">{!info.ibCallTask.Subject}</apex:outputLink>
+            </apex:column>
+            <apex:column value="{!info.ibCallTask.Owner.Name}" headerValue="CSR"/>
+            <apex:column value="{!info.ibCallTask.Phone__c}" headerValue="{!$Label.Task_Phone}"/>
+            <apex:column value="{!info.relatedCase.RecordType.Name}" headerValue="{!$Label.Case_Record_Type}"/>
+            <apex:column headerValue="{!$ObjectType.Case.Label}">
+                <apex:outputLink value="/{!info.relatedCase.Id}" target="_blank">{!info.relatedCase.CaseNumber}</apex:outputLink>
+            </apex:column>
+            <apex:column value="{!info.relatedCase.Vehicle_Class__c}" headerValue="{!$ObjectType.Case.Fields.Vehicle_Class__c.Label}"/>
+            <apex:column value="{!info.relatedCase.Repeat_Complaint_Times__c}" headerValue="{!$ObjectType.Case.Fields.Repeat_Complaint_Times__c.Label}"/>
+            <apex:column value="{!info.relatedCase.Case_Class__c}" headerValue="{!$ObjectType.Case.Fields.Case_Class__c.Label}"/>
+            <apex:column value="{!info.relatedCase.Case_Type__c}" headerValue="{!$ObjectType.Case.Fields.Case_Type__c.Label}"/>
+            <apex:column value="{!info.relatedCase.Case_SubType__c}" headerValue="{!$ObjectType.Case.Fields.Case_SubType__c.Label}"/>
+            <apex:column headerValue="{!$ObjectType.Account.Fields.Name.Label}">
+                <apex:outputLink value="/{!info.relatedAccount.Id}" target="_blank">{!info.relatedAccount.Name}</apex:outputLink>
+            </apex:column>
+            <apex:column value="{!info.accountPhone}" headerValue="{!$ObjectType.Contact.Fields.MobilePhone.Label}"/>
+            <apex:column value="{!info.relatedAccount.Region__c}" headerValue="{!$ObjectType.Account.Fields.Region__c.Label}"/>
+            <apex:column value="{!info.relatedAccount.MB_Sub_Region__c}" headerValue="{!$ObjectType.Account.Fields.MB_Sub_Region__c.Label}"/>
+            <apex:column value="{!info.relatedAccount.Smart_Sub_Region__c}" headerValue="{!$ObjectType.Account.Fields.Smart_Sub_Region__c.Label}"/>
+            <apex:column value="{!info.firstSendTime}" headerValue="{!$Label.Task_SMS_First_Send_Time}"/>
+            <apex:column headerValue="{!$ObjectType.Task.Fields.Subject.Label}">
+                <apex:outputLink value="/{!info.firstSMSTask.Id}" target="_blank">{!info.firstSMSTask.Subject}</apex:outputLink>
+            </apex:column>
+            <apex:column value="{!info.firstSMSTask.Activity_Status__c}" headerValue="{!$ObjectType.Task.Fields.Activity_Status__c.Label}"/>
+            <apex:column value="{!info.firstReply.SMSCode__c}" headerValue="{!$Label.SMS_Reply_History_Respond_Content}"/>
+            <apex:column value="{!info.firstReply.SMSContent__c}" headerValue="{!$ObjectType.SMSReplyHistory__c.Fields.SMSContent__c.Label}"/>
+            <apex:column value="{!info.secondSendTime}" headerValue="{!$Label.Task_SMS_Second_Send_Time}"/>
+            <apex:column headerValue="{!$ObjectType.Task.Fields.Subject.Label}">
+                <apex:outputLink value="/{!info.secondSMSTask.Id}" target="_blank">{!info.secondSMSTask.Subject}</apex:outputLink>
+            </apex:column>
+            <apex:column value="{!info.secondSMSTask.Activity_Status__c}" headerValue="{!$ObjectType.Task.Fields.Activity_Status__c.Label}"/>
+            <apex:column value="{!info.secondReply.SMSCode__c}" headerValue="{!$Label.SMS_Reply_History_Respond_Content}"/>
+            <apex:column value="{!info.secondReply.SMSContent__c}" headerValue="{!$ObjectType.SMSReplyHistory__c.Fields.SMSContent__c.Label}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+    
+    <apex:outputPanel rendered="{!isExport}">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    </head>
+    <table>
+        <tr>
+            <td>{!$Label.Task_Start_Call_Time}</td>
+            <td>{!$Label.Task_Subject}</td>
+            <td>CSR</td>
+            <td>{!$Label.Task_Phone}</td>
+            <td>{!$Label.Case_Record_Type}</td>
+            <td>{!$ObjectType.Case.Label}</td>
+            <td>{!$ObjectType.Case.Fields.Vehicle_Class__c.Label}</td>
+            <td>{!$ObjectType.Case.Fields.Repeat_Complaint_Times__c.Label}</td>
+            <td>{!$ObjectType.Case.Fields.Case_Class__c.Label}</td>
+            <td>{!$ObjectType.Case.Fields.Case_Type__c.Label}</td>
+            <td>{!$ObjectType.Case.Fields.Case_SubType__c.Label}</td>
+            <td>{!$ObjectType.Account.Fields.Name.Label}</td>
+            <td>{!$ObjectType.Contact.Fields.MobilePhone.Label}</td>
+            <td>{!$ObjectType.Account.Fields.Region__c.Label}</td>
+            <td>{!$ObjectType.Account.Fields.MB_Sub_Region__c.Label}</td>
+            <td>{!$ObjectType.Account.Fields.Smart_Sub_Region__c.Label}</td>
+            <td>{!$Label.Task_SMS_First_Send_Time}</td>
+            <td>{!$ObjectType.Task.Fields.Subject.Label}</td>
+            <td>{!$ObjectType.Task.Fields.Activity_Status__c.Label}</td>
+            <td>{!$Label.SMS_Reply_History_Respond_Content}</td>
+            <td>{!$ObjectType.SMSReplyHistory__c.Fields.SMSContent__c.Label}</td>
+            <td>{!$Label.Task_SMS_Second_Send_Time}</td>
+            <td>{!$ObjectType.Task.Fields.Subject.Label}</td>
+            <td>{!$ObjectType.Task.Fields.Activity_Status__c.Label}</td>
+            <td>{!$Label.SMS_Reply_History_Respond_Content}</td>
+            <td>{!$ObjectType.SMSReplyHistory__c.Fields.SMSContent__c.Label}</td>
+        </tr>
+        <apex:repeat value="{!taskInfos}" var="info">
+            <tr>
+                <td>{!info.startCallTime}</td>
+                <td>{!info.ibCallTask.Subject}</td>
+                <td>{!info.ibCallTask.Owner.Name}</td>
+                <td>{!info.ibCallTask.Phone__c}</td>
+                <td>{!info.relatedCase.RecordType.Name}</td>
+                <td>{!info.relatedCase.CaseNumber}</td>
+                <td>{!info.relatedCase.Vehicle_Class__c}</td>
+                <td>{!info.relatedCase.Repeat_Complaint_Times__c}</td>
+                <td>{!info.relatedCase.Case_Class__c}</td>
+                <td>{!info.relatedCase.Case_Type__c}</td>
+                <td>{!info.relatedCase.Case_SubType__c}</td>
+                <td>{!info.relatedAccount.Name}</td>
+                <td>{!info.accountPhone}</td>
+                <td>{!info.relatedAccount.Region__c}</td>
+                <td>{!info.relatedAccount.MB_Sub_Region__c}</td>
+                <td>{!info.relatedAccount.Smart_Sub_Region__c}</td>
+                <td>{!info.firstSendTime}</td>
+                <td>{!info.firstSMSTask.Subject}</td>
+                <td>{!info.firstSMSTask.Activity_Status__c}</td>
+                <td>{!info.firstReply.SMSCode__c}</td>
+                <td>{!info.firstReply.SMSContent__c}</td>
+                <td>{!info.secondSendTime}</td>
+                <td>{!info.secondSMSTask.Subject}</td>
+                <td>{!info.secondSMSTask.Activity_Status__c}</td>
+                <td>{!info.secondReply.SMSCode__c}</td>
+                <td>{!info.secondReply.SMSContent__c}</td>
+            </tr>
+        </apex:repeat>
+    </table>
+    </apex:outputPanel>
+</apex:page>

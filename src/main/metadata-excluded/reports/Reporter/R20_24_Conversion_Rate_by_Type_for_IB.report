@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <aggregates>
+        <calculatedFormula>Lead__c.R_IsLead__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Sum of IsLead</description>
+        <developerName>FORMULA1</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Lead</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Lead__c.R_IsConvertedLead__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Sum of IsConvertedLead</description>
+        <developerName>FORMULA2</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Converted Lead</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Activity.R_IsCallSuccess__c:SUM</calculatedFormula>
+        <datatype>number</datatype>
+        <description>Call Successful</description>
+        <developerName>FORMULA3</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Call Successful</masterLabel>
+        <scale>0</scale>
+    </aggregates>
+    <aggregates>
+        <calculatedFormula>Lead__c.R_IsConvertedLead__c:SUM/Lead__c.R_IsLead__c:SUM</calculatedFormula>
+        <datatype>percent</datatype>
+        <description>Conversion Ratio</description>
+        <developerName>FORMULA4</developerName>
+        <isActive>true</isActive>
+        <isCrossBlock>false</isCrossBlock>
+        <masterLabel>Conversion Ratio</masterLabel>
+        <scale>2</scale>
+    </aggregates>
+    <columns>
+        <field>Lead__c.Campaign_Leads__r.Activities$Subject</field>
+    </columns>
+    <description>IB创建的Leads按信息来源的转化率</description>
+    <filter>
+        <criteriaItems>
+            <column>Lead__c.Campaign_Leads__r.Activities$RecordType</column>
+            <operator>equals</operator>
+            <value>Task.IB_Call</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Matrix</format>
+    <groupingsAcross>
+        <dateGranularity>Month</dateGranularity>
+        <field>Lead__c.Campaign_Leads__r.Activities$CreatedDate</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsAcross>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Campaign_Leads__r$Lead_InfoSource__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <groupingsDown>
+        <dateGranularity>Day</dateGranularity>
+        <field>Lead__c.Campaign_Leads__r$Lead_InfoSourceSub__c</field>
+        <sortOrder>Asc</sortOrder>
+    </groupingsDown>
+    <name>R20-24 Conversion Rate by Type for IB</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>Leads_with_Campaign_Leads_Activities__c</reportType>
+    <scope>organization</scope>
+    <showDetails>false</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Lead__c$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

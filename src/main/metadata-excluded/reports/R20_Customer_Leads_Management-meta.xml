@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ReportFolder xmlns="http://soap.sforce.com/2006/04/metadata">
+    <accessType>Shared</accessType>
+    <name>R20 Customer &amp; Leads Management</name>
+    <publicFolderAccess>ReadOnly</publicFolderAccess>
+    <sharedTo>
+        <role>CAC</role>
+        <role>CRM_Manager_CAC_Data</role>
+    </sharedTo>
+</ReportFolder>

@@ -1,0 +1,4006 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Translations xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplications>
+        <label><!-- Administration --></label>
+        <name>Administration</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- BMBS CRM --></label>
+        <name>BMBS_CRM</name>
+    </customApplications>
+    <customApplications>
+        <label>BMBS 经销商门户</label>
+        <name>BMBS_Dealer_Portal</name>
+    </customApplications>
+    <customApplications>
+        <label>BMBS 线索管理</label>
+        <name>BMBS_Lead_Management</name>
+    </customApplications>
+    <customApplications>
+        <label>BMBS 市场</label>
+        <name>BMBS_Marketing</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- EPA Administration --></label>
+        <name>EPA_Administration</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Requirement Planning --></label>
+        <name>Requirement_Planning</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Retail CRM --></label>
+        <name>Retail_CRM</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Survey Force --></label>
+        <name>Survey_Force</name>
+    </customApplications>
+    <customApplications>
+        <label><!-- Test app --></label>
+        <name>Test_app</name>
+    </customApplications>
+    <customLabels>
+        <label>如果客户没有人车关系, 客户状态不能为客户.</label>
+        <name>Account_Cann_t_be_Customer</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- QC_Accuracy --></label>
+        <name>Accuracy</name>
+    </customLabels>
+    <customLabels>
+        <label>注册活动</label>
+        <name>Add_to_Campaign</name>
+    </customLabels>
+    <customLabels>
+        <label>售后年度计划</label>
+        <name>Aftersales</name>
+    </customLabels>
+    <customLabels>
+        <label>+ AND 条件</label>
+        <name>And_Criteria</name>
+    </customLabels>
+    <customLabels>
+        <label>分公司名</label>
+        <name>Assign_Case_To_Dealer_Branch_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>检索</label>
+        <name>Assign_Case_To_Dealer_Button_Go</name>
+    </customLabels>
+    <customLabels>
+        <label>经销商名</label>
+        <name>Assign_Case_To_Dealer_Dealer_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>没有检索结果</label>
+        <name>Assign_Case_To_Dealer_ErrorMsg1</name>
+    </customLabels>
+    <customLabels>
+        <label>全名</label>
+        <name>Assign_Case_To_Dealer_Full_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>清除检索结果</label>
+        <name>Assign_Case_To_Dealer_Link_Clear_Search_Results</name>
+    </customLabels>
+    <customLabels>
+        <label>简档</label>
+        <name>Assign_Case_To_Dealer_Profile</name>
+    </customLabels>
+    <customLabels>
+        <label>角色</label>
+        <name>Assign_Case_To_Dealer_Role</name>
+    </customLabels>
+    <customLabels>
+        <label>用户名</label>
+        <name>Assign_Case_To_Dealer_User_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>分配QC</label>
+        <name>Assign_QC</name>
+    </customLabels>
+    <customLabels>
+        <label>审批</label>
+        <name>Button_Approve</name>
+    </customLabels>
+    <customLabels>
+        <label>查询</label>
+        <name>Button_Search</name>
+    </customLabels>
+    <customLabels>
+        <label>取消</label>
+        <name>CL_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label>信息采集注释</label>
+        <name>CL_Collectioner_Notes</name>
+    </customLabels>
+    <customLabels>
+        <label>联系人</label>
+        <name>CL_Contact</name>
+    </customLabels>
+    <customLabels>
+        <label>备注</label>
+        <name>CL_Description</name>
+    </customLabels>
+    <customLabels>
+        <label>附加服务</label>
+        <name>CL_Lead_Additional_Service</name>
+    </customLabels>
+    <customLabels>
+        <label>感兴趣服务</label>
+        <name>CL_Lead_Desired_Service</name>
+    </customLabels>
+    <customLabels>
+        <label>销售线索类型：</label>
+        <name>CL_Lead_Record_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>线索子类型</label>
+        <name>CL_Lead_Sub_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>线索类型</label>
+        <name>CL_Lead_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>成员编号</label>
+        <name>CL_Member_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>计划购买时间</label>
+        <name>CL_Retail_Purchase_Time</name>
+    </customLabels>
+    <customLabels>
+        <label>相关车辆</label>
+        <name>CL_VehicleRel_No</name>
+    </customLabels>
+    <customLabels>
+        <label>确认需要合并客户信息?</label>
+        <name>CP_Merge_Account_Confirm</name>
+    </customLabels>
+    <customLabels>
+        <label>没有符合条件的记录</label>
+        <name>CP_No_Search_Result</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CP No User Found --></label>
+        <name>CP_No_User_Found</name>
+    </customLabels>
+    <customLabels>
+        <label>请稍候</label>
+        <name>CP_Please_Wait</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CSR Lookup ErrorMsg1 --></label>
+        <name>CSR_Lookup_ErrorMsg1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CSR Lookup Open Task Qty --></label>
+        <name>CSR_Lookup_Open_Task_Qty</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CSR Lookup Role --></label>
+        <name>CSR_Lookup_Role</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CSR Lookup Select --></label>
+        <name>CSR_Lookup_Select</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CSR Lookup Select CSRs --></label>
+        <name>CSR_Lookup_Select_CSRs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CSR Lookup User Name --></label>
+        <name>CSR_Lookup_User_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>活动类型：</label>
+        <name>CampaignType</name>
+    </customLabels>
+    <customLabels>
+        <label>所有市场活动</label>
+        <name>Campaign_Calendar_Page_All_Campaigns</name>
+    </customLabels>
+    <customLabels>
+        <label>所有去年的市场活动</label>
+        <name>Campaign_Calendar_Page_All_Campaigns_During_Last_Year</name>
+    </customLabels>
+    <customLabels>
+        <label>所有今年的市场活动</label>
+        <name>Campaign_Calendar_Page_All_Campaigns_During_This_Year</name>
+    </customLabels>
+    <customLabels>
+        <label>所有从去年开始的市场活动</label>
+        <name>Campaign_Calendar_Page_All_Campaigns_From_Last_Year_On</name>
+    </customLabels>
+    <customLabels>
+        <label>所有从今年开始的市场活动</label>
+        <name>Campaign_Calendar_Page_All_Campaigns_From_This_Year_On</name>
+    </customLabels>
+    <customLabels>
+        <label>CAC CRM市场活动</label>
+        <name>Campaign_Calendar_Page_CAC_CRM_Campaign</name>
+    </customLabels>
+    <customLabels>
+        <label>CAC 活动类型</label>
+        <name>Campaign_Calendar_Page_CAC_CRM_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>所有</label>
+        <name>Campaign_Calendar_Page_CAC_CRM_Type_All</name>
+    </customLabels>
+    <customLabels>
+        <label>车展</label>
+        <name>Campaign_Calendar_Page_CAC_CRM_Type_Auto_Show</name>
+    </customLabels>
+    <customLabels>
+        <label>销售推广活动</label>
+        <name>Campaign_Calendar_Page_CAC_CRM_Type_Competitions_and_Sales</name>
+    </customLabels>
+    <customLabels>
+        <label>金融</label>
+        <name>Campaign_Calendar_Page_CAC_CRM_Type_Finance</name>
+    </customLabels>
+    <customLabels>
+        <label>调研</label>
+        <name>Campaign_Calendar_Page_CAC_CRM_Type_Interview</name>
+    </customLabels>
+    <customLabels>
+        <label>忠诚计划</label>
+        <name>Campaign_Calendar_Page_CAC_CRM_Type_Loyalty_Program</name>
+    </customLabels>
+    <customLabels>
+        <label>新车上市</label>
+        <name>Campaign_Calendar_Page_CAC_CRM_Type_New_Car_Launch</name>
+    </customLabels>
+    <customLabels>
+        <label>其他</label>
+        <name>Campaign_Calendar_Page_CAC_CRM_Type_Others</name>
+    </customLabels>
+    <customLabels>
+        <label>产品问题</label>
+        <name>Campaign_Calendar_Page_CAC_CRM_Type_Product_Issue</name>
+    </customLabels>
+    <customLabels>
+        <label>召回</label>
+        <name>Campaign_Calendar_Page_CAC_CRM_Type_Recall</name>
+    </customLabels>
+    <customLabels>
+        <label>CAC市场活动</label>
+        <name>Campaign_Calendar_Page_CAC_Campaign</name>
+    </customLabels>
+    <customLabels>
+        <label>中央售后市场活动</label>
+        <name>Campaign_Calendar_Page_CAS_Marketing_Campaign</name>
+    </customLabels>
+    <customLabels>
+        <label>CRM获得流程</label>
+        <name>Campaign_Calendar_Page_CRM_Acquisition_Program</name>
+    </customLabels>
+    <customLabels>
+        <label>市场活动：</label>
+        <name>Campaign_Calendar_Page_Campaign_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>种类：</label>
+        <name>Campaign_Calendar_Page_Category</name>
+    </customLabels>
+    <customLabels>
+        <label>随机</label>
+        <name>Campaign_Calendar_Page_Category_Ad_Hoc</name>
+    </customLabels>
+    <customLabels>
+        <label>所有</label>
+        <name>Campaign_Calendar_Page_Category_All</name>
+    </customLabels>
+    <customLabels>
+        <label>连续的</label>
+        <name>Campaign_Calendar_Page_Category_Regular_Continuous</name>
+    </customLabels>
+    <customLabels>
+        <label>定期的</label>
+        <name>Campaign_Calendar_Page_Category_Regular_Periodic</name>
+    </customLabels>
+    <customLabels>
+        <label>中央市场活动</label>
+        <name>Campaign_Calendar_Page_Central_Marketing_Campaign</name>
+    </customLabels>
+    <customLabels>
+        <label>期间：</label>
+        <name>Campaign_Calendar_Page_Duration</name>
+    </customLabels>
+    <customLabels>
+        <label>概观</label>
+        <name>Campaign_Calendar_Page_Overview</name>
+    </customLabels>
+    <customLabels>
+        <label>活动日历</label>
+        <name>Campaign_Calendar_Page_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>类型：</label>
+        <name>Campaign_Calendar_Page_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>所有</label>
+        <name>Campaign_Calendar_Page_Type_All</name>
+    </customLabels>
+    <customLabels>
+        <label>CRM获得流程</label>
+        <name>Campaign_Calendar_Page_Type_CRM_Acquisition_Program</name>
+    </customLabels>
+    <customLabels>
+        <label>CRM忠诚流程</label>
+        <name>Campaign_Calendar_Page_Type_CRM_Loyalty_Program</name>
+    </customLabels>
+    <customLabels>
+        <label>其他</label>
+        <name>Campaign_Calendar_Page_Type_Other</name>
+    </customLabels>
+    <customLabels>
+        <label>取消</label>
+        <name>Campaign_Planning_Page_Cancel_Button</name>
+    </customLabels>
+    <customLabels>
+        <label>城市</label>
+        <name>Campaign_Planning_Page_City_Header</name>
+    </customLabels>
+    <customLabels>
+        <label>名称</label>
+        <name>Campaign_Planning_Page_Name_Header</name>
+    </customLabels>
+    <customLabels>
+        <label>省份</label>
+        <name>Campaign_Planning_Page_Province_Header</name>
+    </customLabels>
+    <customLabels>
+        <label>查询城市</label>
+        <name>Campaign_Planning_Page_Query_Button</name>
+    </customLabels>
+    <customLabels>
+        <label>区域</label>
+        <name>Campaign_Planning_Page_Region_Header</name>
+    </customLabels>
+    <customLabels>
+        <label>保存</label>
+        <name>Campaign_Planning_Page_Save_Button</name>
+    </customLabels>
+    <customLabels>
+        <label>选择城市</label>
+        <name>Campaign_Planning_Page_Select_Cities</name>
+    </customLabels>
+    <customLabels>
+        <label>查询经销商</label>
+        <name>Campaign_Planning_Page_Select_Dealer_Button</name>
+    </customLabels>
+    <customLabels>
+        <label>选择经销商</label>
+        <name>Campaign_Planning_Page_Select_Dealers</name>
+    </customLabels>
+    <customLabels>
+        <label>选择省份</label>
+        <name>Campaign_Planning_Page_Select_Region</name>
+    </customLabels>
+    <customLabels>
+        <label>服务类型</label>
+        <name>Campaign_Planning_Page_Service_Code_Header</name>
+    </customLabels>
+    <customLabels>
+        <label>请等待...</label>
+        <name>Campaign_Planning_Page_Status</name>
+    </customLabels>
+    <customLabels>
+        <label>选择参与区域/省份/城市/经销商</label>
+        <name>Campaign_Planning_Page_Subtitle</name>
+    </customLabels>
+    <customLabels>
+        <label>活动类型</label>
+        <name>Campaign_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>线下</label>
+        <name>Campaign_Type_Event</name>
+    </customLabels>
+    <customLabels>
+        <label>线上</label>
+        <name>Campaign_Type_Media</name>
+    </customLabels>
+    <customLabels>
+        <label>市场活动</label>
+        <name>Campaing_Planning_Page_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>不能删除已启用的市场活动！</label>
+        <name>Cannot_Delete_Central_Campaign</name>
+    </customLabels>
+    <customLabels>
+        <label>质询/投诉</label>
+        <name>Case_Record_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>城市</label>
+        <name>City</name>
+    </customLabels>
+    <customLabels>
+        <label>筛选对象</label>
+        <name>Cluster</name>
+    </customLabels>
+    <customLabels>
+        <label>一般筛选条件</label>
+        <name>Common_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label>名称</label>
+        <name>Common_Filter_Name</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Completenes --></label>
+        <name>Completenes</name>
+    </customLabels>
+    <customLabels>
+        <label>保存失败，请联系管理员。</label>
+        <name>Contact_Admin</name>
+    </customLabels>
+    <customLabels>
+        <label>生成销售线索</label>
+        <name>Convert_Lead</name>
+    </customLabels>
+    <customLabels>
+        <label>生成销售线索</label>
+        <name>Convert_To_Lead</name>
+    </customLabels>
+    <customLabels>
+        <label>内容</label>
+        <name>Criteria</name>
+    </customLabels>
+    <customLabels>
+        <label>客户</label>
+        <name>Customer</name>
+    </customLabels>
+    <customLabels>
+        <label>客户筛选</label>
+        <name>Customer_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label>已经有相同SR代码1的经销商被选为默认经销商.</label>
+        <name>Dealer_Has_SR_Code_1</name>
+    </customLabels>
+    <customLabels>
+        <label>删除市场活动失败！</label>
+        <name>Delete_Campaign_Failed</name>
+    </customLabels>
+    <customLabels>
+        <label>删除市场活动成功！</label>
+        <name>Delete_Campaign_Success</name>
+    </customLabels>
+    <customLabels>
+        <label>删除一般筛选条件</label>
+        <name>Delete_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label>结束时间必须大于开始时间</label>
+        <name>End_Time_Greater_Start_Time</name>
+    </customLabels>
+    <customLabels>
+        <label>错误：请输入筛选内容</label>
+        <name>Error_Please_enter_your_criteria</name>
+    </customLabels>
+    <customLabels>
+        <label>错误：名字已经存在</label>
+        <name>Error_This_name_already_exists</name>
+    </customLabels>
+    <customLabels>
+        <label>活动类型：</label>
+        <name>Event_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>出保爱车讲堂</label>
+        <name>Familiarization_workshop_for_dormant_customers</name>
+    </customLabels>
+    <customLabels>
+        <label>首保爱车讲堂</label>
+        <name>Familiarization_workshop_for_new_vehicle_owners</name>
+    </customLabels>
+    <customLabels>
+        <label>条件</label>
+        <name>Field</name>
+    </customLabels>
+    <customLabels>
+        <label>电话,家庭电话,手机必须至少输入一个值.</label>
+        <name>GenericUploaderErrorMsg</name>
+    </customLabels>
+    <customLabels>
+        <label>通用上传页面</label>
+        <name>GenericUploaderForAccount</name>
+    </customLabels>
+    <customLabels>
+        <label>确认</label>
+        <name>GenericUploaderForAccountConfirm</name>
+    </customLabels>
+    <customLabels>
+        <label>预览</label>
+        <name>GenericUploaderForAccountPreview</name>
+    </customLabels>
+    <customLabels>
+        <label>上传结果</label>
+        <name>GenericUploaderForAccountUploadResults</name>
+    </customLabels>
+    <customLabels>
+        <label>记录大于10000条，不能上传。</label>
+        <name>GenericUploaderLengthErrorMsg</name>
+    </customLabels>
+    <customLabels>
+        <label>参加过活动</label>
+        <name>Has_Attended_Campaign</name>
+    </customLabels>
+    <customLabels>
+        <label>有推荐记录</label>
+        <name>Has_Referral_Record</name>
+    </customLabels>
+    <customLabels>
+        <label>离峰工时促销</label>
+        <name>Idle_Hour_Promotion</name>
+    </customLabels>
+    <customLabels>
+        <label>保险促销</label>
+        <name>Insurance_Promotion</name>
+    </customLabels>
+    <customLabels>
+        <label>兴趣爱好</label>
+        <name>Interest</name>
+    </customLabels>
+    <customLabels>
+        <label>兴趣爱好筛选</label>
+        <name>Interest_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- CK Choose Car Model --></label>
+        <name>Knowledge_Choose_Car_Model</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Add Question --></label>
+        <name>LABS_SF_AddQuestion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Anonymous --></label>
+        <name>LABS_SF_Anonymous</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Answer as --></label>
+        <name>LABS_SF_Answer_as</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Cancel --></label>
+        <name>LABS_SF_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Chatter --></label>
+        <name>LABS_SF_Chatter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Chatter Link --></label>
+        <name>LABS_SF_Chatter_Link</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Community --></label>
+        <name>LABS_SF_Community</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Contact with Case --></label>
+        <name>LABS_SF_ContactWithCase</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Current Surveys --></label>
+        <name>LABS_SF_CurrentSurveys</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Delete --></label>
+        <name>LABS_SF_Delete</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Are you sure you want to delete this survey? --></label>
+        <name>LABS_SF_Delete_Confirm</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Edit --></label>
+        <name>LABS_SF_Edit</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email Link, Anonymous --></label>
+        <name>LABS_SF_Email_Link_Anonymous</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email Link w/ Contact &amp; Case Merge --></label>
+        <name>LABS_SF_Email_Link_w_Contact_Case_Merge</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Email Link w/ Contact Merge --></label>
+        <name>LABS_SF_Email_Link_w_Contact_Merge</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Enter Survey Name --></label>
+        <name>LABS_SF_EnterSurveyName</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- For external facing surveys, please create a site first.  You may still create i --></label>
+        <name>LABS_SF_External_Please_Create_Site</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- For community assistance with Survey Force --></label>
+        <name>LABS_SF_For_community_assistance_with_Survey_Force</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Getting Help --></label>
+        <name>LABS_SF_Getting_Help</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Header and Thank You --></label>
+        <name>LABS_SF_HeaderAndThankYou</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Installation Guide --></label>
+        <name>LABS_SF_Installation_Guide</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Internal --></label>
+        <name>LABS_SF_Internal</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Just Contact --></label>
+        <name>LABS_SF_JustContact</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Learn More --></label>
+        <name>LABS_SF_Learn_More</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Make A New Survey --></label>
+        <name>LABS_SF_MakeANewSurvey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Make New Survey --></label>
+        <name>LABS_SF_MakeNewSurvey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Make a Sample Survey --></label>
+        <name>LABS_SF_Make_a_Sample_Survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Next Steps --></label>
+        <name>LABS_SF_Next_Steps</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Please enter the list --></label>
+        <name>LABS_SF_PleaseEnterTheList</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Question --></label>
+        <name>LABS_SF_Question</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Required --></label>
+        <name>LABS_SF_Required</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Required Question --></label>
+        <name>LABS_SF_RequiredQuestion</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Resources --></label>
+        <name>LABS_SF_Resources</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Results --></label>
+        <name>LABS_SF_Results</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SELECT SITE --></label>
+        <name>LABS_SF_SELECTSITE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- - - SELECT- -  --></label>
+        <name>LABS_SF_SELECTTYPE</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Salesforce Answers --></label>
+        <name>LABS_SF_Salesforce_Answers</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Save --></label>
+        <name>LABS_SF_Save</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Save Order --></label>
+        <name>LABS_SF_SaveOrder</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select Question Type --></label>
+        <name>LABS_SF_SelectQuestionType</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Select Site to display Survey --></label>
+        <name>LABS_SF_SelectSitetodisplaySurvey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Share --></label>
+        <name>LABS_SF_Share</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Share My Survey --></label>
+        <name>LABS_SF_Share_My_Survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Sharing Options --></label>
+        <name>LABS_SF_Sharing_Options</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Submit Survey --></label>
+        <name>LABS_SF_SubmitSurvey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SurveyForceIsOpenSource --></label>
+        <name>LABS_SF_SurveyForceIsOpenSource</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Survey URL Link --></label>
+        <name>LABS_SF_SurveyURLLink</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Survey Force is unsupported --></label>
+        <name>LABS_SF_Survey_Force_is_unsupported</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Survey Force on Github --></label>
+        <name>LABS_SF_Survey_Force_on_Github</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Survey Name Is Required --></label>
+        <name>LABS_SF_Survey_Name_Is_Required</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Survey Site Is Required --></label>
+        <name>LABS_SF_Survey_Site_Is_Required</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Your survey has been submitted. Thank you for taking our survey. --></label>
+        <name>LABS_SF_Survey_Submitted_Thank_you</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- To submit ideas or issues --></label>
+        <name>LABS_SF_To_submit_ideas_or_issues</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- User Guide --></label>
+        <name>LABS_SF_User_Guide</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View Results In New Window --></label>
+        <name>LABS_SF_View_Results_In_New_Window</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- View Sample Survey --></label>
+        <name>LABS_SF_View_Sample_Survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Welcome to Survey Force --></label>
+        <name>LABS_SF_Welcome_to_Survey_Force</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 1. Create a sample survey by clicking the button below. --></label>
+        <name>LABS_SF_X1_Create_a_sample_survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 2. Set up a site if you would like to have external-facing surveys. --></label>
+        <name>LABS_SF_X2_External_Setup_Site</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- 3. Start creating your first survey. --></label>
+        <name>LABS_SF_X3_Start_creating_your_first_survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- You have already taken this survey! --></label>
+        <name>LABS_SF_You_have_already_taken_this_survey</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Your next few steps are easy. --></label>
+        <name>LABS_SF_Your_next_few_steps_are_easy</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- please visit --></label>
+        <name>LABS_SF_please_visit</name>
+    </customLabels>
+    <customLabels>
+        <label>返回数据太多，请增加查询条件，缩小查询范围</label>
+        <name>LimitQueries</name>
+    </customLabels>
+    <customLabels>
+        <label>错误: 不能嵌套括号!</label>
+        <name>Logic_Error</name>
+    </customLabels>
+    <customLabels>
+        <label>保养促销</label>
+        <name>Maintenance_Promotion</name>
+    </customLabels>
+    <customLabels>
+        <label>市场调研</label>
+        <name>Marketing_survey</name>
+    </customLabels>
+    <customLabels>
+        <label>筛选</label>
+        <name>Mass_Assign_Recall_Tasks_Apply_Filters</name>
+    </customLabels>
+    <customLabels>
+        <label>分配规则</label>
+        <name>Mass_Assign_Recall_Tasks_Assign_Rules</name>
+    </customLabels>
+    <customLabels>
+        <label>分配</label>
+        <name>Mass_Assign_Recall_Tasks_Assign_Tasks_to_Agents</name>
+    </customLabels>
+    <customLabels>
+        <label>关闭</label>
+        <name>Mass_Assign_Recall_Tasks_Close_Tasks</name>
+    </customLabels>
+    <customLabels>
+        <label>筛选条件</label>
+        <name>Mass_Assign_Recall_Tasks_Define_Filters</name>
+    </customLabels>
+    <customLabels>
+        <label>请先选择是否平均分配或者输入分配数量。</label>
+        <name>Mass_Assign_Recall_Tasks_ErrorMsg1</name>
+    </customLabels>
+    <customLabels>
+        <label>个任务被分配。</label>
+        <name>Mass_Assign_Recall_Tasks_ErrorMsg2</name>
+    </customLabels>
+    <customLabels>
+        <label>请选择CSR和分配方式。</label>
+        <name>Mass_Assign_Recall_Tasks_ErrorMsg3</name>
+    </customLabels>
+    <customLabels>
+        <label>批量分配\回收任务</label>
+        <name>Mass_Assign_Recall_Tasks_Mass_Assign_Recall_Tasks</name>
+    </customLabels>
+    <customLabels>
+        <label>批量分配QC</label>
+        <name>Mass_Assign_SSI_QCs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Mass Calibration Page Block Title --></label>
+        <name>Mass_Calibration_Page_Block_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>媒体类型：</label>
+        <name>Media_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>批准失败，请尝试在活动详细页面中单个批准</label>
+        <name>Message_Approve_Failed</name>
+    </customLabels>
+    <customLabels>
+        <label>批准成功</label>
+        <name>Message_Approve_Success</name>
+    </customLabels>
+    <customLabels>
+        <label>符合条件的记录超过1000条，只显示了1000条</label>
+        <name>Message_Max_Size_1000</name>
+    </customLabels>
+    <customLabels>
+        <label>没有选中任何记录</label>
+        <name>Message_No_Selected_Records</name>
+    </customLabels>
+    <customLabels>
+        <label>没有选中你能够批准的记录</label>
+        <name>Message_No_Valid_Records</name>
+    </customLabels>
+    <customLabels>
+        <label>主动招揽客户活动</label>
+        <name>New_Customer_Acquisition</name>
+    </customLabels>
+    <customLabels>
+        <label>没有投诉</label>
+        <name>No_Complaint</name>
+    </customLabels>
+    <customLabels>
+        <label>没有找到任何QC记录</label>
+        <name>Not_found_QC</name>
+    </customLabels>
+    <customLabels>
+        <label>操作</label>
+        <name>Operation</name>
+    </customLabels>
+    <customLabels>
+        <label>其他</label>
+        <name>Others</name>
+    </customLabels>
+    <customLabels>
+        <label>广告宣传/宣传物料</label>
+        <name>POM_advertisement</name>
+    </customLabels>
+    <customLabels>
+        <label>下一页</label>
+        <name>Page_Element_Next</name>
+    </customLabels>
+    <customLabels>
+        <label>共</label>
+        <name>Page_Element_Of</name>
+    </customLabels>
+    <customLabels>
+        <label>上一页</label>
+        <name>Page_Element_Previous</name>
+    </customLabels>
+    <customLabels>
+        <label>配件交叉促销</label>
+        <name>Parts_Cross_Promotion</name>
+    </customLabels>
+    <customLabels>
+        <label>请输入名称</label>
+        <name>Please_enter_the_filter_name</name>
+    </customLabels>
+    <customLabels>
+        <label>选装配件及精品促销</label>
+        <name>Promotion_on_Technical_accessories_and_collections</name>
+    </customLabels>
+    <customLabels>
+        <label>请选择记录。</label>
+        <name>QCMassCalibrationNotice</name>
+    </customLabels>
+    <customLabels>
+        <label>成功啦!</label>
+        <name>QC_Assigned_Successfully</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Completeness Criteria --></label>
+        <name>QC_Completeness_Criteria</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- QC Mass Calibration Column One --></label>
+        <name>QC_Mass_Calibration_Column_One</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- QC Mass Calibration Column Three --></label>
+        <name>QC_Mass_Calibration_Column_Three</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- QC Mass Calibration Column Two --></label>
+        <name>QC_Mass_Calibration_Column_Two</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- QC Mass Calibration Error Message --></label>
+        <name>QC_Mass_Calibration_Error_Message</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- QC Mass Calibration Max Limits --></label>
+        <name>QC_Mass_Calibration_Max_Limits</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- QC Mass Calibration Page Button --></label>
+        <name>QC_Mass_Calibration_Page_Button</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- QC Mass Calibration Please Wait --></label>
+        <name>QC_Mass_Calibration_Please_Wait</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- QC Mass Calibration Title --></label>
+        <name>QC_Mass_Calibration_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>年度预算 / 实际总花费</label>
+        <name>Report_Title1_TA_Tracing</name>
+    </customLabels>
+    <customLabels>
+        <label>年度预算,实际总花费</label>
+        <name>Report_Title2_TA_Tracing</name>
+    </customLabels>
+    <customLabels>
+        <label>信息回复时间: 从</label>
+        <name>Response_Date_From</name>
+    </customLabels>
+    <customLabels>
+        <label>到</label>
+        <name>Response_Date_To</name>
+    </customLabels>
+    <customLabels>
+        <label>售后活动</label>
+        <name>Retail_Campaign_Canlender_Page_AS_Campaign</name>
+    </customLabels>
+    <customLabels>
+        <label>活动计划</label>
+        <name>Retail_Campaign_Canlender_Page_SM_Event</name>
+    </customLabels>
+    <customLabels>
+        <label>媒体计划</label>
+        <name>Retail_Campaign_Canlender_Page_SM_Media</name>
+    </customLabels>
+    <customLabels>
+        <label>回复内容</label>
+        <name>SMS_Reply_History_Respond_Content</name>
+    </customLabels>
+    <customLabels>
+        <label>清洗</label>
+        <name>SSI_Dealer_Cleans</name>
+    </customLabels>
+    <customLabels>
+        <label>发票开始日期和发票结束日期不得为空。</label>
+        <name>SSI_Dealer_Cleans_Error</name>
+    </customLabels>
+    <customLabels>
+        <label>发票日期筛选条件</label>
+        <name>SSI_Invoice_Date_Page_Section_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>发票结束日期</label>
+        <name>SSI_Invoice_End_Date</name>
+    </customLabels>
+    <customLabels>
+        <label>发票开始日期</label>
+        <name>SSI_Invoice_Start_Date</name>
+    </customLabels>
+    <customLabels>
+        <label>发票结束日期一定要晚于发票开始日期。</label>
+        <name>SSI_Invoice_Start_Date_And_End_Date_Error</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- SSI Vin Match Button --></label>
+        <name>SSI_Vin_Match_Button</name>
+    </customLabels>
+    <customLabels>
+        <label>开始日期不能晚于结束日期。</label>
+        <name>SSI_Vin_Match_Error_Message</name>
+    </customLabels>
+    <customLabels>
+        <label>到</label>
+        <name>SSI_Vin_Match_InvoiceDate_End</name>
+    </customLabels>
+    <customLabels>
+        <label>发票日期从</label>
+        <name>SSI_Vin_Match_InvoiceDate_From</name>
+    </customLabels>
+    <customLabels>
+        <label>发票日期</label>
+        <name>SSI_Vin_Match_Page_Section_Title</name>
+    </customLabels>
+    <customLabels>
+        <label>销售年度计划</label>
+        <name>Sales_Marketing</name>
+    </customLabels>
+    <customLabels>
+        <label>保存一般筛选条件</label>
+        <name>Save_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label>保存成功</label>
+        <name>Sccussful</name>
+    </customLabels>
+    <customLabels>
+        <label>查询</label>
+        <name>Search</name>
+    </customLabels>
+    <customLabels>
+        <label>查询客户</label>
+        <name>Search_Customer</name>
+    </customLabels>
+    <customLabels>
+        <label>--无--</label>
+        <name>Select_Option_None</name>
+    </customLabels>
+    <customLabels>
+        <label>请选择接收QC的用户</label>
+        <name>Select_User</name>
+    </customLabels>
+    <customLabels>
+        <label>服务产品促销</label>
+        <name>Service_Product_Promotion</name>
+    </customLabels>
+    <customLabels>
+        <label>特殊筛选条件</label>
+        <name>Special_Filters</name>
+    </customLabels>
+    <customLabels>
+        <label>已审批</label>
+        <name>Status_Approved</name>
+    </customLabels>
+    <customLabels>
+        <label>申请撤销，待审批</label>
+        <name>Status_Cancel_Application</name>
+    </customLabels>
+    <customLabels>
+        <label>等待区域审批</label>
+        <name>Status_Confirmed</name>
+    </customLabels>
+    <customLabels>
+        <label>IB呼入号码</label>
+        <name>Task_Phone</name>
+    </customLabels>
+    <customLabels>
+        <label>第一批短信下发时间</label>
+        <name>Task_SMS_First_Send_Time</name>
+    </customLabels>
+    <customLabels>
+        <label>第二批短信下发时间</label>
+        <name>Task_SMS_Second_Send_Time</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send Cancel --></label>
+        <name>Task_SMS_Send_Cancel</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send ErrorMsg1 --></label>
+        <name>Task_SMS_Send_ErrorMsg1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send ErrorMsg2 --></label>
+        <name>Task_SMS_Send_ErrorMsg2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send ErrorMsg3 --></label>
+        <name>Task_SMS_Send_ErrorMsg3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send ErrorMsg4 --></label>
+        <name>Task_SMS_Send_ErrorMsg4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send ErrorMsg5 --></label>
+        <name>Task_SMS_Send_ErrorMsg5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send Information --></label>
+        <name>Task_SMS_Send_Information</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send JS ErrorMsg1 --></label>
+        <name>Task_SMS_Send_JS_ErrorMsg1</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send JS ErrorMsg2 --></label>
+        <name>Task_SMS_Send_JS_ErrorMsg2</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send JS ErrorMsg3 --></label>
+        <name>Task_SMS_Send_JS_ErrorMsg3</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send JS ErrorMsg4 --></label>
+        <name>Task_SMS_Send_JS_ErrorMsg4</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send JS ErrorMsg5 --></label>
+        <name>Task_SMS_Send_JS_ErrorMsg5</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send Mobile --></label>
+        <name>Task_SMS_Send_Mobile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send SMS --></label>
+        <name>Task_SMS_Send_SMS</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send SMS Preview --></label>
+        <name>Task_SMS_Send_SMS_Preview</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send SMS Send --></label>
+        <name>Task_SMS_Send_SMS_Send</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send SMS Templates --></label>
+        <name>Task_SMS_Send_SMS_Templates</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send Secondary Mobile --></label>
+        <name>Task_SMS_Send_Secondary_Mobile</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- Task SMS Send Send --></label>
+        <name>Task_SMS_Send_Send</name>
+    </customLabels>
+    <customLabels>
+        <label>IB进线时间</label>
+        <name>Task_Start_Call_Time</name>
+    </customLabels>
+    <customLabels>
+        <label>IB进线任务</label>
+        <name>Task_Subject</name>
+    </customLabels>
+    <customLabels>
+        <label>错误: 筛选条件不能超过15条!</label>
+        <name>The_filter_count_is_greater_than_15</name>
+    </customLabels>
+    <customLabels>
+        <label>批量审批 - 经销商活动</label>
+        <name>Title_Retail_Campaigns_Mass_Approve</name>
+    </customLabels>
+    <customLabels>
+        <label>查询条件</label>
+        <name>Title_Search_Filters</name>
+    </customLabels>
+    <customLabels>
+        <label>查询结果</label>
+        <name>Title_Search_Results</name>
+    </customLabels>
+    <customLabels>
+        <label>批量审批 - 工具箱</label>
+        <name>Title_Tool_Kits_Mass_Approve</name>
+    </customLabels>
+    <customLabels>
+        <label>工具箱类型</label>
+        <name>Took_Kit_Type</name>
+    </customLabels>
+    <customLabels>
+        <label>活动工具箱</label>
+        <name>Tool_Kit_Type_Event</name>
+    </customLabels>
+    <customLabels>
+        <label>媒体工具箱</label>
+        <name>Tool_Kit_Type_Media</name>
+    </customLabels>
+    <customLabels>
+        <label>车辆服务消费总额超过</label>
+        <name>Total_Amount_Spend_On_Car_Service_is_Greater_Than</name>
+    </customLabels>
+    <customLabels>
+        <label>二手车评估回购/新车金融置换</label>
+        <name>Used_car_buy_back_trade_in</name>
+    </customLabels>
+    <customLabels>
+        <label>车辆季节性免费检测</label>
+        <name>VEP_Seasonal_Check</name>
+    </customLabels>
+    <customLabels>
+        <label>返回</label>
+        <name>VF_ToolKitSelect_Return_Button</name>
+    </customLabels>
+    <customLabels>
+        <label>文件名</label>
+        <name>VF_ToolkitSelect_File_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>缩略图</label>
+        <name>VF_ToolkitSelect_Preview</name>
+    </customLabels>
+    <customLabels>
+        <label>发布日期</label>
+        <name>VF_ToolkitSelect_Publish_Date</name>
+    </customLabels>
+    <customLabels>
+        <label>车辆筛选</label>
+        <name>Vehicle_Filter</name>
+    </customLabels>
+    <customLabels>
+        <label>提交截止日</label>
+        <name>Yearly_TA_Apply_deadline</name>
+    </customLabels>
+    <customLabels>
+        <label>城市</label>
+        <name>Yearly_TA_City</name>
+    </customLabels>
+    <customLabels>
+        <label>经销商名称</label>
+        <name>Yearly_TA_Dealer_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>名称</label>
+        <name>Yearly_TA_Name</name>
+    </customLabels>
+    <customLabels>
+        <label>下一页</label>
+        <name>Yearly_TA_Next</name>
+    </customLabels>
+    <customLabels>
+        <label>共</label>
+        <name>Yearly_TA_Of</name>
+    </customLabels>
+    <customLabels>
+        <label>上一页</label>
+        <name>Yearly_TA_Previous</name>
+    </customLabels>
+    <customLabels>
+        <label>大区</label>
+        <name>Yearly_TA_Region</name>
+    </customLabels>
+    <customLabels>
+        <label>状态</label>
+        <name>Yearly_TA_Status</name>
+    </customLabels>
+    <customLabels>
+        <label>区域</label>
+        <name>Yearly_TA_Sub_Region</name>
+    </customLabels>
+    <customLabels>
+        <label>视图：</label>
+        <name>Yearly_TA_View</name>
+    </customLabels>
+    <customLabels>
+        <label>年度</label>
+        <name>Yearly_TA_Year</name>
+    </customLabels>
+    <customLabels>
+        <label>年度计划</label>
+        <name>Yearly_TAs</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- l_AtmospherePerceptionandLighting --></label>
+        <name>l_AtmospherePerceptionandLighting</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- l_BasicParameter --></label>
+        <name>l_BasicParameter</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- l_Brand --></label>
+        <name>l_Brand</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- l_DWABurglarAlarm --></label>
+        <name>l_DWABurglarAlarm</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- l_Engine --></label>
+        <name>l_Engine</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- l_HideSame --></label>
+        <name>l_HideSame</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- l_Highlight --></label>
+        <name>l_Highlight</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- l_Models --></label>
+        <name>l_Models</name>
+    </customLabels>
+    <customLabels>
+        <label>没有查询到数据，请重新选择区域和城市！</label>
+        <name>l_NoDataFound</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- l_Price --></label>
+        <name>l_Price</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- l_Series --></label>
+        <name>l_Series</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- l_ShowMore --></label>
+        <name>l_ShowMore</name>
+    </customLabels>
+    <customLabels>
+        <label><!-- l_Sparetire --></label>
+        <name>l_Sparetire</name>
+    </customLabels>
+    <customLabels>
+        <label>地方车展</label>
+        <name>rcc_Auto_Show</name>
+    </customLabels>
+    <customLabels>
+        <label>广播</label>
+        <name>rcc_Broadcast</name>
+    </customLabels>
+    <customLabels>
+        <label>赞助/慈善</label>
+        <name>rcc_Charity</name>
+    </customLabels>
+    <customLabels>
+        <label>数字媒体</label>
+        <name>rcc_Digital</name>
+    </customLabels>
+    <customLabels>
+        <label>事件/节日营销</label>
+        <name>rcc_Festival</name>
+    </customLabels>
+    <customLabels>
+        <label>联合品牌活动</label>
+        <name>rcc_Joint_Event</name>
+    </customLabels>
+    <customLabels>
+        <label>杂志</label>
+        <name>rcc_Magazine</name>
+    </customLabels>
+    <customLabels>
+        <label>手机</label>
+        <name>rcc_Mobile</name>
+    </customLabels>
+    <customLabels>
+        <label>新车上市发布</label>
+        <name>rcc_New_Car_Launch</name>
+    </customLabels>
+    <customLabels>
+        <label>报纸</label>
+        <name>rcc_Newspaper</name>
+    </customLabels>
+    <customLabels>
+        <label>户外</label>
+        <name>rcc_OOH</name>
+    </customLabels>
+    <customLabels>
+        <label>制作物相关</label>
+        <name>rcc_Prints_relevant</name>
+    </customLabels>
+    <customLabels>
+        <label>外展/路演</label>
+        <name>rcc_Road_Show</name>
+    </customLabels>
+    <customLabels>
+        <label>展厅活动</label>
+        <name>rcc_Showroom_Event</name>
+    </customLabels>
+    <customLabels>
+        <label>体育营销活动</label>
+        <name>rcc_Sports_Marketing</name>
+    </customLabels>
+    <customLabels>
+        <label>电视</label>
+        <name>rcc_TV</name>
+    </customLabels>
+    <customLabels>
+        <label>试乘试驾</label>
+        <name>rcc_Test_Drive</name>
+    </customLabels>
+    <customPageWebLinks>
+        <label>经销商活动审批</label>
+        <name>Retail_Campaign</name>
+    </customPageWebLinks>
+    <customPageWebLinks>
+        <label>工具箱审批</label>
+        <name>Took_Kit</name>
+    </customPageWebLinks>
+    <customTabs>
+        <label>联合市场活动</label>
+        <name>BMBS_Campaigns</name>
+    </customTabs>
+    <customTabs>
+        <label>活动日历</label>
+        <name>Campaign_Calendar</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- EPA Business Transaction Log --></label>
+        <name>EPA_Business_Transaction_Log</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- EPA Commands --></label>
+        <name>EPA_Commands</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- EPA Resource Consumption --></label>
+        <name>EPA_Resource_Consumption</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- EPA System Status --></label>
+        <name>EPA_System_Status</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Getting Started --></label>
+        <name>Getting_Started_With_Survey_Force</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Interactive SMS Report --></label>
+        <name>Interactive_SMS_Report</name>
+    </customTabs>
+    <customTabs>
+        <label>批量分配任务</label>
+        <name>Mass_Assign_Tasks</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Mock Social Media --></label>
+        <name>Mock_Social_Media</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- QlikViewAfterSales --></label>
+        <name>QlikViewAfterSales1</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- QlikviewCAC --></label>
+        <name>QlikviewCAC1</name>
+    </customTabs>
+    <customTabs>
+        <label>经销商市场活动日历</label>
+        <name>Retail_Campaign_Calender</name>
+    </customTabs>
+    <customTabs>
+        <label>经销商市场活动</label>
+        <name>Retail_Campaigns</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- SOQL Query Tool --></label>
+        <name>SOQL_Query_Tool</name>
+    </customTabs>
+    <customTabs>
+        <label>社交平台</label>
+        <name>Socia_Media</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Social Account --></label>
+        <name>Social_Account</name>
+    </customTabs>
+    <customTabs>
+        <label>任务</label>
+        <name>Tasks</name>
+    </customTabs>
+    <customTabs>
+        <label><!-- Visual Workflow Sample Pack --></label>
+        <name>Visual_Workflow_Sample_Pack</name>
+    </customTabs>
+    <customTabs>
+        <label>经销商年度市场目标达成追踪报表</label>
+        <name>Yearly_TA_Tracing_Report</name>
+    </customTabs>
+    <customTabs>
+        <label>年度计划</label>
+        <name>Yearly_Target</name>
+    </customTabs>
+    <quickActions>
+        <label><!-- LogACall --></label>
+        <name>LogACall</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewAccount --></label>
+        <name>NewAccount</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewCase --></label>
+        <name>NewCase</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewContact --></label>
+        <name>NewContact</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewEvent --></label>
+        <name>NewEvent</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewGroup --></label>
+        <name>NewGroup</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewLead --></label>
+        <name>NewLead</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewNote --></label>
+        <name>NewNote</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewOpportunity --></label>
+        <name>NewOpportunity</name>
+    </quickActions>
+    <quickActions>
+        <label><!-- NewTask --></label>
+        <name>NewTask</name>
+    </quickActions>
+    <reportTypes>
+        <description><!-- Account and Lead and Activity --></description>
+        <label><!-- Account and Lead and Activity --></label>
+        <name>Account_and_Lead_and_Activity</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account and Leads with Assigned Dealer --></description>
+        <label><!-- Account and Leads with Assigned Dealer --></label>
+        <name>Account_and_Leads_with_Assigned_Dealer</name>
+        <sections>
+            <label><!-- 客户 --></label>
+            <name>客户</name>
+        </sections>
+        <sections>
+            <label><!-- 线索（分配经销商） --></label>
+            <name>线索（分配经销商）</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Account Link --></description>
+        <label><!-- Account with Account Link --></label>
+        <name>Account_with_Account_Link</name>
+        <sections>
+            <label><!-- Account Links --></label>
+            <name>Account Links</name>
+        </sections>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Case for D --></description>
+        <label><!-- Account with Case for D --></label>
+        <name>Account_with_Case</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Case with Complaint Tracking --></description>
+        <label><!-- Account with Case with Complaint Tracking --></label>
+        <name>Account_with_Case_with_Complaint_Tracking</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Contact --></description>
+        <label><!-- Account with Contact --></label>
+        <name>Account_with_Contact</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Dealer Cases --></description>
+        <label><!-- Account with Dealer Cases --></label>
+        <name>Account_with_Dealer_Cases</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Cases (Dealer) --></label>
+            <name>Cases (Dealer)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Dealer leads --></description>
+        <label><!-- Account with Dealer leads --></label>
+        <name>Account_with_Dealer_leads</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Assigned Dealer) --></label>
+            <name>Leads (Assigned Dealer)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Sales/Vehicle Lookups --></description>
+        <label><!-- Account with Sales/Vehicle Lookups --></label>
+        <name>Account_with_Sales_Vehicle_Lookups</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with VR --></description>
+        <label><!-- Account with VR --></label>
+        <name>Account_with_VR</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with VehicleRelationship with Activity --></description>
+        <label><!-- Account with VehicleRelationship with Activity --></label>
+        <name>Account_with_VehicleRelationship_with_Activity</name>
+        <sections>
+            <label><!-- 人车关系 --></label>
+            <name>人车关系</name>
+        </sections>
+        <sections>
+            <label><!-- 客户 --></label>
+            <name>客户</name>
+        </sections>
+        <sections>
+            <label><!-- 活动 --></label>
+            <name>活动</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Vehicle Relationship --></description>
+        <label><!-- Account with Vehicle Relationship --></label>
+        <name>Account_with_Vehicle_Relationship</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with activities with vehicle relation --></description>
+        <label><!-- Account with activities with vehicle relation --></label>
+        <name>Account_with_activities_with_vehicle_relation</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with campaign survey result --></description>
+        <label><!-- Account with campaign survey result --></label>
+        <name>Account_with_campaign_survey_result</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Campaign Survey Results --></label>
+            <name>Campaign Survey Results</name>
+        </sections>
+        <sections>
+            <label><!-- 客户 --></label>
+            <name>客户</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with leads --></description>
+        <label><!-- Account with leads --></label>
+        <name>Account_with_leads</name>
+        <sections>
+            <label><!-- 客户 --></label>
+            <name>客户</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with leads with Activity --></description>
+        <label><!-- Account with leads with Activity --></label>
+        <name>Account_with_leads_with_Activity</name>
+        <sections>
+            <label><!-- 客户 --></label>
+            <name>客户</name>
+        </sections>
+        <sections>
+            <label><!-- 活动 --></label>
+            <name>活动</name>
+        </sections>
+        <sections>
+            <label><!-- 线索（联系人） --></label>
+            <name>线索（联系人）</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with role --></description>
+        <label><!-- Account with role --></label>
+        <name>Account_with_role</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account_ without_vehiclerelationship --></description>
+        <label><!-- Account_ without_vehiclerelationship --></label>
+        <name>Account_without_vehiclerelationship</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts &amp; Leads &amp; Campaign Leads &amp; Activities --></description>
+        <label><!-- Accounts &amp; Leads &amp; Campaign Leads &amp; Activities --></label>
+        <name>Accounts_Leads_Campaign_Leads_Activities</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts With Sales Order --></description>
+        <label><!-- Accounts With Sales Order --></label>
+        <name>Accounts_With_Sales_Order</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts_count_CG --></description>
+        <label><!-- Accounts_count_CG --></label>
+        <name>Accounts_count_CG</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Activities --></description>
+        <label><!-- Accounts with Activities --></label>
+        <name>Accounts_with_Activities</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- 客户 --></label>
+            <name>客户</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Case and Acitivities --></description>
+        <label><!-- Accounts with Case and Acitivities --></label>
+        <name>Accounts_with_Case_and_Acitivities</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Cases(Car Owner) --></label>
+            <name>Cases(Car Owner)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Cases --></description>
+        <label><!-- Accounts with Cases --></label>
+        <name>Accounts_with_Cases</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Cases (Dealer) --></label>
+            <name>Cases (Dealer)</name>
+        </sections>
+        <sections>
+            <label><!-- 客户 --></label>
+            <name>客户</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Cases with Leads with Activities --></description>
+        <label><!-- Accounts with Cases with Leads with Activities --></label>
+        <name>Accounts_with_Cases_with_Leads_with_Activities</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with DM_request --></description>
+        <label><!-- Accounts with DM_request --></label>
+        <name>Accounts_with_DM_request</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Lead and Vehicle Relationship --></description>
+        <label><!-- Accounts with Lead and Vehicle Relationship --></label>
+        <name>Accounts_with_Lead_and_Vehicle_Relationship</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Leads_Custom --></description>
+        <label><!-- Accounts with Leads_Custom --></label>
+        <name>Accounts_with_Leads</name>
+        <sections>
+            <columns>
+                <label><!-- 客户名1 --></label>
+                <name>客户名1</name>
+            </columns>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+        <sections>
+            <label><!-- 线索（联系人） --></label>
+            <name>线索（联系人）</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Leads with Campaign Leads with Act. --></description>
+        <label><!-- Accounts with Leads with Campaign Leads with Act. --></label>
+        <name>Accounts_with_Leads_with_Campaign_Leads_with_Act</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Activitie --></label>
+            <name>Activitie</name>
+        </sections>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+        <sections>
+            <label><!-- 客户 --></label>
+            <name>客户</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Leads with Campaign Leads with Act.2 --></description>
+        <label><!-- Accounts with Leads with Campaign Leads with Act.2 --></label>
+        <name>Accounts_with_Leads_with_Campaign_Leads_with_Act2</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with No Activities --></description>
+        <label><!-- Accounts with No Activities --></label>
+        <name>Accounts_with_No_Activities</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Rejected Duplicate Logs --></description>
+        <label><!-- Accounts with Rejected Duplicate Logs --></label>
+        <name>Accounts_with_Rejected_Duplicate_Log</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Rejected Duplicate Logs --></label>
+            <name>Rejected Duplicate Logs</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Social Media --></description>
+        <label><!-- Accounts with Social Media --></label>
+        <name>Accounts_with_Social_Media</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Social Media Accounts --></label>
+            <name>Social Media Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Accounts with Vehicle Relationships --></description>
+        <label><!-- Accounts with Vehicle Relationships --></label>
+        <name>Accounts_with_Vehicle_Relationship</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle --></label>
+            <name>Vehicle</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Activities --></description>
+        <label><!-- Activities --></label>
+        <name>Activities</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Activities with owner&apos;s group --></description>
+        <label><!-- Activities with owner&apos;s group --></label>
+        <name>Activities_with_owner_s_group</name>
+        <sections>
+            <label><!-- Activities (Assigned To) --></label>
+            <name>Activities (Assigned To)</name>
+        </sections>
+        <sections>
+            <label><!-- Users --></label>
+            <name>Users</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign Lead --></description>
+        <label><!-- Campaign Lead --></label>
+        <name>Campaign_Lead</name>
+        <sections>
+            <columns>
+                <label><!-- Lead编号 --></label>
+                <name>Lead编号</name>
+            </columns>
+            <columns>
+                <label><!-- 公司电话 --></label>
+                <name>公司电话</name>
+            </columns>
+            <columns>
+                <label><!-- 地址 --></label>
+                <name>地址</name>
+            </columns>
+            <columns>
+                <label><!-- 客户备注 --></label>
+                <name>客户备注</name>
+            </columns>
+            <columns>
+                <label><!-- 客户姓名 --></label>
+                <name>客户姓名</name>
+            </columns>
+            <columns>
+                <label><!-- 客户状态 --></label>
+                <name>客户状态</name>
+            </columns>
+            <columns>
+                <label><!-- 客户编号 --></label>
+                <name>客户编号</name>
+            </columns>
+            <columns>
+                <label><!-- 性别 --></label>
+                <name>性别</name>
+            </columns>
+            <columns>
+                <label><!-- 感兴趣品牌 --></label>
+                <name>感兴趣品牌</name>
+            </columns>
+            <columns>
+                <label><!-- 感兴趣车型 --></label>
+                <name>感兴趣车型</name>
+            </columns>
+            <columns>
+                <label><!-- 感兴趣车系 --></label>
+                <name>感兴趣车系</name>
+            </columns>
+            <columns>
+                <label><!-- 所属城市 --></label>
+                <name>所属城市</name>
+            </columns>
+            <columns>
+                <label><!-- 所属省份 --></label>
+                <name>所属省份</name>
+            </columns>
+            <columns>
+                <label><!-- 手机号 --></label>
+                <name>手机号</name>
+            </columns>
+            <columns>
+                <label><!-- 批次号 --></label>
+                <name>批次号</name>
+            </columns>
+            <columns>
+                <label><!-- 车展收集人备注 --></label>
+                <name>车展收集人备注</name>
+            </columns>
+            <columns>
+                <label><!-- 邮箱 --></label>
+                <name>邮箱</name>
+            </columns>
+            <columns>
+                <label><!-- 邮编 --></label>
+                <name>邮编</name>
+            </columns>
+            <columns>
+                <label><!-- 预计购买时间 --></label>
+                <name>预计购买时间</name>
+            </columns>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign_Leads_count_CG --></description>
+        <label><!-- Campaign_Leads_count_CG --></label>
+        <name>Campaign_Leads_count_CG</name>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign_Members_count_CG --></description>
+        <label><!-- Campaign_Members_count_CG --></label>
+        <name>Campaign_Members_count_CG</name>
+        <sections>
+            <label><!-- Campaign Partners --></label>
+            <name>Campaign Partners</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaign Survey with Account with Campaign --></description>
+        <label><!-- Campaign Survey with Account with Campaign --></label>
+        <name>Campaign_Survey_with_Account_with_Campaign</name>
+        <sections>
+            <label><!-- Campaign Survey Results --></label>
+            <name>Campaign Survey Results</name>
+        </sections>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaigns with Contacts --></description>
+        <label><!-- Campaigns with Contacts --></label>
+        <name>Campaigns_of_Dealer</name>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaigns with Campaign Execution with Segmentation Criteria --></description>
+        <label><!-- Campaigns with Campaign Execution with Segmentation Criteria --></label>
+        <name>Campaigns_with_Campaign_Execution_with_Segmentation_Criteria</name>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaigns with Campaign Offerings with Dealer Offerings --></description>
+        <label><!-- Campaigns with Campaign Offerings with Dealer Offerings --></label>
+        <name>Campaigns_with_Campaign_Offerings_with_Dealer_Offerings</name>
+        <sections>
+            <label><!-- Campaign Offerings --></label>
+            <name>Campaign Offerings</name>
+        </sections>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
+        </sections>
+        <sections>
+            <label><!-- Dealer Offerings --></label>
+            <name>Dealer Offerings</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaigns with Campaign Offerings with Package Items --></description>
+        <label><!-- Campaigns with Campaign Offerings with Package Items --></label>
+        <name>Campaigns_with_Campaign_Offerings_with_Package_Items</name>
+        <sections>
+            <label><!-- Campaign Offerings --></label>
+            <name>Campaign Offerings</name>
+        </sections>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
+        </sections>
+        <sections>
+            <label><!-- Package Items --></label>
+            <name>Package Items</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Campaigns with Campaign Packages with Package Items --></description>
+        <label><!-- Campaigns with Campaign Packages with Package Items --></label>
+        <name>Campaigns_with_Campaign_Packages_with_Package_Items</name>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Car Enquiry车辆问询的报表 --></description>
+        <label><!-- Car Enquiry车辆问询的报表 --></label>
+        <name>Car_Enquiry</name>
+        <sections>
+            <label><!-- 车辆问询 --></label>
+            <name>车辆问询</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Car Model --></description>
+        <label><!-- Car Model --></label>
+        <name>Car_Model</name>
+        <sections>
+            <label><!-- Car Model --></label>
+            <name>Car Model</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Case_Complain Description_Account --></description>
+        <label><!-- Case_Complain Description_Account --></label>
+        <name>Case_Complain_Description_Account</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Complaint Descriptions / Resolutions --></label>
+            <name>Complaint Descriptions / Resolutions</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 包含活动的个案 --></description>
+        <label><!-- 包含活动的个案 --></label>
+        <name>Case_With_Activity</name>
+        <sections>
+            <label><!-- 个案 --></label>
+            <name>个案</name>
+        </sections>
+        <sections>
+            <label><!-- 活动 --></label>
+            <name>活动</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Case with Campaign --></description>
+        <label><!-- Case with Campaign --></label>
+        <name>Case_with_Campaign</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Case with Dealer --></description>
+        <label><!-- Case with Dealer --></label>
+        <name>Case_with_Dealer</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Case_left --></description>
+        <label><!-- Case_left --></label>
+        <name>Cases</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- leads --></label>
+            <name>leads</name>
+        </sections>
+        <sections>
+            <label><!-- 个案 --></label>
+            <name>个案</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Cases all --></description>
+        <label><!-- Cases all --></label>
+        <name>Cases_all</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- 个案 --></label>
+            <name>个案</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Cases_count_CG --></description>
+        <label><!-- Cases_count_CG --></label>
+        <name>Cases_count_CG</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Cases w/ Activities --></description>
+        <label><!-- Cases w/ Activities --></label>
+        <name>Cases_w_Activities</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Cases w/ Complainant Lookup --></description>
+        <label><!-- Cases w/ Complainant Lookup --></label>
+        <name>Cases_w_Complainant_Lookup</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Cases w/ Vehicle Relationship Lookup --></description>
+        <label><!-- Cases w/ Vehicle Relationship Lookup --></label>
+        <name>Cases_w_Vehicle_Relationship_Lookup</name>
+        <sections>
+            <label><!-- Account --></label>
+            <name>Account</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- VehicleRelation --></label>
+            <name>VehicleRelation</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Cases with Acitivities --></description>
+        <label><!-- Cases with Acitivities --></label>
+        <name>Cases_with_Acitivities</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Contacts with Cases with Activities --></description>
+        <label><!-- Contacts with Cases with Activities --></label>
+        <name>Complaint_QC</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Complaint_Tracking_count_CG --></description>
+        <label><!-- Complaint_Tracking_count_CG --></label>
+        <name>Complaint_Tracking_count_CG</name>
+        <sections>
+            <label><!-- Complaint Tracking --></label>
+            <name>Complaint Tracking</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 注册成员及人车关系 --></description>
+        <label><!-- 注册成员及人车关系 --></label>
+        <name>Contact_Vehicle</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Campaign History --></label>
+            <name>Campaign History</name>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Contacts_count_CG --></description>
+        <label><!-- Contacts_count_CG --></label>
+        <name>Contacts_count_CG</name>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 市场活动成员 --></description>
+        <label><!-- 市场活动成员 --></label>
+        <name>CustomReportType</name>
+        <sections>
+            <label><!-- 市场活动 --></label>
+            <name>市场活动</name>
+        </sections>
+        <sections>
+            <label><!-- 市场活动成员 --></label>
+            <name>市场活动成员</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 活动与活动成员 --></description>
+        <label><!-- 活动与活动成员 --></label>
+        <name>CustomReportType1</name>
+        <sections>
+            <label><!-- 参与活动 --></label>
+            <name>参与活动</name>
+        </sections>
+        <sections>
+            <label><!-- 客户 --></label>
+            <name>客户</name>
+        </sections>
+        <sections>
+            <label><!-- 活动成员 --></label>
+            <name>活动成员</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 个案+车辆 --></description>
+        <label><!-- 个案+车辆 --></label>
+        <name>CustomReportType2</name>
+        <sections>
+            <label><!-- 个案 --></label>
+            <name>个案</name>
+        </sections>
+        <sections>
+            <label><!-- 车辆问询 --></label>
+            <name>车辆问询</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 客户_人车关系_车 --></description>
+        <label><!-- 客户_人车关系_车 --></label>
+        <name>CustomReportType3</name>
+        <sections>
+            <label><!-- 人车关系 --></label>
+            <name>人车关系</name>
+        </sections>
+        <sections>
+            <label><!-- 车辆 --></label>
+            <name>车辆</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 活动成员状态和沟通状态 --></description>
+        <label><!-- 活动成员状态和沟通状态 --></label>
+        <name>CustomReportType4</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 测试 --></description>
+        <label><!-- 测试 --></label>
+        <name>CustomReportType5</name>
+        <sections>
+            <label><!-- 个案 --></label>
+            <name>个案</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- DM Request without activity --></description>
+        <label><!-- DM Request without activity --></label>
+        <name>DM_Request_without_activity</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- DM_request_count_CG --></description>
+        <label><!-- DM_request_count_CG --></label>
+        <name>DM_request_count_CG</name>
+        <sections>
+            <label><!-- DM Request --></label>
+            <name>DM Request</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Dealer_Contact_User --></description>
+        <label><!-- Dealer_Contact_User --></label>
+        <name>Dealer_Contact_User</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Partners --></label>
+            <name>Partners</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Dealer With Contact --></description>
+        <label><!-- Dealer With Contact --></label>
+        <name>Dealer_With_Contact</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Dealer with Complaint --></description>
+        <label><!-- Dealer with Complaint --></label>
+        <name>Dealer_with_Complaint</name>
+        <sections>
+            <label><!-- Cases (Case Complainant) --></label>
+            <name>Cases (Case Complainant)</name>
+        </sections>
+        <sections>
+            <label><!-- 客户 --></label>
+            <name>客户</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Dealer with Lead with Campaign Lead with Activity --></description>
+        <label><!-- Dealer with Lead with Campaign Lead with Activity --></label>
+        <name>Dealer_with_Lead_Campaign_Lead_with_Activity</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Assigned Dealer) --></label>
+            <name>Leads (Assigned Dealer)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- F1报名 --></description>
+        <label><!-- F1报名 --></label>
+        <name>F1</name>
+        <sections>
+            <label><!-- 人车关系 --></label>
+            <name>人车关系</name>
+        </sections>
+        <sections>
+            <label><!-- 客户 --></label>
+            <name>客户</name>
+        </sections>
+        <sections>
+            <label><!-- 活动 --></label>
+            <name>活动</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Lead with activity --></description>
+        <label><!-- Lead with activity --></label>
+        <name>Lead_with_activity</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads为基数 --></description>
+        <label><!-- Leads为基数 --></label>
+        <name>Leads</name>
+        <sections>
+            <label><!-- 线索 --></label>
+            <name>线索</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads &amp; Dealer Account --></description>
+        <label><!-- Leads &amp; Dealer Account --></label>
+        <name>Leads_Dealer_Account</name>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads With Campaign Leads --></description>
+        <label><!-- Leads With Campaign Leads --></label>
+        <name>Leads_With_Campaign_Leads</name>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads contacts --></description>
+        <label><!-- Leads contacts --></label>
+        <name>Leads_contacts</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads_count_CG --></description>
+        <label><!-- Leads_count_CG --></label>
+        <name>Leads_count_CG</name>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads left join campaign_lead --></description>
+        <label><!-- Leads left join campaign_lead --></label>
+        <name>Leads_left_join_campaign_lead</name>
+        <sections>
+            <label><!-- 活动销售线索 --></label>
+            <name>活动销售线索</name>
+        </sections>
+        <sections>
+            <label><!-- 线索 --></label>
+            <name>线索</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads w/ Campaign Leads w/ Activities --></description>
+        <label><!-- Leads w/ Campaign Leads w/ Activities --></label>
+        <name>Leads_w_Campaign_Leads_w_Activities</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads with Accounts --></description>
+        <label><!-- Leads with Accounts --></label>
+        <name>Leads_with_Accounts</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Assigned Dealer) --></label>
+            <name>Leads (Assigned Dealer)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads with Campaign Leads with Activities (Custom) --></description>
+        <label><!-- Leads with Campaign Leads with Activities (Custom) --></label>
+        <name>Leads_with_Campaign_Leads_Activities</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- MBDA Customer Satisfaction Survey Report --></description>
+        <label><!-- MBDA Customer Satisfaction Survey Report --></label>
+        <name>MBDA_Customer_Satisfaction_Survey_Report</name>
+        <sections>
+            <columns>
+                <label><!--  Course Bought --></label>
+                <name> Course Bought</name>
+            </columns>
+            <columns>
+                <label><!-- Date of Last Service --></label>
+                <name>Date of Last Service</name>
+            </columns>
+            <columns>
+                <label><!-- Dissatisfaction of our CSR --></label>
+                <name>Dissatisfaction of our CSR</name>
+            </columns>
+            <columns>
+                <label><!-- How to Know MBDA --></label>
+                <name>How to Know MBDA</name>
+            </columns>
+            <columns>
+                <label><!-- Instructor show on time/N） --></label>
+                <name>Instructor show on time/N）</name>
+            </columns>
+            <columns>
+                <label><!-- Name --></label>
+                <name>Name</name>
+            </columns>
+            <columns>
+                <label><!-- Other suggestions --></label>
+                <name>Other suggestions</name>
+            </columns>
+            <columns>
+                <label><!-- Rate Vehicle Status --></label>
+                <name>Rate Vehicle Status</name>
+            </columns>
+            <columns>
+                <label><!-- Rate our CSR --></label>
+                <name>Rate our CSR</name>
+            </columns>
+            <columns>
+                <label><!-- Rate our teaching tools --></label>
+                <name>Rate our teaching tools</name>
+            </columns>
+            <columns>
+                <label><!-- Rate the course content --></label>
+                <name>Rate the course content</name>
+            </columns>
+            <columns>
+                <label><!-- Rate the experience of the instructor --></label>
+                <name>Rate the experience of the instructor</name>
+            </columns>
+            <columns>
+                <label><!-- Rate the instructor image --></label>
+                <name>Rate the instructor image</name>
+            </columns>
+            <columns>
+                <label><!-- Rate the outcome of the course --></label>
+                <name>Rate the outcome of the course</name>
+            </columns>
+            <columns>
+                <label><!-- Rate the service of the instructor --></label>
+                <name>Rate the service of the instructor</name>
+            </columns>
+            <columns>
+                <label><!-- Rate the vehicle equipment --></label>
+                <name>Rate the vehicle equipment</name>
+            </columns>
+            <columns>
+                <label><!-- Service Type --></label>
+                <name>Service Type</name>
+            </columns>
+            <columns>
+                <label><!-- Tel --></label>
+                <name>Tel</name>
+            </columns>
+            <columns>
+                <label><!-- Will buy again?（Y/N） --></label>
+                <name>Will buy again?（Y/N）</name>
+            </columns>
+            <columns>
+                <label><!-- Will make recommendation?（Y/N） --></label>
+                <name>Will make recommendation?（Y/N）</name>
+            </columns>
+            <columns>
+                <label><!-- problems of the courses --></label>
+                <name>problems of the courses</name>
+            </columns>
+            <label><!-- Survey Results --></label>
+            <name>Survey Results</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Monthly Campaign --></description>
+        <label><!-- Monthly Campaign --></label>
+        <name>Monthly_Campaign</name>
+        <sections>
+            <label><!-- Records --></label>
+            <name>Records</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- OB结果与活动的Leads --></description>
+        <label><!-- OB结果与活动的Leads --></label>
+        <name>OB_Leads</name>
+        <sections>
+            <label><!-- 活动 --></label>
+            <name>活动</name>
+        </sections>
+        <sections>
+            <label><!-- 活动销售线索 --></label>
+            <name>活动销售线索</name>
+        </sections>
+        <sections>
+            <label><!-- 线索 --></label>
+            <name>线索</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- OB Task Handings --></description>
+        <label><!-- OB Task Handings --></label>
+        <name>OB_Task_Handings</name>
+        <sections>
+            <label><!-- OB Task Handings --></label>
+            <name>OB Task Handings</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Order with Contact --></description>
+        <label><!-- Order with Contact --></label>
+        <name>Order_with_Contact</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Orders --></label>
+            <name>Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Order with Event --></description>
+        <label><!-- Order with Event --></label>
+        <name>Order_with_Event</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Orders --></label>
+            <name>Orders</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Person Account with Leads --></description>
+        <label><!-- Person Account with Leads --></label>
+        <name>Person_Account_with_Leads</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- QC --></description>
+        <label><!-- QC --></label>
+        <name>QC</name>
+        <sections>
+            <label><!-- QC --></label>
+            <name>QC</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Records with dealer --></description>
+        <label><!-- Records with dealer --></label>
+        <name>Records_with_dealer</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Records (Dealer Name) --></label>
+            <name>Records (Dealer Name)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Requirement W/O DT --></description>
+        <label><!-- Requirement W/O DT --></label>
+        <name>Requirement_W_O_DT</name>
+        <sections>
+            <label><!-- Develop Tasks --></label>
+            <name>Develop Tasks</name>
+        </sections>
+        <sections>
+            <label><!-- Requirement / User Story --></label>
+            <name>Requirement / User Story</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Retail Campaign Members with Contact --></description>
+        <label><!-- Retail Campaign Members with Contact --></label>
+        <name>Retail_Campaign_Members_with_Contact</name>
+        <sections>
+            <label><!-- Retail Campaign Members --></label>
+            <name>Retail Campaign Members</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Retail Tasks with Lookup Values --></description>
+        <label><!-- Retail Tasks with Lookup Values --></label>
+        <name>Retail_Tasks_with_Lookup_Values</name>
+        <sections>
+            <columns>
+                <label><!-- CAC OB 时间 --></label>
+                <name>CAC OB 时间</name>
+            </columns>
+            <columns>
+                <label><!-- CAC OB 状态 --></label>
+                <name>CAC OB 状态</name>
+            </columns>
+            <columns>
+                <label><!-- 交车日期 --></label>
+                <name>交车日期</name>
+            </columns>
+            <columns>
+                <label><!-- 住宅／手提电话 --></label>
+                <name>住宅／手提电话</name>
+            </columns>
+            <columns>
+                <label><!-- 保修日期 --></label>
+                <name>保修日期</name>
+            </columns>
+            <columns>
+                <label><!-- 公司名称 --></label>
+                <name>公司名称</name>
+            </columns>
+            <columns>
+                <label><!-- 公司电话 --></label>
+                <name>公司电话</name>
+            </columns>
+            <columns>
+                <label><!-- 发动机号 --></label>
+                <name>发动机号</name>
+            </columns>
+            <columns>
+                <label><!-- 发动机型号 --></label>
+                <name>发动机型号</name>
+            </columns>
+            <columns>
+                <label><!-- 变速器型号 --></label>
+                <name>变速器型号</name>
+            </columns>
+            <columns>
+                <label><!-- 地址 --></label>
+                <name>地址</name>
+            </columns>
+            <columns>
+                <label><!-- 城市 --></label>
+                <name>城市</name>
+            </columns>
+            <columns>
+                <label><!-- 开票日期 --></label>
+                <name>开票日期</name>
+            </columns>
+            <columns>
+                <label><!-- 新车型号 --></label>
+                <name>新车型号</name>
+            </columns>
+            <columns>
+                <label><!-- 欧版车架号 --></label>
+                <name>欧版车架号</name>
+            </columns>
+            <columns>
+                <label><!-- 生产日期 --></label>
+                <name>生产日期</name>
+            </columns>
+            <columns>
+                <label><!-- 电子邮件 --></label>
+                <name>电子邮件</name>
+            </columns>
+            <columns>
+                <label><!-- 称呼 --></label>
+                <name>称呼</name>
+            </columns>
+            <columns>
+                <label><!-- 经销商名称 --></label>
+                <name>经销商名称</name>
+            </columns>
+            <columns>
+                <label><!-- 经销商类型 --></label>
+                <name>经销商类型</name>
+            </columns>
+            <columns>
+                <label><!-- 经销商编号 --></label>
+                <name>经销商编号</name>
+            </columns>
+            <columns>
+                <label><!-- 订单号 --></label>
+                <name>订单号</name>
+            </columns>
+            <columns>
+                <label><!-- 身份证号（证件号） --></label>
+                <name>身份证号（证件号）</name>
+            </columns>
+            <columns>
+                <label><!-- 车主名称 --></label>
+                <name>车主名称</name>
+            </columns>
+            <columns>
+                <label><!-- 车型 --></label>
+                <name>车型</name>
+            </columns>
+            <columns>
+                <label><!-- 车架号 --></label>
+                <name>车架号</name>
+            </columns>
+            <columns>
+                <label><!-- 车身形式 --></label>
+                <name>车身形式</name>
+            </columns>
+            <columns>
+                <label><!-- 车辆类型 --></label>
+                <name>车辆类型</name>
+            </columns>
+            <columns>
+                <label><!-- 车辆颜色 --></label>
+                <name>车辆颜色</name>
+            </columns>
+            <columns>
+                <label><!-- 进口车／国产车 --></label>
+                <name>进口车／国产车</name>
+            </columns>
+            <columns>
+                <label><!-- 邮政编码 --></label>
+                <name>邮政编码</name>
+            </columns>
+            <columns>
+                <label><!-- 销售地区（省） --></label>
+                <name>销售地区（省）</name>
+            </columns>
+            <label><!-- Retail Tasks --></label>
+            <name>Retail Tasks</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Retail marketing records --></description>
+        <label><!-- Retail marketing records --></label>
+        <name>Retail_marketing_records</name>
+        <sections>
+            <label><!-- Records --></label>
+            <name>Records</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- SMS Reply with Customer Info --></description>
+        <label><!-- SMS Reply with Customer Info --></label>
+        <name>SMS_Reply_with_Customer_Info</name>
+        <sections>
+            <label><!-- SMS Reply Histories --></label>
+            <name>SMS Reply Histories</name>
+        </sections>
+        <sections>
+            <label><!-- 短信回复历史 --></label>
+            <name>短信回复历史</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 包含 人车关系 的SSI --></description>
+        <label><!-- 包含 人车关系 的SSI --></label>
+        <name>SSI</name>
+        <sections>
+            <label><!-- SSI --></label>
+            <name>SSI</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationship --></label>
+            <name>Vehicle Relationship</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- 包含人车关系的SSI --></description>
+        <label><!-- 包含人车关系的SSI --></label>
+        <name>SSI1</name>
+        <sections>
+            <label><!-- SSI --></label>
+            <name>SSI</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationship --></label>
+            <name>Vehicle Relationship</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- SSI_L --></description>
+        <label><!-- SSI_L --></label>
+        <name>SSI_L</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Activity --></label>
+            <name>Activity</name>
+        </sections>
+        <sections>
+            <label><!-- SSI --></label>
+            <name>SSI</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- SSI w/ QC &amp; Lookups --></description>
+        <label><!-- SSI w/ QC &amp; Lookups --></label>
+        <name>SSI_w_QC_Lookups</name>
+        <sections>
+            <label><!-- QC --></label>
+            <name>QC</name>
+        </sections>
+        <sections>
+            <label><!-- SSI --></label>
+            <name>SSI</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- SSI with Activity L --></description>
+        <label><!-- SSI with Activity L --></label>
+        <name>SSI_with_Activity_L</name>
+        <sections>
+            <label><!-- Account --></label>
+            <name>Account</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- SSI --></label>
+            <name>SSI</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- SSI with Activity with Survey Result --></description>
+        <label><!-- SSI with Activity with Survey Result --></label>
+        <name>SSI_with_Activity_with_Survey_Result</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- SSI --></label>
+            <name>SSI</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Results --></label>
+            <name>Survey Results</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- SSI with QC --></description>
+        <label><!-- SSI with QC --></label>
+        <name>SSI_with_QC</name>
+        <sections>
+            <label><!-- QC --></label>
+            <name>QC</name>
+        </sections>
+        <sections>
+            <label><!-- SSI --></label>
+            <name>SSI</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- SSI with Survey Result --></description>
+        <label><!-- SSI with Survey Result --></label>
+        <name>SSI_with_Survey_Result</name>
+        <sections>
+            <label><!-- SSI --></label>
+            <name>SSI</name>
+        </sections>
+        <sections>
+            <label><!-- Survey Results --></label>
+            <name>Survey Results</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- SSI with accounts --></description>
+        <label><!-- SSI with accounts --></label>
+        <name>SSI_with_accounts</name>
+        <sections>
+            <label><!-- QC --></label>
+            <name>QC</name>
+        </sections>
+        <sections>
+            <label><!-- SSI --></label>
+            <name>SSI</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Sales with Activity --></description>
+        <label><!-- Sales with Activity --></label>
+        <name>Sales_with_Activity</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Sales --></label>
+            <name>Sales</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Sales with Lookup Values (iCRM) --></description>
+        <label><!-- Sales with Lookup Values (iCRM) --></label>
+        <name>Sales_with_Lookup_Values</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <columns>
+                <label><!-- CAC OB 时间 --></label>
+                <name>CAC OB 时间</name>
+            </columns>
+            <columns>
+                <label><!-- CAC OB 状态 --></label>
+                <name>CAC OB 状态</name>
+            </columns>
+            <columns>
+                <label><!-- Salutation --></label>
+                <name>Salutation</name>
+            </columns>
+            <columns>
+                <label><!-- 交车日期 --></label>
+                <name>交车日期</name>
+            </columns>
+            <columns>
+                <label><!-- 住宅／手提电话 --></label>
+                <name>住宅／手提电话</name>
+            </columns>
+            <columns>
+                <label><!-- 保修日期 --></label>
+                <name>保修日期</name>
+            </columns>
+            <columns>
+                <label><!-- 公司名称 --></label>
+                <name>公司名称</name>
+            </columns>
+            <columns>
+                <label><!-- 公司电话 --></label>
+                <name>公司电话</name>
+            </columns>
+            <columns>
+                <label><!-- 发动机号 --></label>
+                <name>发动机号</name>
+            </columns>
+            <columns>
+                <label><!-- 发动机型号 --></label>
+                <name>发动机型号</name>
+            </columns>
+            <columns>
+                <label><!-- 变速器型号 --></label>
+                <name>变速器型号</name>
+            </columns>
+            <columns>
+                <label><!-- 地址 --></label>
+                <name>地址</name>
+            </columns>
+            <columns>
+                <label><!-- 城市 --></label>
+                <name>城市</name>
+            </columns>
+            <columns>
+                <label><!-- 开票日期 --></label>
+                <name>开票日期</name>
+            </columns>
+            <columns>
+                <label><!-- 新车型号 --></label>
+                <name>新车型号</name>
+            </columns>
+            <columns>
+                <label><!-- 欧版车架号 --></label>
+                <name>欧版车架号</name>
+            </columns>
+            <columns>
+                <label><!-- 生产日期 --></label>
+                <name>生产日期</name>
+            </columns>
+            <columns>
+                <label><!-- 电子邮件 --></label>
+                <name>电子邮件</name>
+            </columns>
+            <columns>
+                <label><!-- 称呼 --></label>
+                <name>称呼</name>
+            </columns>
+            <columns>
+                <label><!-- 经销商名称 --></label>
+                <name>经销商名称</name>
+            </columns>
+            <columns>
+                <label><!-- 经销商类型 --></label>
+                <name>经销商类型</name>
+            </columns>
+            <columns>
+                <label><!-- 经销商编号 --></label>
+                <name>经销商编号</name>
+            </columns>
+            <columns>
+                <label><!-- 经销商编号 --></label>
+                <name>经销商编号</name>
+            </columns>
+            <columns>
+                <label><!-- 订单号 --></label>
+                <name>订单号</name>
+            </columns>
+            <columns>
+                <label><!-- 身份证号（证件号） --></label>
+                <name>身份证号（证件号）</name>
+            </columns>
+            <columns>
+                <label><!-- 车主姓名 --></label>
+                <name>车主姓名</name>
+            </columns>
+            <columns>
+                <label><!-- 车型 --></label>
+                <name>车型</name>
+            </columns>
+            <columns>
+                <label><!-- 车架号 --></label>
+                <name>车架号</name>
+            </columns>
+            <columns>
+                <label><!-- 车身形式 --></label>
+                <name>车身形式</name>
+            </columns>
+            <columns>
+                <label><!-- 车辆类型 --></label>
+                <name>车辆类型</name>
+            </columns>
+            <columns>
+                <label><!-- 车辆颜色 --></label>
+                <name>车辆颜色</name>
+            </columns>
+            <columns>
+                <label><!-- 进口车／国产车 --></label>
+                <name>进口车／国产车</name>
+            </columns>
+            <columns>
+                <label><!-- 邮政编码 --></label>
+                <name>邮政编码</name>
+            </columns>
+            <columns>
+                <label><!-- 销售地区（省） --></label>
+                <name>销售地区（省）</name>
+            </columns>
+            <label><!-- Sales --></label>
+            <name>Sales</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Survey w/ Questions and Answers --></description>
+        <label><!-- Survey w/ Questions and Answers --></label>
+        <name>Survey_w_Questions_and_Answers</name>
+        <sections>
+            <label><!-- Survey Question Responses --></label>
+            <name>Survey Question Responses</name>
+        </sections>
+        <sections>
+            <label><!-- SurveyQuestionResponses --></label>
+            <name>SurveyQuestionResponses</name>
+        </sections>
+        <sections>
+            <label><!-- SurveyQuestions --></label>
+            <name>SurveyQuestions</name>
+        </sections>
+        <sections>
+            <label><!-- Surveys --></label>
+            <name>Surveys</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- System objects --></description>
+        <label><!-- System objects --></label>
+        <name>System_objects</name>
+        <sections>
+            <label><!-- ObjectFields --></label>
+            <name>ObjectFields</name>
+        </sections>
+        <sections>
+            <label><!-- SystemObjects --></label>
+            <name>SystemObjects</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- TSP Subscription with Account&amp;Vehicle --></description>
+        <label><!-- TSP Subscription with Account&amp;Vehicle --></label>
+        <name>TSP_Subscription_with_Account_Vehicle</name>
+        <sections>
+            <label><!-- TSP Subscriptions --></label>
+            <name>TSP Subscriptions</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Task_count_CG --></description>
+        <label><!-- Task_count_CG --></label>
+        <name>Task_count_CG</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Tasks_count_CG_2 --></description>
+        <label><!-- Tasks_count_CG_2 --></label>
+        <name>Tasks_count_CG_2</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Unin Campaign --></description>
+        <label><!-- Unin Campaign --></label>
+        <name>Unin_Campaign</name>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
+        </sections>
+        <sections>
+            <label><!-- Participating Dealers --></label>
+            <name>Participating Dealers</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- User_Report_Type_Customized --></description>
+        <label><!-- User_Report_Type_Customized --></label>
+        <name>User_Report_Type</name>
+        <sections>
+            <label><!-- 用户 --></label>
+            <name>用户</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- User Story with Requirements --></description>
+        <label><!-- User Story with Requirements --></label>
+        <name>User_Story_with_Requirements</name>
+        <sections>
+            <label><!-- Development Tasks --></label>
+            <name>Development Tasks</name>
+        </sections>
+        <sections>
+            <label><!-- Related Requirement --></label>
+            <name>Related Requirement</name>
+        </sections>
+        <sections>
+            <label><!-- Requirement - User Story --></label>
+            <name>Requirement - User Story</name>
+        </sections>
+        <sections>
+            <label><!-- Requirement / User Story --></label>
+            <name>Requirement / User Story</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Vehicle --></description>
+        <label><!-- Vehicle --></label>
+        <name>Vehicle</name>
+        <sections>
+            <label><!-- 车辆 --></label>
+            <name>车辆</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Vehicle_Rel_count_CG --></description>
+        <label><!-- Vehicle_Rel_count_CG --></label>
+        <name>Vehicle_Rel_count_CG</name>
+        <sections>
+            <label><!-- Vehicle Relationship --></label>
+            <name>Vehicle Relationship</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Vehicle Relationship with Cases and Activities --></description>
+        <label><!-- Vehicle Relationship with Cases and Activities --></label>
+        <name>Vehicle_Relationship_with_Cases_and_Activities</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationship --></label>
+            <name>Vehicle Relationship</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Vehicle Relationship with Cases and Car Enquiry --></description>
+        <label><!-- Vehicle Relationship with Cases and Car Enquiry --></label>
+        <name>Vehicle_Relationship_with_Cases_and_Car_Enquiry</name>
+        <sections>
+            <label><!-- Car Enquiry --></label>
+            <name>Car Enquiry</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicle Relationship --></label>
+            <name>Vehicle Relationship</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Vehicles_count_CG --></description>
+        <label><!-- Vehicles_count_CG --></label>
+        <name>Vehicles_count_CG</name>
+        <sections>
+            <label><!-- Vehicles --></label>
+            <name>Vehicles</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Vehicles with Vehicle Relationships --></description>
+        <label><!-- Vehicles with Vehicle Relationships --></label>
+        <name>Vehicles_with_Vehicle</name>
+        <sections>
+            <label><!-- Vehicle Relationships --></label>
+            <name>Vehicle Relationships</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicles --></label>
+            <name>Vehicles</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- account with lead and activities --></description>
+        <label><!-- account with lead and activities --></label>
+        <name>account_with_lead_and_activities</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Account with Lead and Campaign Lead --></description>
+        <label><!-- Account with Lead and Campaign Lead --></label>
+        <name>account_with_lead_and_campaign_lead</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- account with lead with campaign lead --></description>
+        <label><!-- account with lead with campaign lead --></label>
+        <name>account_with_lead_with_campaign_lead</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- account with user --></description>
+        <label><!-- account with user --></label>
+        <name>account_with_user</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- accounts with cases with complaint tracking --></description>
+        <label><!-- accounts with cases with complaint tracking --></label>
+        <name>accounts_with_cases_with_complaint_tracking</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Complaint Tracking --></label>
+            <name>Complaint Tracking</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- accounts with leads with campaign leads --></description>
+        <label><!-- accounts with leads with campaign leads --></label>
+        <name>accounts_with_leads_with_campaign</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Contact) --></label>
+            <name>Leads (Contact)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ada --></description>
+        <label><!-- ada --></label>
+        <name>ada</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ass --></description>
+        <label><!-- ass --></label>
+        <name>ass</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Participating Campaigns --></label>
+            <name>Participating Campaigns</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- campaign_member --></description>
+        <label><!-- campaign_member --></label>
+        <name>campaign_member</name>
+        <sections>
+            <label><!-- Campaign Members --></label>
+            <name>Campaign Members</name>
+        </sections>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- campaign member --></description>
+        <label><!-- campaign member --></label>
+        <name>campaign_member_zcz</name>
+        <sections>
+            <label><!-- 市场活动成员 --></label>
+            <name>市场活动成员</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- campaign with activities --></description>
+        <label><!-- campaign with activities --></label>
+        <name>campaign_with_activities</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- campaign with campaign lead --></description>
+        <label><!-- campaign with campaign lead --></label>
+        <name>campaign_with_campaign_lead</name>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- campaigns with members_new --></description>
+        <label><!-- campaigns with members_new --></label>
+        <name>campaigns_with_members_new</name>
+        <sections>
+            <label><!-- Campaign Members --></label>
+            <name>Campaign Members</name>
+        </sections>
+        <sections>
+            <label><!-- Campaigns --></label>
+            <name>Campaigns</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- case with case team member --></description>
+        <label><!-- case with case team member --></label>
+        <name>case_with_case_team_member</name>
+        <sections>
+            <label><!-- Case Team Member --></label>
+            <name>Case Team Member</name>
+        </sections>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- cases with settlement management --></description>
+        <label><!-- cases with settlement management --></label>
+        <name>cases_with_settlement_management</name>
+        <sections>
+            <label><!-- Cases --></label>
+            <name>Cases</name>
+        </sections>
+        <sections>
+            <label><!-- Settlement Managements --></label>
+            <name>Settlement Managements</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- iCRM1 --></description>
+        <label><!-- iCRM1 --></label>
+        <name>iCRM1</name>
+        <sections>
+            <label><!-- Sales --></label>
+            <name>Sales</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicles --></label>
+            <name>Vehicles</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- iCRM2 --></description>
+        <label><!-- iCRM2 --></label>
+        <name>iCRM2</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+        <sections>
+            <label><!-- Sales Record --></label>
+            <name>Sales Record</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- lead with activities --></description>
+        <label><!-- lead with activities --></label>
+        <name>lead_with_activities</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- leads with campaign leads with contact --></description>
+        <label><!-- leads with campaign leads with contact --></label>
+        <name>leads_with_campaign_leads_with_contact</name>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Contacts --></label>
+            <name>Contacts</name>
+        </sections>
+        <sections>
+            <label><!-- Leads (Sales Consultant) --></label>
+            <name>Leads (Sales Consultant)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads w/ Campaign Leads /w Account Lookup --></description>
+        <label><!-- Leads w/ Campaign Leads /w Account Lookup --></label>
+        <name>leads_with_campaign_leads_with_person_account</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Campaign Leads --></label>
+            <name>Campaign Leads</name>
+        </sections>
+        <sections>
+            <label><!-- Leads --></label>
+            <name>Leads</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ongoing-经销商 --></description>
+        <label><!-- ongoing-经销商 --></label>
+        <name>ongoing</name>
+        <sections>
+            <label><!-- 活动销售线索 --></label>
+            <name>活动销售线索</name>
+        </sections>
+        <sections>
+            <label><!-- 线索 --></label>
+            <name>线索</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- only accounts --></description>
+        <label><!-- only accounts --></label>
+        <name>only_accounts</name>
+        <sections>
+            <label><!-- Accounts --></label>
+            <name>Accounts</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- smart SSI with Activity L --></description>
+        <label><!-- smart SSI with Activity L --></label>
+        <name>smart_SSI_with_Activity_L</name>
+        <sections>
+            <label><!-- Account --></label>
+            <name>Account</name>
+        </sections>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- smart SSI --></label>
+            <name>smart SSI</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- ssi_call_new --></description>
+        <label><!-- ssi_call_new --></label>
+        <name>ssi_call_new</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- SSI --></label>
+            <name>SSI</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- task_CG --></description>
+        <label><!-- task_CG --></label>
+        <name>task_CG</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- Leads with user&apos;s group --></description>
+        <label><!-- Leads with user&apos;s group --></label>
+        <name>user</name>
+        <sections>
+            <label><!-- 用户 --></label>
+            <name>用户</name>
+        </sections>
+        <sections>
+            <label><!-- 线索 (所有人) --></label>
+            <name>线索 (所有人)</name>
+        </sections>
+    </reportTypes>
+    <reportTypes>
+        <description><!-- vehicle&amp;activities --></description>
+        <label><!-- vehicle&amp;activities --></label>
+        <name>vehicle_activities</name>
+        <sections>
+            <label><!-- Activities --></label>
+            <name>Activities</name>
+        </sections>
+        <sections>
+            <label><!-- Vehicles --></label>
+            <name>Vehicles</name>
+        </sections>
+    </reportTypes>
+</Translations>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Report xmlns="http://soap.sforce.com/2006/04/metadata">
+    <columns>
+        <field>Account.Lead_Contact__r$Id</field>
+    </columns>
+    <columns>
+        <field>Account.Lead_Contact__r$Assigned_Dealer__c</field>
+    </columns>
+    <filter>
+        <criteriaItems>
+            <column>Account.Lead_Contact__r$Need_Assign_To_Dealer__c</column>
+            <operator>equals</operator>
+            <value>Need</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Lead_Contact__r.Campaign_Leads__r$Campaign__c</column>
+            <operator>equals</operator>
+            <value>CAC Leads conversioncheck_细分</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Lead_Contact__r.Campaign_Leads__r$CreatedDate</column>
+            <operator>equals</operator>
+            <value>N_DAYS_AGO:180</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Lead_Contact__r$CAC_Lead_Status__c</column>
+            <operator>notEqual</operator>
+            <value>New</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Lead_Contact__r$Interested_Vehicle_Brand__c</column>
+            <operator>notEqual</operator>
+            <value></value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Allow_Marketing_Info__c</column>
+            <operator>equals</operator>
+            <value>Yes</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account$Type</column>
+            <operator>notEqual</operator>
+            <value>Dealer Employees</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Lead_Contact__r$Is_Active__c</column>
+            <operator>equals</operator>
+            <value>Active</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Lead_Contact__r$Purchase_Time__c</column>
+            <operator>equals</operator>
+            <value>4 - 6 months</value>
+        </criteriaItems>
+        <criteriaItems>
+            <column>Account.Lead_Contact__r$Assigned_Dealer__c</column>
+            <operator>equals</operator>
+            <value>北京百得利之星汽车销售有限公司,广州市龙星行汽车销售服务有限公司,上海利星汽车维修有限公司,成都仁孚汽车销售服务有限公司</value>
+        </criteriaItems>
+        <language>en_US</language>
+    </filter>
+    <format>Tabular</format>
+    <name>conversion_4dealer_OB 小于6个月</name>
+    <params>
+        <name>co</name>
+        <value>1</value>
+    </params>
+    <reportType>account_with_lead_and_campaign_lead__c</reportType>
+    <scope>organization</scope>
+    <showDetails>true</showDetails>
+    <timeFrameFilter>
+        <dateColumn>Account$CreatedDate</dateColumn>
+        <interval>INTERVAL_CUSTOM</interval>
+    </timeFrameFilter>
+</Report>

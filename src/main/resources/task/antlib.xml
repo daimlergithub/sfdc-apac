@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<antlib>
+   <taskdef name="deploy" classname="task.SfdcDeploymentTask"/>
+   <typedef name="typeset" classname="task.SfdcTypeSet"/>
+   <typedef name="include" classname="task.SfdcInclude"/>
+   <typedef name="exclude" classname="task.SfdcExclude"/>
+</antlib>

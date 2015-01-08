@@ -1,0 +1,26 @@
+尊敬的用户您好: 
+
+请您跟进个案{!Case.CaseNumber}并提供解决方案. 
+
+请您使用下面的链接登录CRM系统; 成功登录之后即可查看个案详情. 
+
+如果您是BMBS用户, 请使用以下的链接:
+https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchina.my.salesforce.com
+如果您是经销商用户, 请使用以下的链接:
+https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchinacommunity.force.com
+
+Please refer to the English version as below:
+
+Dear Recipient, 
+
+Here is a case {!Case.CaseNumber} needs you follow up and provide solution. 
+
+Please go to the following URL to login to CRM and view the details of the case.
+
+If you are wholesale user, please use the link 
+https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchina.my.salesforce.com
+If you are dealer user, please use the link
+https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchinacommunity.force.com
+
+Thanks 
+MBDA team

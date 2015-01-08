@@ -1,0 +1,6 @@
+<apex:page controller="QCMassApprovalController" showHeader="true" sidebar="true"  tabStyle="QC__c" action="{!massApproved}">
+    <apex:sectionHeader title="Mass Approve QCs"/>
+    <apex:form >
+        <apex:pageMessages />
+    </apex:form>
+</apex:page>

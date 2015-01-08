@@ -1,0 +1,96 @@
+<apex:page controller="MonthlyMarketAmountReportController">
+
+<style type="text/css">
+body,table{ font-size:12px; }
+table{
+    table-layout:fixed;
+    empty-cells:show; 
+    border-collapse: collapse;
+    margin:0 auto;
+    text-align:center;
+}
+td{ height:20px; }
+h1,h2,h3{ font-size:12px; margin:0; padding:0; }
+
+.title { background: #FFF; border: 1px solid #9DB3C5; padding: 1px; width:90%;margin:20px auto; }
+.title h1 { line-height: 31px; text-align:center;  background: #2F589C url(th_bg2.gif); background-repeat: repeat-x; background-position: 0 0; color: #FFF; }
+.title th, .title td { border: 1px solid #CAD9EA; padding: 5px; }
+
+table.t1{ border:1px solid #cad9ea; color:#666; }
+table.t1 th {
+    background-image: url(th_bg1.gif);
+    background-repeat::repeat-x;
+    height:30px;
+}
+table.t1 td,table.t1 th{ border:1px solid #cad9ea; padding:0 1em 0; }
+table.t1 tr.a1{ background-color:#f5fafe; }
+
+</style>
+
+<apex:form >
+    <apex:pageBlock title="月度市场活动统计报表总括">
+        <table id="mytab2"  border="1" class="t1">
+            <thead>
+                <th></th>
+                <th></th>
+                <th>月度市场总费用</th>
+                <th>比例</th>
+                <th>经销商数量</th>
+                <th>活动数量</th>
+            </thead>
+            <tr class="a1">
+                <th rowspan="3">自行活动</th>
+                <th>媒体计划</th>
+                <td>{!MonthlyMarketAmount.dealerMediaExpense}</td>
+                <td>{!MonthlyMarketAmount.dealerMediaPersent}%</td>
+                <td>{!MonthlyMarketAmount.dealerMediaDealerNumber}</td>
+                <td>{!MonthlyMarketAmount.dealerMediaCampaignNumber}</td>
+            </tr>
+            <tr class="a1">
+                <th>活动计划</th>
+                <td>{!MonthlyMarketAmount.dealerEventExpense}</td>
+                <td>{!MonthlyMarketAmount.dealerEventPersent}%</td>
+                <td>{!MonthlyMarketAmount.dealerEventDealerNumber}</td>
+                <td>{!MonthlyMarketAmount.dealerEventCampaignNumber}</td>
+            </tr>
+            <tr class="a1">
+                <th>小计</th>
+                <td>{!MonthlyMarketAmount.dealerTotalExpense}</td>
+                <td>{!MonthlyMarketAmount.dealerTotalPersent}%</td>
+                <td>{!MonthlyMarketAmount.dealerTotalDealerNumber}</td>
+                <td>{!MonthlyMarketAmount.dealerTotalCampaignNumber}</td>
+            </tr>
+            <tr class="a1">
+                <th rowspan="3">联合营销</th>
+                <th>媒体计划</th>
+                <td>{!MonthlyMarketAmount.JointMediaExpense}</td>
+                <td>{!MonthlyMarketAmount.JointMediaPersent}%</td>
+                <td>{!MonthlyMarketAmount.JointMediaDealerNumber}</td>
+                <td>{!MonthlyMarketAmount.JointMediaCampaignNumber}</td>
+            </tr>
+            <tr class="a1">
+                <th>活动计划</th>
+                <td>{!MonthlyMarketAmount.JointEventExpense}</td>
+                <td>{!MonthlyMarketAmount.JointEventPersent}%</td>
+                <td>{!MonthlyMarketAmount.JointEventDealerNumber}</td>
+                <td>{!MonthlyMarketAmount.JointEventCampaignNumber}</td>
+            </tr>
+            <tr class="a1">
+                <th>小计</th>
+                <td>{!MonthlyMarketAmount.JointTotalExpense}</td>
+                <td>{!MonthlyMarketAmount.JointTotalPersent}%</td>
+                <td>{!MonthlyMarketAmount.JointTotalDealerNumber}</td>
+                <td>{!MonthlyMarketAmount.JointTotalCampaignNumber}</td>
+            </tr>
+            <tr class="a1">
+                <th>总计</th>
+                <th></th>
+                <td>{!MonthlyMarketAmount.TotalExpense}</td>
+                <td>{!MonthlyMarketAmount.TotalPersent}%</td>
+                <td>{!MonthlyMarketAmount.TotalDealerNumber}</td>
+                <td>{!MonthlyMarketAmount.TotalCampaignNumber}</td>
+            </tr>
+        </table>
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

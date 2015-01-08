@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <ownerRules>
+        <fullName>OB_TL_Share_R_to_Campaign_Specialist</fullName>
+        <sharedTo>
+            <role>Campaign_Specialist</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>OB_TL</role>
+        </sharedFrom>
+        <accessLevel>Read</accessLevel>
+        <name>OB TL Share R to Campaign Specialist</name>
+    </ownerRules>
+    <ownerRules>
+        <fullName>Share_R_to_Campaign_Specialist</fullName>
+        <sharedTo>
+            <role>Campaign_Specialist</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>OB_CSR</role>
+        </sharedFrom>
+        <accessLevel>Read</accessLevel>
+        <name>Share R to Campaign Specialist</name>
+    </ownerRules>
+</CustomObjectSharingRules>
