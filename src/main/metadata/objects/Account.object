@@ -7341,17 +7341,6 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
-        <fullName>Dealer_Province__c</fullName>
-        <externalId>false</externalId>
-        <formula>TEXT( Dealer_City__r.Province__c )</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Dealer Province</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Dealer_Region__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -9254,17 +9243,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>MB_Sub_Region__c</fullName>
-        <externalId>false</externalId>
-        <formula>Region_City_Mapping__r.MB_Sub_Region__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>MB Sub-Region</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Main_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>/* 
@@ -10184,17 +10162,6 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>R_Check_Region__c</fullName>
-        <externalId>false</externalId>
-        <formula>If (Region__c  == &apos;&apos; , &apos;是&apos;,&apos;否&apos;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Check Region</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>R_Confirmed_by_user__c</fullName>
         <externalId>false</externalId>
         <formula>IF(RecordType.Name == &apos;Person Account Soft Deleted&apos;,1,0)</formula>
@@ -10395,16 +10362,6 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Region__c</fullName>
-        <externalId>false</externalId>
-        <formula>Region_City_Mapping__r.Region__c</formula>
-        <label>Region</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_AMG_Owner__c</fullName>
@@ -10712,17 +10669,6 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
         <fullName>Site</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Smart_Sub_Region__c</fullName>
-        <externalId>false</externalId>
-        <formula>Region_City_Mapping__r.Smart_Sub_Region__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>smart Sub-Region</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Social_Media_Parameter__c</fullName>
@@ -29364,7 +29310,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <lookupDialogsAdditionalFields>Dealer_ND_Code__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Dealer_Service_Codes__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Dealer_Sales_Type__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Region__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Province__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>City_CN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Dealer_Address_CN__c</lookupDialogsAdditionalFields>
