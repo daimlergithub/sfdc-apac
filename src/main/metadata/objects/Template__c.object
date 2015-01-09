@@ -459,15 +459,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>CLS-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -943,15 +935,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>CLK-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>CLS-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>E-Class</fullName>
                 <default>false</default>
             </values>
             <values>

@@ -7,6 +7,8 @@ TODO
 -object/Account.object#listviews["AllAccounts"] add shareTo Role BMBS
 -Re-work on the validation rule " Do_Not_Select_CAC_Campaign" on Campaign_Lead__c Object.
 -object/QC__c.object#listViews["SSI_QC_Queue"]
+-fix history tracking for Vehicle_Relationship__c.Selling_Dealer__c and Vehicle_Relationship__c.Last_Service_Dealer__c
+-fix history tracking for Tool_Kit__c.Dealer_Name__c
 
 DONE
 ====
