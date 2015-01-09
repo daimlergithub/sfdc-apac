@@ -2705,35 +2705,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>My_Open_smart_SSI_Task</fullName>
-        <booleanFilter>1 AND 2 AND 3</booleanFilter>
-        <columns>TASK.SUBJECT</columns>
-        <columns>CORE.USERS.FULL_NAME</columns>
-        <columns>TASK.WHO_NAME</columns>
-        <columns>OB_Call_Times__c</columns>
-        <columns>More_Than_2_OB_Times__c</columns>
-        <columns>Last_OB_Call__c</columns>
-        <columns>TASK.STATUS</columns>
-        <columns>Activity_Status__c</columns>
-        <filterScope>Mine</filterScope>
-        <filters>
-            <field>TASK.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Task.smart_SSI_Task</value>
-        </filters>
-        <filters>
-            <field>TASK.STATUS</field>
-            <operation>equals</operation>
-            <value>Open</value>
-        </filters>
-        <filters>
-            <field>TASK.WHAT_NAME</field>
-            <operation>notEqual</operation>
-        </filters>
-        <label>My Open smart SSI Task</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
         <fullName>My_Successful_Today_OB_Tasks</fullName>
         <columns>CORE.USERS.FULL_NAME</columns>
         <columns>TASK.SUBJECT</columns>
