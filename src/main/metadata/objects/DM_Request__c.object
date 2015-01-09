@@ -538,9 +538,11 @@ Modify Reason:
         </filters>
         <label>失败的直邮请求</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <roleAndSubordinatesInternal>Fulfillment_Specialist</roleAndSubordinatesInternal>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>Open_DM_Requests</fullName>
@@ -562,9 +564,11 @@ Modify Reason:
         </filters>
         <label>未处理的直邮请求</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <roleAndSubordinatesInternal>Fulfillment_Specialist</roleAndSubordinatesInternal>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>Returned_DM_Requests</fullName>
@@ -586,9 +590,11 @@ Modify Reason:
         </filters>
         <label>已退回的直邮请求</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <roleAndSubordinatesInternal>Fulfillment_Specialist</roleAndSubordinatesInternal>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>Sent_DM_Requests</fullName>
@@ -615,9 +621,11 @@ Modify Reason:
         </filters>
         <label>已邮寄的直销请求</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <roleAndSubordinatesInternal>Fulfillment_Specialist</roleAndSubordinatesInternal>
         </sharedTo>
+		-->
     </listViews>
     <nameField>
         <displayFormat>DMR-{000000}</displayFormat>

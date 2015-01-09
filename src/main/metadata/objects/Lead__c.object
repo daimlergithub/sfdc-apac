@@ -14279,6 +14279,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
         </filters>
         <label>All MBAFC Lead</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>BMBS_Regional</role>
             <role>MBAFC_User_E</role>
@@ -14291,6 +14292,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             <role>Regional_Head_W</role>
             <role>Regional_Info_Data_Mgr</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>All_MB_Lead</fullName>
@@ -14318,6 +14320,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
         </filters>
         <label>*All MB Lead</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>BMBS_Regional</role>
             <role>DM_E1_G1</role>
@@ -14386,6 +14389,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             <role>Regional_Retail_Marketing_S</role>
             <role>Regional_Retail_Marketing_W</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>All_Used_Car_Lead</fullName>
