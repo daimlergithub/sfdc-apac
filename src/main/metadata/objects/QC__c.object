@@ -3048,7 +3048,6 @@ MAX(
         <columns>NAME</columns>
         <columns>SSI__c</columns>
         <columns>OWNER.ALIAS</columns>
-        <columns>Survey_Type__c</columns>
         <columns>Appeal__c</columns>
         <columns>Appeal_Comments__c</columns>
         <columns>Appeal_Result__c</columns>
@@ -3104,7 +3103,6 @@ MAX(
         <columns>CSR_Name__c</columns>
         <columns>SSI__c</columns>
         <columns>Status__c</columns>
-        <columns>Survey_Type__c</columns>
         <columns>Appeal__c</columns>
         <columns>Approved__c</columns>
         <columns>NAME</columns>
@@ -3133,7 +3131,6 @@ MAX(
         <columns>CSR_Name__c</columns>
         <columns>Status__c</columns>
         <columns>Qualified__c</columns>
-        <columns>Survey_Type__c</columns>
         <columns>Calibration__c</columns>
         <columns>RECORDTYPE</columns>
         <filterScope>Mine</filterScope>
@@ -3164,7 +3161,6 @@ MAX(
         <columns>OWNER.ALIAS</columns>
         <columns>Total_Score__c</columns>
         <columns>QC_Overall_Comment__c</columns>
-        <columns>Survey_Type__c</columns>
         <columns>Appeal__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -3195,7 +3191,9 @@ MAX(
         <columns>OWNER.ALIAS</columns>
         <columns>NAME</columns>
         <columns>Calibration__c</columns>
+		<!-- Todo Commented as part of Kernel deployment
         <filterScope>Queue</filterScope>
+		-->
         <filters>
             <field>RECORDTYPE</field>
             <operation>equals</operation>

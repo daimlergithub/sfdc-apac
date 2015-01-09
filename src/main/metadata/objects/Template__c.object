@@ -459,14 +459,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>C-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CL-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>CLK-Class</fullName>
                 <default>false</default>
             </values>
@@ -948,14 +940,6 @@
             </values>
             <values>
                 <fullName>B-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CL-Class</fullName>
                 <default>false</default>
             </values>
             <values>

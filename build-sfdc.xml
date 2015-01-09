@@ -45,6 +45,8 @@
 				<sf:exclude name="OB_Task_Handing__c"/>
 				<sf:exclude name="Retail_Campaign_Member__c"/>
 				<sf:exclude name="Lead__c"/>
+				<sf:exclude name="Campaign_Lead__c"/>
+				<sf:exclude name="DM_Request__c"/>
 			</sf:typeset>
 		</sf:deploy>
     </target>
@@ -61,6 +63,8 @@
 		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="true" proxyHost="141.77.17.155" proxyPort="8080" deployRoot="src/main/metadata">
 			<sf:typeset name="objects">
 				<sf:include name="Lead__c"/>
+				<sf:include name="Campaign_Lead__c"/>
+				<sf:include name="DM_Request__c"/>
 				<sf:include name="SMS_Batch__c"/>
 				<sf:include name="Retail_Campaign__c"/>
 				<sf:include name="OB_Task_Handing__c"/>

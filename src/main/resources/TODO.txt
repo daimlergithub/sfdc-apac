@@ -6,7 +6,7 @@ TODO
 -move other DUP fields to Contact
 -object/Account.object#listviews["AllAccounts"] add shareTo Role BMBS
 -Re-work on the validation rule " Do_Not_Select_CAC_Campaign" on Campaign_Lead__c Object.
-
+-object/QC__c.object#listViews["SSI_QC_Queue"]
 
 DONE
 ====
