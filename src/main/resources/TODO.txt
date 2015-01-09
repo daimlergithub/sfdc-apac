@@ -1,3 +1,4 @@
 TODO
 ====
 -object/Task.object#weblink["Redo_Survey"]
+-reconsider standard objects, e.g. Event
