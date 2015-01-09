@@ -1,8 +1,11 @@
 CustomObject/Campaign_City__c:1420716505172
+CustomObject/Retail_Campaign__c:1420798607533
 CustomObject/Campaign_Partner__c:1420713807518
 CustomObject/EpAdapterUnitOfWork__c:1420713807553
+CustomObject/DM_Request__c:1420785735725
 CustomObject/Campaign:1420796030876
 CustomObject/Picklist_Mapping__c:1420713807590
+CustomObject/OB_Task_Handing__c:1420713807577
 CustomObject/QC_Result_Tracking__c:1420713807590
 CustomObject/Car_Model_Attribute__c:1420713807520
 CustomObject/Package_Item__c:1420713807578
@@ -36,11 +39,14 @@ CustomObject/MonthlyRule__c:1420713807577
 CustomObject/Car_Enquiry__c:1420713807519
 CustomObject/SMS__c:1420713807601
 CustomObject/SSI__c:1420786757206
+CustomObject/SMS_Batch__c:1420713807600
+CustomObject/Campaign_Lead__c:1420713807516
 CustomObject/DM_Material__c:1420785624541
 CustomObject/External_Picklist__c:1420718118209
 CustomObject/Complaint_Tracking__c:1420713807543
 CustomObject/Batch_Job__c:1420713807504
 CustomObject/SurveyQuestionResponse__c:1420713807612
+CustomObject/Retail_Campaign_Member__c:1420713807594
 CustomObject/DM_Stock_Flow__c:1420713807549
 CustomObject/Contact:1420784137878
 CustomObject/PersonAccount:1420713807588
@@ -50,6 +56,7 @@ CustomObject/TSP_Subscription__c:1420713807614
 CustomObject/Attribute__c:1420713807503
 CustomObject/Complaint_Description__c:1420713807542
 CustomObject/Settlement_Management__c:1420713807605
+CustomObject/Lead__c:1420798607527
 CustomObject/SR_History__c:1420713807601
 CustomObject/Trigger_Status__c:1420713807621
 CustomObject/Tool_Kit__c:1420795924930
