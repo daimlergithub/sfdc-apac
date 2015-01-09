@@ -125,16 +125,19 @@
         <type>Text</type>
         <unique>true</unique>
     </fields>
-    <fields>
+	<fields>
         <fullName>DUP_Number__c</fullName>
+        <description>Duplication number to identify the suspected duplication group to be filled by EP</description>
         <externalId>false</externalId>
-        <formula>IF(IsPersonAccount,  Account.DUP_Nummer__c, &apos;&apos;)</formula>
         <label>DUP Number</label>
+        <length>20</length>
         <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
         <fullName>Dealer_Aftersales_Manager__c</fullName>
         <defaultValue>false</defaultValue>
         <description>权限集:售后年度计划,售后市场活动,信息中心,报表</description>

@@ -364,7 +364,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>DUP_Nummer__c</field>
+                <field>DUP_Number__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

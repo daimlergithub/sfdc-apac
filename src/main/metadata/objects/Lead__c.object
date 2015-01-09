@@ -2459,7 +2459,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,&apos;AMG&apos;)
     <fields>
         <fullName>DUP_Number__c</fullName>
         <externalId>false</externalId>
-        <formula>Contact__r.DUP_Nummer__c</formula>
+        <formula>Contact__r.DUP_Number__c</formula>
         <label>DUP Number</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

@@ -3396,18 +3396,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_MagicNo&quot;</desc
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>DUP_Nummer__c</fullName>
-        <description>Duplication number to identify the suspected duplication group to be filled by EP</description>
-        <externalId>false</externalId>
-        <label>DUP Number</label>
-        <length>20</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Data_Source__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -7633,7 +7621,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DriversLicenseFlag&
     <fields>
         <fullName>Dupe_Merge__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(ISNumber( DUP_Nummer__c), NOT(Master_Record__c)),   HYPERLINK(&apos;/apex/AccountMerge?id=&apos; +  Id , &apos;Merge &apos; + DUP_Nummer__c ), &apos;&apos; )</formula>
+        <formula>IF(AND(ISNumber( DUP_Number__pc), NOT(Master_Record__c)),   HYPERLINK(&apos;/apex/AccountMerge?id=&apos; +  Id , &apos;Merge &apos; + DUP_Number__pc ), &apos;&apos; )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dupe Merge</label>
         <required>false</required>
@@ -7644,7 +7632,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DriversLicenseFlag&
     <fields>
         <fullName>Dupe_Reject__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(ISNumber( DUP_Nummer__c), NOT(Master_Record__c)), HYPERLINK(&apos;/apex/AccountMerge?id=&apos; + Id , &apos;Reject &apos; + DUP_Nummer__c ), &apos;&apos; )</formula>
+        <formula>IF(AND(ISNumber( DUP_Number__pc), NOT(Master_Record__c)), HYPERLINK(&apos;/apex/AccountMerge?id=&apos; + Id , &apos;Reject &apos; + DUP_Number__pc ), &apos;&apos; )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dupe Reject</label>
         <required>false</required>
@@ -11130,10 +11118,12 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         </filters>
         <label>All Customer Accounts</label>
         <language>en_US</language>
+		<!-- TODO Kernel fix
         <sharedTo>
             <allPartnerUsers></allPartnerUsers>
             <role>BMBS</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>AllDealerAccounts</fullName>

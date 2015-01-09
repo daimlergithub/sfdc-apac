@@ -457,7 +457,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>DUP_Nummer__c</field>
+                <field>DUP_Number__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -540,7 +540,7 @@
         <fields>Province__c</fields>
         <fields>City_CN__c</fields>
         <fields>ZipCode__c</fields>
-        <fields>DUP_Nummer__c</fields>
+        <fields>DUP_Number__c</fields>
     </miniLayout>
     <relatedLists>
         <relatedList>RelatedAccountContactRoleList</relatedList>
