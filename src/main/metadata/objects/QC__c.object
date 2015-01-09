@@ -3185,6 +3185,7 @@ MAX(
         </sharedTo>
 		-->
     </listViews>
+	<!-- Todo Commented as part of Kernel deployment
     <listViews>
         <fullName>SSI_QC_Queue</fullName>
         <columns>CSR_Name__c</columns>
@@ -3203,14 +3204,14 @@ MAX(
         </filters>
         <label>任务池</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
+		
         <queue>SSI_QC</queue>		
         <sharedTo>
             <role>QC_SSI</role>
             <role>QC_Supervisor</role>
-        </sharedTo>
-		-->
+        </sharedTo>		
     </listViews>
+	-->
     <nameField>
         <displayFormat>QC-{000000}</displayFormat>
         <label>QC No.</label>
