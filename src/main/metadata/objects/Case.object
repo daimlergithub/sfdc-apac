@@ -15944,6 +15944,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <type>Email</type>
         <unique>false</unique>
     </fields>
+	<!-- Todo Commented as part of Kernel deployment
     <listViews>
         <fullName>AllClosedCases</fullName>
         <columns>CASES.RECORDTYPE</columns>
@@ -16750,6 +16751,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             <role>Onsite_Complaint_Manager</role>
         </sharedTo>
     </listViews>
+	-->
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
@@ -65549,9 +65551,11 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.STATUS</lookupPhoneDialogsAdditionalFields>
+		<!-- Todo Commented as part of Kernel deployment
         <lookupPhoneDialogsAdditionalFields>00N90000006ZqGq</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>00N90000006ZqGr</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>00N90000006ZqI8</lookupPhoneDialogsAdditionalFields>
+		-->
         <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.STATUS</searchResultsAdditionalFields>

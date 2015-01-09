@@ -2380,10 +2380,12 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>All Un-assinged OB Task</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>OB_Supervisor</role>
             <role>OB_TL</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>All_Unassigned_SSI_Task</fullName>
@@ -2410,9 +2412,11 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>All Unassigned SSI Task</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>SSI_Supervisor</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>All_Unassigned_Welcome_Call_Task</fullName>
@@ -2444,9 +2448,11 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>All Unassigned Welcome Call Task</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>OB_Supervisor</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>All_Unsuccessful_SMS_task</fullName>
@@ -2474,9 +2480,11 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>All Unsuccessful SMS task</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>IB_TL</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>My_Call_Being_QC</fullName>
@@ -2498,10 +2506,12 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>My Call Being QC</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>IB_CSR</role>
             <role>OB_CSR</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>My_Called_Today_OB_Tasks</fullName>
@@ -2529,6 +2539,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>3. 今天所有外呼的OB任务</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>OB_CSR</role>
             <role>OB_Supervisor</role>
@@ -2537,6 +2548,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <role>QC_OB</role>
             <role>Training_OB</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>My_Closed_Activities</fullName>
@@ -2565,9 +2577,11 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>My Closed SSI Task</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>SSI_CSR</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>My_Closed_Today_OB_Tasks</fullName>
@@ -2602,6 +2616,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>2. 今天所有关闭的OB任务</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>OB_CSR</role>
             <role>OB_Supervisor</role>
@@ -2610,6 +2625,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <role>QC_OB</role>
             <role>Training_OB</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>My_General_Task</fullName>
@@ -2665,9 +2681,11 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>My Open OB Task</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>OB_CSR</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>My_Open_SSI_Task</fullName>
@@ -2699,10 +2717,12 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>My Open SSI Task</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>SSI_CSR</role>
             <role>SSI_TL</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>My_Open_smart_SSI_Task</fullName>
@@ -2769,6 +2789,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>1. 今天所有成功的OB任务</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>OB_CSR</role>
             <role>OB_Supervisor</role>
@@ -2777,6 +2798,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <role>QC_OB</role>
             <role>Training_OB</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>My_Welcome_Open_Call_Task</fullName>
@@ -2802,9 +2824,11 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>My Open Welcome Call Task</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>OB_CSR</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>Today_Inbound</fullName>
@@ -2835,9 +2859,11 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>我的今日进线</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>IB_CSR</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>Welcome_Call_Task</fullName>
@@ -2862,15 +2888,19 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>My Team&apos;s Welcome Call Task</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>OB_Supervisor</role>
             <role>OB_TL</role>
         </sharedTo>
+		-->
     </listViews>
     <searchLayouts>
         <excludedStandardButtons>NewTask</excludedStandardButtons>
         <excludedStandardButtons>NewEvent</excludedStandardButtons>
+		<!-- Todo Commented as part of Kernel deployment
         <listViewButtons>Bulk_Assign</listViewButtons>
+		-->
         <listViewButtons>Manual_Assign</listViewButtons>
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
