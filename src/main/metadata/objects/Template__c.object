@@ -455,10 +455,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>AMG</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B-Class</fullName>
                 <default>false</default>
             </values>
@@ -948,10 +944,6 @@
             <picklist>Car_Series__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>AMG</fullName>
                 <default>false</default>
             </values>
             <values>

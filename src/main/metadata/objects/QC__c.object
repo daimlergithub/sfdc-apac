@@ -2873,17 +2873,6 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Survey_Type__c</fullName>
-        <externalId>false</externalId>
-        <formula>Survey_Result__r.RecordType.Name</formula>
-        <label>Survey Type</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>TSOC_Comments__c</fullName>
         <externalId>false</externalId>
         <label>The Standard Opening/Closing Comments</label>

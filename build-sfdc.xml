@@ -7,7 +7,7 @@
 		<mkdir dir="tmp"/>
 	</target>
 	
-	<target name="deploy" depends="init, deploy01, deploy02, deploy10, deploy20"/>
+	<target name="deploy" depends="init, deploy01, deploy02, deploy10, deploy12, deploy15, deploy20"/>
 	
 	<target name="deploy01">
 		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="true" proxyHost="141.77.17.155" proxyPort="8080" deployRoot="src/main/metadata">
@@ -40,6 +40,31 @@
 				<sf:exclude name="Picklist_Mapping__c"/>
 				<sf:exclude name="Integration_Picklist__c"/>
 				<sf:exclude name="External_Picklist__c"/>
+				<sf:exclude name="SMS_Batch__c"/>
+				<sf:exclude name="Retail_Campaign__c"/>
+				<sf:exclude name="OB_Task_Handing__c"/>
+				<sf:exclude name="Retail_Campaign_Member__c"/>
+				<sf:exclude name="Lead__c"/>
+			</sf:typeset>
+		</sf:deploy>
+    </target>
+	
+	<target name="deploy12">
+		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="true" proxyHost="141.77.17.155" proxyPort="8080" deployRoot="src/main/metadata">
+			<sf:typeset name="objects">
+				<sf:include name="Campaign"/>
+			</sf:typeset>
+		</sf:deploy>
+    </target>
+	
+	<target name="deploy15">
+		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="true" proxyHost="141.77.17.155" proxyPort="8080" deployRoot="src/main/metadata">
+			<sf:typeset name="objects">
+				<sf:include name="Lead__c"/>
+				<sf:include name="SMS_Batch__c"/>
+				<sf:include name="Retail_Campaign__c"/>
+				<sf:include name="OB_Task_Handing__c"/>
+				<sf:include name="Retail_Campaign_Member__c"/>
 			</sf:typeset>
 		</sf:deploy>
     </target>
@@ -50,6 +75,7 @@
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
 				<sf:exclude name="Contact"/>
+				<sf:exclude name="Campaign"/>
 			    <sf:exclude name=".*__c"/>
 			</sf:typeset>
 		</sf:deploy>
