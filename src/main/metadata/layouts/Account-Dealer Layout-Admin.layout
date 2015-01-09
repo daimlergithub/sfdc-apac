@@ -322,10 +322,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_smart_SSI_Participation__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>ParentId</field>
             </layoutItems>
         </layoutColumns>

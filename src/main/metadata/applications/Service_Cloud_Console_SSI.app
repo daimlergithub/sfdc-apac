@@ -129,7 +129,6 @@
     <tab>Tasks</tab>
     <tab>SSI__c</tab>
     <tab>standard-Account</tab>
-    <tab>Survey_Result__c</tab>
     <tab>QC__c</tab>
     <tab>standard-report</tab>
     <tab>Account_Link__c</tab>
@@ -145,9 +144,6 @@
         </mapping>
         <mapping>
             <tab>Tasks</tab>
-        </mapping>
-        <mapping>
-            <tab>Survey_Result__c</tab>
         </mapping>
         <mapping>
             <tab>standard-Account</tab>

@@ -253,10 +253,6 @@
                 <behavior>Readonly</behavior>
                 <field>Follow_Up_Inquiry__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>smart_SSI__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>

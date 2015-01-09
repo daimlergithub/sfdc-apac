@@ -7520,15 +7520,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_Service&quot;</descri
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>Dealer_smart_SSI_Participation__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Dealer smart SSI Participation</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Dealer_smart_Sub_Region__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -10312,16 +10303,6 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>R_SocialMediaAccountCNT__c</fullName>
-        <description>SocialMediaAccountCNT</description>
-        <externalId>false</externalId>
-        <label>SocialMediaAccountCNT</label>
-        <summaryForeignKey>Social_Media_Account__c.Account__c</summaryForeignKey>
-        <summaryOperation>count</summaryOperation>
-        <trackHistory>false</trackHistory>
-        <type>Summary</type>
-    </fields>
-    <fields>
         <fullName>R_Suspected_Volumn__c</fullName>
         <externalId>false</externalId>
         <formula>IF(RecordType.Name  == &apos;Person Account&apos;,1,0)</formula>
@@ -11237,7 +11218,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <columns>Dealer_City_EN__c</columns>
         <columns>Dealer_Active__c</columns>
         <columns>ACCOUNT.LAST_UPDATE</columns>
-        <columns>Dealer_smart_SSI_Participation__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>ACCOUNT.RECORDTYPE</field>
