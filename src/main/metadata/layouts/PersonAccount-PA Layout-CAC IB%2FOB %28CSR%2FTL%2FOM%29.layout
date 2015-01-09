@@ -651,12 +651,6 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Type__c</fields>
-        <fields>Nick_Name__c</fields>
-        <relatedList>Social_Media_Account__c.Account__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>

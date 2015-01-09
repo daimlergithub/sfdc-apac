@@ -8,7 +8,6 @@
     <tab>standard-Account</tab>
     <tab>standard-Contact</tab>
     <tab>standard-Case</tab>
-    <tab>standard-Solution</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
     <tab>Account_Link__c</tab>

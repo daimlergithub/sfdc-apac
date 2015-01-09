@@ -2449,33 +2449,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>All_Unassigned_smart_SSI_Task</fullName>
-        <columns>TASK.SUBJECT</columns>
-        <columns>TASK.WHO_NAME</columns>
-        <columns>TASK.WHAT_NAME</columns>
-        <columns>TASK.DUE_DATE</columns>
-        <columns>TASK.STATUS</columns>
-        <columns>TASK.PRIORITY</columns>
-        <columns>CORE.USERS.FULL_NAME</columns>
-        <columns>Executed_CSR__c</columns>
-        <columns>Activity_Status__c</columns>
-        <columns>TASK.LAST_UPDATE</columns>
-        <columns>UPDATEDBY_USER.ALIAS</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>OWNER_ROLE</field>
-            <operation>equals</operation>
-            <value>SSI Supervisor,SSI CSR</value>
-        </filters>
-        <filters>
-            <field>TASK.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Task.smart_SSI_Task</value>
-        </filters>
-        <label>All Unassigned smart SSI Task</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
         <fullName>All_Unsuccessful_SMS_task</fullName>
         <columns>TASK.SUBJECT</columns>
         <columns>TASK.WHO_NAME</columns>
@@ -2637,34 +2610,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <role>QC_OB</role>
             <role>Training_OB</role>
         </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>My_Closed_smart_Activities</fullName>
-        <columns>TASK.SUBJECT</columns>
-        <columns>CustomerName__c</columns>
-        <columns>HomeMobilePhone__c</columns>
-        <columns>OfficePhone__c</columns>
-        <columns>Dealer_Name__c</columns>
-        <columns>TASK.STATUS</columns>
-        <columns>Activity_Status__c</columns>
-        <filterScope>Mine</filterScope>
-        <filters>
-            <field>TASK.RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Task.smart_SSI_Task</value>
-        </filters>
-        <filters>
-            <field>TASK.STATUS</field>
-            <operation>equals</operation>
-            <value>Closed</value>
-        </filters>
-        <filters>
-            <field>TASK.LAST_UPDATE_DATE_ONLY</field>
-            <operation>equals</operation>
-            <value>THIS_MONTH</value>
-        </filters>
-        <label>My Closed smart SSI Task</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>My_General_Task</fullName>

@@ -214,13 +214,6 @@
         <relatedList>RelatedHistoryList</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>CompanyName__c</fields>
-        <fields>RECORDTYPE</fields>
-        <relatedList>Survey_Result__c.SSI_Record__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <customButtons>New_SSI_Complaint</customButtons>
         <excludeButtons>NewCase</excludeButtons>
         <fields>CASES.CASE_NUMBER</fields>

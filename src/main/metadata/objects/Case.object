@@ -15944,21 +15944,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <type>Email</type>
         <unique>false</unique>
     </fields>
-    <fields>
-        <fullName>smart_SSI__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <description>New camplain during surveying.</description>
-        <externalId>false</externalId>
-        <label>smart SSI</label>
-        <referenceTo>smart_SSI__c</referenceTo>
-        <relationshipLabel>Complaints</relationshipLabel>
-        <relationshipName>Cases</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
     <listViews>
         <fullName>AllClosedCases</fullName>
         <columns>CASES.RECORDTYPE</columns>

@@ -217,12 +217,6 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
-        <fields>NAME</fields>
-        <fields>Type__c</fields>
-        <fields>Nick_Name__c</fields>
-        <relatedList>Social_Media_Account__c.Account__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <customButtons>New_Vehicle_Relationship_for_Community</customButtons>
         <fields>NAME</fields>
         <fields>Validity__c</fields>
