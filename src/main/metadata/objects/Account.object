@@ -10416,19 +10416,6 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Region_City_Mapping__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Region City Mapping</label>
-        <referenceTo>Region_City_Mapping__c</referenceTo>
-        <relationshipLabel>Accounts</relationshipLabel>
-        <relationshipName>Accounts</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Region__c</fullName>
         <externalId>false</externalId>
         <formula>Region_City_Mapping__r.Region__c</formula>

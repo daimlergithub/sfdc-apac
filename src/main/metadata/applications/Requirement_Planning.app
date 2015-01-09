@@ -5,7 +5,6 @@
     <label>Requirement Planning</label>
     <logo>PM_Icons_Basic/projects_logo_small_basic.jpeg</logo>
     <tab>standard-Chatter</tab>
-    <tab>Requirement_UserStory__c</tab>
     <tab>Test_Round__c</tab>
     <tab>Test_Cases__c</tab>
     <tab>standard-Console</tab>

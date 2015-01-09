@@ -10,7 +10,6 @@
     <tab>standard-Contact</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
-    <tab>standard-Product2</tab>
     <tab>standard-Forecasting3</tab>
     <tab>Account_Link__c</tab>
 </CustomApplication>

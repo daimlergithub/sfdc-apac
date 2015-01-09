@@ -565,7 +565,6 @@
         <fields>Sales_Handover_Date__c</fields>
         <fields>Sales_Invoice_Date__c</fields>
         <fields>Sales_Person__c</fields>
-        <relatedList>Sales__c.Sales_Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
