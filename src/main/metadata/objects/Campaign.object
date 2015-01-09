@@ -2176,6 +2176,7 @@
         </filters>
         <label>全部已启用的CAC活动</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>Campaign_Specialist</role>
             <role>Data_Service_Manager</role>
@@ -2183,6 +2184,7 @@
             <role>IT_Manager</role>
             <role>Project_Manager</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>AllActiveCASCampaigns</fullName>
@@ -2251,6 +2253,7 @@
         </filters>
         <label>全部已启用的市场活动执行</label>
         <language>en_US</language>
+		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>Campaign_Specialist</role>
             <role>Data_Service_Manager</role>
@@ -2258,6 +2261,7 @@
             <role>IT_Manager</role>
             <role>Project_Manager</role>
         </sharedTo>
+		-->
     </listViews>
     <listViews>
         <fullName>BMBSASCampaignRecord1</fullName>
