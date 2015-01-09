@@ -3187,7 +3187,6 @@ MAX(
         <columns>CSR_Name__c</columns>
         <columns>SSI__c</columns>
         <columns>Status__c</columns>
-        <columns>Survey_Type__c</columns>
         <columns>CREATED_DATE</columns>
         <columns>OWNER.ALIAS</columns>
         <columns>NAME</columns>
@@ -3195,6 +3194,7 @@ MAX(
 		<!-- Todo Commented as part of Kernel deployment
         <filterScope>Queue</filterScope>
 		-->
+		<filterScope>Everything</filterScope>
         <filters>
             <field>RECORDTYPE</field>
             <operation>equals</operation>
