@@ -9,6 +9,7 @@ TODO
 -object/QC__c.object#listViews["SSI_QC_Queue"]
 -fix history tracking for Vehicle_Relationship__c.Selling_Dealer__c and Vehicle_Relationship__c.Last_Service_Dealer__c
 -fix history tracking for Tool_Kit__c.Dealer_Name__c
+-fix settings/case.settings: defaultCaseUser and defaultCaseOwner
 
 DONE
 ====

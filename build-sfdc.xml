@@ -7,11 +7,18 @@
 		<mkdir dir="tmp"/>
 	</target>
 	
-	<target name="deploy" depends="init, deploy01, deploy02, deploy10, deploy12, deploy15, deploy20"/>
+	<target name="deploy" depends="init, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20"/>
 	
-	<target name="deploy01">
+	<target name="deploy05">
 		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="${proxy.use}" proxyHost="${proxy.host}" proxyPort="${proxy.port}" deployRoot="src/main/metadata">
 			<sf:typeset name="labels"/>
+			<sf:typeset name="staticresources"/>
+			<sf:typeset name="settings"/>
+		</sf:deploy>
+    </target>
+	
+	<target name="deploy07">
+		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="${proxy.use}" proxyHost="${proxy.host}" proxyPort="${proxy.port}" deployRoot="src/main/metadata">
 			<sf:typeset name="objects">
 				<!--sf:include name="Tool_Kit__c"/-->
 				<sf:include name="Picklist_Mapping__c"/>
@@ -21,7 +28,7 @@
 		</sf:deploy>
     </target>
 	
-	<target name="deploy02">
+	<target name="deploy09">
 		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="${proxy.use}" proxyHost="${proxy.host}" proxyPort="${proxy.port}" deployRoot="src/main/metadata">
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>

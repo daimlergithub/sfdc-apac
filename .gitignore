@@ -1,4 +1,5 @@
 .settings
-tmp/*
+tmp
 classes/**
 build.properties
+timestamps.log

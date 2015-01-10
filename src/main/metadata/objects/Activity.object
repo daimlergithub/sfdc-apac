@@ -2722,7 +2722,10 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <role>SSI_CSR</role>
             <role>SSI_TL</role>
         </sharedTo>
+<<<<<<< HEAD
 		-->
+=======
+>>>>>>> 31ca8d52c186a31cfcf2ab3aa12c41f1ce2a4629
     </listViews>
     <listViews>
         <fullName>My_Successful_Today_OB_Tasks</fullName>
