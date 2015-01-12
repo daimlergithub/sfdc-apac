@@ -9,6 +9,7 @@
         <editHeading>false</editHeading>
         <label>Select Assigne Dealer</label>
         <layoutColumns>
+		<!-- TODO Commented as part of Kernel deployment
             <layoutItems>
                 <height>26</height>
                 <page>LeadButtonContainerSalesLeads</page>
@@ -16,6 +17,7 @@
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
+			-->
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
