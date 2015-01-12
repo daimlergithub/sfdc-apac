@@ -25,7 +25,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.taskdefs.Taskdef;
 import org.apache.tools.ant.types.LogLevel;
-import org.apache.tools.ant.types.PropertySet;
 
 import com.sforce.soap.enterprise.EnterpriseConnection;
 import com.sforce.soap.enterprise.LoginResult;
@@ -60,7 +59,6 @@ public class SfdcDeploymentTask
   private String deployRoot;
   private boolean debug;
   private List<SfdcTypeSet> typeSets;
-  private PropertySet propertySet;
 
   public SfdcDeploymentTask()
   {
@@ -117,10 +115,6 @@ public class SfdcDeploymentTask
     typeSets.add(typeSet);
   }
   
-  public void addConfigured(PropertySet propertySet) {
-    this.propertySet = propertySet;
-  }
-
   public void execute()
   {
     validateSettings();
@@ -404,16 +398,22 @@ public class SfdcDeploymentTask
     AsyncResult ar = mConnection.deploy(baos.toByteArray(), options);
 
     // debugging
-    try {
-      File tmp = new File("tmp", "deploy-" + System.currentTimeMillis() + ".zip");
-      FileOutputStream fos = new FileOutputStream(tmp);
-      fos.write(baos.toByteArray());
-      fos.close();
-    }
-    catch (IOException e) {
-      log(String.format("Error preparing ZIP for deployment: %s.", e.getMessage()),
-          e,
-          LogLevel.WARN.getLevel());
+    if (debug) {
+      String fileName = "deploy-" + System.currentTimeMillis() + ".zip";
+      
+      log(String.format("Saving ZIP file to %s...", fileName));
+      
+      try {
+        File tmp = new File("tmp", fileName);
+        FileOutputStream fos = new FileOutputStream(tmp);
+        fos.write(baos.toByteArray());
+        fos.close();
+      }
+      catch (IOException e) {
+        log(String.format("Error preparing ZIP for deployment: %s.", e.getMessage()),
+            e,
+            LogLevel.WARN.getLevel());
+      }
     }
 
     int count = 0;
