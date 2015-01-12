@@ -1,0 +1,106 @@
+<project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" default="deploy">
+
+    <property prefix="sfdc" file="build.properties"/>
+	
+	<presetdef name="deploy">
+		<sf:deploy debug="${sfdc.debug}" username="${sfdc.sf_target.username}" password="${sfdc.sf_target.password}" serverurl="${sfdc.sf_target.serverurl}" maxPoll="${sfdc.sf.maxPoll}" useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
+	</presetdef>
+	
+	<target name="init">
+		<mkdir dir="tmp"/>
+	</target>
+	
+	<target name="deploy" depends="init, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21"/>
+	
+	<target name="deploy05">
+		<deploy>
+			<sf:typeset name="labels"/>
+			<sf:typeset name="staticresources"/>
+			<sf:typeset name="settings"/>
+		</deploy>
+    </target>
+	
+	<target name="deploy07">
+		<deploy>
+			<sf:typeset name="objects">
+				<!--sf:include name="Tool_Kit__c"/-->
+				<sf:include name="Picklist_Mapping__c"/>
+				<sf:include name="Integration_Picklist__c"/>
+				<sf:include name="External_Picklist__c"/>
+			</sf:typeset>
+		</deploy>
+    </target>
+	
+	<target name="deploy09">
+		<deploy>
+			<sf:typeset name="objects">
+			    <sf:include name="Contact"/>
+				<sf:include name="PersonAccount"/>
+				<sf:include name="Account"/>
+			</sf:typeset>
+		</deploy>
+    </target>
+
+	<target name="deploy10">
+		<deploy>
+			<sf:typeset name="objects">
+			    <sf:include name=".*__c"/>
+				<!-- deploy01 -->
+				<!--sf:exclude name="Tool_Kit__c"/-->
+				<sf:exclude name="Picklist_Mapping__c"/>
+				<sf:exclude name="Integration_Picklist__c"/>
+				<sf:exclude name="External_Picklist__c"/>
+				<sf:exclude name="SMS_Batch__c"/>
+				<sf:exclude name="Retail_Campaign__c"/>
+				<sf:exclude name="OB_Task_Handing__c"/>
+				<sf:exclude name="Retail_Campaign_Member__c"/>
+				<sf:exclude name="Lead__c"/>
+				<sf:exclude name="Campaign_Lead__c"/>
+				<sf:exclude name="DM_Request__c"/>
+			</sf:typeset>
+		</deploy>
+    </target>
+	
+	<target name="deploy12">
+		<deploy>
+			<sf:typeset name="objects">
+				<sf:include name="Campaign"/>
+			</sf:typeset>
+		</deploy>
+    </target>
+	
+	<target name="deploy15">
+		<deploy>
+			<sf:typeset name="objects">
+				<sf:include name="Lead__c"/>
+				<sf:include name="Campaign_Lead__c"/>
+				<sf:include name="DM_Request__c"/>
+				<sf:include name="SMS_Batch__c"/>
+				<sf:include name="Retail_Campaign__c"/>
+				<sf:include name="OB_Task_Handing__c"/>
+				<sf:include name="Retail_Campaign_Member__c"/>
+			</sf:typeset>
+		</deploy>
+    </target>
+	
+	<target name="deploy20">
+		<deploy>
+			<sf:typeset name="objects">
+				<sf:exclude name="Account"/>
+				<sf:exclude name="PersonAccount"/>
+				<sf:exclude name="Contact"/>
+				<sf:exclude name="Campaign"/>
+			    <sf:exclude name=".*__c"/>
+			</sf:typeset>
+		</deploy>
+    </target>
+	
+	<target name="deploy21">
+		<deploy>
+			<sf:typeset name="layouts"/>
+			<sf:typeset name="permissionsets">
+			</sf:typeset>
+		</deploy>
+    </target>
+	
+</project>
