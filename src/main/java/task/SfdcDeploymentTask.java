@@ -25,6 +25,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.taskdefs.Taskdef;
 import org.apache.tools.ant.types.LogLevel;
+import org.apache.tools.ant.types.PropertySet;
 
 import com.sforce.soap.enterprise.EnterpriseConnection;
 import com.sforce.soap.enterprise.LoginResult;
@@ -57,7 +58,9 @@ public class SfdcDeploymentTask
   private String proxyHost;
   private int proxyPort;
   private String deployRoot;
+  private boolean debug;
   private List<SfdcTypeSet> typeSets;
+  private PropertySet propertySet;
 
   public SfdcDeploymentTask()
   {
@@ -104,9 +107,18 @@ public class SfdcDeploymentTask
     this.deployRoot = deployRoot;
   }
 
+  public void setDebug(boolean debug)
+  {
+    this.debug = debug;
+  }
+
   public void addConfigured(SfdcTypeSet typeSet)
   {
     typeSets.add(typeSet);
+  }
+  
+  public void addConfigured(PropertySet propertySet) {
+    this.propertySet = propertySet;
   }
 
   public void execute()
