@@ -26,7 +26,6 @@ import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.taskdefs.Taskdef;
 import org.apache.tools.ant.types.LogLevel;
 
-import com.sforce.bulk.UpdateStream;
 import com.sforce.soap.enterprise.EnterpriseConnection;
 import com.sforce.soap.enterprise.LoginResult;
 import com.sforce.soap.metadata.AsyncResult;

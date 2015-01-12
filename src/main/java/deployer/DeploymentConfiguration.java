@@ -178,7 +178,7 @@ public class DeploymentConfiguration
     duList.add(new DeploymentUnit(CallCenter.class, "callCenters"));
     duList.add(new DeploymentUnit(DataCategoryGroup.class, "datacategorygroups"));
     //    duList.add(new DeploymentUnit("AnalyticSnapshot", true));
-    duList.add(new DeploymentUnit(PermissionSet.class, "permissionsets"));
+    duList.add(new DeploymentUnit(PermissionSet.class, "permissionsets", "permissionset"));
     duList.add(new DeploymentUnit(CustomApplicationComponent.class, "customApplicationComponents"));
     duList.add(new DeploymentUnit(Group.class, "groups"));
     duList.add(new DeploymentUnit(SynonymDictionary.class, "synonymDictionaries"));
