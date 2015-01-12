@@ -428,10 +428,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>DUP_Number__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Dup_Reason__c</field>
             </layoutItems>
         </layoutColumns>
@@ -449,12 +445,14 @@
         <editHeading>true</editHeading>
         <label>Description Information</label>
         <layoutColumns>
+		<!-- TODO Commented as part of Kernel deployment
             <layoutItems>
                 <page>AccountConsoleRefresh</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>0</width>
             </layoutItems>
+			-->
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
@@ -464,6 +462,7 @@
         <editHeading>false</editHeading>
         <label>Whole activities</label>
         <layoutColumns>
+		<!-- TODO Commented as part of Kernel deployment
             <layoutItems>
                 <height>200</height>
                 <page>ViewTask</page>
@@ -471,6 +470,7 @@
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
+			-->
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

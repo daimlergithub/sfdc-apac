@@ -364,10 +364,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>DUP_Number__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Dup_Reason__c</field>
             </layoutItems>
         </layoutColumns>

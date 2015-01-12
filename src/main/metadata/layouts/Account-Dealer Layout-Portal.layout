@@ -332,13 +332,6 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Score__c</fields>
-        <fields>Score_Year__c</fields>
-        <fields>Score_Month__c</fields>
-        <fields>Score_Status__c</fields>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
         <fields>Contact__c</fields>
         <fields>Vehicle_ID__c</fields>
         <fields>Ownership__c</fields>

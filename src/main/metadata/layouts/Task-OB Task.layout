@@ -2,7 +2,6 @@
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>View_Campaing_Member</customButtons>
     <customButtons>Survey</customButtons>
-    <customButtons>View_Account</customButtons>
     <customButtons>Send_SMS</customButtons>
     <emailDefault>false</emailDefault>
     <excludeButtons>DeleteSeries</excludeButtons>

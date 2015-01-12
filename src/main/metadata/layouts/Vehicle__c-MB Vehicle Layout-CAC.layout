@@ -274,18 +274,6 @@
         <relatedList>Case.Vehicle__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>NAME</fields>
-        <fields>Valid__c</fields>
-        <fields>Sales_Contact__c</fields>
-        <fields>Sales_Dealer__c</fields>
-        <fields>Sales_Contract_Date__c</fields>
-        <fields>Sales_Handover_Date__c</fields>
-        <fields>Sales_Invoice_Date__c</fields>
-        <fields>Sales_Person__c</fields>
-        <relatedList>Sales__c.Sales_Vehicle_ID__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>NAME</fields>
         <fields>Recall_Reason__c</fields>
         <fields>VIN__c</fields>

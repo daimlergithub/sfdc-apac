@@ -457,10 +457,6 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>DUP_Number__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
                 <field>Dup_Reason__c</field>
             </layoutItems>
         </layoutColumns>
@@ -523,6 +519,7 @@
         <editHeading>false</editHeading>
         <label>Whole activities</label>
         <layoutColumns>
+		<!-- TODO commented as part of KErnel deployment
             <layoutItems>
                 <height>200</height>
                 <page>ViewTask</page>
@@ -530,6 +527,7 @@
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
+			-->
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
@@ -540,29 +538,9 @@
         <fields>Province__c</fields>
         <fields>City_CN__c</fields>
         <fields>ZipCode__c</fields>
-        <fields>DUP_Number__c</fields>
     </miniLayout>
     <relatedLists>
         <relatedList>RelatedAccountContactRoleList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Sales_Dealer__c</fields>
-        <fields>Sales_Vehicle_ID__c</fields>
-        <fields>Sales_Contract_Date__c</fields>
-        <fields>Sales_Handover_Date__c</fields>
-        <fields>Sales_Invoice_Date__c</fields>
-        <fields>Sales_Person__c</fields>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Sales_Contact__c</fields>
-        <fields>Sales_Vehicle_ID__c</fields>
-        <fields>Sales_Contract_Date__c</fields>
-        <fields>Sales_Handover_Date__c</fields>
-        <fields>Sales_Invoice_Date__c</fields>
-        <fields>Sales_Person__c</fields>
-        <relatedList>Sales__c.Sales_Dealer__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

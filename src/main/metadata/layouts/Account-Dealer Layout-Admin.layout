@@ -155,10 +155,6 @@
                 <behavior>Readonly</behavior>
                 <field>Dealer_Address_Addition_EN__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_City__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
@@ -420,20 +416,6 @@
         <relatedList>Account_Link__c.fromRole__c</relatedList>
         <sortField>CREATEDBY_USER</sortField>
         <sortOrder>Desc</sortOrder>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>CREATEDBY_USER</fields>
-        <fields>UPDATEDBY_USER</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>Role__c</fields>
-        <fields>System__c</fields>
-        <fields>Vehicle__c</fields>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Dealer_Score__c.Dealer_Name__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>Name</fields>
