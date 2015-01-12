@@ -1,7 +1,10 @@
 <project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" default="deploy">
 
-    <property file="build.properties"/>
-	<property environment="env"/>
+    <property prefix="sfdc" file="build.properties"/>
+	
+	<presetdef name="deploy">
+		<sf:deploy debug="${sfdc.debug}" username="${sfdc.sf_target.username}" password="${sfdc.sf_target.password}" serverurl="${sfdc.sf_target.serverurl}" maxPoll="${sfdc.sf.maxPoll}" useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
+	</presetdef>
 	
 	<target name="init">
 		<mkdir dir="tmp"/>
@@ -10,36 +13,36 @@
 	<target name="deploy" depends="init, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20"/>
 	
 	<target name="deploy05">
-		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="${proxy.use}" proxyHost="${proxy.host}" proxyPort="${proxy.port}" deployRoot="src/main/metadata">
+		<deploy>
 			<sf:typeset name="labels"/>
 			<sf:typeset name="staticresources"/>
 			<sf:typeset name="settings"/>
-		</sf:deploy>
+		</deploy>
     </target>
 	
 	<target name="deploy07">
-		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="${proxy.use}" proxyHost="${proxy.host}" proxyPort="${proxy.port}" deployRoot="src/main/metadata">
+		<deploy>
 			<sf:typeset name="objects">
 				<!--sf:include name="Tool_Kit__c"/-->
 				<sf:include name="Picklist_Mapping__c"/>
 				<sf:include name="Integration_Picklist__c"/>
 				<sf:include name="External_Picklist__c"/>
 			</sf:typeset>
-		</sf:deploy>
+		</deploy>
     </target>
 	
 	<target name="deploy09">
-		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="${proxy.use}" proxyHost="${proxy.host}" proxyPort="${proxy.port}" deployRoot="src/main/metadata">
+		<deploy>
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
 				<sf:include name="PersonAccount"/>
 				<sf:include name="Account"/>
 			</sf:typeset>
-		</sf:deploy>
+		</deploy>
     </target>
 
 	<target name="deploy10">
-		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="${proxy.use}" proxyHost="${proxy.host}" proxyPort="${proxy.port}" deployRoot="src/main/metadata">
+		<deploy>
 			<sf:typeset name="objects">
 			    <sf:include name=".*__c"/>
 				<!-- deploy01 -->
@@ -55,19 +58,19 @@
 				<sf:exclude name="Campaign_Lead__c"/>
 				<sf:exclude name="DM_Request__c"/>
 			</sf:typeset>
-		</sf:deploy>
+		</deploy>
     </target>
 	
 	<target name="deploy12">
-		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="${proxy.use}" proxyHost="${proxy.host}" proxyPort="${proxy.port}" deployRoot="src/main/metadata">
+		<deploy>
 			<sf:typeset name="objects">
 				<sf:include name="Campaign"/>
 			</sf:typeset>
-		</sf:deploy>
+		</deploy>
     </target>
 	
 	<target name="deploy15">
-		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="${proxy.use}" proxyHost="${proxy.host}" proxyPort="${proxy.port}" deployRoot="src/main/metadata">
+		<deploy>
 			<sf:typeset name="objects">
 				<sf:include name="Lead__c"/>
 				<sf:include name="Campaign_Lead__c"/>
@@ -77,11 +80,11 @@
 				<sf:include name="OB_Task_Handing__c"/>
 				<sf:include name="Retail_Campaign_Member__c"/>
 			</sf:typeset>
-		</sf:deploy>
+		</deploy>
     </target>
 	
 	<target name="deploy20">
-		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="${proxy.use}" proxyHost="${proxy.host}" proxyPort="${proxy.port}" deployRoot="src/main/metadata">
+		<deploy>
 			<sf:typeset name="objects">
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
@@ -89,7 +92,7 @@
 				<sf:exclude name="Campaign"/>
 			    <sf:exclude name=".*__c"/>
 			</sf:typeset>
-		</sf:deploy>
+		</deploy>
     </target>
 	
 </project>

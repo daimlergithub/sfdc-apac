@@ -49,6 +49,8 @@ import com.sforce.soap.metadata.SynonymDictionary;
 import com.sforce.soap.metadata.Translations;
 import com.sforce.soap.metadata.Workflow;
 
+import deployer.custom.Settings;
+
 /**
  * Manual Steps:
  * 1. remove quick actions from layouts and delete quick actions:
@@ -166,7 +168,7 @@ public class DeploymentConfiguration
     //    duList.add(new DeploymentUnit("ManagedTopics"));
 
     // TODO AccountSettings, SecuritySettings, OpportunitySettings...
-    // duList.add(new DeploymentUnit(Settings.class));
+     duList.add(new DeploymentUnit(Settings.class));
     //    duList.add(new DeploymentUnit("XOrgHub", true));
 
     //    duList.add(new DeploymentUnit("Scontrol", true));
