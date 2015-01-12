@@ -23004,10 +23004,6 @@ Default Flag, All 6 DMS Codes</description>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>Aftersales__c</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>Attribute__c</tab>
         <visibility>None</visibility>
     </tabSettings>

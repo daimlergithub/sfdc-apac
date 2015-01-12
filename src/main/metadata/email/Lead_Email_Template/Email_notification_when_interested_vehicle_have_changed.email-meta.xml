@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <encodingKey>GB2312</encodingKey>
+    <name>Email notification when interested vehicle have changed</name>
+    <style>none</style>
+    <subject>销售线索中感兴趣车型信息被更新</subject>
+    <type>text</type>
+</EmailTemplate>

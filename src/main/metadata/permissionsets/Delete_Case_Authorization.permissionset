@@ -22994,9 +22994,6 @@
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>Aftersales__c</tab>
-        <visibility>None</visibility>
-    </tabSettings>
     <tabSettings>
         <tab>Attribute__c</tab>
         <visibility>None</visibility>

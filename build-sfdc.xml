@@ -98,8 +98,7 @@
 	<target name="deploy21">
 		<deploy>
 			<sf:typeset name="layouts"/>
-			<sf:typeset name="permissionsets">
-			</sf:typeset>
+			<sf:typeset name="email"/>
 		</deploy>
     </target>
 	

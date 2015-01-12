@@ -1,0 +1,23 @@
+尊敬的{!Lead__c.Assigned_Dealer__c}, 
+
+{!Lead__c.Name}线索的客户不允许经销商与其联系. 
+
+请您使用下面的链接登录CRM系统; 成功登录之后即可查看线索详情. 
+ 
+如果您是BMBS用户, 请使用以下的链接: 
+https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchina.my.salesforce.com
+如果您是经销商用户, 请使用以下的链接:
+https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchinacommunity.force.com
+
+Please refer to the English version as below:
+
+Hi {!Lead__c.Assigned_Dealer__c}, 
+
+The customer of {!Lead__c.Name} doesn’t allow dealer’s contact. 
+ 
+Please go to the following URL to login to CRM and view the details of the lead.
+
+If you are wholesale user, please use the link 
+https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchina.my.salesforce.com
+If you are dealer user, please use the link
+https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchinacommunity.force.com
