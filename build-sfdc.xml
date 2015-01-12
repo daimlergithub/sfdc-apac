@@ -11,9 +11,9 @@
 	
 	<target name="deploy05">
 		<sf:deploy username="${sf_target.username}" password="${sf_target.password}" serverurl="${sf_target.serverurl}" maxPoll="${sf.maxPoll}" useProxy="${proxy.use}" proxyHost="${proxy.host}" proxyPort="${proxy.port}" deployRoot="src/main/metadata">
-			<sf:typeset name="labels"/>
-			<sf:typeset name="staticresources"/>
-			<sf:typeset name="settings"/>
+			<sf:typeset name="permissionsets"/>
+			<!--<sf:typeset name="staticresources"/>
+			<sf:typeset name="settings"/>-->
 		</sf:deploy>
     </target>
 	
