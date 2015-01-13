@@ -31,6 +31,7 @@
         <operation>LookupValue</operation>
         <protected>false</protected>
     </fieldUpdates>
+	<!-- Add below to Kernel -->
     <fieldUpdates>
         <fullName>Change_Preferred_Phone</fullName>
         <field>Preferred_Phone__c</field>
@@ -131,6 +132,7 @@
         <formula>RecordType.Name = &apos;Person Account Soft Deleted&apos;</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
+	<!-- Add below to Kernel -->
     <rules>
         <fullName>Change Preferred phone to null</fullName>
         <actions>
@@ -153,6 +155,7 @@
         <formula>OR( ISCHANGED( Dealer_Default_Flag__c ) , ISCHANGED( Dealer_DMS_SR_Code__c ) ,  ISCHANGED( Dealer_DMS_SR_Code_2__c )  ,  ISCHANGED( Dealer_DMS_CRM_Code__c )  ,  ISCHANGED( Dealer_DMS_CRM_Code_2__c ),  ISCHANGED( Dealer_SSI_Participation__c )  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
+	<!-- Add Below to Kernel -->
     <rules>
         <fullName>Send Assigned Leads to Dealer Everyday</fullName>
         <actions>
