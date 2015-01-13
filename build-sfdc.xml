@@ -101,6 +101,7 @@
 			<sf:typeset name="layouts"/>
 			<!--<sf:typeset name="email"/>-->
 			<sf:typeset name="groups"/>
+			<sf:typeset name="queues"/>
 		</deploy>
     </target>
 	
