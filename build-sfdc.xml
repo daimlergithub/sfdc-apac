@@ -97,6 +97,7 @@
 	
 	<target name="deploy21">
 		<deploy>
+			<sf:typeset name="tabs"/>
 			<sf:typeset name="layouts"/>
 			<sf:typeset name="email"/>
 		</deploy>
