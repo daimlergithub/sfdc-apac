@@ -321,8 +321,8 @@ public class SfdcDeploymentTask
     return entityNames;
   }
 
-  private void deployType(MetadataConnection mConnection,
-                          final DeploymentUnit du,
+  private void deployTypes(MetadataConnection mConnection,
+                          final List<DeploymentUnit> duList,
                           List<File> fileList,
                           List<String> entityNames, Map<String, Long> updateStamps)
     throws ConnectionException
