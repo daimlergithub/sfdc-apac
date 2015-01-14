@@ -23,7 +23,11 @@ import com.sforce.soap.metadata.Metadata;
 public class DeploymentUnitFolderWithContent extends DeploymentUnitFolder {
   
   public DeploymentUnitFolderWithContent(Class<? extends Metadata> type, String subDir, String extension) {
-    super(type, subDir, extension);
+    super(type, subDir, extension, false);
+  }
+  
+  public DeploymentUnitFolderWithContent(Class<? extends Metadata> type, String subDir, String extension, boolean includeDefaultFolder) {
+    super(type, subDir, extension, includeDefaultFolder);
   }
 
   /**
@@ -51,44 +55,17 @@ public class DeploymentUnitFolderWithContent extends DeploymentUnitFolder {
   }
 
   @Override
-  public List<File> getFiles(File baseDir)
+  protected File[] handleSubFolder(File subFolder)
   {
-    List<File> result = new ArrayList<>();
-    
-    File subDir = new File(baseDir, getSubDir());
-    
-    File[] files = subDir.listFiles(new FileFilter() {
+    File[] subFiles = subFolder.listFiles(new FileFilter() {
 
       @Override
       public boolean accept(File pathname)
       {
-        // meta files for folders
-        return pathname.isFile() && pathname.getName().endsWith("-meta.xml");
+        return pathname.isFile();
       }
       
     });
-    
-    for (File file : files) {
-      // add meta file itself
-      result.add(file);
-      
-      // meta file describes a subfolder
-      File subFolder = new File(subDir, StringUtils.removeEnd(file.getName(), "-meta.xml"));
-      File[] subFiles = subFolder.listFiles(new FileFilter() {
-
-        @Override
-        public boolean accept(File pathname)
-        {
-          return pathname.isFile();
-        }
-        
-      });
-      if (null != subFiles) {
-        result.addAll(Arrays.asList(subFiles));
-      }
-    }
-    
-    return result;
+    return (null != subFiles) ? subFiles : new File[0];
   }
-  
 }

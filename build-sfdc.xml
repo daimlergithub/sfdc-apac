@@ -3,7 +3,10 @@
     <property prefix="sfdc" file="build.properties"/>
 	
 	<presetdef name="deploy">
-		<sf:deploy debug="${sfdc.debug}" username="${sfdc.sf_target.username}" password="${sfdc.sf_target.password}" serverurl="${sfdc.sf_target.serverurl}" maxPoll="${sfdc.sf.maxPoll}" useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
+		<sf:deploy
+			debug="${sfdc.debug}" dryRun="false"
+			username="${sfdc.sf_target.username}" password="${sfdc.sf_target.password}" serverurl="${sfdc.sf_target.serverurl}" maxPoll="${sfdc.sf.maxPoll}" 
+			useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
 	</presetdef>
 	
 	<target name="init">
@@ -102,6 +105,8 @@
 			</sf:typeset>
 			<sf:typeset name="layouts"/>
 			<sf:typeset name="email"/>
+			<sf:typeset name="reports"/>
+			<sf:typeset name="documents"/>
 			<sf:typeset name="groups"/>
 			<sf:typeset name="queues"/>
 			<sf:typeset name="workflows"/>

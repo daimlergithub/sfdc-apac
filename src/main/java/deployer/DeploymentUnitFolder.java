@@ -17,8 +17,23 @@ import com.sforce.soap.metadata.Metadata;
  */
 public class DeploymentUnitFolder extends DeploymentUnit {
   
+  protected static final String DEFAULT_FOLDER = "unfiled$public";
+  
+  private boolean includeDefaultFolder;
+  
   public DeploymentUnitFolder(Class<? extends Metadata> type, String subDir, String extension) {
     super(type, subDir, extension);
+  }
+
+  public DeploymentUnitFolder(Class<? extends Metadata> type, String subDir, String extension, boolean includeDefaultFolder) {
+    super(type, subDir, extension);
+    
+    this.includeDefaultFolder = includeDefaultFolder;
+  }
+  
+  public boolean isIncludeDefaultFolder()
+  {
+    return includeDefaultFolder;
   }
 
   /**
@@ -64,21 +79,30 @@ public class DeploymentUnitFolder extends DeploymentUnit {
 
       // meta file describes a subfolder
       File subFolder = new File(subDir, StringUtils.removeEnd(file.getName(), "-meta.xml"));
-      File[] subFiles = subFolder.listFiles(new FileFilter() {
-
-        @Override
-        public boolean accept(File pathname)
-        {
-          return pathname.isFile() && pathname.getName().endsWith("." + getExtension());
-        }
-        
-      });
-      if (null != subFiles) {
-        result.addAll(Arrays.asList(subFiles));
-      }
+      File[] subFiles = handleSubFolder(subFolder);
+      
+      result.addAll(Arrays.asList(subFiles));
+    }
+    
+    if (isIncludeDefaultFolder()) {
+      result.addAll(Arrays.asList(handleSubFolder(new File(subDir, DEFAULT_FOLDER))));
     }
     
     return result;
+  }
+
+  protected File[] handleSubFolder(File subFolder)
+  {
+    File[] subFiles = subFolder.listFiles(new FileFilter() {
+
+      @Override
+      public boolean accept(File pathname)
+      {
+        return pathname.isFile() && pathname.getName().endsWith("." + getExtension());
+      }
+      
+    });
+    return (null != subFiles) ? subFiles : new File[0];
   }
 
 }

@@ -60,6 +60,7 @@ public class SfdcDeploymentTask
   private int proxyPort;
   private String deployRoot;
   private boolean debug;
+  private boolean dryRun;
   private List<SfdcTypeSet> typeSets;
 
   public SfdcDeploymentTask()
@@ -110,6 +111,11 @@ public class SfdcDeploymentTask
   public void setDebug(boolean debug)
   {
     this.debug = debug;
+  }
+  
+  public void setDryRun(boolean dryRun)
+  {
+    this.dryRun = dryRun;
   }
 
   public void addConfigured(SfdcTypeSet typeSet)
@@ -208,15 +214,6 @@ public class SfdcDeploymentTask
       throw new BuildException(String.format("Error reading update stamps: %s.", e.getMessage()), e);
     }
     return result;
-  }
-
-  private static void printUpdatestamps(Map<String, Long> updateStamps)
-  {
-    // TODO
-    System.out.println("Update stamps:");
-    for (Map.Entry<String, Long> entry : updateStamps.entrySet()) {
-      System.out.println(String.format("%s: %d", entry.getKey(), entry.getValue()));
-    }
   }
 
   private static void writeUpdateStampes(Map<String, Long> updateStamps)
@@ -444,6 +441,10 @@ public class SfdcDeploymentTask
                            List<DeploymentInfo> infos,
                            Map<String, Long> updateStamps)
   {
+    if (dryRun) {
+      return;
+    }
+    
     try {
       SfdcConnectionContext context = login();
       
