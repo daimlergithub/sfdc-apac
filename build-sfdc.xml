@@ -109,6 +109,9 @@
 	
 	<target name="deploy30">
 		<deploy>
+			<sf:typeset name="classes">
+				<sf:include name="Epa.*"/>
+			</sf:typeset>
 			<sf:typeset name="pages">
 				<sf:include name="EPA_.*"/>
 			</sf:typeset>
