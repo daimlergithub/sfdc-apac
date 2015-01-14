@@ -10,7 +10,7 @@
 		<mkdir dir="tmp"/>
 	</target>
 	
-	<target name="deploy" depends="init, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21"/>
+	<target name="deploy" depends="init, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30"/>
 	
 	<target name="deploy05">
 		<deploy>
@@ -97,7 +97,9 @@
 	
 	<target name="deploy21">
 		<deploy>
-			<sf:typeset name="tabs"/>
+			<sf:typeset name="tabs">
+				<sf:exclude name="EPA_.*"/>
+			</sf:typeset>
 			<sf:typeset name="layouts"/>
 			<!--<sf:typeset name="email"/>-->
 			<sf:typeset name="groups"/>
@@ -105,4 +107,14 @@
 		</deploy>
     </target>
 	
+	<target name="deploy30">
+		<deploy>
+			<sf:typeset name="pages">
+				<sf:include name="EPA_.*"/>
+			</sf:typeset>
+			<sf:typeset name="tabs">
+				<sf:include name="EPA_.*"/>
+			</sf:typeset>
+		</deploy>
+    </target>
 </project>
