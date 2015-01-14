@@ -4,6 +4,6 @@
     <encodingKey>UTF-8</encodingKey>
     <name>Email notification when purchase time have changed</name>
     <style>none</style>
-    <subject>销售线索中预计购买时间信息被更新</subject>
+    <subject>The Planned Purchase time in Lead was changed</subject>
     <type>text</type>
 </EmailTemplate>

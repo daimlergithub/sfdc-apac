@@ -10,16 +10,7 @@
         <operation>LookupValue</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Validate_Vehicle_Relationship</fullName>
-        <description>As a CAC user, I want system to validate vehicle relationship based on the field car relation automatically, when I create or update vehicle relationship in salesforce manually.</description>
-        <field>Validity__c</field>
-        <literalValue>Yes</literalValue>
-        <name>Validate Vehicle Relationship</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
+    
     <outboundMessages>
         <fullName>EP_Send_Vehicle_Relationship_Sync</fullName>
         <apiVersion>28.0</apiVersion>
@@ -54,24 +45,5 @@ Function: Workflow Outbound message of Vehicle Relationship de-duplication</desc
         <formula>$Profile.Name != &apos;IntegrationAPI&apos;</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <rules>
-        <fullName>Validate Vehicle Relationship</fullName>
-        <actions>
-            <name>Validate_Vehicle_Relationship</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Vehicle_Relationship__c.Car_Relation__c</field>
-            <operation>equals</operation>
-            <value>Owner</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>User.ProfileId</field>
-            <operation>notEqual</operation>
-            <value>IntegrationAPI</value>
-        </criteriaItems>
-        <description>As a CAC user, I want system to validate vehicle relationship based on the field car relation automatically, when I create or update vehicle relationship in salesforce manually.</description>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
+    
 </Workflow>

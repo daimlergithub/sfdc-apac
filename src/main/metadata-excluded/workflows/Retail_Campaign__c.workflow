@@ -100,15 +100,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Submit_Date_Updated</fullName>
-        <field>Submit_Date__c</field>
-        <formula>TODAY()</formula>
-        <name>Submit Date Updated</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
+    
     <fieldUpdates>
         <fullName>Update_BP_Status_to_Final_Submit</fullName>
         <field>BP_Status__c</field>
@@ -139,20 +131,7 @@
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
-    <rules>
-        <fullName>Submit Date Updated</fullName>
-        <actions>
-            <name>Submit_Date_Updated</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Retail_Campaign__c.Apply_Status__c</field>
-            <operation>equals</operation>
-            <value>Confirmed</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
+    
     <rules>
         <fullName>Update BP Status to Final Submit</fullName>
         <actions>
