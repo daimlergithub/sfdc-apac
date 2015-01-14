@@ -62,6 +62,7 @@
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_dealer_update_leads</template>
     </alerts>
+	<!-- TODO Confirm MBDA Changes from Sinow
     <fieldUpdates>
         <fullName>Change_MBDA_Lead_Owner</fullName>
         <field>OwnerId</field>
@@ -72,6 +73,7 @@
         <operation>LookupValue</operation>
         <protected>false</protected>
     </fieldUpdates>
+	-->
     <fieldUpdates>
         <fullName>Set_Successful_Call_Number_is_0</fullName>
         <field>Successful_Call_Number__c</field>
@@ -350,6 +352,7 @@ Proxy_Date_Time__c
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
     </outboundMessages>
+	<!-- TODO Check for MBDA changes with Sinow
     <rules>
         <fullName>Change MBDA Lead Owner</fullName>
         <actions>
@@ -364,6 +367,7 @@ Proxy_Date_Time__c
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
+	-->
     <rules>
         <fullName>Email notification when customer doesn%27t allow dealer contact</fullName>
         <actions>
