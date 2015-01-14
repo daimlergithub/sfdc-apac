@@ -1,0 +1,23 @@
+尊敬的[{!Account.Name}] [{!Account.Dealer_Lead_Gate_Keeper_Title__c}] [{!Account.Dealer_Lead_Gate_Keeper_Name__c}],
+
+新的线索已经从梅赛德斯-奔驰客户服务中心分配给您, 请您及时跟进.
+
+请您使用下面的链接登录CRM系统; 成功登录之后即可查看线索详情. 
+
+如果您是BMBS用户, 请使用以下的链接: 
+https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchina.my.salesforce.com
+如果您是经销商用户, 请使用以下的链接:
+https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchinacommunity.force.com
+
+Please refer to the English version as below:
+
+Hi [{!Account.Name}] [{!Account.Dealer_Lead_Gate_Keeper_Title__c}] [{!Account.Dealer_Lead_Gate_Keeper_Name__c}],
+ 
+New lead has been assigned from BMBS call center to you. Please follow up at your earliest. 
+ 
+Please go to the following URL to login to CRM and view the details of the lead.
+
+If you are wholesale user, please use the link 
+https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchina.my.salesforce.com
+If you are dealer user, please use the link
+https://cdtools.i.daimler.com/cdfederation/saml2sso?SPID=https://daimlerchinacommunity.force.com

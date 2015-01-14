@@ -2,8 +2,8 @@
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <available>true</available>
     <encodingKey>UTF-8</encodingKey>
-    <name>Email notification when customer doesn&apos;t allow dealer contact</name>
+    <name>Email notification when dealer update leads</name>
     <style>none</style>
-    <subject>The customer doesn't allow the dealer contact.</subject>
+    <subject>Dealer update Leads</subject>
     <type>text</type>
 </EmailTemplate>

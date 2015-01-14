@@ -2,8 +2,8 @@
 <EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
     <available>true</available>
     <encodingKey>UTF-8</encodingKey>
-    <name>Email notification when customer doesn&apos;t allow dealer contact</name>
+    <name>Email notification when no status is updated more than 5 days</name>
     <style>none</style>
-    <subject>The customer doesn't allow the dealer contact.</subject>
+    <subject>Aftersales Lead didn&apos;t updated status more than 5 days</subject>
     <type>text</type>
 </EmailTemplate>

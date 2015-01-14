@@ -19,24 +19,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Call_End_Time</fullName>
-        <field>End_call_time__c</field>
-        <formula>CreatedDate</formula>
-        <name>Update Call End Time</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_Call_Start_Time</fullName>
-        <field>Start_Call_Time__c</field>
-        <formula>CreatedDate - (CallDurationInSeconds /60/60/24)</formula>
-        <name>Update Call Start Time</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Formula</operation>
-        <protected>false</protected>
-    </fieldUpdates>
+    
     <fieldUpdates>
         <fullName>Update_Status_to_closed_by_result</fullName>
         <field>Status</field>
@@ -187,24 +170,7 @@
         <description>set IsVisibleInSelfService = True of closed task for defined record types.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-    <rules>
-        <fullName>Update Call Start%2FEnd Time</fullName>
-        <actions>
-            <name>Update_Call_End_Time</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <actions>
-            <name>Update_Call_Start_Time</name>
-            <type>FieldUpdate</type>
-        </actions>
-        <active>true</active>
-        <criteriaItems>
-            <field>Task.CallType</field>
-            <operation>equals</operation>
-            <value>Inbound,Outbound</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>
+    
     <rules>
         <fullName>Update Status to closed by Result</fullName>
         <actions>
