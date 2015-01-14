@@ -9,6 +9,8 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -191,7 +193,7 @@ public class SfdcDeploymentTask
         if (null != line) {
           String[] tokens = line.split(":");
           if (2 == tokens.length) {
-            String type = tokens[0];
+            String type = URLDecoder.decode(tokens[0], "UTF-8");
             Long timestamp = Long.valueOf(tokens[1]);
             result.put(type, timestamp);
           }
@@ -224,7 +226,7 @@ public class SfdcDeploymentTask
       BufferedWriter bw = new BufferedWriter(fw);
 
       for (Map.Entry<String, Long> entry : updateStamps.entrySet()) {
-        bw.write(String.format("%s:%d", entry.getKey(), entry.getValue()));
+        bw.write(String.format("%s:%d", URLEncoder.encode(entry.getKey(), "UTF-8"), entry.getValue()));
         bw.newLine();
       }
 
