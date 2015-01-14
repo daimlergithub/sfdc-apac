@@ -10,5 +10,4 @@
     <tab>standard-Contact</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
-    <tab>Account_Link__c</tab>
 </CustomApplication>

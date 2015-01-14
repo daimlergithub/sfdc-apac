@@ -123,7 +123,6 @@
     <tab>standard-Lead</tab>
     <tab>standard-Knowledge</tab>
     <tab>standard-LiveAgent</tab>
-    <tab>Account_Link__c</tab>
     <workspaceMappings>
         <mapping>
             <fieldName>AccountId</fieldName>
@@ -144,9 +143,6 @@
         </mapping>
         <mapping>
             <tab>standard-Account</tab>
-        </mapping>
-        <mapping>
-            <tab>Account_Link__c</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>

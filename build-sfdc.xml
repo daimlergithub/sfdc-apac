@@ -13,7 +13,7 @@
 		<mkdir dir="tmp"/>
 	</target>
 	
-	<target name="deploy" depends="init, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30"/>
+	<target name="deploy" depends="init, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35"/>
 	
 	<target name="deploy05">
 		<deploy>
@@ -121,6 +121,12 @@
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
 			</sf:typeset>
+		</deploy>
+    </target>
+	
+	<target name="deploy35">
+		<deploy>
+			<sf:typeset name="apps"/>
 		</deploy>
     </target>
 </project>
