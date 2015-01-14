@@ -121,44 +121,31 @@ public class SfdcDeploymentTask
 
     List<DeploymentUnit> duList = new DeploymentConfiguration().getConfigurations();
 
-    try {
-      ConnectorConfig eConfig = createConnectorConfig();
-      EnterpriseConnection eConnection = new EnterpriseConnection(eConfig);
+    Map<String, Long> updateStamps = readUpdateStamps();
 
-      LoginResult loginResult = login(eConnection, eConfig);
-      MetadataConnection mConnection = createMetadataConnection(loginResult);
+    File baseDir = new File(deployRoot);
 
-      Map<String, Long> updateStamps = readUpdateStamps();
+    List<DeploymentInfo> deploymentInfos = new ArrayList<>();
+    for (SfdcTypeSet typeSet : typeSets) {
+      DeploymentUnit du = findDeploymentUnit(duList, typeSet);
 
-      File baseDir = new File(deployRoot);
-
-      List<DeploymentInfo> deploymentInfos = new ArrayList<>();
-      for (SfdcTypeSet typeSet : typeSets) {
-        DeploymentUnit du = findDeploymentUnit(duList, typeSet);
-
-        List<File> fileList = compileFileList(baseDir, typeSet, du, updateStamps);
-        if (fileList.isEmpty()) {
-          continue;
-        }
-
-        List<String> entityNames = compileEntityNames(du, fileList);
-
-        deploymentInfos.add(new DeploymentInfo(du, fileList, entityNames));
+      List<File> fileList = compileFileList(baseDir, typeSet, du, updateStamps);
+      if (fileList.isEmpty()) {
+        continue;
       }
 
-      if (deploymentInfos.isEmpty()) {
-        log(String.format("Nothing to deploy."));
-      } else {
-        ByteArrayOutputStream zipFile = prepareZipFile(deploymentInfos);
-        saveZipFile(zipFile);
-        deployTypes(mConnection, zipFile, deploymentInfos, updateStamps);
-        writeUpdateStampes(updateStamps);
-      }
-      
-      eConnection.logout();
+      List<String> entityNames = compileEntityNames(du, fileList);
+
+      deploymentInfos.add(new DeploymentInfo(du, fileList, entityNames));
     }
-    catch (ConnectionException e) {
-      throw new BuildException(String.format("Error Connecting to SFDC: %s.", e.getMessage()), e);
+
+    if (deploymentInfos.isEmpty()) {
+      log(String.format("Nothing to deploy."));
+    } else {
+      ByteArrayOutputStream zipFile = prepareZipFile(deploymentInfos);
+      saveZipFile(zipFile);
+      deployTypes(zipFile, deploymentInfos, updateStamps);
+      writeUpdateStampes(updateStamps);
     }
   }
 
@@ -216,8 +203,7 @@ public class SfdcDeploymentTask
       br.close();
     }
     catch (IOException e) {
-      // TODO
-      System.out.println(String.format("Error reading update stamps."));
+      throw new BuildException(String.format("Error reading update stamps: %s.", e.getMessage()), e);
     }
     return result;
   }
@@ -245,8 +231,7 @@ public class SfdcDeploymentTask
       bw.close();
     }
     catch (IOException e) {
-      // TODO
-      System.out.println(String.format("Error saving update stamps."));
+      throw new BuildException(String.format("Error saving update stamps: %s.", e.getMessage()), e);
     }
   }
 
@@ -267,7 +252,6 @@ public class SfdcDeploymentTask
                                      SfdcTypeSet typeSet,
                                      DeploymentUnit du,
                                      Map<String, Long> updateStamps)
-    throws ConnectionException
   {
     String type = du.getType().getSimpleName();
 
@@ -454,73 +438,92 @@ public class SfdcDeploymentTask
     return sb.toString();
   }
   
-  private void deployTypes(MetadataConnection mConnection,
-                           ByteArrayOutputStream zipFile,
+  private void deployTypes(ByteArrayOutputStream zipFile,
                            List<DeploymentInfo> infos,
-                           Map<String, Long> updateStamps) throws ConnectionException
+                           Map<String, Long> updateStamps)
   {
-    log(String.format("Start deployment of ZIP..."));
-
-    DeployOptions options = new DeployOptions();
-    options.setPerformRetrieve(false);
-    options.setRollbackOnError(true);
-
-    AsyncResult ar = mConnection.deploy(zipFile.toByteArray(), options);
+    try {
+      SfdcConnectionContext context = login();
+      
+      log(String.format("Start deployment of ZIP..."));
+  
+      DeployOptions options = new DeployOptions();
+      options.setPerformRetrieve(false);
+      options.setRollbackOnError(true);
+  
+      AsyncResult ar = context.getMConnection().deploy(zipFile.toByteArray(), options);
+      
+      int count = 0;
+      DeployResult status = null;
+      do {
+  
+        log(String.format("Wait for job %s to finish...", ar.getId()));
+  
+        try {
+          Thread.sleep(3000);
+        }
+        catch (InterruptedException e) {
+          log(String.format("Got interrupted while sleeping for deployment result: %s.", e.getMessage()));
+        }
+        status = context.getMConnection().checkDeployStatus(ar.getId(), true);
+  
+        count++;
+      }
+      while (!status.isDone() && count < maxPoll);
+  
+      if (status.isDone()) {
+        if (status.isSuccess()) {
+          for (DeploymentInfo info : infos) {
+            DeploymentUnit du = info.getDeploymentUnit();
+            
+            log(String.format("Deployment of %s and %s successful.",
+                              du.getType().getSimpleName(),
+                              Arrays.toString(info.getEntityNames().toArray(new String[0]))));
     
-    int count = 0;
-    DeployResult status = null;
-    do {
-
-      log(String.format("Wait for job %s to finish...", ar.getId()));
-
-      try {
-        Thread.sleep(3000);
-      }
-      catch (InterruptedException e) {
-        log(String.format("Got interrupted while sleeping for deployment result: %s.", e.getMessage()));
-      }
-      status = mConnection.checkDeployStatus(ar.getId(), true);
-
-      count++;
-    }
-    while (!status.isDone() && count < maxPoll);
-
-    if (status.isDone()) {
-      if (status.isSuccess()) {
-        for (DeploymentInfo info : infos) {
-          DeploymentUnit du = info.getDeploymentUnit();
-          
-          log(String.format("Deployment of %s and %s successful.",
-                            du.getType().getSimpleName(),
-                            Arrays.toString(info.getEntityNames().toArray(new String[0]))));
-  
-          for (File file : info.getFileList()) {
-            long lastModified = file.lastModified();
-            String entityName = du.getEntityName(file);
-            String key = du.getType().getSimpleName() + "/" + entityName;
-            Long updateStamp = updateStamps.get(key);
-  
-            if (null == updateStamp || lastModified > updateStamp.longValue()) {
-              updateStamps.put(key, lastModified);
+            for (File file : info.getFileList()) {
+              long lastModified = file.lastModified();
+              String entityName = du.getEntityName(file);
+              String key = du.getType().getSimpleName() + "/" + entityName;
+              Long updateStamp = updateStamps.get(key);
+    
+              if (null == updateStamp || lastModified > updateStamp.longValue()) {
+                updateStamps.put(key, lastModified);
+              }
             }
           }
         }
-      }
-      else {
-        log(String.format("Error %s: %s.", null != status.getErrorStatusCode()
-                                                                              ? status.getErrorStatusCode().toString()
-                                                                              : "<null>", status.getErrorMessage()),
-            LogLevel.ERR.getLevel());
-
-        List<String> types = new ArrayList<>();
-        for (DeploymentInfo info: infos) {
-          types.add(info.getDeploymentUnit().getType().getSimpleName());
+        else {
+          log(String.format("Error %s: %s.", null != status.getErrorStatusCode()
+                                                                                ? status.getErrorStatusCode().toString()
+                                                                                : "<null>", status.getErrorMessage()),
+              LogLevel.ERR.getLevel());
+  
+          List<String> types = new ArrayList<>();
+          for (DeploymentInfo info: infos) {
+            types.add(info.getDeploymentUnit().getType().getSimpleName());
+          }
+          
+          throw new BuildException(String.format("Deployment of %s not successful.",
+                                                 Arrays.toString(types.toArray(new String[0]))));
         }
-        
-        throw new BuildException(String.format("Deployment of %s not successful.",
-                                               Arrays.toString(types.toArray(new String[0]))));
       }
+    
+      context.getEConnection().logout();
     }
+    catch (ConnectionException e) {
+      throw new BuildException(String.format("Error Connecting to SFDC: %s.", e.getMessage()), e);
+    }
+  }
+
+  private SfdcConnectionContext login() throws ConnectionException
+  {
+    ConnectorConfig eConfig = createConnectorConfig();
+    EnterpriseConnection eConnection = new EnterpriseConnection(eConfig);
+
+    LoginResult loginResult = login(eConnection, eConfig);
+    MetadataConnection mConnection = createMetadataConnection(loginResult);
+
+    return new SfdcConnectionContext(eConnection, mConnection);
   }
 
   private ConnectorConfig createConnectorConfig()
