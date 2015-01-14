@@ -113,7 +113,7 @@
 		<deploy>
 			<sf:typeset name="classes"/>
 			<sf:typeset name="pages">
-				<sf:include name="EPA_.*"/>
+				<!--<sf:include name="EPA_.*"/>-->
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
