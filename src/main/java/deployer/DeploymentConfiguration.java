@@ -156,12 +156,19 @@ public class DeploymentConfiguration
     duList.add(new DeploymentUnit(HomePageComponent.class, "homePageComponents"));
     duList.add(new DeploymentUnit(CustomPageWebLink.class, "weblinks", "weblink"));
 
+    // TODO duList.add(new DeploymentUnit(ReportFolder.class, "reports", "xml"));
     duList.add(new DeploymentUnitFolder(Report.class, "reports", "report"));
+    
     duList.add(new DeploymentUnit(Flow.class, "flows"));
+    
+ // TODO duList.add(new DeploymentUnit(DashboardFolder.class, "dashboards", "xml"));
     duList.add(new DeploymentUnitFolder(Dashboard.class, "dashboards", "dashboard"));
+    
     duList.add(new DeploymentUnit(Queue.class, "queues"));
 
     duList.add(new DeploymentUnit(AutoResponseRules.class));
+    
+ // TODO duList.add(new DeploymentUnit(EmailFolder.class, "email", "xml"));
     duList.add(new DeploymentUnitFolderWithContent(EmailTemplate.class, "email", "email"));
 
     //    duList.add(new DeploymentUnit("ManagedTopics.ManagedTopic"));
@@ -196,6 +203,7 @@ public class DeploymentConfiguration
     //    duList.add(new DeploymentUnit("AppMenu", true));
 
     // -> DocumentFolder
+ // TODO duList.add(new DeploymentUnit(DocumentFolder.class, "documents", "xml"));
     duList.add(new DeploymentUnitFolderWithContent(Document.class, "documents", null));
 
     //    duList.add(new DeploymentUnit("SharingSet", true));
