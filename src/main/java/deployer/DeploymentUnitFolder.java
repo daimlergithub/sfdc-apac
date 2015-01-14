@@ -73,15 +73,17 @@ public class DeploymentUnitFolder extends DeploymentUnit {
       
     });
     
-    for (File file : files) {
-      // meta file
-      result.add(file);
-
-      // meta file describes a subfolder
-      File subFolder = new File(subDir, StringUtils.removeEnd(file.getName(), "-meta.xml"));
-      File[] subFiles = handleSubFolder(subFolder);
-      
-      result.addAll(Arrays.asList(subFiles));
+    if (null != files) {
+      for (File file : files) {
+        // meta file
+        result.add(file);
+  
+        // meta file describes a subfolder
+        File subFolder = new File(subDir, StringUtils.removeEnd(file.getName(), "-meta.xml"));
+        File[] subFiles = handleSubFolder(subFolder);
+        
+        result.addAll(Arrays.asList(subFiles));
+      }
     }
     
     if (isIncludeDefaultFolder()) {
