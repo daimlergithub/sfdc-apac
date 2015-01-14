@@ -105,8 +105,6 @@
 			</sf:typeset>
 			<sf:typeset name="layouts"/>
 			<sf:typeset name="email"/>
-			<sf:typeset name="reports"/>
-			<sf:typeset name="documents"/>
 			<sf:typeset name="groups"/>
 			<sf:typeset name="queues"/>
 			<sf:typeset name="workflows"/>
