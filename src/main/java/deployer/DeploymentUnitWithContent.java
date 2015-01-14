@@ -2,6 +2,7 @@ package deployer;
 
 import java.io.File;
 import java.io.FileFilter;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class DeploymentUnitWithContent
       }
     });
     
-    return Arrays.asList(mainFiles);
+    return null != mainFiles ? Arrays.asList(mainFiles) : new ArrayList<File>();
   }
 
 }

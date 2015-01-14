@@ -31,7 +31,7 @@ public class DeploymentUnitFolder extends DeploymentUnit {
     
     if (name.endsWith("-meta.xml")) {
       // meta file for folder
-      name = StringUtils.removeEnd(name, "-meta.xml");
+      return StringUtils.removeEnd(name, "-meta.xml");
     } else if (name.endsWith(getExtension())) {
       // entity file
       return file.getParentFile().getName() + "/" + name.substring(0, name.lastIndexOf("."));
@@ -73,10 +73,12 @@ public class DeploymentUnitFolder extends DeploymentUnit {
         }
         
       });
-      result.addAll(Arrays.asList(subFiles));
+      if (null != subFiles) {
+        result.addAll(Arrays.asList(subFiles));
+      }
     }
     
     return result;
   }
-  
+
 }

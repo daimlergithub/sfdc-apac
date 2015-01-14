@@ -114,7 +114,7 @@ public class SfdcDeploymentTask
   {
     typeSets.add(typeSet);
   }
-  
+
   public void execute()
   {
     validateSettings();
@@ -132,6 +132,7 @@ public class SfdcDeploymentTask
 
       File baseDir = new File(deployRoot);
 
+      List<DeploymentInfo> deploymentInfos = new ArrayList<>();
       for (SfdcTypeSet typeSet : typeSets) {
         DeploymentUnit du = findDeploymentUnit(duList, typeSet);
 
@@ -142,15 +143,42 @@ public class SfdcDeploymentTask
 
         List<String> entityNames = compileEntityNames(du, fileList);
 
-        deployType(mConnection, du, fileList, entityNames, updateStamps);
-
-        writeUpdateStampes(updateStamps);
+        deploymentInfos.add(new DeploymentInfo(du, fileList, entityNames));
       }
 
+      if (deploymentInfos.isEmpty()) {
+        log(String.format("Nothing to deploy."));
+      } else {
+        ByteArrayOutputStream zipFile = prepareZipFile(deploymentInfos);
+        saveZipFile(zipFile);
+        deployTypes(mConnection, zipFile, deploymentInfos, updateStamps);
+        writeUpdateStampes(updateStamps);
+      }
+      
       eConnection.logout();
     }
     catch (ConnectionException e) {
-      e.printStackTrace();
+      throw new BuildException(String.format("Error Connecting to SFDC: %s.", e.getMessage()), e);
+    }
+  }
+
+  private void saveZipFile(ByteArrayOutputStream zipFile)
+  {
+    // debugging
+    if (debug) {
+      String fileName = "deploy-" + System.currentTimeMillis() + ".zip";
+
+      log(String.format("Save ZIP file to %s...", fileName));
+
+      try {
+        File tmp = new File("tmp", fileName);
+        FileOutputStream fos = new FileOutputStream(tmp);
+        fos.write(zipFile.toByteArray());
+        fos.close();
+      }
+      catch (IOException e) {
+        log(String.format("Error preparing ZIP for deployment: %s.", e.getMessage()), e, LogLevel.WARN.getLevel());
+      }
     }
   }
 
@@ -225,6 +253,7 @@ public class SfdcDeploymentTask
   private DeploymentUnit findDeploymentUnit(List<DeploymentUnit> duList, SfdcTypeSet typeSet)
   {
     for (DeploymentUnit du : duList) {
+      // if (typeSet.getName().equals(du.getSubDir()) && ((!typeSet.isFolder() && !Folder.class.isAssignableFrom(du.getType())) || (typeSet.isFolder() && Folder.class.isAssignableFrom(du.getType())))) {
       if (typeSet.getName().equals(du.getSubDir())) {
         log(String.format("Found deployment information for type %s.", typeSet.getName()));
         return du;
@@ -234,12 +263,15 @@ public class SfdcDeploymentTask
     throw new BuildException(String.format("Could not find deployment unit for fileset %s.", typeSet.getName()));
   }
 
-  private List<File> compileFileList(File baseDir, SfdcTypeSet typeSet, DeploymentUnit du, Map<String, Long> updateStamps)
+  private List<File> compileFileList(File baseDir,
+                                     SfdcTypeSet typeSet,
+                                     DeploymentUnit du,
+                                     Map<String, Long> updateStamps)
     throws ConnectionException
   {
     String type = du.getType().getSimpleName();
 
-    log(String.format("Deploying metadata for type %s...", type));
+    log(String.format("Collect files to deploy for type %s...", type));
 
     List<File> fileList = du.getFiles(baseDir);
 
@@ -247,7 +279,8 @@ public class SfdcDeploymentTask
     List<File> filteredFileList = new ArrayList<>();
     if (typeSet.getIncludes().isEmpty()) {
       filteredFileList.addAll(fileList);
-    } else {
+    }
+    else {
       for (SfdcInclude include : typeSet.getIncludes()) {
         for (File file : fileList) {
           String fileName = StringUtils.substringBefore(file.getName(), ".");
@@ -257,7 +290,7 @@ public class SfdcDeploymentTask
         }
       }
     }
-    
+
     // process excludes
     if (!typeSet.getExcludes().isEmpty()) {
       for (SfdcExclude exclude : typeSet.getExcludes()) {
@@ -279,7 +312,7 @@ public class SfdcDeploymentTask
       String entityName = du.getEntityName(file);
       String key = du.getType().getSimpleName() + "/" + entityName;
       Long updateStamp = updateStamps.get(key);
-      
+
       if (null == updateStamp || timestamp > updateStamp.longValue()) {
         entitiesToUpdate.add(entityName);
       }
@@ -294,7 +327,7 @@ public class SfdcDeploymentTask
     }
 
     if (filteredFileList.isEmpty()) {
-      log(String.format("Nothing to deploy for %s.", type));
+      log(String.format("Nothing to include for %s.", type));
     }
 
     return filteredFileList;
@@ -307,11 +340,11 @@ public class SfdcDeploymentTask
     List<String> entityNames = new ArrayList<>();
     for (File file : fileList) {
       String entityName = du.getEntityName(file);
-      
+
       if (null == entityName) {
         throw new BuildException(String.format("Error getting entity name for file %s.", file.getName()));
       }
-      
+
       if (!entitySet.contains(entityName)) {
         entitySet.add(entityName);
         entityNames.add(entityName);
@@ -321,63 +354,71 @@ public class SfdcDeploymentTask
     return entityNames;
   }
 
-  private void deployType(MetadataConnection mConnection,
-                          final DeploymentUnit du,
-                          List<File> fileList,
-                          List<String> entityNames, Map<String, Long> updateStamps)
-    throws ConnectionException
+  private ByteArrayOutputStream prepareZipFile(List<DeploymentInfo> deploymentInfos)
   {
-    String type = du.getType().getSimpleName();
-
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
     Base64OutputStream b64os = new Base64OutputStream(baos);
-
+    
     try {
       ZipOutputStream zos = new ZipOutputStream(baos);
-
-      byte[] buffer = new byte[512];
-
-      for (File file : fileList) {
-        String fileName = file.getName();
-
-        log(String.format("Add (%s,%s) to ZIP...", type, fileName));
-
-        try {
-          zos.putNextEntry(new ZipEntry("unpackaged/" + du.getSubDir() + "/" + fileName));
-
-          FileInputStream fis = new FileInputStream(file);
-
-          int read = 0;
-          do {
-            read = fis.read(buffer);
-            if (-1 != read) {
-              zos.write(buffer, 0, read);
+      
+      for (DeploymentInfo info : deploymentInfos) {
+        DeploymentUnit du = info.getDeploymentUnit();
+        
+        String type = du.getType().getSimpleName();
+        
+        log(String.format("Handle type %s for ZIP file...", type));
+  
+        byte[] buffer = new byte[512];
+  
+        for (File file : info.getFileList()) {
+          log(String.format("Add %s...", file.getName()));
+  
+          String zipEntryName = createZipEntryName(du, file);
+          
+          try {
+            zos.putNextEntry(new ZipEntry(zipEntryName));
+  
+            FileInputStream fis = new FileInputStream(file);
+  
+            int read = 0;
+            do {
+              read = fis.read(buffer);
+              if (-1 != read) {
+                zos.write(buffer, 0, read);
+              }
             }
+            while (-1 != read);
+  
+            fis.close();
+            zos.closeEntry();
           }
-          while (-1 != read);
-
-          fis.close();
-          zos.closeEntry();
-        }
-        catch (Exception e) {
-          throw new BuildException(String.format("Error reading metadata for type %s and file %s: %s",
-                                                 type,
-                                                 fileName,
-                                                 e.getMessage()), e);
+          catch (Exception e) {
+            throw new BuildException(String.format("Error reading metadata for type %s and file %s: %s",
+                                                   type,
+                                                   file.getName(),
+                                                   e.getMessage()), e);
+          }
         }
       }
-
+  
       zos.putNextEntry(new ZipEntry("unpackaged/package.xml"));
       zos.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n".getBytes("UTF-8"));
       zos.write("<Package xmlns=\"http://soap.sforce.com/2006/04/metadata\">\n".getBytes("UTF-8"));
       //zos.write("<fullName>cleanup</fullName>".getBytes("UTF-8"));
-      zos.write("<types>\n".getBytes("UTF-8"));
-      for (String entityName : entityNames) {
-        zos.write(("<members>" + entityName + "</members>\n").getBytes("UTF-8"));
+      
+      for (DeploymentInfo info : deploymentInfos) {
+        DeploymentUnit du = info.getDeploymentUnit();
+        
+        String type = du.getType().getSimpleName();
+        
+        zos.write("<types>\n".getBytes("UTF-8"));
+        for (String entityName : info.getEntityNames()) {
+          zos.write(("<members>" + entityName + "</members>\n").getBytes("UTF-8"));
+        }
+        zos.write(("<name>" + type + "</name>\n").getBytes("UTF-8"));
+        zos.write("</types>\n".getBytes("UTF-8"));
       }
-      zos.write(("<name>" + type + "</name>\n").getBytes("UTF-8"));
-      zos.write("</types>\n".getBytes("UTF-8"));
       zos.write("<version>32.0</version>\n".getBytes("UTF-8"));
       zos.write("</Package>\n".getBytes("UTF-8"));
       zos.closeEntry();
@@ -388,46 +429,55 @@ public class SfdcDeploymentTask
     catch (IOException e) {
       throw new BuildException(String.format("Error preparing ZIP for deployment: %s.", e.getMessage()), e);
     }
+    
+    return baos;
+  }
 
-    log(String.format("Starting deployment of type %s...", type));
+  private String createZipEntryName(DeploymentUnit du, File file)
+  {
+    StringBuilder sb = new StringBuilder();
+    
+    String filePart = null;
+    do {
+      filePart = file.getName();
+      
+      if (0 < sb.length()) {
+        sb.insert(0, "/");
+      }
+      sb.insert(0, filePart);
+      
+      file = file.getParentFile();
+    } while (null != file && !filePart.equals(du.getSubDir()));
+    
+    sb.insert(0, "unpackaged/");
+    
+    return sb.toString();
+  }
+  
+  private void deployTypes(MetadataConnection mConnection,
+                           ByteArrayOutputStream zipFile,
+                           List<DeploymentInfo> infos,
+                           Map<String, Long> updateStamps) throws ConnectionException
+  {
+    log(String.format("Start deployment of ZIP..."));
 
     DeployOptions options = new DeployOptions();
     options.setPerformRetrieve(false);
     options.setRollbackOnError(true);
 
-    AsyncResult ar = mConnection.deploy(baos.toByteArray(), options);
-
-    // debugging
-    if (debug) {
-      String fileName = "deploy-" + System.currentTimeMillis() + ".zip";
-      
-      log(String.format("Saving ZIP file to %s...", fileName));
-      
-      try {
-        File tmp = new File("tmp", fileName);
-        FileOutputStream fos = new FileOutputStream(tmp);
-        fos.write(baos.toByteArray());
-        fos.close();
-      }
-      catch (IOException e) {
-        log(String.format("Error preparing ZIP for deployment: %s.", e.getMessage()),
-            e,
-            LogLevel.WARN.getLevel());
-      }
-    }
-
+    AsyncResult ar = mConnection.deploy(zipFile.toByteArray(), options);
+    
     int count = 0;
     DeployResult status = null;
     do {
 
-      log(String.format("Waiting for job %s to finish...", ar.getId()));
+      log(String.format("Wait for job %s to finish...", ar.getId()));
 
       try {
         Thread.sleep(3000);
       }
       catch (InterruptedException e) {
-        // TODO
-        System.err.println(String.format("Got interrupted while sleeping for deployment result: %s.", e.getMessage()));
+        log(String.format("Got interrupted while sleeping for deployment result: %s.", e.getMessage()));
       }
       status = mConnection.checkDeployStatus(ar.getId(), true);
 
@@ -437,29 +487,38 @@ public class SfdcDeploymentTask
 
     if (status.isDone()) {
       if (status.isSuccess()) {
-        log(String.format("Deploying of %s and %s successful.",
-                          type,
-                          Arrays.toString(entityNames.toArray(new String[entityNames.size()]))));
-
-        for (File file : fileList) {
-          long lastModified = file.lastModified();
-          String entityName = du.getEntityName(file);
-          String key = du.getType().getSimpleName() + "/" + entityName;
-          Long updateStamp = updateStamps.get(key);
-              
-          if (null == updateStamp || lastModified > updateStamp.longValue()) {
-            updateStamps.put(key, lastModified);
+        for (DeploymentInfo info : infos) {
+          DeploymentUnit du = info.getDeploymentUnit();
+          
+          log(String.format("Deployment of %s and %s successful.",
+                            du.getType().getSimpleName(),
+                            Arrays.toString(info.getEntityNames().toArray(new String[0]))));
+  
+          for (File file : info.getFileList()) {
+            long lastModified = file.lastModified();
+            String entityName = du.getEntityName(file);
+            String key = du.getType().getSimpleName() + "/" + entityName;
+            Long updateStamp = updateStamps.get(key);
+  
+            if (null == updateStamp || lastModified > updateStamp.longValue()) {
+              updateStamps.put(key, lastModified);
+            }
           }
         }
       }
       else {
-        log(String.format("Error %s: %s.",
-                          null != status.getErrorStatusCode() ? status.getErrorStatusCode().toString() : "<null>",
-                          status.getErrorMessage()), LogLevel.ERR.getLevel());
+        log(String.format("Error %s: %s.", null != status.getErrorStatusCode()
+                                                                              ? status.getErrorStatusCode().toString()
+                                                                              : "<null>", status.getErrorMessage()),
+            LogLevel.ERR.getLevel());
 
-        throw new BuildException(String.format("Deploying of %s and %s not successful.",
-                                               type,
-                                               Arrays.toString(entityNames.toArray(new String[entityNames.size()]))));
+        List<String> types = new ArrayList<>();
+        for (DeploymentInfo info: infos) {
+          types.add(info.getDeploymentUnit().getType().getSimpleName());
+        }
+        
+        throw new BuildException(String.format("Deployment of %s not successful.",
+                                               Arrays.toString(types.toArray(new String[0]))));
       }
     }
   }

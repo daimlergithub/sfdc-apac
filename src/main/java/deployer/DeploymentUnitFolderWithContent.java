@@ -39,13 +39,14 @@ public class DeploymentUnitFolderWithContent extends DeploymentUnitFolder {
       // meta file for folder
       return StringUtils.removeEnd(name, "-meta.xml");
     } else {
+      // entity file
       if (name.endsWith("-meta.xml")) {
         name = StringUtils.remove(name, "-meta.xml");
       }
       if (null != getExtension()) {
         name = StringUtils.removeEnd(name, "." + getExtension());
       }
-      return name;
+      return file.getParentFile().getName() + "/" + name;
     }
   }
 
@@ -68,13 +69,11 @@ public class DeploymentUnitFolderWithContent extends DeploymentUnitFolder {
     });
     
     for (File file : files) {
-      String name = file.getName();
-      
       // add meta file itself
       result.add(file);
-
+      
       // meta file describes a subfolder
-      File subFolder = new File(subDir, StringUtils.removeEnd(name, "-meta.xml"));
+      File subFolder = new File(subDir, StringUtils.removeEnd(file.getName(), "-meta.xml"));
       File[] subFiles = subFolder.listFiles(new FileFilter() {
 
         @Override
@@ -84,7 +83,9 @@ public class DeploymentUnitFolderWithContent extends DeploymentUnitFolder {
         }
         
       });
-      result.addAll(Arrays.asList(subFiles));
+      if (null != subFiles) {
+        result.addAll(Arrays.asList(subFiles));
+      }
     }
     
     return result;

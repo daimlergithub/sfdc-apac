@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-<!-- Deploy after EmailTeplates are added to Kernel
     <alerts>
         <fullName>Dealer_Email_Notification_on_Amount_of_Assigned_Leads</fullName>
         <description>Dealer Email Notification on Amount of Assigned Leads</description>
@@ -12,8 +11,6 @@
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</template>
     </alerts>
-	-->
-	<!-- Add below to Kernel -->
     <fieldUpdates>
         <fullName>Change_Preferred_Phone</fullName>
         <field>Preferred_Phone__c</field>
@@ -22,7 +19,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<!-- Add below to Kernel -->
     <rules>
         <fullName>Change Preferred phone to null</fullName>
         <actions>
@@ -34,7 +30,6 @@
         <formula>AND( ISPICKVAL(PRIORVALUE( Preferred_Contact_Method__c ),&apos;Phone&apos;), NOT(ISPICKVAL(Preferred_Contact_Method__c, &apos;Phone&apos;))  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-	<!-- Deploy after EmailTeplates are added to Kernel 
     <rules>
         <fullName>Send Assigned Leads to Dealer Everyday</fullName>
         <actions>
@@ -55,6 +50,4 @@ Modify Reason:
         <formula>AND (     Assigned_Lead_Amount_of_Everyday__c &gt; 0,     ISCHANGED(Assigned_Lead_Amount_of_Everyday__c) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-	-->
-   
 </Workflow>

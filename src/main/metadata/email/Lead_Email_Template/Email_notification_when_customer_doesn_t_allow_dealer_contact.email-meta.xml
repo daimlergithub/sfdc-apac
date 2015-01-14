@@ -4,6 +4,6 @@
     <encodingKey>UTF-8</encodingKey>
     <name>Email notification when customer doesn&apos;t allow dealer contact</name>
     <style>none</style>
-    <subject>The customer doesn't allow the dealer contact.</subject>
+    <subject>客户不在允许经销商联系</subject>
     <type>text</type>
 </EmailTemplate>
