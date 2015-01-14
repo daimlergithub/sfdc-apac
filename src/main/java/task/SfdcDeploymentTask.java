@@ -146,15 +146,19 @@ public class SfdcDeploymentTask
         deploymentInfos.add(new DeploymentInfo(du, fileList, entityNames));
       }
 
-      ByteArrayOutputStream zipFile = prepareZipFile(deploymentInfos);
-      saveZipFile(zipFile);
-      deployTypes(mConnection, zipFile, deploymentInfos, updateStamps);
-      writeUpdateStampes(updateStamps);
-
+      if (deploymentInfos.isEmpty()) {
+        log(String.format("Nothing to deploy."));
+      } else {
+        ByteArrayOutputStream zipFile = prepareZipFile(deploymentInfos);
+        saveZipFile(zipFile);
+        deployTypes(mConnection, zipFile, deploymentInfos, updateStamps);
+        writeUpdateStampes(updateStamps);
+      }
+      
       eConnection.logout();
     }
     catch (ConnectionException e) {
-      e.printStackTrace();
+      throw new BuildException(String.format("Error Connecting to SFDC: %s.", e.getMessage()), e);
     }
   }
 
@@ -164,7 +168,7 @@ public class SfdcDeploymentTask
     if (debug) {
       String fileName = "deploy-" + System.currentTimeMillis() + ".zip";
 
-      log(String.format("Saving ZIP file to %s...", fileName));
+      log(String.format("Save ZIP file to %s...", fileName));
 
       try {
         File tmp = new File("tmp", fileName);
@@ -323,7 +327,7 @@ public class SfdcDeploymentTask
     }
 
     if (filteredFileList.isEmpty()) {
-      log(String.format("Nothing to deploy for %s.", type));
+      log(String.format("Nothing to include for %s.", type));
     }
 
     return filteredFileList;
@@ -453,10 +457,9 @@ public class SfdcDeploymentTask
   private void deployTypes(MetadataConnection mConnection,
                            ByteArrayOutputStream zipFile,
                            List<DeploymentInfo> infos,
-                           Map<String, Long> updateStamps)
-    throws ConnectionException
+                           Map<String, Long> updateStamps) throws ConnectionException
   {
-    log(String.format("Starting deployment of ZIP..."));
+    log(String.format("Start deployment of ZIP..."));
 
     DeployOptions options = new DeployOptions();
     options.setPerformRetrieve(false);
@@ -468,7 +471,7 @@ public class SfdcDeploymentTask
     DeployResult status = null;
     do {
 
-      log(String.format("Waiting for job %s to finish...", ar.getId()));
+      log(String.format("Wait for job %s to finish...", ar.getId()));
 
       try {
         Thread.sleep(3000);
@@ -487,7 +490,7 @@ public class SfdcDeploymentTask
         for (DeploymentInfo info : infos) {
           DeploymentUnit du = info.getDeploymentUnit();
           
-          log(String.format("Deploying of %s and %s successful.",
+          log(String.format("Deployment of %s and %s successful.",
                             du.getType().getSimpleName(),
                             Arrays.toString(info.getEntityNames().toArray(new String[0]))));
   
@@ -514,7 +517,7 @@ public class SfdcDeploymentTask
           types.add(info.getDeploymentUnit().getType().getSimpleName());
         }
         
-        throw new BuildException(String.format("Deploying of %s not successful.",
+        throw new BuildException(String.format("Deployment of %s not successful.",
                                                Arrays.toString(types.toArray(new String[0]))));
       }
     }
