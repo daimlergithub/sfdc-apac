@@ -110,7 +110,6 @@
 			<sf:typeset name="queues"/>
 			<sf:typeset name="roles"/>
 			<sf:typeset name="workflows"/>
-			<sf:typeset name="applications"/>
 		</deploy>
     </target>
 	
@@ -127,7 +126,7 @@
 	
 	<target name="deploy35">
 		<deploy>
-			<sf:typeset name="apps"/>
+			<sf:typeset name="applications"/>
 		</deploy>
     </target>
 </project>
