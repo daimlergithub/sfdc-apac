@@ -2,7 +2,6 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <customApplicationComponents>
         <alignment>right</alignment>
-        <customApplicationComponent>FAQ_Notice</customApplicationComponent>
         <customApplicationComponent>Console.BuiltInComponent.knowledgeOne</customApplicationComponent>
     </customApplicationComponents>
     <defaultLandingTab>standard-home</defaultLandingTab>
@@ -158,9 +157,11 @@
         <mapping>
             <tab>Vehicle_Relationship__c</tab>
         </mapping>
+		<!-- Dependancy on Tasks tab, Yet to be deployed
         <mapping>
             <tab>Tasks</tab>
         </mapping>
+		-->
         <mapping>
             <tab>standard-Knowledge</tab>
         </mapping>

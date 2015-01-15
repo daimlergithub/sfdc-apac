@@ -159,9 +159,11 @@
             <fieldName>Contact__c</fieldName>
             <tab>Vehicle_Relationship__c</tab>
         </mapping>
+		<!-- Dependancy on Tasks tab, Yet to be deployed
         <mapping>
             <tab>Tasks</tab>
         </mapping>
+		-->
         <mapping>
             <tab>standard-Knowledge</tab>
         </mapping>

@@ -24,9 +24,6 @@
     <tab>Car_Model__c</tab>
     <tab>Attribute__c</tab>
     <tab>Car_Model_Attribute__c</tab>
-    <tab>Socia_Media</tab>
-    <tab>Campaign_Calendar</tab>
-    <tab>Mass_Assign_Tasks</tab>
     <tab>SMSReplyHistory__c</tab>
     <tab>QlikViewAfterSales1</tab>
     <tab>QlikviewCAC1</tab>

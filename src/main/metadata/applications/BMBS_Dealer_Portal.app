@@ -10,7 +10,8 @@
     <tab>standard-Case</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
-    <tab>Social_Account</tab>
+	<!-- Dependency on Retail_Campaign__c tab, Yet to be deployed
     <tab>Retail_Campaign__c</tab>
+	-->
     <tab>Account_Link__c</tab>
 </CustomApplication>

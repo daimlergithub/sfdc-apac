@@ -144,9 +144,11 @@
         <mapping>
             <tab>SSI__c</tab>
         </mapping>
+		<!-- Dependancy on Tasks tab, Yet to be deployed
         <mapping>
             <tab>Tasks</tab>
         </mapping>
+		-->
         <mapping>
             <tab>standard-Account</tab>
         </mapping>
