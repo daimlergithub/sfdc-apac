@@ -3,7 +3,9 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>BMBS CRM</label>
     <logo>Logo/Logo_Mercedes_Benz.png</logo>
+	<!-- Dependancy on Tasks tab, Yet to be deployed
     <tab>Tasks</tab>
+	-->
     <tab>Lead__c</tab>
     <tab>standard-Account</tab>
     <tab>standard-Contact</tab>
@@ -22,9 +24,6 @@
     <tab>Car_Model__c</tab>
     <tab>Attribute__c</tab>
     <tab>Car_Model_Attribute__c</tab>
-    <tab>Socia_Media</tab>
-    <tab>Campaign_Calendar</tab>
-    <tab>Mass_Assign_Tasks</tab>
     <tab>SMSReplyHistory__c</tab>
     <tab>QlikViewAfterSales1</tab>
     <tab>QlikviewCAC1</tab>

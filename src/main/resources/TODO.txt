@@ -11,6 +11,7 @@ TODO
 -fix history tracking for Tool_Kit__c.Dealer_Name__c
 -fix settings/case.settings: defaultCaseUser and defaultCaseOwner
 -default workflow user should be adaptable
+-Re-Deploy apps which are dependant on VF Tabs
 
 DONE
 ====

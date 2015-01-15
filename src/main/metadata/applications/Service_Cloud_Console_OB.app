@@ -129,7 +129,9 @@
     <listRefreshMethod>refreshListRows</listRefreshMethod>
     <logo>Logo/MBCL_LOGO.png</logo>
     <saveUserSessions>false</saveUserSessions>
+	<!-- Dependancy on Tasks tab, Yet to be deployed
     <tab>Tasks</tab>
+	-->
     <tab>standard-Campaign</tab>
     <tab>standard-Knowledge</tab>
     <tab>Vehicle__c</tab>
@@ -157,9 +159,11 @@
             <fieldName>Contact__c</fieldName>
             <tab>Vehicle_Relationship__c</tab>
         </mapping>
+		<!-- Dependancy on Tasks tab, Yet to be deployed
         <mapping>
             <tab>Tasks</tab>
         </mapping>
+		-->
         <mapping>
             <tab>standard-Knowledge</tab>
         </mapping>

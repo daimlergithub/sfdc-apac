@@ -15,7 +15,7 @@
         <description>When QC has the “Appeal” flag check, send an email to QC SV</description>
         <protected>false</protected>
         <recipients>
-            <recipient>QC_Supervisor</recipient>
+            <recipient>CAC_QC_SV_TM</recipient>
             <type>role</type>
         </recipients>
         <recipients>

@@ -126,7 +126,9 @@
     <listRefreshMethod>none</listRefreshMethod>
     <logo>Logo/MBCL_LOGO.png</logo>
     <saveUserSessions>false</saveUserSessions>
+	<!-- Dependancy on Tasks tab, Yet to be deployed
     <tab>Tasks</tab>
+	-->
     <tab>SSI__c</tab>
     <tab>standard-Account</tab>
     <tab>QC__c</tab>
@@ -142,9 +144,11 @@
         <mapping>
             <tab>SSI__c</tab>
         </mapping>
+		<!-- Dependancy on Tasks tab, Yet to be deployed
         <mapping>
             <tab>Tasks</tab>
         </mapping>
+		-->
         <mapping>
             <tab>standard-Account</tab>
         </mapping>
