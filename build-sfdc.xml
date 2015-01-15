@@ -20,6 +20,7 @@
 			<sf:typeset name="labels"/>
 			<sf:typeset name="staticresources"/>
 			<sf:typeset name="settings"/>
+			<sf:typeset name="documents"/>
 		</deploy>
     </target>
 	
@@ -107,7 +108,7 @@
 			<sf:typeset name="email"/>
 			<sf:typeset name="groups"/>
 			<sf:typeset name="queues"/>
-			<sf:typeset name="documents"/>
+			<sf:typeset name="roles"/>
 			<sf:typeset name="workflows"/>
 		</deploy>
     </target>
