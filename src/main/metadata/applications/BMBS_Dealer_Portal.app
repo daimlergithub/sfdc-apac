@@ -3,7 +3,9 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>BMBS Dealer Portal</label>
     <tab>standard-Account</tab>
+	<!-- Dependancy on Tasks tab, Yet to be deployed
     <tab>Tasks</tab>
+	-->
     <tab>Lead__c</tab>
     <tab>standard-Case</tab>
     <tab>standard-report</tab>

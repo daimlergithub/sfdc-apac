@@ -4,7 +4,9 @@
     <label>Retail CRM</label>
     <logo>Logo/Logo_Mercedes_Benz.png</logo>
     <tab>standard-Account</tab>
+	<!-- Dependancy on Yearly_Target tab, Yet to be deployed
     <tab>Yearly_Target</tab>
+	-->
     <tab>standard-Campaign</tab>
     <tab>Retail_Campaigns</tab>
     <tab>Retail_Campaign_Calender</tab>

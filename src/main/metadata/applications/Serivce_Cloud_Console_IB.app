@@ -136,7 +136,9 @@
     <tab>standard-Knowledge</tab>
     <tab>Vehicle__c</tab>
     <tab>Vehicle_Relationship__c</tab>
+	<!-- Dependancy on Tasks tab, Yet to be deployed
     <tab>Tasks</tab>
+	-->
     <tab>QC__c</tab>
     <tab>standard-report</tab>
     <tab>Account_Link__c</tab>

@@ -109,6 +109,7 @@
 			<sf:typeset name="queues"/>
 			<sf:typeset name="documents"/>
 			<sf:typeset name="workflows"/>
+			<sf:typeset name="applications"/>
 		</deploy>
     </target>
 	

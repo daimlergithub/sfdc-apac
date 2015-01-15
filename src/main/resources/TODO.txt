@@ -10,7 +10,7 @@ TODO
 -fix history tracking for Vehicle_Relationship__c.Selling_Dealer__c and Vehicle_Relationship__c.Last_Service_Dealer__c
 -fix history tracking for Tool_Kit__c.Dealer_Name__c
 -fix settings/case.settings: defaultCaseUser and defaultCaseOwner
-
+-Re-Deploy Task Tab dependant apps  
 DONE
 ====
 -moved Dup_Number__c from Account to Contact to allow deployment, otherwise dependency from Contact to Account and back which is not deployable as a whole
