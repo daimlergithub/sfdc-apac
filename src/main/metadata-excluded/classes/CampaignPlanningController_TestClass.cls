@@ -43,11 +43,6 @@ public class CampaignPlanningController_TestClass{
         insert pdSh;  
         insert pdHf;        
         
-        Dealer_City__c dcSh = new Dealer_City__c(Region__c='E',Province__c='Shanghai',Name='TEST上海市');
-        Dealer_City__c dcHf = new Dealer_City__c(Region__c='E',Province__c='Hefei',Name='TEST合肥');
-        insert dcSh;
-        insert dcHf;
-        
         Campaign_city__c ccc = new Campaign_city__c(Campaign__c=TestData_CCA.Id,Dealer_City__c=dcHf.Id);
         insert ccc;
   
@@ -63,8 +58,8 @@ public class CampaignPlanningController_TestClass{
         cpc.selectRegion();
         cpc.queryDealers();
         
-        CampaignPlanningController.clsDealerCity cdcSH = new CampaignPlanningController.clsDealerCity(dcSh,true);
-        CampaignPlanningController.clsDealerCity cdcHF = new CampaignPlanningController.clsDealerCity(dcHf,false);
+        CampaignPlanningController.clsDealerCity cdcSH;// = new CampaignPlanningController.clsDealerCity(dcSh,true);
+        CampaignPlanningController.clsDealerCity cdcHF;// = new CampaignPlanningController.clsDealerCity(dcHf,false);
         CampaignPlanningController.clsDealer cdSH = new CampaignPlanningController.clsDealer(dealerSh,true);
         CampaignPlanningController.clsDealer cdHF = new CampaignPlanningController.clsDealer(dealerHf,false); 
         

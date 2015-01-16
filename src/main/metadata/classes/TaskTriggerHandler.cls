@@ -19,7 +19,6 @@ public class TaskTriggerHandler {
     private static Id OBRTID;
     private static Id IBRTID; 
     private static Id SSIRTID;
-    private static Id SMARTSSIRTID;
     private static Id WCRTID;
     private static Id OBTRTID;
     
@@ -27,9 +26,6 @@ public class TaskTriggerHandler {
         if(OBRTID == null){
             Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
             SSIRTID = rtMap.get('SSI Task').getRecordTypeId();
-            // By Shuang Li US-smart_SSI-008---- start
-            SMARTSSIRTID = rtMap.get('smart SSI Task').getRecordTypeId();
-            // By Shuang Li US-smart_SSI-008---- end
             WCRTID = rtMap.get('Welcome Call').getRecordTypeId();
             IBRTID = rtMap.get('IB Call').getRecordTypeId();
             OBRTID = rtMap.get('OB Call').getRecordTypeId();
@@ -164,7 +160,7 @@ public class TaskTriggerHandler {
     public static void generateWelcomeCall(Task tk, Task old){
         getRecordTypeId();
         // By Shuang Li US-smart_SSI-008---- start
-        if ((tk.RecordTypeId == SSIRTID || tk.RecordTypeId == SMARTSSIRTID) && tk.Subject == WELAND1STSURVEY && tk.AccountId !=null 
+        if (tk.RecordTypeId == SSIRTID && tk.Subject == WELAND1STSURVEY && tk.AccountId !=null 
             && tk.Status == 'Closed' && old.Status != 'Closed'
             && (
                 tk.Activity_Status__c == 'Phone Shut Down' ||
@@ -193,14 +189,11 @@ public class TaskTriggerHandler {
             acc.PersonAssistantPhone;
         // By Shuang Li US-smart_SSI-008---- start
         SSI__c ssi;
-        smart_SSI__c smartSsi;
+
         String allSSIPhone;
         if (tk.RecordTypeId == SSIRTID){
             ssi = [Select OfficePhone__c, HomeMobilePhone__c From SSI__c Where Id =: tk.WhatId];    
             allSSIPhone = ssi.OfficePhone__c + ssi.HomeMobilePhone__c;
-        }else if (tk.RecordTypeId == SMARTSSIRTID){
-            smartSsi = [Select OfficePhone__c, HomeMobilePhone__c From smart_SSI__c Where Id =: tk.WhatId];    
-            allSSIPhone = smartSsi.OfficePhone__c + smartSsi.HomeMobilePhone__c;
         }
         // By Shuang Li US-smart_SSI-008---- end
         if(allDMSPhone.length() > allSSIPhone.length()){
@@ -260,7 +253,7 @@ public class TaskTriggerHandler {
                 tk.Phone__c = tk.Called__c;
             }
             // By Shuang Li US-smart_SSI-008---- start
-            if ((tk.RecordTypeId == SSIRTID || tk.RecordTypeId == SMARTSSIRTID || tk.RecordTypeId == WCRTID) 
+            if ((tk.RecordTypeId == SSIRTID || tk.RecordTypeId == WCRTID) 
                 && tk.Activity_Status__c == 'Successful') {
                 tk.Status = 'Closed';
             }
@@ -272,7 +265,7 @@ public class TaskTriggerHandler {
             // }
             
             // By Shuang Li US-smart_SSI-008---- start
-            if((tk.RecordTypeId == SSIRTID || tk.RecordTypeId == SMARTSSIRTID) && tk.WhatId != null && (tk.WhatId.getSObjectType().getDescribe().getName() == 'SSI__c' || tk.WhatId.getSObjectType().getDescribe().getName() == 'smart_SSI__c')){
+            if(tk.RecordTypeId == SSIRTID && tk.WhatId != null && tk.WhatId.getSObjectType().getDescribe().getName() == 'SSI__c'){
             // By Shuang Li US-smart_SSI-008---- end
                 autoUpdateSSITasks.add(tk);             
             }
@@ -338,14 +331,6 @@ public class TaskTriggerHandler {
                                     || (ssi.OfficePhone__c != null && pNumber.contains(ssi.OfficePhone__c))) {
                                 isMatched = true;
                             }
-                        // By Shuang Li US-smart_SSI-008---- start
-                        } else if(tk.WhatId.getSObjectType().getDescribe().getName() == 'smart_SSI__c'){
-                            smart_SSI__c smartSsi = [Select HomeMobilePhone__c, OfficePhone__c From smart_SSI__c Where Id = :tk.WhatId];
-                            if ((smartSsi.HomeMobilePhone__c != null && pNumber.contains(smartSsi.HomeMobilePhone__c)) 
-                                    || (smartSsi.OfficePhone__c != null && pNumber.contains(smartSsi.OfficePhone__c))) {
-                                isMatched = true;
-                            }
-                        // By Shuang Li US-smart_SSI-008---- end
                         }else if (tk.WhoId != null && tk.WhoId.getSObjectType().getDescribe().getName() == 'Contact') {
                             Contact con = [Select AccountId From Contact Where Id = :tk.WhoId];
                             Account acc = [Select Phone, PersonHomePhone, PersonMobilePhone, PersonOtherPhone, PersonAssistantPhone From Account Where Id = :con.AccountId];
@@ -392,7 +377,7 @@ public class TaskTriggerHandler {
                     From Task 
                     Where RecordTypeId = :OBRTID And Related_Task_Id__c = :tk.Related_Task_Id__c And WhoId = :tk.WhoId And Start_call_time__c != null]; 
             // By Shuang Li US-smart_SSI-008---- start
-            } else if (tk.WhatId != null && (tk.WhatId.getSObjectType().getDescribe().getName() == 'SSI__c' || tk.WhatId.getSObjectType().getDescribe().getName() == 'smart_SSI__c')) {
+            } else if (tk.WhatId != null && tk.WhatId.getSObjectType().getDescribe().getName() == 'SSI__c') {
                 obCallCount = [
                     Select Count() 
                     From Task 
@@ -402,7 +387,7 @@ public class TaskTriggerHandler {
             List<Task> tasks = [
                 Select Id, OB_Call_Times__c, UCID__c, Caller__c, Called__c, Start_call_time__c, End_call_time__c, Last_OB_Call__c, SSI_Status__c 
                 From Task 
-                Where Id = :tk.Related_Task_Id__c And ( RecordTypeId = :OBTRTID Or RecordTypeId =: WCRTID Or RecordTypeId =: SSIRTID Or RecordTypeId =: SMARTSSIRTID)
+                Where Id = :tk.Related_Task_Id__c And ( RecordTypeId = :OBTRTID Or RecordTypeId =: WCRTID Or RecordTypeId =: SSIRTID)
             ];
             // By Shuang Li US-smart_SSI-008---- end
 
@@ -441,11 +426,6 @@ public class TaskTriggerHandler {
                     accIds.add(tk.WhatId);
                 }else if(tk.WhatId.getSObjectType().getDescribe().getName() == 'SSI__c'){
                     ssiIds.add(tk.WhatId);
-                }
-                // By Shuang Li US-smart_SSI-008---- start
-                 else if(tk.WhatId.getSObjectType().getDescribe().getName() == 'smart_SSI__c'){
-                    smartSsiIds.add(tk.WhatId);
-                // By Shuang Li US-smart_SSI-008---- end
                 }else if (tk.WhoId != null && tk.WhoId.getSObjectType().getDescribe().getName() == 'Contact') {
                     conIds.add(tk.WhoId);
                 } 
@@ -464,15 +444,11 @@ public class TaskTriggerHandler {
 
         Map<Id, Account> accMap = new Map<Id, Account>();
         Map<Id, SSI__c> ssiMap = new Map<Id, SSI__c>();
-        Map<Id, smart_SSI__c> smartSsiMap = new Map<Id, smart_SSI__c>();
         if (accIds.size() > 0) {
             accMap = new Map<Id, Account>([Select Newly_Task_Id__c From Account Where Id In :accIds]);
         }
         if (ssiIds.size() > 0) {
             ssiMap = new Map<Id, SSI__c>([Select Newly_Task_Id__c From SSI__c Where Id In :ssiIds]);
-        }
-        if (smartSsiIds.size() > 0) {
-            smartSsiMap = new Map<Id, smart_SSI__c>([Select Newly_Task_Id__c From smart_SSI__c Where Id In :smartSsiIds]);
         }
 
         for (Task tk : tasks) {
@@ -480,8 +456,6 @@ public class TaskTriggerHandler {
                 tk.Related_Task_Id__c = accMap.get(tk.WhatId).Newly_Task_Id__c;
             }else if (ssiMap.containsKey(tk.WhatId)) {
                 tk.Related_Task_Id__c = ssiMap.get(tk.WhatId).Newly_Task_Id__c;
-            }else if (smartSsiMap.containsKey(tk.WhatId)) {
-                tk.Related_Task_Id__c = smartSsiMap.get(tk.WhatId).Newly_Task_Id__c;
             }else if (conMap.containsKey(tk.WhoId)) {
                 Id relatedAccount = conMap.get(tk.WhoId).AccountId;
                 if (relatedAccount != null && accMap.containsKey(relatedAccount)) {
@@ -501,21 +475,14 @@ public class TaskTriggerHandler {
             }
         }    
 
-        Map<Id, Survey_Result__c> srMap = new Map<Id, Survey_Result__c>();
         Map<Id, Campaign_Survey_Result__c> csrMap = new Map<Id, Campaign_Survey_Result__c>();
         if (relIds.size() > 0) {
-            for (Survey_Result__c sr : [Select Id, TaskId__c From Survey_Result__c Where TaskId__c In :relIds]) {
-                srMap.put(sr.TaskId__c, sr);
-            }
-
             for (Campaign_Survey_Result__c csr : [Select Id, TaskId__c From Campaign_Survey_Result__c Where TaskId__c In :relIds]) {
                 csrMap.put(csr.TaskId__c, csr);
             }
         }
         for (Task tk : tasks) {
-            if (srMap.containsKey(tk.Related_Task_Id__c)) {
-                tk.Survey_Result_Id__c = srMap.get(tk.Related_Task_Id__c).Id;
-            }else if (csrMap.containsKey(tk.Related_Task_Id__c)) {
+            if (csrMap.containsKey(tk.Related_Task_Id__c)) {
                 tk.Survey_Result_Id__c = csrMap.get(tk.Related_Task_Id__c).Id;
             }
         }
@@ -523,17 +490,13 @@ public class TaskTriggerHandler {
     
     private static void autoUpdateSSITask(Set<Task> tasks){
         Set<Id> ssiIds = new Set<Id>();
-        // By Shuang Li US-smart_SSI-008---- start
-        Set<Id> smartSsiIds = new Set<Id>();
+
         for (Task tk : tasks ) {
             if(tk.WhatId.getSObjectType().getDescribe().getName() == 'SSI__c'){
                     ssiIds.add(tk.WhatId);
                 }
-                 else if(tk.WhatId.getSObjectType().getDescribe().getName() == 'smart_SSI__c'){
-                    smartSsiIds.add(tk.WhatId);
-                }
         }        
-        // By Shuang Li US-smart_SSI-008---- end
+
         if (ssiIds.size() > 0) {
             Map<Id, SSI__c> ssiMap = new Map<Id, SSI__c>([Select Name, DealerName__c, CustomerName__c From SSI__c Where Id In :ssiIds]);
             for (Task tk : tasks) {
@@ -545,24 +508,11 @@ public class TaskTriggerHandler {
                 }
             }
         }
-        // By Shuang Li US-smart_SSI-008---- start
-        if (smartSsiIds.size() > 0) {
-            Map<Id, smart_SSI__c> smartSsiMap = new Map<Id, smart_SSI__c>([Select Name, DealerName__c, CustomerName__c From smart_SSI__c Where Id In :smartSsiIds]);
-            for (Task tk : tasks) {
-                if (smartSsiMap.containsKey(tk.WhatId)) {
-                    smart_SSI__c smartSsi = smartSsiMap.get(tk.whatId);
-                    tk.SSI_Number__c = smartSsi.Name;
-                    tk.Dealer_Name__c = smartSsi.DealerName__c;
-                    tk.CustomerName__c = smartSsi.CustomerName__c;
-                }
-            }
-        }
-        // By Shuang Li US-smart_SSI-008---- end
     }
     
     public static void autoUpdateSSISurveyStatus(Task tk, Task old){
         getRecordTypeId();
-        if((tk.RecordTypeId == SSIRTID || tk.RecordTypeId == SMARTSSIRTID) && tk.Status == 'Closed' && old.Status != 'Closed' &&
+        if(tk.RecordTypeId == SSIRTID && tk.Status == 'Closed' && old.Status != 'Closed' &&
             (tk.Subject == WELAND1STSURVEY || tk.Subject == X1STSURVEY || tk.Subject == X2NDSURVEY)){
             updateSSISurveyStatus(tk.WhatId, tk.Subject);   
         }
@@ -574,16 +524,8 @@ public class TaskTriggerHandler {
             ssi.Survey_Finished__c = subject == X2NDSURVEY?'2nd Survey':'1st Survey';
             try{
                 update ssi;   
-            }catch(Exception ex){}                  
-        // By Shuang Li US-smart_SSI-008---- start
-        }else if(ssiId!=null && ssiId.getSObjectType() == smart_SSI__c.getSObjectType()){
-            smart_SSI__c smartSsi = [Select Id, Survey_Finished__c From smart_SSI__c Where Id = :ssiId];
-            smartSsi.Survey_Finished__c = subject == X2NDSURVEY?'2nd Survey':'1st Survey';
-            try{
-                update smartSsi;   
-            }catch(Exception ex){}                  
-        }
-        // By Shuang Li US-smart_SSI-008---- end
+            }catch(Exception ex){}
+		}
     }
 
     public static void autoUpdateAccountOBTaskMessage(List<Task> tList){

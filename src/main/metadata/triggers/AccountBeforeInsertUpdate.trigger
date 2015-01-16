@@ -69,11 +69,6 @@ trigger AccountBeforeInsertUpdate on Account (before insert, before update) {
         cp016Map = AccountHelper.getVSCountInfo(ids);
     }
     
-    //get city id from Region City Mapping
-    if (citys.size() > 0){
-        cp017Map = AccountHelper.getRegionCityMappingInfo(citys);
-    }
-    
     if ( cp010Map.size() > 0 || citys.size() > 0 || ids.size() > 0){
         for(Account curAcc: trigger.new){
     

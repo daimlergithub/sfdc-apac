@@ -140,56 +140,7 @@ public class TaskHelper {
     }
     
     public static void GenerateSSIQCs(List<Task> updateTasks) {
-        //new qc list for insert
-        List<QC__c> newQCs = new List<QC__c>();
-        QC__c qc;
-        
-        //connect task ids which to generate qc
-        Set<Id> taskIds = New Set<Id>();
-        Set<String> SRTaskIds = New Set<String>();
-        
-        for(Task t : updateTasks) {
-            system.debug('t++++++++++' + t.id +'t++++1111'+t);
-            SRTaskIds.add(String.valueOf(t.Id).subString(0, 15));
-        }
 
-        // Added by Chris Huang, 20131209, update Task_Successful__c to 'True' when QC generated.
-        List<Survey_Result__c> srs = new List<Survey_Result__c>();
-
-        for(Survey_Result__c sr : [Select id, NA_Number__c, TaskId__c, Task_Successful__c From Survey_Result__c Where TaskId__c In :SRTaskIds]) {
-            for(Task t : updateTasks) {
-                if(t.Id == sr.TaskId__c && (sr.NA_Number__c == null || sr.NA_Number__c < 5)) {
-                    qc = new QC__c();
-                    qc.CSR_Name__c = t.OwnerId;
-                    qc.Status__c = 'New';
-                    qc.RecordTypeId = SSIQCRecordTypeId;
-                    if(t.RecordTypeId == SSITaskRecordTypeId) {
-                        qc.SSI__c = t.WhatId;
-                    } else {
-                        qc.smart_SSI__c = t.WhatId;
-                    }
-                    qc.Survey_Result__c = sr.Id;
-                    sr.Task_Successful__c = true;
-                    srs.add(sr);
-                    if(QCSVQueues.size() > 0) {
-                        qc.OwnerId = QCSVQueues[0].QueueId;
-                        qc.Task_ID__c = t.Id;
-                        newQCs.add(qc);
-                        taskIds.add(t.Id);
-                    }
-                } 
-            }
-        }
-
-        if(newQCs.size() > 0) {
-            insertSobjects(newQCs);
-        }
-
-        if (srs.size() > 0) {
-            update srs;
-        }
-
-        UpdateQCLink(taskIds, updateTasks);
     }
     
     public static void GenerateMultipleQCs(List<Task> updateTasks) {

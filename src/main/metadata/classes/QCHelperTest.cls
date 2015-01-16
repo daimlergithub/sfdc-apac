@@ -154,15 +154,9 @@ public class QCHelperTest {
         update qc;
         system.assert([select Total_Score_1__c from QC__c where Id = :qc.Id].Total_Score_1__c == 100.00); 
         
-        // Test UpdateQCApproved
-        Survey_Result__c sr = new Survey_Result__c();
-        insert sr;
-        qc.Survey_Result__c = sr.Id;
         qc.Approved__c = 'Yes';
         update qc;
         
-        sr = [select Id, QC_Approved__c from Survey_Result__c where Id = :sr.Id];
-        system.assert(sr.QC_Approved__c);
     }
    
     @isTest(seeAllData=true) 
@@ -316,13 +310,7 @@ public class QCHelperTest {
         system.assert([select Total_Score_1__c from QC__c where Id = :qc.Id].Total_Score_1__c == 100.00); 
         
         // Test UpdateQCApproved
-        Survey_Result__c sr = new Survey_Result__c();
-        insert sr;
-        qc.Survey_Result__c = sr.Id;
         qc.Approved__c = 'Yes';
         update qc;
-        
-        sr = [select Id, QC_Approved__c from Survey_Result__c where Id = :sr.Id];
-        system.assert(sr.QC_Approved__c);
     }
 }

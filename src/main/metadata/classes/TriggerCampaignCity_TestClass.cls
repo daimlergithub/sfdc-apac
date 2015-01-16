@@ -33,25 +33,17 @@ public class TriggerCampaignCity_TestClass{
                                              StartDate=date.newinstance(2013, 5, 17),
                                              EndDate=date.newinstance(2013, 10, 17),
                                              RecordTypeId=cca_RecordTypeId);  
-        // Dealer City
-        Dealer_City__c dc = new Dealer_City__c(Region__c='N', Province__c='Beijing',Name='北京市');
-        
+
         insert TestData_CCA;
-        insert dc;
-        
-        // Campaign City        
-        Campaign_City__c cmct = new Campaign_City__c(Campaign__c=TestData_CCA.Id, Dealer_City__c=dc.Id);
-        insert cmct;
         
         // Dealer
-        Account dealer = new Account(RecordTypeId=dealer_RecordTypeId, Name='TEST Dealer 999', Dealer_City__c=dc.Id, phone='12345678');
+        Account dealer = new Account(RecordTypeId=dealer_RecordTypeId, Name='TEST Dealer 999', phone='12345678');
         insert dealer;
         
         // Participating Dealer
         Participating_Dealer__c pd = new Participating_Dealer__c(Campaign__c=TestData_CCA.Id, Dealer__c=dealer.Id);
         insert pd;
         
-        delete cmct;
         Test.stopTest();
     }
     

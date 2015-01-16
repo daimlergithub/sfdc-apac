@@ -41,7 +41,6 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
     Set<id> accIds = new Set<id>();
     List<String> targetList = null;    
     List<Case> casesForDescription = new List<Case>();
-    Map<Id, Id> UserIdCaseIdForFollowInquiry = new Map<Id, Id>();
     List<Id> CentralQID = new List<Id>();
     List<Case> closeRelatedCase = new List<Case>();
     if(Trigger.isUpdate) {
@@ -174,9 +173,6 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
             if(caseHelper.C_MB_RECORD_TYPE == caseNew.RecordTypeId && !String.isBlank(caseNew.Description)) {
                 casesForDescription.add(caseNew);
             }
-            if(caseHelper.C_INQUIRY_RECORD_TYPE == caseNew.RecordTypeId) {
-                UserIdCaseIdForFollowInquiry.put(caseNew.CreatedById, caseNew.Id);
-            }
         }
     }
     
@@ -262,10 +258,6 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
     //Creat the case description record
     if(casesForDescription.size() > 0) {
         CaseHelper.creatCaseDescription(casesForDescription);
-    }
-    
-    if(UserIdCaseIdForFollowInquiry.keySet().size() > 0) {
-        CaseHelper.UpdateCaseFollowUpInquiry(UserIdCaseIdForFollowInquiry);
     }
     
     // ADD START AS-Complaint_002 CHAOS 2014/2/21

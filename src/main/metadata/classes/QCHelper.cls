@@ -639,18 +639,7 @@ public class QCHelper {
     }
     
     public static void UpdateQCApproved(Set<Id> SurveyResultIds) {
-        //Survey Results to be update
-        List<Survey_Result__c> SurveyResultsToUpdate = new List<Survey_Result__c>();
-        
-        // Query Survey Result records for update
-        for(Survey_Result__c sr : [select Id, QC_Approved__c from Survey_Result__c where Id in :SurveyResultIds]) {
-            sr.QC_Approved__c = true;
-            SurveyResultsToUpdate.add(sr);
-        }
-        
-        if(SurveyResultsToUpdate.size() > 0) {
-            updateSobjects(SurveyResultsToUpdate);
-        }
+
     }
     
     //Creates new QC historys.

@@ -39,7 +39,6 @@ global class BatchAssignTasks implements Database.Batchable<sObject>{
         
         scope = [Select Id, OwnerId, WhatId, What.Type From Task Where Id In :scope];
         Set<Id> ssiIds = new Set<Id>();
-        Set<Id> smartSsiIds = new Set<Id>();
         Set<String> assignTaskIds = new Set<String>();
         Map<Id, Id> ssiOwnerMap = new Map<Id, Id>();
         for (Task tk : scope) {
@@ -51,7 +50,6 @@ global class BatchAssignTasks implements Database.Batchable<sObject>{
                 assignTaskIds.add(tkid); 
             //ADD START Shuang Li US-SMART_SSI-007
             }else if(tk.WhatId != null && tk.What.Type == 'smart_SSI__c') {
-            	smartSsiIds.add(tk.WhatId);
                 ssiOwnerMap.put(tk.WhatId, tk.OwnerId);
                 String tkid = tk.Id;
                 tkid = tkid.length() > 15 ? tkid.subString(0, 15) : tkid;
@@ -66,42 +64,8 @@ global class BatchAssignTasks implements Database.Batchable<sObject>{
             }
             if (ssiList.size() > 0) {
                 update ssiList;
-            }
-            
-            List<Survey_Result__c> srs = [
-                Select Id, OwnerId, SSI_Record__c 
-                From Survey_Result__c 
-                Where CreatedDate >= LAST_N_MONTHS:6 And SSI_Record__c In :ssiIds And QC_Approved__c != true And TaskId__c In :assignTaskIds];
-            for (Survey_Result__c sr : srs) {
-                sr.OwnerId = ssiOwnerMap.get(sr.SSI_Record__c);
-            }
-            if (srs.size() > 0) {
-                update srs;
-            }  
+            } 
         }
-        //ADD START Shuang Li US-SMART_SSI-007
-        if (smartSsiIds.size() > 0) {
-            List<smart_SSI__c> smartSsiList = [Select Id, OwnerId From smart_SSI__c Where Id In :smartSsiIds];
-            for (smart_SSI__c smartSsiObj : smartSsiList) {
-                smartSsiObj.OwnerId = ssiOwnerMap.get(smartSsiObj.Id);
-            }
-            if (smartSsiList.size() > 0) {
-                update smartSsiList;
-            }
-            
-            List<Survey_Result__c> srs = [
-                Select Id, OwnerId, smart_SSI_Record__c 
-                From Survey_Result__c 
-                Where CreatedDate >= LAST_N_MONTHS:6 And smart_SSI_Record__c In :smartSsiIds And QC_Approved__c != true And TaskId__c In :assignTaskIds];
-            for (Survey_Result__c sr : srs) {
-                sr.OwnerId = ssiOwnerMap.get(sr.smart_SSI_Record__c);
-            }
-            if (srs.size() > 0) {
-                update srs;
-            }  
-        }
-        //END START Shuang Li US-SMART_SSI-007
-      
     }
     
     global void finish(Database.BatchableContext BC){

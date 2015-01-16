@@ -94,7 +94,6 @@ private class TaskTriggerHandlerTest {
 
         Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
         Id ssirtid = rtMap.get('SSI Task').getRecordTypeId();
-        Id smartSsirtid = rtMap.get('smart SSI Task').getRecordTypeId();
         Id wcrtid = rtMap.get('Welcome Call').getRecordTypeId();
         Id ibrtid = rtMap.get('IB Call').getRecordTypeId();
         Id obrtid = rtMap.get('OB Call').getRecordTypeId();
@@ -173,8 +172,6 @@ private class TaskTriggerHandlerTest {
             System.assertEquals(intask.Activity_Status__c, 'Invalid');
             System.assertEquals(intask.Phone__c, '13120130906');
             intask.Activity_Status__c = 'Closed';
-            update intask;
-            intask.recordtypeid = smartSsirtid;
             update intask;
             Test.stopTest();
         }    
@@ -268,9 +265,6 @@ private class TaskTriggerHandlerTest {
         // cover autoUpdateTaskAfterLogInserted
             ssi.Newly_Task_Id__c = ssiTask.Id;
             update ssi;
-            Survey_Result__c sr = new Survey_Result__c(TaskId__c = ssiTask.Id);
-            sr.TaskId__c = sr.TaskId__c.subString(0, 15);
-            insert sr;
             
             DateTime callTime = DateTime.now();
             Task logTask = new Task(
@@ -280,8 +274,7 @@ private class TaskTriggerHandlerTest {
                 Start_call_time__c = callTime
             );
             insert logTask;
-            logTask = [Select Survey_Result_Id__c From Task Where Id = :logTask.Id];
-            System.assertEquals(logTask.Survey_Result_Id__c, sr.Id);            
+         
             ssiTask = [Select OB_Call_Times__c, Last_OB_Call__c From Task Where Id = :ssiTask.Id ];
             //System.assertEquals(ssiTask.OB_Call_Times__c, 1);
             //System.assertEquals(ssiTask.Last_OB_Call__c, callTime);

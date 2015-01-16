@@ -103,6 +103,13 @@
 		<deploy>
 			<sf:typeset name="tabs">
 				<sf:exclude name="EPA_.*"/>
+				<sf:exclude name="Tasks"/>
+				<sf:exclude name="Retail_Campaigns"/>
+				<sf:exclude name="BMBS_Campaigns"/>
+				<sf:exclude name="Campaign_Calendar"/>
+				<sf:exclude name="Retail_Campaign__c"/>	
+				<sf:exclude name="Retail_Campaign_Calender"/>					
+				<sf:exclude name="Yearly_Target"/>
 			</sf:typeset>
 			<sf:typeset name="layouts"/>
 			<sf:typeset name="email"/>
@@ -120,7 +127,15 @@
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
+				<sf:include name="Tasks"/>
+				<sf:include name="Retail_Campaigns"/>
+				<sf:include name="BMBS_Campaigns"/>
+				<sf:include name="Campaign_Calendar"/>
+				<sf:include name="Retail_Campaign__c"/>	
+				<sf:include name="Retail_Campaign_Calender"/>				
+				<sf:include name="Yearly_Target"/>
 			</sf:typeset>
+			<sf:typeset name="triggers"/>
 		</deploy>
     </target>
 	

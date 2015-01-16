@@ -61,7 +61,7 @@ global class SSIBatchGenerateWelcomeCall implements Database.Batchable<SObject>,
             
             Boolean generateTask = false;
             
-            if(acc.Sales_Person_Account__r.size() > 0 || acc.Retail_Tasks3__r.size() > 0){
+            if(acc.Retail_Tasks3__r.size() > 0){
                 generateTask = true;
             }
             

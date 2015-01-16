@@ -36,26 +36,6 @@ public class UtilAccount {
                     }
                 }
             }
-
-            // Dealer City Name + Province => Dealer City Id
-            Map<String, Id> cityProvince2DealerCityId = 
-                new Map<String, Id>();
-            for (Dealer_City__c dealerCity : [SELECT Id, Name, Province__c 
-                                              FROM Dealer_City__c
-                                              WHERE Name IN :cities
-                                              AND Province__c IN :provinces]) {
-                cityProvince2DealerCityId.put(
-                    dealerCity.Name + dealerCity.Province__c, dealerCity.Id);
-            }
-            System.debug(cityProvince2DealerCityId);
-
-            // Populate dealerCityId by cityProvince2DealerCityId
-            for (Account dealer : triggerNew) {
-                if (dealerIdSet.contains(dealer.Id)) {
-                    dealer.Dealer_City__c = cityProvince2DealerCityId.get(
-                        dealer.City_CN__c + dealer.Province__c);
-                }
-            }
         }
     }
 

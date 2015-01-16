@@ -33,34 +33,5 @@ global class ScheduleCreateWeeklyRegionOBEmails implements Schedulable {
         // Populate the Region with the accounts in it
         Map<String, List<Account>> separatedAccountsBySubRegion = 
             UtilLeadEmailEscalation.getSeparateAccountsBySubRegion(accs);
-
-        List<Outbound_Email__c> emails = new List<Outbound_Email__c>(); 
-        for (String subRegion : separatedAccountsBySubRegion.keySet()) {
-            List<Account> accsInEverySubRegion = separatedAccountsBySubRegion.get(subRegion);
-            emails.add(UtilLeadEmailEscalation.createOutboundEmailByRegion(
-                accsInEverySubRegion, false, roleMap));
-        }
-        
-        insert emails;
-
-        // Create Attachment for Outbound Email
-        List<Attachment> atts = new List<Attachment>();
-        for (Outbound_Email__c email : emails) {
-            Attachment att = new Attachment(
-                ParentId = email.Id,
-                Name = 'Email Template.txt'
-            );
-
-            List<Account> accsInEverySubRegion = 
-                separatedAccountsBySubRegion.get(email.TargetObjectId__c);
-
-            // Save Email Body to Attachment Body
-            String emailBody = UtilLeadEmailEscalation.getWeeklyEmailBodyByRegion(accsInEverySubRegion);
-            att.Body = Blob.valueOf(emailBody);
-
-            atts.add(att);
-        }
-
-        insert atts;
     }
 }

@@ -63,7 +63,7 @@ public with sharing class DealerSearchController {
         dealer = new Account(RecordTypeId = dealerRecordTypeId);
         
         try {
-            Account personAccount = [ SELECT Name, Dealer_Province__c,
+            Account personAccount = [ SELECT Name,
                                              Dealer_Sales_Type__c, Dealer_Service_Codes__c,
                                              Dealer_Region__c, Province__c, City_CN__c
                                       FROM Account 

@@ -194,34 +194,21 @@ public class MassAssignRecallTasksControllerExtension {
 
         if(isSSITask){
             String ssisql = 'Select Id From SSI__c Where Status__c In (\'Matched\', \'Unmatched\') '; 
-            //ADD START Shuang Li US-SMART_SSI-007
-            String samrtSsisql = 'Select Id From smart_SSI__c Where Status__c In (\'Matched\', \'Unmatched\') '; 
-            //ADD END Shuang Li US-SMART_SSI-007
             Boolean ssiFilter = false;            
             
             if(th.Dealer_Name__c!=null){
                 ssisql += ' And DealerName__c like \'%' + th.Dealer_Name__c + '%\'';
-                //ADD START Shuang Li US-SMART_SSI-007
-                samrtSsisql += ' And DealerName__c like \'%' + th.Dealer_Name__c + '%\'';
-                //ADD END Shuang Li US-SMART_SSI-007
                 ssiFilter = true;
             }
             
             if(th.Customer_Name__c!=null){
                 ssisql += ' And CustomerName__c like \'%' + th.Customer_Name__c + '%\'';
-                //ADD START Shuang Li US-SMART_SSI-007
-                samrtSsisql += ' And CustomerName__c like \'%' + th.Customer_Name__c + '%\'';
-                //ADD END Shuang Li US-SMART_SSI-007
                 ssiFilter = true;
             }
             
             if(th.Phone_Number__c!=null){
                 ssisql += ' And (OfficePhone__c like \'%' + th.Phone_Number__c + '%\' ' 
                     + 'Or HomeMobilePhone__c like \'%' + th.Phone_Number__c + '%\')';
-                //ADD START Shuang Li US-SMART_SSI-007
-                samrtSsisql += ' And (OfficePhone__c like \'%' + th.Phone_Number__c + '%\' ' 
-                    + 'Or HomeMobilePhone__c like \'%' + th.Phone_Number__c + '%\')';
-                //ADD END Shuang Li US-SMART_SSI-007
                 ssiFilter = true;
             }
             
@@ -231,12 +218,6 @@ public class MassAssignRecallTasksControllerExtension {
                     querySSIs += ',';
                     querySSIs += '\''+ ssi.Id + '\'';
                 }
-                //ADD START Shuang Li US-SMART_SSI-007
-                for(smart_SSI__c smartSsi : Database.Query(samrtSsisql)){
-                    querySSIs += ',';
-                    querySSIs += '\''+ smartSsi.Id + '\'';
-                }
-                //ADD END Shuang Li US-SMART_SSI-007
 
                 sql += ' And WhatId In (' + querySSIs + ')'; 
             }

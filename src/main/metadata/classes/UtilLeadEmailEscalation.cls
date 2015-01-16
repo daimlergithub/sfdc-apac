@@ -44,32 +44,6 @@ public class UtilLeadEmailEscalation {
         return subRegion2Accounts;
     }
 
-    // Create outbound emails by dealer
-    public static Outbound_Email__c createOutboundEmailByDealer(Account acc, Boolean isMonthly) {
-        Outbound_Email__c email = new Outbound_Email__c();
-        email.Subject__c = isMonthly ? '经销商销售线索跟进月度报告' : '经销商销售线索跟进周报告';
-        email.TargetObjectId__c = acc.Id;
-        email.Status__c = 'Not Sent';
-        email.ToAddresses__c = getDealerToAddresses(acc);
-        email.CcAddresses__c = getDealerCcAddresses(acc);
-
-        return email;
-    }
-
-    // Create outbound emails by region
-    public static Outbound_Email__c createOutboundEmailByRegion(List<Account> accs, 
-        Boolean isMonthly, Map<Id, UserRole> roleMap) {
-
-        Outbound_Email__c email = new Outbound_Email__c();
-        email.Subject__c = isMonthly ? '区域销售线索跟进月度报告' : '区域销售线索跟进周报告';
-        email.TargetObjectId__c = accs[0].Dealer_MB_Sub_Region__c;
-        email.Status__c = 'Not Sent';
-        email.ToAddresses__c = getRegionToAddresses(accs[0], roleMap);
-        email.CcAddresses__c = getRegionCcAddresses(accs[0], roleMap);
-
-        return email;
-    }
-
     private static String monthlyTableHeader = 
         '<table cellspacing="0px" border="1px solid #272822;" style="font-size:12px; ' +
             'background-color: #CDCDCD;border-collapse:collapse"> ' + 
@@ -576,20 +550,6 @@ public class UtilLeadEmailEscalation {
             '</div>' +
         '</div>';
 
-    // Create conversion rate outbound emails by region
-    public static Outbound_Email__c createConversionRateOutboundEmailByRegion(List<Account> accs, 
-        Map<Id, UserRole> roleMap) {
-
-        Outbound_Email__c email = new Outbound_Email__c();
-        email.Subject__c = '区域销售线索转化率月度报告';
-        email.TargetObjectId__c = accs[0].Dealer_MB_Sub_Region__c;
-        email.Status__c = 'Not Sent';
-        email.ToAddresses__c = getRegionToAddresses(accs[0], roleMap);
-        email.CcAddresses__c = getRegionCcAddresses(accs[0], roleMap);
-        
-        return email;
-    }
-
     // Get conversion rate regional outbound email body
     public static String getConversionRateEmailBodyByRegion(List<Account> accsInPast12thMonth) {
         // Populate Email Body
@@ -743,9 +703,6 @@ public class UtilLeadEmailEscalation {
             }
         }
 
-        // Add MKT Emails to ccEmails
-        ccEmails.addAll(getRegionalMKTEmails(acc.Dealer_MB_Sub_Region__c));
-
         return getValidEmails(ccEmails);
     }
 
@@ -759,18 +716,5 @@ public class UtilLeadEmailEscalation {
         }
 
         return String.join(tempList, ';');
-    }
-    
-    // Lead_Region_Recipients__c is Custom Settings
-    // Get the Email list according to 
-    private static List<String> getRegionalMKTEmails(String region) {
-        try {
-            Lead_Region_Recipients__c regionRec = Lead_Region_Recipients__c.getValues(region);
-            return regionRec.Emails__c.split('\n');
-        }
-        catch (NullPointerException e) {
-            System.debug('Debug Output ======> {' + region + '}');
-            return new List<String>();
-        }
     }
 }

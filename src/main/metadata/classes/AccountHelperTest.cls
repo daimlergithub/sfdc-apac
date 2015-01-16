@@ -57,12 +57,6 @@ private class AccountHelperTest {
                                     LastName = 'galaxy2',
                                     ZipCode__c='000000',
                                     RecordTypeId=accPerson_RecordTypeId);                                     
-
-    static List<Region_City_Mapping__c> rcms = new List<Region_City_Mapping__c>{
-        new Region_City_Mapping__c(City__c='Beijing'),
-        new Region_City_Mapping__c(City__c='Shanghai'),
-        new Region_City_Mapping__c(City__c='Guangzhou')
-    };
     
     static testMethod void myUnitTest() {
         
@@ -83,11 +77,7 @@ private class AccountHelperTest {
     {
         String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         String PersonRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-        insert rcms;
         insert customer1;
-        //test Region_City_Mapping__c is auto setted When account insert
-        system.assertEquals([select id from Region_City_Mapping__c where City__c='Beijing'].id,
-                            [select Region_City_Mapping__c from Account where id=:customer1.id].Region_City_Mapping__c);
         
         //test Region_City_Mapping__c is auto setted When account update
         Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');
@@ -106,9 +96,7 @@ private class AccountHelperTest {
         customer1.Dealer_Default_Flag__c = true;
         customer1.Allow_Data_Sharing__c = 'yes';
         update customer1;
-        system.assertEquals([select id from Region_City_Mapping__c where City__c='Shanghai'].id,
-                            [select Region_City_Mapping__c from Account where id=:customer1.id].Region_City_Mapping__c);
-
+		
         //test same Dealer_DMS_SR_Code__c and Dealer_Default_Flag__c customer will not be created
         try{
             insert customer2;

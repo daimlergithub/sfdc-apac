@@ -43,12 +43,6 @@ global class SSIDataClean {
             + ' And (DealerCheck_Status__c = \'Valid\' Or DealerCheck_Status__c = \'Accept\') '
             + ' And CarModelCheck_Status__c = null ';
                 
-        SSIBatchCarModelCheck carModelChecker = new SSIBatchCarModelCheck(queryStr);
-
-        Id batchId = Database.executeBatch(carModelChecker, 200);
-        
-        System.debug('SSIBatchCarModelCheck Batch Job Id: ' + batchId);
-        
         return processResult;
     }
 

@@ -24,7 +24,6 @@ global class BatchCreateDealerOBEmails implements Database.Batchable<SObject> {
     
     global void execute(Database.BatchableContext BC, List<Account> scope) {
         Map<Id, String> accId2AttachmentBody = new Map<Id, String>();
-        List<Outbound_Email__c> emails = new List<Outbound_Email__c>();
         String queryStr = 
             'SELECT Id, Name, Dealer_CRM_Manager_Email__c, ' + 
             'Dealer_General_Manager_Email__c, Dealer_Marketing_Manager_Email__c, ' + 
@@ -50,8 +49,6 @@ global class BatchCreateDealerOBEmails implements Database.Batchable<SObject> {
             if (!isMonthly && UtilLeadEmailEscalation.checkFollowupRate(acc)) {
                 continue;
             }
-            
-            emails.add(UtilLeadEmailEscalation.createOutboundEmailByDealer(acc, isMonthly));
 
             String emailBody = '';
             if (isMonthly) {
@@ -63,24 +60,6 @@ global class BatchCreateDealerOBEmails implements Database.Batchable<SObject> {
 
             accId2AttachmentBody.put(acc.Id, emailBody);
         }
-
-        insert emails;
-
-        // Create Attachment for Outbound Email
-        List<Attachment> atts = new List<Attachment>();
-        for (Outbound_Email__c email : emails) {
-            String emailBody = accId2AttachmentBody.get(email.TargetObjectId__c);
-
-            Attachment att = new Attachment(
-                ParentId = email.Id,
-                Name = 'Email Template.txt',
-                Body = Blob.valueOf(emailBody)
-            );
-
-            atts.add(att);
-        }
-
-        insert atts;
     }
 
     global void finish(Database.BatchableContext bc) {

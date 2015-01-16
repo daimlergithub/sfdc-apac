@@ -49,7 +49,6 @@ private class TaskHelperTest {
         String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
         String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
         String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
-        String SRRecordTypeId = Schema.SObjectType.Survey_Result__c.getRecordTypeInfosByName().get('1st Survey Result').getRecordTypeId();
         
         //Inserts test data
         Account acc = new Account(LastName = 'Acme', Area_Code__c = '010',Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
@@ -76,11 +75,6 @@ private class TaskHelperTest {
         insert ssi;
         task = new Task(Subject = '1st Survey Result', RecordTypeId = SSITaskRecordTypeId, WhatId = ssi.Id);
         insert task;
-        
-        Survey_Result__c sr = new Survey_Result__c(NA_Number__c = 1, RecordTypeId = SRRecordTypeId);
-        sr.SSI_Record__c = task.WhatId;
-        sr.Account__c = task.AccountId;
-        insert sr;
         
         task.Activity_Status__c = 'Successful';
         update task;

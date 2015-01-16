@@ -53,25 +53,6 @@ public class AccountHelper {
         
         return cp016Map;
     }
-
-    /**
-       get city id from Region City Mapping
-       return a Map Key is CityName , 
-       and value is a list of Region City Mapping's id
-     */
-    public static Map<String, id> getRegionCityMappingInfo(List<String> citys){
-        Map<String, id> cp017Map = new Map<String, id>();
-        
-        for(Region_City_Mapping__c rcm : [select id, City__c from Region_City_Mapping__c where City__c in :citys]){
-            //if (cp017Map.containsKey(rcm.City__c)){
-                //cp017Map.get(rcm.City__c).add(rcm.id);
-            //}else{
-                cp017Map.put(String.valueOf(rcm.City__c), rcm.id);
-            //}
-        }
-        
-        return cp017Map;
-    }
     
     //US-DP-022, US-DP-023, when Allow Data Sharing changed to yes, update lead's owner.
     public static void updateLeads(Set<Id> contactIds) {

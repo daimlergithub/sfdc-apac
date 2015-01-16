@@ -24,7 +24,6 @@ public class CampaignPlanningController {
     /* Private Properties */
     private Map<String, Set<String>> regionMap;
     private Set<String> ProvinceSet;
-    private List<Dealer_City__c> CityList;
     
     private List<Campaign_City__c> campaignCityList;
     private List<Campaign_City__c> campaignCityDelList;
@@ -75,27 +74,6 @@ public class CampaignPlanningController {
     private void fuQueryCities() {
             try {
                     DealerCityList.clear(); 
-                    if(myCampaign.Participating_Region_Province__c <> null && myCampaign.Participating_Region_Province__c <> '') 
-                    {        CityList = Database.query(generateQueryString(myCampaign.Participating_Region_Province__c));
-                            System.debug('GenerateSQLString>>>' + generateQueryString(myCampaign.Participating_Region_Province__c));
-                            System.debug('CityList>>>' + CityList);
-                    }
-                    else 
-                            return;
-                            
-                    //find the existed dealer cities in the select region
-                    for(Integer i = 0; i < cityList.size(); i++) {
-                            Boolean blExist = false;
-                            for(Campaign_City__c cpCity : campaignCityList) {                               
-                                    if(cpCity.Dealer_City__c == cityList[i].Id) {
-                                            blExist = true;
-                                            break;
-                                    }
-                            }
-                            if(blExist) DealerCityList.add(new clsDealerCity(cityList[i], true));
-                            else DealerCityList.add(new clsDealerCity(cityList[i],false));
-                    }
-            
                     return;
             } catch (exception ex) {
                     return;
@@ -165,27 +143,6 @@ public class CampaignPlanningController {
     private void SaveCampaignCity() {
         Savepoint sp = Database.setSavepoint();
         try {
-                List<Dealer_City__c> dCitycheckedList = new List<Dealer_City__c>();
-                campaignCityInsList = new List<Campaign_City__c>();
-                
-                for(clsDealerCity cpCity : DealerCityList) {
-                        if(cpCity.isChecked) {
-                                dCitycheckedList.add(cpCity.dealerCity);
-                        }
-                }
-                
-                for(Integer i = 0; i < dCitycheckedList.size(); i++) {
-                        Boolean blExist = false;
-                        for(Integer j = 0; j < campaignCityList.size(); j++) {
-                                if(campaignCityList[j].Dealer_City__c == dCitycheckedList[i].Id) {
-                                        blExist = true;
-                                        campaignCityList.remove(j);
-                                }
-                        }
-                        if(!blExist) {
-                                campaignCityInsList.add(new Campaign_City__c(Campaign__c = myCampaign.Id, Dealer_City__c = dCitycheckedList[i].Id));
-                        }
-                }
                 
                 if(campaignCityList.size() > 0) {
                         delete campaignCityList;
@@ -215,18 +172,16 @@ public class CampaignPlanningController {
              * 2014-04-14 Updated by Jusitn -- Adds the Dealer Service Codes filter if the campaign is CAS Marketing Campaign
              */ 
             if(myCampaign.RecordType.Name == 'CAS Marketing Campaign'){
-                dealerList = [select Id, name, Dealer_City__c, ToLabel(Province__c), ToLabel(Dealer_Region__c), 
+                dealerList = [select Id, name, ToLabel(Province__c), ToLabel(Dealer_Region__c), 
                             ToLabel(City_CN__c), ToLabel(Dealer_Service_Codes__c) 
                             from Account 
-                            where Dealer_City__c in :inIds 
-                            and Dealer_Service_Codes__c includes ('Parts', 'Body Repair', 'Paint Shop', 'Service')
+                            where Dealer_Service_Codes__c includes ('Parts', 'Body Repair', 'Paint Shop', 'Service')
                             order by Dealer_Region__c];
             }
             else{
-                dealerList = [select Id, name, Dealer_City__c, ToLabel(Province__c), ToLabel(Dealer_Region__c), 
+                dealerList = [select Id, name, ToLabel(Province__c), ToLabel(Dealer_Region__c), 
                             ToLabel(City_CN__c), ToLabel(Dealer_Service_Codes__c) 
                             from Account 
-                            where Dealer_City__c in :inIds 
                             order by Dealer_Region__c];
             }
             
@@ -326,13 +281,11 @@ public class CampaignPlanningController {
         Id campaignId = ApexPages.currentPage().getParameters().get('id');
         
         myCampaign = [select Id, RecordType.Name, Participating_Region_Province__c from Campaign where id = :campaignId];
-        campaignCityList = [select id, Dealer_City__c from Campaign_City__c where Campaign__c = :campaignId];
+        campaignCityList = [select id from Campaign_City__c where Campaign__c = :campaignId];
 
         //get all default dealer_cities         
         if(myCampaign.Participating_Region_Province__c <> null && myCampaign.Participating_Region_Province__c <> '') 
                 CityList = Database.query(generateQueryString(myCampaign.Participating_Region_Province__c));
-        else 
-                CityList = new List<Dealer_City__c>();
         
         //get all campaign_dealers from the campaign record
         pDealerList = [Select id, Name, Campaign__c, Campaign_Package__c, Dealer__c, 
@@ -345,6 +298,7 @@ public class CampaignPlanningController {
         cityIdListIn = new set<ID>();
         cityIdListOut = new set<ID>();
         
+		/*
         //find the existed dealer cities
         for(Integer i = 0; i < cityList.size(); i++) {
                 Boolean blExist = false;
@@ -365,7 +319,7 @@ public class CampaignPlanningController {
                         cityIdListAll.add(cityList[i].Id);
                 }
         }
-        
+        */
         partiDealerList = queryDealerList(campaignId, cityIdListAll, cityIdListIn, cityIdListOut);
     }
 

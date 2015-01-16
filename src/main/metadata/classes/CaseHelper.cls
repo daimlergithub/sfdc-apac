@@ -505,32 +505,6 @@ public class CaseHelper{
         }
     }
     
-    public static void UpdateCaseFollowUpInquiry(Map<Id, Id> UserIdCaseIdForFollowInquiry) {
-
-        List<Case> caseForUpdate = new List<Case>();
-        List<Temp_Setting__c > settingForDelete = new List<Temp_Setting__c>();
-        Map<Id, Id> caseIduserIdForUpdate = new Map<Id, Id>();
-        
-        String userId = String.valueOf(UserInfo.getUserId()).subString(0, 15);
-
-        for(Temp_Setting__c asetting : [select Name, Value__c from Temp_Setting__c where Name = :userId]) {
-            caseIduserIdForUpdate.put(asetting.Value__c, asetting.Name);
-            settingForDelete.add(asetting);
-        }
-        
-        for(Case cas : [select Id, Follow_Up_Inquiry__c from Case where Id in :caseIduserIdForUpdate.keySet()]) {
-            if(UserIdCaseIdForFollowInquiry.containsKey( caseIduserIdForUpdate.get(cas.Id) )) {
-                cas.Follow_Up_Inquiry__c = UserIdCaseIdForFollowInquiry.get( caseIduserIdForUpdate.get(cas.Id) );
-                caseForUpdate.add(cas);
-            }
-        }
-
-        if(caseForUpdate.size() > 0) {
-            updateSobjects(caseForUpdate);
-            deleteSobjects(settingForDelete);
-        }
-    }
-    
     public static void shareDealer(Map<Id, Id> casesForShare) {
         List<CaseShare> cs = new List<CaseShare>();
         Map<Id, Id> DealeridCaseid = new Map<Id, Id>();

@@ -150,9 +150,6 @@ Public class UtilTestData {
                 initiateDealer(so);
             }
         }
-        else if (so instanceof Dealer_City__c) {
-            initiateDealerCity(so);
-        }
         else if (so instanceof Contact) {
             initiateContact(so);
         }
@@ -161,12 +158,6 @@ Public class UtilTestData {
         }
         else if (so instanceof Vehicle_Relationship__c) {
             initiateVehicleRelationship(so);
-        }
-        else if (so instanceof Sales__c) {
-            initiateSales(so);
-        }
-        else if (so instanceof Aftersales__c) {
-            initiateAftersales(so);
         }
         else if (so instanceof Car_Model__c) {
             initiateCarModel(so);
@@ -211,9 +202,6 @@ Public class UtilTestData {
         else if (so instanceof Package_Item__c) {
             initiatePackageItem(so);
         }
-        else if (so instanceof Outbound_Email__c) {
-            initiateOutboundEmail(so);
-        }
         else if (so instanceof Attachment) {
             initiateAttachment(so);
         }
@@ -245,13 +233,6 @@ Public class UtilTestData {
     
     // Create Unsaved Dealer City
     private static void initiateDealerCity(Sobject so) {
-        Dealer_City__c dealerCity = (Dealer_City__c)so;
-        dealerCity.Name = dealerCity.Name == null ?
-            '朝阳区' : dealerCity.Name;
-        dealerCity.Region__c = dealerCity.Region__c == null ?
-            'N' : dealerCity.Region__c;
-        dealerCity.Province__c = dealerCity.Province__c == null ?
-            'Beijing' : dealerCity.Province__c;
     }
 
     // Create Unsaved Dealer
@@ -327,35 +308,12 @@ Public class UtilTestData {
     // Create Unsaved Sales
     // If some field value are null, system will suibianly assign a value to it.
     private static void initiateSales(Sobject so) {
-        Sales__c sales = (Sales__c)so;
 
-        sales.Name = 'test sales';
-        sales.Valid__c = 'Unknow';
-        
-        sales.Sales_Handover_Date__c = sales.Sales_Handover_Date__c == null ? 
-           System.today() : sales.Sales_Handover_Date__c;
-           
-        sales.Sales_Invoice_Date__c = sales.Sales_Invoice_Date__c == null ? 
-           System.today() : sales.Sales_Invoice_Date__c;
-           
-        sales.Sales_Contract_Date__c = sales.Sales_Contract_Date__c == null ? 
-           System.today() : sales.Sales_Contract_Date__c;
-           
-        sales.Sales_Person__c = sales.Sales_Person__c == null ? 'test' : 
-           sales.Sales_Person__c;
-           
-        sales.Sales_Dealer__c = sales.Sales_Dealer__c == null ? 
-           createSobject(new Account(), ACCOUNT_RT_DEALER).Id : sales.Sales_Dealer__c;
     }
 
     // Create Unsaved Aftersales
     private static void initiateAftersales(Sobject so) {
-        Aftersales__c aftersales = (Aftersales__c)so;
 
-        aftersales.Name = 'test aftersales';
-        aftersales.Valid__c = false;
-        aftersales.Service_Dealer__c = aftersales.Service_Dealer__c == null ? 
-           createSobject(new Account(), ACCOUNT_RT_DEALER).Id : aftersales.Service_Dealer__c;
     }
     
     // Create Unsaved Car Model
@@ -628,16 +586,7 @@ Public class UtilTestData {
 
     // Create Unsaved Outbound_Email__c
     private static void initiateOutboundEmail(Sobject so) {
-        Outbound_Email__c email = (Outbound_Email__c)so;
 
-        email.TargetObjectId__c = email.TargetObjectId__c == null ?
-            createSobject(new Account(), ACCOUNT_RT_DEALER).Id :
-            email.TargetObjectId__c;
-
-        email.ToAddresses__c = 'mouse@email.com';
-        email.Subject__c = 'subject';
-        email.Status__c = 'Not Sent';
-        email.Html_Body__c = 'ABC';
     }
 
     // Create Unsaved Attachment
