@@ -87,16 +87,6 @@ trigger AccountBeforeInsertUpdate on Account (before insert, before update) {
                 }
             }
             
-            //when city changed， update look up 
-            if (!String.isBlank(curAcc.City_CN__c)){
-                if (cp017Map.containsKey(curAcc.City_CN__c)){
-                   curAcc.Region_City_Mapping__c = cp017Map.get(curAcc.City_CN__c);
-                }else{
-                   curAcc.Region_City_Mapping__c = null;
-                }
-            }else{
-                curAcc.Region_City_Mapping__c = null;
-            }
         }
     } 
     

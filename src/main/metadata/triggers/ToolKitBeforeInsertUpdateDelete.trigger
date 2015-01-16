@@ -22,12 +22,14 @@ trigger ToolKitBeforeInsertUpdateDelete on Tool_Kit__c (before insert, before up
    Map<Id, Id> TKIdDealerId = new Map<Id, Id>();
    Map<Id, Account> DealerIDAccount = new Map<Id, Account>();
    
+   /*
    // zhongyang.si add for Release 1.3 CR7, load the Model_Mapping__c data
    List<Model_Mapping__c> vendorForToolKitList = new List<Model_Mapping__c>();
    for(Model_Mapping__c vtk : [SELECT id,Brand__c,RecordType__c, Region__c, User__c FROM Model_Mapping__c WHERE recordtype.developername = 'Tool_Kit']){
        vendorForToolKitList.add(vtk);
    }
    // zhongyang.si add for Release 1.3 CR7, load the Model_Mapping__c data
+   */
    
    for(Tool_Kit__c tk1 : trigger.new) {
     if(tk1.Dealer_Name__c != null) {
@@ -71,6 +73,7 @@ trigger ToolKitBeforeInsertUpdateDelete on Tool_Kit__c (before insert, before up
                 tk.Dealer_Sub_Region__c = DealerIDAccount.get(tk.Dealer_Name__c).Dealer_MB_Sub_Region__c;
             }
           
+		  /*
             // zhongyang.si add for Release 1.3 CR7, When user created Took Kit record, the system automatically finds vendor according to the tool kit information
             for(Model_Mapping__c vtk : vendorForToolKitList){
                 if (vtk.region__c!=null && vtk.RecordType__c!=null && vtk.Brand__c!=null){
@@ -79,6 +82,7 @@ trigger ToolKitBeforeInsertUpdateDelete on Tool_Kit__c (before insert, before up
                     }                
                 }
             }
+			*/
             // zhongyang.si add for Release 1.3 CR7, When user created Took Kit record, the system automatically finds vendor according to the tool kit information
         }
     }
