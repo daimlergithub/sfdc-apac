@@ -18,10 +18,6 @@
             <recipient>CAC_QC_SV_TM</recipient>
             <type>role</type>
         </recipients>
-        <recipients>
-            <recipient>QTM</recipient>
-            <type>role</type>
-        </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Appeal_QC</template>
     </alerts>
