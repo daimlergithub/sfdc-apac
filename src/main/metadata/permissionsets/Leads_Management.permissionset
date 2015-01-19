@@ -7861,56 +7861,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>EP_Log_DataQuality__c.Dealer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Log_DataQuality__c.EpRunId__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Log_DataQuality__c.Interface__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Log_DataQuality__c.Invalid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Log_DataQuality__c.Matches__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Log_DataQuality__c.R_Remark__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Log_DataQuality__c.Rule__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Log_DataQuality__c.RunDate__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Log_DataQuality__c.Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>EP_Log_DataQuality__c.Valid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>EP_Log_Interface__c.Confirmed__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8037,16 +7987,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.Valid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Email_Mapping_Table__c.Receipient__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Email_Mapping_Table__c.cc__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8686,47 +8626,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>External_Key__c.CIAM_Customer_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>External_Key__c.CIAM_Customer_email__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>External_Key__c.Created_By_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>External_Key__c.Customer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>External_Key__c.Updated_By_EP_Transactions__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>External_Key__c.Vehicle__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>External_Picklist__c.External_Key__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>External_Picklist__c.External_System__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>External_Picklist__c.Integration_Picklist_External_Key__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8777,11 +8677,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Idea.Status</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Integration_Picklist__c.External_Key__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10657,11 +10552,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Participating_Dealer__c.Session_Start_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Picklist_Mapping__c.External_Key__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -22470,15 +22360,7 @@
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>EP_Log_DataQuality__c</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>EP_Log_Interface__c</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>Email_Mapping_Table__c</tab>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
@@ -22487,10 +22369,6 @@
     </tabSettings>
     <tabSettings>
         <tab>EpAdapterUnitOfWork__c</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>External_Key__c</tab>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
