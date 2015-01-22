@@ -1808,11 +1808,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.DUP_Nummer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Data_Source__c</field>
         <readable>true</readable>
     </fieldPermissions>

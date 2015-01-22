@@ -21,6 +21,7 @@
 			<sf:typeset name="staticresources"/>
 			<sf:typeset name="settings"/>
 			<sf:typeset name="documents"/>
+			<sf:typeset name="callCenters"/>
 		</deploy>
     </target>
 	
