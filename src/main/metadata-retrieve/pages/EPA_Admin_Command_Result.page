@@ -1,0 +1,19 @@
+<apex:page controller="EpaAdminCommandController">
+
+    <apex:pageblock title="EPA Commands">
+
+        <apex:form >
+        
+            <apex:commandButton action="{!showServerCommands}" value="Server Commands" id="showServerCommands"/>
+            <apex:commandButton action="{!showClusterCommands}" value="Cluster Commands" id="showClusterCommands"/>
+            <apex:commandButton action="{!showScheduledCommands}" value="Scheduled Commands" id="showScheduledCommands"/>
+            <apex:commandButton action="{!showAllAdminCommands}" value="All Commands" id="showAllAdminCommands"/>
+
+        </apex:form>
+            
+    </apex:pageblock>
+    <apex:pageblock title="{!nameOfAdminCommandToExecute} Result:">
+        <pre>{!adminCommandResult}</pre>
+    </apex:pageblock>
+
+</apex:page>

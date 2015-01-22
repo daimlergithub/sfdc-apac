@@ -1,0 +1,26 @@
+<apex:page controller="EpaSystemStatusController">
+    <apex:pageblock title="EPA System Status">
+
+        <apex:form >
+        
+            <apex:commandButton action="{!showVersions}" value="Versions" id="showVersionsCommands"/>
+            <apex:commandButton action="{!showServerStatus}" value="Server Status" id="showServerStatus"/>
+            <apex:commandButton action="{!showThreadList}" value="Thread List" id="showThreadList"/>
+            <apex:commandButton action="{!showThreadDump}" value="Thread Dump" id="showThreadDump"/>
+            <apex:commandButton action="{!showDeadLocks}" value="Dead Locks" id="showDeadLocks"/>
+            <apex:commandButton action="{!showTransactionCosts}" value="Transaction Costs" id="showTransactionCosts"/>
+       
+            <apex:sectionHeader title="Transaction Costs"/>
+    
+            <!--apex:pageBlockTable value="{!TransactionCosts }" var="transactionCosts">
+         
+                <apex:column headerValue="Interface" value="{!transactionCosts.Interface}"/>
+                <apex:column headerValue="UseCase" value="{!transactionCosts.UseCase}"/>
+                <apex:column headerValue="NumRequests" value="{!transactionCosts.NumRequests}"/>
+             
+            </apex:pageBlockTable-->
+
+        </apex:form>
+            
+    </apex:pageblock>
+ </apex:page>

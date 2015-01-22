@@ -1,0 +1,16 @@
+Notification: This complaint need your support. Please handle it ASAP:
+
+Customer：{!Case.Account}
+Case：{!Case.CaseNumber}
+Subject：{!Case.Subject}
+Describtion：{!Case.Description}
+Customer Assistance Center Team
+
+------------------------------------------------------------------------------ 
+提示：以下投诉需要你的支持，请尽快处理： 
+客户：{!Case.Account} 
+个案：{!Case.CaseNumber} 
+主题：{!Case.Subject} 
+描述：{!Case.Description} 
+
+奔驰客户中心
