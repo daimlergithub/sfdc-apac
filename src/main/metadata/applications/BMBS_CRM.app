@@ -25,7 +25,5 @@
     <tab>Attribute__c</tab>
     <tab>Car_Model_Attribute__c</tab>
     <tab>SMSReplyHistory__c</tab>
-    <tab>QlikViewAfterSales1</tab>
-    <tab>QlikviewCAC1</tab>
     <tab>Account_Link__c</tab>
 </CustomApplication>

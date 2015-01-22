@@ -13189,14 +13189,6 @@
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>QlikViewAfterSales1</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>QlikviewCAC1</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>Rejected_Duplicate_Log__c</tab>
         <visibility>None</visibility>
     </tabSettings>

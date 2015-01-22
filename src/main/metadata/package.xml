@@ -1639,8 +1639,6 @@
         <members>Picklist_Mapping__c</members>
         <members>Project_Overview__c</members>
         <members>QC__c</members>
-        <members>QlikViewAfterSales1</members>
-        <members>QlikviewCAC1</members>
         <members>Region_City_Mapping__c</members>
         <members>Rejected_Duplicate_Log__c</members>
         <members>Release__c</members>
