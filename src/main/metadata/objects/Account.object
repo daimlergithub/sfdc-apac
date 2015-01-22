@@ -166,6 +166,21 @@
         </displayedFields>
         <label>AccountMergeFields</label>
     </fieldSets>
+	<fieldSets>
+        <fullName>SLICK_CTI_ACCOUNT</fullName>
+        <description>Slick CTI</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>true</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Phone</field>
+            <isFieldManaged>true</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>SLICK_CTI_ACCOUNT</label>
+    </fieldSets>
     <fieldSets>
         <fullName>AssignedDealerColumns</fullName>
         <description>SelectAssignedDealer.page (Lead Management)</description>

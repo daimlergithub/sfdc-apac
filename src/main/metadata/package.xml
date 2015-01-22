@@ -638,6 +638,7 @@
         <members>AESAdapter4</members>
         <members>AESAdapter4Backup</members>
         <members>DemoAdapter</members>
+		<members>SlickCTI</members>
         <name>CallCenter</name>
     </types>
     <types>
