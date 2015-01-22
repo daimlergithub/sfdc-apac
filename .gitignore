@@ -3,3 +3,4 @@ tmp
 classes/**
 build.properties
 timestamps.log
+/build
