@@ -135,7 +135,7 @@
     <tab>standard-Knowledge</tab>
     <tab>Vehicle__c</tab>
     <tab>Vehicle_Relationship__c</tab>
-	<!-- Dependancy on Tasks tab, Yet to be deployed
+	<!-- TODO Dependancy on Tasks tab, Yet to be deployed
     <tab>Tasks</tab>
 	-->
     <tab>QC__c</tab>
@@ -157,7 +157,7 @@
         <mapping>
             <tab>Vehicle_Relationship__c</tab>
         </mapping>
-		<!-- Dependancy on Tasks tab, Yet to be deployed
+		<!-- TODO Dependancy on Tasks tab, Yet to be deployed
         <mapping>
             <tab>Tasks</tab>
         </mapping>

@@ -475,6 +475,7 @@ public class TaskTriggerHandler {
             }
         }    
 
+		/* TODO FL Campaign_Survey_Result__c not available in Kernel
         Map<Id, Campaign_Survey_Result__c> csrMap = new Map<Id, Campaign_Survey_Result__c>();
         if (relIds.size() > 0) {
             for (Campaign_Survey_Result__c csr : [Select Id, TaskId__c From Campaign_Survey_Result__c Where TaskId__c In :relIds]) {
@@ -486,6 +487,7 @@ public class TaskTriggerHandler {
                 tk.Survey_Result_Id__c = csrMap.get(tk.Related_Task_Id__c).Id;
             }
         }
+		*/
     }
     
     private static void autoUpdateSSITask(Set<Task> tasks){

@@ -88,12 +88,7 @@ public class UpdateStampHandler
     
     Long updateStamp = updateStamps.get(key);
     
-    boolean result = (null == updateStamp) || timestamp > updateStamp.longValue();
-    if (result) {
-      logWrapper.log(String.format("Resource %s modified - last modified: %d updatestamp: %d.", file.getName(), timestamp, updateStamp));
-    }
-    
-    return result;
+    return (null == updateStamp) || (timestamp > updateStamp.longValue());
   }
   
   public void updateTimestamp(List<DeploymentInfo> deploymentInfos)

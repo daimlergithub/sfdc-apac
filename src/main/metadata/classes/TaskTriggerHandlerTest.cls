@@ -290,9 +290,11 @@ private class TaskTriggerHandlerTest {
             insert cobTask;
             customer.Newly_Task_Id__c = cobTask.Id;
             update customer;
+			/* TODO FL Campaign_Survey_Result__c not available in Kernel
             Campaign_Survey_Result__c csr = new Campaign_Survey_Result__c(TaskId__c = cobTask.Id);
             csr.TaskId__c = csr.TaskId__c.subString(0, 15);
             insert csr;
+			*/
             
             callTime = DateTime.now();
             Task clogTask = new Task(
@@ -302,8 +304,11 @@ private class TaskTriggerHandlerTest {
                 Start_call_time__c = callTime
             );
             insert clogTask;
+			
+			/* TODO FL Campaign_Survey_Result__c is not available in Kernel
             clogTask = [Select Survey_Result_Id__c From Task Where Id = :clogTask.Id];
             System.assertEquals(clogTask.Survey_Result_Id__c, csr.Id); 
+			*/
         Test.stopTest();
         }
         }
