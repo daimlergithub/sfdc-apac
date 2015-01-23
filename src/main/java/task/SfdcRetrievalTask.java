@@ -1,12 +1,15 @@
 package task;
 
 import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
+import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.taskdefs.Taskdef;
 
-import task.handler.DeploymentInfo;
 import task.handler.LogWrapper;
 import task.handler.MetadataHandler;
 import task.handler.SfdcHandler;
@@ -14,11 +17,11 @@ import task.handler.UpdateStampHandler;
 import task.handler.ZipFileHandler;
 
 /**
- * SfdcDeploymentTask
+ * SfdcRetrievalTask
  *
  * @author  xlehmf
  */
-public class SfdcDeploymentTask
+public class SfdcRetrievalTask
   extends Taskdef
 {
 
@@ -29,23 +32,23 @@ public class SfdcDeploymentTask
   private boolean useProxy;
   private String proxyHost;
   private int proxyPort;
-  private String deployRoot;
+  private String retrieveRoot;
   private boolean debug;
   private boolean dryRun;
-  private List<SfdcTypeSet> typeSets;
+  private Set<String> typeSets;
 
   private UpdateStampHandler updateStampHandler;
-  private ZipFileHandler zipFileHandler;
   private SfdcHandler sfdcHandler;
   private MetadataHandler metadataHandler;
+  private ZipFileHandler zipFileHandler;
 
-  public SfdcDeploymentTask()
+  public SfdcRetrievalTask()
   {
-    typeSets = new ArrayList<SfdcTypeSet>();
+    typeSets = new HashSet<String>();
     updateStampHandler = new UpdateStampHandler();
-    zipFileHandler = new ZipFileHandler();
     sfdcHandler = new SfdcHandler();
     metadataHandler = new MetadataHandler();
+    zipFileHandler = new ZipFileHandler();
   }
 
   public void setUsername(String username)
@@ -83,9 +86,9 @@ public class SfdcDeploymentTask
     this.proxyPort = proxyPort;
   }
 
-  public void setDeployRoot(String deployRoot)
+  public void setRetrieveRoot(String retrieveRoot)
   {
-    this.deployRoot = deployRoot;
+    this.retrieveRoot = retrieveRoot;
   }
 
   public void setDebug(boolean debug)
@@ -100,7 +103,11 @@ public class SfdcDeploymentTask
 
   public void addConfigured(SfdcTypeSet typeSet)
   {
-    typeSets.add(typeSet);
+    String name = typeSet.getName();
+    if (StringUtils.isEmpty(name)) {
+      throw new BuildException("The name of the type set must be set.");
+    }
+    typeSets.add(name);
   }
 
   public void execute()
@@ -108,17 +115,25 @@ public class SfdcDeploymentTask
     initialize();
     validate();
 
-    List<DeploymentInfo> deploymentInfos = metadataHandler.compileDeploymentInfos(typeSets);
-    if (deploymentInfos.isEmpty()) {
-      log(String.format("Nothing to deploy."));
-    }
-    else {
-      byte[] packageXml = metadataHandler.createPackageXml(deploymentInfos);
-      metadataHandler.savePackageXml(packageXml);
-      ByteArrayOutputStream zipFile = zipFileHandler.prepareZipFile(deploymentInfos, packageXml);
-      zipFileHandler.saveZipFile("deploy", zipFile);
-      sfdcHandler.deployTypes(zipFile, deploymentInfos);
-    }
+    // TODO consider timestamps
+    
+    Map<String, List<String>> metadata = sfdcHandler.extractMetadata(typeSets);
+    byte[] packageXml = metadataHandler.createPackageXml(metadata);
+    metadataHandler.savePackageXml(packageXml);
+    ByteArrayOutputStream zipFile = sfdcHandler.retrieveMetadata(metadata);
+    zipFileHandler.saveZipFile("retrieve", zipFile);
+    zipFileHandler.extractZipFile(retrieveRoot, zipFile);
+    
+//    List<DeploymentInfo> deploymentInfos = metadataHandler.compileDeploymentInfos(typeSets);
+//
+//    if (deploymentInfos.isEmpty()) {
+//      log(String.format("Nothing to deploy."));
+//    }
+//    else {
+//      ByteArrayOutputStream zipFile = zipFileHandler.prepareZipFile(deploymentInfos);
+//      zipFileHandler.saveZipFile(zipFile);
+//      sfdcHandler.deployTypes(zipFile, deploymentInfos);
+//    }
   }
 
   private void initialize()
@@ -128,20 +143,20 @@ public class SfdcDeploymentTask
     updateStampHandler.initializeUpdateStamps(logWrapper, username);
     
     sfdcHandler.initialize(logWrapper, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
+    metadataHandler.initialize(logWrapper, retrieveRoot, debug, updateStampHandler);
     zipFileHandler.initialize(logWrapper, debug);
-    metadataHandler.initialize(logWrapper, deployRoot, debug, updateStampHandler);
   }
 
   private void validate()
   {
     updateStampHandler.validate();
     sfdcHandler.validate();
-    zipFileHandler.validate();
     metadataHandler.validate();
+    zipFileHandler.validate();
 
     // TODO validate settings
-    for (SfdcTypeSet typeSet : typeSets) {
-      typeSet.validateSettings();
+    if (null == retrieveRoot) {
+      throw new BuildException("The property retrieveRoot must be specified.");
     }
   }
   

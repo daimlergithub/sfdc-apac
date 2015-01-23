@@ -1,7 +1,7 @@
 /*
  *  Daimler CRM - Extension Platform
  */
-package task;
+package task.handler;
 
 import java.io.File;
 import java.util.List;
