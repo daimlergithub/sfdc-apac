@@ -222,7 +222,7 @@
 	
 	<target name="deploy35">
 		<deploy>
-			<sf:typeset name="applications"/>
+			<sf:typeset name="applications"/>						
 			<sf:typeset name="permissionsets"/>
 		</deploy>
     </target>

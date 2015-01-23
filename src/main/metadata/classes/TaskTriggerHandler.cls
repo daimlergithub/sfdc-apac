@@ -474,18 +474,6 @@ public class TaskTriggerHandler {
                 relIds.add(tk.Related_Task_Id__c);
             }
         }    
-
-        Map<Id, Campaign_Survey_Result__c> csrMap = new Map<Id, Campaign_Survey_Result__c>();
-        if (relIds.size() > 0) {
-            for (Campaign_Survey_Result__c csr : [Select Id, TaskId__c From Campaign_Survey_Result__c Where TaskId__c In :relIds]) {
-                csrMap.put(csr.TaskId__c, csr);
-            }
-        }
-        for (Task tk : tasks) {
-            if (csrMap.containsKey(tk.Related_Task_Id__c)) {
-                tk.Survey_Result_Id__c = csrMap.get(tk.Related_Task_Id__c).Id;
-            }
-        }
     }
     
     private static void autoUpdateSSITask(Set<Task> tasks){

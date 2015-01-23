@@ -5,13 +5,13 @@
         <customApplicationComponent>Console.BuiltInComponent.knowledgeOne</customApplicationComponent>
     </customApplicationComponents>
     <defaultLandingTab>standard-home</defaultLandingTab>
-    <description>Service Cloud Console for Inbound</description>
+    <description>Service Cloud Console for Outbound CSR</description>
     <detailPageRefreshMethod>autoRefresh</detailPageRefreshMethod>
     <domainWhitelist>
         <domain>www.salesforce.com</domain>
     </domainWhitelist>
-    <enableKeyboardShortcuts>false</enableKeyboardShortcuts>
-    <enableMultiMonitorComponents>false</enableMultiMonitorComponents>
+    <enableKeyboardShortcuts>true</enableKeyboardShortcuts>
+    <enableMultiMonitorComponents>true</enableMultiMonitorComponents>
     <isServiceCloudConsole>true</isServiceCloudConsole>
     <keyboardShortcuts>
         <defaultShortcut>
@@ -120,7 +120,7 @@
             <keyCommand>SHIFT+K</keyCommand>
         </defaultShortcut>
     </keyboardShortcuts>
-    <label>Serivce Cloud Console IB</label>
+    <label>Service Cloud Console OB</label>
     <listPlacement>
         <location>left</location>
         <units>percent</units>
@@ -128,16 +128,14 @@
     </listPlacement>
     <listRefreshMethod>refreshListRows</listRefreshMethod>
     <logo>Logo/MBCL_LOGO.png</logo>
-    <saveUserSessions>false</saveUserSessions>
-    <tab>standard-Account</tab>
-    <tab>standard-Case</tab>
+    <saveUserSessions>true</saveUserSessions>
+    <tab>Tasks</tab>
     <tab>standard-Campaign</tab>
     <tab>standard-Knowledge</tab>
     <tab>Vehicle__c</tab>
     <tab>Vehicle_Relationship__c</tab>
-	<!-- Dependancy on Tasks tab, Yet to be deployed
-    <tab>Tasks</tab>
-	-->
+    <tab>standard-Case</tab>
+    <tab>standard-Account</tab>
     <tab>QC__c</tab>
     <tab>standard-report</tab>
     <tab>Account_Link__c</tab>
@@ -149,27 +147,27 @@
             <tab>standard-report</tab>
         </mapping>
         <mapping>
+            <fieldName>ContactId</fieldName>
             <tab>standard-Case</tab>
         </mapping>
         <mapping>
             <tab>QC__c</tab>
         </mapping>
         <mapping>
+            <fieldName>Contact__c</fieldName>
             <tab>Vehicle_Relationship__c</tab>
         </mapping>
-		<!-- Dependancy on Tasks tab, Yet to be deployed
         <mapping>
             <tab>Tasks</tab>
         </mapping>
-		-->
         <mapping>
             <tab>standard-Knowledge</tab>
         </mapping>
         <mapping>
-            <tab>Vehicle__c</tab>
+            <tab>standard-Account</tab>
         </mapping>
         <mapping>
-            <tab>standard-Account</tab>
+            <tab>Vehicle__c</tab>
         </mapping>
         <mapping>
             <tab>Account_Link__c</tab>

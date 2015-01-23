@@ -7,8 +7,8 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>Service Cloud Console for SSI CSR</description>
     <detailPageRefreshMethod>none</detailPageRefreshMethod>
-    <enableKeyboardShortcuts>false</enableKeyboardShortcuts>
-    <enableMultiMonitorComponents>false</enableMultiMonitorComponents>
+    <enableKeyboardShortcuts>true</enableKeyboardShortcuts>
+    <enableMultiMonitorComponents>true</enableMultiMonitorComponents>
     <isServiceCloudConsole>true</isServiceCloudConsole>
     <keyboardShortcuts>
         <defaultShortcut>
@@ -125,10 +125,8 @@
     </listPlacement>
     <listRefreshMethod>none</listRefreshMethod>
     <logo>Logo/MBCL_LOGO.png</logo>
-    <saveUserSessions>false</saveUserSessions>
-	<!-- Dependancy on Tasks tab, Yet to be deployed
+    <saveUserSessions>true</saveUserSessions>
     <tab>Tasks</tab>
-	-->
     <tab>SSI__c</tab>
     <tab>standard-Account</tab>
     <tab>QC__c</tab>
@@ -144,11 +142,9 @@
         <mapping>
             <tab>SSI__c</tab>
         </mapping>
-		<!-- Dependancy on Tasks tab, Yet to be deployed
         <mapping>
             <tab>Tasks</tab>
         </mapping>
-		-->
         <mapping>
             <tab>standard-Account</tab>
         </mapping>
