@@ -1,7 +1,7 @@
 /*
  *  Daimler CRM - Extension Platform
  */
-package task;
+package task.handler;
 
 import com.sforce.soap.enterprise.EnterpriseConnection;
 import com.sforce.soap.metadata.MetadataConnection;
