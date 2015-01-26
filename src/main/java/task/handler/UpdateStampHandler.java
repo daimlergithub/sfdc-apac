@@ -98,16 +98,16 @@ public class UpdateStampHandler
         updateTimestamp(info.getDeploymentUnit(), file);
       }
     }
-    writeUpdateStampes();
+    writeUpdateStampes(FILENAME_TIMESTAMPS, updateStamps);
   }
   
-  private void writeUpdateStampes()
+  public void writeUpdateStampes(String fileName, Map<String, Long> updateStampsToSave)
   {
     try {
-      FileWriter fw = new FileWriter(FILENAME_TIMESTAMPS);
+      FileWriter fw = new FileWriter(fileName);
       BufferedWriter bw = new BufferedWriter(fw);
 
-      for (Map.Entry<String, Long> entry : updateStamps.entrySet()) {
+      for (Map.Entry<String, Long> entry : updateStampsToSave.entrySet()) {
         String line = String.format("%s:%s:%d", username, URLEncoder.encode(entry.getKey(), "UTF-8"), entry.getValue());
         
         bw.write(line);
@@ -134,6 +134,5 @@ public class UpdateStampHandler
 
     updateStamps.put(key, lastModified);
   }
-
 }
 

@@ -456,4 +456,42 @@ public class SfdcHandler
       throw new BuildException(String.format("Error connecting to SFDC: %s.", e.getMessage()), e);
     }
   }
+
+  public Map<String, Long> getUpdateStamps(Set<String> objects)
+  {
+    Map<String, Long> result = new HashMap<>();
+
+    try {
+      SfdcConnectionContext context = login();
+
+      DescribeMetadataResult describeMetadata = context.getMConnection().describeMetadata(VERSION);
+      for (DescribeMetadataObject object : describeMetadata.getMetadataObjects()) {
+        // only consider specified objects
+        if (!objects.contains(object.getXmlName())) {
+          continue;
+        }
+
+        logWrapper.log(String.format("Type: %s", object.getXmlName()));
+
+        Map<String, List<FileProperties>> filePropertiesMap = listMetadata(context.getMConnection(), object);
+
+        for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
+          for (FileProperties properties : entry.getValue()) {
+            logWrapper.log(properties.toString());
+            
+            result.put(String.format("%s/%s", entry.getKey(), properties.getFullName()), properties.getLastModifiedDate().getTimeInMillis());
+          }
+        }
+      }
+      context.getEConnection().logout();
+
+      return result;
+    }
+    catch (ConnectionException e) {
+
+      e.printStackTrace();
+
+      throw new BuildException(String.format("Error Connecting to SFDC: %s.", e.getMessage()), e);
+    }
+  }
 }

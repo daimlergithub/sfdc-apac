@@ -18,51 +18,6 @@
 				debug="${sfdc.debug}" dryRun="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" retrieveRoot="src/main/metadata-retrieve">
-			<!--
-			<sf:excludedObject name="InstalledPackage"/>
-			<sf:excludedObject name="Scontrol"/>
-			<sf:excludedObject name="AuraDefinitionBundle"/>
-			<sf:excludedObject name="ApexComponent"/>
-			<sf:excludedObject name="ExternalDataSource"/>
-			<sf:excludedObject name="UiPlugin"/>
-			<sf:excludedObject name="ReportType"/>
-			<sf:excludedObject name="Report"/>
-			<sf:excludedObject name="Dashboard"/>
-			<sf:excludedObject name="AnalyticSnapshot"/>
-			<sf:excludedObject name="QuickAction"/>
-			<sf:excludedObject name="FlexiPage"/>
-			<sf:excludedObject name="CustomApplicationComponent"/>
-			<sf:excludedObject name="CustomPageWebLink"/>
-			<sf:excludedObject name="Portal"/>
-			<sf:excludedObject name="Letterhead"/>
-			<sf:excludedObject name="Flow"/>
-			<sf:excludedObject name="AssignmentRules"/>
-			<sf:excludedObject name="AutoResponseRules"/>
-			<sf:excludedObject name="EscalationRules"/>
-			<sf:excludedObject name="PostTemplate"/>
-			<sf:excludedObject name="ApprovalProcess"/>
-			<sf:excludedObject name="HomePageComponent"/>
-			<sf:excludedObject name="HomePageLayout"/>
-			<sf:excludedObject name="CustomObjectTranslation"/>
-			<sf:excludedObject name="DataCategoryGroup"/>
-			<sf:excludedObject name="CallCenter"/>
-			<sf:excludedObject name="RemoteSiteSetting"/>
-			<sf:excludedObject name="AuthProvider"/>
-			<sf:excludedObject name="LeadSharingRules"/>
-			<sf:excludedObject name="ContactSharingRules"/>
-			<sf:excludedObject name="OpportunitySharingRules"/>
-			<sf:excludedObject name="UserSharingRules"/>
-			<sf:excludedObject name="SharingSet"/>
-			<sf:excludedObject name="Community"/>
-			<sf:excludedObject name="ConnectedApp"/>
-			<sf:excludedObject name="CustomPermission"/>
-			<sf:excludedObject name="SiteDotCom"/>
-			<sf:excludedObject name="SamlSsoConfig"/>
-			<sf:excludedObject name="SynonymDictionary"/>
-			<sf:excludedObject name="XOrgHub"/>
-			-->
-			
-			<!-- include -->
 			<sf:typeset name="CustomLabels"/>
 			<sf:typeset name="CallCenter"/>
 			<sf:typeset name="StaticResource"/>
@@ -83,13 +38,18 @@
 			<sf:typeset name="Profile"/>
 			<sf:typeset name="PermissionSet"/>
 			<sf:typeset name="CustomSite"/>
+			<sf:typeset name="AccountSharingRules"/>
 			<sf:typeset name="CampaignSharingRules"/>
 			<sf:typeset name="CaseSharingRules"/>
-			<sf:typeset name="AccountSharingRules"/>
 			<sf:typeset name="CustomObjectSharingRules"/>
 			<sf:typeset name="Settings"/>
+			<sf:typeset name="ApprovalProcess"/>
+			<sf:typeset name="CustomPageWebLink"/>
+			<sf:typeset name="HomePageComponent"/>
+			<sf:typeset name="HomePageLayout"/>
 		</sf:retrieve>
 	</target>
+	
 	
 	<target name="deploy" depends="init, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35"/>
 	
@@ -230,4 +190,42 @@
 			<sf:typeset name="homePageLayouts"/>
 		</deploy>
     </target>
+	
+	<!-- Work in Progress -->
+	<target name="retrieveUpdatestamps">
+		<sf:retrieveUpdatestamps
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" fileName="timestamps-target.log">
+			<sf:typeset name="CustomLabels"/>
+			<sf:typeset name="CallCenter"/>
+			<sf:typeset name="StaticResource"/>
+			<sf:typeset name="ApexPage"/>
+			<sf:typeset name="Queue"/>
+			<sf:typeset name="Role"/>
+			<sf:typeset name="Group"/>
+			<sf:typeset name="CustomObject"/>
+			<sf:typeset name="Layout"/>
+			<sf:typeset name="Document"/>
+			<sf:typeset name="CustomTab"/>
+			<sf:typeset name="CustomApplication"/>
+			<sf:typeset name="EmailTemplate"/>
+			<sf:typeset name="Workflow"/>
+			<sf:typeset name="ApexClass"/>
+			<sf:typeset name="ApexTrigger"/>
+			<sf:typeset name="AppMenu"/>
+			<sf:typeset name="Profile"/>
+			<sf:typeset name="PermissionSet"/>
+			<sf:typeset name="CustomSite"/>
+			<sf:typeset name="AccountSharingRules"/>
+			<sf:typeset name="CampaignSharingRules"/>
+			<sf:typeset name="CaseSharingRules"/>
+			<sf:typeset name="CustomObjectSharingRules"/>
+			<sf:typeset name="Settings"/>
+			<sf:typeset name="ApprovalProcess"/>
+			<sf:typeset name="CustomPageWebLink"/>
+			<sf:typeset name="HomePageComponent"/>
+			<sf:typeset name="HomePageLayout"/>
+		</sf:retrieveUpdatestamps>
+	</target>
+
 </project>

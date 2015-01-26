@@ -4,3 +4,4 @@ classes/**
 build.properties
 timestamps.log
 /build
+/updatestamps-target.log

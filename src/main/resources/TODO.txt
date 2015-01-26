@@ -1,5 +1,9 @@
 TODO
 ====
+-PermissionSets errors
+-Layout Assignment
+
+
 -object/Task.object#weblink["Redo_Survey"]
 -reconsider standard objects, e.g. Event
 -limit labels to what is really required
@@ -12,6 +16,8 @@ TODO
 -fix settings/case.settings: defaultCaseUser and defaultCaseOwner
 -default workflow user should be adaptable
 -Re-Deploy apps which are dependant on VF Tabs
+
+
 
 
 DEVELOPMENT

@@ -5,4 +5,5 @@
    <typedef name="include" classname="task.SfdcInclude"/>
    <typedef name="exclude" classname="task.SfdcExclude"/>
    <taskdef name="retrieve" classname="task.SfdcRetrievalTask"/>
+   <taskdef name="retrieveUpdatestamps" classname="task.SfdcRetrieveUpdatestampsTask"/>
 </antlib>
