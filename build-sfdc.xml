@@ -224,6 +224,7 @@
 		<deploy>
 			<sf:typeset name="applications"/>						
 			<sf:typeset name="permissionsets"/>
+			<sf:typeset name="profiles"/>
 		</deploy>
     </target>
 </project>
