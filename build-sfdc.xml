@@ -224,6 +224,10 @@
 		<deploy>
 			<sf:typeset name="applications"/>						
 			<sf:typeset name="permissionsets"/>
+			<sf:typeset name="profiles"/>
+			<sf:typeset name="weblinks"/>
+			<sf:typeset name="homePageComponents"/>
+			<sf:typeset name="homePageLayouts"/>
 		</deploy>
     </target>
 </project>
