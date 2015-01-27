@@ -6,19 +6,24 @@ package deployer;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sforce.soap.metadata.AccountSharingRules;
 import com.sforce.soap.metadata.ApexClass;
 import com.sforce.soap.metadata.ApexComponent;
 import com.sforce.soap.metadata.ApexPage;
 import com.sforce.soap.metadata.ApexTrigger;
+import com.sforce.soap.metadata.AppMenu;
 import com.sforce.soap.metadata.ApprovalProcess;
 import com.sforce.soap.metadata.AssignmentRules;
 import com.sforce.soap.metadata.AutoResponseRules;
 import com.sforce.soap.metadata.CallCenter;
+import com.sforce.soap.metadata.CampaignSharingRules;
+import com.sforce.soap.metadata.CaseSharingRules;
 import com.sforce.soap.metadata.Community;
 import com.sforce.soap.metadata.CustomApplication;
 import com.sforce.soap.metadata.CustomApplicationComponent;
 import com.sforce.soap.metadata.CustomLabels;
 import com.sforce.soap.metadata.CustomObject;
+import com.sforce.soap.metadata.CustomObjectSharingRules;
 import com.sforce.soap.metadata.CustomObjectTranslation;
 import com.sforce.soap.metadata.CustomPageWebLink;
 import com.sforce.soap.metadata.CustomTab;
@@ -83,10 +88,10 @@ public class DeploymentConfiguration
     // sharing rules
     //    duList.add(new DeploymentUnit("CustomObjectSharingRules.CustomObjectOwnerSharingRule"));
     //    duList.add(new DeploymentUnit("CustomObjectSharingRules.CustomObjectCriteriaBasedSharingRule"));
-    //        duList.add(new DeploymentUnit("CustomObjectSharingRules"));
+    duList.add(new DeploymentUnit(CustomObjectSharingRules.class, "customObjectSharingRules", "sharingRules"));
     //    duList.add(new DeploymentUnit("CampaignSharingRules.CampaignCriteriaBasedSharingRule"));
     //    duList.add(new DeploymentUnit("CampaignSharingRules.CampaignOwnerSharingRule"));
-    //        duList.add(new DeploymentUnit("CampaignSharingRules"));
+    duList.add(new DeploymentUnit(CampaignSharingRules.class, "campaignSharingRules", "sharingRules"));
     //    duList.add(new DeploymentUnit("UserSharingRules.UserMembershipSharingRule"));
     //    duList.add(new DeploymentUnit("UserSharingRules.UserCriteriaBasedSharingRule"));
     //        duList.add(new DeploymentUnit("UserSharingRules"));
@@ -95,7 +100,7 @@ public class DeploymentConfiguration
     //        duList.add(new DeploymentUnit("ContactSharingRules"));
     //    duList.add(new DeploymentUnit("CaseSharingRules.CaseOwnerSharingRule"));
     //    duList.add(new DeploymentUnit("CaseSharingRules.CaseCriteriaBasedSharingRule"));
-    //        duList.add(new DeploymentUnit("CaseSharingRules"));
+    duList.add(new DeploymentUnit(CaseSharingRules.class, "caseSharingRules", "sharingRules"));
     //    duList.add(new DeploymentUnit("OpportunitySharingRules.OpportunityOwnerSharingRule"));
     //    duList.add(new DeploymentUnit("OpportunitySharingRules.OpportunityCriteriaBasedSharingRule"));
     //        duList.add(new DeploymentUnit("OpportunitySharingRules"));
@@ -104,7 +109,7 @@ public class DeploymentConfiguration
     //        duList.add(new DeploymentUnit("LeadSharingRules"));
     //    duList.add(new DeploymentUnit("AccountSharingRules.AccountCriteriaBasedSharingRule"));
     //    duList.add(new DeploymentUnit("AccountSharingRules.AccountOwnerSharingRule"));
-    //        duList.add(new DeploymentUnit("AccountSharingRules"));
+    duList.add(new DeploymentUnit(AccountSharingRules.class, "accountSharingRules", "sharingRules"));
 
     //    duList.add(new DeploymentUnit("Workflow.WorkflowRule"));
     //    duList.add(new DeploymentUnit("Workflow.WorkflowAlert"));
@@ -197,7 +202,7 @@ public class DeploymentConfiguration
     
     // -> Documents
     duList.add(new DeploymentUnit(Letterhead.class, "letterhead", "letter"));
-    //    duList.add(new DeploymentUnit("AppMenu", true));
+    duList.add(new DeploymentUnit(AppMenu.class, "appMenus"));
 
     // -> DocumentFolder
     duList.add(new DeploymentUnitFolderWithContent(Document.class, "documents", null));
