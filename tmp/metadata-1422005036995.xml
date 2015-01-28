@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+<types>
+<members>AS_Retail_Campaign</members>
+<members>AS_Yearly_TA</members>
+<members>Complaint_Management</members>
+<members>Dealer_Report</members>
+<members>Delete_Case_Authorization</members>
+<members>Delete_Case_Authorization_V2</members>
+<members>Enable_Knowlege_one</members>
+<members>Info_Center</members>
+<members>Regional_Info_Data_Manager</members>
+<members>Segmentation_execution_Retail_Lead</members>
+<members>S_M_Retail_Campaign</members>
+<members>S_M_Yearly_TA</members>
+<name>PermissionSet</name>
+</types>
+<version>32.0</version>
+</Package>
