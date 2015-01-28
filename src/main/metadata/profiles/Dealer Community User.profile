@@ -10844,6 +10844,9 @@
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account</object>
@@ -10853,6 +10856,9 @@
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Contact</object>
@@ -11002,7 +11008,6 @@
         <apexPage>EPA_Transaction_Costs</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
-
     <pageAccesses>
         <apexPage>GenericUploader</apexPage>
         <enabled>true</enabled>
@@ -11134,10 +11139,6 @@
     <pageAccesses>
         <apexPage>Yearly_TA_Report</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>labs_survey_css</apexPage>
-        <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
         <default>false</default>
@@ -11617,7 +11618,7 @@
         <enabled>true</enabled>
         <name>IPRestrictRequests</name>
     </userPermissions>
-	<userPermissions>
+    <userPermissions>
         <enabled>true</enabled>
         <name>RunReports</name>
     </userPermissions>

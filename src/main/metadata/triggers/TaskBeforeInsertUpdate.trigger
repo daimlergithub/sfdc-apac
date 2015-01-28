@@ -138,7 +138,7 @@ trigger TaskBeforeInsertUpdate on Task (before update, before insert){
             if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed') 
 			*/
 			
-			if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed') 
+			if (t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed') 
 			{
                 t.SentTime__c = DateTime.now();
             }

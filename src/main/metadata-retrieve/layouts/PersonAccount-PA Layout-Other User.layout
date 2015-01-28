@@ -5,6 +5,7 @@
     <customButtons>DM</customButtons>
     <customButtons>MMS</customButtons>
     <customButtons>Merge</customButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -518,7 +519,15 @@
         <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
         <label>Whole activities</label>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <height>200</height>
+                <page>ViewTask</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
     <miniLayout>
@@ -531,15 +540,6 @@
     </miniLayout>
     <relatedLists>
         <relatedList>RelatedAccountContactRoleList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>Campaign__c</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>CREATEDBY_USER</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>LAST_UPDATE</fields>
-        <relatedList>Campaign_Survey_Result__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -705,7 +705,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h9000000Nlh1p</masterLabel>
+        <masterLabel>00h9000000UpMLv</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>2</sizeY>
         <summaryLayoutItems>

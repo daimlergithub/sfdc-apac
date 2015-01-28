@@ -18,6 +18,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 
+import task.handler.UpdateStampHandler.Action;
 import deployer.DeploymentUnit;
 
 /**
@@ -28,28 +29,34 @@ import deployer.DeploymentUnit;
 public class UpdateStampHandler
 {
 
-  private static final String FILENAME_TIMESTAMPS = "timestamps.log";
+  public enum Action {
+    ADD, CHANGE, DELETE;
+  }
+  
+  public static final String DEFAULT_FILENAME = "timestamps.log";
   
   private Map<String, Long> updateStamps;
   private String username;
   private LogWrapper logWrapper;
+  private String fileName;
 
   public void validate()
   {
-    if (null == updateStamps || null == username || null == logWrapper) {
+    if (null == updateStamps || null == username || null == logWrapper || null == fileName) {
       throw new BuildException("UpdateStampHandler not properly initialized.");
     }
   }
   
-  public void initializeUpdateStamps(LogWrapper logWrapper, String username)
+  public void initializeUpdateStamps(LogWrapper logWrapper, String username, String fileName)
   {
     this.username = username;
     this.logWrapper = logWrapper;
+    this.fileName = fileName;
     
     updateStamps = new HashMap<>();
 
     try {
-      FileReader fr = new FileReader(FILENAME_TIMESTAMPS);
+      FileReader fr = new FileReader(fileName);
       BufferedReader br = new BufferedReader(fr);
 
       String line = null;
@@ -98,10 +105,10 @@ public class UpdateStampHandler
         updateTimestamp(info.getDeploymentUnit(), file);
       }
     }
-    writeUpdateStampes(FILENAME_TIMESTAMPS, updateStamps);
+    writeUpdateStampes(updateStamps);
   }
   
-  public void writeUpdateStampes(String fileName, Map<String, Long> updateStampsToSave)
+  public void writeUpdateStampes(Map<String, Long> updateStampsToSave)
   {
     try {
       FileWriter fw = new FileWriter(fileName);
@@ -133,6 +140,12 @@ public class UpdateStampHandler
     String key = getKey(du, file);
 
     updateStamps.put(key, lastModified);
+  }
+
+  public Map<String, Action> calculateDifferences(Map<String, Long> metadataUpdatestamps)
+  {
+    // TODO Auto-generated method stub
+    return null;
   }
 }
 
