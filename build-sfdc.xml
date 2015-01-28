@@ -20,16 +20,6 @@
 		<mkdir dir="tmp"/>
 	</target>
 	
-	<target name="retrieve">
-		<sf:retrieve
-				debug="${sfdc.debug}" dryRun="false"
-				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" retrieveRoot="src/main/metadata-retrieve" timestamps="deployed-timestamps.log">
-			<sf:typesets names="${typesets}"/>
-		</sf:retrieve>
-	</target>
-	
-	
 	<target name="deploy" depends="init, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35">
 		<!-- TODO consider only deployed entities -->
 		<sf:retrieveUpdatestamps
@@ -177,6 +167,32 @@
 			<sf:typeset name="homePageLayouts"/>
 		</deploy>
     </target>
+
+	<!-- work in progress -->
+	<target name="retrieveAll">
+		<!-- retrieves all metadata -->
+		<delete includeemptydirs="true">
+			<fileset dir="src/main/metadata-retrieve" includes="**/*"/>
+		</delete>
+		
+		<sf:retrieve
+				debug="${sfdc.debug}" dryRun="false" full="true"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" retrieveRoot="src/main/metadata-retrieve" timestamps="deployed-timestamps.log">
+			<sf:typesets names="${typesets}"/>
+		</sf:retrieve>
+	</target>
+
+	<!-- work in progress -->
+	<target name="retrieve">
+		<!-- retrieves only changed metadata -->
+		<sf:retrieve
+				debug="${sfdc.debug}" dryRun="false"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" retrieveRoot="src/main/metadata-retrieve" timestamps="deployed-timestamps.log">
+			<sf:typesets names="${typesets}"/>
+		</sf:retrieve>
+	</target>
 	
 	<!-- Work in Progress -->
 	<target name="retrieveUpdatestamps">

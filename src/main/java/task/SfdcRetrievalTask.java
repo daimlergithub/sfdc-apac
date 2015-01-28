@@ -1,6 +1,7 @@
 package task;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -37,6 +38,7 @@ public class SfdcRetrievalTask
   private boolean dryRun;
   private Set<String> objects;
   private String timestamps;
+  private boolean full;
 
   private UpdateStampHandler updateStampHandler;
   private SfdcHandler sfdcHandler;
@@ -107,6 +109,11 @@ public class SfdcRetrievalTask
     this.timestamps = timestamps;
   }
 
+  public void setFull(boolean full)
+  {
+    this.full = full;
+  }
+
   public void addConfigured(SfdcTypeSets typeSets)
   {
     String names = typeSets.getNames();
@@ -129,28 +136,24 @@ public class SfdcRetrievalTask
     initialize();
     validate();
 
-    // TODO consider timestamps
-    Map<String, Long> metadataUpdatestamps = sfdcHandler.getUpdateStamps(objects);
-    Map<String, UpdateStampHandler.Action> differences = updateStampHandler.calculateDifferences(metadataUpdatestamps);
+    Map<String, List<String>> metadata2Update = null;
+    if (full) {
+      metadata2Update = sfdcHandler.extractMetadata(objects);
+    } else {
+      Map<String, Long> metadataUpdatestamps = sfdcHandler.getUpdateStamps(objects);
+      Map<String, UpdateStampHandler.Action> differences = updateStampHandler.calculateDifferences(metadataUpdatestamps);
+  
+      metadata2Update = metadataHandler.collectMetadataToUpdate(differences);
+      metadataHandler.removeMetadataToDelete(differences);
+    }
     
-    
-    Map<String, List<String>> metadata = sfdcHandler.extractMetadata(objects);
-    byte[] packageXml = metadataHandler.createPackageXml(metadata);
+    byte[] packageXml = metadataHandler.createPackageXml(metadata2Update);
     metadataHandler.savePackageXml(packageXml);
-    ByteArrayOutputStream zipFile = sfdcHandler.retrieveMetadata(metadata);
+    ByteArrayOutputStream zipFile = sfdcHandler.retrieveMetadata(metadata2Update);
     zipFileHandler.saveZipFile("retrieve", zipFile);
     zipFileHandler.extractZipFile(retrieveRoot, zipFile);
     
-//    List<DeploymentInfo> deploymentInfos = metadataHandler.compileDeploymentInfos(typeSets);
-//
-//    if (deploymentInfos.isEmpty()) {
-//      log(String.format("Nothing to deploy."));
-//    }
-//    else {
-//      ByteArrayOutputStream zipFile = zipFileHandler.prepareZipFile(deploymentInfos);
-//      zipFileHandler.saveZipFile(zipFile);
-//      sfdcHandler.deployTypes(zipFile, deploymentInfos);
-//    }
+    // TODO think about saving the timestamps
   }
 
   private void initialize()
@@ -177,6 +180,9 @@ public class SfdcRetrievalTask
     }
     if (null == timestamps) {
       throw new BuildException("The property timestamps must be specified.");
+    }
+    if (!new File(timestamps).exists()) {
+      throw new BuildException(String.format("The file %s does not exist. Please deploy first.", timestamps));
     }
   }
   

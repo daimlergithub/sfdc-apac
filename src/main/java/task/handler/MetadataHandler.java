@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
@@ -20,11 +21,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.types.LogLevel;
 
-import com.sforce.soap.metadata.Package;
-
 import task.SfdcExclude;
 import task.SfdcInclude;
 import task.SfdcTypeSet;
+import task.handler.UpdateStampHandler.Action;
 import deployer.DeploymentConfiguration;
 import deployer.DeploymentUnit;
 
@@ -80,7 +80,6 @@ public class MetadataHandler
   private DeploymentUnit findDeploymentUnit(List<DeploymentUnit> duList, SfdcTypeSet typeSet)
   {
     for (DeploymentUnit du : duList) {
-      // if (typeSet.getName().equals(du.getSubDir()) && ((!typeSet.isFolder() && !Folder.class.isAssignableFrom(du.getType())) || (typeSet.isFolder() && Folder.class.isAssignableFrom(du.getType())))) {
       if (typeSet.getName().equals(du.getSubDir())) {
         logWrapper.log(String.format("Found deployment information for type %s.", typeSet.getName()));
         return du;
@@ -88,6 +87,17 @@ public class MetadataHandler
     }
 
     throw new BuildException(String.format("Could not find deployment unit for fileset %s.", typeSet.getName()));
+  }
+  
+  private DeploymentUnit findDeploymentUnitByName(List<DeploymentUnit> duList, String objectName)
+  {
+    for (DeploymentUnit du : duList) {
+      if (objectName.equals(du.getType().getSimpleName())) {
+        return du;
+      }
+    }
+
+    throw new BuildException(String.format("Could not find deployment unit for object name %s.", objectName));
   }
 
   private List<File> compileFileList(DeploymentUnit du, SfdcTypeSet typeSet)
@@ -267,5 +277,77 @@ public class MetadataHandler
     //baos.write("<fullName>cleanup</fullName>".getBytes("UTF-8"));
   }
 
+  public Map<String, List<String>> collectMetadataToUpdate(Map<String, Action> differences)
+  {
+    Map<String, List<String>> metadata = new HashMap<>();
+    
+    for (Map.Entry<String, UpdateStampHandler.Action> entry : differences.entrySet()) {
+      switch (entry.getValue()) {
+        case ADD:
+        case CHANGE:
+          String key = entry.getKey();
+          String entity = StringUtils.substringBefore(key, "/");
+          List<String> entities = metadata.get(entity);
+          if (null == entities) {
+            entities = new ArrayList<>();
+            metadata.put(entity, entities);
+          }
+          entities.add(StringUtils.substringAfter(key, "/"));
+          break;
+        default:
+          //nothing do to
+      }
+    }
+
+    return metadata;
+  }
+
+  public void removeMetadataToDelete(Map<String, Action> differences)
+  {
+    Map<String, List<String>> metadata = new HashMap<>();
+    
+    for (Map.Entry<String, UpdateStampHandler.Action> entry : differences.entrySet()) {
+      switch (entry.getValue()) {
+        case DELETE:
+          String key = entry.getKey();
+          String entity = StringUtils.substringBefore(key, "/");
+          List<String> entities = metadata.get(entity);
+          if (null == entities) {
+            entities = new ArrayList<>();
+            metadata.put(entity, entities);
+          }
+          entities.add(StringUtils.substringAfter(key, "/"));
+          break;
+        default:
+          //nothing do to
+      }
+    }
+
+    List<DeploymentUnit> configurations = new DeploymentConfiguration().getConfigurations();
+    
+    for (Map.Entry<String, List<String>> entry : metadata.entrySet()) {
+      String key = entry.getKey();
+      Set<String> entities = new HashSet<>(entry.getValue());
+      
+      DeploymentUnit du = findDeploymentUnitByName(configurations, key);
+      
+      File baseDir = new File(metadataRoot);
+      
+      List<File> files = du.getFiles(baseDir);
+      
+      Collections.reverse(files);
+      
+      for (File file : files) {
+        String entityName = du.getEntityName(file);
+        if (entities.contains(entityName)) {
+          logWrapper.log(String.format("Delete file %s for entity %s.", file.getName(), entityName));
+          if (!file.delete()) {
+            throw new BuildException(String.format("File %s of type %s could not be deleted.", file.getName(), key));
+          }
+        }
+      }
+    }
+    
+  }
   
 }

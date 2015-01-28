@@ -12,13 +12,14 @@ import java.io.IOException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 
-import task.handler.UpdateStampHandler.Action;
 import deployer.DeploymentUnit;
 
 /**
@@ -30,7 +31,7 @@ public class UpdateStampHandler
 {
 
   public enum Action {
-    ADD, CHANGE, DELETE;
+    ADD, CHANGE, SAME, DELETE;
   }
   
   public static final String DEFAULT_FILENAME = "timestamps.log";
@@ -144,8 +145,30 @@ public class UpdateStampHandler
 
   public Map<String, Action> calculateDifferences(Map<String, Long> metadataUpdatestamps)
   {
-    // TODO Auto-generated method stub
-    return null;
+    Map<String, Action> result = new HashMap<>();
+    
+    // work on copies
+    Set<String> lastKeys = new HashSet<>(updateStamps.keySet());
+    Set<String> currentKeys = new HashSet<>(metadataUpdatestamps.keySet());
+    
+    for (String currentKey : currentKeys) {
+      if (lastKeys.remove(currentKey)) {
+        // check for update
+        if (0 == Long.compare(metadataUpdatestamps.get(currentKey), updateStamps.get(currentKey))) {
+          result.put(currentKey, Action.SAME);
+        } else {
+          result.put(currentKey, Action.CHANGE);
+        }
+      } else {
+        // new
+        result.put(currentKey, Action.ADD);
+      }
+    }
+    for (String lastKey : lastKeys) {
+      result.put(lastKey, Action.DELETE);
+    }
+    
+    return result;
   }
 }
 

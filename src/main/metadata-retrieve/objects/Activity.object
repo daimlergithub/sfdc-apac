@@ -2823,8 +2823,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <language>en_US</language>
     </listViews>
     <searchLayouts>
-        <excludedStandardButtons>NewEvent</excludedStandardButtons>
         <excludedStandardButtons>NewTask</excludedStandardButtons>
+        <excludedStandardButtons>NewEvent</excludedStandardButtons>
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>
