@@ -25,14 +25,6 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>Requirement_Planning</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>Test_app</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>BMBS_CRM</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -48,14 +40,12 @@
         <name>BMBS_Marketing</name>
         <type>CustomApplication</type>
     </appMenuItems>
-    <appMenuItems>
-        <name>Survey_Force</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
+	<!-- TODO Check with Falk/Oliver whether EasyDescribe__EasyDescribe will be installed as part of Kernel
     <appMenuItems>
         <name>EasyDescribe__EasyDescribe</name>
         <type>CustomApplication</type>
     </appMenuItems>
+	-->
     <appMenuItems>
         <name>standard__Content</name>
         <type>CustomApplication</type>
@@ -70,10 +60,6 @@
     </appMenuItems>
     <appMenuItems>
         <name>EPA_Administration</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>Administration</name>
         <type>CustomApplication</type>
     </appMenuItems>
 </AppMenu>
