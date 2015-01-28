@@ -61,8 +61,7 @@
     </target>
 	
 	<target name="deploy05">
-		<deploy>
-			<sf:typeset name="settings"/>
+		<deploy>			
 			<sf:typeset name="documents"/>
 			<sf:typeset name="callCenters"/>
 		</deploy>
@@ -142,6 +141,7 @@
 	
 	<target name="deploy21">
 		<deploy>
+			<sf:typeset name="settings"/>
 			<sf:typeset name="tabs">
 				<sf:exclude name="EPA_.*"/>
 				<sf:exclude name="Tasks"/>
