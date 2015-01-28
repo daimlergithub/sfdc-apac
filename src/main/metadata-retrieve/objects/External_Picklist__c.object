@@ -76,14 +76,6 @@
         <label>External System</label>
         <picklist>
             <picklistValues>
-                <fullName>GSSN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ICRM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>EDM</fullName>
                 <default>false</default>
             </picklistValues>
@@ -100,8 +92,12 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>CRIS</fullName>
+                <fullName>GSSN</fullName>
                 <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CRIS</fullName>
+                <default>true</default>
             </picklistValues>
             <picklistValues>
                 <fullName>TELEM</fullName>

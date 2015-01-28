@@ -312,6 +312,8 @@ public class SfdcHandler
                 queries.add(query);
               }
 
+              logWrapper.log(String.format("List: %s", StringUtils.join(chunk, ",")));
+              
               FileProperties[] metadata =
                   mConnection.listMetadata(queries.toArray(new ListMetadataQuery[queries.size()]), VERSION);
               for (FileProperties props : metadata) {
@@ -349,12 +351,18 @@ public class SfdcHandler
                 throws ConnectionException
               {
                 List<ListMetadataQuery> queries = new ArrayList<>();
+                List<String> elements = new ArrayList<>();
                 for (FileProperties fileProperties : chunk) {
                   ListMetadataQuery query = new ListMetadataQuery();
                   query.setType(name);
                   query.setFolder(fileProperties.getFullName());
                   queries.add(query);
+                  
+                  elements.add(fileProperties.getFullName());
                 }
+                
+                logWrapper.log(String.format("List: %s.[%s]", name, StringUtils.join(elements, ",")));
+                
                 result.addAll(Arrays.asList(mConnection.listMetadata(queries.toArray(new ListMetadataQuery[queries.size()]),
                                                                      VERSION)));
 
@@ -373,6 +381,9 @@ public class SfdcHandler
         // regular metadata category
         ListMetadataQuery query = new ListMetadataQuery();
         query.setType(name);
+        
+        logWrapper.log(String.format("List: %s", name));
+        
         filePropertiesMap.put(name, Arrays.asList(mConnection.listMetadata(new ListMetadataQuery[]{ query }, VERSION)));
       }
     }
@@ -477,7 +488,7 @@ public class SfdcHandler
 
         for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
           for (FileProperties properties : entry.getValue()) {
-            logWrapper.log(properties.toString());
+            // TODO logWrapper.log(properties.toString());
             
             result.put(String.format("%s/%s", entry.getKey(), properties.getFullName()), properties.getLastModifiedDate().getTimeInMillis());
           }
