@@ -1,2 +1,0 @@
-\tools\jdk1.8.0_25\bin\java.exe -classpath lib\force-wsc-33.0.0-uber.jar com.sforce.ws.tools.wsdlc src\main\wsdl\metadata-api.wsdl lib\metadata-api.jar
-\tools\jdk1.8.0_25\bin\java.exe -classpath lib\force-wsc-33.0.0-uber.jar com.sforce.ws.tools.wsdlc src\main\wsdl\enterprise-api.wsdl lib\enterprise-api.jar

@@ -1,7 +1,8 @@
 .settings
-tmp
-classes/**
 build.properties
 timestamps.log
+updatestamps-target.log
+deployed-timestamps.log
 /build
-/updatestamps-target.log
+/tmp
+/classes
