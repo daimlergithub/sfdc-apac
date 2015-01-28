@@ -1360,7 +1360,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_smart_Sub_Region__c</field>
         <readable>true</readable>
@@ -4441,7 +4440,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Collaboration_Team__c.Access_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5071,7 +5070,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>EP_Log_Interface__c.Confirmed__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5297,36 +5296,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>External_Key__c.CIAM_Customer_Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>External_Key__c.CIAM_Customer_email__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>External_Key__c.Created_By_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>External_Key__c.Customer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>External_Key__c.Updated_By_EP_Transactions__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>External_Key__c.Vehicle__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>External_Picklist__c.External_Key__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5346,7 +5315,7 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Integration_Picklist__c.Integration_Only__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6343,11 +6312,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Participating_Dealer__c.Session_Start_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Picklist_Mapping__c.External_Key__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9157,11 +9121,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.IsVisibleInSelfService</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Task.Last_OB_Call__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -10844,6 +10803,7 @@
     <layoutAssignments>
         <layout>Tool_Kit__c-Tool Kit Layout</layout>
     </layoutAssignments>
+	<layoutAssignments>
         <layout>User-User Master Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10881,18 +10841,18 @@
         <startAddress>0.0.0.0</startAddress>
     </loginIpRanges>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Contact</object>
@@ -11302,7 +11262,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>ContentVersion.RecordType</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -11319,21 +11279,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>ContentVersion.RecordType3</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Idea.InternalIdeasIdeaRecordType</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Lead.Aftersales_Lead</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Lead.Sales_Lead</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -11355,16 +11300,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Model_Mapping__c.Tool_Kit</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Order.MBDA_Order</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -11682,11 +11617,7 @@
         <enabled>true</enabled>
         <name>IPRestrictRequests</name>
     </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>IsSsoEnabled</name>
-    </userPermissions>
-    <userPermissions>
+	<userPermissions>
         <enabled>true</enabled>
         <name>RunReports</name>
     </userPermissions>
