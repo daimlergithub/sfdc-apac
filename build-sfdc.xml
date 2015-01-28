@@ -182,12 +182,16 @@
 	
 	<target name="deploy35">
 		<deploy>
-			<sf:typeset name="applications"/>						
+			<sf:typeset name="applications"/>
 			<sf:typeset name="permissionsets"/>
 			<sf:typeset name="profiles"/>
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>
+			<sf:typeset name="accountSharingRules"/>
+			<sf:typeset name="campaignSharingRules"/>
+			<sf:typeset name="caseSharingRules"/>
+			<sf:typeset name="customObjectSharingRules"/>
 		</deploy>
     </target>
 	
