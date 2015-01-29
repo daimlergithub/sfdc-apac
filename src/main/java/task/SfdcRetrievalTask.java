@@ -1,6 +1,7 @@
 package task;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -35,7 +36,9 @@ public class SfdcRetrievalTask
   private String retrieveRoot;
   private boolean debug;
   private boolean dryRun;
-  private Set<String> typeSets;
+  private Set<String> objects;
+  private String timestamps;
+  private boolean full;
 
   private UpdateStampHandler updateStampHandler;
   private SfdcHandler sfdcHandler;
@@ -44,7 +47,7 @@ public class SfdcRetrievalTask
 
   public SfdcRetrievalTask()
   {
-    typeSets = new HashSet<String>();
+    objects = new HashSet<String>();
     updateStampHandler = new UpdateStampHandler();
     sfdcHandler = new SfdcHandler();
     metadataHandler = new MetadataHandler();
@@ -101,13 +104,31 @@ public class SfdcRetrievalTask
     this.dryRun = dryRun;
   }
 
-  public void addConfigured(SfdcTypeSet typeSet)
+  public void setTimestamps(String timestamps)
   {
-    String name = typeSet.getName();
-    if (StringUtils.isEmpty(name)) {
-      throw new BuildException("The name of the type set must be set.");
+    this.timestamps = timestamps;
+  }
+
+  public void setFull(boolean full)
+  {
+    this.full = full;
+  }
+
+  public void addConfigured(SfdcTypeSets typeSets)
+  {
+    String names = typeSets.getNames();
+    
+    if (StringUtils.isNotEmpty(names)) {
+      String[] tokens = names.split(",");
+      for (String token : tokens) {
+        String trimmed = StringUtils.trimToEmpty(token);
+        if (StringUtils.isNotEmpty(trimmed)) {
+          objects.add(trimmed);
+        }
+      }
+    } else {
+      throw new BuildException("The names of type sets must be set.");
     }
-    typeSets.add(name);
   }
 
   public void execute()
@@ -115,32 +136,31 @@ public class SfdcRetrievalTask
     initialize();
     validate();
 
-    // TODO consider timestamps
+    Map<String, List<String>> metadata2Update = null;
+    if (full) {
+      metadata2Update = sfdcHandler.extractMetadata(objects);
+    } else {
+      Map<String, Long> metadataUpdatestamps = sfdcHandler.getUpdateStamps(objects);
+      Map<String, UpdateStampHandler.Action> differences = updateStampHandler.calculateDifferences(metadataUpdatestamps);
+  
+      metadata2Update = metadataHandler.collectMetadataToUpdate(differences);
+      metadataHandler.removeMetadataToDelete(differences);
+    }
     
-    Map<String, List<String>> metadata = sfdcHandler.extractMetadata(typeSets);
-    byte[] packageXml = metadataHandler.createPackageXml(metadata);
+    byte[] packageXml = metadataHandler.createPackageXml(metadata2Update);
     metadataHandler.savePackageXml(packageXml);
-    ByteArrayOutputStream zipFile = sfdcHandler.retrieveMetadata(metadata);
+    ByteArrayOutputStream zipFile = sfdcHandler.retrieveMetadata(metadata2Update);
     zipFileHandler.saveZipFile("retrieve", zipFile);
     zipFileHandler.extractZipFile(retrieveRoot, zipFile);
     
-//    List<DeploymentInfo> deploymentInfos = metadataHandler.compileDeploymentInfos(typeSets);
-//
-//    if (deploymentInfos.isEmpty()) {
-//      log(String.format("Nothing to deploy."));
-//    }
-//    else {
-//      ByteArrayOutputStream zipFile = zipFileHandler.prepareZipFile(deploymentInfos);
-//      zipFileHandler.saveZipFile(zipFile);
-//      sfdcHandler.deployTypes(zipFile, deploymentInfos);
-//    }
+    // TODO think about saving the timestamps
   }
 
   private void initialize()
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initializeUpdateStamps(logWrapper, username);
+    updateStampHandler.initializeUpdateStamps(logWrapper, username, timestamps);
     
     sfdcHandler.initialize(logWrapper, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
     metadataHandler.initialize(logWrapper, retrieveRoot, debug, updateStampHandler);
@@ -157,6 +177,12 @@ public class SfdcRetrievalTask
     // TODO validate settings
     if (null == retrieveRoot) {
       throw new BuildException("The property retrieveRoot must be specified.");
+    }
+    if (null == timestamps) {
+      throw new BuildException("The property timestamps must be specified.");
+    }
+    if (!new File(timestamps).exists()) {
+      throw new BuildException(String.format("The file %s does not exist. Please deploy first.", timestamps));
     }
   }
   

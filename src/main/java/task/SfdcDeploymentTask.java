@@ -125,7 +125,7 @@ public class SfdcDeploymentTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initializeUpdateStamps(logWrapper, username);
+    updateStampHandler.initializeUpdateStamps(logWrapper, username, UpdateStampHandler.DEFAULT_FILENAME);
     
     sfdcHandler.initialize(logWrapper, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
     zipFileHandler.initialize(logWrapper, debug);

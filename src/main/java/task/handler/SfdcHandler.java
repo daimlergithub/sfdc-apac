@@ -221,10 +221,13 @@ public class SfdcHandler
     return new MetadataConnection(mConfig);
   }
 
+  // TODO seems similar to #getUpdateStamps
   public Map<String, List<String>> extractMetadata(Set<String> objects)
   {
     Map<String, List<String>> result = new HashMap<>();
 
+    logWrapper.log("Collect available metadata.");
+    
     try {
       SfdcConnectionContext context = login();
 
@@ -235,7 +238,7 @@ public class SfdcHandler
           continue;
         }
 
-        logWrapper.log(String.format("Type: %s", object.getXmlName()));
+        // TODO logWrapper.log(String.format("Type: %s", object.getXmlName()));
 
         Map<String, List<FileProperties>> filePropertiesMap = listMetadata(context.getMConnection(), object);
 
@@ -296,7 +299,7 @@ public class SfdcHandler
     Map<String, List<FileProperties>> filePropertiesMap = new HashMap<>();
     if (0 < object.getChildXmlNames().length && !noChildHandling.contains(name)) {
 
-      logWrapper.log(String.format("Children: %s", StringUtils.join(object.getChildXmlNames(), ", ")));
+      // TODO logWrapper.log(String.format("Children: %s", StringUtils.join(object.getChildXmlNames(), ", ")));
 
       ChunkedExecutor<String, Map<String, List<FileProperties>>, ConnectionException> childCE =
           new ChunkedExecutor<String, Map<String, List<FileProperties>>, ConnectionException>() {
@@ -311,6 +314,8 @@ public class SfdcHandler
                 query.setType(child);
                 queries.add(query);
               }
+
+              // TODO logWrapper.log(String.format("List: %s", StringUtils.join(chunk, ",")));
 
               FileProperties[] metadata =
                   mConnection.listMetadata(queries.toArray(new ListMetadataQuery[queries.size()]), VERSION);
@@ -349,12 +354,17 @@ public class SfdcHandler
                 throws ConnectionException
               {
                 List<ListMetadataQuery> queries = new ArrayList<>();
+                List<String> elements = new ArrayList<>();
                 for (FileProperties fileProperties : chunk) {
                   ListMetadataQuery query = new ListMetadataQuery();
                   query.setType(name);
                   query.setFolder(fileProperties.getFullName());
                   queries.add(query);
+                  elements.add(fileProperties.getFullName());
                 }
+                
+                // TODO logWrapper.log(String.format("List: %s.[%s]", name, StringUtils.join(elements, ",")));
+                
                 result.addAll(Arrays.asList(mConnection.listMetadata(queries.toArray(new ListMetadataQuery[queries.size()]),
                                                                      VERSION)));
 
@@ -373,6 +383,9 @@ public class SfdcHandler
         // regular metadata category
         ListMetadataQuery query = new ListMetadataQuery();
         query.setType(name);
+        
+        // TODO logWrapper.log(String.format("List: %s", name));
+        
         filePropertiesMap.put(name, Arrays.asList(mConnection.listMetadata(new ListMetadataQuery[]{ query }, VERSION)));
       }
     }
@@ -457,10 +470,13 @@ public class SfdcHandler
     }
   }
 
+  // TODO seems similar to #extractMetadata
   public Map<String, Long> getUpdateStamps(Set<String> objects)
   {
     Map<String, Long> result = new HashMap<>();
 
+    logWrapper.log("Get update stamps.");
+    
     try {
       SfdcConnectionContext context = login();
 
@@ -471,7 +487,7 @@ public class SfdcHandler
           continue;
         }
 
-        logWrapper.log(String.format("Type: %s", object.getXmlName()));
+        // TODO logWrapper.log(String.format("Type: %s", object.getXmlName()));
 
         Map<String, List<FileProperties>> filePropertiesMap = listMetadata(context.getMConnection(), object);
 

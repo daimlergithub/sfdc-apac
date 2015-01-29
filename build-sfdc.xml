@@ -2,61 +2,38 @@
 
     <property prefix="sfdc" file="build.properties"/>
 	
+	<property name="typesets">
+		CustomLabels,CallCenter,StaticResource,ApexPage,Queue,Role,Group,CustomObject,Layout,Document,CustomTab,
+		CustomApplication,EmailTemplate,Workflow,ApexClass,ApexTrigger,AppMenu,Profile,PermissionSet,CustomSite,
+		AccountSharingRules,CampaignSharingRules,CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
+		CustomPageWebLink,HomePageComponent,HomePageLayout,RemoteSiteSetting
+	</property>
+	
 	<presetdef name="deploy">
 		<sf:deploy
-			debug="${sfdc.debug}" dryRun="false"
-			username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-			useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
+				debug="${sfdc.debug}" dryRun="false"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
 	</presetdef>
 	
 	<target name="init">
 		<mkdir dir="tmp"/>
 	</target>
 	
-	<target name="retrieve">
-		<sf:retrieve
-				debug="${sfdc.debug}" dryRun="false"
-				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" retrieveRoot="src/main/metadata-retrieve">
-			<sf:typeset name="CustomLabels"/>
-			<sf:typeset name="CallCenter"/>
-			<sf:typeset name="StaticResource"/>
-			<sf:typeset name="ApexPage"/>
-			<sf:typeset name="Queue"/>
-			<sf:typeset name="Role"/>
-			<sf:typeset name="Group"/>
-			<sf:typeset name="CustomObject"/>
-			<sf:typeset name="Layout"/>
-			<sf:typeset name="Document"/>
-			<sf:typeset name="CustomTab"/>
-			<sf:typeset name="CustomApplication"/>
-			<sf:typeset name="EmailTemplate"/>
-			<sf:typeset name="Workflow"/>
-			<sf:typeset name="ApexClass"/>
-			<sf:typeset name="ApexTrigger"/>
-			<sf:typeset name="AppMenu"/>
-			<sf:typeset name="Profile"/>
-			<sf:typeset name="PermissionSet"/>
-			<sf:typeset name="CustomSite"/>
-			<sf:typeset name="AccountSharingRules"/>
-			<sf:typeset name="CampaignSharingRules"/>
-			<sf:typeset name="CaseSharingRules"/>
-			<sf:typeset name="CustomObjectSharingRules"/>
-			<sf:typeset name="Settings"/>
-			<sf:typeset name="ApprovalProcess"/>
-			<sf:typeset name="CustomPageWebLink"/>
-			<sf:typeset name="HomePageComponent"/>
-			<sf:typeset name="HomePageLayout"/>
-		</sf:retrieve>
+	<target name="deploy" depends="init, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35">
+		<!-- TODO consider only deployed entities -->
+		<sf:retrieveUpdatestamps
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" timestamps="deployed-timestamps.log">
+			<sf:typesets names="${typesets}"/>
+		</sf:retrieveUpdatestamps>
 	</target>
-	
-	
-	<target name="deploy" depends="init, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35"/>
 	
 	<target name="deploy01">
 		<deploy>
 			<sf:typeset name="labels"/>
 			<sf:typeset name="staticresources"/>
+			<sf:typeset name="remoteSiteSettings"/>
 		</deploy>
     </target>
 	
@@ -190,42 +167,50 @@
 			<sf:typeset name="homePageLayouts"/>
 		</deploy>
     </target>
+
+	<!-- work in progress -->
+	<target name="retrieveAll">
+		<!-- retrieves all metadata -->
+		<delete includeemptydirs="true">
+			<fileset dir="src/main/metadata-retrieve" includes="**/*"/>
+		</delete>
+		
+		<sf:retrieve
+				debug="${sfdc.debug}" dryRun="false" full="true"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" retrieveRoot="src/main/metadata-retrieve" timestamps="deployed-timestamps.log">
+			<sf:typesets names="${typesets}"/>
+		</sf:retrieve>
+	</target>
+
+	<!-- work in progress -->
+	<target name="retrieve">
+		<!-- retrieves only changed metadata -->
+		<sf:retrieve
+				debug="${sfdc.debug}" dryRun="false"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" retrieveRoot="src/main/metadata-retrieve" timestamps="deployed-timestamps.log">
+			<sf:typesets names="${typesets}"/>
+		</sf:retrieve>
+	</target>
 	
 	<!-- Work in Progress -->
 	<target name="retrieveUpdatestamps">
 		<sf:retrieveUpdatestamps
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" fileName="timestamps-target.log">
-			<sf:typeset name="CustomLabels"/>
-			<sf:typeset name="CallCenter"/>
-			<sf:typeset name="StaticResource"/>
-			<sf:typeset name="ApexPage"/>
-			<sf:typeset name="Queue"/>
-			<sf:typeset name="Role"/>
-			<sf:typeset name="Group"/>
-			<sf:typeset name="CustomObject"/>
-			<sf:typeset name="Layout"/>
-			<sf:typeset name="Document"/>
-			<sf:typeset name="CustomTab"/>
-			<sf:typeset name="CustomApplication"/>
-			<sf:typeset name="EmailTemplate"/>
-			<sf:typeset name="Workflow"/>
-			<sf:typeset name="ApexClass"/>
-			<sf:typeset name="ApexTrigger"/>
-			<sf:typeset name="AppMenu"/>
-			<sf:typeset name="Profile"/>
-			<sf:typeset name="PermissionSet"/>
-			<sf:typeset name="CustomSite"/>
-			<sf:typeset name="AccountSharingRules"/>
-			<sf:typeset name="CampaignSharingRules"/>
-			<sf:typeset name="CaseSharingRules"/>
-			<sf:typeset name="CustomObjectSharingRules"/>
-			<sf:typeset name="Settings"/>
-			<sf:typeset name="ApprovalProcess"/>
-			<sf:typeset name="CustomPageWebLink"/>
-			<sf:typeset name="HomePageComponent"/>
-			<sf:typeset name="HomePageLayout"/>
+			<sf:typesets names="${typesets}"/>
 		</sf:retrieveUpdatestamps>
 	</target>
 
+
+	<!-- Work in Progress -->
+	<target name="refreshUpdatestamps">
+		<sf:triggerUpdatestampsRefresh
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" fileName="timestamps-target-sfdc.log">
+			<sf:typesets names="${typesets}"/>
+		</sf:triggerUpdatestampsRefresh>
+	</target>
+	
 </project>

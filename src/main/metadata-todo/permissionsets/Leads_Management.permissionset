@@ -89,10 +89,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AccountSharingDataBatchHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -138,6 +134,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BatchCalcAmountOfAssignedLeads</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BatchCreateDealerOBEmails</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>

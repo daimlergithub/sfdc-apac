@@ -12,8 +12,10 @@ import java.io.IOException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
@@ -28,28 +30,34 @@ import deployer.DeploymentUnit;
 public class UpdateStampHandler
 {
 
-  private static final String FILENAME_TIMESTAMPS = "timestamps.log";
+  public enum Action {
+    ADD, CHANGE, SAME, DELETE;
+  }
+  
+  public static final String DEFAULT_FILENAME = "timestamps.log";
   
   private Map<String, Long> updateStamps;
   private String username;
   private LogWrapper logWrapper;
+  private String fileName;
 
   public void validate()
   {
-    if (null == updateStamps || null == username || null == logWrapper) {
+    if (null == updateStamps || null == username || null == logWrapper || null == fileName) {
       throw new BuildException("UpdateStampHandler not properly initialized.");
     }
   }
   
-  public void initializeUpdateStamps(LogWrapper logWrapper, String username)
+  public void initializeUpdateStamps(LogWrapper logWrapper, String username, String fileName)
   {
     this.username = username;
     this.logWrapper = logWrapper;
+    this.fileName = fileName;
     
     updateStamps = new HashMap<>();
 
     try {
-      FileReader fr = new FileReader(FILENAME_TIMESTAMPS);
+      FileReader fr = new FileReader(fileName);
       BufferedReader br = new BufferedReader(fr);
 
       String line = null;
@@ -98,10 +106,10 @@ public class UpdateStampHandler
         updateTimestamp(info.getDeploymentUnit(), file);
       }
     }
-    writeUpdateStampes(FILENAME_TIMESTAMPS, updateStamps);
+    writeUpdateStampes(updateStamps);
   }
   
-  public void writeUpdateStampes(String fileName, Map<String, Long> updateStampsToSave)
+  public void writeUpdateStampes(Map<String, Long> updateStampsToSave)
   {
     try {
       FileWriter fw = new FileWriter(fileName);
@@ -133,6 +141,34 @@ public class UpdateStampHandler
     String key = getKey(du, file);
 
     updateStamps.put(key, lastModified);
+  }
+
+  public Map<String, Action> calculateDifferences(Map<String, Long> metadataUpdatestamps)
+  {
+    Map<String, Action> result = new HashMap<>();
+    
+    // work on copies
+    Set<String> lastKeys = new HashSet<>(updateStamps.keySet());
+    Set<String> currentKeys = new HashSet<>(metadataUpdatestamps.keySet());
+    
+    for (String currentKey : currentKeys) {
+      if (lastKeys.remove(currentKey)) {
+        // check for update
+        if (0 == Long.compare(metadataUpdatestamps.get(currentKey), updateStamps.get(currentKey))) {
+          result.put(currentKey, Action.SAME);
+        } else {
+          result.put(currentKey, Action.CHANGE);
+        }
+      } else {
+        // new
+        result.put(currentKey, Action.ADD);
+      }
+    }
+    for (String lastKey : lastKeys) {
+      result.put(lastKey, Action.DELETE);
+    }
+    
+    return result;
   }
 }
 

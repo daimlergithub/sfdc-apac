@@ -6,7 +6,6 @@
         <members>AccountLinkSharingTest</members>
         <members>AccountLinkSharingWrapService</members>
         <members>AccountSharingDataHandler</members>
-        <members>AcordionController</members>
         <members>AddToRetailCampaignController</members>
         <members>AssignCaseToDealerController</members>
         <members>AssignCaseToDealerControllerTest</members>
@@ -21,7 +20,6 @@
         <members>BatchCreateDealerOBEmails</members>
         <members>BatchUpdateRecords</members>
         <members>BatchUpdateRecordsTest</members>
-        <members>BoilerplateController</members>
         <members>BtlAdditionalInfo</members>
         <members>BtlError</members>
         <members>BtlStep</members>
@@ -56,6 +54,7 @@
         <members>DMRequestTriggerHandlerTest</members>
         <members>DealerSearchController</members>
         <members>DealerSearchControllerTest</members>
+        <members>DeploymentUtil</members>
         <members>Entity</members>
         <members>EpaAdminCommand</members>
         <members>EpaAdminCommandController</members>
@@ -76,9 +75,6 @@
         <members>Field</members>
         <members>GenericCSVLoaderController</members>
         <members>GenericCSVLoaderControllerTest</members>
-        <members>HelloController</members>
-        <members>HelloControllerTest</members>
-        <members>HelloWorldController</members>
         <members>HistoryRespondController</members>
         <members>HistoryRespondControllerTest</members>
         <members>IllegalArgumentException</members>
@@ -94,6 +90,8 @@
         <members>MassApproveToolKitControllerTest</members>
         <members>MassAssignRecallTasksControllerExtension</members>
         <members>MassAssignRecallTasksTest</members>
+        <members>MetadataService</members>
+        <members>MetadataServiceTest</members>
         <members>MisunderstoodTaskGeneration</members>
         <members>MisunderstoodTaskGenerationTest</members>
         <members>MonthlyMarketAmountReportController</members>
@@ -168,8 +166,6 @@
         <members>SharingWrapperService</members>
         <members>SlickCtiController</members>
         <members>SlickCtiObjectHelper</members>
-        <members>SoftphoneSearchController</members>
-        <members>SoftphoneSearchControllerTest</members>
         <members>SoqlUowExecutor</members>
         <members>TaskDeletingController</members>
         <members>TaskFailBlacklistTrigger_TestClass</members>
@@ -266,12 +262,10 @@
     <types>
         <members>AccountButtonContainer</members>
         <members>AccountConsoleRefresh</members>
-        <members>Acordion</members>
         <members>AddToRetailCampaign</members>
         <members>AnswersHome</members>
         <members>AssignCaseToDealer</members>
         <members>BMBS_Campaigns</members>
-        <members>Boilerplate</members>
         <members>CACFields</members>
         <members>CSRLookup</members>
         <members>Campaign_Timeline</members>
@@ -302,11 +296,8 @@
         <members>EPA_Thread_Dump</members>
         <members>EPA_Thread_List</members>
         <members>EPA_Transaction_Costs</members>
-        <members>GenericCSVLoader</members>
         <members>GenericUploader</members>
         <members>GenericUploaderForAccount</members>
-        <members>HelloPage</members>
-        <members>HelloWorld</members>
         <members>HistoryRespond</members>
         <members>LeadButtonContainerASLeads</members>
         <members>LeadButtonContainerSalesLeads</members>
@@ -340,7 +331,6 @@
         <members>YearlyTA</members>
         <members>YearlyTAAchievementTracingReport</members>
         <members>Yearly_TA_Report</members>
-        <members>demoCallControl</members>
         <members>labs_survey_css</members>
         <name>ApexPage</name>
     </types>
@@ -413,7 +403,10 @@
         <name>AppMenu</name>
     </types>
     <types>
-        <members>Auto_Demo</members>
+        <members>SlickCTI</members>
+        <name>CallCenter</name>
+    </types>
+    <types>
         <members>BMBS_CRM</members>
         <members>BMBS_Dealer_Portal</members>
         <members>BMBS_Lead_Management</members>
@@ -808,7 +801,6 @@
         <members>Campaign_Offering__c</members>
         <members>Campaign_Package__c</members>
         <members>Campaign_Partner__c</members>
-        <members>Campaign_Survey_Result__c</members>
         <members>Campaign_history_log__c</members>
         <members>Car_Enquiry__c</members>
         <members>Car_Model_Attribute__c</members>
@@ -891,6 +883,11 @@
         <name>CustomObject</name>
     </types>
     <types>
+        <members>Retail_Campaign</members>
+        <members>Took_Kit</members>
+        <name>CustomPageWebLink</name>
+    </types>
+    <types>
         <members>Account_Link__c</members>
         <members>Attribute__c</members>
         <members>BMBS_Campaigns</members>
@@ -898,7 +895,6 @@
         <members>Campaign_Calendar</members>
         <members>Campaign_Lead__c</members>
         <members>Campaign_Partner__c</members>
-        <members>Campaign_Survey_Result__c</members>
         <members>Car_Model_Attribute__c</members>
         <members>Car_Model__c</members>
         <members>DM_Material__c</members>
@@ -992,6 +988,18 @@
         <name>Group</name>
     </types>
     <types>
+        <members>PortalUserHomePage</members>
+        <members>批量审批%28Mass Approval%29</members>
+        <name>HomePageComponent</name>
+    </types>
+    <types>
+        <members>DE Default</members>
+        <members>DefaultHomePage</members>
+        <members>PortalUserHomePage</members>
+        <members>RegionHomePage</members>
+        <name>HomePageLayout</name>
+    </types>
+    <types>
         <members>Account-Account %28Marketing%29 Layout</members>
         <members>Account-Account %28Sales%29 Layout</members>
         <members>Account-Account %28Support%29 Layout</members>
@@ -1028,30 +1036,6 @@
         <members>Campaign_Offering__c-Campaign Offering Layout</members>
         <members>Campaign_Package__c-Campaign Package Layout</members>
         <members>Campaign_Partner__c-Campaign Partner Layout</members>
-        <members>Campaign_Survey_Result__c-1st Round PI Check Survey 1</members>
-        <members>Campaign_Survey_Result__c-2014 2nd MB Magazine Survey</members>
-        <members>Campaign_Survey_Result__c-2014 3nd MB Magazine Survey</members>
-        <members>Campaign_Survey_Result__c-2014 MB Quality Questionnaire</members>
-        <members>Campaign_Survey_Result__c-2nd Survey</members>
-        <members>Campaign_Survey_Result__c-B Class-Clare</members>
-        <members>Campaign_Survey_Result__c-B-Class</members>
-        <members>Campaign_Survey_Result__c-Campaign Survey Result Layout</members>
-        <members>Campaign_Survey_Result__c-Customer Experience After-Event Survey</members>
-        <members>Campaign_Survey_Result__c-CustomerCare Satisfaction</members>
-        <members>Campaign_Survey_Result__c-E-Class Experience Journey</members>
-        <members>Campaign_Survey_Result__c-In-Depth</members>
-        <members>Campaign_Survey_Result__c-Limo Service Customer Satisfaction Survey Questionnaire</members>
-        <members>Campaign_Survey_Result__c-Magazine Deliverability Check</members>
-        <members>Campaign_Survey_Result__c-R Establish Dealer Contact Conversion Check 2</members>
-        <members>Campaign_Survey_Result__c-R Product 1st Round</members>
-        <members>Campaign_Survey_Result__c-R Product 1st Round 2</members>
-        <members>Campaign_Survey_Result__c-R Product 2nd round</members>
-        <members>Campaign_Survey_Result__c-RME Campaign 1st Round</members>
-        <members>Campaign_Survey_Result__c-Regular</members>
-        <members>Campaign_Survey_Result__c-SUV Family Satisfaction Questionnaire</members>
-        <members>Campaign_Survey_Result__c-Shanghai F1 Satisfaction Survey Questionnaire--Every One Year</members>
-        <members>Campaign_Survey_Result__c-Smart 1st Round PI Check</members>
-        <members>Campaign_Survey_Result__c-Smart 1st Round PI Check 2</members>
         <members>Campaign_history_log__c-Campaign History Log Layout</members>
         <members>Car_Enquiry__c-Car Enquiry Layout</members>
         <members>Car_Model_Attribute__c-Car Model Attribute Layout</members>
@@ -1233,10 +1217,12 @@
         <members>Delete_Case_Authorization_V2</members>
         <members>Enable_Knowlege_one</members>
         <members>Info_Center</members>
+        <members>Leads_Management</members>
         <members>Regional_Info_Data_Manager</members>
         <members>S_M_Retail_Campaign</members>
         <members>S_M_Yearly_TA</members>
         <members>Segmentation_execution_Retail_Lead</members>
+        <members>Tool_Kit</members>
         <name>PermissionSet</name>
     </types>
     <types>
@@ -1258,6 +1244,7 @@
         <members>Gold Partner User</members>
         <members>HighVolumePortal</members>
         <members>Identity User</members>
+        <members>IntegrationAPI</members>
         <members>MarketingProfile</members>
         <members>Partner App Subscription User</members>
         <members>Partner Community Login User</members>
@@ -1283,6 +1270,14 @@
         <members>Regional_Office_South_Queue</members>
         <members>Regional_Office_West_Queue</members>
         <name>Queue</name>
+    </types>
+    <types>
+        <members>ApexDevNet</members>
+        <members>Arvato_Web_Services</members>
+        <members>MBCL_EP_Integration_Endpoint</members>
+        <members>Ruishi_Web_Services</members>
+        <members>SFDC_Endpoint</members>
+        <name>RemoteSiteSetting</name>
     </types>
     <types>
         <members>AS_Service_Technical_Director</members>
@@ -1352,17 +1347,12 @@
         <members>AppirioLogo</members>
         <members>BenzHeader</members>
         <members>Bootstrap</members>
-        <members>BootstrapUI</members>
         <members>CampaignTimelineFrame</members>
         <members>CarModelComparison</members>
         <members>Dealer_Reminder</members>
         <members>Dealer_Reminder_Chinese</members>
-        <members>HTML5shiv</members>
         <members>JSforce</members>
-        <members>Modernizr</members>
-        <members>ReadMe</members>
         <members>ReminderForCampaignRelation</members>
-        <members>Respond</members>
         <members>RetailCampaignSegmentation</members>
         <members>RetailCampaignTimeline_JS</members>
         <members>SiteSamples</members>
@@ -1385,22 +1375,16 @@
         <members>Timeline_JS</members>
         <members>Timeline_JS_Pa_Z</members>
         <members>UiBootstrap</members>
+        <members>UpdateStamps</members>
         <members>UserGuide</members>
-        <members>bootstrap_sf1</members>
-        <members>bootstrapjsSF1</members>
-        <members>cti_sprite</members>
         <members>insect</members>
         <members>jQuery</members>
         <members>jQueryCSV</members>
         <members>jquery142</members>
-        <members>jqueryjsSF1</members>
         <members>linked</members>
-        <members>phone_dialing_mp3</members>
-        <members>phone_ring_mp3</members>
         <members>searching_img</members>
         <members>unlink</members>
         <members>webchat</members>
-        <members>yuiBuildMin</members>
         <members>zzDealerSearch1</members>
         <members>zzDealerSearch2</members>
         <name>StaticResource</name>
@@ -1419,7 +1403,6 @@
         <members>Campaign_Offering__c</members>
         <members>Campaign_Package__c</members>
         <members>Campaign_Partner__c</members>
-        <members>Campaign_Survey_Result__c</members>
         <members>Campaign_history_log__c</members>
         <members>Car_Enquiry__c</members>
         <members>Car_Model_Attribute__c</members>
