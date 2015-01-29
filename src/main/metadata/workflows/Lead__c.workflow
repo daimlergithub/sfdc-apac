@@ -324,7 +324,7 @@ Proxy_Date_Time__c
         <fields>Id</fields>
         <fields>RecordTypeId</fields>
         <includeSessionId>false</includeSessionId>
-        <integrationUser>raghuprasad.halakere@58demo.org</integrationUser>
+        <integrationUser>oliver.koeth@nttdata.com.market</integrationUser>
         <name>Link Social Media Leads</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
@@ -335,7 +335,7 @@ Proxy_Date_Time__c
         <endpointUrl>https://crm.mercedes-benz.com.cn/webservices/LmsExportNotification</endpointUrl>
         <fields>Id</fields>
         <includeSessionId>true</includeSessionId>
-        <integrationUser>raghuprasad.halakere@58demo.org</integrationUser>
+        <integrationUser>oliver.koeth@nttdata.com.market</integrationUser>
         <name>Send Assigned Dealer to EP</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>

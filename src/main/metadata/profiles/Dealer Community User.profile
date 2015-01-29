@@ -335,10 +335,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>GettingStartedController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>HistoryRespondController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -10763,9 +10759,6 @@
         <recordType>Task.eDM</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Temp_Setting__c-Temp Setting Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Template__c-Callscript</layout>
         <recordType>Template__c.Callscript</recordType>
     </layoutAssignments>
@@ -10844,9 +10837,6 @@
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Account</object>
@@ -10856,9 +10846,6 @@
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
-        <allowCreate>false</allowCreate>
-        <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Contact</object>
