@@ -6,6 +6,4 @@
    <typedef name="exclude" classname="task.SfdcExclude"/>
    <taskdef name="retrieve" classname="task.SfdcRetrievalTask"/>
    <taskdef name="retrieveUpdatestamps" classname="task.SfdcRetrieveUpdatestampsTask"/>
-   <taskdef name="triggerUpdatestampsRefresh" classname="task.SfdcTriggerUpdatestampsRefresh"/>
-   <typedef name="typesets" classname="task.SfdcTypeSets"/>
 </antlib>

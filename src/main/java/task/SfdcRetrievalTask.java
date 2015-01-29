@@ -104,7 +104,7 @@ public class SfdcRetrievalTask
     this.dryRun = dryRun;
   }
 
-  public void setTimestamps(String timestamps)
+  public void addTimestamps(String timestamps)
   {
     this.timestamps = timestamps;
   }

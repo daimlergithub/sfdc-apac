@@ -41,6 +41,10 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
+        <name>oliverkoethap1__Auto_Demo</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>oliverkoethap1__Private_APP_Exchange</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -69,11 +73,11 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>oliverkoethap1__Service_Cloud_Console_OB</name>
+        <name>oliverkoethap1__Serivce_Cloud_Console_IB</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>oliverkoethap1__Serivce_Cloud_Console_IB</name>
+        <name>oliverkoethap1__Service_Cloud_Console_OB</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>

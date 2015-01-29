@@ -12,7 +12,7 @@
     </target>
 
     <target name="compile" depends="clean" description="Compiles the Task">
-        <javac srcdir="src/main/java" destdir="build" includes="task/**,deployer/**" classpath="lib/ant.jar;lib/commons-lang3-3.3.2.jar;lib-task/enterprise-api.jar;lib-task/metadata-api.jar;lib-task/deployment-util.jar;lib/force-wsc-33.0.0-uber.jar;lib/commons-codec-1.10.jar"/>
+    	<javac srcdir="src/main/java" destdir="build" includes="task/**,deployer/**" classpath="lib/ant.jar;lib/commons-lang3-3.3.2.jar;lib-task/enterprise-api.jar;lib-task/metadata-api.jar;lib-task/deployment-util.jar;lib/force-wsc-33.0.0-uber.jar;lib/commons-codec-1.10.jar"/>
     </target>
 
     <target name="jar" depends="compile" description="JARs the Task">

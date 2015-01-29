@@ -316,7 +316,7 @@ public class SfdcHandler
               }
 
               // TODO logWrapper.log(String.format("List: %s", StringUtils.join(chunk, ",")));
-              
+
               FileProperties[] metadata =
                   mConnection.listMetadata(queries.toArray(new ListMetadataQuery[queries.size()]), VERSION);
               for (FileProperties props : metadata) {
@@ -360,7 +360,6 @@ public class SfdcHandler
                   query.setType(name);
                   query.setFolder(fileProperties.getFullName());
                   queries.add(query);
-                  
                   elements.add(fileProperties.getFullName());
                 }
                 
@@ -494,7 +493,7 @@ public class SfdcHandler
 
         for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
           for (FileProperties properties : entry.getValue()) {
-            // TODO logWrapper.log(properties.toString());
+            logWrapper.log(properties.toString());
             
             result.put(String.format("%s/%s", entry.getKey(), properties.getFullName()), properties.getLastModifiedDate().getTimeInMillis());
           }
