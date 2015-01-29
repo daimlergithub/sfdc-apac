@@ -27,15 +27,15 @@ public class SfdcRetrieveUpdatestampsTask
   private boolean useProxy;
   private String proxyHost;
   private int proxyPort;
-  private String timestamps;
-  private Set<String> objects;
+  private String fileName;
+  private Set<String> typeSets;
 
   private UpdateStampHandler updateStampHandler;
   private SfdcHandler sfdcHandler;
 
   public SfdcRetrieveUpdatestampsTask()
   {
-    objects = new HashSet<String>();
+    typeSets = new HashSet<String>();
     updateStampHandler = new UpdateStampHandler();
     sfdcHandler = new SfdcHandler();
   }
@@ -70,26 +70,18 @@ public class SfdcRetrieveUpdatestampsTask
     this.proxyPort = proxyPort;
   }
 
-  public void setTimestamps(String timestamps)
+  public void setFileName(String fileName)
   {
-    this.timestamps = timestamps;
+    this.fileName = fileName;
   }
 
-  public void addConfigured(SfdcTypeSets typeSets)
+  public void addConfigured(SfdcTypeSet typeSet)
   {
-    String names = typeSets.getNames();
-    
-    if (StringUtils.isNotEmpty(names)) {
-      String[] tokens = names.split(",");
-      for (String token : tokens) {
-        String trimmed = StringUtils.trimToEmpty(token);
-        if (StringUtils.isNotEmpty(trimmed)) {
-          objects.add(trimmed);
-        }
-      }
-    } else {
-      throw new BuildException("The names of type sets must be set.");
+    String name = typeSet.getName();
+    if (StringUtils.isEmpty(name)) {
+      throw new BuildException("The name of the type set must be set.");
     }
+    typeSets.add(name);
   }
 
   public void execute()
@@ -97,16 +89,16 @@ public class SfdcRetrieveUpdatestampsTask
     initialize();
     validate();
 
-    Map<String, Long> metadataUpdatestamps = sfdcHandler.getUpdateStamps(objects);
+    Map<String, Long> metadataUpdatestamps = sfdcHandler.getUpdateStamps(typeSets);
     
-    updateStampHandler.writeUpdateStampes(metadataUpdatestamps);
+    updateStampHandler.writeUpdateStampes(fileName, metadataUpdatestamps);
   }
 
   private void initialize()
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initializeUpdateStamps(logWrapper, username, timestamps);
+    updateStampHandler.initializeUpdateStamps(logWrapper, username);
     
     sfdcHandler.initialize(logWrapper, 0, false, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
   }
@@ -116,8 +108,8 @@ public class SfdcRetrieveUpdatestampsTask
     updateStampHandler.validate();
     sfdcHandler.validate();
 
-    if (null == timestamps) {
-      throw new BuildException("The property timestamps must be specified.");
+    if (null == fileName) {
+      throw new BuildException("The property fileName must be specified.");
     }
   }
   

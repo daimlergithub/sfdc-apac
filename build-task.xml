@@ -12,7 +12,7 @@
     </target>
 
     <target name="compile" depends="clean" description="Compiles the Task">
-        <javac srcdir="src/main/java" destdir="build" includes="task/**,deployer/**" classpath="lib/ant.jar;lib/commons-lang3-3.3.2.jar;lib-task/enterprise-api.jar;lib-task/metadata-api.jar;lib-task/deployment-util.jar;lib/force-wsc-33.0.0-uber.jar;lib/commons-codec-1.10.jar"/>
+        <javac srcdir="src/main/java" destdir="build" includes="task/**,deployer/**" classpath="lib/ant.jar;lib/commons-lang3-3.3.2.jar;lib/enterprise-api.jar;lib/metadata-api.jar;lib/force-wsc-33.0.0-uber.jar;lib/commons-codec-1.10.jar"/>
     </target>
 
     <target name="jar" depends="compile" description="JARs the Task">
@@ -23,28 +23,4 @@
         </jar>
     </target>
 
-	<target name="wsdl" description="Generate JARs from WSDLs">
-		<java classname="com.sforce.ws.tools.wsdlc">
-			<classpath>
-				<pathelement location="lib\force-wsc-33.0.0-uber.jar"/>
-			</classpath>
-			<arg value="src\main\wsdl\metadata-api.wsdl"/>
-			<arg value="lib-task\metadata-api.jar"/>
-		</java>
-		<java classname="com.sforce.ws.tools.wsdlc">
-			<classpath>
-				<pathelement location="lib\force-wsc-33.0.0-uber.jar"/>
-			</classpath>
-			<arg value="src\main\wsdl\enterprise-api.wsdl"/>
-			<arg value="lib-task\enterprise-api.jar"/>
-		</java>
-		<java classname="com.sforce.ws.tools.wsdlc">
-			<classpath>
-				<pathelement location="lib\force-wsc-33.0.0-uber.jar"/>
-			</classpath>
-			<arg value="src\main\wsdl\deployment-util.wsdl"/>
-			<arg value="lib-task\deployment-util.jar"/>
-		</java>
-	</target>
-	
 </project>
