@@ -17,7 +17,7 @@ import task.handler.UpdateStampHandler;
  *
  * @author  xlehmf
  */
-public class SfdcTriggerUpdatestampsRefresh
+public class SfdcTriggerUpdatestampsRefreshTask
   extends Taskdef
 {
 
@@ -34,7 +34,7 @@ public class SfdcTriggerUpdatestampsRefresh
 //  private SfdcHandler sfdcHandler;
   private DeploymentHandler deploymentHandler;
 
-  public SfdcTriggerUpdatestampsRefresh()
+  public SfdcTriggerUpdatestampsRefreshTask()
   {
     objects = new HashSet<String>();
     updateStampHandler = new UpdateStampHandler();

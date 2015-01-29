@@ -21,8 +21,8 @@ trigger TaskBeforeInsertUpdate on Task (before update, before insert){
     String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Task').getRecordTypeId();
     String WelcomeCallRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
     String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
-    // By Shuang Li US-smart_SSI-008---- start
-    // String SMARTSSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('smart SSI Task').getRecordTypeId();
+    // By Shuang Li US-smart_SSI-008---- start -- TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code
+    //String SMARTSSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('smart SSI Task').getRecordTypeId();
     // By Shuang Li US-smart_SSI-008---- end
     String SMSTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
     String MMSTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('MMS').getRecordTypeId();
