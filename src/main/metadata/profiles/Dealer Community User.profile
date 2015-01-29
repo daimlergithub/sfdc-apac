@@ -11512,7 +11512,21 @@
         <recordType>ContentVersion.RecordType3</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-	<!-- TODO not deployed in kernel
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Develop_Task__c.Action_Item</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Develop_Task__c.Bug</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Develop_Task__c.Enhancement_Request</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Event.MBDA_Reservation</recordType>
@@ -11523,13 +11537,11 @@
         <recordType>Event.Normal_Event</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-	-->
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Idea.InternalIdeasIdeaRecordType</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-	<!-- TODO not deployed in kernel
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Issue__c.Non_PMO_Issue</recordType>
@@ -11550,7 +11562,6 @@
         <recordType>Lead.Sales_Lead</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-	-->
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Aftersales_Leads</recordType>
@@ -11577,13 +11588,11 @@
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-	<!-- TODO not deployed in kernel
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Model_Mapping__c.Tool_Kit</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-	-->
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Order.MBDA_Order</recordType>
@@ -12024,12 +12033,10 @@
         <enabled>true</enabled>
         <name>IPRestrictRequests</name>
     </userPermissions>
-	<!-- TODO Commented as part of kernel deployment to Oliver dev org which has limited permission options
     <userPermissions>
         <enabled>true</enabled>
         <name>IsSsoEnabled</name>
     </userPermissions>
-	-->
     <userPermissions>
         <enabled>true</enabled>
         <name>RunReports</name>
