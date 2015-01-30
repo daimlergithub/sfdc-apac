@@ -49,9 +49,11 @@ public class DeploymentHandler
     this.useProxy = useProxy;
     this.proxyHost = proxyHost;
     this.proxyPort = proxyPort;
+    
+    validate();
   }
 
-  public void validate()
+  private void validate()
   {
     if (null == logWrapper || null == serverurl || null == username || null == password) {
       throw new BuildException("DeploymentHandler is not properly initialized.");

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <antlib>
    <taskdef name="deploy" classname="task.SfdcDeploymentTask"/>
-   <typedef name="typeset" classname="task.SfdcTypeSet"/>
-   <typedef name="include" classname="task.SfdcInclude"/>
-   <typedef name="exclude" classname="task.SfdcExclude"/>
+   <typedef name="typeset" classname="task.model.SfdcTypeSet"/>
+   <typedef name="include" classname="task.model.SfdcInclude"/>
+   <typedef name="exclude" classname="task.model.SfdcExclude"/>
    <taskdef name="retrieve" classname="task.SfdcRetrievalTask"/>
    <taskdef name="retrieveUpdatestamps" classname="task.SfdcRetrieveUpdatestampsTask"/>
    <taskdef name="triggerUpdatestampsRefresh" classname="task.SfdcTriggerUpdatestampsRefreshTask"/>
-   <typedef name="typesets" classname="task.SfdcTypeSets"/>
+   <typedef name="typesets" classname="task.model.SfdcTypeSets"/>
 </antlib>

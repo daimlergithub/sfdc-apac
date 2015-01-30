@@ -37,23 +37,35 @@ public class UpdateStampHandler
   public static final String DEFAULT_FILENAME = "timestamps.log";
   
   private Map<String, Long> updateStamps;
-  private String username;
+  private String userName;
   private LogWrapper logWrapper;
   private String fileName;
 
-  public void validate()
+  public void initialize(LogWrapper logWrapper, String userName, String fileName)
   {
-    if (null == updateStamps || null == username || null == logWrapper || null == fileName) {
-      throw new BuildException("UpdateStampHandler not properly initialized.");
-    }
-  }
-  
-  public void initializeUpdateStamps(LogWrapper logWrapper, String username, String fileName)
-  {
-    this.username = username;
+    this.userName = userName;
     this.logWrapper = logWrapper;
     this.fileName = fileName;
     
+    validate();
+    initialize();
+  }
+
+  private void validate()
+  {
+    if (null == userName) {
+      throw new BuildException("UpdateStampHandler (userName) not properly initialized.");
+    }
+    if (null == logWrapper) {
+      throw new BuildException("UpdateStampHandler (logWrapper) not properly initialized.");
+    }
+    if (null == fileName) {
+      throw new BuildException("UpdateStampHandler (fileName) not properly initialized.");
+    }
+  }
+  
+  private void initialize()
+  {
     updateStamps = new HashMap<>();
 
     try {
@@ -67,7 +79,7 @@ public class UpdateStampHandler
           String[] tokens = line.split(":");
           if (3 == tokens.length) {
             String un = tokens[0];
-            if (StringUtils.equals(username, un)) {
+            if (StringUtils.equals(userName, un)) {
               String type = URLDecoder.decode(tokens[1], "UTF-8");
               Long timestamp = Long.valueOf(tokens[2]);
               
@@ -116,7 +128,7 @@ public class UpdateStampHandler
       BufferedWriter bw = new BufferedWriter(fw);
 
       for (Map.Entry<String, Long> entry : updateStampsToSave.entrySet()) {
-        String line = String.format("%s:%s:%d", username, URLEncoder.encode(entry.getKey(), "UTF-8"), entry.getValue());
+        String line = String.format("%s:%s:%d", userName, URLEncoder.encode(entry.getKey(), "UTF-8"), entry.getValue());
         
         bw.write(line);
         bw.newLine();

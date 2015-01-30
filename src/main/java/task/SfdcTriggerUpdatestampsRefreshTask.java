@@ -11,6 +11,7 @@ import org.apache.tools.ant.taskdefs.Taskdef;
 import task.handler.DeploymentHandler;
 import task.handler.LogWrapper;
 import task.handler.UpdateStampHandler;
+import task.model.SfdcTypeSets;
 
 /**
  * SfdcTriggerUpdatestampsRefresh
@@ -96,8 +97,8 @@ public class SfdcTriggerUpdatestampsRefreshTask
 
   public void execute()
   {
-    initialize();
     validate();
+    initialize();
     
     Map<String, Long> metadataUpdatestamps = deploymentHandler.triggerUpdatestampsRefresh(objects);
 
@@ -108,7 +109,7 @@ public class SfdcTriggerUpdatestampsRefreshTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initializeUpdateStamps(logWrapper, username, fileName);
+    updateStampHandler.initialize(logWrapper, username, fileName);
 //    
 //    sfdcHandler.initialize(logWrapper, 0, false, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
     deploymentHandler.initialize(logWrapper, serverurl, username, password, useProxy, proxyHost, proxyPort);
@@ -116,10 +117,6 @@ public class SfdcTriggerUpdatestampsRefreshTask
 
   private void validate()
   {
-    updateStampHandler.validate();
-//    sfdcHandler.validate();
-    deploymentHandler.validate();
-
     if (null == fileName) {
       throw new BuildException("The property fileName must be specified.");
     }
