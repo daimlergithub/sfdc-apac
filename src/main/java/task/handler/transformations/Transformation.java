@@ -38,6 +38,8 @@ public abstract class Transformation {
     }
   }
 
-  public abstract void apply(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings);
+  public abstract void applyForDeploy(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings);
+  
+  public abstract void applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings);
   
 }

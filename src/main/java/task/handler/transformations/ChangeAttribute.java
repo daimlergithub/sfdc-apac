@@ -54,9 +54,15 @@ public class ChangeAttribute extends Transformation {
   }
 
   @Override
-  public void apply(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
+  public void applyForDeploy(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
   {
     throw new BuildException(String.format("Transformation %s not supported yet.", getClass().getSimpleName()));    
   }
-  
+
+  @Override
+  public void applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
+  {
+    throw new BuildException("Not implemted yet.");
+  }
+
 }

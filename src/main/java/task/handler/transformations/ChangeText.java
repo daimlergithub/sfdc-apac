@@ -60,7 +60,7 @@ public class ChangeText extends Transformation {
   }
 
   @Override
-  public void apply(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
+  public void applyForDeploy(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
   {
     XPath xPath = XPathFactory.newInstance().newXPath();
     
@@ -83,6 +83,11 @@ public class ChangeText extends Transformation {
       throw new BuildException(String.format("Error reading transformations.xml: %s.", e.getMessage()), e);
     }
   }
-  
+
+  @Override
+  public void applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
+  {
+    throw new BuildException("Not implemted yet.");
+  }
   
 }

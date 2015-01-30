@@ -255,7 +255,7 @@ public class TransformationHandler
       
       for (Transformation transformation : fileTransformations) {
         try {
-          transformation.apply(logWrapper, doc, tokenMappings);
+          transformation.applyForDeploy(logWrapper, doc, tokenMappings);
         } catch (BuildException be) {
           // TODO ignore for now
         }
