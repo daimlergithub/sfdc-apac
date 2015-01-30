@@ -1,4 +1,4 @@
-package task;
+package task.model;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;

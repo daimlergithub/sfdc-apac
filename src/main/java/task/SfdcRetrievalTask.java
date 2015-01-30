@@ -14,8 +14,10 @@ import org.apache.tools.ant.taskdefs.Taskdef;
 import task.handler.LogWrapper;
 import task.handler.MetadataHandler;
 import task.handler.SfdcHandler;
+import task.handler.TransformationHandler;
 import task.handler.UpdateStampHandler;
 import task.handler.ZipFileHandler;
+import task.model.SfdcTypeSets;
 
 /**
  * SfdcRetrievalTask
@@ -39,11 +41,13 @@ public class SfdcRetrievalTask
   private Set<String> objects;
   private String timestamps;
   private boolean full;
+  private String transformationsRoot;
 
   private UpdateStampHandler updateStampHandler;
   private SfdcHandler sfdcHandler;
   private MetadataHandler metadataHandler;
   private ZipFileHandler zipFileHandler;
+  private TransformationHandler transformationHandler;
 
   public SfdcRetrievalTask()
   {
@@ -52,6 +56,7 @@ public class SfdcRetrievalTask
     sfdcHandler = new SfdcHandler();
     metadataHandler = new MetadataHandler();
     zipFileHandler = new ZipFileHandler();
+    transformationHandler = new TransformationHandler();
   }
 
   public void setUsername(String username)
@@ -113,7 +118,12 @@ public class SfdcRetrievalTask
   {
     this.full = full;
   }
-
+  
+  public void setTransformationsRoot(String transformationsRoot)
+  {
+    this.transformationsRoot = transformationsRoot;
+  }
+  
   public void addConfigured(SfdcTypeSets typeSets)
   {
     String names = typeSets.getNames();
@@ -133,8 +143,8 @@ public class SfdcRetrievalTask
 
   public void execute()
   {
-    initialize();
     validate();
+    initialize();
 
     Map<String, List<String>> metadata2Update = null;
     if (full) {
@@ -160,20 +170,16 @@ public class SfdcRetrievalTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initializeUpdateStamps(logWrapper, username, timestamps);
+    updateStampHandler.initialize(logWrapper, username, timestamps);
+    transformationHandler.initialize(logWrapper, username, transformationsRoot, retrieveRoot);
     
     sfdcHandler.initialize(logWrapper, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
     metadataHandler.initialize(logWrapper, retrieveRoot, debug, updateStampHandler);
-    zipFileHandler.initialize(logWrapper, debug);
+    zipFileHandler.initialize(logWrapper, debug, transformationHandler);
   }
 
   private void validate()
   {
-    updateStampHandler.validate();
-    sfdcHandler.validate();
-    metadataHandler.validate();
-    zipFileHandler.validate();
-
     // TODO validate settings
     if (null == retrieveRoot) {
       throw new BuildException("The property retrieveRoot must be specified.");

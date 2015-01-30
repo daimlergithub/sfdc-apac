@@ -21,10 +21,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.types.LogLevel;
 
-import task.SfdcExclude;
-import task.SfdcInclude;
-import task.SfdcTypeSet;
 import task.handler.UpdateStampHandler.Action;
+import task.model.SfdcExclude;
+import task.model.SfdcInclude;
+import task.model.SfdcTypeSet;
 import deployer.DeploymentConfiguration;
 import deployer.DeploymentUnit;
 
@@ -47,12 +47,20 @@ public class MetadataHandler
     this.metadataRoot = metadataRoot;
     this.debug = debug;
     this.updateStampHandler = updateStampHandler;
+    
+    validate();
   }
 
-  public void validate()
+  private void validate()
   {
-    if (null == logWrapper || null == metadataRoot || null == updateStampHandler) {
-      throw new BuildException("MetadataHandler not properly initialized.");
+    if (null == logWrapper) {
+      throw new BuildException("MetadataHandler (logWrapper) not properly initialized.");
+    }
+    if (null == metadataRoot) {
+      throw new BuildException("MetadataHandler (metadataRoot) not properly initialized.");
+    }
+    if (null == updateStampHandler) {
+      throw new BuildException("MetadataHandler (updateStampHandler) not properly initialized.");
     }
   }
 

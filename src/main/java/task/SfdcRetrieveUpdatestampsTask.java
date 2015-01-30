@@ -11,6 +11,7 @@ import org.apache.tools.ant.taskdefs.Taskdef;
 import task.handler.LogWrapper;
 import task.handler.SfdcHandler;
 import task.handler.UpdateStampHandler;
+import task.model.SfdcTypeSets;
 
 /**
  * SfdcRetrieveUpdatestampsTask
@@ -94,8 +95,8 @@ public class SfdcRetrieveUpdatestampsTask
 
   public void execute()
   {
-    initialize();
     validate();
+    initialize();
 
     Map<String, Long> metadataUpdatestamps = sfdcHandler.getUpdateStamps(objects);
     
@@ -106,16 +107,13 @@ public class SfdcRetrieveUpdatestampsTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initializeUpdateStamps(logWrapper, username, timestamps);
+    updateStampHandler.initialize(logWrapper, username, timestamps);
     
     sfdcHandler.initialize(logWrapper, 0, false, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
   }
 
   private void validate()
   {
-    updateStampHandler.validate();
-    sfdcHandler.validate();
-
     if (null == timestamps) {
       throw new BuildException("The property timestamps must be specified.");
     }
