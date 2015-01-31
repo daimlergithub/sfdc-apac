@@ -25,7 +25,7 @@ import task.handler.LogWrapper;
 public class ChangeText extends Transformation {
   
   private String xpath;
-  private String token;
+  private Token token;
   
   public String getXpath()
   {
@@ -37,12 +37,12 @@ public class ChangeText extends Transformation {
     this.xpath = xpath;
   }
 
-  public String getToken()
+  public Token getToken()
   {
     return token;
   }
 
-  public void setToken(String token)
+  public void setToken(Token token)
   {
     this.token = token;
   }
@@ -54,9 +54,11 @@ public class ChangeText extends Transformation {
     if (StringUtils.isEmpty(xpath)) {
       throw new BuildException("The xpath of the transformation changetext must be set.");
     }
-    if (StringUtils.isEmpty(token)) {
+    if (null == token) {
       throw new BuildException("The token of the transformation changetext must be set.");
     }
+    
+    token.validate();
   }
 
   @Override
@@ -64,16 +66,28 @@ public class ChangeText extends Transformation {
   {
     XPath xPath = XPathFactory.newInstance().newXPath();
     
-    String replacement = tokenMappings.get(token);
+    String replacement = tokenMappings.get(token.getText());
     
     try {
       NodeList nodes = (NodeList)xPath.evaluate(xpath, document.getDocumentElement(), XPathConstants.NODESET);
       for (int i = 0; i < nodes.getLength(); ++i) {
         Node n = nodes.item(i);
         
-        logWrapper.log(String.format("Change text from %s to %s.", n.getTextContent(), replacement));
+        String txt = n.getTextContent();
         
-        n.setNodeValue(replacement);
+        String newValue = null;
+        if (token.isTokenOnly()) {
+          String tokenText = String.format("${%s}", token.getText());
+          newValue = txt.replace(tokenText, replacement);
+          
+          logWrapper.log(String.format("Replace token %s with %s.", tokenText, replacement));
+        } else {
+          newValue = replacement;
+          
+          logWrapper.log(String.format("Change text from %s to %s.", txt, replacement));
+        }
+        
+        n.setNodeValue(newValue);
       }
     }
     catch (XPathExpressionException e) {
