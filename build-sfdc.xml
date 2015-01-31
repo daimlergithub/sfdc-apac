@@ -11,7 +11,7 @@
 	
 	<presetdef name="deploy">
 		<sf:deploy
-				debug="${sfdc.debug}" dryRun="true"
+				debug="${sfdc.debug}" dryRun="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"
 				transformationsRoot="src/main/transformations"/>
