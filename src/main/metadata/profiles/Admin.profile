@@ -10665,10 +10665,6 @@
         <recordType>Retail_Campaign__c.Monthly_TA</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Campaign__c-Retail MB Best Practice Layout</layout>
-        <recordType>Retail_Campaign__c.Retail_MB_Best_Practice</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Retail_Campaign__c-S%26M Event Retail Campaign</layout>
         <recordType>Retail_Campaign__c.Retail_Event</recordType>
     </layoutAssignments>
@@ -11941,6 +11937,11 @@
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+	<recordTypeVisibilities>
+		<default>true</default>
+        <recordType>Retail_Task__c.Contract</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Retail_Task__c.Retail_Activity</recordType>
@@ -12197,10 +12198,6 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>SSI__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>TSP_Subscription__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
