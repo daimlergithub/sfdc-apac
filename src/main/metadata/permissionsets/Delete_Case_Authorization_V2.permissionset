@@ -11307,10 +11307,6 @@ yujing.he@daimler.com</description>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
-        <tab>TSP_Subscription__c</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
         <tab>Tasks</tab>
         <visibility>None</visibility>
     </tabSettings>

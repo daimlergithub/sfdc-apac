@@ -5082,6 +5082,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>EP_Log_Interface__c.Interface__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>EP_Log_Interface__c.Invalid__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10858,6 +10863,10 @@
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
+    <loginIpRanges>
+        <endAddress>255.255.255.255</endAddress>
+        <startAddress>0.0.0.0</startAddress>
+    </loginIpRanges>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -12196,10 +12205,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>TSP_Subscription__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Template__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -12256,7 +12261,7 @@
         <enabled>true</enabled>
         <name>AssignTopics</name>
     </userPermissions>
-	<!-- TODO Commented as part of kernel deployment to Oliver dev org which ha limited permission options
+	<!-- TODO Commented as part of kernel deployment to Oliver dev org which has limited permission options
     <userPermissions>
         <enabled>true</enabled>
         <name>AuthorApex</name>
@@ -12270,10 +12275,12 @@
         <enabled>true</enabled>
         <name>CanInsertFeedSystemFields</name>
     </userPermissions>
-    <userPermissions>
+    <!--TODO Commented as part of 58Demo Kernel Deployment
+	<userPermissions>
         <enabled>true</enabled>
         <name>CanUseNewDashboardBuilder</name>
     </userPermissions>
+	-->
     <userPermissions>
         <enabled>true</enabled>
         <name>ChatterFileLink</name>
@@ -12454,10 +12461,12 @@
         <enabled>true</enabled>
         <name>ManageDataIntegrations</name>
     </userPermissions>
+	<!-- TODO Commented as part of 58Demo org kernel deployment
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageDynamicDashboards</name>
     </userPermissions>
+	-->
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageEmailClientConfig</name>
