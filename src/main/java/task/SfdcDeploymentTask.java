@@ -10,8 +10,10 @@ import task.handler.DeploymentInfo;
 import task.handler.LogWrapper;
 import task.handler.MetadataHandler;
 import task.handler.SfdcHandler;
+import task.handler.TransformationHandler;
 import task.handler.UpdateStampHandler;
 import task.handler.ZipFileHandler;
+import task.model.SfdcTypeSet;
 
 /**
  * SfdcDeploymentTask
@@ -33,11 +35,13 @@ public class SfdcDeploymentTask
   private boolean debug;
   private boolean dryRun;
   private List<SfdcTypeSet> typeSets;
+  private String transformationsRoot;
 
   private UpdateStampHandler updateStampHandler;
   private ZipFileHandler zipFileHandler;
   private SfdcHandler sfdcHandler;
   private MetadataHandler metadataHandler;
+  private TransformationHandler transformationHandler;
 
   public SfdcDeploymentTask()
   {
@@ -46,6 +50,7 @@ public class SfdcDeploymentTask
     zipFileHandler = new ZipFileHandler();
     sfdcHandler = new SfdcHandler();
     metadataHandler = new MetadataHandler();
+    transformationHandler = new TransformationHandler();
   }
 
   public void setUsername(String username)
@@ -98,6 +103,11 @@ public class SfdcDeploymentTask
     this.dryRun = dryRun;
   }
 
+  public void setTransformationsRoot(String transformationsRoot)
+  {
+    this.transformationsRoot = transformationsRoot;
+  }
+
   public void addConfigured(SfdcTypeSet typeSet)
   {
     typeSets.add(typeSet);
@@ -105,8 +115,8 @@ public class SfdcDeploymentTask
 
   public void execute()
   {
-    initialize();
     validate();
+    initialize();
 
     List<DeploymentInfo> deploymentInfos = metadataHandler.compileDeploymentInfos(typeSets);
     if (deploymentInfos.isEmpty()) {
@@ -125,20 +135,16 @@ public class SfdcDeploymentTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initializeUpdateStamps(logWrapper, username, UpdateStampHandler.DEFAULT_FILENAME);
+    updateStampHandler.initialize(logWrapper, username, UpdateStampHandler.DEFAULT_FILENAME);
+    transformationHandler.initialize(logWrapper, username, transformationsRoot, deployRoot);
     
     sfdcHandler.initialize(logWrapper, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
-    zipFileHandler.initialize(logWrapper, debug);
+    zipFileHandler.initialize(logWrapper, debug, transformationHandler);
     metadataHandler.initialize(logWrapper, deployRoot, debug, updateStampHandler);
   }
 
   private void validate()
   {
-    updateStampHandler.validate();
-    sfdcHandler.validate();
-    zipFileHandler.validate();
-    metadataHandler.validate();
-
     // TODO validate settings
     for (SfdcTypeSet typeSet : typeSets) {
       typeSet.validateSettings();

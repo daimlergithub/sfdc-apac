@@ -32,17 +32,24 @@ public class ZipFileHandler
   private static final String ZIP_BASE_DIR = "unpackaged";
   private LogWrapper logWrapper;
   private boolean debug;
+  private TransformationHandler transformationHandler;
 
-  public void initialize(LogWrapper logWrapper, boolean debug)
+  public void initialize(LogWrapper logWrapper, boolean debug, TransformationHandler transformationHandler)
   {
     this.logWrapper = logWrapper;
     this.debug = debug;
+    this.transformationHandler = transformationHandler;
+    
+    validate();
   }
 
-  public void validate()
+  private void validate()
   {
     if (null == logWrapper) {
-      throw new BuildException("ZipFileHandler is not initialized.");
+      throw new BuildException("ZipFileHandler (logWrapper) is not initialized.");
+    }
+    if (null == transformationHandler) {
+      throw new BuildException("ZipFileHandler (transformationHandler) is not initialized.");
     }
   }
 
@@ -83,7 +90,7 @@ public class ZipFileHandler
 
         logWrapper.log(String.format("Handle type %s for ZIP file.", type));
 
-        byte[] buffer = new byte[512];
+//        byte[] buffer = new byte[512];
 
         for (File file : info.getFileList()) {
           logWrapper.log(String.format("Add %s.", file.getName()));
@@ -93,18 +100,19 @@ public class ZipFileHandler
           try {
             zos.putNextEntry(new ZipEntry(zipEntryName));
 
-            FileInputStream fis = new FileInputStream(file);
+//            FileInputStream fis = new FileInputStream(file);
 
-            int read = 0;
-            do {
-              read = fis.read(buffer);
-              if (-1 != read) {
-                zos.write(buffer, 0, read);
-              }
-            }
-            while (-1 != read);
+            transformationHandler.transform(file, zos);
+//            int read = 0;
+//            do {
+//              read = fis.read(buffer);
+//              if (-1 != read) {
+//                zos.write(buffer, 0, read);
+//              }
+//            }
+//            while (-1 != read);
 
-            fis.close();
+//            fis.close();
             zos.closeEntry();
           }
           catch (Exception e) {
@@ -193,7 +201,7 @@ public class ZipFileHandler
           while (-1 != read);
           bos.close();
 
-          // TODO consider lastModified
+          // TODO (set lastModified of file to timestamp in SFDC) -> better: preserve lastmodified of file which was there before
         }
       }
       while (null != entry);

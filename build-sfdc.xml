@@ -13,20 +13,25 @@
 		<sf:deploy
 				debug="${sfdc.debug}" dryRun="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"
+				transformationsRoot="src/main/transformations"/>
 	</presetdef>
 	
 	<target name="init">
 		<mkdir dir="tmp"/>
 	</target>
 	
-	<target name="deploy" depends="init, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35">
+	<target name="deploy" depends="init, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35">
 		<!-- TODO consider only deployed entities -->
 		<sf:retrieveUpdatestamps
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" timestamps="deployed-timestamps.log">
 			<sf:typesets names="${typesets}"/>
 		</sf:retrieveUpdatestamps>
+	</target>
+	
+	<target name="destructiveChanges">
+		<!-- TODO -->
 	</target>
 	
 	<target name="deploy01">
@@ -178,7 +183,8 @@
 		<sf:retrieve
 				debug="${sfdc.debug}" dryRun="false" full="true"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" retrieveRoot="src/main/metadata-retrieve" timestamps="deployed-timestamps.log">
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
+				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
 			<sf:typesets names="${typesets}"/>
 		</sf:retrieve>
 	</target>
@@ -189,7 +195,8 @@
 		<sf:retrieve
 				debug="${sfdc.debug}" dryRun="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" retrieveRoot="src/main/metadata-retrieve" timestamps="deployed-timestamps.log">
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
+				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
 			<sf:typesets names="${typesets}"/>
 		</sf:retrieve>
 	</target>

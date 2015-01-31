@@ -1,4 +1,4 @@
-package task;
+package task.model;
 
 import org.apache.tools.ant.taskdefs.Typedef;
 

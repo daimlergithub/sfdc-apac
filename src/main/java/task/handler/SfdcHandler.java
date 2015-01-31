@@ -86,9 +86,11 @@ public class SfdcHandler
     this.proxyHost = proxyHost;
     this.proxyPort = proxyPort;
     this.updateStampHandler = updateStampHandler;
+    
+    validate();
   }
 
-  public void validate()
+  private void validate()
   {
     if (null == logWrapper || null == updateStampHandler || null == serverurl || null == username || null == password) {
       throw new BuildException("SfdcHandler is not properly initialized.");
