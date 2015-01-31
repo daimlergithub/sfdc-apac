@@ -24846,10 +24846,12 @@
         <enabled>true</enabled>
         <name>EditEvent</name>
     </userPermissions>
+	<!-- TODO Commented as part of kernel deployment to Oliver dev org which has limited permission options
     <userPermissions>
         <enabled>true</enabled>
         <name>EditReports</name>
     </userPermissions>
+	-->
     <userPermissions>
         <enabled>true</enabled>
         <name>EditTask</name>
@@ -24865,10 +24867,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ExportReport</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>IsSsoEnabled</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

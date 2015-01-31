@@ -24726,10 +24726,12 @@
         <enabled>true</enabled>
         <name>EditEvent</name>
     </userPermissions>
+	<!-- TODO Commented as part of kernel deployment to Oliver dev org which has limited permission options
     <userPermissions>
         <enabled>true</enabled>
         <name>EditPublicReports</name>
     </userPermissions>
+	-->
     <userPermissions>
         <enabled>true</enabled>
         <name>EditReports</name>

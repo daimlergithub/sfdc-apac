@@ -12724,8 +12724,3 @@
         <name>ViewSetup</name>
     </userPermissions>
 </Profile>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Retail_Task__c.Contract</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>

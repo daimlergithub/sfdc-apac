@@ -419,7 +419,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-    <classAccesses>
         <apexClass>Paginator</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1356,6 +1355,7 @@
         <field>Account.Dealer_Service_Codes__c</field>
         <readable>true</readable>
     </fieldPermissions>
+	<fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_smart_Sub_Region__c</field>
         <readable>true</readable>
@@ -2935,7 +2935,6 @@
         <field>Campaign_Partner__c.Description__c</field>
         <readable>true</readable>
     </fieldPermissions>
-    <fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_history_log__c.Action__c</field>
@@ -5289,7 +5288,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>EpAdapterUnitOfWork__c.Type__c</field>
-        <readable>truefalse/readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8770,6 +8769,7 @@
         <editable>false</editable>
         <field>SSI__c.VehicleUSvin__c</field>
         <readable>false</readable>
+	</fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>SSI__c.VehicleDesc__c</field>
@@ -8913,7 +8913,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Survey__c.thankYouLink__c</field>
-        <readable>truefalse/readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11346,7 +11346,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>ContentVersion.RecordType</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -11636,10 +11636,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Dealer_Score__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>External_Picklist__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
@@ -11648,16 +11644,8 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>MBDA_Coupon__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Picklist_Mapping__c</tab>
         <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>QlikViewAfterSales1</tab>
-        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Retail_Campaign_Calender</tab>
@@ -11678,14 +11666,6 @@
     <tabVisibilities>
         <tab>Tool_Kit__c</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Yearly_TA_Tracing_Report</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>smart_SSI__c</tab>
-        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Account</tab>
@@ -11724,10 +11704,12 @@
         <enabled>true</enabled>
         <name>EditEvent</name>
     </userPermissions>
+	<!-- TODO Commented as part of kernel deployment to Oliver dev org which has limited permission options
     <userPermissions>
         <enabled>true</enabled>
         <name>EditReports</name>
     </userPermissions>
+	-->
     <userPermissions>
         <enabled>true</enabled>
         <name>EditTask</name>
@@ -11743,10 +11725,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ExportReport</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>IsSsoEnabled</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
