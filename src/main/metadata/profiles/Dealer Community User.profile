@@ -11281,14 +11281,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-<<<<<<< HEAD
         <recordType>Idea.InternalIdeasIdeaRecordType</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-=======
->>>>>>> 171eee999503c23f4ca9e109ece041e9e9e97b3d
         <recordType>Lead__c.Aftersales_Leads</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -11423,7 +11420,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-<<<<<<< HEAD
         <recordType>SMS_Code__c.Generate_OB_Task</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -11489,8 +11485,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-=======
->>>>>>> 171eee999503c23f4ca9e109ece041e9e9e97b3d
         <recordType>Task.Campaign_Task</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -11684,14 +11678,11 @@
     <!--TODO Commented as part of 58Demo Kernel Deployment
 	<userPermissions>
         <enabled>true</enabled>
-<<<<<<< HEAD
         <name>IsSsoEnabled</name>
     </userPermissions>
 	-->
     <userPermissions>
         <enabled>true</enabled>
-=======
->>>>>>> 171eee999503c23f4ca9e109ece041e9e9e97b3d
         <name>RunReports</name>
     </userPermissions>
 </Profile>
