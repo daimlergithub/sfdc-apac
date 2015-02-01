@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
         <application>BMBS_CRM</application>
@@ -10494,9 +10494,6 @@
         <layout>Case_SubType_Mapping__c-Case SubType Mapping Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CollaborationGroup-小组 布局</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Collaboration_Team__c-Collaboration Team Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10507,25 +10504,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contact-Contact Master Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ContentVersion-售后类</layout>
-        <recordType>ContentVersion.RecordType3</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ContentVersion-市场类</layout>
-        <recordType>ContentVersion.RecordType2</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ContentVersion-广告工具箱</layout>
-        <recordType>ContentVersion.RecordType1</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ContentVersion-活动工具箱</layout>
-        <recordType>ContentVersion.RecordType</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>ContentVersion-销售类</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DM_Material__c-DM Layout</layout>
@@ -10628,10 +10606,6 @@
     <layoutAssignments>
         <layout>Retail_Campaign__c-Monthly TA</layout>
         <recordType>Retail_Campaign__c.Monthly_TA</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Retail_Campaign__c-Retail MB Best Practice Layout</layout>
-        <recordType>Retail_Campaign__c.Retail_MB_Best_Practice</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Campaign__c-S%26M Event Retail Campaign</layout>
@@ -11281,11 +11255,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Idea.InternalIdeasIdeaRecordType</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
         <recordType>Lead__c.Aftersales_Leads</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -11416,71 +11385,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>SMS_Code__c.GenerateDownstreamSMS</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>SMS_Code__c.Generate_OB_Task</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>SMS_Code__c.Register_Campaign</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Status_Report__c.Distributed</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Survey_Result__c.MBDA_Survey_Result</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Survey_Result__c.Welcome_Call_1st_Survey_Result</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Survey_Result__c.Welcome_Call_Result</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Survey_Result__c.X1st_Survey_Result</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Survey_Result__c.X2nd_Survey_Result</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Survey_Result__c.smart_1st_Survey_Result</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Survey_Result__c.smart_2nd_Survey_Result</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Survey_Result__c.smart_Welcome_Call_1st_Survey_Result</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Survey_Result__c.smart_Welcome_Call_Result</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>SystemObject__c.SFDC</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -11675,12 +11579,6 @@
         <enabled>true</enabled>
         <name>IPRestrictRequests</name>
     </userPermissions>
-    <!--TODO Commented as part of 58Demo Kernel Deployment
-	<userPermissions>
-        <enabled>true</enabled>
-        <name>IsSsoEnabled</name>
-    </userPermissions>
-	-->
     <userPermissions>
         <enabled>true</enabled>
         <name>RunReports</name>

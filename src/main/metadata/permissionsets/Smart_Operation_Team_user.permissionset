@@ -21,10 +21,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>Requirement_Planning</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>Retail_CRM</application>
         <visible>false</visible>
     </applicationVisibilities>
@@ -1077,7 +1073,7 @@
         <enabled>false</enabled>
     </classAccesses>
     <description>- Update the following dealer&apos;s fields:
-Star Elite Account Owner</description>
+Smart Account Owner, Dealer Smart-Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.AccountNumber</field>
@@ -1484,9 +1480,9 @@ Star Elite Account Owner</description>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Dealer_smart_Sub_Region__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2029,9 +2025,9 @@ Star Elite Account Owner</description>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Star_Elite_Account_Owner__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2109,9 +2105,9 @@ Star Elite Account Owner</description>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.smart_Account_Owner__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3078,6 +3074,7 @@ Star Elite Account Owner</description>
         <field>Campaign_Partner__c.Description__c</field>
         <readable>false</readable>
     </fieldPermissions>
+
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign_history_log__c.Action__c</field>
@@ -8970,21 +8967,6 @@ Star Elite Account Owner</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Solution.IsPublished</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Solution.IsPublishedInPublicKb</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Solution.SolutionNote</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>SurveyQuestionResponse__c.Response__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -10558,227 +10540,7 @@ Star Elite Account Owner</description>
         <field>Vehicle__c.Warranty_Start_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Car_Model_Unmatched__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.CurrentMonthInvalid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.CurrentMonthTotal__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.CurrentMonthValid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.CurrentWeekInvalid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.CurrentWeekTotal__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.CurrentWeekValid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.DealerName__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.DealerTotal__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Dealer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Dealer_vehicles_Sub_dealer_vehicles__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Government_vehicles__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Illegal_Dealer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Invalid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Invalid_contact__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.LastMonthInvalid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.LastMonthTotal__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.LastMonthValid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.LastWeekInvalid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.LastWeekTotal__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.LastWeekValid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.MonthlyInvalidComparision__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.MonthlyTotalComparision__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.MonthlyValidComparision__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.SSI_Created_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Same_Contact__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Same_VIN__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Same_VIN_and_different_contact_name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Same_VIN_and_same_contact_name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Same_VIN_of_current_period__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Same_contact_and_different_contact_name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Same_contact_and_same_contact_name__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Same_contact_info_of_current_period__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Sinotrust_Number__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Time_cannot_match__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.Valid__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.VehicleCBUCKD__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.VehicleDesc__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.VehicleModel__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.VehicleTotal__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.WeeklyInvalidComparision__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.WeeklyTotalComparision__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>smart_SSI_Cleansing_result__c.WeeklyValidComparision__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <label>Star Elite Used Car Operation</label>
+	<label>Smart Operation Team user</label>
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
@@ -11145,6 +10907,7 @@ Star Elite Account Owner</description>
         <recordType>Campaign.smart_Best_Practice</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+ 
     <recordTypeVisibilities>
         <recordType>Case.Chrysler_Complaint</recordType>
         <visible>false</visible>
@@ -11551,10 +11314,6 @@ Star Elite Account Owner</description>
     </tabSettings>
     <tabSettings>
         <tab>Survey__c</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>TSP_Subscription__c</tab>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
