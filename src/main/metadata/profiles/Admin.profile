@@ -10657,12 +10657,23 @@
         <layout>Retail_Campaign_Member__c-Retail Campaign Member Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Retail_Campaign__c-AS Retail Campaign</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Campaign__c-AS Retail Campaign</layout>
+        <recordType>Retail_Campaign__c.AS_Retail_Campaign</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Retail_Campaign__c-AS Yearly TA</layout>
         <recordType>Retail_Campaign__c.Aftersales</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Campaign__c-Monthly TA</layout>
         <recordType>Retail_Campaign__c.Monthly_TA</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Campaign__c-Retail MB Best Practice Layout</layout>
+        <recordType>Retail_Campaign__c.Retail_MB_Best_Practice</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Campaign__c-S%26M Event Retail Campaign</layout>
@@ -11826,6 +11837,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Lead__c.MBDA_Leads</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Lead__c.Aftersales_Leads</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -11937,8 +11953,8 @@
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-	<recordTypeVisibilities>
-		<default>true</default>
+    <recordTypeVisibilities>
+    	<default>true</default>
         <recordType>Retail_Task__c.Contract</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -11960,6 +11976,16 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>SMS_Code__c.GenerateDownstreamSMS</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>SMS_Code__c.Generate_OB_Task</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>SMS_Code__c.Register_Campaign</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
