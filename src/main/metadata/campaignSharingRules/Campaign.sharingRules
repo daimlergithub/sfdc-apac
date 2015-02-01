@@ -3,7 +3,7 @@
     <criteriaBasedRules>
         <fullName>CAC_CRM_Campaign_Share_with_CAC</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -16,7 +16,7 @@
     <criteriaBasedRules>
         <fullName>CAC_CRM_share_to_CRM_Manager_CAC_Data_Mgt</fullName>
         <sharedTo>
-            <role>CRM_Manager_CAC_Data</role>
+            <role>Central_Sales_Marketing</role>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -29,7 +29,7 @@
     <criteriaBasedRules>
         <fullName>CAS_Marketing_Campaign_Share_with_CAC</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -47,7 +47,7 @@
     <criteriaBasedRules>
         <fullName>CMP_Confirmed_Status_Share_with_CAC_Data_CRM_Manager</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CRM_Manager_CAC_Data</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Central_Sales_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>Status</field>
@@ -101,7 +101,7 @@
     <criteriaBasedRules>
         <fullName>Campaign_Execution_Share_to_CAC</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -127,7 +127,7 @@
     <criteriaBasedRules>
         <fullName>Central_Campaign_share_to_CAC</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -145,7 +145,7 @@
     <criteriaBasedRules>
         <fullName>Share_AS_Campaign_with_Region_E</fullName>
         <sharedTo>
-            <roleAndSubordinates>Regional_AS_Retail_Marketing_E</roleAndSubordinates>
+            <roleAndSubordinates>Regional_AS_Retail_Marketing</roleAndSubordinates>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -163,7 +163,7 @@
     <criteriaBasedRules>
         <fullName>Share_AS_Campaign_with_Region_N</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -181,7 +181,7 @@
     <criteriaBasedRules>
         <fullName>Share_AS_Campaign_with_Region_S</fullName>
         <sharedTo>
-            <roleAndSubordinates>Regional_AS_Retail_Marketing_S</roleAndSubordinates>
+            <roleAndSubordinates>Regional_AS_Retail_Marketing</roleAndSubordinates>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -199,7 +199,7 @@
     <criteriaBasedRules>
         <fullName>Share_AS_Campaign_with_Region_W</fullName>
         <sharedTo>
-            <roleAndSubordinates>Regional_AS_Retail_Marketing_W</roleAndSubordinates>
+            <roleAndSubordinates>Regional_AS_Retail_Marketing</roleAndSubordinates>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -241,7 +241,7 @@
     <criteriaBasedRules>
         <fullName>Share_Published_MB_BP_with_Central</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CRM_Mgr_Retail_Marketing</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -277,7 +277,7 @@
     <criteriaBasedRules>
         <fullName>Share_Published_MB_BP_with_Region</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>BMBS_Regional</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -295,7 +295,7 @@
     <criteriaBasedRules>
         <fullName>Share_S_M_Campaign_with_CRM_Mgr</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CRM_Mgr_Retail_Marketing</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -319,7 +319,7 @@
     <criteriaBasedRules>
         <fullName>Share_S_M_Campaign_with_Region_N</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -337,7 +337,7 @@
     <criteriaBasedRules>
         <fullName>Share_S_M_Campaign_with_Region_S</fullName>
         <sharedTo>
-            <roleAndSubordinates>Regional_Retail_Marketing_S</roleAndSubordinates>
+            <roleAndSubordinates>Regional_AS_Retail_Marketing</roleAndSubordinates>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -355,7 +355,7 @@
     <criteriaBasedRules>
         <fullName>Share_S_M_Campaign_with_Region_W</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -373,7 +373,7 @@
     <criteriaBasedRules>
         <fullName>Share_S_M_Event_BMBS_Campaign_to_Call_Center</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -386,7 +386,7 @@
     <criteriaBasedRules>
         <fullName>Share_S_M_with_Region_E</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -422,10 +422,10 @@
     <ownerRules>
         <fullName>Share_Campaign_to_AS_Region_E</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedFrom>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Share Campaign to AS Region-E</name>
@@ -433,10 +433,10 @@
     <ownerRules>
         <fullName>Share_Campaign_to_AS_Region_N</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedFrom>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Share Campaign to AS Region-N</name>
@@ -444,10 +444,10 @@
     <ownerRules>
         <fullName>Share_Campaign_to_AS_Region_S</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_S</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_S</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedFrom>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Share Campaign to AS Region-S</name>
@@ -455,10 +455,10 @@
     <ownerRules>
         <fullName>Share_Campaign_to_AS_Region_W</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedFrom>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Share Campaign to AS Region-W</name>
@@ -466,10 +466,10 @@
     <ownerRules>
         <fullName>Share_Campaign_to_Region_E</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedFrom>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Share Campaign to Region-E</name>
@@ -477,10 +477,10 @@
     <ownerRules>
         <fullName>Share_Campaign_to_Region_N</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedFrom>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Share Campaign to Region-N</name>
@@ -488,10 +488,10 @@
     <ownerRules>
         <fullName>Share_Campaign_to_Region_S</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_S</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_S</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedFrom>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Share Campaign to Region-S</name>
@@ -499,10 +499,10 @@
     <ownerRules>
         <fullName>Share_Campaign_to_Region_W</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedFrom>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Share Campaign to Region-W</name>

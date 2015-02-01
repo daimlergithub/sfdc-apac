@@ -9164,7 +9164,7 @@
         <editable>true</editable>
         <field>Task.InteractionIds__c</field>
         <readable>true</readable>
-    </fieldPermissions>>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Last_OB_Call__c</field>
@@ -12724,8 +12724,3 @@
         <name>ViewSetup</name>
     </userPermissions>
 </Profile>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Retail_Task__c.Contract</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
