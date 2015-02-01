@@ -189,19 +189,17 @@ public class ZipFileHandler
           }
 
           FileOutputStream fos = new FileOutputStream(file);
-          BufferedOutputStream bos = new BufferedOutputStream(fos, buffer.length);
-
-          int read = 0;
-          do {
-            read = zis.read(buffer);
-            if (0 < read) {
-              bos.write(buffer, 0, read);
+          try (BufferedOutputStream bos = new BufferedOutputStream(fos, buffer.length))
+          {
+            int read = 0;
+            do {
+              read = zis.read(buffer);
+              if (0 < read) {
+                bos.write(buffer, 0, read);
+              }
             }
+            while (-1 != read);
           }
-          while (-1 != read);
-          bos.close();
-
-          // TODO (set lastModified of file to timestamp in SFDC) -> better: preserve lastmodified of file which was there before
         }
       }
       while (null != entry);

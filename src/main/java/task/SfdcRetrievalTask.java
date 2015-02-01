@@ -188,7 +188,7 @@ public class SfdcRetrievalTask
       throw new BuildException("The property timestamps must be specified.");
     }
     if (!new File(timestamps).exists()) {
-      throw new BuildException(String.format("The file %s does not exist. Please deploy first.", timestamps));
+      throw new BuildException(String.format("The file %s does not exist. Please deploy first or use the target 'retrieveAll'.", timestamps));
     }
   }
   

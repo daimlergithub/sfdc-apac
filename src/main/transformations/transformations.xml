@@ -10,4 +10,19 @@
 		<xpath>/Workflow/outboundMessages[fullName/text()='Send_Assigned_Dealer_to_EP']/integrationUser/text()</xpath>
 		<token>WORKFLOW_INTEGRATION_USER</token>
 	</changetext>
+	<changetext>
+		<filename>objects\Campaign.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Create_CAC_Campaign']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Create_Complex_Execution']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='Create_Simple_Execution']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_SIMPLE_EXECUTION_RECORD_TYPE_ID</token>
+	</changetext>
 </transformations>

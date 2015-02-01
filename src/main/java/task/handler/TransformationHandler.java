@@ -20,6 +20,7 @@ import java.util.zip.ZipOutputStream;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
+import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -40,6 +41,7 @@ import org.xml.sax.SAXException;
 
 import task.handler.transformations.ChangeAttribute;
 import task.handler.transformations.ChangeText;
+import task.handler.transformations.Token;
 import task.handler.transformations.Transformation;
 import task.handler.transformations.Transformations;
 
@@ -80,7 +82,7 @@ public class TransformationHandler
     // global
     transformations = readTransformations(null);
     // TODO add environment-specific transformations
-    transformations.addAll(readTransformations("example"));
+    transformations.addAll(readTransformations(environment));
 
     // TODO fix logging
 //    logWrapper.log(String.format("Use environment %s.", result));
@@ -97,9 +99,9 @@ public class TransformationHandler
       transformation.validate();
       
       if (transformation instanceof ChangeText) {
-        tokens.add(((ChangeText)transformation).getToken());
+        tokens.add(((ChangeText)transformation).getToken().getText());
       } else if (transformation instanceof ChangeAttribute) {
-        tokens.add(((ChangeAttribute)transformation).getToken());
+        tokens.add(((ChangeAttribute)transformation).getToken().getText());
       }
     }
 
@@ -174,10 +176,16 @@ public class TransformationHandler
 
   private List<Transformation> readTransformations(String environment)
   {
+    List<Transformation> result = new ArrayList<>();
+    
     File basePath = StringUtils.isNotEmpty(environment) ? new File(transformationsRoot, environment) : new File(transformationsRoot);
     
     File transConfigFile = new File(basePath, "transformations.xml");
-
+    if (!transConfigFile.exists())
+    {
+      return result;
+    }
+    
     try (FileReader fileReader = new FileReader(transConfigFile)) {
       JAXBContext context = JAXBContext.newInstance(Transformations.class);
       Unmarshaller um = context.createUnmarshaller();
@@ -188,7 +196,6 @@ public class TransformationHandler
 //      m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 //      m.marshal(ts,  System.out);
       
-      List<Transformation> result = new ArrayList<>();
       if (null != ts && null != ts.getTransformations()) {
         for (Transformation t : ts.getTransformations()) {
           normalizeFile(t);
@@ -254,11 +261,11 @@ public class TransformationHandler
       Document doc = b.parse(new FileInputStream(file));
       
       for (Transformation transformation : fileTransformations) {
-        try {
+//        try {
           transformation.applyForDeploy(logWrapper, doc, tokenMappings);
-        } catch (BuildException be) {
-          // TODO ignore for now
-        }
+//        } catch (BuildException be) {
+//          // TODO ignore for now
+//        }
       }
       
       ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -309,6 +316,8 @@ public class TransformationHandler
       }
     }
 
+    logWrapper.log(String.format("Found %d transformations for %s.", result.size(), file.getName()));
+    
  // TODO validate only one rename file for each file
     
     return result;

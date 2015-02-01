@@ -19,7 +19,7 @@ import task.handler.LogWrapper;
 public class ChangeAttribute extends Transformation {
   
   private String xpath;
-  private String token;
+  private Token token;
   
   public String getXpath()
   {
@@ -31,12 +31,12 @@ public class ChangeAttribute extends Transformation {
     this.xpath = xpath;
   }
 
-  public String getToken()
+  public Token getToken()
   {
     return token;
   }
 
-  public void setToken(String token)
+  public void setToken(Token token)
   {
     this.token = token;
   }
@@ -48,9 +48,11 @@ public class ChangeAttribute extends Transformation {
     if (StringUtils.isEmpty(xpath)) {
       throw new BuildException("The xpath of the transformation changeattribute must be set.");
     }
-    if (StringUtils.isEmpty(token)) {
-      throw new BuildException("The token of the transformation changeattribute must be set.");
+    if (null == token) {
+      throw new BuildException("The token of the transformation changetext must be set.");
     }
+    
+    token.validate();
   }
 
   @Override
