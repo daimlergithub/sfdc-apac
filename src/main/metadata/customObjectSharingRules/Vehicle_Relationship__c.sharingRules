@@ -3,7 +3,7 @@
     <criteriaBasedRules>
         <fullName>Read_Write_of_Vehicle_to_CAC</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -13,6 +13,7 @@
         <accessLevel>Edit</accessLevel>
         <name>Read/Write of Vehicle to CAC</name>
     </criteriaBasedRules>
+	<!-- TODO : To be validated with BA/Sinow
     <criteriaBasedRules>
         <fullName>Read_of_Vehicle_to_BMBS</fullName>
         <sharedTo>
@@ -26,6 +27,7 @@
         <accessLevel>Read</accessLevel>
         <name>Read of Vehicle to BMBS</name>
     </criteriaBasedRules>
+	-->
     <criteriaBasedRules>
         <fullName>soft_deleted_share_with_R_W_to_data_mgr</fullName>
         <sharedTo>

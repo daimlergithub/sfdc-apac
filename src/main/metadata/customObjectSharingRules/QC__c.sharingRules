@@ -39,7 +39,7 @@
     <criteriaBasedRules>
         <fullName>Share_RW_with_SSI_TL</fullName>
         <sharedTo>
-            <role>SSI_TL</role>
+            <role>OB_QC</role>
         </sharedTo>
         <criteriaItems>
             <field>Status__c</field>
@@ -55,27 +55,9 @@
         <name>Share RW with SSI TL</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>Share_R_with_SSI_CSR</fullName>
-        <sharedTo>
-            <role>Sinotrust</role>
-        </sharedTo>
-        <criteriaItems>
-            <field>Approved__c</field>
-            <operation>equals</operation>
-            <value>Yes</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>SSI QC</value>
-        </criteriaItems>
-        <accessLevel>Read</accessLevel>
-        <name>Share R with SSI CSR</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
         <fullName>Share_SSI_QC_with_RW_to_SSI_TL_and_above</fullName>
         <sharedTo>
-            <role>SSI_TL</role>
+            <role>OB_QC</role>
         </sharedTo>
         <criteriaItems>
             <field>Approved__c</field>
@@ -96,7 +78,7 @@
             <role>OB_CSR</role>
         </sharedTo>
         <sharedFrom>
-            <role>QC_OB</role>
+            <role>OB_QC</role>
         </sharedFrom>
         <accessLevel>Edit</accessLevel>
         <name>QC share with OB CSR</name>

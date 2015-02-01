@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AccountSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
-        <fullName>All_Customers_to_Sinotrust</fullName>
-        <sharedTo>
-            <role>Sinotrust</role>
-        </sharedTo>
-        <criteriaItems>
-            <field>IsPersonAccount</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <accountAccessLevel>Read</accountAccessLevel>
-        <caseAccessLevel>None</caseAccessLevel>
-        <contactAccessLevel>Read</contactAccessLevel>
-        <name>All Customers to Sinotrust</name>
-        <opportunityAccessLevel>None</opportunityAccessLevel>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
         <fullName>External_Agency_View_Dealers</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>External_Marketing_Agency</roleAndSubordinatesInternal>
@@ -38,46 +22,9 @@
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>Share_Account_ReadOnly_with_ICRM_users</fullName>
-        <sharedTo>
-            <role>ICRM_User</role>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Person Account</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Created_By_EP_Transaction__c</field>
-            <operation>notEqual</operation>
-            <value></value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>CAC_SourceId__c</field>
-            <operation>notEqual</operation>
-            <value></value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Dealer</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Dealer_Active__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <accountAccessLevel>Read</accountAccessLevel>
-        <booleanFilter>(1 AND (2 OR 3)) OR (4 AND 5)</booleanFilter>
-        <caseAccessLevel>None</caseAccessLevel>
-        <contactAccessLevel>Read</contactAccessLevel>
-        <name>Share Account ReadOnly with ICRM users</name>
-        <opportunityAccessLevel>None</opportunityAccessLevel>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
         <fullName>Share_Dealer_To_Regional_Office</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>BMBS_Regional</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -114,7 +61,7 @@
     <criteriaBasedRules>
         <fullName>Share_R_W_with_CAC_users</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -129,13 +76,13 @@
         <accountAccessLevel>Edit</accountAccessLevel>
         <caseAccessLevel>None</caseAccessLevel>
         <contactAccessLevel>Edit</contactAccessLevel>
-        <name>Share R/W with CAC users</name>
+        <name>Share R/W with CAC QC SV/TM users</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>Share_ReadOnly_with_CAC_users</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -151,7 +98,7 @@
         <booleanFilter>1 AND 2</booleanFilter>
         <caseAccessLevel>None</caseAccessLevel>
         <contactAccessLevel>Read</contactAccessLevel>
-        <name>Share ReadOnly with CAC users</name>
+        <name>Share ReadOnly with CAC QC SV/TM users</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
@@ -209,7 +156,7 @@
     <criteriaBasedRules>
         <fullName>Share_ReadOnly_with_Public_Relation</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>PR_Director</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -261,7 +208,7 @@
     <criteriaBasedRules>
         <fullName>Share_company_Read_Only</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>BMBS_Central</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -277,7 +224,7 @@
     <criteriaBasedRules>
         <fullName>Share_company_Read_Only1</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>BMBS_Regional</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -293,7 +240,7 @@
     <criteriaBasedRules>
         <fullName>Share_company_Read_Only2</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -309,7 +256,7 @@
     <criteriaBasedRules>
         <fullName>Share_read_with_all_central_bmbs</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>BMBS_Central</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -325,27 +272,6 @@
         <caseAccessLevel>None</caseAccessLevel>
         <contactAccessLevel>Read</contactAccessLevel>
         <name>Share read with all central bmbs</name>
-        <opportunityAccessLevel>None</opportunityAccessLevel>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>Shared_RW_with_Dealer_Account_update_users</fullName>
-        <sharedTo>
-            <group>BMBS_Dealer_Account_Update_Users</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Dealer</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Dealer_Active__c</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <accountAccessLevel>Edit</accountAccessLevel>
-        <caseAccessLevel>None</caseAccessLevel>
-        <contactAccessLevel>Edit</contactAccessLevel>
-        <name>Shared RW with Dealer Account update users</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
@@ -372,7 +298,7 @@
     <criteriaBasedRules>
         <fullName>VIP_PA_share_with_BMBS_CRM_Manager</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CRM_Assist_Manager_CAC_Data_Mgt</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Central_Sales_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
