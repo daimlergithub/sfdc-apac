@@ -1,38 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CaseSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <!-- TODO : To be validated with BA/Sinow
-	<criteriaBasedRules>
-        <fullName>CAC_Complaint_share_to_Hanxue</fullName>
-        <sharedTo>
-            <role>CRM_Assist_Manager_CAC_Data_Mgt</role>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>MB Complaint</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Complaint_Creator_Department__c</field>
-            <operation>equals</operation>
-            <value>CAC</value>
-        </criteriaItems>
-        <caseAccessLevel>Edit</caseAccessLevel>
-        <name>CAC Complaint share to Hanxue</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>CAC_Inquiry_share_to_Hanxue</fullName>
-        <sharedTo>
-            <role>CRM_Assist_Manager_CAC_Data_Mgt</role>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Chrysler Complaint,Inquiry</value>
-        </criteriaItems>
-        <caseAccessLevel>Edit</caseAccessLevel>
-        <name>CAC Inquiry share to Hanxue</name>
-    </criteriaBasedRules>
-	-->
     <criteriaBasedRules>
         <fullName>ComplaintShareCentralOffice</fullName>
         <sharedTo>

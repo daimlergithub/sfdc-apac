@@ -8,31 +8,16 @@
     <approvalPageFields>
         <field>Name</field>
         <field>Owner</field>
-        <field>Dealer_Name__c</field>
-        <field>Event_Type__c</field>
-        <field>Media_Type__c</field>
-        <field>Campaign_Type__c</field>
-        <field>Plan_Expense__c</field>
-        <field>Actual_Expense__c</field>
-        <field>Plan_Invite_Customer__c</field>
-        <field>Actual_Invite_Customer__c</field>
-        <field>Plan_Show_up_Customer__c</field>
-        <field>Actual_Show_up_Customer__c</field>
-        <field>Plan_Lead__c</field>
-        <field>Actual_Lead__c</field>
-        <field>Plan_Order__c</field>
-        <field>Actual_Order__c</field>
-        <field>Feedback_Comments__c</field>
     </approvalPageFields>
     <approvalStep>
         <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
-                <name>Feedback_Status_Approved</name>
+                <name>Apply_Status_Cancelled</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Please_note_that_your_feedback_Application_of_Campaign_has_been_Approved_by_Regi</name>
+                <name>Please_note_that_your_cancel_Application_of_Campaign_has_been_Approved_by_Region</name>
                 <type>Task</type>
             </action>
         </approvalActions>
@@ -43,22 +28,21 @@
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
-        <label>反馈审批</label>
-        <name>Feedback_Approval</name>
+        <label>Cancel Approval</label>
+        <name>Cancel</name>
         <rejectionActions>
             <action>
-                <name>Feedback_Status_Need_Modify</name>
+                <name>Apply_Status_Approved</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Please_note_that_your_feedback_Application_of_Campaign_has_been_Rejected_by_Regi</name>
+                <name>Please_note_that_your_cancel_Application_of_Campaign_has_been_Rejected_by_Region</name>
                 <type>Task</type>
             </action>
         </rejectionActions>
     </approvalStep>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <booleanFilter>1 AND( 2 OR 3) AND 4</booleanFilter>
         <criteriaItems>
             <field>Retail_Campaign__c.Apply_Status__c</field>
             <operation>equals</operation>
@@ -67,12 +51,7 @@
         <criteriaItems>
             <field>Retail_Campaign__c.Feedback_Status__c</field>
             <operation>equals</operation>
-            <value>Confirmed</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Retail_Campaign__c.Feedback_Status__c</field>
-            <operation>equals</operation>
-            <value>Need Modify</value>
+            <value>Planned</value>
         </criteriaItems>
         <criteriaItems>
             <field>Retail_Campaign__c.RecordType</field>
@@ -80,9 +59,15 @@
             <value>AS Retail Campaign, S&amp;M Event Retail Campaign, S&amp;M Media Retail Campaign</value>
         </criteriaItems>
     </entryCriteria>
-    <finalApprovalRecordLock>false</finalApprovalRecordLock>
+    <finalApprovalRecordLock>true</finalApprovalRecordLock>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
-    <label>经销商市场活动反馈流程</label>
+    <initialSubmissionActions>
+        <action>
+            <name>Apply_Status_Cancel_Application</name>
+            <type>FieldUpdate</type>
+        </action>
+    </initialSubmissionActions>
+    <label>Dealer Marketing Cancel Approval Process</label>
     <recordEditability>AdminOnly</recordEditability>
     <showApprovalHistory>false</showApprovalHistory>
 </ApprovalProcess>

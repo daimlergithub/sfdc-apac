@@ -68,16 +68,5 @@
         <accessLevel>Read</accessLevel>
         <name>Share R with data manager</name>
     </ownerRules>
-    <ownerRules>
-        <fullName>Share_with_SSI_USER</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>Sales_Management_Director</roleAndSubordinatesInternal>
-        </sharedTo>
-        <sharedFrom>
-            <roleAndSubordinatesInternal>BMBS</roleAndSubordinatesInternal>
-        </sharedFrom>
-        <accessLevel>Read</accessLevel>
-        <name>Share with SSI USER</name>
-    </ownerRules>
 	-->
 </CustomObjectSharingRules>

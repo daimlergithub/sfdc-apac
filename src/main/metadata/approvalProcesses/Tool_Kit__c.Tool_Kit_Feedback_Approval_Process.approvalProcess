@@ -8,22 +8,19 @@
     <approvalPageFields>
         <field>Name</field>
         <field>Owner</field>
-        <field>Apply_Status__c</field>
         <field>Feedback_Status__c</field>
+        <field>Plan_Expense__c</field>
         <field>Feedback_Comments__c</field>
-        <field>Plan_Start_Date__c</field>
-        <field>Plan_End_Date__c</field>
-        <field>Dealer_Name__c</field>
     </approvalPageFields>
     <approvalStep>
         <allowDelegate>false</allowDelegate>
         <approvalActions>
             <action>
-                <name>Apply_Status_Cancel</name>
+                <name>Feedback_Status_Approved</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Please_note_that_your_cancel_Application_of_Tool_Kit_has_been_Approved_by_Region</name>
+                <name>Please_note_that_your_feedback_Application_of_Tool_Kit_has_been_Approved_by_Regi</name>
                 <type>Task</type>
             </action>
         </approvalActions>
@@ -34,33 +31,42 @@
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
-        <label>取消审批</label>
-        <name>Cancel</name>
+        <label>Feedback Approval Process</label>
+        <name>Approval</name>
         <rejectionActions>
             <action>
-                <name>Apply_Status_Approved_Forcancel</name>
+                <name>Feedback_Status_Need_Modify</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Please_note_that_your_cancel_Application_of_Tool_Kit_has_been_Rejected_by_Region</name>
+                <name>Please_note_that_your_feedback_Application_of_Tool_Kit_has_been_Rejected_by_Regi</name>
                 <type>Task</type>
             </action>
         </rejectionActions>
     </approvalStep>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <formula>AND(  ISPICKVAL(  Apply_Status__c , &apos;Approved&apos;) ,
-IF( RecordType.Name == &apos;Event&apos;,  Plan_Start_Date__c -  TODAY() &gt;= 7, Plan_Start_Date__c -  TODAY() &gt;= 3))</formula>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <criteriaItems>
+            <field>Tool_Kit__c.Apply_Status__c</field>
+            <operation>equals</operation>
+            <value>Tool Kit Finished</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Tool_Kit__c.Feedback_Status__c</field>
+            <operation>equals</operation>
+            <value>Planned, Need Modify</value>
+        </criteriaItems>
     </entryCriteria>
-    <finalApprovalRecordLock>true</finalApprovalRecordLock>
+    <finalApprovalRecordLock>false</finalApprovalRecordLock>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
     <initialSubmissionActions>
         <action>
-            <name>Apply_Status_Cancel_Application</name>
+            <name>Apply_Status_Confirmed_Forfeedback</name>
             <type>FieldUpdate</type>
         </action>
     </initialSubmissionActions>
-    <label>工具箱取消流程</label>
+    <label>Tool Kit Feedback Process</label>
     <recordEditability>AdminOnly</recordEditability>
     <showApprovalHistory>true</showApprovalHistory>
 </ApprovalProcess>

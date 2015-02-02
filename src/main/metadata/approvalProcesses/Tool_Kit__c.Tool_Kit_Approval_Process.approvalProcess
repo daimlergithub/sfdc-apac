@@ -8,26 +8,23 @@
     <approvalPageFields>
         <field>Name</field>
         <field>Owner</field>
-        <field>Dealer_Name__c</field>
-        <field>Brand__c</field>
+        <field>Apply_Status__c</field>
+        <field>Plan_Start_Date__c</field>
+        <field>Plan_End_Date__c</field>
         <field>Event_Type__c</field>
         <field>Media_Type__c</field>
-        <field>Campaign_Type__c</field>
         <field>Plan_Expense__c</field>
-        <field>Plan_Invite_Customer__c</field>
-        <field>Plan_Show_up_Customer__c</field>
-        <field>Plan_Lead__c</field>
         <field>Comments__c</field>
     </approvalPageFields>
     <approvalStep>
-        <allowDelegate>true</allowDelegate>
+        <allowDelegate>false</allowDelegate>
         <approvalActions>
             <action>
                 <name>Apply_Status_Approved</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Please_note_that_your_Application_of_Campaign_has_been_Approved_by_Region</name>
+                <name>Please_note_that_your_Application_of_Tool_Kit_has_been_Approved_by_Region</name>
                 <type>Task</type>
             </action>
         </approvalActions>
@@ -38,7 +35,7 @@
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
-        <label>申请审批</label>
+        <label>Apply Approval</label>
         <name>Approval</name>
         <rejectionActions>
             <action>
@@ -46,33 +43,18 @@
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Please_note_that_your_Application_of_Campaign_has_been_Rejected_by_Region</name>
+                <name>Please_note_that_your_Application_of_Tool_Kit_has_been_Rejected_by_Region</name>
                 <type>Task</type>
             </action>
         </rejectionActions>
     </approvalStep>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <booleanFilter>(1 OR 2  )AND 3 AND 4</booleanFilter>
+        <booleanFilter>1</booleanFilter>
         <criteriaItems>
-            <field>Retail_Campaign__c.Apply_Status__c</field>
+            <field>Tool_Kit__c.Apply_Status__c</field>
             <operation>equals</operation>
-            <value>Need Modify</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Retail_Campaign__c.Apply_Status__c</field>
-            <operation>equals</operation>
-            <value>Planned</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Retail_Campaign__c.Feedback_Status__c</field>
-            <operation>equals</operation>
-            <value>Planned</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Retail_Campaign__c.RecordType</field>
-            <operation>equals</operation>
-            <value>AS Retail Campaign, S&amp;M Event Retail Campaign, S&amp;M Media Retail Campaign</value>
+            <value>Planned, Need Modify</value>
         </criteriaItems>
     </entryCriteria>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>
@@ -83,7 +65,7 @@
             <type>FieldUpdate</type>
         </action>
     </initialSubmissionActions>
-    <label>经销商市场活动申请流程</label>
+    <label>Tool Kit Approval Process</label>
     <recordEditability>AdminOnly</recordEditability>
-    <showApprovalHistory>false</showApprovalHistory>
+    <showApprovalHistory>true</showApprovalHistory>
 </ApprovalProcess>
