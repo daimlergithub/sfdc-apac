@@ -3,7 +3,7 @@
     <criteriaBasedRules>
         <fullName>Share_Contract_Service_with_Region</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>BMBS_Regional</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -16,7 +16,7 @@
     <criteriaBasedRules>
         <fullName>Share_Contract_and_Service_with_Central</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>BMBS_Central</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -29,7 +29,7 @@
     <criteriaBasedRules>
         <fullName>Share_Read_Write_with_CAC_users</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -43,7 +43,7 @@
     <criteriaBasedRules>
         <fullName>Share_readonly_retail_task_to_CAC</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>

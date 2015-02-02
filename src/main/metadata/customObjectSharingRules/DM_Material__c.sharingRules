@@ -3,10 +3,10 @@
     <ownerRules>
         <fullName>Share_with_Data_Fulfillment_user_with_R_W</fullName>
         <sharedTo>
-            <role>Fulfillment_Specialist</role>
+            <role>OB_QC</role>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinatesInternal>BMBS</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedFrom>
         <accessLevel>Edit</accessLevel>
         <name>Share with Data Fulfillment user with R/W</name>

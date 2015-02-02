@@ -3,7 +3,7 @@
     <criteriaBasedRules>
         <fullName>Share_TK_with_Region_E</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>Apply_Status__c</field>
@@ -21,7 +21,7 @@
     <criteriaBasedRules>
         <fullName>Share_TK_with_Region_N</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>Apply_Status__c</field>
@@ -39,7 +39,7 @@
     <criteriaBasedRules>
         <fullName>Share_TK_with_Region_South</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_S</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>Apply_Status__c</field>
@@ -57,7 +57,7 @@
     <criteriaBasedRules>
         <fullName>Share_TK_with_Region_W</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>Apply_Status__c</field>
@@ -75,7 +75,7 @@
     <criteriaBasedRules>
         <fullName>Tool_Kit_Share_with_Central</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CRM_Mgr_Retail_Marketing</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>Apply_Status__c</field>

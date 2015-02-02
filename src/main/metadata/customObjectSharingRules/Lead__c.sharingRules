@@ -3,7 +3,7 @@
     <criteriaBasedRules>
         <fullName>Soft_Deleted_Cannot_View_By_CAC</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -13,10 +13,11 @@
         <accessLevel>Edit</accessLevel>
         <name>Soft_Deleted_Cannot_View_By_CAC</name>
     </criteriaBasedRules>
+	<!-- TODO : To be validated with BA/Sinow
     <ownerRules>
         <fullName>Dealer_lead_gate_keeper_queue_share_with_CAC_user_with_Read_Write</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
             <queue>Dealer_Lead_Gate_Keeper_Queue</queue>
@@ -24,13 +25,14 @@
         <accessLevel>Edit</accessLevel>
         <name>Dealer_lead_gate_keeper_queue_share_with_CAC_user_with_Read_Write</name>
     </ownerRules>
+	-->
     <ownerRules>
         <fullName>Share_Leads_with_CRM_Assist_Manager_CAC_Data_Mgt</fullName>
         <sharedTo>
-            <role>CRM_Assist_Manager_CAC_Data_Mgt</role>
+            <role>Central_Sales_Marketing</role>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinates>BMBS</roleAndSubordinates>
+            <roleAndSubordinates>Central</roleAndSubordinates>
         </sharedFrom>
         <accessLevel>Edit</accessLevel>
         <name>Share Leads with CRM Assist Manager - CAC &amp; Data Mgt</name>
@@ -38,10 +40,10 @@
     <ownerRules>
         <fullName>Share_MBAFC_E</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBAFC_User_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinates>Regional_Head_E</roleAndSubordinates>
+            <roleAndSubordinates>Regional</roleAndSubordinates>
         </sharedFrom>
         <accessLevel>Read</accessLevel>
         <name>Share MBAFC (E)</name>
@@ -49,10 +51,10 @@
     <ownerRules>
         <fullName>Share_with_MBAFC_N</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBAFC_User_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinates>Regional_Head_N</roleAndSubordinates>
+            <roleAndSubordinates>Regional</roleAndSubordinates>
         </sharedFrom>
         <accessLevel>Read</accessLevel>
         <name>Share with MBAFC (N)</name>
@@ -60,10 +62,10 @@
     <ownerRules>
         <fullName>Share_with_MBAFC_S</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBAFC_User_S</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinates>Regional_Head_S</roleAndSubordinates>
+            <roleAndSubordinates>Regional</roleAndSubordinates>
         </sharedFrom>
         <accessLevel>Read</accessLevel>
         <name>Share with MBAFC (S)</name>
@@ -71,10 +73,10 @@
     <ownerRules>
         <fullName>Share_with_MBAFC_W</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>MBAFC_User_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinates>Regional_Head_W</roleAndSubordinates>
+            <roleAndSubordinates>Regional</roleAndSubordinates>
         </sharedFrom>
         <accessLevel>Read</accessLevel>
         <name>Share with MBAFC (W)</name>

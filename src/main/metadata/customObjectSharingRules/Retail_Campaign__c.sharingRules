@@ -21,7 +21,7 @@
     <criteriaBasedRules>
         <fullName>Share_AS_Retail_Campaign_to_Regional_E</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -44,7 +44,7 @@
     <criteriaBasedRules>
         <fullName>Share_AS_Retail_Campaign_to_Regional_N</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -67,7 +67,7 @@
     <criteriaBasedRules>
         <fullName>Share_AS_Retail_Campaign_to_Regional_S</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_S</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -90,7 +90,7 @@
     <criteriaBasedRules>
         <fullName>Share_AS_Retail_Campaign_to_Regional_W</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -113,7 +113,7 @@
     <criteriaBasedRules>
         <fullName>Share_Approved_S_M_Campaign_CAC</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>Apply_Status__c</field>
@@ -131,7 +131,7 @@
     <criteriaBasedRules>
         <fullName>Share_BP_with_Central</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CRM_Mgr_Retail_Marketing</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -195,7 +195,7 @@
     <criteriaBasedRules>
         <fullName>Share_BP_with_Region_E</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Head_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -229,7 +229,7 @@
     <criteriaBasedRules>
         <fullName>Share_BP_with_Region_N</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Head_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -263,7 +263,7 @@
     <criteriaBasedRules>
         <fullName>Share_BP_with_Region_S</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Head_S</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -297,7 +297,7 @@
     <criteriaBasedRules>
         <fullName>Share_BP_with_Region_W</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Head_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -331,7 +331,7 @@
     <criteriaBasedRules>
         <fullName>Share_Final_BP_with_Central</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CRM_Mgr_Retail_Marketing</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -377,7 +377,7 @@
     <criteriaBasedRules>
         <fullName>Share_Final_BP_with_Region_E</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Head_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -411,7 +411,7 @@
     <criteriaBasedRules>
         <fullName>Share_Final_BP_with_Region_N</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Head_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -445,7 +445,7 @@
     <criteriaBasedRules>
         <fullName>Share_Final_BP_with_Region_S</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Head_S</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -479,7 +479,7 @@
     <criteriaBasedRules>
         <fullName>Share_Final_BP_with_Region_W</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Head_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -513,7 +513,7 @@
     <criteriaBasedRules>
         <fullName>Share_S_M_Media_Event_Campaign_to_Central</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CRM_Mgr_Retail_Marketing</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -531,7 +531,7 @@
     <criteriaBasedRules>
         <fullName>Share_S_M_Media_Event_Campaign_to_Regional_E</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -554,7 +554,7 @@
     <criteriaBasedRules>
         <fullName>Share_S_M_Media_Event_Campaign_to_Regional_N</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -577,7 +577,7 @@
     <criteriaBasedRules>
         <fullName>Share_S_M_Media_Event_Campaign_to_Regional_S</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_S</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -600,7 +600,7 @@
     <criteriaBasedRules>
         <fullName>Share_S_M_Media_Event_Campaign_to_Regional_W</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -623,7 +623,7 @@
     <criteriaBasedRules>
         <fullName>Share_un_Planned_with_Central</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CRM_Mgr_Retail_Marketing</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CRM_Manager_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -636,7 +636,7 @@
     <criteriaBasedRules>
         <fullName>Share_with_Regional_AS_Retail_Marketing_E</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -654,7 +654,7 @@
     <criteriaBasedRules>
         <fullName>Share_with_Regional_AS_Retail_Marketing_N</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>Dealer_Region__c</field>
@@ -672,7 +672,7 @@
     <criteriaBasedRules>
         <fullName>Share_with_Regional_AS_Retail_Marketing_S</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_S</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>Dealer_Region__c</field>
@@ -690,7 +690,7 @@
     <criteriaBasedRules>
         <fullName>Share_with_Regional_AS_Retail_Marketing_W</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>Dealer_Region__c</field>
@@ -708,7 +708,7 @@
     <criteriaBasedRules>
         <fullName>Share_with_Regional_Retail_Marketing_E</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_E</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -726,7 +726,7 @@
     <criteriaBasedRules>
         <fullName>Share_with_Regional_Retail_Marketing_N</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_N</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -744,7 +744,7 @@
     <criteriaBasedRules>
         <fullName>Share_with_Regional_Retail_Marketing_S</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_S</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -762,7 +762,7 @@
     <criteriaBasedRules>
         <fullName>Share_with_Regional_Retail_Marketing_W</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>Regional_Retail_Marketing_W</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Regional_AS_Retail_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>

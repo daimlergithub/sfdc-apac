@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <ownerRules>
-        <fullName>OB_CSR_To_Sinotrust</fullName>
-        <sharedTo>
-            <role>Sinotrust</role>
-        </sharedTo>
-        <sharedFrom>
-            <role>OB_CSR</role>
-        </sharedFrom>
-        <accessLevel>Edit</accessLevel>
-        <name>OB CSR To Sinotrust</name>
-    </ownerRules>
-    <ownerRules>
+    <!-- TODO : To be validated with BA/Sinow
+	<ownerRules>
         <fullName>OB_CSR_to_SSI_SV</fullName>
         <sharedTo>
             <role>SSI_Supervisor</role>
@@ -89,26 +79,5 @@
         <accessLevel>Read</accessLevel>
         <name>Share with SSI USER</name>
     </ownerRules>
-    <ownerRules>
-        <fullName>Share_with_Sinotrust_with_RW</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>Sinotrust</roleAndSubordinatesInternal>
-        </sharedTo>
-        <sharedFrom>
-            <roleAndSubordinatesInternal>SSI_Supervisor</roleAndSubordinatesInternal>
-        </sharedFrom>
-        <accessLevel>Edit</accessLevel>
-        <name>Share with Sinotrust with RW</name>
-    </ownerRules>
-    <ownerRules>
-        <fullName>Sinotrust_to_Sinotrust</fullName>
-        <sharedTo>
-            <role>Sinotrust</role>
-        </sharedTo>
-        <sharedFrom>
-            <role>Sinotrust</role>
-        </sharedFrom>
-        <accessLevel>Edit</accessLevel>
-        <name>Sinotrust to Sinotrust</name>
-    </ownerRules>
+	-->
 </CustomObjectSharingRules>
