@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <!-- TODO : To be validated with BA/Sinow
 	<ownerRules>
         <fullName>OB_CSR_to_SSI_SV</fullName>
         <sharedTo>
@@ -16,7 +15,7 @@
     <ownerRules>
         <fullName>SSI_SV_To_CRM_Manager_CAC_Data_Mgt</fullName>
         <sharedTo>
-            <role>CRM_Manager_CAC_Data</role>
+            <role>Data_Service_Specialist</role>
         </sharedTo>
         <sharedFrom>
             <role>SSI_Supervisor</role>
@@ -27,7 +26,7 @@
     <ownerRules>
         <fullName>SSI_SV_To_QC_Supervisor</fullName>
         <sharedTo>
-            <role>QC_Supervisor</role>
+            <role>CAC_QC_SV_TM</role>
         </sharedTo>
         <sharedFrom>
             <role>SSI_Supervisor</role>
@@ -63,10 +62,9 @@
             <role>Data_Service_Specialist</role>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinatesInternal>BMBS</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>
         </sharedFrom>
         <accessLevel>Read</accessLevel>
         <name>Share R with data manager</name>
     </ownerRules>
-	-->
 </CustomObjectSharingRules>

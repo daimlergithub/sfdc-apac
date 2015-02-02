@@ -13,19 +13,6 @@
         <accessLevel>Edit</accessLevel>
         <name>Soft_Deleted_Cannot_View_By_CAC</name>
     </criteriaBasedRules>
-	<!-- TODO : To be validated with BA/Sinow
-    <ownerRules>
-        <fullName>Dealer_lead_gate_keeper_queue_share_with_CAC_user_with_Read_Write</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
-        </sharedTo>
-        <sharedFrom>
-            <queue>Dealer_Lead_Gate_Keeper_Queue</queue>
-        </sharedFrom>
-        <accessLevel>Edit</accessLevel>
-        <name>Dealer_lead_gate_keeper_queue_share_with_CAC_user_with_Read_Write</name>
-    </ownerRules>
-	-->
     <ownerRules>
         <fullName>Share_Leads_with_CRM_Assist_Manager_CAC_Data_Mgt</fullName>
         <sharedTo>

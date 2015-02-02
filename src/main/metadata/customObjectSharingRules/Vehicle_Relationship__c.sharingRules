@@ -13,11 +13,10 @@
         <accessLevel>Edit</accessLevel>
         <name>Read/Write of Vehicle to CAC</name>
     </criteriaBasedRules>
-	<!-- TODO : To be validated with BA/Sinow
     <criteriaBasedRules>
         <fullName>Read_of_Vehicle_to_BMBS</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>BMBS</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -27,7 +26,6 @@
         <accessLevel>Read</accessLevel>
         <name>Read of Vehicle to BMBS</name>
     </criteriaBasedRules>
-	-->
     <criteriaBasedRules>
         <fullName>soft_deleted_share_with_R_W_to_data_mgr</fullName>
         <sharedTo>

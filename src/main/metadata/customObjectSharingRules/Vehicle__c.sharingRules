@@ -13,11 +13,10 @@
         <accessLevel>Edit</accessLevel>
         <name>READ/WRITE for Vehicle to CAC</name>
     </criteriaBasedRules>
-	<!-- TODO : To be validated with BA/Sinow
     <criteriaBasedRules>
         <fullName>Read_of_Vehicle_to_BMBS</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>BMBS</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -27,31 +26,6 @@
         <accessLevel>Read</accessLevel>
         <name>Read of Vehicle to BMBS</name>
     </criteriaBasedRules>
-    <criteriaBasedRules>
-        <fullName>Share_Vehicle_ReadOnly_with_ICRM_users</fullName>
-        <sharedTo>
-            <role>ICRM_User</role>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>MB</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>CAC_SourceId__c</field>
-            <operation>notEqual</operation>
-            <value></value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Created_By_EP_Transaction__c</field>
-            <operation>notEqual</operation>
-            <value></value>
-        </criteriaItems>
-        <accessLevel>Read</accessLevel>
-        <booleanFilter>1 AND (2 OR 3)</booleanFilter>
-        <name>Share Vehicle ReadOnly with ICRM users</name>
-    </criteriaBasedRules>
-	-->
     <criteriaBasedRules>
         <fullName>soft_deleted_V_share_read_with_data_mgr</fullName>
         <sharedTo>
