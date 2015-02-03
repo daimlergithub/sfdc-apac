@@ -211,8 +211,23 @@
 				debug="${sfdc.debug}" dryRun="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
+				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
+			<sf:typesets names="CustomLabels,StaticResource,CallCenter,AccountSharingRules"/>
+		</sf:retrieve>
+		
+		<!-- retrieves only changed metadata -->
+		<sf:retrieve
+				debug="${sfdc.debug}" dryRun="false"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
-			<sf:typesets names="${typesets}"/>
+			<!-- TODO
+			CampaignSharingRules
+			-->
+			<sf:typesets names="ApexPage,Queue,Role,Group,CustomObject,Layout,Document,CustomTab,
+				CustomApplication,EmailTemplate,Workflow,ApexClass,ApexTrigger,AppMenu,Profile,PermissionSet,CustomSite,
+				CampaignSharingRules,CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
+				CustomPageWebLink,HomePageComponent,HomePageLayout,RemoteSiteSetting"/>
 		</sf:retrieve>
 	</target>
 	
