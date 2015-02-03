@@ -8,19 +8,31 @@
     <approvalPageFields>
         <field>Name</field>
         <field>Owner</field>
-        <field>Feedback_Status__c</field>
+        <field>Dealer_Name__c</field>
+        <field>Event_Type__c</field>
+        <field>Media_Type__c</field>
+        <field>Campaign_Type__c</field>
         <field>Plan_Expense__c</field>
+        <field>Actual_Expense__c</field>
+        <field>Plan_Invite_Customer__c</field>
+        <field>Actual_Invite_Customer__c</field>
+        <field>Plan_Show_up_Customer__c</field>
+        <field>Actual_Show_up_Customer__c</field>
+        <field>Plan_Lead__c</field>
+        <field>Actual_Lead__c</field>
+        <field>Plan_Order__c</field>
+        <field>Actual_Order__c</field>
         <field>Feedback_Comments__c</field>
     </approvalPageFields>
     <approvalStep>
-        <allowDelegate>false</allowDelegate>
+        <allowDelegate>true</allowDelegate>
         <approvalActions>
             <action>
                 <name>Feedback_Status_Approved</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Please_note_that_your_feedback_Application_of_Tool_Kit_has_been_Approved_by_Regi</name>
+                <name>Please_note_that_your_feedback_Application_of_Campaign_has_been_Approved_by_Regi</name>
                 <type>Task</type>
             </action>
         </approvalActions>
@@ -31,42 +43,46 @@
             </approver>
             <whenMultipleApprovers>FirstResponse</whenMultipleApprovers>
         </assignedApprover>
-        <label>反馈审批</label>
-        <name>Approval</name>
+        <label>Feedback Approval</label>
+        <name>Feedback_Approval</name>
         <rejectionActions>
             <action>
                 <name>Feedback_Status_Need_Modify</name>
                 <type>FieldUpdate</type>
             </action>
             <action>
-                <name>Please_note_that_your_feedback_Application_of_Tool_Kit_has_been_Rejected_by_Regi</name>
+                <name>Please_note_that_your_feedback_Application_of_Campaign_has_been_Rejected_by_Regi</name>
                 <type>Task</type>
             </action>
         </rejectionActions>
     </approvalStep>
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
-        <booleanFilter>1 AND 2</booleanFilter>
+        <booleanFilter>1 AND( 2 OR 3) AND 4</booleanFilter>
         <criteriaItems>
-            <field>Tool_Kit__c.Apply_Status__c</field>
+            <field>Retail_Campaign__c.Apply_Status__c</field>
             <operation>equals</operation>
-            <value>Tool Kit Finished</value>
+            <value>Approved</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Tool_Kit__c.Feedback_Status__c</field>
+            <field>Retail_Campaign__c.Feedback_Status__c</field>
             <operation>equals</operation>
-            <value>Planned, Need Modify</value>
+            <value>Confirmed</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.Feedback_Status__c</field>
+            <operation>equals</operation>
+            <value>Need Modify</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Retail_Campaign__c.RecordType</field>
+            <operation>equals</operation>
+            <value>AS Retail Campaign, S&amp;M Event Retail Campaign, S&amp;M Media Retail Campaign</value>
         </criteriaItems>
     </entryCriteria>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>
     <finalRejectionRecordLock>false</finalRejectionRecordLock>
-    <initialSubmissionActions>
-        <action>
-            <name>Apply_Status_Confirmed_Forfeedback</name>
-            <type>FieldUpdate</type>
-        </action>
-    </initialSubmissionActions>
-    <label>工具箱反馈流程</label>
+    <label>Dealer Marketing Feedback Process</label>
     <recordEditability>AdminOnly</recordEditability>
-    <showApprovalHistory>true</showApprovalHistory>
+    <showApprovalHistory>false</showApprovalHistory>
 </ApprovalProcess>

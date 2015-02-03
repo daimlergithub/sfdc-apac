@@ -1,83 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fieldUpdates>
-        <fullName>Apply_Status_Approved</fullName>
-        <field>Apply_Status__c</field>
-        <literalValue>Approved</literalValue>
-        <name>Apply Status Approved</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Apply_Status_Cancel_Application</fullName>
-        <field>Apply_Status__c</field>
-        <literalValue>Cancel Application</literalValue>
-        <name>Apply Status Cancel Application</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Apply_Status_Cancelled</fullName>
-        <field>Apply_Status__c</field>
-        <literalValue>Cancelled</literalValue>
-        <name>Apply Status Cancelled</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Apply_Status_Confirmed</fullName>
-        <field>Apply_Status__c</field>
-        <literalValue>Confirmed</literalValue>
-        <name>Apply Status Confirmed</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Apply_Status_Need_Modify</fullName>
-        <field>Apply_Status__c</field>
-        <literalValue>Need Modify</literalValue>
-        <name>Apply Status Need Modify</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Feedback_Status_Approved</fullName>
-        <field>Feedback_Status__c</field>
-        <literalValue>Approved</literalValue>
-        <name>Feedback Status Approved</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">   
     <fieldUpdates>
         <fullName>Feedback_Status_Confirmed</fullName>
         <field>Feedback_Status__c</field>
         <literalValue>等待区域审批</literalValue>
         <name>Feedback Status Confirmed</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Feedback_Status_Need_Modify</fullName>
-        <field>Feedback_Status__c</field>
-        <literalValue>Need Modify</literalValue>
-        <name>Feedback Status Need Modify</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Status_Updated_Approved</fullName>
-        <field>Y_Status__c</field>
-        <literalValue>Approved</literalValue>
-        <name>Status Updated Approved</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
@@ -90,17 +17,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Status_Updated_Need_Modify</fullName>
-        <field>Y_Status__c</field>
-        <literalValue>Need Modify</literalValue>
-        <name>Status Updated Need Modify</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    
+    </fieldUpdates>    
     <fieldUpdates>
         <fullName>Update_BP_Status_to_Final_Submit</fullName>
         <field>BP_Status__c</field>
@@ -212,84 +129,4 @@
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
     </rules>
-    <tasks>
-        <fullName>Please_note_that_your_Application_of_Campaign_has_been_Approved_by_Region</fullName>
-        <assignedToType>owner</assignedToType>
-        <dueDateOffset>3</dueDateOffset>
-        <notifyAssignee>false</notifyAssignee>
-        <priority>普通</priority>
-        <protected>false</protected>
-        <status>Open</status>
-        <subject>您的活动计划已审批通过</subject>
-    </tasks>
-    <tasks>
-        <fullName>Please_note_that_your_Application_of_Campaign_has_been_Rejected_by_Region</fullName>
-        <assignedToType>owner</assignedToType>
-        <dueDateOffset>3</dueDateOffset>
-        <notifyAssignee>false</notifyAssignee>
-        <priority>高</priority>
-        <protected>false</protected>
-        <status>Open</status>
-        <subject>您的活动计划需要调整后重新提交</subject>
-    </tasks>
-    <tasks>
-        <fullName>Please_note_that_your_Application_of_Yearly_TA_has_been_Approved_by_Region</fullName>
-        <assignedToType>owner</assignedToType>
-        <dueDateOffset>3</dueDateOffset>
-        <notifyAssignee>false</notifyAssignee>
-        <priority>普通</priority>
-        <protected>false</protected>
-        <status>Open</status>
-        <subject>您的年度计划已审批通过</subject>
-    </tasks>
-    <tasks>
-        <fullName>Please_note_that_your_Application_of_Yearly_TA_has_been_Rejected_by_Region</fullName>
-        <assignedToType>owner</assignedToType>
-        <dueDateOffset>3</dueDateOffset>
-        <notifyAssignee>false</notifyAssignee>
-        <priority>高</priority>
-        <protected>false</protected>
-        <status>Open</status>
-        <subject>您的年度计划需要调整后重新提交</subject>
-    </tasks>
-    <tasks>
-        <fullName>Please_note_that_your_cancel_Application_of_Campaign_has_been_Approved_by_Region</fullName>
-        <assignedToType>owner</assignedToType>
-        <dueDateOffset>3</dueDateOffset>
-        <notifyAssignee>false</notifyAssignee>
-        <priority>普通</priority>
-        <protected>false</protected>
-        <status>Open</status>
-        <subject>您的活动撤销申请已审批通过</subject>
-    </tasks>
-    <tasks>
-        <fullName>Please_note_that_your_cancel_Application_of_Campaign_has_been_Rejected_by_Region</fullName>
-        <assignedToType>owner</assignedToType>
-        <dueDateOffset>3</dueDateOffset>
-        <notifyAssignee>false</notifyAssignee>
-        <priority>高</priority>
-        <protected>false</protected>
-        <status>Open</status>
-        <subject>您的活动撤销申请已驳回</subject>
-    </tasks>
-    <tasks>
-        <fullName>Please_note_that_your_feedback_Application_of_Campaign_has_been_Approved_by_Regi</fullName>
-        <assignedToType>owner</assignedToType>
-        <dueDateOffset>3</dueDateOffset>
-        <notifyAssignee>false</notifyAssignee>
-        <priority>普通</priority>
-        <protected>false</protected>
-        <status>Open</status>
-        <subject>您的活动反馈已审批通过</subject>
-    </tasks>
-    <tasks>
-        <fullName>Please_note_that_your_feedback_Application_of_Campaign_has_been_Rejected_by_Regi</fullName>
-        <assignedToType>owner</assignedToType>
-        <dueDateOffset>3</dueDateOffset>
-        <notifyAssignee>false</notifyAssignee>
-        <priority>高</priority>
-        <protected>false</protected>
-        <status>Open</status>
-        <subject>您的活动反馈需要调整后重新提交</subject>
-    </tasks>
 </Workflow>

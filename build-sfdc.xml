@@ -21,7 +21,7 @@
 		<mkdir dir="tmp"/>
 	</target>
 	
-	<target name="deploy" depends="init, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35">
+	<target name="deploy" depends="init, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35, deploy40">
 		<!-- TODO consider only deployed entities -->
 		<sf:retrieveUpdatestamps
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
@@ -176,6 +176,16 @@
 			<sf:typeset name="customObjectSharingRules"/>
 			<sf:typeset name="appMenus"/>
 		</deploy>
+	</target>
+	
+	<target name="deploy40">
+		<deploy>
+			<sf:typeset name="accountSharingRules"/>
+			<sf:typeset name="campaignSharingRules"/>
+			<sf:typeset name="caseSharingRules"/>
+			<sf:typeset name="customObjectSharingRules"/>
+			<sf:typeset name="approvalProcesses"/>
+		</deploy>		
     </target>
 
 	<!-- work in progress -->
