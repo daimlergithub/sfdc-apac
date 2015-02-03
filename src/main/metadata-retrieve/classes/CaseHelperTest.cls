@@ -26,7 +26,7 @@ public class CaseHelperTest {
         insert acc;
         insert ve1;
         insert ve2;
-        system.debug('personRecordtypeid'+personRecordtypeid);
+        
         Vehicle_Relationship__c vrData1 = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, 
                                               Contact__c = acc.Id,Registration_Number__c ='1');
         Vehicle_Relationship__c vrData2 = new Vehicle_Relationship__c(Vehicle_ID__c=ve2.id, 

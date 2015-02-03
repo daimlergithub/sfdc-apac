@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
+        <members>External_Agency_View_Dealers</members>
+        <members>Share_Dealer_To_Regional_Office</members>
+        <members>Share_RW_to_data_specialist</members>
+        <members>Share_R_W_with_CAC_users</members>
+        <members>Share_ReadOnly_with_CAC_users</members>
+        <members>Share_ReadOnly_with_Central_Aftersales</members>
+        <members>Share_ReadOnly_with_Central_S_M</members>
+        <members>Share_ReadOnly_with_Public_Relation</members>
+        <members>Share_ReadOnly_with_Regional_CRM_Manager</members>
+        <members>Share_company_Read_Only</members>
+        <members>Share_company_Read_Only1</members>
+        <members>Share_company_Read_Only2</members>
+        <members>Share_read_with_all_central_bmbs</members>
+        <members>VIP_CUSTOMER_Share_with_RW</members>
+        <members>VIP_PA_share_with_BMBS_CRM_Manager</members>
+        <name>AccountCriteriaBasedSharingRule</name>
+    </types>
+    <types>
         <members>AccountHelper</members>
         <members>AccountHelperTest</members>
         <members>AccountLinkSharingTest</members>
@@ -403,8 +421,79 @@
         <name>AppMenu</name>
     </types>
     <types>
+        <members>Retail_Campaign__c.RetailCampaign_Feedback_Approval_Process</members>
+        <members>Retail_Campaign__c.Retail_Campaign_Approval_Process</members>
+        <members>Retail_Campaign__c.Retail_Campaign_Cancel_Process</members>
+        <members>Retail_Campaign__c.Yearly_TA_Approval_Process</members>
+        <members>Tool_Kit__c.Tool_Kit_Approval_Process</members>
+        <members>Tool_Kit__c.Tool_Kit_Cancel_Process</members>
+        <members>Tool_Kit__c.Tool_Kit_Feedback_Approval_Process</members>
+        <name>ApprovalProcess</name>
+    </types>
+    <types>
         <members>SlickCTI</members>
         <name>CallCenter</name>
+    </types>
+    <types>
+        <members>CAC_CRM_Campaign_Share_with_CAC</members>
+        <members>CAC_CRM_share_to_CRM_Manager_CAC_Data_Mgt</members>
+        <members>CAS_Marketing_Campaign_Share_with_CAC</members>
+        <members>CMP_Confirmed_Status_Share_with_CAC_Data_CRM_Manager</members>
+        <members>CMP_Confirmed_Status_Share_with_Central_After_Sales</members>
+        <members>CMP_Confirmed_Status_Share_with_Sales_Marketing</members>
+        <members>Campaign_Execution_Share_to_CAC</members>
+        <members>Campaign_Share_with_Data_Service_Specialist</members>
+        <members>Central_Campaign_share_to_CAC</members>
+        <members>Share_AS_Campaign_with_Region_E</members>
+        <members>Share_AS_Campaign_with_Region_N</members>
+        <members>Share_AS_Campaign_with_Region_S</members>
+        <members>Share_AS_Campaign_with_Region_W</members>
+        <members>Share_AS_Campaign_with_Retail_AS_Marketing</members>
+        <members>Share_Published_MB_BP_with_Central</members>
+        <members>Share_Published_MB_BP_with_Central_AS</members>
+        <members>Share_Published_MB_BP_with_Region</members>
+        <members>Share_S_M_Campaign_with_CRM_Mgr</members>
+        <members>Share_S_M_Campaign_with_Region_N</members>
+        <members>Share_S_M_Campaign_with_Region_S</members>
+        <members>Share_S_M_Campaign_with_Region_W</members>
+        <members>Share_S_M_Event_BMBS_Campaign_to_Call_Center</members>
+        <members>Share_S_M_with_Region_E</members>
+        <members>Share_with_CAC_Data_Service_Mgr</members>
+        <name>CampaignCriteriaBasedSharingRule</name>
+    </types>
+    <types>
+        <members>Share_Campaign_to_Region_W</members>
+        <name>CampaignOwnerSharingRule</name>
+    </types>
+    <types>
+        <members>CAC_Complaint_share_to_Hanxue</members>
+        <members>CAC_Inquiry_share_to_Hanxue</members>
+        <members>ComplaintShareCentralOffice</members>
+        <members>ComplaintShareCentralPLWL</members>
+        <members>ComplaintShareEast</members>
+        <members>ComplaintShareNorth</members>
+        <members>ComplaintShareSouth</members>
+        <members>ComplaintShareWest</members>
+        <members>Inquiry_case_is_shared_with_CAC_with_RW</members>
+        <members>MBDA_CASE</members>
+        <members>Share_Central_East_Case_to_Regional</members>
+        <members>Share_Central_North_Case_to_Regional</members>
+        <members>Share_Central_South_Case_to_Regional</members>
+        <members>Share_Central_West_Case_to_Regional</members>
+        <members>Share_Non_Dealer_Case_to_CAC_with_readwrite</members>
+        <members>Share_RO_CO_Cases_to_Central</members>
+        <name>CaseCriteriaBasedSharingRule</name>
+    </types>
+    <types>
+        <members>CAC_Case_share_to_Hanxue</members>
+        <members>Central_PL_WL_user_share_to_Central_PL_WL_users</members>
+        <members>Central_office_share_to_central</members>
+        <members>Central_sees_Regional</members>
+        <members>Central_sees_Regional_N</members>
+        <members>Central_sees_Regional_S</members>
+        <members>Central_sees_Regional_W</members>
+        <members>Share_with_CAC_Data_CRM_with_R_only</members>
+        <name>CaseOwnerSharingRule</name>
     </types>
     <types>
         <members>BMBS_CRM</members>
@@ -825,6 +914,7 @@
         <members>EPA_Settings__c</members>
         <members>EP_Integration_URLS__c</members>
         <members>EP_Log_Interface__c</members>
+        <members>Environment_Specific_Values__c</members>
         <members>EpAdapterUnitOfTransfer__c</members>
         <members>EpAdapterUnitOfWork__c</members>
         <members>Event</members>
@@ -881,6 +971,78 @@
         <members>Vehicle_Relationship__c</members>
         <members>Vehicle__c</members>
         <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Account_Link__c.Share_Account_Link_to_Call_Center</members>
+        <members>Lead__c.Soft_Deleted_Cannot_View_By_CAC</members>
+        <members>QC__c.Share_RW_with_IB_TL</members>
+        <members>QC__c.Share_RW_with_OB_TL</members>
+        <members>QC__c.Share_RW_with_SSI_TL</members>
+        <members>QC__c.Share_SSI_QC_with_RW_to_SSI_TL_and_above</members>
+        <members>Retail_Campaign__c.Share_AS_Retail_Campaign_to_Central</members>
+        <members>Retail_Campaign__c.Share_AS_Retail_Campaign_to_Regional_E</members>
+        <members>Retail_Campaign__c.Share_AS_Retail_Campaign_to_Regional_N</members>
+        <members>Retail_Campaign__c.Share_AS_Retail_Campaign_to_Regional_S</members>
+        <members>Retail_Campaign__c.Share_AS_Retail_Campaign_to_Regional_W</members>
+        <members>Retail_Campaign__c.Share_Approved_S_M_Campaign_CAC</members>
+        <members>Retail_Campaign__c.Share_BP_with_Central</members>
+        <members>Retail_Campaign__c.Share_BP_with_Central_AS</members>
+        <members>Retail_Campaign__c.Share_BP_with_Central_Central_Sales</members>
+        <members>Retail_Campaign__c.Share_BP_with_Region_E</members>
+        <members>Retail_Campaign__c.Share_BP_with_Region_N</members>
+        <members>Retail_Campaign__c.Share_BP_with_Region_S</members>
+        <members>Retail_Campaign__c.Share_BP_with_Region_W</members>
+        <members>Retail_Campaign__c.Share_Final_BP_with_Central</members>
+        <members>Retail_Campaign__c.Share_Final_BP_with_Central_AS</members>
+        <members>Retail_Campaign__c.Share_Final_BP_with_Region_E</members>
+        <members>Retail_Campaign__c.Share_Final_BP_with_Region_N</members>
+        <members>Retail_Campaign__c.Share_Final_BP_with_Region_S</members>
+        <members>Retail_Campaign__c.Share_Final_BP_with_Region_W</members>
+        <members>Retail_Campaign__c.Share_S_M_Media_Event_Campaign_to_Central</members>
+        <members>Retail_Campaign__c.Share_S_M_Media_Event_Campaign_to_Regional_E</members>
+        <members>Retail_Campaign__c.Share_S_M_Media_Event_Campaign_to_Regional_N</members>
+        <members>Retail_Campaign__c.Share_S_M_Media_Event_Campaign_to_Regional_S</members>
+        <members>Retail_Campaign__c.Share_S_M_Media_Event_Campaign_to_Regional_W</members>
+        <members>Retail_Campaign__c.Share_un_Planned_with_Central</members>
+        <members>Retail_Campaign__c.Share_with_Regional_AS_Retail_Marketing_E</members>
+        <members>Retail_Campaign__c.Share_with_Regional_AS_Retail_Marketing_N</members>
+        <members>Retail_Campaign__c.Share_with_Regional_AS_Retail_Marketing_S</members>
+        <members>Retail_Campaign__c.Share_with_Regional_AS_Retail_Marketing_W</members>
+        <members>Retail_Campaign__c.Share_with_Regional_Retail_Marketing_E</members>
+        <members>Retail_Campaign__c.Share_with_Regional_Retail_Marketing_N</members>
+        <members>Retail_Campaign__c.Share_with_Regional_Retail_Marketing_S</members>
+        <members>Retail_Campaign__c.Share_with_Regional_Retail_Marketing_W</members>
+        <members>Retail_Campaign__c.Share_with_Retail_AS_Marketing_Assistant_Manage</members>
+        <members>Retail_Task__c.Share_Contract_Service_with_Region</members>
+        <members>Retail_Task__c.Share_Contract_and_Service_with_Central</members>
+        <members>Retail_Task__c.Share_Read_Write_with_CAC_users</members>
+        <members>Retail_Task__c.Share_readonly_retail_task_to_CAC</members>
+        <members>Tool_Kit__c.Share_TK_with_Region_E</members>
+        <members>Tool_Kit__c.Share_TK_with_Region_N</members>
+        <members>Tool_Kit__c.Share_TK_with_Region_South</members>
+        <members>Tool_Kit__c.Share_TK_with_Region_W</members>
+        <members>Tool_Kit__c.Tool_Kit_Share_with_Central</members>
+        <members>Vehicle_Relationship__c.Read_Write_of_Vehicle_to_CAC</members>
+        <members>Vehicle_Relationship__c.Read_of_Vehicle_to_BMBS</members>
+        <members>Vehicle_Relationship__c.soft_deleted_share_with_R_W_to_data_mgr</members>
+        <members>Vehicle__c.READ_WRITE_for_Vehicle_to_CAC</members>
+        <members>Vehicle__c.Read_of_Vehicle_to_BMBS</members>
+        <members>Vehicle__c.soft_deleted_V_share_read_with_data_mgr</members>
+        <name>CustomObjectCriteriaBasedSharingRule</name>
+    </types>
+    <types>
+        <members>DM_Material__c.Share_with_Data_Fulfillment_user_with_R_W</members>
+        <members>Lead__c.Share_Leads_with_CRM_Assist_Manager_CAC_Data_Mgt</members>
+        <members>Lead__c.Share_with_MBAFC_W</members>
+        <members>QC__c.QC_share_with_OB_CSR</members>
+        <members>SSI__c.OB_CSR_to_SSI_SV</members>
+        <members>SSI__c.SSI_SV_To_CRM_Manager_CAC_Data_Mgt</members>
+        <members>SSI__c.SSI_SV_To_QC_Supervisor</members>
+        <members>SSI__c.SSI_SV_To_SSI_SV</members>
+        <members>SSI__c.SSI_SV_To_SSI_TL</members>
+        <members>SSI__c.Share_R_with_data_manager</members>
+        <members>Template__c.Template_Share_With_Data_Team</members>
+        <name>CustomObjectOwnerSharingRule</name>
     </types>
     <types>
         <members>Retail_Campaign</members>
@@ -1086,6 +1248,7 @@
         <members>Dealer_Offering__c-Dealer Offering Layout</members>
         <members>EP_Log_Interface__c-EP Log Interface Layout</members>
         <members>EpAdapterUnitOfTransfer__c-Unit of Transfer Layout</members>
+        <members>EpAdapterUnitOfWork__c-EpAdapterUnitOfWork-Layout</members>
         <members>EpAdapterUnitOfWork__c-Unit of Work Layout</members>
         <members>Event-Event Layout</members>
         <members>External_Picklist__c-External Picklist Layout</members>
@@ -1218,15 +1381,23 @@
         <members>Enable_Knowlege_one</members>
         <members>Info_Center</members>
         <members>Leads_Management</members>
+        <members>ND_System_Process_Manager</members>
         <members>Regional_Info_Data_Manager</members>
+        <members>SSI_Sales_Process_Dealer_Standard_Manager</members>
         <members>S_M_Retail_Campaign</members>
         <members>S_M_Yearly_TA</members>
         <members>Segmentation_execution_Retail_Lead</members>
+        <members>Share_Case_to_CAC_Customer_Care_Team</members>
+        <members>Share_Case_to_YangBin</members>
+        <members>Smart_Operation_Team_user</members>
+        <members>Star_Elite_Used_Car_Operation</members>
         <members>Tool_Kit</members>
         <name>PermissionSet</name>
     </types>
     <types>
         <members>Admin</members>
+        <members>Central AS Marketing Manager</members>
+        <members>Central CRM Manager</members>
         <members>Chatter External User</members>
         <members>Chatter Free User</members>
         <members>Chatter Moderator User</members>
@@ -1239,6 +1410,8 @@
         <members>Customer Community User</members>
         <members>Customer Portal Manager Custom</members>
         <members>Customer Portal Manager Standard</members>
+        <members>Dealer Community User</members>
+        <members>External Marketing User</members>
         <members>Force%2Ecom - App Subscription User</members>
         <members>Force%2Ecom - Free User</members>
         <members>Gold Partner User</members>
@@ -1251,6 +1424,7 @@
         <members>Partner Community User</members>
         <members>PlatformPortal</members>
         <members>ReadOnly</members>
+        <members>Regional S%26M Manager</members>
         <members>Silver Partner User</members>
         <members>SolutionManager</members>
         <members>Standard</members>
@@ -1332,6 +1506,9 @@
         <members>Regional_S_M_Manager</members>
         <members>Retail</members>
         <members>Retail_AS_Marketing_Assistant_Manager</members>
+        <members>SSI_CSR</members>
+        <members>SSI_Supervisor</members>
+        <members>SSI_TL</members>
         <members>SVPCustomerServiceSupport</members>
         <members>SVPHumanResources</members>
         <members>SVPSalesMarketing</members>
@@ -1339,6 +1516,7 @@
         <members>VPMarketing</members>
         <members>VPNorthAmericanSales</members>
         <members>WesternSalesTeam</members>
+        <members>WholeSale_CallCenter</members>
         <members>Wholesale</members>
         <name>Role</name>
     </types>
@@ -1423,6 +1601,7 @@
         <members>EPA_Settings__c</members>
         <members>EP_Integration_URLS__c</members>
         <members>EP_Log_Interface__c</members>
+        <members>Environment_Specific_Values__c</members>
         <members>EpAdapterUnitOfTransfer__c</members>
         <members>EpAdapterUnitOfWork__c</members>
         <members>Event</members>
