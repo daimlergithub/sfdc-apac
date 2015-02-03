@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CaseSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <!-- TODO : To be validated with BA/Sinow
 	<criteriaBasedRules>
         <fullName>CAC_Complaint_share_to_Hanxue</fullName>
         <sharedTo>
-            <role>CRM_Assist_Manager_CAC_Data_Mgt</role>
+            <role>Data_Service_Specialist</role>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -22,7 +21,7 @@
     <criteriaBasedRules>
         <fullName>CAC_Inquiry_share_to_Hanxue</fullName>
         <sharedTo>
-            <role>CRM_Assist_Manager_CAC_Data_Mgt</role>
+            <role>Data_Service_Specialist</role>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -32,7 +31,6 @@
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>CAC Inquiry share to Hanxue</name>
     </criteriaBasedRules>
-	-->
     <criteriaBasedRules>
         <fullName>ComplaintShareCentralOffice</fullName>
         <sharedTo>
@@ -187,22 +185,6 @@
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>MBDA CASE</name>
     </criteriaBasedRules>
-	<!-- TODO : To be validated with BA/Sinow
-    <criteriaBasedRules>
-        <fullName>Share_All_Case_to_CCT</fullName>
-        <sharedTo>
-            <group>CAC_Custom_Care_Team</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>CaseNumber</field>
-            <operation>startsWith</operation>
-            <value>0</value>
-        </criteriaItems>
-        <caseAccessLevel>Edit</caseAccessLevel>
-        <description>Share All the Case to Custom Care Team</description>
-        <name>Share All Case to CCT</name>
-    </criteriaBasedRules>
-	-->
     <criteriaBasedRules>
         <fullName>Share_Central_East_Case_to_Regional</fullName>
         <sharedTo>
@@ -329,30 +311,11 @@
         </criteriaItems>
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>Share RO/CO Cases to Central</name>
-    </criteriaBasedRules>
-	<!-- TODO : To be validated with BA/Sinow
-    <criteriaBasedRules>
-        <fullName>Share_RO_CO_and_Dealer_Case_to_CAC_with_read_only</fullName>
-        <sharedTo>
-            <group>CAC_Custom_Care_Team</group>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>MB Complaint,Inquiry</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Complaint_Creator_Department__c</field>
-            <operation>equals</operation>
-            <value>RO/CO,Dealer</value>
-        </criteriaItems>
-        <caseAccessLevel>Read</caseAccessLevel>
-        <name>Share RO_CO and Dealer Case to CAC with read only</name>
     </criteriaBasedRules>	
     <ownerRules>
         <fullName>CAC_Case_share_to_Hanxue</fullName>
         <sharedTo>
-            <role>CRM_Assist_Manager_CAC_Data_Mgt</role>
+            <role>Data_Service_Specialist</role>
         </sharedTo>
         <sharedFrom>
             <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
@@ -360,7 +323,6 @@
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>CAC Owned Case share to Hanxue</name>
     </ownerRules>
-	-->
     <ownerRules>
         <fullName>Central_PL_WL_user_share_to_Central_PL_WL_users</fullName>
         <sharedTo>
@@ -428,17 +390,15 @@
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>Central sees Regional W</name>
     </ownerRules>
-	<!-- TODO : To be validated with BA/Sinow
     <ownerRules>
         <fullName>Share_with_CAC_Data_CRM_with_R_only</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CRM_Manager_Acquisition_and_Loyalty</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>CRM_Manager_Wholesale_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
         <sharedFrom>
-            <roleAndSubordinatesInternal>BMBS</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>
         </sharedFrom>
         <caseAccessLevel>Read</caseAccessLevel>
         <name>Share with CAC Data CRM with R only</name>
     </ownerRules>
-	-->
 </CaseSharingRules>

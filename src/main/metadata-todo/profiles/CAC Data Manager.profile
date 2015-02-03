@@ -22092,12 +22092,6 @@
         <recordType>Account.MBDA</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>AccountContactRole-客户联系人角色 布局</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>AccountList__kav-Account List Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -23184,15 +23178,6 @@
         <modifyAllRecords>true</modifyAllRecords>
         <object>Account</object>
         <viewAllRecords>true</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>AccountList__kav</object>
-        <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
         <allowCreate>true</allowCreate>
