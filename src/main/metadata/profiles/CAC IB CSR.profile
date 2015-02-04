@@ -12014,10 +12014,6 @@
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>TSP_Subscription__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Tasks</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

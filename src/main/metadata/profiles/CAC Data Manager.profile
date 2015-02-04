@@ -2008,7 +2008,7 @@
         <field>Account.SicDesc</field>
         <readable>false</readable>
     </fieldPermissions>
-        <fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Special_Care__c</field>
         <readable>true</readable>
@@ -10615,14 +10615,6 @@
         <layout>Campaign_Partner__c-Campaign Partner Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign_Survey_Result__c-2014 GLA SUV Survey</layout>
-        <recordType>Campaign_Survey_Result__c.X2014_GLA_SUV_Survey</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Campaign_Survey_Result__c-B-Class</layout>
-        <recordType>Campaign_Survey_Result__c.B_Class</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Campaign_history_log__c-Campaign History Log Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10726,10 +10718,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Integration_Picklist__c-Integration Picklist Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Aftersales Leads Layout %28CAC%29</layout>
-        <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
@@ -10976,6 +10964,10 @@
     <layoutAssignments>
         <layout>Template__c-eDM Template</layout>
         <recordType>Template__c.eDM</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Tool_Kit__c-Event Tool Kit</layout>
+        <recordType>Tool_Kit__c.Event</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Tool_Kit__c-Media Tool Kit</layout>
@@ -12075,13 +12067,11 @@
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-	<!-- TODO : to be verified
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Retail_Task__c.Contract</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
-	-->
     <recordTypeVisibilities>
         <default>true</default>
         <recordType>Retail_Task__c.Retail_Activity</recordType>
@@ -12177,7 +12167,6 @@
         <recordType>Task.eDM</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Template__c.Callscript</recordType>
@@ -12206,6 +12195,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Template__c.eDM</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Tool_Kit__c.Event</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

@@ -10442,6 +10442,9 @@
         <layout>Campaign_Partner__c-Campaign Partner Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign_history_log__c-Campaign History Log Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Car_Enquiry__c-Car Enquiry Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10529,6 +10532,12 @@
         <layout>EP_Log_Interface__c-EP Log Interface Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>EpAdapterUnitOfTransfer__c-Unit of Transfer Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>EpAdapterUnitOfWork__c-EpAdapterUnitOfWork-Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>External_Picklist__c-External Picklist Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10536,6 +10545,17 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Integration_Picklist__c-Integration Picklist Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.Retail_Sales_Leads</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
+        <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>OB_Task_Handing__c-OB Task Handing Layout</layout>
@@ -10597,6 +10617,13 @@
         <layout>Retail_Campaign_Member__c-Retail Campaign Member Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Retail_Campaign__c-AS Retail Campaign</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Campaign__c-AS Retail Campaign</layout>
+        <recordType>Retail_Campaign__c.AS_Retail_Campaign</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Retail_Campaign__c-AS Yearly TA</layout>
         <recordType>Retail_Campaign__c.Aftersales</recordType>
     </layoutAssignments>
@@ -10624,6 +10651,10 @@
         <layout>Retail_Task__c-Retail Task Layout%28Contract%29</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Retail_Task__c-Retail Task Layout%28Contract%29</layout>
+        <recordType>Retail_Task__c.Contract</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout%28Retail Activity%29</layout>
         <recordType>Retail_Task__c.Retail_Activity</recordType>
     </layoutAssignments>
@@ -10639,6 +10670,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>SMS_Code__c-SMS Code Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>SMS_Code__c-MMS Code Layout-Downstream</layout>
+        <recordType>SMS_Code__c.GenerateDownstreamMMS</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SMS_Code__c-SMS Code Layout</layout>
@@ -10676,6 +10711,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Survey_Question__c-Survey Question Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Survey__c-Survey Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>TSP_Subscription__c-TSP Subscription Layout</layout>
@@ -10737,6 +10775,14 @@
     <layoutAssignments>
         <layout>Template__c-Callscript</layout>
         <recordType>Template__c.Callscript</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Template__c-Children MMS Template</layout>
+        <recordType>Template__c.ChildrenMMSTemplate</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Template__c-Children SMS Template</layout>
+        <recordType>Template__c.ChildrenSMSTemplate</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Template__c-MMS</layout>
@@ -11371,6 +11417,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Retail_Campaign__c.Aftersales</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Retail_Campaign__c.Monthly_TA</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -11427,6 +11478,16 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>SMS_Code__c.GenerateDownstreamSMS</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>SMS_Code__c.Generate_OB_Task</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>SMS_Code__c.Register_Campaign</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -11595,10 +11656,6 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>SR_History__c</tab>
-        <visibility>DefaultOff</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>TSP_Subscription__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
