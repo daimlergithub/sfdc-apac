@@ -8900,26 +8900,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>SSI__c.VehicleDesc__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>SSI__c.VehicleID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>SSI__c.VehicleModel__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>SSI__c.VehicleUSvin__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Settlement_Management__c.Customer_Settlement_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -10628,6 +10608,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign_Partner__c-Campaign Partner Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign_history_log__c-Campaign History Log Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Car_Enquiry__c-Car Enquiry Layout</layout>
