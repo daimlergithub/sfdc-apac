@@ -14282,20 +14282,14 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
         </filters>
         <label>All MBAFC Lead</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
-            <role>BMBS_Regional</role>
-            <role>MBAFC_User_E</role>
-            <role>MBAFC_User_N</role>
-            <role>MBAFC_User_S</role>
-            <role>MBAFC_User_W</role>
-            <role>Regional_Head_E</role>
-            <role>Regional_Head_N</role>
-            <role>Regional_Head_S</role>
-            <role>Regional_Head_W</role>
-            <role>Regional_Info_Data_Mgr</role>
+            <role>Regional</role>
+            <role>RM_AS_N</role>
+            <role>RM_AS_S</role>
+            <role>RM_AS_E</role>
+            <role>RM_AS_W</role>
+            <role>Regional_AS_Retail_Marketing</role>
         </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>All_MB_Lead</fullName>
@@ -14323,76 +14317,22 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
         </filters>
         <label>*All MB Lead</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
-            <role>BMBS_Regional</role>
-            <role>DM_E1_G1</role>
-            <role>DM_E1_G2</role>
-            <role>DM_E1_G3</role>
-            <role>DM_E1_G4</role>
-            <role>DM_E1_G5</role>
-            <role>DM_E1_G6</role>
-            <role>DM_E1_G7</role>
-            <role>DM_E1_G8</role>
-            <role>DM_E2_G1</role>
-            <role>DM_E2_G2</role>
-            <role>DM_E2_G3</role>
-            <role>DM_E3_G1</role>
-            <role>DM_E3_G2</role>
-            <role>DM_E3_G3</role>
-            <role>DM_E3_G4</role>
-            <role>DM_N1_G1</role>
-            <role>DM_N1_G2</role>
-            <role>DM_N1_G3</role>
-            <role>DM_N1_G4</role>
-            <role>DM_N2_G1</role>
-            <role>DM_N2_G2</role>
-            <role>DM_N2_G3</role>
-            <role>DM_N2_G4</role>
-            <role>DM_N2_G5</role>
-            <role>DM_N3_G1</role>
-            <role>DM_N3_G2</role>
-            <role>DM_N3_G3</role>
-            <role>DM_N3_G4</role>
-            <role>DM_N3_G5</role>
-            <role>DM_N3_G6</role>
-            <role>DM_S1_G1</role>
-            <role>DM_S1_G2</role>
-            <role>DM_S1_G3</role>
-            <role>DM_S1_G4</role>
-            <role>DM_S1_G5</role>
-            <role>DM_S1_G6</role>
-            <role>DM_S2_G1</role>
-            <role>DM_S2_G2</role>
-            <role>DM_S2_G3</role>
-            <role>DM_S2_G4</role>
-            <role>DM_S2_G5</role>
-            <role>DM_S2_G6</role>
-            <role>DM_W_G1</role>
-            <role>DM_W_G2</role>
-            <role>DM_W_G3</role>
-            <role>DM_W_G4</role>
-            <role>DM_W_G5</role>
-            <role>RM_E1</role>
-            <role>RM_E2</role>
-            <role>RM_E3</role>
-            <role>RM_N1</role>
-            <role>RM_N2</role>
-            <role>RM_N3</role>
-            <role>RM_S1</role>
-            <role>RM_S2</role>
-            <role>RM_W</role>
-            <role>Regional_Head_E</role>
-            <role>Regional_Head_N</role>
-            <role>Regional_Head_S</role>
-            <role>Regional_Head_W</role>
-            <role>Regional_Info_Data_Mgr</role>
-            <role>Regional_Retail_Marketing_E</role>
-            <role>Regional_Retail_Marketing_N</role>
-            <role>Regional_Retail_Marketing_S</role>
-            <role>Regional_Retail_Marketing_W</role>
+            <role>Regional</role>
+            <role>DM_AS_E</role>
+            <role>DM_AS_W</role>
+            <role>DM_AS_N</role>
+            <role>DM_AS_S</role>            
+            <role>RM_AS_N</role>
+            <role>RM_AS_S</role>
+            <role>RM_AS_E</role>
+            <role>RM_AS_W</role>            
+            <role>Regional_CRM_Mgr_E</role>
+            <role>Regional_CRM_Mgr_W</role>
+            <role>Regional_CRM_Mgr_N</role>
+            <role>Regional_CRM_Mgr_S</role>
+            <role>Regional_AS_Retail_Marketing</role>
         </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>All_Used_Car_Lead</fullName>

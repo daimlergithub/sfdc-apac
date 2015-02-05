@@ -3064,11 +3064,9 @@ MAX(
         </filters>
         <label>被申诉的质检任务</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
-            <role>QC_Supervisor</role>
+            <role>CAC_QC_SV_TM</role>
         </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>GeneralCQC</fullName>
@@ -3090,13 +3088,11 @@ MAX(
         </filters>
         <label>已完成的质检任务（本月）</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>IB_CSR</role>
             <role>OB_CSR</role>
             <role>SSI_CSR</role>
         </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>My_QC</fullName>
@@ -3115,14 +3111,12 @@ MAX(
         </filters>
         <label>我的质检任务</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
-            <role>QC_IB</role>
-            <role>QC_OB</role>
-            <role>QC_SSI</role>
-            <role>QC_Supervisor</role>
+            <role>IB_QC</role>
+            <role>OB_QC</role>
+            <role>SSI_Supervisor</role>
+            <role>CAC_QC_SV_TM</role>
         </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>My_Un_scored_QC</fullName>
@@ -3141,14 +3135,12 @@ MAX(
         </filters>
         <label>我的未质检任务</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
-        <sharedTo>
-            <role>QC_IB</role>
-            <role>QC_OB</role>
-            <role>QC_SSI</role>
-            <role>QC_Supervisor</role>
+		<sharedTo>
+            <role>IB_QC</role>
+            <role>OB_QC</role>
+            <role>SSI_Supervisor</role>
+            <role>CAC_QC_SV_TM</role>
         </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>My_team_s_QC_ready_for_review</fullName>
@@ -3175,11 +3167,9 @@ MAX(
         </filters>
         <label>全组需抽检数据</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
-            <role>QC_Supervisor</role>
+            <role>CAC_QC_SV_TM</role>
         </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>SSI_QC_Queue</fullName>
@@ -3201,13 +3191,10 @@ MAX(
         </filters>
         <label>任务池</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
-        <queue>SSI_QC</queue>		
         <sharedTo>
-            <role>QC_SSI</role>
-            <role>QC_Supervisor</role>
+            <role>SSI_Supervisor</role>
+            <role>CAC_QC_SV_TM</role>
         </sharedTo>	
-		-->		
     </listViews>
     <nameField>
         <displayFormat>QC-{000000}</displayFormat>

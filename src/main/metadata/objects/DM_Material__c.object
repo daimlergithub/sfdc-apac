@@ -1821,11 +1821,6 @@ Modify Reason:
         </filters>
         <label>低库存直邮资料</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
-        <sharedTo>
-            <role>Fulfillment_Specialist</role>
-        </sharedTo>
-		-->
     </listViews>
     <nameField>
         <label>DM Name</label>
