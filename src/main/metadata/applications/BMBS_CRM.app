@@ -3,9 +3,7 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>BMBS CRM</label>
     <logo>Logo/Logo_Mercedes_Benz.png</logo>
-	<!-- TODO Dependancy on Tasks tab, Yet to be deployed
     <tab>Tasks</tab>
-	-->
     <tab>Lead__c</tab>
     <tab>standard-Account</tab>
     <tab>standard-Contact</tab>

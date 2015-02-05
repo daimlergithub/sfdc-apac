@@ -3,15 +3,11 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>BMBS Dealer Portal</label>
     <tab>standard-Account</tab>
-	<!-- TODO Dependancy on Tasks tab, Yet to be deployed
     <tab>Tasks</tab>
-	-->
     <tab>Lead__c</tab>
     <tab>standard-Case</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
-	<!-- TODO Dependency on Retail_Campaign__c tab, Yet to be deployed
     <tab>Retail_Campaign__c</tab>
-	-->
     <tab>Account_Link__c</tab>
 </CustomApplication>
