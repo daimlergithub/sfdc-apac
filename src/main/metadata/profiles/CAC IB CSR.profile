@@ -223,10 +223,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CampaignHistoryLog_TestClass</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>CaseEscalationController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -10497,6 +10493,9 @@
         <layout>Campaign_Partner__c-Campaign Partner Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Campaign_history_log__c-Campaign History Log Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Car_Enquiry__c-Car Enquiry Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10593,9 +10592,6 @@
         <layout>External_Picklist__c-External Picklist Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Global-Global Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Integration_Picklist__c-Integration Picklist Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10678,10 +10674,6 @@
     <layoutAssignments>
         <layout>Retail_Campaign__c-Monthly TA</layout>
         <recordType>Retail_Campaign__c.Monthly_TA</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Retail_Campaign__c-Retail MB Best Practice Layout</layout>
-        <recordType>Retail_Campaign__c.Retail_MB_Best_Practice</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Campaign__c-S%26M Event Retail Campaign</layout>
