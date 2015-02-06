@@ -178,10 +178,6 @@
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>
-			<sf:typeset name="accountSharingRules"/>
-			<sf:typeset name="campaignSharingRules"/>
-			<sf:typeset name="caseSharingRules"/>
-			<sf:typeset name="customObjectSharingRules"/>
 			<sf:typeset name="appMenus"/>
 		</deploy>
 	</target>

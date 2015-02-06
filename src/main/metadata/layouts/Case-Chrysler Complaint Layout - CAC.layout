@@ -289,14 +289,12 @@
                 <behavior>Edit</behavior>
                 <field>ContactId</field>
             </layoutItems>
-			<!-- TODO Commented as part of kernel Deployment
             <layoutItems>
                 <page>CaseConsoleRefresh</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>0</width>
             </layoutItems>
-			-->
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

@@ -735,14 +735,10 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
         </filters>
         <label>Calibrated SSI</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
-            <role>E_QC</role>
-            <role>QC_SSI</role>
-            <role>QC_Supervisor</role>
-            <role>Sinotrust</role>
+            <role>SSI_Supervisor</role>
+            <role>CAC_QC_SV_TM</role>
         </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>My_SSI</fullName>
@@ -769,13 +765,11 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
         </filters>
         <label>My SSI</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>SSI_CSR</role>
             <role>SSI_Supervisor</role>
             <role>SSI_TL</role>
         </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>Other_Rule_Invalid_SSI</fullName>
@@ -803,11 +797,6 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
         </filters>
         <label>4.Other Rule Invalid SSI</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
-        <sharedTo>
-            <roleAndSubordinatesInternal>Sinotrust</roleAndSubordinatesInternal>
-        </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>Pending_CarModel</fullName>
@@ -832,11 +821,6 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
         </filters>
         <label>3.Pending CarModel</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
-        <sharedTo>
-            <roleAndSubordinatesInternal>Sinotrust</roleAndSubordinatesInternal>
-        </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>Pending_Dealer</fullName>
@@ -862,11 +846,6 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
         </filters>
         <label>2.Pending Dealer</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
-        <sharedTo>
-            <roleAndSubordinatesInternal>Sinotrust</roleAndSubordinatesInternal>
-        </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>X1_Original_SSI_Record</fullName>
@@ -893,11 +872,6 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
         </filters>
         <label>1.Original SSI Record</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
-        <sharedTo>
-            <roleAndSubordinatesInternal>Sinotrust</roleAndSubordinatesInternal>
-        </sharedTo>
-		-->
     </listViews>
     <nameField>
         <displayFormat>SSI-{000000}</displayFormat>

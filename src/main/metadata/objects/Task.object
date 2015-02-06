@@ -8,14 +8,12 @@
         <actionName>Close</actionName>
         <type>Default</type>
     </actionOverrides>
-	<!-- Todo Commented as part of Kernel deployment
     <actionOverrides>
         <actionName>Delete</actionName>
         <content>TaskDeleting</content>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Visualforce</type>
     </actionOverrides>
-	-->
 	<actionOverrides>
         <actionName>Delete</actionName>
         <type>Default</type>

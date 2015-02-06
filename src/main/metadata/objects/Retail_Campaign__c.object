@@ -2797,11 +2797,6 @@
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>zh_CN</language>
-		<!-- Todo Commented as part of Kernel deployment
-        <sharedTo>
-            <group>Dev_Team</group>
-        </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>Retail_MB_Best_Practice</fullName>

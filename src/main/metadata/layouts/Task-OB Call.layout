@@ -137,7 +137,6 @@
         <editHeading>false</editHeading>
         <label>Voice Recordings</label>
         <layoutColumns>
-		<!-- TODO Commented as part of Kernel deployment change
             <layoutItems>
                 <height>200</height>
                 <page>ViewVoiceRecording</page>
@@ -145,7 +144,6 @@
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
-			-->
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

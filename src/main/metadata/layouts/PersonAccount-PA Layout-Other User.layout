@@ -519,7 +519,6 @@
         <editHeading>false</editHeading>
         <label>Whole activities</label>
         <layoutColumns>
-		<!-- TODO commented as part of KErnel deployment
             <layoutItems>
                 <height>200</height>
                 <page>ViewTask</page>
@@ -527,7 +526,6 @@
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
-			-->
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>

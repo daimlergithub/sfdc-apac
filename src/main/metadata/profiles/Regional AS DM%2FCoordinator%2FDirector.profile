@@ -135,6 +135,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BaseEpaController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BaseUowExecutor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BatchAssignTasks</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -156,6 +164,26 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BatchUpdateRecordsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BtlAdditionalInfo</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BtlError</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BtlStep</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BtlTransaction</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BtlTransactionTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -231,6 +259,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CompoundMultiTypeUowExecutor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CompoundSameTypeUowExecutor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ContactHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -264,6 +300,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DealerSearchControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Entity</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -324,6 +364,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>EpaThreadInfoWebServiceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Error</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Field</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -396,6 +444,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MisunderstoodTaskGenerationTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MonthlyMarketAmountReportController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MonthlyMarketAmountReportControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -663,6 +719,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SoqlUowExecutor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TaskDeletingController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -760,6 +820,74 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerVehicleRelationshipTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnitOfTransferAlreadyReceivedException</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnitOfTransferResponse</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnitOfWork</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnitOfWorkResponse</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnitOfWorkStatus</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnitOfWorkType</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiver</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiverDeleteTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiverInsertTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiverQueryTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiverTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiverUpdateTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiverUpsertTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotRestReceiver</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotRestReceiverTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UowDecompiler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UowDecompilerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -5062,8 +5190,38 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>EP_Log_Interface__c.Confirmed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Log_Interface__c.Dealer__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Log_Interface__c.EpRunId__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Log_Interface__c.Failed__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Log_Interface__c.Interface__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EP_Log_Interface__c.Invalid__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>EP_Log_Interface__c.ObjectName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -10582,10 +10740,6 @@
         <recordType>Retail_Campaign__c.Monthly_TA</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Campaign__c-Retail MB Best Practice Layout</layout>
-        <recordType>Retail_Campaign__c.Retail_MB_Best_Practice</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Retail_Campaign__c-S%26M Event Retail Campaign</layout>
         <recordType>Retail_Campaign__c.Retail_Event</recordType>
     </layoutAssignments>
@@ -10711,9 +10865,6 @@
     <layoutAssignments>
         <layout>Task-eDM</layout>
         <recordType>Task.eDM</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Temp_Setting__c-Temp Setting Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Template__c-Callscript</layout>
@@ -11732,10 +11883,6 @@
     <tabVisibilities>
         <tab>SSI__c</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>TSP_Subscription__c</tab>
-        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>Template__c</tab>

@@ -135,6 +135,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BaseEpaController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BaseUowExecutor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BatchAssignTasks</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -156,6 +164,26 @@
     </classAccesses>
     <classAccesses>
         <apexClass>BatchUpdateRecordsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BtlAdditionalInfo</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BtlError</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BtlStep</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BtlTransaction</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>BtlTransactionTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -231,6 +259,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CompoundMultiTypeUowExecutor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CompoundSameTypeUowExecutor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ContactHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -264,6 +300,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DealerSearchControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Entity</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -325,6 +365,14 @@
     <classAccesses>
         <apexClass>EpaThreadInfoWebServiceTest</apexClass>
         <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Error</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Field</apexClass>
+        <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>GenericCSVLoaderController</apexClass>
@@ -396,6 +444,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MisunderstoodTaskGenerationTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MonthlyMarketAmountReportController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MonthlyMarketAmountReportControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -663,6 +719,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SoqlUowExecutor</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TaskDeletingController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -760,6 +820,74 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerVehicleRelationshipTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnitOfTransferAlreadyReceivedException</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnitOfTransferResponse</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnitOfWork</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnitOfWorkResponse</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnitOfWorkStatus</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UnitOfWorkType</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiver</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiverDeleteTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiverInsertTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiverQueryTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiverTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiverUpdateTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotReceiverUpsertTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotRestReceiver</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UotRestReceiverTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UowDecompiler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UowDecompilerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -10572,13 +10700,23 @@
         <layout>EP_Log_Interface__c-EP Log Interface Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>EpAdapterUnitOfTransfer__c-Unit of Transfer Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>EpAdapterUnitOfWork__c-EpAdapterUnitOfWork-Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>External_Picklist__c-External Picklist Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Global-Global Layout</layout>
+        <layout>Integration_Picklist__c-Integration Picklist Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Integration_Picklist__c-Integration Picklist Layout</layout>
+        <layout>Lead__c-Lead Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.Retail_Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
@@ -10657,10 +10795,6 @@
     <layoutAssignments>
         <layout>Retail_Campaign__c-Monthly TA</layout>
         <recordType>Retail_Campaign__c.Monthly_TA</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Retail_Campaign__c-Retail MB Best Practice Layout</layout>
-        <recordType>Retail_Campaign__c.Retail_MB_Best_Practice</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Campaign__c-S%26M Event Retail Campaign</layout>
