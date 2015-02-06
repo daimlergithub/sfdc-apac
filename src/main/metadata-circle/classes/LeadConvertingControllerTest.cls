@@ -18,10 +18,11 @@ public class LeadConvertingControllerTest {
         insert dealer;
         
         String RTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Event Retail Campaign').getRecordTypeId();
+        system.debug('RTId___22'+RTId); 
         String ASRTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('AS Retail Campaign').getRecordTypeId();
         Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved');
         insert rc;
-
+		system.debug('rc___'+rc.Id);
         Account dealerContact = new Account(LastName = 'Test Amit', RecordTypeId = thirdPartyRTID, phone = '1344444');
         insert dealerContact;
         

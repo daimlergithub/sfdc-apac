@@ -292,6 +292,12 @@
                 <behavior>Edit</behavior>
                 <field>RecordTypeId</field>
             </layoutItems>
+            <layoutItems>
+                <page>CaseConsoleRefresh</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>0</width>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

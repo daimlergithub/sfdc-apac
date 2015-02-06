@@ -481,7 +481,7 @@
         <relationshipLabel>Tool Kits (Dealer Name)</relationshipLabel>
         <relationshipName>Tool_Kits</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>

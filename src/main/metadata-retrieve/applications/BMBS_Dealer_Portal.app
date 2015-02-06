@@ -3,9 +3,11 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>BMBS Dealer Portal</label>
     <tab>standard-Account</tab>
+    <tab>Tasks</tab>
     <tab>Lead__c</tab>
     <tab>standard-Case</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
+    <tab>Retail_Campaign__c</tab>
     <tab>Account_Link__c</tab>
 </CustomApplication>

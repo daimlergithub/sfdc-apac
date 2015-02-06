@@ -283,6 +283,12 @@
                 <behavior>Readonly</behavior>
                 <field>SuppliedEmail</field>
             </layoutItems>
+            <layoutItems>
+                <page>CaseConsoleRefresh</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>0</width>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

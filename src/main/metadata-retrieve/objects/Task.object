@@ -70,17 +70,17 @@
         <fullName>Priority</fullName>
         <picklist>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
                 <highPriority>true</highPriority>
             </picklistValues>
             <picklistValues>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
                 <highPriority>false</highPriority>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
                 <highPriority>false</highPriority>
             </picklistValues>
@@ -902,15 +902,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1907,15 +1907,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3188,15 +3188,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4189,15 +4189,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5434,15 +5434,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6695,15 +6695,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7728,15 +7728,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8746,15 +8746,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9763,15 +9763,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10868,15 +10868,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11861,15 +11861,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12890,15 +12890,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13907,15 +13907,15 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>低</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>普通</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

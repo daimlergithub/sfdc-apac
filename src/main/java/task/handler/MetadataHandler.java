@@ -5,6 +5,7 @@ package task.handler;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileFilter;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -17,6 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.types.LogLevel;
@@ -70,7 +72,7 @@ public class MetadataHandler
 
     List<DeploymentInfo> deploymentInfos = new ArrayList<>();
     for (SfdcTypeSet typeSet : typeSets) {
-      DeploymentUnit du = findDeploymentUnit(duList, typeSet);
+      DeploymentUnit du = findDeploymentUnitBySubDir(duList, typeSet.getName());
 
       List<File> fileList = compileFileList(du, typeSet);
       if (fileList.isEmpty()) {
@@ -85,16 +87,15 @@ public class MetadataHandler
     return deploymentInfos;
   }
 
-  private DeploymentUnit findDeploymentUnit(List<DeploymentUnit> duList, SfdcTypeSet typeSet)
+  private DeploymentUnit findDeploymentUnitBySubDir(List<DeploymentUnit> duList, String subDir)
   {
     for (DeploymentUnit du : duList) {
-      if (typeSet.getName().equals(du.getSubDir())) {
-        logWrapper.log(String.format("Found deployment information for type %s.", typeSet.getName()));
+      if (subDir.equals(du.getSubDir())) {
         return du;
       }
     }
 
-    throw new BuildException(String.format("Could not find deployment unit for fileset %s.", typeSet.getName()));
+    throw new BuildException(String.format("Could not find deployment unit for directory %s.", subDir));
   }
   
   private DeploymentUnit findDeploymentUnitByName(List<DeploymentUnit> duList, String objectName)
@@ -356,6 +357,73 @@ public class MetadataHandler
       }
     }
     
+  }
+
+  public void removeNotUpdatedMetadata(final Map<String, List<String>> metadata)
+  {
+    // delete everything which was not retrieved
+    File baseDir = new File(metadataRoot);
+    
+    final List<DeploymentUnit> configurations = new DeploymentConfiguration().getConfigurations();
+    
+    // iterate over base directory and delete everything not in metadata
+    File[] dirs = baseDir.listFiles(new FileFilter() {
+      
+      @Override
+      public boolean accept(File pathname)
+      {
+        if (pathname.isDirectory()) {
+          DeploymentUnit du = findDeploymentUnitBySubDir(configurations, pathname.getName());
+          if (null == du || !metadata.containsKey(du.getType().getSimpleName())) {
+            try {
+              logWrapper.log(String.format("Delete directory: %s.", pathname.getName()));
+              
+              FileUtils.deleteDirectory(pathname);
+            }
+            catch (IOException e) {
+              // TODO 
+              e.printStackTrace();
+              
+              throw new BuildException(String.format("Error deleting directory: %s.", e.getMessage()), e);
+            }
+            
+            return false;
+          }
+        } else if (pathname.isFile()) {
+          if (!"package.xml".equals(pathname.getName())) {
+            logWrapper.log(String.format("Delete file: %s.", pathname.getName()));
+            
+            pathname.delete();
+          }
+          return false;
+        } 
+        return true;
+      }
+    });
+    
+    // TODO remove
+//    for (String key : metadata.keySet()) {
+//      logWrapper.log(String.format("%s: [%s]", key, StringUtils.join(metadata.get(key), ",")));
+//    }
+    
+    for (File dir : dirs) {
+      DeploymentUnit du = findDeploymentUnitBySubDir(configurations, dir.getName());
+      
+      // TODO remove logWrapper.log(String.format("%s - %s", du.getSubDir(), du.getType().getSimpleName()));
+      
+      String type = du.getType().getSimpleName();
+      Set<String> metas = new HashSet<>(metadata.get(type));
+      
+      List<File> files = du.getFiles(baseDir);
+      for (File file : files) {
+        String name = du.getEntityName(file);
+        if (!metas.contains(name)) {
+          logWrapper.log(String.format("Delete file: %s.", file.getName()));
+          
+          file.delete();
+        }
+      }
+    }
   }
   
 }

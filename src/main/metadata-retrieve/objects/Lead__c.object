@@ -129,7 +129,7 @@
         <relationshipName>Lead_Assigned_Dealer</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -14279,6 +14279,14 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
         </filters>
         <label>All MBAFC Lead</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>RM_AS_E</role>
+            <role>RM_AS_N</role>
+            <role>RM_AS_S</role>
+            <role>RM_AS_W</role>
+            <role>Regional</role>
+            <role>Regional_AS_Retail_Marketing</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_MB_Lead</fullName>
@@ -14306,6 +14314,22 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
         </filters>
         <label>*All MB Lead</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>DM_AS_E</role>
+            <role>DM_AS_N</role>
+            <role>DM_AS_S</role>
+            <role>DM_AS_W</role>
+            <role>RM_AS_E</role>
+            <role>RM_AS_N</role>
+            <role>RM_AS_S</role>
+            <role>RM_AS_W</role>
+            <role>Regional</role>
+            <role>Regional_AS_Retail_Marketing</role>
+            <role>Regional_CRM_Mgr_E</role>
+            <role>Regional_CRM_Mgr_N</role>
+            <role>Regional_CRM_Mgr_S</role>
+            <role>Regional_CRM_Mgr_W</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_Used_Car_Lead</fullName>
@@ -14327,6 +14351,10 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
         </filters>
         <label>All Used Car Lead</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+            <role>Central_Sales_Marketing</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>All_aftersales_leads</fullName>
@@ -14393,6 +14421,10 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
         </filters>
         <label>All smart Lead</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Central</role>
+            <role>Central_Sales_Marketing</role>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>Lead-{000000}</displayFormat>

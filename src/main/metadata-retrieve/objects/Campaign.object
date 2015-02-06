@@ -2176,6 +2176,10 @@
         </filters>
         <label>全部已启用的CAC活动</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Data_Service_Specialist</role>
+            <role>IT_Manager</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>AllActiveCASCampaigns</fullName>
@@ -2254,6 +2258,10 @@
         </filters>
         <label>全部已启用的市场活动执行</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>Data_Service_Specialist</role>
+            <role>IT_Manager</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>BMBSASCampaignRecord1</fullName>

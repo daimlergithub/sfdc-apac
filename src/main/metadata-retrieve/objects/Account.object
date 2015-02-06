@@ -11293,6 +11293,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         </filters>
         <label>All Customer Accounts</label>
         <language>en_US</language>
+        <sharedTo>
+            <allPartnerUsers></allPartnerUsers>
+            <role>WholeSale_CallCenter</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>AllDealerAccounts</fullName>

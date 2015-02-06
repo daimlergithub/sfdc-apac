@@ -3,6 +3,7 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>BMBS CRM</label>
     <logo>Logo/Logo_Mercedes_Benz.png</logo>
+    <tab>Tasks</tab>
     <tab>Lead__c</tab>
     <tab>standard-Account</tab>
     <tab>standard-Contact</tab>

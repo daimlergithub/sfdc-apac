@@ -7,7 +7,15 @@
         <detailHeading>false</detailHeading>
         <editHeading>false</editHeading>
         <label>Select Assigne Dealer</label>
-        <layoutColumns/>
+        <layoutColumns>
+            <layoutItems>
+                <height>26</height>
+                <page>LeadButtonContainerSalesLeads</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
     <layoutSections>

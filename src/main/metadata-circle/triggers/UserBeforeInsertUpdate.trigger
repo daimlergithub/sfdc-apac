@@ -41,7 +41,8 @@ trigger UserBeforeInsertUpdate on User (before insert, before update) {
     }*/
     
     Profile DealerUser = [select Id from Profile where Name = 'Dealer Community User'];
-    Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Community Delegate Admin'];
+    //modified the query
+    Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'];
     Set<Id> profileIds = new Set<Id>();
     profileIds.add(DealerUser.Id);
     profileIds.add(DealerDelegatedAdmin.Id);

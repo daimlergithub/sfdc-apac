@@ -735,6 +735,10 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
         </filters>
         <label>Calibrated SSI</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>CAC_QC_SV_TM</role>
+            <role>SSI_Supervisor</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>My_SSI</fullName>
@@ -761,6 +765,11 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
         </filters>
         <label>My SSI</label>
         <language>en_US</language>
+        <sharedTo>
+            <role>SSI_CSR</role>
+            <role>SSI_Supervisor</role>
+            <role>SSI_TL</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Other_Rule_Invalid_SSI</fullName>

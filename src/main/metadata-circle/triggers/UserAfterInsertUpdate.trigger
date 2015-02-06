@@ -26,12 +26,12 @@ trigger UserAfterInsertUpdate on User (after insert, after update) {
     Profile CACSSITL = null;
     Profile CACSSITR = null;
 
-    Set<String> profileNames = new set<String> {'Dealer Community User','Dealer Community Delegate Admin',
+    Set<String> profileNames = new set<String> {'Dealer Community User','Dealer Delegate Admin',
                                                 'CAC SSI CSR','CAC SSI QC','CAC SSI SV','CAC SSI TL','CAC SSI Trainer'};
     for (Profile pro : [select Id, Name from Profile where Name in :profileNames]) {
         if (pro.Name == 'Dealer Community User') {
             DealerCommunityUser = pro;
-        } else if (pro.Name == 'Dealer Community Delegate Admin') {
+        } else if (pro.Name == 'Dealer Delegate Admin') {
             DealerDelegatedAdmin = pro;
         } else if (pro.Name == 'CAC SSI CSR') {
             CACSSICSR = pro;

@@ -16065,8 +16065,266 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
     </fields>
     <listViews>
         <fullName>AllClosedCases</fullName>
+        <columns>CASES.RECORDTYPE</columns>
         <columns>CASES.CASE_NUMBER</columns>
-        <columns>NAME</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Case_Type__c</columns>
+        <columns>Case_SubType__c</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>CCMS_SourceId__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>已结束,Closed</value>
+        </filters>
+        <label>所有已关闭个案</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allPartnerUsers></allPartnerUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>AllOpenCases</fullName>
+        <columns>CASES.RECORDTYPE</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Case_Type__c</columns>
+        <columns>Case_SubType__c</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>CCMS_SourceId__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>notEqual</operation>
+            <value>已结束,Closed</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <filters>
+            <field>CASES.CREATED_DATE</field>
+            <operation>greaterThan</operation>
+            <value>11/11/2013 12:00 AM</value>
+        </filters>
+        <label>所有未关闭个案</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allPartnerUsers></allPartnerUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Central_Office_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>Case_Source__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CCMS_SourceId__c</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Handling_Level__c</field>
+            <operation>equals</operation>
+            <value>Central Office</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <label>All Central Office Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>AS_Service_Technical_Director</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_PL_WL_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>Case_Source__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CCMS_SourceId__c</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Handling_Level__c</field>
+            <operation>equals</operation>
+            <value>Central Office</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <filters>
+            <field>Case_Involvement_MPC__c</field>
+            <operation>equals</operation>
+            <value>PL/WL</value>
+        </filters>
+        <filters>
+            <field>CCMS_SourceId__c</field>
+            <operation>equals</operation>
+        </filters>
+        <label>All PL/WL Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>PL_WL_Team</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Region_East_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>Case_Source__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CCMS_SourceId__c</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>East</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <label>All Region East Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Regional_CRM_Manager</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Region_North_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>Case_Source__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CCMS_SourceId__c</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>North</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <label>All Region North Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Regional_CRM_Manager</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Region_South_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>Case_Source__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CCMS_SourceId__c</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>South</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <label>All Region South Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Regional_CRM_Manager</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Region_West_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>Case_Source__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CCMS_SourceId__c</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Region__c</field>
+            <operation>equals</operation>
+            <value>West</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <label>All Region West Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>Regional_CRM_Manager</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>All_Shared_CAC_Inquiries</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
         <columns>CASES.SUBJECT</columns>
         <columns>CASES.STATUS</columns>
         <columns>CASES.PRIORITY</columns>
@@ -16074,21 +16332,22 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>CASES.CLOSED</field>
+            <field>CASES.RECORDTYPE</field>
             <operation>equals</operation>
-            <value>1</value>
+            <value>Case.Inquiry</value>
         </filters>
-        <label>All Closed Cases</label>
-    </listViews>
-    <listViews>
-        <fullName>AllOpenCases</fullName>
-        <filterScope>Everything</filterScope>
         <filters>
-            <field>CASES.CLOSED</field>
-            <operation>equals</operation>
-            <value>0</value>
+            <field>CASES.CREATED_DATE</field>
+            <operation>greaterThan</operation>
+            <value>11/11/2013 12:00 AM</value>
         </filters>
-        <label>All Open Cases</label>
+        <label>All Shared CAC Inquiries</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>IB_CSR</role>
+            <role>IB_TL</role>
+            <role>OB_TL</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>BMBS_Central_Office_ER_team_Case</fullName>
@@ -16127,6 +16386,23 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>Central_Office_PL_WL_Queue</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CCMS_SourceId__c</columns>
+        <filterScope>Queue</filterScope>
+        <label>Central Office PL / WL Queue</label>
+        <language>en_US</language>
+        <queue>Central_Office_PL_WL_Queue</queue>
+        <sharedTo>
+            <role>PL_WL_Team</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Central_Office_PL_WL_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Central Office PL / WL Queue</label>
@@ -16145,19 +16421,290 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>Customer_Care_Team_View</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>Customer_Care_Owner__c</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>OWNER_NAME</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <filters>
+            <field>Complaint_Creator_Department__c</field>
+            <operation>equals</operation>
+            <value>CAC</value>
+        </filters>
+        <filters>
+            <field>Repeat_Complaint_Times__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Closed,Finished</value>
+        </filters>
+        <label>Customer Care Team View</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Feedback_from_Dealer</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Feedback_Read__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>Has_Feedback__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>CASES.CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>11/11/2013 12:00 AM</value>
+        </filters>
+        <label>Feedback from Dealer</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>CAC_QC_SV_TM</role>
+            <role>IB_CSR</role>
+            <role>IB_TL</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Feedback_required_Inquiry_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Feedback_Required__c</columns>
+        <columns>TL_Reviewed__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>Feedback_Date__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Feedback_Required__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <filters>
+            <field>TL_Reviewed__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Inquiry</value>
+        </filters>
+        <filters>
+            <field>CASES.CREATED_DATE</field>
+            <operation>greaterThan</operation>
+            <value>11/11/2013 12:00 AM</value>
+        </filters>
+        <label>Feedback required Inquiry Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>IB_CSR</role>
+            <role>IB_TL</role>
+            <role>OB_TL</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>MyCases</fullName>
         <filterScope>Mine</filterScope>
         <label>My Cases</label>
     </listViews>
     <listViews>
         <fullName>MyOpenCases</fullName>
+        <booleanFilter>(1 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10) AND 2</booleanFilter>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>Dealer_Case_Category__c</columns>
+        <columns>Dealer_Case_Type__c</columns>
+        <columns>Dealer_Case_SubType__c</columns>
+        <columns>OWNER_NAME</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CAC_SourceId__c</columns>
+        <columns>CASES.RECORDTYPE</columns>
+        <columns>Case_Dealer__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAC_SourceId__c</field>
+            <operation>contains</operation>
+            <value>217071,217061,217087,217099,217107,217115,217143,217183,217201,217209,217215</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint,Case.Object_Connector</value>
+        </filters>
+        <filters>
+            <field>CAC_SourceId__c</field>
+            <operation>contains</operation>
+            <value>217221,217229,217241,217247,217279,217283,217293,217303,217307,217315,217317</value>
+        </filters>
+        <filters>
+            <field>CAC_SourceId__c</field>
+            <operation>contains</operation>
+            <value>217333,217337,217341,217355,217357,217361,217377,217379,217391,217399</value>
+        </filters>
+        <filters>
+            <field>CAC_SourceId__c</field>
+            <operation>contains</operation>
+            <value>216785,217065,217067,217073,217075,217081,217083,217089,217091,217093,217095</value>
+        </filters>
+        <filters>
+            <field>CAC_SourceId__c</field>
+            <operation>contains</operation>
+            <value>217101,217109,217113,217119,217137,217141,217145,217149,217153,217161,217163</value>
+        </filters>
+        <filters>
+            <field>CAC_SourceId__c</field>
+            <operation>contains</operation>
+            <value>217167,217169,217173,217179,217185,217189,217191,217193,217195,217213,217233</value>
+        </filters>
+        <filters>
+            <field>CAC_SourceId__c</field>
+            <operation>contains</operation>
+            <value>217239,217249,217255,217257,217261,217271,217273,217275,217281,217285,217287</value>
+        </filters>
+        <filters>
+            <field>CAC_SourceId__c</field>
+            <operation>contains</operation>
+            <value>217309,217311,217319,217325,217331,217335,217345,217349,217363,217365,217367</value>
+        </filters>
+        <filters>
+            <field>CAC_SourceId__c</field>
+            <operation>contains</operation>
+            <value>217371,217373,217375,217381,217387</value>
+        </filters>
+        <label>On site manager open Complaint</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>My_Handling_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>Case_Source__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CCMS_SourceId__c</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Team</filterScope>
+        <label>My Handling Cases</label>
+        <language>en_US</language>
+        <sharedTo>
+            <role>AS_Service_Technical_Director</role>
+            <role>PL_WL_Team</role>
+            <role>Regional_CRM_Manager</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>My_Retail_Campaign_Case</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
         <filterScope>Mine</filterScope>
         <filters>
-            <field>CASES.CLOSED</field>
+            <field>CASES.RECORDTYPE</field>
             <operation>equals</operation>
-            <value>0</value>
+            <value>Case.Retail_Campaign</value>
         </filters>
-        <label>My Open Cases</label>
+        <label>My Retail Campaign Case</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>PL_WL_MANAGER_HISTORY_RECORD</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>Progress_Status__c</columns>
+        <columns>Handling_Level__c</columns>
+        <columns>Region__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>Escalate_Date_to_CO__c</columns>
+        <columns>Escalate_Date_to_RO__c</columns>
+        <columns>Case_Source__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>CCMS_SourceId__c</columns>
+        <columns>Ref_No_Central__c</columns>
+        <columns>Ref_No_Regional__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CCMS_SourceId__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <filters>
+            <field>Case_Involvement_MPC__c</field>
+            <operation>equals</operation>
+            <value>PL/WL</value>
+        </filters>
+        <label>PL/WL MANAGER HISTORY RECORD</label>
+        <language>zh_CN</language>
+        <sharedTo>
+            <role>PL_WL_Team</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Primary_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>Case_Dealer__c</columns>
+        <columns>Support_Dealer_1__c</columns>
+        <columns>Support_Dealer_2__c</columns>
+        <columns>Support_Dealer_3__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Primary_Case__c</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>主要处理的个案</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Regional_Office_East_Queue</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Queue</filterScope>
+        <label>Regional Office East Queue</label>
+        <language>en_US</language>
+        <queue>Regional_Office_East_Queue</queue>
+        <sharedTo>
+            <role>AS_Service_Technical_Director</role>
+            <role>Regional_CRM_Manager</role>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>Regional_Office_East_Queue_Case</fullName>
@@ -16178,12 +16725,63 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>Regional_Office_Northth_Queue</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Queue</filterScope>
+        <label>Regional Office North Queue</label>
+        <language>en_US</language>
+        <queue>Regional_Office_North_Queue</queue>
+        <sharedTo>
+            <role>AS_Service_Technical_Director</role>
+            <role>Regional_CRM_Manager</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Regional_Office_South_Queue</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Queue</filterScope>
+        <label>Regional Office South Queue</label>
+        <language>en_US</language>
+        <queue>Regional_Office_South_Queue</queue>
+        <sharedTo>
+            <role>AS_Service_Technical_Director</role>
+            <role>Regional_CRM_Manager</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Regional_Office_South_Queue_Case</fullName>
         <filterScope>Queue</filterScope>
         <label>Regional Office South Queue</label>
         <queue>Regional_Office_South_Queue</queue>
         <sharedTo>
             <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Regional_Office_West_Queue</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Queue</filterScope>
+        <label>Regional Office West Queue</label>
+        <language>en_US</language>
+        <queue>Regional_Office_West_Queue</queue>
+        <sharedTo>
+            <role>AS_Service_Technical_Director</role>
+            <role>Regional_CRM_Manager</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16194,6 +16792,82 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <sharedTo>
             <allInternalUsers></allInternalUsers>
         </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Support_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>Case_Dealer__c</columns>
+        <columns>Support_Dealer_1__c</columns>
+        <columns>Support_Dealer_2__c</columns>
+        <columns>Support_Dealer_3__c</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Is_Primary_Case__c</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>支持的个案</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>View</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>NAME</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>已结束,Closed</value>
+        </filters>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.MB_Complaint</value>
+        </filters>
+        <filters>
+            <field>Case_Dealer__c</field>
+            <operation>equals</operation>
+            <value>北京亚奥之星汽车服务有限公司</value>
+        </filters>
+        <label>所有已关闭个案_北京亚奥之星</label>
+        <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>View5</fullName>
+        <columns>ACCOUNT.NAME</columns>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.PRIORITY</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Case.Chrysler_Complaint</value>
+        </filters>
+        <filters>
+            <field>CASES.STATUS</field>
+            <operation>equals</operation>
+            <value>Requires Manager Review,Waiting for Reply</value>
+        </filters>
+        <filters>
+            <field>CASES.CREATED_DATE</field>
+            <operation>greaterOrEqual</operation>
+            <value>9/1/2013 12:00 AM</value>
+        </filters>
+        <label>待回复克莱斯勒投诉</label>
+        <language>en_US</language>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
