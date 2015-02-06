@@ -269,10 +269,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_LastSe
         <relationshipLabel>Vehicle Relationships(Vehicle Relationship Last Service Dealer)</relationshipLabel>
         <relationshipName>Vehicle_Relationship_Last_Service_Dealer</relationshipName>
         <required>false</required>
-		<!-- TODO Kernel fix
         <trackHistory>true</trackHistory>
-		-->
-		<trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -3221,10 +3218,7 @@ Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_Pro
         <relationshipLabel>Vehicle Relationships(Vehicle Relationship Selling Dealer)</relationshipLabel>
         <relationshipName>Vehicle_Relationships_Selling_Dealer</relationshipName>
         <required>false</required>
-        <!-- TODO fix Kernel
 		<trackHistory>true</trackHistory>
-		-->
-		<trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>

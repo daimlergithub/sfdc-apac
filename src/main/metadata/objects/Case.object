@@ -15963,7 +15963,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <type>Email</type>
         <unique>false</unique>
     </fields>
-	<!-- Todo Commented as part of Kernel deployment
     <listViews>
         <fullName>AllClosedCases</fullName>
         <columns>CASES.RECORDTYPE</columns>
@@ -16052,10 +16051,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <language>en_US</language>
         <sharedTo>
             <role>AS_Service_Technical_Director</role>
-            <role>Service_Technical_Manager_E</role>
-            <role>Service_Technical_Manager_N</role>
-            <role>Service_Technical_Manager_S</role>
-            <role>Service_Technical_Manager_W</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16128,8 +16123,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>All Region East Cases</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Regional_CRM_Mgr_E</role>
-            <role>Regional_Head_E</role>
+            <role>Regional_CRM_Manager</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16161,8 +16155,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>All Region North Cases</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Regional_CRM_Mgr_N</role>
-            <role>Regional_Head_N</role>
+            <role>Regional_CRM_Manager</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16194,8 +16187,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>All Region South Cases</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Regional_CRM_Mgr_S</role>
-            <role>Regional_Retail_Marketing_S</role>
+            <role>Regional_CRM_Manager</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16227,8 +16219,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>All Region West Cases</label>
         <language>en_US</language>
         <sharedTo>
-            <role>Regional_CRM_Mgr_W</role>
-            <role>Regional_Head_W</role>
+            <role>Regional_CRM_Manager</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16310,32 +16301,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>Domestic_On_site_Manager_Queue</fullName>
-        <columns>CASES.RECORDTYPE</columns>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>Repeat_Complaint_Times__c</columns>
-        <columns>Case_Dealer__c</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>Region__c</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>Case_SubType__c</columns>
-        <columns>Case_Type__c</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Queue</filterScope>
-        <filters>
-            <field>CASES.STATUS</field>
-            <operation>notEqual</operation>
-            <value>Waiting for Reply,Closed,Finished</value>
-        </filters>
-        <label>Domestic On-site Manager Queue</label>
-        <language>en_US</language>
-        <queue>Domestic_On_site_Manager_Queue</queue>
-        <sharedTo>
-            <role>Onsite_Complaint_Manager</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
         <fullName>Feedback_from_Dealer</fullName>
         <filterScope>Everything</filterScope>
         <filters>
@@ -16356,9 +16321,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>Feedback from Dealer</label>
         <language>en_US</language>
         <sharedTo>
-            <role>CAC</role>
-            <role>CRM_Assist_Manager_CAC_Data_Mgt</role>
-            <role>CRM_Manager_CAC_Data</role>
+            <role>CAC_QC_SV_TM</role>
             <role>IB_CSR</role>
             <role>IB_TL</role>
         </sharedTo>
@@ -16401,32 +16364,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             <role>IB_CSR</role>
             <role>IB_TL</role>
             <role>OB_TL</role>
-        </sharedTo>
-    </listViews>
-    <listViews>
-        <fullName>Import_On_Site_Manager_Queue</fullName>
-        <columns>CASES.RECORDTYPE</columns>
-        <columns>CASES.CASE_NUMBER</columns>
-        <columns>ACCOUNT.NAME</columns>
-        <columns>CASES.STATUS</columns>
-        <columns>CASES.SUBJECT</columns>
-        <columns>Case_Type__c</columns>
-        <columns>Case_SubType__c</columns>
-        <columns>CORE.USERS.ALIAS</columns>
-        <columns>Case_Dealer__c</columns>
-        <filterScope>Queue</filterScope>
-        <filters>
-            <field>CASES.STATUS</field>
-            <operation>notEqual</operation>
-            <value>Waiting for Reply</value>
-        </filters>
-        <label>Import On-Site Manager Queue</label>
-        <language>en_US</language>
-        <queue>Import_On_Site_Manager_Queue</queue>
-        <sharedTo>
-            <role>OB_IB</role>
-            <role>OM_OB</role>
-            <role>Onsite_Complaint_Manager</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16494,9 +16431,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </filters>
         <label>On site manager open Complaint</label>
         <language>en_US</language>
-        <sharedTo>
-            <role>Onsite_Complaint_Manager</role>
-        </sharedTo>
     </listViews>
     <listViews>
         <fullName>My_Handling_Cases</fullName>
@@ -16518,14 +16452,8 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <language>en_US</language>
         <sharedTo>
             <role>PL_WL_Team</role>
-            <role>Regional_CRM_Mgr_E</role>
-            <role>Regional_CRM_Mgr_N</role>
-            <role>Regional_CRM_Mgr_S</role>
-            <role>Regional_CRM_Mgr_W</role>
-            <role>Service_Technical_Manager_E</role>
-            <role>Service_Technical_Manager_N</role>
-            <role>Service_Technical_Manager_S</role>
-            <role>Service_Technical_Manager_W</role>
+            <role>Regional_CRM_Manager</role>
+            <role>AS_Service_Technical_Director</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16615,12 +16543,8 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <language>en_US</language>
         <queue>Regional_Office_East_Queue</queue>
         <sharedTo>
-            <role>Regional_CRM_Mgr_E</role>
-            <role>Regional_Head_E</role>
-            <role>Service_Technical_Manager_E</role>
-            <role>Service_Technical_Manager_N</role>
-            <role>Service_Technical_Manager_S</role>
-            <role>Service_Technical_Manager_W</role>
+            <role>Regional_CRM_Manager</role>
+            <role>AS_Service_Technical_Director</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16636,12 +16560,8 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <language>en_US</language>
         <queue>Regional_Office_North_Queue</queue>
         <sharedTo>
-            <role>Regional_CRM_Mgr_N</role>
-            <role>Regional_Head_N</role>
-            <role>Service_Technical_Manager_E</role>
-            <role>Service_Technical_Manager_N</role>
-            <role>Service_Technical_Manager_S</role>
-            <role>Service_Technical_Manager_W</role>
+            <role>Regional_CRM_Manager</role>
+            <role>AS_Service_Technical_Director</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16657,12 +16577,8 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <language>en_US</language>
         <queue>Regional_Office_South_Queue</queue>
         <sharedTo>
-            <role>Regional_CRM_Mgr_S</role>
-            <role>Regional_Head_S</role>
-            <role>Service_Technical_Manager_E</role>
-            <role>Service_Technical_Manager_N</role>
-            <role>Service_Technical_Manager_S</role>
-            <role>Service_Technical_Manager_W</role>
+            <role>Regional_CRM_Manager</role>
+            <role>AS_Service_Technical_Director</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16678,12 +16594,8 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <language>en_US</language>
         <queue>Regional_Office_West_Queue</queue>
         <sharedTo>
-            <role>Regional_CRM_Mgr_W</role>
-            <role>Regional_Head_W</role>
-            <role>Service_Technical_Manager_E</role>
-            <role>Service_Technical_Manager_N</role>
-            <role>Service_Technical_Manager_S</role>
-            <role>Service_Technical_Manager_W</role>
+            <role>Regional_CRM_Manager</role>
+            <role>AS_Service_Technical_Director</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16733,11 +16645,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </filters>
         <label>所有已关闭个案_北京亚奥之星</label>
         <language>en_US</language>
-        <sharedTo>
-            <portalRole>PartnerExecutive3</portalRole>
-            <portalRole>PartnerManager3</portalRole>
-            <portalRole>PartnerUser3</portalRole>
-        </sharedTo>
     </listViews>
     <listViews>
         <fullName>View5</fullName>
@@ -16766,11 +16673,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </filters>
         <label>待回复克莱斯勒投诉</label>
         <language>en_US</language>
-        <sharedTo>
-            <role>Onsite_Complaint_Manager</role>
-        </sharedTo>
     </listViews>
-	-->
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>

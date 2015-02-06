@@ -129,10 +129,7 @@
         <relationshipName>Lead_Assigned_Dealer</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <!-- TODO fix Kernel
 		<trackHistory>true</trackHistory>
-		-->
-		<trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -14354,13 +14351,10 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
         </filters>
         <label>All Used Car Lead</label>
         <language>en_US</language>
-		<!-- TODO fix Kernel
         <sharedTo>
-            <role>BMBS_Central</role>
+            <role>Central</role>
             <role>Central_Sales_Marketing</role>
-            <roleAndSubordinatesInternal>Central_Star_Elite</roleAndSubordinatesInternal>
         </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>All_aftersales_leads</fullName>
@@ -14427,13 +14421,10 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
         </filters>
         <label>All smart Lead</label>
         <language>en_US</language>
-		<!-- TODO fix Kernel
         <sharedTo>
-            <role>BMBS_Central</role>
+            <role>Central</role>
             <role>Central_Sales_Marketing</role>
-            <roleAndSubordinatesInternal>Central_smart</roleAndSubordinatesInternal>
         </sharedTo>
-		-->
     </listViews>
     <nameField>
         <displayFormat>Lead-{000000}</displayFormat>

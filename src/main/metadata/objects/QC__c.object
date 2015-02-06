@@ -3180,9 +3180,6 @@ MAX(
         <columns>OWNER.ALIAS</columns>
         <columns>NAME</columns>
         <columns>Calibration__c</columns>
-		<!-- Todo Commented as part of Kernel deployment
-        <filterScope>Queue</filterScope>
-		-->
 		<filterScope>Everything</filterScope>
         <filters>
             <field>RECORDTYPE</field>

@@ -2177,11 +2177,6 @@
         <label>全部已启用的CAC活动</label>
         <language>en_US</language>
         <sharedTo>
-		<!-- Todo Commented as part of Kernel deployment
-            <role>Campaign_Specialist</role>
-            <role>Data_Service_Manager</role>            
-            <role>Project_Manager</role>
-		-->
 			<role>Data_Service_Specialist</role>
             <role>IT_Manager</role>
         </sharedTo>		
@@ -2254,11 +2249,6 @@
         <label>全部已启用的市场活动执行</label>
         <language>en_US</language>
 		<sharedTo>
-		<!-- Todo Commented as part of Kernel deployment
-            <role>Campaign_Specialist</role>
-            <role>Data_Service_Manager</role>            
-            <role>Project_Manager</role>
-		-->
 			<role>Data_Service_Specialist</role>
             <role>IT_Manager</role>
         </sharedTo>	

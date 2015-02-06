@@ -2354,10 +2354,7 @@
         <referenceTo>Account</referenceTo>
         <relationshipName>Retail_Campaigns</relationshipName>
         <required>false</required>
-		<!-- TODO fix Kernel
         <trackHistory>true</trackHistory>
-		-->
-		<trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>

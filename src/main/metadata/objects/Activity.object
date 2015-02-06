@@ -2797,11 +2797,9 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </filters>
         <label>我的今日进线</label>
         <language>en_US</language>
-		<!-- Todo Commented as part of Kernel deployment
         <sharedTo>
             <role>IB_CSR</role>
         </sharedTo>
-		-->
     </listViews>
     <listViews>
         <fullName>Welcome_Call_Task</fullName>
