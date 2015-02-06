@@ -1,7 +1,6 @@
 TODO
 ====
--PermissionSets errors
--Layout Assignment
+-Records for Custom Settings
 
 
 -object/Task.object#weblink["Redo_Survey"]

@@ -4,7 +4,7 @@
 	
 	<property name="typesets">
 		CustomLabels,CallCenter,StaticResource,ApexPage,Queue,Role,Group,CustomObject,Layout,Document,CustomTab,
-		CustomApplication,EmailTemplate,Workflow,ApexClass,ApexTrigger,AppMenu,Profile,PermissionSet,CustomSite,
+		CustomApplication,EmailTemplate,Workflow,ApexClass,ApexTrigger,AppMenu,Profile,PermissionSet,
 		AccountSharingRules,CampaignSharingRules,CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
 		CustomPageWebLink,HomePageComponent,HomePageLayout,RemoteSiteSetting
 	</property>
@@ -15,6 +15,14 @@
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"
 				transformationsRoot="src/main/transformations"/>
+	</presetdef>
+	
+	<presetdef name="loadData">
+		<sf:loadData
+				debug="${sfdc.debug}"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}"
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
+				dataRoot="src/main/resources/data" logDir="logs" timestamps="timestamps-data.log"/>
 	</presetdef>
 	
 	<target name="init">
@@ -184,19 +192,63 @@
 		</deploy>		
     </target>
 
+	<target name="loaddata-oliver">
+		<mkdir dir="logs"/>
+		<loadData logDir="logs" configId="oliverkoethap1__Environment_Specific_Values__c"/>
+	</target>
+	
+	<target name="loaddata">
+		<mkdir dir="logs"/>
+		<loadData logDir="logs" configId="Environment_Specific_Values__c"/>
+	</target>
+	
+	<property name="typesets.circle">
+		CustomLabels,StaticResource,CallCenter,CustomTab,ApexClass,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink
+	</property>
+	
+	<!-- TODO
+	CampaignSharingRules: check
+	EmailTemplate: default emails in unfiled folder
+	Role: delete default roles
+	CustomObject: default objects not included, PersonAccount in retrieve missing
+	RemoteSiteSetting: only EP integration, adjust in sandbox-specific transformation
+	CustomApplication: check
+	Workflow: a lot of empty workflow files
+	AppMenu: check
+	Profile: check
+	PermissionSet: check differences
+	CaseSharingRules: check
+	CustomObjectSharingRules: some differences
+	Settings: a lot of default settings
+	ApprovalProcess: differences
+	HomePageComponent: check one component
+	HomePageLayout: DE Default Layout
+	-->
+	<property name="typesets.not-ready">
+		Role,CustomObject,Layout,
+		CustomApplication,EmailTemplate,Workflow,AppMenu,Profile,PermissionSet,
+		CampaignSharingRules,CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
+		HomePageComponent,HomePageLayout,RemoteSiteSetting
+	</property>
+	
 	<!-- work in progress -->
 	<target name="retrieveAll">
 		<!-- retrieves all metadata -->
-		<delete includeemptydirs="true">
-			<fileset dir="src/main/metadata-retrieve" includes="**/*"/>
-		</delete>
+		<sf:retrieve
+				debug="${sfdc.debug}" dryRun="false" full="true"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
+				retrieveRoot="src/main/metadata-circle" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
+			<sf:typesets names="${typesets.circle}"/>
+		</sf:retrieve>
 		
+		<!-- retrieves all metadata -->
 		<sf:retrieve
 				debug="${sfdc.debug}" dryRun="false" full="true"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
-			<sf:typesets names="${typesets}"/>
+			<sf:typesets names="${typesets.not-ready}"/>
 		</sf:retrieve>
 	</target>
 
@@ -207,8 +259,8 @@
 				debug="${sfdc.debug}" dryRun="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
-				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
-			<sf:typesets names="CustomLabels,StaticResource,CallCenter,AccountSharingRules"/>
+				retrieveRoot="src/main/metadata-circle" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
+			<sf:typesets names="${typesets.circle}"/>
 		</sf:retrieve>
 		
 		<!-- retrieves only changed metadata -->
@@ -217,13 +269,7 @@
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
-			<!-- TODO
-			CampaignSharingRules
-			-->
-			<sf:typesets names="ApexPage,Queue,Role,Group,CustomObject,Layout,Document,CustomTab,
-				CustomApplication,EmailTemplate,Workflow,ApexClass,ApexTrigger,AppMenu,Profile,PermissionSet,CustomSite,
-				CampaignSharingRules,CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
-				CustomPageWebLink,HomePageComponent,HomePageLayout,RemoteSiteSetting"/>
+			<sf:typesets names="${typesets.not-ready}"/>
 		</sf:retrieve>
 	</target>
 	

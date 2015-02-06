@@ -25,4 +25,24 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='Create_Simple_Execution']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_SIMPLE_EXECUTION_RECORD_TYPE_ID</token>
 	</changetext>
+	<removeelement retrieve="false">
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/fields[fullName/text()='Assigned_Dealer__c']/trackHistory</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>objects\Retail_Campaign__c.object</filename>
+		<xpath>/CustomObject/fields[fullName/text()='Y_Dealer_Name__c']/trackHistory</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>objects\Tool_Kit__c.object</filename>
+		<xpath>/CustomObject/fields[fullName/text()='Dealer_Name__c']/trackHistory</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>objects\Vehicle_Relationship__c.object</filename>
+		<xpath>/CustomObject/fields[fullName/text()='Last_Service_Dealer__c']/trackHistory</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>objects\Vehicle_Relationship__c.object</filename>
+		<xpath>/CustomObject/fields[fullName/text()='Selling_Dealer__c']/trackHistory</xpath>
+	</removeelement>
 </transformations>

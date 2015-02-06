@@ -155,6 +155,8 @@ public class SfdcRetrievalTask
   
       metadata2Update = metadataHandler.collectMetadataToUpdate(differences);
       metadataHandler.removeMetadataToDelete(differences);
+      
+      // TODO create destructive changes
     }
     
     byte[] packageXml = metadataHandler.createPackageXml(metadata2Update);
@@ -163,6 +165,9 @@ public class SfdcRetrievalTask
     zipFileHandler.saveZipFile("retrieve", zipFile);
     zipFileHandler.extractZipFile(retrieveRoot, zipFile);
     
+    if (full) {
+      
+    }
     // TODO think about saving the timestamps
   }
 
@@ -170,7 +175,7 @@ public class SfdcRetrievalTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initialize(logWrapper, username, timestamps);
+    updateStampHandler.initialize(logWrapper, username, timestamps, !full);
     transformationHandler.initialize(logWrapper, username, transformationsRoot, retrieveRoot);
     
     sfdcHandler.initialize(logWrapper, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
@@ -184,10 +189,10 @@ public class SfdcRetrievalTask
     if (null == retrieveRoot) {
       throw new BuildException("The property retrieveRoot must be specified.");
     }
-    if (null == timestamps) {
+    if (!full && (null == timestamps)) {
       throw new BuildException("The property timestamps must be specified.");
     }
-    if (!new File(timestamps).exists()) {
+    if (!full && !new File(timestamps).exists()) {
       throw new BuildException(String.format("The file %s does not exist. Please deploy first or use the target 'retrieveAll'.", timestamps));
     }
   }
