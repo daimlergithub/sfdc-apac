@@ -1,8 +1,10 @@
 build.properties
 timestamps.log
 deployed-timestamps.log
+timestamps-data.log
 updatestamps-target.log
 /.settings
 /tmp
 /classes
 /build
+/logs

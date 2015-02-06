@@ -8,6 +8,7 @@
 	<classpathentry kind="lib" path="lib-task/deployment-util.jar"/>
 	<classpathentry kind="lib" path="lib-task/enterprise-api.jar"/>
 	<classpathentry kind="lib" path="lib-task/metadata-api.jar"/>
+	<classpathentry kind="lib" path="lib-task/dataloader-30.0.0-uber.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="classes"/>
 </classpath>

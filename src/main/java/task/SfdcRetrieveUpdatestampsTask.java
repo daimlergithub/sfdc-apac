@@ -107,7 +107,7 @@ public class SfdcRetrieveUpdatestampsTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initialize(logWrapper, username, timestamps);
+    updateStampHandler.initialize(logWrapper, username, timestamps, false);
     
     sfdcHandler.initialize(logWrapper, 0, false, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
   }

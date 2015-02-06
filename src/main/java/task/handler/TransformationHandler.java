@@ -316,7 +316,9 @@ public class TransformationHandler
       }
     }
 
-    logWrapper.log(String.format("Found %d transformations for %s.", result.size(), file.getName()));
+    if (!result.isEmpty()) {
+      logWrapper.log(String.format("Found %d transformations for %s.", result.size(), file.getName()));
+    }
     
  // TODO validate only one rename file for each file
     

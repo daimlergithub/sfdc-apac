@@ -40,12 +40,14 @@ public class UpdateStampHandler
   private String userName;
   private LogWrapper logWrapper;
   private String fileName;
+  private boolean readUpdateStamps;
 
-  public void initialize(LogWrapper logWrapper, String userName, String fileName)
+  public void initialize(LogWrapper logWrapper, String userName, String fileName, boolean readUpdateStamps)
   {
     this.userName = userName;
     this.logWrapper = logWrapper;
     this.fileName = fileName;
+    this.readUpdateStamps = readUpdateStamps;
     
     validate();
     initialize();
@@ -68,35 +70,37 @@ public class UpdateStampHandler
   {
     updateStamps = new HashMap<>();
 
-    try {
-      FileReader fr = new FileReader(fileName);
-      BufferedReader br = new BufferedReader(fr);
-
-      String line = null;
-      do {
-        line = br.readLine();
-        if (null != line) {
-          String[] tokens = line.split(":");
-          if (3 == tokens.length) {
-            String un = tokens[0];
-            if (StringUtils.equals(userName, un)) {
-              String type = URLDecoder.decode(tokens[1], "UTF-8");
-              Long timestamp = Long.valueOf(tokens[2]);
-              
-              updateStamps.put(type, timestamp);
+    if (readUpdateStamps) {
+      try {
+        FileReader fr = new FileReader(fileName);
+        BufferedReader br = new BufferedReader(fr);
+  
+        String line = null;
+        do {
+          line = br.readLine();
+          if (null != line) {
+            String[] tokens = line.split(":");
+            if (3 == tokens.length) {
+              String un = tokens[0];
+              if (StringUtils.equals(userName, un)) {
+                String type = URLDecoder.decode(tokens[1], "UTF-8");
+                Long timestamp = Long.valueOf(tokens[2]);
+                
+                updateStamps.put(type, timestamp);
+              }
             }
           }
+  
         }
-
+        while (null != line);
+  
+        br.close();
       }
-      while (null != line);
-
-      br.close();
-    }
-    catch (IOException e) {
-      updateStamps.clear();
-      
-      logWrapper.log(String.format("Error reading update stamps: %s. Continue without update timestamps.", e.getMessage()));
+      catch (IOException e) {
+        updateStamps.clear();
+        
+        logWrapper.log(String.format("Error reading update stamps: %s. Continue without update timestamps.", e.getMessage()));
+      }
     }
   }
 

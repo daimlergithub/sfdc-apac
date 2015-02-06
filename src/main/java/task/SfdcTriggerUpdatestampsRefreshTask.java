@@ -100,16 +100,18 @@ public class SfdcTriggerUpdatestampsRefreshTask
     validate();
     initialize();
     
-    Map<String, Long> metadataUpdatestamps = deploymentHandler.triggerUpdatestampsRefresh(objects);
-
-    updateStampHandler.writeUpdateStampes(metadataUpdatestamps);
+    throw new BuildException("Currently not working.");
+//    
+//    Map<String, Long> metadataUpdatestamps = deploymentHandler.triggerUpdatestampsRefresh(objects);
+//
+//    updateStampHandler.writeUpdateStampes(metadataUpdatestamps);
   }
 
   private void initialize()
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initialize(logWrapper, username, fileName);
+    updateStampHandler.initialize(logWrapper, username, fileName, false);
 //    
 //    sfdcHandler.initialize(logWrapper, 0, false, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
     deploymentHandler.initialize(logWrapper, serverurl, username, password, useProxy, proxyHost, proxyPort);
