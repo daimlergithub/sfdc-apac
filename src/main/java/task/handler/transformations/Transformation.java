@@ -2,7 +2,7 @@ package task.handler.transformations;
 
 import java.util.Map;
 
-import javax.xml.bind.annotation.XmlSeeAlso;
+import javax.xml.bind.annotation.XmlAttribute;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
@@ -16,10 +16,18 @@ import task.handler.LogWrapper;
  *
  * @author  xlehmf
  */
-@XmlSeeAlso({ChangeText.class, ChangeAttribute.class, RemoveElement.class, RenameFile.class})
+// TODO XmlSeeAlso({ChangeText.class, ChangeAttribute.class, RemoveElement.class, RenameFile.class})
 public abstract class Transformation {
 
   private String filename;
+  private boolean deploy;
+  private boolean retrieve;
+  
+  public Transformation() {
+    // by default a transformation is applied in both directions - deploy and retrieve
+    deploy = true;
+    retrieve = true;
+  }
   
   public String getFilename()
   {
@@ -29,6 +37,28 @@ public abstract class Transformation {
   public void setFilename(String filename)
   {
     this.filename = filename;
+  }
+
+  public boolean isDeploy()
+  {
+    return deploy;
+  }
+
+  @XmlAttribute
+  public void setDeploy(boolean deploy)
+  {
+    this.deploy = deploy;
+  }
+
+  public boolean isRetrieve()
+  {
+    return retrieve;
+  }
+
+  @XmlAttribute
+  public void setRetrieve(boolean retrieve)
+  {
+    this.retrieve = retrieve;
   }
 
   public void validate()

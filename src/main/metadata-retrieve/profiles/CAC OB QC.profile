@@ -11040,23 +11040,23 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.Aftersales_Leads</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.MBDA_Leads</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
         <recordType>Lead__c.Retail_Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
-        <recordType>Lead__c.TestRecordType</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Leads Layout</layout>
-        <recordType>Lead__c.Aftersales_Leads</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Leads Layout</layout>
-        <recordType>Lead__c.MBDA_Leads</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Leads Layout</layout>
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.TestRecordType</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>

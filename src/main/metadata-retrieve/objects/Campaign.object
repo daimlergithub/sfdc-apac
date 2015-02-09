@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>AddCampaign</actionName>
         <type>Default</type>
@@ -967,7 +966,7 @@
     </fields>
     <fields>
         <fullName>Content_Preview__c</fullName>
-        <description>Used only for Campaign Execution. To display the Message Detail of Template selected. Updated by workflow (because it&apos;s a long text not able to use formula).</description>
+        <description>Used only for Campaign Execution. To display the Message Detail of Template selected. Updated by workflow (because it's a long text not able to use formula).</description>
         <externalId>false</externalId>
         <label>SMS Preview</label>
         <length>32768</length>
@@ -12748,7 +12747,7 @@
     <validationRules>
         <fullName>DM_Material_is_Required</fullName>
         <active>true</active>
-        <errorConditionFormula>AND($Profile.Name !=&apos;IntegrationAPI&apos;,ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,&quot;DM&quot;))</errorConditionFormula>
+        <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"))</errorConditionFormula>
         <errorDisplayField>DM_Material__c</errorDisplayField>
         <errorMessage>When Execution Type is DM, DM Material is Required.</errorMessage>
     </validationRules>
@@ -12757,11 +12756,11 @@
         <active>true</active>
         <errorConditionFormula>AND(
 OR(
- RecordType.Name == &apos;S&amp;M Event BMBS Campaign&apos;,
- RecordType.Name == &apos;S&amp;M Media BMBS Campaign&apos;,
- RecordType.Name == &apos;AS BMBS Campaign&apos;
+ RecordType.Name == 'S&amp;M Event BMBS Campaign',
+ RecordType.Name == 'S&amp;M Media BMBS Campaign',
+ RecordType.Name == 'AS BMBS Campaign'
 ), 
- OR(PRIORVALUE(Status)== &apos;Published&apos;,PRIORVALUE(Status)==&apos;Closed&apos;),
+ OR(PRIORVALUE(Status)== 'Published',PRIORVALUE(Status)=='Closed'),
  OR(  ISCHANGED( Campaign_Code__c ),
       ISCHANGED( Name ),
       ISCHANGED( Description ), 
@@ -12783,19 +12782,19 @@ OR(
 	  ISCHANGED( Max_Car_Age__c ),
 	  ISCHANGED( Purpose__c )
  ),
- $Profile.Name != &apos;IntegrationAPI&apos;
+ $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
-        <errorMessage>You cann&apos;t change this record when Status is published or closed.</errorMessage>
+        <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Locked_for_MB_BP_when_Published</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
 OR( 
-RecordType.DeveloperName == &apos;MB_Best_Practice&apos;, 
-RecordType.DeveloperName == &apos;smart_Best_Practice&apos; 
+RecordType.DeveloperName == 'MB_Best_Practice', 
+RecordType.DeveloperName == 'smart_Best_Practice' 
 ), 
-ISPICKVAL(Status, &apos;Published&apos;), 
+ISPICKVAL(Status, 'Published'), 
 !ISCHANGED(Status), 
 OR( ISCHANGED( Campaign_Code__c ), 
 ISCHANGED( Name ), 
@@ -12811,9 +12810,9 @@ ISCHANGED( Region_Recommend_Number__c ),
 ISCHANGED( Region_Best_Number__c ), 
 ISCHANGED( BP_Quarter__c ) 
 ), 
-$Profile.Name != &apos;IntegrationAPI&apos; 
+$Profile.Name != 'IntegrationAPI' 
 )</errorConditionFormula>
-        <errorMessage>You cann&apos;t change this record when Status is published.</errorMessage>
+        <errorMessage>You cann't change this record when Status is published.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>MB_BP_fields_are_required_when_Publish</fullName>
@@ -12821,7 +12820,7 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <errorConditionFormula>AND( 
 OR( 
 AND( 
-RecordType.DeveloperName == &apos;MB_Best_Practice&apos;, 
+RecordType.DeveloperName == 'MB_Best_Practice', 
 OR( 
 ISNULL( BP_Start_Date__c ), 
 ISNULL( BP_End_Date__c ), 
@@ -12832,7 +12831,7 @@ ISNULL( Region_Recommend_Number__c ),
 ISNULL( Region_Best_Number__c ) 
 )), 
 AND( 
-RecordType.DeveloperName == &apos;smart_Best_Practice&apos;, 
+RecordType.DeveloperName == 'smart_Best_Practice', 
 OR( 
 ISNULL( BP_Start_Date__c ), 
 ISNULL( BP_End_Date__c ), 
@@ -12842,8 +12841,8 @@ ISNULL( Retail_Due_Date__c ),
 ISNULL( Region_Best_Number__c ) 
 )) 
 ), 
-ISPICKVAL(Status, &apos;Published&apos;), 
-$Profile.Name != &apos;IntegrationAPI&apos; 
+ISPICKVAL(Status, 'Published'), 
+$Profile.Name != 'IntegrationAPI' 
 )</errorConditionFormula>
         <errorMessage>“BP Start Date”, “BP End Date”, “Retail Start Date”, “Retail Due Date”, “Region Due Date”, “Region Best Number” and “Region Recommend Number” are required.</errorMessage>
     </validationRules>
@@ -12852,11 +12851,11 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <active>true</active>
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
-        <errorConditionFormula>NOT(ISPICKVAL( Status , &apos;Started&apos;)) 
+        <errorConditionFormula>NOT(ISPICKVAL( Status , 'Started')) 
 &amp;&amp; IsActive
-&amp;&amp; (  RecordType.Name = &quot;CAC CRM Campaign&quot; || RecordType.Name = &quot;Central Marketing Campaign&quot; || RecordType.Name = &quot;CAS Marketing Campaign&quot;)</errorConditionFormula>
+&amp;&amp; (  RecordType.Name = "CAC CRM Campaign" || RecordType.Name = "Central Marketing Campaign" || RecordType.Name = "CAS Marketing Campaign")</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
-        <errorMessage>Only Campaign with &quot;Started&quot; status can be activated.</errorMessage>
+        <errorMessage>Only Campaign with "Started" status can be activated.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Previous_Campaign_Execution_Parent</fullName>
@@ -12873,7 +12872,7 @@ NOT(ISBLANK(Previous_Campaign_Execution__c))
         <active>true</active>
         <errorConditionFormula>AND(
 SMS_Task_Verified__c  = True,
-NOT(ISPICKVAL(Execution_Type__c,&quot;SMS&quot;)),NOT(ISPICKVAL(Execution_Type__c,&quot;MMS&quot;))
+NOT(ISPICKVAL(Execution_Type__c,"SMS")),NOT(ISPICKVAL(Execution_Type__c,"MMS"))
 )</errorConditionFormula>
         <errorDisplayField>SMS_Task_Verified__c</errorDisplayField>
         <errorMessage>SMS task verified can only be true when Execution Type is SMS</errorMessage>
@@ -12884,9 +12883,9 @@ NOT(ISPICKVAL(Execution_Type__c,&quot;SMS&quot;)),NOT(ISPICKVAL(Execution_Type__
         <errorConditionFormula>AND( 
 ISBLANK(Template__c), 
 OR( 
-ISPICKVAL(Execution_Type__c ,&quot;SMS&quot;), 
-ISPICKVAL(Execution_Type__c ,&quot;MMS&quot;), 
-ISPICKVAL(Execution_Type__c ,&quot;eDM&quot;) 
+ISPICKVAL(Execution_Type__c ,"SMS"), 
+ISPICKVAL(Execution_Type__c ,"MMS"), 
+ISPICKVAL(Execution_Type__c ,"eDM") 
 ) 
 )</errorConditionFormula>
         <errorDisplayField>Template__c</errorDisplayField>
@@ -12896,12 +12895,12 @@ ISPICKVAL(Execution_Type__c ,&quot;eDM&quot;)
         <fullName>not_check_active_when_new_cac_camapgin</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-RecordType.Id = &apos;01290000000rXlr&apos;,
+RecordType.Id = '01290000000rXlr',
 ISNEW(),
 IsActive = True
 )</errorConditionFormula>
         <errorDisplayField>IsActive</errorDisplayField>
-        <errorMessage>When you create new CAC camapgin, you can&apos;t check Active.</errorMessage>
+        <errorMessage>When you create new CAC camapgin, you can't check Active.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Create_Batch_Tasks</fullName>
@@ -12975,25 +12974,25 @@ IsActive = True
         <masterLabel>Delete</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/25.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/25.0/apex.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/25.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/25.0/apex.js")} 
 
 var fnSuccess = function() { 
-    location.href = &quot;701/o&quot;; 
+    location.href = "701/o"; 
 }; 
 
-console.log(&quot;{!Campaign.RecordType}&quot;);
-console.log(&quot;{!Campaign.IsActive}&quot;);
-if((&quot;{!Campaign.RecordType}&quot; == &quot;Central Marketing Campaign&quot; || &quot;{!Campaign.RecordType}&quot; == &quot;CAC CRM Campaign&quot; || &quot;{!Campaign.RecordType}&quot; == &quot;CAC Campaign&quot;) &amp;&amp; &quot;{!Campaign.IsActive}&quot; == 1 || ({!ISPICKVAL(Campaign.Status, &quot;Started&quot;)} || {!ISPICKVAL(Campaign.Status, &quot;Closed&quot;)})){
+console.log("{!Campaign.RecordType}");
+console.log("{!Campaign.IsActive}");
+if(("{!Campaign.RecordType}" == "Central Marketing Campaign" || "{!Campaign.RecordType}" == "CAC CRM Campaign" || "{!Campaign.RecordType}" == "CAC Campaign") &amp;&amp; "{!Campaign.IsActive}" == 1 || ({!ISPICKVAL(Campaign.Status, "Started")} || {!ISPICKVAL(Campaign.Status, "Closed")})){
    console.log(3);
-   alert(&quot;{!$Label.Cannot_Delete_Central_Campaign}&quot;);
+   alert("{!$Label.Cannot_Delete_Central_Campaign}");
 } else {   
-   var result = sforce.connection.deleteIds([&quot;{!Campaign.Id}&quot;]);
- if (result [0].getBoolean(&quot;success&quot;)) {
-    alert(&quot;{!$Label.Delete_Campaign_Success}&quot;);
+   var result = sforce.connection.deleteIds(["{!Campaign.Id}"]);
+ if (result [0].getBoolean("success")) {
+    alert("{!$Label.Delete_Campaign_Success}");
     fnSuccess();
   } else {
-    alert(&quot;{!$Label.Delete_Campaign_Failed}&quot; + &quot;\n&quot; + result[0].errors.message);
+    alert("{!$Label.Delete_Campaign_Failed}" + "\n" + result[0].errors.message);
   }
 }</url>
     </webLinks>
@@ -13005,26 +13004,26 @@ if((&quot;{!Campaign.RecordType}&quot; == &quot;Central Marketing Campaign&quot;
         <masterLabel>Generate Retail BP</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)};
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")};
 
-var qr = sforce.connection.query(&quot;Select id From recordtype where Name=&apos;Retail MB Best Practice&apos; limit 1&quot;); 
+var qr = sforce.connection.query("Select id From recordtype where Name='Retail MB Best Practice' limit 1"); 
 
-if( &apos;{!$Profile.Name}&apos;.substring(0, 6) == &apos;Dealer&apos; ) {
+if( '{!$Profile.Name}'.substring(0, 6) == 'Dealer' ) {
 
-var userInfo = sforce.connection.query(&quot;Select id, AccountId From user where Id =&apos;{!$User.Id}&apos; limit 1&quot;);
+var userInfo = sforce.connection.query("Select id, AccountId From user where Id ='{!$User.Id}' limit 1");
 
-var dealerInfo = sforce.connection.query(&quot;Select id, Name From account where Id =&apos;&quot; + userInfo.records.AccountId + &quot;&apos; limit 1&quot;) ; 
+var dealerInfo = sforce.connection.query("Select id, Name From account where Id ='" + userInfo.records.AccountId + "' limit 1") ; 
 
 if (qr.records != null) {
 
-if(Date.valueOf(&apos;{!Campaign.Retail_Due_Date__c}&apos;) &gt;= Date.valueOf(&apos;{!Today}&apos;)) { 
-window.parent.navigateToUrl(&quot;/a1j/e?RecordType=&quot;+qr.records.Id + &quot;&amp;CF00N9000000BhOyH={!Campaign.Name}&amp;CF00N9000000BhOyH_lkid={!Campaign.Id}&amp;CF00N9000000BhOyu=&quot; + dealerInfo.records.Name + &quot;&amp;CF00N9000000BhOyu_lkid=&quot; + dealerInfo.records.Id + &quot;&amp;retURL=/{!Campaign.Id}&quot;);
-}else{ alert(&apos;Retail due date is less than today!&apos;); }
+if(Date.valueOf('{!Campaign.Retail_Due_Date__c}') &gt;= Date.valueOf('{!Today}')) { 
+window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000000BhOyH={!Campaign.Name}&amp;CF00N9000000BhOyH_lkid={!Campaign.Id}&amp;CF00N9000000BhOyu=" + dealerInfo.records.Name + "&amp;CF00N9000000BhOyu_lkid=" + dealerInfo.records.Id + "&amp;retURL=/{!Campaign.Id}");
+}else{ alert('Retail due date is less than today!'); }
 
 }
-} else { alert(&apos;Invalid Dealer&apos;); }</url>
+} else { alert('Invalid Dealer'); }</url>
     </webLinks>
     <webLinks>
         <fullName>Generate_Retail_BP_smart</fullName>
@@ -13034,26 +13033,26 @@ window.parent.navigateToUrl(&quot;/a1j/e?RecordType=&quot;+qr.records.Id + &quot
         <masterLabel>Generate Retail BP</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)}; 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")}; 
 
-var qr = sforce.connection.query(&quot;Select id From recordtype where Name=&apos;Retail smart Best Practice&apos; limit 1&quot;); 
+var qr = sforce.connection.query("Select id From recordtype where Name='Retail smart Best Practice' limit 1"); 
 
-if( &apos;{!$Profile.Name}&apos;.substring(0, 6) == &apos;Dealer&apos; ) { 
+if( '{!$Profile.Name}'.substring(0, 6) == 'Dealer' ) { 
 
-var userInfo = sforce.connection.query(&quot;Select id, AccountId From user where Id =&apos;{!$User.Id}&apos; limit 1&quot;); 
+var userInfo = sforce.connection.query("Select id, AccountId From user where Id ='{!$User.Id}' limit 1"); 
 
-var dealerInfo = sforce.connection.query(&quot;Select id, Name From account where Id =&apos;&quot; + userInfo.records.AccountId + &quot;&apos; limit 1&quot;) ; 
+var dealerInfo = sforce.connection.query("Select id, Name From account where Id ='" + userInfo.records.AccountId + "' limit 1") ; 
 
 if (qr.records != null) { 
 
-if(Date.valueOf(&apos;{!Campaign.Retail_Due_Date__c}&apos;) &gt;= Date.valueOf(&apos;{!Today}&apos;)) { 
-window.parent.navigateToUrl(&quot;/a1j/e?RecordType=&quot;+qr.records.Id + &quot;&amp;CF00N9000000BhOyH={!Campaign.Name}&amp;CF00N9000000BhOyH_lkid={!Campaign.Id}&amp;CF00N9000000BhOyu=&quot; + dealerInfo.records.Name + &quot;&amp;CF00N9000000BhOyu_lkid=&quot; + dealerInfo.records.Id + &quot;&amp;retURL=/{!Campaign.Id}&quot;); 
-}else{ alert(&apos;Retail due date is less than today!&apos;); } 
+if(Date.valueOf('{!Campaign.Retail_Due_Date__c}') &gt;= Date.valueOf('{!Today}')) { 
+window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000000BhOyH={!Campaign.Name}&amp;CF00N9000000BhOyH_lkid={!Campaign.Id}&amp;CF00N9000000BhOyu=" + dealerInfo.records.Name + "&amp;CF00N9000000BhOyu_lkid=" + dealerInfo.records.Id + "&amp;retURL=/{!Campaign.Id}"); 
+}else{ alert('Retail due date is less than today!'); } 
 
 } 
-} else { alert(&apos;Invalid Dealer&apos;); }</url>
+} else { alert('Invalid Dealer'); }</url>
     </webLinks>
     <webLinks>
         <fullName>Manage_Participating_Dealers</fullName>

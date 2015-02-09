@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -86,7 +85,7 @@
         <description>/* 
 Created by: Amy Liang 
 Used by: Vehicle Relationship
-Function: Person&apos;s relationship to the vehicle
+Function: Person's relationship to the vehicle
 Used in: Pagelayouts, Reports 
 
 Modify History 
@@ -95,7 +94,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRelation“</description>
         <externalId>false</externalId>
-        <inlineHelpText>Person&apos;s relationship to the vehicle</inlineHelpText>
+        <inlineHelpText>Person's relationship to the vehicle</inlineHelpText>
         <label>Car Relation</label>
         <picklist>
             <picklistValues>
@@ -269,7 +268,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_LastSe
         <relationshipLabel>Vehicle Relationships(Vehicle Relationship Last Service Dealer)</relationshipLabel>
         <relationshipName>Vehicle_Relationship_Last_Service_Dealer</relationshipName>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -285,7 +284,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is&quot;VehicleRel_MainUsage&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_MainUsage"</description>
         <externalId>false</externalId>
         <inlineHelpText>Main use of the vehicle</inlineHelpText>
         <label>Main Usage</label>
@@ -320,7 +319,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_NewUsed&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"</description>
         <externalId>false</externalId>
         <inlineHelpText>Defines vehicle being new or used</inlineHelpText>
         <label>New Used</label>
@@ -368,7 +367,7 @@ Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_New
     </fields>
     <fields>
         <fullName>Owner_Relation__c</fullName>
-        <description>Person&apos;s relationship to the vehicle&apos;s owner</description>
+        <description>Person's relationship to the vehicle's owner</description>
         <externalId>false</externalId>
         <label>Owner Relation</label>
         <picklist>
@@ -426,7 +425,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_Ownership&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Ownership"</description>
         <externalId>false</externalId>
         <inlineHelpText>Describe vehicle being private or company owned</inlineHelpText>
         <label>Ownership</label>
@@ -461,7 +460,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_PurchaseDate&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_PurchaseDate"</description>
         <externalId>false</externalId>
         <inlineHelpText>Purchase date of vehicle (information from leads, not from sales)</inlineHelpText>
         <label>Purchase Date</label>
@@ -509,7 +508,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_PurchasePrice&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_PurchasePrice"</description>
         <externalId>false</externalId>
         <label>Purchase Price</label>
         <precision>18</precision>
@@ -540,7 +539,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_RegistrationProvince&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_RegistrationProvince"</description>
         <externalId>false</externalId>
         <inlineHelpText>Province the vehicle was registered</inlineHelpText>
         <label>Registration Province</label>
@@ -699,7 +698,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_RegistrationCity&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_RegistrationCity"</description>
         <externalId>false</externalId>
         <inlineHelpText>City the vehicle was registered</inlineHelpText>
         <label>Registration City</label>
@@ -3103,7 +3102,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_RegistrationDate&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_RegistrationDate"</description>
         <externalId>false</externalId>
         <inlineHelpText>Date of registration of current registration number</inlineHelpText>
         <label>Registration Date</label>
@@ -3124,7 +3123,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is&quot; VehicleRel_RegistrationNumber&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is" VehicleRel_RegistrationNumber"</description>
         <externalId>true</externalId>
         <inlineHelpText>Licence plate number of vehicle</inlineHelpText>
         <label>Registration Number</label>
@@ -3148,7 +3147,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleREl_Replacement&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is "VehicleREl_Replacement"</description>
         <externalId>false</externalId>
         <inlineHelpText>Date of registration of current registration number</inlineHelpText>
         <label>Replacement</label>
@@ -3201,7 +3200,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_ProvidedDealer&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_ProvidedDealer"</description>
         <externalId>false</externalId>
         <inlineHelpText>Name of the last dealer who sold the vehicle</inlineHelpText>
         <label>Selling Dealer</label>
@@ -3218,7 +3217,7 @@ Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_Pro
         <relationshipLabel>Vehicle Relationships(Vehicle Relationship Selling Dealer)</relationshipLabel>
         <relationshipName>Vehicle_Relationships_Selling_Dealer</relationshipName>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -3234,7 +3233,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_StartDate&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_StartDate"</description>
         <externalId>false</externalId>
         <label>Start Date</label>
         <required>false</required>
@@ -3254,7 +3253,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_Status&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Status"</description>
         <externalId>false</externalId>
         <inlineHelpText>Status of vehicle for this person</inlineHelpText>
         <label>Status</label>
@@ -3418,7 +3417,7 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>Validity__c</fullName>
-        <description>Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_Validity&quot;</description>
+        <description>Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Validity"</description>
         <externalId>false</externalId>
         <label>Validity</label>
         <picklist>
@@ -3487,7 +3486,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Vehicle Relationship is&quot;VehicleRel_VehicleID&quot;</description>
+Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID"</description>
         <externalId>false</externalId>
         <label>Vehicle ID</label>
         <referenceTo>Vehicle__c</referenceTo>
@@ -10399,30 +10398,30 @@ Attribute in Data Dictionary object Vehicle Relationship is&quot;VehicleRel_Vehi
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} 
 
 var retURL = window.location.toString();  
 
-if(typeof(srcUp) == &apos;function&apos;) { 
+if(typeof(srcUp) == 'function') { 
 
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
 
-sforce.console.openSubtab(tabid, &apos;/apex/NewVehicleRelationship?accountId=&apos; + &apos;{!Account.Id}&apos; + &apos;&amp;tabId=&apos;+tabid, true, &apos;New Vehicle&apos;); 
+sforce.console.openSubtab(tabid, '/apex/NewVehicleRelationship?accountId=' + '{!Account.Id}' + '&amp;tabId='+tabid, true, 'New Vehicle'); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
 
-window.parent.navigateToUrl(&apos;/apex/NewVehicleRelationship?accountId=&apos; + &apos;{!Account.Id}&apos;); 
+window.parent.navigateToUrl('/apex/NewVehicleRelationship?accountId=' + '{!Account.Id}'); 
 } 
 
 } 
 else { 
-window.open(&quot;/apex/NewVehicleRelationship?retURL=&quot; + retURL +&quot;&amp;accountId=&quot; + &quot;{!Account.Id}&quot;); 
+window.open("/apex/NewVehicleRelationship?retURL=" + retURL +"&amp;accountId=" + "{!Account.Id}"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -10435,6 +10434,6 @@ window.open(&quot;/apex/NewVehicleRelationship?retURL=&quot; + retURL +&quot;&am
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>var retURL = window.location.toString(); 
-window.location.href = &quot;{!URLFOR($Site.Prefix, &apos;&apos;)}/apex/NewVehicleRelationship?retURL=&quot; + retURL +&quot;&amp;accountId=&quot; + &quot;{!Account.Id}&quot;;</url>
+window.location.href = "{!URLFOR($Site.Prefix, '')}/apex/NewVehicleRelationship?retURL=" + retURL +"&amp;accountId=" + "{!Account.Id}";</url>
     </webLinks>
 </CustomObject>

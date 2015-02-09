@@ -404,6 +404,27 @@
         </quickActionListItems>
     </quickActionList>
     <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>TASK.STATUS</fields>
+        <fields>TASK.PRIORITY</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <relatedList>RelatedActivityList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>TASK.SUBJECT</fields>
+        <fields>TASK.WHO_NAME</fields>
+        <fields>TASK.WHAT_NAME</fields>
+        <fields>ACTIVITY.TASK</fields>
+        <fields>TASK.DUE_DATE</fields>
+        <fields>CORE.USERS.FULL_NAME</fields>
+        <fields>TASK.LAST_UPDATE</fields>
+        <relatedList>RelatedHistoryList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>CREATED_DATE</fields>
         <fields>CREATEDBY_USER</fields>
@@ -416,6 +437,17 @@
         <relatedList>Account_Link__c.fromRole__c</relatedList>
         <sortField>CREATEDBY_USER</sortField>
         <sortOrder>Desc</sortOrder>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>CREATED_DATE</fields>
+        <fields>CREATEDBY_USER</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Role__c</fields>
+        <fields>System__c</fields>
+        <fields>Vehicle__c</fields>
+        <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>Name</fields>
@@ -461,6 +493,16 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Retail_Campaign_Member__c.Contact__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Status__c</fields>
+        <fields>Type__c</fields>
+        <fields>RECORDTYPE</fields>
+        <fields>Follow_Up_Date__c</fields>
+        <fields>Follow_Up_Type__c</fields>
+        <fields>Information__c</fields>
+        <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
     </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

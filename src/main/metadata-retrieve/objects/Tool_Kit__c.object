@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -481,7 +480,7 @@
         <relationshipLabel>Tool Kits (Dealer Name)</relationshipLabel>
         <relationshipName>Tool_Kits</relationshipName>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -583,7 +582,7 @@
     <fields>
         <fullName>Event_Preview__c</fullName>
         <externalId>false</externalId>
-        <formula>IMAGE(   view__c , &apos;Event Kit&apos;, 400, 600)</formula>
+        <formula>IMAGE(   view__c , 'Event Kit', 400, 600)</formula>
         <label>Event Preview</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -654,7 +653,7 @@
     <fields>
         <fullName>Event_URL__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK(Event_Kit_URL__c, &apos;Event Kit URL&apos;)</formula>
+        <formula>HYPERLINK(Event_Kit_URL__c, 'Event Kit URL')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Event URL</label>
         <required>false</required>
@@ -788,7 +787,7 @@
     <fields>
         <fullName>Media_Preview__c</fullName>
         <externalId>false</externalId>
-        <formula>IMAGE(  view__c , &apos;Media Kit&apos;, 400, 600)</formula>
+        <formula>IMAGE(  view__c , 'Media Kit', 400, 600)</formula>
         <label>Media Preview</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -843,7 +842,7 @@
     <fields>
         <fullName>Media_URL__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK( Media_Kit_URL__c , &quot;Media Kit URL&quot;)</formula>
+        <formula>HYPERLINK( Media_Kit_URL__c , "Media Kit URL")</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Media URL</label>
         <required>false</required>
@@ -2105,9 +2104,9 @@ Plan_End_Date__c &lt; Plan_Start_Date__c
         <active>true</active>
         <errorConditionFormula>AND(
      NOT(
-          OR(ISPICKVAL( Apply_Status__c , &apos;Planned&apos;), 
-                 ISPICKVAL( Apply_Status__c , &apos;Need Modify&apos;),AND( RecordType.DeveloperName == &apos;smart_Event&apos; ,
-                 ISPICKVAL( Apply_Status__c , &apos;Tool Kit Finished&apos;))
+          OR(ISPICKVAL( Apply_Status__c , 'Planned'), 
+                 ISPICKVAL( Apply_Status__c , 'Need Modify'),AND( RecordType.DeveloperName == 'smart_Event' ,
+                 ISPICKVAL( Apply_Status__c , 'Tool Kit Finished'))
                 )
              ),
      OR(    ISCHANGED(Brand__c),
@@ -2140,19 +2139,19 @@ Plan_End_Date__c &lt; Plan_Start_Date__c
 			ISCHANGED(Showroom__c),
             ISCHANGED(Name))
 )</errorConditionFormula>
-        <errorMessage>You can&apos;t update Tool Kit information with current apply status.</errorMessage>
+        <errorMessage>You can't update Tool Kit information with current apply status.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Unlock_Application_Feedback</fullName>
         <active>true</active>
-        <errorConditionFormula>OR(AND( OR(ISPICKVAL( Feedback_Status__c , &apos;Confirmed&apos;),
-        ISPICKVAL( Feedback_Status__c , &apos;Approved&apos;)),
+        <errorConditionFormula>OR(AND( OR(ISPICKVAL( Feedback_Status__c , 'Confirmed'),
+        ISPICKVAL( Feedback_Status__c , 'Approved')),
      OR(ISCHANGED( Feedback_Comments__c ),  ISCHANGED( Actual_Start_Date__c ) ,ISCHANGED( Actual_End_Date__c ))),
-   AND(NOT(ISPICKVAL(  Apply_Status__c , &apos;Tool Kit Finished&apos;)),
+   AND(NOT(ISPICKVAL(  Apply_Status__c , 'Tool Kit Finished')),
    OR(ISCHANGED( Feedback_Comments__c ),ISCHANGED( Actual_Start_Date__c ) ,ISCHANGED( Actual_End_Date__c )))
 )</errorConditionFormula>
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
-        <errorMessage>You can&apos;t update Feedback information with current feedback status or apply status.</errorMessage>
+        <errorMessage>You can't update Feedback information with current feedback status or apply status.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Event_ToolKit_Quota_Report</fullName>
@@ -2163,11 +2162,11 @@ Plan_End_Date__c &lt; Plan_Start_Date__c
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>if( {!BEGINS(&apos;{!$Profile.Name}&apos;, &apos;Dealer&apos;)} ) {
-alert(&apos;You do not have permission to use this button.&apos;);
+        <url>if( {!BEGINS('{!$Profile.Name}', 'Dealer')} ) {
+alert('You do not have permission to use this button.');
 }
 else{
-location.href = &apos;/apex/EventToolKitQuotaReport&apos;;
+location.href = '/apex/EventToolKitQuotaReport';
 }</url>
     </webLinks>
     <webLinks>
@@ -2178,14 +2177,14 @@ location.href = &apos;/apex/EventToolKitQuotaReport&apos;;
         <masterLabel>Select Content</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 var retURLs = window.location.toString();
-var retURL = retURLs.split(&quot;com&quot;,1);
-var today = &apos;{!Tool_Kit__c.Today__c}&apos;.split(&quot; &quot;,1);
-var tkId = &apos;{!Tool_Kit__c.Id}&apos;;
-window.location.href = &quot;/apex/ToolKitSelectContent?toolkitId=&quot; + tkId + &quot;&amp;url=&quot; + retURL + &quot;&amp;today=&quot; +today;</url>
+var retURL = retURLs.split("com",1);
+var today = '{!Tool_Kit__c.Today__c}'.split(" ",1);
+var tkId = '{!Tool_Kit__c.Id}';
+window.location.href = "/apex/ToolKitSelectContent?toolkitId=" + tkId + "&amp;url=" + retURL + "&amp;today=" +today;</url>
     </webLinks>
     <webLinks>
         <fullName>Submit_for_Approval</fullName>
@@ -2195,70 +2194,70 @@ window.location.href = &quot;/apex/ToolKitSelectContent?toolkitId=&quot; + tkId 
         <masterLabel>Submit for Approval</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!$User.Id}&apos; == &apos;{!Tool_Kit__c.OwnerId}&apos; ){
+if('{!$User.Id}' == '{!Tool_Kit__c.OwnerId}' ){
 
-var dealerIds = sforce.connection.query(&quot;Select Dealer_Name__c from Tool_Kit__c where id = &apos;{!Tool_Kit__c.Id}&apos;&quot;);
-var qr = sforce.connection.query(&quot;Select id From Tool_Kit__c where id != &apos;{!Tool_Kit__c.Id}&apos; and Apply_Status__c = &apos;Confirmed&apos; and RecordTypeId = &apos;{!Tool_Kit__c.RecordTypeId}&apos; and Dealer_Name__c = &apos;&quot; + dealerIds.records.Dealer_Name__c + &quot;&apos;&quot;);
+var dealerIds = sforce.connection.query("Select Dealer_Name__c from Tool_Kit__c where id = '{!Tool_Kit__c.Id}'");
+var qr = sforce.connection.query("Select id From Tool_Kit__c where id != '{!Tool_Kit__c.Id}' and Apply_Status__c = 'Confirmed' and RecordTypeId = '{!Tool_Kit__c.RecordTypeId}' and Dealer_Name__c = '" + dealerIds.records.Dealer_Name__c + "'");
 
-var quotas = sforce.connection.query(&quot;Select id,Q1_Amount__c,Q2_Amount__c,Q3_Amount__c,Q4_Amount__c From Event_Tool_Kit_Quota__c where Name = &apos;{!Tool_Kit__c.Region__c}&apos;&quot;) ;
+var quotas = sforce.connection.query("Select id,Q1_Amount__c,Q2_Amount__c,Q3_Amount__c,Q4_Amount__c From Event_Tool_Kit_Quota__c where Name = '{!Tool_Kit__c.Region__c}'") ;
 
-var quota = &apos;&apos;;
-if(&apos;{!Tool_Kit__c.Quota__c}&apos; == &apos;1&apos;){
+var quota = '';
+if('{!Tool_Kit__c.Quota__c}' == '1'){
 quota = quotas.records.Q1_Amount__c;
-}else if(&apos;{!Tool_Kit__c.Quota__c}&apos; == &apos;2&apos;){
+}else if('{!Tool_Kit__c.Quota__c}' == '2'){
 quota = quotas.records.Q2_Amount__c;
-}else if(&apos;{!Tool_Kit__c.Quota__c}&apos; == &apos;3&apos;){
+}else if('{!Tool_Kit__c.Quota__c}' == '3'){
 quota = quotas.records.Q3_Amount__c;
-}else if(&apos;{!Tool_Kit__c.Quota__c}&apos; == &apos;4&apos;){
+}else if('{!Tool_Kit__c.Quota__c}' == '4'){
 quota = quotas.records.Q4_Amount__c;
 }
 
-var qr01 = sforce.connection.query(&quot;Select Id,RecordTypeId From Tool_Kit__c Where id = &apos;{!Tool_Kit__c.Id}&apos;&quot;); 
-var RTname = sforce.connection.query(&quot;Select name From RecordType Where id = &quot; + &quot;&apos;&quot; + qr01.records.RecordTypeId + &quot;&apos;&quot;);
+var qr01 = sforce.connection.query("Select Id,RecordTypeId From Tool_Kit__c Where id = '{!Tool_Kit__c.Id}'"); 
+var RTname = sforce.connection.query("Select name From RecordType Where id = " + "'" + qr01.records.RecordTypeId + "'");
 var tkSize = 0;
-if (RTname.records.Name == &apos;Event&apos;) {
-	var tkCount = sforce.connection.query(&quot;Select count() From Tool_Kit__c where (Apply_Status__c = &apos;Approved&apos; OR Apply_Status__c = &apos;Tool Kit Finished&apos;) AND RecordTypeId = &apos;{!Tool_Kit__c.RecordTypeId}&apos; AND Region__c = &apos;{!Tool_Kit__c.Region__c}&apos; AND counts__c = true&quot;);
+if (RTname.records.Name == 'Event') {
+	var tkCount = sforce.connection.query("Select count() From Tool_Kit__c where (Apply_Status__c = 'Approved' OR Apply_Status__c = 'Tool Kit Finished') AND RecordTypeId = '{!Tool_Kit__c.RecordTypeId}' AND Region__c = '{!Tool_Kit__c.Region__c}' AND counts__c = true");
 	tkSize = tkCount.size;
 }
 
-var callList = new sforce.SObject(&quot;Tool_Kit__c&quot;); 
-callList.Id = &apos;{!Tool_Kit__c.Id}&apos;; 
-callList.Submit_Date__c = &apos;{!Tool_Kit__c.Today__c}&apos;; 
+var callList = new sforce.SObject("Tool_Kit__c"); 
+callList.Id = '{!Tool_Kit__c.Id}'; 
+callList.Submit_Date__c = '{!Tool_Kit__c.Today__c}'; 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
 try { 
 var result = sforce.connection.update(campaignUpdate); 
 } catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 
 var validateFlag = true;
-if ((RTname.records.Name == &apos;Event&apos; &amp;&amp; &apos;{!Tool_Kit__c.Event_Kit_Name__c}&apos; == &apos;&apos;) || (RTname.records.Name == &apos;Media&apos; &amp;&amp; &apos;{!Tool_Kit__c.Media_Kit_Name__c}&apos; == &apos;&apos;)) {
-alert(&apos;请选择活动套装。&apos;);
+if ((RTname.records.Name == 'Event' &amp;&amp; '{!Tool_Kit__c.Event_Kit_Name__c}' == '') || (RTname.records.Name == 'Media' &amp;&amp; '{!Tool_Kit__c.Media_Kit_Name__c}' == '')) {
+alert('请选择活动套装。');
 validateFlag = true;
 }
 
 if (validateFlag) {
 if(quota - tkSize &gt; 0){
 if(qr.records != null) {
-alert(&quot;工具箱申请需要在上一个申请审批通过之后才能进行。&quot;);
+alert("工具箱申请需要在上一个申请审批通过之后才能进行。");
 }else{
-if(&apos;{!Tool_Kit__c.Apply_Status__c}&apos;==&apos;Planned&apos; || &apos;{!Tool_Kit__c.Apply_Status__c}&apos;==&apos;Need Modify&apos;){
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;))) navigateToUrl(&apos;/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}&apos;);
+if('{!Tool_Kit__c.Apply_Status__c}'=='Planned' || '{!Tool_Kit__c.Apply_Status__c}'=='Need Modify'){
+if ((Modal.confirm &amp;&amp; Modal.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？'))) navigateToUrl('/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}');
 }else{
- alert(&apos;申请状态错误。&apos;);
+ alert('申请状态错误。');
 }
 }
 }else{
-alert(&quot;已达到本季度的配额。&quot;);
+alert("已达到本季度的配额。");
 }
 }
 }else{
- alert(&apos;你不是该记录的所有者，无法提交&apos;);
+ alert('你不是该记录的所有者，无法提交');
 }</url>
     </webLinks>
     <webLinks>
@@ -2269,40 +2268,40 @@ alert(&quot;已达到本季度的配额。&quot;);
         <masterLabel>Submit for Cancel</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!$User.Id}&apos; == &apos;{!Tool_Kit__c.OwnerId}&apos; ){
-var qr = sforce.connection.query(&quot;Select Id,Plan_Start_Date__c,RecordTypeId From Tool_Kit__c Where id = &apos;{!Tool_Kit__c.Id}&apos;&quot;); 
+if('{!$User.Id}' == '{!Tool_Kit__c.OwnerId}' ){
+var qr = sforce.connection.query("Select Id,Plan_Start_Date__c,RecordTypeId From Tool_Kit__c Where id = '{!Tool_Kit__c.Id}'"); 
 
 var flag = false;
 
-var RTname = sforce.connection.query(&quot;Select name From RecordType Where id = &quot; + &quot;&apos;&quot; + qr.records.RecordTypeId + &quot;&apos;&quot;);
+var RTname = sforce.connection.query("Select name From RecordType Where id = " + "'" + qr.records.RecordTypeId + "'");
 
-if(RTname.records.Name == &apos;Event&apos; &amp;&amp; &apos;{!Tool_Kit__c.eventdate__c}&apos; == 1){
+if(RTname.records.Name == 'Event' &amp;&amp; '{!Tool_Kit__c.eventdate__c}' == 1){
 flag = true;
-}else if(RTname.records.Name == &apos;Media&apos; &amp;&amp; &apos;{!Tool_Kit__c.mediadate__c}&apos; == 1){
+}else if(RTname.records.Name == 'Media' &amp;&amp; '{!Tool_Kit__c.mediadate__c}' == 1){
 flag = true;
 }
 
-if(&apos;{!Tool_Kit__c.Apply_Status__c}&apos;==&apos;Approved&apos;){
+if('{!Tool_Kit__c.Apply_Status__c}'=='Approved'){
 if(flag){
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;))){
-navigateToUrl(&apos;/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}&apos;);
+if ((Modal.confirm &amp;&amp; Modal.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？'))){
+navigateToUrl('/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}');
 }
 }else{
-if(RTname.records.Name == &apos;Event&apos;){
-alert(&quot;计划开始时间（以第一次填写的时间为准）7天内不可以申请撤销&quot;);
+if(RTname.records.Name == 'Event'){
+alert("计划开始时间（以第一次填写的时间为准）7天内不可以申请撤销");
 }else{
-alert(&quot;计划开始时间（以第一次填写的时间为准）3天内不可以申请撤销&quot;);
+alert("计划开始时间（以第一次填写的时间为准）3天内不可以申请撤销");
 }
 }
 }else{
- alert(&apos;申请状态错误。&apos;);
+ alert('申请状态错误。');
 }
 }else{
- alert(&apos;你不是该记录的所有者，无法提交&apos;);
+ alert('你不是该记录的所有者，无法提交');
 }</url>
     </webLinks>
     <webLinks>
@@ -2313,44 +2312,44 @@ alert(&quot;计划开始时间（以第一次填写的时间为准）3天内不�
         <masterLabel>Submit for Feedback</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!$User.Id}&apos; == &apos;{!Tool_Kit__c.OwnerId}&apos; ){
-var qr = sforce.connection.query(&quot;Select Id,RecordTypeId From Tool_Kit__c Where id = &apos;{!Tool_Kit__c.Id}&apos;&quot;); 
+if('{!$User.Id}' == '{!Tool_Kit__c.OwnerId}' ){
+var qr = sforce.connection.query("Select Id,RecordTypeId From Tool_Kit__c Where id = '{!Tool_Kit__c.Id}'"); 
 
 var flag = false;
 
-var RTname = sforce.connection.query(&quot;Select name From RecordType Where id = &quot; + &quot;&apos;&quot; + qr.records.RecordTypeId + &quot;&apos;&quot;);
+var RTname = sforce.connection.query("Select name From RecordType Where id = " + "'" + qr.records.RecordTypeId + "'");
 
-if(RTname.records.Name == &apos;Event&apos; &amp;&amp; &apos;{!Tool_Kit__c.Feedback_Comments__c}&apos; != &apos;&apos; &amp;&amp; &apos;{!Tool_Kit__c.Actual_Start_Date__c}&apos; != &apos;&apos; &amp;&amp; &apos;{!Tool_Kit__c.Actual_End_Date__c}&apos; != &apos;&apos;){
+if(RTname.records.Name == 'Event' &amp;&amp; '{!Tool_Kit__c.Feedback_Comments__c}' != '' &amp;&amp; '{!Tool_Kit__c.Actual_Start_Date__c}' != '' &amp;&amp; '{!Tool_Kit__c.Actual_End_Date__c}' != ''){
 flag = true;
-}else if(RTname.records.Name == &apos;Media&apos; &amp;&amp; &apos;{!Tool_Kit__c.Feedback_Comments__c}&apos; != &apos;&apos;){
+}else if(RTname.records.Name == 'Media' &amp;&amp; '{!Tool_Kit__c.Feedback_Comments__c}' != ''){
 flag = true;
-}else if(RTname.records.Name == &apos;smart Event&apos; &amp;&amp; &apos;{!Tool_Kit__c.Feedback_Comments__c}&apos; != &apos;&apos;){
+}else if(RTname.records.Name == 'smart Event' &amp;&amp; '{!Tool_Kit__c.Feedback_Comments__c}' != ''){
 flag = true;
 }
 
 if(flag){
-if(&apos;{!Tool_Kit__c.Apply_Status__c}&apos;==&apos;Tool Kit Finished&apos;&amp;&amp; (&apos;{!Tool_Kit__c.Feedback_Status__c}&apos;==&apos;Planned&apos; || &apos;{!Tool_Kit__c.Feedback_Status__c}&apos;==&apos;Need Modify&apos;)){
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;))){
-navigateToUrl(&apos;/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}&apos;);
+if('{!Tool_Kit__c.Apply_Status__c}'=='Tool Kit Finished'&amp;&amp; ('{!Tool_Kit__c.Feedback_Status__c}'=='Planned' || '{!Tool_Kit__c.Feedback_Status__c}'=='Need Modify')){
+if ((Modal.confirm &amp;&amp; Modal.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？'))){
+navigateToUrl('/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}');
 }
 }else{
- alert(&apos;申请状态或反馈状态不正确。&apos;);
+ alert('申请状态或反馈状态不正确。');
 }
 }else{
-if(RTname.records.Name == &apos;Event&apos; &amp;&amp; (&apos;{!Tool_Kit__c.Feedback_Comments__c}&apos; == &apos;&apos; || &apos;{!Tool_Kit__c.Actual_Start_Date__c}&apos; == &apos;&apos; || &apos;{!Tool_Kit__c.Actual_End_Date__c}&apos; == &apos;&apos;)){
-alert(&apos;请输入反馈备注，搭建时间，撤离时间。&apos;);
-}else if(RTname.records.Name == &apos;Media&apos; &amp;&amp; &apos;{!Tool_Kit__c.Feedback_Comments__c}&apos; == &apos;&apos;){
-alert(&apos;请输入反馈备注。&apos;);
-}else if(RTname.records.Name == &apos;smart Event&apos; &amp;&amp; &apos;{!Tool_Kit__c.Feedback_Comments__c}&apos; == &apos;&apos;){
-alert(&apos;请输入反馈备注。&apos;);
+if(RTname.records.Name == 'Event' &amp;&amp; ('{!Tool_Kit__c.Feedback_Comments__c}' == '' || '{!Tool_Kit__c.Actual_Start_Date__c}' == '' || '{!Tool_Kit__c.Actual_End_Date__c}' == '')){
+alert('请输入反馈备注，搭建时间，撤离时间。');
+}else if(RTname.records.Name == 'Media' &amp;&amp; '{!Tool_Kit__c.Feedback_Comments__c}' == ''){
+alert('请输入反馈备注。');
+}else if(RTname.records.Name == 'smart Event' &amp;&amp; '{!Tool_Kit__c.Feedback_Comments__c}' == ''){
+alert('请输入反馈备注。');
 }
 }
 }else{
- alert(&apos;你不是该记录的所有者，无法提交&apos;);
+ alert('你不是该记录的所有者，无法提交');
 }</url>
     </webLinks>
     <webLinks>
@@ -2361,24 +2360,24 @@ alert(&apos;请输入反馈备注。&apos;);
         <masterLabel>Tool Kit Completion</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!Tool_Kit__c.Apply_Status__c}&apos;!=&apos;Approved&apos;) {
-alert(&quot;你不可以完成工具箱除非申请已批准。&quot;);
+if('{!Tool_Kit__c.Apply_Status__c}'!='Approved') {
+alert("你不可以完成工具箱除非申请已批准。");
 }else{
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;本条记录内工具制作完成，你将不可编辑这条数据，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;本条记录内工具制作完成，你将不可编辑这条数据，继续吗？&apos;))) {
+if ((Modal.confirm &amp;&amp; Modal.confirm('本条记录内工具制作完成，你将不可编辑这条数据，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('本条记录内工具制作完成，你将不可编辑这条数据，继续吗？'))) {
 
-var callList = new sforce.SObject(&quot;Tool_Kit__c&quot;); 
-callList.Id = &apos;{!Tool_Kit__c.Id}&apos;; 
-callList.Apply_Status__c= &quot;Tool Kit Finished&quot;; 
+var callList = new sforce.SObject("Tool_Kit__c"); 
+callList.Id = '{!Tool_Kit__c.Id}'; 
+callList.Apply_Status__c= "Tool Kit Finished"; 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
 try { 
 var result = sforce.connection.update(campaignUpdate); 
 } catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 location.href = location.href;
 }
@@ -2392,28 +2391,28 @@ location.href = location.href;
         <masterLabel>Unlock Application</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!Tool_Kit__c.Apply_Status__c}&apos;!=&apos;Approved&apos;) {
-  if(&apos;{!Tool_Kit__c.Feedback_Status__c}&apos;!=&apos;Planned&apos;) {
-    alert(&quot;反馈提交后不可以撤销重新编辑。&quot;);
+if('{!Tool_Kit__c.Apply_Status__c}'!='Approved') {
+  if('{!Tool_Kit__c.Feedback_Status__c}'!='Planned') {
+    alert("反馈提交后不可以撤销重新编辑。");
   }else{
-    alert(&quot;你不可以编辑这条记录除非申请已批准。&quot;);
+    alert("你不可以编辑这条记录除非申请已批准。");
   }
 }else{
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;你将重新编辑这条数据，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;你将重新编辑这条数据，继续吗？&apos;))) {
+if ((Modal.confirm &amp;&amp; Modal.confirm('你将重新编辑这条数据，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('你将重新编辑这条数据，继续吗？'))) {
 
-var callList = new sforce.SObject(&quot;Tool_Kit__c&quot;); 
-callList.Id = &apos;{!Tool_Kit__c.Id}&apos;; 
-callList.Apply_Status__c= &quot;Planned&quot;; 
+var callList = new sforce.SObject("Tool_Kit__c"); 
+callList.Id = '{!Tool_Kit__c.Id}'; 
+callList.Apply_Status__c= "Planned"; 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
 try { 
 var result = sforce.connection.update(campaignUpdate); 
 } catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 location.href = location.href;
 }
@@ -2427,31 +2426,31 @@ location.href = location.href;
         <masterLabel>Unlock Feedback</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!Tool_Kit__c.Unlock_Feedback_Check__c}&apos; == &apos;1&apos;){
-if(&apos;{!Tool_Kit__c.Feedback_Status__c}&apos;!=&apos;Approved&apos;) {
-alert(&quot;你不可以编辑这条记录除非反馈已批准。&quot;);
+if('{!Tool_Kit__c.Unlock_Feedback_Check__c}' == '1'){
+if('{!Tool_Kit__c.Feedback_Status__c}'!='Approved') {
+alert("你不可以编辑这条记录除非反馈已批准。");
 }else{
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;你将重新编辑这条数据，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;你将重新编辑这条数据，继续吗？&apos;))) {
+if ((Modal.confirm &amp;&amp; Modal.confirm('你将重新编辑这条数据，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('你将重新编辑这条数据，继续吗？'))) {
 
-var callList = new sforce.SObject(&quot;Tool_Kit__c&quot;); 
-callList.Id = &apos;{!Tool_Kit__c.Id}&apos;; 
-callList.Feedback_Status__c = &quot;Planned&quot;; 
+var callList = new sforce.SObject("Tool_Kit__c"); 
+callList.Id = '{!Tool_Kit__c.Id}'; 
+callList.Feedback_Status__c = "Planned"; 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
 try { 
 var result = sforce.connection.update(campaignUpdate); 
 } catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 location.href = location.href;
 }
 }
 }else{
-alert(&quot;反馈已不可编辑。&quot;); 
+alert("反馈已不可编辑。"); 
 }</url>
     </webLinks>
 </CustomObject>

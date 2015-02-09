@@ -357,12 +357,12 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Dealer_City_EN__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Account.Dealer_Complaint_Manager_Email__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4509,22 +4509,22 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.Confirmed__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.Dealer__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.EpRunId__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.Failed__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -4534,12 +4534,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.Invalid__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.ObjectName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11040,23 +11040,23 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.Aftersales_Leads</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.MBDA_Leads</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
         <recordType>Lead__c.Retail_Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
-        <recordType>Lead__c.TestRecordType</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Leads Layout</layout>
-        <recordType>Lead__c.Aftersales_Leads</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Leads Layout</layout>
-        <recordType>Lead__c.MBDA_Leads</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Leads Layout</layout>
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.TestRecordType</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
@@ -11088,6 +11088,10 @@
         <recordType>PersonAccount.ThirdParty</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>PersonAccount-PA Layout-CAC IB%2FOB %28CSR%2FTL%2FOM%29</layout>
+        <recordType>PersonAccount.PersonAccount</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>PersonAccount-PA Layout-Dealer Portal</layout>
         <recordType>PersonAccount.Person_Account_Retail</recordType>
     </layoutAssignments>
@@ -11098,10 +11102,6 @@
     <layoutAssignments>
         <layout>PersonAccount-PA Layout-Soft Deleted</layout>
         <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>PersonAccount-个人客户布局</layout>
-        <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-个人客户布局</layout>

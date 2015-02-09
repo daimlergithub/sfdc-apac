@@ -34,6 +34,7 @@ public class SfdcDeploymentTask
   private String deployRoot;
   private boolean debug;
   private boolean dryRun;
+  private boolean full;
   private List<SfdcTypeSet> typeSets;
   private String transformationsRoot;
 
@@ -106,6 +107,11 @@ public class SfdcDeploymentTask
   public void setTransformationsRoot(String transformationsRoot)
   {
     this.transformationsRoot = transformationsRoot;
+  }
+
+  public void setFull(boolean full)
+  {
+    this.full = full;
   }
 
   public void addConfigured(SfdcTypeSet typeSet)

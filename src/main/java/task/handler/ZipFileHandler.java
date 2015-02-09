@@ -3,13 +3,12 @@
  */
 package task.handler;
 
-import java.io.BufferedOutputStream;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -28,6 +27,79 @@ import deployer.DeploymentUnit;
  */
 public class ZipFileHandler
 {
+
+  public class InputStreamWrapper
+    extends InputStream
+  {
+
+    private InputStream is;
+    
+    InputStreamWrapper(InputStream is) {
+      this.is = is;
+    }
+    
+    @Override
+    public int available()
+      throws IOException
+    {
+      return is.available();
+    }
+
+    @Override
+    public void close()
+      throws IOException
+    {
+      // just ignore close
+      // is.close();
+    }
+
+    @Override
+    public synchronized void mark(int readlimit)
+    {
+      is.mark(readlimit);
+    }
+
+    @Override
+    public boolean markSupported()
+    {
+      return is.markSupported();
+    }
+
+    @Override
+    public int read()
+      throws IOException
+    {
+      return is.read();
+    }
+
+    @Override
+    public int read(byte[] b, int off, int len)
+      throws IOException
+    {
+      return is.read(b, off, len);
+    }
+
+    @Override
+    public int read(byte[] b)
+      throws IOException
+    {
+      return is.read(b);
+    }
+
+    @Override
+    public synchronized void reset()
+      throws IOException
+    {
+      is.reset();
+    }
+
+    @Override
+    public long skip(long n)
+      throws IOException
+    {
+      return is.skip(n);
+    }
+  }
 
   private static final String ZIP_BASE_DIR = "unpackaged";
   private LogWrapper logWrapper;
@@ -102,7 +174,7 @@ public class ZipFileHandler
 
 //            FileInputStream fis = new FileInputStream(file);
 
-            transformationHandler.transform(file, zos);
+            transformationHandler.transformDeploy(file, zos);
 //            int read = 0;
 //            do {
 //              read = fis.read(buffer);
@@ -163,8 +235,6 @@ public class ZipFileHandler
 
   public void extractZipFile(String retrieveRoot, ByteArrayOutputStream zipFile)
   {
-    byte[] buffer = new byte[2048];
-
     logWrapper.log("Extract ZIP file.");
 
     ByteArrayInputStream bais = new ByteArrayInputStream(zipFile.toByteArray());
@@ -188,18 +258,22 @@ public class ZipFileHandler
             throw new BuildException(String.format("Error creating directories while extracting file: %s.", fileName));
           }
 
-          FileOutputStream fos = new FileOutputStream(file);
-          try (BufferedOutputStream bos = new BufferedOutputStream(fos, buffer.length))
-          {
-            int read = 0;
-            do {
-              read = zis.read(buffer);
-              if (0 < read) {
-                bos.write(buffer, 0, read);
-              }
-            }
-            while (-1 != read);
-          }
+          InputStreamWrapper isw = new InputStreamWrapper(zis);
+          
+          transformationHandler.transformRetrieve(isw, file);
+          
+//          FileOutputStream fos = new FileOutputStream(file);
+//          try (BufferedOutputStream bos = new BufferedOutputStream(fos, buffer.length))
+//          {
+//            int read = 0;
+//            do {
+//              read = zis.read(buffer);
+//              if (0 < read) {
+//                bos.write(buffer, 0, read);
+//              }
+//            }
+//            while (-1 != read);
+//          }
         }
       }
       while (null != entry);
