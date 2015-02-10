@@ -38,7 +38,8 @@ public class UotReceiverQueryTest
         System.assert(result1.operationResult.get(0).errors == null);
         List<Entity> result1Entities = parseResultObjects(result1.operationResult.get(0).resultObjectsAsString);
         System.assertEquals(1, result1Entities.size());
-        System.assertEquals('Picklist_Mapping__c', result1Entities.get(0).SObjectType);
+        //TODO : Changing assertion values with the one expected with namespace prefix.
+        System.assertEquals('oliverkoethap1__Picklist_Mapping__c', result1Entities.get(0).SObjectType);
         System.assertEquals(2, result1Entities.get(0).Fields.size());
         System.assertEquals('Id', result1Entities.get(0).Fields.get(0).Name);
         System.assert(result1Entities.get(0).Fields.get(0).Value != null);
@@ -52,7 +53,8 @@ public class UotReceiverQueryTest
         System.assert(result1.operationResult.get(1).errors == null);
         List<Entity> result2Entities = parseResultObjects(result1.operationResult.get(1).resultObjectsAsString);
         System.assertEquals(1, result2Entities.size());
-        System.assertEquals('Picklist_Mapping__c', result2Entities.get(0).SObjectType);
+        //TODO changing assertion values.
+        System.assertEquals('oliverkoethap1__Picklist_Mapping__c', result2Entities.get(0).SObjectType);
         System.assertEquals(2, result2Entities.get(0).Fields.size());
         System.assertEquals('Id', result2Entities.get(0).Fields.get(0).Name);
         System.assert(result2Entities.get(0).Fields.get(0).Value != null);
@@ -177,7 +179,8 @@ public class UotReceiverQueryTest
         System.assert(result1.operationResult.get(0).errors == null);
         List<Entity> result1Entities = parseResultObjects(result1.operationResult.get(0).resultObjectsAsString);
         System.assertEquals(1, result1Entities.size());
-        System.assertEquals('Integration_Picklist__c', result1Entities.get(0).SObjectType);
+        //TODO changing assertion value.
+        System.assertEquals('oliverkoethap1__Integration_Picklist__c', result1Entities.get(0).SObjectType);
         System.assertEquals(3, result1Entities.get(0).Fields.size());
         System.assertEquals('Id', result1Entities.get(0).Fields.get(0).Name);
         System.assertEquals(child11.Id, result1Entities.get(0).Fields.get(0).Value);
@@ -235,7 +238,8 @@ public class UotReceiverQueryTest
         System.assert(result1.operationResult.get(0).errors == null);
         List<Entity> result1Entities = parseResultObjects(result1.operationResult.get(0).resultObjectsAsString);
         System.assertEquals(1, result1Entities.size());
-        System.assertEquals('Picklist_Mapping__c', result1Entities.get(0).SObjectType);
+        //TODO : Changing assertion values with the one expected with namespace prefix.
+        System.assertEquals('oliverkoethap1__Picklist_Mapping__c', result1Entities.get(0).SObjectType);
         System.assertEquals(2, result1Entities.get(0).Fields.size());
         System.assertEquals('Id', result1Entities.get(0).Fields.get(0).Name);
         System.assert(result1Entities.get(0).Fields.get(0).Value != null);
@@ -249,7 +253,8 @@ public class UotReceiverQueryTest
         System.assert(result1.operationResult.get(1).errors == null);
         List<Entity> result2Entities = parseResultObjects(result1.operationResult.get(1).resultObjectsAsString);
         System.assertEquals(1, result2Entities.size());
-        System.assertEquals('Picklist_Mapping__c', result2Entities.get(0).SObjectType);
+        //TODO : Changing assertion values with the one expected with namespace prefix.
+        System.assertEquals('oliverkoethap1__Picklist_Mapping__c', result2Entities.get(0).SObjectType);
         System.assertEquals(2, result2Entities.get(0).Fields.size());
         System.assertEquals('Id', result2Entities.get(0).Fields.get(0).Name);
         System.assert(result2Entities.get(0).Fields.get(0).Value != null);
@@ -273,7 +278,8 @@ public class UotReceiverQueryTest
         System.assert(result2.operationResult.get(0).errors == null);
         List<Entity> result3Entities = parseResultObjects(result2.operationResult.get(0).resultObjectsAsString);
         System.assertEquals(1, result3Entities.size());
-        System.assertEquals('Picklist_Mapping__c', result3Entities.get(0).SObjectType);
+        //TODO changing assertion value.
+        System.assertEquals('oliverkoethap1__Picklist_Mapping__c', result3Entities.get(0).SObjectType);
         System.assertEquals(2, result3Entities.get(0).Fields.size());
         System.assertEquals('Id', result3Entities.get(0).Fields.get(0).Name);
         System.assert(result3Entities.get(0).Fields.get(0).Value != null);
@@ -283,7 +289,7 @@ public class UotReceiverQueryTest
 
     static testmethod void testExecuteStandardRelationships()
     {
-    	  Contact contact1 = new Contact(LastName = 'Contact 1');
+          Contact contact1 = new Contact(LastName = 'Contact 1');
         insert contact1;
         Account account1 = new Account(Name = 'Account 1');
         insert account1;

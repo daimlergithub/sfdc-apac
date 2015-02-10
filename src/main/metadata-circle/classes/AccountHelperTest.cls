@@ -78,7 +78,6 @@ private class AccountHelperTest {
         String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         String PersonRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         insert customer1;
-        
         //test Region_City_Mapping__c is auto setted When account update
         Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');
         insert dealer;
@@ -86,7 +85,7 @@ private class AccountHelperTest {
         //le1.Need_Assign_To_Dealer__c = 'Need';
         le1.Assigned_Dealer__c = dealer.id;
         le1.Lead_Type__c = 'New Car';
-        le1.Relation_With_The_Leads__c = '本人车主';
+        le1.Relation_With_The_Leads__c = '????';
         le1.Purchase_Time__c = '0 - 3 months';
         le1.Interested_Vehicle_Brand__c = 'MB';
         le1.Purchase_Time__c = '0 - 3 months';

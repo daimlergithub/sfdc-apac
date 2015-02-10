@@ -2423,6 +2423,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Account</referenceTo>
+        <relationshipLabel>Leads (Contact)</relationshipLabel>
         <relationshipName>Lead_Contact</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -14210,6 +14211,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Vehicle_Relationship__c</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
         <relationshipName>Leads</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>

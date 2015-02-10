@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.swing.plaf.ListUI;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
@@ -101,7 +103,7 @@ public class MetadataHandler
   private DeploymentUnit findDeploymentUnitByName(List<DeploymentUnit> duList, String objectName)
   {
     for (DeploymentUnit du : duList) {
-      if (objectName.equals(du.getType().getSimpleName())) {
+      if (objectName.equals(du.getTypeName())) {
         return du;
       }
     }
@@ -111,7 +113,7 @@ public class MetadataHandler
 
   private List<File> compileFileList(DeploymentUnit du, SfdcTypeSet typeSet)
   {
-    String type = du.getType().getSimpleName();
+    String type = du.getTypeName();
 
     logWrapper.log(String.format("Collect files to deploy for type %s.", type));
 
@@ -203,7 +205,7 @@ public class MetadataHandler
       for (DeploymentInfo info : deploymentInfos) {
         DeploymentUnit du = info.getDeploymentUnit();
 
-        String type = du.getType().getSimpleName();
+        String type = du.getTypeName();
 
         writeEntity(baos, type, info.getEntityNames());
       }
@@ -359,12 +361,17 @@ public class MetadataHandler
     
   }
 
-  public void removeNotUpdatedMetadata(final Map<String, List<String>> metadata)
+  public void removeNotcontainedMetadata(final Map<String, List<String>> metadata)
   {
     // delete everything which was not retrieved
     File baseDir = new File(metadataRoot);
     
     final List<DeploymentUnit> configurations = new DeploymentConfiguration().getConfigurations();
+
+    // TODO remove
+//    for (String key : metadata.keySet()) {
+//      logWrapper.log(String.format("%s: [%s]", key, StringUtils.join(metadata.get(key), ",")));
+//    }
     
     // iterate over base directory and delete everything not in metadata
     File[] dirs = baseDir.listFiles(new FileFilter() {
@@ -374,7 +381,15 @@ public class MetadataHandler
       {
         if (pathname.isDirectory()) {
           DeploymentUnit du = findDeploymentUnitBySubDir(configurations, pathname.getName());
-          if (null == du || !metadata.containsKey(du.getType().getSimpleName())) {
+          
+          // TODO remove
+//          if (null != du) {
+//            logWrapper.log(String.format("du: %s -> [%s]", du.getTypeName(), StringUtils.join(du.getChildNames(), ",")));
+//          } else {
+//            logWrapper.log(String.format("No du for path: %s", pathname.getName()));
+//          }
+          
+          if (null == du || !typeOrChildrenInMetadata(metadata, du)) {
             try {
               logWrapper.log(String.format("Delete directory: %s.", pathname.getName()));
               
@@ -409,21 +424,57 @@ public class MetadataHandler
     for (File dir : dirs) {
       DeploymentUnit du = findDeploymentUnitBySubDir(configurations, dir.getName());
       
-      // TODO remove logWrapper.log(String.format("%s - %s", du.getSubDir(), du.getType().getSimpleName()));
+      // TODO remove
+//      logWrapper.log(String.format("%s - %s", du.getSubDir(), du.getTypeName()));
       
-      String type = du.getType().getSimpleName();
-      Set<String> metas = new HashSet<>(metadata.get(type));
+      Set<String> metaEntities = getEntitiesFromMetadata(metadata, du);
+      
+//      logWrapper.log(String.format("metas: %s", StringUtils.substring(StringUtils.join(metaEntities, ","), 0,  50)));
       
       List<File> files = du.getFiles(baseDir);
       for (File file : files) {
         String name = du.getEntityName(file);
-        if (!metas.contains(name)) {
-          logWrapper.log(String.format("Delete file: %s.", file.getName()));
+        if (!metaEntities.contains(name)) {
+          logWrapper.log(String.format("Delete file: %s (entity %s).", file.getName(), name));
           
           file.delete();
         }
       }
     }
+  }
+
+  private Set<String> getEntitiesFromMetadata(final Map<String, List<String>> metadata, DeploymentUnit du)
+  {
+    Set<String> metas = new HashSet<>();
+    
+    List<String> any = new ArrayList<>(du.getChildNames());
+    any.add(du.getTypeName());
+    
+    for (String name : any) {
+      if (metadata.keySet().contains(name)) {
+        metas.addAll(metadata.get(name));
+      }
+    }
+    
+    Set<String> entities = new HashSet<>();
+    for (String meta : metas) {
+      entities.add(du.getEntityName(meta));
+    }
+    
+    return entities;
+  }
+
+  private boolean typeOrChildrenInMetadata(Map<String, List<String>> metadata, DeploymentUnit du)
+  {
+    List<String> any = new ArrayList<>(du.getChildNames());
+    any.add(du.getTypeName());
+    
+    for (String name : any) {
+      if (metadata.keySet().contains(name)) {
+        return true;
+      }
+    }
+    return false;
   }
   
 }

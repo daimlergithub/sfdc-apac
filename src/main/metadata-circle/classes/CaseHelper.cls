@@ -150,8 +150,8 @@ public class CaseHelper{
     //public static EmailTemplate E_MAIL_TEMP = [select id,body from EmailTemplate where Name='Change Complaint Assignment To Dealer GateKeeper Notification'];                                  
     
     // BMBS Onsite Complaint Manager Profile
-    public static Id P_BMBS_ONSITE_CM_ID = [select Id from Profile where Name = 'BMBS Onsite Complaint Manager' limit 1].id;                                
-    
+       public static Id P_BMBS_ONSITE_CM_ID = [select Id from Profile where Name = 'BMBS Onsite Complaint Manager' limit 1].id;                                
+      
     // error message
     //public static final String ERR_MSG_HAVEPARENT = 'This Vehicle has a same Complaint, please add it as parent case';
     

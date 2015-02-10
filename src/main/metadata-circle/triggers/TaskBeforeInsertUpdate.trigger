@@ -114,32 +114,32 @@ trigger TaskBeforeInsertUpdate on Task (before update, before insert){
             
             //When Activity Status is Successful, insert SSI QC records.
            /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code  
-		   if(t.Activity_Status__c == 'Successful' && Trigger.oldMap.get(t.Id).Activity_Status__c != 'Successful' 
+           if(t.Activity_Status__c == 'Successful' && Trigger.oldMap.get(t.Id).Activity_Status__c != 'Successful' 
             && (t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId) && t.QC_ID__c == null) */
-			
-			if(t.Activity_Status__c == 'Successful' && Trigger.oldMap.get(t.Id).Activity_Status__c != 'Successful' 
+            
+            if(t.Activity_Status__c == 'Successful' && Trigger.oldMap.get(t.Id).Activity_Status__c != 'Successful' 
             && t.RecordTypeId == SSITaskRecordTypeId && t.QC_ID__c == null) 
-			{
+            {
                 taskforGenerateSSIQC.add(t);
             }
             
             // By Shuang Li BRD-AS-CAC-007
-			/*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
+            /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
             if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed')
-			*/
-			
-			if (t.RecordTypeId == SSITaskRecordTypeId && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed') 
-			{
+            */
+            
+            if (t.RecordTypeId == SSITaskRecordTypeId && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed') 
+            {
                 taskOwnerIds.add(t.OwnerId);
             }
             
             // By Sinow HLD-CAC-003
-			/*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
+            /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
             if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed') 
-			*/
-			
-			if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed') 
-			{
+            */
+            
+            if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed') 
+            {
                 t.SentTime__c = DateTime.now();
             }
         }
@@ -173,16 +173,16 @@ trigger TaskBeforeInsertUpdate on Task (before update, before insert){
         }
         
         // By Shuang Li BRD-AS-CAC-007
-		/*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
+        /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
         if (Trigger.isUpdate && (task.RecordTypeId == SSITaskRecordTypeId || task.RecordTypeId == SMARTSSITaskRecordTypeId) && task.Status == 'Closed' 
             && userIdNames.containsKey(task.OwnerId) && Trigger.oldMap.get(task.Id).Status != 'Closed') 
-		*/
-		
-		if (Trigger.isUpdate && task.RecordTypeId == SSITaskRecordTypeId && task.Status == 'Closed' 
+        */
+        
+        if (Trigger.isUpdate && task.RecordTypeId == SSITaskRecordTypeId && task.Status == 'Closed' 
             && userIdNames.containsKey(task.OwnerId) && Trigger.oldMap.get(task.Id).Status != 'Closed') 
-			{
+            {
             task.Executed_CSR__c = userIdNames.get(task.OwnerId);
-			}
+            }
     }
     
     // By Justin --

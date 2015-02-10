@@ -166,7 +166,7 @@ public class SfdcRetrievalTask
     zipFileHandler.extractZipFile(retrieveRoot, zipFile);
     
     if (full) {
-      metadataHandler.removeNotUpdatedMetadata(metadata2Update);
+      metadataHandler.removeNotcontainedMetadata(metadata2Update);
     }
     // TODO think about saving the timestamps
   }

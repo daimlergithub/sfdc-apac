@@ -158,7 +158,7 @@ public class ZipFileHandler
       for (DeploymentInfo info : deploymentInfos) {
         DeploymentUnit du = info.getDeploymentUnit();
 
-        String type = du.getType().getSimpleName();
+        String type = du.getTypeName();
 
         logWrapper.log(String.format("Handle type %s for ZIP file.", type));
 

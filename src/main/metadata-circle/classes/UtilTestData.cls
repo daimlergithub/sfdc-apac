@@ -111,13 +111,45 @@ Public class UtilTestData {
         insert usr;
         return usr;
     }
+   
+     // Create Test User
+    private static User createPortalUser1(Id userRoleId, Id profileId) {
+     // Create Dealer
+        Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);        
+        // Create Contact
+        Contact con = new Contact(Dealer_Complaint_Gate_Keeper__c=true,AccountId = dealer.Id, FirstName = 'a', LastName = 'b', Name_English__c = 'c', Phone = '1212313', email = 's@s.s', Dealer_Complaint_Manager__c = true);
+        insert con;
+        User usr = new User();
+        usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
+        usr.UserRoleId = userRoleId;
+        usr.ProfileId = profileId;
+        usr.LastName = 'Test User';
+        usr.Email = 'test001@daimler.com.full';
+        usr.Alias = 'test';
+        usr.TimeZoneSidKey = 'Asia/Shanghai';
+        usr.EmailEncodingKey = 'UTF-8';
+        usr.LanguageLocaleKey = 'en_US';
+        usr.localesidkey='en_US';
+        usr.isActive = true;
+        usr.ContactId=con.Id;       
+        insert usr;
+        return usr;
+    }
+
+
+
 
     // Create Test User by Role Name and Profile Name
     public static User createUser(String roleName, String profileName) {
         return createUser(getUserRoleId(roleName), 
                           getProfileId(profileName));
     }
-
+	
+	// Create Test User by Role Name and Profile Name
+    public static User createPortalUser(String roleName, String profileName) {
+        return createPortalUser1(getUserRoleId(roleName), 
+                          getProfileId(profileName));
+    }
     public static Sobject createSobject(Sobject so, String recordTypeName) {
         initiateSobject(so, recordTypeName);
         
@@ -293,8 +325,8 @@ Public class UtilTestData {
     private static void initiateVehicleRelationship(Sobject so) {
         Vehicle_Relationship__c relationship = (Vehicle_Relationship__c)so;
 
-        relationship.RegistrationProvince__c = '上海';
-        relationship.Registration_City__c = '上海';
+        relationship.RegistrationProvince__c = '??';
+        relationship.Registration_City__c = '??';
         relationship.Status__c = '0=Previously Owned';
         relationship.Main_Usage__c = '0=Taxi';
         relationship.Ownership__c = '1=Company';
@@ -332,11 +364,11 @@ Public class UtilTestData {
     private static void initiateAttribute(Sobject so) {
         Attribute__c attr = (Attribute__c)so;
 
-        attr.Name = attr.Name == null ? '市场价' : attr.Name;
+        attr.Name = attr.Name == null ? '???' : attr.Name;
         attr.Attribute_Category__c = attr.Attribute_Category__c == null ?
-           '基本参数' : attr.Attribute_Category__c;
+           '????' : attr.Attribute_Category__c;
         attr.Attribute_Type__c = attr.Attribute_Type__c == null ? 
-           '价格' : attr.Attribute_Type__c;
+           '??' : attr.Attribute_Type__c;
         attr.Description__c = 'Niubi Attribute';
     }
 
@@ -351,7 +383,7 @@ Public class UtilTestData {
            createSobject(new Car_Model__c(), null).Id : carModelAttr.Car_Model__c;
         
         carModelAttr.Value__c = '1000000';
-        carModelAttr.Description__c = '好贵呀, 好好呀，好……呀';
+        carModelAttr.Description__c = '???, ?????��?';
     }
     
     // Create Unsaved Lead which record type is Sales Leads
@@ -379,7 +411,7 @@ Public class UtilTestData {
 
         // Trade-In Vehicle Information
         lead.Trade_In_MB_Vehicle_Model__c = lead.Trade_In_MB_Vehicle_Model__c == null ? 
-           '奔驰汽车' : lead.Trade_In_MB_Vehicle_Model__c;
+           '????' : lead.Trade_In_MB_Vehicle_Model__c;
         lead.Trade_In_Vehicle_Brand__c = lead.Trade_In_Vehicle_Brand__c == null ? 
            'C230' : lead.Trade_In_Vehicle_Brand__c;
         lead.Trade_In_Vehicle_Class__c = lead.Trade_In_Vehicle_Class__c == null ? 
@@ -640,7 +672,7 @@ Public class UtilTestData {
         task.Activity_Status__c = task.Activity_Status__c == null ?
             'Need Verification' : task.Activity_Status__c;
         task.Status = 'Open';
-        task.Priority__c = '普通';
+        task.Priority__c = '??';
     }
 
     // Create OB Task
@@ -655,7 +687,7 @@ Public class UtilTestData {
         task.Activity_Status__c = task.Activity_Status__c == null ?
             'not started' : task.Activity_Status__c;
         task.Status = 'Open';
-        task.Priority__c = '普通';
+        task.Priority__c = '??';
     }
 
     // Create DM Task
@@ -670,7 +702,7 @@ Public class UtilTestData {
         task.Activity_Status__c = task.Activity_Status__c == null ?
             'Open' : task.Activity_Status__c;
         task.Status = 'Open';
-        task.Priority__c = '普通';
+        task.Priority__c = '??';
     }
 
     // Create eDM Task
@@ -685,6 +717,6 @@ Public class UtilTestData {
         task.Activity_Status__c = task.Activity_Status__c == null ?
             'Pending' : task.Activity_Status__c;
         task.Status = 'Open';
-        task.Priority__c = '普通';
+        task.Priority__c = '??';
     }
 }

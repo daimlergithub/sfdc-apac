@@ -55,15 +55,23 @@ public class BatchAssignTasksTest {
             insert newUsers;
 
         }
-		
-		String csrIds = newUsers[10].Id + ';' + newUsers[11].Id;
-		
-		List<String> ids = csrIds.split(';');
-   		for(Integer i=0;i<ids.size();i++){
-	        ids[i] = ids[i].trim();
-	    }
-
-        List<User> users = [Select Id From User Where Id In :ids];
+		//TODO-added null checks
+		String csrIds;
+		if(newUsers.size()>10)
+			csrIds = newUsers[10].Id + ';' + newUsers[11].Id;
+		//TODO-added null checks
+		List<String> ids;
+		if(csrIds!=null)
+		{
+			ids = csrIds.split(';');
+	   		for(Integer i=0;i<ids.size();i++){
+		        ids[i] = ids[i].trim();
+		    }
+		}
+		//TODO-added null checks    
+		List<User> users;
+		if(ids!=null)
+        users = [Select Id From User Where Id In :ids];
         
         Id SMSRTID = Schema.SObjectType.Task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
         List<Task> tasks = new List<Task>();

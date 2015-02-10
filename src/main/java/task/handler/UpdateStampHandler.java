@@ -147,7 +147,7 @@ public class UpdateStampHandler
 
   private String getKey(DeploymentUnit du, File file)
   {
-    return du.getType().getSimpleName() + "/" + file.getName();
+    return du.getTypeName() + "/" + file.getName();
   }
 
   private void updateTimestamp(DeploymentUnit du, File file)

@@ -47,6 +47,7 @@ trigger LeadBeforeUpdate on Lead__c (before update, before insert) {
     
     // Update lead's owner and share contact to lead's owner
     if(leadsForUpdate.size() > 0) {
+    	system.debug('dealerIds>>>'+dealerIds+'>>>'+json.serializepretty(leadsForUpdate));
         LeadHelper.UpdateLeadOwner(dealerIds, leadsForUpdate);
     }
 

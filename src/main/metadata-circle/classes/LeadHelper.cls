@@ -15,7 +15,8 @@
 public class LeadHelper {
     private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
-    private static QueueSobject LeadGateKeeperQ = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Lead__c' and Queue.Name = 'Dealer Lead Gate Keeper Queue' limit 1];
+    //TODO -- modified
+    private static List<QueueSobject> LeadGateKeeperQ = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Lead__c' and Queue.Name = 'Dealer Lead Gate Keeper Queue' limit 1];
         
     private static void insertSobjects(List<Sobject> sos) {
         try {
@@ -109,7 +110,9 @@ public class LeadHelper {
                     }
                 }
                 else  if((lead.Dealer_LMS__c == 'No' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId){
-                    lead.OwnerId = LeadGateKeeperQ.QueueId; 
+                    //TODO--added null check
+                    if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
+                    lead.OwnerId = LeadGateKeeperQ[0].QueueId; 
                 }
             }
         }
@@ -137,7 +140,9 @@ public class LeadHelper {
                 }
             }
             else  if((lead.Dealer_LMS__c == 'No' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId){
-                lead.OwnerId = LeadGateKeeperQ.QueueId;
+                //TODO--added null check
+                if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
+                lead.OwnerId = LeadGateKeeperQ[0].QueueId;
                 leadForUpdate.add(lead);
             }
         }
