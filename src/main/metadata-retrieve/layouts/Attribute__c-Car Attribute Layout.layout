@@ -10,6 +10,18 @@
                 <behavior>Required</behavior>
                 <field>Name</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Attribute_Category__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Attribute_Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -47,9 +59,19 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Brand__c</fields>
+        <fields>Model__c</fields>
+        <fields>Series__c</fields>
+        <fields>Attribute_Category__c</fields>
+        <fields>Attribute_Type__c</fields>
+        <fields>Value__c</fields>
+        <relatedList>Car_Model_Attribute__c.Attribute__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
-    <showHighlightsPanel>false</showHighlightsPanel>
-    <showInteractionLogPanel>false</showInteractionLogPanel>
+    <showHighlightsPanel>true</showHighlightsPanel>
+    <showInteractionLogPanel>true</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
 </Layout>

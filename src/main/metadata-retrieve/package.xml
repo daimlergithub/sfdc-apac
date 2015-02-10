@@ -43,7 +43,7 @@
         <name>CampaignCriteriaBasedSharingRule</name>
     </types>
     <types>
-        <members>Share_Campaign_to_Region_W</members>
+        <members>Share_Campaign_to_Region_S</members>
         <name>CampaignOwnerSharingRule</name>
     </types>
     <types>
@@ -420,7 +420,6 @@
         <members>Lead-Lead %28Support%29 Layout</members>
         <members>Lead-Lead Layout</members>
         <members>Lead__c-Lead Layout</members>
-        <members>Lead__c-Leads Layout</members>
         <members>Lead__c-Sales Leads Admin</members>
         <members>Lead__c-Sales Leads Layout %28CAC%29</members>
         <members>Lead__c-Sales Leads Layout %28Dealer%29</members>

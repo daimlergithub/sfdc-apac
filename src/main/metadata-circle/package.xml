@@ -831,8 +831,8 @@
         <name>Document</name>
     </types>
     <types>
-        <members>All_Dealer_Group</members>
-        <members>BMBS_Central_AS_Content_Group</members>
+        <members>All_Region</members>
+        <members>BMBS_Central_S_M_Content_Group</members>
         <members>BMBS_Regional_CRM_Manager</members>
         <members>East_Region_Group</members>
         <members>North_Region_Group</members>

@@ -35,7 +35,7 @@ public class RenameFile extends Transformation {
     super.validate();
     
     if (StringUtils.isEmpty(renameto)) {
-      throw new BuildException("The renameto of the transformation changetext must be set.");
+      throw new BuildException("The renameto of the transformation renamefile must be set.");
     }
   }
 

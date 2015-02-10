@@ -495,7 +495,7 @@ public class SfdcHandler
 
         for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
           for (FileProperties properties : entry.getValue()) {
-            logWrapper.log(properties.toString());
+            // TODO logWrapper.log(properties.toString());
             
             result.put(String.format("%s/%s", entry.getKey(), properties.getFullName()), properties.getLastModifiedDate().getTimeInMillis());
           }

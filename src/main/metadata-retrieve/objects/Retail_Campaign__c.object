@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
         <type>Default</type>
@@ -586,7 +585,7 @@
         <fullName>Campaign_Code__c</fullName>
         <description>A unique identifier to distinguish the campaign</description>
         <externalId>false</externalId>
-        <formula>CASE(TEXT(Driven__c),&apos;Joint&apos;, Relevant_BMBS_Campaign__r.Campaign_Code__c &amp; &apos;_&apos; &amp; Dealer_Name__r.Dealer_ND_Code__c &amp; &apos;_&apos; &amp; TEXT(MONTH(DATEVALUE(CreatedDate))) &amp; &apos;_&apos; &amp;  TEXT(DAY(DATEVALUE(CreatedDate))) &amp; &apos;_&apos; &amp;  RecordType.DeveloperName  &amp; &apos;_&apos;+RIGHT(Campaign_Code_Number__c , 9), &apos;Dealer Driven&apos;, TEXT(YEAR(DATEVALUE(CreatedDate))) &amp; &apos;_dealerdriven&apos; &amp;  Dealer_Name__r.Dealer_ND_Code__c  &amp;  &apos;_&apos;+ TEXT(MONTH(DATEVALUE(CreatedDate))) &amp; &apos;_&apos; &amp;  TEXT(DAY(DATEVALUE(CreatedDate))) &amp; &apos;_&apos; &amp;  RecordType.DeveloperName  &amp; &apos;_&apos; &amp; RIGHT(Campaign_Code_Number__c , 9),RIGHT(Campaign_Code_Number__c , 9))</formula>
+        <formula>CASE(TEXT(Driven__c),'Joint', Relevant_BMBS_Campaign__r.Campaign_Code__c &amp; '_' &amp; Dealer_Name__r.Dealer_ND_Code__c &amp; '_' &amp; TEXT(MONTH(DATEVALUE(CreatedDate))) &amp; '_' &amp;  TEXT(DAY(DATEVALUE(CreatedDate))) &amp; '_' &amp;  RecordType.DeveloperName  &amp; '_'+RIGHT(Campaign_Code_Number__c , 9), 'Dealer Driven', TEXT(YEAR(DATEVALUE(CreatedDate))) &amp; '_dealerdriven' &amp;  Dealer_Name__r.Dealer_ND_Code__c  &amp;  '_'+ TEXT(MONTH(DATEVALUE(CreatedDate))) &amp; '_' &amp;  TEXT(DAY(DATEVALUE(CreatedDate))) &amp; '_' &amp;  RecordType.DeveloperName  &amp; '_' &amp; RIGHT(Campaign_Code_Number__c , 9),RIGHT(Campaign_Code_Number__c , 9))</formula>
         <label>Campaign Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2084,7 +2083,7 @@
     <fields>
         <fullName>Showroom__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( RecordType.DeveloperName == &apos;Sales_Marketing&apos; || RecordType.DeveloperName == &apos;Aftersales&apos; ,  Y_Dealer_Name__r.Branch_name_CHS__c , Dealer_Name__r.Branch_name_CHS__c)</formula>
+        <formula>IF( RecordType.DeveloperName == 'Sales_Marketing' || RecordType.DeveloperName == 'Aftersales' ,  Y_Dealer_Name__r.Branch_name_CHS__c , Dealer_Name__r.Branch_name_CHS__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Showroom</label>
         <required>false</required>
@@ -2273,7 +2272,7 @@
     <fields>
         <fullName>Y_After_sales_Marketing_Target_Budget__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( RecordType.DeveloperName == &apos;Sales_Marketing&apos; || RecordType.DeveloperName == &apos;Aftersales&apos;, Y_Total_After_sales_Turnover_of_Previous__c * 0.02, Total_AS_Turnover_of_Previous_Year__c * 0.02)</formula>
+        <formula>IF( RecordType.DeveloperName == 'Sales_Marketing' || RecordType.DeveloperName == 'Aftersales', Y_Total_After_sales_Turnover_of_Previous__c * 0.02, Total_AS_Turnover_of_Previous_Year__c * 0.02)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>AS Marketing Target Budget</label>
         <precision>18</precision>
@@ -2354,7 +2353,7 @@
         <referenceTo>Account</referenceTo>
         <relationshipName>Retail_Campaigns</relationshipName>
         <required>false</required>
-        <trackHistory>true</trackHistory>
+        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -8904,12 +8903,12 @@
         <active>true</active>
         <description>Actual Start Date later than Actual Start Date</description>
         <errorConditionFormula>AND( 
-OR(RecordType.Name ==&apos;AS Retail Campaign&apos;,
-RecordType.Name ==&apos;S&amp;M Event Retail Campaign&apos;,
-RecordType.Name ==&apos;S&amp;M Media Retail Campaign&apos;
+OR(RecordType.Name =='AS Retail Campaign',
+RecordType.Name =='S&amp;M Event Retail Campaign',
+RecordType.Name =='S&amp;M Media Retail Campaign'
 ),
 Actual_Start_Date__c &gt; Actual_End_Date__c,
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
         <errorMessage>Actual Start Date must be less than or equal to Actual End Dat</errorMessage>
@@ -8919,8 +8918,8 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <active>true</active>
         <errorConditionFormula>IF( 
 AND(
-RecordType.Name == &apos;Sales &amp; Marketing Yearly TA&apos;, ISCHANGED(Y_Apply_Deadline__c),
-$Profile.Name != &apos;IntegrationAPI&apos;), 
+RecordType.Name == 'Sales &amp; Marketing Yearly TA', ISCHANGED(Y_Apply_Deadline__c),
+$Profile.Name != 'IntegrationAPI'), 
 Y_Apply_Deadline__c &lt; TODAY(), 
 false)</errorConditionFormula>
         <errorDisplayField>Y_Apply_Deadline__c</errorDisplayField>
@@ -8930,12 +8929,12 @@ false)</errorConditionFormula>
         <fullName>Couldnot_Update_Monthly</fullName>
         <active>true</active>
         <errorConditionFormula>AND(  
-OR(ISPICKVAL(M_YearlyTA__r.Y_Status__c, &apos;Confirmed&apos;) , ISPICKVAL(M_YearlyTA__r.Y_Status__c, &apos;Approved&apos;) 
+OR(ISPICKVAL(M_YearlyTA__r.Y_Status__c, 'Confirmed') , ISPICKVAL(M_YearlyTA__r.Y_Status__c, 'Approved') 
 ), 
-RecordType.DeveloperName == &apos;Monthly_TA&apos;,
-$Profile.Name != &apos;IntegrationAPI&apos;
+RecordType.DeveloperName == 'Monthly_TA',
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
-        <errorMessage>You can&apos;t update Monthly information with current YearlyTA status.</errorMessage>
+        <errorMessage>You can't update Monthly information with current YearlyTA status.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Couldnot_Update_Region_Recommend</fullName>
@@ -8943,12 +8942,12 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <description>Couldnot_Update_Region_Recommend Region best practice is false.</description>
         <errorConditionFormula>AND(
 OR( 
-RecordType.Name == &apos;Retail MB Best Practice&apos;, 
-RecordType.Name == &apos;Retail smart Best Practice&apos; 
+RecordType.Name == 'Retail MB Best Practice', 
+RecordType.Name == 'Retail smart Best Practice' 
 ), 
  NOT(Region_Best_Practice__c),
  Region_Recommendation__c,
- $Profile.Name != &apos;IntegrationAPI&apos;
+ $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorMessage>Only the candidate is marked as Region Best, the Region Recommend can be selected.</errorMessage>
     </validationRules>
@@ -8957,27 +8956,27 @@ RecordType.Name == &apos;Retail smart Best Practice&apos;
         <active>true</active>
         <errorConditionFormula>AND( 
 OR( 
-RecordType.Name == &apos;Retail MB Best Practice&apos;, 
-RecordType.Name == &apos;Retail smart Best Practice&apos; 
+RecordType.Name == 'Retail MB Best Practice', 
+RecordType.Name == 'Retail smart Best Practice' 
 ), 
 or(
-ISPICKVAL(BP_Status__c, &apos;Retail Submit&apos;),
-ISPICKVAL(BP_Status__c, &apos;Region Submit&apos;),
-ISPICKVAL(BP_Status__c, &apos;Final Submit&apos;)
+ISPICKVAL(BP_Status__c, 'Retail Submit'),
+ISPICKVAL(BP_Status__c, 'Region Submit'),
+ISPICKVAL(BP_Status__c, 'Final Submit')
 ),
 ISCHANGED( Retail_Candidate__c),
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
-        <errorMessage>You Couldn&apos;t Update Retail Candidate With Current Status.</errorMessage>
+        <errorMessage>You Couldn't Update Retail Candidate With Current Status.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Dealer_Couldnot_update_Retail_BP</fullName>
         <active>true</active>
-        <description>Dealer Couldn&apos;t update Retail MB or smart BP After Retail Due Date - Generation Process</description>
+        <description>Dealer Couldn't update Retail MB or smart BP After Retail Due Date - Generation Process</description>
         <errorConditionFormula>AND(
 OR(
-RecordType.Name == &apos;Retail MB Best Practice&apos;,
-RecordType.Name == &apos;Retail smart Best Practice&apos;
+RecordType.Name == 'Retail MB Best Practice',
+RecordType.Name == 'Retail smart Best Practice'
 ),
 Parent_Campaign__r.Retail_Due_Date__c &gt;= TODAY() + 1,
 ISCHANGED(Name),
@@ -8992,23 +8991,23 @@ ISCHANGED(Region_Best_Practice__c),
 ISCHANGED(Region_Recommendation__c),
 ISCHANGED(Final_Best_Practice__c),
 ISCHANGED(Final_Best_Practice_Forsmart__c),
-$Profile.Name != &apos;System Administrator&apos;,
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'System Administrator',
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
-        <errorMessage>You couldn&apos;t update this record, because due date is reached.</errorMessage>
+        <errorMessage>You couldn't update this record, because due date is reached.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Delay_Reason_mandatory</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
-OR( RecordType.Name ==&apos;AS Retail Campaign&apos;,
-RecordType.Name ==&apos;S&amp;M Event Retail Campaign&apos;,
-RecordType.Name ==&apos;S&amp;M Media Retail Campaign&apos;
+OR( RecordType.Name =='AS Retail Campaign',
+RecordType.Name =='S&amp;M Event Retail Campaign',
+RecordType.Name =='S&amp;M Media Retail Campaign'
 ), 
 Plan_Start_Date__c &lt; TODAY(), 
 ISBLANK( Delay_Reason__c ),  
 (ISCHANGED(Plan_Start_Date__c) ||  ISNEW()),
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Delay_Reason__c</errorDisplayField>
         <errorMessage>Delay Reason is mandatory when Plan Start Date is earlier than today.</errorMessage>
@@ -9017,9 +9016,9 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <fullName>Feedback_Mandatory_Actual_End_Date</fullName>
         <active>true</active>
         <errorConditionFormula>AND(  
-ISPICKVAL(Apply_Status__c, &apos;Approved&apos;), ISPICKVAL(Feedback_Status__c, &apos;Confirmed&apos;),
+ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
 ISBLANK( Actual_End_Date__c ),
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
         <errorMessage>Actual End Date field is mandatory when Submit for Feedback.</errorMessage>
@@ -9028,9 +9027,9 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <fullName>Feedback_Mandatory_Actual_Expense</fullName>
         <active>true</active>
         <errorConditionFormula>AND(  
-ISPICKVAL(Apply_Status__c, &apos;Approved&apos;), ISPICKVAL(Feedback_Status__c, &apos;Confirmed&apos;),
+ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
 ISBLANK( Actual_Expense__c ), 
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Actual_Expense__c</errorDisplayField>
         <errorMessage>Actual Expense field is mandatory when Submit for Feedback.</errorMessage>
@@ -9039,9 +9038,9 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <fullName>Feedback_Mandatory_Actual_Order</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
-RecordType.Name == &apos;S&amp;M Event Retail Campaign&apos;, ISPICKVAL(Apply_Status__c, &apos;Approved&apos;), ISPICKVAL(Feedback_Status__c, &apos;Confirmed&apos;),
+RecordType.Name == 'S&amp;M Event Retail Campaign', ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
 ISBLANK( Actual_Order__c ),
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Actual_Order__c</errorDisplayField>
         <errorMessage>Actual Order field is mandatory when Submit for Feedback.</errorMessage>
@@ -9050,9 +9049,9 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <fullName>Feedback_Mandatory_Actual_Start_Date</fullName>
         <active>true</active>
         <errorConditionFormula>AND(  
-ISPICKVAL(Apply_Status__c, &apos;Approved&apos;), ISPICKVAL(Feedback_Status__c, &apos;Confirmed&apos;),
+ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
 ISBLANK( Actual_Start_Date__c ),
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Actual_Start_Date__c</errorDisplayField>
         <errorMessage>Actual Start Date field is mandatory when Submit for Feedback.</errorMessage>
@@ -9061,9 +9060,9 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <fullName>Feedback_Mandatory_Feedback_Comments</fullName>
         <active>true</active>
         <errorConditionFormula>AND(  
-ISPICKVAL(Apply_Status__c, &apos;Approved&apos;), ISPICKVAL(Feedback_Status__c, &apos;Confirmed&apos;),
+ISPICKVAL(Apply_Status__c, 'Approved'), ISPICKVAL(Feedback_Status__c, 'Confirmed'),
 ISBLANK( Feedback_Comments__c ),
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Feedback_Comments__c</errorDisplayField>
         <errorMessage>Feedback Comments field is mandatory when Submit for Feedback.</errorMessage>
@@ -9072,17 +9071,17 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <fullName>Min_Car_Age_is_less_than_the_Max_Car_Age</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-RecordType.Name == &apos;AS Retail Campaign&apos;,
+RecordType.Name == 'AS Retail Campaign',
 Min_Car_Age__c &gt; Max_Car_Age__c,
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorMessage>Min Car Age must be less than or equal to Max Car Age</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Only_add_Members_for_Approved_Campaign</fullName>
         <active>true</active>
-        <errorConditionFormula>ISCHANGED( Total_Retail_Campaign_Members__c ) &amp;&amp; NOT(ISPICKVAL( Apply_Status__c, &apos;Approved&apos; )) &amp;&amp; ( RecordType.Name = &apos;AS Retail Campaign&apos; || RecordType.Name = &apos;S&amp;M Event Retail Campaign&apos; || RecordType.Name = &apos;S&amp;M Media Retail Campaign&apos;) &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos;</errorConditionFormula>
-        <errorMessage>You can&apos;t add or delete Retail Campaign Members for Non-Approved Campaigns.</errorMessage>
+        <errorConditionFormula>ISCHANGED( Total_Retail_Campaign_Members__c ) &amp;&amp; NOT(ISPICKVAL( Apply_Status__c, 'Approved' )) &amp;&amp; ( RecordType.Name = 'AS Retail Campaign' || RecordType.Name = 'S&amp;M Event Retail Campaign' || RecordType.Name = 'S&amp;M Media Retail Campaign') &amp;&amp; $Profile.Name != 'IntegrationAPI'</errorConditionFormula>
+        <errorMessage>You can't add or delete Retail Campaign Members for Non-Approved Campaigns.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>P_Start_Date_is_less_than_the_P_End_Date</fullName>
@@ -9090,27 +9089,27 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <description>Plan Start Date later than Plan Start Date</description>
         <errorConditionFormula>AND( 
 OR( 
-RecordType.Name ==&apos;AS Retail Campaign&apos;,
-RecordType.Name ==&apos;S&amp;M Event Retail Campaign&apos;,
-RecordType.Name ==&apos;S&amp;M Media Retail Campaign&apos;
+RecordType.Name =='AS Retail Campaign',
+RecordType.Name =='S&amp;M Event Retail Campaign',
+RecordType.Name =='S&amp;M Media Retail Campaign'
 ), 
 Plan_Start_Date__c &gt;  Plan_End_Date__c,
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorMessage>Plan Start Date must be less than or equal to Plan End Dat</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Relevant_BMBS_Campaign_Mandatory</fullName>
         <active>true</active>
-        <description>Be required when Driven is &apos;Joint&apos;</description>
+        <description>Be required when Driven is 'Joint'</description>
         <errorConditionFormula>AND( 
 OR( 
-RecordType.Name ==&apos;S&amp;M Event Retail Campaign&apos;,
-RecordType.Name ==&apos;S&amp;M Media Retail Campaign&apos;
+RecordType.Name =='S&amp;M Event Retail Campaign',
+RecordType.Name =='S&amp;M Media Retail Campaign'
 ) ,
-ISPICKVAL(Driven__c , &apos;Joint&apos;) , 
+ISPICKVAL(Driven__c , 'Joint') , 
 ISBLANK( Relevant_BMBS_Campaign__c),
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Relevant_BMBS_Campaign__c</errorDisplayField>
         <errorMessage>Relevant BMBS Campaign is mandatory when Driven is Joint.</errorMessage>
@@ -9120,13 +9119,13 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <active>true</active>
         <errorConditionFormula>AND( 
 OR( 
-RecordType.Name == &apos;Retail MB Best Practice&apos;, 
-RecordType.Name == &apos;Retail smart Best Practice&apos; 
+RecordType.Name == 'Retail MB Best Practice', 
+RecordType.Name == 'Retail smart Best Practice' 
 ), 
 ISNULL(Retail_Candidate__c), 
 TEXT(Brand__c) != TEXT( Retail_Candidate__r.Brand__c), 
-$Profile.Name != &apos;System Administrator&apos;,
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'System Administrator',
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorMessage>The Brand of Retail Candidate should match the Brand of MB/smart Best Practice.</errorMessage>
     </validationRules>
@@ -9134,9 +9133,9 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <fullName>Site_Cost_plus_Gift_Expense_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
-RecordType.Name == &apos;S&amp;M Event Retail Campaign&apos;,
+RecordType.Name == 'S&amp;M Event Retail Campaign',
 Site_Cost__c +  Gift_Expense__c &gt;  Actual_Expense__c,
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
         <errorMessage>Site Cost  plus Gift Expense cannot be greater than Actual Expense</errorMessage>
@@ -9145,7 +9144,7 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <fullName>Unlock_Application</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
-NOT(OR(ISPICKVAL( Apply_Status__c , &apos;Planned&apos;), ISPICKVAL( Apply_Status__c , &apos;Need Modify&apos;))), 
+NOT(OR(ISPICKVAL( Apply_Status__c , 'Planned'), ISPICKVAL( Apply_Status__c , 'Need Modify'))), 
 OR(ISCHANGED(Name),
        ISCHANGED(Driven__c),
 	   ISCHANGED(Ad_Location__c),
@@ -9184,21 +9183,21 @@ OR(ISCHANGED(Name),
 	   ISCHANGED(Site__c),
 	   ISCHANGED(Site_Area__c),
 	   ISCHANGED(Yearly_TA__c)),
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
-        <errorMessage>You can&apos;t update Retail Campaign information with current apply status.</errorMessage>
+        <errorMessage>You can't update Retail Campaign information with current apply status.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Unlock_Application_Feedback</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
-OR( RecordType.Name ==&apos;AS Retail Campaign&apos;,RecordType.Name ==&apos;S&amp;M Event Retail Campaign&apos;,RecordType.Name ==&apos;S&amp;M Media Retail Campaign&apos;) ,OR(ISPICKVAL( Feedback_Status__c , &apos;Approved&apos;), 
-NOT(ISPICKVAL( Apply_Status__c , &apos;Approved&apos;))), OR(
+OR( RecordType.Name =='AS Retail Campaign',RecordType.Name =='S&amp;M Event Retail Campaign',RecordType.Name =='S&amp;M Media Retail Campaign') ,OR(ISPICKVAL( Feedback_Status__c , 'Approved'), 
+NOT(ISPICKVAL( Apply_Status__c , 'Approved'))), OR(
 ISCHANGED( Feedback_Comments__c ),ISCHANGED( Actual_Start_Date__c ),ISCHANGED( Actual_End_Date__c ),ISCHANGED( Actual_Expense__c ),ISCHANGED( Actual_Invite_Customer__c ),ISCHANGED( Actual_Show_up_Customer__c ),ISCHANGED( Actual_Show_up_Lost_Customer__c ),ISCHANGED( Actual_Parts_Turnover__c ),ISCHANGED( Actual_Labor_Turnover__c ),ISCHANGED( Actual_No_of_Insurance_Sold__c ),ISCHANGED( Actual_No_of_Insurance_Repaired_Vehicle__c ),ISCHANGED( Actual_Order__c ),ISCHANGED( Actual_Maintenance_Products_Sold__c ),ISCHANGED( Site_Cost__c ),ISCHANGED( Gift_Expense__c )),
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
-        <errorMessage>You can&apos;t update Feedback information with current feedback status or apply status.</errorMessage>
+        <errorMessage>You can't update Feedback information with current feedback status or apply status.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Export_Retail_Campaign_Member</fullName>
@@ -9228,59 +9227,59 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)} 
-var qr3 = sforce.connection.query(&quot;select AccountId  from User where id = &apos;&quot;+&apos;{!$User.Id}&apos; +&quot;&apos;&quot;) ; 
-if(&apos;{!Campaign.Status}&apos; == &apos;Published&apos;){
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} 
+var qr3 = sforce.connection.query("select AccountId  from User where id = '"+'{!$User.Id}' +"'") ; 
+if('{!Campaign.Status}' == 'Published'){
 if(qr3.records.AccountId != null){
-var qr1 = sforce.connection.query(&quot;Select name From recordtype where Id = &apos;&quot;+&apos;{!Campaign.RecordTypeId}&apos; +&quot;&apos;&quot;) ; 
+var qr1 = sforce.connection.query("Select name From recordtype where Id = '"+'{!Campaign.RecordTypeId}' +"'") ; 
 var campaignRecordTypeName = qr1.records.Name;
 var retailCampaignRecordTypeName;
 switch (campaignRecordTypeName )
 {
-case &apos;AS BMBS Campaign&apos;:
-  retailCampaignRecordTypeName =&quot;AS Retail Campaign&quot;;
+case 'AS BMBS Campaign':
+  retailCampaignRecordTypeName ="AS Retail Campaign";
   break;
-case &apos;S&amp;M Event BMBS Campaign&apos;:
-  retailCampaignRecordTypeName =&quot;S&amp;M Event Retail Campaign&quot;;
+case 'S&amp;M Event BMBS Campaign':
+  retailCampaignRecordTypeName ="S&amp;M Event Retail Campaign";
   break;
-case &apos;S&amp;M Media BMBS Campaign&apos;:
-  retailCampaignRecordTypeName =&quot;S&amp;M Media Retail Campaign&quot;;
+case 'S&amp;M Media BMBS Campaign':
+  retailCampaignRecordTypeName ="S&amp;M Media Retail Campaign";
   break;
 }
-var qr2 = sforce.connection.query(&quot;Select id From recordtype where Name= &apos;&quot;+ retailCampaignRecordTypeName +&quot;&apos; limit 1&quot;) ; 
-var qr4 = sforce.connection.query(&quot;select Name from Account where id = &apos;&quot;+ qr3.records.AccountId+&quot;&apos;&quot;) ; 
+var qr2 = sforce.connection.query("Select id From recordtype where Name= '"+ retailCampaignRecordTypeName +"' limit 1") ; 
+var qr4 = sforce.connection.query("select Name from Account where id = '"+ qr3.records.AccountId+"'") ; 
 
-var FromPickListField = &quot;{!Campaign.Car_Model__c}&quot;; 
-var ToPickListFieldName =&quot;00N9000000BhOxf&quot;; 
-var pairs = FromPickListField.split(&quot;;&quot;); 
+var FromPickListField = "{!Campaign.Car_Model__c}"; 
+var ToPickListFieldName ="00N9000000BhOxf"; 
+var pairs = FromPickListField.split(";"); 
 
-var Fields = &quot;&quot; 
+var Fields = "" 
 for (var i=0;i&lt;pairs.length;i++) { 
 var ThisValue = pairs[i] ;
-Fields = Fields + ToPickListFieldName+ &quot;=&quot; + ThisValue + &quot;&amp;&quot;;
+Fields = Fields + ToPickListFieldName+ "=" + ThisValue + "&amp;";
  } 
 
-var navigateToUrl = &quot;/a1j/e?CF00N9000000BhOyY={!Campaign.Name}&amp;CF00N9000000BhOyY_lkid={!Campaign.Id}&amp;CF00N9000000BhOxi=&quot;+qr4.records.Name+&quot;&amp;CF00N9000000BhOxi_lkid=&quot;+qr3.records.AccountId+&quot;&amp;RecordType=&quot;+qr2.records.Id+&quot;&amp;ent=Retail_Campaign__c&amp;Name={!Campaign.Name}&amp;00N9000000BhOxZ={!Campaign.Brand__c}&quot;+&quot;&amp;&quot;+Fields+&quot;&amp;00N9000000BhOyS={!Campaign.Plan_Start_Date__c}&amp;00N9000000BhOyJ={!Campaign.Plan_End_Date__c}&quot;
+var navigateToUrl = "/a1j/e?CF00N9000000BhOyY={!Campaign.Name}&amp;CF00N9000000BhOyY_lkid={!Campaign.Id}&amp;CF00N9000000BhOxi="+qr4.records.Name+"&amp;CF00N9000000BhOxi_lkid="+qr3.records.AccountId+"&amp;RecordType="+qr2.records.Id+"&amp;ent=Retail_Campaign__c&amp;Name={!Campaign.Name}&amp;00N9000000BhOxZ={!Campaign.Brand__c}"+"&amp;"+Fields+"&amp;00N9000000BhOyS={!Campaign.Plan_Start_Date__c}&amp;00N9000000BhOyJ={!Campaign.Plan_End_Date__c}"
 switch (retailCampaignRecordTypeName)
 {
-case &apos;AS Retail Campaign&apos;:
-  navigateToUrl = navigateToUrl+&quot;&amp;00N9000000BhOyF={!Campaign.Min_Car_Age__c}&amp;00N9000000BhOyC={!Campaign.Max_Car_Age__c}&amp;00N9000000BhOxe={!Campaign.Campaign_Type__c}&quot;;
+case 'AS Retail Campaign':
+  navigateToUrl = navigateToUrl+"&amp;00N9000000BhOyF={!Campaign.Min_Car_Age__c}&amp;00N9000000BhOyC={!Campaign.Max_Car_Age__c}&amp;00N9000000BhOxe={!Campaign.Campaign_Type__c}";
   break;
-case &apos;S&amp;M Event Retail Campaign&apos;:
-  navigateToUrl = navigateToUrl + &quot;&amp;00N9000000BhOxm=Joint&amp;00N9000000BhOxn={!Campaign.Event_Type__c}&amp;00N9000000BhOxa={!Campaign.CBU_PbP__c}&quot;;
+case 'S&amp;M Event Retail Campaign':
+  navigateToUrl = navigateToUrl + "&amp;00N9000000BhOxm=Joint&amp;00N9000000BhOxn={!Campaign.Event_Type__c}&amp;00N9000000BhOxa={!Campaign.CBU_PbP__c}";
   break;
-case &apos;S&amp;M Media Retail Campaign&apos;:
-  navigateToUrl = navigateToUrl + &quot;&amp;00N9000000BhOxm=Joint&amp;00N9000000BhOyE={!Campaign.Media_Type__c}&amp;00N9000000BhOxa={!Campaign.CBU_PbP__c}&quot;;
+case 'S&amp;M Media Retail Campaign':
+  navigateToUrl = navigateToUrl + "&amp;00N9000000BhOxm=Joint&amp;00N9000000BhOyE={!Campaign.Media_Type__c}&amp;00N9000000BhOxa={!Campaign.CBU_PbP__c}";
   break;
 }
 window.parent.navigateToUrl(navigateToUrl);
 }else{
-alert(&apos;权限错误&apos;);
+alert('权限错误');
 }
 }else{
-alert(&apos;该活动仍未发布或已关闭。&apos;);
+alert('该活动仍未发布或已关闭。');
 }</url>
     </webLinks>
     <webLinks>
@@ -9305,12 +9304,12 @@ alert(&apos;该活动仍未发布或已关闭。&apos;);
         <masterLabel>Search and Add Campaign Member</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;==&apos;Approved&apos;)
+        <url>if('{!Retail_Campaign__c.Apply_Status__c}'=='Approved')
 {
-location.href = &quot;{!$Site.Prefix}/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}&quot;;
+location.href = "{!$Site.Prefix}/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}";
 }
 else {
-alert(&apos;申请状态不匹配, 不能添加活动成员.&apos;);
+alert('申请状态不匹配, 不能添加活动成员.');
 }</url>
     </webLinks>
     <webLinks>
@@ -9333,14 +9332,14 @@ alert(&apos;申请状态不匹配, 不能添加活动成员.&apos;);
         <masterLabel>Submit for Approval</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>if(&apos;{!$User.Id}&apos; == &apos;{!Retail_Campaign__c.OwnerId}&apos; ){
-if((&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;==&apos;Planned&apos; || &apos;{!Retail_Campaign__c.Apply_Status__c}&apos;==&apos;Need Modify&apos;)&amp;&amp;&apos;{!Retail_Campaign__c.Feedback_Status__c}&apos;==&apos;Planned&apos;){
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;))) {
+        <url>if('{!$User.Id}' == '{!Retail_Campaign__c.OwnerId}' ){
+if(('{!Retail_Campaign__c.Apply_Status__c}'=='Planned' || '{!Retail_Campaign__c.Apply_Status__c}'=='Need Modify')&amp;&amp;'{!Retail_Campaign__c.Feedback_Status__c}'=='Planned'){
+if ((Modal.confirm &amp;&amp; Modal.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？'))) {
 
-//var qr1 = sforce.connection.query(&quot;select id,  Retail_AMG_Owner__c, Ownerid, Retail_AS_Owner__c, Retail_Star_Elite_Owner__c, Retail_MB_Owner__c, Retail_smart_Owner__c from Account where id = &apos;&quot;+&apos;{! Retail_Campaign__c.Dealer_NameId__c }&apos; +&quot;&apos;&quot;) ; 
+//var qr1 = sforce.connection.query("select id,  Retail_AMG_Owner__c, Ownerid, Retail_AS_Owner__c, Retail_Star_Elite_Owner__c, Retail_MB_Owner__c, Retail_smart_Owner__c from Account where id = '"+'{! Retail_Campaign__c.Dealer_NameId__c }' +"'") ; 
 
-var callList = new sforce.SObject(&quot;Retail_Campaign__c&quot;); 
-callList.Id = &apos;{!Retail_Campaign__c.Id}&apos;; 
+var callList = new sforce.SObject("oliverkoethap1__Retail_Campaign__c"); 
+callList.Id = '{!Retail_Campaign__c.Id}'; 
 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
@@ -9348,15 +9347,15 @@ var callCompleted = false;
 try { 
 var result = sforce.connection.update(campaignUpdate); 
 
-if(result[0].success==&apos;true&apos;){ 
+if(result[0].success=='true'){ 
 callCompleted = true; 
 }else{ 
-    var msg = &quot;&quot;;
-    if (typeof result[0].errors.length === &apos;undefined&apos;) {
+    var msg = "";
+    if (typeof result[0].errors.length === 'undefined') {
         msg = result[0].errors.message;
     } else {
         for (var i=0;i&lt;result[0].errors.length;i++){
-            msg = msg + result[0].errors[i].message + &apos;\n&apos;;
+            msg = msg + result[0].errors[i].message + '\n';
         }
         msg = msg.substr(0, (msg.length - 1));
     }
@@ -9364,17 +9363,17 @@ callCompleted = true;
     callCompleted = false;
 } 
 }catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 if (callCompleted) { 
-navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F{!Retail_Campaign__c.Id}&apos;);
+navigateToUrl('/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F{!Retail_Campaign__c.Id}');
 }
 }
 }else{
- alert(&apos;申请状态错误。&apos;);
+ alert('申请状态错误。');
 }
 }else{
- alert(&apos;你不是该记录的所有者，无法提交&apos;);
+ alert('你不是该记录的所有者，无法提交');
 }</url>
     </webLinks>
     <webLinks>
@@ -9385,13 +9384,13 @@ navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F
         <masterLabel>Submit for Cancel</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>if(&apos;{!$User.Id}&apos; == &apos;{!Retail_Campaign__c.OwnerId}&apos; ){
-if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;==&apos;Approved&apos; &amp;&amp; &apos;{!Retail_Campaign__c.Feedback_Status__c}&apos;==&apos;Planned&apos;){
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;))) {
-//var qr1 = sforce.connection.query(&quot;select id,  Retail_AMG_Owner__c, Ownerid, Retail_AS_Owner__c, Retail_Star_Elite_Owner__c, Retail_MB_Owner__c, Retail_smart_Owner__c from Account where id = &apos;&quot;+&apos;{! Retail_Campaign__c.Dealer_NameId__c }&apos; +&quot;&apos;&quot;) ; 
+        <url>if('{!$User.Id}' == '{!Retail_Campaign__c.OwnerId}' ){
+if('{!Retail_Campaign__c.Apply_Status__c}'=='Approved' &amp;&amp; '{!Retail_Campaign__c.Feedback_Status__c}'=='Planned'){
+if ((Modal.confirm &amp;&amp; Modal.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？'))) {
+//var qr1 = sforce.connection.query("select id,  Retail_AMG_Owner__c, Ownerid, Retail_AS_Owner__c, Retail_Star_Elite_Owner__c, Retail_MB_Owner__c, Retail_smart_Owner__c from Account where id = '"+'{! Retail_Campaign__c.Dealer_NameId__c }' +"'") ; 
 
-var callList = new sforce.SObject(&quot;Retail_Campaign__c&quot;); 
-callList.Id = &apos;{!Retail_Campaign__c.Id}&apos;; 
+var callList = new sforce.SObject("Retail_Campaign__c"); 
+callList.Id = '{!Retail_Campaign__c.Id}'; 
 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
@@ -9399,15 +9398,15 @@ var callCompleted = false;
 try { 
 var result = sforce.connection.update(campaignUpdate); 
 
-if(result[0].success==&apos;true&apos;){ 
+if(result[0].success=='true'){ 
 callCompleted = true; 
 }else{ 
-    var msg = &quot;&quot;;
-    if (typeof result[0].errors.length === &apos;undefined&apos;) {
+    var msg = "";
+    if (typeof result[0].errors.length === 'undefined') {
         msg = result[0].errors.message;
     } else {
         for (var i=0;i&lt;result[0].errors.length;i++){
-            msg = msg + result[0].errors[i].message + &apos;\n&apos;;
+            msg = msg + result[0].errors[i].message + '\n';
         }
         msg = msg.substr(0, (msg.length - 1));
     }
@@ -9415,21 +9414,21 @@ callCompleted = true;
     callCompleted = false;
 } 
 }catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 if (callCompleted) { 
-navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F{!Retail_Campaign__c.Id}&apos;);
+navigateToUrl('/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F{!Retail_Campaign__c.Id}');
 }
 }
 }else{
-	if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;!=&apos;Approved&apos;) {
-		alert(&apos;申请还未批准不可以申请撤销。&apos;);
+	if('{!Retail_Campaign__c.Apply_Status__c}'!='Approved') {
+		alert('申请还未批准不可以申请撤销。');
 	} else {
-		alert(&apos;反馈提交后不可以申请撤销。&apos;);
+		alert('反馈提交后不可以申请撤销。');
 	}
 }
 }else{
- alert(&apos;你不是该记录的所有者，无法提交&apos;);
+ alert('你不是该记录的所有者，无法提交');
 }</url>
     </webLinks>
     <webLinks>
@@ -9440,31 +9439,31 @@ navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F
         <masterLabel>Submit for Feedback</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-if(&apos;{!$User.Id}&apos; == &apos;{!Retail_Campaign__c.OwnerId}&apos; ){
-if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;==&apos;Approved&apos; &amp;&amp; (&apos;{!Retail_Campaign__c.Feedback_Status__c}&apos;==&apos;Planned&apos; || &apos;{!Retail_Campaign__c.Feedback_Status__c}&apos;==&apos;Need Modify&apos;)){
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;))) {
-//var qr1 = sforce.connection.query(&quot;select id,  Retail_AMG_Owner__c, Ownerid, Retail_AS_Owner__c, Retail_Star_Elite_Owner__c, Retail_MB_Owner__c, Retail_smart_Owner__c from Account where id = &apos;&quot;+&apos;{! Retail_Campaign__c.Dealer_NameId__c }&apos; +&quot;&apos;&quot;) ; 
-var callList = new sforce.SObject(&quot;Retail_Campaign__c&quot;);
-callList.Id = &apos;{!Retail_Campaign__c.Id}&apos;;
-callList.Feedback_Status__c= &quot;Confirmed&quot;;
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+if('{!$User.Id}' == '{!Retail_Campaign__c.OwnerId}' ){
+if('{!Retail_Campaign__c.Apply_Status__c}'=='Approved' &amp;&amp; ('{!Retail_Campaign__c.Feedback_Status__c}'=='Planned' || '{!Retail_Campaign__c.Feedback_Status__c}'=='Need Modify')){
+if ((Modal.confirm &amp;&amp; Modal.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？'))) {
+//var qr1 = sforce.connection.query("select id,  Retail_AMG_Owner__c, Ownerid, Retail_AS_Owner__c, Retail_Star_Elite_Owner__c, Retail_MB_Owner__c, Retail_smart_Owner__c from Account where id = '"+'{! Retail_Campaign__c.Dealer_NameId__c }' +"'") ; 
+var callList = new sforce.SObject("Retail_Campaign__c");
+callList.Id = '{!Retail_Campaign__c.Id}';
+callList.Feedback_Status__c= "Confirmed";
 var campaignUpdate = new Array();
 campaignUpdate.push(callList);
 var callCompleted = false;
 try {
 var result = sforce.connection.update(campaignUpdate);
 
-if(result[0].success==&apos;true&apos;){
+if(result[0].success=='true'){
 callCompleted = true;
 }else{
-    var msg = &quot;&quot;;
-    if (typeof result[0].errors.length === &apos;undefined&apos;) {
+    var msg = "";
+    if (typeof result[0].errors.length === 'undefined') {
         msg = result[0].errors.message;
     } else {
         for (var i=0;i&lt;result[0].errors.length;i++){
-            msg = msg + result[0].errors[i].message + &apos;\n&apos;;
+            msg = msg + result[0].errors[i].message + '\n';
         }
         msg = msg.substr(0, (msg.length - 1));
     }
@@ -9472,17 +9471,17 @@ callCompleted = true;
     callCompleted = false;
 } 
 }catch(error) {
-alert(&quot;Failed to update Field with error: &quot; + error);
+alert("Failed to update Field with error: " + error);
 }
 if (callCompleted) {
-navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F{!Retail_Campaign__c.Id}&apos;);
+navigateToUrl('/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F{!Retail_Campaign__c.Id}');
 }
 }
 }else{
- alert(&apos;申请状态或反馈状态不正确。&apos;);
+ alert('申请状态或反馈状态不正确。');
 }
 }else{
- alert(&apos;你不是该记录的所有者，无法提交&apos;);
+ alert('你不是该记录的所有者，无法提交');
 }</url>
     </webLinks>
     <webLinks>
@@ -9493,11 +9492,11 @@ navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F
         <masterLabel>Summary</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)} 
-if(&apos;{!Retail_Campaign__c.Y_Status__c}&apos;==&apos;Planned&apos; || &apos;{!Retail_Campaign__c.Y_Status__c}&apos;==&apos;Need Modify&apos;){ 
-var qr1 = sforce.connection.query(&quot;select Plan_Expense__c, Parts_Turn_over__c, Labor_Turn_over__c, Plan_No_of_Insurance_Sold__c, Order__c, Plan_Maintenance_Products_Sold__c from Retail_Campaign__c where  Yearly_TA__c = &apos;&quot;+&apos;{!Retail_Campaign__c.Id}&apos; +&quot;&apos;&quot;) ; 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} 
+if('{!Retail_Campaign__c.Y_Status__c}'=='Planned' || '{!Retail_Campaign__c.Y_Status__c}'=='Need Modify'){ 
+var qr1 = sforce.connection.query("select Plan_Expense__c, Parts_Turn_over__c, Labor_Turn_over__c, Plan_No_of_Insurance_Sold__c, Order__c, Plan_Maintenance_Products_Sold__c from Retail_Campaign__c where  Yearly_TA__c = '"+'{!Retail_Campaign__c.Id}' +"'") ; 
 var AS_MarketingPlannedBudget = 0; 
 var PartsTurnover= 0;
 var LaborTurnover= 0;
@@ -9514,8 +9513,8 @@ InsuranceSold = InsuranceSold + parseFloat(RetailCampaign.Plan_No_of_Insurance_S
 VehicleThroughput = VehicleThroughput + parseFloat(RetailCampaign.Order__c); 
 MaintenanceProductsSold = MaintenanceProductsSold + parseFloat(RetailCampaign.Plan_Maintenance_Products_Sold__c); 
 } 
-var callList = new sforce.SObject(&quot;Retail_Campaign__c&quot;); 
-callList.Id = &apos;{!Retail_Campaign__c.Id}&apos;; 
+var callList = new sforce.SObject("Retail_Campaign__c"); 
+callList.Id = '{!Retail_Campaign__c.Id}'; 
 if(AS_MarketingPlannedBudget &gt; 0){
 callList.Y_After_sales_Marketing_Planned_Budget__c = AS_MarketingPlannedBudget;
 } 
@@ -9539,12 +9538,12 @@ yearlyUpdate.push(callList);
 try { 
 var result = sforce.connection.update(yearlyUpdate); 
 } catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 location.href = location.href; 
 } 
 else{
-alert(&apos;状态错误。&apos;); 
+alert('状态错误。'); 
 }</url>
     </webLinks>
     <webLinks>
@@ -9555,28 +9554,28 @@ alert(&apos;状态错误。&apos;);
         <masterLabel>Unlock Application</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;!=&apos;Approved&apos; || &apos;{!Retail_Campaign__c.Feedback_Status__c}&apos;!=&apos;Planned&apos;) { 
-if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;!=&apos;Approved&apos;) {
-	alert(&quot;审批未通过不可以申请重新编辑。&quot;); 
+if('{!Retail_Campaign__c.Apply_Status__c}'!='Approved' || '{!Retail_Campaign__c.Feedback_Status__c}'!='Planned') { 
+if('{!Retail_Campaign__c.Apply_Status__c}'!='Approved') {
+	alert("审批未通过不可以申请重新编辑。"); 
 } else {
-	alert(&quot;反馈提交后不可以申请重新编辑。&quot;); 
+	alert("反馈提交后不可以申请重新编辑。"); 
 }
 }else{ 
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;你将重新编辑这条数据，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;你将重新编辑这条数据，继续吗？&apos;))) { 
+if ((Modal.confirm &amp;&amp; Modal.confirm('你将重新编辑这条数据，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('你将重新编辑这条数据，继续吗？'))) { 
 
-var callList = new sforce.SObject(&quot;Retail_Campaign__c&quot;); 
-callList.Id = &apos;{!Retail_Campaign__c.Id}&apos;; 
-callList.Apply_Status__c= &quot;Planned&quot;; 
+var callList = new sforce.SObject("Retail_Campaign__c"); 
+callList.Id = '{!Retail_Campaign__c.Id}'; 
+callList.Apply_Status__c= "Planned"; 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
 try { 
 var result = sforce.connection.update(campaignUpdate); 
 } catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 location.href = location.href; 
 } 
@@ -9590,26 +9589,26 @@ location.href = location.href;
         <masterLabel>Unlock Application Feedback</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)};
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)};
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)}
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")};
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")};
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
 
 // zhongyang.si add for Release 1.3 CR6, check whether the user can update the retail campaign feedback,as the block day rule is changed
 var unlockFeedbackCheck = false;
-var planEndDate = &quot;{!Retail_Campaign__c.Actual_End_Date__c}&quot;;
-planEndDate = new Date(Date.parse(planEndDate.replace(/-/g,&quot;/&quot;)));
-var feedbackSetting = sforce.connection.query(&quot;SELECT Actual_Start_Day__c, Actual_End_Day__c, Final_Feedback_Day__c FROM Feeback_Day_Setting__c&quot;);
+var planEndDate = "{!Retail_Campaign__c.Actual_End_Date__c}";
+planEndDate = new Date(Date.parse(planEndDate.replace(/-/g,"/")));
+var feedbackSetting = sforce.connection.query("SELECT Actual_Start_Day__c, Actual_End_Day__c, Final_Feedback_Day__c FROM Feeback_Day_Setting__c");
 var it = new sforce.QueryResultIterator(feedbackSetting);
 while (it.hasNext() &amp;&amp; !unlockFeedbackCheck) {
 	var feedback = it.next();
 	var today = new Date();
-	var beginDate = new Date(planEndDate.getFullYear(),feedback.Actual_Start_Day__c.split(&quot;.&quot;)[0]-1,feedback.Actual_Start_Day__c.split(&quot;.&quot;)[1],0,0,0);
-	var endDate = new Date(planEndDate.getFullYear(),feedback.Actual_End_Day__c.split(&quot;.&quot;)[0]-1, feedback.Actual_End_Day__c.split(&quot;.&quot;)[1],0,0,0);
+	var beginDate = new Date(planEndDate.getFullYear(),feedback.Actual_Start_Day__c.split(".")[0]-1,feedback.Actual_Start_Day__c.split(".")[1],0,0,0);
+	var endDate = new Date(planEndDate.getFullYear(),feedback.Actual_End_Day__c.split(".")[0]-1, feedback.Actual_End_Day__c.split(".")[1],0,0,0);
 	var finalDate;
-	if ( feedback.Final_Feedback_Day__c.indexOf(&quot;Next Year&quot;) &gt;= 0 ){
-		finalDate = new Date(planEndDate.getFullYear()+1,feedback.Final_Feedback_Day__c.replace(/Next Year/,&quot;&quot;).split(&quot;.&quot;)[0]-1,feedback.Final_Feedback_Day__c.replace(/Next Year/,&quot;&quot;).split(&quot;.&quot;)[1],0,0,0);
+	if ( feedback.Final_Feedback_Day__c.indexOf("Next Year") &gt;= 0 ){
+		finalDate = new Date(planEndDate.getFullYear()+1,feedback.Final_Feedback_Day__c.replace(/Next Year/,"").split(".")[0]-1,feedback.Final_Feedback_Day__c.replace(/Next Year/,"").split(".")[1],0,0,0);
 	} else {
-		finalDate = new Date(planEndDate.getFullYear(),feedback.Final_Feedback_Day__c.split(&quot;.&quot;)[0]-1,feedback.Final_Feedback_Day__c.split(&quot;.&quot;)[1],0,0,0);
+		finalDate = new Date(planEndDate.getFullYear(),feedback.Final_Feedback_Day__c.split(".")[0]-1,feedback.Final_Feedback_Day__c.split(".")[1],0,0,0);
 	}
 	if ( planEndDate &gt;= beginDate &amp;&amp; planEndDate &lt;= endDate ){
 		if ( today &gt; finalDate ){
@@ -9619,21 +9618,21 @@ while (it.hasNext() &amp;&amp; !unlockFeedbackCheck) {
 }
 // zhongyang.si add for Release 1.3 CR6, check whether the user can update the retail campaign feedback,as the block day rule is changed
 
-if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;!=&apos;Approved&apos; || &apos;{!Retail_Campaign__c.Feedback_Status__c}&apos;!=&apos;Approved&apos;) {
-	alert(&quot;你不可以编辑这条记录除非反馈已批准。&quot;);
+if('{!Retail_Campaign__c.Apply_Status__c}'!='Approved' || '{!Retail_Campaign__c.Feedback_Status__c}'!='Approved') {
+	alert("你不可以编辑这条记录除非反馈已批准。");
 }else if(unlockFeedbackCheck){
-	alert(&quot;反馈已不可编辑&quot;);
+	alert("反馈已不可编辑");
 }else{
-	if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;你将重新编辑这条数据，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;你将重新编辑这条数据，继续吗？&apos;))) {
-		var callList = new sforce.SObject(&quot;Retail_Campaign__c&quot;);
-		callList.Id = &apos;{!Retail_Campaign__c.Id}&apos;;
-		callList.Feedback_Status__c= &quot;Planned&quot;;
+	if ((Modal.confirm &amp;&amp; Modal.confirm('你将重新编辑这条数据，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('你将重新编辑这条数据，继续吗？'))) {
+		var callList = new sforce.SObject("Retail_Campaign__c");
+		callList.Id = '{!Retail_Campaign__c.Id}';
+		callList.Feedback_Status__c= "Planned";
 		var campaignUpdate = new Array();
 		campaignUpdate.push(callList);
 		try {
 			var result = sforce.connection.update(campaignUpdate);
 		} catch(error) {
-			alert(&quot;Failed to update Field with error: &quot; + error);
+			alert("Failed to update Field with error: " + error);
 		}
 		location.href = location.href;
 	}
@@ -9678,61 +9677,61 @@ if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;!=&apos;Approved&apos; || &a
         <masterLabel>Submit for Approval</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-if(&apos;{!Retail_Campaign__c.Y_Status__c}&apos;==&apos;Planned&apos; || &apos;{!Retail_Campaign__c.Y_Status__c}&apos;==&apos;Need Modify&apos;){ 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+if('{!Retail_Campaign__c.Y_Status__c}'=='Planned' || '{!Retail_Campaign__c.Y_Status__c}'=='Need Modify'){ 
 
-var errorMessage = &apos;&apos;; 
-var qr = sforce.connection.query(&quot;Select Id,RecordTypeId From Retail_Campaign__c Where id = &apos;{!Retail_Campaign__c.Id}&apos;&quot;); 
+var errorMessage = ''; 
+var qr = sforce.connection.query("Select Id,RecordTypeId From oliverkoethap1__Retail_Campaign__c Where id = '{!Retail_Campaign__c.Id}'"); 
 
-var RTname = sforce.connection.query(&quot;Select name From RecordType Where id = &quot; + &quot;&apos;&quot; + qr.records.RecordTypeId + &quot;&apos;&quot;); 
+var RTname = sforce.connection.query("Select name From RecordType Where id = " + "'" + qr.records.RecordTypeId + "'"); 
 
-if(RTname.records.Name ==&apos;Sales &amp; Marketing Yearly TA&apos;){ 
+if(RTname.records.Name =='Sales &amp; Marketing Yearly TA'){ 
 
-if(parseInt(&apos;{!Retail_Campaign__c.Y_SMART_Marketing_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) &lt;parseInt(&apos;{!Retail_Campaign__c.Y_SMART_Marketing_Expense__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) ){ 
-errorMessage = errorMessage +&apos;SMART市场总预算必须大于或者等于SMART市场总目标.\n&apos; 
+if(parseInt('{!Retail_Campaign__c.Y_SMART_Marketing_Budget__c}'.substring(1).replace(/,/g,'')) &lt;parseInt('{!Retail_Campaign__c.Y_SMART_Marketing_Expense__c}'.substring(1).replace(/,/g,'')) ){ 
+errorMessage = errorMessage +'SMART市场总预算必须大于或者等于SMART市场总目标.\n' 
 } 
 
-if(parseInt(&apos;{!Retail_Campaign__c.Y_AMG_Marketing_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) &lt;parseInt(&apos;{!Retail_Campaign__c.Y_AMG_Marketing_Expense__c}&apos;.substring(1).replace(/,/g,&apos;&apos;))){ 
-errorMessage = errorMessage +&apos;AMG市场总预算必须大于或者等于AMG市场总目标.\n&apos; 
+if(parseInt('{!Retail_Campaign__c.Y_AMG_Marketing_Budget__c}'.substring(1).replace(/,/g,'')) &lt;parseInt('{!Retail_Campaign__c.Y_AMG_Marketing_Expense__c}'.substring(1).replace(/,/g,''))){ 
+errorMessage = errorMessage +'AMG市场总预算必须大于或者等于AMG市场总目标.\n' 
 } 
-if(parseInt(&apos;{!Retail_Campaign__c.Y_MB_Marketing_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) &lt;parseInt(&apos;{!Retail_Campaign__c.Y_MB_Marketing_Expense__c}&apos;.substring(1).replace(/,/g,&apos;&apos;))){ 
-errorMessage = errorMessage +&apos;MB 市场总预算必须大于或者等于MB 市场总目标. &apos; 
+if(parseInt('{!Retail_Campaign__c.Y_MB_Marketing_Budget__c}'.substring(1).replace(/,/g,'')) &lt;parseInt('{!Retail_Campaign__c.Y_MB_Marketing_Expense__c}'.substring(1).replace(/,/g,''))){ 
+errorMessage = errorMessage +'MB 市场总预算必须大于或者等于MB 市场总目标. ' 
 } 
-if(parseInt(&apos;{!Retail_Campaign__c.Y_MB_Joint_Marketing_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) &lt;parseInt(&apos;{!Retail_Campaign__c.Y_MB_Joint_Marketing_Expense__c}&apos;.substring(1).replace(/,/g,&apos;&apos;))){ 
-errorMessage = errorMessage +&apos;联合营销活动预算必须大于或者等于联合营销活动目标. &apos; 
+if(parseInt('{!Retail_Campaign__c.Y_MB_Joint_Marketing_Budget__c}'.substring(1).replace(/,/g,'')) &lt;parseInt('{!Retail_Campaign__c.Y_MB_Joint_Marketing_Expense__c}'.substring(1).replace(/,/g,''))){ 
+errorMessage = errorMessage +'联合营销活动预算必须大于或者等于联合营销活动目标. ' 
 } 
-if(parseInt(&apos;{!Retail_Campaign__c.Y_MB_Dealer_Driven_Marketing_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) &lt;parseInt(&apos;{!Retail_Campaign__c.Y_MB_Dealer_Driven_Marketing_Expense__c}&apos;.substring(1).replace(/,/g,&apos;&apos;))){ 
-errorMessage = errorMessage +&apos;自行组织活动预算必须大于或者等于自行组织活动目标. &apos; 
+if(parseInt('{!Retail_Campaign__c.Y_MB_Dealer_Driven_Marketing_Budget__c}'.substring(1).replace(/,/g,'')) &lt;parseInt('{!Retail_Campaign__c.Y_MB_Dealer_Driven_Marketing_Expense__c}'.substring(1).replace(/,/g,''))){ 
+errorMessage = errorMessage +'自行组织活动预算必须大于或者等于自行组织活动目标. ' 
 } 
-}else if(RTname.records.Name ==&apos;Aftersales Yearly TA&apos;){ 
-	if(parseInt(&apos;{!Retail_Campaign__c.Y_After_sales_Marketing_Planned_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) &lt; parseInt(&apos;{!Retail_Campaign__c.Y_After_sales_Marketing_Target_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) ){ 
-	errorMessage = errorMessage +&apos;售后市场总预算必须大于或者等于售后市场总目标.\n&apos; 
+}else if(RTname.records.Name =='Aftersales Yearly TA'){ 
+	if(parseInt('{!Retail_Campaign__c.Y_After_sales_Marketing_Planned_Budget__c}'.substring(1).replace(/,/g,'')) &lt; parseInt('{!Retail_Campaign__c.Y_After_sales_Marketing_Target_Budget__c}'.substring(1).replace(/,/g,'')) ){ 
+	errorMessage = errorMessage +'售后市场总预算必须大于或者等于售后市场总目标.\n' 
 	} 
 }
-if(errorMessage != &apos;&apos;) 
+if(errorMessage != '') 
 { 
 alert(errorMessage); 
-}else if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;))) { 
-var callList = new sforce.SObject(&quot;Retail_Campaign__c&quot;); 
-callList.Id = &apos;{!Retail_Campaign__c.Id}&apos;; 
-callList.Y_Status__c = &quot;Confirmed&quot;; 
+}else if ((Modal.confirm &amp;&amp; Modal.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？'))) { 
+var callList = new sforce.SObject("oliverkoethap1__Retail_Campaign__c"); 
+callList.Id = '{!Retail_Campaign__c.Id}'; 
+callList.oliverkoethap1__Y_Status__c = "Confirmed"; 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
 var callCompleted = false; 
 try { 
 var result = sforce.connection.update(campaignUpdate); 
 
-if(result[0].success==&apos;true&apos;){ 
+if(result[0].success=='true'){ 
 callCompleted = true; 
 }else{ 
-    var msg = &quot;&quot;;
-    if (typeof result[0].errors.length === &apos;undefined&apos;) {
+    var msg = "";
+    if (typeof result[0].errors.length === 'undefined') {
         msg = result[0].errors.message;
     } else {
         for (var i=0;i&lt;result[0].errors.length;i++){
-            msg = msg + result[0].errors[i].message + &apos;\n&apos;;
+            msg = msg + result[0].errors[i].message + '\n';
         }
         msg = msg.substr(0, (msg.length - 1));
     }
@@ -9740,13 +9739,13 @@ callCompleted = true;
     callCompleted = false;
 } 
 }catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 if(callCompleted){ 
-navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F{!Retail_Campaign__c.Id}&apos;);} 
+navigateToUrl('/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F{!Retail_Campaign__c.Id}');} 
 } 
 }else{ 
-alert(&apos;申请状态错误。&apos;); 
+alert('申请状态错误。'); 
 }</url>
     </webLinks>
 </CustomObject>

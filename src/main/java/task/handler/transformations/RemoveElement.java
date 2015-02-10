@@ -2,7 +2,6 @@ package task.handler.transformations;
 
 import java.util.Map;
 
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.xpath.XPath;
 import javax.xml.xpath.XPathConstants;
@@ -26,7 +25,6 @@ import task.handler.LogWrapper;
 public class RemoveElement extends Transformation {
   
   private String xpath;
-  private boolean retrieve;
   
   public String getXpath()
   {
@@ -36,17 +34,6 @@ public class RemoveElement extends Transformation {
   public void setXpath(String xpath)
   {
     this.xpath = xpath;
-  }
-
-  public boolean isRetrieve()
-  {
-    return retrieve;
-  }
-
-  @XmlAttribute
-  public void setRetrieve(boolean retrieve)
-  {
-    this.retrieve = retrieve;
   }
 
   public void validate()
@@ -89,6 +76,7 @@ public class RemoveElement extends Transformation {
   public void applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
   {
     if (!isRetrieve()) {
+      // TODO is this really useful?
       throw new BuildException("Not implemted yet.");
     }
   }
