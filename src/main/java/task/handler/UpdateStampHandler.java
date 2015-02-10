@@ -34,8 +34,6 @@ public class UpdateStampHandler
     ADD, CHANGE, SAME, DELETE;
   }
   
-  public static final String DEFAULT_FILENAME = "timestamps.log";
-  
   private Map<String, Long> updateStamps;
   private String userName;
   private LogWrapper logWrapper;

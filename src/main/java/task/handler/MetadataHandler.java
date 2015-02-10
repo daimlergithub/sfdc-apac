@@ -103,7 +103,7 @@ public class MetadataHandler
   private DeploymentUnit findDeploymentUnitByName(List<DeploymentUnit> duList, String objectName)
   {
     for (DeploymentUnit du : duList) {
-      if (objectName.equals(du.getTypeName())) {
+      if (du.getTypeName().equals(objectName) || du.isChild(objectName)) {
         return du;
       }
     }
@@ -313,7 +313,7 @@ public class MetadataHandler
     return metadata;
   }
 
-  public void removeMetadataToDelete(Map<String, Action> differences)
+  public void removeMetadataToDelete(Set<String> objects, Map<String, Action> differences)
   {
     Map<String, List<String>> metadata = new HashMap<>();
     
@@ -336,24 +336,26 @@ public class MetadataHandler
 
     List<DeploymentUnit> configurations = new DeploymentConfiguration().getConfigurations();
     
+    // delete files for objects to be considered only
     for (Map.Entry<String, List<String>> entry : metadata.entrySet()) {
       String key = entry.getKey();
       Set<String> entities = new HashSet<>(entry.getValue());
       
       DeploymentUnit du = findDeploymentUnitByName(configurations, key);
-      
-      File baseDir = new File(metadataRoot);
-      
-      List<File> files = du.getFiles(baseDir);
-      
-      Collections.reverse(files);
-      
-      for (File file : files) {
-        String entityName = du.getEntityName(file);
-        if (entities.contains(entityName)) {
-          logWrapper.log(String.format("Delete file %s for entity %s.", file.getName(), entityName));
-          if (!file.delete()) {
-            throw new BuildException(String.format("File %s of type %s could not be deleted.", file.getName(), key));
+      if (objects.contains(du.getTypeName())) {
+        File baseDir = new File(metadataRoot);
+        
+        List<File> files = du.getFiles(baseDir);
+        
+        Collections.reverse(files);
+        
+        for (File file : files) {
+          String entityName = du.getEntityName(file);
+          if (entities.contains(entityName)) {
+            logWrapper.log(String.format("Delete file %s for entity %s.", file.getName(), entityName));
+            if (!file.delete()) {
+              throw new BuildException(String.format("File %s of type %s could not be deleted.", file.getName(), key));
+            }
           }
         }
       }

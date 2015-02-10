@@ -130,36 +130,36 @@ public class ChangeText extends Transformation {
     XPath xPath = XPathFactory.newInstance().newXPath();
     
     // TODO check and fix whole implementation
-//    String replacement = tokenMappings.get(token.getText());
-//    
-//    try {
-//      NodeList nodes = (NodeList)xPath.evaluate(xpath, document.getDocumentElement(), XPathConstants.NODESET);
-//      for (int i = 0; i < nodes.getLength(); ++i) {
-//        Node n = nodes.item(i);
-//        
-//        String txt = n.getTextContent();
-//        
-//        String newValue = null;
-//        if (token.isTokenOnly()) {
-//          String tokenText = String.format("${%s}", token.getText());
-//          newValue = txt.replace(tokenText, replacement);
-//          
-//          logWrapper.log(String.format("Replace token %s with %s.", tokenText, replacement));
-//        } else {
-//          newValue = token.getText();
-//          
-//          logWrapper.log(String.format("Change text from %s to %s.", txt, replacement));
-//        }
-//        
-//        n.setNodeValue(newValue);
-//      }
-//    }
-//    catch (XPathExpressionException e) {
-//      // TODO
-//      e.printStackTrace();
-//      
-//      throw new BuildException(String.format("Error applying transformation changetext: %s.", e.getMessage()), e);
-//    }
+    String replacement = tokenMappings.get(token.getText());
+    
+    try {
+      NodeList nodes = (NodeList)xPath.evaluate(xpath, document.getDocumentElement(), XPathConstants.NODESET);
+      for (int i = 0; i < nodes.getLength(); ++i) {
+        Node n = nodes.item(i);
+        
+        String txt = n.getTextContent();
+        
+        String newValue = null;
+        if (token.isTokenOnly()) {
+          String tokenText = String.format("${%s}", token.getText());
+          newValue = txt.replace(tokenText, replacement);
+          
+          logWrapper.log(String.format("Replace token %s with %s.", tokenText, replacement));
+        } else {
+          newValue = token.getText();
+          
+          logWrapper.log(String.format("Change text from %s to %s.", txt, replacement));
+        }
+        
+        n.setNodeValue(newValue);
+      }
+    }
+    catch (XPathExpressionException e) {
+      // TODO
+      e.printStackTrace();
+      
+      throw new BuildException(String.format("Error applying transformation changetext: %s.", e.getMessage()), e);
+    }
   }
   
 }

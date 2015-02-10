@@ -154,7 +154,7 @@ public class SfdcRetrievalTask
       Map<String, UpdateStampHandler.Action> differences = updateStampHandler.calculateDifferences(metadataUpdatestamps);
   
       metadata2Update = metadataHandler.collectMetadataToUpdate(differences);
-      metadataHandler.removeMetadataToDelete(differences);
+      metadataHandler.removeMetadataToDelete(objects, differences);
       
       // TODO create destructive changes
     }
