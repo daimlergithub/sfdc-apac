@@ -140,7 +140,7 @@ public class SfdcHandler
             DeploymentUnit du = info.getDeploymentUnit();
 
             logWrapper.log(String.format("Deployment of %s and %s successful.",
-                                         du.getType().getSimpleName(),
+                                         du.getTypeName(),
                                          Arrays.toString(info.getEntityNames().toArray(new String[0]))));
           }
           updateStampHandler.updateTimestamp(infos);
@@ -154,7 +154,7 @@ public class SfdcHandler
 
           List<String> types = new ArrayList<>();
           for (DeploymentInfo info : infos) {
-            types.add(info.getDeploymentUnit().getType().getSimpleName());
+            types.add(info.getDeploymentUnit().getTypeName());
           }
 
           throw new BuildException(String.format("Deployment of %s not successful.",

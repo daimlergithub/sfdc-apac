@@ -225,7 +225,7 @@ public class SfdcEnvironmentDeployer
                                     Map<String, Long> updateStamps)
     throws ConnectionException
   {
-    String type = du.getType().getSimpleName();
+    String type = du.getTypeName();
 
     System.out.println(String.format("Deploying metadata for type %s...", type));
 

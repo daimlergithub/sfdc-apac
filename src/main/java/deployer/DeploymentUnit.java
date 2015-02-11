@@ -11,19 +11,25 @@ import org.apache.commons.lang3.StringUtils;
 import com.sforce.soap.metadata.Metadata;
 
 /**
- * TODO document class DeploymentUnit
+ * DeploymentUnit
  *
  * @author  xlehmf
  */
 public class DeploymentUnit {
   private Class<? extends Metadata> type;
+  private List<Class<? extends Metadata>> children;
   private String subDir;
   private String extension;
   
-  public DeploymentUnit(Class<? extends Metadata> type, String subDir, String extension) {
+  public DeploymentUnit(Class<? extends Metadata> type, List<Class<? extends Metadata>> children, String subDir, String extension) {
     this.type = type;
+    this.children = children;
     this.subDir = subDir;
     this.extension = extension;
+  }
+  
+  public DeploymentUnit(Class<? extends Metadata> type, String subDir, String extension) {
+    this(type, null, subDir, extension);
   }
   
   public DeploymentUnit(Class<? extends Metadata> type, String subDir) {
@@ -34,9 +40,32 @@ public class DeploymentUnit {
     this(type, StringUtils.uncapitalize(type.getSimpleName()), StringUtils.uncapitalize(type.getSimpleName()));
   }
 
-  public Class<? extends Metadata> getType()
+  public String getTypeName()
   {
-    return type;
+    return type.getSimpleName();
+  }
+  
+  public List<String> getChildNames()
+  {
+    List<String> result = new ArrayList<>();
+    if (null != children) {
+      for (Class<? extends Metadata> clazz: children) {
+        result.add(clazz.getSimpleName());
+      }
+    }
+    return result;
+  }
+  
+  public boolean isChild(String nameOfChild)
+  {
+    if (null != children) {
+      for (Class<? extends Metadata> clazz: children) {
+        if (clazz.getSimpleName().equals(nameOfChild)) {
+          return true;
+        }
+      }
+    }
+    return false;
   }
 
   public String getSubDir()
@@ -77,4 +106,11 @@ public class DeploymentUnit {
     return null != mainFiles ? Arrays.asList(mainFiles) : new ArrayList<File>();
   }
   
+  /**
+   * Get the entity name from the entry in the metadata.
+   */
+  public String getEntityName(String metadataEntry)
+  {
+    return metadataEntry;
+  }
 }

@@ -34,9 +34,9 @@ public class SfdcDeploymentTask
   private String deployRoot;
   private boolean debug;
   private boolean dryRun;
-  private boolean full;
   private List<SfdcTypeSet> typeSets;
   private String transformationsRoot;
+  private String timestamps;
 
   private UpdateStampHandler updateStampHandler;
   private ZipFileHandler zipFileHandler;
@@ -109,9 +109,9 @@ public class SfdcDeploymentTask
     this.transformationsRoot = transformationsRoot;
   }
 
-  public void setFull(boolean full)
+  public void setTimestamps(String timestamps)
   {
-    this.full = full;
+    this.timestamps = timestamps;
   }
 
   public void addConfigured(SfdcTypeSet typeSet)
@@ -141,7 +141,7 @@ public class SfdcDeploymentTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initialize(logWrapper, username, UpdateStampHandler.DEFAULT_FILENAME, true);
+    updateStampHandler.initialize(logWrapper, username, timestamps, true);
     transformationHandler.initialize(logWrapper, username, transformationsRoot, deployRoot);
     
     sfdcHandler.initialize(logWrapper, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);

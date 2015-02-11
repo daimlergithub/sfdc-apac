@@ -14,7 +14,7 @@
 				debug="${sfdc.debug}" dryRun="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"
-				transformationsRoot="src/main/transformations"/>
+				transformationsRoot="src/main/transformations" timestamps="timestamps-updated.log"/>
 	</presetdef>
 	
 	<presetdef name="loadData">
@@ -29,11 +29,16 @@
 		<mkdir dir="tmp"/>
 	</target>
 	
+	<target name="deployAll">
+		<delete file="timestamps-updated.log" quiet="true"/>
+		<antcall target="deploy"/>
+	</target>
+	
 	<target name="deploy" depends="init, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35, deploy40">
 		<!-- TODO consider only deployed entities -->
 		<sf:retrieveUpdatestamps
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" timestamps="deployed-timestamps.log">
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets}"/>
 		</sf:retrieveUpdatestamps>
 	</target>
@@ -244,7 +249,7 @@
 				debug="${sfdc.debug}" dryRun="false" full="true"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
-				retrieveRoot="src/main/metadata-circle" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
+				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets.circle}"/>
 		</sf:retrieve>
 		
@@ -253,7 +258,7 @@
 				debug="${sfdc.debug}" dryRun="false" full="true"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
-				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
+				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets.not-ready}"/>
 		</sf:retrieve>
 	</target>
@@ -265,7 +270,7 @@
 				debug="${sfdc.debug}" dryRun="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
-				retrieveRoot="src/main/metadata-circle" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
+				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets.circle}"/>
 		</sf:retrieve>
 		
@@ -274,7 +279,7 @@
 				debug="${sfdc.debug}" dryRun="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
-				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="deployed-timestamps.log">
+				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets.not-ready}"/>
 		</sf:retrieve>
 	</target>
@@ -286,16 +291,6 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" fileName="timestamps-target.log">
 			<sf:typesets names="${typesets}"/>
 		</sf:retrieveUpdatestamps>
-	</target>
-
-
-	<!-- Work in Progress -->
-	<target name="refreshUpdatestamps">
-		<sf:triggerUpdatestampsRefresh
-				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" fileName="timestamps-target-sfdc.log">
-			<sf:typesets names="${typesets}"/>
-		</sf:triggerUpdatestampsRefresh>
 	</target>
 	
 </project>

@@ -1,3 +1,0 @@
-<apex:page controller="CaseEscalationController" action="{!Escalate}">
-    <apex:pageMessages />
-</apex:page>

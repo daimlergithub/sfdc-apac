@@ -34,8 +34,6 @@ public class UpdateStampHandler
     ADD, CHANGE, SAME, DELETE;
   }
   
-  public static final String DEFAULT_FILENAME = "timestamps.log";
-  
   private Map<String, Long> updateStamps;
   private String userName;
   private LogWrapper logWrapper;
@@ -147,7 +145,7 @@ public class UpdateStampHandler
 
   private String getKey(DeploymentUnit du, File file)
   {
-    return du.getType().getSimpleName() + "/" + file.getName();
+    return du.getTypeName() + "/" + file.getName();
   }
 
   private void updateTimestamp(DeploymentUnit du, File file)

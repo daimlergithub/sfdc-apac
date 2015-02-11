@@ -1,6 +1,7 @@
 build.properties
 timestamps.log
-deployed-timestamps.log
+timestamps-updated.log
+timestamps-deployed.log
 timestamps-data.log
 updatestamps-target.log
 /.settings

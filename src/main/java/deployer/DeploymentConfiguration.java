@@ -6,6 +6,8 @@ package deployer;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.sforce.soap.metadata.AccountCriteriaBasedSharingRule;
+import com.sforce.soap.metadata.AccountOwnerSharingRule;
 import com.sforce.soap.metadata.AccountSharingRules;
 import com.sforce.soap.metadata.ApexClass;
 import com.sforce.soap.metadata.ApexComponent;
@@ -16,13 +18,20 @@ import com.sforce.soap.metadata.ApprovalProcess;
 import com.sforce.soap.metadata.AssignmentRules;
 import com.sforce.soap.metadata.AutoResponseRules;
 import com.sforce.soap.metadata.CallCenter;
+import com.sforce.soap.metadata.CampaignCriteriaBasedSharingRule;
+import com.sforce.soap.metadata.CampaignOwnerSharingRule;
 import com.sforce.soap.metadata.CampaignSharingRules;
+import com.sforce.soap.metadata.CaseCriteriaBasedSharingRule;
+import com.sforce.soap.metadata.CaseOwnerSharingRule;
 import com.sforce.soap.metadata.CaseSharingRules;
 import com.sforce.soap.metadata.Community;
 import com.sforce.soap.metadata.CustomApplication;
 import com.sforce.soap.metadata.CustomApplicationComponent;
+import com.sforce.soap.metadata.CustomLabel;
 import com.sforce.soap.metadata.CustomLabels;
 import com.sforce.soap.metadata.CustomObject;
+import com.sforce.soap.metadata.CustomObjectCriteriaBasedSharingRule;
+import com.sforce.soap.metadata.CustomObjectOwnerSharingRule;
 import com.sforce.soap.metadata.CustomObjectSharingRules;
 import com.sforce.soap.metadata.CustomObjectTranslation;
 import com.sforce.soap.metadata.CustomPageWebLink;
@@ -38,6 +47,7 @@ import com.sforce.soap.metadata.HomePageComponent;
 import com.sforce.soap.metadata.HomePageLayout;
 import com.sforce.soap.metadata.Layout;
 import com.sforce.soap.metadata.Letterhead;
+import com.sforce.soap.metadata.Metadata;
 import com.sforce.soap.metadata.Network;
 import com.sforce.soap.metadata.PermissionSet;
 import com.sforce.soap.metadata.Portal;
@@ -86,30 +96,88 @@ public class DeploymentConfiguration
     duList.add(new DeploymentUnit(AssignmentRules.class));
 
     // sharing rules
-    //    duList.add(new DeploymentUnit("CustomObjectSharingRules.CustomObjectOwnerSharingRule"));
-    //    duList.add(new DeploymentUnit("CustomObjectSharingRules.CustomObjectCriteriaBasedSharingRule"));
-    duList.add(new DeploymentUnit(CustomObjectSharingRules.class, "customObjectSharingRules", "sharingRules"));
-    //    duList.add(new DeploymentUnit("CampaignSharingRules.CampaignCriteriaBasedSharingRule"));
-    //    duList.add(new DeploymentUnit("CampaignSharingRules.CampaignOwnerSharingRule"));
-    duList.add(new DeploymentUnit(CampaignSharingRules.class, "campaignSharingRules", "sharingRules"));
+    List<Class<? extends Metadata>> customObjectSharingRuleChilds = new ArrayList<>();
+    customObjectSharingRuleChilds.add(CustomObjectOwnerSharingRule.class);
+    customObjectSharingRuleChilds.add(CustomObjectCriteriaBasedSharingRule.class);
+    duList.add(new DeploymentUnit(CustomObjectSharingRules.class, customObjectSharingRuleChilds, "customObjectSharingRules", "sharingRules") {
+
+      /* 
+       * The metadata entry is something like "smart_SSI__c.Sinotrust_to_Sinotrust". So just return "smart_SSI__c".
+       */
+      @Override
+      public String getEntityName(String metadataEntry)
+      {
+        int idx = metadataEntry.indexOf(".");
+        if (-1 != idx) {
+          return metadataEntry.substring(0, idx);
+        }
+        return metadataEntry;
+      }
+      
+    });
+    
+    List<Class<? extends Metadata>> campaignSharingRuleChilds = new ArrayList<>();
+    campaignSharingRuleChilds.add(CampaignCriteriaBasedSharingRule.class);
+    campaignSharingRuleChilds.add(CampaignOwnerSharingRule.class);
+    duList.add(new DeploymentUnit(CampaignSharingRules.class, campaignSharingRuleChilds, "campaignSharingRules", "sharingRules") {
+
+      /* 
+       * The entity name is always "Campaign".
+       */
+      @Override
+      public String getEntityName(String metadataEntry)
+      {
+        return "Campaign";
+      }
+      
+    });
+
     //    duList.add(new DeploymentUnit("UserSharingRules.UserMembershipSharingRule"));
     //    duList.add(new DeploymentUnit("UserSharingRules.UserCriteriaBasedSharingRule"));
     //        duList.add(new DeploymentUnit("UserSharingRules"));
+    
     //    duList.add(new DeploymentUnit("ContactSharingRules.ContactOwnerSharingRule"));
     //    duList.add(new DeploymentUnit("ContactSharingRules.ContactCriteriaBasedSharingRule"));
     //        duList.add(new DeploymentUnit("ContactSharingRules"));
-    //    duList.add(new DeploymentUnit("CaseSharingRules.CaseOwnerSharingRule"));
-    //    duList.add(new DeploymentUnit("CaseSharingRules.CaseCriteriaBasedSharingRule"));
-    duList.add(new DeploymentUnit(CaseSharingRules.class, "caseSharingRules", "sharingRules"));
+    
+    List<Class<? extends Metadata>> caseSharingRuleChilds = new ArrayList<>();
+    caseSharingRuleChilds.add(CaseOwnerSharingRule.class);
+    caseSharingRuleChilds.add(CaseCriteriaBasedSharingRule.class);
+    duList.add(new DeploymentUnit(CaseSharingRules.class, caseSharingRuleChilds, "caseSharingRules", "sharingRules") {
+
+      /* 
+       * The entity name is always "Case".
+       */
+      @Override
+      public String getEntityName(String metadataEntry)
+      {
+        return "Case";
+      }
+      
+    });
+    
     //    duList.add(new DeploymentUnit("OpportunitySharingRules.OpportunityOwnerSharingRule"));
     //    duList.add(new DeploymentUnit("OpportunitySharingRules.OpportunityCriteriaBasedSharingRule"));
     //        duList.add(new DeploymentUnit("OpportunitySharingRules"));
     //    duList.add(new DeploymentUnit("LeadSharingRules.LeadCriteriaBasedSharingRule"));
     //    duList.add(new DeploymentUnit("LeadSharingRules.LeadOwnerSharingRule"));
     //        duList.add(new DeploymentUnit("LeadSharingRules"));
-    //    duList.add(new DeploymentUnit("AccountSharingRules.AccountCriteriaBasedSharingRule"));
-    //    duList.add(new DeploymentUnit("AccountSharingRules.AccountOwnerSharingRule"));
-    duList.add(new DeploymentUnit(AccountSharingRules.class, "accountSharingRules", "sharingRules"));
+    
+    List<Class<? extends Metadata>> accountSharingRuleChilds = new ArrayList<>();
+    accountSharingRuleChilds.add(AccountCriteriaBasedSharingRule.class);
+    accountSharingRuleChilds.add(AccountOwnerSharingRule.class);
+    duList.add(new DeploymentUnit(AccountSharingRules.class, accountSharingRuleChilds, "accountSharingRules", "sharingRules") {
+
+      /* 
+       * The entity name is always "Account".
+       */
+      @Override
+      public String getEntityName(String metadataEntry)
+      {
+        return "Account";
+      }
+      
+    });
 
     //    duList.add(new DeploymentUnit("Workflow.WorkflowRule"));
     //    duList.add(new DeploymentUnit("Workflow.WorkflowAlert"));
@@ -143,7 +211,20 @@ public class DeploymentConfiguration
     // TODO 
     //    duList.add(new DeploymentUnit("ExternalDataSource"));
 
-    duList.add(new DeploymentUnit(CustomLabels.class, "labels", "labels"));
+    List<Class<? extends Metadata>> customerLabelChilds = new ArrayList<>();
+    customerLabelChilds.add(CustomLabel.class);
+    duList.add(new DeploymentUnit(CustomLabels.class, customerLabelChilds, "labels", "labels") {
+
+      /* 
+       * The entity name is always "CustomLabels".
+       */
+      @Override
+      public String getEntityName(String metadataEntry)
+      {
+        return "CustomLabels";
+      }
+      
+    });
 
     // -> customer objects
     duList.add(new DeploymentUnit(ReportType.class, "reportTypes"));

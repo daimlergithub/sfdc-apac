@@ -7,9 +7,15 @@
         <feedItemType>EmailMessageEvent</feedItemType>
     </caseFeedItemSettings>
     <closeCaseThroughStatusChange>true</closeCaseThroughStatusChange>
+<<<<<<< HEAD
     <defaultCaseOwner>oliver.koeth@nttdata.com.market</defaultCaseOwner>
     <defaultCaseOwnerType>User</defaultCaseOwnerType>
     <defaultCaseUser>oliver.koeth@nttdata.com.market</defaultCaseUser>
+=======
+    <defaultCaseOwner>SETTING_DEFAULT_CASE_OWNER</defaultCaseOwner>
+    <defaultCaseOwnerType>User</defaultCaseOwnerType>
+    <defaultCaseUser>SETTING_DEFAULT_CASE_USER</defaultCaseUser>
+>>>>>>> b199348b0f247e10dad2553d24ecc269a942a0e7
     <emailToCase>
         <enableEmailToCase>false</enableEmailToCase>
     </emailToCase>
