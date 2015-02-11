@@ -19,7 +19,7 @@ public class CaseEscalationControllerTest {
     @isTest
     static void runTest(){
 
-        User user1 = UtilTestData.createUser('Regional CRM Mgr (S)','BMBS Regional CRM Manager');
+        User user1 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
         system.runAs(user1){
             Test.startTest();
             testCaseEscalationController();

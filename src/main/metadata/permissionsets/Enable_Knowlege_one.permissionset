@@ -24,6 +24,7 @@
         <application>Retail_CRM</application>
         <visible>false</visible>
     </applicationVisibilities>
+	<!-- TODO Commented as part of kernel deployment, dependency on Service Cloud Console apps
     <applicationVisibilities>
         <application>Serivce_Cloud_Console_IB</application>
         <visible>false</visible>
@@ -36,6 +37,7 @@
         <application>Service_Cloud_Console_SSI</application>
         <visible>false</visible>
     </applicationVisibilities>
+	-->
     <applicationVisibilities>
         <application>standard__AppLauncher</application>
         <visible>false</visible>
