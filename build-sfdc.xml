@@ -237,7 +237,7 @@
 	</property>
 	
 	<!-- work in progress -->
-	<target name="retrieveAll">
+	<target name="retrieveAll" depends="init">
 		<!-- retrieves all metadata -->
 		<sf:retrieve
 				debug="${sfdc.debug}" dryRun="false" full="true"
@@ -258,7 +258,7 @@
 	</target>
 
 	<!-- work in progress -->
-	<target name="retrieve">
+	<target name="retrieve" depends="init">
 		<!-- retrieves only changed metadata -->
 		<sf:retrieve
 				debug="${sfdc.debug}" dryRun="false"
