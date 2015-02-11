@@ -65473,10 +65473,10 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <lookupPhoneDialogsAdditionalFields>CASES.SUBJECT</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
         <lookupPhoneDialogsAdditionalFields>CASES.STATUS</lookupPhoneDialogsAdditionalFields>
-		<!-- Todo Commented as part of Kernel deployment
-        <lookupPhoneDialogsAdditionalFields>00N90000006ZqGq</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>00N90000006ZqGr</lookupPhoneDialogsAdditionalFields>
-        <lookupPhoneDialogsAdditionalFields>00N90000006ZqI8</lookupPhoneDialogsAdditionalFields>
+		<!-- TODO Commented as part of kernel deployment
+        <lookupPhoneDialogsAdditionalFields>00N9000000DaxVI</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>00N9000000DaxVJ</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>00N9000000DaxX1</lookupPhoneDialogsAdditionalFields>
 		-->
         <searchResultsAdditionalFields>CASES.CASE_NUMBER</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CASES.SUBJECT</searchResultsAdditionalFields>

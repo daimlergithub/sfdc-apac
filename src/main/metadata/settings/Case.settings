@@ -7,13 +7,9 @@
         <feedItemType>EmailMessageEvent</feedItemType>
     </caseFeedItemSettings>
     <closeCaseThroughStatusChange>true</closeCaseThroughStatusChange>
-	<!-- TODO Commented as part of Kernel Deployment
-    <defaultCaseOwner>hang.su@daimler.com</defaultCaseOwner>
-	-->
+    <defaultCaseOwner>oliver.koeth@nttdata.com.market</defaultCaseOwner>
     <defaultCaseOwnerType>User</defaultCaseOwnerType>
-	<!-- TODO Commented as part of Kernel Deployment
-    <defaultCaseUser>hang.su@daimler.com</defaultCaseUser>
-	-->
+    <defaultCaseUser>oliver.koeth@nttdata.com.market</defaultCaseUser>
     <emailToCase>
         <enableEmailToCase>false</enableEmailToCase>
     </emailToCase>

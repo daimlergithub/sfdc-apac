@@ -30,6 +30,7 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+	<!-- TODO Commented as part of kernel deployment, dependency on Service Cloud Console apps
     <applicationVisibilities>
         <application>Serivce_Cloud_Console_IB</application>
         <default>false</default>
@@ -40,6 +41,7 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+	-->
     <applicationVisibilities>
         <application>standard__AppLauncher</application>
         <default>false</default>

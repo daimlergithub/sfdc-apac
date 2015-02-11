@@ -11,8 +11,8 @@ private class ComplaintDesHelperTest {
 
         String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         String dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        User user1 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
-        User user2 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
+        User user1 = UtilTestData.createUser('Regional CRM Mgr (S)','BMBS Regional CRM Manager');
+        User user2 = UtilTestData.createUser('Regional CRM Mgr (S)','BMBS Regional CRM Manager');
 
 
         system.runAs(user1){
@@ -45,7 +45,7 @@ private class ComplaintDesHelperTest {
     /**
          As the case team member, when a  team member
          create  a complaint description/ resolution on MB Complaint ,
-         and the �Urgent� field of the case is ticked,
+         and the “Urgent” field of the case is ticked,
          an notify email will be sent to other case team members.
     */
     static void test_method_one() {
@@ -57,7 +57,7 @@ private class ComplaintDesHelperTest {
 
     /**
         As the case team member, when a  team member  create  a attachment on MB Complaint ,
-        and the �Urgent� field of the case is ticked,
+        and the “Urgent” field of the case is ticked,
         an notify email will be sent to other case team members.
     */
     static void test_method_two() {

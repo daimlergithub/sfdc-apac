@@ -70,7 +70,6 @@
         <name>EPA_Administration</name>
         <type>CustomApplication</type>
     </appMenuItems>
-
     <appMenuItems>
         <name>Retail_CRM</name>
         <type>CustomApplication</type>

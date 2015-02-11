@@ -51,13 +51,9 @@ trigger UserAfterInsertUpdate on User (after insert, after update) {
     profileIds.add(DealerDelegatedAdmin.Id);
 
     Set<Id> SSIprofileIds = new Set<Id>();
-    if(CACSSIQC!=null)
     SSIprofileIds.add(CACSSIQC.Id);
-    if(CACSSISV!=null)	
     SSIprofileIds.add(CACSSISV.Id);
-    if(CACSSITL!=null)	
     SSIprofileIds.add(CACSSITL.Id);
-    if(CACSSITR!=null)	
     SSIprofileIds.add(CACSSITR.Id);
 
     if(Trigger.isUpdate) {
@@ -86,7 +82,7 @@ trigger UserAfterInsertUpdate on User (after insert, after update) {
         Set<Id> userIds = new Set<Id>();
         Set<Id> userPermissionSetIds = new Set<Id>();
         for(User userNew : Trigger.new) {
-            if(CACSSICSR!=null && CACSSICSR.id == Trigger.oldMap.get(userNew.Id).ProfileId && userNew.ProfileId != Trigger.oldMap.get(userNew.Id).ProfileId && SSIprofileIds!=null && !SSIprofileIds.contains(userNew.ProfileId)) {
+            if(CACSSICSR.id == Trigger.oldMap.get(userNew.Id).ProfileId && userNew.ProfileId != Trigger.oldMap.get(userNew.Id).ProfileId && !SSIprofileIds.contains(userNew.ProfileId)) {
                 userIds.add(userNew.Id);
             }
             if(userNew.Active_Permission_Set__c && userNew.Active_Permission_Set__c != Trigger.oldMap.get(userNew.Id).Active_Permission_Set__c) {
