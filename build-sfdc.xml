@@ -183,7 +183,7 @@
 			<sf:exclude name="Service_Cloud_Console_SSI"/>
 			</sf:typeset>
 			<sf:typeset name="permissionsets"/>			
-			<sf:typeset name="profiles"/>			
+			<sf:typeset name="profiles"/>
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>
@@ -214,7 +214,8 @@
 	</target>
 	
 	<property name="typesets.circle">
-		CustomLabels,StaticResource,CallCenter,CustomTab,ApexClass,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink
+		CustomLabels,StaticResource,CallCenter,CustomTab,ApexClass,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,
+		Workflow,CampaignSharingRules
 	</property>
 	
 	<!-- TODO
@@ -224,7 +225,7 @@
 	CustomObject: default objects not included, PersonAccount in retrieve missing
 	RemoteSiteSetting: only EP integration, adjust in sandbox-specific transformation
 	CustomApplication: check
-	Workflow: a lot of empty workflow files
+	Workflow: a lot of empty workflow files :- Completed
 	AppMenu: check
 	Profile: check
 	PermissionSet: check differences
@@ -237,8 +238,8 @@
 	-->
 	<property name="typesets.not-ready">
 		Role,CustomObject,Layout,
-		CustomApplication,EmailTemplate,Workflow,AppMenu,Profile,PermissionSet,
-		CampaignSharingRules,CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
+		CustomApplication,EmailTemplate,AppMenu,Profile,PermissionSet,
+		CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
 		HomePageComponent,HomePageLayout,RemoteSiteSetting
 	</property>
 	
