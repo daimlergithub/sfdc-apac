@@ -118,6 +118,14 @@
                 <behavior>Required</behavior>
                 <field>ActivityDate</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Required</behavior>
+                <field>StartDateTime</field>
+            </layoutItems>
+			<layoutItems>
+                <behavior>Required</behavior>
+                <field>EndDateTime</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

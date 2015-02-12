@@ -7,9 +7,6 @@
         <feedItemType>EmailMessageEvent</feedItemType>
     </caseFeedItemSettings>
     <closeCaseThroughStatusChange>true</closeCaseThroughStatusChange>
-    <defaultCaseOwner>sukumar.rajashekaran@58demo.org</defaultCaseOwner>
-    <defaultCaseOwnerType>User</defaultCaseOwnerType>
-    <defaultCaseUser>sukumar.rajashekaran@58demo.org</defaultCaseUser>
     <defaultCaseOwner>SETTING_DEFAULT_CASE_OWNER</defaultCaseOwner>
     <defaultCaseOwnerType>User</defaultCaseOwnerType>
     <defaultCaseUser>SETTING_DEFAULT_CASE_USER</defaultCaseUser>
