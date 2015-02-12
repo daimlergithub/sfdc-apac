@@ -2832,7 +2832,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
     <searchLayouts>
         <excludedStandardButtons>NewTask</excludedStandardButtons>
         <excludedStandardButtons>NewEvent</excludedStandardButtons>
-		<!-- TODO Commented as part of Kernel deployment
+		<!-- TODO Commented as part of kernel deployment
         <listViewButtons>Bulk_Assign</listViewButtons>		
         <listViewButtons>Manual_Assign</listViewButtons>
 		-->

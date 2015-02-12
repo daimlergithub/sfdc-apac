@@ -2,7 +2,6 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <customApplicationComponents>
         <alignment>right</alignment>
-		<customApplicationComponent>Console.BuiltInComponent.knowledgeOne</customApplicationComponent>
     </customApplicationComponents>
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>Service Cloud Console for SSI CSR</description>

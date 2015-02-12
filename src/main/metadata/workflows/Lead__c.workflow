@@ -201,7 +201,6 @@ Proxy_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<!-- Add below as part of the kernel -->
     <fieldUpdates>
         <fullName>Update_Proxy_Date_Time_to_First_Contact</fullName>
         <field>Proxy_Date_Time__c</field>
@@ -725,7 +724,6 @@ AND(RecordTypeId == &quot;01290000000rXmO&quot;, Assigned_Dealer__c &lt;&gt; NUL
         <formula>ISPICKVAL(Dealer_Lead_Status__c,&quot;Test Drive&quot;)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-	<!-- Add below to Kernel -->
     <rules>
         <fullName>Update Visited Showroom%28Only Non BDC%29 Date Time</fullName>
         <actions>

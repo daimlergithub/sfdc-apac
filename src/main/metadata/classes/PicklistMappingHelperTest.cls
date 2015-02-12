@@ -98,8 +98,7 @@ public class PicklistMappingHelperTest {
         
         Integration_Picklist__c newIP = new Integration_Picklist__c(Picklist_Mapping__c=newPM.Id, Name='IV', Integration_Only__c=true);
         insert newIP;
-        
-        External_Picklist__c newEP = new External_Picklist__c(Integration_Picklist__c=newIP.Id);
+        External_Picklist__c newEP = new External_Picklist__c(Integration_Picklist__c=newIP.Id,External_Key__c='EP-000001');
         insert newEP;
         
         External_Picklist__c savedEP = [SELECT External_Key__c FROM External_Picklist__c WHERE Id =: newEP.Id];

@@ -30,6 +30,7 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+	<!-- TODO Commented as part of kernel deployment, dependency on Service Cloud Console apps
     <applicationVisibilities>
         <application>Serivce_Cloud_Console_IB</application>
         <default>true</default>
@@ -45,6 +46,7 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+	-->
     <applicationVisibilities>
         <application>standard__AppLauncher</application>
         <default>false</default>
@@ -85,10 +87,11 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+	<!-- TODO Temporarily making the standard console app as default later it will be changed to Service_Cloud_Console_IB app -->
     <applicationVisibilities>
         <application>standard__ServiceConsole</application>
-        <default>false</default>
-        <visible>false</visible>
+        <default>true</default>
+        <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
         <apexClass>AccountHelper</apexClass>
@@ -220,6 +223,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignHelperTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CampaignHistoryLog_TestClass</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -4980,19 +4987,19 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DM_Request__c.Actual_DM_Material1__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DM_Request__c.Actual_DM_Material2__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DM_Request__c.Actual_DM_Material3__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5188,36 +5195,36 @@
         <editable>true</editable>
         <field>Dealer_Offering__c.Session_Start_Date__c</field>
         <readable>true</readable>
-    </fieldPermissions>    
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.Confirmed__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.Dealer__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.EpRunId__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.Failed__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.Invalid__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.ObjectName__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5369,7 +5376,56 @@
         <field>EpAdapterUnitOfWork__c.EPA_Transaction_IDs__c</field>
         <readable>false</readable>
     </fieldPermissions>
-
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EpAdapterUnitOfWork__c.Error_Message__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EpAdapterUnitOfWork__c.NumDmlRecords__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EpAdapterUnitOfWork__c.NumDmlStatements__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EpAdapterUnitOfWork__c.NumSoqlQueries__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EpAdapterUnitOfWork__c.NumSoqlRecords__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EpAdapterUnitOfWork__c.RunTime__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EpAdapterUnitOfWork__c.Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EpAdapterUnitOfWork__c.TriggeredDateTime__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>EpAdapterUnitOfWork__c.Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>External_Picklist__c.External_System__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>External_Picklist__c.Integration_Picklist_External_Key__c</field>
@@ -5377,8 +5433,8 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Integration_Picklist__c.External_Key__c</field>
-        <readable>true</readable>
+        <field>External_Picklist__c.Picklist_Mapping__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -5395,7 +5451,6 @@
         <field>Integration_Picklist__c.Picklist_Value__c</field>
         <readable>false</readable>
     </fieldPermissions>
-
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Accepted_Date_Time__c</field>
@@ -6384,6 +6439,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Picklist_Mapping__c.Field_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Picklist_Mapping__c.Integration_Only__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Picklist_Mapping__c.Object_Name__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7728,6 +7793,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Retail_Campaign__c.Region_Recommendation__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Retail_Campaign__c.Region__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8809,6 +8879,26 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>SSI__c.VehicleCBUCKD__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>SSI__c.VehicleDesc__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>SSI__c.VehicleID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>SSI__c.VehicleModel__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>SSI__c.VehicleUSvin__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10622,6 +10712,9 @@
         <layout>External_Picklist__c-External Picklist Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Global-Global Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Integration_Picklist__c-Integration Picklist Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -11098,7 +11191,6 @@
         <object>Dealer_Offering__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
@@ -11106,15 +11198,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Lead__c</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>Order</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>

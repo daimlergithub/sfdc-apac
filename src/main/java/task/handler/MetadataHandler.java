@@ -363,7 +363,7 @@ public class MetadataHandler
     
   }
 
-  public void removeNotcontainedMetadata(final Map<String, List<String>> metadata)
+  public void removeNotcontainedMetadata(final Map<String, List<String>> metadata, final Set<String> objects, final boolean cleanupOther)
   {
     // delete everything which was not retrieved
     File baseDir = new File(metadataRoot);
@@ -391,7 +391,7 @@ public class MetadataHandler
 //            logWrapper.log(String.format("No du for path: %s", pathname.getName()));
 //          }
           
-          if (null == du || !typeOrChildrenInMetadata(metadata, du)) {
+          if (null == du || ((cleanupOther || typeOrChildrenInObjects(objects, du)) && !typeOrChildrenInObjects(metadata.keySet(), du))) {
             try {
               logWrapper.log(String.format("Delete directory: %s.", pathname.getName()));
               
@@ -405,6 +405,8 @@ public class MetadataHandler
             }
             
             return false;
+          } else {
+            return typeOrChildrenInObjects(objects, du);
           }
         } else if (pathname.isFile()) {
           if (!"package.xml".equals(pathname.getName())) {
@@ -466,13 +468,13 @@ public class MetadataHandler
     return entities;
   }
 
-  private boolean typeOrChildrenInMetadata(Map<String, List<String>> metadata, DeploymentUnit du)
+  private boolean typeOrChildrenInObjects(Set<String> objects, DeploymentUnit du)
   {
     List<String> any = new ArrayList<>(du.getChildNames());
     any.add(du.getTypeName());
     
     for (String name : any) {
-      if (metadata.keySet().contains(name)) {
+      if (objects.contains(name)) {
         return true;
       }
     }

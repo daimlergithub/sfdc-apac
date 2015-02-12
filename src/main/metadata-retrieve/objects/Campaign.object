@@ -12923,7 +12923,7 @@ IsActive = True
         <masterLabel>Create CAC Campaign</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01290000000rXlr&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}</url>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>
@@ -12934,7 +12934,7 @@ IsActive = True
         <masterLabel>Create Complex Execution</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01290000000rXlu&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}</url>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_COMPLEX_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Simple_Execution</fullName>
@@ -12945,7 +12945,7 @@ IsActive = True
         <masterLabel>Create Simple Execution</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01290000000rXlt&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}</url>
+        <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=OBJECT_CAMPAIGN_WEBLINK_SIMPLE_EXECUTION_RECORD_TYPE_ID&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>De_Dup</fullName>

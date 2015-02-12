@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<CaseSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><CaseSettings xmlns="http://soap.sforce.com/2006/04/metadata">
     <caseAssignNotificationTemplate>unfiled$public/SupportCaseAssignmentNotification</caseAssignNotificationTemplate>
     <caseCreateNotificationTemplate>unfiled$public/SupportCaseCreatedPhoneInquiries</caseCreateNotificationTemplate>
     <caseFeedItemSettings>
@@ -9,9 +8,9 @@
         <feedItemType>EmailMessageEvent</feedItemType>
     </caseFeedItemSettings>
     <closeCaseThroughStatusChange>true</closeCaseThroughStatusChange>
-    <defaultCaseOwner>oliver.koeth@nttdata.com.market</defaultCaseOwner>
+    <defaultCaseOwner>SETTING_DEFAULT_CASE_OWNER</defaultCaseOwner>
     <defaultCaseOwnerType>User</defaultCaseOwnerType>
-    <defaultCaseUser>oliver.koeth@nttdata.com.market</defaultCaseUser>
+    <defaultCaseUser>SETTING_DEFAULT_CASE_USER</defaultCaseUser>
     <emailToCase>
         <enableEmailToCase>false</enableEmailToCase>
     </emailToCase>
