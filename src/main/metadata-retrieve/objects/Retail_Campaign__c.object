@@ -2353,7 +2353,7 @@
         <referenceTo>Account</referenceTo>
         <relationshipName>Retail_Campaigns</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -9338,7 +9338,7 @@ if ((Modal.confirm &amp;&amp; Modal.confirm('如果你提交这条申请记录�
 
 //var qr1 = sforce.connection.query("select id,  Retail_AMG_Owner__c, Ownerid, Retail_AS_Owner__c, Retail_Star_Elite_Owner__c, Retail_MB_Owner__c, Retail_smart_Owner__c from Account where id = '"+'{! Retail_Campaign__c.Dealer_NameId__c }' +"'") ; 
 
-var callList = new sforce.SObject("oliverkoethap1__Retail_Campaign__c"); 
+var callList = new sforce.SObject("Retail_Campaign__c"); 
 callList.Id = '{!Retail_Campaign__c.Id}'; 
 
 var campaignUpdate = new Array(); 
@@ -9683,7 +9683,7 @@ if('{!Retail_Campaign__c.Apply_Status__c}'!='Approved' || '{!Retail_Campaign__c.
 if('{!Retail_Campaign__c.Y_Status__c}'=='Planned' || '{!Retail_Campaign__c.Y_Status__c}'=='Need Modify'){ 
 
 var errorMessage = ''; 
-var qr = sforce.connection.query("Select Id,RecordTypeId From oliverkoethap1__Retail_Campaign__c Where id = '{!Retail_Campaign__c.Id}'"); 
+var qr = sforce.connection.query("Select Id,RecordTypeId From Retail_Campaign__c Where id = '{!Retail_Campaign__c.Id}'"); 
 
 var RTname = sforce.connection.query("Select name From RecordType Where id = " + "'" + qr.records.RecordTypeId + "'"); 
 
@@ -9714,9 +9714,9 @@ if(errorMessage != '')
 { 
 alert(errorMessage); 
 }else if ((Modal.confirm &amp;&amp; Modal.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？'))) { 
-var callList = new sforce.SObject("oliverkoethap1__Retail_Campaign__c"); 
+var callList = new sforce.SObject("Retail_Campaign__c"); 
 callList.Id = '{!Retail_Campaign__c.Id}'; 
-callList.oliverkoethap1__Y_Status__c = "Confirmed"; 
+callList.Y_Status__c = "Confirmed"; 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
 var callCompleted = false; 

@@ -71,7 +71,9 @@ public class ChangeText extends Transformation {
     if ((null != token) && StringUtils.isNotEmpty(value)) {
       throw new BuildException("Only token or the value of the transformation changetext can be set, but not both at the same time.");
     }
-    
+    if (StringUtils.isNotEmpty(value) && isDeploy() && isRetrieve()) {
+      throw new BuildException("The transformation changetext cannot be used with a value for deploy and retrieve at the same time. Set one of the operations to false.");
+    }
     if (null != token) {
       token.validate();
     }
@@ -110,7 +112,7 @@ public class ChangeText extends Transformation {
           // regular token or value
           newValue = replacement;
           
-          logWrapper.log(String.format("Change text from %s to %s.", txt, replacement));
+          logWrapper.log(String.format("Change text from %s to %s.", txt, newValue));
         }
         
         n.setNodeValue(newValue);
@@ -129,27 +131,37 @@ public class ChangeText extends Transformation {
   {
     XPath xPath = XPathFactory.newInstance().newXPath();
     
-    // TODO check and fix whole implementation
-    String replacement = tokenMappings.get(token.getText());
+    // value or token?
+    String replacement = null;
+    if (null != token) {
+      replacement = token.getText();
+    } else {
+      replacement = value;
+    }
     
     try {
       NodeList nodes = (NodeList)xPath.evaluate(xpath, document.getDocumentElement(), XPathConstants.NODESET);
       for (int i = 0; i < nodes.getLength(); ++i) {
         Node n = nodes.item(i);
         
+        if (Node.TEXT_NODE != n.getNodeType()) {
+          throw new BuildException(String.format("The node type selected by xpath %s is not a text node.", xpath));
+        }
+        
         String txt = n.getTextContent();
         
         String newValue = null;
-        if (token.isTokenOnly()) {
-          String tokenText = String.format("${%s}", token.getText());
-          newValue = txt.replace(tokenText, replacement);
-          
-          logWrapper.log(String.format("Replace token %s with %s.", tokenText, replacement));
-        } else {
-          newValue = token.getText();
-          
-          logWrapper.log(String.format("Change text from %s to %s.", txt, replacement));
-        }
+        if (null != token && token.isTokenOnly()) {
+            String valueToReplace = tokenMappings.get(token.getText());
+            
+            newValue = txt.replaceAll(valueToReplace, replacement);
+            
+            logWrapper.log(String.format("Replace %s with token %s.", valueToReplace, replacement));
+          } else {
+            newValue = replacement;
+            
+            logWrapper.log(String.format("Change text from %s to %s.", txt, newValue));
+          }
         
         n.setNodeValue(newValue);
       }

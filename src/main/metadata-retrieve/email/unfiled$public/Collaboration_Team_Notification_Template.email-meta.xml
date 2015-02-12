@@ -4,6 +4,11 @@
     <available>true</available>
     <encodingKey>UTF-8</encodingKey>
     <name>Collaboration Team Notification Template</name>
+    <packageVersions>
+        <majorNumber>1</majorNumber>
+        <minorNumber>6</minorNumber>
+        <namespace>sf_com_apps</namespace>
+    </packageVersions>
     <style>none</style>
     <subject>You are added to the collaboration team of campaign</subject>
     <type>visualforce</type>

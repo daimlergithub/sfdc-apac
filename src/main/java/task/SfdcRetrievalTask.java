@@ -41,6 +41,7 @@ public class SfdcRetrievalTask
   private Set<String> objects;
   private String timestamps;
   private boolean full;
+  private boolean cleanupOther;
   private String transformationsRoot;
 
   private UpdateStampHandler updateStampHandler;
@@ -57,6 +58,8 @@ public class SfdcRetrievalTask
     metadataHandler = new MetadataHandler();
     zipFileHandler = new ZipFileHandler();
     transformationHandler = new TransformationHandler();
+    
+    cleanupOther = true;
   }
 
   public void setUsername(String username)
@@ -119,6 +122,11 @@ public class SfdcRetrievalTask
     this.full = full;
   }
   
+  public void setCleanupOther(boolean cleanupOther)
+  {
+    this.cleanupOther = cleanupOther;
+  }
+
   public void setTransformationsRoot(String transformationsRoot)
   {
     this.transformationsRoot = transformationsRoot;
@@ -166,7 +174,7 @@ public class SfdcRetrievalTask
     zipFileHandler.extractZipFile(retrieveRoot, zipFile);
     
     if (full) {
-      metadataHandler.removeNotcontainedMetadata(metadata2Update);
+      metadataHandler.removeNotcontainedMetadata(metadata2Update, objects, cleanupOther);
     }
     // TODO think about saving the timestamps
   }
