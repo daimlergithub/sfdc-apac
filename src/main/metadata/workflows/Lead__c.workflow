@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
         <fullName>Email_notification_when_customer_doesn_t_allow_dealer_contact</fullName>
-        <description>Email notification when customer doesn&apos;t allow dealer contact</description>
+        <description>Email notification when customer doesn't allow dealer contact</description>
         <protected>false</protected>
         <recipients>
             <type>owner</type>
@@ -19,7 +18,7 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_interested_vehicle_have_changed</template>
-    </alerts>	
+    </alerts>
     <alerts>
         <fullName>Email_notification_when_no_status_is_updated_more_than_10_days</fullName>
         <description>Email notification when no status is updated more than 10 days</description>
@@ -30,7 +29,7 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>Lead_Email_Template/Email_notification_when_no_status_is_updated_more_than_10_days</template>
-    </alerts>	
+    </alerts>
     <alerts>
         <fullName>Email_notification_when_no_status_is_updated_more_than_5_days</fullName>
         <description>Email notification when no status is updated more than 5 days</description>
@@ -374,22 +373,13 @@ Proxy_Date_Time__c
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <formula>AND(
-NOT(ISBLANK(Assigned_Date_Time__c)),
-Dealer_LMS__c = &apos;No&apos;,
-RecordType.Name = &apos;Sales Leads&apos;,
-OR(
-ISCHANGED(Interested_Vehicle_Brand__c), 
-ISCHANGED(Interested_Vehicle_Class__c), 
-ISCHANGED(Interested_Vehicle_Model__c)
-)
-)</formula>
+        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), Dealer_LMS__c = 'No', RecordType.Name = 'Sales Leads', OR( ISCHANGED(Interested_Vehicle_Brand__c),  ISCHANGED(Interested_Vehicle_Class__c),  ISCHANGED(Interested_Vehicle_Model__c) ) )</formula>
         <triggerType>onAllChanges</triggerType>
-    </rules>	
+    </rules>
     <rules>
         <fullName>Email notification when no status is updated more than 10 days</fullName>
         <active>true</active>
-        <formula>AND ( ISBLANK(Proxy_Date_Time__c), RecordTypeId ==&apos;012O00000004Wxm&apos; )</formula>
+        <formula>AND ( ISBLANK(Proxy_Date_Time__c), RecordTypeId =='012O00000004Wxm' )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -400,11 +390,11 @@ ISCHANGED(Interested_Vehicle_Model__c)
             <timeLength>10</timeLength>
             <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
         </workflowTimeTriggers>
-    </rules>	
+    </rules>
     <rules>
         <fullName>Email notification when no status is updated more than 5 days</fullName>
         <active>true</active>
-        <formula>AND ( ISBLANK(Proxy_Date_Time__c), RecordTypeId ==&apos;012O00000004Wxm&apos; )</formula>
+        <formula>AND ( ISBLANK(Proxy_Date_Time__c), RecordTypeId =='012O00000004Wxm' )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -423,12 +413,7 @@ ISCHANGED(Interested_Vehicle_Model__c)
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <formula>AND(
-NOT(ISBLANK(Assigned_Date_Time__c)),
-ISCHANGED(Purchase_Time__c),
-RecordType.Name = &apos;Sales Leads&apos;,
-Dealer_LMS__c = &apos;No&apos;
-)</formula>
+        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c), RecordType.Name = 'Sales Leads', Dealer_LMS__c = 'No' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -438,7 +423,7 @@ Dealer_LMS__c = &apos;No&apos;
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <formula>AND(  CONTAINS( $Profile.Name , &apos;Dealer&apos;),  OR(    ISCHANGED(Lead_Desired_Service__c),    ISCHANGED(Dealer_Lead_Status__c),    ISCHANGED(Lead_Type__c),    ISCHANGED(Lead_Sub_Type__c),    ISCHANGED(First_Contact_Customer_Date__c ),    ISCHANGED(Lead_Additional_Service__c),    ISCHANGED(Purchased_Date__c),    ISCHANGED(Dealer_Comments__c),    ISCHANGED(Purchase_Time__c),    ISCHANGED(Interested_Vehicle_Brand__c),    ISCHANGED(Interested_Vehicle_Class__c),    ISCHANGED(Interested_Vehicle_Model__c),    ISCHANGED(Test_Drive_Date__c),    ISCHANGED(Feedback_To_MB_Call_Center__c)  ) )</formula>
+        <formula>AND(  CONTAINS( $Profile.Name , 'Dealer'),  OR(    ISCHANGED(Lead_Desired_Service__c),    ISCHANGED(Dealer_Lead_Status__c),    ISCHANGED(Lead_Type__c),    ISCHANGED(Lead_Sub_Type__c),    ISCHANGED(First_Contact_Customer_Date__c ),    ISCHANGED(Lead_Additional_Service__c),    ISCHANGED(Purchased_Date__c),    ISCHANGED(Dealer_Comments__c),    ISCHANGED(Purchase_Time__c),    ISCHANGED(Interested_Vehicle_Brand__c),    ISCHANGED(Interested_Vehicle_Class__c),    ISCHANGED(Interested_Vehicle_Model__c),    ISCHANGED(Test_Drive_Date__c),    ISCHANGED(Feedback_To_MB_Call_Center__c)  ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -526,7 +511,7 @@ Dealer_LMS__c = &apos;No&apos;
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,&quot;Contact Failed For 3 Days(Only Non BDC)&quot;)</formula>
+        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -554,7 +539,7 @@ Dealer_LMS__c = &apos;No&apos;
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,&quot;First Contact Customer&quot;)</formula>
+        <formula>ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -575,7 +560,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-        <formula>ISPICKVAL(CAC_Lead_Status__c , &quot;Qualified&quot;)</formula>
+        <formula>ISPICKVAL(CAC_Lead_Status__c , "Qualified")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -603,7 +588,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,&quot;Lost(Dealer)&quot;)</formula>
+        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -613,7 +598,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,&quot;Order Placed&quot;)</formula>
+        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Order Placed")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -641,7 +626,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,&quot;Purchased(Only Non BDC)&quot;)</formula>
+        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -673,13 +658,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-        <formula>AND(
-RecordTypeId == &quot;01290000000rXmP&quot;, 
-Need_Assign_To_Dealer__c == &quot;Need&quot;, 
-Assigned_Dealer__c &lt;&gt; NULL, 
-Dealer_LMS__c == &quot;Yes&quot;, 
-ISPICKVAL(CAC_Lead_Status__c,&quot;Qualified&quot;)
-)</formula>
+        <formula>AND( RecordTypeId == "01290000000rXmP",  Need_Assign_To_Dealer__c == "Need",  Assigned_Dealer__c &lt;&gt; NULL,  Dealer_LMS__c == "Yes",  ISPICKVAL(CAC_Lead_Status__c,"Qualified") )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -708,10 +687,7 @@ ISPICKVAL(CAC_Lead_Status__c,&quot;Qualified&quot;)
         <description>Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-14) 
 Function: update assigned date, recieved data and accepted date to now, and status to Accepted when Dealer LMS is No, Is Qualified is Qualified and Prefer Dealer is not null</description>
-        <formula>OR( 
-AND(RecordTypeId == &quot;01290000000rXmP&quot;, Need_Assign_To_Dealer__c == &quot;Need&quot;, Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == &quot;No&quot;, Owner:Queue.Id &lt;&gt; &quot;00G90000001WVWA&quot;, ISPICKVAL(CAC_Lead_Status__c,&quot;Qualified&quot;) ), 
-AND(RecordTypeId == &quot;01290000000rXmO&quot;, Assigned_Dealer__c &lt;&gt; NULL, Owner:Queue.Id &lt;&gt; &quot;00G90000001WVWA&quot;, ISPICKVAL(CAC_Lead_Status__c,&quot;Qualified&quot;) ) 
-)</formula>
+        <formula>OR(  AND(RecordTypeId == "01290000000rXmP", Need_Assign_To_Dealer__c == "Need", Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == "No", Owner:Queue.Id &lt;&gt; "00G90000001WVWA", ISPICKVAL(CAC_Lead_Status__c,"Qualified") ),  AND(RecordTypeId == "01290000000rXmO", Assigned_Dealer__c &lt;&gt; NULL, Owner:Queue.Id &lt;&gt; "00G90000001WVWA", ISPICKVAL(CAC_Lead_Status__c,"Qualified") )  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -721,7 +697,7 @@ AND(RecordTypeId == &quot;01290000000rXmO&quot;, Assigned_Dealer__c &lt;&gt; NUL
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,&quot;Test Drive&quot;)</formula>
+        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Test Drive")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
@@ -735,7 +711,7 @@ AND(RecordTypeId == &quot;01290000000rXmO&quot;, Assigned_Dealer__c &lt;&gt; NUL
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom&quot;)</formula>
+        <formula>ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>

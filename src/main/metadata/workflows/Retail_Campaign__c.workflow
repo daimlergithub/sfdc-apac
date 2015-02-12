@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>Apply_Status_Approved</fullName>
         <field>Apply_Status__c</field>
         <literalValue>Approved</literalValue>
@@ -9,7 +9,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>Apply_Status_Cancel_Application</fullName>
         <field>Apply_Status__c</field>
         <literalValue>Cancel Application</literalValue>
@@ -18,7 +18,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>Apply_Status_Cancelled</fullName>
         <field>Apply_Status__c</field>
         <literalValue>Cancelled</literalValue>
@@ -27,7 +27,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>Apply_Status_Confirmed</fullName>
         <field>Apply_Status__c</field>
         <literalValue>Confirmed</literalValue>
@@ -37,7 +37,7 @@
         <protected>false</protected>
         <reevaluateOnChange>true</reevaluateOnChange>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>Apply_Status_Need_Modify</fullName>
         <field>Apply_Status__c</field>
         <literalValue>Need Modify</literalValue>
@@ -45,8 +45,8 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
-    </fieldUpdates> 
-	<fieldUpdates>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Feedback_Status_Approved</fullName>
         <field>Feedback_Status__c</field>
         <literalValue>Approved</literalValue>
@@ -90,7 +90,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
-    </fieldUpdates> 	
+    </fieldUpdates>
     <rules>
         <fullName>Submit Date Updated</fullName>
         <actions>
@@ -164,7 +164,7 @@
         <protected>false</protected>
         <status>Open</status>
         <subject>Activities of your revocation request has been rejected</subject>
-    </tasks>	
+    </tasks>
     <tasks>
         <fullName>Please_note_that_your_feedback_Application_of_Campaign_has_been_Approved_by_Regi</fullName>
         <assignedToType>owner</assignedToType>

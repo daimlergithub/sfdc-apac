@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>Apply_Status_Approved</fullName>
         <field>Apply_Status__c</field>
         <literalValue>Approved</literalValue>
@@ -9,7 +9,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>Apply_Status_Approved_Forcancel</fullName>
         <field>Apply_Status__c</field>
         <literalValue>Approved</literalValue>
@@ -27,7 +27,7 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<fieldUpdates>
+    <fieldUpdates>
         <fullName>Apply_Status_Cancel_Application</fullName>
         <field>Apply_Status__c</field>
         <literalValue>Cancel Application</literalValue>
