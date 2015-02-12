@@ -1,3 +1,4 @@
+setenv.sh
 build.properties
 timestamps.log
 timestamps-updated.log
