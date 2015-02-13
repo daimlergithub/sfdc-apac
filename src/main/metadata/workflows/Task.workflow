@@ -32,7 +32,7 @@
         <criteriaItems>
             <field>Task.CallType</field>
             <operation>equals</operation>
-            <value>呼入,呼出</value>
+            <value>Inbound, outbound</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

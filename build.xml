@@ -215,7 +215,7 @@
 	
 	<property name="typesets.circle">
 		CustomLabels,StaticResource,CallCenter,CustomTab,ApexClass,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,
-		Workflow,CampaignSharingRules
+		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu
 	</property>
 	
 	<!-- TODO
@@ -238,7 +238,7 @@
 	-->
 	<property name="typesets.not-ready">
 		Role,CustomObject,Layout,
-		CustomApplication,EmailTemplate,AppMenu,Profile,PermissionSet,
+		Profile,PermissionSet,
 		CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
 		HomePageComponent,HomePageLayout,RemoteSiteSetting
 	</property>
