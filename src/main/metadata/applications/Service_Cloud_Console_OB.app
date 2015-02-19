@@ -2,7 +2,6 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <customApplicationComponents>
         <alignment>right</alignment>
-		<customApplicationComponent>Console.BuiltInComponent.knowledgeOne</customApplicationComponent>
     </customApplicationComponents>
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>Service Cloud Console for Outbound CSR</description>
@@ -118,6 +117,11 @@
             <action>HOTKEYS_PANEL</action>
             <active>false</active>
             <keyCommand>SHIFT+K</keyCommand>
+        </defaultShortcut>
+        <defaultShortcut>
+            <action>FOCUS_MACRO</action>
+            <active>false</active>
+            <keyCommand>M</keyCommand>
         </defaultShortcut>
     </keyboardShortcuts>
     <label>Service Cloud Console OB</label>

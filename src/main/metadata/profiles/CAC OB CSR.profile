@@ -30,6 +30,7 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+	<!-- TODO Commented as part of kernel deployment, dependency on Service Cloud Console apps
     <applicationVisibilities>
         <application>Serivce_Cloud_Console_IB</application>
         <default>false</default>
@@ -45,6 +46,7 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+	-->
     <applicationVisibilities>
         <application>standard__AppLauncher</application>
         <default>false</default>
@@ -85,10 +87,11 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
+	<!-- TODO Temporarily making the standard console app as default later it will be changed to Service_Cloud_Console_OB app -->
     <applicationVisibilities>
         <application>standard__ServiceConsole</application>
-        <default>false</default>
-        <visible>false</visible>
+        <default>true</default>
+        <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
         <apexClass>AccountHelper</apexClass>

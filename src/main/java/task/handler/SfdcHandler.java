@@ -56,7 +56,7 @@ public class SfdcHandler
   private boolean useProxy;
   private String proxyHost;
   private int proxyPort;
-  private UpdateStampHandler updateStampHandler;
+  private BaseUpdateHandler<?> updateHandler;
 
   public SfdcHandler()
   {
@@ -74,7 +74,7 @@ public class SfdcHandler
                          boolean useProxy,
                          String proxyHost,
                          int proxyPort,
-                         UpdateStampHandler updateStampHandler)
+                         BaseUpdateHandler<?> updateStampHandler)
   {
     this.logWrapper = logWrapper;
     this.maxPoll = maxPoll;
@@ -85,14 +85,14 @@ public class SfdcHandler
     this.useProxy = useProxy;
     this.proxyHost = proxyHost;
     this.proxyPort = proxyPort;
-    this.updateStampHandler = updateStampHandler;
+    this.updateHandler = updateStampHandler;
     
     validate();
   }
 
   private void validate()
   {
-    if (null == logWrapper || null == updateStampHandler || null == serverurl || null == username || null == password) {
+    if (null == logWrapper || null == updateHandler || null == serverurl || null == username || null == password) {
       throw new BuildException("SfdcHandler is not properly initialized.");
     }
   }
@@ -143,7 +143,7 @@ public class SfdcHandler
                                          du.getTypeName(),
                                          Arrays.toString(info.getEntityNames().toArray(new String[0]))));
           }
-          updateStampHandler.updateTimestamp(infos);
+          updateHandler.updateTimestamp(infos);
         }
         else {
           logWrapper.log(String.format("Error %s: %s.",
@@ -221,75 +221,6 @@ public class SfdcHandler
     }
 
     return new MetadataConnection(mConfig);
-  }
-
-  // TODO seems similar to #getUpdateStamps
-  public Map<String, List<String>> extractMetadata(Set<String> objects)
-  {
-    Map<String, List<String>> result = new HashMap<>();
-
-    logWrapper.log("Collect available metadata.");
-    
-    try {
-      SfdcConnectionContext context = login();
-
-      DescribeMetadataResult describeMetadata = context.getMConnection().describeMetadata(VERSION);
-      for (DescribeMetadataObject object : describeMetadata.getMetadataObjects()) {
-        // only consider specified objects
-        if (!objects.contains(object.getXmlName())) {
-          continue;
-        }
-
-        // TODO logWrapper.log(String.format("Type: %s", object.getXmlName()));
-
-        Map<String, List<FileProperties>> filePropertiesMap = listMetadata(context.getMConnection(), object);
-
-        result.putAll(filterOutExcludes(filePropertiesMap));
-      }
-      context.getEConnection().logout();
-
-      return result;
-    }
-    catch (ConnectionException e) {
-
-      e.printStackTrace();
-
-      throw new BuildException(String.format("Error Connecting to SFDC: %s.", e.getMessage()), e);
-    }
-  }
-
-  private Map<String, List<String>> filterOutExcludes(Map<String, List<FileProperties>> filePropertiesMap)
-  {
-    Map<String, List<String>> result = new HashMap<>();
-
-    for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
-      String name = entry.getKey();
-
-      List<String> fullNames = new ArrayList<>();
-      for (FileProperties properties : entry.getValue()) {
-        boolean toExclude = false;
-        // TODO fix child filtering
-        //        String qualifiedName = String.format("%s/%s", name, properties.getFullName());
-        //        for (String exclude : excludes) {
-        //          if (qualifiedName.matches(exclude)) {
-        //            toExclude = true;
-        //            break;
-        //          }
-        //        }
-        if (toExclude) {
-          logWrapper.log(String.format("Filtered out: %s Objects: %s", name, properties.getFullName()));
-        }
-        else {
-          fullNames.add(properties.getFullName());
-        }
-      }
-
-      if (!fullNames.isEmpty()) {
-        result.put(name, fullNames);
-      }
-
-    }
-    return result;
   }
 
   private Map<String, List<FileProperties>> listMetadata(final MetadataConnection mConnection,
@@ -472,10 +403,9 @@ public class SfdcHandler
     }
   }
 
-  // TODO seems similar to #extractMetadata
-  public Map<String, Long> getUpdateStamps(Set<String> objects)
+  public Map<String, Map<String, Long>> getUpdateStamps(Set<String> objects)
   {
-    Map<String, Long> result = new HashMap<>();
+    Map<String, Map<String, Long>> result = new HashMap<>();
 
     logWrapper.log("Get update stamps.");
     
@@ -494,11 +424,11 @@ public class SfdcHandler
         Map<String, List<FileProperties>> filePropertiesMap = listMetadata(context.getMConnection(), object);
 
         for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
+          Map<String, Long> entryMap = new HashMap<>();
           for (FileProperties properties : entry.getValue()) {
-            // TODO logWrapper.log(properties.toString());
-            
-            result.put(String.format("%s/%s", entry.getKey(), properties.getFullName()), properties.getLastModifiedDate().getTimeInMillis());
+            entryMap.put(properties.getFullName(), properties.getLastModifiedDate().getTimeInMillis());
           }
+          result.put(entry.getKey(), entryMap);
         }
       }
       context.getEConnection().logout();
@@ -506,9 +436,6 @@ public class SfdcHandler
       return result;
     }
     catch (ConnectionException e) {
-
-      e.printStackTrace();
-
       throw new BuildException(String.format("Error Connecting to SFDC: %s.", e.getMessage()), e);
     }
   }

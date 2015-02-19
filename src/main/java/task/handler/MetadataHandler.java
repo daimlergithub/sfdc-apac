@@ -18,8 +18,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.swing.plaf.ListUI;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
@@ -43,9 +41,9 @@ public class MetadataHandler
   private LogWrapper logWrapper;
   private String metadataRoot;
   private boolean debug;
-  private UpdateStampHandler updateStampHandler;
+  private BaseUpdateHandler<?> updateStampHandler;
 
-  public void initialize(LogWrapper logWrapper, String metadataRoot, boolean debug, UpdateStampHandler updateStampHandler)
+  public void initialize(LogWrapper logWrapper, String metadataRoot, boolean debug, BaseUpdateHandler<?> updateStampHandler)
   {
     this.logWrapper = logWrapper;
     this.metadataRoot = metadataRoot;
@@ -248,10 +246,14 @@ public class MetadataHandler
   {
     // debugging
     if (debug) {
+      String fileName = "metadata-" + System.currentTimeMillis() + ".xml";
+      
       logWrapper.log(String.format("Save metadata."));
   
       try {
-        File metadataXml = new File("tmp", "metadata-" + System.currentTimeMillis() + ".xml");
+        File tmpDir = new File("tmp");
+        tmpDir.mkdirs();
+        File metadataXml = new File(tmpDir, fileName);
         FileOutputStream fos = new FileOutputStream(metadataXml);
         fos.write(packageXml);
         fos.close();
@@ -363,7 +365,7 @@ public class MetadataHandler
     
   }
 
-  public void removeNotcontainedMetadata(final Map<String, List<String>> metadata)
+  public void removeNotcontainedMetadata(final Map<String, List<String>> metadata, final Set<String> objects, final boolean cleanupOther)
   {
     // delete everything which was not retrieved
     File baseDir = new File(metadataRoot);
@@ -391,7 +393,7 @@ public class MetadataHandler
 //            logWrapper.log(String.format("No du for path: %s", pathname.getName()));
 //          }
           
-          if (null == du || !typeOrChildrenInMetadata(metadata, du)) {
+          if (null == du || ((cleanupOther || typeOrChildrenInObjects(objects, du)) && !typeOrChildrenInObjects(metadata.keySet(), du))) {
             try {
               logWrapper.log(String.format("Delete directory: %s.", pathname.getName()));
               
@@ -405,6 +407,8 @@ public class MetadataHandler
             }
             
             return false;
+          } else {
+            return typeOrChildrenInObjects(objects, du);
           }
         } else if (pathname.isFile()) {
           if (!"package.xml".equals(pathname.getName())) {
@@ -466,13 +470,13 @@ public class MetadataHandler
     return entities;
   }
 
-  private boolean typeOrChildrenInMetadata(Map<String, List<String>> metadata, DeploymentUnit du)
+  private boolean typeOrChildrenInObjects(Set<String> objects, DeploymentUnit du)
   {
     List<String> any = new ArrayList<>(du.getChildNames());
     any.add(du.getTypeName());
     
     for (String name : any) {
-      if (metadata.keySet().contains(name)) {
+      if (objects.contains(name)) {
         return true;
       }
     }

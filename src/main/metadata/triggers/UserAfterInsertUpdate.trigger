@@ -26,12 +26,12 @@ trigger UserAfterInsertUpdate on User (after insert, after update) {
     Profile CACSSITL = null;
     Profile CACSSITR = null;
 
-    Set<String> profileNames = new set<String> {'Dealer Community User','Dealer Community Delegate Admin',
+    Set<String> profileNames = new set<String> {'Dealer Community User','Dealer Delegate Admin',
                                                 'CAC SSI CSR','CAC SSI QC','CAC SSI SV','CAC SSI TL','CAC SSI Trainer'};
     for (Profile pro : [select Id, Name from Profile where Name in :profileNames]) {
         if (pro.Name == 'Dealer Community User') {
             DealerCommunityUser = pro;
-        } else if (pro.Name == 'Dealer Community Delegate Admin') {
+        } else if (pro.Name == 'Dealer Delegate Admin') {
             DealerDelegatedAdmin = pro;
         } else if (pro.Name == 'CAC SSI CSR') {
             CACSSICSR = pro;
@@ -51,9 +51,13 @@ trigger UserAfterInsertUpdate on User (after insert, after update) {
     profileIds.add(DealerDelegatedAdmin.Id);
 
     Set<Id> SSIprofileIds = new Set<Id>();
+    if(CACSSIQC!=null)
     SSIprofileIds.add(CACSSIQC.Id);
+    if(CACSSISV!=null)	
     SSIprofileIds.add(CACSSISV.Id);
+    if(CACSSITL!=null)	
     SSIprofileIds.add(CACSSITL.Id);
+    if(CACSSITR!=null)	
     SSIprofileIds.add(CACSSITR.Id);
 
     if(Trigger.isUpdate) {
@@ -82,7 +86,7 @@ trigger UserAfterInsertUpdate on User (after insert, after update) {
         Set<Id> userIds = new Set<Id>();
         Set<Id> userPermissionSetIds = new Set<Id>();
         for(User userNew : Trigger.new) {
-            if(CACSSICSR.id == Trigger.oldMap.get(userNew.Id).ProfileId && userNew.ProfileId != Trigger.oldMap.get(userNew.Id).ProfileId && !SSIprofileIds.contains(userNew.ProfileId)) {
+            if(CACSSICSR!=null && CACSSICSR.id == Trigger.oldMap.get(userNew.Id).ProfileId && userNew.ProfileId != Trigger.oldMap.get(userNew.Id).ProfileId && SSIprofileIds!=null && !SSIprofileIds.contains(userNew.ProfileId)) {
                 userIds.add(userNew.Id);
             }
             if(userNew.Active_Permission_Set__c && userNew.Active_Permission_Set__c != Trigger.oldMap.get(userNew.Id).Active_Permission_Set__c) {

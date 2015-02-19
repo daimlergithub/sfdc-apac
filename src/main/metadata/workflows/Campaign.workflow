@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
-<!-- Add Below as part of Kernel -->
     <fieldUpdates>
         <fullName>Activate_Campaign</fullName>
         <field>IsActive</field>
@@ -10,7 +9,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<!-- Add below as part of Kernel -->
     <fieldUpdates>
         <fullName>Campaign_ExecutionIndex_Calculation</fullName>
         <field>Index__c</field>
@@ -29,7 +27,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<!-- Add below as part of Kernel -->
     <fieldUpdates>
         <fullName>Update_Ative_to_True</fullName>
         <field>IsActive</field>
@@ -39,7 +36,6 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <!-- Add below as part of Kernel -->
     <fieldUpdates>
         <fullName>Update_Campaign_Code</fullName>
         <field>Campaign_Code__c</field>
@@ -59,7 +55,6 @@ RecordType.Name,
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<!-- Add below as part of Kernel -->
     <fieldUpdates>
         <fullName>Update_Content_Preview</fullName>
         <description>To display the Message Detail of selected Template</description>
@@ -88,7 +83,6 @@ RecordType.Name,
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-	<!-- Add Below as part of Kernel -->
     <rules>
         <fullName>Activate Campaign When Status Changes to %22Started%22</fullName>
         <actions>
@@ -115,7 +109,6 @@ RecordType.Name,
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
         <triggerType>onAllChanges</triggerType>
     </rules>
-	<!-- Add below as part of Kernel -->
     <rules>
         <fullName>Index Calculation</fullName>
         <actions>
@@ -134,7 +127,6 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <!-- Add below as part of Kernel -->
     <rules>
         <fullName>Record Close Date</fullName>
         <actions>
@@ -154,7 +146,6 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-    <!-- Add below as part of Kernel -->
     <rules>
         <fullName>Record Publish Date</fullName>
         <actions>
@@ -174,7 +165,6 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
-	<!-- Add below as part of Kernel -->
     <rules>
         <fullName>To update Content Preview</fullName>
         <actions>
@@ -185,7 +175,6 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <formula>ISNEW() || ISCHANGED( Template__c )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-	<!-- Add below as part of Kernel -->
     <rules>
         <fullName>Update Active of Campaign Execution</fullName>
         <actions>
@@ -205,7 +194,6 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
-    <!-- Add below as part of Kernel -->
     <rules>
         <fullName>Update Campaign Code</fullName>
         <actions>

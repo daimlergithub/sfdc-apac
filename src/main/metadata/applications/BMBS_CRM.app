@@ -9,7 +9,7 @@
     <tab>standard-Contact</tab>
     <tab>standard-Campaign</tab>
     <tab>standard-Case</tab>
-	<tab>SSI__c</tab>
+    <tab>SSI__c</tab>
     <tab>QC__c</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>

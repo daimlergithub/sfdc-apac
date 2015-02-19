@@ -26,7 +26,7 @@
 	</presetdef>
 	
 	<target name="init">
-		<mkdir dir="tmp"/>
+		<!-- nothing to init for now -->
 	</target>
 	
 	<target name="deployAll">
@@ -159,8 +159,7 @@
 	<target name="deploy30">
 		<deploy>
 			<sf:typeset name="classes"/>
-			<sf:typeset name="pages">
-			</sf:typeset>
+			<sf:typeset name="pages"/>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
 				<sf:include name="Tasks"/>
@@ -177,13 +176,21 @@
 	
 	<target name="deploy35">
 		<deploy>
-			<sf:typeset name="applications"/>
-			<sf:typeset name="permissionsets"/>
+			<sf:typeset name="applications">
+				<!-- TODO excluded for now because of deployment errors in metadata API: missing keyboard shortcuts -->
+				<sf:exclude name="Service_Cloud_Console_OB"/>
+				<sf:exclude name="Serivce_Cloud_Console_IB"/>
+				<sf:exclude name="Service_Cloud_Console_SSI"/>
+			</sf:typeset>
+			<sf:typeset name="permissionsets"/>			
 			<sf:typeset name="profiles"/>
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>
-			<sf:typeset name="appMenus"/>
+			<sf:typeset name="appMenus">
+				<!-- TODO ecluded for now because retrieve does not include all apps which are necessary for deploy -->
+				<sf:exclude name="AppSwitcher"/>
+			</sf:typeset>
 		</deploy>
 	</target>
 	
@@ -208,18 +215,16 @@
 	</target>
 	
 	<property name="typesets.circle">
-		CustomLabels,StaticResource,CallCenter,CustomTab,ApexClass,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink
+		CustomLabels,StaticResource,CallCenter,CustomTab,ApexClass,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,
+		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu
 	</property>
 	
 	<!-- TODO
 	CampaignSharingRules: check
-	EmailTemplate: default emails in unfiled folder
 	Role: delete default roles
 	CustomObject: default objects not included, PersonAccount in retrieve missing
 	RemoteSiteSetting: only EP integration, adjust in sandbox-specific transformation
-	CustomApplication: check
-	Workflow: a lot of empty workflow files
-	AppMenu: check
+	Workflow: a lot of empty workflow files :- Completed
 	Profile: check
 	PermissionSet: check differences
 	CaseSharingRules: check
@@ -231,16 +236,15 @@
 	-->
 	<property name="typesets.not-ready">
 		Role,CustomObject,Layout,
-		CustomApplication,EmailTemplate,Workflow,AppMenu,Profile,PermissionSet,
-		CampaignSharingRules,CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
+		Profile,PermissionSet,
+		CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
 		HomePageComponent,HomePageLayout,RemoteSiteSetting
 	</property>
 	
-	<!-- work in progress -->
-	<target name="retrieveAll">
+	<target name="retrieveAll" depends="init">
 		<!-- retrieves all metadata -->
 		<sf:retrieve
-				debug="${sfdc.debug}" dryRun="false" full="true"
+				debug="${sfdc.debug}" dryRun="false" full="true" cleanupOther="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
@@ -249,7 +253,7 @@
 		
 		<!-- retrieves all metadata -->
 		<sf:retrieve
-				debug="${sfdc.debug}" dryRun="false" full="true"
+				debug="${sfdc.debug}" dryRun="false" full="true" cleanupOther="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
@@ -257,11 +261,10 @@
 		</sf:retrieve>
 	</target>
 
-	<!-- work in progress -->
-	<target name="retrieve">
+	<target name="retrieve" depends="init">
 		<!-- retrieves only changed metadata -->
 		<sf:retrieve
-				debug="${sfdc.debug}" dryRun="false"
+				debug="${sfdc.debug}" dryRun="false" cleanupOther="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
@@ -270,7 +273,7 @@
 		
 		<!-- retrieves only changed metadata -->
 		<sf:retrieve
-				debug="${sfdc.debug}" dryRun="false"
+				debug="${sfdc.debug}" dryRun="false" cleanupOther="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">

@@ -60,21 +60,14 @@
         <name>BMBS_Marketing</name>
         <type>CustomApplication</type>
     </appMenuItems>
-	<!-- TODO Check with Falk/Oliver whether EasyDescribe__EasyDescribe will be installed as part of Kernel
-    <appMenuItems>
-        <name>EasyDescribe__EasyDescribe</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-	-->
     <appMenuItems>
         <name>EPA_Administration</name>
         <type>CustomApplication</type>
     </appMenuItems>
-
     <appMenuItems>
         <name>Retail_CRM</name>
         <type>CustomApplication</type>
-    </appMenuItems>    
+    </appMenuItems>
     <appMenuItems>
         <name>Service_Cloud_Console_OB</name>
         <type>CustomApplication</type>

@@ -9,7 +9,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
-    </fieldUpdates>  
+    </fieldUpdates>
     <rules>
         <fullName>Validate Vehicle Relationship</fullName>
         <actions>

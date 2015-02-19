@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">  
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
         <fullName>Case_handing_level_email_to_Notification</fullName>
         <description>Case handing level email Notification</description>
@@ -67,7 +67,7 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Change_Complaint_Assignment_To_Dealer_GateKeeper_Notification</template>
-    </alerts>	
+    </alerts>
     <alerts>
         <fullName>Send_Email_to_Gate_Keeper_For_Support_Dealer1</fullName>
         <description>Send Email to Gate Keeper For Support Dealer1</description>
@@ -78,7 +78,7 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Change_Complaint_Support_Dealer_GateKeeper_Notification</template>
-    </alerts>	
+    </alerts>
     <alerts>
         <fullName>Send_Email_to_Gate_Keeper_For_Support_Dealer2</fullName>
         <description>Send Email to Gate Keeper For Support Dealer2</description>
@@ -172,7 +172,7 @@
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
         <protected>false</protected>
-    </fieldUpdates>	
+    </fieldUpdates>
     <fieldUpdates>
         <fullName>Update_Support_Dealer2_Email_FlgToFalse</fullName>
         <field>Send_Email_Support_Dealer2_Keeper__c</field>
@@ -288,7 +288,7 @@
         </criteriaItems>
         <description>When RO change handling level to Dealer, send a email to Dealer.</description>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>	
+    </rules>
     <rules>
         <fullName>Case handling level Assignment Notification to RO</fullName>
         <actions>
@@ -443,7 +443,7 @@
             <value>True</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
-    </rules>	
+    </rules>
     <rules>
         <fullName>Send Email to Gate Keeper For Support Dealer1</fullName>
         <actions>
@@ -461,7 +461,7 @@
             <value>True</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
-    </rules>	
+    </rules>
     <rules>
         <fullName>Send Email to Gate Keeper For Support Dealer2</fullName>
         <actions>
@@ -479,7 +479,7 @@
             <value>True</value>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
-    </rules>	
+    </rules>
     <rules>
         <fullName>Send Email to Gate Keeper For Support Dealer3</fullName>
         <actions>

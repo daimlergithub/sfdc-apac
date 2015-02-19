@@ -3,172 +3,88 @@
  */
 package task.handler;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
-import org.apache.tools.ant.BuildException;
-
 import deployer.DeploymentUnit;
+
 
 /**
  * UpdateStampHandler
  *
  * @author  XLEHMF
  */
-public class UpdateStampHandler
+public class UpdateStampHandler extends BaseUpdateHandler<Long>
 {
-
   public enum Action {
     ADD, CHANGE, SAME, DELETE;
   }
   
-  private Map<String, Long> updateStamps;
-  private String userName;
-  private LogWrapper logWrapper;
-  private String fileName;
-  private boolean readUpdateStamps;
-
-  public void initialize(LogWrapper logWrapper, String userName, String fileName, boolean readUpdateStamps)
+  @Override
+  protected Long decodeValueToken(String token)
   {
-    this.userName = userName;
-    this.logWrapper = logWrapper;
-    this.fileName = fileName;
-    this.readUpdateStamps = readUpdateStamps;
-    
-    validate();
-    initialize();
-  }
-
-  private void validate()
-  {
-    if (null == userName) {
-      throw new BuildException("UpdateStampHandler (userName) not properly initialized.");
-    }
-    if (null == logWrapper) {
-      throw new BuildException("UpdateStampHandler (logWrapper) not properly initialized.");
-    }
-    if (null == fileName) {
-      throw new BuildException("UpdateStampHandler (fileName) not properly initialized.");
-    }
+    Long timestamp = Long.valueOf(token);
+    return timestamp;
   }
   
-  private void initialize()
+  @Override
+  protected String encodeValueToken(Long value)
   {
-    updateStamps = new HashMap<>();
-
-    if (readUpdateStamps) {
-      try {
-        FileReader fr = new FileReader(fileName);
-        BufferedReader br = new BufferedReader(fr);
+    return value.toString();
+  }
   
-        String line = null;
-        do {
-          line = br.readLine();
-          if (null != line) {
-            String[] tokens = line.split(":");
-            if (3 == tokens.length) {
-              String un = tokens[0];
-              if (StringUtils.equals(userName, un)) {
-                String type = URLDecoder.decode(tokens[1], "UTF-8");
-                Long timestamp = Long.valueOf(tokens[2]);
-                
-                updateStamps.put(type, timestamp);
-              }
-            }
-          }
-  
-        }
-        while (null != line);
-  
-        br.close();
-      }
-      catch (IOException e) {
-        updateStamps.clear();
-        
-        logWrapper.log(String.format("Error reading update stamps: %s. Continue without update timestamps.", e.getMessage()));
-      }
-    }
+  @Override
+  protected Long getValueFromFile(File file)
+  {
+    long lastModified = file.lastModified();
+    return lastModified;
   }
 
+  @Override
   public boolean isUpdateRequired(DeploymentUnit du, File file)
   {
     long timestamp = file.lastModified();
     
     String key = getKey(du, file);
     
-    Long updateStamp = updateStamps.get(key);
+    Long updateStamp = getUpdateStamps().get(key);
     
     return (null == updateStamp) || (timestamp > updateStamp.longValue());
   }
-  
-  public void updateTimestamp(List<DeploymentInfo> deploymentInfos)
+
+  public void updateTimestamps(Map<String, Map<String, Long>> metadataUpdatestamps, boolean replace)
   {
-    for (DeploymentInfo info : deploymentInfos) {
-      for (File file: info.getFileList()) {
-        updateTimestamp(info.getDeploymentUnit(), file);
+    if (replace) {
+      getUpdateStamps().clear();
+    }
+    for (Map.Entry<String, Map<String, Long>> entry : metadataUpdatestamps.entrySet()) {
+      for (Map.Entry<String, Long> entityEntry : entry.getValue().entrySet()) {
+        getUpdateStamps().put(getKey(entry.getKey(), entityEntry.getKey()), entityEntry.getValue());
       }
     }
-    writeUpdateStampes(updateStamps);
-  }
-  
-  public void writeUpdateStampes(Map<String, Long> updateStampsToSave)
-  {
-    try {
-      FileWriter fw = new FileWriter(fileName);
-      BufferedWriter bw = new BufferedWriter(fw);
-
-      for (Map.Entry<String, Long> entry : updateStampsToSave.entrySet()) {
-        String line = String.format("%s:%s:%d", userName, URLEncoder.encode(entry.getKey(), "UTF-8"), entry.getValue());
-        
-        bw.write(line);
-        bw.newLine();
-      }
-
-      bw.close();
-    }
-    catch (IOException e) {
-      throw new BuildException(String.format("Error saving update stamps: %s.", e.getMessage()), e);
-    }
+    writeUpdateStampes();
   }
 
-  private String getKey(DeploymentUnit du, File file)
-  {
-    return du.getTypeName() + "/" + file.getName();
-  }
-
-  private void updateTimestamp(DeploymentUnit du, File file)
-  {
-    long lastModified = file.lastModified();
-    
-    String key = getKey(du, file);
-
-    updateStamps.put(key, lastModified);
-  }
-
-  public Map<String, Action> calculateDifferences(Map<String, Long> metadataUpdatestamps)
+  public Map<String, Action> calculateDifferences(Map<String, Map<String, Long>> metadataUpdatestamps)
   {
     Map<String, Action> result = new HashMap<>();
     
+    // build current map first
+    Map<String, Long> currentMap = buildUpdatestampsMap(metadataUpdatestamps);
+    
     // work on copies
-    Set<String> lastKeys = new HashSet<>(updateStamps.keySet());
-    Set<String> currentKeys = new HashSet<>(metadataUpdatestamps.keySet());
+    Set<String> lastKeys = new HashSet<>(getUpdateStamps().keySet());
+    Set<String> currentKeys = new HashSet<>(currentMap.keySet());
     
     for (String currentKey : currentKeys) {
       if (lastKeys.remove(currentKey)) {
         // check for update
-        if (0 == Long.compare(metadataUpdatestamps.get(currentKey), updateStamps.get(currentKey))) {
+        if (0 == Long.compare(currentMap.get(currentKey), getUpdateStamps().get(currentKey))) {
           result.put(currentKey, Action.SAME);
         } else {
           result.put(currentKey, Action.CHANGE);
@@ -182,6 +98,31 @@ public class UpdateStampHandler
       result.put(lastKey, Action.DELETE);
     }
     
+    return result;
+  }
+  
+  private Map<String, Long> buildUpdatestampsMap(Map<String, Map<String, Long>> metadataUpdatestamps)
+  {
+    Map<String, Long> result = new HashMap<>();
+    for (Map.Entry<String, Map<String, Long>> entry : metadataUpdatestamps.entrySet()) {
+      for (Map.Entry<String, Long> entityEntry : entry.getValue().entrySet()) {
+        result.put(getKey(entry.getKey(), entityEntry.getKey()), entityEntry.getValue());
+      }
+    }
+    return result;
+  }
+  
+  public Map<String, List<String>> buildEntityList(Map<String, Map<String, Long>> metadataUpdatestamps)
+  {
+    Map<String, List<String>> result = new HashMap<>();
+    
+    for (Map.Entry<String, Map<String, Long>> entry : metadataUpdatestamps.entrySet()) {
+      List<String> entries = new ArrayList<>();
+      for (Map.Entry<String, Long> entityEntry : entry.getValue().entrySet()) {
+        entries.add(entityEntry.getKey());
+      }
+      result.put(entry.getKey(), entries);
+    }
     return result;
   }
 }
