@@ -26,7 +26,7 @@
 	</presetdef>
 	
 	<target name="init">
-		<mkdir dir="tmp"/>
+		<!-- nothing to init for now -->
 	</target>
 	
 	<target name="deployAll">
@@ -159,8 +159,7 @@
 	<target name="deploy30">
 		<deploy>
 			<sf:typeset name="classes"/>
-			<sf:typeset name="pages">
-			</sf:typeset>
+			<sf:typeset name="pages"/>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
 				<sf:include name="Tasks"/>
@@ -178,9 +177,10 @@
 	<target name="deploy35">
 		<deploy>
 			<sf:typeset name="applications">
-			<sf:exclude name="Service_Cloud_Console_OB"/>
-			<sf:exclude name="Serivce_Cloud_Console_IB"/>
-			<sf:exclude name="Service_Cloud_Console_SSI"/>
+				<!-- TODO excluded for now because of deployment errors in metadata API: missing keyboard shortcuts -->
+				<sf:exclude name="Service_Cloud_Console_OB"/>
+				<sf:exclude name="Serivce_Cloud_Console_IB"/>
+				<sf:exclude name="Service_Cloud_Console_SSI"/>
 			</sf:typeset>
 			<sf:typeset name="permissionsets"/>			
 			<sf:typeset name="profiles"/>
@@ -188,7 +188,8 @@
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>
 			<sf:typeset name="appMenus">
-			<sf:exclude name="AppSwitcher"/>
+				<!-- TODO ecluded for now because retrieve does not include all apps which are necessary for deploy -->
+				<sf:exclude name="AppSwitcher"/>
 			</sf:typeset>
 		</deploy>
 	</target>
@@ -220,13 +221,10 @@
 	
 	<!-- TODO
 	CampaignSharingRules: check
-	EmailTemplate: default emails in unfiled folder
 	Role: delete default roles
 	CustomObject: default objects not included, PersonAccount in retrieve missing
 	RemoteSiteSetting: only EP integration, adjust in sandbox-specific transformation
-	CustomApplication: check
 	Workflow: a lot of empty workflow files :- Completed
-	AppMenu: check
 	Profile: check
 	PermissionSet: check differences
 	CaseSharingRules: check
@@ -243,7 +241,6 @@
 		HomePageComponent,HomePageLayout,RemoteSiteSetting
 	</property>
 	
-	<!-- work in progress -->
 	<target name="retrieveAll" depends="init">
 		<!-- retrieves all metadata -->
 		<sf:retrieve
@@ -264,7 +261,6 @@
 		</sf:retrieve>
 	</target>
 
-	<!-- work in progress -->
 	<target name="retrieve" depends="init">
 		<!-- retrieves only changed metadata -->
 		<sf:retrieve

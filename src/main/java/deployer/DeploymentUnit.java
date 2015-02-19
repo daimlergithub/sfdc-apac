@@ -73,7 +73,7 @@ public class DeploymentUnit {
     return subDir;
   }
 
-  protected String getExtension()
+  public String getExtension()
   {
     return extension;
   }

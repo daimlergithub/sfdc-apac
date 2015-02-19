@@ -134,7 +134,9 @@ public class ZipFileHandler
       logWrapper.log(String.format("Save ZIP file to %s.", fileName));
 
       try {
-        File tmp = new File("tmp", fileName);
+        File tmpDir = new File("tmp");
+        tmpDir.mkdirs();
+        File tmp = new File(tmpDir, fileName);
         FileOutputStream fos = new FileOutputStream(tmp);
         fos.write(zipFile.toByteArray());
         fos.close();

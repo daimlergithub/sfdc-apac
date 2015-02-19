@@ -6,12 +6,12 @@ import java.util.List;
 
 import org.apache.tools.ant.taskdefs.Taskdef;
 
+import task.handler.ChecksumHandler;
 import task.handler.DeploymentInfo;
 import task.handler.LogWrapper;
 import task.handler.MetadataHandler;
 import task.handler.SfdcHandler;
 import task.handler.TransformationHandler;
-import task.handler.UpdateStampHandler;
 import task.handler.ZipFileHandler;
 import task.model.SfdcTypeSet;
 
@@ -38,7 +38,7 @@ public class SfdcDeploymentTask
   private String transformationsRoot;
   private String timestamps;
 
-  private UpdateStampHandler updateStampHandler;
+  private ChecksumHandler checksumHandler;
   private ZipFileHandler zipFileHandler;
   private SfdcHandler sfdcHandler;
   private MetadataHandler metadataHandler;
@@ -47,7 +47,7 @@ public class SfdcDeploymentTask
   public SfdcDeploymentTask()
   {
     typeSets = new ArrayList<SfdcTypeSet>();
-    updateStampHandler = new UpdateStampHandler();
+    checksumHandler = new ChecksumHandler();
     zipFileHandler = new ZipFileHandler();
     sfdcHandler = new SfdcHandler();
     metadataHandler = new MetadataHandler();
@@ -141,12 +141,12 @@ public class SfdcDeploymentTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initialize(logWrapper, username, timestamps, true);
+    checksumHandler.initialize(logWrapper, username, timestamps, true);
     transformationHandler.initialize(logWrapper, username, transformationsRoot, deployRoot);
     
-    sfdcHandler.initialize(logWrapper, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
+    sfdcHandler.initialize(logWrapper, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler);
     zipFileHandler.initialize(logWrapper, debug, transformationHandler);
-    metadataHandler.initialize(logWrapper, deployRoot, debug, updateStampHandler);
+    metadataHandler.initialize(logWrapper, deployRoot, debug, checksumHandler);
   }
 
   private void validate()
