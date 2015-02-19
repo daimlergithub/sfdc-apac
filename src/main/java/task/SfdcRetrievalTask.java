@@ -154,11 +154,12 @@ public class SfdcRetrievalTask
     validate();
     initialize();
 
+    Map<String, Map<String, Long>> metadataUpdatestamps = sfdcHandler.getUpdateStamps(objects);
+    
     Map<String, List<String>> metadata2Update = null;
     if (full) {
-      metadata2Update = sfdcHandler.extractMetadata(objects);
+      metadata2Update = updateStampHandler.buildEntityList(metadataUpdatestamps);
     } else {
-      Map<String, Long> metadataUpdatestamps = sfdcHandler.getUpdateStamps(objects);
       Map<String, UpdateStampHandler.Action> differences = updateStampHandler.calculateDifferences(metadataUpdatestamps);
   
       metadata2Update = metadataHandler.collectMetadataToUpdate(differences);
@@ -176,7 +177,7 @@ public class SfdcRetrievalTask
     if (full) {
       metadataHandler.removeNotcontainedMetadata(metadata2Update, objects, cleanupOther);
     }
-    // TODO think about saving the timestamps
+    updateStampHandler.updateTimestamps(metadataUpdatestamps, full);
   }
 
   private void initialize()

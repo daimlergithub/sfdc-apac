@@ -98,9 +98,8 @@ public class SfdcRetrieveUpdatestampsTask
     validate();
     initialize();
 
-    Map<String, Long> metadataUpdatestamps = sfdcHandler.getUpdateStamps(objects);
-    
-    updateStampHandler.writeUpdateStampes(metadataUpdatestamps);
+    Map<String, Map<String, Long>> updateStamps = sfdcHandler.getUpdateStamps(objects);
+    updateStampHandler.updateTimestamps(updateStamps, true);
   }
 
   private void initialize()

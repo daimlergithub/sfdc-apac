@@ -18,8 +18,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import javax.swing.plaf.ListUI;
-
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
@@ -43,9 +41,9 @@ public class MetadataHandler
   private LogWrapper logWrapper;
   private String metadataRoot;
   private boolean debug;
-  private UpdateStampHandler updateStampHandler;
+  private BaseUpdateHandler<?> updateStampHandler;
 
-  public void initialize(LogWrapper logWrapper, String metadataRoot, boolean debug, UpdateStampHandler updateStampHandler)
+  public void initialize(LogWrapper logWrapper, String metadataRoot, boolean debug, BaseUpdateHandler<?> updateStampHandler)
   {
     this.logWrapper = logWrapper;
     this.metadataRoot = metadataRoot;
@@ -248,10 +246,14 @@ public class MetadataHandler
   {
     // debugging
     if (debug) {
+      String fileName = "metadata-" + System.currentTimeMillis() + ".xml";
+      
       logWrapper.log(String.format("Save metadata."));
   
       try {
-        File metadataXml = new File("tmp", "metadata-" + System.currentTimeMillis() + ".xml");
+        File tmpDir = new File("tmp");
+        tmpDir.mkdirs();
+        File metadataXml = new File(tmpDir, fileName);
         FileOutputStream fos = new FileOutputStream(metadataXml);
         fos.write(packageXml);
         fos.close();
