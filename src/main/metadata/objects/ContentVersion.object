@@ -1874,47 +1874,47 @@
         <label>Event Type</label>
         <picklist>
             <picklistValues>
-                <fullName>外展/路演</fullName>
+                <fullName>Outreach/Roadshow</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>试乘试驾</fullName>
+                <fullName>Test drive</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>地方车展</fullName>
+                <fullName>Local auto shows</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>事件/节日营销</fullName>
+                <fullName>Event/Festival marketing</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>新车上市发布</fullName>
+                <fullName>New car market release</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>联合品牌活动</fullName>
+                <fullName>Co-branded activities</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>展厅活动</fullName>
+                <fullName>Exhibition activity</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>体育营销活动</fullName>
+                <fullName>Sports marketing activities</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>赞助/慈善</fullName>
+                <fullName>Sponsorship/charity</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>制作物相关</fullName>
+                <fullName>Production of relevant</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2082,7 +2082,7 @@
     <recordTypes>
         <fullName>RecordType</fullName>
         <active>true</active>
-        <label>活动工具箱</label>
+        <label>Active Toolbox</label>
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
@@ -3670,7 +3670,7 @@
     <recordTypes>
         <fullName>RecordType1</fullName>
         <active>true</active>
-        <label>广告工具箱</label>
+        <label>Advertising Kit</label>
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
@@ -5258,7 +5258,7 @@
     <recordTypes>
         <fullName>RecordType2</fullName>
         <active>true</active>
-        <label>市场类</label>
+        <label>Category marketing</label>
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
@@ -6846,7 +6846,7 @@
     <recordTypes>
         <fullName>RecordType3</fullName>
         <active>true</active>
-        <label>售后类</label>
+        <label>Aftermarket class</label>
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>

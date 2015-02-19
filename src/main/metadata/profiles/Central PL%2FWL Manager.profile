@@ -10646,7 +10646,7 @@
         <layout>Case_SubType_Mapping__c-Case SubType Mapping Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>CollaborationGroup-小组 布局</layout>
+        <layout>CollaborationGroup-Panel layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Collaboration_Team__c-Collaboration Team Layout</layout>
@@ -10661,23 +10661,23 @@
         <layout>Contact-Contact Master Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-售后类</layout>
+        <layout>ContentVersion-Aftermarket class</layout>
         <recordType>ContentVersion.RecordType3</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-市场类</layout>
+        <layout>ContentVersion-Category marketing</layout>
         <recordType>ContentVersion.RecordType2</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-广告工具箱</layout>
+        <layout>ContentVersion-Advertising Kit</layout>
         <recordType>ContentVersion.RecordType1</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-活动工具箱</layout>
+        <layout>ContentVersion-Active Toolbox</layout>
         <recordType>ContentVersion.RecordType</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-销售类</layout>
+        <layout>ContentVersion-Sales</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DM_Material__c-DM Layout</layout>
@@ -10686,7 +10686,7 @@
         <layout>DM_Request__c-Create DM Request Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>DM_Stock_Flow__c-DM Stock Flow 布局</layout>
+        <layout>DM_Stock_Flow__c-DM Stock Flow Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Dealer_Offering__c-Dealer Offering Layout</layout>

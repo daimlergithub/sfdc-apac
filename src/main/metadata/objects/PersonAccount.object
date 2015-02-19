@@ -105,31 +105,31 @@
         <picklistValues>
             <picklist>City_CN__c</picklist>
             <values>
-                <fullName>七台河市</fullName>
+                <fullName>Qitaihe city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>万州区</fullName>
+                <fullName>Wanzhou district</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>万盛区</fullName>
+                <fullName>Wansheng district</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三亚市</fullName>
+                <fullName>Sanya city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三明市</fullName>
+                <fullName>Sanming city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三门峡市</fullName>
+                <fullName>Sanmenxia city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>上海市</fullName>
+                <fullName>Shanghai</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -329,7 +329,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2204,7 +2204,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>梅赛德斯-奔驰金融</fullName>
+                <fullName>Mercedes-Benz financial</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2699,43 +2699,43 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>在线活动注册</fullName>
+                <fullName>Online event registration</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>多盟</fullName>
+                <fullName>AU</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>安沃</fullName>
+                <fullName>Avant capital group</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>梅赛德斯-奔驰网站_售后</fullName>
+                <fullName>Mercedes-Benz Web site _ after sale</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>汽车点评</fullName>
+                <fullName>Car reviews</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>直邮</fullName>
+                <fullName>Direct mail</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>网通社</fullName>
+                <fullName>Netcom</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>贷款数据</fullName>
+                <fullName>Loan data</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车主俱乐部</fullName>
+                <fullName>Owners Club</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车展2012</fullName>
+                <fullName>Auto Show2012</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4222,7 +4222,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Wanzhou District</fullName>
+                <fullName>Wanzhou district</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4990,211 +4990,211 @@
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>专业技术服务业</fullName>
+                <fullName>Professional and technical services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>专用设备制造业</fullName>
+                <fullName>Special equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>中国共产党机关</fullName>
+                <fullName>Chinese Communist Party organ</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>交通运输设备制造业</fullName>
+                <fullName>Transportation equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>人民政协和民主党派</fullName>
+                <fullName>The CPPCC and the democratic parties</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>仓储业</fullName>
+                <fullName>Warehousing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>仪器仪表及文化%E3%80%81办公用机械制造业</fullName>
+                <fullName>Instruments, meters, cultural%E3%80%81 of office machinery manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>会计</fullName>
+                <fullName>Accounting</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>住宿业</fullName>
+                <fullName>Lodging industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>体育</fullName>
+                <fullName>Sports</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>使馆</fullName>
+                <fullName>Embassy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>保险业</fullName>
+                <fullName>The insurance industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>信贷</fullName>
+                <fullName>Credit</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>公共设施管理业</fullName>
+                <fullName>Public facilities management industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>公用事业%28天然气%2F电%29</fullName>
+                <fullName>Natural gas utilities%28%2F%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他建筑业</fullName>
+                <fullName>Other construction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他服务业</fullName>
+                <fullName>Other service industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他采矿业</fullName>
+                <fullName>Other mining industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他金融活动</fullName>
+                <fullName>Other financial activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>军队</fullName>
+                <fullName>Army</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农%E3%80%81林%E3%80%81牧%E3%80%81渔服务业</fullName>
+                <fullName>Agricultural%E3%80%81 forest%E3%80%81 Mu%E3%80%81 fishing services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农业</fullName>
+                <fullName>Agriculture</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农副食品加工业</fullName>
+                <fullName>Agricultural and sideline foods processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>分销</fullName>
+                <fullName>Distribution</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>制鞋</fullName>
+                <fullName>Shoe</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>化学原料及化学制品制造业</fullName>
+                <fullName>Raw chemical materials and chemical products</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>化学纤维制造业</fullName>
+                <fullName>Chemical fiber industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>医药制造业</fullName>
+                <fullName>Pharmaceutical manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>卫生</fullName>
+                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>印刷业和记录媒介的复制</fullName>
+                <fullName>Printing and record medium reproduction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>商务服务业</fullName>
+                <fullName>Business services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>国家机构</fullName>
+                <fullName>National institutions</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>国际组织</fullName>
+                <fullName>International organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>地质勘查业</fullName>
+                <fullName>Geological prospecting</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>城市公共交通业</fullName>
+                <fullName>Urban public transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>基层群众自治组织</fullName>
+                <fullName>Grass-roots mass self-government organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>塑料制品业</fullName>
+                <fullName>The plastic products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>娱乐业</fullName>
+                <fullName>The entertainment industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>媒体</fullName>
+                <fullName>Media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>家具制造业</fullName>
+                <fullName>Furniture manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>宾馆</fullName>
+                <fullName>Hotel</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>居民服务业</fullName>
+                <fullName>Resident services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>工艺品及其他制造业</fullName>
+                <fullName>Crafts and Other manufacturing industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广告%2F市场</fullName>
+                <fullName>Advertising%2F marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广播%E3%80%81电视%E3%80%81电影和音像业</fullName>
+                <fullName>Radio%E3%80%81 TV%E3%80%81 film and audiovisual industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>废弃资源和废旧材料回收加工业</fullName>
+                <fullName>Waste resources and old material recycling and processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑</fullName>
+                <fullName>Building</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑安装业</fullName>
+                <fullName>Construction and installation industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑装饰业</fullName>
+                <fullName>Architectural decoration industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>快递</fullName>
+                <fullName>Express</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>房地产业</fullName>
+                <fullName>The real estate industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5214,7 +5214,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>文教体育用品制造业</fullName>
+                <fullName>文教Sports用品制造业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5306,7 +5306,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>电信和其他信息传输服务业</fullName>
+                <fullName>电信和Other信息传输服务业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5382,7 +5382,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>装卸搬运和其他运输服务业</fullName>
+                <fullName>装卸搬运和Other运输服务业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5414,7 +5414,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>通信设备%E3%80%81计算机及其他电子设备制造业</fullName>
+                <fullName>通信设备%E3%80%81计算机及Other电子设备制造业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5860,7 +5860,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6414,31 +6414,31 @@
         <picklistValues>
             <picklist>City_CN__c</picklist>
             <values>
-                <fullName>七台河市</fullName>
+                <fullName>Qitaihe city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>万州区</fullName>
+                <fullName>Wanzhou district</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>万盛区</fullName>
+                <fullName>Wansheng district</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三亚市</fullName>
+                <fullName>Sanya city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三明市</fullName>
+                <fullName>Sanming city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三门峡市</fullName>
+                <fullName>Sanmenxia city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>上海市</fullName>
+                <fullName>Shanghai</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6634,7 +6634,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8509,7 +8509,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>梅赛德斯-奔驰金融</fullName>
+                <fullName>Mercedes-Benz financial</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9000,43 +9000,43 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>在线活动注册</fullName>
+                <fullName>Online event registration</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>多盟</fullName>
+                <fullName>AU</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>安沃</fullName>
+                <fullName>Avant capital group</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>梅赛德斯-奔驰网站_售后</fullName>
+                <fullName>Mercedes-Benz Web site _ after sale</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>汽车点评</fullName>
+                <fullName>Car reviews</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>直邮</fullName>
+                <fullName>Direct mail</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>网通社</fullName>
+                <fullName>Netcom</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>贷款数据</fullName>
+                <fullName>Loan data</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车主俱乐部</fullName>
+                <fullName>Owners Club</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车展2012</fullName>
+                <fullName>Auto Show2012</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10519,7 +10519,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Wanzhou District</fullName>
+                <fullName>Wanzhou district</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11189,211 +11189,211 @@
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>专业技术服务业</fullName>
+                <fullName>Professional and technical services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>专用设备制造业</fullName>
+                <fullName>Special equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>中国共产党机关</fullName>
+                <fullName>Chinese Communist Party organ</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>交通运输设备制造业</fullName>
+                <fullName>Transportation equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>人民政协和民主党派</fullName>
+                <fullName>The CPPCC and the democratic parties</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>仓储业</fullName>
+                <fullName>Warehousing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>仪器仪表及文化%E3%80%81办公用机械制造业</fullName>
+                <fullName>Instruments, meters, cultural%E3%80%81 of office machinery manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>会计</fullName>
+                <fullName>Accounting</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>住宿业</fullName>
+                <fullName>Lodging industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>体育</fullName>
+                <fullName>Sports</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>使馆</fullName>
+                <fullName>Embassy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>保险业</fullName>
+                <fullName>The insurance industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>信贷</fullName>
+                <fullName>Credit</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>公共设施管理业</fullName>
+                <fullName>Public facilities management industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>公用事业%28天然气%2F电%29</fullName>
+                <fullName>Natural gas utilities%28%2F%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他建筑业</fullName>
+                <fullName>Other construction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他服务业</fullName>
+                <fullName>Other service industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他采矿业</fullName>
+                <fullName>Other mining industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他金融活动</fullName>
+                <fullName>Other financial activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>军队</fullName>
+                <fullName>Army</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农%E3%80%81林%E3%80%81牧%E3%80%81渔服务业</fullName>
+                <fullName>Agricultural%E3%80%81 forest%E3%80%81 Mu%E3%80%81 fishing services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农业</fullName>
+                <fullName>Agriculture</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农副食品加工业</fullName>
+                <fullName>Agricultural and sideline foods processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>分销</fullName>
+                <fullName>Distribution</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>制鞋</fullName>
+                <fullName>Shoe</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>化学原料及化学制品制造业</fullName>
+                <fullName>Raw chemical materials and chemical products</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>化学纤维制造业</fullName>
+                <fullName>Chemical fiber industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>医药制造业</fullName>
+                <fullName>Pharmaceutical manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>卫生</fullName>
+                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>印刷业和记录媒介的复制</fullName>
+                <fullName>Printing and record medium reproduction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>商务服务业</fullName>
+                <fullName>Business services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>国家机构</fullName>
+                <fullName>National institutions</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>国际组织</fullName>
+                <fullName>International organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>地质勘查业</fullName>
+                <fullName>Geological prospecting</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>城市公共交通业</fullName>
+                <fullName>Urban public transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>基层群众自治组织</fullName>
+                <fullName>Grass-roots mass self-government organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>塑料制品业</fullName>
+                <fullName>The plastic products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>娱乐业</fullName>
+                <fullName>The entertainment industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>媒体</fullName>
+                <fullName>Media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>家具制造业</fullName>
+                <fullName>Furniture manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>宾馆</fullName>
+                <fullName>Hotel</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>居民服务业</fullName>
+                <fullName>Resident services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>工艺品及其他制造业</fullName>
+                <fullName>Crafts and Other manufacturing industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广告%2F市场</fullName>
+                <fullName>Advertising%2F marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广播%E3%80%81电视%E3%80%81电影和音像业</fullName>
+                <fullName>Radio%E3%80%81 TV%E3%80%81 film and audiovisual industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>废弃资源和废旧材料回收加工业</fullName>
+                <fullName>Waste resources and old material recycling and processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑</fullName>
+                <fullName>Building</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑安装业</fullName>
+                <fullName>Construction and installation industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑装饰业</fullName>
+                <fullName>Architectural decoration industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>快递</fullName>
+                <fullName>Express</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>房地产业</fullName>
+                <fullName>The real estate industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11413,7 +11413,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>文教体育用品制造业</fullName>
+                <fullName>文教Sports用品制造业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11505,7 +11505,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>电信和其他信息传输服务业</fullName>
+                <fullName>电信和Other信息传输服务业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11581,7 +11581,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>装卸搬运和其他运输服务业</fullName>
+                <fullName>装卸搬运和Other运输服务业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11613,7 +11613,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>通信设备%E3%80%81计算机及其他电子设备制造业</fullName>
+                <fullName>通信设备%E3%80%81计算机及Other电子设备制造业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12059,7 +12059,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12613,31 +12613,31 @@
         <picklistValues>
             <picklist>City_CN__c</picklist>
             <values>
-                <fullName>七台河市</fullName>
+                <fullName>Qitaihe city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>万州区</fullName>
+                <fullName>Wanzhou district</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>万盛区</fullName>
+                <fullName>Wansheng district</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三亚市</fullName>
+                <fullName>Sanya city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三明市</fullName>
+                <fullName>Sanming city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三门峡市</fullName>
+                <fullName>Sanmenxia city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>上海市</fullName>
+                <fullName>Shanghai</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12833,7 +12833,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14708,7 +14708,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>梅赛德斯-奔驰金融</fullName>
+                <fullName>Mercedes-Benz financial</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15199,43 +15199,43 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>在线活动注册</fullName>
+                <fullName>Online event registration</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>多盟</fullName>
+                <fullName>AU</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>安沃</fullName>
+                <fullName>Avant capital group</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>梅赛德斯-奔驰网站_售后</fullName>
+                <fullName>Mercedes-Benz Web site _ after sale</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>汽车点评</fullName>
+                <fullName>Car reviews</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>直邮</fullName>
+                <fullName>Direct mail</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>网通社</fullName>
+                <fullName>Netcom</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>贷款数据</fullName>
+                <fullName>Loan data</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车主俱乐部</fullName>
+                <fullName>Owners Club</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车展2012</fullName>
+                <fullName>Auto Show2012</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16718,7 +16718,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Wanzhou District</fullName>
+                <fullName>Wanzhou district</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17364,211 +17364,211 @@
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>专业技术服务业</fullName>
+                <fullName>Professional and technical services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>专用设备制造业</fullName>
+                <fullName>Special equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>中国共产党机关</fullName>
+                <fullName>Chinese Communist Party organ</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>交通运输设备制造业</fullName>
+                <fullName>Transportation equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>人民政协和民主党派</fullName>
+                <fullName>The CPPCC and the democratic parties</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>仓储业</fullName>
+                <fullName>Warehousing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>仪器仪表及文化%E3%80%81办公用机械制造业</fullName>
+                <fullName>Instruments, meters, cultural%E3%80%81 of office machinery manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>会计</fullName>
+                <fullName>Accounting</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>住宿业</fullName>
+                <fullName>Lodging industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>体育</fullName>
+                <fullName>Sports</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>使馆</fullName>
+                <fullName>Embassy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>保险业</fullName>
+                <fullName>The insurance industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>信贷</fullName>
+                <fullName>Credit</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>公共设施管理业</fullName>
+                <fullName>Public facilities management industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>公用事业%28天然气%2F电%29</fullName>
+                <fullName>Natural gas utilities%28%2F%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他建筑业</fullName>
+                <fullName>Other construction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他服务业</fullName>
+                <fullName>Other service industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他采矿业</fullName>
+                <fullName>Other mining industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他金融活动</fullName>
+                <fullName>Other financial activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>军队</fullName>
+                <fullName>Army</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农%E3%80%81林%E3%80%81牧%E3%80%81渔服务业</fullName>
+                <fullName>Agricultural%E3%80%81 forest%E3%80%81 Mu%E3%80%81 fishing services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农业</fullName>
+                <fullName>Agriculture</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农副食品加工业</fullName>
+                <fullName>Agricultural and sideline foods processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>分销</fullName>
+                <fullName>Distribution</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>制鞋</fullName>
+                <fullName>Shoe</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>化学原料及化学制品制造业</fullName>
+                <fullName>Raw chemical materials and chemical products</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>化学纤维制造业</fullName>
+                <fullName>Chemical fiber industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>医药制造业</fullName>
+                <fullName>Pharmaceutical manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>卫生</fullName>
+                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>印刷业和记录媒介的复制</fullName>
+                <fullName>Printing and record medium reproduction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>商务服务业</fullName>
+                <fullName>Business services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>国家机构</fullName>
+                <fullName>National institutions</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>国际组织</fullName>
+                <fullName>International organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>地质勘查业</fullName>
+                <fullName>Geological prospecting</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>城市公共交通业</fullName>
+                <fullName>Urban public transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>基层群众自治组织</fullName>
+                <fullName>Grass-roots mass self-government organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>塑料制品业</fullName>
+                <fullName>The plastic products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>娱乐业</fullName>
+                <fullName>The entertainment industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>媒体</fullName>
+                <fullName>Media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>家具制造业</fullName>
+                <fullName>Furniture manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>宾馆</fullName>
+                <fullName>Hotel</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>居民服务业</fullName>
+                <fullName>Resident services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>工艺品及其他制造业</fullName>
+                <fullName>Crafts and Other manufacturing industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广告%2F市场</fullName>
+                <fullName>Advertising%2F marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广播%E3%80%81电视%E3%80%81电影和音像业</fullName>
+                <fullName>Radio%E3%80%81 TV%E3%80%81 film and audiovisual industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>废弃资源和废旧材料回收加工业</fullName>
+                <fullName>Waste resources and old material recycling and processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑</fullName>
+                <fullName>Building</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑安装业</fullName>
+                <fullName>Construction and installation industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑装饰业</fullName>
+                <fullName>Architectural decoration industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>快递</fullName>
+                <fullName>Express</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>房地产业</fullName>
+                <fullName>The real estate industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17588,7 +17588,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>文教体育用品制造业</fullName>
+                <fullName>文教Sports用品制造业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17680,7 +17680,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>电信和其他信息传输服务业</fullName>
+                <fullName>电信和Other信息传输服务业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17756,7 +17756,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>装卸搬运和其他运输服务业</fullName>
+                <fullName>装卸搬运和Other运输服务业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17788,7 +17788,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>通信设备%E3%80%81计算机及其他电子设备制造业</fullName>
+                <fullName>通信设备%E3%80%81计算机及Other电子设备制造业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18234,7 +18234,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18788,31 +18788,31 @@
         <picklistValues>
             <picklist>City_CN__c</picklist>
             <values>
-                <fullName>七台河市</fullName>
+                <fullName>Qitaihe city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>万州区</fullName>
+                <fullName>Wanzhou district</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>万盛区</fullName>
+                <fullName>Wansheng district</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三亚市</fullName>
+                <fullName>Sanya city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三明市</fullName>
+                <fullName>Sanming city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三门峡市</fullName>
+                <fullName>Sanmenxia city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>上海市</fullName>
+                <fullName>Shanghai</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19008,7 +19008,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20859,7 +20859,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>梅赛德斯-奔驰金融</fullName>
+                <fullName>Mercedes-Benz financial</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -21286,43 +21286,43 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>在线活动注册</fullName>
+                <fullName>Online event registration</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>多盟</fullName>
+                <fullName>AU</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>安沃</fullName>
+                <fullName>Avant capital group</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>梅赛德斯-奔驰网站_售后</fullName>
+                <fullName>Mercedes-Benz Web site _ after sale</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>汽车点评</fullName>
+                <fullName>Car reviews</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>直邮</fullName>
+                <fullName>Direct mail</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>网通社</fullName>
+                <fullName>Netcom</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>贷款数据</fullName>
+                <fullName>Loan data</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车主俱乐部</fullName>
+                <fullName>Owners Club</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车展2012</fullName>
+                <fullName>Auto Show2012</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22805,7 +22805,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Wanzhou District</fullName>
+                <fullName>Wanzhou district</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23475,159 +23475,159 @@
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>专业技术服务业</fullName>
+                <fullName>Professional and technical services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>专用设备制造业</fullName>
+                <fullName>Special equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>中国共产党机关</fullName>
+                <fullName>Chinese Communist Party organ</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>交通运输设备制造业</fullName>
+                <fullName>Transportation equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>人民政协和民主党派</fullName>
+                <fullName>The CPPCC and the democratic parties</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>仓储业</fullName>
+                <fullName>Warehousing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>仪器仪表及文化%E3%80%81办公用机械制造业</fullName>
+                <fullName>Instruments, meters, cultural%E3%80%81 of office machinery manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>住宿业</fullName>
+                <fullName>Lodging industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>体育</fullName>
+                <fullName>Sports</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>保险业</fullName>
+                <fullName>The insurance industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>公共设施管理业</fullName>
+                <fullName>Public facilities management industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他建筑业</fullName>
+                <fullName>Other construction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他服务业</fullName>
+                <fullName>Other service industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他采矿业</fullName>
+                <fullName>Other mining industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他金融活动</fullName>
+                <fullName>Other financial activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农%E3%80%81林%E3%80%81牧%E3%80%81渔服务业</fullName>
+                <fullName>Agricultural%E3%80%81 forest%E3%80%81 Mu%E3%80%81 fishing services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农业</fullName>
+                <fullName>Agriculture</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农副食品加工业</fullName>
+                <fullName>Agricultural and sideline foods processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>化学原料及化学制品制造业</fullName>
+                <fullName>Raw chemical materials and chemical products</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>化学纤维制造业</fullName>
+                <fullName>Chemical fiber industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>医药制造业</fullName>
+                <fullName>Pharmaceutical manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>卫生</fullName>
+                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>印刷业和记录媒介的复制</fullName>
+                <fullName>Printing and record medium reproduction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>商务服务业</fullName>
+                <fullName>Business services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>国家机构</fullName>
+                <fullName>National institutions</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>国际组织</fullName>
+                <fullName>International organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>地质勘查业</fullName>
+                <fullName>Geological prospecting</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>城市公共交通业</fullName>
+                <fullName>Urban public transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>基层群众自治组织</fullName>
+                <fullName>Grass-roots mass self-government organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>塑料制品业</fullName>
+                <fullName>The plastic products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>娱乐业</fullName>
+                <fullName>The entertainment industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>家具制造业</fullName>
+                <fullName>Furniture manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>居民服务业</fullName>
+                <fullName>Resident services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>工艺品及其他制造业</fullName>
+                <fullName>Crafts and Other manufacturing industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广播%E3%80%81电视%E3%80%81电影和音像业</fullName>
+                <fullName>Radio%E3%80%81 TV%E3%80%81 film and audiovisual industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>废弃资源和废旧材料回收加工业</fullName>
+                <fullName>Waste resources and old material recycling and processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑安装业</fullName>
+                <fullName>Construction and installation industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑装饰业</fullName>
+                <fullName>Architectural decoration industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>房地产业</fullName>
+                <fullName>The real estate industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23647,7 +23647,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>文教体育用品制造业</fullName>
+                <fullName>文教Sports用品制造业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23711,7 +23711,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>电信和其他信息传输服务业</fullName>
+                <fullName>电信和Other信息传输服务业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23779,7 +23779,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>装卸搬运和其他运输服务业</fullName>
+                <fullName>装卸搬运和Other运输服务业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23795,7 +23795,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>通信设备%E3%80%81计算机及其他电子设备制造业</fullName>
+                <fullName>通信设备%E3%80%81计算机及Other电子设备制造业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24229,7 +24229,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24794,31 +24794,31 @@
         <picklistValues>
             <picklist>City_CN__c</picklist>
             <values>
-                <fullName>七台河市</fullName>
+                <fullName>Qitaihe city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>万州区</fullName>
+                <fullName>Wanzhou district</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>万盛区</fullName>
+                <fullName>Wansheng district</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三亚市</fullName>
+                <fullName>Sanya city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三明市</fullName>
+                <fullName>Sanming city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>三门峡市</fullName>
+                <fullName>Sanmenxia city</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>上海市</fullName>
+                <fullName>Shanghai</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25018,7 +25018,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26900,7 +26900,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>梅赛德斯-奔驰金融</fullName>
+                <fullName>Mercedes-Benz financial</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27395,43 +27395,43 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>在线活动注册</fullName>
+                <fullName>Online event registration</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>多盟</fullName>
+                <fullName>AU</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>安沃</fullName>
+                <fullName>Avant capital group</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>梅赛德斯-奔驰网站_售后</fullName>
+                <fullName>Mercedes-Benz Web site _ after sale</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>汽车点评</fullName>
+                <fullName>Car reviews</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>直邮</fullName>
+                <fullName>Direct mail</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>网通社</fullName>
+                <fullName>Netcom</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>贷款数据</fullName>
+                <fullName>Loan data</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车主俱乐部</fullName>
+                <fullName>Owners Club</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车展2012</fullName>
+                <fullName>Auto Show2012</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -28918,7 +28918,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Wanzhou District</fullName>
+                <fullName>Wanzhou district</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29768,211 +29768,211 @@
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>专业技术服务业</fullName>
+                <fullName>Professional and technical services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>专用设备制造业</fullName>
+                <fullName>Special equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>中国共产党机关</fullName>
+                <fullName>Chinese Communist Party organ</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>交通运输设备制造业</fullName>
+                <fullName>Transportation equipment manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>人民政协和民主党派</fullName>
+                <fullName>The CPPCC and the democratic parties</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>仓储业</fullName>
+                <fullName>Warehousing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>仪器仪表及文化%E3%80%81办公用机械制造业</fullName>
+                <fullName>Instruments, meters, cultural%E3%80%81 of office machinery manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>会计</fullName>
+                <fullName>Accounting</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>住宿业</fullName>
+                <fullName>Lodging industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>体育</fullName>
+                <fullName>Sports</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>使馆</fullName>
+                <fullName>Embassy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>保险业</fullName>
+                <fullName>The insurance industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>信贷</fullName>
+                <fullName>Credit</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>公共设施管理业</fullName>
+                <fullName>Public facilities management industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>公用事业%28天然气%2F电%29</fullName>
+                <fullName>Natural gas utilities%28%2F%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他建筑业</fullName>
+                <fullName>Other construction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他服务业</fullName>
+                <fullName>Other service industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他采矿业</fullName>
+                <fullName>Other mining industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他金融活动</fullName>
+                <fullName>Other financial activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>军队</fullName>
+                <fullName>Army</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农%E3%80%81林%E3%80%81牧%E3%80%81渔服务业</fullName>
+                <fullName>Agricultural%E3%80%81 forest%E3%80%81 Mu%E3%80%81 fishing services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农业</fullName>
+                <fullName>Agriculture</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>农副食品加工业</fullName>
+                <fullName>Agricultural and sideline foods processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>分销</fullName>
+                <fullName>Distribution</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>制鞋</fullName>
+                <fullName>Shoe</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>化学原料及化学制品制造业</fullName>
+                <fullName>Raw chemical materials and chemical products</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>化学纤维制造业</fullName>
+                <fullName>Chemical fiber industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>医药制造业</fullName>
+                <fullName>Pharmaceutical manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>卫生</fullName>
+                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>印刷业和记录媒介的复制</fullName>
+                <fullName>Printing and record medium reproduction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>商务服务业</fullName>
+                <fullName>Business services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>国家机构</fullName>
+                <fullName>National institutions</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>国际组织</fullName>
+                <fullName>International organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>地质勘查业</fullName>
+                <fullName>Geological prospecting</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>城市公共交通业</fullName>
+                <fullName>Urban public transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>基层群众自治组织</fullName>
+                <fullName>Grass-roots mass self-government organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>塑料制品业</fullName>
+                <fullName>The plastic products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>娱乐业</fullName>
+                <fullName>The entertainment industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>媒体</fullName>
+                <fullName>Media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>家具制造业</fullName>
+                <fullName>Furniture manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>宾馆</fullName>
+                <fullName>Hotel</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>居民服务业</fullName>
+                <fullName>Resident services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>工艺品及其他制造业</fullName>
+                <fullName>Crafts and Other manufacturing industries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广告%2F市场</fullName>
+                <fullName>Advertising%2F marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广播%E3%80%81电视%E3%80%81电影和音像业</fullName>
+                <fullName>Radio%E3%80%81 TV%E3%80%81 film and audiovisual industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>废弃资源和废旧材料回收加工业</fullName>
+                <fullName>Waste resources and old material recycling and processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑</fullName>
+                <fullName>Building</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑安装业</fullName>
+                <fullName>Construction and installation industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>建筑装饰业</fullName>
+                <fullName>Architectural decoration industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>快递</fullName>
+                <fullName>Express</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>房地产业</fullName>
+                <fullName>The real estate industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29992,7 +29992,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>文教体育用品制造业</fullName>
+                <fullName>文教Sports用品制造业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30084,7 +30084,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>电信和其他信息传输服务业</fullName>
+                <fullName>电信和Other信息传输服务业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30160,7 +30160,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>装卸搬运和其他运输服务业</fullName>
+                <fullName>装卸搬运和Other运输服务业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30192,7 +30192,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>通信设备%E3%80%81计算机及其他电子设备制造业</fullName>
+                <fullName>通信设备%E3%80%81计算机及Other电子设备制造业</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30638,7 +30638,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>

@@ -69,7 +69,7 @@
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;资料相关品牌&apos; in Data Dictionary.
+Function: Mapping &apos;Information related to the brand&apos; in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -179,7 +179,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;资料英文名称&apos; in Data Dictionary.
+Function: Mapping &apos;Information in English&apos; in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -229,7 +229,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;备注&apos; in Data Dictionary.
+Function: Mapping &apos;Notes&apos; in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -269,7 +269,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;资料相关车系&apos; in Data Dictionary.
+Function: Mapping &apos;Information related to car&apos; in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -348,7 +348,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>迈巴赫</fullName>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -356,27 +356,27 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>卡车</fullName>
+                <fullName>Truck</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>克莱斯勒</fullName>
+                <fullName>Chrysler</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>三菱</fullName>
+                <fullName>Mitsubishi</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>北京吉普</fullName>
+                <fullName>Beijing Jeep</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>其它</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>奔驰商务车</fullName>
+                <fullName>Mercedes-Benz commercial vehicles</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -416,19 +416,19 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>新A4</fullName>
+                <fullName>New A4</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>新A6L</fullName>
+                <fullName>New A6L</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>本特利</fullName>
+                <fullName>Bentley</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>宾利</fullName>
+                <fullName>Bentley</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -516,63 +516,63 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>君威</fullName>
+                <fullName>Regal</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>君越</fullName>
+                <fullName>Lacrosse</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>凯越</fullName>
+                <fullName>Excelle</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>林荫大道</fullName>
+                <fullName>Boulevard</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>马刀</fullName>
+                <fullName>Saber</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>荣御</fullName>
+                <fullName>Royaum</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>世纪</fullName>
+                <fullName>Century</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>云雀</fullName>
+                <fullName>Lark</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>埃斯卡拉迪</fullName>
+                <fullName>Aisikaladi</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>帝威</fullName>
+                <fullName>Tai-Wai</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>弗利特伍德</fullName>
+                <fullName>Fleetwood</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>卡帝罗</fullName>
+                <fullName>Cutty Luo</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>凯迪拉克</fullName>
+                <fullName>Cadillac</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>赛威</fullName>
+                <fullName>Saiwei</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>未知</fullName>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -580,47 +580,47 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>阿斯特罗</fullName>
+                <fullName>Astro</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>景程</fullName>
+                <fullName>EpicA</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>开拓者</fullName>
+                <fullName>Blazers</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>柯西嘉</fullName>
+                <fullName>Cauchy</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>乐骋</fullName>
+                <fullName>Aveo</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>乐风</fullName>
+                <fullName>Lova</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>萨伯曼</fullName>
+                <fullName>SUBURBAN</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>万程</fullName>
+                <fullName>About 10,000</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>新赛欧</fullName>
+                <fullName>New sail</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>雪佛兰</fullName>
+                <fullName>Chevrolet</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>追踪者</fullName>
+                <fullName>Tracker</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -628,43 +628,43 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>PT漫步者</fullName>
+                <fullName>PT walkers</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>城乡</fullName>
+                <fullName>Urban and rural areas</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>大捷龙</fullName>
+                <fullName>GRAND VOYAGER</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>航海家</fullName>
+                <fullName>Navigator</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>交叉火力</fullName>
+                <fullName>Crossfire</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>君王</fullName>
+                <fullName>King</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>牧马人</fullName>
+                <fullName>Wrangler</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>赛百灵</fullName>
+                <fullName>Sebring</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>太平洋</fullName>
+                <fullName>Pacific</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>太阳舞</fullName>
+                <fullName>Sun dance</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

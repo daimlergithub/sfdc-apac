@@ -200,39 +200,39 @@
         <label>Appeal Type</label>
         <picklist>
             <picklistValues>
-                <fullName>QC判断错误</fullName>
+                <fullName>QC judge errors</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>QC调质检项</fullName>
+                <fullName>QC regulation</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>QC更改评语</fullName>
+                <fullName>QC change comments</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>申诉失败</fullName>
+                <fullName>Appeal fails</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>质检项校准</fullName>
+                <fullName>Quality calibration</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>模糊录音</fullName>
+                <fullName>Fuzzy audio</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>较大分歧</fullName>
+                <fullName>Major differences</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>业务更新</fullName>
+                <fullName>Business update</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>暂可提交</fullName>
+                <fullName>Temporary submission</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -299,16 +299,16 @@
     <fields>
         <fullName>CAI__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>呼入,呼出:
-1.主动提供相关信息或额外相关帮助；
-2.适当的询问客户是否需要其他帮助；(仅呼入)
-3.解答详尽，未出现态度懒散、一问一答、爱搭不理等情况；
-4.主动控制通话时长，把握通话通话主题。
+        <inlineHelpText>Inbound, outbound:
+1.Initiatives to provide relevant information or additional help;
+2.Appropriate to ask the customer if they need additional help, (inbound only);
+3.Answer detailed，attitude did not appear lazy,question-and-answer, love, Miss, and so on;
+4.Active control, call time, hold phone calls subject.
 SSI:
-1、主动提供相关信息或额外相关帮助。
-2、解答详尽，未出现态度懒散、一问一答、爱搭不理等情况。
-3、主动控制通话时长，把握通话主题。
-4、恰当的追问，针对开放式问题必须通过重复，与顾客确认。</inlineHelpText>
+1.Offered to provide relevant information or additional assistance.
+2.Answers to detailed, did not appear lazy attitude, question-and-answer, love, Miss, and so on.
+3.Active control, call time, grasp the call topics.
+4.Appropriate questions, open questions must go through repeated confirmation with the customer.</inlineHelpText>
         <label>Communicate Ability - Initiative</label>
         <picklist>
             <picklistValues>
@@ -324,15 +324,15 @@ SSI:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>General</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -344,9 +344,9 @@ SSI:
     <fields>
         <fullName>CALA__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.主动倾听,注意力集中,常用&quot;是的、好的&quot;等及时给予客户反馈；
+        <inlineHelpText>1.Active listening, concentration, "Yes, good" customer feedback in a timely manner;
 2.在客户表达清晰的情况下，不需客户反复重复相同信息两次以上（不含两次）；
-3. 未出现答非所问,理解出现偏差等情况。</inlineHelpText>
+3. Answer does not appear, deviation of the understanding, and so on.</inlineHelpText>
         <label>Communicate Ability - Listening Ability</label>
         <picklist>
             <picklistValues>
@@ -362,15 +362,15 @@ SSI:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -382,7 +382,7 @@ SSI:
     <fields>
         <fullName>CARR__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>对客户的需求给予快速的回应，未出现长时间冷场,甚至要客户提醒才回应客户的情况。</inlineHelpText>
+        <inlineHelpText>Give quick response to customer needs, without pauses for a long time, or even customers reminded to respond to clients ' profiles.</inlineHelpText>
         <label>Communicate Ability - Rapid Response</label>
         <picklist>
             <picklistValues>
@@ -398,15 +398,15 @@ SSI:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -418,9 +418,9 @@ SSI:
     <fields>
         <fullName>CCCR__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1. 通过复述、重组及澄清有效组织语言，与客户确认需求及重要的基本信息；
-2. 能准确理解客户意图，不需要客户多次重复；
-3.不主观猜测或评论未经确认的信息。</inlineHelpText>
+        <inlineHelpText>1. Through repetition, restructure and clarify the effective organization of language, confirm with customer demand and the important basic information;
+2. Accurately understanding customer intent, does not require customers to repeat;
+3. Information or comment is not subjective speculation without confirmation.</inlineHelpText>
         <label>Clarify&amp;Confirm Customer Requirement</label>
         <picklist>
             <picklistValues>
@@ -436,15 +436,15 @@ SSI:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -465,10 +465,10 @@ SSI:
     <fields>
         <fullName>CCD_DeductedReason__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1、未理解客户来电意图
-2、主观判断、评论未经确认的信息 
-3、错误引导客户 
-4、其他</inlineHelpText>
+        <inlineHelpText>1. Did not understand the purpose customer calls.
+2. Subjective judgment, comment on unconfirmed information 
+3. Misleading customers.
+4. Others</inlineHelpText>
         <label>Clarification Customer Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -506,7 +506,7 @@ SSI:
     <fields>
         <fullName>CCI__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>按照流程要求收集必要的信息，如客户信息、销售信息、车辆信息、初始信息来源等。</inlineHelpText>
+        <inlineHelpText>In accordance with the procedures required to collect the necessary information, such as customer information, sales information, vehicle information, such as initial source of information.</inlineHelpText>
         <label>Collect Customer Information</label>
         <picklist>
             <picklistValues>
@@ -522,15 +522,15 @@ SSI:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -543,10 +543,10 @@ SSI:
         <fullName>CITQ__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>SSI:
-1、不错误引导客户，主动核实客户的需求。
-2、当客户表示对题目不理解时，能够有准备的解释含义。
-呼出:
-不错误引导客户，主动核实客户的需求。</inlineHelpText>
+1. Do not mislead clients, actively verifying the customer's needs.
+2. When the customer says to the topic when you don't understand, be prepared to explain the meaning.
+Breathe out:
+Do not mislead clients, actively verifying the customer's needs.</inlineHelpText>
         <label>Correctly Interpret The Questionnaire</label>
         <picklist>
             <picklistValues>
@@ -562,15 +562,15 @@ SSI:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -591,8 +591,8 @@ SSI:
     <fields>
         <fullName>CP_DeductedReason__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1、业务技能
-2、服务态度</inlineHelpText>
+        <inlineHelpText>1. Business skills
+2. Service attitude</inlineHelpText>
         <label>Customer Perception Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -647,9 +647,9 @@ SSI:
     <fields>
         <fullName>ClarificationCustomerDemand__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.通过复述、重组及澄清有效组织语言，与客户确认需求及重要的基本信息，准确理解客户意图
-2.不主观猜测或评论未经确认的信息
-3.不错误引导客户，主动核实客户需求</inlineHelpText>
+        <inlineHelpText>1. Retell, restructure and clarify the effective organization of language, confirm with customer demand and the important basic information, accurate understanding of customer intent
+2. Information or comment is not subjective speculation without confirmation
+3. Do not mislead clients, actively verifying customer needs</inlineHelpText>
         <label>Clarification Customer Demand</label>
         <picklist>
             <picklistValues>
@@ -683,10 +683,10 @@ SSI:
     <fields>
         <fullName>CustomerPerception__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.使用恰当语言适时响应客户感受
-2.使用语言安抚客户(如投诉时),对客户问题关注,有同理心
-3.遇到无法解决的问题表示跟进，操作复杂的问题没有推托之辞
-4.不随意打断客户，不与客户抢话，不急于挂电话，表现出良好的耐心，语气中未表现不耐烦</inlineHelpText>
+        <inlineHelpText>1.Use appropriate language and timely response to customer experience
+2.Using language to appease a customer (such as complaints), customer concern, empathy
+3.Don't address the issues that follow, complicated operation and not dodge in the question words
+4.Do not feel free to interrupt the customer not forestall other speakers with the customer, not in a hurry to hang up the phone, showed good patience, tone is not impatient
         <label>Customer Perception</label>
         <picklist>
             <picklistValues>
@@ -710,12 +710,12 @@ SSI:
     <fields>
         <fullName>DA__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>呼入,呼出:
-1.  记录准确的信息；
-2. 文档内容匹配通话实质。
+        <inlineHelpText>Inbound, outbound:
+1.  Record accurate information;
+2.  Match document calls substance.
 SSI:
-1、准确记录客户的回答，文档内容匹配通话实质。
-2、积极主动澄清生词生字，如拼写客户名称、非常用字等。</inlineHelpText>
+1. Accurately records the customer's answers, the document content matching call real.
+2. Initiative to clarify new words, such as spelling, such as customer name, non-common.</inlineHelpText>
         <label>Document Accuracy</label>
         <picklist>
             <picklistValues>
@@ -731,15 +731,15 @@ SSI:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -761,22 +761,22 @@ SSI:
         <fullName>Document_DeductedReason__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>IB:
-1、错别字
-2、创建信息咨询
-3、创建销售线索
-4、创建车辆信息
-5、问询类型、分类选择错误
-6、系统模板选择错误
-7、咨询备注、其他备注与通话实质不符
-8、其他
+1.  Typos
+2. Create an information consulting
+3. Create sales leads
+4. Create a vehicle information
+5. Information type, classification, select errors
+6. The system template selection error
+7. Advisory notes, other notes and calls untrue
+8. other
 
 OB:
-1、错别字
-2、选择正确沟通状态
-3、创建销售线索
-4、创建车辆信息
-5、咨询备注、其他备注与通话实质不符
-6、其他</inlineHelpText>
+1. Typos
+2. Select the correct communication status
+3. Create sales leads
+4. Create a vehicle information
+5. Advisory notes, other notes and calls untrue
+6. other</inlineHelpText>
         <label>Document Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -833,9 +833,9 @@ OB:
     <fields>
         <fullName>Document__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.文字记录正确
-2.文档内容匹配通话实质
-3.工单归类正确</inlineHelpText>
+        <inlineHelpText>1.Written correctly
+2.Document content matching call substance
+3.Work order grouped properly</inlineHelpText>
         <label>Document</label>
         <picklist>
             <picklistValues>
@@ -859,13 +859,13 @@ OB:
     <fields>
         <fullName>FMSK__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>呼入,呼出:
-1.  充分了解并完全掌握BMBS/smart产品价格、经销商分布及现行活动的知识；
-2.  充分了解汽车相关的知识。
+        <inlineHelpText>Inbound, outbound:
+1.  Fully understand and master smart product price, resellers, distribution and current activities of knowledge;
+2.  Full understanding of car related knowledge.
 SSI:
-1、充分了解并完全掌握BMBS/smart产品价格配置与性能，经销商分布等。
-2、基本了解汽车相关的知识。
-3、在Q5031和Q10041题目上，理解顾客提到的产品亮点并准确记录。</inlineHelpText>
+1. Fully understand and master configuration and performance smart products price, dealer distribution.
+2. Basic knowledge of car related knowledge.
+3. Q5031 and Q10041 on the topic, understanding the product highlights and accurate records of customers referred to.</inlineHelpText>
         <label>Familiar BMBS/smart/ Knowledge</label>
         <picklist>
             <picklistValues>
@@ -881,15 +881,15 @@ SSI:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -901,12 +901,12 @@ SSI:
     <fields>
         <fullName>FQL__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>呼出:
-1.遵循问卷逻辑；
-2.按脚本收集或表达关键信息。
+        <inlineHelpText>Breathe out:
+1.Follow the logic questionnaire;
+2.According to the scripts collection, or express critical information.
 SSI:
-1、遵循问卷逻辑,逐项与客户核实信息，如客户信息、车辆信息等。
-2、按脚本收集或表达关键信息。</inlineHelpText>
+1.Follow the logic questionnaire, item-by-item with your customer information, such as customer information, vehicle information, and more.
+2.According to the scripts collection, or express critical information.</inlineHelpText>
         <label>Following Questionnaire Logic</label>
         <picklist>
             <picklistValues>
@@ -922,15 +922,15 @@ SSI:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -952,20 +952,20 @@ SSI:
         <fullName>FTOP_DeductedReason__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>IB:
-1、咨询及升级处理流程
-2、客户信息处理流程
-3、销售线索处理流程
-4、活动处理流程
-5、投诉处理流程
-6、短信发送流程
-7、转电话流程
-8、其他
+1. Advisory and upgrade process
+2. Customer information process flow
+3. Sales lead process
+4. Active processes
+5. Complaint handling process
+6. SMS sending process
+7. Call flow
+8. Other
 
 OB:
-1、核实数据共享
-2、问题升级流程
-3、短信发送流程
-4、其他</inlineHelpText>
+1. Verifying data sharing
+2. Issue escalation procedures
+3. SMS sending process
+4. Other</inlineHelpText>
         <label>Follow The Operation Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -1026,19 +1026,19 @@ OB:
     <fields>
         <fullName>FTOP__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>呼人：1.活动运营流程
-2. 销售线索运营流程
-3. 投诉处理流程
-4. 一般咨询处理流程
-5.  电话结束转接IVR流程 
-6. 核实客户共享数据及接收相关资料的意愿
-呼出：
-1. 按照正确的外呼流程，使用相应的脚本进行外呼；
-2. 特殊问题处理流程。
-3. 核实客户共享数据及接收相关资料的意愿。
+        <inlineHelpText>Calling people：1.Activity operating procedures
+2. Sales leads, business processes
+3. Complaint handling process
+4. General consultation processes
+5.  Transfer end IVR flow 
+6. Customers' willingness to share data and receive relevant information
+Breathe out:
+1. In the correct outbound process, using the appropriate scripts for call;
+2. Special problems of process.
+3. Customers ' willingness to share data and receive relevant information.
 SSI：
-1、按照正确的外呼流程，使用相应的脚本进行外呼。
-2、遵循特殊问题处理流程。</inlineHelpText>
+1. according to the correct outbound process, call the script accordingly.
+2. Follow a special issue dealing with the process.</inlineHelpText>
         <label>Follow The Operation Process</label>
         <picklist>
             <picklistValues>
@@ -1054,15 +1054,15 @@ SSI：
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1074,9 +1074,9 @@ SSI：
     <fields>
         <fullName>FollowTheOperationProcess__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.遵循现有客服中心各项运营流程
-2.遵循特殊问题处理流程
-3.按照各项流程要求收集必要的信息，如客户信息、销售信息、车辆信息、初始信息来源等</inlineHelpText>
+        <inlineHelpText>1.Follow the existing call center operational process
+2.Follow the special handling procedure
+3.In accordance with the procedures required to collect the necessary information, such as customer information, sales information, vehicle information, such as initial source of information</inlineHelpText>
         <label>Follow The Operation Process</label>
         <picklist>
             <picklistValues>
@@ -1109,9 +1109,9 @@ SSI：
     <fields>
         <fullName>LIOQ_DeductedReason__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1、引导错误
-2、正确解释问卷
-3、主观猜测/评论</inlineHelpText>
+        <inlineHelpText>1. Boot errors
+2. The correct interpretation of questionnaire
+3. subjective speculation/comments</inlineHelpText>
         <label>Logic and Interpretation Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -1145,9 +1145,9 @@ SSI：
     <fields>
         <fullName>LogicInterpretation__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.正确引导客户理解
-2.正确解释问卷
-3.不主观猜测或评论未经确认的信息</inlineHelpText>
+        <inlineHelpText>1.Guiding customers to understand
+2. The correct interpretation of the questionnaire
+3. Information or comment is not subjective speculation without confirmation</inlineHelpText>
         <label>Logic and Interpretation Questionnaire</label>
         <picklist>
             <picklistValues>
@@ -1180,8 +1180,8 @@ SSI：
     <fields>
         <fullName>OP_DeductedReason__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1、Hold线问题
-2、电话中出现10秒以上的空白</inlineHelpText>
+        <inlineHelpText>1. Hold the line problem
+2. White space appears in the phone for more than 10 seconds</inlineHelpText>
         <label>Offline Prompt Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -1202,10 +1202,10 @@ SSI：
     <fields>
         <fullName>OfflinePrompt__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.如需离线，需请客户耐心等待并获得同意后方可离开
-2.接起电话，对于客户的等待表示感谢。
-3.每次不得超过30秒
-4.电话中不可出现空白（空白时长定义：10秒）</inlineHelpText>
+        <inlineHelpText>1. If you need offline, need to ask customers to be patient and get approval to leave
+2. Pick up the phone, waiting for the customer to expressed thanks.
+3. May not exceed 30 seconds
+4. Phone cannot be blank (blank length definitions: 10 seconds)</inlineHelpText>
         <label>Offline Prompt</label>
         <picklist>
             <picklistValues>
@@ -1229,9 +1229,9 @@ SSI：
     <fields>
         <fullName>PACI__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.提供准确和完整的BMBS/smart产品信息；
-2.提供准确和完整的BMBS/smart活动信息；
-3.提供准确和完整的BMBS/smart的其它相关信息（例如：PDI/上牌政策等）。</inlineHelpText>
+        <inlineHelpText>1.Provide accurate and complete information on smart products
+2. Provide accurate and complete information on smart activities;
+3. Provide accurate and complete information on smart related (for example: PDI/on the licensing policy, etc).</inlineHelpText>
         <label>Provide Accurate&amp;Complete Information</label>
         <picklist>
             <picklistValues>
@@ -1247,15 +1247,15 @@ SSI：
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1267,9 +1267,9 @@ SSI：
     <fields>
         <fullName>PFOCF__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.使用恰当语言适时响应客户感受,如&quot;我理解您的心情&quot;,&quot;我明白…&quot;&quot;确实是…&quot; &quot;很抱歉给您带来不便&quot;等有技巧的话语;
-2.使用语言安抚客户(如投诉时),对客户问题关注,有同理心。
-3.尊重客户意见，不强迫客户回答问卷；（仅SSI）</inlineHelpText>
+        <inlineHelpText>1.Use appropriate language and timely response to customer experience,Such as&quot;I understand how you feel&quot;,&quot;I understand that ...&quot;&quot;Indeed ...&quot; &quot;I'm sorry for the inconvenience&quot; tricky words;
+2.Using language to appease a customer (such as complaints), customer concern, empathy.
+3.Respect to customer feedback, without forcing customers to answer a questionnaire, (SSI only)</inlineHelpText>
         <label>Perception - Focus On Customer Feel</label>
         <picklist>
             <picklistValues>
@@ -1285,15 +1285,15 @@ SSI：
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1305,10 +1305,10 @@ SSI：
     <fields>
         <fullName>PHU__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>呼入:
-准确转接满意度。
-呼出,SSI:
-客户挂断电话后再挂机。</inlineHelpText>
+        <inlineHelpText>Incoming call:
+Transfer the exact satisfaction.
+Breathe out,SSI:
+Customer hung up the phone and then hang up.</inlineHelpText>
         <label>Perception - Hang Up</label>
         <picklist>
             <picklistValues>
@@ -1324,15 +1324,15 @@ SSI：
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1344,9 +1344,9 @@ SSI：
     <fields>
         <fullName>PJ__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.通话中未使用让客户觉得不舒服(如顶撞/质疑/否定)的用语,如&quot;喂,啊?!我不知道,你得这么做,那没办法,这是不可能的&quot;等；
-2.不能使用反问,质问的语言,谩骂,讥讽客户；
-3.不能与客户闲聊。</inlineHelpText>
+        <inlineHelpText>1.Make customers feel uncomfortable is not used in the call (such as to contradict/questioning/denial) terminology such as&quot;Hey, huh?!I do not know,You have to do,There is no way,It is not possible to&quot;and so on；
+2.Cannot use rhetorical questions, questioning language, name-calling, sarcastic customer;
+3.Cannot chat with customers.</inlineHelpText>
         <label>Perception - JinYongYu</label>
         <picklist>
             <picklistValues>
@@ -1362,15 +1362,15 @@ SSI：
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1382,15 +1382,15 @@ SSI：
     <fields>
         <fullName>PPD__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>呼入:
-1.表现出良好的耐心，语气中未表现不耐烦，语速未不恰当地加快；
-2.不随意打断客户，不急于挂电话；
-3.不忽略客户的某些非重要问题；
-4.遇到无法解决的问题表示跟进，操作复杂的问题没有推托之辞。
-呼出,SSI:
-1.表现出良好的耐心，语气中未表现不耐烦，语速未不恰当地加快；
-2.不随意打断客户，不急于挂电话；
-3.不忽略客户的某些非重要问题，正面积极的回应客户；</inlineHelpText>
+        <inlineHelpText>Incoming call:
+1.Exhibiting a high degree of patience, not impatient in tone, speed was not inappropriate to accelerate;
+2.Do not feel free to interrupt the customer, not in a hurry to hang up the phone;
+3.Some non-important issues without losing sight of customer;
+4.Don't address the issues that follow, complicated operation and not dodge words in the question.
+Breathe out,SSI:
+1.Exhibiting a high degree of patience, not impatient in tone, speed was not inappropriate to accelerate;
+2.Do not feel free to interrupt the customer, not in a hurry to hang up the phone;
+3.Some non-important issues without losing sight of customer, positive response to the customer;</inlineHelpText>
         <label>Perception - Patience Degree</label>
         <picklist>
             <picklistValues>
@@ -1406,15 +1406,15 @@ SSI：
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1435,8 +1435,8 @@ SSI：
     <fields>
         <fullName>PPIS_DeductedReason__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1、语音语调
-2、语速（如过快）</inlineHelpText>
+        <inlineHelpText>1. Pronunciation and Intonation
+2. Speed (fast)</inlineHelpText>
         <label>Proper Pronunciation Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -1457,9 +1457,9 @@ SSI：
     <fields>
         <fullName>PPIS__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.普通话标准，不带有严重的口音；
-2.语调上扬,有抑扬顿挫的变化；
-3.语速匹配客户的情绪及需求。</inlineHelpText>
+        <inlineHelpText>1.Standard Mandarin, not with a grave accent;
+2.Rising tone and Cadence changes;
+3.Speed matching the mood and needs of customers.</inlineHelpText>
         <label>Proper Pronunciation&amp;Intonation&amp;Speed</label>
         <picklist>
             <picklistValues>
@@ -1475,15 +1475,15 @@ SSI：
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1506,7 +1506,7 @@ SSI：
     <fields>
         <fullName>PS__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>准确转接满意度。</inlineHelpText>
+        <inlineHelpText>Transfer the exact satisfaction.</inlineHelpText>
         <label>Perception - Satisfaction</label>
         <picklist>
             <picklistValues>
@@ -1522,15 +1522,15 @@ SSI：
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1551,11 +1551,11 @@ SSI：
     <fields>
         <fullName>PTRS_DeductedReason__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1、提供正确的产品信息
-2、提供正确的活动信息
-3、提供正确的解决方案
-4、客服中心知识范畴内应提供但未提供信息/方案的
-5、其他</inlineHelpText>
+        <inlineHelpText>1. Provide the correct product information.
+2. Provide correct information on the activities
+3. Providing the right solutions
+4. Call Center knowledge provided but not provided, within the context of information/programme
+5. Other</inlineHelpText>
         <label>Provide The Right Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -1588,9 +1588,9 @@ SSI：
     <fields>
         <fullName>ProperPronunciation__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.通话由始至终语音甜美、语调积极热情，具有感染力
-2.通话由始至终语速保持适中，语速匹配客户情绪
-3.在核对信息、提示关键信息时，适当放慢语速</inlineHelpText>
+        <inlineHelpText>1.Calls from beginning to end, voice tone of sweet, enthusiasm, contagious
+2. Speed keep calls from beginning to end, speed matching customer emotions
+3. When the check information, tips, critical information, due to slow</inlineHelpText>
         <label>Proper Pronunciation, Intonation, Speed</label>
         <picklist>
             <picklistValues>
@@ -1614,8 +1614,8 @@ SSI：
     <fields>
         <fullName>ProvideTheRightSolution__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.提供正确的MB/smart产品信息/活动信息/解决方案
-（以上内容中涉及的产品知识、活动信息和解决方案指的是FAQ、知识库或培训中包含的内容）</inlineHelpText>
+        <inlineHelpText>1. provide the correct product smart information/solutions
+(Product knowledge, involved in the above activities and solutions is included in the FAQ, knowledgebase, or training)</inlineHelpText>
         <label>Provide The Right Solution</label>
         <picklist>
             <picklistValues>
@@ -1837,9 +1837,9 @@ SSI：
     </fields>
     <fields>
         <fullName>Qualified__c</fullName>
-        <description>If all the Fatal score equal to &apos;高&apos;or &apos;中&apos; ， system will update Qualified to be &apos;Pass&apos;.
+        <description>If all the Fatal score equal to &apos;High&apos;or &apos;Medium&apos; ， system will update Qualified to be &apos;Pass&apos;.
 Otherwise system will update Qualified to be &apos;Fail&apos;.
-Fatal score refers to &apos;SSI 质检标准及运算规则2&apos;.</description>
+Fatal score refers to &apos;SSI Quality standards and algorithms 2&apos;.</description>
         <externalId>false</externalId>
         <label>Qualified</label>
         <picklist>
@@ -1860,7 +1860,7 @@ Fatal score refers to &apos;SSI 质检标准及运算规则2&apos;.</description
     <fields>
         <fullName>R_Communicate_Ability_Initiative_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CAI__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(CAI__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Communicate Ability - Initiative P/F S1</label>
         <required>false</required>
@@ -1872,7 +1872,7 @@ Fatal score refers to &apos;SSI 质检标准及运算规则2&apos;.</description
     <fields>
         <fullName>R_Communicate_Ability_Initiative_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CAI__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(CAI__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Communicate Ability - Initiative P/F S2</label>
         <required>false</required>
@@ -1884,7 +1884,7 @@ Fatal score refers to &apos;SSI 质检标准及运算规则2&apos;.</description
     <fields>
         <fullName>R_Communicate_Ability_Listening_A_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CALA__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(CALA__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Communicate Ability - Listening A P/F S1</label>
         <required>false</required>
@@ -1896,7 +1896,7 @@ Fatal score refers to &apos;SSI 质检标准及运算规则2&apos;.</description
     <fields>
         <fullName>R_Communicate_Ability_Listening_A_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CALA__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(CALA__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Communicate Ability - Listening A P/F S2</label>
         <required>false</required>
@@ -1908,7 +1908,7 @@ Fatal score refers to &apos;SSI 质检标准及运算规则2&apos;.</description
     <fields>
         <fullName>R_Communicate_Ability_Rapid_Resp_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CARR__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(CARR__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <label>Communicate Ability - Rapid Resp P/F S1</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1919,7 +1919,7 @@ Fatal score refers to &apos;SSI 质检标准及运算规则2&apos;.</description
     <fields>
         <fullName>R_Communicate_Ability_Rapid_Resp_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CARR__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(CARR__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Communicate Ability - Rapid Resp P/F S2</label>
         <required>false</required>
@@ -1931,7 +1931,7 @@ Fatal score refers to &apos;SSI 质检标准及运算规则2&apos;.</description
     <fields>
         <fullName>R_Correctly_Interpret_The_Q_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CITQ__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(CITQ__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Correctly Interpret The Q. P/F S1</label>
         <required>false</required>
@@ -1943,7 +1943,7 @@ Fatal score refers to &apos;SSI 质检标准及运算规则2&apos;.</description
     <fields>
         <fullName>R_Correctly_Interpret_The_Q_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CITQ__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(CITQ__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Correctly Interpret The Q. P/F S2</label>
         <required>false</required>
@@ -1995,11 +1995,11 @@ if (ISPICKVAL(  PJ__c , &apos;Fail&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Critical_Error_Amount_SSI__c</fullName>
         <externalId>false</externalId>
-        <formula>if (ISPICKVAL( DA__c , &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( FTOP__c , &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( FQL__c  , &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(  PFOCF__c , &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( PPD__c   , &apos;低&apos;)  ==TRUE,1,0)</formula>
+        <formula>if (ISPICKVAL( DA__c , &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL( FTOP__c , &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL( FQL__c  , &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL(  PFOCF__c , &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Critical Error Amount SSI</label>
         <precision>18</precision>
@@ -2027,7 +2027,7 @@ if (ISPICKVAL( PPD__c   , &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Document_Accuracy_FP_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(DA__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(DA__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Document Accuracy F/P S2</label>
         <required>false</required>
@@ -2039,7 +2039,7 @@ if (ISPICKVAL( PPD__c   , &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Document_Accuracy_F_P_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(DA__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(DA__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Document Accuracy F/P S1</label>
         <required>false</required>
@@ -2051,7 +2051,7 @@ if (ISPICKVAL( PPD__c   , &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Document_Accuracy_Pass_SSI__c</fullName>
         <externalId>false</externalId>
-        <formula>if(ISPICKVAL( DA__c , &apos;低&apos;),0,1)</formula>
+        <formula>if(ISPICKVAL( DA__c , &apos;Low&apos;),0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Document Accuracy Pass SSI</label>
         <precision>18</precision>
@@ -2065,7 +2065,7 @@ if (ISPICKVAL( PPD__c   , &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Familiar_BMBS_smart_Knowledge_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FMSK__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(FMSK__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Familiar BMBS/smart/ Knowledge P/F S1</label>
         <required>false</required>
@@ -2077,7 +2077,7 @@ if (ISPICKVAL( PPD__c   , &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Familiar_BMBS_smart_Knowledge_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FMSK__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(FMSK__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Familiar BMBS/smart/ Knowledge P/F S2</label>
         <required>false</required>
@@ -2089,7 +2089,7 @@ if (ISPICKVAL( PPD__c   , &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Follow_The_Operation_Process_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FTOP__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(FTOP__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Follow The Operation Process P/F S1</label>
         <required>false</required>
@@ -2101,7 +2101,7 @@ if (ISPICKVAL( PPD__c   , &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Follow_The_Operation_Process_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FTOP__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(FTOP__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Follow The Operation Process P/F S2</label>
         <required>false</required>
@@ -2113,7 +2113,7 @@ if (ISPICKVAL( PPD__c   , &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Following_Questionnaire_Logic_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FQL__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(FQL__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Following Questionnaire Logic P/F S1</label>
         <required>false</required>
@@ -2125,7 +2125,7 @@ if (ISPICKVAL( PPD__c   , &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Following_Questionnaire_Logic_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FQL__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(FQL__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Following Questionnaire Logic P/F S2</label>
         <required>false</required>
@@ -2151,19 +2151,19 @@ if (ISPICKVAL( PPD__c   , &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Non_Critical_Error_Amount_SSI__c</fullName>
         <externalId>false</externalId>
-        <formula>if (ISPICKVAL( PACI__c, &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(CITQ__c , &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(FMSK__c   , &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(  SO__c  , &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(PPIS__c  , &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( SPL__c , &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( SSL__c, &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(SC__c  , &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(CALA__c, &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(CAI__c, &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(CARR__c, &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(PJ__c, &apos;低&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
+        <formula>if (ISPICKVAL( PACI__c, &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL(CITQ__c , &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL(FMSK__c   , &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL(  SO__c  , &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL(PPIS__c  , &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL( SPL__c , &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL( SSL__c, &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL(SC__c  , &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL(CALA__c, &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL(CAI__c, &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL(CARR__c, &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL(PJ__c, &apos;Low&apos;)  ==TRUE,1,0)+
+if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Non Critical Error Amount SSI</label>
         <precision>18</precision>
@@ -2177,7 +2177,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_Focus_On_Customer_F_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PFOCF__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(PFOCF__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - Focus On Customer F P/F S1</label>
         <required>false</required>
@@ -2189,7 +2189,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_Focus_On_Customer_F_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PFOCF__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(PFOCF__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - Focus On Customer F P/F S2</label>
         <required>false</required>
@@ -2201,7 +2201,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_Hang_Up_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PHU__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(PHU__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - Hang Up P/F S1</label>
         <required>false</required>
@@ -2213,7 +2213,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_Hang_Up_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PS__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(PS__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - Hang Up P/F S2</label>
         <required>false</required>
@@ -2225,7 +2225,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_JinYongYu_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PJ__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(PJ__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - JinYongYu P/F S1</label>
         <required>false</required>
@@ -2237,7 +2237,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_JinYongYu_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PJ__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(PJ__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - JinYongYu P/F S2</label>
         <required>false</required>
@@ -2249,7 +2249,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_Patience_Degree_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PPD__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(PPD__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - Patience Degree P/F S1</label>
         <required>false</required>
@@ -2261,7 +2261,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_Patience_Degree_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PPD__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(PPD__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - Patience Degree P/F S2</label>
         <required>false</required>
@@ -2273,7 +2273,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Proper_Pronunciation_Intonation_S_P_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PPIS__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(PPIS__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Proper Pronunciation&amp;Intonation&amp;S P/F S1</label>
         <required>false</required>
@@ -2285,7 +2285,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Proper_Pronunciation_Intonation_S_P_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PPIS__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(PPIS__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Proper Pronunciation&amp;Intonation&amp;S P/F S2</label>
         <required>false</required>
@@ -2297,7 +2297,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Provide_Accurate_Complete_Info_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PACI__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(PACI__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Provide Accurate&amp;Complete Info P/F S1</label>
         <required>false</required>
@@ -2309,7 +2309,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Provide_Accurate_Complete_Info_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PACI__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(PACI__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Provide Accurate&amp;Complete Info P/F S2</label>
         <required>false</required>
@@ -2321,7 +2321,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Specification_Polite_Language_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SPL__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(SPL__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Specification - Polite Language P/F S1</label>
         <required>false</required>
@@ -2333,7 +2333,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Specification_Polite_Language_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SPL__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(SPL__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Specification - Polite Language P/F S2</label>
         <required>false</required>
@@ -2345,7 +2345,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Specification_Spoken_Language_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SSL__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(SSL__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <label>Specification - Spoken Language P/F S1</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2356,7 +2356,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Specification_Spoken_Language_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SSL__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(SSL__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Specification - Spoken Language P/F S2</label>
         <required>false</required>
@@ -2368,7 +2368,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Standard_Conclusion_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SC__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(SC__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Standard Conclusion P/F S1</label>
         <required>false</required>
@@ -2380,7 +2380,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Standard_Conclusion_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SC__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(SC__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Standard Conclusion P/F S2</label>
         <required>false</required>
@@ -2392,7 +2392,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Standard_Opening_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SO__c, &quot;高&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(SO__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Standard Opening P/F S1</label>
         <required>false</required>
@@ -2404,7 +2404,7 @@ if (ISPICKVAL(PS__c, &apos;低&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Standard_Opening_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SO__c, &quot;低&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(SO__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Standard Opening P/F S2</label>
         <required>false</required>
@@ -2479,13 +2479,13 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>Responsibility__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>呼入:
-1.  对于超出解答能力范围的问题,与客户重复确认,主动记录并跟进；
-2.  主动和积极的介绍活动和产品信息；
-3.  积极主动澄清生词生字，如拼写客户名称、非常用字等。
-呼出:
-1.  逐项与客户核实信息，如客户信息、车辆信息等；
-2.  积极主动澄清生词生字，如拼写客户名称、非常用字等。</inlineHelpText>
+        <inlineHelpText>Incoming call:
+1.  For issues beyond the scope of reasoning skills, and duplicate acknowledgments, active record and follow-up;
+2.  Proactive and positive activities and product information;
+3.  Initiative to clarify new words, vocabulary, spelling, such as customer name, non-common.
+Breathe out:
+1.  Item-by-item with your customer information, such as customer information, vehicle information such as;
+2.  Initiative to clarify new words, vocabulary, spelling, such as customer name, non-common.</inlineHelpText>
         <label>Responsibility</label>
         <picklist>
             <picklistValues>
@@ -2501,15 +2501,15 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2521,8 +2521,8 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>SC__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.使用标准的结束语，不错说漏说；
-2.语速适中，未出现不耐烦或语速过快表达欠清晰情况。</inlineHelpText>
+        <inlineHelpText>1.Using the standard closing, said good Freudian;
+2.Speed is moderate, does not appear impatient or speaking too fast to express lack of clarity in the situation.</inlineHelpText>
         <label>Standard Conclusion</label>
         <picklist>
             <picklistValues>
@@ -2538,15 +2538,15 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2558,8 +2558,8 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>SK_DeductedReason__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1、语言表达
-2、倾听能力</inlineHelpText>
+        <inlineHelpText>1. Language expression
+2. Ability to listen</inlineHelpText>
         <label>Soft Skill Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -2589,9 +2589,9 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>SL_DeductedReason__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1、礼貌用语
-2、禁止服务用语
-3、口头语</inlineHelpText>
+        <inlineHelpText>1. Be polite
+2. Prohibition of service language
+3. Spoken language</inlineHelpText>
         <label>Specification Language Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -2616,9 +2616,9 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>SO__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.使用标准的开场白，不漏说或错说
-2.语速适中，表达清晰；
-3.开场白中表现热情，包含服务意愿语言，并主动询问客户姓名。</inlineHelpText>
+        <inlineHelpText>1.Using a standard prologue, says do not leak or to the wrong
+2.Speed is moderate, articulate;
+3.Started by show, including willingness to serve language and take the initiative to ask the customer name.</inlineHelpText>
         <label>Standard Opening</label>
         <picklist>
             <picklistValues>
@@ -2634,15 +2634,15 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2654,16 +2654,16 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>SPL__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>呼入:
-1.使用规范的礼貌用语并贯彻通话始终；
-2.让客户等待后向客户致歉并表示感谢；
-3.在通话中得知客户姓氏后适度称呼客户姓氏；
-4.需要客户重述时适当道歉；  
-呼出, SSI:
-1.使用规范的礼貌用语并贯彻通话始终；
-2.让客户等待后向客户致歉并表示感谢；
-3.在通话中适度带姓氏尊称客户2次以上(含2次)；
-4.需要客户重述时适当道歉；</inlineHelpText>
+        <inlineHelpText>Incoming call:
+1.Using the rules of courtesy and follow up calls that consistent;
+2.Apologized and expressed its gratitude to the customer after the customer wait;
+3.On the phone after learning of the customer last name moderate call customer last name;
+4.Due apologies, require customers to repeat;
+Breathe out, SSI:
+1.Using the rules of courtesy and follow up calls that consistent;
+2.Apologized and expressed its gratitude to the customer after the customer wait;
+3.In call moderate last name honorific customers more than 2 times (2 times);
+4.Need restatement of customers on proper apology</inlineHelpText>
         <label>Specification - Polite Language</label>
         <picklist>
             <picklistValues>
@@ -2679,15 +2679,15 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2724,8 +2724,8 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>SSL__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.通话中表达流畅,没有口语,土话等不专业语言；
-2.没有&quot;行啊,对呀,当然啦,就这样吧,哎,啊,成&quot;等或不必要的&quot;这个…那个…嗯…&quot;等口语和方言；</inlineHelpText>
+        <inlineHelpText>1.Fluency in the call, no spoken language, dialect and other unprofessional language;
+2.No "Yes, Yes, of course, that's it, Oh, Oh," or unnecessary, such as "this ... The ... Hmm ...&quot; spoken language and dialects；</inlineHelpText>
         <label>Specification - Spoken Language</label>
         <picklist>
             <picklistValues>
@@ -2741,15 +2741,15 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2770,13 +2770,13 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>SoftSkill__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>语言表达
-1.叙述流畅，详略得当，表达专业、简洁；思路清晰有逻辑性，匹配客户的认知程度
-2.控制通话时长，把握通话主题
-3.客人提出问题要及时回应/未出现不恰当的回应客户（方言、线路不清除外）
-倾听能力
-1.在客户表达清晰的情况下，不需客户反复重复相同信息两次以上（不含两次）
-2.不忽略客户提供或询问的其他信息</inlineHelpText>
+        <inlineHelpText>Language expression
+1.Narrative fluency, detail proper, professional, concise expression; a clear logical, matching the customer's awareness.
+2.Control, call time, grasp the phone theme
+3.Guests questions to answer/does not appear inappropriate to respond to customers in a timely manner (except in dialect, the line is not clear)
+Ability to listen
+1.In the case of customers have expressed a clear, without customers and keep repeating the same information twice (not including two)
+2.Don't ignore customers or ask for additional information</inlineHelpText>
         <label>Soft Skill</label>
         <picklist>
             <picklistValues>
@@ -2800,9 +2800,9 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>SpecificationLanguage__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.使用标准普通话，吐字清晰，适当使用礼貌用语
-2.通话中未使用如&quot;喂、我不清楚、我不知道、啊（升调）、得了、行了、OK、唉、你、什么?&quot;等不恰当用语
-3.没有口语,土话等不专业语言</inlineHelpText>
+        <inlineHelpText>1.With the standard Mandarin, namely clarity, proper use of polite language
+2.Unused in calls such as &quot;Hey, I don't know, I don't know, AH (rising tone), won, OK, OK, Ah, you,?&quot;, and other inappropriate language
+3.No spoken language, dialect and other unprofessional language</inlineHelpText>
         <label>Specification Language</label>
         <picklist>
             <picklistValues>
@@ -2884,8 +2884,8 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>TSOC_DeductedReason__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1、开场白
-2、结束语</inlineHelpText>
+        <inlineHelpText>1. Introduction
+2. A closing</inlineHelpText>
         <label>The Standard Opening Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -2952,13 +2952,13 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>TheStandardOpeningClosing__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>开场白
-1.使用标准的开场白，不漏说或错说
-2.语速适中，表达清晰
-3.开场白中表现热情，包含服务意愿语言，并主动询问客户姓名
-结束语：
-1.使用标准的结束语，不错说漏说
-2.语速适中，未出现不耐烦或语速过快表达欠清晰情况</inlineHelpText>
+        <inlineHelpText>Opening remarks
+1.Using a standard prologue, says do not leak or to the wrong
+2.Moderate tempo, clarity
+3.Started by show, including willingness to serve language and take the initiative to ask the customer name
+Concluding remarks:
+1.Using the standard closing, well the cat says
+2.Speed is moderate, does not appear impatient or speaking too fast to express lack of clarity</inlineHelpText>
         <label>The Standard Opening/Closing</label>
         <picklist>
             <picklistValues>
@@ -3062,7 +3062,7 @@ MAX(
             <operation>equals</operation>
             <value>1</value>
         </filters>
-        <label>被申诉的质检任务</label>
+        <label>Complaint inspection tasks</label>
         <language>en_US</language>
         <sharedTo>
             <role>CAC_QC_SV_TM</role>
@@ -3086,7 +3086,7 @@ MAX(
             <operation>equals</operation>
             <value>THIS_MONTH</value>
         </filters>
-        <label>已完成的质检任务（本月）</label>
+        <label>Inspection tasks have been completed (this month)</label>
         <language>en_US</language>
         <sharedTo>
             <role>IB_CSR</role>
@@ -3109,7 +3109,7 @@ MAX(
             <operation>equals</operation>
             <value>LAST_N_MONTHS:3</value>
         </filters>
-        <label>我的质检任务</label>
+        <label>My QC task</label>
         <language>en_US</language>
         <sharedTo>
             <role>IB_QC</role>
@@ -3133,7 +3133,7 @@ MAX(
             <operation>notEqual</operation>
             <value>Complete,Cancel,Disqualified</value>
         </filters>
-        <label>我的未质检任务</label>
+        <label>Outstanding quality for my tasks</label>
         <language>en_US</language>
 		<sharedTo>
             <role>IB_QC</role>
@@ -3165,7 +3165,7 @@ MAX(
             <operation>equals</operation>
             <value>Complete</value>
         </filters>
-        <label>全组需抽检数据</label>
+        <label>All necessary sampling data</label>
         <language>en_US</language>
         <sharedTo>
             <role>CAC_QC_SV_TM</role>
@@ -3186,7 +3186,7 @@ MAX(
             <operation>equals</operation>
             <value>QC__c.SSI_QC</value>
         </filters>
-        <label>任务池</label>
+        <label>Task pool</label>
         <language>en_US</language>
         <sharedTo>
             <role>SSI_Supervisor</role>
@@ -3256,39 +3256,39 @@ MAX(
         <picklistValues>
             <picklist>Appeal_Type__c</picklist>
             <values>
-                <fullName>QC判断错误</fullName>
+                <fullName>QC judge errors</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>QC更改评语</fullName>
+                <fullName>QC change comments</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>QC调质检项</fullName>
+                <fullName>QC regulation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>业务更新</fullName>
+                <fullName>Business update</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>暂可提交</fullName>
+                <fullName>Temporary submission</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>模糊录音</fullName>
+                <fullName>Fuzzy audio</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>申诉失败</fullName>
+                <fullName>Appeal fails</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>质检项校准</fullName>
+                <fullName>Quality calibration</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>较大分歧</fullName>
+                <fullName>Major differences</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4061,39 +4061,39 @@ MAX(
         <picklistValues>
             <picklist>Appeal_Type__c</picklist>
             <values>
-                <fullName>QC判断错误</fullName>
+                <fullName>QC judge errors</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>QC更改评语</fullName>
+                <fullName>QC change comments</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>QC调质检项</fullName>
+                <fullName>QC  regulation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>业务更新</fullName>
+                <fullName>Business update</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>暂可提交</fullName>
+                <fullName>Temporary submission</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>模糊录音</fullName>
+                <fullName>Fuzzy audio</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>申诉失败</fullName>
+                <fullName>Appeal fails</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>质检项校准</fullName>
+                <fullName>Quality calibration</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>较大分歧</fullName>
+                <fullName>Major differences</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4847,39 +4847,39 @@ MAX(
         <picklistValues>
             <picklist>Appeal_Type__c</picklist>
             <values>
-                <fullName>QC判断错误</fullName>
+                <fullName>QC judge errors</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>QC更改评语</fullName>
+                <fullName>QC change comments</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>QC调质检项</fullName>
+                <fullName>QC  regulation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>业务更新</fullName>
+                <fullName>Business update</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>暂可提交</fullName>
+                <fullName>Temporary submission</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>模糊录音</fullName>
+                <fullName>Fuzzy audio</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>申诉失败</fullName>
+                <fullName>Appeal fails</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>质检项校准</fullName>
+                <fullName>Quality calibration</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>较大分歧</fullName>
+                <fullName>Major differences</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4897,60 +4897,60 @@ MAX(
         <picklistValues>
             <picklist>CAI__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>CALA__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>CARR__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>CCCR__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4976,30 +4976,30 @@ MAX(
         <picklistValues>
             <picklist>CCI__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>CITQ__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -5047,15 +5047,15 @@ MAX(
         <picklistValues>
             <picklist>DA__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -5112,30 +5112,30 @@ MAX(
         <picklistValues>
             <picklist>FMSK__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>FQL__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -5177,15 +5177,15 @@ MAX(
         <picklistValues>
             <picklist>FTOP__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -5263,75 +5263,75 @@ MAX(
         <picklistValues>
             <picklist>PACI__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>PFOCF__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>PHU__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>PJ__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>PPD__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -5349,30 +5349,30 @@ MAX(
         <picklistValues>
             <picklist>PPIS__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>PS__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5443,30 +5443,30 @@ MAX(
         <picklistValues>
             <picklist>Responsibility__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>SC__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -5499,45 +5499,45 @@ MAX(
         <picklistValues>
             <picklist>SO__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>SPL__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>SSL__c</picklist>
             <values>
-                <fullName>中</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>低</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>高</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
         </picklistValues>

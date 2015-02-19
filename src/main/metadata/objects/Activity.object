@@ -2465,7 +2465,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <filters>
             <field>Activity_Status__c</field>
             <operation>notEqual</operation>
-            <value>Success,Successful,成功</value>
+            <value>Success,Successful,Success</value>
         </filters>
         <filters>
             <field>TASK.RECORDTYPE</field>
@@ -2527,7 +2527,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <operation>equals</operation>
             <value>TODAY</value>
         </filters>
-        <label>3. 今天所有外呼的OB任务</label>
+        <label>3. Today OB tasks for all outgoing</label>
         <language>en_US</language>
         <sharedTo>
             <role>OB_CSR</role>
@@ -2597,7 +2597,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <operation>equals</operation>
             <value>TODAY</value>
         </filters>
-        <label>2. 今天所有关闭的OB任务</label>
+        <label>2. OB today all closed tasks</label>
         <language>en_US</language>
         <sharedTo>
             <role>OB_CSR</role>
@@ -2732,7 +2732,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <operation>equals</operation>
             <value>Success,Successful</value>
         </filters>
-        <label>1. 今天所有成功的OB任务</label>
+        <label>1. All successful OB today task</label>
         <language>en_US</language>
         <sharedTo>
             <role>OB_CSR</role>
@@ -2793,9 +2793,9 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <filters>
             <field>TASK.SUBJECT</field>
             <operation>contains</operation>
-            <value>呼叫</value>
+            <value>Call</value>
         </filters>
-        <label>我的今日进线</label>
+        <label>My thread-today</label>
         <language>en_US</language>
         <sharedTo>
             <role>IB_CSR</role>
