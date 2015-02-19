@@ -25,7 +25,7 @@
         <name>Share Leads with CRM Assist Manager - CAC &amp; Data Mgt</name>
     </ownerRules>
     <ownerRules>
-        <fullName>Share_MBAFC_E</fullName>
+        <fullName>Share_with_MBAFC</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
         </sharedTo>
@@ -33,39 +33,6 @@
             <roleAndSubordinates>Regional</roleAndSubordinates>
         </sharedFrom>
         <accessLevel>Read</accessLevel>
-        <name>Share MBAFC (E)</name>
-    </ownerRules>
-    <ownerRules>
-        <fullName>Share_with_MBAFC_N</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
-        </sharedTo>
-        <sharedFrom>
-            <roleAndSubordinates>Regional</roleAndSubordinates>
-        </sharedFrom>
-        <accessLevel>Read</accessLevel>
-        <name>Share with MBAFC (N)</name>
-    </ownerRules>
-    <ownerRules>
-        <fullName>Share_with_MBAFC_S</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
-        </sharedTo>
-        <sharedFrom>
-            <roleAndSubordinates>Regional</roleAndSubordinates>
-        </sharedFrom>
-        <accessLevel>Read</accessLevel>
-        <name>Share with MBAFC (S)</name>
-    </ownerRules>
-    <ownerRules>
-        <fullName>Share_with_MBAFC_W</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>Regional</roleAndSubordinatesInternal>
-        </sharedTo>
-        <sharedFrom>
-            <roleAndSubordinates>Regional</roleAndSubordinates>
-        </sharedFrom>
-        <accessLevel>Read</accessLevel>
-        <name>Share with MBAFC (W)</name>
+        <name>Share with MBAFC</name>
     </ownerRules>
 </CustomObjectSharingRules>

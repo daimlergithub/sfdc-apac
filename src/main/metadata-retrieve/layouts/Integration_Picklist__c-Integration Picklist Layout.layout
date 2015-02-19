@@ -30,6 +30,10 @@
                 <behavior>Readonly</behavior>
                 <field>Picklist_Mapping_External_ID__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>External_Key__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
