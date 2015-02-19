@@ -235,8 +235,7 @@
 	HomePageLayout: DE Default Layout
 	-->
 	<property name="typesets.not-ready">
-		Role,CustomObject,Layout,
-		Profile,PermissionSet,
+		Role,CustomObject,Layout,Profile,PermissionSet,
 		CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
 		HomePageComponent,HomePageLayout,RemoteSiteSetting
 	</property>
