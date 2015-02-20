@@ -136,13 +136,13 @@ public class LeadHelperTest {
             Account a1 = new Account(Allow_Data_Sharing__c = 'No', Phone = '58392243', RecordTypeId = PersonRecordtypeid, LastName = 'sichao');
             a1.Gender__c = 'Male';
             a1.Province__c = 'Shanghai';
-            a1.City_CN__c = '安庆市';
+            a1.City_CN__c = 'Anqing city';
             a1.Preferred_Language__c = 'English';
             insert a1;
             Account a2 = new Account(Allow_Data_Sharing__c = 'No', Phone = '58392243', RecordTypeId = PersonRecordtypeid, LastName = 'sichao');
             a2.Gender__c = 'Male';
             a2.Province__c = 'Shanghai';
-            a2.City_CN__c = '安庆市';
+            a2.City_CN__c = 'Anqing city';
             a2.Preferred_Language__c = 'English';
             a2.Dealer_LMS__c = 'No';
             a2.Allow_Data_Sharing__c = 'Yes';
@@ -158,7 +158,7 @@ public class LeadHelperTest {
             
             le2[0].Contact__c = a1.id;
             le2[0].Lead_Type__c = 'New Car';
-            le2[0].Relation_With_The_Leads__c = '本人车主';
+            le2[0].Relation_With_The_Leads__c = 'I owner';
             le2[0].CAC_Lead_Status__c = 'Assigned';
             le2[0].Purchase_Time__c = '0 - 3 months';
             le2[0].Interested_Vehicle_Brand__c = 'MB';
@@ -181,7 +181,7 @@ public class LeadHelperTest {
             Account a1 = new Account(Allow_Data_Sharing__c = 'No', Phone = '58392243', RecordTypeId = PersonRecordtypeid, LastName = 'sichao');
             a1.Gender__c = 'Male';
             a1.Province__c = 'Shanghai';
-            a1.City_CN__c = '安庆市';
+            a1.City_CN__c = 'Anqing city';
             a1.Preferred_Language__c = 'English';
             insert a1;
             Case c1 = new Case();
@@ -216,14 +216,14 @@ public class LeadHelperTest {
             Account a1 = new Account(Allow_Data_Sharing__c = 'No', Phone = '58392243', RecordTypeId = PersonRecordtypeid, LastName = 'sichao');
             a1.Gender__c = 'Male';
             a1.Province__c = 'Shanghai';
-            a1.City_CN__c = '安庆市';
+            a1.City_CN__c = 'Anqing city';
             a1.Preferred_Language__c = 'English';
             a1.Star_Elite_Account_Owner__c = user2.id;
             insert a1;
             Account a2 = new Account(Allow_Data_Sharing__c = 'No', Phone = '58392243', RecordTypeId = PersonRecordtypeid, LastName = 'sichao');
             a2.Gender__c = 'Male';
             a2.Province__c = 'Shanghai';
-            a2.City_CN__c = '安庆市';
+            a2.City_CN__c = 'Anqing city';
             a2.Preferred_Language__c = 'English';
             a2.Dealer_LMS__c = 'No';
             a2.Allow_Data_Sharing__c = 'Yes';
@@ -241,7 +241,7 @@ public class LeadHelperTest {
             system.debug('le2========================'+le2);
             le2[0].Contact__c = a1.id;
             le2[0].Lead_Type__c = 'New Car';
-            le2[0].Relation_With_The_Leads__c = '本人车主';
+            le2[0].Relation_With_The_Leads__c = 'I owner';
             le2[0].CAC_Lead_Status__c = 'Assigned';
             le2[0].Purchase_Time__c = '0 - 3 months';
             le2[0].Interested_Vehicle_Brand__c = 'MB';

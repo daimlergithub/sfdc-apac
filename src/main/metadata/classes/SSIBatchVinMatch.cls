@@ -25,8 +25,7 @@ global class SSIBatchVinMatch implements Database.Batchable<SObject>, Database.S
     private final String SUBJECT_1STSURVEYCALL = '1st Survey Call';
     private final String SUBJECT_2NDSURVEYCALL = '2nd Survey Call';
 
-    global SSIBatchVinMatch (String query){
-        System.debug('这里边的Query是：' + query);
+    global SSIBatchVinMatch (String query){        
         this.query = query;
 
     }

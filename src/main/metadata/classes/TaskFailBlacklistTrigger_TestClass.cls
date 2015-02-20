@@ -21,7 +21,7 @@ public class TaskFailBlacklistTrigger_TestClass{
                                       Type='Company',
                                       Status__c='VIP',
                                       Province__c='Shanghai',
-                                      City_CN__c='宝山区',
+                                      City_CN__c='Baoshan district',
                                       ZipCode__c='123456',
                                       PersonMobilePhone='12345678910',
                                       RecordTypeId=accPerson_RecordTypeId

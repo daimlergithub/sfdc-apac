@@ -156,7 +156,7 @@ public class CaseHelper{
     //public static final String ERR_MSG_HAVEPARENT = 'This Vehicle has a same Complaint, please add it as parent case';
     
     // SMS content
-    public static final String SMS_MSG_1 = '感谢您的来电，您所反馈的情况梅赛德斯-奔驰客户服务热线已经收悉，相关负责人员将会进一步调查情况，尽快与您取得联系。【梅赛德斯-奔驰客服中心4008181188】';
+    public static final String SMS_MSG_1 = 'Thank you for your call, your feedback from the Mercedes-Benz customer service hotline has received, officials will continue to investigate the situation, get in touch with you as soon as possible. 【"Mercedes-Benz Service Center 4008181188】';
    
     // Complaint is not a primary complaint reminder
     public static final String NOT_PRIMARY_REMINDER = 'This Complaint is not a primary complaint, please find the primary complaint.';

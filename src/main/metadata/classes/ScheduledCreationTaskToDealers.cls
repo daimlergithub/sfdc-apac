@@ -17,7 +17,7 @@ global class ScheduledCreationTaskToDealers  implements Schedulable{
         List<User> DealerUserList = [Select Id, ContactId From User Where Contact.Permission_Set_Settings__c includes ('S_M_Retail_Campaign') And IsActive = true];
         List<Task> taskList = new List<Task>();
         for(User user : DealerUserList ){
-             taskList.add(generateTask(user, '请及时提交活动计划和活动反馈'));
+             taskList.add(generateTask(user, 'Please submit plan of activities and feedback'));
         }
         if(taskList.size() > 0){
             try {
@@ -36,7 +36,7 @@ global class ScheduledCreationTaskToDealers  implements Schedulable{
                 RecordTypeId = cpRecordTypeMap.get('General Task').getRecordTypeId(),
                 OwnerId = user.id,
                 Status = 'open',
-                Priority = '高',
+                Priority = 'High',
                 WhoId = user.ContactId,
                 WhatId = null,
                 ActivityDate = date.today());

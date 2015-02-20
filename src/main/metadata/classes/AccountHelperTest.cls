@@ -86,7 +86,7 @@ private class AccountHelperTest {
         //le1.Need_Assign_To_Dealer__c = 'Need';
         le1.Assigned_Dealer__c = dealer.id;
         le1.Lead_Type__c = 'New Car';
-        le1.Relation_With_The_Leads__c = '本人车主';
+        le1.Relation_With_The_Leads__c = 'I owner';
         le1.Purchase_Time__c = '0 - 3 months';
         le1.Interested_Vehicle_Brand__c = 'MB';
         le1.Purchase_Time__c = '0 - 3 months';

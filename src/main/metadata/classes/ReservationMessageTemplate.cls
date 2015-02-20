@@ -1,26 +1,26 @@
 public class ReservationMessageTemplate {
     
-    private static String New_Reservation_To_Customer = '尊贵的{Account_Name} 先生/女士，'
-        + '您好！您已经成功预约驾驶培训课程，时间：{Activity_Date} {Activity_Start_Time}至{Activity_End_Time}，本次课程的主要内容为：{Product}-Class的培训。'
-        + '您的培训教官将会致电给您并与您确认了上课信息。如您有任何疑问或预约有任何变化，请您提前一天与我们联系。[梅赛德斯-奔驰客服中心4008181188]';
+    private static String New_Reservation_To_Customer = 'Honorable{Account_Name} Sir / Madam,'
+        + 'How do you do! You have successfully booked your driving training courses on:{Activity_Date} {Activity_Start_Time}To{Activity_End_Time}，The main contents of this course are:{Product}-Class training .'
+        + 'Your training instructors will call you and work with you to confirm the class information . If you have any questions or to schedule any changes , please contact us one day in advance . [ Mercedes - Benz Service Center 4008181188 ] ';
     
-    private static String New_Reservation_To_Instructor = '{Instructor_Name}教官，{Account_Name} 先生/女士，预定{Activity_Date} {Activity_Start_Time}'
-        + '至{Activity_End_Time}上课，电话：{Account_Mobile_Phone}，接车地点：{Activity_Location}。身份证{Id_Number}，预约备注：{Activity_Description}。'
-        + '请3小时之内与该客户电话确认上课信息，如需要更改请致电客服中心。[梅赛德斯-奔驰客服中心4008181188] 回复TD退订。';
+    private static String New_Reservation_To_Instructor = '{Instructor_Name}Instructors{Account_Name} Sir / Madam,Book{Activity_Date} {Activity_Start_Time}'
+        + 'To{Activity_End_Time}Class, Telephone：{Account_Mobile_Phone}, Pick-up location :{Activity_Location}. ID card{Id_Number}，Appointment Notes：{Activity_Description}。'
+        + 'Please call to confirm class information within three hours of the client , such as the need to change , please call the customer service center. [ Mercedes - Benz Service Center 4008181188 ] TD unsubscribe reply ';
 
-    private static String Cancel_Reservation_To_Customer = '尊贵的{Account_Name} 先生/女士，您好！您已经成功取消了这次预约：{Activity_Date} {Activity_Start_Time}'
-        + '至{Activity_End_Time}，如您有任何疑问或预约有任何变化，请您随时与我们联系。[梅赛德斯-奔驰客服中心4008181188] 回复TD退订。';
+    private static String Cancel_Reservation_To_Customer = 'Honorable{Account_Name} Sir / Madam,Hello! You have successfully canceled the appointment :{Activity_Date} {Activity_Start_Time}'
+        + 'To{Activity_End_Time}, If you have any questions or any change in reservation , please feel free to contact us. [ Mercedes - Benz Service Center 4008181188 ] TD unsubscribe reply .';
 
-    private static String Cancel_Reservation_To_Instructor = '{Instructor_Name}教官，您好！{Account_Name} 先生/女士，已经取消{Activity_Date} {Activity_Start_Time}至{Activity_End_Time}的驾驶课程，'
-        + '如您有任何疑问，请您随时与我们联系。[梅赛德斯-奔驰客服中心4008181188] 回复TD退订。';
+    private static String Cancel_Reservation_To_Instructor = '{Instructor_Name}Instructors Hello !{Account_Name} Sir / Madam, Has been canceled{Activity_Date} {Activity_Start_Time}To{Activity_End_Time}Driving courses'
+        + 'If you have any questions, please feel free to contact us. [ Mercedes - Benz Service Center 4008181188 ] TD unsubscribe reply .';
 
-    private static String Update_Reservation_To_Customer = '尊贵的{Account_Name} 先生/女士，您好！您已经成功更改预约,更改后的预约为：陪练时间：{Activity_Date} {Activity_Start_Time}' 
-        + '至{Activity_End_Time}，电话：{Account_Mobile_Phone}，接车地点：{Activity_Location}，预约备注：{Activity_Description}。如您有任何疑问或预约有任何变化，请您随时与我们联系。[梅赛德斯-奔驰客服中心4008181188] 回复TD退订。';
+    private static String Update_Reservation_To_Customer = 'Honorable{Account_Name} Sir / Madam,Hello! You have successfully changed the reservation , the reservation is changed : sparring time :{Activity_Date} {Activity_Start_Time}' 
+        + 'To{Activity_End_Time}，Phone：{Account_Mobile_Phone}, Pick-up location :{Activity_Location}，Appointment Notes：{Activity_Description}. If you have any questions or any change in reservation , please feel free to contact us. [ Mercedes - Benz Service Center 4008181188 ] TD unsubscribe reply .';
     
     
-    private static String Update_Reservation_To_Instructor = '{Instructor_Name}教官，您好！{Account_Name} 先生/女士，已经成功更改预约,更改后的预约为：' 
-        + '陪练时间：{Activity_Date} {Activity_Start_Time}至{Activity_End_Time}，电话：{Account_Mobile_Phone}，接车地点：{Activity_Location}，' 
-        + '预约备注：{Activity_Description}。如您有任何疑问，请您随时与我们联系。[梅赛德斯-奔驰客服中心4008181188] 回复TD退订。';
+    private static String Update_Reservation_To_Instructor = '{Instructor_Name}Instructors Hello!{Account_Name} Sir / Madam, Has successfully changed the reservation , the reservation is changed :' 
+        + 'Sparring time：{Activity_Date} {Activity_Start_Time}To{Activity_End_Time}，Phone：{Account_Mobile_Phone}, Pick-up location :{Activity_Location}，' 
+        + 'Appointment Notes：{Activity_Description}. If you have any questions, please feel free to contact us. [ Mercedes - Benz Service Center 4008181188 ] TD unsubscribe reply .';
     
     public static String getNewReservationToCustomerMessage(Event tempEvent, Contact tempCustomer, Order tempOrder) {
         String tempContent = New_Reservation_To_Customer;
@@ -106,9 +106,9 @@ public class ReservationMessageTemplate {
     }
     
     // For Lead SMS
-    public static String Lead_Follow_Up_To_Customer_With_Dealer = '尊贵的{Contact_Name}先生/女士，您好！感谢您对梅赛德斯-奔驰驾驶学院培训课程的关注。在刚才电话中我们为您推荐的经销商为{Dealer_Name}， 地址{Dealer_Address}。如您有任何问题，请随时致电。[梅赛德斯-奔驰客服中心4008181188] 回复TD退订。';
-    public static String Lead_Follow_Up_To_Customer_Without_Dealer = '尊贵的{Contact_Name}先生/女士，您好！感谢您对梅赛德斯-奔驰驾驶学院培训课程的关注，我们的教官会在近期与您联系进一步为您介绍课程。如您有任何问题，请随时致电。[梅赛德斯-奔驰客服中心4008181188] 回复TD退订。';
-    public static String Lead_Follow_Up_To_Instructor = '{Instructor_Name}教官，您好！{Account_Name} 先生/女士，希望对{Product}-class 的驾驶课程进行详细了解，客户电话为{Account_Mobile_Phone}请尽快与客户取得联系，如您有任何疑问，请您随时与我们联系。[梅赛德斯-奔驰客服中心4008181188] 回复TD退订。';
+    public static String Lead_Follow_Up_To_Customer_With_Dealer = 'Honorable{Contact_Name}Sir / Madam,Hello! Thank you for your Mercedes - Benz Driving Academy attention training courses . In just the phone for you , we recommend the dealer .{Dealer_Name}， Address{Dealer_Address}. If you have any questions , please feel free to call . [ Mercedes - Benz Service Center 4008181188 ] TD unsubscribe reply .';
+    public static String Lead_Follow_Up_To_Customer_Without_Dealer = 'Honorable{Contact_Name}Sir / Madam,Hello! Thank you for your Mercedes - Benz Driving Academy training courses concerned , our instructors will contact you in the near future to further introduce you to the course . If you have any questions , please feel free to call . [ Mercedes - Benz Service Center 4008181188 ] TD unsubscribe reply .';
+    public static String Lead_Follow_Up_To_Instructor = '{Instructor_Name}Instructors Hello!{Account_Name} Sir / Madam,Hope for {Product}-class Driving courses to learn more about customer telephone{Account_Mobile_Phone}Please get in touch with the customer as soon as possible , if you have any questions , please feel free to contact us. [ Mercedes - Benz Service Center 4008181188 ] TD unsubscribe reply .';
     
     public static String getLeadFollowUpToCustomerWithDealer(Lead__c tempLead, Account tempCustomer, User tempInstructor, Account tempDealer) {
         String tempContent = Lead_Follow_Up_To_Customer_With_Dealer; //Lead_Follow_Up_To_Instructor;

@@ -19,7 +19,7 @@ public class MassAssignRecallTasksControllerExtension {
     public static final String ERROR_MSG_1 = Label.Mass_Assign_Recall_Tasks_ErrorMsg1;
     // 'XX Tasks have been assigned.'
     public static final String ERROR_MSG_2 = Label.Mass_Assign_Recall_Tasks_ErrorMsg2;
-    // Please Select CSR and Assign Rules.(请选择CSR和分配方式。)
+    // Please Select CSR and Assign Rules.(Please select CSR and distribution.)
     public static final String ERROR_MSG_3 = Label.Mass_Assign_Recall_Tasks_ErrorMsg3;
     Transient Set<String> whatIds; // For soql statement generated.
     
@@ -434,7 +434,7 @@ public class MassAssignRecallTasksControllerExtension {
                 ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, assignTasks.size() + ERROR_MSG_2));
             }
         }else{
-            // Please Select CSR and Assign Rules.(请选择CSR和分配方式。)
+            // Please Select CSR and Assign Rules.(Please select the CSR and distribution patterns.)
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, ERROR_MSG_3));
         }
         return null;

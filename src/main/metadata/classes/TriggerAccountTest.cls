@@ -16,8 +16,8 @@ private class TriggerAccountTest {
             UtilTestData.ACCOUNT_RT_DEALER);
 
         // Update Dealer City CN and Province according to dealerCity
-        dealer.City_CN__c = '东城区';
-        dealer.Province__c = '北京';
+        dealer.City_CN__c = 'Dongcheng District';
+        dealer.Province__c = 'Beijing';
         update dealer;
     }
 
