@@ -1,7 +1,6 @@
 package task;
 
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
@@ -34,14 +33,6 @@ public class SfdcTriggerUpdatestampsRefreshTask
   private UpdateStampHandler updateStampHandler;
 //  private SfdcHandler sfdcHandler;
   private DeploymentHandler deploymentHandler;
-
-  public SfdcTriggerUpdatestampsRefreshTask()
-  {
-    objects = new HashSet<String>();
-    updateStampHandler = new UpdateStampHandler();
-//    sfdcHandler = new SfdcHandler();
-    deploymentHandler = new DeploymentHandler();
-  }
 
   public void setUsername(String username)
   {
@@ -95,11 +86,24 @@ public class SfdcTriggerUpdatestampsRefreshTask
     }
   }
 
+  @Override
+  public void init()
+    throws BuildException
+  {
+    super.init();
+    
+    objects = new HashSet<>();
+    updateStampHandler = new UpdateStampHandler();
+//    sfdcHandler = new SfdcHandler();
+    deploymentHandler = new DeploymentHandler();
+  }
+
+  @Override
   public void execute()
   {
     validate();
     initialize();
-    
+
     throw new BuildException("Currently not working.");
 //    
 //    Map<String, Long> metadataUpdatestamps = deploymentHandler.triggerUpdatestampsRefresh(objects);

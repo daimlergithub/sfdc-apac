@@ -34,13 +34,6 @@ public class SfdcRetrieveUpdatestampsTask
   private UpdateStampHandler updateStampHandler;
   private SfdcHandler sfdcHandler;
 
-  public SfdcRetrieveUpdatestampsTask()
-  {
-    objects = new HashSet<String>();
-    updateStampHandler = new UpdateStampHandler();
-    sfdcHandler = new SfdcHandler();
-  }
-
   public void setUsername(String username)
   {
     this.username = username;
@@ -93,11 +86,21 @@ public class SfdcRetrieveUpdatestampsTask
     }
   }
 
+  @Override
+  public void init() {
+    super.init();
+    
+    objects = new HashSet<>();
+    updateStampHandler = new UpdateStampHandler();
+    sfdcHandler = new SfdcHandler();
+  }
+  
+  @Override
   public void execute()
   {
     validate();
     initialize();
-
+    
     Map<String, Map<String, Long>> updateStamps = sfdcHandler.getUpdateStamps(objects);
     updateStampHandler.updateTimestamps(updateStamps, true);
   }
@@ -108,7 +111,7 @@ public class SfdcRetrieveUpdatestampsTask
 
     updateStampHandler.initialize(logWrapper, username, timestamps, false);
     
-    sfdcHandler.initialize(logWrapper, 0, false, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
+    sfdcHandler.initialize(this, 0, false, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
   }
 
   private void validate()

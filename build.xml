@@ -41,6 +41,9 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets}"/>
 		</sf:retrieveUpdatestamps>
+		<sf:deployChecksums
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
 	</target>
 	
 	<target name="destructiveChanges">

@@ -1,2 +1,2 @@
-# metadata from SFDC have LF as line break (and not the Windows line break crlf)
-* text eol=lf
+# metadata from SFDC should not be modified at all
+* -text

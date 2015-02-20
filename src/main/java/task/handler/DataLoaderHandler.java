@@ -35,6 +35,7 @@ public class DataLoaderHandler
   private String configId;
   private String logDir;
   
+  @SuppressWarnings("hiding")
   public void initialize(LogWrapper logWrapper,
                          String serverurl,
                          String username,
@@ -45,8 +46,7 @@ public class DataLoaderHandler
                          String dataRoot,
                          String configId,
                          String logDir,
-                         boolean debug,
-                         UpdateStampHandler updateStampHandler)
+                         boolean debug)
   {
     this.logWrapper = logWrapper;
     this.serverurl = serverurl;

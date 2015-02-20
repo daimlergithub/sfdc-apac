@@ -17,8 +17,8 @@ import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 
-import deployer.DeploymentConfiguration;
-import deployer.DeploymentUnit;
+import task.handler.configuration.DeploymentConfiguration;
+import task.handler.configuration.DeploymentUnit;
 
 /**
  * ChecksumHandler
@@ -33,7 +33,7 @@ public class ChecksumHandler
 
   public ChecksumHandler()
   {
-    textExtensions = new HashSet<String>();
+    textExtensions = new HashSet<>();
     textExtensions.add("xml");
 
     for (DeploymentUnit unit : new DeploymentConfiguration().getConfigurations()) {

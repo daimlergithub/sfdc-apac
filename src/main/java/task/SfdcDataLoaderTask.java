@@ -5,7 +5,6 @@ import org.apache.tools.ant.taskdefs.Taskdef;
 
 import task.handler.DataLoaderHandler;
 import task.handler.LogWrapper;
-import task.handler.UpdateStampHandler;
 
 /**
  * SfdcDataLoaderTask
@@ -30,20 +29,11 @@ public class SfdcDataLoaderTask
   private String configId;
   private String logDir;
 
-  private UpdateStampHandler updateStampHandler;
+//  private UpdateStampHandler updateStampHandler;
 //  private SfdcHandler sfdcHandler;
 //  private MetadataHandler metadataHandler;
   private DataLoaderHandler dataLoaderHandler;
 //  private TransformationHandler transformationHandler;
-
-  public SfdcDataLoaderTask()
-  {
-    updateStampHandler = new UpdateStampHandler();
-    dataLoaderHandler = new DataLoaderHandler();
-//    sfdcHandler = new SfdcHandler();
-//    metadataHandler = new MetadataHandler();
-//    transformationHandler = new TransformationHandler();
-  }
 
   public void setUsername(String username)
   {
@@ -109,12 +99,25 @@ public class SfdcDataLoaderTask
   {
     this.logDir = logDir;
   }
+  
+  @Override
+  public void init()
+  {
+    super.init();
+    
+//    updateStampHandler = new UpdateStampHandler();
+    dataLoaderHandler = new DataLoaderHandler();
+//    sfdcHandler = new SfdcHandler();
+//    metadataHandler = new MetadataHandler();
+//    transformationHandler = new TransformationHandler();
+  }
 
+  @Override
   public void execute()
   {
     validate();
     initialize();
-
+    
     dataLoaderHandler.load();
 //    Map<String, List<String>> metadata2Update = null;
 //    if (full) {
@@ -140,7 +143,7 @@ public class SfdcDataLoaderTask
     LogWrapper logWrapper = new LogWrapper(this);
 
 //    updateStampHandler.initialize(logWrapper, username, timestamps, !full);
-    dataLoaderHandler.initialize(logWrapper, serverurl, username, password, useProxy, proxyHost, proxyPort, dataRoot, configId, logDir, debug, updateStampHandler);    
+    dataLoaderHandler.initialize(logWrapper, serverurl, username, password, useProxy, proxyHost, proxyPort, dataRoot, configId, logDir, debug);    
     
 //    transformationHandler.initialize(logWrapper, username, transformationsRoot, retrieveRoot);
 //    

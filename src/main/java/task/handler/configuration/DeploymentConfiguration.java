@@ -1,10 +1,12 @@
 /*
  * Daimler CRM - Extension Platform
  */
-package deployer;
+package task.handler.configuration;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import task.handler.configuration.custom.Settings;
 
 import com.sforce.soap.metadata.AccountCriteriaBasedSharingRule;
 import com.sforce.soap.metadata.AccountOwnerSharingRule;
@@ -63,8 +65,6 @@ import com.sforce.soap.metadata.StaticResource;
 import com.sforce.soap.metadata.SynonymDictionary;
 import com.sforce.soap.metadata.Translations;
 import com.sforce.soap.metadata.Workflow;
-
-import deployer.custom.Settings;
 
 /**
  * Manual Steps:

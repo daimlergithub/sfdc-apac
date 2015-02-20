@@ -58,6 +58,7 @@ public class ChangeText extends Transformation {
     this.value = value;
   }
 
+  @Override
   public void validate()
   {
     super.validate();

@@ -24,11 +24,11 @@ import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.types.LogLevel;
 
 import task.handler.UpdateStampHandler.Action;
+import task.handler.configuration.DeploymentConfiguration;
+import task.handler.configuration.DeploymentUnit;
 import task.model.SfdcExclude;
 import task.model.SfdcInclude;
 import task.model.SfdcTypeSet;
-import deployer.DeploymentConfiguration;
-import deployer.DeploymentUnit;
 
 /**
  * MetadataHandler
@@ -43,6 +43,7 @@ public class MetadataHandler
   private boolean debug;
   private BaseUpdateHandler<?> updateStampHandler;
 
+  @SuppressWarnings("hiding")
   public void initialize(LogWrapper logWrapper, String metadataRoot, boolean debug, BaseUpdateHandler<?> updateStampHandler)
   {
     this.logWrapper = logWrapper;
@@ -150,7 +151,7 @@ public class MetadataHandler
     }
 
     // check timestamps
-    Set<String> entitiesToUpdate = new HashSet<String>();
+    Set<String> entitiesToUpdate = new HashSet<>();
     for (File file : filteredFileList) {
       if (updateStampHandler.isUpdateRequired(du, file)) {
         entitiesToUpdate.add(du.getEntityName(file));
@@ -195,9 +196,7 @@ public class MetadataHandler
 
   public byte[] createPackageXml(List<DeploymentInfo> deploymentInfos)
   {
-    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-    
-    try {
+    try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
       writeHeader(baos);
 
       for (DeploymentInfo info : deploymentInfos) {
@@ -208,12 +207,12 @@ public class MetadataHandler
         writeEntity(baos, type, info.getEntityNames());
       }
       writeFooter(baos);
+      
+      return baos.toByteArray();
     }
     catch (IOException e) {
       throw new BuildException(String.format("Error creating package.xml: %s.", e.getMessage()), e);
     }
-
-    return baos.toByteArray();
   }
   
   public byte[] createPackageXml(Map<String, List<String>> metadata)
@@ -244,17 +243,16 @@ public class MetadataHandler
   
   public void savePackageXml(byte[] packageXml)
   {
-    // debugging
     if (debug) {
       String fileName = "metadata-" + System.currentTimeMillis() + ".xml";
       
       logWrapper.log(String.format("Save metadata."));
   
-      try {
-        File tmpDir = new File("tmp");
-        tmpDir.mkdirs();
-        File metadataXml = new File(tmpDir, fileName);
-        FileOutputStream fos = new FileOutputStream(metadataXml);
+      File tmpDir = new File("tmp");
+      tmpDir.mkdirs();
+      File metadataXml = new File(tmpDir, fileName);
+      
+      try (FileOutputStream fos = new FileOutputStream(metadataXml)) {
         fos.write(packageXml);
         fos.close();
       }
@@ -407,9 +405,8 @@ public class MetadataHandler
             }
             
             return false;
-          } else {
-            return typeOrChildrenInObjects(objects, du);
           }
+          return typeOrChildrenInObjects(objects, du);
         } else if (pathname.isFile()) {
           if (!"package.xml".equals(pathname.getName())) {
             logWrapper.log(String.format("Delete file: %s.", pathname.getName()));

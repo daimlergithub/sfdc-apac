@@ -50,18 +50,6 @@ public class SfdcRetrievalTask
   private ZipFileHandler zipFileHandler;
   private TransformationHandler transformationHandler;
 
-  public SfdcRetrievalTask()
-  {
-    objects = new HashSet<String>();
-    updateStampHandler = new UpdateStampHandler();
-    sfdcHandler = new SfdcHandler();
-    metadataHandler = new MetadataHandler();
-    zipFileHandler = new ZipFileHandler();
-    transformationHandler = new TransformationHandler();
-    
-    cleanupOther = true;
-  }
-
   public void setUsername(String username)
   {
     this.username = username;
@@ -148,12 +136,28 @@ public class SfdcRetrievalTask
       throw new BuildException("The names of type sets must be set.");
     }
   }
-
+  
+  @Override
+  public void init()
+  {
+    super.init();
+    
+    objects = new HashSet<>();
+    updateStampHandler = new UpdateStampHandler();
+    sfdcHandler = new SfdcHandler();
+    metadataHandler = new MetadataHandler();
+    zipFileHandler = new ZipFileHandler();
+    transformationHandler = new TransformationHandler();
+    
+    cleanupOther = true;
+  }
+  
+  @Override
   public void execute()
   {
     validate();
     initialize();
-
+    
     Map<String, Map<String, Long>> metadataUpdatestamps = sfdcHandler.getUpdateStamps(objects);
     
     Map<String, List<String>> metadata2Update = null;
@@ -187,7 +191,7 @@ public class SfdcRetrievalTask
     updateStampHandler.initialize(logWrapper, username, timestamps, !full);
     transformationHandler.initialize(logWrapper, username, transformationsRoot, retrieveRoot);
     
-    sfdcHandler.initialize(logWrapper, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
+    sfdcHandler.initialize(this, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
     metadataHandler.initialize(logWrapper, retrieveRoot, debug, updateStampHandler);
     zipFileHandler.initialize(logWrapper, debug, transformationHandler);
   }

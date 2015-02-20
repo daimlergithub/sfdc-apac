@@ -36,6 +36,7 @@ public class RemoveElement extends Transformation {
     this.xpath = xpath;
   }
 
+  @Override
   public void validate()
   {
     super.validate();

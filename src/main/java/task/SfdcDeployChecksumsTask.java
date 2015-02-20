@@ -17,11 +17,11 @@ import task.handler.ZipFileHandler;
 import task.model.SfdcTypeSet;
 
 /**
- * SfdcDeploymentTask
+ * SfdcDeployChecksumsTask
  *
  * @author  xlehmf
  */
-public class SfdcDeploymentTask
+public class SfdcDeployChecksumsTask
   extends Taskdef
 {
 
@@ -32,18 +32,12 @@ public class SfdcDeploymentTask
   private boolean useProxy;
   private String proxyHost;
   private int proxyPort;
-  private String deployRoot;
-  private boolean debug;
-  private boolean dryRun;
-  private List<SfdcTypeSet> typeSets;
-  private String transformationsRoot;
-  private String timestamps;
+  private String checksums;
 
   private ChecksumHandler checksumHandler;
   private ZipFileHandler zipFileHandler;
   private SfdcHandler sfdcHandler;
   private MetadataHandler metadataHandler;
-  private TransformationHandler transformationHandler;
 
   public void setUsername(String username)
   {
@@ -80,34 +74,9 @@ public class SfdcDeploymentTask
     this.proxyPort = proxyPort;
   }
 
-  public void setDeployRoot(String deployRoot)
+  public void setChecksums(String checksums)
   {
-    this.deployRoot = deployRoot;
-  }
-
-  public void setDebug(boolean debug)
-  {
-    this.debug = debug;
-  }
-
-  public void setDryRun(boolean dryRun)
-  {
-    this.dryRun = dryRun;
-  }
-
-  public void setTransformationsRoot(String transformationsRoot)
-  {
-    this.transformationsRoot = transformationsRoot;
-  }
-
-  public void setTimestamps(String timestamps)
-  {
-    this.timestamps = timestamps;
-  }
-
-  public void addConfigured(SfdcTypeSet typeSet)
-  {
-    typeSets.add(typeSet);
+    this.checksums = checksums;
   }
 
   @Override
@@ -116,12 +85,10 @@ public class SfdcDeploymentTask
   {
     super.init();
     
-    typeSets = new ArrayList<>();
     checksumHandler = new ChecksumHandler();
     zipFileHandler = new ZipFileHandler();
     sfdcHandler = new SfdcHandler();
     metadataHandler = new MetadataHandler();
-    transformationHandler = new TransformationHandler();
   }
 
   @Override
@@ -130,6 +97,7 @@ public class SfdcDeploymentTask
     validate();
     initialize();
     
+    checksumHandler.
     List<DeploymentInfo> deploymentInfos = metadataHandler.compileDeploymentInfos(typeSets);
     if (deploymentInfos.isEmpty()) {
       log(String.format("Nothing to deploy."));
@@ -147,20 +115,14 @@ public class SfdcDeploymentTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    checksumHandler.initialize(logWrapper, username, timestamps, true);
-    transformationHandler.initialize(logWrapper, username, transformationsRoot, deployRoot);
+    checksumHandler.initialize(logWrapper, username, checksums, true);
     
-    sfdcHandler.initialize(this, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler);
-    zipFileHandler.initialize(logWrapper, debug, transformationHandler);
-    metadataHandler.initialize(logWrapper, deployRoot, debug, checksumHandler);
+    sfdcHandler.initialize(this, maxPoll, false, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler);
   }
 
   private void validate()
   {
     // TODO validate settings
-    for (SfdcTypeSet typeSet : typeSets) {
-      typeSet.validateSettings();
-    }
   }
   
 }

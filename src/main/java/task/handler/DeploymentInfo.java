@@ -6,7 +6,7 @@ package task.handler;
 import java.io.File;
 import java.util.List;
 
-import deployer.DeploymentUnit;
+import task.handler.configuration.DeploymentUnit;
 
 /**
  * DeploymentInfo
