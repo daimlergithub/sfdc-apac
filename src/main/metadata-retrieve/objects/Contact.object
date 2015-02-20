@@ -141,10 +141,6 @@
         <unique>true</unique>
     </fields>
     <fields>
-        <fullName>CleanStatus</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-    </fields>
-    <fields>
         <fullName>DUP_Number__c</fullName>
         <description>Duplication number to identify the suspected duplication group to be filled by EP</description>
         <externalId>false</externalId>

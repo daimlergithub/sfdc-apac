@@ -879,6 +879,7 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>SSI</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>CustomerName__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>OfficePhone__c</customTabListAdditionalFields>

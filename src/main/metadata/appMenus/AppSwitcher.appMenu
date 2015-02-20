@@ -17,11 +17,7 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__ServiceConsole</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>standard__AppLauncher</name>
+        <name>Force_com</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
@@ -29,7 +25,7 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__Sites</name>
+        <name>standard__Content</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
@@ -37,11 +33,15 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__Content</name>
+        <name>standard__Sites</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>Private_APP_Exchange</name>
+        <name>standard__AppLauncher</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>standard__ServiceConsole</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
@@ -69,15 +69,7 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>Service_Cloud_Console_OB</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>Serivce_Cloud_Console_IB</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>Service_Cloud_Console_SSI</name>
+        <name>Private_APP_Exchange</name>
         <type>CustomApplication</type>
     </appMenuItems>
 </AppMenu>

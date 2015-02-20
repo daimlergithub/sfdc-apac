@@ -123,6 +123,7 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Picklist Mappings</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>

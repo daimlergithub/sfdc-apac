@@ -1179,6 +1179,7 @@ MONTH(Submit_Date__c) &lt; 10,
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Tool Kits</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Event</fullName>

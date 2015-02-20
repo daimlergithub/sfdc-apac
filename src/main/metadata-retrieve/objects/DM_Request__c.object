@@ -613,6 +613,7 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>DM Request</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Customer_Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Actual_DM_Material1__c</customTabListAdditionalFields>

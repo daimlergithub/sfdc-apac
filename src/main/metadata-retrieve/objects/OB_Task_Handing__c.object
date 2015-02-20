@@ -530,6 +530,7 @@
         <label>OB Task Handing Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>OB Task Handings</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

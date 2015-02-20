@@ -5933,6 +5933,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Vehicles</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Competitor</fullName>

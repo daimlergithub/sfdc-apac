@@ -20,12 +20,12 @@
         </assignedApprover>
         <entryCriteria>
             <criteriaItems>
-                <field>oliverkoethap1__Retail_Campaign__c.RecordType</field>
+                <field>Retail_Campaign__c.RecordType</field>
                 <operation>equals</operation>
                 <value>Aftersales Yearly TA</value>
             </criteriaItems>
             <criteriaItems>
-                <field>oliverkoethap1__Retail_Campaign__c.oliverkoethap1__Y_Region__c</field>
+                <field>Retail_Campaign__c.Y_Region__c</field>
                 <operation>equals</operation>
                 <value>EAST</value>
             </criteriaItems>
@@ -45,12 +45,12 @@
         </assignedApprover>
         <entryCriteria>
             <criteriaItems>
-                <field>oliverkoethap1__Retail_Campaign__c.RecordType</field>
+                <field>Retail_Campaign__c.RecordType</field>
                 <operation>equals</operation>
                 <value>Aftersales Yearly TA</value>
             </criteriaItems>
             <criteriaItems>
-                <field>oliverkoethap1__Retail_Campaign__c.oliverkoethap1__Y_Region__c</field>
+                <field>Retail_Campaign__c.Y_Region__c</field>
                 <operation>equals</operation>
                 <value>NORTH</value>
             </criteriaItems>
@@ -73,12 +73,12 @@
         </assignedApprover>
         <entryCriteria>
             <criteriaItems>
-                <field>oliverkoethap1__Retail_Campaign__c.RecordType</field>
+                <field>Retail_Campaign__c.RecordType</field>
                 <operation>equals</operation>
                 <value>Aftersales Yearly TA</value>
             </criteriaItems>
             <criteriaItems>
-                <field>oliverkoethap1__Retail_Campaign__c.oliverkoethap1__Y_Region__c</field>
+                <field>Retail_Campaign__c.Y_Region__c</field>
                 <operation>equals</operation>
                 <value>SOUTH</value>
             </criteriaItems>
@@ -101,12 +101,12 @@
         </assignedApprover>
         <entryCriteria>
             <criteriaItems>
-                <field>oliverkoethap1__Retail_Campaign__c.RecordType</field>
+                <field>Retail_Campaign__c.RecordType</field>
                 <operation>equals</operation>
                 <value>Aftersales Yearly TA</value>
             </criteriaItems>
             <criteriaItems>
-                <field>oliverkoethap1__Retail_Campaign__c.oliverkoethap1__Y_Region__c</field>
+                <field>Retail_Campaign__c.Y_Region__c</field>
                 <operation>equals</operation>
                 <value>WEST</value>
             </criteriaItems>
@@ -120,12 +120,12 @@
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
         <criteriaItems>
-            <field>oliverkoethap1__Retail_Campaign__c.RecordType</field>
+            <field>Retail_Campaign__c.RecordType</field>
             <operation>equals</operation>
-            <value>Sales &amp; Marketing Yearly TA, Aftersales Yearly TA</value>
+            <value>Sales &amp; Marketing Yearly TA,Aftersales Yearly TA</value>
         </criteriaItems>
         <criteriaItems>
-            <field>oliverkoethap1__Retail_Campaign__c.oliverkoethap1__Y_Status__c</field>
+            <field>Retail_Campaign__c.Y_Status__c</field>
             <operation>equals</operation>
             <value>Confirmed</value>
         </criteriaItems>

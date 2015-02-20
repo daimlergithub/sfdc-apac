@@ -106,6 +106,7 @@
         <label>Response ID</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Survey Question Responses</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

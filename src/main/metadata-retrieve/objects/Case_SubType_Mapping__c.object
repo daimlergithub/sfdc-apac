@@ -69,6 +69,7 @@
         <label>Case SubType Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Case SubType Mapping</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

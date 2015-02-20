@@ -109,6 +109,7 @@
         <label>Ref No.</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Package Items</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>

@@ -175,6 +175,7 @@
         <label>Unit of Transfer Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Units of Transfer</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

@@ -203,6 +203,7 @@
         <label>Name</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Settlement Managements</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>

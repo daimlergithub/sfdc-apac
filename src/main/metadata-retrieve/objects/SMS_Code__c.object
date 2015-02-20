@@ -155,6 +155,7 @@
         <label>SMS Code Name</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>SMS Codes</pluralLabel>
     <recordTypes>
         <fullName>GenerateDownstreamMMS</fullName>
         <active>true</active>

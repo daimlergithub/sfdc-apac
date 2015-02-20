@@ -21,9 +21,10 @@
         <enableClickjackNonsetupUser>false</enableClickjackNonsetupUser>
         <enableClickjackSetup>true</enableClickjackSetup>
         <enablePostForSessions>false</enablePostForSessions>
-        <enableSMSIdentity>true</enableSMSIdentity>
-        <forceLogoutOnSessionTimeout>false</forceLogoutOnSessionTimeout>
-        <forceRelogin>false</forceRelogin>
+        <enableSMSIdentity>false</enableSMSIdentity>
+        <forceLogoutOnSessionTimeout>true</forceLogoutOnSessionTimeout>
+        <forceRelogin>true</forceRelogin>
         <lockSessionsToIp>false</lockSessionsToIp>
+        <sessionTimeout>TwoHours</sessionTimeout>
     </sessionSettings>
 </SecuritySettings>
