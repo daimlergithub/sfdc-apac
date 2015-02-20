@@ -59,7 +59,10 @@
 	<target name="deploy01">
 		<deploy>
 			<sf:typeset name="labels"/>
-			<sf:typeset name="staticresources"/>
+			<sf:typeset name="staticresources">
+				<!-- the Checksums resource is handled by separate tasks -->
+				<sf:exclude name="Checksums"/>
+			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 		</deploy>
     </target>
@@ -193,7 +196,14 @@
 				<sf:exclude name="Service_Cloud_Console_SSI"/>
 			</sf:typeset>
 			<sf:typeset name="permissionsets"/>			
-			<sf:typeset name="profiles"/>
+			<sf:typeset name="profiles">
+				<!-- TODO FALK these do not deploy on Oliver's org -->
+				<!--sf:exclude name="CAC IB CSR"/>
+				<sf:exclude name="CAC SSI CSR"/>
+				<sf:exclude name="CAC SSI QC"/>
+				<sf:exclude name="CAC SSI SV"/>
+				<sf:exclude name="CAC SSI TL"/-->
+			</sf:typeset>
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>
@@ -225,7 +235,7 @@
 	</target>
 	
 	<property name="typesets.circle">
-		CustomLabels,StaticResource,CallCenter,CustomTab,ApexClass,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess
+		CustomLabels,StaticResource,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess
 		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting
 	</property>
 	
@@ -243,10 +253,9 @@
 	ApprovalProcess: differences
 	HomePageComponent: check one component
 	HomePageLayout: DE Default Layout
-	ApexComponent: check
 	-->
 	<property name="typesets.not-ready">
-		ApexComponent,CustomObject,Layout,Profile,PermissionSet
+		CustomObject,Layout,Profile,PermissionSet
 	</property>
 	
 	<target name="retrieveAll" depends="init">

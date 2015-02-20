@@ -629,7 +629,7 @@ public class SfdcHandler
         }
         else {
           for (com.sforce.soap.metadata.Error e : r.getErrors()) {
-            task.log(String.format("Error %d during checksum deployment: %s.", e.getStatusCode(), e.getMessage()));
+            task.log(String.format("Error %s during checksum deployment: %s.", e.getStatusCode().toString(), e.getMessage()));
           }
 
           throw new BuildException("Error deploying checksums to SFDC.");
