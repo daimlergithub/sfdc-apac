@@ -597,6 +597,7 @@ public class SfdcHandler
     }
   }
 
+  // TODO zip checksums before deploying
   public void deployChecksums(Map<String, String> checksumMap)
   {
     try {
