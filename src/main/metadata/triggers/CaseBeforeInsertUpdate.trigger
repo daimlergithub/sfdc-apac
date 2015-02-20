@@ -133,9 +133,6 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
                     if(trigger.isUpdate && flag && caseNew.Previous_Owner__c != null) {
                         casesToShareRO.put(caseNew.Id, caseNew.Previous_Owner__c);
                     }
-                /*    if(trigger.isUpdate && !flag && caseNew.Previous_Owner__c != null && caseNew.Previous_Owner__c != Trigger.oldMap.get(caseNew.Id).Previous_Owner__c && caseHelper.P_BMBS_ONSITE_CM_ID == UserInfo.getProfileId()) {
-                        casesToShareRO.put(caseNew.Id, caseNew.Previous_Owner__c);
-                    } */
                 }
                 
                 // By Justin - maps the vehicle and owner in case, to share the vehicle to case owner.
