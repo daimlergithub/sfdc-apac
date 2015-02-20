@@ -14,7 +14,7 @@
 				debug="${sfdc.debug}" dryRun="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"
-				transformationsRoot="src/main/transformations" timestamps="timestamps-updated.log"/>
+				transformationsRoot="src/main/transformations" checksums="timestamps-updated.log"/>
 	</presetdef>
 	
 	<presetdef name="loadData">
@@ -34,7 +34,13 @@
 		<antcall target="deploy"/>
 	</target>
 	
-	<target name="deploy" depends="init, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35, deploy40">
+	<target name="retrieveChecksums">
+		<sf:retrieveChecksums
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
+	</target>
+	
+	<target name="deploy" depends="init, retrieveChecksums, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35, deploy40">
 		<!-- TODO consider only deployed entities -->
 		<sf:retrieveUpdatestamps
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 

@@ -10,11 +10,11 @@ import task.handler.LogWrapper;
 import task.handler.SfdcHandler;
 
 /**
- * SfdcDeployChecksumsTask
+ * SfdcRetrieveChecksumsTask
  *
  * @author  xlehmf
  */
-public class SfdcDeployChecksumsTask
+public class SfdcRetrieveChecksumsTask
   extends Taskdef
 {
 
@@ -86,15 +86,15 @@ public class SfdcDeployChecksumsTask
     validate();
     initialize();
     
-    Map<String, String> checksumMap = checksumHandler.getChecksums();
-    sfdcHandler.deployChecksums(checksumMap);
+    Map<String, String> checksumMap = sfdcHandler.retrieveChecksums();
+    checksumHandler.putChecksums(checksumMap);
   }
 
   private void initialize()
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    checksumHandler.initialize(logWrapper, username, checksums, true);
+    checksumHandler.initialize(logWrapper, username, checksums, false);
     
     sfdcHandler.initialize(this, maxPoll, false, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler);
   }

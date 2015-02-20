@@ -3,8 +3,10 @@
  */
 package task.handler;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -31,11 +33,16 @@ import com.sforce.soap.metadata.DescribeMetadataObject;
 import com.sforce.soap.metadata.DescribeMetadataResult;
 import com.sforce.soap.metadata.FileProperties;
 import com.sforce.soap.metadata.ListMetadataQuery;
+import com.sforce.soap.metadata.Metadata;
 import com.sforce.soap.metadata.MetadataConnection;
 import com.sforce.soap.metadata.Package;
 import com.sforce.soap.metadata.PackageTypeMembers;
+import com.sforce.soap.metadata.ReadResult;
 import com.sforce.soap.metadata.RetrieveRequest;
 import com.sforce.soap.metadata.RetrieveResult;
+import com.sforce.soap.metadata.StaticResource;
+import com.sforce.soap.metadata.StaticResourceCacheControl;
+import com.sforce.soap.metadata.UpsertResult;
 import com.sforce.ws.ConnectionException;
 import com.sforce.ws.ConnectorConfig;
 
@@ -267,13 +274,13 @@ public class SfdcHandler
   {
     String session = task.getProject().getProperty(PROJECT_PROPERTY_SFDC_SESSION);
     if (StringUtils.isNotEmpty(session)) {
-      
+
       String[] tokens = session.split("\\|");
       if (null != tokens && 3 == tokens.length) {
         String serviceEndpointUrl = tokens[0];
         String metadataServerUrl = tokens[1];
         String sessionId = tokens[2];
-        
+
         eConnection.setSessionHeader(sessionId);
         eConnection.getConfig().setServiceEndpoint(serviceEndpointUrl);
 
@@ -547,6 +554,89 @@ public class SfdcHandler
     }
     catch (ConnectionException e) {
       throw new BuildException(String.format("Error Connecting to SFDC: %s.", e.getMessage()), e);
+    }
+  }
+
+  public Map<String, String> retrieveChecksums()
+  {
+    try {
+      SfdcConnectionContext context = login();
+
+      ReadResult readResult = context.getMConnection().readMetadata("StaticResource", new String[]{ "checksums.txt" });
+
+      Metadata[] mdInfo = readResult.getRecords();
+
+      Map<String, String> map = new HashMap<>();
+      if (0 == mdInfo.length || null == mdInfo[0]) {
+        task.log("Did not find checksums in SFDC.", LogLevel.WARN.getLevel());
+      }
+      else {
+        task.log("Retrieved checksum from SFDC.");
+
+        StaticResource checksums = (StaticResource)mdInfo[0];
+        String content = new String(checksums.getContent(), "UTF-8");
+
+        try (StringReader sr = new StringReader(content); BufferedReader br = new BufferedReader(sr)) {
+          String line = null;
+          do {
+            line = br.readLine();
+            if (null != line) {
+              String[] tokens = line.split(":");
+              if (2 == tokens.length) {
+                map.put(tokens[0], tokens[1]);
+              }
+            }
+          }
+          while (line != null);
+        }
+      }
+      return map;
+    }
+    catch (IOException | ConnectionException e) {
+      throw new BuildException(String.format("Error retrieving checksums from SFDC: %s.", e.getMessage()), e);
+    }
+  }
+
+  public void deployChecksums(Map<String, String> checksumMap)
+  {
+    try {
+      SfdcConnectionContext context = login();
+
+      ByteArrayOutputStream baos = new ByteArrayOutputStream();
+      for (Map.Entry<String, String> entry : checksumMap.entrySet()) {
+        baos.write(String.format("%s:%s\n", entry.getKey(), entry.getValue()).getBytes("UTF-8"));
+      }
+      byte[] content = baos.toByteArray();
+
+      StaticResource sr = new StaticResource();
+      sr.setCacheControl(StaticResourceCacheControl.Private);
+      sr.setContent(content);
+      sr.setContentType("text/plain");
+      sr.setFullName("checksums.txt");
+      sr.setDescription("Checksums of all deployed metadata.");
+
+      UpsertResult[] results = context.getMConnection().upsertMetadata(new Metadata[]{ sr });
+
+      for (UpsertResult r : results) {
+        if (r.isSuccess()) {
+          if (r.isCreated()) {
+            task.log("Created checksums in SFDC.");
+          }
+          else {
+            task.log("Updated checksums in SFDC.");
+          }
+        }
+        else {
+          for (com.sforce.soap.metadata.Error e : r.getErrors()) {
+            task.log(String.format("Error %d during checksum deployment: %s.", e.getStatusCode(), e.getMessage()));
+          }
+
+          throw new BuildException("Error deploying checksums to SFDC.");
+        }
+      }
+    }
+    catch (IOException | ConnectionException e) {
+      throw new BuildException(String.format("Error retrieving checksums from SFDC: %s.", e.getMessage()), e);
     }
   }
 }

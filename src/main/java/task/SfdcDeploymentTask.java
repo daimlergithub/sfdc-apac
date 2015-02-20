@@ -37,7 +37,7 @@ public class SfdcDeploymentTask
   private boolean dryRun;
   private List<SfdcTypeSet> typeSets;
   private String transformationsRoot;
-  private String timestamps;
+  private String checksums;
 
   private ChecksumHandler checksumHandler;
   private ZipFileHandler zipFileHandler;
@@ -100,9 +100,9 @@ public class SfdcDeploymentTask
     this.transformationsRoot = transformationsRoot;
   }
 
-  public void setTimestamps(String timestamps)
+  public void setChecksums(String checksums)
   {
-    this.timestamps = timestamps;
+    this.checksums = checksums;
   }
 
   public void addConfigured(SfdcTypeSet typeSet)
@@ -147,7 +147,7 @@ public class SfdcDeploymentTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    checksumHandler.initialize(logWrapper, username, timestamps, true);
+    checksumHandler.initialize(logWrapper, username, checksums, true);
     transformationHandler.initialize(logWrapper, username, transformationsRoot, deployRoot);
     
     sfdcHandler.initialize(this, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler);

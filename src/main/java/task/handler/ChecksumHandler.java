@@ -12,6 +12,7 @@ import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
@@ -29,19 +30,19 @@ public class ChecksumHandler
   extends BaseUpdateHandler<String>
 {
 
-  private Set<String> textExtensions;
+//  private Set<String> textExtensions;
 
   public ChecksumHandler()
   {
-    textExtensions = new HashSet<>();
-    textExtensions.add("xml");
-
-    for (DeploymentUnit unit : new DeploymentConfiguration().getConfigurations()) {
-      String extension = unit.getExtension();
-      if (StringUtils.isNotEmpty(extension)) {
-        textExtensions.add(extension);
-      }
-    }
+//    textExtensions = new HashSet<>();
+//    textExtensions.add("xml");
+//
+//    for (DeploymentUnit unit : new DeploymentConfiguration().getConfigurations()) {
+//      String extension = unit.getExtension();
+//      if (StringUtils.isNotEmpty(extension)) {
+//        textExtensions.add(extension);
+//      }
+//    }
   }
 
   @Override
@@ -56,28 +57,22 @@ public class ChecksumHandler
     return value;
   }
 
-  private boolean isTextFile(File file)
-  {
-    String extension = StringUtils.substringAfterLast(file.getName(), ".");
-    return StringUtils.isNotEmpty(extension) && textExtensions.contains(extension);
-  }
-
-  private byte[] checkChecksum4Binary(File file)
+  private byte[] checkChecksum(File file)
   {
     try (InputStream fis = new FileInputStream(file)) {
 
-      MessageDigest complete = MessageDigest.getInstance("MD5");
+      MessageDigest digest = MessageDigest.getInstance("MD5");
       byte[] buffer = new byte[1024];
       int numRead;
       do {
         numRead = fis.read(buffer);
         if (numRead > 0) {
-          complete.update(buffer, 0, numRead);
+          digest.update(buffer, 0, numRead);
         }
       }
       while (numRead != -1);
       
-      return complete.digest();
+      return digest.digest();
     }
     catch (IOException | NoSuchAlgorithmException e) {
       // TODO Auto-generated catch block
@@ -87,36 +82,37 @@ public class ChecksumHandler
     }
   }
 
-  private byte[] createChecksum4Text(File file)
-  {
-    try (FileReader fr = new FileReader(file);
-        BufferedReader br = new BufferedReader(fr)) {
-
-      MessageDigest digest = MessageDigest.getInstance("MD5");
-      
-      String line = null;
-      do {
-        line = br.readLine();
-        if (null != line) {
-          digest.update(line.getBytes("UTF-8"));
-        }
-      }
-      while (null != line);
-      
-      return digest.digest();
-    }
-    catch (IOException | NoSuchAlgorithmException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-      
-      throw new BuildException(String.format("Error creating checksum for text file %s: %s.", file.getName(), e.getMessage()), e);
-    }
-  }
+//  private byte[] createChecksum4Text(File file)
+//  {
+//    try (FileReader fr = new FileReader(file);
+//        BufferedReader br = new BufferedReader(fr)) {
+//
+//      MessageDigest digest = MessageDigest.getInstance("MD5");
+//      
+//      String line = null;
+//      do {
+//        line = br.readLine();
+//        if (null != line) {
+//          digest.update(line.getBytes("UTF-8"));
+//        }
+//      }
+//      while (null != line);
+//      
+//      return digest.digest();
+//    }
+//    catch (IOException | NoSuchAlgorithmException e) {
+//      // TODO Auto-generated catch block
+//      e.printStackTrace();
+//      
+//      throw new BuildException(String.format("Error creating checksum for text file %s: %s.", file.getName(), e.getMessage()), e);
+//    }
+//  }
 
   @Override
   protected String getValueFromFile(File file)
   {
-    byte[] checksum = isTextFile(file) ? createChecksum4Text(file) : checkChecksum4Binary(file);
+//    byte[] checksum = isTextFile(file) ? createChecksum4Text(file) : checkChecksum4Binary(file);
+    byte[] checksum = checkChecksum(file);
 
     String result = "";
     for (int i = 0; i < checksum.length; i++) {
@@ -135,5 +131,15 @@ public class ChecksumHandler
     String oldChecksum = getUpdateStamps().get(key);
 
     return !StringUtils.equals(newChecksum, oldChecksum);
+  }
+  
+  public Map<String, String> getChecksums() {
+    return getUpdateStamps();
+  }
+  
+  public void putChecksums(Map<String, String> checksums) {
+    getUpdateStamps().clear();
+    getUpdateStamps().putAll(checksums);
+    writeUpdateStampes();
   }
 }
