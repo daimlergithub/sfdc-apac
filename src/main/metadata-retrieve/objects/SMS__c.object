@@ -130,6 +130,7 @@
         <label>SMS Name</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>SMS</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
     <webLinks>

@@ -129,6 +129,7 @@
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Collaboration Team</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

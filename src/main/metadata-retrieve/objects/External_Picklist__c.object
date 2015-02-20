@@ -168,6 +168,7 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
+    <pluralLabel>External Picklists</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>

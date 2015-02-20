@@ -176,6 +176,7 @@
         <label>Ref No.</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Participating Dealers</pluralLabel>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Campaign__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Campaign_Package__c</lookupDialogsAdditionalFields>

@@ -1,89 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
-    <applicationVisibilities>
-        <application>BMBS_CRM</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>BMBS_Dealer_Portal</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>BMBS_Lead_Management</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>BMBS_Marketing</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>EPA_Administration</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Private_APP_Exchange</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Retail_CRM</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Serivce_Cloud_Console_IB</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Service_Cloud_Console_OB</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Service_Cloud_Console_SSI</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__AppLauncher</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Chatter</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Community</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Content</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Marketing</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Platform</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Sales</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Service</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__ServiceConsole</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Sites</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Work</application>
-        <visible>false</visible>
-    </applicationVisibilities>
     <description>To choose AS Retail Campaign this function and active contact for dealer user, the dealer user can has Submit for Approval 、Submit for Feedback and so on.</description>
     <fieldPermissions>
         <editable>false</editable>
@@ -188,11 +104,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.City_CN__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.CleanStatus</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2982,6 +2893,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Case.IsSelfClosed</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.IsSelfServiceClosed</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.IsVisibleInCss</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.IsVisibleInSelfService</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Case.Is_Primary_Case__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3833,11 +3764,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.CAC_SourceId__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Contact.CleanStatus</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4832,6 +4758,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Event.IsVisibleInSelfService</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Event.Last_OB_Call__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -5208,11 +5139,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead.AnnualRevenue</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.CleanStatus</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6518,11 +6444,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>OrderItem.ListPrice</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>OrderItem.OriginalOrderItemId</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9442,6 +9363,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Task.IsVisibleInSelfService</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Task.Last_OB_Call__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -10825,10 +10751,6 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Idea.Record_type_for_community_09a900000008vPgAAI_entity_Idea</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <recordType>Lead__c.Aftersales_Leads</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -10846,10 +10768,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <recordType>Lead__c.TestRecordType</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -11045,6 +10963,14 @@
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
+        <tab>standard-Asset</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>standard-Campaign</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>standard-Case</tab>
         <visibility>None</visibility>
     </tabSettings>
@@ -11054,6 +10980,10 @@
     </tabSettings>
     <tabSettings>
         <tab>standard-Contract</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>standard-DandBCompany</tab>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>

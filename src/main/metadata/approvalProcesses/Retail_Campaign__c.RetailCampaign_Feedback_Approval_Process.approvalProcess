@@ -77,7 +77,7 @@
         <criteriaItems>
             <field>Retail_Campaign__c.RecordType</field>
             <operation>equals</operation>
-            <value>AS Retail Campaign, S&amp;M Event Retail Campaign, S&amp;M Media Retail Campaign</value>
+            <value>AS Retail Campaign,S&amp;M Event Retail Campaign,S&amp;M Media Retail Campaign</value>
         </criteriaItems>
     </entryCriteria>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>

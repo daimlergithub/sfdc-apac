@@ -136,6 +136,7 @@ Participating Dealer</description>
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Campaign History Log</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

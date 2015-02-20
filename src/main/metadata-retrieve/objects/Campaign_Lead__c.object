@@ -1501,6 +1501,7 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , &quot;Lost&quot;)
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Campaign Leads</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>

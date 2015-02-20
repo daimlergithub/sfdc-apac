@@ -134,6 +134,7 @@
         <label>ID</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Surveys Taken</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

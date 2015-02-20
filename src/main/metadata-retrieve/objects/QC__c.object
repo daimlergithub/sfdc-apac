@@ -3199,6 +3199,7 @@ MAX(
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>QC</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>IB_QC</fullName>

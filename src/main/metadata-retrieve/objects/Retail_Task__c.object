@@ -1120,6 +1120,7 @@
         <label>Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Retail Tasks</pluralLabel>
     <recordTypes>
         <fullName>Contract</fullName>
         <active>true</active>

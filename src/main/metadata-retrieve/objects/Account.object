@@ -3283,11 +3283,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_CityCN&quot;</descrip
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>CleanStatus</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Commercial_Reg_No__c</fullName>
         <externalId>false</externalId>
         <label>Commercial Reg No</label>
@@ -9081,6 +9076,9 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>IsCustomerPortal</fullName>
     </fields>
     <fields>
         <fullName>IsPartner</fullName>

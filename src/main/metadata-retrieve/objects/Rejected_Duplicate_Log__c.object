@@ -130,6 +130,7 @@ CreatedDate: 2013-06-08</description>
         <label>Rejected Duplicate Log Name</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Rejected Duplicate Logs</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

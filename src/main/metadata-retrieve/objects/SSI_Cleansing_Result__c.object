@@ -544,6 +544,7 @@
         <label>SSI Cleansing Result Name</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>SSI Cleansing Results</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

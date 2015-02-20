@@ -442,6 +442,7 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Templates</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Callscript</fullName>

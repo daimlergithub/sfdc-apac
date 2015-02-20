@@ -105,6 +105,7 @@
         <label>Ref No.</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Campaign Cities</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

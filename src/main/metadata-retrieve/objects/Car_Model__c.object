@@ -1240,6 +1240,7 @@
         <label>Car Model Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Car Model</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Brand__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Model__c</customTabListAdditionalFields>

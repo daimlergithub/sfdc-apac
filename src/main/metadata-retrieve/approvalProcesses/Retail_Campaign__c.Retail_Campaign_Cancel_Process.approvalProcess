@@ -44,19 +44,19 @@
     <enableMobileDeviceAccess>false</enableMobileDeviceAccess>
     <entryCriteria>
         <criteriaItems>
-            <field>oliverkoethap1__Retail_Campaign__c.oliverkoethap1__Apply_Status__c</field>
+            <field>Retail_Campaign__c.Apply_Status__c</field>
             <operation>equals</operation>
             <value>Approved</value>
         </criteriaItems>
         <criteriaItems>
-            <field>oliverkoethap1__Retail_Campaign__c.oliverkoethap1__Feedback_Status__c</field>
+            <field>Retail_Campaign__c.Feedback_Status__c</field>
             <operation>equals</operation>
             <value>Planned</value>
         </criteriaItems>
         <criteriaItems>
-            <field>oliverkoethap1__Retail_Campaign__c.RecordType</field>
+            <field>Retail_Campaign__c.RecordType</field>
             <operation>equals</operation>
-            <value>AS Retail Campaign, S&amp;M Event Retail Campaign, S&amp;M Media Retail Campaign</value>
+            <value>AS Retail Campaign,S&amp;M Event Retail Campaign,S&amp;M Media Retail Campaign</value>
         </criteriaItems>
     </entryCriteria>
     <finalApprovalRecordLock>true</finalApprovalRecordLock>

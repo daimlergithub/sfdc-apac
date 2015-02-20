@@ -205,6 +205,7 @@
         <label>Car Attribute Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Car Attribute</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Attribute_Type__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Attribute_Category__c</customTabListAdditionalFields>

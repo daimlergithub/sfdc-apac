@@ -8,9 +8,9 @@
     <approvalPageFields>
         <field>Name</field>
         <field>Owner</field>
-        <field>oliverkoethap1__Feedback_Status__c</field>
-        <field>oliverkoethap1__Plan_Expense__c</field>
-        <field>oliverkoethap1__Feedback_Comments__c</field>
+        <field>Feedback_Status__c</field>
+        <field>Plan_Expense__c</field>
+        <field>Feedback_Comments__c</field>
     </approvalPageFields>
     <approvalStep>
         <allowDelegate>false</allowDelegate>
@@ -48,14 +48,14 @@
     <entryCriteria>
         <booleanFilter>1 AND 2</booleanFilter>
         <criteriaItems>
-            <field>oliverkoethap1__Tool_Kit__c.oliverkoethap1__Apply_Status__c</field>
+            <field>Tool_Kit__c.Apply_Status__c</field>
             <operation>equals</operation>
             <value>Tool Kit Finished</value>
         </criteriaItems>
         <criteriaItems>
-            <field>oliverkoethap1__Tool_Kit__c.oliverkoethap1__Feedback_Status__c</field>
+            <field>Tool_Kit__c.Feedback_Status__c</field>
             <operation>equals</operation>
-            <value>Planned, Need Modify</value>
+            <value>Planned,Need Modify</value>
         </criteriaItems>
     </entryCriteria>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>
