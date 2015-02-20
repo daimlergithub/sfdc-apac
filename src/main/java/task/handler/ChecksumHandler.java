@@ -3,22 +3,17 @@
  */
 package task.handler;
 
-import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 
-import task.handler.configuration.DeploymentConfiguration;
 import task.handler.configuration.DeploymentUnit;
 
 /**
@@ -138,8 +133,10 @@ public class ChecksumHandler
   }
   
   public void putChecksums(Map<String, String> checksums) {
-    getUpdateStamps().clear();
-    getUpdateStamps().putAll(checksums);
+    if (!checksums.isEmpty()) {
+      getUpdateStamps().clear();
+      getUpdateStamps().putAll(checksums);
+    }
     writeUpdateStampes();
   }
 }

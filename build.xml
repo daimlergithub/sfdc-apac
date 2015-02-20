@@ -168,6 +168,7 @@
 	<target name="deploy30">
 		<deploy>
 			<sf:typeset name="classes"/>
+			<sf:typeset name="components"/>
 			<sf:typeset name="pages"/>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
@@ -242,9 +243,10 @@
 	ApprovalProcess: differences
 	HomePageComponent: check one component
 	HomePageLayout: DE Default Layout
+	ApexComponent: check
 	-->
 	<property name="typesets.not-ready">
-		CustomObject,Layout,Profile,PermissionSet
+		ApexComponent,CustomObject,Layout,Profile,PermissionSet
 	</property>
 	
 	<target name="retrieveAll" depends="init">
