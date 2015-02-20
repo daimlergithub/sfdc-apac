@@ -217,6 +217,7 @@
         <trackHistory>false</trackHistory>
         <type>Text</type>
     </nameField>
+    <pluralLabel>TSP Subscriptions</pluralLabel>
     <searchLayouts/>
     <sharingModel>Read</sharingModel>
 </CustomObject>

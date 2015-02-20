@@ -222,6 +222,7 @@
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Retail Campaign Members</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <webLinks>

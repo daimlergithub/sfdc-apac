@@ -91,6 +91,7 @@
         <label>Package Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Campaign Packages</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

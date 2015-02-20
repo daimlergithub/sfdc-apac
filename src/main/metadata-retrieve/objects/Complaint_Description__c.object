@@ -110,6 +110,7 @@
         <label>Complaint Description / Resolution</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Complaint Descriptions / Resolutions</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <webLinks>

@@ -17,7 +17,6 @@ public class TaskHelper {
     private static String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
     private static String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
     private static String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
-    private static String smartSSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('smart SSI Task').getRecordTypeId();
     private static String SMS_TASK_RECORDTYPEID = Schema.SObjectType.task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
     
     // Get QC__c record type ids

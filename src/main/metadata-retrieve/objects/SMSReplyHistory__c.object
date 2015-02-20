@@ -230,6 +230,7 @@
         <label>SMS Reply History Name</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>SMS Reply Histories</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

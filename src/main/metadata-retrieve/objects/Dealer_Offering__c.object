@@ -135,6 +135,7 @@ When update/delete on package will influence on the related dealer offering reco
         <label>Ref No.</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Dealer Offerings</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

@@ -115,11 +115,6 @@
             <active>false</active>
             <keyCommand>SHIFT+K</keyCommand>
         </defaultShortcut>
-        <defaultShortcut>
-            <action>FOCUS_MACRO</action>
-            <active>false</active>
-            <keyCommand>M</keyCommand>
-        </defaultShortcut>
     </keyboardShortcuts>
     <label>Service Cloud Console SSI</label>
     <listPlacement>

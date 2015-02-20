@@ -152,6 +152,7 @@
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>DM Stock Flow</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Material_Name__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Date__c</customTabListAdditionalFields>

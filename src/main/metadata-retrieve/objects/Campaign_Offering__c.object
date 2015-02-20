@@ -98,6 +98,7 @@
         <label>Offering Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Campaign Offerings</pluralLabel>
     <searchLayouts>
         <lookupDialogsAdditionalFields>Campaign__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Start_Date__c</lookupDialogsAdditionalFields>

@@ -147,6 +147,7 @@
         <label>Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Survey Questions</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

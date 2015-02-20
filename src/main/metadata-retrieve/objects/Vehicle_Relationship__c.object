@@ -3535,6 +3535,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Vehicle Relationship</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
         <fullName>Vehicle_Relationship</fullName>

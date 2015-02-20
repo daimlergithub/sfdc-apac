@@ -262,6 +262,7 @@
         <label>Unit of Work Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Units of Work</pluralLabel>
     <searchLayouts>
         <listViewButtons>Delete_Multiple</listViewButtons>
     </searchLayouts>

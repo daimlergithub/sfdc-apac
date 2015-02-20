@@ -393,6 +393,7 @@ Total, valid records, invalid records, confirmed duplicates, suspected duplicate
         <label>EP Log Interface ID</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>EP Log Interface</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

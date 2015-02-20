@@ -1826,6 +1826,7 @@ Modify Reason:
         <label>DM Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>DM Material</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Stock_Alert__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Type__c</customTabListAdditionalFields>
