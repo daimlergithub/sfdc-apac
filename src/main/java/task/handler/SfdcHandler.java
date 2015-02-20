@@ -562,7 +562,7 @@ public class SfdcHandler
     try {
       SfdcConnectionContext context = login();
 
-      ReadResult readResult = context.getMConnection().readMetadata("StaticResource", new String[]{ "checksums.txt" });
+      ReadResult readResult = context.getMConnection().readMetadata("StaticResource", new String[]{ "Checksums" });
 
       Metadata[] mdInfo = readResult.getRecords();
 
@@ -612,7 +612,7 @@ public class SfdcHandler
       sr.setCacheControl(StaticResourceCacheControl.Private);
       sr.setContent(content);
       sr.setContentType("text/plain");
-      sr.setFullName("checksums.txt");
+      sr.setFullName("Checksums");
       sr.setDescription("Checksums of all deployed metadata.");
 
       UpsertResult[] results = context.getMConnection().upsertMetadata(new Metadata[]{ sr });
