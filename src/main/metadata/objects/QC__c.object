@@ -68,8 +68,8 @@
     <fields>
         <fullName>ADM_DeductedReason__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1、严禁电话中出现辱骂客户、与客户吵架等严重的不良行为
-2、因客服人员导致客户/品牌/客服中心受到重大损失的</inlineHelpText>
+        <inlineHelpText>1.A serious misconduct , is strictly prohibited abusive phone customers, clients and quarrel , etc.
+2. Due to customer service leads to customer / brand / customer service center by significant losses</inlineHelpText>
         <label>A Deadly Mistake Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -90,8 +90,8 @@
     <fields>
         <fullName>ADeadlyMistake__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>1.严禁电话中出现辱骂客户、与客户吵架等严重的不良行为
-2.因客服人员导致客户/品牌/客服中心受到重大损失的</inlineHelpText>
+        <inlineHelpText>1. Abuses in phones is strictly prohibited insulting customers, fight with the customer and other serious misconduct
+2. Customer service leads to significant losses on customer/brand/customer service</inlineHelpText>
         <label>A Deadly Mistake</label>
         <picklist>
             <picklistValues>
@@ -345,7 +345,7 @@ SSI:
         <fullName>CALA__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>1.Active listening, concentration, "Yes, good" customer feedback in a timely manner;
-2.在客户表达清晰的情况下，不需客户反复重复相同信息两次以上（不含两次）；
+2. In the case of customers have expressed a clear, without customers and keep repeating the same information twice (not including two);
 3. Answer does not appear, deviation of the understanding, and so on.</inlineHelpText>
         <label>Communicate Ability - Listening Ability</label>
         <picklist>
