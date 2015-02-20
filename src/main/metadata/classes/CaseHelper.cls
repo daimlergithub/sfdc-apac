@@ -148,10 +148,7 @@ public class CaseHelper{
     
     // MB complaint record type id
     //public static EmailTemplate E_MAIL_TEMP = [select id,body from EmailTemplate where Name='Change Complaint Assignment To Dealer GateKeeper Notification'];                                  
-    
-    // BMBS Onsite Complaint Manager Profile
-    public static Id P_BMBS_ONSITE_CM_ID = [select Id from Profile where Name = 'BMBS Onsite Complaint Manager' limit 1].id;                                
-    
+   
     // error message
     //public static final String ERR_MSG_HAVEPARENT = 'This Vehicle has a same Complaint, please add it as parent case';
     
@@ -554,8 +551,7 @@ public class CaseHelper{
     //share to Ro when getGateKeeper
     public static void shareCaseToRO(List<Case> ids){
         Set<String> caseIdExistUserIds = new Set<String>();
-        List<CaseTeamMember> caseTeamMembers = new List<CaseTeamMember>();
-        Set<String> shareIds = new Set<String>();
+        List<CaseTeamMember> caseTeamMembers = new List<CaseTeamMember>();    
         Set<Id> shareCaseIds = new Set<Id>();
 
         Map<String,List<User>> regionalUsers = new Map<String,List<User>>();
@@ -599,30 +595,12 @@ public class CaseHelper{
             shareCaseIdsForOnSite.add(c.Id);
         }
         
-        for(case c : [select id , Case_Dealer__r.Dealer_Region__c, Previous_Owner__c, Previous_Owner__r.ProfileId from case where id in :shareCaseIds]){
-            if(!String.isblank(c.Case_Dealer__r.Dealer_Region__c)){
-                for(User curId : regionalUsers.get(c.Case_Dealer__r.Dealer_Region__c)){
-                    shareIds.add(c.id + '__' + curId.id);
-                }
-            }
-        }
-        
-        for(case c : [select id , Case_Dealer__r.Dealer_Region__c, Previous_Owner__c, Previous_Owner__r.ProfileId from case where id in :shareCaseIdsForOnSite]){
-            if(c.Previous_Owner__r.ProfileId == P_BMBS_ONSITE_CM_ID) {
-                shareIds.add(c.id + '__' + c.Previous_Owner__c);
-            }
-        }
-        
+          
+       
         for(caseTeamMember cs : [select ParentId, MemberId from caseTeamMember where (ParentId in :shareCaseIds or ParentId in :shareCaseIdsForOnSite) and TeamRoleId = :CRMManagerRole.Id]) {
             caseIdExistUserIds.add(cs.ParentId + '__' + cs.MemberId);
         }
         
-        for(String flexid : shareIds){
-            if(!caseIdExistUserIds.contains(flexid)){
-                caseTeamMembers.add(new caseTeamMember(ParentId = flexid.split('__')[0], MemberId = flexid.split('__')[1], TeamRoleId = CRMManagerRole.Id));
-            }
-        }
-
         if(caseTeamMembers.size() > 0) {
             insertSobjects(caseTeamMembers);
         }
