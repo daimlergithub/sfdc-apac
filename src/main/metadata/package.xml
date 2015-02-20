@@ -57,6 +57,16 @@
         <members>CaseEscalationControllerTest</members>
         <members>CaseHelper</members>
         <members>CaseHelperTest</members>
+        <members>ChangePasswordController</members>
+        <members>ChangePasswordControllerTest</members>
+        <members>CommunitiesLandingController</members>
+        <members>CommunitiesLandingControllerTest</members>
+        <members>CommunitiesLoginController</members>
+        <members>CommunitiesLoginControllerTest</members>
+        <members>CommunitiesSelfRegConfirmController</members>
+        <members>CommunitiesSelfRegConfirmControllerTest</members>
+        <members>CommunitiesSelfRegController</members>
+        <members>CommunitiesSelfRegControllerTest</members>
         <members>ComplaintDesHelper</members>
         <members>ComplaintDesHelperTest</members>
         <members>ComplaintDescriptionController</members>
@@ -91,6 +101,8 @@
         <members>EpaThreadInfoWebServiceTest</members>
         <members>Error</members>
         <members>Field</members>
+        <members>ForgotPasswordController</members>
+        <members>ForgotPasswordControllerTest</members>
         <members>GenericCSVLoaderController</members>
         <members>GenericCSVLoaderControllerTest</members>
         <members>HistoryRespondController</members>
@@ -108,12 +120,16 @@
         <members>MassApproveToolKitControllerTest</members>
         <members>MassAssignRecallTasksControllerExtension</members>
         <members>MassAssignRecallTasksTest</members>
+        <members>MetadataService</members>
+        <members>MetadataServiceTest</members>
         <members>MisunderstoodTaskGeneration</members>
         <members>MisunderstoodTaskGenerationTest</members>
         <members>MonthlyMarketAmountReportController</members>
         <members>MonthlyMarketAmountReportControllerTest</members>
         <members>MyProcess</members>
         <members>MyProcessTest</members>
+        <members>MyProfilePageController</members>
+        <members>MyProfilePageControllerTest</members>
         <members>NewVehicleRelationshipController</members>
         <members>NewVehicleRelationshipControllerTest</members>
         <members>NiceWebServices</members>
@@ -180,6 +196,10 @@
         <members>SharingService</members>
         <members>SharingWrapper</members>
         <members>SharingWrapperService</members>
+        <members>SiteLoginController</members>
+        <members>SiteLoginControllerTest</members>
+        <members>SiteRegisterController</members>
+        <members>SiteRegisterControllerTest</members>
         <members>SlickCtiController</members>
         <members>SlickCtiObjectHelper</members>
         <members>SoqlUowExecutor</members>
@@ -282,11 +302,18 @@
         <members>AnswersHome</members>
         <members>AssignCaseToDealer</members>
         <members>BMBS_Campaigns</members>
+        <members>BandwidthExceeded</members>
         <members>CACFields</members>
         <members>CSRLookup</members>
         <members>Campaign_Timeline</members>
         <members>CaseConsoleRefresh</members>
         <members>CaseEscalation</members>
+        <members>ChangePassword</members>
+        <members>CommunitiesLanding</members>
+        <members>CommunitiesLogin</members>
+        <members>CommunitiesSelfReg</members>
+        <members>CommunitiesSelfRegConfirm</members>
+        <members>CommunitiesTemplate</members>
         <members>ComplaintDescriptionViewAll</members>
         <members>DMSendResult</members>
         <members>DealerClean</members>
@@ -312,9 +339,15 @@
         <members>EPA_Thread_Dump</members>
         <members>EPA_Thread_List</members>
         <members>EPA_Transaction_Costs</members>
+        <members>Exception</members>
+        <members>FileNotFound</members>
+        <members>ForgotPassword</members>
+        <members>ForgotPasswordConfirm</members>
         <members>GenericUploader</members>
         <members>GenericUploaderForAccount</members>
         <members>HistoryRespond</members>
+        <members>IdeasHome</members>
+        <members>InMaintenance</members>
         <members>LeadButtonContainerASLeads</members>
         <members>LeadButtonContainerSalesLeads</members>
         <members>LeadConverting</members>
@@ -322,6 +355,7 @@
         <members>MassApproveRetailCampaign</members>
         <members>MassApproveToolKit</members>
         <members>MassAssignRecallTasks</members>
+        <members>MyProfilePage</members>
         <members>NewVehicleRelationship</members>
         <members>RetailCampaignSegmentation</members>
         <members>RetailCampaign_Timeline</members>
@@ -331,14 +365,21 @@
         <members>SSINewComplaintEnd</members>
         <members>SSINewComplaintStart</members>
         <members>SelectAssignedDealer</members>
+        <members>SiteLogin</members>
+        <members>SiteRegister</members>
+        <members>SiteRegisterConfirm</members>
+        <members>SiteTemplate</members>
         <members>SlickCTI_CSS</members>
         <members>SlickCTI_Phone</members>
+        <members>StdExceptionTemplate</members>
         <members>TaskDeleting</members>
         <members>TaskLink</members>
         <members>TaskMassChangeOwner</members>
         <members>TaskSMSSendResult</members>
         <members>Tasks</members>
         <members>ToolKitSelectContent</members>
+        <members>Unauthorized</members>
+        <members>UnderConstruction</members>
         <members>UserLookupResult</members>
         <members>VehicleRelLooking</members>
         <members>ViewTask</members>
@@ -414,6 +455,11 @@
         <name>ApexTrigger</name>
     </types>
     <types>
+        <members>AppSwitcher</members>
+        <members>Salesforce1</members>
+        <name>AppMenu</name>
+    </types>
+    <types>
         <members>SlickCTI</members>
         <name>CallCenter</name>
     </types>
@@ -447,6 +493,58 @@
     <types>
         <members>Share_Campaign_to_AS_Region</members>
         <name>CampaignOwnerSharingRule</name>
+    </types>
+    <types>
+        <members>CAC_Complaint_share_to_Hanxue</members>
+        <members>CAC_Inquiry_share_to_Hanxue</members>
+        <members>ComplaintShareCentralOffice</members>
+        <members>ComplaintShareCentralPLWL</members>
+        <members>ComplaintShareEast</members>
+        <members>ComplaintShareNorth</members>
+        <members>ComplaintShareSouth</members>
+        <members>ComplaintShareWest</members>
+        <members>Inquiry_case_is_shared_with_CAC_with_RW</members>
+        <members>MBDA_CASE</members>
+        <members>Share_Central_East_Case_to_Regional</members>
+        <members>Share_Central_North_Case_to_Regional</members>
+        <members>Share_Central_South_Case_to_Regional</members>
+        <members>Share_Central_West_Case_to_Regional</members>
+        <members>Share_Non_Dealer_Case_to_CAC_with_readwrite</members>
+        <members>Share_RO_CO_Cases_to_Central</members>
+        <name>CaseCriteriaBasedSharingRule</name>
+    </types>
+    <types>
+        <members>CAC_Case_share_to_Hanxue</members>
+        <members>Central_PL_WL_user_share_to_Central_PL_WL_users</members>
+        <members>Central_office_share_to_central</members>
+        <members>Central_sees_Regional</members>
+        <members>Central_sees_Regional_N</members>
+        <members>Central_sees_Regional_S</members>
+        <members>Central_sees_Regional_W</members>
+        <members>Share_with_CAC_Data_CRM_with_R_only</members>
+        <name>CaseOwnerSharingRule</name>
+    </types>
+    <types>
+        <members>BMBS_CRM</members>
+        <members>BMBS_Dealer_Portal</members>
+        <members>BMBS_Lead_Management</members>
+        <members>BMBS_Marketing</members>
+        <members>EPA_Administration</members>
+        <members>Force_com</members>
+        <members>Private_APP_Exchange</members>
+        <members>Retail_CRM</members>
+        <members>standard__AppLauncher</members>
+        <members>standard__Chatter</members>
+        <members>standard__Community</members>
+        <members>standard__Content</members>
+        <members>standard__Marketing</members>
+        <members>standard__Platform</members>
+        <members>standard__Sales</members>
+        <members>standard__Service</members>
+        <members>standard__ServiceConsole</members>
+        <members>standard__Sites</members>
+        <members>standard__Work</members>
+        <name>CustomApplication</name>
     </types>
     <types>
         <members>Account_Cann_t_be_Customer</members>
@@ -803,6 +901,78 @@
         <name>CustomLabel</name>
     </types>
     <types>
+        <members>Account_Link__c.Share_Account_Link_to_Call_Center</members>
+        <members>Lead__c.Soft_Deleted_Cannot_View_By_CAC</members>
+        <members>QC__c.Share_RW_with_IB_TL</members>
+        <members>QC__c.Share_RW_with_OB_TL</members>
+        <members>QC__c.Share_RW_with_SSI_TL</members>
+        <members>QC__c.Share_SSI_QC_with_RW_to_SSI_TL_and_above</members>
+        <members>Retail_Campaign__c.Share_AS_Retail_Campaign_to_Central</members>
+        <members>Retail_Campaign__c.Share_AS_Retail_Campaign_to_Regional_E</members>
+        <members>Retail_Campaign__c.Share_AS_Retail_Campaign_to_Regional_N</members>
+        <members>Retail_Campaign__c.Share_AS_Retail_Campaign_to_Regional_S</members>
+        <members>Retail_Campaign__c.Share_AS_Retail_Campaign_to_Regional_W</members>
+        <members>Retail_Campaign__c.Share_Approved_S_M_Campaign_CAC</members>
+        <members>Retail_Campaign__c.Share_BP_with_Central</members>
+        <members>Retail_Campaign__c.Share_BP_with_Central_AS</members>
+        <members>Retail_Campaign__c.Share_BP_with_Central_Central_Sales</members>
+        <members>Retail_Campaign__c.Share_BP_with_Region_E</members>
+        <members>Retail_Campaign__c.Share_BP_with_Region_N</members>
+        <members>Retail_Campaign__c.Share_BP_with_Region_S</members>
+        <members>Retail_Campaign__c.Share_BP_with_Region_W</members>
+        <members>Retail_Campaign__c.Share_Final_BP_with_Central</members>
+        <members>Retail_Campaign__c.Share_Final_BP_with_Central_AS</members>
+        <members>Retail_Campaign__c.Share_Final_BP_with_Region_E</members>
+        <members>Retail_Campaign__c.Share_Final_BP_with_Region_N</members>
+        <members>Retail_Campaign__c.Share_Final_BP_with_Region_S</members>
+        <members>Retail_Campaign__c.Share_Final_BP_with_Region_W</members>
+        <members>Retail_Campaign__c.Share_S_M_Media_Event_Campaign_to_Central</members>
+        <members>Retail_Campaign__c.Share_S_M_Media_Event_Campaign_to_Regional_E</members>
+        <members>Retail_Campaign__c.Share_S_M_Media_Event_Campaign_to_Regional_N</members>
+        <members>Retail_Campaign__c.Share_S_M_Media_Event_Campaign_to_Regional_S</members>
+        <members>Retail_Campaign__c.Share_S_M_Media_Event_Campaign_to_Regional_W</members>
+        <members>Retail_Campaign__c.Share_un_Planned_with_Central</members>
+        <members>Retail_Campaign__c.Share_with_Regional_AS_Retail_Marketing_E</members>
+        <members>Retail_Campaign__c.Share_with_Regional_AS_Retail_Marketing_N</members>
+        <members>Retail_Campaign__c.Share_with_Regional_AS_Retail_Marketing_S</members>
+        <members>Retail_Campaign__c.Share_with_Regional_AS_Retail_Marketing_W</members>
+        <members>Retail_Campaign__c.Share_with_Regional_Retail_Marketing_E</members>
+        <members>Retail_Campaign__c.Share_with_Regional_Retail_Marketing_N</members>
+        <members>Retail_Campaign__c.Share_with_Regional_Retail_Marketing_S</members>
+        <members>Retail_Campaign__c.Share_with_Regional_Retail_Marketing_W</members>
+        <members>Retail_Campaign__c.Share_with_Retail_AS_Marketing_Assistant_Manage</members>
+        <members>Retail_Task__c.Share_Contract_Service_with_Region</members>
+        <members>Retail_Task__c.Share_Contract_and_Service_with_Central</members>
+        <members>Retail_Task__c.Share_Read_Write_with_CAC_users</members>
+        <members>Retail_Task__c.Share_readonly_retail_task_to_CAC</members>
+        <members>Tool_Kit__c.Share_TK_with_Region_E</members>
+        <members>Tool_Kit__c.Share_TK_with_Region_N</members>
+        <members>Tool_Kit__c.Share_TK_with_Region_South</members>
+        <members>Tool_Kit__c.Share_TK_with_Region_W</members>
+        <members>Tool_Kit__c.Tool_Kit_Share_with_Central</members>
+        <members>Vehicle_Relationship__c.Read_Write_of_Vehicle_to_CAC</members>
+        <members>Vehicle_Relationship__c.Read_of_Vehicle_to_BMBS</members>
+        <members>Vehicle_Relationship__c.soft_deleted_share_with_R_W_to_data_mgr</members>
+        <members>Vehicle__c.READ_WRITE_for_Vehicle_to_CAC</members>
+        <members>Vehicle__c.Read_of_Vehicle_to_BMBS</members>
+        <members>Vehicle__c.soft_deleted_V_share_read_with_data_mgr</members>
+        <name>CustomObjectCriteriaBasedSharingRule</name>
+    </types>
+    <types>
+        <members>DM_Material__c.Share_with_Data_Fulfillment_user_with_R_W</members>
+        <members>Lead__c.Share_Leads_with_CRM_Assist_Manager_CAC_Data_Mgt</members>
+        <members>Lead__c.Share_with_MBAFC</members>
+        <members>QC__c.QC_share_with_OB_CSR</members>
+        <members>SSI__c.OB_CSR_to_SSI_SV</members>
+        <members>SSI__c.SSI_SV_To_CRM_Manager_CAC_Data_Mgt</members>
+        <members>SSI__c.SSI_SV_To_QC_Supervisor</members>
+        <members>SSI__c.SSI_SV_To_SSI_SV</members>
+        <members>SSI__c.SSI_SV_To_SSI_TL</members>
+        <members>SSI__c.Share_R_with_data_manager</members>
+        <members>Template__c.Template_Share_With_Data_Team</members>
+        <name>CustomObjectOwnerSharingRule</name>
+    </types>
+    <types>
         <members>Retail_Campaign</members>
         <members>Took_Kit</members>
         <name>CustomPageWebLink</name>
@@ -860,7 +1030,52 @@
         <name>Document</name>
     </types>
     <types>
+        <members>Batch_Job_Email_Template</members>
+        <members>Batch_Job_Email_Template/Email_notification_when_batch_job_is_fail</members>
+        <members>Lead_Email_Template</members>
+        <members>Lead_Email_Template/Dealer_Email_Notification_of_Everyday_Assigned_Leads_Amount</members>
+        <members>Lead_Email_Template/Email_notification_when_customer_doesn_t_allow_dealer_contact</members>
+        <members>Lead_Email_Template/Email_notification_when_dealer_update_leads</members>
+        <members>Lead_Email_Template/Email_notification_when_interested_vehicle_have_changed</members>
+        <members>Lead_Email_Template/Email_notification_when_no_status_is_updated_more_than_10_days</members>
+        <members>Lead_Email_Template/Email_notification_when_no_status_is_updated_more_than_5_days</members>
+        <members>Lead_Email_Template/Email_notification_when_purchase_time_have_changed</members>
+        <members>unfiled$public</members>
+        <members>unfiled$public/Appeal_QC</members>
+        <members>unfiled$public/Case_Deadline_Notification</members>
+        <members>unfiled$public/Case_Handling_level_Notification</members>
+        <members>unfiled$public/Change_Complaint_Assignment_To_Dealer_GateKeeper_Notification</members>
+        <members>unfiled$public/Change_Complaint_Support_Dealer_GateKeeper_Notification</members>
+        <members>unfiled$public/Change_Retail_Campaign_Inquiry_Assignment_To_Dealer_Notification</members>
+        <members>unfiled$public/Collaboration_Team_Notification_Template</members>
+        <members>unfiled$public/CommunityChangePasswordEmailTemplate</members>
+        <members>unfiled$public/CommunityForgotPasswordEmailTemplate</members>
+        <members>unfiled$public/CommunityWelcomeEmailTemplate</members>
+        <members>unfiled$public/Complaint_update_notification</members>
+        <members>unfiled$public/MarketingProductInquiryResponse</members>
+        <members>unfiled$public/PartnerChangePwdEmail</members>
+        <members>unfiled$public/PartnerNewUserEmail</members>
+        <members>unfiled$public/SUPPORT%3A Self-Service New Comment %28SAMPLE%29</members>
+        <members>unfiled$public/SUPPORT%3A Self-Service New User Login %28SAMPLE%29</members>
+        <members>unfiled$public/SUPPORT%3A Self-Service Reset Password %28SAMPLE%29</members>
+        <members>unfiled$public/SUPPORTSelfServiceNewCommentNotificationSAMPLE</members>
+        <members>unfiled$public/SUPPORTSelfServiceNewUserLoginInformationSAMPLE</members>
+        <members>unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE</members>
+        <members>unfiled$public/SalesNewCustomerEmail</members>
+        <members>unfiled$public/SupportCaseAssignmentNotification</members>
+        <members>unfiled$public/SupportCaseCreatedPhoneInquiries</members>
+        <members>unfiled$public/SupportCaseCreatedWebInquiries</members>
+        <members>unfiled$public/SupportCaseResponse</members>
+        <members>unfiled$public/SupportEscalatedCaseNotification</members>
+        <members>unfiled$public/SupportEscalatedCaseReassignment</members>
+        <members>unfiled$public/SupportSelfServiceNewLoginandPassword</members>
+        <members>unfiled$public/SupportSelfServiceResetPassword</members>
+        <name>EmailTemplate</name>
+    </types>
+    <types>
+        <members>All_Dealer_Group</members>
         <members>All_Region</members>
+        <members>BMBS_Central_AS_Content_Group</members>
         <members>BMBS_Central_S_M_Content_Group</members>
         <members>BMBS_Regional_CRM_Manager</members>
         <members>East_Region_Group</members>
@@ -868,6 +1083,17 @@
         <members>Sourth_Region_Group</members>
         <members>West_Region_Group</members>
         <name>Group</name>
+    </types>
+    <types>
+        <members>PortalUserHomePage</members>
+        <members>批量审批%28Mass Approval%29</members>
+        <name>HomePageComponent</name>
+    </types>
+    <types>
+        <members>DefaultHomePage</members>
+        <members>PortalUserHomePage</members>
+        <members>RegionHomePage</members>
+        <name>HomePageLayout</name>
     </types>
     <types>
         <members>BMBS_Central_Office_ER_team</members>
@@ -881,6 +1107,10 @@
         <members>Regional_Office_South_Queue</members>
         <members>Regional_Office_West_Queue</members>
         <name>Queue</name>
+    </types>
+    <types>
+        <members>EP_Integration_Endpoint</members>
+        <name>RemoteSiteSetting</name>
     </types>
     <types>
         <members>Angular</members>
@@ -959,6 +1189,8 @@
         <members>DM_Stock_Flow__c</members>
         <members>DandBCompany</members>
         <members>Dealer_Offering__c</members>
+        <members>DuplicateRecordItem</members>
+        <members>DuplicateRecordSet</members>
         <members>EPA_Settings__c</members>
         <members>EP_Integration_URLS__c</members>
         <members>EP_Log_Interface__c</members>
@@ -968,10 +1200,14 @@
         <members>Event</members>
         <members>External_Picklist__c</members>
         <members>Feeback_Day_Setting__c</members>
+        <members>FeedItem</members>
         <members>Idea</members>
         <members>Integration_Picklist__c</members>
         <members>Lead</members>
         <members>Lead__c</members>
+        <members>Macro</members>
+        <members>MacroAction</members>
+        <members>MacroInstruction</members>
         <members>MonthlyRule__c</members>
         <members>OB_Task_Handing__c</members>
         <members>Opportunity</members>
@@ -1001,6 +1237,7 @@
         <members>Site</members>
         <members>SocialPersona</members>
         <members>Solution</members>
+        <members>StreamingChannel</members>
         <members>SurveyQuestionResponse__c</members>
         <members>SurveyTaker__c</members>
         <members>Survey_Question__c</members>
@@ -1015,6 +1252,28 @@
         <members>Vehicle_Relationship__c</members>
         <members>Vehicle__c</members>
         <name>Workflow</name>
+    </types>
+    <types>
+        <members>Account</members>
+        <members>Activities</members>
+        <members>Address</members>
+        <members>BusinessHours</members>
+        <members>Case</members>
+        <members>ChatterAnswers</members>
+        <members>Company</members>
+        <members>Contract</members>
+        <members>Entitlement</members>
+        <members>Forecasting</members>
+        <members>Ideas</members>
+        <members>Knowledge</members>
+        <members>LiveAgent</members>
+        <members>Mobile</members>
+        <members>Opportunity</members>
+        <members>Order</members>
+        <members>Product</members>
+        <members>Quote</members>
+        <members>Security</members>
+        <name>Settings</name>
     </types>
     <version>32.0</version>
 </Package>

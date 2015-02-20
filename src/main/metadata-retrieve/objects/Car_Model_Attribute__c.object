@@ -188,6 +188,7 @@
         <label>Car Model Attribute Name</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Car Model Attribute</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>Brand__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Model__c</customTabListAdditionalFields>

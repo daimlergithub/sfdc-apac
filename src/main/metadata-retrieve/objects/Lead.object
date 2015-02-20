@@ -79,13 +79,13 @@
         <fullName>SLICK_CTI_LEAD</fullName>
         <description>Slick CTI - Record Popup display</description>
         <displayedFields>
-            <field>Name</field>
-            <isFieldManaged>true</isFieldManaged>
+            <field>MobilePhone</field>
+            <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>MobilePhone</field>
-            <isFieldManaged>true</isFieldManaged>
+            <field>Name</field>
+            <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <label>SLICK_CTI_LEAD</label>
@@ -101,10 +101,6 @@
     <fields>
         <fullName>CampaignId</fullName>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>CleanStatus</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
         <fullName>Company</fullName>

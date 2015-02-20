@@ -143,10 +143,11 @@
         <label>Survey Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Surveys</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
-        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

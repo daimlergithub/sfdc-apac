@@ -221,6 +221,7 @@
         <trackHistory>false</trackHistory>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>SR Histories</pluralLabel>
     <searchLayouts/>
     <sharingModel>Read</sharingModel>
 </CustomObject>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-	<ownerRules>
+    <ownerRules>
         <fullName>OB_CSR_to_SSI_SV</fullName>
         <sharedTo>
             <role>SSI_Supervisor</role>

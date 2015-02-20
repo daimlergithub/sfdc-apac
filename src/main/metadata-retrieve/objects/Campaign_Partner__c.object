@@ -82,6 +82,7 @@
         <label>Campaign Partner Name</label>
         <type>Text</type>
     </nameField>
+    <pluralLabel>Campaign Partners</pluralLabel>
     <searchLayouts/>
     <sharingModel>Read</sharingModel>
 </CustomObject>

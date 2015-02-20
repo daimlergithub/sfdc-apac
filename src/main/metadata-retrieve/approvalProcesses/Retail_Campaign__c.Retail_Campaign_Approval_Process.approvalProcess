@@ -8,16 +8,16 @@
     <approvalPageFields>
         <field>Name</field>
         <field>Owner</field>
-        <field>oliverkoethap1__Dealer_Name__c</field>
-        <field>oliverkoethap1__Brand__c</field>
-        <field>oliverkoethap1__Event_Type__c</field>
-        <field>oliverkoethap1__Media_Type__c</field>
-        <field>oliverkoethap1__Campaign_Type__c</field>
-        <field>oliverkoethap1__Plan_Expense__c</field>
-        <field>oliverkoethap1__Plan_Invite_Customer__c</field>
-        <field>oliverkoethap1__Plan_Show_up_Customer__c</field>
-        <field>oliverkoethap1__Plan_Lead__c</field>
-        <field>oliverkoethap1__Comments__c</field>
+        <field>Dealer_Name__c</field>
+        <field>Brand__c</field>
+        <field>Event_Type__c</field>
+        <field>Media_Type__c</field>
+        <field>Campaign_Type__c</field>
+        <field>Plan_Expense__c</field>
+        <field>Plan_Invite_Customer__c</field>
+        <field>Plan_Show_up_Customer__c</field>
+        <field>Plan_Lead__c</field>
+        <field>Comments__c</field>
     </approvalPageFields>
     <approvalStep>
         <allowDelegate>true</allowDelegate>
@@ -55,24 +55,24 @@
     <entryCriteria>
         <booleanFilter>(1 OR 2  )AND 3 AND 4</booleanFilter>
         <criteriaItems>
-            <field>oliverkoethap1__Retail_Campaign__c.oliverkoethap1__Apply_Status__c</field>
+            <field>Retail_Campaign__c.Apply_Status__c</field>
             <operation>equals</operation>
             <value>Need Modify</value>
         </criteriaItems>
         <criteriaItems>
-            <field>oliverkoethap1__Retail_Campaign__c.oliverkoethap1__Apply_Status__c</field>
+            <field>Retail_Campaign__c.Apply_Status__c</field>
             <operation>equals</operation>
             <value>Planned</value>
         </criteriaItems>
         <criteriaItems>
-            <field>oliverkoethap1__Retail_Campaign__c.oliverkoethap1__Feedback_Status__c</field>
+            <field>Retail_Campaign__c.Feedback_Status__c</field>
             <operation>equals</operation>
             <value>Planned</value>
         </criteriaItems>
         <criteriaItems>
-            <field>oliverkoethap1__Retail_Campaign__c.RecordType</field>
+            <field>Retail_Campaign__c.RecordType</field>
             <operation>equals</operation>
-            <value>AS Retail Campaign, S&amp;M Event Retail Campaign, S&amp;M Media Retail Campaign</value>
+            <value>AS Retail Campaign,S&amp;M Event Retail Campaign,S&amp;M Media Retail Campaign</value>
         </criteriaItems>
     </entryCriteria>
     <finalApprovalRecordLock>false</finalApprovalRecordLock>

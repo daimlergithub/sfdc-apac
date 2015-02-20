@@ -119,6 +119,7 @@
         <label>Recall ID</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Recalls</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>

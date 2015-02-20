@@ -122,7 +122,7 @@
         <criteriaItems>
             <field>Retail_Campaign__c.RecordType</field>
             <operation>equals</operation>
-            <value>Sales &amp; Marketing Yearly TA, Aftersales Yearly TA</value>
+            <value>Sales &amp; Marketing Yearly TA,Aftersales Yearly TA</value>
         </criteriaItems>
         <criteriaItems>
             <field>Retail_Campaign__c.Y_Status__c</field>

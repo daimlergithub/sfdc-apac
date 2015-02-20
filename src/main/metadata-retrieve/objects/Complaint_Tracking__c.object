@@ -105,6 +105,7 @@
         <label>Name</label>
         <type>AutoNumber</type>
     </nameField>
+    <pluralLabel>Complaint Tracking</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
 </CustomObject>
