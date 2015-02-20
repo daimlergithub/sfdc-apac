@@ -215,7 +215,7 @@
 	</target>
 	
 	<property name="typesets.circle">
-		CustomLabels,StaticResource,CallCenter,CustomTab,ApexClass,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,
+		CustomLabels,StaticResource,CallCenter,CustomTab,ApexClass,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess
 		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting
 	</property>
 	
@@ -235,7 +235,7 @@
 	HomePageLayout: DE Default Layout
 	-->
 	<property name="typesets.not-ready">
-		Role,CustomObject,Layout,Profile,PermissionSet,ApprovalProcess
+		CustomObject,Layout,Profile,PermissionSet
 	</property>
 	
 	<target name="retrieveAll" depends="init">
