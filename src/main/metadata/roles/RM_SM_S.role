@@ -5,5 +5,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>RM SM (S)</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Regional_S_M_Manager</parentRole>
+    <parentRole>Regional_S_M_Marketing</parentRole>
 </Role>
