@@ -12144,12 +12144,10 @@
         <enabled>true</enabled>
         <name>ApiEnabled</name>
     </userPermissions>
-	<!-- TODO Commented as part of kernel deployment to 58 Demo org which has limited permission options
     <userPermissions>
         <enabled>true</enabled>
         <name>AssignTopics</name>
     </userPermissions>
-	-->
     <userPermissions>
         <enabled>true</enabled>
         <name>ChatterInternalUser</name>
