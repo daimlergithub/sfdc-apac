@@ -18,7 +18,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 
-import deployer.DeploymentUnit;
+import task.handler.configuration.DeploymentUnit;
 
 /**
  * Base class for UpdateStampHandler and ChecksumHandler.
@@ -39,13 +39,14 @@ public abstract class BaseUpdateHandler<T>
     return updateStamps;
   }
 
+  @SuppressWarnings("hiding")
   public void initialize(LogWrapper logWrapper, String userName, String fileName, boolean readUpdateStamps)
   {
     this.userName = userName;
     this.logWrapper = logWrapper;
     this.fileName = fileName;
     this.readUpdateStamps = readUpdateStamps;
-    
+
     validate();
     initialize();
   }
@@ -53,7 +54,7 @@ public abstract class BaseUpdateHandler<T>
   private void validate()
   {
     String name = getClass().getSimpleName();
-    
+
     if (null == userName) {
       throw new BuildException(name + " (userName) not properly initialized.");
     }
@@ -68,12 +69,9 @@ public abstract class BaseUpdateHandler<T>
   private void initialize()
   {
     updateStamps = new HashMap<>();
-  
+
     if (readUpdateStamps) {
-      try {
-        FileReader fr = new FileReader(fileName);
-        BufferedReader br = new BufferedReader(fr);
-  
+      try (FileReader fr = new FileReader(fileName); BufferedReader br = new BufferedReader(fr)) {
         String line = null;
         do {
           line = br.readLine();
@@ -84,34 +82,38 @@ public abstract class BaseUpdateHandler<T>
               if (StringUtils.equals(userName, un)) {
                 String type = URLDecoder.decode(tokens[1], "UTF-8");
                 T value = decodeValueToken(tokens[2]);
-                
+
                 updateStamps.put(type, value);
               }
             }
           }
-  
+
         }
         while (null != line);
-  
+
         br.close();
       }
       catch (IOException e) {
         updateStamps.clear();
-        
-        logWrapper.log(String.format("Error reading update stamps: %s. Continue without update timestamps.", e.getMessage()));
+
+        logWrapper.log(String.format("Error reading update stamps: %s. Continue without update timestamps.",
+                                     e.getMessage()));
       }
     }
   }
 
   protected abstract T decodeValueToken(String token);
+
   protected abstract String encodeValueToken(T value);
+
   protected abstract T getValueFromFile(File file);
+
   public abstract boolean isUpdateRequired(DeploymentUnit du, File file);
-  
+
   public void updateTimestamp(List<DeploymentInfo> deploymentInfos)
   {
     for (DeploymentInfo info : deploymentInfos) {
-      for (File file: info.getFileList()) {
+      for (File file : info.getFileList()) {
         updateTimestamp(info.getDeploymentUnit(), file);
       }
     }
@@ -120,17 +122,19 @@ public abstract class BaseUpdateHandler<T>
 
   protected void writeUpdateStampes()
   {
-    try {
-      FileWriter fw = new FileWriter(fileName);
-      BufferedWriter bw = new BufferedWriter(fw);
-  
+    try (FileWriter fw = new FileWriter(fileName); BufferedWriter bw = new BufferedWriter(fw)) {
+
       for (Map.Entry<String, T> entry : updateStamps.entrySet()) {
-        String line = String.format("%s:%s:%s", userName, URLEncoder.encode(entry.getKey(), "UTF-8"), encodeValueToken(entry.getValue()));
-        
+        String line =
+            String.format("%s:%s:%s",
+                          userName,
+                          URLEncoder.encode(entry.getKey(), "UTF-8"),
+                          encodeValueToken(entry.getValue()));
+
         bw.write(line);
         bw.newLine();
       }
-  
+
       bw.close();
     }
     catch (IOException e) {
@@ -151,9 +155,9 @@ public abstract class BaseUpdateHandler<T>
   private void updateTimestamp(DeploymentUnit du, File file)
   {
     T value = getValueFromFile(file);
-    
+
     String key = getKey(du, file);
-  
+
     updateStamps.put(key, value);
   }
 

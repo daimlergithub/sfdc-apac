@@ -34,6 +34,7 @@ public class DeploymentHandler
   private String proxyHost;
   private int proxyPort;
   
+  @SuppressWarnings("hiding")
   public void initialize(LogWrapper logWrapper,
                          String serverurl,
                          String username,

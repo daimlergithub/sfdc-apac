@@ -21,15 +21,17 @@ public class SfdcTypeSet extends Typedef {
 
   public SfdcTypeSet()
   {
-    includes = new ArrayList<SfdcInclude>();
-    excludes = new ArrayList<SfdcExclude>();
+    includes = new ArrayList<>();
+    excludes = new ArrayList<>();
   }
   
+  @Override
   public void setName(String name)
   {
     this.name = name;
   }
 
+  @Override
   public String getName()
   {
     return name;
@@ -61,4 +63,5 @@ public class SfdcTypeSet extends Typedef {
       throw new BuildException(String.format("The name of the typeset must be set."));
     }
   }
+  
 }

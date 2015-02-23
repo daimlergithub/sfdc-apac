@@ -24,11 +24,11 @@ import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.types.LogLevel;
 
 import task.handler.UpdateStampHandler.Action;
+import task.handler.configuration.DeploymentConfiguration;
+import task.handler.configuration.DeploymentUnit;
 import task.model.SfdcExclude;
 import task.model.SfdcInclude;
 import task.model.SfdcTypeSet;
-import deployer.DeploymentConfiguration;
-import deployer.DeploymentUnit;
 
 /**
  * MetadataHandler
@@ -43,6 +43,7 @@ public class MetadataHandler
   private boolean debug;
   private BaseUpdateHandler<?> updateStampHandler;
 
+  @SuppressWarnings("hiding")
   public void initialize(LogWrapper logWrapper, String metadataRoot, boolean debug, BaseUpdateHandler<?> updateStampHandler)
   {
     this.logWrapper = logWrapper;
@@ -150,7 +151,7 @@ public class MetadataHandler
     }
 
     // check timestamps
-    Set<String> entitiesToUpdate = new HashSet<String>();
+    Set<String> entitiesToUpdate = new HashSet<>();
     for (File file : filteredFileList) {
       if (updateStampHandler.isUpdateRequired(du, file)) {
         entitiesToUpdate.add(du.getEntityName(file));
@@ -195,9 +196,7 @@ public class MetadataHandler
 
   public byte[] createPackageXml(List<DeploymentInfo> deploymentInfos)
   {
-    ByteArrayOutputStream baos = new ByteArrayOutputStream();
-    
-    try {
+    try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
       writeHeader(baos);
 
       for (DeploymentInfo info : deploymentInfos) {
@@ -208,12 +207,12 @@ public class MetadataHandler
         writeEntity(baos, type, info.getEntityNames());
       }
       writeFooter(baos);
+      
+      return baos.toByteArray();
     }
     catch (IOException e) {
       throw new BuildException(String.format("Error creating package.xml: %s.", e.getMessage()), e);
     }
-
-    return baos.toByteArray();
   }
   
   public byte[] createPackageXml(Map<String, List<String>> metadata)
@@ -244,17 +243,16 @@ public class MetadataHandler
   
   public void savePackageXml(byte[] packageXml)
   {
-    // debugging
     if (debug) {
       String fileName = "metadata-" + System.currentTimeMillis() + ".xml";
       
       logWrapper.log(String.format("Save metadata."));
   
-      try {
-        File tmpDir = new File("tmp");
-        tmpDir.mkdirs();
-        File metadataXml = new File(tmpDir, fileName);
-        FileOutputStream fos = new FileOutputStream(metadataXml);
+      File tmpDir = new File("tmp");
+      tmpDir.mkdirs();
+      File metadataXml = new File(tmpDir, fileName);
+      
+      try (FileOutputStream fos = new FileOutputStream(metadataXml)) {
         fos.write(packageXml);
         fos.close();
       }
@@ -315,10 +313,13 @@ public class MetadataHandler
     return metadata;
   }
 
-  public void removeMetadataToDelete(Set<String> objects, Map<String, Action> differences)
+  public void removeMetadataToDelete(List<SfdcTypeSet> typeSets, Map<String, Action> differences)
   {
     Map<String, List<String>> metadata = new HashMap<>();
     
+    Set<String> objects = collectObjectsFromTypeSets(typeSets);
+    
+    // TODO review!!!
     for (Map.Entry<String, UpdateStampHandler.Action> entry : differences.entrySet()) {
       switch (entry.getValue()) {
         case DELETE:
@@ -365,13 +366,27 @@ public class MetadataHandler
     
   }
 
-  public void removeNotcontainedMetadata(final Map<String, List<String>> metadata, final Set<String> objects, final boolean cleanupOther)
+  private Set<String> collectObjectsFromTypeSets(List<SfdcTypeSet> typeSets)
+  {
+    Set<String> objects = new HashSet<>();
+    for (SfdcTypeSet typeSet : typeSets) {
+      objects.add(typeSet.getName());
+    }
+    return objects;
+  }
+
+  public void removeNotcontainedMetadata(final Map<String, List<String>> metadata, final List<SfdcTypeSet> typeSets, final boolean cleanupOther)
   {
     // delete everything which was not retrieved
     File baseDir = new File(metadataRoot);
     
     final List<DeploymentUnit> configurations = new DeploymentConfiguration().getConfigurations();
 
+    final Set<String> objects = collectObjectsFromTypeSets(typeSets);
+    
+    // TODO review!!!
+    
+    
     // TODO remove
 //    for (String key : metadata.keySet()) {
 //      logWrapper.log(String.format("%s: [%s]", key, StringUtils.join(metadata.get(key), ",")));
@@ -400,16 +415,12 @@ public class MetadataHandler
               FileUtils.deleteDirectory(pathname);
             }
             catch (IOException e) {
-              // TODO 
-              e.printStackTrace();
-              
               throw new BuildException(String.format("Error deleting directory: %s.", e.getMessage()), e);
             }
             
             return false;
-          } else {
-            return typeOrChildrenInObjects(objects, du);
           }
+          return typeOrChildrenInObjects(objects, du);
         } else if (pathname.isFile()) {
           if (!"package.xml".equals(pathname.getName())) {
             logWrapper.log(String.format("Delete file: %s.", pathname.getName()));
@@ -481,6 +492,12 @@ public class MetadataHandler
       }
     }
     return false;
+  }
+
+  public void createDestructivePackageXml(Map<String, Action> differences)
+  {
+    // TODO implement
+    
   }
   
 }
