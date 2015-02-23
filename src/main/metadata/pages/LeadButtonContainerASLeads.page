@@ -42,7 +42,7 @@
                 <td style="width:35%"></td>
 
                 <td style="text-align:left;">
-                    <input type="button" class="btn" value="选择经销商" 
+                    <input type="button" class="btn" value="Select Dealer" 
                         onclick="selectAssignedDealer();" />
                 </td>
                 

@@ -31,31 +31,31 @@ table.t1 tr.a1{ background-color:#f5fafe; }
 </style>
 
     <apex:form >
-    <b>经销商年度市场目标达成追踪报表</b>
+    <b>Reseller tracking annual marketing objectives report</b>
     
     <apex:tabPanel >
-        <apex:tab label="年度市场总目标跟踪状态" switchType="client" >
+        <apex:tab label="Annual total target tracking status" switchType="client" >
             <apex:pageBlock >
             <div style="overflow-y: auto; height: 300px;">
             <apex:pageBlockTable value="{!TotalYearlyMarketTarget}" var="con" style="overflow-y: true; height: 30px;">
                 <apex:column >
-                    <apex:facet name="header">区域</apex:facet>
+                    <apex:facet name="header">Regional</apex:facet>
                     <apex:outputText value="{!con.region}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">小区</apex:facet>
+                    <apex:facet name="header">Community</apex:facet>
                     <apex:outputText value="{!con.subregion}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">城市</apex:facet>
+                    <apex:facet name="header">City</apex:facet>
                     <apex:outputText value="{!con.city}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">经销商名称</apex:facet>
+                    <apex:facet name="header">Dealer's Name</apex:facet>
                     <apex:outputText value="{!con.dealerName}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">总预算</apex:facet>
+                    <apex:facet name="header">The total budget</apex:facet>
                     <apex:outputText value="{!con.TotalExpense}"/>
                 </apex:column>
                 <apex:column >
@@ -63,43 +63,43 @@ table.t1 tr.a1{ background-color:#f5fafe; }
                     <apex:outputText value="{!con.blance}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">百分比</apex:facet>
+                    <apex:facet name="header">The percentage of</apex:facet>
                     <apex:outputText value="{!con.blancepersent}%"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">使用汇总</apex:facet>
+                    <apex:facet name="header">Use summary</apex:facet>
                     <apex:outputText value="{!con.usedExpense}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">百分比</apex:facet>
+                    <apex:facet name="header">The percentage of</apex:facet>
                     <apex:outputText value="{!con.usedpersent}%"/>
                 </apex:column>
             </apex:pageBlockTable>
             </div>
             </apex:pageBlock>
         </apex:tab>
-        <apex:tab label="年度联合营销市场总目标跟踪状态" switchType="client" >
+        <apex:tab label="Annual total target tracking of affiliate marketing" switchType="client" >
             <apex:pageBlock >
             <div style="overflow-y: auto; height: 300px;">
             <apex:pageBlockTable value="{!TotalYearlyJointMarketTarget}" var="con">
                 <apex:column >
-                    <apex:facet name="header">区域</apex:facet>
+                    <apex:facet name="header">Regional</apex:facet>
                     <apex:outputText value="{!con.region}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">小区</apex:facet>
+                    <apex:facet name="header">Community</apex:facet>
                     <apex:outputText value="{!con.subregion}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">城市</apex:facet>
+                    <apex:facet name="header">City</apex:facet>
                     <apex:outputText value="{!con.city}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">经销商名称</apex:facet>
+                    <apex:facet name="header">Dealer's Name</apex:facet>
                     <apex:outputText value="{!con.dealerName}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">总预算</apex:facet>
+                    <apex:facet name="header">The total budget</apex:facet>
                     <apex:outputText value="{!con.TotalExpense}"/>
                 </apex:column>
                 <apex:column >
@@ -107,51 +107,51 @@ table.t1 tr.a1{ background-color:#f5fafe; }
                     <apex:outputText value="{!con.blance}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">百分比</apex:facet>
+                    <apex:facet name="header">The percentage of</apex:facet>
                     <apex:outputText value="{!con.blancepersent}%"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">线上部分</apex:facet>
+                    <apex:facet name="header">Online parts</apex:facet>
                     <apex:outputText value="{!con.onlinePart}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">线下部分</apex:facet>
+                    <apex:facet name="header">Off-line parts</apex:facet>
                     <apex:outputText value="{!con.offlinePart}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">使用汇总</apex:facet>
+                    <apex:facet name="header">Use summary</apex:facet>
                     <apex:outputText value="{!con.usedExpense}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">百分比</apex:facet>
+                    <apex:facet name="header">The percentage of</apex:facet>
                     <apex:outputText value="{!con.usedpersent}%"/>
                 </apex:column>
             </apex:pageBlockTable>
             </div>
             </apex:pageBlock>
         </apex:tab>
-        <apex:tab label="年度自行活动总目标跟踪状态" switchType="client" >
+        <apex:tab label="Annual activities of their goals tracking status" switchType="client" >
             <apex:pageBlock >
             <div style="overflow-y: auto; height: 300px;">
             <apex:pageBlockTable value="{!TotalYearlyDrivenMarketTarget}" var="con">
                 <apex:column >
-                    <apex:facet name="header">区域</apex:facet>
+                    <apex:facet name="header">Regional</apex:facet>
                     <apex:outputText value="{!con.region}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">小区</apex:facet>
+                    <apex:facet name="header">Community</apex:facet>
                     <apex:outputText value="{!con.subregion}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">城市</apex:facet>
+                    <apex:facet name="header">City</apex:facet>
                     <apex:outputText value="{!con.city}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">经销商名称</apex:facet>
+                    <apex:facet name="header">Dealer's Name</apex:facet>
                     <apex:outputText value="{!con.dealerName}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">总预算</apex:facet>
+                    <apex:facet name="header">The total budget</apex:facet>
                     <apex:outputText value="{!con.TotalExpense}"/>
                 </apex:column>
                 <apex:column >
@@ -159,23 +159,23 @@ table.t1 tr.a1{ background-color:#f5fafe; }
                     <apex:outputText value="{!con.blance}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">百分比</apex:facet>
+                    <apex:facet name="header">The percentage of</apex:facet>
                     <apex:outputText value="{!con.blancepersent}%"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">线上部分</apex:facet>
+                    <apex:facet name="header">Online parts</apex:facet>
                     <apex:outputText value="{!con.onlinePart}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">线下部分</apex:facet>
+                    <apex:facet name="header">Off-line parts</apex:facet>
                     <apex:outputText value="{!con.offlinePart}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">使用汇总</apex:facet>
+                    <apex:facet name="header">Use summary</apex:facet>
                     <apex:outputText value="{!con.usedExpense}"/>
                 </apex:column>
                 <apex:column >
-                    <apex:facet name="header">百分比</apex:facet>
+                    <apex:facet name="header">The percentage of</apex:facet>
                     <apex:outputText value="{!con.usedpersent}%"/>
                 </apex:column>
             </apex:pageBlockTable>
@@ -198,537 +198,537 @@ table.t1 tr.a1{ background-color:#f5fafe; }
     </apex:chart>
     <br/>
     
-    <b>经销商年度市场目标达成追踪报表 - 月度细分</b>
+    <b>Dealers annual tracking report-monthly breakdown</b>
     <apex:tabPanel >
-    <apex:tab label="区域汇总" switchType="client" >
+    <apex:tab label="Regional summary" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!TotalTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:tab>
-    <apex:tab label="1月" switchType="client" >
+    <apex:tab label="January" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!JanTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">小区</apex:facet>
+                <apex:facet name="header">Community</apex:facet>
                 <apex:outputText value="{!con.subregion}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">城市</apex:facet>
+                <apex:facet name="header">City</apex:facet>
                 <apex:outputText value="{!con.city}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">经销商名称</apex:facet>
+                <apex:facet name="header">Dealer's Name</apex:facet>
                 <apex:outputText value="{!con.dealerName}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:tab>
-    <apex:tab label="2月" switchType="client" >
+    <apex:tab label="February" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!FebTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">小区</apex:facet>
+                <apex:facet name="header">Community</apex:facet>
                 <apex:outputText value="{!con.subregion}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">城市</apex:facet>
+                <apex:facet name="header">City</apex:facet>
                 <apex:outputText value="{!con.city}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">经销商名称</apex:facet>
+                <apex:facet name="header">Dealer's Name</apex:facet>
                 <apex:outputText value="{!con.dealerName}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:tab>
-    <apex:tab label="3月" switchType="client" >
+    <apex:tab label="March" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!MarTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">小区</apex:facet>
+                <apex:facet name="header">Community</apex:facet>
                 <apex:outputText value="{!con.subregion}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">城市</apex:facet>
+                <apex:facet name="header">City</apex:facet>
                 <apex:outputText value="{!con.city}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">经销商名称</apex:facet>
+                <apex:facet name="header">Dealer's Name</apex:facet>
                 <apex:outputText value="{!con.dealerName}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:tab>
-    <apex:tab label="4月" switchType="client" >
+    <apex:tab label="April" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!AprTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">小区</apex:facet>
+                <apex:facet name="header">Community</apex:facet>
                 <apex:outputText value="{!con.subregion}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">城市</apex:facet>
+                <apex:facet name="header">City</apex:facet>
                 <apex:outputText value="{!con.city}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">经销商名称</apex:facet>
+                <apex:facet name="header">Dealer's Name</apex:facet>
                 <apex:outputText value="{!con.dealerName}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:tab>
-    <apex:tab label="5月" switchType="client" >
+    <apex:tab label="May" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!MayTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">小区</apex:facet>
+                <apex:facet name="header">Community</apex:facet>
                 <apex:outputText value="{!con.subregion}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">城市</apex:facet>
+                <apex:facet name="header">City</apex:facet>
                 <apex:outputText value="{!con.city}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">经销商名称</apex:facet>
+                <apex:facet name="header">Dealer's Name</apex:facet>
                 <apex:outputText value="{!con.dealerName}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:tab>
-    <apex:tab label="6月" switchType="client" >
+    <apex:tab label="June" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!JunTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">小区</apex:facet>
+                <apex:facet name="header">Community</apex:facet>
                 <apex:outputText value="{!con.subregion}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">城市</apex:facet>
+                <apex:facet name="header">City</apex:facet>
                 <apex:outputText value="{!con.city}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">经销商名称</apex:facet>
+                <apex:facet name="header">Dealer's Name</apex:facet>
                 <apex:outputText value="{!con.dealerName}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:tab>
-    <apex:tab label="7月" switchType="client" >
+    <apex:tab label="July" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!JulTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">小区</apex:facet>
+                <apex:facet name="header">Community</apex:facet>
                 <apex:outputText value="{!con.subregion}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">城市</apex:facet>
+                <apex:facet name="header">City</apex:facet>
                 <apex:outputText value="{!con.city}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">经销商名称</apex:facet>
+                <apex:facet name="header">Dealer's Name</apex:facet>
                 <apex:outputText value="{!con.dealerName}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:tab>
-    <apex:tab label="8月" switchType="client" >
+    <apex:tab label="August" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!AugTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">小区</apex:facet>
+                <apex:facet name="header">Community</apex:facet>
                 <apex:outputText value="{!con.subregion}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">城市</apex:facet>
+                <apex:facet name="header">City</apex:facet>
                 <apex:outputText value="{!con.city}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">经销商名称</apex:facet>
+                <apex:facet name="header">Dealer's Name</apex:facet>
                 <apex:outputText value="{!con.dealerName}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:tab>
-    <apex:tab label="9月" switchType="client" >
+    <apex:tab label="September" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!SepTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">小区</apex:facet>
+                <apex:facet name="header">Community</apex:facet>
                 <apex:outputText value="{!con.subregion}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">城市</apex:facet>
+                <apex:facet name="header">City</apex:facet>
                 <apex:outputText value="{!con.city}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">经销商名称</apex:facet>
+                <apex:facet name="header">Dealer's Name</apex:facet>
                 <apex:outputText value="{!con.dealerName}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:tab>
-    <apex:tab label="10月" switchType="client" >
+    <apex:tab label="October" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!OctTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">小区</apex:facet>
+                <apex:facet name="header">Community</apex:facet>
                 <apex:outputText value="{!con.subregion}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">城市</apex:facet>
+                <apex:facet name="header">City</apex:facet>
                 <apex:outputText value="{!con.city}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">经销商名称</apex:facet>
+                <apex:facet name="header">Dealer's Name</apex:facet>
                 <apex:outputText value="{!con.dealerName}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:tab>
-    <apex:tab label="11月" switchType="client" >
+    <apex:tab label="November" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!NovTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">小区</apex:facet>
+                <apex:facet name="header">Community</apex:facet>
                 <apex:outputText value="{!con.subregion}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">城市</apex:facet>
+                <apex:facet name="header">City</apex:facet>
                 <apex:outputText value="{!con.city}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">经销商名称</apex:facet>
+                <apex:facet name="header">Dealer's Name</apex:facet>
                 <apex:outputText value="{!con.dealerName}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:tab>
-    <apex:tab label="12月" switchType="client" >
+    <apex:tab label="December" switchType="client" >
         <apex:pageBlock >
         <apex:pageBlockTable value="{!DecTarget}" var="con">
             <apex:column >
-                <apex:facet name="header">区域</apex:facet>
+                <apex:facet name="header">Regional</apex:facet>
                 <apex:outputText value="{!con.region}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">小区</apex:facet>
+                <apex:facet name="header">Community</apex:facet>
                 <apex:outputText value="{!con.subregion}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">城市</apex:facet>
+                <apex:facet name="header">City</apex:facet>
                 <apex:outputText value="{!con.city}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">经销商名称</apex:facet>
+                <apex:facet name="header">Dealer's Name</apex:facet>
                 <apex:outputText value="{!con.dealerName}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度市场花费</apex:facet>
+                <apex:facet name="header">Monthly cost</apex:facet>
                 <apex:outputText value="{!con.monthlyMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线上部分</apex:facet>
+                <apex:facet name="header">Online parts</apex:facet>
                 <apex:outputText value="{!con.onlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">线下部分</apex:facet>
+                <apex:facet name="header">Off-line parts</apex:facet>
                 <apex:outputText value="{!con.offlinePart}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度联合营销</apex:facet>
+                <apex:facet name="header">Monthly affiliate marketing</apex:facet>
                 <apex:outputText value="{!con.monthlyJointMarketExpense}"/>
             </apex:column>
             <apex:column >
-                <apex:facet name="header">月度自行</apex:facet>
+                <apex:facet name="header">Monthly free</apex:facet>
                 <apex:outputText value="{!con.monthlyDrivenMarketExpense}"/>
             </apex:column>
         </apex:pageBlockTable>

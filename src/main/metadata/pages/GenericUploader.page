@@ -158,13 +158,13 @@
                   //sObjectInstance = { 'sObjectType' : sObjectFields[0] };
                   sObjectInstance = {};
                   for (field in sObjectFields) {
-                      if(sObjectFields[field] == 'Retail Campaign Member ID' || sObjectFields[field] == '市场活动成员 ID') {
+                      if(sObjectFields[field] == 'Retail Campaign Member ID' || sObjectFields[field] == 'Campaign Member ID') {
                           sObjectInstance['id']=$scope.records[record][field];
                       }
-                      else if(sObjectFields[field] == 'Communication Channel' || sObjectFields[field] == '沟通渠道') {
+                      else if(sObjectFields[field] == 'Communication Channel' || sObjectFields[field] == 'Communication Channel') {
                           sObjectInstance['Communication_Channel__c']=$scope.records[record][field];
                       }
-                      else if(sObjectFields[field] == 'Status' || sObjectFields[field] == '活动成员状态') {
+                      else if(sObjectFields[field] == 'Status' || sObjectFields[field] == 'Active member status') {
                           sObjectInstance['Status__c']=$scope.records[record][field];
                       }
                   }
