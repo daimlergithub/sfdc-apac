@@ -63,4 +63,5 @@ public class SfdcTypeSet extends Typedef {
       throw new BuildException(String.format("The name of the typeset must be set."));
     }
   }
+  
 }

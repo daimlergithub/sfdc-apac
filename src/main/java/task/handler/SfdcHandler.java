@@ -23,6 +23,7 @@ import org.apache.tools.ant.Task;
 import org.apache.tools.ant.types.LogLevel;
 
 import task.handler.configuration.DeploymentUnit;
+import task.model.SfdcTypeSet;
 
 import com.sforce.soap.enterprise.EnterpriseConnection;
 import com.sforce.soap.enterprise.LoginResult;
@@ -521,26 +522,30 @@ public class SfdcHandler
     }
   }
 
-  public Map<String, Map<String, Long>> getUpdateStamps(Set<String> objects)
+  public Map<String, Map<String, Long>> getUpdateStamps(List<SfdcTypeSet> typeSets)
   {
     Map<String, Map<String, Long>> result = new HashMap<>();
 
     task.log("Get update stamps.");
 
+    Map<String, SfdcTypeSet> objects = new HashMap<>();
+    for (SfdcTypeSet typeSet : typeSets) {
+      objects.put(typeSet.getName(), typeSet);
+    }
+    
     try {
       SfdcConnectionContext context = login();
 
       DescribeMetadataResult describeMetadata = context.getMConnection().describeMetadata(VERSION);
       for (DescribeMetadataObject object : describeMetadata.getMetadataObjects()) {
         // only consider specified objects
-        if (!objects.contains(object.getXmlName())) {
+        if (!objects.containsKey(object.getXmlName())) {
           continue;
         }
 
-        // TODO logWrapper.log(String.format("Type: %s", object.getXmlName()));
-
         Map<String, List<FileProperties>> filePropertiesMap = listMetadata(context.getMConnection(), object);
-
+        
+        // TODO filter according to typeSets
         for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
           Map<String, Long> entryMap = new HashMap<>();
           for (FileProperties properties : entry.getValue()) {
@@ -557,12 +562,13 @@ public class SfdcHandler
     }
   }
 
-  public Map<String, String> retrieveChecksums()
+  public Map<String, String> retrieveChecksums(String sfdcName)
   {
     try {
       SfdcConnectionContext context = login();
 
-      ReadResult readResult = context.getMConnection().readMetadata("StaticResource", new String[]{ "Checksums" });
+      ReadResult readResult =
+          context.getMConnection().readMetadata("StaticResource", new String[]{ sfdcName });
 
       Metadata[] mdInfo = readResult.getRecords();
 
@@ -597,8 +603,8 @@ public class SfdcHandler
     }
   }
 
-  // TODO zip checksums before deploying
-  public void deployChecksums(Map<String, String> checksumMap)
+  // TODO think about zipping checksums before deploying
+  public void deployChecksums(Map<String, String> checksumMap, String sfdcName)
   {
     try {
       SfdcConnectionContext context = login();
@@ -613,26 +619,26 @@ public class SfdcHandler
       sr.setCacheControl(StaticResourceCacheControl.Private);
       sr.setContent(content);
       sr.setContentType("text/plain");
-      sr.setFullName("Checksums");
+      sr.setFullName(sfdcName);
       sr.setDescription("Checksums of all deployed metadata.");
 
       UpsertResult[] results = context.getMConnection().upsertMetadata(new Metadata[]{ sr });
-
-      for (UpsertResult r : results) {
-        if (r.isSuccess()) {
-          if (r.isCreated()) {
-            task.log("Created checksums in SFDC.");
-          }
-          else {
+      for (UpsertResult ur : results) {
+        if (ur.isSuccess()) {
+          if (ur.isCreated()) {
+            task.log("Inserted checksums in SFDC.");
+          } else {
             task.log("Updated checksums in SFDC.");
           }
         }
         else {
-          for (com.sforce.soap.metadata.Error e : r.getErrors()) {
-            task.log(String.format("Error %s during checksum deployment: %s.", e.getStatusCode().toString(), e.getMessage()));
+          for (com.sforce.soap.metadata.Error e : ur.getErrors()) {
+            task.log(String.format("Error %s upserting checksum in SFDC: %s.",
+                                   e.getStatusCode().toString(),
+                                   e.getMessage()));
           }
 
-          throw new BuildException("Error deploying checksums to SFDC.");
+          throw new BuildException("Error upserting checksums in SFDC.");
         }
       }
     }

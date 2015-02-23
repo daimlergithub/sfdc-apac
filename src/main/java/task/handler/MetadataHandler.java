@@ -313,10 +313,13 @@ public class MetadataHandler
     return metadata;
   }
 
-  public void removeMetadataToDelete(Set<String> objects, Map<String, Action> differences)
+  public void removeMetadataToDelete(List<SfdcTypeSet> typeSets, Map<String, Action> differences)
   {
     Map<String, List<String>> metadata = new HashMap<>();
     
+    Set<String> objects = collectObjectsFromTypeSets(typeSets);
+    
+    // TODO review!!!
     for (Map.Entry<String, UpdateStampHandler.Action> entry : differences.entrySet()) {
       switch (entry.getValue()) {
         case DELETE:
@@ -363,13 +366,27 @@ public class MetadataHandler
     
   }
 
-  public void removeNotcontainedMetadata(final Map<String, List<String>> metadata, final Set<String> objects, final boolean cleanupOther)
+  private Set<String> collectObjectsFromTypeSets(List<SfdcTypeSet> typeSets)
+  {
+    Set<String> objects = new HashSet<>();
+    for (SfdcTypeSet typeSet : typeSets) {
+      objects.add(typeSet.getName());
+    }
+    return objects;
+  }
+
+  public void removeNotcontainedMetadata(final Map<String, List<String>> metadata, final List<SfdcTypeSet> typeSets, final boolean cleanupOther)
   {
     // delete everything which was not retrieved
     File baseDir = new File(metadataRoot);
     
     final List<DeploymentUnit> configurations = new DeploymentConfiguration().getConfigurations();
 
+    final Set<String> objects = collectObjectsFromTypeSets(typeSets);
+    
+    // TODO review!!!
+    
+    
     // TODO remove
 //    for (String key : metadata.keySet()) {
 //      logWrapper.log(String.format("%s: [%s]", key, StringUtils.join(metadata.get(key), ",")));
@@ -398,9 +415,6 @@ public class MetadataHandler
               FileUtils.deleteDirectory(pathname);
             }
             catch (IOException e) {
-              // TODO 
-              e.printStackTrace();
-              
               throw new BuildException(String.format("Error deleting directory: %s.", e.getMessage()), e);
             }
             
@@ -478,6 +492,12 @@ public class MetadataHandler
       }
     }
     return false;
+  }
+
+  public void createDestructivePackageXml(Map<String, Action> differences)
+  {
+    // TODO implement
+    
   }
   
 }

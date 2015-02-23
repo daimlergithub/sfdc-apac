@@ -2,6 +2,7 @@ package task;
 
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.taskdefs.Taskdef;
 
@@ -26,6 +27,7 @@ public class SfdcRetrieveChecksumsTask
   private String proxyHost;
   private int proxyPort;
   private String checksums;
+  private String sfdcName;
 
   private ChecksumHandler checksumHandler;
   private SfdcHandler sfdcHandler;
@@ -70,6 +72,11 @@ public class SfdcRetrieveChecksumsTask
     this.checksums = checksums;
   }
 
+  public void setSfdcName(String sfdcName)
+  {
+    this.sfdcName = sfdcName;
+  }
+  
   @Override
   public void init()
     throws BuildException
@@ -86,7 +93,7 @@ public class SfdcRetrieveChecksumsTask
     validate();
     initialize();
     
-    Map<String, String> checksumMap = sfdcHandler.retrieveChecksums();
+    Map<String, String> checksumMap = sfdcHandler.retrieveChecksums(sfdcName);
     checksumHandler.putChecksums(checksumMap);
   }
 
@@ -101,7 +108,9 @@ public class SfdcRetrieveChecksumsTask
 
   private void validate()
   {
-    // TODO validate settings
+    if (StringUtils.isBlank(sfdcName)) {
+      throw new BuildException("The property sfdcName must be specified.");
+    }
   }
   
 }

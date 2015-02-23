@@ -31,11 +31,13 @@
 	
 	<target name="deployAll">
 		<delete file="timestamps-updated.log" quiet="true"/>
-		<antcall target="deploy"/>
+		<antcall target="deploy">
+			<param name="skip-checksum-retrieval" value="true"/>
+		</antcall>
 	</target>
 	
-	<target name="retrieveChecksums">
-		<sf:retrieveChecksums
+	<target name="retrieveChecksums" unless="skip-checksum-retrieval">
+		<sf:retrieveChecksums sfdcName="${sfdc.checksums}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
 	</target>
@@ -47,7 +49,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets}"/>
 		</sf:retrieveUpdatestamps>
-		<sf:deployChecksums
+		<sf:deployChecksums sfdcName="${sfdc.checksums}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
 	</target>
@@ -198,11 +200,11 @@
 			<sf:typeset name="permissionsets"/>			
 			<sf:typeset name="profiles">
 				<!-- TODO FALK these do not deploy on Oliver's org -->
-				<!--sf:exclude name="CAC IB CSR"/>
+				<sf:exclude name="CAC IB CSR"/>
 				<sf:exclude name="CAC SSI CSR"/>
 				<sf:exclude name="CAC SSI QC"/>
 				<sf:exclude name="CAC SSI SV"/>
-				<sf:exclude name="CAC SSI TL"/-->
+				<sf:exclude name="CAC SSI TL"/>
 			</sf:typeset>
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
@@ -235,7 +237,7 @@
 	</target>
 	
 	<property name="typesets.circle">
-		CustomLabels,StaticResource,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess
+		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess
 		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting
 	</property>
 	
@@ -266,6 +268,10 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets.circle}"/>
+			<sf:typeset name="staticresources">
+				<!-- the Checksums resource is handled by separate tasks -->
+				<sf:exclude name="Checksums"/>
+			</sf:typeset>
 		</sf:retrieve>
 		
 		<!-- retrieves all metadata -->
@@ -286,6 +292,10 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets.circle}"/>
+			<sf:typeset name="staticresources">
+				<!-- the Checksums resource is handled by separate tasks -->
+				<sf:exclude name="Checksums"/>
+			</sf:typeset>
 		</sf:retrieve>
 		
 		<!-- retrieves only changed metadata -->
