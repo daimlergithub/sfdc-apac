@@ -339,11 +339,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>A-代金券</fullName>
+                <fullName>A-Voucher</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>A-净化器&amp;滤网</fullName>
+                <fullName>A-Purifier&amp;Filter screen</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -403,175 +403,167 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>不参加活动</fullName>
+                <fullName>Not participated</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>再次确认报名成功</fullName>
+                <fullName>Again confirm the application successfully</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>只咨询不报名</fullName>
+                <fullName>Advisory did not apply</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>合格车主</fullName>
+                <fullName>Qualified owners</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已交订金</fullName>
+                <fullName>Pay the deposit</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已付定金</fullName>
+                <fullName>Initial payment</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已出席活动</fullName>
+                <fullName>Attended the event</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已加进</fullName>
+                <fullName>Has been added</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已发送</fullName>
+                <fullName>Sent</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已回复</fullName>
+                <fullName>Replied</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已开始</fullName>
+                <fullName>Started</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已报名</fullName>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已拒绝</fullName>
+                <fullName>Received</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已收到</fullName>
+                <fullName>Has been verified as the owner and enrolment</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已核实为车主并报名</fullName>
+                <fullName>Communication</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已沟通</fullName>
+                <fullName>Registered</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已注册</fullName>
+                <fullName>Already purchased</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已登记</fullName>
+                <fullName>Successful return visit</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>已购买</fullName>
+                <fullName>Success invitation</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>成功回访</fullName>
+                <fullName>Sign up</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>成功邀请</fullName>
+                <fullName>Registration Success</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>报名</fullName>
+                <fullName>Receive SMS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>报名成功</fullName>
+                <fullName>Did not pay the deposit</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>收到短信</fullName>
+                <fullName>Unsent</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>未交订金</fullName>
+                <fullName>Did not complete the questionnaire</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>未发送</fullName>
+                <fullName>Not Started</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>未完成问卷</fullName>
+                <fullName>Unsuccessful communication</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>未开始</fullName>
+                <fullName>No registration</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>未成功沟通</fullName>
+                <fullName>Not received</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>未报名</fullName>
+                <fullName>Did not receive text messages</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>未收到</fullName>
+                <fullName>No communication</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>未收到短信</fullName>
+                <fullName>Unconfirmed</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>未沟通</fullName>
+                <fullName>No purchase</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>未确认</fullName>
+                <fullName>Determined not to attend</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>未购买</fullName>
+                <fullName>Confirmed their attendance</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>确定不出席</fullName>
+                <fullName>Confirmed not to attend</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>确定出席</fullName>
+                <fullName>Confirmed not to participate</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>确认不出席</fullName>
+                <fullName>Confirm attendance</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>确认不参加</fullName>
+                <fullName>Confirmed their participation</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>确认出席</fullName>
+                <fullName>The dealer did not follow up</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>确认参加</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>经销商未跟进</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>问卷成功</fullName>
+                <fullName>Questionnaire success</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>true</sorted>

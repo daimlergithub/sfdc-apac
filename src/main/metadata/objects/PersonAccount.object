@@ -1360,219 +1360,219 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>法律</fullName>
+                <fullName>Legal</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>渔业</fullName>
+                <fullName>Fisheries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>烟草制品业</fullName>
+                <fullName>Tobacco industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>烟酒</fullName>
+                <fullName>Alcohol and tobacco</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>煤炭开采和洗选业</fullName>
+                <fullName>Coal mining and coal preparation industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>燃气生产和供应业</fullName>
+                <fullName>Fuel gas production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>特许经营</fullName>
+                <fullName>Franchising</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>环境管理业</fullName>
+                <fullName>Environment management industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电信和Other信息传输服务业</fullName>
+                <fullName>Telecommunications and Other information transfer services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电力%E3%80%81Hot力的生产和供应业</fullName>
+                <fullName>Production and supply of electric power%E3%80%81Hot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电子</fullName>
+                <fullName>Electronic</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电气机械及器材制造业</fullName>
+                <fullName>Electric machines and apparatuses manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>畜牧业</fullName>
+                <fullName>Animal husbandry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>皮革%E3%80%81毛皮%E3%80%81羽毛%28绒%29及其制品业</fullName>
+                <fullName>Leather%E3%80%81%E3%80%81 fur feather%28 down%29 and its products</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石材</fullName>
+                <fullName>Stone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石油加工%E3%80%81炼焦及核燃料加工业</fullName>
+                <fullName>Oil processing%E3%80%81 coking and nuclear fuel processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石油和天然气开采业</fullName>
+                <fullName>Petroleum and natural gas extraction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>研究与试验发展</fullName>
+                <fullName>Research and experimental development</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>社会保障业</fullName>
+                <fullName>Social security industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>社会福利业</fullName>
+                <fullName>Social welfare</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>科技交流和推广服务业</fullName>
+                <fullName>Scientific and technological exchanges and promotion of services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>租赁业</fullName>
+                <fullName>Leasing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>管道运输业</fullName>
+                <fullName>Pipeline transport</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>纺织业</fullName>
+                <fullName>Textile industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>纺织服装%E3%80%81鞋%E3%80%81帽制造业</fullName>
+                <fullName>Textile and clothing%E3%80%81%E3%80%81 shoes hats manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>群众团体%E3%80%81社会团体和宗教组织</fullName>
+                <fullName>Mass%E3%80%81 society groups and religious organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>航空运输业</fullName>
+                <fullName>Air transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>装卸搬运和Other运输服务业</fullName>
+                <fullName>Loading and unloading and Other transport services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>计算机</fullName>
+                <fullName>Computer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>计算机服务业</fullName>
+                <fullName>Computer Service industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>证券业</fullName>
+                <fullName>Securities industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>财产</fullName>
+                <fullName>Property</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>贸易</fullName>
+                <fullName>Trade</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车辆出租</fullName>
+                <fullName>Car rental</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>软件业</fullName>
+                <fullName>Software industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>通信设备%E3%80%81计算机及Other电子设备制造业</fullName>
+                <fullName>Communication equipment%E3%80%81Computer and OtherElectronic devices manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>通用设备制造业</fullName>
+                <fullName>General equipment manufacturing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>造纸及纸制品业</fullName>
+                <fullName>Papermaking and paper products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>道路运输业</fullName>
+                <fullName>Road transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>邮政业</fullName>
+                <fullName>Postal service</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>金属制品业</fullName>
+                <fullName>Metal products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>铁路运输业</fullName>
+                <fullName>Railway transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>银行</fullName>
+                <fullName>Bank</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>银行业</fullName>
+                <fullName>Bank industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>零售业</fullName>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>零部件</fullName>
+                <fullName>Spare parts</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>非金属矿物制品业</fullName>
+                <fullName>Non-metallic mineral products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>非金属矿采选业</fullName>
+                <fullName>Non-metallic minerals mining and dressing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>食品制造业</fullName>
+                <fullName>Food manufacturing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>餐饮业</fullName>
+                <fullName>Restaurant industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>饮料制造业</fullName>
+                <fullName>Beverage manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>驾校</fullName>
+                <fullName>Driving school</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>黑色金属冶炼及压延加工业</fullName>
+                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>黑色金属矿采选业</fullName>
+                <fullName>Ferrous metal mining and dressing industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3510,219 +3510,219 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>法律</fullName>
+                <fullName>Legal</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>渔业</fullName>
+                <fullName>Fisheries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>烟草制品业</fullName>
+                <fullName>Tobacco industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>烟酒</fullName>
+                <fullName>Alcohol and tobacco</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>煤炭开采和洗选业</fullName>
+                <fullName>Coal mining and coal preparation industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>燃气生产和供应业</fullName>
+                <fullName>Fuel gas production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>特许经营</fullName>
+                <fullName>Franchising</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>环境管理业</fullName>
+                <fullName>Environment management industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电信和Other信息传输服务业</fullName>
+                <fullName>Telecommunications and Other information transfer services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电力%E3%80%81Hot力的生产和供应业</fullName>
+                <fullName>Production and supply of electric power%E3%80%81Hot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电子</fullName>
+                <fullName>Electronic</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电气机械及器材制造业</fullName>
+                <fullName>Electric machines and apparatuses manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>畜牧业</fullName>
+                <fullName>Animal husbandry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>皮革%E3%80%81毛皮%E3%80%81羽毛%28绒%29及其制品业</fullName>
+                <fullName>Leather%E3%80%81%E3%80%81 fur feather%28 down%29 and its products</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石材</fullName>
+                <fullName>Stone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石油加工%E3%80%81炼焦及核燃料加工业</fullName>
+                <fullName>Oil processing%E3%80%81 coking and nuclear fuel processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石油和天然气开采业</fullName>
+                <fullName>Petroleum and natural gas extraction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>研究与试验发展</fullName>
+                <fullName>Research and experimental development</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>社会保障业</fullName>
+                <fullName>Social security industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>社会福利业</fullName>
+                <fullName>Social welfare</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>科技交流和推广服务业</fullName>
+                <fullName>Scientific and technological exchanges and promotion of services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>租赁业</fullName>
+                <fullName>Leasing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>管道运输业</fullName>
+                <fullName>Pipeline transport</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>纺织业</fullName>
+                <fullName>Textile industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>纺织服装%E3%80%81鞋%E3%80%81帽制造业</fullName>
+                <fullName>Textile and clothing%E3%80%81%E3%80%81 shoes hats manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>群众团体%E3%80%81社会团体和宗教组织</fullName>
+                <fullName>Mass%E3%80%81 society groups and religious organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>航空运输业</fullName>
+                <fullName>Air transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>装卸搬运和Other运输服务业</fullName>
+                <fullName>Loading and unloading and Other transport services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>计算机</fullName>
+                <fullName>Computer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>计算机服务业</fullName>
+                <fullName>Computer Service industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>证券业</fullName>
+                <fullName>Securities industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>财产</fullName>
+                <fullName>Property</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>贸易</fullName>
+                <fullName>Trade</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车辆出租</fullName>
+                <fullName>Car rental</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>软件业</fullName>
+                <fullName>Software industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>通信设备%E3%80%81计算机及Other电子设备制造业</fullName>
+                <fullName>Communication equipment%E3%80%81Computer and OtherElectronic devices manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>通用设备制造业</fullName>
+                <fullName>General equipment manufacturing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>造纸及纸制品业</fullName>
+                <fullName>Papermaking and paper products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>道路运输业</fullName>
+                <fullName>Road transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>邮政业</fullName>
+                <fullName>Postal service</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>金属制品业</fullName>
+                <fullName>Metal products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>铁路运输业</fullName>
+                <fullName>Railway transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>银行</fullName>
+                <fullName>Bank</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>银行业</fullName>
+                <fullName>Bank industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>零售业</fullName>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>零部件</fullName>
+                <fullName>Spare parts</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>非金属矿物制品业</fullName>
+                <fullName>Non-metallic mineral products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>非金属矿采选业</fullName>
+                <fullName>Non-metallic minerals mining and dressing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>食品制造业</fullName>
+                <fullName>Food manufacturing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>餐饮业</fullName>
+                <fullName>Restaurant industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>饮料制造业</fullName>
+                <fullName>Beverage manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>驾校</fullName>
+                <fullName>Driving school</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>黑色金属冶炼及压延加工业</fullName>
+                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>黑色金属矿采选业</fullName>
+                <fullName>Ferrous metal mining and dressing industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5636,219 +5636,219 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>法律</fullName>
+                <fullName>Legal</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>渔业</fullName>
+                <fullName>Fisheries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>烟草制品业</fullName>
+                <fullName>Tobacco industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>烟酒</fullName>
+                <fullName>Alcohol and tobacco</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>煤炭开采和洗选业</fullName>
+                <fullName>Coal mining and coal preparation industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>燃气生产和供应业</fullName>
+                <fullName>Fuel gas production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>特许经营</fullName>
+                <fullName>Franchising</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>环境管理业</fullName>
+                <fullName>Environment management industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电信和Other信息传输服务业</fullName>
+                <fullName>Telecommunications and Other information transfer services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电力%E3%80%81Hot力的生产和供应业</fullName>
+                <fullName>Production and supply of electric power%E3%80%81Hot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电子</fullName>
+                <fullName>Electronic</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电气机械及器材制造业</fullName>
+                <fullName>Electric machines and apparatuses manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>畜牧业</fullName>
+                <fullName>Animal husbandry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>皮革%E3%80%81毛皮%E3%80%81羽毛%28绒%29及其制品业</fullName>
+                <fullName>Leather%E3%80%81%E3%80%81 fur feather%28 down%29 and its products</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石材</fullName>
+                <fullName>Stone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石油加工%E3%80%81炼焦及核燃料加工业</fullName>
+                <fullName>Oil processing%E3%80%81 coking and nuclear fuel processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石油和天然气开采业</fullName>
+                <fullName>Petroleum and natural gas extraction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>研究与试验发展</fullName>
+                <fullName>Research and experimental development</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>社会保障业</fullName>
+                <fullName>Social security industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>社会福利业</fullName>
+                <fullName>Social welfare</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>科技交流和推广服务业</fullName>
+                <fullName>Scientific and technological exchanges and promotion of services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>租赁业</fullName>
+                <fullName>Leasing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>管道运输业</fullName>
+                <fullName>Pipeline transport</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>纺织业</fullName>
+                <fullName>Textile industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>纺织服装%E3%80%81鞋%E3%80%81帽制造业</fullName>
+                <fullName>Textile and clothing%E3%80%81%E3%80%81 shoes hats manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>群众团体%E3%80%81社会团体和宗教组织</fullName>
+                <fullName>Mass%E3%80%81 society groups and religious organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>航空运输业</fullName>
+                <fullName>Air transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>装卸搬运和Other运输服务业</fullName>
+                <fullName>Loading and unloading and Other transport services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>计算机</fullName>
+                <fullName>Computer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>计算机服务业</fullName>
+                <fullName>Computer Service industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>证券业</fullName>
+                <fullName>Securities industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>财产</fullName>
+                <fullName>Property</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>贸易</fullName>
+                <fullName>Trade</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车辆出租</fullName>
+                <fullName>Car rental</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>软件业</fullName>
+                <fullName>Software industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>通信设备%E3%80%81计算机及Other电子设备制造业</fullName>
+                <fullName>Communication equipment%E3%80%81Computer and OtherElectronic devices manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>通用设备制造业</fullName>
+                <fullName>General equipment manufacturing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>造纸及纸制品业</fullName>
+                <fullName>Papermaking and paper products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>道路运输业</fullName>
+                <fullName>Road transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>邮政业</fullName>
+                <fullName>Postal service</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>金属制品业</fullName>
+                <fullName>Metal products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>铁路运输业</fullName>
+                <fullName>Railway transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>银行</fullName>
+                <fullName>Bank</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>银行业</fullName>
+                <fullName>Bank industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>零售业</fullName>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>零部件</fullName>
+                <fullName>Spare parts</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>非金属矿物制品业</fullName>
+                <fullName>Non-metallic mineral products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>非金属矿采选业</fullName>
+                <fullName>Non-metallic minerals mining and dressing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>食品制造业</fullName>
+                <fullName>Food manufacturing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>餐饮业</fullName>
+                <fullName>Restaurant industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>饮料制造业</fullName>
+                <fullName>Beverage manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>驾校</fullName>
+                <fullName>Driving school</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>黑色金属冶炼及压延加工业</fullName>
+                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>黑色金属矿采选业</fullName>
+                <fullName>Ferrous metal mining and dressing industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7634,171 +7634,171 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>渔业</fullName>
+                <fullName>Fisheries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>烟草制品业</fullName>
+                <fullName>Tobacco industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>煤炭开采和洗选业</fullName>
+                <fullName>Coal mining and coal preparation industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>燃气生产和供应业</fullName>
+                <fullName>Fuel gas production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>环境管理业</fullName>
+                <fullName>Environment management industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电信和Other信息传输服务业</fullName>
+                <fullName>Telecommunications and Other information transfer services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电力%E3%80%81Hot力的生产和供应业</fullName>
+                <fullName>Production and supply of electric power%E3%80%81Hot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电气机械及器材制造业</fullName>
+                <fullName>Electric machines and apparatuses manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>畜牧业</fullName>
+                <fullName>Animal husbandry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>皮革%E3%80%81毛皮%E3%80%81羽毛%28绒%29及其制品业</fullName>
+                <fullName>Leather%E3%80%81%E3%80%81 fur feather%28 down%29 and its products</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石油加工%E3%80%81炼焦及核燃料加工业</fullName>
+                <fullName>Oil processing%E3%80%81 coking and nuclear fuel processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石油和天然气开采业</fullName>
+                <fullName>Petroleum and natural gas extraction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>研究与试验发展</fullName>
+                <fullName>Research and experimental development</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>社会保障业</fullName>
+                <fullName>Social security industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>社会福利业</fullName>
+                <fullName>Social welfare</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>科技交流和推广服务业</fullName>
+                <fullName>Scientific and technological exchanges and promotion of services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>租赁业</fullName>
+                <fullName>Leasing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>管道运输业</fullName>
+                <fullName>Pipeline transport</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>纺织业</fullName>
+                <fullName>Textile industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>纺织服装%E3%80%81鞋%E3%80%81帽制造业</fullName>
+                <fullName>Textile and clothing%E3%80%81%E3%80%81 shoes hats manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>群众团体%E3%80%81社会团体和宗教组织</fullName>
+                <fullName>Mass%E3%80%81 society groups and religious organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>航空运输业</fullName>
+                <fullName>Air transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>装卸搬运和Other运输服务业</fullName>
+                <fullName>Loading and unloading and Other transport services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>计算机服务业</fullName>
+                <fullName>Computer Service industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>证券业</fullName>
+                <fullName>Securities industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>软件业</fullName>
+                <fullName>Software industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>通信设备%E3%80%81计算机及Other电子设备制造业</fullName>
+                <fullName>Communication equipment%E3%80%81Computer and OtherElectronic devices manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>通用设备制造业</fullName>
+                <fullName>General equipment manufacturing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>造纸及纸制品业</fullName>
+                <fullName>Papermaking and paper products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>道路运输业</fullName>
+                <fullName>Road transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>邮政业</fullName>
+                <fullName>Postal service</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>金属制品业</fullName>
+                <fullName>Metal products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>铁路运输业</fullName>
+                <fullName>Railway transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>银行业</fullName>
+                <fullName>Bank industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>零售业</fullName>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>非金属矿物制品业</fullName>
+                <fullName>Non-metallic mineral products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>非金属矿采选业</fullName>
+                <fullName>Non-metallic minerals mining and dressing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>食品制造业</fullName>
+                <fullName>Food manufacturing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>餐饮业</fullName>
+                <fullName>Restaurant industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>饮料制造业</fullName>
+                <fullName>Beverage manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>黑色金属冶炼及压延加工业</fullName>
+                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>黑色金属矿采选业</fullName>
+                <fullName>Ferrous metal mining and dressing industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9938,219 +9938,219 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>法律</fullName>
+                <fullName>Legal</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>渔业</fullName>
+                <fullName>Fisheries</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>烟草制品业</fullName>
+                <fullName>Tobacco industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>烟酒</fullName>
+                <fullName>Alcohol and tobacco</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>煤炭开采和洗选业</fullName>
+                <fullName>Coal mining and coal preparation industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>燃气生产和供应业</fullName>
+                <fullName>Fuel gas production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>特许经营</fullName>
+                <fullName>Franchising</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>环境管理业</fullName>
+                <fullName>Environment management industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电信和Other信息传输服务业</fullName>
+                <fullName>Telecommunications and Other information transfer services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电力%E3%80%81Hot力的生产和供应业</fullName>
+                <fullName>Production and supply of electric power%E3%80%81Hot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电子</fullName>
+                <fullName>Electronic</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电气机械及器材制造业</fullName>
+                <fullName>Electric machines and apparatuses manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>畜牧业</fullName>
+                <fullName>Animal husbandry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>皮革%E3%80%81毛皮%E3%80%81羽毛%28绒%29及其制品业</fullName>
+                <fullName>Leather%E3%80%81%E3%80%81 fur feather%28 down%29 and its products</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石材</fullName>
+                <fullName>Stone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石油加工%E3%80%81炼焦及核燃料加工业</fullName>
+                <fullName>Oil processing%E3%80%81 coking and nuclear fuel processing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>石油和天然气开采业</fullName>
+                <fullName>Petroleum and natural gas extraction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>研究与试验发展</fullName>
+                <fullName>Research and experimental development</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>社会保障业</fullName>
+                <fullName>Social security industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>社会福利业</fullName>
+                <fullName>Social welfare</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>科技交流和推广服务业</fullName>
+                <fullName>Scientific and technological exchanges and promotion of services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>租赁业</fullName>
+                <fullName>Leasing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>管道运输业</fullName>
+                <fullName>Pipeline transport</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>纺织业</fullName>
+                <fullName>Textile industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>纺织服装%E3%80%81鞋%E3%80%81帽制造业</fullName>
+                <fullName>Textile and clothing%E3%80%81%E3%80%81 shoes hats manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>群众团体%E3%80%81社会团体和宗教组织</fullName>
+                <fullName>Mass%E3%80%81 society groups and religious organizations</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>航空运输业</fullName>
+                <fullName>Air transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>装卸搬运和Other运输服务业</fullName>
+                <fullName>Loading and unloading and Other transport services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>计算机</fullName>
+                <fullName>Computer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>计算机服务业</fullName>
+                <fullName>Computer Service industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>证券业</fullName>
+                <fullName>Securities industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>财产</fullName>
+                <fullName>Property</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>贸易</fullName>
+                <fullName>Trade</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>车辆出租</fullName>
+                <fullName>Car rental</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>软件业</fullName>
+                <fullName>Software industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>通信设备%E3%80%81计算机及Other电子设备制造业</fullName>
+                <fullName>Communication equipment%E3%80%81Computer and OtherElectronic devices manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>通用设备制造业</fullName>
+                <fullName>General equipment manufacturing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>造纸及纸制品业</fullName>
+                <fullName>Papermaking and paper products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>道路运输业</fullName>
+                <fullName>Road transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>邮政业</fullName>
+                <fullName>Postal service</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>金属制品业</fullName>
+                <fullName>Metal products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>铁路运输业</fullName>
+                <fullName>Railway transport industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>银行</fullName>
+                <fullName>Bank</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>银行业</fullName>
+                <fullName>Bank industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>零售业</fullName>
+                <fullName>Retail</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>零部件</fullName>
+                <fullName>Spare parts</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>非金属矿物制品业</fullName>
+                <fullName>Non-metallic mineral products industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>非金属矿采选业</fullName>
+                <fullName>Non-metallic minerals mining and dressing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>食品制造业</fullName>
+                <fullName>Food manufacturing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>餐饮业</fullName>
+                <fullName>Restaurant industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>饮料制造业</fullName>
+                <fullName>Beverage manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>驾校</fullName>
+                <fullName>Driving school</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>黑色金属冶炼及压延加工业</fullName>
+                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>黑色金属矿采选业</fullName>
+                <fullName>Ferrous metal mining and dressing industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

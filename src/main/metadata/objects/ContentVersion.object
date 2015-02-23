@@ -1947,35 +1947,35 @@
         <label>Media Type</label>
         <picklist>
             <picklistValues>
-                <fullName>户外</fullName>
+                <fullName>Outdoor</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>电视</fullName>
+                <fullName>TV</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>广播</fullName>
+                <fullName>Radio</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>数字媒体</fullName>
+                <fullName>Digital media</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>手机</fullName>
+                <fullName>Mobile phone</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>报纸</fullName>
+                <fullName>Newspapers</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>杂志</fullName>
+                <fullName>Magazine</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2054,15 +2054,15 @@
         <label>Type</label>
         <picklist>
             <picklistValues>
-                <fullName>市场</fullName>
+                <fullName>Market</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>销售</fullName>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>售后</fullName>
+                <fullName>After sales</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3545,82 +3545,82 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>事件%2F节日营销</fullName>
+                <fullName>Events%2F Festival marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>体育营销活动</fullName>
+                <fullName>Sports marketing activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>制作物相关</fullName>
+                <fullName>Production of relevant</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>地方车展</fullName>
+                <fullName>Local auto shows</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>外展%2F路演</fullName>
+                <fullName>Outreach%2F Roadshow</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>展厅活动</fullName>
+                <fullName>Exhibition activity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>新车上市发布</fullName>
+                <fullName>New car market release</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>联合品牌活动</fullName>
+                <fullName>Co-branded activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>试乘试驾</fullName>
+                <fullName>Test drive</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>赞助%2F慈善</fullName>
+                <fullName>%2F sponsored charity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广播</fullName>
+                <fullName>Radio</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>户外</fullName>
+                <fullName>Outdoor</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>手机</fullName>
+                <fullName>Mobile phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>报纸</fullName>
+                <fullName>Newspapers</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>数字媒体</fullName>
+                <fullName>Digital media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>杂志</fullName>
+                <fullName>Magazine</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电视</fullName>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3654,15 +3654,15 @@
         <picklistValues>
             <picklist>Type__c</picklist>
             <values>
-                <fullName>售后</fullName>
+                <fullName>After sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>市场</fullName>
+                <fullName>Market</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>销售</fullName>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5133,82 +5133,82 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>事件%2F节日营销</fullName>
+                <fullName>Events%2F Festival marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>体育营销活动</fullName>
+                <fullName>Sports marketing activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>制作物相关</fullName>
+                <fullName>Production of relevant</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>地方车展</fullName>
+                <fullName>Local auto shows</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>外展%2F路演</fullName>
+                <fullName>Outreach%2F Roadshow</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>展厅活动</fullName>
+                <fullName>Exhibition activity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>新车上市发布</fullName>
+                <fullName>New car market release</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>联合品牌活动</fullName>
+                <fullName>Co-branded activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>试乘试驾</fullName>
+                <fullName>Test drive</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>赞助%2F慈善</fullName>
+                <fullName>%2F sponsored charity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广播</fullName>
+                <fullName>Radio</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>户外</fullName>
+                <fullName>Outdoor</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>手机</fullName>
+                <fullName>Mobile phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>报纸</fullName>
+                <fullName>Newspapers</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>数字媒体</fullName>
+                <fullName>Digital media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>杂志</fullName>
+                <fullName>Magazine</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电视</fullName>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5242,15 +5242,15 @@
         <picklistValues>
             <picklist>Type__c</picklist>
             <values>
-                <fullName>售后</fullName>
+                <fullName>After sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>市场</fullName>
+                <fullName>Market</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>销售</fullName>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6721,82 +6721,82 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>事件%2F节日营销</fullName>
+                <fullName>Events%2F Festival marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>体育营销活动</fullName>
+                <fullName>Sports marketing activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>制作物相关</fullName>
+                <fullName>Production of relevant</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>地方车展</fullName>
+                <fullName>Local auto shows</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>外展%2F路演</fullName>
+                <fullName>Outreach%2F Roadshow</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>展厅活动</fullName>
+                <fullName>Exhibition activity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>新车上市发布</fullName>
+                <fullName>New car market release</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>联合品牌活动</fullName>
+                <fullName>Co-branded activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>试乘试驾</fullName>
+                <fullName>Test drive</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>赞助%2F慈善</fullName>
+                <fullName>%2F sponsored charity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广播</fullName>
+                <fullName>Radio</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>户外</fullName>
+                <fullName>Outdoor</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>手机</fullName>
+                <fullName>Mobile phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>报纸</fullName>
+                <fullName>Newspapers</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>数字媒体</fullName>
+                <fullName>Digital media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>杂志</fullName>
+                <fullName>Magazine</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电视</fullName>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6830,15 +6830,15 @@
         <picklistValues>
             <picklist>Type__c</picklist>
             <values>
-                <fullName>售后</fullName>
+                <fullName>After sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>市场</fullName>
+                <fullName>Market</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>销售</fullName>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8309,82 +8309,82 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>事件%2F节日营销</fullName>
+                <fullName>Events%2F Festival marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>体育营销活动</fullName>
+                <fullName>Sports marketing activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>制作物相关</fullName>
+                <fullName>Production of relevant</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>地方车展</fullName>
+                <fullName>Local auto shows</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>外展%2F路演</fullName>
+                <fullName>Outreach%2F Roadshow</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>展厅活动</fullName>
+                <fullName>Exhibition activity</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>新车上市发布</fullName>
+                <fullName>New car market release</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>联合品牌活动</fullName>
+                <fullName>Co-branded activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>试乘试驾</fullName>
+                <fullName>Test drive</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>赞助%2F慈善</fullName>
+                <fullName>%2F sponsored charity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>广播</fullName>
+                <fullName>Radio</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>户外</fullName>
+                <fullName>Outdoor</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>手机</fullName>
+                <fullName>Mobile phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>报纸</fullName>
+                <fullName>Newspapers</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>数字媒体</fullName>
+                <fullName>Digital media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>杂志</fullName>
+                <fullName>Magazine</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电视</fullName>
+                <fullName>TV</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8418,15 +8418,15 @@
         <picklistValues>
             <picklist>Type__c</picklist>
             <values>
-                <fullName>售后</fullName>
+                <fullName>After sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>市场</fullName>
+                <fullName>Market</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>销售</fullName>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

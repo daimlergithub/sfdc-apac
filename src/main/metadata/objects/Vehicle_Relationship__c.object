@@ -789,20 +789,20 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>Temp_field_1__c</fullName>
-        <description>用于临时替代welcome call问卷的解决方案</description>
+        <description>Serves as a temporary replacement welcome call Survey solutions</description>
         <externalId>false</externalId>
         <label>Question1</label>
         <picklist>
             <picklistValues>
-                <fullName>A.介绍过</fullName>
+                <fullName>A.Introduced</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>B.没介绍</fullName>
+                <fullName>B.Not introduced</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C.忘记了是否介绍过</fullName>
+                <fullName>C.Forget Introduced</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -813,20 +813,20 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>Temp_field_2__c</fullName>
-        <description>用于临时替代welcome call问卷的解决方案</description>
+        <description>Serves as a temporary replacement welcome call Survey solutions</description>
         <externalId>false</externalId>
         <label>Question2</label>
         <picklist>
             <picklistValues>
-                <fullName>A.悬挂了</fullName>
+                <fullName>A.Suspension</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>B.未悬挂</fullName>
+                <fullName>B.Not suspended</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C.没注意</fullName>
+                <fullName>C.Not paying attention</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -837,20 +837,20 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>Temp_field_3__c</fullName>
-        <description>用于临时替代welcome call问卷的解决方案</description>
+        <description>Serves as a temporary replacement welcome call Survey solutions</description>
         <externalId>false</externalId>
         <label>Question3</label>
         <picklist>
             <picklistValues>
-                <fullName>A.有</fullName>
+                <fullName>A.There are</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>B.没有</fullName>
+                <fullName>B.No</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C.没注意</fullName>
+                <fullName>C.Not paying attention</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1004,7 +1004,7 @@ Attribute in Data Dictionary object Vehicle Relationship is&quot;VehicleRel_Vehi
             <operation>equals</operation>
             <value>TODAY</value>
         </filters>
-        <label>新建人车关系</label>
+        <label>New vehicles</label>
         <language>en_US</language>
     </listViews>
     <nameField>
@@ -1180,45 +1180,45 @@ Attribute in Data Dictionary object Vehicle Relationship is&quot;VehicleRel_Vehi
         <picklistValues>
             <picklist>Temp_field_1__c</picklist>
             <values>
-                <fullName>A%2E介绍过</fullName>
+                <fullName>A%2EIntroduced</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>B%2E没介绍</fullName>
+                <fullName>B%2ENot introduced</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C%2E忘记了是否介绍过</fullName>
+                <fullName>C%2EForget Introduced</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Temp_field_2__c</picklist>
             <values>
-                <fullName>A%2E悬挂了</fullName>
+                <fullName>A%2ESuspension</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>B%2E未悬挂</fullName>
+                <fullName>B%2ENot suspended</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C%2E没注意</fullName>
+                <fullName>C%2ENot paying attention</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Temp_field_3__c</picklist>
             <values>
-                <fullName>A%2E有</fullName>
+                <fullName>A%2EThere are</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>B%2E没有</fullName>
+                <fullName>B%2ENo</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>C%2E没注意</fullName>
+                <fullName>C%2ENot paying attention</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
