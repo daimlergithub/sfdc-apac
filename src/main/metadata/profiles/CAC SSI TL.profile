@@ -87,7 +87,6 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
-    <!-- TODO Temporarily making the standard console app as default later it will be changed to Service_Cloud_Console_SSI app -->
     <applicationVisibilities>
         <application>standard__ServiceConsole</application>
         <default>false</default>

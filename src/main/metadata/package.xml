@@ -296,6 +296,13 @@
         <name>ApexClass</name>
     </types>
     <types>
+        <members>SiteFooter</members>
+        <members>SiteHeader</members>
+        <members>SiteLogin</members>
+        <members>SitePoweredBy</members>
+        <name>ApexComponent</name>
+    </types>
+    <types>
         <members>AccountButtonContainer</members>
         <members>AccountConsoleRefresh</members>
         <members>AddToRetailCampaign</members>
@@ -1162,52 +1169,6 @@
         <members>WholeSale_CallCenter</members>
         <members>Wholesale</members>
         <name>Role</name>
-    </types>
-    <types>
-        <members>Angular</members>
-        <members>AppirioLogo</members>
-        <members>BenzHeader</members>
-        <members>Bootstrap</members>
-        <members>CampaignTimelineFrame</members>
-        <members>CarModelComparison</members>
-        <members>Dealer_Reminder</members>
-        <members>Dealer_Reminder_Chinese</members>
-        <members>JSforce</members>
-        <members>ReminderForCampaignRelation</members>
-        <members>RetailCampaignSegmentation</members>
-        <members>RetailCampaignTimeline_JS</members>
-        <members>SiteSamples</members>
-        <members>SlickCTI_CallCenterDefinition</members>
-        <members>SlickCTI_DialPhone</members>
-        <members>SlickCTI_DownArrow</members>
-        <members>SlickCTI_Hangup</members>
-        <members>SlickCTI_InboundRing</members>
-        <members>SlickCTI_Logo</members>
-        <members>SlickCTI_Outbound</members>
-        <members>SlickCTI_TouchToneSounds</members>
-        <members>SlickCTI_Transfer</members>
-        <members>SlickCTI_Volume</members>
-        <members>SlickCTI_iCanHaz</members>
-        <members>SlickCTI_jQuery</members>
-        <members>SlickCTI_js</members>
-        <members>SortTable</members>
-        <members>SurveyForce</members>
-        <members>Timeline_CSS</members>
-        <members>Timeline_JS</members>
-        <members>Timeline_JS_Pa_Z</members>
-        <members>UiBootstrap</members>
-        <members>UserGuide</members>
-        <members>insect</members>
-        <members>jQuery</members>
-        <members>jQueryCSV</members>
-        <members>jquery142</members>
-        <members>linked</members>
-        <members>searching_img</members>
-        <members>unlink</members>
-        <members>webchat</members>
-        <members>zzDealerSearch1</members>
-        <members>zzDealerSearch2</members>
-        <name>StaticResource</name>
     </types>
     <types>
         <members>Account</members>
