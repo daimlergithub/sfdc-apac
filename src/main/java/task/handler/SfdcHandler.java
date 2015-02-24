@@ -3,8 +3,10 @@
  */
 package task.handler;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -14,8 +16,14 @@ import java.util.Map;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.tools.ant.BuildEvent;
 import org.apache.tools.ant.BuildException;
+import org.apache.tools.ant.BuildListener;
+import org.apache.tools.ant.Task;
 import org.apache.tools.ant.types.LogLevel;
+
+import task.handler.configuration.DeploymentUnit;
+import task.model.SfdcTypeSet;
 
 import com.sforce.soap.enterprise.EnterpriseConnection;
 import com.sforce.soap.enterprise.LoginResult;
@@ -26,15 +34,18 @@ import com.sforce.soap.metadata.DescribeMetadataObject;
 import com.sforce.soap.metadata.DescribeMetadataResult;
 import com.sforce.soap.metadata.FileProperties;
 import com.sforce.soap.metadata.ListMetadataQuery;
+import com.sforce.soap.metadata.Metadata;
 import com.sforce.soap.metadata.MetadataConnection;
 import com.sforce.soap.metadata.Package;
 import com.sforce.soap.metadata.PackageTypeMembers;
+import com.sforce.soap.metadata.ReadResult;
 import com.sforce.soap.metadata.RetrieveRequest;
 import com.sforce.soap.metadata.RetrieveResult;
+import com.sforce.soap.metadata.StaticResource;
+import com.sforce.soap.metadata.StaticResourceCacheControl;
+import com.sforce.soap.metadata.UpsertResult;
 import com.sforce.ws.ConnectionException;
 import com.sforce.ws.ConnectorConfig;
-
-import deployer.DeploymentUnit;
 
 /**
  * SfdcHandler
@@ -44,10 +55,72 @@ import deployer.DeploymentUnit;
 public class SfdcHandler
 {
 
+  private static final String PROJECT_PROPERTY_SFDC_SESSION = "SFDC_SESSION";
+
+  private class SfdcBuildListener
+    implements BuildListener
+  {
+
+    @Override
+    public void buildStarted(BuildEvent event)
+    {
+      // TODO we could move the login here
+    }
+
+    @Override
+    public void buildFinished(BuildEvent event)
+    {
+      ConnectorConfig eConfig = createConnectorConfig();
+      try {
+        EnterpriseConnection eConnection = new EnterpriseConnection(eConfig);
+        SfdcConnectionContext result = retrieveContext(eConnection);
+        if (null != result) {
+          result.getEConnection().logout();
+        }
+      }
+      catch (ConnectionException e) {
+        // e.printStackTrace();
+
+        throw new BuildException(String.format("Error logging out at SFDC: %s.", e.getMessage()), e);
+      }
+    }
+
+    @Override
+    public void targetStarted(BuildEvent event)
+    {
+      // nothing to do
+    }
+
+    @Override
+    public void targetFinished(BuildEvent event)
+    {
+      // nothing to do
+    }
+
+    @Override
+    public void taskStarted(BuildEvent event)
+    {
+      // nothing to do
+    }
+
+    @Override
+    public void taskFinished(BuildEvent event)
+    {
+      // nothing to do
+    }
+
+    @Override
+    public void messageLogged(BuildEvent event)
+    {
+      // nothing to do
+    }
+
+  }
+
   private final static double VERSION = 32.0d;
   private final Set<String> noChildHandling = new HashSet<>();
 
-  private LogWrapper logWrapper;
+  private Task task;
   private int maxPoll;
   private boolean dryRun;
   private String serverurl;
@@ -65,7 +138,8 @@ public class SfdcHandler
     noChildHandling.add("Workflow");
   }
 
-  public void initialize(LogWrapper logWrapper,
+  @SuppressWarnings("hiding")
+  public void initialize(Task task,
                          int maxPoll,
                          boolean dryRun,
                          String serverurl,
@@ -76,7 +150,7 @@ public class SfdcHandler
                          int proxyPort,
                          BaseUpdateHandler<?> updateStampHandler)
   {
-    this.logWrapper = logWrapper;
+    this.task = task;
     this.maxPoll = maxPoll;
     this.dryRun = dryRun;
     this.serverurl = serverurl;
@@ -86,13 +160,24 @@ public class SfdcHandler
     this.proxyHost = proxyHost;
     this.proxyPort = proxyPort;
     this.updateHandler = updateStampHandler;
-    
+
     validate();
+
+    // do not register a second time to omit double logouts
+    boolean alreadyRegistered = false;
+    for (BuildListener bl : task.getProject().getBuildListeners()) {
+      if (SfdcBuildListener.class.getSimpleName().equals(bl.getClass().getSimpleName())) {
+        alreadyRegistered = true;
+      }
+    }
+    if (!alreadyRegistered) {
+      task.getProject().addBuildListener(new SfdcBuildListener());
+    }
   }
 
   private void validate()
   {
-    if (null == logWrapper || null == updateHandler || null == serverurl || null == username || null == password) {
+    if (null == task || null == updateHandler || null == serverurl || null == username || null == password) {
       throw new BuildException("SfdcHandler is not properly initialized.");
     }
   }
@@ -108,7 +193,7 @@ public class SfdcHandler
     try {
       SfdcConnectionContext context = login();
 
-      logWrapper.log(String.format("Start deployment of ZIP."));
+      task.log(String.format("Start deployment of ZIP."));
 
       DeployOptions options = new DeployOptions();
       options.setPerformRetrieve(false);
@@ -120,13 +205,13 @@ public class SfdcHandler
       DeployResult status = null;
       do {
 
-        logWrapper.log(String.format("Wait for job %s to finish...", ar.getId()));
+        task.log(String.format("Wait for job %s to finish...", ar.getId()));
 
         try {
           Thread.sleep(3000);
         }
         catch (InterruptedException e) {
-          logWrapper.log(String.format("Got interrupted while sleeping for deployment result: %s.", e.getMessage()));
+          task.log(String.format("Got interrupted while sleeping for deployment result: %s.", e.getMessage()));
         }
         status = context.getMConnection().checkDeployStatus(ar.getId(), true);
 
@@ -139,18 +224,18 @@ public class SfdcHandler
           for (DeploymentInfo info : infos) {
             DeploymentUnit du = info.getDeploymentUnit();
 
-            logWrapper.log(String.format("Deployment of %s and %s successful.",
-                                         du.getTypeName(),
-                                         Arrays.toString(info.getEntityNames().toArray(new String[0]))));
+            task.log(String.format("Deployment of %s and %s successful.",
+                                   du.getTypeName(),
+                                   Arrays.toString(info.getEntityNames().toArray(new String[0]))));
           }
           updateHandler.updateTimestamp(infos);
         }
         else {
-          logWrapper.log(String.format("Error %s: %s.",
-                                       null != status.getErrorStatusCode()
-                                                                          ? status.getErrorStatusCode().toString()
-                                                                          : "<null>",
-                                       status.getErrorMessage()), LogLevel.ERR.getLevel());
+          task.log(String.format("Error %s: %s.",
+                                 null != status.getErrorStatusCode()
+                                                                    ? status.getErrorStatusCode().toString()
+                                                                    : "<null>",
+                                 status.getErrorMessage()), LogLevel.ERR.getLevel());
 
           List<String> types = new ArrayList<>();
           for (DeploymentInfo info : infos) {
@@ -162,12 +247,10 @@ public class SfdcHandler
         }
       }
 
-      context.getEConnection().logout();
-
       return result;
     }
     catch (ConnectionException e) {
-      throw new BuildException(String.format("Error Connecting to SFDC: %s.", e.getMessage()), e);
+      throw new BuildException(String.format("Error connecting to SFDC: %s.", e.getMessage()), e);
     }
   }
 
@@ -177,14 +260,44 @@ public class SfdcHandler
     ConnectorConfig eConfig = createConnectorConfig();
     EnterpriseConnection eConnection = new EnterpriseConnection(eConfig);
 
-    LoginResult loginResult = login(eConnection, eConfig);
-    MetadataConnection mConnection = createMetadataConnection(loginResult);
+    SfdcConnectionContext result = retrieveContext(eConnection);
+    if (null == result) {
+      LoginResult loginResult = login(eConnection, eConfig);
+      MetadataConnection mConnection = createMetadataConnection(loginResult);
 
-    return new SfdcConnectionContext(eConnection, mConnection);
+      result = new SfdcConnectionContext(eConnection, mConnection);
+    }
+    return result;
+  }
+
+  private SfdcConnectionContext retrieveContext(EnterpriseConnection eConnection)
+    throws ConnectionException
+  {
+    String session = task.getProject().getProperty(PROJECT_PROPERTY_SFDC_SESSION);
+    if (StringUtils.isNotEmpty(session)) {
+
+      String[] tokens = session.split("\\|");
+      if (null != tokens && 3 == tokens.length) {
+        String serviceEndpointUrl = tokens[0];
+        String metadataServerUrl = tokens[1];
+        String sessionId = tokens[2];
+
+        eConnection.setSessionHeader(sessionId);
+        eConnection.getConfig().setServiceEndpoint(serviceEndpointUrl);
+
+        LoginResult loginResult = new LoginResult();
+        loginResult.setMetadataServerUrl(metadataServerUrl);
+        loginResult.setSessionId(sessionId);
+
+        MetadataConnection mConnection = createMetadataConnection(loginResult);
+
+        return new SfdcConnectionContext(eConnection, mConnection);
+      }
+    }
+    return null;
   }
 
   private ConnectorConfig createConnectorConfig()
-    throws ConnectionException
   {
     ConnectorConfig eConfig = new ConnectorConfig();
     eConfig.setAuthEndpoint(serverurl + "/services/Soap/c/32.0");
@@ -206,6 +319,13 @@ public class SfdcHandler
     eConfig.setServiceEndpoint(loginResult.getServerUrl());
 
     eConnection.setSessionHeader(loginResult.getSessionId());
+
+    String sessionInfo =
+        String.format("%s|%s|%s",
+                      loginResult.getServerUrl(),
+                      loginResult.getMetadataServerUrl(),
+                      loginResult.getSessionId());
+    task.getProject().setProperty(PROJECT_PROPERTY_SFDC_SESSION, sessionInfo);
 
     return loginResult;
   }
@@ -255,7 +375,7 @@ public class SfdcHandler
               for (FileProperties props : metadata) {
                 List<FileProperties> list = map.get(props.getType());
                 if (null == list) {
-                  list = new ArrayList<FileProperties>();
+                  list = new ArrayList<>();
                   map.put(props.getType(), list);
                 }
                 list.add(props);
@@ -289,15 +409,15 @@ public class SfdcHandler
                 List<ListMetadataQuery> queries = new ArrayList<>();
                 List<String> elements = new ArrayList<>();
                 for (FileProperties fileProperties : chunk) {
-                  ListMetadataQuery query = new ListMetadataQuery();
-                  query.setType(name);
-                  query.setFolder(fileProperties.getFullName());
-                  queries.add(query);
+                  ListMetadataQuery fQuery = new ListMetadataQuery();
+                  fQuery.setType(name);
+                  fQuery.setFolder(fileProperties.getFullName());
+                  queries.add(fQuery);
                   elements.add(fileProperties.getFullName());
                 }
-                
+
                 // TODO logWrapper.log(String.format("List: %s.[%s]", name, StringUtils.join(elements, ",")));
-                
+
                 result.addAll(Arrays.asList(mConnection.listMetadata(queries.toArray(new ListMetadataQuery[queries.size()]),
                                                                      VERSION)));
 
@@ -316,9 +436,9 @@ public class SfdcHandler
         // regular metadata category
         ListMetadataQuery query = new ListMetadataQuery();
         query.setType(name);
-        
+
         // TODO logWrapper.log(String.format("List: %s", name));
-        
+
         filePropertiesMap.put(name, Arrays.asList(mConnection.listMetadata(new ListMetadataQuery[]{ query }, VERSION)));
       }
     }
@@ -339,27 +459,27 @@ public class SfdcHandler
         type.setMembers(entry.getValue().toArray(new String[entry.getValue().size()]));
         types.add(type);
       }
-      
+
       Package unpackaged = new Package();
       unpackaged.setTypes(types.toArray(new PackageTypeMembers[types.size()]));
-      
+
       RetrieveRequest retrieveRequest = new RetrieveRequest();
       retrieveRequest.setApiVersion(VERSION);
       retrieveRequest.setUnpackaged(unpackaged);
-      
+
       AsyncResult ar = context.getMConnection().retrieve(retrieveRequest);
-      
+
       int count = 0;
       RetrieveResult status = null;
       do {
 
-        logWrapper.log(String.format("Wait for job %s to finish...", ar.getId()));
+        task.log(String.format("Wait for job %s to finish...", ar.getId()));
 
         try {
           Thread.sleep(3000);
         }
         catch (InterruptedException e) {
-          logWrapper.log(String.format("Got interrupted while sleeping for retrieval result: %s.", e.getMessage()));
+          task.log(String.format("Got interrupted while sleeping for retrieval result: %s.", e.getMessage()));
         }
         status = context.getMConnection().checkRetrieveStatus(ar.getId());
 
@@ -369,10 +489,11 @@ public class SfdcHandler
 
       if (status.isDone()) {
         if (status.isSuccess()) {
-          
+
           Set<String> keys = metadata.keySet();
-          logWrapper.log(String.format("Retrieval of %s successful.", StringUtils.join(keys.toArray(new String[keys.size()]), ",")));
-          
+          task.log(String.format("Retrieval of %s successful.",
+                                 StringUtils.join(keys.toArray(new String[keys.size()]), ",")));
+
           try {
             result = new ByteArrayOutputStream();
             result.write(status.getZipFile());
@@ -383,18 +504,16 @@ public class SfdcHandler
           }
         }
         else {
-          logWrapper.log(String.format("Error %s: %s.",
-                                       null != status.getErrorStatusCode()
-                                                                          ? status.getErrorStatusCode().toString()
-                                                                          : "<null>",
-                                       status.getErrorMessage()), LogLevel.ERR.getLevel());
+          task.log(String.format("Error %s: %s.",
+                                 null != status.getErrorStatusCode()
+                                                                    ? status.getErrorStatusCode().toString()
+                                                                    : "<null>",
+                                 status.getErrorMessage()), LogLevel.ERR.getLevel());
 
           throw new BuildException(String.format("Deployment of %s not successful.",
                                                  Arrays.toString(types.toArray(new String[0]))));
         }
       }
-
-      context.getEConnection().logout();
 
       return result;
     }
@@ -403,11 +522,16 @@ public class SfdcHandler
     }
   }
 
-  public Map<String, Map<String, Long>> getUpdateStamps(Set<String> objects)
+  public Map<String, Map<String, Long>> getUpdateStamps(List<SfdcTypeSet> typeSets)
   {
     Map<String, Map<String, Long>> result = new HashMap<>();
 
-    logWrapper.log("Get update stamps.");
+    task.log("Get update stamps.");
+
+    Map<String, SfdcTypeSet> objects = new HashMap<>();
+    for (SfdcTypeSet typeSet : typeSets) {
+      objects.put(typeSet.getName(), typeSet);
+    }
     
     try {
       SfdcConnectionContext context = login();
@@ -415,14 +539,13 @@ public class SfdcHandler
       DescribeMetadataResult describeMetadata = context.getMConnection().describeMetadata(VERSION);
       for (DescribeMetadataObject object : describeMetadata.getMetadataObjects()) {
         // only consider specified objects
-        if (!objects.contains(object.getXmlName())) {
+        if (!objects.containsKey(object.getXmlName())) {
           continue;
         }
 
-        // TODO logWrapper.log(String.format("Type: %s", object.getXmlName()));
-
         Map<String, List<FileProperties>> filePropertiesMap = listMetadata(context.getMConnection(), object);
-
+        
+        // TODO filter according to typeSets
         for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
           Map<String, Long> entryMap = new HashMap<>();
           for (FileProperties properties : entry.getValue()) {
@@ -431,12 +554,96 @@ public class SfdcHandler
           result.put(entry.getKey(), entryMap);
         }
       }
-      context.getEConnection().logout();
 
       return result;
     }
     catch (ConnectionException e) {
       throw new BuildException(String.format("Error Connecting to SFDC: %s.", e.getMessage()), e);
+    }
+  }
+
+  public Map<String, String> retrieveChecksums(String sfdcName)
+  {
+    try {
+      SfdcConnectionContext context = login();
+
+      ReadResult readResult =
+          context.getMConnection().readMetadata("StaticResource", new String[]{ sfdcName });
+
+      Metadata[] mdInfo = readResult.getRecords();
+
+      Map<String, String> map = new HashMap<>();
+      if (0 == mdInfo.length || null == mdInfo[0]) {
+        task.log("Did not find checksums in SFDC.", LogLevel.WARN.getLevel());
+      }
+      else {
+        task.log("Retrieved checksum from SFDC.");
+
+        StaticResource checksums = (StaticResource)mdInfo[0];
+        String content = new String(checksums.getContent(), "UTF-8");
+
+        try (StringReader sr = new StringReader(content); BufferedReader br = new BufferedReader(sr)) {
+          String line = null;
+          do {
+            line = br.readLine();
+            if (null != line) {
+              String[] tokens = line.split(":");
+              if (2 == tokens.length) {
+                map.put(tokens[0], tokens[1]);
+              }
+            }
+          }
+          while (line != null);
+        }
+      }
+      return map;
+    }
+    catch (IOException | ConnectionException e) {
+      throw new BuildException(String.format("Error retrieving checksums from SFDC: %s.", e.getMessage()), e);
+    }
+  }
+
+  // TODO think about zipping checksums before deploying
+  public void deployChecksums(Map<String, String> checksumMap, String sfdcName)
+  {
+    try {
+      SfdcConnectionContext context = login();
+
+      ByteArrayOutputStream baos = new ByteArrayOutputStream();
+      for (Map.Entry<String, String> entry : checksumMap.entrySet()) {
+        baos.write(String.format("%s:%s\n", entry.getKey(), entry.getValue()).getBytes("UTF-8"));
+      }
+      byte[] content = baos.toByteArray();
+
+      StaticResource sr = new StaticResource();
+      sr.setCacheControl(StaticResourceCacheControl.Private);
+      sr.setContent(content);
+      sr.setContentType("text/plain");
+      sr.setFullName(sfdcName);
+      sr.setDescription("Checksums of all deployed metadata.");
+
+      UpsertResult[] results = context.getMConnection().upsertMetadata(new Metadata[]{ sr });
+      for (UpsertResult ur : results) {
+        if (ur.isSuccess()) {
+          if (ur.isCreated()) {
+            task.log("Inserted checksums in SFDC.");
+          } else {
+            task.log("Updated checksums in SFDC.");
+          }
+        }
+        else {
+          for (com.sforce.soap.metadata.Error e : ur.getErrors()) {
+            task.log(String.format("Error %s upserting checksum in SFDC: %s.",
+                                   e.getStatusCode().toString(),
+                                   e.getMessage()));
+          }
+
+          throw new BuildException("Error upserting checksums in SFDC.");
+        }
+      }
+    }
+    catch (IOException | ConnectionException e) {
+      throw new BuildException(String.format("Error retrieving checksums from SFDC: %s.", e.getMessage()), e);
     }
   }
 }

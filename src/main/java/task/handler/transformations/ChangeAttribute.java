@@ -41,6 +41,7 @@ public class ChangeAttribute extends Transformation {
     this.token = token;
   }
   
+  @Override
   public void validate()
   {
     super.validate();

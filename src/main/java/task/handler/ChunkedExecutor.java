@@ -13,12 +13,13 @@ import java.util.List;
  */
 public abstract class ChunkedExecutor<T, U, X extends Exception> {
   
-  public final U execute(List<T> list, int chunkSize, U result) throws X {
+  public final U execute(List<T> list, int chunkSize, U param) throws X {
+    U result = param;
     int start = 0;
     while (start < list.size()) {
       result = chunky(list.subList(start, Math.min(start + chunkSize, list.size())), result);
       start += chunkSize;
-    };
+    }
     
     return result;
   }

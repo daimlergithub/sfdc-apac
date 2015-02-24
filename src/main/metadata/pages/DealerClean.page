@@ -2,9 +2,9 @@
     <!-- Remove the default Focus of the first inputField -->
     <script>function setFocusOnLoad() {}</script>
     <apex:form >
-        <!-- 错误提示 -->
+        <!-- Error -->
         <apex:pageMessages id="message" />
-        <apex:sectionHeader title="SSI_经销商清洗" />
+        <apex:sectionHeader title="SSI_Dealer cleaned" />
         <apex:pageBlock title="{!$Label.SSI_Invoice_Date_Page_Section_Title}">
             <apex:pageBlockSection columns="1">
             

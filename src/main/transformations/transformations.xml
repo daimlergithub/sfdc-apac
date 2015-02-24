@@ -101,5 +101,4 @@
 		<xpath>/CustomObject/fields[fullName/text()='Selling_Dealer__c']/trackHistory/text()</xpath>
 		<value>true</value>
 	</changetext>
-	
 </transformations>

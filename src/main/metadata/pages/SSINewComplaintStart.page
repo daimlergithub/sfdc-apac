@@ -26,8 +26,8 @@
                 <apex:commandButton value="Cancel" onclick="doCancel(); return false;" />
             </apex:pageBlockButtons>
             <div>
-            {!$Request.customerName} 先生/女士，您的心情我非常理解，针对购车时给您带来的不便我们深表歉意，请问您是否方便将情况告知于我，我会详细帮您记录，
-            并会在结束通话后反馈给相关部门，相关工作人员会及时与您取得联系。 
+            {!$Request.customerName} Sir/Madam, I understand your feeling, for cars we apologize for any inconvenience to you, I wonder whether you will let me know and I will help you to record in detail,
+And will end the call after departments concerned, relevant staff will get in touch with you promptly. 
             <br/>
             您看可以吗？ 
             </div>                

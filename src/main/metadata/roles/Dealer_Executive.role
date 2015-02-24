@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Dealer Executive</name>
     <opportunityAccessLevel>None</opportunityAccessLevel>
-	<parentRole>Retail</parentRole>
+    <parentRole>Retail</parentRole>
 </Role>

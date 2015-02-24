@@ -2,7 +2,7 @@
     <!-- Remove the default Focus of the first inputField -->
     <script>function setFocusOnLoad() {}</script>
     <apex:form >
-        <!-- 错误提示 -->
+        <!-- Error -->
         <apex:pageMessages id="message" />
         <apex:sectionHeader title="SSI" />
         <apex:pageBlock title="{!$Label.SSI_Vin_Match_Page_Section_Title}">

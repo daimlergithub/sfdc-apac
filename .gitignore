@@ -5,7 +5,6 @@ timestamps-updated.log
 timestamps-deployed.log
 timestamps-data.log
 updatestamps-target.log
-deployed-timestamps.log
 /.settings
 /tmp
 /classes

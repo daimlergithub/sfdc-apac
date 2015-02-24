@@ -4,6 +4,7 @@ import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.taskdefs.Taskdef;
 
 import task.handler.ChecksumHandler;
@@ -36,23 +37,13 @@ public class SfdcDeploymentTask
   private boolean dryRun;
   private List<SfdcTypeSet> typeSets;
   private String transformationsRoot;
-  private String timestamps;
+  private String checksums;
 
   private ChecksumHandler checksumHandler;
   private ZipFileHandler zipFileHandler;
   private SfdcHandler sfdcHandler;
   private MetadataHandler metadataHandler;
   private TransformationHandler transformationHandler;
-
-  public SfdcDeploymentTask()
-  {
-    typeSets = new ArrayList<SfdcTypeSet>();
-    checksumHandler = new ChecksumHandler();
-    zipFileHandler = new ZipFileHandler();
-    sfdcHandler = new SfdcHandler();
-    metadataHandler = new MetadataHandler();
-    transformationHandler = new TransformationHandler();
-  }
 
   public void setUsername(String username)
   {
@@ -109,9 +100,9 @@ public class SfdcDeploymentTask
     this.transformationsRoot = transformationsRoot;
   }
 
-  public void setTimestamps(String timestamps)
+  public void setChecksums(String checksums)
   {
-    this.timestamps = timestamps;
+    this.checksums = checksums;
   }
 
   public void addConfigured(SfdcTypeSet typeSet)
@@ -119,11 +110,26 @@ public class SfdcDeploymentTask
     typeSets.add(typeSet);
   }
 
+  @Override
+  public void init()
+    throws BuildException
+  {
+    super.init();
+    
+    typeSets = new ArrayList<>();
+    checksumHandler = new ChecksumHandler();
+    zipFileHandler = new ZipFileHandler();
+    sfdcHandler = new SfdcHandler();
+    metadataHandler = new MetadataHandler();
+    transformationHandler = new TransformationHandler();
+  }
+
+  @Override
   public void execute()
   {
     validate();
     initialize();
-
+    
     List<DeploymentInfo> deploymentInfos = metadataHandler.compileDeploymentInfos(typeSets);
     if (deploymentInfos.isEmpty()) {
       log(String.format("Nothing to deploy."));
@@ -141,10 +147,10 @@ public class SfdcDeploymentTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    checksumHandler.initialize(logWrapper, username, timestamps, true);
+    checksumHandler.initialize(logWrapper, username, checksums, true);
     transformationHandler.initialize(logWrapper, username, transformationsRoot, deployRoot);
     
-    sfdcHandler.initialize(logWrapper, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler);
+    sfdcHandler.initialize(this, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler);
     zipFileHandler.initialize(logWrapper, debug, transformationHandler);
     metadataHandler.initialize(logWrapper, deployRoot, debug, checksumHandler);
   }

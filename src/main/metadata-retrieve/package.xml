@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
-        <members>Retail_Campaign__c.RetailCampaign_Feedback_Approval_Process</members>
-        <members>Retail_Campaign__c.Retail_Campaign_Approval_Process</members>
-        <members>Retail_Campaign__c.Retail_Campaign_Cancel_Process</members>
-        <members>Retail_Campaign__c.Yearly_TA_Approval_Process</members>
-        <members>Tool_Kit__c.Tool_Kit_Approval_Process</members>
-        <members>Tool_Kit__c.Tool_Kit_Cancel_Process</members>
-        <members>Tool_Kit__c.Tool_Kit_Feedback_Approval_Process</members>
-        <name>ApprovalProcess</name>
-    </types>
-    <types>
         <members>Account</members>
         <members>AccountContactRole</members>
         <members>Account_Link__c</members>
@@ -358,6 +348,9 @@
         <members>CAC OB QC</members>
         <members>CAC OB TL</members>
         <members>CAC QC SV%2FTQM</members>
+        <members>CAC SSI CSR</members>
+        <members>CAC SSI QC</members>
+        <members>CAC SSI SV</members>
         <members>Central AS CRM Director</members>
         <members>Central AS Marketing Manager</members>
         <members>Central CRM Manager</members>
@@ -412,75 +405,6 @@
         <members>StandardAul</members>
         <members>Work%2Ecom Only User</members>
         <name>Profile</name>
-    </types>
-    <types>
-        <members>AS_Service_Technical_Director</members>
-        <members>CAC_QC_SV_TM</members>
-        <members>CEO</members>
-        <members>CFO</members>
-        <members>COO</members>
-        <members>CRM_Manager_Retail_Marketing</members>
-        <members>CRM_Manager_Wholesale_Marketing</members>
-        <members>Call_Center</members>
-        <members>Central</members>
-        <members>Central_Aftersales</members>
-        <members>Central_Sales_Marketing</members>
-        <members>ChannelSalesTeam</members>
-        <members>CustomerSupportInternational</members>
-        <members>CustomerSupportNorthAmerica</members>
-        <members>DM_AS_E</members>
-        <members>DM_AS_N</members>
-        <members>DM_AS_S</members>
-        <members>DM_AS_W</members>
-        <members>Data_Service_Specialist</members>
-        <members>Dealer_Executive</members>
-        <members>Dealer_User</members>
-        <members>DirectorChannelSales</members>
-        <members>DirectorDirectSales</members>
-        <members>EasternSalesTeam</members>
-        <members>External_Marketing_Agency</members>
-        <members>IB_CSR</members>
-        <members>IB_QC</members>
-        <members>IB_TL</members>
-        <members>IT</members>
-        <members>IT_Manager</members>
-        <members>InstallationRepairServices</members>
-        <members>MarketingTeam</members>
-        <members>OB_CSR</members>
-        <members>OB_QC</members>
-        <members>OB_TL</members>
-        <members>PL_WL_Team</members>
-        <members>RM_AS_E</members>
-        <members>RM_AS_N</members>
-        <members>RM_AS_S</members>
-        <members>RM_AS_W</members>
-        <members>RM_SM_E</members>
-        <members>RM_SM_N</members>
-        <members>RM_SM_S</members>
-        <members>RM_SM_W</members>
-        <members>Regional</members>
-        <members>Regional_AS_Retail_Marketing</members>
-        <members>Regional_CRM_Manager</members>
-        <members>Regional_CRM_Mgr_E</members>
-        <members>Regional_CRM_Mgr_N</members>
-        <members>Regional_CRM_Mgr_S</members>
-        <members>Regional_CRM_Mgr_W</members>
-        <members>Regional_S_M_Manager</members>
-        <members>Retail</members>
-        <members>Retail_AS_Marketing_Assistant_Manager</members>
-        <members>SSI_CSR</members>
-        <members>SSI_Supervisor</members>
-        <members>SSI_TL</members>
-        <members>SVPCustomerServiceSupport</members>
-        <members>SVPHumanResources</members>
-        <members>SVPSalesMarketing</members>
-        <members>VPInternationalSales</members>
-        <members>VPMarketing</members>
-        <members>VPNorthAmericanSales</members>
-        <members>WesternSalesTeam</members>
-        <members>WholeSale_CallCenter</members>
-        <members>Wholesale</members>
-        <name>Role</name>
     </types>
     <version>32.0</version>
 </Package>

@@ -28,7 +28,7 @@
             return false;
         }
         
-        var comment = prompt("批准备注（可选）", "");
+        var comment = prompt("Batch preparation notes (optional)", "");
         if (comment != null) {
             document.getElementById("page:form:block:filters:comment").value = comment;
             return true;

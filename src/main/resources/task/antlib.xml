@@ -10,5 +10,8 @@
    <taskdef name="triggerUpdatestampsRefresh" classname="task.SfdcTriggerUpdatestampsRefreshTask"/>
    <typedef name="typesets" classname="task.model.SfdcTypeSets"/>
    
+   <taskdef name="retrieveChecksums" classname="task.SfdcRetrieveChecksumsTask"/>
+   <taskdef name="deployChecksums" classname="task.SfdcDeployChecksumsTask"/>
+   
    <taskdef name="loadData" classname="task.SfdcDataLoaderTask"/>
 </antlib>

@@ -79,20 +79,20 @@
         }
         
     </script>
-    <apex:sectionHeader title="{!IF($CurrentPage.Parameters.type == 'sms', '短信', '彩信')}" />
+    <apex:sectionHeader title="{!IF($CurrentPage.Parameters.type == 'sms', 'SMS', 'MMS')}" />
     <apex:form id="theForm">
         <apex:pageMessages />
-        <apex:pageBlock mode="edit" title="发送{!IF($CurrentPage.Parameters.type == 'sms', '短信', '彩信')}" id="smsBlock" >
+        <apex:pageBlock mode="edit" title="Send {!IF($CurrentPage.Parameters.type == 'sms', 'SMS', 'MMS')}" id="smsBlock" >
             <apex:pageBlockButtons >
-                <apex:commandButton value="发送" action="{!send}" onComplete="SendAndClose();"/>
-                <apex:commandButton value="取消" immediate="true" onclick="CloseTab();"/>
+                <apex:commandButton value="Send" action="{!send}" onComplete="SendAndClose();"/>
+                <apex:commandButton value="Cancel" immediate="true" onclick="CloseTab();"/>
             </apex:pageBlockButtons>
-            <apex:pageBlockSection title="信息" columns="2" id="smsBlockSection">
+            <apex:pageBlockSection title="Information" columns="2" id="smsBlockSection">
                 <apex:outputField value="{!sms.CustomerName__c}"/>
                 
                 <apex:pageBlockSectionItem labelstyle="label" datastyle="inputText" id="smsBlockSectionItem1">
                     <apex:outputPanel >
-                        <b><apex:outputLabel value="手机号"/></b>
+                        <b><apex:outputLabel value="Mobile phone number"/></b>
                     </apex:outputPanel>       
                     <apex:outputPanel id="smsBlockSectionItemPanel1">
                         <apex:inputField value="{!sms.Mobile__c}" id="smsBlockSectionItemPanel1Mobile" onchange="setMobileCheckbox(this.id);"/> 
@@ -104,7 +104,7 @@
                 
                 <apex:pageBlockSectionItem labelstyle="label" datastyle="inputText" id="smsBlockSectionItem2">
                     <apex:outputPanel >
-                        <b><apex:outputLabel value="备选手机号"/></b>
+                        <b><apex:outputLabel value="Alternate phone number"/></b>
                     </apex:outputPanel>       
                     <apex:outputPanel id="smsBlockSectionItemPanel2">
                         <apex:inputField value="{!sms.Secondary_Mobile__c}" id="smsBlockSectionItemPanel2Mobile" onchange="setMobileCheckbox2(this.id);"/> 
@@ -115,7 +115,7 @@
                 <apex:pageBlockSectionItem labelstyle="label" datastyle="inputText">
                     <apex:outputPanel >
                         <b>
-                            <apex:outputLabel style="align:right;" for="templateList" value="{!IF($CurrentPage.Parameters.type == 'sms', '短信', '彩信')}模板"/>
+                            <apex:outputLabel style="align:right;" for="templateList" value="{!IF($CurrentPage.Parameters.type == 'sms', 'SMS', 'MMS')} Template"/>
                         </b>
                     </apex:outputPanel>       
                     <apex:outputPanel layout="block" styleClass="requiredInput">
@@ -135,11 +135,11 @@
                     </apex:outputPanel>
                 </apex:pageBlockSectionItem>                
             </apex:pageBlockSection>
-            <apex:pageBlockSection title="短信预览" columns="1" id="smsPreview" rendered="{!$CurrentPage.Parameters.type == 'sms'}">
+            <apex:pageBlockSection title="SMS Preview" columns="1" id="smsPreview" rendered="{!$CurrentPage.Parameters.type == 'sms'}">
                 <apex:outputPanel >
                     <table width="100%">
                         <tr>
-                            <td width="16%" align="right"><b><apex:outputLabel value="短信预览"/></b></td>
+                            <td width="16%" align="right"><b><apex:outputLabel value="SMS Preview"/></b></td>
                             <td width="2%" align="center"></td>
                             <td width="80%" align="left">
                                 <apex:inputTextarea id="message" value="{!templateMessage}" Style="width:500px" rows="5"/>

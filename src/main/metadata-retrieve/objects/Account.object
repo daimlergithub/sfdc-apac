@@ -30104,11 +30104,10 @@ $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
 OR(ISCHANGED(Phone), ISNEW()),
 NOT(ISBLANK(Phone)), 
 RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;, 
-OR( NOT(ISNUMBER(Phone)), BEGINS(Phone, &apos;0&apos;) , NOT(OR(LEN(Phone)=7, LEN(Phone)=8)),
-CONTAINS(Phone, &apos;e&apos;)), 
+OR( NOT(ISNUMBER(Phone))),
 $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>Phone</errorDisplayField>
-        <errorMessage>Landline phone must not start with ‘0’ and 7 or 8 digits type of number.</errorMessage>
+        <errorMessage>Phone number must contain numbers only.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Preferred_contact_method_Changed</fullName>

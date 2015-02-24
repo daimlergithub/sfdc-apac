@@ -1,8 +1,8 @@
 package task;
 
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
@@ -11,6 +11,7 @@ import org.apache.tools.ant.taskdefs.Taskdef;
 import task.handler.LogWrapper;
 import task.handler.SfdcHandler;
 import task.handler.UpdateStampHandler;
+import task.model.SfdcTypeSet;
 import task.model.SfdcTypeSets;
 
 /**
@@ -29,17 +30,10 @@ public class SfdcRetrieveUpdatestampsTask
   private String proxyHost;
   private int proxyPort;
   private String timestamps;
-  private Set<String> objects;
+  private List<SfdcTypeSet> typeSets;
 
   private UpdateStampHandler updateStampHandler;
   private SfdcHandler sfdcHandler;
-
-  public SfdcRetrieveUpdatestampsTask()
-  {
-    objects = new HashSet<String>();
-    updateStampHandler = new UpdateStampHandler();
-    sfdcHandler = new SfdcHandler();
-  }
 
   public void setUsername(String username)
   {
@@ -76,29 +70,47 @@ public class SfdcRetrieveUpdatestampsTask
     this.timestamps = timestamps;
   }
 
-  public void addConfigured(SfdcTypeSets typeSets)
+  public void addConfigured(SfdcTypeSets typeSetNames)
   {
-    String names = typeSets.getNames();
+    String names = typeSetNames.getNames();
     
     if (StringUtils.isNotEmpty(names)) {
       String[] tokens = names.split(",");
       for (String token : tokens) {
         String trimmed = StringUtils.trimToEmpty(token);
         if (StringUtils.isNotEmpty(trimmed)) {
-          objects.add(trimmed);
+          SfdcTypeSet typeSet = new SfdcTypeSet();
+          typeSet.setName(trimmed);
+          
+          typeSets.add(typeSet);
         }
       }
     } else {
       throw new BuildException("The names of type sets must be set.");
     }
   }
+  
+  public void addConfigured(SfdcTypeSet typeSet)
+  {
+    typeSets.add(typeSet);
+  }
 
+  @Override
+  public void init() {
+    super.init();
+    
+    typeSets = new ArrayList<>();
+    updateStampHandler = new UpdateStampHandler();
+    sfdcHandler = new SfdcHandler();
+  }
+  
+  @Override
   public void execute()
   {
     validate();
     initialize();
-
-    Map<String, Map<String, Long>> updateStamps = sfdcHandler.getUpdateStamps(objects);
+    
+    Map<String, Map<String, Long>> updateStamps = sfdcHandler.getUpdateStamps(typeSets);
     updateStampHandler.updateTimestamps(updateStamps, true);
   }
 
@@ -108,13 +120,17 @@ public class SfdcRetrieveUpdatestampsTask
 
     updateStampHandler.initialize(logWrapper, username, timestamps, false);
     
-    sfdcHandler.initialize(logWrapper, 0, false, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
+    sfdcHandler.initialize(this, 0, false, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
   }
 
   private void validate()
   {
     if (null == timestamps) {
       throw new BuildException("The property timestamps must be specified.");
+    }
+    
+    for (SfdcTypeSet typeSet : typeSets) {
+      typeSet.validateSettings();
     }
   }
   

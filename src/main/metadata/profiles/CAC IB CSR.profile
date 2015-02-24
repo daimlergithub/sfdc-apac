@@ -91,12 +91,12 @@
         <application>standard__Service</application>
         <default>false</default>
         <visible>false</visible>
-    </applicationVisibilities>
+    </applicationVisibilities>	
 	<!-- TODO Temporarily making the standard console app as default later it will be changed to Service_Cloud_Console_IB app -->
     <applicationVisibilities>
         <application>standard__ServiceConsole</application>
-        <default>true</default>
-        <visible>true</visible>
+        <default>false</default>
+        <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>standard__Sites</application>
@@ -4532,7 +4532,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>EP_Log_Interface__c.ObjectName__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8047,7 +8047,7 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Campaign__c.Region_Recommendation__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -11041,10 +11041,6 @@
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
-        <recordType>Lead__c.TestRecordType</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>

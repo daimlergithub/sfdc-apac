@@ -23,7 +23,7 @@
                 <apex:commandButton value="Finish" onclick="doCancel();return false;" />
             </apex:pageBlockButtons>
             <div>
-            {!$Request.customerName} 先生/女士，您的问题我已经记录下来，随后会反馈给相关部门进行处理，请您耐心等待，非常感谢您配合，祝您愉快，再见！
+            {!$Request.customerName} Sir/Madam, your problem I have recorded, followed by feedback to the relevant departments for processing, please wait, thank you, I wish you a happy day, good bye!
             </div>               
          </apex:pageBlock>    
     </apex:form>
