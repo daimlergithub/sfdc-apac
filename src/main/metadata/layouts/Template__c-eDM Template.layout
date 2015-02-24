@@ -68,7 +68,7 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-	<relatedLists>
+    <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>Campaign_Code__c</fields>
         <fields>CAMPAIGN.STATUS</fields>
@@ -116,9 +116,9 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
-        <!--<fields>VERSION.TITLE</fields>
+        <fields>VERSION.TITLE</fields>
         <fields>VERSION.CREATED_DATE</fields>
-        <fields>VERSION.LAST_UPDATE</fields>-->
+        <fields>VERSION.LAST_UPDATE</fields>
         <relatedList>ContentDocumentRelatedList</relatedList>
     </relatedLists>
     <relatedLists>
