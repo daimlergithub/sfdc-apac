@@ -310,8 +310,10 @@ public class TaskHelper {
         Profile CACSSISV = [select Id from Profile where Name = 'CAC SSI SV'];
         Id SSITaskRTId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
         List<Task> taskSSI = [SELECT ownerId FROM Task WHERE ownerId in :userIds AND RecordTypeId= :SSITaskRTId];
-        Id SMARTSSITaskRTId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('smart SSI Task').getRecordTypeId();
-        List<Task> taskSmartSSI = [SELECT ownerId FROM Task WHERE ownerId in :userIds AND RecordTypeId= :SMARTSSITaskRTId];
+		 //Start -> My process test
+    //    Id SMARTSSITaskRTId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('smart SSI Task').getRecordTypeId();
+    //    List<Task> taskSmartSSI = [SELECT ownerId FROM Task WHERE ownerId in :userIds AND RecordTypeId= :SMARTSSITaskRTId];
+	//END
         if(taskSSI.size() > 0){
             User ssiSvUser = [Select id From User Where ProfileId = :CACSSISV.id and IsActive = true limit 1];
             for(Task tk : taskSSI){
@@ -325,7 +327,8 @@ public class TaskHelper {
                     System.debug('DMLException Exception: ' + e);
                 }
        }
-       if(taskSmartSSI.size() > 0){
+	   //Start -> My process test
+     /*  if(taskSmartSSI.size() > 0){
             User ssiSvUser = [Select id From User Where ProfileId = :CACSSISV.id and IsActive = true limit 1];
             for(Task tk : taskSmartSSI){
                 tk.ownerId = ssiSvUser.id;
@@ -337,7 +340,8 @@ public class TaskHelper {
                     trigger.new[0].addError(e.getDMLMessage(0));
                     System.debug('DMLException Exception: ' + e);
                 }
-       }
+       } */
+	   //END
     }
     // By Shuang Li BRD-AS-CAC-007---- end
 }
