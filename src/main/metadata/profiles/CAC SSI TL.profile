@@ -87,11 +87,10 @@
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
-    <!-- TODO Temporarily making the standard console app as default later it will be changed to Service_Cloud_Console_SSI app -->
     <applicationVisibilities>
         <application>standard__ServiceConsole</application>
-        <default>true</default>
-        <visible>true</visible>
+        <default>false</default>
+        <visible>falae</visible>
     </applicationVisibilities>
     <classAccesses>
         <apexClass>AccountHelper</apexClass>
@@ -1085,10 +1084,6 @@
         <apexClass>campaignHistoryLogGeneration</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>socialAccountController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
     <custom>true</custom>
     <fieldPermissions>
         <editable>false</editable>
@@ -1243,11 +1238,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.DMS_Customer_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.DUP_Nummer__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1471,11 +1461,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Dealer_Province__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Dealer_Region__c</field>
         <readable>true</readable>
@@ -1503,11 +1488,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Dealer_Service_Codes__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Dealer_smart_SSI_Participation__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1691,11 +1671,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.MB_Sub_Region__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Main_Dealer__c</field>
         <readable>true</readable>
@@ -1857,11 +1832,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.R_Check_Region__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.R_Confirmed_by_user__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1907,11 +1877,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.R_SocialMediaAccountCNT__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.R_Suspected_Volumn__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1943,11 +1908,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Recall__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Region__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2054,11 +2014,6 @@
         <editable>false</editable>
         <field>Account.SicDesc</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Smart_Sub_Region__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3682,11 +3637,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Case.Email_Group__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Case.Email_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5002,17 +4952,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contract.ContractNumber__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Contract.ContractTerm</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contract.Created_By_EP_Transaction__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5041,11 +4981,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Contract.MileageMaximum__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Contract.Name</field>
         <readable>false</readable>
@@ -5062,11 +4997,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Contract.Related_Vehicle__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Contract.ShippingAddress</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -5078,11 +5008,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Contract.StartDate</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Contract.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7373,11 +7298,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>QC__c.Supervisor_Review__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>QC__c.Survey_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9831,76 +9751,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterChild__c.NumberOfUnits__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterChild__c.TotalPrice__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterChild__c.UnitPrice__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterObject1__c.BooleanField__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterObject1__c.Created_By_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterObject1__c.DateField__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterObject1__c.DateTimeField__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterObject1__c.ExternalSystem1Id__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterObject1__c.IntegerField__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterObject1__c.MobilePhone__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterObject1__c.Phone__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterObject1__c.Updated_By_EP_Transactions__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterObject2__c.Phone__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>TestEpAdapterParent__c.TotalPrice__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Tool_Kit__c.Actual_End_Date__c</field>
         <readable>true</readable>
@@ -10971,14 +10821,6 @@
         <layout>Event-Event Master Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Event-Event Master Layout</layout>
-        <recordType>Event.Normal_Event</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Event-Reservation Layout</layout>
-        <recordType>Event.MBDA_Reservation</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>External_Picklist__c-External Picklist Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -11185,10 +11027,6 @@
         <recordType>Task.SSI_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-SSI Task</layout>
-        <recordType>Task.smart_SSI_Task</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -11243,9 +11081,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>User-User Master Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>UserAlt-用户简档 布局</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
@@ -11404,9 +11239,9 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
-        <allowEdit>false</allowEdit>
+        <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Contact</object>
@@ -11975,7 +11810,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>ContentVersion.RecordType</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -11992,16 +11827,6 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>ContentVersion.RecordType3</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Event.MBDA_Reservation</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Event.Normal_Event</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -12209,11 +12034,6 @@
         <default>false</default>
         <recordType>Task.eDM</recordType>
         <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Task.smart_SSI_Task</recordType>
-        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
