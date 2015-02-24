@@ -62,6 +62,7 @@ public class TransformationHandler
   private List<Transformation> transformations;
   private Map<String, String> tokenMappings;
 
+  @SuppressWarnings("hiding")
   public void initialize(LogWrapper logWrapper, String userName, String transformationsRoot, String deployRoot)
   {
     this.logWrapper = logWrapper;

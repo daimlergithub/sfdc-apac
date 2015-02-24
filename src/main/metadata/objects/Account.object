@@ -29353,7 +29353,6 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
         <description>When person account has phone , should input area code.</description>
         <errorConditionFormula>OR(AND(ISBLANK( Area_Code__c ),ISCHANGED(Area_Code__c), 
 OR( AND(!ISBLANK( Phone ),!ISCHANGED(Phone) ), AND(!ISBLANK(PersonHomePhone),!ISCHANGED(PersonHomePhone) ))), 
-
 AND( 
 OR( 
 AND(!ISBLANK( Phone ),OR(ISCHANGED(Phone), ISNEW()) ), 
@@ -29519,17 +29518,11 @@ $Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;
     <validationRules>
         <fullName>PersonHomePhone</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( 
-OR(ISCHANGED(PersonHomePhone), ISNEW()),
-NOT(ISBLANK(PersonHomePhone)), 
-RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;, 
-OR( NOT(ISNUMBER(PersonHomePhone)), 
-BEGINS(PersonHomePhone, &apos;0&apos;) , 
-NOT(OR(LEN(PersonHomePhone)=7, LEN(PersonHomePhone)=8)),
-CONTAINS( PersonHomePhone, &apos;e&apos;)), $Profile.Name != &apos;IntegrationAPI&apos;
-)</errorConditionFormula>
+        <errorConditionFormula>
+		AND(OR(ISCHANGED(PersonHomePhone), ISNEW()),NOT(ISBLANK(PersonHomePhone)),RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;,OR( NOT(ISNUMBER(PersonHomePhone))), $Profile.Name != &apos;IntegrationAPI&apos;)
+		</errorConditionFormula>
         <errorDisplayField>PersonHomePhone</errorDisplayField>
-        <errorMessage>Landline phone must not start with ‘0’ and 7 or 8 digits type of number.</errorMessage>
+        <errorMessage>Phone number must contain numbers only.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>PersonMobilePhone</fullName>
@@ -29547,15 +29540,11 @@ $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
     <validationRules>
         <fullName>Phone</fullName>
         <active>true</active>
-        <errorConditionFormula>AND( 
-OR(ISCHANGED(Phone), ISNEW()),
-NOT(ISBLANK(Phone)), 
-RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;, 
-OR( NOT(ISNUMBER(Phone)), BEGINS(Phone, &apos;0&apos;) , NOT(OR(LEN(Phone)=7, LEN(Phone)=8)),
-CONTAINS(Phone, &apos;e&apos;)), 
-$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>
+		AND(OR(ISCHANGED(Phone), ISNEW()),NOT(ISBLANK(Phone)),RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;,OR( NOT(ISNUMBER(Phone))),$Profile.Name != &apos;IntegrationAPI&apos;)
+		</errorConditionFormula>
         <errorDisplayField>Phone</errorDisplayField>
-        <errorMessage>Landline phone must not start with ‘0’ and 7 or 8 digits type of number.</errorMessage>
+        <errorMessage>Phone number must contain numbers only.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Preferred_contact_method_Changed</fullName>

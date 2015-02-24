@@ -18,7 +18,7 @@ import org.apache.commons.codec.binary.Base64OutputStream;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.types.LogLevel;
 
-import deployer.DeploymentUnit;
+import task.handler.configuration.DeploymentUnit;
 
 /**
  * ZipFileHandler
@@ -33,11 +33,12 @@ public class ZipFileHandler
   {
 
     private InputStream is;
-    
-    InputStreamWrapper(InputStream is) {
+
+    InputStreamWrapper(InputStream is)
+    {
       this.is = is;
     }
-    
+
     @Override
     public int available()
       throws IOException
@@ -111,7 +112,7 @@ public class ZipFileHandler
     this.logWrapper = logWrapper;
     this.debug = debug;
     this.transformationHandler = transformationHandler;
-    
+
     validate();
   }
 
@@ -133,13 +134,12 @@ public class ZipFileHandler
 
       logWrapper.log(String.format("Save ZIP file to %s.", fileName));
 
-      try {
-        File tmpDir = new File("tmp");
-        tmpDir.mkdirs();
-        File tmp = new File(tmpDir, fileName);
-        FileOutputStream fos = new FileOutputStream(tmp);
+      File tmpDir = new File("tmp");
+      tmpDir.mkdirs();
+      File tmp = new File(tmpDir, fileName);
+
+      try (FileOutputStream fos = new FileOutputStream(tmp)) {
         fos.write(zipFile.toByteArray());
-        fos.close();
       }
       catch (IOException e) {
         logWrapper.log(String.format("Error preparing ZIP for deployment: %s.", e.getMessage()),
@@ -164,7 +164,7 @@ public class ZipFileHandler
 
         logWrapper.log(String.format("Handle type %s for ZIP file.", type));
 
-//        byte[] buffer = new byte[512];
+        //        byte[] buffer = new byte[512];
 
         for (File file : info.getFileList()) {
           logWrapper.log(String.format("Add %s.", file.getName()));
@@ -174,19 +174,19 @@ public class ZipFileHandler
           try {
             zos.putNextEntry(new ZipEntry(zipEntryName));
 
-//            FileInputStream fis = new FileInputStream(file);
+            //            FileInputStream fis = new FileInputStream(file);
 
             transformationHandler.transformDeploy(file, zos);
-//            int read = 0;
-//            do {
-//              read = fis.read(buffer);
-//              if (-1 != read) {
-//                zos.write(buffer, 0, read);
-//              }
-//            }
-//            while (-1 != read);
+            //            int read = 0;
+            //            do {
+            //              read = fis.read(buffer);
+            //              if (-1 != read) {
+            //                zos.write(buffer, 0, read);
+            //              }
+            //            }
+            //            while (-1 != read);
 
-//            fis.close();
+            //            fis.close();
             zos.closeEntry();
           }
           catch (Exception e) {
@@ -261,25 +261,25 @@ public class ZipFileHandler
           }
 
           InputStreamWrapper isw = new InputStreamWrapper(zis);
-          
+
           transformationHandler.transformRetrieve(isw, file);
-          
-//          FileOutputStream fos = new FileOutputStream(file);
-//          try (BufferedOutputStream bos = new BufferedOutputStream(fos, buffer.length))
-//          {
-//            int read = 0;
-//            do {
-//              read = zis.read(buffer);
-//              if (0 < read) {
-//                bos.write(buffer, 0, read);
-//              }
-//            }
-//            while (-1 != read);
-//          }
+
+          //          FileOutputStream fos = new FileOutputStream(file);
+          //          try (BufferedOutputStream bos = new BufferedOutputStream(fos, buffer.length))
+          //          {
+          //            int read = 0;
+          //            do {
+          //              read = zis.read(buffer);
+          //              if (0 < read) {
+          //                bos.write(buffer, 0, read);
+          //              }
+          //            }
+          //            while (-1 != read);
+          //          }
         }
       }
       while (null != entry);
-      
+
       logWrapper.log("Extracted ZIP file successfully.");
     }
     catch (IOException ioe) {

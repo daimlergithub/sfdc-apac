@@ -579,10 +579,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>SSIBatchCarModelCheck</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>SSIBatchDealerCheck</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -10562,9 +10558,6 @@
         <recordType>Account.MBDA</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>AccountContactRole-客户联系人角色 布局</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10753,9 +10746,6 @@
         <layout>External_Picklist__c-External Picklist Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>FeedItem-摘要项目 布局</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Integration_Picklist__c-Integration Picklist Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10770,16 +10760,7 @@
         <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Model_Mapping__c-Model Mapping For Tool Kit</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>OB_Task_Handing__c-OB Task Handing Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Order-订单布局</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>OrderItem-订单产品布局</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Package_Item__c-Package Item Layout</layout>
@@ -10809,10 +10790,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Picklist_Mapping__c-Picklist Mapping Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Product2-Product Master Layout</layout>
-        <recordType>Product2.MBDA_PROD</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>QC_Result_Tracking__c-QC Score Comments History Layout</layout>
@@ -10972,10 +10949,6 @@
         <recordType>Task.SSI_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-SSI Task</layout>
-        <recordType>Task.smart_SSI_Task</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Task-Social Media</layout>
         <recordType>Task.Social_Media</recordType>
     </layoutAssignments>
@@ -11034,9 +11007,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>User-User Master Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>UserAlt-用户简档 布局</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>

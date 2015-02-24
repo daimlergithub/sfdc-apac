@@ -1,5 +1,8 @@
 TODO
 ====
+-fix DeployAll
+-do not retrieve Checksums
+
 -SelectAssignedDealerController.cls#63 -> fixed recordtypeID
 -Lead__c.workflow has a lot of RecordTypeIDs
 => check occurences of "RecordTypeId"
@@ -31,3 +34,4 @@ DONE
 -fix history tracking for Tool_Kit__c.Dealer_Name__c
 -fix settings/case.settings: defaultCaseUser and defaultCaseOwner
 -default workflow user should be adaptable
+-move name of Checksum to build.properties

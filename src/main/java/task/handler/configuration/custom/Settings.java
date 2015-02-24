@@ -1,4 +1,4 @@
-package deployer.custom;
+package task.handler.configuration.custom;
 
 import com.sforce.soap.metadata.Metadata;
 
