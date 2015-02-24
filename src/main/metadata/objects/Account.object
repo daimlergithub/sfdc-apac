@@ -12154,7 +12154,6 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
         <description>When person account has phone , should input area code.</description>
         <errorConditionFormula>OR(AND(ISBLANK( Area_Code__c ),ISCHANGED(Area_Code__c), 
 OR( AND(!ISBLANK( Phone ),!ISCHANGED(Phone) ), AND(!ISBLANK(PersonHomePhone),!ISCHANGED(PersonHomePhone) ))), 
-
 AND( 
 OR( 
 AND(!ISBLANK( Phone ),OR(ISCHANGED(Phone), ISNEW()) ), 
