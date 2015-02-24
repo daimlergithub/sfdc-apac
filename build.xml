@@ -201,10 +201,6 @@
 			<sf:typeset name="profiles">
 			<!-- TODO FALK these do not deploy on Oliver's org -->
 				<sf:exclude name="CAC IB CSR"/>
-				<sf:exclude name="CAC SSI CSR"/>
-				<sf:exclude name="CAC SSI QC"/>
-				<sf:exclude name="CAC SSI SV"/>
-				<sf:exclude name="CAC SSI TL"/>  
 			</sf:typeset>
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>

@@ -62,11 +62,11 @@
                 <behavior>Edit</behavior>
                 <field>migr_sourceid__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Historical_Actual_Invite_Customer__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Historical_Actual_Show_up_Customer__c</field>
             </layoutItems>
