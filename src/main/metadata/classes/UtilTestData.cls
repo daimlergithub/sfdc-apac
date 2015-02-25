@@ -293,8 +293,8 @@ Public class UtilTestData {
     private static void initiateVehicleRelationship(Sobject so) {
         Vehicle_Relationship__c relationship = (Vehicle_Relationship__c)so;
 
-        relationship.RegistrationProvince__c = '上海';
-        relationship.Registration_City__c = '上海';
+        relationship.RegistrationProvince__c = 'Shanghai';
+        relationship.Registration_City__c = 'Shanghai';
         relationship.Status__c = '0=Previously Owned';
         relationship.Main_Usage__c = '0=Taxi';
         relationship.Ownership__c = '1=Company';
@@ -332,11 +332,11 @@ Public class UtilTestData {
     private static void initiateAttribute(Sobject so) {
         Attribute__c attr = (Attribute__c)so;
 
-        attr.Name = attr.Name == null ? '市场价' : attr.Name;
+        attr.Name = attr.Name == null ? 'Market price' : attr.Name;
         attr.Attribute_Category__c = attr.Attribute_Category__c == null ?
-           '基本参数' : attr.Attribute_Category__c;
+           'Basic parameters' : attr.Attribute_Category__c;
         attr.Attribute_Type__c = attr.Attribute_Type__c == null ? 
-           '价格' : attr.Attribute_Type__c;
+           'Price' : attr.Attribute_Type__c;
         attr.Description__c = 'Niubi Attribute';
     }
 
@@ -351,7 +351,7 @@ Public class UtilTestData {
            createSobject(new Car_Model__c(), null).Id : carModelAttr.Car_Model__c;
         
         carModelAttr.Value__c = '1000000';
-        carModelAttr.Description__c = '好贵呀, 好好呀，好……呀';
+        carModelAttr.Description__c = 'Really expensive Ah, Yes, well ... ... Ah';
     }
     
     // Create Unsaved Lead which record type is Sales Leads
@@ -379,7 +379,7 @@ Public class UtilTestData {
 
         // Trade-In Vehicle Information
         lead.Trade_In_MB_Vehicle_Model__c = lead.Trade_In_MB_Vehicle_Model__c == null ? 
-           '奔驰汽车' : lead.Trade_In_MB_Vehicle_Model__c;
+           'Mercedes-Benz cars' : lead.Trade_In_MB_Vehicle_Model__c;
         lead.Trade_In_Vehicle_Brand__c = lead.Trade_In_Vehicle_Brand__c == null ? 
            'C230' : lead.Trade_In_Vehicle_Brand__c;
         lead.Trade_In_Vehicle_Class__c = lead.Trade_In_Vehicle_Class__c == null ? 
@@ -640,7 +640,7 @@ Public class UtilTestData {
         task.Activity_Status__c = task.Activity_Status__c == null ?
             'Need Verification' : task.Activity_Status__c;
         task.Status = 'Open';
-        task.Priority__c = '普通';
+        task.Priority__c = 'General';
     }
 
     // Create OB Task
@@ -655,7 +655,7 @@ Public class UtilTestData {
         task.Activity_Status__c = task.Activity_Status__c == null ?
             'not started' : task.Activity_Status__c;
         task.Status = 'Open';
-        task.Priority__c = '普通';
+        task.Priority__c = 'General';
     }
 
     // Create DM Task
@@ -670,7 +670,7 @@ Public class UtilTestData {
         task.Activity_Status__c = task.Activity_Status__c == null ?
             'Open' : task.Activity_Status__c;
         task.Status = 'Open';
-        task.Priority__c = '普通';
+        task.Priority__c = 'General';
     }
 
     // Create eDM Task
@@ -685,6 +685,6 @@ Public class UtilTestData {
         task.Activity_Status__c = task.Activity_Status__c == null ?
             'Pending' : task.Activity_Status__c;
         task.Status = 'Open';
-        task.Priority__c = '普通';
+        task.Priority__c = 'General';
     }
 }

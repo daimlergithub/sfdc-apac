@@ -67,7 +67,7 @@
     </fields>
     <fields>
         <fullName>Description__c</fullName>
-        <description>This field is created for page layout   DM Stock Flow 布局</description>
+        <description>This field is created for page layout   DM Stock Flow Layout</description>
         <externalId>false</externalId>
         <label>Description</label>
         <required>false</required>
@@ -143,7 +143,7 @@
         <columns>CREATED_DATE</columns>
         <columns>CREATEDBY_USER.ALIAS</columns>
         <filterScope>Everything</filterScope>
-        <label>全部</label>
+        <label>All</label>
         <language>en_US</language>
     </listViews>
     <nameField>

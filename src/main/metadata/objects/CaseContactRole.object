@@ -5,19 +5,19 @@
         <fullName>Role</fullName>
         <picklist>
             <picklistValues>
-                <fullName>技术联系人</fullName>
+                <fullName>Technical contact person</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>业务联系人</fullName>
+                <fullName>Business contact</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>决策者</fullName>
+                <fullName>Decision makers</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

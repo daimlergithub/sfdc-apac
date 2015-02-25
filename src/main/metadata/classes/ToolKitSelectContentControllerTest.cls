@@ -28,9 +28,9 @@ public class ToolKitSelectContentControllerTest {
                                            Event_Director__c = 'laisichao',
                                            Plan_Expense__c = 1234,
                                            Location_Size__c = 123456,
-                                           Event_Type__c = '试乘试驾',
-                                           Location__c = '室内',
-                                           Event_Participant__c = '媒体',
+                                           Event_Type__c = 'Test drive',
+                                           Location__c = 'Indoor',
+                                           Event_Participant__c = 'Media',
                                            Purpose__c = 'OK',
                                            Background__c = 'back',
                                            Request__c = 'request'
@@ -45,10 +45,10 @@ public class ToolKitSelectContentControllerTest {
                                            Purpose__c = 'OK',
                                            Background__c = 'back',
                                            Request__c = 'request',
-                                           Media_Type__c = '户外',
-                                           Ad_Color__c = '黑白',
+                                           Media_Type__c = 'Outdoor',
+                                           Ad_Color__c = 'Black and white',
                                            Ad_Copy__c = 'copy',
-                                           Ad_Format__c = '图片下载',
+                                           Ad_Format__c = 'Picture download',
                                            Ad_Size_Height__c = 123,
                                            Ad_Size_Width__c = 456,
                                            Bleed_Size_Height__c = 789,
@@ -65,10 +65,10 @@ public class ToolKitSelectContentControllerTest {
                                            Purpose__c = 'OK',
                                            Background__c = 'back',
                                            Request__c = 'request',
-                                           Media_Type__c = '户外',
-                                           Ad_Color__c = '黑白',
+                                           Media_Type__c = 'Outdoor',
+                                           Ad_Color__c = 'Black and white',
                                            Ad_Copy__c = 'copy',
-                                           Ad_Format__c = '图片下载',
+                                           Ad_Format__c = 'Picture download',
                                            Ad_Size_Height__c = 123,
                                            Ad_Size_Width__c = 456,
                                            Bleed_Size_Height__c = 789,
@@ -84,10 +84,10 @@ public class ToolKitSelectContentControllerTest {
                                            Purpose__c = 'OK',
                                            Background__c = 'back',
                                            Request__c = 'request',
-                                           Media_Type__c = '户外',
-                                           Ad_Color__c = '黑白',
+                                           Media_Type__c = 'Outdoor',
+                                           Ad_Color__c = 'Black and white',
                                            Ad_Copy__c = 'copy',
-                                           Ad_Format__c = '图片下载',
+                                           Ad_Format__c = 'Picture download',
                                            Ad_Size_Height__c = 123,
                                            Ad_Size_Width__c = 456,
                                            Bleed_Size_Height__c = 789,
@@ -103,10 +103,10 @@ public class ToolKitSelectContentControllerTest {
                                            Purpose__c = 'OK',
                                            Background__c = 'back',
                                            Request__c = 'request',
-                                           Media_Type__c = '户外',
-                                           Ad_Color__c = '黑白',
+                                           Media_Type__c = 'Outdoor',
+                                           Ad_Color__c = 'Black and white',
                                            Ad_Copy__c = 'copy',
-                                           Ad_Format__c = '图片下载',
+                                           Ad_Format__c = 'Picture download',
                                            Ad_Size_Height__c = 123,
                                            Ad_Size_Width__c = 456,
                                            Bleed_Size_Height__c = 789,
@@ -123,10 +123,10 @@ public class ToolKitSelectContentControllerTest {
                                            Purpose__c = 'OK',
                                            Background__c = 'back',
                                            Request__c = 'request',
-                                           Media_Type__c = '户外',
-                                           Ad_Color__c = '黑白',
+                                           Media_Type__c = 'Outdoor',
+                                           Ad_Color__c = 'Black and white',
                                            Ad_Copy__c = 'copy',
-                                           Ad_Format__c = '图片下载',
+                                           Ad_Format__c = 'Picture download',
                                            Ad_Size_Height__c = 123,
                                            Ad_Size_Width__c = 456,
                                            Bleed_Size_Height__c = 789,
@@ -144,7 +144,7 @@ public class ToolKitSelectContentControllerTest {
         PageReference page = new PageReference('/apex/ToolKitSelectContent?toolkitId=' + etk1.id + '&today=2014-10-21');
         Test.setCurrentPage(page);
         ToolKitSelectContentController controller = new ToolKitSelectContentController();
-        controller.contentVersion = new ContentVersion(PathOnClient='test',title='test',Brand__c='MB',CBU_PbP__c='CBU',Class__c='A-Class',Due_Date__c=Date.newInstance(2014,10,21),Media_Type__c='户外',Ad_Type__c='TEST');
+        controller.contentVersion = new ContentVersion(PathOnClient='test',title='test',Brand__c='MB',CBU_PbP__c='CBU',Class__c='A-Class',Due_Date__c=Date.newInstance(2014,10,21),Media_Type__c='Outdoor',Ad_Type__c='TEST');
         controller.query();
         controller.previous();
         controller.next();
@@ -155,7 +155,7 @@ public class ToolKitSelectContentControllerTest {
         PageReference page2 = new PageReference('/apex/ToolKitSelectContent?toolkitId=' + mtk1.id + '&today=2014-10-21');
         Test.setCurrentPage(page2);
         ToolKitSelectContentController controller2 = new ToolKitSelectContentController();
-        controller2.contentVersion = new ContentVersion(PathOnClient='test',title='test',Brand__c='MB',CBU_PbP__c='CBU',Class__c='A-Class',Event_Tool_Kit__c='test',Event_Type__c='外展/路演',Due_Date__c=Date.newInstance(2014,10,21));
+        controller2.contentVersion = new ContentVersion(PathOnClient='test',title='test',Brand__c='MB',CBU_PbP__c='CBU',Class__c='A-Class',Event_Tool_Kit__c='test',Event_Type__c='Outreach/Roadshow',Due_Date__c=Date.newInstance(2014,10,21));
         controller2.query();
         controller2.choose();
         String recordNumbering = controller2.recordNumbering;

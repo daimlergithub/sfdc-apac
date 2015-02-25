@@ -371,7 +371,7 @@
         <fullName>Ad_Location__c</fullName>
         <description>Ad Location of the campaign</description>
         <externalId>false</externalId>
-        <inlineHelpText>户外广告需填写广告具体地点，如果投放地点较多，须记入一两个具体地点；电视或广播，应填写相应节目名称；数字媒体须填写相应网络名称及网页中版面位置等；手机须填写提供广告运营渠道的运营商名称等；报纸或杂志应填写相应版面位置</inlineHelpText>
+        <inlineHelpText>Sites for complete advertising outdoor advertising, if put in place more, there shall be credited to one or two specific places; a television or radio, you should complete the appropriate program name; digital media to fill in the corresponding network name and location in the Web page, such as phone should also fill in the advertising operations such as operators of the channel name; newspaper or magazine to fill in the appropriate location.</inlineHelpText>
         <label>Ad Location</label>
         <length>1000</length>
         <trackHistory>false</trackHistory>
@@ -455,19 +455,19 @@
         <label>BP Category</label>
         <picklist>
             <picklistValues>
-                <fullName>最佳创新营销</fullName>
+                <fullName>Best innovation in marketing</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>卓越客户关系管理</fullName>
+                <fullName>Excellence in customer relationship management</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>最佳市场效果</fullName>
+                <fullName>Optimum market results</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>最佳社交媒体运营</fullName>
+                <fullName>The best social media operations</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -677,8 +677,8 @@
         <fullName>Car_Model__c</fullName>
         <description>The specific MB series the campaign is targeting</description>
         <externalId>false</externalId>
-        <inlineHelpText>1.可多选
-2.全系请选择‘GenericModel’</inlineHelpText>
+        <inlineHelpText>1.Can choose more than one
+2.All select‘GenericModel’</inlineHelpText>
         <label>Class</label>
         <picklist>
             <controllingField>Brand__c</controllingField>
@@ -2217,7 +2217,7 @@
     <fields>
         <fullName>Two_Percentage_Annual_Audit__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>是否计入2%年度审计</description>
+        <description>Are included in the 2% annual audit</description>
         <externalId>false</externalId>
         <label>2% Annual Audit Fee</label>
         <trackHistory>false</trackHistory>
@@ -2753,7 +2753,7 @@
             <operation>equals</operation>
             <value>Retail_Campaign__c.AS_Retail_Campaign</value>
         </filters>
-        <label>售后活动计划</label>
+        <label>After sales activity plan</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -2787,7 +2787,7 @@
             <operation>equals</operation>
             <value>Confirmed</value>
         </filters>
-        <label>售后活动计划反馈待审批</label>
+        <label>After-sales activities feedback upon approval</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -2814,7 +2814,7 @@
             <operation>equals</operation>
             <value>Retail_Campaign__c.Retail_MB_Best_Practice</value>
         </filters>
-        <label>MB最佳活动</label>
+        <label>MB Best activities</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -2833,7 +2833,7 @@
             <operation>equals</operation>
             <value>Retail_Campaign__c.Retail_smart_Best_Practice</value>
         </filters>
-        <label>smart最佳活动</label>
+        <label>smart Best activities</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -2859,7 +2859,7 @@
             <operation>equals</operation>
             <value>Retail_Campaign__c.Retail_Event</value>
         </filters>
-        <label>销售活动计划</label>
+        <label>Sales activity plan</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -2900,7 +2900,7 @@
             <operation>equals</operation>
             <value>1</value>
         </filters>
-        <label>销售活动计划反馈待审批</label>
+        <label>Sales activity planning feedback upon approval</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -2926,7 +2926,7 @@
             <operation>equals</operation>
             <value>Retail_Campaign__c.Retail_Media</value>
         </filters>
-        <label>媒体活动计划</label>
+        <label>Media activities</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -2948,7 +2948,7 @@
             <operation>equals</operation>
             <value>Retail_Campaign__c.Segmentation_Only</value>
         </filters>
-        <label>独立的筛选功能列表</label>
+        <label>Separate filter list</label>
         <language>en_US</language>
     </listViews>
     <nameField>
@@ -2961,7 +2961,7 @@
     <recordTypes>
         <fullName>AS_Retail_Campaign</fullName>
         <active>true</active>
-        <description>售后活动申请</description>
+        <description>After sales activities</description>
         <label>AS Retail Campaign</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -2993,19 +2993,19 @@
         <picklistValues>
             <picklist>BP_Category__c</picklist>
             <values>
-                <fullName>卓越客户关系管理</fullName>
+                <fullName>Excellence in customer relationship management</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳创新营销</fullName>
+                <fullName>Best innovation in marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳市场效果</fullName>
+                <fullName>Optimum market results</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳社交媒体运营</fullName>
+                <fullName>The best social media operations</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3628,7 +3628,7 @@
     <recordTypes>
         <fullName>Aftersales</fullName>
         <active>true</active>
-        <description>售后年度目标</description>
+        <description>Aftermarket annual targets</description>
         <label>Aftersales Yearly TA</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -3660,19 +3660,19 @@
         <picklistValues>
             <picklist>BP_Category__c</picklist>
             <values>
-                <fullName>卓越客户关系管理</fullName>
+                <fullName>Excellence in customer relationship management</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳创新营销</fullName>
+                <fullName>Best innovation in marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳市场效果</fullName>
+                <fullName>Optimum market results</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳社交媒体运营</fullName>
+                <fullName>The best social media operations</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4287,7 +4287,7 @@
     <recordTypes>
         <fullName>Monthly_TA</fullName>
         <active>true</active>
-        <description>月度目标</description>
+        <description>Monthly goals</description>
         <label>Monthly TA</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -4319,19 +4319,19 @@
         <picklistValues>
             <picklist>BP_Category__c</picklist>
             <values>
-                <fullName>卓越客户关系管理</fullName>
+                <fullName>Excellence in customer relationship management</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳创新营销</fullName>
+                <fullName>Best innovation in marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳市场效果</fullName>
+                <fullName>Optimum market results</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳社交媒体运营</fullName>
+                <fullName>The best social media operations</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4946,7 +4946,7 @@
     <recordTypes>
         <fullName>Retail_Event</fullName>
         <active>true</active>
-        <description>活动计划申请</description>
+        <description>Project applications</description>
         <label>S&amp;M Event Retail Campaign</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -4978,19 +4978,19 @@
         <picklistValues>
             <picklist>BP_Category__c</picklist>
             <values>
-                <fullName>卓越客户关系管理</fullName>
+                <fullName>Excellence in customer relationship management</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳创新营销</fullName>
+                <fullName>Best innovation in marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳市场效果</fullName>
+                <fullName>Optimum market results</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳社交媒体运营</fullName>
+                <fullName>The best social media operations</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5605,7 +5605,7 @@
     <recordTypes>
         <fullName>Retail_MB_Best_Practice</fullName>
         <active>true</active>
-        <description>经销商MB最佳活动</description>
+        <description>Dealer MB Best activities</description>
         <label>Retail MB Best Practice</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -5637,19 +5637,19 @@
         <picklistValues>
             <picklist>BP_Category__c</picklist>
             <values>
-                <fullName>卓越客户关系管理</fullName>
+                <fullName>Excellence in customer relationship management</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳创新营销</fullName>
+                <fullName>Best innovation in marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳市场效果</fullName>
+                <fullName>Optimum market results</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳社交媒体运营</fullName>
+                <fullName>The best social media operations</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6260,7 +6260,7 @@
     <recordTypes>
         <fullName>Retail_Media</fullName>
         <active>true</active>
-        <description>媒体计划申请</description>
+        <description>Media plan application</description>
         <label>S&amp;M Media Retail Campaign</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -6292,19 +6292,19 @@
         <picklistValues>
             <picklist>BP_Category__c</picklist>
             <values>
-                <fullName>卓越客户关系管理</fullName>
+                <fullName>Excellence in customer relationship management</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳创新营销</fullName>
+                <fullName>Best innovation in marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳市场效果</fullName>
+                <fullName>Optimum market results</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳社交媒体运营</fullName>
+                <fullName>The best social media operations</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6919,7 +6919,7 @@
     <recordTypes>
         <fullName>Retail_smart_Best_Practice</fullName>
         <active>true</active>
-        <description>经销商smart最佳活动</description>
+        <description>Dealer smart best activities</description>
         <label>Retail smart Best Practice</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -6951,19 +6951,19 @@
         <picklistValues>
             <picklist>BP_Category__c</picklist>
             <values>
-                <fullName>卓越客户关系管理</fullName>
+                <fullName>Excellence in customer relationship management</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳创新营销</fullName>
+                <fullName>Best innovation in marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳市场效果</fullName>
+                <fullName>Optimum market results</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳社交媒体运营</fullName>
+                <fullName>The best social media operations</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7574,7 +7574,7 @@
     <recordTypes>
         <fullName>Sales_Marketing</fullName>
         <active>true</active>
-        <description>销售市场年度目标</description>
+        <description>Sales annual objectives</description>
         <label>Sales &amp; Marketing Yearly TA</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -7606,19 +7606,19 @@
         <picklistValues>
             <picklist>BP_Category__c</picklist>
             <values>
-                <fullName>卓越客户关系管理</fullName>
+                <fullName>Excellence in customer relationship management</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳创新营销</fullName>
+                <fullName>Best innovation in marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳市场效果</fullName>
+                <fullName>Optimum market results</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳社交媒体运营</fullName>
+                <fullName>The best social media operations</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8233,7 +8233,7 @@
     <recordTypes>
         <fullName>Segmentation_Only</fullName>
         <active>true</active>
-        <description>独立的筛选功能，无需申请与反馈，不计入市场目标考核</description>
+        <description>Independent filtering，No application feedback， Not included in our target market appraisal</description>
         <label>Segmentation Only</label>
         <picklistValues>
             <picklist>Apply_Status__c</picklist>
@@ -8265,19 +8265,19 @@
         <picklistValues>
             <picklist>BP_Category__c</picklist>
             <values>
-                <fullName>卓越客户关系管理</fullName>
+                <fullName>Excellence in customer relationship management</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳创新营销</fullName>
+                <fullName>Best innovation in marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳市场效果</fullName>
+                <fullName>Optimum market results</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>最佳社交媒体运营</fullName>
+                <fullName>The best social media operations</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9278,16 +9278,16 @@ case &apos;S&amp;M Media Retail Campaign&apos;:
 }
 window.parent.navigateToUrl(navigateToUrl);
 }else{
-alert(&apos;权限错误&apos;);
+alert(&apos;Permission error&apos;);
 }
 }else{
-alert(&apos;该活动仍未发布或已关闭。&apos;);
+alert(&apos;The event has yet to be published or has been closed.&apos;);
 }</url>
     </webLinks>
     <webLinks>
         <fullName>Monthly_Summary_Report</fullName>
         <availability>online</availability>
-        <description>本月汇总报表</description>
+        <description>This month summary report</description>
         <displayType>massActionButton</displayType>
         <encodingKey>UTF-8</encodingKey>
         <height>600</height>
@@ -9311,7 +9311,7 @@ alert(&apos;该活动仍未发布或已关闭。&apos;);
 location.href = &quot;{!$Site.Prefix}/apex/RetailCampaignSegmentation?id={!Retail_Campaign__c.Id}&quot;;
 }
 else {
-alert(&apos;申请状态不匹配, 不能添加活动成员.&apos;);
+alert(&apos;Does not match the request status, You cannot add active members.&apos;);
 }</url>
     </webLinks>
     <webLinks>
@@ -9336,7 +9336,7 @@ alert(&apos;申请状态不匹配, 不能添加活动成员.&apos;);
         <protected>false</protected>
         <url>if(&apos;{!$User.Id}&apos; == &apos;{!Retail_Campaign__c.OwnerId}&apos; ){
 if((&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;==&apos;Planned&apos; || &apos;{!Retail_Campaign__c.Apply_Status__c}&apos;==&apos;Need Modify&apos;)&amp;&amp;&apos;{!Retail_Campaign__c.Feedback_Status__c}&apos;==&apos;Planned&apos;){
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;))) {
+if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;If you submit this application notes，you will not be able to modify or cancel the application，Do you want to continue？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;If you submit this application notes，you will not be able to modify or cancel the application，Do you want to continue?&apos;))) {
 
 //var qr1 = sforce.connection.query(&quot;select id,  Retail_AMG_Owner__c, Ownerid, Retail_AS_Owner__c, Retail_Star_Elite_Owner__c, Retail_MB_Owner__c, Retail_smart_Owner__c from Account where id = &apos;&quot;+&apos;{! Retail_Campaign__c.Dealer_NameId__c }&apos; +&quot;&apos;&quot;) ; 
 
@@ -9372,7 +9372,7 @@ navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F
 }
 }
 }else{
- alert(&apos;申请状态错误。&apos;);
+ alert(&apos;Application status error.&apos;);
 }
 }else{
  alert(&apos;你不是该记录的所有者，无法提交&apos;);
@@ -9388,7 +9388,7 @@ navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F
         <protected>false</protected>
         <url>if(&apos;{!$User.Id}&apos; == &apos;{!Retail_Campaign__c.OwnerId}&apos; ){
 if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;==&apos;Approved&apos; &amp;&amp; &apos;{!Retail_Campaign__c.Feedback_Status__c}&apos;==&apos;Planned&apos;){
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;))) {
+if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;If you submit this application for recording, you will not be able to modify or cancel the application.Do you want to continue?&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;If you submit this application for recording, you will not be able to modify or cancel the application. Do you want to continue?&apos;))) {
 //var qr1 = sforce.connection.query(&quot;select id,  Retail_AMG_Owner__c, Ownerid, Retail_AS_Owner__c, Retail_Star_Elite_Owner__c, Retail_MB_Owner__c, Retail_smart_Owner__c from Account where id = &apos;&quot;+&apos;{! Retail_Campaign__c.Dealer_NameId__c }&apos; +&quot;&apos;&quot;) ; 
 
 var callList = new sforce.SObject(&quot;Retail_Campaign__c&quot;); 
@@ -9424,13 +9424,13 @@ navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F
 }
 }else{
 	if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;!=&apos;Approved&apos;) {
-		alert(&apos;申请还未批准不可以申请撤销。&apos;);
+		alert(&apos;Cannot apply for revocation of the application has not been approved.&apos;);
 	} else {
-		alert(&apos;反馈提交后不可以申请撤销。&apos;);
+		alert(&apos;Feedback submission does not request a dismissal.&apos;);
 	}
 }
 }else{
- alert(&apos;你不是该记录的所有者，无法提交&apos;);
+ alert(&apos;You are not the owner of the record cannot be submitted&apos;);
 }</url>
     </webLinks>
     <webLinks>
@@ -9446,7 +9446,7 @@ navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F
 {!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
 if(&apos;{!$User.Id}&apos; == &apos;{!Retail_Campaign__c.OwnerId}&apos; ){
 if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;==&apos;Approved&apos; &amp;&amp; (&apos;{!Retail_Campaign__c.Feedback_Status__c}&apos;==&apos;Planned&apos; || &apos;{!Retail_Campaign__c.Feedback_Status__c}&apos;==&apos;Need Modify&apos;)){
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;))) {
+if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;If you submit this application for recording, you will not be able to modify or cancel the application. Do you want to continue?&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;If you submit this application for recording, you will not be able to modify or cancel the application. Do you want to continue?&apos;))) {
 //var qr1 = sforce.connection.query(&quot;select id,  Retail_AMG_Owner__c, Ownerid, Retail_AS_Owner__c, Retail_Star_Elite_Owner__c, Retail_MB_Owner__c, Retail_smart_Owner__c from Account where id = &apos;&quot;+&apos;{! Retail_Campaign__c.Dealer_NameId__c }&apos; +&quot;&apos;&quot;) ; 
 var callList = new sforce.SObject(&quot;Retail_Campaign__c&quot;);
 callList.Id = &apos;{!Retail_Campaign__c.Id}&apos;;
@@ -9480,10 +9480,10 @@ navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F
 }
 }
 }else{
- alert(&apos;申请状态或反馈状态不正确。&apos;);
+ alert(&apos;Application status or incorrect feedback status.&apos;);
 }
 }else{
- alert(&apos;你不是该记录的所有者，无法提交&apos;);
+ alert(&apos;You are not the owner of the record，unable to submit.&apos;);
 }</url>
     </webLinks>
     <webLinks>
@@ -9562,12 +9562,12 @@ alert(&apos;状态错误。&apos;);
 
 if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;!=&apos;Approved&apos; || &apos;{!Retail_Campaign__c.Feedback_Status__c}&apos;!=&apos;Planned&apos;) { 
 if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;!=&apos;Approved&apos;) {
-	alert(&quot;审批未通过不可以申请重新编辑。&quot;); 
+	alert(&quot;Approval does not pass can not apply for a new editor.&quot;); 
 } else {
-	alert(&quot;反馈提交后不可以申请重新编辑。&quot;); 
+	alert(&quot;Feedback can not apply after submitting edits.&quot;); 
 }
 }else{ 
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;你将重新编辑这条数据，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;你将重新编辑这条数据，继续吗？&apos;))) { 
+if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;You will have to edit this data, do you want to continue?&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;You will have to edit this data, do you want to continue?&apos;))) { 
 
 var callList = new sforce.SObject(&quot;Retail_Campaign__c&quot;); 
 callList.Id = &apos;{!Retail_Campaign__c.Id}&apos;; 
@@ -9621,11 +9621,11 @@ while (it.hasNext() &amp;&amp; !unlockFeedbackCheck) {
 // zhongyang.si add for Release 1.3 CR6, check whether the user can update the retail campaign feedback,as the block day rule is changed
 
 if(&apos;{!Retail_Campaign__c.Apply_Status__c}&apos;!=&apos;Approved&apos; || &apos;{!Retail_Campaign__c.Feedback_Status__c}&apos;!=&apos;Approved&apos;) {
-	alert(&quot;你不可以编辑这条记录除非反馈已批准。&quot;);
+	alert(&quot;You can not edit this record unless the feedback has been approved.&quot;);
 }else if(unlockFeedbackCheck){
-	alert(&quot;反馈已不可编辑&quot;);
+	alert(&quot;Feedback cannot be edited&quot;);
 }else{
-	if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;你将重新编辑这条数据，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;你将重新编辑这条数据，继续吗？&apos;))) {
+	if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;You will have to edit this data, do you want to continue?&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;You will have to edit this data, do you want to continue?&apos;))) {
 		var callList = new sforce.SObject(&quot;Retail_Campaign__c&quot;);
 		callList.Id = &apos;{!Retail_Campaign__c.Id}&apos;;
 		callList.Feedback_Status__c= &quot;Planned&quot;;
@@ -9692,30 +9692,30 @@ var RTname = sforce.connection.query(&quot;Select name From RecordType Where id 
 if(RTname.records.Name ==&apos;Sales &amp; Marketing Yearly TA&apos;){ 
 
 if(parseInt(&apos;{!Retail_Campaign__c.Y_SMART_Marketing_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) &lt;parseInt(&apos;{!Retail_Campaign__c.Y_SMART_Marketing_Expense__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) ){ 
-errorMessage = errorMessage +&apos;SMART市场总预算必须大于或者等于SMART市场总目标.\n&apos; 
+errorMessage = errorMessage +&apos;SMART must be greater than or equal to the total marketing budget SMART market overall objectives.\n&apos; 
 } 
 
 if(parseInt(&apos;{!Retail_Campaign__c.Y_AMG_Marketing_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) &lt;parseInt(&apos;{!Retail_Campaign__c.Y_AMG_Marketing_Expense__c}&apos;.substring(1).replace(/,/g,&apos;&apos;))){ 
-errorMessage = errorMessage +&apos;AMG市场总预算必须大于或者等于AMG市场总目标.\n&apos; 
+errorMessage = errorMessage +&apos;AMG Total marketing budget overall objectives must be greater than or equal to the AMG market.\n&apos; 
 } 
 if(parseInt(&apos;{!Retail_Campaign__c.Y_MB_Marketing_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) &lt;parseInt(&apos;{!Retail_Campaign__c.Y_MB_Marketing_Expense__c}&apos;.substring(1).replace(/,/g,&apos;&apos;))){ 
-errorMessage = errorMessage +&apos;MB 市场总预算必须大于或者等于MB 市场总目标. &apos; 
+errorMessage = errorMessage +&apos;MB must be greater than or equal to the total marketing budget MB total goals. &apos; 
 } 
 if(parseInt(&apos;{!Retail_Campaign__c.Y_MB_Joint_Marketing_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) &lt;parseInt(&apos;{!Retail_Campaign__c.Y_MB_Joint_Marketing_Expense__c}&apos;.substring(1).replace(/,/g,&apos;&apos;))){ 
-errorMessage = errorMessage +&apos;联合营销活动预算必须大于或者等于联合营销活动目标. &apos; 
+errorMessage = errorMessage +&apos;Joint marketing activities must be greater than or equal to the joint activity targets. &apos; 
 } 
 if(parseInt(&apos;{!Retail_Campaign__c.Y_MB_Dealer_Driven_Marketing_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) &lt;parseInt(&apos;{!Retail_Campaign__c.Y_MB_Dealer_Driven_Marketing_Expense__c}&apos;.substring(1).replace(/,/g,&apos;&apos;))){ 
-errorMessage = errorMessage +&apos;自行组织活动预算必须大于或者等于自行组织活动目标. &apos; 
+errorMessage = errorMessage +&apos;Self-organizing activity budgets must be greater than or equal to organise activities targeting. &apos; 
 } 
 }else if(RTname.records.Name ==&apos;Aftersales Yearly TA&apos;){ 
 	if(parseInt(&apos;{!Retail_Campaign__c.Y_After_sales_Marketing_Planned_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) &lt; parseInt(&apos;{!Retail_Campaign__c.Y_After_sales_Marketing_Target_Budget__c}&apos;.substring(1).replace(/,/g,&apos;&apos;)) ){ 
-	errorMessage = errorMessage +&apos;售后市场总预算必须大于或者等于售后市场总目标.\n&apos; 
+	errorMessage = errorMessage +&apos;Aftermarket budget overall objectives must be greater than or equal to the aftermarket.\n&apos; 
 	} 
 }
 if(errorMessage != &apos;&apos;) 
 { 
 alert(errorMessage); 
-}else if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？&apos;))) { 
+}else if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;If you submit this application for recording, you will not be able to modify or cancel the application. Do you want to continue?&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;If you submit this application for recording, you will not be able to modify or cancel the application. Do you want to continue?&apos;))) { 
 var callList = new sforce.SObject(&quot;Retail_Campaign__c&quot;); 
 callList.Id = &apos;{!Retail_Campaign__c.Id}&apos;; 
 callList.Y_Status__c = &quot;Confirmed&quot;; 
@@ -9747,7 +9747,7 @@ if(callCompleted){
 navigateToUrl(&apos;/p/process/Submit?id={!Retail_Campaign__c.Id}&amp;retURL=%2F{!Retail_Campaign__c.Id}&apos;);} 
 } 
 }else{ 
-alert(&apos;申请状态错误。&apos;); 
+alert(&apos;Application status error.&apos;); 
 }</url>
     </webLinks>
 </CustomObject>

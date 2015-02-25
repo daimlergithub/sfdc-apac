@@ -337,19 +337,19 @@ public class QCHelper {
         failedFatalQuestions = 0;
 
         //summary failedFatalQuestions
-        if(qc.DA__c == '中' || qc.DA__c == '低') {
+        if(qc.DA__c == 'middle' || qc.DA__c == 'Low') {
             failedFatalQuestions += 1;
         }
-        if(qc.FTOP__c == '中' || qc.FTOP__c == '低') {
+        if(qc.FTOP__c == 'middle' || qc.FTOP__c == 'Low') {
             failedFatalQuestions += 1;
         }
-        if(qc.FQL__c == '中' || qc.FQL__c == '低') {
+        if(qc.FQL__c == 'middle' || qc.FQL__c == 'Low') {
             failedFatalQuestions += 1;
         }
-        if(qc.PFOCF__c == '中' || qc.PFOCF__c == '低') {
+        if(qc.PFOCF__c == 'middle' || qc.PFOCF__c == 'Low') {
             failedFatalQuestions += 1;
         }
-        if(qc.PPD__c == '中' || qc.PPD__c == '低') {
+        if(qc.PPD__c == 'middle' || qc.PPD__c == 'Low') {
             failedFatalQuestions += 1;
         }
         
@@ -360,52 +360,52 @@ public class QCHelper {
         failedFatalQuestionsForSSI2 = 0;
         
         //summary failedFatalQuestionsForSSI2
-        if(qc.DA__c == '低') {
+        if(qc.DA__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.CITQ__c == '低') {
+        if(qc.CITQ__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.FMSK__c == '低') {
+        if(qc.FMSK__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.FTOP__c == '低') {
+        if(qc.FTOP__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.FQL__c == '低') {
+        if(qc.FQL__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.SO__c == '低') {
+        if(qc.SO__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.PPIS__c == '低') {
+        if(qc.PPIS__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.SPL__c == '低') {
+        if(qc.SPL__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.SSL__c == '低') {
+        if(qc.SSL__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.SC__c == '低') {
+        if(qc.SC__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.CALA__c == '低') {
+        if(qc.CALA__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.CAI__c == '低') {
+        if(qc.CAI__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.PFOCF__c == '低') {
+        if(qc.PFOCF__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.PPD__c == '低') {
+        if(qc.PPD__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.PJ__c == '低') {
+        if(qc.PJ__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
-        if(qc.PHU__c == '低') {
+        if(qc.PHU__c == 'Low') {
             failedFatalQuestionsForSSI2 += 1;
         }
         
@@ -416,61 +416,61 @@ public class QCHelper {
         passedQuestions = 0;
         
         //summary passedQuestions
-        if(qc.PACI__c == '高') {
+        if(qc.PACI__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.DA__c == '高') {
+        if(qc.DA__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.CITQ__c == '高') {
+        if(qc.CITQ__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.FMSK__c == '高') {
+        if(qc.FMSK__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.FTOP__c == '高') {
+        if(qc.FTOP__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.FQL__c == '高') {
+        if(qc.FQL__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.SO__c == '高') {
+        if(qc.SO__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.PPIS__c == '高') {
+        if(qc.PPIS__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.SPL__c == '高') {
+        if(qc.SPL__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.SSL__c == '高') {
+        if(qc.SSL__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.SC__c == '高') {
+        if(qc.SC__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.CALA__c == '高') {
+        if(qc.CALA__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.CAI__c == '高') {
+        if(qc.CAI__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.CARR__c == '高') {
+        if(qc.CARR__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.PFOCF__c == '高') {
+        if(qc.PFOCF__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.PPD__c == '高') {
+        if(qc.PPD__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.PJ__c == '高') {
+        if(qc.PJ__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.PS__c == '高') {
+        if(qc.PS__c == 'High') {
             passedQuestions += 1;
         }
-        if(qc.PHU__c == '高') {
+        if(qc.PHU__c == 'High') {
             passedQuestions += 1;
         }
         return passedQuestions;
@@ -480,61 +480,61 @@ public class QCHelper {
         passedQuestions = 0;
         
         //summary passedQuestions
-        if(qc.PACI__c == '高' || qc.PACI__c == '中') {
+        if(qc.PACI__c == 'High' || qc.PACI__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.DA__c == '高' || qc.DA__c == '中') {
+        if(qc.DA__c == 'High' || qc.DA__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.CITQ__c == '高' || qc.CITQ__c == '中') {
+        if(qc.CITQ__c == 'High' || qc.CITQ__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.FMSK__c == '高' || qc.FMSK__c == '中') {
+        if(qc.FMSK__c == 'High' || qc.FMSK__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.FTOP__c == '高' || qc.FTOP__c == '中') {
+        if(qc.FTOP__c == 'High' || qc.FTOP__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.FQL__c == '高' || qc.FQL__c == '中') {
+        if(qc.FQL__c == 'High' || qc.FQL__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.SO__c == '高' || qc.SO__c == '中') {
+        if(qc.SO__c == 'High' || qc.SO__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.PPIS__c == '高' || qc.PPIS__c == '中') {
+        if(qc.PPIS__c == 'High' || qc.PPIS__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.SPL__c == '高' || qc.SPL__c == '中') {
+        if(qc.SPL__c == 'High' || qc.SPL__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.SSL__c == '高' || qc.SSL__c == '中') {
+        if(qc.SSL__c == 'High' || qc.SSL__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.SC__c == '高' || qc.SC__c == '中') {
+        if(qc.SC__c == 'High' || qc.SC__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.CALA__c == '高' || qc.CALA__c == '中') {
+        if(qc.CALA__c == 'High' || qc.CALA__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.CAI__c == '高' || qc.CAI__c == '中') {
+        if(qc.CAI__c == 'High' || qc.CAI__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.CARR__c == '高' || qc.CARR__c == '中') {
+        if(qc.CARR__c == 'High' || qc.CARR__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.PFOCF__c == '高' || qc.PFOCF__c == '中') {
+        if(qc.PFOCF__c == 'High' || qc.PFOCF__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.PPD__c == '高' || qc.PPD__c == '中') {
+        if(qc.PPD__c == 'High' || qc.PPD__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.PJ__c == '高' || qc.PJ__c == '中') {
+        if(qc.PJ__c == 'High' || qc.PJ__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.PS__c == '高' || qc.PS__c == '中') {
+        if(qc.PS__c == 'High' || qc.PS__c == 'middle') {
             passedQuestions += 1;
         }
-        if(qc.PHU__c == '高' || qc.PHU__c == '中') {
+        if(qc.PHU__c == 'High' || qc.PHU__c == 'middle') {
             passedQuestions += 1;
         }
         return passedQuestions;
@@ -544,61 +544,61 @@ public class QCHelper {
         filledQuestions = 0;
         
         //summary filledQuestions
-        if(qc.PACI__c == '高' || qc.PACI__c == '中' || qc.PACI__c == '低') {
+        if(qc.PACI__c == 'High' || qc.PACI__c == 'middle' || qc.PACI__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.DA__c == '高' || qc.DA__c == '中' || qc.DA__c == '低') {
+        if(qc.DA__c == 'High' || qc.DA__c == 'middle' || qc.DA__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.CITQ__c == '高' || qc.CITQ__c == '中' || qc.CITQ__c == '低') {
+        if(qc.CITQ__c == 'High' || qc.CITQ__c == 'middle' || qc.CITQ__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.FMSK__c == '高' || qc.FMSK__c == '中' || qc.FMSK__c == '低') {
+        if(qc.FMSK__c == 'High' || qc.FMSK__c == 'middle' || qc.FMSK__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.FTOP__c == '高' || qc.FTOP__c == '中' || qc.FTOP__c == '低') {
+        if(qc.FTOP__c == 'High' || qc.FTOP__c == 'middle' || qc.FTOP__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.FQL__c == '高' || qc.FQL__c == '中' || qc.FQL__c == '低') {
+        if(qc.FQL__c == 'High' || qc.FQL__c == 'middle' || qc.FQL__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.SO__c == '高' || qc.SO__c == '中' || qc.SO__c == '低') {
+        if(qc.SO__c == 'High' || qc.SO__c == 'middle' || qc.SO__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.PPIS__c == '高' || qc.PPIS__c == '中' || qc.PPIS__c == '低') {
+        if(qc.PPIS__c == 'High' || qc.PPIS__c == 'middle' || qc.PPIS__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.SPL__c == '高' || qc.SPL__c == '中' || qc.SPL__c == '低') {
+        if(qc.SPL__c == 'High' || qc.SPL__c == 'middle' || qc.SPL__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.SSL__c == '高' || qc.SSL__c == '中' || qc.SSL__c == '低') {
+        if(qc.SSL__c == 'High' || qc.SSL__c == 'middle' || qc.SSL__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.SC__c == '高' || qc.SC__c == '中' || qc.SC__c == '低') {
+        if(qc.SC__c == 'High' || qc.SC__c == 'middle' || qc.SC__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.CALA__c == '高' || qc.CALA__c == '中' || qc.CALA__c == '低') {
+        if(qc.CALA__c == 'High' || qc.CALA__c == 'middle' || qc.CALA__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.CAI__c == '高' || qc.CAI__c == '中' || qc.CAI__c == '低') {
+        if(qc.CAI__c == 'High' || qc.CAI__c == 'middle' || qc.CAI__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.CARR__c == '高' || qc.CARR__c == '中' || qc.CARR__c == '低') {
+        if(qc.CARR__c == 'High' || qc.CARR__c == 'middle' || qc.CARR__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.PFOCF__c == '高' || qc.PFOCF__c == '中' || qc.PFOCF__c == '低') {
+        if(qc.PFOCF__c == 'High' || qc.PFOCF__c == 'middle' || qc.PFOCF__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.PPD__c == '高' || qc.PPD__c == '中' || qc.PPD__c == '低') {
+        if(qc.PPD__c == 'High' || qc.PPD__c == 'middle' || qc.PPD__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.PJ__c == '高' || qc.PJ__c == '中' || qc.PJ__c == '低') {
+        if(qc.PJ__c == 'High' || qc.PJ__c == 'middle' || qc.PJ__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.PS__c == '高' || qc.PS__c == '中' || qc.PS__c == '低') {
+        if(qc.PS__c == 'High' || qc.PS__c == 'middle' || qc.PS__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.PHU__c == '高' || qc.PHU__c == '中' || qc.PHU__c == '低') {
+        if(qc.PHU__c == 'High' || qc.PHU__c == 'middle' || qc.PHU__c == 'Low') {
             filledQuestions += 1;
         }
         
@@ -653,14 +653,14 @@ public class QCHelper {
     
     public static String SetQualified(QC__c qc) {
 
-        if((qc.DA__c == '中' || qc.DA__c == '高') && (qc.CITQ__c == '中' || qc.CITQ__c == '高') && 
-           (qc.FMSK__c == '中' || qc.FMSK__c == '高') && (qc.FTOP__c == '中' || qc.FTOP__c == '高') && 
-           (qc.FQL__c == '中' || qc.FQL__c == '高') && (qc.SO__c == '中' || qc.SO__c == '高') &&
-           (qc.PPIS__c == '中' || qc.PPIS__c == '高') && (qc.SPL__c == '中' || qc.SPL__c == '高') &&
-           (qc.SSL__c == '中' || qc.SSL__c == '高') && (qc.SC__c == '中' || qc.SC__c == '高') &&
-           (qc.CALA__c == '中' || qc.CALA__c == '高') && (qc.CAI__c == '中' || qc.CAI__c == '高') &&
-           (qc.PFOCF__c == '中' || qc.PFOCF__c == '高') && (qc.PPD__c == '中' || qc.PPD__c == '高') &&
-           (qc.PJ__c == '中' || qc.PJ__c == '高') && (qc.PHU__c == '中' || qc.PHU__c == '高')) {
+        if((qc.DA__c == 'middle' || qc.DA__c == 'High') && (qc.CITQ__c == 'middle' || qc.CITQ__c == 'High') && 
+           (qc.FMSK__c == 'middle' || qc.FMSK__c == 'High') && (qc.FTOP__c == 'middle' || qc.FTOP__c == 'High') && 
+           (qc.FQL__c == 'middle' || qc.FQL__c == 'High') && (qc.SO__c == 'middle' || qc.SO__c == 'High') &&
+           (qc.PPIS__c == 'middle' || qc.PPIS__c == 'High') && (qc.SPL__c == 'middle' || qc.SPL__c == 'High') &&
+           (qc.SSL__c == 'middle' || qc.SSL__c == 'High') && (qc.SC__c == 'middle' || qc.SC__c == 'High') &&
+           (qc.CALA__c == 'middle' || qc.CALA__c == 'High') && (qc.CAI__c == 'middle' || qc.CAI__c == 'High') &&
+           (qc.PFOCF__c == 'middle' || qc.PFOCF__c == 'High') && (qc.PPD__c == 'middle' || qc.PPD__c == 'High') &&
+           (qc.PJ__c == 'middle' || qc.PJ__c == 'High') && (qc.PHU__c == 'middle' || qc.PHU__c == 'High')) {
             return 'Pass';
         }
         return 'Fail';

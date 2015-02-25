@@ -4,6 +4,6 @@
     <encodingKey>UTF-8</encodingKey>
     <name>Email notification when interested vehicle have changed</name>
     <style>none</style>
-    <subject>销售线索中感兴趣车型信息被更新</subject>
+    <subject>Sales leads interested in vehicle information is updated</subject>
     <type>text</type>
 </EmailTemplate>

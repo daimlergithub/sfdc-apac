@@ -39,7 +39,7 @@ trigger ToolKitAfterInsertUpdateDelete on Tool_Kit__c (after insert, after updat
         
         // Create notification Tasks
         taskList.add(new Task(
-            Subject= '您有新的工具箱制作需求', 
+            Subject= 'You have new kit production needs', 
             RecordTypeId = taskRecordTypeMap.get('General Task').getRecordTypeId(),
             OwnerId = tkVandorMap.get(tkId),
             Status = 'open',

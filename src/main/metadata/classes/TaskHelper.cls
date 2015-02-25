@@ -60,13 +60,13 @@ public class TaskHelper {
         
         String salutation;
         if(contact.Account.Gender__c == 'Male'){
-            salutation = '先生';
+            salutation = 'MR';
         }
         else if(contact.Account.Gender__c == 'Female'){
-            salutation = '女士';
+            salutation = 'Ms';
         }
         else{
-            salutation = '阁下';
+            salutation = 'His Excellency';
         }
         content = content.replace(salutationMergeField, salutation);
         
