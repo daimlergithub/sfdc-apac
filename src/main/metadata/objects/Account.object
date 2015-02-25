@@ -738,6 +738,7 @@ For Dealers this is populated by the GSSN system - not modified in SFDC
 Attribute in Data Dictionary object Dealer is &quot;Dealer_CityCN&quot;</description>
         <externalId>false</externalId>
         <label>City CN</label>
+		<length>255</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Text</type>
@@ -1903,6 +1904,7 @@ select ID from account where BTLInfo &lt;&gt; &quot;123456789&quot;</description
 Attribute in Data Dictionary object Dealer is &quot;Dealer_CityEN&quot;</description>
         <externalId>false</externalId>
         <label>Dealer City EN</label>
+		<length>255</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
@@ -5008,6 +5010,7 @@ Attribute in Data Dictionary object Address is &quot;Address_Province&quot;
 Attribute in Data Dictionary object Dealer is &quot;Dealer_ProvinceEN&quot;</description>
         <externalId>false</externalId>
         <label>Province</label>
+		<length>255</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <type>Text</type>
@@ -7507,10 +7510,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Utilities%28 gas%2F%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
@@ -7523,31 +7522,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Shoe</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hotel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Advertising%2F marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Express</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tourism</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9319,10 +9298,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Utilities%28 gas%2F%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
@@ -9335,27 +9310,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Shoe</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hotel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Advertising%2F marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Express</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11339,10 +11298,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Utilities%28 gas%2F%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
@@ -11355,27 +11310,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Shoe</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hotel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Advertising%2F marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Express</fullName>
                 <default>false</default>
             </values>
             <values>
