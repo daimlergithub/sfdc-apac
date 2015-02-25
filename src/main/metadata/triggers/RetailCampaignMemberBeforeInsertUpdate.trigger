@@ -50,7 +50,7 @@ trigger RetailCampaignMemberBeforeInsertUpdate on Retail_Campaign_Member__c (bef
                         for(Retail_Campaign_Member__c rcmc : trigger.new) {
                             if(rcmc.Contact__c == acc.id && rcmc.Retail_Campaign__c == rcm.Retail_Campaign__c){
                                 if(UserInfo.getLanguage() != 'English') {
-                                    rcmc.addError('不允许添加重复的联系人, 请重新检查.');
+                                    rcmc.addError('Not allowed to add duplicate contacts, Please recheck.');
                                 }
                                 else {
                                     rcmc.addError('You could not add same contact in one Retail Campaign, Please try again.');

@@ -155,7 +155,7 @@
 	<fields>
         <fullName>Dealer_Aftersales_Manager__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>权限集:售后年度计划,售后市场活动,信息中心,报表</description>
+        <description>Permission set: aftermarket annual plan, aftermarket activities information Center reports</description>
         <externalId>false</externalId>
         <label>Dealer Aftersales Manager</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -165,7 +165,7 @@
         <fullName>Dealer_CRM_Manager__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <inlineHelpText>权限集:添加活动成员/更新活动成员状态/生成销售线索</inlineHelpText>
+        <inlineHelpText>Permission set: Add an active member/membership status/update activity generates sales leads</inlineHelpText>
         <label>Dealer CRM Manager</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
@@ -174,7 +174,7 @@
         <fullName>Dealer_Complaint_Gate_Keeper__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <inlineHelpText>权限集:个案</inlineHelpText>
+        <inlineHelpText>Permission set:</inlineHelpText>
         <label>Dealer Complaint Gate Keeper</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
@@ -183,7 +183,7 @@
         <fullName>Dealer_Complaint_Manager__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <inlineHelpText>权限集:个案</inlineHelpText>
+        <inlineHelpText>Permission set:</inlineHelpText>
         <label>Dealer Complaint Manager</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
@@ -192,7 +192,7 @@
         <fullName>Dealer_Complaint_User__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <inlineHelpText>权限集:个案</inlineHelpText>
+        <inlineHelpText>Permission set:</inlineHelpText>
         <label>Dealer Complaint User</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
@@ -201,7 +201,7 @@
         <fullName>Dealer_Lead_Gate_Keeper__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <inlineHelpText>权限集:线索</inlineHelpText>
+        <inlineHelpText>Permission set: clues</inlineHelpText>
         <label>Dealer Lead Gate Keeper</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
@@ -210,7 +210,7 @@
         <fullName>Dealer_Marketing_Manager__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <inlineHelpText>权限集:销售年度计划,销售市场活动(联合市场活动和自行组织),售后年度计划,售后市场活动,最佳市场活动,工具箱,信息中心,经销商积分,报表</inlineHelpText>
+        <inlineHelpText>Permission set: annual sales plans, sales and marketing activities (joint marketing campaigns and organise), aftermarket annual plan, aftermarket activities, best campaign, Toolbox, information center, distributor points, the report</inlineHelpText>
         <label>Dealer Marketing Manager</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
@@ -227,7 +227,7 @@
         <fullName>Dealer_S_M_Manager__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <inlineHelpText>权限集:销售年度计划,销售市场活动(联合市场活动和自行组织),最佳市场活动,工具箱,信息中心,经销商积分,报表</inlineHelpText>
+        <inlineHelpText>Permission set: annual sales plans, sales and marketing activities (joint marketing campaigns and organise), best campaign, Toolbox, information center, distributor points, the report</inlineHelpText>
         <label>Dealer S&amp;M Manager</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
@@ -385,9 +385,9 @@
     <fields>
         <fullName>Permission_Set_Settings__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>线索-- 客户,车辆,人车关系
-个案-- 客户,车辆,人车关系
-添加活动成员/更新活动成员状态/生成销售线索-- 客户,车辆,人车关系,线索,联合市场活动,经销商市场活动</inlineHelpText>
+        <inlineHelpText>Clues--the customer, vehicle, vehicle
+Case-- Customer, vehicle, vehicle
+Adds an active member/membership status/update activity generated sales leads--the customer, vehicle, vehicle, clues, and joint marketing activities and dealer campaigns</inlineHelpText>
         <label>Permission Set Settings</label>
         <picklist>
             <picklistValues>
@@ -597,7 +597,7 @@ if(userInfo.records != null) {
       alert(result[0].errors.message);
   }
 }else if(userInfo.records == null) {
-  alert(&quot;未创建与当前联系人相关的用户！&quot;);
+  alert(&quot;Users who are not associated with the current contact is created！&quot;);
 }</url>
     </webLinks>
     <webLinks>
@@ -611,7 +611,7 @@ if(userInfo.records != null) {
         <height>600</height>
         <isResizable>true</isResizable>
         <linkType>url</linkType>
-        <masterLabel>Google 地图</masterLabel>
+        <masterLabel>Google Map</masterLabel>
         <openType>newWindow</openType>
         <position>none</position>
         <protected>false</protected>
@@ -630,7 +630,7 @@ if(userInfo.records != null) {
         <height>600</height>
         <isResizable>true</isResizable>
         <linkType>url</linkType>
-        <masterLabel>Google 搜索</masterLabel>
+        <masterLabel>Google Search</masterLabel>
         <openType>newWindow</openType>
         <position>none</position>
         <protected>false</protected>
@@ -649,7 +649,7 @@ if(userInfo.records != null) {
         <height>600</height>
         <isResizable>true</isResizable>
         <linkType>url</linkType>
-        <masterLabel>发送 Gmail</masterLabel>
+        <masterLabel>Send Gmail</masterLabel>
         <openType>newWindow</openType>
         <position>none</position>
         <protected>false</protected>

@@ -63,20 +63,12 @@ public class VinMatchController{
         }else if (fromTask.Activity_Date__c == null && toTask.Activity_Date__c != null) {
             endDate = toTask.Activity_Date__c;
             queryStr = queryStr + ' AND InvoiceDate__c <= ' + String.valueOf(endDate);
-        }
-        
-        // System.debug('query语句是：' + queryStr);
-        // List<SSI__c> ssis = Database.query(queryStr);
-        
-        // System.debug('数量是：' + ssis.size());
+        }                
 
         SSIBatchVinMatch vinMatch = new SSIBatchVinMatch(queryStr);
         Id batchId = Database.executeBatch(vinMatch, 100);
         System.debug('SSIBatchVinMatch Batch Job Id: ' + batchId);
         
-        System.debug('From月份是：' + startDate);
-        System.debug('to月份是：' + endDate);
-
         PageReference forward = new PageReference('/' + ssiPrefix);
         forward.setRedirect(true);
         return forward;

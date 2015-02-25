@@ -61,7 +61,7 @@
 			Subject = 'SMS',
 			Status = 'Closed',
 			Activity_Status__c = 'Sent',
-			Priority__c = '普通',
+			Priority__c = 'General',
 			Phone__c = '12100001111'
 		);
 		return task;
@@ -75,12 +75,12 @@
 		SMS_Code__c smsCode = new SMS_Code__c(Template__c = template.Id, RecordTypeId = smsRecordTypeId);
 		SMS_Code__c smsCode1 = smsCode.clone();
 		smsCode1.SMSCode__c = '1';
-		smsCode1.Description__c = '1.满意';
+		smsCode1.Description__c = '1.Satisfaction';
 		smsCode1.SendClosureSMS__c = true;
 		insert smsCode1;
 		SMS_Code__c smsCode2 = smsCode.clone();
 		smsCode2.SMSCode__c = '2';
-		smsCode2.Description__c = '2.不满意';
+		smsCode2.Description__c = '2.Not satisfied';
 		smsCode1.SendClosureSMS__c = false;
 		smsCode2.NextSMSTemplate__c = nextTemplate == null ? null : nextTemplate.Id;
 		insert smsCode2;
