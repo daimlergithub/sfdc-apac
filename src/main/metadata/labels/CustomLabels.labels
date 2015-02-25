@@ -13,7 +13,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>QC_Accuracy</shortDescription>
-        <value>文档记录准确性</value>
+        <value>Accuracy of documentation</value>
     </labels>
     <labels>
         <fullName>Add_to_Campaign</fullName>
@@ -790,7 +790,7 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Completenes</shortDescription>
-        <value>提供准确和完整的信息/解决方案</value>
+        <value>To provide accurate and complete information/solution</value>
     </labels>
     <labels>
         <fullName>Contact_Admin</fullName>
@@ -1568,7 +1568,7 @@
         <language>zh_CN</language>
         <protected>false</protected>
         <shortDescription>Mass Calibration Page Block Title</shortDescription>
-        <value>选择校准人员</value>
+        <value>Select calibration person</value>
     </labels>
     <labels>
         <fullName>Media_Type</fullName>
@@ -1731,9 +1731,9 @@
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Completeness Criteria</shortDescription>
-        <value>1、提供准确和完整的MBCL/smart产品信息。
-2、提供准确和完整的MBCL/smart活动信息。
-3、提供准确和完整的MBCL/smart的其它相关信息（例如车辆价格、配置信息）</value>
+        <value>1. To provide accurate and complete information on smart products.
+2. Provide accurate and complete information on smart activities.
+3. Provide accurate and complete information on smart related (such as price and configuration information)</value>
     </labels>
     <labels>
         <fullName>QC_Mass_Calibration_Column_One</fullName>
@@ -1741,7 +1741,7 @@
         <language>zh_CN</language>
         <protected>false</protected>
         <shortDescription>QC Mass Calibration Column One</shortDescription>
-        <value>名称</value>
+        <value>Name</value>
     </labels>
     <labels>
         <fullName>QC_Mass_Calibration_Column_Three</fullName>
@@ -1749,7 +1749,7 @@
         <language>zh_CN</language>
         <protected>false</protected>
         <shortDescription>QC Mass Calibration Column Three</shortDescription>
-        <value>遗留质检任务</value>
+        <value>Legacy quality control tasks</value>
     </labels>
     <labels>
         <fullName>QC_Mass_Calibration_Column_Two</fullName>
@@ -1757,7 +1757,7 @@
         <language>zh_CN</language>
         <protected>false</protected>
         <shortDescription>QC Mass Calibration Column Two</shortDescription>
-        <value>角色</value>
+        <value>Roles</value>
     </labels>
     <labels>
         <fullName>QC_Mass_Calibration_Error_Message</fullName>
@@ -1765,7 +1765,7 @@
         <language>zh_CN</language>
         <protected>false</protected>
         <shortDescription>QC Mass Calibration Error Message</shortDescription>
-        <value>请选择校准人员。</value>
+        <value>Please select calibration person.</value>
     </labels>
     <labels>
         <fullName>QC_Mass_Calibration_Max_Limits</fullName>
@@ -1773,7 +1773,7 @@
         <language>zh_CN</language>
         <protected>false</protected>
         <shortDescription>QC Mass Calibration Max Limits</shortDescription>
-        <value>最多只能选择100条质检任务。</value>
+        <value>Can only select up to 100 inspection tasks.</value>
     </labels>
     <labels>
         <fullName>QC_Mass_Calibration_Page_Button</fullName>
@@ -1781,7 +1781,7 @@
         <language>zh_CN</language>
         <protected>false</protected>
         <shortDescription>QC Mass Calibration Page Button</shortDescription>
-        <value>创建批量校准</value>
+        <value>Create batch alignment</value>
     </labels>
     <labels>
         <fullName>QC_Mass_Calibration_Please_Wait</fullName>
@@ -1789,7 +1789,7 @@
         <language>zh_CN</language>
         <protected>false</protected>
         <shortDescription>QC Mass Calibration Please Wait</shortDescription>
-        <value>请等待...</value>
+        <value>Please wait ...</value>
     </labels>
     <labels>
         <fullName>QC_Mass_Calibration_Title</fullName>
@@ -1797,7 +1797,7 @@
         <language>zh_CN</language>
         <protected>false</protected>
         <shortDescription>QC Mass Calibration Title</shortDescription>
-        <value>质检任务</value>
+        <value>Inspection tasks</value>
     </labels>
     <labels>
         <fullName>Report_Title1_TA_Tracing</fullName>

@@ -254,7 +254,7 @@ trigger TriggerCampaign on Campaign (after insert, after update, before update) 
                     share.UserOrGroupId = u.id;
                     cpnShares.add(share);
                     taskList.add(new Task(
-                        Subject= '您有新的联合市场活动可以参加.', 
+                        Subject= 'You have new joint marketing activities to participate in.', 
                         RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId(),
                         OwnerId = u.id,
                         Status = 'open',

@@ -41,7 +41,7 @@ private class VehicleRelationshipHelperTest {
                                     City_CN__c='Beijing',
                                     Phone = '80801010',
                                     Area_Code__c = '010',
-                                    LastName = '北京之星服务有限公司 - Alpha Review',
+                                    LastName = 'Beijing XING Services Limited - Alpha Review',
                                     ZipCode__c='100101',
                                     RecordTypeId=accPerson_RecordTypeIdp);
 
@@ -51,7 +51,7 @@ private class VehicleRelationshipHelperTest {
                                     City_CN__c='Beijing',
                                     Phone = '80801011',
                                     Area_Code__c = '010',            
-                                    Name = '北京之星服务有限公司 - Alpha Review',
+                                    Name = 'Beijing XING Services Limited - Alpha Review',
                                     ZipCode__c='100101',
                                     RecordTypeId=accPerson_RecordTypeId);
                                                                     

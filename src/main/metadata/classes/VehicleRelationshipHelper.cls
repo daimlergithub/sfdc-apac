@@ -1,7 +1,7 @@
 /*
     Type:       Utility for Vehicle Relationship trigger
     Purpose:    1.  Create a apex trigger to share the VR record to "Portal Role and Subordinates" with read only. 
-                    Partner Name should be Account Name + " " + "Partner Executive", e.g. 北京梅赛德斯4S店 Partner Executive 
+                    Partner Name should be Account Name + " " + "Partner Executive", e.g. Beijing Mercedes 4S shop Partner Executive 
  
                 
     User Story: ISSUE-0757

@@ -5,39 +5,39 @@
         <fullName>Role</fullName>
         <picklist>
             <picklistValues>
-                <fullName>商业用户</fullName>
+                <fullName>Business users</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>决策者</fullName>
+                <fullName>Decision makers</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>经济型买方</fullName>
+                <fullName>Budget buyer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>经济型决策者</fullName>
+                <fullName>Economic policy makers</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>评估者</fullName>
+                <fullName>Evaluators</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>高级负责人</fullName>
+                <fullName>Senior Director</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>影响者</fullName>
+                <fullName>Influencers</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>技术型买方</fullName>
+                <fullName>Technical buyer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

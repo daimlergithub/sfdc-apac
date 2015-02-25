@@ -61,7 +61,7 @@ public class RetailCampaignHelper {
                 RecordTypeId = RecordTypeMap.get('General Task').getRecordTypeId(),
                 OwnerId = user.ContactId,
                 Status = 'open',
-                Priority = '高',
+                Priority = 'High',
                 WhoId = user.id,
                 WhatId = rc.id,
                 ActivityDate = rc.Y_Apply_Deadline__c.addDays(-3));

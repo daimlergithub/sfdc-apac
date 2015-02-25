@@ -67,7 +67,7 @@ private class VinMatchControllerTest{
             }
             validSSI.VehicleUSvin__c = ves[i].UsVIN__c;
             validSSI.HomeMobilePhone__c = accts[i].PersonMobilePhone;
-            //走有效SSI的小分支
+            //Effective small branch of SSI
             if (i == 14) {
                 validSSI.HomeMobilePhone__c = '13777778888';
             }
@@ -79,7 +79,7 @@ private class VinMatchControllerTest{
             invalidSSI.Status__c = 'All Valid';
             invalidSSI.InvoiceDate__c = Date.newInstance(2013, (i+5), 1);
             invalidSSI.VehicleUSvin__c = ves[i+15].UsVIN__c;
-            //走无效SSI的分支
+            //Invalid SSI branch
             if (i == 4) {
                 invalidSSI.VehicleUSvin__c = 'WDCCB5EE9CA000333';
             }

@@ -44,29 +44,28 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
     //Barney lai 2014-3-5 end
     
     private String[] GovVehicles = new String[]{
-        '厅', '政府', '委', '常委', '政治协商', '人大代表', '人大', '总政', '总装', 
-        '司令部', '干休', '干休所', '交通局', '政协', '检察院', '检查院', '法院', 
-        '军队', '军代处', '军代', '军区', '军分区', '交战办', '战办', '战备', '预备队', 
-        '派出所', '武警', '警察', '警备', '警队', '警支队', '警', '监狱', '公安', '缉私', 
-        '海关', '消防大队', '部队', '武装部', '总参', '边防支队', '刑侦支队', '劳教', '代表', 
-        '边防', '海关', '组织部', '共和国', '物资储备', '国家安全'
+        'Office', 'Government', 'Appoint', 'Standing', 'Political consultation', 'Deputies', 'NPC', 'General Political', 'Assembly', 
+        'Headquarters', 'Ganxiu', 'Retired cadres', 'Department of Transportation', 'CPPCC', 'Procuratorate', 'Check the hospital', 'Court', 
+        'Army', 'Military Representative Office', 'Military Representative', 'Military region', 'Subdistricts', 'War office', 'War Office', 'Readiness', 'Reserve', 
+        'Local police station', 'Armed', 'Police', 'Guard', 'Police', 'Police detachment', 'Police', 'Prison', 'Public security', 'Smuggling', 
+        'Customs', 'Fire Brigade', 'Troops', 'Armed Forces Department', 'General Staff', 'Border Detachment', 'Criminal Investigation Unit', 'Detention', 'On behalf of', 
+        'Border defense', 'Customs', 'Organization Department', 'Republic', 'Stockpiles', 'National Security'
     };
         
     private String[] DealerVehicles = new String[]{ 
-        'PDI','北星','奔驰','产品车','车业','出租','德星','东驰','东星','二级','航星','华星','机动车','轿车','经销商','卡车',
-        '库存车','利星','龙星','鹏星','汽车','仁孚','瑞星','商品车','试驾车','售前车','腾星','通和','销售','星瀚','星徽','越星',
-        '之星','中星','中转车','租赁','波士','庞大','北奔','极致','鹏龙','之信','宝利德','闵星','海星','鸿粤星辉','锦星行','贵州贵星',
-        '海南联合皇冠','衡阳驰峰','湖南华美','济宁吉星','嘉兴合信','江门合礼','万帮明都','九江英之杰','昆明星旗','南京宁星','南宁冠星',
-        '文峰伟恒','宁兴新宇','青岛三合','南菱星晖','衢州欧龙','泉州隆星','瑞安红升','汕头金豪','汕头骏荣','大兴宝德','深圳福日','台州德星',
-        '台州欧普','温州华能','无锡国信','武汉星隆','武汉星威','义乌国邦','义乌欧龙','永康国邦','远安昆星','南菱星晖','浙江华策','浙江星杭',
-        '重庆商社麒兴','重庆星顺','淄博星吉'
+        'PDI','Hokusei','Run quickly','Products Car','Vehicle Industry','Rent','German star','Dongchi','East Star','Two','Navistar','Huaxing','Vehicle','Car','Dealer','Truck',
+        'Stock car','Lee Star','Lone Star','Pengxing','Car','Zung Fu','Rising','Goods vehicles','Test drive','Pre car','Teng Star','Pass and','Sales','Star Han','SACA','The more stars',
+        'Star','Star','The transfer','Lease','Boss','Huge','North Pennines','Extreme','Penglong','The letter','Bao lied','Min Star','Starfish','Hong Yue Star','Kam Shing','Guizhou your star','Hainan joint Crown','Hengyang Chifeng','Hunan, China and the United States','Jining lucky','Jiaxing a letter','Jiangmen co ceremony','Million to help clear all','Jiujiang Inchcape','Kunming Star flag','Nanjing- Star','Nanning Guanxing',
+        'Wenfeng Heng-wei','Hing Ning Xinyu','Qingdao Sanhe','South Link Xinghui','Quzhou Auron','Quanzhou Long Star','Ryan Hongsheng','Shantou Jinhao','Shantou Wing Chun','Proudly Daxing','Shenzhen Furi','Taizhou DelStar',
+        'Taizhou Op','Wenzhou Huaneng','Wuxi letter country','Wuhan Star Long','Wuhan Starwise','Yiwu GuoBang','Wuou','Yongkang guobang','Yuanan Queensland star','South Link Xinghui','Zhejiang huace','Zhejiang XING-hang',
+        'Chongqing company Yee Hing','Chongqing stars Shun','Zibo star Kat'
     };
     
     //Barney lai 2014-3-5 start
     private String[] DealervehiclesSubdealervehicles = new String[]{
-        '汽车','之星','商品车','销售','租赁','经销商','试驾车','中转车','产品车','售前车','车业',
-        '机动车','卡车','库存车','二级','轿车','出租','东星','北星','星徽','仁孚','中星','龙星','利星',
-        '奔驰','通和','星翰','腾星','鹏星','航星','越星','瑞星','华星'
+        'Automotive','Star','Commercial vehicle','Sales','Rentals','Dealer','test drive','transfer','Product cart','Sold vehicle','Vehicle industry',
+        'Motor vehicle','Truck','Stock cars','Secondary','Cars','Rental','East star','North Star','Star logo','Renfu','Stars','Lone Star','Li Xing',
+        'Mercedes-Benz','Pass and','Star John','Free Star','ROC star','Hangxing','More stars','Rising','Huaxing'
     };
     //Barney lai 2014-3-5 end
 
@@ -316,7 +315,7 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
 
         for(SSI__c ssi : (List<SSI__c>)scope){
             
-            //rule 1: 时间不符
+            //rule 1: Inconsistent time
             
             if (ssi.HandoverDate__c == null && ssi.InvoiceDate__c != null) {
 
@@ -332,7 +331,7 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
                 }
             }
 
-            //rule 2: 无效联系方式
+            //rule 2: Invalid Contact
             Boolean noPhone = true;
             if(ssi.HomeMobilePhone__c != null){
                 ssi.HomeMobilePhone__c = formatPhone(ssi.HomeMobilePhone__c);
@@ -352,11 +351,11 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
                 continue;
             }
             
-            //rule 3: 底盘号本期相同
-            //1. 本期内存在相同底盘号的All Valid记录，则本批所有同一底盘号的记录Invalid
-            //2. 本期内不存在相同底盘号的All Valid记录，则：
-            //a. 本批内底盘号相同发票日期也相同，取一条通过验证，其余Invalid
-            //b. 本批内底盘号相同发票日期不同，取发票日期较早的通过验证，其余Invalid
+            //rule 3: Chassis No. same period
+            //1. All Valid records exist within the same chassis number, then all records of the same chassis number Invalid
+            //2. This issue does not exist within the same chassis, All Valid records, then:
+            //a. This instalment within the same chassis number invoice date are also the same, take a validated, and the remaining Invalid
+            //b. This instalment within the same chassis number invoice date, take the validation of invoices at an earlier date, the remaining Invalid
             if(ssi.VehicleUSvin__c == null){
                 invalid(ssi, Rule_3);
                 continue;
@@ -368,15 +367,15 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
                 }
             }
             
-            //rule 4: 与本期内联系方式相同
-            // 如本期内或本批内存在相同的手机号或电话号，则Invalid
+            //rule 4: Associated with the period in the same way
+            // Who this period or the memory on the same mobile phone number or phone number is Invalid
             //Barney lai 2014-3-5 start
             if(ssi.HomeMobilePhone__c!= null && ssi.HomeMobilePhone__c.length() > 0 
                 && (getPeriodSet(ssi.InvoiceDate__c, setType.MOBILE).keySet().contains(ssi.HomeMobilePhone__c)
                 || getPeriodSet(ssi.InvoiceDate__c, setType.ORIGINALMOBILE).keySet().contains(ssi.HomeMobilePhone__c)
                 || getPeriodSet(ssi.InvoiceDate__c, setType.PHONE).keySet().contains(ssi.HomeMobilePhone__c)
                 || getPeriodSet(ssi.InvoiceDate__c, setType.ORIGINALPHONE).keySet().contains(ssi.HomeMobilePhone__c))){
-                //先判断本期是否有相同的联系方式
+                //Determines whether this issue has the same contact information
                 invalid(ssi, Rule_4);
                 continue;
             }
@@ -386,7 +385,7 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
                 || getPeriodSet(ssi.InvoiceDate__c, setType.ORIGINALMOBILE).keySet().contains(ssi.OfficePhone__c)
                 || getPeriodSet(ssi.InvoiceDate__c, setType.PHONE).keySet().contains(ssi.OfficePhone__c)
                 || getPeriodSet(ssi.InvoiceDate__c, setType.ORIGINALPHONE).keySet().contains(ssi.OfficePhone__c))){
-                //先判断本期是否有相同的联系方式
+                //Determines whether this issue has the same contact information
                 invalid(ssi, Rule_4);
                 continue;
             } 
@@ -394,7 +393,7 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
             if(ssi.Original_HomeMobilePhone__c != null && ssi.Original_HomeMobilePhone__c.length() > 0 
                 && (getPeriodSet(ssi.InvoiceDate__c, setType.MOBILE).keySet().contains(ssi.Original_HomeMobilePhone__c)
                 || getPeriodSet(ssi.InvoiceDate__c, setType.PHONE).keySet().contains(ssi.Original_HomeMobilePhone__c))){
-                //先判断本期是否有相同的联系方式
+                //Determines whether this issue has the same contact information
                 invalid(ssi, Rule_4);
                 continue;
             }  
@@ -402,12 +401,12 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
             if(ssi.OriginalOfficePhone__c != null && ssi.OriginalOfficePhone__c.length() > 0 
                 && (getPeriodSet(ssi.InvoiceDate__c, setType.MOBILE).keySet().contains(ssi.OriginalOfficePhone__c)
                 || getPeriodSet(ssi.InvoiceDate__c, setType.PHONE).keySet().contains(ssi.OriginalOfficePhone__c))){
-                //先判断本期是否有相同的联系方式
+                //Determines whether this issue has the same contact information
                 invalid(ssi, Rule_4);
                 continue;
             }     
             
-            //rule 5: 政府购车
+            //rule 5: Government buyers
             if((ssi.CustomerName__c == null || ssi.CustomerName__c.length() == 0) 
               && (ssi.CompanyName__c == null || ssi.CompanyName__c.length() == 0)){
                 invalid(ssi, 'Customer Name and Company Name does not exist');
@@ -426,7 +425,7 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
                 }
             }
             
-            //rule 6: 经销商购车&二级经销商购车
+            //rule 6: Dealer cars and two distributors purchase
             Boolean isDealer = false;
             if((ssi.CustomerName__c != null && ssi.CustomerName__c.length() > 4)) {
                 for(String dv : DealervehiclesSubdealervehicles){
@@ -449,8 +448,8 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
             }
             //Barney lai 2014-3-5 end
             
-            //rule 7: 底盘号往期重复且姓名相同
-            //rule 8: 底盘号往期重复且姓名不同
+            //rule 7: Chassis number to repeat and have the same name
+            //rule 8: Chassis number past repetitive and different names
             Date time1 = ssi.InvoiceDate__c.addMonths(-1);
             Date time2 = ssi.InvoiceDate__c.addMonths(-2);
             Date time3 = ssi.InvoiceDate__c.addMonths(-3);
@@ -486,8 +485,8 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
                 continue;
             }
             
-            //rule 9: 联系方式往期重复且姓名相同
-            //rule 10: 联系方式往期重复且姓名不同
+            //rule 9: Contact to repeat and have the same name
+            //rule 10: Contact past repetitive and different names
             Map<String, SSI__c> cmMap1 = getPeriodSet(time1, setType.MOBILE);
             Map<String, SSI__c> cmMap2 = getPeriodSet(time2, setType.MOBILE);
             Map<String, SSI__c> cmMap3 = getPeriodSet(time3, setType.MOBILE);

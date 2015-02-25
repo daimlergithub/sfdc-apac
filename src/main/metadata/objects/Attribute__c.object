@@ -62,11 +62,11 @@
         <label>Attribute Category</label>
         <picklist>
             <picklistValues>
-                <fullName>基本参数</fullName>
+                <fullName>Basic parameters</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>扩展参数</fullName>
+                <fullName>Extension parameters</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -80,87 +80,87 @@
         <label>Attribute Type</label>
         <picklist>
             <picklistValues>
-                <fullName>AMG特有装备</fullName>
+                <fullName>AMG-specific equipment</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>AMG 性能</fullName>
+                <fullName>AMG Performance</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C63AMG性能</fullName>
+                <fullName>C63AMG properties</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SL63 AMG性能</fullName>
+                <fullName>SL63 AMG performance</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>安全性</fullName>
+                <fullName>Security</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>尺寸和重量</fullName>
+                <fullName>Size and weight</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>非金属漆</fullName>
+                <fullName>Non-metallic paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>豪华型</fullName>
+                <fullName>Luxury</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>豪华性</fullName>
+                <fullName>Deluxe</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>豪华性 LUXURY</fullName>
+                <fullName>Deluxe LUXURY</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>基本参数</fullName>
+                <fullName>Basic parameters</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>金属漆（12000元）</fullName>
+                <fullName>Metallic paint (12000)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>时尚性</fullName>
+                <fullName>Fashion</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>舒适性</fullName>
+                <fullName>Comfort</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>舒适性1</fullName>
+                <fullName>Comfort 1</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>舒适性2</fullName>
+                <fullName>Comfort 2</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>舒适性 COMFORT</fullName>
+                <fullName>Comfort COMFORT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>特殊油漆</fullName>
+                <fullName>Special paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>外饰</fullName>
+                <fullName>Exterior trim</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>外饰 EXTERIOR</fullName>
+                <fullName>Exterior trim EXTERIOR</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>娱乐及通讯</fullName>
+                <fullName>Entertainment and communications</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
