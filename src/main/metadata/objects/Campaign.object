@@ -9867,7 +9867,7 @@ window.parent.navigateToUrl(&quot;/a1j/e?RecordType=&quot;+qr.records.Id + &quot
         <height>500</height>
         <isResizable>true</isResizable>
         <linkType>url</linkType>
-        <masterLabel>查看全部 Market activities成员</masterLabel>
+        <masterLabel>View all Market activities Member</masterLabel>
         <openType>newWindow</openType>
         <position>none</position>
         <protected>false</protected>
