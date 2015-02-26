@@ -1340,7 +1340,7 @@ Attribute in Data Dictionary object Vehicle is &quot;Vehicle_Colour&quot;</descr
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>1623  Shallow Ivory White</fullName>
+                <fullName>1623 Shallow Ivory White</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6046,14 +6046,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8CChromite black%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>170 Paint%EF%BC%8CCB-black%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>182 Garnet and black</fullName>
                 <default>false</default>
             </values>
@@ -6071,10 +6063,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>288 Basalt grey nappa leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6106,19 +6094,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>367 France coast blue%EF%BC%88color%EF%BC%89</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>368 Flint Grey</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>370 Sulfur with lime</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>385 France coast blue%EF%BC%88Light%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6283,10 +6263,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>798 Long on high-class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White %EF%BC%88Bright Color %EF%BC%89%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7059,10 +7035,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ARTICO Leather upholstery%2C Yellow</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>BRABUSLeather upholstery Kit </fullName>
                 <default>false</default>
             </values>
@@ -7120,10 +7092,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>DesignoLeather upholstery%2CPorcelain yellow%2F Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Nappa leather %EF%BC%8CBlack and White%EF%BC%8C With special  Black With special  </fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8090,10 +8058,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8CChromite black%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>1216 BrightYellow</fullName>
                 <default>false</default>
             </values>
@@ -8106,11 +8070,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>1623  Shallow  Ivory White</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>170 Paint%EF%BC%8CCB-black%EF%BC%8CMetallic paint</fullName>
+                <fullName>1623 Shallow Ivory White</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8166,10 +8126,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>32 designo  Mystery Blue</fullName>
                 <default>false</default>
             </values>
@@ -8206,19 +8162,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>367 France coast blue%EF%BC%88color%EF%BC%89</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>368 Flint Grey</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>370 Sulfur with lime</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>385 France coast blue%EF%BC%88Light%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8510,10 +8458,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White %EF%BC%88Bright Color %EF%BC%89%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>805 Pebble m</fullName>
                 <default>false</default>
             </values>
@@ -8711,10 +8655,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>EALB1 Paint%EF%BC%8CYellow %2F tridion Frame%EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>EALB2 Paint%EF%BC%8C淡Yellow%2FTridion%EF%BC%8CSilver</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11323,10 +11263,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Designo Nappa leather %EF%BC%8CBlack and White%EF%BC%8C With special  Black With special  </fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Designo Style  Wood trim %2C  Piano lacquer  Black </fullName>
                 <default>false</default>
             </values>
@@ -12234,10 +12170,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8CChromite black%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>1216 BrightYellow</fullName>
                 <default>false</default>
             </values>
@@ -12250,11 +12182,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>1623  Shallow  Ivory White</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>170 Paint%EF%BC%8CCB-black%EF%BC%8CMetallic paint</fullName>
+                <fullName>1623 Shallow Ivory White</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12310,10 +12238,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>32 designo  Mystery Blue</fullName>
                 <default>false</default>
             </values>
@@ -12350,19 +12274,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>367 France coast blue%EF%BC%88color%EF%BC%89</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>368 Flint Grey</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>370 Sulfur with lime</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>385 France coast blue%EF%BC%88Light%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12654,10 +12570,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White %EF%BC%88Bright Color %EF%BC%89%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>805 Pebble m</fullName>
                 <default>false</default>
             </values>
@@ -12855,10 +12767,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>EALB1 Paint%EF%BC%8CYellow %2F tridion Frame%EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>EALB2 Paint%EF%BC%8C淡Yellow%2FTridion%EF%BC%8CSilver</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14892,10 +14800,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>DesignoLeather upholstery%2CPorcelain yellow%2F Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Nappa leather %EF%BC%8CBlack and White%EF%BC%8C With special  Black With special  </fullName>
                 <default>false</default>
             </values>
             <values>
