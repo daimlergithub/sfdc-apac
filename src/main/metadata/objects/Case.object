@@ -18152,15 +18152,15 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green-less than twice</fullName>
+                <fullName>Green-less than 2</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red-more than 4 times</fullName>
+                <fullName>Red-more than 4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow-3 times</fullName>
+                <fullName>Yellow-equal to 3</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26289,15 +26289,15 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green-less than twice</fullName>
+                <fullName>Green-less than 2</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Red-more than 4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Red-more than 4 times</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yellow-3 times</fullName>
+                <fullName>Yellow-equal to 3</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -35641,15 +35641,15 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green-less than twice</fullName>
+                <fullName>Green-less than 2</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red-more than 4 times</fullName>
+                <fullName>Red-more than 4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow-3 times</fullName>
+                <fullName>Yellow-equal to 3</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -44997,15 +44997,15 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green-less than twice</fullName>
+                <fullName>Green-less than 2</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Red-more than 4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Red-more than 4 times</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yellow-3 times</fullName>
+                <fullName>Yellow-equal to 3</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -50194,15 +50194,15 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green-less than twice</fullName>
+                <fullName>Green-less than 2</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red-more than 4 times</fullName>
+                <fullName>Red-more than 4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow-3 times</fullName>
+                <fullName>Yellow-equal to 3</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -54246,15 +54246,15 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green-less than twice</fullName>
+                <fullName>Green-less than 2</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red-more than 4 times</fullName>
+                <fullName>Red-more than 4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow-3 times</fullName>
+                <fullName>Yellow-equal to 3</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -63154,15 +63154,15 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green-less than twice</fullName>
+                <fullName>Green-less than 2</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red-more than 4 times</fullName>
+                <fullName>Red-more than 4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow-3 times</fullName>
+                <fullName>Yellow-equal to 3</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
