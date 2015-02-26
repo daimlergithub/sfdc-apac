@@ -3712,10 +3712,6 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>C180K Classic (CKD)</fullName>
                 <controllingFieldValues>C-Class</controllingFieldValues>
                 <default>false</default>
@@ -4687,11 +4683,6 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C63 AMGTwo-door coupe</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>C63 AMGCar</fullName>
                 <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
@@ -5009,10 +5000,6 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
             </picklistValues>
             <picklistValues>
                 <fullName>GLK300 4MATIC Avantgarde</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7364,9 +7351,9 @@ Modify Reason:
 
         		TEXT(Contact__r.Gender__c) &lt;&gt; NULL,
 
-        		TEXT(Contact__r.Province__c) &lt;&gt; NULL,
+        		Contact__r.Province__c &lt;&gt; NULL,
 
-        		TEXT(Contact__r.City_CN__c) &lt;&gt; NULL,
+        		Contact__r.City_CN__c &lt;&gt; NULL,
 
         		TEXT(Contact__r.Preferred_Language__c) &lt;&gt; NULL,
 
@@ -8828,10 +8815,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>C180K Classic (CKD)</fullName>
                 <controllingFieldValues>C-Class</controllingFieldValues>
                 <default>false</default>
@@ -9837,11 +9820,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C63 AMGTwo-door coupe</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>C63 AMGCar</fullName>
                 <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
@@ -10212,10 +10190,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>GLK300 4MATIC Luxury</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>GLK300 4MATIC Dynamic model</fullName>
                 <default>false</default>
             </picklistValues>
@@ -10380,10 +10354,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </picklistValues>
             <picklistValues>
                 <fullName>B200 luxury model</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11386,11 +11356,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C63 AMGTwo-door coupe</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>C63 AMGCar</fullName>
                 <controllingFieldValues>AMG</controllingFieldValues>
                 <default>false</default>
@@ -11763,10 +11728,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </picklistValues>
             <picklistValues>
                 <fullName>GLK300 4MATIC Avantgarde</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -13338,10 +13299,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>E300L Elegance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>A 45 AMG</fullName>
                 <controllingFieldValues>A 45 AMG</controllingFieldValues>
                 <default>false</default>
@@ -14056,11 +14013,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Other</fullName>
-                <controllingFieldValues>Other brands</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Infiniti</fullName>
                 <controllingFieldValues>Other brands</controllingFieldValues>
                 <default>false</default>
@@ -14749,10 +14701,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -14906,10 +14854,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16191,11 +16135,11 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8C铬铁矿 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>112 Paint, chromite black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>170 Paint%EF%BC%8C钶铁 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>170 Paint , columbium iron black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16215,10 +16159,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>345 Dark blue</fullName>
                 <default>false</default>
             </values>
@@ -16235,7 +16175,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8C光Jade Red%EF%BC%8CMetallic paint</fullName>
+                <fullName>354 Paint , carnelian red , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16244,10 +16184,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>359 Sapphire blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>367 France coast blue%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16424,10 +16360,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>798 Long on high-class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White%EF%BC%88Bright colors%EF%BC%89%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16629,10 +16561,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260 BlueEFFICIENCY</fullName>
                 <default>false</default>
             </values>
@@ -16806,10 +16734,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17345,10 +17269,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>GLK350 4MATIC</fullName>
                 <default>false</default>
             </values>
@@ -17827,11 +17747,11 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8C铬铁矿 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>112 Paint, chromite black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>170 Paint%EF%BC%8C钶铁 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>170 Paint , columbium iron black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17851,10 +17771,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>345 Dark blue</fullName>
                 <default>false</default>
             </values>
@@ -17871,7 +17787,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8C光Jade Red%EF%BC%8CMetallic paint</fullName>
+                <fullName>354 Paint , carnelian red , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17880,10 +17796,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>359 Sapphire blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>367 France coast blue%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18060,10 +17972,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>798 Long on high-class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White%EF%BC%88Bright colors%EF%BC%89%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19641,10 +19549,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -19858,10 +19762,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20354,10 +20254,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>GLK300 4MATIC Avantgarde</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20943,10 +20839,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -21156,10 +21048,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21652,10 +21540,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>GLK300 4MATIC Avantgarde</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -22774,10 +22658,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>E300L Elegance</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>E320 %28Non- current car models%29</fullName>
                 <default>false</default>
             </values>
@@ -23688,10 +23568,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Cadillac</fullName>
                 <default>false</default>
             </values>
@@ -24170,10 +24046,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -24359,10 +24231,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25892,11 +25760,11 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8C铬铁矿 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>112 Paint, chromite black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>170 Paint%EF%BC%8C钶铁 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>170 Paint , columbium iron black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25916,10 +25784,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>345 Dark blue</fullName>
                 <default>false</default>
             </values>
@@ -25936,7 +25800,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8C光Jade Red%EF%BC%8CMetallic paint</fullName>
+                <fullName>354 Paint , carnelian red , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25945,10 +25809,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>359 Sapphire blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>367 France coast blue%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26125,10 +25985,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>798 Long on high-class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White%EF%BC%88Bright colors%EF%BC%89%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26343,10 +26199,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>B200 luxury model</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26571,10 +26423,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27166,10 +27014,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>GLK350 4MATIC</fullName>
                 <default>false</default>
             </values>
@@ -27740,11 +27584,11 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8C铬铁矿 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>112 Paint, chromite black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>170 Paint%EF%BC%8C钶铁 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>170 Paint , columbium iron black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27764,10 +27608,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>345 Dark blue</fullName>
                 <default>false</default>
             </values>
@@ -27784,7 +27624,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8C光Jade Red%EF%BC%8CMetallic paint</fullName>
+                <fullName>354 Paint , carnelian red , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27793,10 +27633,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>359 Sapphire blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>367 France coast blue%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -27973,10 +27809,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>798 Long on high-class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White%EF%BC%88Bright colors%EF%BC%89%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -29554,10 +29386,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -29771,10 +29599,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30267,10 +30091,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>GLK300 4MATIC Avantgarde</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -30856,10 +30676,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -31069,10 +30885,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -31565,10 +31377,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>GLK300 4MATIC Avantgarde</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -32755,10 +32563,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>E300L Elegance</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>E320 %28Non- current car models%29</fullName>
                 <default>false</default>
             </values>
@@ -33749,10 +33553,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Cadillac</fullName>
                 <default>false</default>
             </values>
@@ -34231,10 +34031,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -34420,10 +34216,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -35993,11 +35785,11 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8C铬铁矿 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>112 Paint, chromite black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>170 Paint%EF%BC%8C钶铁 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>170 Paint , columbium iron black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36017,10 +35809,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>345 Dark blue</fullName>
                 <default>false</default>
             </values>
@@ -36037,7 +35825,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8C光Jade Red%EF%BC%8CMetallic paint</fullName>
+                <fullName>354 Paint , carnelian red , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36046,10 +35834,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>359 Sapphire blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>367 France coast blue%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36226,10 +36010,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>798 Long on high-class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White%EF%BC%88Bright colors%EF%BC%89%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36444,10 +36224,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>B200 luxury model</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36672,10 +36448,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37267,10 +37039,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>GLK350 4MATIC</fullName>
                 <default>false</default>
             </values>
@@ -37841,11 +37609,11 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8C铬铁矿 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>112 Paint, chromite black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>170 Paint%EF%BC%8C钶铁 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>170 Paint , columbium iron black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37865,10 +37633,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>345 Dark blue</fullName>
                 <default>false</default>
             </values>
@@ -37885,7 +37649,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8C光Jade Red%EF%BC%8CMetallic paint</fullName>
+                <fullName>354 Paint , carnelian red , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37894,10 +37658,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>359 Sapphire blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>367 France coast blue%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -38074,10 +37834,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>798 Long on high-class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White%EF%BC%88Bright colors%EF%BC%89%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39675,10 +39431,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -39892,10 +39644,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40388,10 +40136,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>GLK300 4MATIC Avantgarde</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -40993,10 +40737,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -41206,10 +40946,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -41702,10 +41438,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>GLK300 4MATIC Avantgarde</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -42892,10 +42624,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>E300L Elegance</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>E320 %28Non- current car models%29</fullName>
                 <default>false</default>
             </values>
@@ -43886,10 +43614,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Cadillac</fullName>
                 <default>false</default>
             </values>
@@ -44356,10 +44080,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -44437,10 +44157,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -45570,11 +45286,11 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8C铬铁矿 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>112 Paint, chromite black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>170 Paint%EF%BC%8C钶铁 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>170 Paint , columbium iron black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -45594,10 +45310,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>345 Dark blue</fullName>
                 <default>false</default>
             </values>
@@ -45614,7 +45326,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8C光Jade Red%EF%BC%8CMetallic paint</fullName>
+                <fullName>354 Paint , carnelian red , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -45623,10 +45335,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>359 Sapphire blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>367 France coast blue%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -45803,10 +45511,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>798 Long on high-class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White%EF%BC%88Bright colors%EF%BC%89%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46020,10 +45724,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -46145,10 +45845,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46489,10 +46185,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>GLK300 4MATIC Avantgarde</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46946,11 +46638,11 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8C铬铁矿 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>112 Paint, chromite black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>170 Paint%EF%BC%8C钶铁 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>170 Paint , columbium iron black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46970,10 +46662,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>345 Dark blue</fullName>
                 <default>false</default>
             </values>
@@ -46990,7 +46678,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8C光Jade Red%EF%BC%8CMetallic paint</fullName>
+                <fullName>354 Paint , carnelian red , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -46999,10 +46687,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>359 Sapphire blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>367 France coast blue%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47179,10 +46863,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>798 Long on high-class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White%EF%BC%88Bright colors%EF%BC%89%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48744,10 +48424,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -48961,10 +48637,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -49457,10 +49129,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>GLK300 4MATIC Avantgarde</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50062,10 +49730,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -50275,10 +49939,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -50759,10 +50419,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>GLK300 4MATIC Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51625,10 +51281,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>E300L Elegance</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>E320 coupe</fullName>
                 <default>false</default>
             </values>
@@ -52407,10 +52059,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Cadillac</fullName>
                 <default>false</default>
             </values>
@@ -52693,10 +52341,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>C 180 Classic Grand Edition</fullName>
                 <default>false</default>
             </values>
@@ -52854,10 +52498,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53919,11 +53559,11 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8C铬铁矿 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>112 Paint, chromite black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>170 Paint%EF%BC%8C钶铁 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>170 Paint , columbium iron black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53943,10 +53583,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>345 Dark blue</fullName>
                 <default>false</default>
             </values>
@@ -53963,7 +53599,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8C光Jade Red%EF%BC%8CMetallic paint</fullName>
+                <fullName>354 Paint , carnelian red , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53972,10 +53608,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>359 Sapphire blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>367 France coast blue%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -54155,10 +53787,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White%EF%BC%88Bright colors%EF%BC%89%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>805 Pebble m</fullName>
                 <default>false</default>
             </values>
@@ -54330,10 +53958,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>B200 luxury model</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -54518,10 +54142,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -55319,11 +54939,11 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>112 Paint%EF%BC%8C铬铁矿 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>112 Paint, chromite black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>170 Paint%EF%BC%8C钶铁 Black %EF%BC%8CMetallic paint</fullName>
+                <fullName>170 Paint , columbium iron black , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -55343,10 +54963,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>300 Periclase Green%EF%BC%8CMetallic paint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>345 Dark blue</fullName>
                 <default>false</default>
             </values>
@@ -55363,7 +54979,7 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>354 Paint%EF%BC%8C光Jade Red%EF%BC%8CMetallic paint</fullName>
+                <fullName>354 Paint , carnelian red , metallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -55372,10 +54988,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>359 Sapphire blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>367 France coast blue%EF%BC%88Color%EF%BC%89</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -55552,10 +55164,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>798 Long on high-class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>799 Paint%EF%BC%8CDiamond White%EF%BC%88Bright colors%EF%BC%89%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -57001,10 +56609,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -57218,10 +56822,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -57714,10 +57314,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>GLK300 4MATIC Avantgarde</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -58307,10 +57903,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
                 <default>false</default>
             </values>
             <values>
-                <fullName>B200 Luxury Night-exclusive Edition</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>B260</fullName>
                 <default>false</default>
             </values>
@@ -58520,10 +58112,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>C63 AMG High-performance version</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C63 AMGTwo-door coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -59004,10 +58592,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>GLK300 4MATIC Fashion</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GLK300 4MATIC Luxury</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -60737,10 +60321,6 @@ ISPICKVAL(Dealer_Lead_Status__c,&quot;Visited Showroom(Only Non BDC)&quot;),
             </values>
             <values>
                 <fullName>New e-class Open run Car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>

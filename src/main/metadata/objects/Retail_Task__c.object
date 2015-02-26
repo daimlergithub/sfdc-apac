@@ -1475,10 +1475,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>New car%2F used car sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Free</fullName>
                 <default>false</default>
             </values>
@@ -2036,10 +2032,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>New car%2F used car sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Free</fullName>
                 <default>false</default>
             </values>
@@ -2594,10 +2586,6 @@
             </values>
             <values>
                 <fullName>Used car purchase</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New car%2F used car sales</fullName>
                 <default>false</default>
             </values>
             <values>

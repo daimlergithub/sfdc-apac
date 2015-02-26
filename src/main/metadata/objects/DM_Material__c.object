@@ -428,10 +428,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Bentley</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>1 Series</fullName>
                 <default>false</default>
             </picklistValues>
@@ -740,10 +736,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Prius</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>CILO</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1036,10 +1028,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Jeep</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Cherokee</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1109,10 +1097,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>SHUMA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accent</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1536,10 +1520,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Saina</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Rate Le Na</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1577,10 +1557,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>XC90</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Polo</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

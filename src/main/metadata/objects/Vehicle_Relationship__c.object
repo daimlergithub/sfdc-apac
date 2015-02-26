@@ -543,7 +543,8 @@ Modify Reason:
 Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_RegistrationProvince&quot;</description>
         <externalId>false</externalId>
         <inlineHelpText>Province the vehicle was registered</inlineHelpText>
-        <label>Registration Province</label>        
+        <label>Registration Province</label>
+		<length>255</length>	
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -563,7 +564,8 @@ Modify Reason:
 Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_RegistrationCity&quot;</description>
         <externalId>false</externalId>
         <inlineHelpText>City the vehicle was registered</inlineHelpText>
-        <label>Registration City</label>        
+        <label>Registration City</label>
+		<length>255</length>	
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
