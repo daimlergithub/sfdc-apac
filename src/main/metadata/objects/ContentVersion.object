@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>CancelEdit</actionName>
@@ -3545,7 +3545,7 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Events%2F Festival marketing</fullName>
+                <fullName>Event/Festival marketing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3565,7 +3565,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Outreach%2F Roadshow</fullName>
+                <fullName>Outreach/Roadshow</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3585,7 +3585,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>%2F sponsored charity</fullName>
+                <fullName>Sponsorship/charity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5133,7 +5133,7 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Events%2F Festival marketing</fullName>
+                <fullName>Event/Festival marketing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5153,7 +5153,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Outreach%2F Roadshow</fullName>
+                <fullName>Outreach/Roadshow</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5173,7 +5173,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>%2F sponsored charity</fullName>
+                <fullName>Sponsorship/charity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6721,7 +6721,7 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Events%2F Festival marketing</fullName>
+                <fullName>Event/Festival marketing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6741,7 +6741,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Outreach%2F Roadshow</fullName>
+                <fullName>Outreach/Roadshow</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6761,7 +6761,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>%2F sponsored charity</fullName>
+                <fullName>Sponsorship/charity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8309,7 +8309,7 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Events%2F Festival marketing</fullName>
+                <fullName>Event/Festival marketing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8329,7 +8329,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Outreach%2F Roadshow</fullName>
+                <fullName>Outreach/Roadshow</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8349,7 +8349,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>%2F sponsored charity</fullName>
+                <fullName>Sponsorship/charity</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -90,6 +90,8 @@
 	<!-- TODO Temporarily making the standard console app as default later it will be changed to Service_Cloud_Console_IB app -->
     <applicationVisibilities>
         <application>standard__ServiceConsole</application>
+
+
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
@@ -2014,6 +2016,12 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.SicDesc</field>
+
+
+
+
+
+
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4193,6 +4201,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
+
+
+
+
         <field>Case.Registration_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9043,6 +9056,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+
+
+
+
+
         <field>TSP_Subscription__c.End_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9282,6 +9300,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+
+
+
+
+
         <editable>true</editable>
         <field>Task.Last_OB_Call__c</field>
         <readable>true</readable>
@@ -10928,6 +10951,10 @@
         <recordType>Task.SSI_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
+
+
+
+
         <layout>Task-Social Media</layout>
         <recordType>Task.Social_Media</recordType>
     </layoutAssignments>
@@ -11629,6 +11656,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+
         <recordType>Account.MBDA</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -11920,6 +11948,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+
         <recordType>Task.IB_Call</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
