@@ -1428,7 +1428,8 @@
     <fields>
         <fullName>Participating_Region_Province__c</fullName>
         <externalId>false</externalId>
-        <label>Participating Region-Province</label>        
+        <label>Participating Region-Province</label>
+		<length>255</length>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Text</type>        
     </fields>
@@ -2053,7 +2054,7 @@
             <operation>equals</operation>
             <value>1</value>
         </filters>
-        <label>All enabled  After sale Market activities</label>
+        <label>All enabled After sale Market activities</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -2076,7 +2077,7 @@
             <operation>equals</operation>
             <value>1</value>
         </filters>
-        <label>All enabled Central Market activities</label>
+        <label>All Enabled Central Market Activities</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -2098,7 +2099,7 @@
             <operation>equals</operation>
             <value>1</value>
         </filters>
-        <label>All enabled  Market activities Implementation</label>
+        <label>All Enabled Market Activity Execution</label>
         <language>en_US</language>
 		<sharedTo>
 			<role>Data_Service_Specialist</role>
@@ -9867,7 +9868,7 @@ window.parent.navigateToUrl(&quot;/a1j/e?RecordType=&quot;+qr.records.Id + &quot
         <height>500</height>
         <isResizable>true</isResizable>
         <linkType>url</linkType>
-        <masterLabel>查看全部 Market activities成员</masterLabel>
+        <masterLabel>View all Market activities member</masterLabel>
         <openType>newWindow</openType>
         <position>none</position>
         <protected>false</protected>
