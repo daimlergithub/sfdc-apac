@@ -18,7 +18,7 @@ public class CaseEscalationController {
     private final static String ERRORUpdateDealer = 'Update Account Error, Please review Account information such as Phone Number, Email.';
     private final static String ERROR_MSG = 'In case of escalation, all fields for Complaint Details section are mandatory.';
     private final static String ERROR_MSGChinese = 'Upgrade complaints, all complaints for more information fields are required.';
-    private final static String ERROR_DupEscalate = 'Complaints have been upgraded, there's no need to upgrade again.';
+    private final static String ERROR_DupEscalate = 'Complaints have been upgraded, there is no need to upgrade again.';
     private QueueSobject CentralPLWLQ = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name = 'Central Office PL / WL Queue' limit 1];
     
     //CR No.: CR-AS-Complaint-008 START

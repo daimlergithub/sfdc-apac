@@ -10673,7 +10673,7 @@
         <layout>Contact-Contact Master Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-Aftermarket classet class</layout>
+        <layout>ContentVersion-Aftermarket class</layout>
         <recordType>ContentVersion.RecordType3</recordType>
     </layoutAssignments>
     <layoutAssignments>

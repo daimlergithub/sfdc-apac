@@ -132,10 +132,10 @@ private class TaskHelperTest {
         insert task2;
         
         List<Task> tasks1 = [SELECT id FROM Task WHERE Subject = 'SMS' AND 
-            IB_Status__c = 'You are satisfied with the service's overall performance evaluation: 1. Very satisfied; 2. Satisfaction 3., 4. not satisfied; 5. very dissatisfied. Thank you for your participation! "Mercedes-Benz Service Center 4008181188"' 
+            IB_Status__c = 'You are satisfied with the services overall performance evaluation: 1. Very satisfied; 2. Satisfaction 3., 4. not satisfied; 5. very dissatisfied. Thank you for your participation! Mercedes-Benz Service Center 4008181188' 
             AND Phone__c = '13701270000'];
         List<Task> tasks2 = [SELECT id FROM Task WHERE Subject = 'SMS' AND 
-            IB_Status__c = 'You are satisfied with the service's overall performance evaluation: 1. Very satisfied; 2. Satisfaction 3., 4. not satisfied; 5. very dissatisfied. Thank you for your participation! "Mercedes-Benz Service Center 4008181188"' 
+            IB_Status__c = 'You are satisfied with the services overall performance evaluation: 1. Very satisfied; 2. Satisfaction 3., 4. not satisfied; 5. very dissatisfied. Thank you for your participation! Mercedes-Benz Service Center 4008181188' 
             AND Phone__c = '13701270001'];
     }
 }
