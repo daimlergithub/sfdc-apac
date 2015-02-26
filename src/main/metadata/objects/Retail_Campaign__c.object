@@ -371,7 +371,7 @@
         <fullName>Ad_Location__c</fullName>
         <description>Ad Location of the campaign</description>
         <externalId>false</externalId>
-        <inlineHelpText>Sites for complete advertising outdoor advertising, if put in place more, there shall be credited to one or two specific places; a television or radio, you should complete the appropriate program name; digital media to fill in the corresponding network name and location in the Web page, such as phone should also fill in the advertising operations such as operators of the channel name; newspaper or magazine to fill in the appropriate location.</inlineHelpText>
+        <!--<inlineHelpText>Sites for complete advertising outdoor advertising, if put in place more, there shall be credited to one or two specific places; a television or radio, you should complete the appropriate program name; digital media to fill in the corresponding network name and location in the Web page, such as phone should also fill in the advertising operations such as operators of the channel name; newspaper or magazine to fill in the appropriate location.</inlineHelpText>-->
         <label>Ad Location</label>
         <length>1000</length>
         <trackHistory>false</trackHistory>
@@ -926,7 +926,7 @@
     <fields>
         <fullName>City__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(Dealer_Name__r.City_CN__c)</formula>
+        <formula>Dealer_Name__r.City_CN__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>City</label>
         <required>false</required>
@@ -2316,7 +2316,7 @@
     <fields>
         <fullName>Y_City__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(Y_Dealer_Name__r.City_CN__c)</formula>
+        <formula>Y_Dealer_Name__r.City_CN__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>City</label>
         <required>false</required>
@@ -2787,7 +2787,7 @@
             <operation>equals</operation>
             <value>Confirmed</value>
         </filters>
-        <label>After-sales activities feedback upon approval</label>
+        <label>ApprovedAfterSales planning and feedback</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -2900,7 +2900,7 @@
             <operation>equals</operation>
             <value>1</value>
         </filters>
-        <label>Sales activity planning feedback upon approval</label>
+        <label>Approved Sales planning and feedback</label>
         <language>en_US</language>
     </listViews>
     <listViews>

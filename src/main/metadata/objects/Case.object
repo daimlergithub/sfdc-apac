@@ -74,7 +74,7 @@
     <actionOverrides>
         <actionName>View</actionName>
         <type>Default</type>
-    </actionOverrides>
+    </actionOverrides>	
     <businessProcesses>
         <fullName>Chrysler Complaint Process</fullName>
         <description>Complaint Process</description>
@@ -8196,10 +8196,6 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Feedback</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Request handbook</fullName>
                 <default>false</default>
             </picklistValues>
@@ -12714,11 +12710,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Closed</fullName>
-                <closed>true</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Closed (Final)</fullName>
                 <closed>true</closed>
                 <default>false</default>
@@ -13486,10 +13477,6 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>MARCO POLO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MAYBACH</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -28398,10 +28385,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maybach</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -28426,10 +28409,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>MB Saloon Car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36205,10 +36184,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maybach</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Platinum sharp</fullName>
                 <default>false</default>
             </values>
@@ -37975,10 +37950,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>MB Saloon Car</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -43835,7 +43806,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Journalist%2F photographer%2F media inquiries</fullName>
+                <fullName>Reporter%2Fphotographer%2Fmedia inquiries</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45558,10 +45529,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>Sebring</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -61532,10 +61499,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Feedback</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Feedback by Customer</fullName>
                 <default>false</default>
             </values>
@@ -61852,7 +61815,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Journalist%2F photographer%2F media inquiries</fullName>
+                <fullName>Reporter%2Fphotographer%2Fmedia inquiries</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -63715,10 +63678,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>Sebring</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
