@@ -265,11 +265,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>梅赛德斯-奔驰金融</fullName>
+                <fullName>Mercedes-Benz financial</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>奔驰驾驶学院</fullName>
+                <fullName>Mercedes-Benz driving Academy</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -721,12 +721,12 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>多盟</fullName>
+                <fullName>Au</fullName>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>汽车点评</fullName>
+                <fullName>Car reviews</fullName>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -761,7 +761,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>在线活动注册</fullName>
+                <fullName>Online event registration</fullName>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -776,14 +776,14 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>贷款数据</fullName>
-                <controllingFieldValues>梅赛德斯-奔驰金融</controllingFieldValues>
+                <fullName>Loan data</fullName>
+                <controllingFieldValues>Mercedes-Benz financial</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>MBDA</fullName>
+                <controllingFieldValues>Mercedes-Benz driving Academy</controllingFieldValues>
                 <controllingFieldValues>OB Call</controllingFieldValues>
-                <controllingFieldValues>奔驰驾驶学院</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -797,7 +797,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>车主俱乐部</fullName>
+                <fullName>Owners Club</fullName>
                 <controllingFieldValues>Mercedes-Benz</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -807,7 +807,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>车展2012</fullName>
+                <fullName>Motor Show 2012</fullName>
                 <controllingFieldValues>Event</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -817,7 +817,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>直邮</fullName>
+                <fullName>Direct mail</fullName>
                 <controllingFieldValues>Other</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -836,12 +836,12 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>梅赛德斯-奔驰网站_售后</fullName>
+                <fullName>Mercedes-Benz Web site _ after sale</fullName>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>网通社</fullName>
+                <fullName>Netcom</fullName>
                 <controllingFieldValues>Web/Mobile Phone</controllingFieldValues>
                 <default>false</default>
             </picklistValues>

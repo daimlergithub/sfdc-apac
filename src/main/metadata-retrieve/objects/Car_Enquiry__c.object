@@ -1450,12 +1450,12 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>smart 硬顶标准版虎年限量版</fullName>
+                <fullName>smart Standard hardtop version of the Tiger limited edition</fullName>
                 <controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>smart 硬顶style版虎年限量版</fullName>
+                <fullName>smart Coupe-style version of the Tiger limited edition</fullName>
                 <controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>

@@ -139,7 +139,7 @@
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;相关车辆&apos; in Data Dictionary.
+Function: Mapping &apos;Related vehicles&apos; in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -183,7 +183,7 @@ Modify Reason:
     <fields>
         <fullName>City__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT( Customer_Name__r.City_CN__c )</formula>
+        <formula>Customer_Name__r.City_CN__c</formula>
         <label>City</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -243,7 +243,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;计划投递日期&apos; in Data Dictionary.
+Function: Mapping &apos;Planned delivery date&apos; in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -322,7 +322,7 @@ Modify Reason:
         <fullName>Gender__c</fullName>
         <description>This field is used for display account gender field in DM request.</description>
         <externalId>false</externalId>
-        <formula>CASE(Customer_Name__r.Gender__c, &quot;Male&quot;, &quot;男&quot;, &quot;Female&quot;, &quot;女&quot;,&quot;&quot;)</formula>
+        <formula>CASE(Customer_Name__r.Gender__c, &quot;Male&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;,&quot;&quot;)</formula>
         <label>Gender</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -390,7 +390,7 @@ Modify Reason:
     <fields>
         <fullName>Province__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(Customer_Name__r.Province__c)</formula>
+        <formula>Customer_Name__r.Province__c</formula>
         <label>Province</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -415,7 +415,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;投递资料详情&apos; in Data Dictionary.
+Function: Mapping &apos;Delivery details&apos; in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -478,7 +478,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;推荐资料名称&apos; in Data Dictionary.
+Function: Mapping &apos;The referrer name&apos; in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -517,7 +517,7 @@ Modify Reason:
         <columns>Status__c</columns>
         <columns>Campaign__c</columns>
         <filterScope>Everything</filterScope>
-        <label>所有</label>
+        <label>All</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -536,7 +536,7 @@ Modify Reason:
             <operation>equals</operation>
             <value>Failed</value>
         </filters>
-        <label>失败的直邮请求</label>
+        <label>Failed direct-mail requests</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -557,7 +557,7 @@ Modify Reason:
             <operation>equals</operation>
             <value>Open</value>
         </filters>
-        <label>未处理的直邮请求</label>
+        <label>Open mail requests</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -578,7 +578,7 @@ Modify Reason:
             <operation>equals</operation>
             <value>Returned</value>
         </filters>
-        <label>已退回的直邮请求</label>
+        <label>Rejected requests for direct mail</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -604,7 +604,7 @@ Modify Reason:
             <operation>equals</operation>
             <value>Sent</value>
         </filters>
-        <label>已邮寄的直销请求</label>
+        <label>Direct request has been sent</label>
         <language>en_US</language>
     </listViews>
     <nameField>

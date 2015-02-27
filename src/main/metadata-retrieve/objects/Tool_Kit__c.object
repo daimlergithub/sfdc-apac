@@ -246,7 +246,7 @@
         <defaultValue>0</defaultValue>
         <description>Ad. Size Height of the tool kit</description>
         <externalId>false</externalId>
-        <inlineHelpText>单位(厘米)</inlineHelpText>
+        <inlineHelpText>Units (cm)</inlineHelpText>
         <label>Ad. Size Height</label>
         <precision>18</precision>
         <required>false</required>
@@ -261,7 +261,7 @@
         <defaultValue>0</defaultValue>
         <description>Ad. Size Width of the tool kit</description>
         <externalId>false</externalId>
-        <inlineHelpText>单位(厘米)</inlineHelpText>
+        <inlineHelpText>Units (cm)</inlineHelpText>
         <label>Ad. Size Width</label>
         <precision>18</precision>
         <required>false</required>
@@ -374,7 +374,7 @@
         <defaultValue>0</defaultValue>
         <description>Bleed Size Height of the tool kit</description>
         <externalId>false</externalId>
-        <inlineHelpText>单位(厘米)</inlineHelpText>
+        <inlineHelpText>Units(cm)</inlineHelpText>
         <label>Bleed Size Height</label>
         <precision>18</precision>
         <required>false</required>
@@ -389,7 +389,7 @@
         <defaultValue>0</defaultValue>
         <description>Bleed Size Width of the tool kit</description>
         <externalId>false</externalId>
-        <inlineHelpText>单位(厘米)</inlineHelpText>
+        <inlineHelpText>Units(cm)</inlineHelpText>
         <label>Bleed Size Width</label>
         <precision>18</precision>
         <required>false</required>
@@ -430,7 +430,7 @@
         <fullName>City__c</fullName>
         <description>City of the dealer</description>
         <externalId>false</externalId>
-        <formula>TEXT(Dealer_Name__r.City_CN__c)</formula>
+        <formula>Dealer_Name__r.City_CN__c</formula>
         <label>City</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1046,7 +1046,7 @@ MONTH(Submit_Date__c) &lt; 10,
             <filterItems>
                 <field>User.Profile.Name</field>
                 <operation>equals</operation>
-                <value>BMBS External Marketing User</value>
+                <value>External Marketing User</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -1114,7 +1114,7 @@ MONTH(Submit_Date__c) &lt; 10,
             <operation>equals</operation>
             <value>Tool_Kit__c.Event</value>
         </filters>
-        <label>销售活动工具箱</label>
+        <label>Marketing Toolbox</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -1135,7 +1135,7 @@ MONTH(Submit_Date__c) &lt; 10,
             <operation>equals</operation>
             <value>Tool_Kit__c.Media</value>
         </filters>
-        <label>销售广告工具箱</label>
+        <label>Advertising Sales Kit</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -1153,7 +1153,7 @@ MONTH(Submit_Date__c) &lt; 10,
             <operation>equals</operation>
             <value>Need Modify</value>
         </filters>
-        <label>需调整的工具箱</label>
+        <label>Adjust Toolbox</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -1171,7 +1171,7 @@ MONTH(Submit_Date__c) &lt; 10,
             <operation>equals</operation>
             <value>Tool_Kit__c.smart_Event</value>
         </filters>
-        <label>smart销售活动工具箱</label>
+        <label>Smart marketing toolbox</label>
         <language>en_US</language>
     </listViews>
     <nameField>
@@ -1184,7 +1184,7 @@ MONTH(Submit_Date__c) &lt; 10,
     <recordTypes>
         <fullName>Event</fullName>
         <active>true</active>
-        <description>总部支持的活动工具箱申请</description>
+        <description>Headquarters activities supported by the Toolbox application</description>
         <label>Event</label>
         <picklistValues>
             <picklist>Ad_Banner__c</picklist>
@@ -1463,7 +1463,7 @@ MONTH(Submit_Date__c) &lt; 10,
     <recordTypes>
         <fullName>Media</fullName>
         <active>true</active>
-        <description>总部支持的媒体工具箱申请</description>
+        <description>Headquarters support Media Kit request</description>
         <label>Media</label>
         <picklistValues>
             <picklist>Ad_Banner__c</picklist>
@@ -1742,7 +1742,7 @@ MONTH(Submit_Date__c) &lt; 10,
     <recordTypes>
         <fullName>smart_Event</fullName>
         <active>true</active>
-        <description>smart品牌的活动工具箱反馈</description>
+        <description>Activities of the smart brand Toolbox feedback</description>
         <label>smart Event</label>
         <picklistValues>
             <picklist>Ad_Banner__c</picklist>
@@ -2238,27 +2238,27 @@ alert("Failed to update Field with error: " + error);
 
 var validateFlag = true;
 if ((RTname.records.Name == 'Event' &amp;&amp; '{!Tool_Kit__c.Event_Kit_Name__c}' == '') || (RTname.records.Name == 'Media' &amp;&amp; '{!Tool_Kit__c.Media_Kit_Name__c}' == '')) {
-alert('请选择活动套装。');
+alert('Select an active suit.');
 validateFlag = true;
 }
 
 if (validateFlag) {
 if(quota - tkSize &gt; 0){
 if(qr.records != null) {
-alert("工具箱申请需要在上一个申请审批通过之后才能进行。");
+alert("Toolbox application needs the previous approval before it can be.");
 }else{
 if('{!Tool_Kit__c.Apply_Status__c}'=='Planned' || '{!Tool_Kit__c.Apply_Status__c}'=='Need Modify'){
-if ((Modal.confirm &amp;&amp; Modal.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？'))) navigateToUrl('/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}');
+if ((Modal.confirm &amp;&amp; Modal.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?')) || (!Modal.confirm &amp;&amp; window.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?'))) navigateToUrl('/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}');
 }else{
- alert('申请状态错误。');
-}
-}
-}else{
-alert("已达到本季度的配额。");
+ alert('Application status error.');
 }
 }
 }else{
- alert('你不是该记录的所有者，无法提交');
+alert("This quarter's quota has been reached.");
+}
+}
+}else{
+ alert('You are not the owner of the record cannot be submitted');
 }</url>
     </webLinks>
     <webLinks>
@@ -2288,21 +2288,21 @@ flag = true;
 
 if('{!Tool_Kit__c.Apply_Status__c}'=='Approved'){
 if(flag){
-if ((Modal.confirm &amp;&amp; Modal.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？'))){
+if ((Modal.confirm &amp;&amp; Modal.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?')) || (!Modal.confirm &amp;&amp; window.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?'))){
 navigateToUrl('/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}');
 }
 }else{
 if(RTname.records.Name == 'Event'){
-alert("计划开始时间（以第一次填写的时间为准）7天内不可以申请撤销");
+alert("Scheduled start time (to fill in for the first time time date) within 7 days may not apply for revocation");
 }else{
-alert("计划开始时间（以第一次填写的时间为准）3天内不可以申请撤销");
+alert("Scheduled start time (to fill in for the first time time date) within 3 days may not apply for revocation");
 }
 }
 }else{
- alert('申请状态错误。');
+ alert('Application status error.');
 }
 }else{
- alert('你不是该记录的所有者，无法提交');
+ alert('You are not the owner of the record cannot be submitted');
 }</url>
     </webLinks>
     <webLinks>
@@ -2334,23 +2334,23 @@ flag = true;
 
 if(flag){
 if('{!Tool_Kit__c.Apply_Status__c}'=='Tool Kit Finished'&amp;&amp; ('{!Tool_Kit__c.Feedback_Status__c}'=='Planned' || '{!Tool_Kit__c.Feedback_Status__c}'=='Need Modify')){
-if ((Modal.confirm &amp;&amp; Modal.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('如果你提交这条申请记录，你将不可以修改或者取消这个申请，继续吗？'))){
+if ((Modal.confirm &amp;&amp; Modal.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?')) || (!Modal.confirm &amp;&amp; window.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?'))){
 navigateToUrl('/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}');
 }
 }else{
- alert('申请状态或反馈状态不正确。');
+ alert('Application status or incorrect feedback status.');
 }
 }else{
 if(RTname.records.Name == 'Event' &amp;&amp; ('{!Tool_Kit__c.Feedback_Comments__c}' == '' || '{!Tool_Kit__c.Actual_Start_Date__c}' == '' || '{!Tool_Kit__c.Actual_End_Date__c}' == '')){
-alert('请输入反馈备注，搭建时间，撤离时间。');
+alert('Please enter your feedback comments, set up time, withdrawal time.');
 }else if(RTname.records.Name == 'Media' &amp;&amp; '{!Tool_Kit__c.Feedback_Comments__c}' == ''){
-alert('请输入反馈备注。');
+alert('Please enter your feedback comments.');
 }else if(RTname.records.Name == 'smart Event' &amp;&amp; '{!Tool_Kit__c.Feedback_Comments__c}' == ''){
-alert('请输入反馈备注。');
+alert('Please enter your feedback comments.');
 }
 }
 }else{
- alert('你不是该记录的所有者，无法提交');
+ alert('You are not the owner of the record, cannot be submitted');
 }</url>
     </webLinks>
     <webLinks>
@@ -2366,9 +2366,9 @@ alert('请输入反馈备注。');
 {!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
 if('{!Tool_Kit__c.Apply_Status__c}'!='Approved') {
-alert("你不可以完成工具箱除非申请已批准。");
+alert("You should not complete the Toolbox unless the application has been approved.");
 }else{
-if ((Modal.confirm &amp;&amp; Modal.confirm('本条记录内工具制作完成，你将不可编辑这条数据，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('本条记录内工具制作完成，你将不可编辑这条数据，继续吗？'))) {
+if ((Modal.confirm &amp;&amp; Modal.confirm('Records produced under this section, you will be prohibited from editing the data, do you want to continue?')) || (!Modal.confirm &amp;&amp; window.confirm('Records produced under this section, you will be prohibited from editing the data, do you want to continue?'))) {
 
 var callList = new sforce.SObject("Tool_Kit__c"); 
 callList.Id = '{!Tool_Kit__c.Id}'; 
@@ -2398,12 +2398,12 @@ location.href = location.href;
 
 if('{!Tool_Kit__c.Apply_Status__c}'!='Approved') {
   if('{!Tool_Kit__c.Feedback_Status__c}'!='Planned') {
-    alert("反馈提交后不可以撤销重新编辑。");
+    alert("Feedback submitted cannot be withdrawn again after editing.");
   }else{
-    alert("你不可以编辑这条记录除非申请已批准。");
+    alert("You can not edit this record unless the application has been approved.");
   }
 }else{
-if ((Modal.confirm &amp;&amp; Modal.confirm('你将重新编辑这条数据，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('你将重新编辑这条数据，继续吗？'))) {
+if ((Modal.confirm &amp;&amp; Modal.confirm('You will have to edit this data, do you want to continue?')) || (!Modal.confirm &amp;&amp; window.confirm('You will have to edit this data, do you want to continue?'))) {
 
 var callList = new sforce.SObject("Tool_Kit__c"); 
 callList.Id = '{!Tool_Kit__c.Id}'; 
@@ -2433,9 +2433,9 @@ location.href = location.href;
 
 if('{!Tool_Kit__c.Unlock_Feedback_Check__c}' == '1'){
 if('{!Tool_Kit__c.Feedback_Status__c}'!='Approved') {
-alert("你不可以编辑这条记录除非反馈已批准。");
+alert("You can not edit this record unless the feedback has been approved.");
 }else{
-if ((Modal.confirm &amp;&amp; Modal.confirm('你将重新编辑这条数据，继续吗？')) || (!Modal.confirm &amp;&amp; window.confirm('你将重新编辑这条数据，继续吗？'))) {
+if ((Modal.confirm &amp;&amp; Modal.confirm('You will have to edit this data, do you want to continue?')) || (!Modal.confirm &amp;&amp; window.confirm('You will have to edit this data, do you want to continue?'))) {
 
 var callList = new sforce.SObject("Tool_Kit__c"); 
 callList.Id = '{!Tool_Kit__c.Id}'; 
@@ -2451,7 +2451,7 @@ location.href = location.href;
 }
 }
 }else{
-alert("反馈已不可编辑。"); 
+alert("Feedback has been unavailable for editing."); 
 }</url>
     </webLinks>
 </CustomObject>
