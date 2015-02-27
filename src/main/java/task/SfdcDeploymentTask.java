@@ -107,6 +107,8 @@ public class SfdcDeploymentTask
 
   public void addConfigured(SfdcTypeSet typeSet)
   {
+    typeSet.validateSettings();
+    
     typeSets.add(typeSet);
   }
 
@@ -150,7 +152,7 @@ public class SfdcDeploymentTask
     checksumHandler.initialize(logWrapper, username, checksums, true);
     transformationHandler.initialize(logWrapper, username, transformationsRoot, deployRoot);
     
-    sfdcHandler.initialize(this, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler);
+    sfdcHandler.initialize(this, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler, null);
     zipFileHandler.initialize(logWrapper, debug, transformationHandler);
     metadataHandler.initialize(logWrapper, deployRoot, debug, checksumHandler);
   }
@@ -158,9 +160,6 @@ public class SfdcDeploymentTask
   private void validate()
   {
     // TODO validate settings
-    for (SfdcTypeSet typeSet : typeSets) {
-      typeSet.validateSettings();
-    }
   }
   
 }

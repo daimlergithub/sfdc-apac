@@ -10,6 +10,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -99,7 +100,7 @@ public class MetadataHandler
     throw new BuildException(String.format("Could not find deployment unit for directory %s.", subDir));
   }
   
-  private DeploymentUnit findDeploymentUnitByName(List<DeploymentUnit> duList, String objectName)
+  private DeploymentUnit findDeploymentUnitByNameOrChild(List<DeploymentUnit> duList, String objectName)
   {
     for (DeploymentUnit du : duList) {
       if (du.getTypeName().equals(objectName) || du.isChild(objectName)) {
@@ -319,7 +320,6 @@ public class MetadataHandler
     
     Set<String> objects = collectObjectsFromTypeSets(typeSets);
     
-    // TODO review!!!
     for (Map.Entry<String, UpdateStampHandler.Action> entry : differences.entrySet()) {
       switch (entry.getValue()) {
         case DELETE:
@@ -341,10 +341,9 @@ public class MetadataHandler
     
     // delete files for objects to be considered only
     for (Map.Entry<String, List<String>> entry : metadata.entrySet()) {
-      String key = entry.getKey();
-      Set<String> entities = new HashSet<>(entry.getValue());
+      String entity = entry.getKey();
       
-      DeploymentUnit du = findDeploymentUnitByName(configurations, key);
+      DeploymentUnit du = findDeploymentUnitByNameOrChild(configurations, entity);
       if (objects.contains(du.getTypeName())) {
         File baseDir = new File(metadataRoot);
         
@@ -352,12 +351,13 @@ public class MetadataHandler
         
         Collections.reverse(files);
         
+        Set<String> entities = new HashSet<>(entry.getValue());
         for (File file : files) {
           String entityName = du.getEntityName(file);
           if (entities.contains(entityName)) {
             logWrapper.log(String.format("Delete file %s for entity %s.", file.getName(), entityName));
             if (!file.delete()) {
-              throw new BuildException(String.format("File %s of type %s could not be deleted.", file.getName(), key));
+              throw new BuildException(String.format("File %s of type %s could not be deleted.", file.getName(), entity));
             }
           }
         }
@@ -375,17 +375,17 @@ public class MetadataHandler
     return objects;
   }
 
+  /**
+   * @param metadata
+   * @param typeSets
+   * @param cleanupOther If set to <code>true</code>, all other metadata are cleaned up including other metadata types.
+   */
   public void removeNotcontainedMetadata(final Map<String, List<String>> metadata, final List<SfdcTypeSet> typeSets, final boolean cleanupOther)
   {
     // delete everything which was not retrieved
-    File baseDir = new File(metadataRoot);
-    
+    final Set<String> filesToKeep = new HashSet<>(Arrays.asList("package.xml", ".gitattributes"));
     final List<DeploymentUnit> configurations = new DeploymentConfiguration().getConfigurations();
-
     final Set<String> objects = collectObjectsFromTypeSets(typeSets);
-    
-    // TODO review!!!
-    
     
     // TODO remove
 //    for (String key : metadata.keySet()) {
@@ -393,6 +393,7 @@ public class MetadataHandler
 //    }
     
     // iterate over base directory and delete everything not in metadata
+    File baseDir = new File(metadataRoot);
     File[] dirs = baseDir.listFiles(new FileFilter() {
       
       @Override
@@ -400,35 +401,30 @@ public class MetadataHandler
       {
         if (pathname.isDirectory()) {
           DeploymentUnit du = findDeploymentUnitBySubDir(configurations, pathname.getName());
-          
-          // TODO remove
-//          if (null != du) {
-//            logWrapper.log(String.format("du: %s -> [%s]", du.getTypeName(), StringUtils.join(du.getChildNames(), ",")));
-//          } else {
-//            logWrapper.log(String.format("No du for path: %s", pathname.getName()));
-//          }
-          
-          if (null == du || ((cleanupOther || typeOrChildrenInObjects(objects, du)) && !typeOrChildrenInObjects(metadata.keySet(), du))) {
-            try {
-              logWrapper.log(String.format("Delete directory: %s.", pathname.getName()));
-              
-              FileUtils.deleteDirectory(pathname);
-            }
-            catch (IOException e) {
-              throw new BuildException(String.format("Error deleting directory: %s.", e.getMessage()), e);
-            }
+          if (null == du) {
+            // no deployment unit found for directory -> delete
+            deleteDirectory(pathname);
             
             return false;
+          } else if (!typeOrChildrenInObjects(metadata.keySet(), du)) {
+            // deployment unit was not part of the current retrieval job
+            if (cleanupOther || typeOrChildrenInObjects(objects, du)) {
+              // either cleanup all other directories or the directory was part of the current retrieval job
+              deleteDirectory(pathname);
+              
+              return false;
+            }
           }
+          // cleanup directory if it was part of the current retrieval job
           return typeOrChildrenInObjects(objects, du);
         } else if (pathname.isFile()) {
-          if (!"package.xml".equals(pathname.getName())) {
+          if (!filesToKeep.contains(pathname.getName())) {
             logWrapper.log(String.format("Delete file: %s.", pathname.getName()));
             
             pathname.delete();
           }
           return false;
-        } 
+        }
         return true;
       }
     });
@@ -460,6 +456,18 @@ public class MetadataHandler
     }
   }
 
+  private void deleteDirectory(File pathname)
+  {
+    try {
+      logWrapper.log(String.format("Delete directory: %s.", pathname.getName()));
+      
+      FileUtils.deleteDirectory(pathname);
+    }
+    catch (IOException e) {
+      throw new BuildException(String.format("Error deleting directory: %s.", e.getMessage()), e);
+    }
+  }
+  
   private Set<String> getEntitiesFromMetadata(final Map<String, List<String>> metadata, DeploymentUnit du)
   {
     Set<String> metas = new HashSet<>();

@@ -71,33 +71,38 @@ public abstract class BaseUpdateHandler<T>
     updateStamps = new HashMap<>();
 
     if (readUpdateStamps) {
-      try (FileReader fr = new FileReader(fileName); BufferedReader br = new BufferedReader(fr)) {
-        String line = null;
-        do {
-          line = br.readLine();
-          if (null != line) {
-            String[] tokens = line.split(":");
-            if (3 == tokens.length) {
-              String un = tokens[0];
-              if (StringUtils.equals(userName, un)) {
-                String type = URLDecoder.decode(tokens[1], "UTF-8");
-                T value = decodeValueToken(tokens[2]);
-
-                updateStamps.put(type, value);
+      File file = new File(fileName);
+      if (file.exists()) {
+        try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
+          String line = null;
+          do {
+            line = br.readLine();
+            if (null != line) {
+              String[] tokens = line.split(":");
+              if (3 == tokens.length) {
+                String un = tokens[0];
+                if (StringUtils.equals(userName, un)) {
+                  String type = URLDecoder.decode(tokens[1], "UTF-8");
+                  T value = decodeValueToken(tokens[2]);
+  
+                  updateStamps.put(type, value);
+                }
               }
             }
+  
           }
-
+          while (null != line);
+  
+          br.close();
         }
-        while (null != line);
-
-        br.close();
-      }
-      catch (IOException e) {
-        updateStamps.clear();
-
-        logWrapper.log(String.format("Error reading update stamps: %s. Continue without update timestamps.",
-                                     e.getMessage()));
+        catch (IOException e) {
+          updateStamps.clear();
+  
+          logWrapper.log(String.format("Error reading update stamps: %s. Continue without update timestamps.",
+                                       e.getMessage()));
+        }
+      } else {
+        logWrapper.log("Did not find update timestamps. Continue without update timestamps.");
       }
     }
   }

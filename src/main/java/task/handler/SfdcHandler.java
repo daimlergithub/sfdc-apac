@@ -23,6 +23,8 @@ import org.apache.tools.ant.Task;
 import org.apache.tools.ant.types.LogLevel;
 
 import task.handler.configuration.DeploymentUnit;
+import task.model.SfdcFeature;
+import task.model.SfdcFeature.FeatureName;
 import task.model.SfdcTypeSet;
 
 import com.sforce.soap.enterprise.EnterpriseConnection;
@@ -130,6 +132,7 @@ public class SfdcHandler
   private String proxyHost;
   private int proxyPort;
   private BaseUpdateHandler<?> updateHandler;
+  private Map<String, SfdcFeature> features;
 
   public SfdcHandler()
   {
@@ -148,7 +151,8 @@ public class SfdcHandler
                          boolean useProxy,
                          String proxyHost,
                          int proxyPort,
-                         BaseUpdateHandler<?> updateStampHandler)
+                         BaseUpdateHandler<?> updateStampHandler,
+                         Map<String, SfdcFeature> features)
   {
     this.task = task;
     this.maxPoll = maxPoll;
@@ -160,6 +164,7 @@ public class SfdcHandler
     this.proxyHost = proxyHost;
     this.proxyPort = proxyPort;
     this.updateHandler = updateStampHandler;
+    this.features = (null != features) ? features : new HashMap<String, SfdcFeature>();
 
     validate();
 
@@ -352,8 +357,6 @@ public class SfdcHandler
     Map<String, List<FileProperties>> filePropertiesMap = new HashMap<>();
     if (0 < object.getChildXmlNames().length && !noChildHandling.contains(name)) {
 
-      // TODO logWrapper.log(String.format("Children: %s", StringUtils.join(object.getChildXmlNames(), ", ")));
-
       ChunkedExecutor<String, Map<String, List<FileProperties>>, ConnectionException> childCE =
           new ChunkedExecutor<String, Map<String, List<FileProperties>>, ConnectionException>() {
 
@@ -367,8 +370,6 @@ public class SfdcHandler
                 query.setType(child);
                 queries.add(query);
               }
-
-              // TODO logWrapper.log(String.format("List: %s", StringUtils.join(chunk, ",")));
 
               FileProperties[] metadata =
                   mConnection.listMetadata(queries.toArray(new ListMetadataQuery[queries.size()]), VERSION);
@@ -416,8 +417,6 @@ public class SfdcHandler
                   elements.add(fileProperties.getFullName());
                 }
 
-                // TODO logWrapper.log(String.format("List: %s.[%s]", name, StringUtils.join(elements, ",")));
-
                 result.addAll(Arrays.asList(mConnection.listMetadata(queries.toArray(new ListMetadataQuery[queries.size()]),
                                                                      VERSION)));
 
@@ -436,10 +435,9 @@ public class SfdcHandler
         // regular metadata category
         ListMetadataQuery query = new ListMetadataQuery();
         query.setType(name);
+        List<FileProperties> list = Arrays.asList(mConnection.listMetadata(new ListMetadataQuery[]{ query }, VERSION));
 
-        // TODO logWrapper.log(String.format("List: %s", name));
-
-        filePropertiesMap.put(name, Arrays.asList(mConnection.listMetadata(new ListMetadataQuery[]{ query }, VERSION)));
+        filePropertiesMap.put(name, list);
       }
     }
     return filePropertiesMap;
@@ -532,7 +530,7 @@ public class SfdcHandler
     for (SfdcTypeSet typeSet : typeSets) {
       objects.put(typeSet.getName(), typeSet);
     }
-    
+
     try {
       SfdcConnectionContext context = login();
 
@@ -544,13 +542,28 @@ public class SfdcHandler
         }
 
         Map<String, List<FileProperties>> filePropertiesMap = listMetadata(context.getMConnection(), object);
-        
-        // TODO filter according to typeSets
+
         for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
           Map<String, Long> entryMap = new HashMap<>();
           for (FileProperties properties : entry.getValue()) {
             entryMap.put(properties.getFullName(), properties.getLastModifiedDate().getTimeInMillis());
           }
+
+          // workaround for CustomObject PersonAccount
+          if (features.containsKey(FeatureName.INLCUDE_PERSONACCOUNT.name())) {
+            if ("CustomObject".equals(entry.getKey()) && !entryMap.containsKey("PersonAccount")) {
+              entryMap.put("PersonAccount", 0L);
+            }
+          }
+          // exclude Checksums from being retrieved
+          SfdcFeature feature = features.get(FeatureName.EXCLUDE_CHECKSUMS.name());
+          if (null != feature) {
+            if ("StaticResource".equals(entry.getKey()) && entryMap.containsKey(feature.getParam())) {
+              
+              entryMap.remove(feature.getParam());
+            }
+          }
+
           result.put(entry.getKey(), entryMap);
         }
       }
@@ -567,8 +580,7 @@ public class SfdcHandler
     try {
       SfdcConnectionContext context = login();
 
-      ReadResult readResult =
-          context.getMConnection().readMetadata("StaticResource", new String[]{ sfdcName });
+      ReadResult readResult = context.getMConnection().readMetadata("StaticResource", new String[]{ sfdcName });
 
       Metadata[] mdInfo = readResult.getRecords();
 
@@ -627,7 +639,8 @@ public class SfdcHandler
         if (ur.isSuccess()) {
           if (ur.isCreated()) {
             task.log("Inserted checksums in SFDC.");
-          } else {
+          }
+          else {
             task.log("Updated checksums in SFDC.");
           }
         }

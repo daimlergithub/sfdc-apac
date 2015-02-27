@@ -9,6 +9,7 @@
    <taskdef name="retrieveUpdatestamps" classname="task.SfdcRetrieveUpdatestampsTask"/>
    <taskdef name="triggerUpdatestampsRefresh" classname="task.SfdcTriggerUpdatestampsRefreshTask"/>
    <typedef name="typesets" classname="task.model.SfdcTypeSets"/>
+   <typedef name="feature" classname="task.model.SfdcFeature"/>
    
    <taskdef name="retrieveChecksums" classname="task.SfdcRetrieveChecksumsTask"/>
    <taskdef name="deployChecksums" classname="task.SfdcDeployChecksumsTask"/>
