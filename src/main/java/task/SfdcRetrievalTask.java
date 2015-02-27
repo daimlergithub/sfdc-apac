@@ -3,10 +3,9 @@ package task;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
@@ -18,6 +17,8 @@ import task.handler.SfdcHandler;
 import task.handler.TransformationHandler;
 import task.handler.UpdateStampHandler;
 import task.handler.ZipFileHandler;
+import task.model.SfdcFeature;
+import task.model.SfdcFeature.FeatureName;
 import task.model.SfdcTypeSet;
 import task.model.SfdcTypeSets;
 
@@ -45,6 +46,7 @@ public class SfdcRetrievalTask
   private boolean full;
   private boolean cleanupOther;
   private String transformationsRoot;
+  private Map<String, SfdcFeature> features;
 
   private UpdateStampHandler updateStampHandler;
   private SfdcHandler sfdcHandler;
@@ -111,7 +113,7 @@ public class SfdcRetrievalTask
   {
     this.full = full;
   }
-  
+
   public void setCleanupOther(boolean cleanupOther)
   {
     this.cleanupOther = cleanupOther;
@@ -121,72 +123,74 @@ public class SfdcRetrievalTask
   {
     this.transformationsRoot = transformationsRoot;
   }
-  
+
   public void addConfigured(SfdcTypeSets typeSetNames)
   {
-    String names = typeSetNames.getNames();
+    typeSetNames.validateSettings();
     
-    if (StringUtils.isNotEmpty(names)) {
-      String[] tokens = names.split(",");
-      for (String token : tokens) {
-        String trimmed = StringUtils.trimToEmpty(token);
-        if (StringUtils.isNotEmpty(trimmed)) {
-          SfdcTypeSet typeSet = new SfdcTypeSet();
-          typeSet.setName(trimmed);
-          
-          typeSets.add(typeSet);
-        }
+    String names = typeSetNames.getNames();
+    String[] tokens = names.split(",");
+    for (String token : tokens) {
+      String trimmed = StringUtils.trimToEmpty(token);
+      if (StringUtils.isNotEmpty(trimmed)) {
+        SfdcTypeSet typeSet = new SfdcTypeSet();
+        typeSet.setName(trimmed);
+
+        typeSets.add(typeSet);
       }
-    } else {
-      throw new BuildException("The names of type sets must be set.");
     }
   }
-  
-  public void addConfigured(SfdcTypeSet typeSet)
+
+  public void addConfigured(SfdcFeature feature)
   {
-    typeSets.add(typeSet);
+    feature.validateSettings();
+
+    features.put(feature.getFeature().name(), feature);
   }
-  
+
   @Override
   public void init()
   {
     super.init();
-    
+
     typeSets = new ArrayList<>();
     updateStampHandler = new UpdateStampHandler();
     sfdcHandler = new SfdcHandler();
     metadataHandler = new MetadataHandler();
     zipFileHandler = new ZipFileHandler();
     transformationHandler = new TransformationHandler();
-    
+    features = new HashMap<>();
+
     cleanupOther = true;
   }
-  
+
   @Override
   public void execute()
   {
     validate();
     initialize();
-    
+
     Map<String, Map<String, Long>> metadataUpdatestamps = sfdcHandler.getUpdateStamps(typeSets);
-    
+
     Map<String, List<String>> metadata2Update = null;
     if (full) {
       metadata2Update = updateStampHandler.buildEntityList(metadataUpdatestamps);
-    } else {
-      Map<String, UpdateStampHandler.Action> differences = updateStampHandler.calculateDifferences(metadataUpdatestamps);
-  
+    }
+    else {
+      Map<String, UpdateStampHandler.Action> differences =
+          updateStampHandler.calculateDifferences(metadataUpdatestamps);
+
       metadata2Update = metadataHandler.collectMetadataToUpdate(differences);
       metadataHandler.removeMetadataToDelete(typeSets, differences);
       metadataHandler.createDestructivePackageXml(differences);
     }
-    
+
     byte[] packageXml = metadataHandler.createPackageXml(metadata2Update);
     metadataHandler.savePackageXml(packageXml);
     ByteArrayOutputStream zipFile = sfdcHandler.retrieveMetadata(metadata2Update);
     zipFileHandler.saveZipFile("retrieve", zipFile);
     zipFileHandler.extractZipFile(retrieveRoot, zipFile);
-    
+
     if (full) {
       metadataHandler.removeNotcontainedMetadata(metadata2Update, typeSets, cleanupOther);
     }
@@ -199,8 +203,18 @@ public class SfdcRetrievalTask
 
     updateStampHandler.initialize(logWrapper, username, timestamps, !full);
     transformationHandler.initialize(logWrapper, username, transformationsRoot, retrieveRoot);
-    
-    sfdcHandler.initialize(this, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
+
+    sfdcHandler.initialize(this,
+                           maxPoll,
+                           dryRun,
+                           serverurl,
+                           username,
+                           password,
+                           useProxy,
+                           proxyHost,
+                           proxyPort,
+                           updateStampHandler,
+                           features);
     metadataHandler.initialize(logWrapper, retrieveRoot, debug, updateStampHandler);
     zipFileHandler.initialize(logWrapper, debug, transformationHandler);
   }
@@ -215,12 +229,9 @@ public class SfdcRetrievalTask
       throw new BuildException("The property timestamps must be specified.");
     }
     if (!full && !new File(timestamps).exists()) {
-      throw new BuildException(String.format("The file %s does not exist. Please deploy first or use the target 'retrieveAll'.", timestamps));
-    }
-    
-    for (SfdcTypeSet typeSet : typeSets) {
-      typeSet.validateSettings();
+      throw new BuildException(String.format("The file %s does not exist. Please deploy first or use the target 'retrieveAll'.",
+                                             timestamps));
     }
   }
-  
+
 }

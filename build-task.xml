@@ -18,7 +18,7 @@
     			<pathelement location="lib-task/commons-lang3-3.3.2.jar"/>
     			<pathelement location="lib/enterprise-api.jar"/>
     			<pathelement location="lib/metadata-api.jar"/>
-    			<pathelement location="lib/deployment-util.jar"/>
+    			<!--pathelement location="lib/deployment-util.jar"/-->
     			<pathelement location="lib/dataloader-30.0.0-uber.jar"/>
     			<pathelement location="lib-task/force-wsc-33.0.0-uber.jar"/>
     			<pathelement location="lib-task/commons-codec-1.10.jar"/>
@@ -49,13 +49,13 @@
 			<arg value="src\main\wsdl\enterprise-api.wsdl"/>
 			<arg value="lib\enterprise-api.jar"/>
 		</java>
-		<java classname="com.sforce.ws.tools.wsdlc">
+		<!--java classname="com.sforce.ws.tools.wsdlc">
 			<classpath>
 				<pathelement location="lib-task\force-wsc-33.0.0-uber.jar"/>
 			</classpath>
 			<arg value="src\main\wsdl\deployment-util.wsdl"/>
 			<arg value="lib\deployment-util.jar"/>
-		</java>
+		</java-->
 	</target>
 	
 </project>

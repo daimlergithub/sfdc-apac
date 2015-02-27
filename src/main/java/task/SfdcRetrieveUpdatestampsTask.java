@@ -1,6 +1,7 @@
 package task;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +12,7 @@ import org.apache.tools.ant.taskdefs.Taskdef;
 import task.handler.LogWrapper;
 import task.handler.SfdcHandler;
 import task.handler.UpdateStampHandler;
+import task.model.SfdcFeature;
 import task.model.SfdcTypeSet;
 import task.model.SfdcTypeSets;
 
@@ -120,7 +122,7 @@ public class SfdcRetrieveUpdatestampsTask
 
     updateStampHandler.initialize(logWrapper, username, timestamps, false);
     
-    sfdcHandler.initialize(this, 0, false, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler);
+    sfdcHandler.initialize(this, 0, false, serverurl, username, password, useProxy, proxyHost, proxyPort, updateStampHandler, null);
   }
 
   private void validate()

@@ -1,5 +1,6 @@
 package task;
 
+import java.util.HashSet;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -9,6 +10,7 @@ import org.apache.tools.ant.taskdefs.Taskdef;
 import task.handler.ChecksumHandler;
 import task.handler.LogWrapper;
 import task.handler.SfdcHandler;
+import task.model.SfdcFeature;
 
 /**
  * SfdcRetrieveChecksumsTask
@@ -103,7 +105,7 @@ public class SfdcRetrieveChecksumsTask
 
     checksumHandler.initialize(logWrapper, username, checksums, true);
     
-    sfdcHandler.initialize(this, maxPoll, false, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler);
+    sfdcHandler.initialize(this, maxPoll, false, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler, null);
   }
 
   private void validate()
