@@ -11539,7 +11539,7 @@ Modify Reason:
         <fullName>Priority</fullName>
         <picklist>
             <picklistValues>
-                <fullName>Green-less than twice</fullName>
+                <fullName>Green-less than 2</fullName>
                 <default>true</default>
             </picklistValues>
             <picklistValues>
@@ -11547,7 +11547,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Red-more than 4 times</fullName>
+                <fullName>Red-more than 4</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -66013,7 +66013,7 @@ window.parent.navigateToUrl(&quot;/500/e?def_account_id={!Account.Id}&amp;CF00N9
 
 } 
 else { 
-window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;CF00N90000006ZqJE={!Vehicle__c.Name}&amp;CF00N90000006ZqJE_lkid={!Vehicle__c.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;&quot;, &quot;width = 1000,height = 800&quot;); 
+window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;CF00N90000006ZqJE={!Vehicle__c.Name}&amp;CF00N90000006ZqJE_lkid={!Vehicle__c.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;width = 1000,height = 800&quot;); 
 } 
 
 } 
@@ -66227,7 +66227,7 @@ window.parent.navigateToUrl(&quot;/500/e?def_account_id={!Account.Id}&amp;CF00N9
 
 }
 else {
-window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;CF00N90000006ZqJE={!Vehicle__c.Name}&amp;CF00N90000006ZqJE_lkid={!Vehicle__c.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;&quot;, &quot;width = 1000,height = 800&quot;);
+window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;CF00N90000006ZqJE={!Vehicle__c.Name}&amp;CF00N90000006ZqJE_lkid={!Vehicle__c.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;width = 1000,height = 800&quot;);
 }
 
 }
