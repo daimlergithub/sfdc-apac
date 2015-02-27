@@ -198,10 +198,10 @@
 				<sf:exclude name="Service_Cloud_Console_SSI"/>
 			</sf:typeset>
 			<sf:typeset name="permissionsets"/>			
-			<sf:typeset name="profiles">
-			<!-- TODO FALK these do not deploy on Oliver's org -->
-				<sf:exclude name="CAC IB CSR"/>
-			</sf:typeset>
+			<sf:typeset name="profiles"/>
+			<!-- TODO FALK these do not deploy on Oliver's org 
+				<sf:include name="CAC IB CSR"/>
+			</sf:typeset>-->
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>
