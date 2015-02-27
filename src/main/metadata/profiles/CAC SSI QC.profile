@@ -10693,23 +10693,23 @@
         <layout>Contact-Contact Master Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-aftermarket class</layout>
+        <layout>ContentVersion-Aftermarket class</layout>
         <recordType>ContentVersion.RecordType3</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-marketing</layout>
+        <layout>ContentVersion-Category marketing</layout>
         <recordType>ContentVersion.RecordType2</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-advertising Kit</layout>
+        <layout>ContentVersion-Advertising Kit</layout>
         <recordType>ContentVersion.RecordType1</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-activity Kit</layout>
+        <layout>ContentVersion-Active Toolbox</layout>
         <recordType>ContentVersion.RecordType</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>ContentVersion-sales</layout>
+        <layout>ContentVersion-Sales</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>DM_Material__c-DM Layout</layout>
