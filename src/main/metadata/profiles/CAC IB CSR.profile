@@ -90,12 +90,10 @@
 	<!-- TODO Temporarily making the standard console app as default later it will be changed to Service_Cloud_Console_IB app -->
     <applicationVisibilities>
         <application>standard__ServiceConsole</application>
-
-
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
-    <classAccesses>
+	<classAccesses>
         <apexClass>AccountHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2016,12 +2014,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.SicDesc</field>
-
-
-
-
-
-
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4201,11 +4193,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-
-
-
-
-
         <field>Case.Registration_Number__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9056,11 +9043,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-
-
-
-
-
         <field>TSP_Subscription__c.End_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9300,11 +9282,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-
-
-
-
-
         <editable>true</editable>
         <field>Task.Last_OB_Call__c</field>
         <readable>true</readable>
@@ -10556,10 +10533,6 @@
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-MBDA Layout-Admin</layout>
-        <recordType>Account.MBDA</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -10951,10 +10924,6 @@
         <recordType>Task.SSI_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
-
-
-
-
         <layout>Task-Social Media</layout>
         <recordType>Task.Social_Media</recordType>
     </layoutAssignments>
@@ -11327,7 +11296,6 @@
         <object>SR_History__c</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
-
     <objectPermissions>
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
@@ -11656,7 +11624,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-
         <recordType>Account.MBDA</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
