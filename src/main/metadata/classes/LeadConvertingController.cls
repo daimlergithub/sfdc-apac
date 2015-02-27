@@ -107,7 +107,7 @@ public class LeadConvertingController {
                         if(UserInfo.getLanguage() == 'English') {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Lead Type'));
                         } else {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, '对不起, 请输入必填字段: 销售线索类型'));
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: sales Lead type'));
                         }
                         return null;
                     }
@@ -115,7 +115,7 @@ public class LeadConvertingController {
                         if(UserInfo.getLanguage() == 'English') {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Lead Sub Type'));
                         } else {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, '对不起, 请输入必填字段: 销售线索子类型'));
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: sales leads a subtype'));
                         }
                         return null;
                     }
@@ -123,7 +123,7 @@ public class LeadConvertingController {
                         if(UserInfo.getLanguage() == 'English') {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Lead Additional Service'));
                         } else {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, '对不起, 请输入必填字段: 销售线索附加服务'));
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: sales leads service'));
                         }
                         return null;
                     }
@@ -131,7 +131,7 @@ public class LeadConvertingController {
                         if(UserInfo.getLanguage() == 'English') {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Collectioner Notes'));
                         } else {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, '对不起, 请输入必填字段: 收集人备注'));
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: collectors notes'));
                         }
                         return null;
                     }
@@ -140,7 +140,7 @@ public class LeadConvertingController {
                         if(UserInfo.getLanguage() == 'English') {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Lead Desired Service'));
                         } else {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, '对不起, 请输入必填字段: 需要服务'));
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: Lead Desired Service'));
                         }
                         return null;
                     }
@@ -148,7 +148,7 @@ public class LeadConvertingController {
                         if(UserInfo.getLanguage() == 'English') {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Purchase Time'));
                         } else {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, '对不起, 请输入必填字段: 购买时间'));
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: Purchase Time'));
                         }
                         return null;
                     }
@@ -156,7 +156,7 @@ public class LeadConvertingController {
                         if(UserInfo.getLanguage() == 'English') {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Lead Type'));
                         } else {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, '对不起, 请输入必填字段: 销售线索类型'));
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: sales lead type'));
                         }
                         return null;
                     }
@@ -203,7 +203,7 @@ public class LeadConvertingController {
                 if(UserInfo.getLanguage() == 'English') {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'No records choosed.'));
                 } else {
-                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, '没有选择任何记录.'));
+                            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Did not select any records.'));
                         }
                 return null;
             }

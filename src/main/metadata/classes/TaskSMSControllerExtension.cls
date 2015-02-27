@@ -99,12 +99,12 @@ public class TaskSMSControllerExtension
             msg = msg.replace('{CONTACT_NAME}', contact.Name);
         }
         // merge contact salutation
-        String cnSalutation = '阁下';
+        String cnSalutation = 'His Excellency';
         if(customer != null){
             if(customer.Gender__c == 'Male'){
-                cnSalutation = '先生';
+                cnSalutation = 'Mr';
             }else if(customer.Gender__c == 'Female'){
-                cnSalutation = '女士';
+                cnSalutation = 'Ms';
             }
         }
         msg = msg.replace('{CONTACT_SALUTATION}', cnSalutation);

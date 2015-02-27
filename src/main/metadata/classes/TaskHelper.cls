@@ -60,13 +60,13 @@ public class TaskHelper {
         
         String salutation;
         if(contact.Account.Gender__c == 'Male'){
-            salutation = '先生';
+            salutation = 'MR';
         }
         else if(contact.Account.Gender__c == 'Female'){
-            salutation = '女士';
+            salutation = 'Ms';
         }
         else{
-            salutation = '阁下';
+            salutation = 'His Excellency';
         }
         content = content.replace(salutationMergeField, salutation);
         
@@ -310,9 +310,8 @@ public class TaskHelper {
         Profile CACSSISV = [select Id from Profile where Name = 'CAC SSI SV'];
         Id SSITaskRTId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
         List<Task> taskSSI = [SELECT ownerId FROM Task WHERE ownerId in :userIds AND RecordTypeId= :SSITaskRTId];
-        Id SMARTSSITaskRTId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('smart SSI Task').getRecordTypeId();
-        List<Task> taskSmartSSI = [SELECT ownerId FROM Task WHERE ownerId in :userIds AND RecordTypeId= :SMARTSSITaskRTId];
-        if(taskSSI.size() > 0){
+
+         if(taskSSI.size() > 0){
             User ssiSvUser = [Select id From User Where ProfileId = :CACSSISV.id and IsActive = true limit 1];
             for(Task tk : taskSSI){
                 tk.ownerId = ssiSvUser.id;
@@ -325,19 +324,6 @@ public class TaskHelper {
                     System.debug('DMLException Exception: ' + e);
                 }
        }
-       if(taskSmartSSI.size() > 0){
-            User ssiSvUser = [Select id From User Where ProfileId = :CACSSISV.id and IsActive = true limit 1];
-            for(Task tk : taskSmartSSI){
-                tk.ownerId = ssiSvUser.id;
-            }
-            try {
-                    update taskSmartSSI;
-                }
-                catch (DMLException e) {
-                    trigger.new[0].addError(e.getDMLMessage(0));
-                    System.debug('DMLException Exception: ' + e);
-                }
-       }
     }
-    // By Shuang Li BRD-AS-CAC-007---- end
+ // By Shuang Li BRD-AS-CAC-007---- end
 }

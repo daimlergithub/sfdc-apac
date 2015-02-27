@@ -118,7 +118,7 @@ trigger TriggerParticipatingDealer on Participating_Dealer__c (after insert, aft
                     share.UserOrGroupId = u.id;
                     cpnShares.add(share);
                     taskList.add(new Task(
-                        Subject= '您有新的联合市场活动可以参加.', 
+                        Subject= 'You have new joint marketing activities to participate in.', 
                         RecordTypeId = RecordTypeMap.get('General Task').getRecordTypeId(),
                         OwnerId = u.id,
                         Status = 'open',

@@ -68,7 +68,7 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-	<relatedLists>
+    <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
         <fields>Campaign_Code__c</fields>
         <fields>CAMPAIGN.STATUS</fields>
@@ -115,12 +115,14 @@
         <fields>CORE.USERS.FULL_NAME</fields>
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
+	<!-- TODO Sukumar: Commented as the changes are not recognised by Metadata API
     <relatedLists>
-        <!--<fields>VERSION.TITLE</fields>
+        <fields>VERSION.TITLE</fields>
         <fields>VERSION.CREATED_DATE</fields>
-        <fields>VERSION.LAST_UPDATE</fields>-->
+        <fields>VERSION.LAST_UPDATE</fields>
         <relatedList>ContentDocumentRelatedList</relatedList>
     </relatedLists>
+	-->
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>SMS_Code__c.Template__c</relatedList>

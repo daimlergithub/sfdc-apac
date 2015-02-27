@@ -230,13 +230,13 @@ private class SSIDataCleanTest {
         SSI__c rule5failuer1 = rule4pass.clone();
         rests.add(rule5failuer1);
         SSI__c rule5failuer2 = rule4pass.clone();
-        rule5failuer2.CustomerName__c = '国家安全国家安全令部';
+        rule5failuer2.CustomerName__c = 'Ministry of National Security';
         rule5failuer2.VehicleUSvin__c = 'rule5pass2-VIN';
         rule5failuer2.OfficePhone__c = '13911955112';
         rule5failuer2.HomeMobilePhone__c = '13911955113';
         rests.add(rule5failuer2);
         SSI__c rule5pass = rule4pass.clone();
-        rule5pass.CustomerName__c = '测试客户';
+        rule5pass.CustomerName__c = 'Test customer';
         rule5pass.OriginalCustomerName__c = 'Test-Customer';
         rule5pass.Original_HomeMobilePhone__c = '13044111111';
         rule5pass.OriginalOfficePhone__c = '13044111112';
@@ -252,17 +252,17 @@ private class SSIDataCleanTest {
         rule6failuer1.OriginalCustomerName__c = 'Test-Customer1';
         rule6failuer1.Original_HomeMobilePhone__c = '13011111113';
         rule6failuer1.OriginalOfficePhone__c = '13011111114';
-        rule6failuer1.CustomerName__c = '测试公司1';
+        rule6failuer1.CustomerName__c = 'Test company1';
         rule6failuer1.VehicleUSvin__c = 'rule6pass1-VIN';
         rests.add(rule6failuer1);
         SSI__c rule6failuer2 = rule6failuer1.clone();
-        rule6failuer2.CompanyName__c = '之星奔驰奔驰';
+        rule6failuer2.CompanyName__c = 'Star of Mercedes-Benz';
         rests.add(rule6failuer2);
         SSI__c rule6failuer3 = rule6failuer1.clone();
-        rule6failuer3.CustomerName__c = '通和奔驰奔驰';
+        rule6failuer3.CustomerName__c = 'Tong and Mercedes-Benz';
         rests.add(rule6failuer3);
         SSI__c rule6pass = rule5pass.clone();
-        rule6pass.CompanyName__c = '测试公司';
+        rule6pass.CompanyName__c = 'Test company';
         rule6pass.VehicleUSvin__c = 'rule6pass-VIN';
         rests.add(rule6pass);
         

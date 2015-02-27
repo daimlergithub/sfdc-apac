@@ -166,7 +166,7 @@ public with sharing class MassApproveToolKitController {
         options.add(new SelectOption('', Label.Select_Option_None));
         Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Dealer_Region__c;
         for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-            options.add(new SelectOption(entry.getValue(), (UserInfo.getLanguage() == 'en_US' ? entry.getLabel() : (((entry.getLabel().replace('North', '北')).replace('South','南')).replace('West', '西')).replace('East', '东'))));
+            options.add(new SelectOption(entry.getValue(), (UserInfo.getLanguage() == 'en_US' ? entry.getLabel() : (((entry.getLabel().replace('North', 'North')).replace('South','South')).replace('West', 'Western')).replace('East', 'East'))));
         }
         return options;
     }
@@ -176,7 +176,7 @@ public with sharing class MassApproveToolKitController {
         options.add(new SelectOption('', Label.Select_Option_None));
         Schema.DescribeFieldResult fieldResult = Schema.SObjectType.Account.fields.Dealer_MB_Sub_Region__c;
         for(Schema.PicklistEntry entry : fieldResult.getPicklistValues()){
-            options.add(new SelectOption(entry.getValue(), (UserInfo.getLanguage() == 'en_US' ? entry.getLabel() : ((((entry.getLabel().replace('North', '北方')).replace('South','南方')).replace('West', '西方')).replace('East', '东方').replace('EAST', '东方')))));
+            options.add(new SelectOption(entry.getValue(), (UserInfo.getLanguage() == 'en_US' ? entry.getLabel() : ((((entry.getLabel().replace('North', 'NorthSide')).replace('South','SouthSide')).replace('West', 'WesternSide')).replace('East', 'EastSide').replace('EAST', 'EastSide')))));
         }
         return options;
     }

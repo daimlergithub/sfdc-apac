@@ -61,7 +61,7 @@ trigger CaseBeforeInsertUpdate on Case (before insert, before update) {
                 for (String e : eAddresses) {
                     if (e.trim() != '') {
                         if (!pattern.matches('[_a-zA-Z\\d\\-\\./]+@[_a-zA-Z\\d\\-]+(\\.[_a-zA-Z\\d\\-]+)+',e.trim())) {
-                            caseNew.addError('其他邮箱地址格式有误,而且一行只能填写一个邮箱地址.');
+                            caseNew.addError('Other email address format is incorrect, and one can only fill in the email address.');
                             break;
                         } else {
                             email = email + e.trim() + '\n';
@@ -446,7 +446,7 @@ trigger CaseBeforeInsertUpdate on Case (before insert, before update) {
             // Add Start - Release 1.3 - Added by Cyril
             if (caseNew.CheckFlag_48H__c && !caseOld.CheckFlag_48H__c && caseNew.Customer_Care_Owner__c != null) {
                 taskListOf48H.add(new Task(
-                    Subject= '个案' + caseNew.CaseNumber + (caseNew.Dealer_Contact__c == 'Yes' ? '已过48小时，请检查经销商是否给出FP' : '已过48小时，请检查经销商/区域/中心是否给出FP'),
+                    Subject= 'Case' + caseNew.CaseNumber + (caseNew.Dealer_Contact__c == 'Yes' ? 'After 48 hours, please check whether the dealer is given FP' : 'After 48 hours, please check whether the Distributor/area/Center gives FP'),
                     RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId(),
                     OwnerId = caseNew.Customer_Care_Owner__c,
                     Status = 'Open',
@@ -459,7 +459,7 @@ trigger CaseBeforeInsertUpdate on Case (before insert, before update) {
             }
             if (caseNew.CheckFlag_72H__c && !caseOld.CheckFlag_72H__c && caseNew.Customer_Care_Owner__c != null) {
                 taskListOf72H.add(new Task(
-                    Subject= '个案' + caseNew.CaseNumber + (caseNew.Dealer_Contact__c == 'Yes' ? '已过72小时，请检查经销商是否给出FP' : '已过72小时，请检查经销商/区域/中心是否给出FP，并在24小时内给终端客户回复'),
+                    Subject= 'Case' + caseNew.CaseNumber + (caseNew.Dealer_Contact__c == 'Yes' ? 'After 72 hours, please check whether the dealer gives FP' : 'After 72 hours, please check whether the Distributor/area/Center FP is given, and in reply to end customers within 24 hours'),
                     RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId(),
                     OwnerId = caseNew.Customer_Care_Owner__c,
                     Status = 'Open',

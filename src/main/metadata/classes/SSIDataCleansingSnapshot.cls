@@ -32,9 +32,9 @@ public class SSIDataCleansingSnapshot{
             if (ssi.InvoiceDate__c == null){
                 continue;
             }
-            //新增经销商指的是系统自动验证没有通过（DealerCheckStatus＝Padding），但用户手动Accept的数据
+           
             calculateWeeklyNewDealer(ssi, resultMap);
-            //新增车型指的是系统自动验证没有通过（CarModelCheckStatus=Padding），但用户手动Accept的数据
+           
             calculateWeeklyNewCarModel(ssi, resultMap);
             calculateWeeklyInvalidTotal(ssi, resultMap);
             calculateWeeklyComparision(ssi, resultMap);
@@ -78,7 +78,7 @@ public class SSIDataCleansingSnapshot{
     }
 
     private static void calculateWeeklyInvalidTotal(SSI__c ssi, Map<String, SSI_Cleansing_Result__c> resultMap) {
-        // 此处直接处理Data Quality验证没通过部分，非访经销商和车型不符部分由用户手动Reject后才进行计算
+        
         if(ssi.Status__c == 'Invalid'){
             String key = getKey(WEEKLYINVALIDTOTAL, ssi, ssi.InvoiceDate__c.toStartOfWeek());
             SSI_Cleansing_Result__c cr = getResult(resultMap, key);

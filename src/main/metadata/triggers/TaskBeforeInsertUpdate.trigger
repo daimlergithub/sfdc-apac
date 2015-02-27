@@ -58,21 +58,21 @@ trigger TaskBeforeInsertUpdate on Task (before update, before insert){
                 contactIds.add(t.WhoId);
                 templateIds.add(t.SMSTemplateID__c);
             }
-            if(t.Subject == '您的年度计划已审批通过' || 
-            t.Subject == '您的年度计划需要调整后重新提交' || 
-            t.Subject == '您的活动计划已审批通过' || 
-            t.Subject == '您的活动计划需要调整后重新提交' || 
-            t.Subject == '您的活动撤销申请已审批通过' || 
-            t.Subject == '您的活动撤销申请已驳回' || 
-            t.Subject == '您的活动反馈已审批通过' || 
-            t.Subject == '您的活动反馈需要调整后重新提交' || 
-            t.Subject == '您的工具箱申请已审批通过' || 
-            t.Subject == '您的工具箱申请需要调整后重新提交' || 
-            t.Subject == '您的工具箱撤销申请已审批通过' || 
-            t.Subject == '您的工具箱撤销申请已驳回' || 
-            t.Subject == '您的工具箱反馈已审批通过' || 
-            t.Subject == '您的工具箱反馈需要调整后重新提交' || 
-            t.Subject == '工具箱已制作完成' ){
+            if(t.Subject == 'Your annual plan has been approved' || 
+            t.Subject == 'Submit your annual plan needs to be adjusted to' || 
+            t.Subject == 'Your project has been approved' || 
+            t.Subject == 'After adjusting your project needs to resubmit' || 
+            t.Subject == 'Withdraw your application as it has been approved by activity' || 
+            t.Subject == 'Withdraw your application as it has been rejected by activity' || 
+            t.Subject == 'Your feedback has been approved' || 
+            t.Subject == 'Your feedback needs to be adjusted to resubmit' || 
+            t.Subject == 'Your Toolbox application has been approved' || 
+            t.Subject == 'Your Toolbox applications need to be adjusted to resubmit' || 
+            t.Subject == 'Your Toolbox revocation request has been approved' || 
+            t.Subject == 'Your Toolbox revocation request has been rejected' || 
+            t.Subject == 'Your Toolbox feedback has been approved' || 
+            t.Subject == 'You need to adjust Toolbox feedback to resubmit' || 
+            t.Subject == 'Toolbox has been produced' ){
                 t.RecordTypeId = GeneralTaskRecordTypeId;
             }
             // Add By Chaos for MBDA START
@@ -161,14 +161,14 @@ trigger TaskBeforeInsertUpdate on Task (before update, before insert){
         TaskHelper.GenerateSSIQCs(taskforGenerateSSIQC);
     }
 
-    // By Justin ---- Adds "回复TD退订" for each SMS content
+    // By Justin ---- Adds "Reply TD unsubscribe" for each SMS content
     for(Task task : Trigger.new){
         if(!Trigger.isUpdate || trigger.oldMap.get(task.Id).Activity_Status__c != 'Sent'){
             if(task.Subject == 'SMS' 
             && task.Activity_Status__c == 'Sent' 
             && !String.isBlank(task.SMS_Content__c) 
-            && task.SMS_Content__c.indexOf('回复TD退订') == -1){
-                task.SMS_Content__c = task.SMS_Content__c + ' 回复TD退订';
+            && task.SMS_Content__c.indexOf('Reply TD unsubscribe') == -1){
+                task.SMS_Content__c = task.SMS_Content__c + ' Reply TD unsubscribe';
             }
         }
         

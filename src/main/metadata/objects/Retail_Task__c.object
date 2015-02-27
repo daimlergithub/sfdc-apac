@@ -665,15 +665,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>新车/二手车销售</fullName>
+                <fullName>New car/used car sales</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>无</fullName>
+                <fullName>Free</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>二手车采购</fullName>
+                <fullName>Used car purchase</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1038,7 +1038,7 @@
         <columns>OWNER.LAST_NAME</columns>
         <columns>Related_Contact__c</columns>
         <filterScope>Everything</filterScope>
-        <label>全部</label>
+        <label>All</label>
         <language>en_US</language>
     </listViews>
     <listViews>
@@ -1471,15 +1471,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>二手车采购</fullName>
+                <fullName>Used car purchase</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>新车%2F二手车销售</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>无</fullName>
+                <fullName>Free</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2032,15 +2028,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>二手车采购</fullName>
+                <fullName>Used car purchase</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>新车%2F二手车销售</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>无</fullName>
+                <fullName>Free</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2593,15 +2585,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>二手车采购</fullName>
+                <fullName>Used car purchase</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>新车%2F二手车销售</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>无</fullName>
+                <fullName>Free</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

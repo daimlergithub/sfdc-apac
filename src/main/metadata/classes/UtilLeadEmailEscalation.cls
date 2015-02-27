@@ -56,35 +56,35 @@ public class UtilLeadEmailEscalation {
                 '<td width="16%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        'NameCn<br>经销商' +
+                        'NameCn<br>Dealer' +
                     '</p>' +
                 '</td>' +
 
                 '<td width="8%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        'ND Code<br>ND代码' +
+                        'ND Code<br>ND code' +
                     '</p>' +
                 '</td>' +
 
                 '<td width="8%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        'BDC Dealer<br>BDC经销商' +
+                        'BDC Dealer<br>BDC distributors' +
                     '</p>' +
                 '</td>' +
 
                 '<td width="5%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
                     '<p align="center" style="margin:5px; text-align:center">' + 
-                        'Region<br>区域' +
+                        'Region<br>Regional' +
                     '</p>' +
                 '</td>' + 
 
                 '<td width="12%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        'Total Leads<br>总分配销售线索数' + 
+                        'Total Leads<br>Total number of assigned sales leads' + 
                     '</p>' +
                 '</td>' + 
 
@@ -92,14 +92,14 @@ public class UtilLeadEmailEscalation {
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
                     '<p align="center" style="margin:5px; text-align:center">' +
                         'Leads Follow-Up<br>within 72 hours<br>' +
-                        'by Dealer<br>经销商72小时内跟进销售线索数' + 
+                        'by Dealer<br>Distributor within 72 hours following up leads' + 
                     '</p>' +
                 '</td>' + 
 
                 '<td width="12%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        'Follow-Up rate<br>(within 72 hours)<br>销售线索跟进率<br>（KPI ≥ 90%）' +
+                        'Follow-Up rate<br>(within 72 hours)<br>Sales lead follow-up rate<br>（KPI ≥ 90%）' +
                     '</p>' +
                 '</td>' + 
 
@@ -107,14 +107,14 @@ public class UtilLeadEmailEscalation {
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
                     '<p align="center" style="margin:5px; text-align:center">' + 
                         'Successfully<br>Contacted Leads<br>by Dealer<br>' +
-                        '经销商成功取得联系销售线索数' +
+                        'Number of dealer success contacting sales leads' +
                     '</p>' +
                 '</td>' + 
 
                 '<td width="12%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
                     '<p align="center" style="margin:5px; text-align:center">' + 
-                        'Successfully<br>Contacted Rate<br>成功取得联系率<br>（KPI ≥ 80%）' +
+                        'Successfully<br>Contacted Rate<br>Success contact rate<br>（KPI ≥ 80%）' +
                     '</p>' +
                 '</td>' + 
 
@@ -122,7 +122,7 @@ public class UtilLeadEmailEscalation {
                 //    'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
                 //    '<p align="center" style="margin:5px; text-align:center">' +
                 //        'Authentic Updated<br>Leads Checked<br>by CAC<br>' + 
-                //        '经CAC核查跟进状态<br>真实的销售线索数' +
+                //        'The CAC verification follow-up status<br>Actual number of sales leads' +
                 //    '</p>' +
                 //'</td>' + 
 
@@ -130,7 +130,7 @@ public class UtilLeadEmailEscalation {
                 //    'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
                 //    '<p align="center" style="margin:5px; text-align:center">' +
                 //        'Leads Status Update<br>Authenticity Rate Checked<br>by CAC<br>' +
-                //        '销售线索状态更新真实性<br>（KPI ≥ 80%）' +
+                //        'Authenticity leads status update<br>（KPI ≥ 80%）' +
                 //    '</p>' +
                 //'</td>' + 
             '</tr>';
@@ -147,61 +147,61 @@ public class UtilLeadEmailEscalation {
                 '<td width="16%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        'NameCn<br>经销商</p>' +
+                        'NameCn<br>Dealer</p>' +
                 '</td>' +
 
                 '<td width="7%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        'ND Code<br>ND代码' +
+                        'ND Code<br>ND code' +
                     '</p>' +
                 '</td>' +
 
                 '<td width="8%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        'BDC Dealer<br>BDC经销商' +
+                        'BDC Dealer<br>BDC distributors' +
                     '</p>' +
                 '</td>' +
 
                 '<td width="4%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        'Region<br>区域</p>' +
+                        'Region<br>Regional</p>' +
                 '</td>' +
 
                 '<td width="9%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        'Total Leads<br>总分配销售线索数</p>' +
+                        'Total Leads<br>Total number of assigned sales leads</p>' +
                 '</td>' +
 
                 '<td width="15%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
                         'Leads Follow-Up within 72 hours<br>by Dealer<br>' + 
-                        '经销商72小时内跟进销售线索数</p>' + 
+                        'Distributor within 72 hours following up leads</p>' + 
                 '</td>' +
 
                 '<td width="12%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
                         'Follow-Up rate<br>(within 72 hours)<br>' +
-                        '销售线索跟进率（KPI ≥ 90%）</p>' +
+                        'Sales lead follow-up rate（KPI ≥ 90%）</p>' +
                 '</td>' +
 
                 '<td width="15%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
                         'Successfully Contacted Leads<br>by Dealer<br>' + 
-                        '经销商成功取得联系销售线索数</p>' + 
+                        'Number of dealer success contacting sales leads</p>' + 
                 '</td>' + 
 
                 '<td width="13%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
                         'Successfully<br>Contacted Rate<br>' +
-                        '成功取得联系率（KPI ≥ 80%）</p>' +
+                        'Success contact rate（KPI ≥ 80%）</p>' +
                 '</td>' +
             '</tr>';
 
@@ -209,13 +209,13 @@ public class UtilLeadEmailEscalation {
         '<br>' +
         '<div align="left">' +
             '<div style="font-size: 12px;">' +
-                '<b>注：</b>' +
+                '<b>Note：</b>' +
             '</div>' + 
             '<div style="font-size: 12px;">' +
-                '<b>销售线索跟进率(KPI ≥ 90%): </b>[在72小时内跟进销售线索数/总分配销售线索数]' +
+                '<b>Sales lead follow-up rate(KPI ≥ 90%): </b>[Follow up on sales leads within 72 hours/total number of assigned leads]' +
             '</div>' + 
             '<div style="font-size: 12px;">' +
-                '<b>成功取得联系率(KPI ≥ 80%): </b>[成功取得联系/在72小时内跟进销售线索数]' +
+                '<b>Success contact rate(KPI ≥ 80%): </b>[Successfully obtained within 72 hours contact/follow up on sales leads]' +
             '</div>' +
         '</div>';
 
@@ -226,14 +226,14 @@ public class UtilLeadEmailEscalation {
         
         String emailContent = 
             '<div align="left" style="font-size: 13px;">' + 
-                acc.Name + '经销商：<br>上月（' + getDateLiteral(firstDayInLastMonth) + 
-                ' 至 ' + getDateLiteral(lastDayInLastMonth) + 
-                '）您的销售线索跟进情况如下：' +
+                acc.Name + 'Dealer：<br>Last month（' + getDateLiteral(firstDayInLastMonth) + 
+                ' To ' + getDateLiteral(lastDayInLastMonth) + 
+                '）Your lead follow up are as follows：' +
             '</div>';
 
         String monthlyTableTitle = 
             '<div align="center" style="font-family:corpoA; font-size: 12px;">' + 
-                '<h3>Leads Follow-Up Monthly Report<BR>销售线索跟进月报告</h3>' +
+                '<h3>Leads Follow-Up Monthly Report<BR>Sales lead follow up monthly reports</h3>' +
             '</div>';
 
         // Add Report Detail: Table Content
@@ -269,15 +269,15 @@ public class UtilLeadEmailEscalation {
         
         String emailContent = 
             '<div align="left" style="font-size: 13px">' + 
-                acc.Name + '经销商：<br>上周（' + getDateLiteral(lastMonday) + 
-                ' 至 ' + getDateLiteral(lastSunday) + 
-                '）您的销售线索跟进率未达标（小于90%）,' + 
-                '请尽快跟进并更新状态。' +
+                acc.Name + 'Dealer：<br>Last week（' + getDateLiteral(lastMonday) + 
+                ' To ' + getDateLiteral(lastSunday) + 
+                ')Of your sales lead follow-up rate of nonconformance (less than 90%),' + 
+                'Please follow up and update the status as soon as possible.' +
             '</div><br>';
 
         String weeklyTableTitle = 
             '<div align="center" style="font-family:corpoA; font-size: 12px;">' + 
-                '<h3>Leads Follow-Up Weekly Report<BR>销售线索跟进周报告</h3>' +
+                '<h3>Leads Follow-Up Weekly Report<BR>Sales lead follow-up weekly reports</h3>' +
             '</div>';
 
         // Add Report Detail: Table Content
@@ -313,17 +313,17 @@ public class UtilLeadEmailEscalation {
         
         String emailContent = 
             '<div align="left" style="font-size: 13px;">' + 
-                '上月（' + getDateLiteral(firstDayInLastMonth) + 
-                ' 至 ' + getDateLiteral(lastDayInLastMonth) + '）' +
+                'Last month（' + getDateLiteral(firstDayInLastMonth) + 
+                ' To ' + getDateLiteral(lastDayInLastMonth) + '）' +
                 (accs[0].Dealer_MB_Sub_Region__c == null ? '' : 
                  accs[0].Dealer_MB_Sub_Region__c) +  
-                '区域的销售线索跟进月报告如下：' + 
+                'Regional sales lead follow up monthly report are as follows:' + 
             '</div>' + 
             '<br>';
 
         String monthlyTableTitle = 
             '<div align="center" style="font-family:corpoA Arial; font-size: 12px;">' + 
-                '<h3>Leads Follow-Up Monthly Report<BR/>销售线索跟进月报告</h3>' +
+                '<h3>Leads Follow-Up Monthly Report<BR/>Regional sales lead follow up monthly report are as follows:</h3>' +
             '</div>';
 
         // Add Report Detail: Table Content
@@ -363,17 +363,17 @@ public class UtilLeadEmailEscalation {
         
         String emailContent =
             '<div align="left" style="font-size: 13px;">' + 
-                '上周（' + getDateLiteral(lastMonday) + 
-                ' 至 ' + getDateLiteral(lastSunday) + '）' +
+                'Last week（' + getDateLiteral(lastMonday) + 
+                ' To ' + getDateLiteral(lastSunday) + '）' +
                 (accs[0].Dealer_MB_Sub_Region__c == null ? '' : 
                  accs[0].Dealer_MB_Sub_Region__c) +  
-                '区域的销售线索跟进周报告如下：' + 
+                'Regional sales lead follow-up weekly reports are as follows:' + 
             '</div>' + 
             '<br>';
 
         String weeklyTableTitle = 
             '<div align="center" style="font-family:corpoA; font-size: 12px;">' + 
-                '<h3>Leads Follow-Up Weekly Report<BR/>销售线索跟进周报告</h3>' +
+                '<h3>Leads Follow-Up Weekly Report<BR/>Sales lead follow-up weekly reports</h3>' +
             '</div>';
 
         // Add Report Detail: Table Content
@@ -459,7 +459,7 @@ public class UtilLeadEmailEscalation {
             // Calc authenticity count
             //if (lead.Dealer_Successful_Contacted__c
             //        && lead.Dealer_Audit__c 
-            //        && lead.Dealer_Audit_Result__c == '经销商已联系客户') {
+            //        && lead.Dealer_Audit_Result__c == 'Dealers contacted the customer') {
             //    authenticityCount++;
             //}
         }
@@ -515,24 +515,24 @@ public class UtilLeadEmailEscalation {
                 '<td width="20%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        '发至经销商的销售线索<br>Leads sent to dealers<sup>1</sup></p>' +
+                        'Send To dealer sales leads<br>Leads sent to dealers<sup>1</sup></p>' +
                 '</td>' +
 
                 '<td width="20%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        '成功联系到的车主<br>Call Successfully</p>' +
+                        'Success linked to owners<br>Call Successfully</p>' +
                 '</td>' +
 
                 '<td width="20%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        '成交数量<br>Converted<sup>2</sup></p>' +
+                        'Trading volume<br>Converted<sup>2</sup></p>' +
                 '</td>' +
                 '<td width="20%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        '销售线索转化率<br>Leads Conversion Rate</p>' +
+                        'Sales lead conversion rates<br>Leads Conversion Rate</p>' +
                 '</td>' +
             '</tr>';
 
@@ -559,16 +559,16 @@ public class UtilLeadEmailEscalation {
         String emailContent =
             '<div align="left" style="font-size: 13px;">' + 
                 '（' + getDateLiteral(firstDayInLastMonth.addYears(-1)) + 
-                ' 至 ' + getDateLiteral(lastDayInLastMonth.addYears(-1)) + '）' +
+                ' To ' + getDateLiteral(lastDayInLastMonth.addYears(-1)) + '）' +
                 (accsInPast12thMonth[0].Dealer_MB_Sub_Region__c == null ? '' : 
                  accsInPast12thMonth[0].Dealer_MB_Sub_Region__c) +  
-                '区域的销售线索转化率月度报告如下：' + 
+                'Monthly report of sales lead conversion rates are as follows:' + 
             '</div>' + 
             '<br>';
 
         String conversionRateTableTitle = 
             '<div align="center" style="font-family:corpoA; font-size: 12px;">' + 
-                '<h3>Leads Conversion Rate Report<BR/>销售线索转化率月度报告</h3>' +
+                '<h3>Leads Conversion Rate Report<BR/>Sales lead conversion rate of monthly reports</h3>' +
             '</div>';
 
         // Add Report Detail: Table Content
