@@ -1,9 +1,0 @@
-<messaging:emailTemplate subject="You are added to the collaboration team of campaign" recipientType="User" relatedToType="Collaboration_Team__c">
-<messaging:plainTextEmailBody >
-Dear [{!relatedTo.Member_Name__r.Name}], 
-
-You are added to the Campaign : [{!relatedTo.Campaign__r.Name}]. 
-
-Resource Required: [{!relatedTo.Resource_Required__c}].
-</messaging:plainTextEmailBody>
-</messaging:emailTemplate>
