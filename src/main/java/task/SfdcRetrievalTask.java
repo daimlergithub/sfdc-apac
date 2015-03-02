@@ -4,12 +4,15 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.taskdefs.Taskdef;
+import org.apache.tools.ant.types.LogLevel;
 
 import task.handler.LogWrapper;
 import task.handler.MetadataHandler;
@@ -231,6 +234,34 @@ public class SfdcRetrievalTask
     if (!full && !new File(timestamps).exists()) {
       throw new BuildException(String.format("The file %s does not exist. Please deploy first or use the target 'retrieveAll'.",
                                              timestamps));
+    }
+    
+    Set<String> typeNames = new HashSet<>();
+    for (SfdcTypeSet typeSet : typeSets) {
+      typeNames.add(typeSet.getName());
+    }
+    String[] relatedTypes = new String[]{"CustomApplication", "ApexClass", "CustomPermission", "ExternalDataSource", "CustomObject", "ApexPage", "CustomTab"};
+    if (typeNames.contains("PermissionSet")) {
+      for (String relatedType : relatedTypes) {
+        checkSfdcTypeSet(typeNames, "PermissionSet", relatedType);
+      }
+    }
+    if (typeNames.contains("Profile")) {
+      for (String relatedType : relatedTypes) {
+        checkSfdcTypeSet(typeNames, "Profile", relatedType);
+      }
+    }
+  }
+
+  private void checkSfdcTypeSet(Set<String> typeNames, String parentType, String relatedType)
+  {
+    if (!typeNames.contains(relatedType)) {
+      log(String.format("Adding %s for type set %s.", relatedType, parentType), LogLevel.WARN.getLevel());
+      SfdcTypeSet sts = new SfdcTypeSet();
+      sts.setName(relatedType);
+      typeSets.add(sts);
+      
+      typeNames.add(relatedType);
     }
   }
 

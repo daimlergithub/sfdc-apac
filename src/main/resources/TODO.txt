@@ -1,5 +1,13 @@
 TODO
 ====
+-delete:
+Account.CAC_SourceId__c
+Account.CCMS_SourceId__c
+Contac.CAC_SourceId__pc
+Account.Dealer_City_EN__c
+Account.City_CN__c
+
+
 -create destructive changes
 -apply destructive changes
 

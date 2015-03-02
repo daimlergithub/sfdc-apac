@@ -37,12 +37,14 @@ import com.sforce.soap.metadata.CustomObjectOwnerSharingRule;
 import com.sforce.soap.metadata.CustomObjectSharingRules;
 import com.sforce.soap.metadata.CustomObjectTranslation;
 import com.sforce.soap.metadata.CustomPageWebLink;
+import com.sforce.soap.metadata.CustomPermission;
 import com.sforce.soap.metadata.CustomTab;
 import com.sforce.soap.metadata.Dashboard;
 import com.sforce.soap.metadata.DataCategoryGroup;
 import com.sforce.soap.metadata.Document;
 import com.sforce.soap.metadata.EmailTemplate;
 import com.sforce.soap.metadata.EscalationRules;
+import com.sforce.soap.metadata.ExternalDataSource;
 import com.sforce.soap.metadata.Flow;
 import com.sforce.soap.metadata.Group;
 import com.sforce.soap.metadata.HomePageComponent;
@@ -208,8 +210,7 @@ public class DeploymentConfiguration
     // need to be deleted from bottom up -> roles cannot be deleted if other roles report to it or users are assigned to that role
     duList.add(new DeploymentUnit(Role.class, "roles", "role"));
 
-    // TODO 
-    //    duList.add(new DeploymentUnit("ExternalDataSource"));
+    duList.add(new DeploymentUnit(ExternalDataSource.class, "dataSources", "dataSource"));
 
     List<Class<? extends Metadata>> customerLabelChilds = new ArrayList<>();
     customerLabelChilds.add(CustomLabel.class);
@@ -262,7 +263,7 @@ public class DeploymentConfiguration
     //    duList.add(new DeploymentUnit("XOrgHub", true));
 
     //    duList.add(new DeploymentUnit("Scontrol", true));
-    //    duList.add(new DeploymentUnit("CustomPermission", true));
+    duList.add(new DeploymentUnit(CustomPermission.class, "customPermissions", "customPermission"));
     duList.add(new DeploymentUnit(Network.class, "networks"));
     //    duList.add(new DeploymentUnit("PostTemplate", true));
     //    duList.add(new DeploymentUnit("FlexiPage", true));

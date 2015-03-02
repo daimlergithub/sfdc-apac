@@ -36,6 +36,7 @@ import com.sforce.soap.metadata.DescribeMetadataObject;
 import com.sforce.soap.metadata.DescribeMetadataResult;
 import com.sforce.soap.metadata.FileProperties;
 import com.sforce.soap.metadata.ListMetadataQuery;
+import com.sforce.soap.metadata.ManageableState;
 import com.sforce.soap.metadata.Metadata;
 import com.sforce.soap.metadata.MetadataConnection;
 import com.sforce.soap.metadata.Package;
