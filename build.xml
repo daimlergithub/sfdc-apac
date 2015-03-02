@@ -54,6 +54,12 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
 	</target>
 	
+	<target name="dc">
+		<sf:deployChecksums sfdcName="${sfdc.checksums}"
+						username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+						useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
+	</target>
+	
 	<target name="destructiveChanges">
 		<!-- TODO -->
 	</target>
@@ -150,7 +156,10 @@
 	
 	<target name="deploy21">
 		<deploy>
-			<sf:typeset name="settings"/>
+			<sf:typeset name="settings">
+				<!-- TODO only exclude on Oliver's org
+				<sf:exclude name="Address"/-->
+			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:exclude name="EPA_.*"/>
 				<sf:exclude name="Tasks"/>
@@ -249,7 +258,9 @@
 	PermissionSet: check differences
 	-->
 	<property name="typesets.not-ready">
-		CustomObject,Layout,Profile,PermissionSet
+		<!-- !!! the following line is just for the PermissionSet !!! -->
+		CustomApplication,ApexClass,CustomPermission,ExternalDataSource,CustomObject,ApexPage,CustomTab,PermissionSet,
+		Layout,Profile
 	</property>
 	
 	<target name="retrieveAll" depends="init">
@@ -276,6 +287,8 @@
 	</target>
 
 	<target name="retrieve" depends="init">
+		<fail message="DEPRECATED: Please use retrieveAll!"/>
+		
 		<!-- retrieves only changed metadata -->
 		<sf:retrieve
 				debug="${sfdc.debug}" dryRun="false" cleanupOther="false"
@@ -300,6 +313,8 @@
 	
 	<!-- Work in Progress -->
 	<target name="retrieveUpdatestamps">
+		<fail message="DEPRECATED!"/>
+		
 		<sf:retrieveUpdatestamps
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" fileName="timestamps-target.log">
