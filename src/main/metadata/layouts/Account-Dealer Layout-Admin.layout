@@ -403,7 +403,7 @@
             <quickActionName>FeedItem.PollPost</quickActionName>
         </quickActionListItems>
     </quickActionList>
-	<relatedLists>
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>
@@ -423,7 +423,7 @@
         <fields>CORE.USERS.FULL_NAME</fields>
         <fields>TASK.LAST_UPDATE</fields>
         <relatedList>RelatedHistoryList</relatedList>
-    </relatedLists>	
+    </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>CREATED_DATE</fields>
@@ -438,7 +438,7 @@
         <sortField>CREATEDBY_USER</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>CREATED_DATE</fields>
         <fields>CREATEDBY_USER</fields>
@@ -448,7 +448,7 @@
         <fields>System__c</fields>
         <fields>Vehicle__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
-	</relatedLists>
+    </relatedLists>
     <relatedLists>
         <fields>Name</fields>
         <fields>CreatedBy</fields>
@@ -494,7 +494,7 @@
         <fields>NAME</fields>
         <relatedList>Retail_Campaign_Member__c.Contact__c</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>Status__c</fields>
         <fields>Type__c</fields>
@@ -503,7 +503,7 @@
         <fields>Follow_Up_Type__c</fields>
         <fields>Information__c</fields>
         <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>
-    </relatedLists>	
+    </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

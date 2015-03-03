@@ -42,8 +42,8 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
 	</target>
 	
-    <target name="deploy" depends="init, retrieveChecksums, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35, deploy40">
-		<!-- TODO consider only deployed entities -->	
+	<target name="deploy" depends="init, retrieveChecksums, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35, deploy40">
+		<!-- TODO consider only deployed entities -->
 		<sf:retrieveUpdatestamps
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" timestamps="timestamps-deployed.log">
@@ -52,6 +52,12 @@
 		<sf:deployChecksums sfdcName="${sfdc.checksums}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
+	</target>
+	
+	<target name="dc">
+		<sf:deployChecksums sfdcName="${sfdc.checksums}"
+						username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+						useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
 	</target>
 	
 	<target name="destructiveChanges">
@@ -150,7 +156,10 @@
 	
 	<target name="deploy21">
 		<deploy>
-			<sf:typeset name="settings"/>
+			<sf:typeset name="settings">
+				<!-- TODO only exclude on Oliver's org
+				<sf:exclude name="Address"/-->
+			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:exclude name="EPA_.*"/>
 				<sf:exclude name="Tasks"/>
@@ -198,10 +207,16 @@
 				<sf:exclude name="Service_Cloud_Console_SSI"/>
 			</sf:typeset>
 			<sf:typeset name="permissionsets"/>			
-			<sf:typeset name="profiles"/>
-			<!-- TODO FALK these do not deploy on Oliver's org 
-				<sf:include name="CAC IB CSR"/>
-			</sf:typeset>-->
+			<sf:typeset name="profiles">
+				<!-- TODO FALK these do not deploy on Oliver's org -->
+				<!--
+				<sf:exclude name="CAC IB CSR"/>
+				<sf:exclude name="CAC SSI CSR"/>
+				<sf:exclude name="CAC SSI QC"/>
+				<sf:exclude name="CAC SSI SV"/>
+				<sf:exclude name="CAC SSI TL"/>  
+				-->
+			</sf:typeset>
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>
@@ -234,26 +249,16 @@
 	
 	<property name="typesets.circle">
 		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess
-		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting
+		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource
 	</property>
 	
 	<!-- TODO
-	CampaignSharingRules: check
-	Role: delete default roles
 	CustomObject: default objects not included, PersonAccount in retrieve missing
-	RemoteSiteSetting: only EP integration, adjust in sandbox-specific transformation
-	Workflow: a lot of empty workflow files :- Completed
 	Profile: check
 	PermissionSet: check differences
-	CaseSharingRules: check
-	CustomObjectSharingRules: some differences
-	Settings: a lot of default settings
-	ApprovalProcess: differences
-	HomePageComponent: check one component
-	HomePageLayout: DE Default Layout
 	-->
 	<property name="typesets.not-ready">
-		CustomObject,Layout,Profile,PermissionSet
+		PermissionSet,CustomObject,Layout,Profile
 	</property>
 	
 	<target name="retrieveAll" depends="init">
@@ -264,23 +269,24 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets.circle}"/>
-			<sf:typeset name="staticresources">
-				<!-- the Checksums resource is handled by separate tasks -->
-				<sf:exclude name="Checksums"/>
-			</sf:typeset>
+			<sf:feature name="exclude-checksums" param="Checksums"/>
+			<!--sf:feature name="include-personaccount"/-->
 		</sf:retrieve>
 		
 		<!-- retrieves all metadata -->
 		<sf:retrieve
-				debug="${sfdc.debug}" dryRun="false" full="true" cleanupOther="false"
+				debug="${sfdc.debug}" dryRun="false" full="true" cleanupOther="true"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets.not-ready}"/>
+			<sf:feature name="include-personaccount"/>
 		</sf:retrieve>
 	</target>
 
 	<target name="retrieve" depends="init">
+		<fail message="DEPRECATED: Please use retrieveAll!"/>
+		
 		<!-- retrieves only changed metadata -->
 		<sf:retrieve
 				debug="${sfdc.debug}" dryRun="false" cleanupOther="false"
@@ -288,24 +294,25 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets.circle}"/>
-			<sf:typeset name="staticresources">
-				<!-- the Checksums resource is handled by separate tasks -->
-				<sf:exclude name="Checksums"/>
-			</sf:typeset>
+			<sf:feature name="exclude-checksums" param="Checksums"/>
+			<!--sf:feature name="include-personaccount"/-->
 		</sf:retrieve>
 		
 		<!-- retrieves only changed metadata -->
 		<sf:retrieve
-				debug="${sfdc.debug}" dryRun="false" cleanupOther="false"
+				debug="${sfdc.debug}" dryRun="false" cleanupOther="true"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets.not-ready}"/>
+			<sf:feature name="include-personaccount"/>
 		</sf:retrieve>
 	</target>
 	
 	<!-- Work in Progress -->
 	<target name="retrieveUpdatestamps">
+		<fail message="DEPRECATED!"/>
+		
 		<sf:retrieveUpdatestamps
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" fileName="timestamps-target.log">

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<EmailTemplate xmlns="http://soap.sforce.com/2006/04/metadata">
-    <available>true</available>
-    <encodingKey>UTF-8</encodingKey>
-    <name>Email notification when no status is updated more than 5 days</name>
-    <style>none</style>
-    <subject>Aftersales Lead didn&apos;t updated status more than 5 days</subject>
-    <type>text</type>
-</EmailTemplate>

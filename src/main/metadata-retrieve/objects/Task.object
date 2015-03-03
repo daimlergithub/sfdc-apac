@@ -10,7 +10,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Delete</actionName>
-        <type>Default</type>
+        <content>TaskDeleting</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>DeleteSeries</actionName>
@@ -118,19 +120,19 @@
         <fullName>Subject</fullName>
         <picklist>
             <picklistValues>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>发送信件</fullName>
+                <fullName>Send letter</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>发送报价</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -157,15 +159,15 @@
         <fullName>Type</fullName>
         <picklist>
             <picklistValues>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -974,10 +976,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -1123,6 +1121,22 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Call</fullName>
                 <default>false</default>
             </values>
@@ -1130,35 +1144,19 @@
                 <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>其他</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送信件</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送报价</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>电话</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1979,10 +1977,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -2128,6 +2122,22 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Call</fullName>
                 <default>false</default>
             </values>
@@ -2135,35 +2145,19 @@
                 <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>其他</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送信件</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送报价</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>电话</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2862,10 +2856,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -3409,6 +3399,22 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Call</fullName>
                 <default>false</default>
             </values>
@@ -3416,35 +3422,19 @@
                 <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>其他</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送信件</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送报价</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>电话</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4261,10 +4251,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -4402,34 +4388,34 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>发送信件</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>发送报价</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Send letter</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5120,10 +5106,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -5655,6 +5637,22 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Call</fullName>
                 <default>false</default>
             </values>
@@ -5662,35 +5660,19 @@
                 <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>其他</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送信件</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送报价</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>电话</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6381,10 +6363,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -6916,6 +6894,22 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Call</fullName>
                 <default>false</default>
             </values>
@@ -6923,35 +6917,19 @@
                 <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>其他</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送信件</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送报价</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>电话</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7941,34 +7919,34 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>发送信件</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>发送报价</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Send letter</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8818,10 +8796,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -8967,6 +8941,22 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Call</fullName>
                 <default>false</default>
             </values>
@@ -8974,35 +8964,19 @@
                 <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>其他</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送信件</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送报价</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>电话</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9835,10 +9809,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -9984,6 +9954,22 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Call</fullName>
                 <default>false</default>
             </values>
@@ -9991,35 +9977,19 @@
                 <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>其他</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送信件</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送报价</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>电话</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10706,10 +10676,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -10940,10 +10906,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -11089,6 +11051,22 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Call</fullName>
                 <default>false</default>
             </values>
@@ -11096,35 +11074,19 @@
                 <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>其他</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送信件</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送报价</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>电话</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11933,10 +11895,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -12082,6 +12040,22 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Call</fullName>
                 <default>false</default>
             </values>
@@ -12089,35 +12063,19 @@
                 <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>其他</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送信件</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送报价</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>电话</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12962,10 +12920,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -13111,6 +13065,22 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Call</fullName>
                 <default>false</default>
             </values>
@@ -13118,35 +13088,19 @@
                 <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>其他</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送信件</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送报价</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>电话</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13979,10 +13933,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>
@@ -14128,6 +14078,22 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Welcome Call</fullName>
                 <default>false</default>
             </values>
@@ -14135,35 +14101,19 @@
                 <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>其他</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送信件</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>发送报价</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>电话</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>会议</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>其他</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>电话</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

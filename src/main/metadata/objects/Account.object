@@ -5010,10 +5010,16 @@ Attribute in Data Dictionary object Address is &quot;Address_Province&quot;
 Attribute in Data Dictionary object Dealer is &quot;Dealer_ProvinceEN&quot;</description>
         <externalId>false</externalId>
         <label>Province</label>
-		<length>255</length>
+		<picklist>
+            <picklistValues>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
-        <type>Text</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>R_Account18ID__c</fullName>

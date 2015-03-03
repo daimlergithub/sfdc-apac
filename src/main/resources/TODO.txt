@@ -1,7 +1,15 @@
 TODO
 ====
--fix DeployAll
--do not retrieve Checksums
+-delete:
+Account.CAC_SourceId__c
+Account.CCMS_SourceId__c
+Contac.CAC_SourceId__pc
+Account.Dealer_City_EN__c
+Account.City_CN__c
+
+
+-create destructive changes
+-apply destructive changes
 
 -SelectAssignedDealerController.cls#63 -> fixed recordtypeID
 -Lead__c.workflow has a lot of RecordTypeIDs
@@ -18,8 +26,8 @@ TODO
 -Re-work on the validation rule " Do_Not_Select_CAC_Campaign" on Campaign_Lead__c Object.
 -object/QC__c.object#listViews["SSI_QC_Queue"]
 -Re-Deploy apps which are dependant on VF Tabs
-
-
+-exlucde .gitignore when cleaning up metadata folders
+-review cleanup methods in SfdcRetrievalTask
 
 
 DEVELOPMENT
@@ -35,3 +43,6 @@ DONE
 -fix settings/case.settings: defaultCaseUser and defaultCaseOwner
 -default workflow user should be adaptable
 -move name of Checksum to build.properties
+-fix DeployAll
+-include PersonAccount
+-do not retrieve Checksums
