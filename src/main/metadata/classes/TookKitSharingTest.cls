@@ -1,6 +1,6 @@
 @isTest
 private class TookKitSharingTest {
-	    
+        
     private static Account dealer;
     private static User dealerUser;
     private static User thirdPartyUser;
@@ -17,7 +17,7 @@ private class TookKitSharingTest {
         dealerUser = new User(Username = 'test12345test@test.com', ContactId = dealerContact.Id, ProfileId = portalProfile.Id, Alias = 'test123', Email = 'test12345@test.com', EmailEncodingKey = 'UTF-8', LastName = 'Kumar', CommunityNickname = 'test12345', TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US');
         insert dealerUser;
 
-    	Profile venderProfile = [SELECT Id FROM Profile WHERE Name = 'BMBS External Marketing User' Limit 1];
+        Profile venderProfile = [SELECT Id FROM Profile WHERE Name = 'External Marketing User' Limit 1];
         thirdPartyUser = new User(Username = 'test123456test@test.com', ProfileId = venderProfile.Id, Alias = 'test1234', Email = 'test123456@test.com', EmailEncodingKey = 'UTF-8', LastName = 'Kumarm', CommunityNickname = 'test123405', TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US');
         insert thirdPartyUser;    
     }
@@ -32,5 +32,5 @@ private class TookKitSharingTest {
         wrapService.wrapToolKitsFor3rdPartyUsers(new List<Tool_Kit__c>{toolKit});
         Test.stopTest();
     }
-	
+    
 }

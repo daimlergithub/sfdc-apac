@@ -24,7 +24,7 @@ private class DMRequestTriggerHandlerTest {
     
     public static testMethod void testMyController() {
        
-        User user1 = UtilTestData.createUser('Fulfillment Specialist','CAC Fulfillment User');
+        User user1 = UtilTestData.createUser('SSI CSR ','CAC SSI CSR');
         
         System.debug('-------user1-------:'+user1);
         

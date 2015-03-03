@@ -10,7 +10,7 @@
 */
 @isTest(seeAllData=true)
 public class CaseHelperTest {
-    
+        
     final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
     final static String CHRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Chrysler Complaint').getRecordTypeId();
@@ -32,8 +32,9 @@ public class CaseHelperTest {
         Vehicle_Relationship__c vrData2 = new Vehicle_Relationship__c(Vehicle_ID__c=ve2.id, 
                                               Contact__c = acc.Id,Registration_Number__c ='1');
         insert vrData1;
-        insert vrData2;
-        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+        insert vrData2;                
+        User user1 = UtilTestData.createPortalUser('Dealer','Gold Partner User');
+        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
 
         Case c1 = new Case(Vehicle_Relationship__c = vrData1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
                            Case_SubType__c='Dealer-after sales service attitude', Case_Dealer__c = portalUser1.AccountId);
@@ -63,7 +64,8 @@ public class CaseHelperTest {
         insert ve1;
         Vehicle_Relationship__c vrData = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, Contact__c = acc.Id,Registration_Number__c ='1');
         insert vrData;
-        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+        User user1 = UtilTestData.createPortalUser('Dealer','Gold Partner User');
+        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
         Case c1 = new Case(Vehicle_Relationship__c = vrData.Id, AccountId = acc.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt', Case_Dealer__c = portalUser1.AccountId);
         
         insert c1;
@@ -75,17 +77,16 @@ public class CaseHelperTest {
         system.assert(ctcs.size()>0);        
         Test.stopTest();
     }
-    
-    public static testMethod void testUSCC004(){
+      public static testMethod void testUSCC004(){
         Test.startTest();
-        List<Sobject> sos = new List<Sobject>();
-        
+        List<Sobject> sos = new List<Sobject>();        
         acc.PersonMobilePhone = '13011111111';
         insert acc;
         insert ve1;
-        Vehicle_Relationship__c vrData = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, Contact__c = acc.Id,Registration_Number__c ='1');
+        Vehicle_Relationship__c vrData = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, Contact__c =acc.Id,Registration_Number__c ='1');
         insert vrData;
-        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+        User user1 = UtilTestData.createPortalUser('Dealer','Gold Partner User');
+        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
         Case c1 = new Case(Vehicle__c = ve1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
                            Case_SubType__c='Dealer-after sales service attitude',Case_type__c='After-Sales', Case_Dealer__c = portalUser1.AccountId);
         Case c2 = new Case(Vehicle__c = ve1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
@@ -118,7 +119,7 @@ public class CaseHelperTest {
             system.assert(msg.contains(CaseHelper.NOT_PRIMARY_REMINDER));
         }
         Test.stopTest();
-    }
+    } 
     
     @isTest(seeAllData=true)
     static void testUSCC008(){
@@ -132,8 +133,8 @@ public class CaseHelperTest {
         // lastName is a required field on user, but if it isn't specified, 
         //   the code uses the username
         String userId = Site.createPortalUser(u, accountId, '1qaz@WSX3e');
-        
-        User portalUser = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+        User user1 = UtilTestData.createPortalUser('Dealer','Gold Partner User');
+        User portalUser = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
 
         Test.startTest();
         
@@ -150,20 +151,23 @@ public class CaseHelperTest {
     @isTest
     public static void testUSCC024() {
         Test.startTest();
-        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+        User user1 = UtilTestData.createPortalUser('Dealer','Gold Partner User');
+        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
         Case c1 = new Case(RecordTypeId = MBRecordtypeid, Description = 'test', Case_Dealer__c = portalUser1.AccountId);
         insert c1;
         c1 = [SELECT CreatedbyId FROM Case WHERE id = :c1.id];
         System.assertEquals([SELECT id FROM Complaint_Description__c WHERE Case__c = :c1.id].size(), 1);
         Test.stopTest();
     }
-    
+   
     @isTest(seeAllData=true)
-    public static void testUSCC031() {
-        Test.startTest();
-        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+    public static void testUSCC031() { 
+        Test.startTest();            
+        User user1 = UtilTestData.createPortalUser('Dealer','Gold Partner User');  
+        User user2=  UtilTestData.createPortalUser('Dealer','Gold Partner User');     
+        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
         User portalUser2 = [select accountId , email from user 
-                                where contact.Dealer_Complaint_Gate_Keeper__c = true 
+                                where contact.Dealer_Complaint_Gate_Keeper__c = true and id=:user2.Id
                                 and isActive = true and AccountId <> :portalUser1.AccountId limit 1];
         Case c1 = new Case(RecordTypeId = MBRecordtypeid, Description = 'test', Case_Dealer__c = portalUser1.AccountId);
         c1.Support_Dealer_1__c = portalUser2.AccountId;

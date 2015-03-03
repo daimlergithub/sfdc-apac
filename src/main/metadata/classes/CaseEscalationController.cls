@@ -34,7 +34,7 @@ public class CaseEscalationController {
     //CR No.: CR-AS-Complaint-008 END
     
     private Profile DealerCommunityUser = [select Id from Profile where Name = 'Dealer Community User'];
-    private Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Community Delegate Admin'];
+    private Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'];
     private Set<Id> profileIds = new Set<Id>();
 
     List<String> MandatoryFields = new List<String>{

@@ -193,7 +193,7 @@
         <criteriaItems>
             <field>OwnerId</field>
             <operation>equals</operation>
-            <value>00G90000001Wm15</value>
+            <value>CENTRAL_OFFICE_QUEUE_ID</value>
         </criteriaItems>
         <criteriaItems>
             <field>Handling_Level__c</field>
@@ -217,7 +217,7 @@
         <criteriaItems>
             <field>OwnerId</field>
             <operation>equals</operation>
-            <value>00G90000001Wm15</value>
+            <value>CENTRAL_OFFICE_QUEUE_ID</value>
         </criteriaItems>
         <criteriaItems>
             <field>Handling_Level__c</field>
@@ -241,7 +241,7 @@
         <criteriaItems>
             <field>OwnerId</field>
             <operation>equals</operation>
-            <value>00G90000001Wm15</value>
+            <value>CENTRAL_OFFICE_QUEUE_ID</value>
         </criteriaItems>
         <criteriaItems>
             <field>Handling_Level__c</field>
@@ -265,7 +265,7 @@
         <criteriaItems>
             <field>OwnerId</field>
             <operation>equals</operation>
-            <value>00G90000001Wm15</value>
+            <value>CENTRAL_OFFICE_QUEUE_ID</value>
         </criteriaItems>
         <criteriaItems>
             <field>Handling_Level__c</field>

@@ -69,14 +69,14 @@ public class LeadHelperTest {
     public static testMethod void LeadHelperTest1() {
         Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
         Profile profileCAC = [select Id from Profile where Name = 'CAC IB CSR'];
-        userRole roleId1 = [select Id from userRole where Name = 'smart DM (E1)'];
+        userRole roleId1 = [select Id from userRole where Name = 'IB CSR'];
         User user1 = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
                                   Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
                                   TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
                                   EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
         insert user1;
 
-        User SmartDM = createUser(roleId1.id, profileCAC.id);
+        User SmartDM = createUser(roleId1.Id,profileCAC.Id);
         String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         Account dealer = new Account();
         dealer.Dealer_Alternate_Name__c = 'Test Alternate';
@@ -201,14 +201,14 @@ public class LeadHelperTest {
         String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
 
         Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
-        UserRole userRole = [select Id from UserRole where Name = 'smart DM (E1)'];
+        UserRole userRole = [select Id from UserRole where Name = 'IB CSR'];
         User user2 = new User(ProfileId = profile.Id, isActive = true, UserRoleId = userRole.Id, Username = 'lai1@nttdata.com', LastName = 'sichao',
                                   Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
                                   TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
                                   EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
         insert user2;
 
-        system.runAs( user2 ) {
+        system.runAs(user2) {
             Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');
             insert dealer;
             Account dealer2 = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'dealer2');

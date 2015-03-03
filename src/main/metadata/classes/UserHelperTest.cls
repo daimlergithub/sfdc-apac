@@ -9,6 +9,7 @@
 */
 @isTest(seeAllData=true)
 public class UserHelperTest {
+    final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static testMethod void UserHelperTest() {
         // Create Dealer
         Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
@@ -19,7 +20,7 @@ public class UserHelperTest {
         Contact con = new Contact(AccountId = dealer.Id, LastName = 'b', Phone = '123', email = 's@s.s');
         insert con;
         
-        Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Community Delegate Admin'];
+        Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'];
         Profile CACSSICSR = [select Id from Profile where Name = 'CAC SSI CSR'];
         Profile CACSSIQC = [select Id from Profile where Name = 'CAC SSI QC'];
         
@@ -105,7 +106,7 @@ public class UserHelperTest {
 
             insert usr;
             Account person = new Account(
-            RecordTypeId = '01290000000fpFD',
+            RecordTypeId = personRecordtypeid,
             PersonMobilePhone = '18610011001',
             FirstName = 'First',
             LastName = 'Last',
@@ -148,24 +149,10 @@ public class UserHelperTest {
     public static testMethod void UserHelperTest01() {
         Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
         Contact con = new Contact(AccountId = dealer.Id, LastName = 'Huang', Phone = '8412877', email = 'HuangTest@163.com', Dealer_Complaint_Gate_Keeper__c = true);
-        insert con;
-        
-        Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer-Delegated Admin'];
-        
-        User usr = new User(
-            Username = System.now().millisecond() + 'HuangTest@163.com',
-            ContactId = con.Id,
-            ProfileId = DealerDelegatedAdmin.Id,
-            Alias = 'HTest',
-            Email = 'HuangTest@163.com',
-            EmailEncodingKey = 'UTF-8',
-            LastName = 'Huang',
-            CommunityNickname = System.now().millisecond() + 'NTT-TEST',
-            TimeZoneSidKey = 'America/Los_Angeles',
-            LocaleSidKey = 'en_US',
-            LanguageLocaleKey = 'en_US'
-        );
-        try {
+        insert con;        
+        Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'];
+        User usr = UtilTestData.createPortalUser('Dealer','Dealer Delegate Admin');
+         try {
             insert usr;
             System.debug('HSL: insert first user successfully.');
         } catch (DMLException e) {
@@ -264,28 +251,10 @@ public class UserHelperTest {
     }
     
     public static testMethod void UserHelperTest02() {
-        Account dealer = [SELECT id,name FROM account limit 1];
-        Profile DealerCommunityUser = [select Id from Profile where Name = 'Dealer Community User'];
+        Account dealer = [SELECT id,name FROM account limit 1];      
         Contact conNew = new Contact(AccountId = dealer.Id, LastName = 'Huang', Phone = '8412877', email = 'HuangTest@163.com', Permission_Set_Settings__c = 'AS_Retail_Campaign;AS_Yearly_TA');
-        insert conNew;
-        User usrNew = new User(
-            Username = System.now().millisecond() + 'HuangTest@163.com',
-            ContactId = conNew.Id,
-            profileid = DealerCommunityUser.id,
-            UserRoleId = null,
-            Alias = 'Huang',
-            Email = 'HuangTestNew@163.com',
-            EmailEncodingKey = 'UTF-8',
-            LastName = 'Huang',
-            CommunityNickname = System.now().millisecond() + 'NTT-TEST',
-            TimeZoneSidKey = 'America/Los_Angeles',
-            LocaleSidKey = 'en_US',
-            Active_Permission_Set__c=false,
-            isActive = true,
-            LanguageLocaleKey = 'en_US'
-        );
-        insert usrNew;
-        
+        insert conNew;      
+        User usrNew= UtilTestData.createPortalUser('Dealer','Dealer Community User');
         Test.startTest();
         Set<Id> userIds = new Set<Id>();
         userIds.add(usrNew.id);

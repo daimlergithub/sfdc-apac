@@ -41,10 +41,6 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>standard__ServiceConsole</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>BMBS_CRM</name>
         <type>CustomApplication</type>
     </appMenuItems>

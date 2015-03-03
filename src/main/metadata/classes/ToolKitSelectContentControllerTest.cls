@@ -17,7 +17,12 @@ public class ToolKitSelectContentControllerTest {
         Id smartEventRT = Schema.SObjectType.Tool_Kit__c.getRecordTypeInfosByName().get('smart Event').getRecordTypeId();
         Id dealerRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         
-        Account acc = [select id from Account where RecordTypeId = :dealerRT and Dealer_Region__c!='' limit 1];
+        /*Insert account with record type Dealer*/
+        Id dealerRecTypeId = [SELECT Id FROM RecordType WHERE Name = 'Dealer'].Id;
+        Account dealerAcc = new Account (Name='Test Account', RecordTypeId=dealerRecTypeId, Dealer_Region__c='Test region');
+        insert dealerAcc;
+        
+        Account acc = [select id from Account where RecordTypeId = :dealerRecTypeId and Dealer_Region__c!='' limit 1];
         
         Tool_Kit__c etk1 = new Tool_Kit__c(RecordTypeId = eventRT,
                                            Dealer_Name__c = acc.id,

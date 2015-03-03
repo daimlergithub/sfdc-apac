@@ -1,4 +1,4 @@
-/**
+/******************************************************************************
  * This class contains unit tests for validating the behavior of Apex classes
  * and triggers.
  *
@@ -12,19 +12,18 @@
  * coverage, and prevent regressions. All Apex classes are
  * required to have at least 75% code coverage in order to be deployed
  * to a production organization. In addition, all triggers must have some code coverage.
- * 
  * The @isTest class annotation indicates this class only contains test
  * methods. Classes defined with the @isTest annotation do not count against
  * the organization size limit for all Apex scripts.
  *
  * See the Apex Language Reference for more information about Testing and Code Coverage.
- */
+ ***************************************************************************************/
 @isTest
-public class UserTriggerCalloutTest{
+public class UserTriggerCalloutTest {
 
     public static testMethod void testCreateUser() {
-         User user = UtilTestData.createUser('E-CSR','CAC E-CSR');
-         UserTriggerCallout.syncUser(user.Id, user.Username, user.UserRole.Name, user.Profile.Name, user.Phone, user.Email);
+         User user = [Select Id, Username,ProfileId,UserRoleId,UserRole.Name,Profile.Name,Phone,Email From User Where Id =: UserInfo.getUserId()];
+         UserTriggerCallout.syncUser(user.Id,user.Username,user.UserRole.Name,user.Profile.Name,user.Phone,user.Email);
     }
     
 }

@@ -18,7 +18,7 @@ global class SSIScheduleWelcomeCallEscalation implements Schedulable {
         Id rtid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         String query = 
             'Select a.Name, a.PersonContactId, ' + 
-            '(Select CreatedDate From Sales_Person_Account__r), ' + 
+            //'(Select CreatedDate From Sales_Person_Account__r), ' + 
             '(Select Create_Welcome_Call__c From Vehicle_Relationships2__r), ' + 
             '(Select CreatedDate From Retail_Tasks3__r where Retail_CreatedDate__c >= ' + String.valueOf(retailCreateDateStart) + ' and Retail_CreatedDate__c < ' + String.valueOf(retailCreateDateEnd) + ' and RecordType.Name = \'Retail Activity\' and Type__c = \'Invoice New Vehicle\'), ' +
             '(Select Subject, Status, Task_RecordType_Name__c ' + 

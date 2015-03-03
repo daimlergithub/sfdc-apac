@@ -13,7 +13,8 @@
 private class VinMatchControllerTest{
     static testMethod void testVinMatch(){
 
-        User user1 = UtilTestData.createUser('Sinotrust', 'BMBS Sinotrust User');
+        
+        User user1 = [Select Id From User Where Id =: UserInfo.getUserId()];
 
         System.debug('-------user1-------:'+user1);
 

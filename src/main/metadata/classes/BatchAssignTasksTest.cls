@@ -29,10 +29,7 @@ public class BatchAssignTasksTest {
 		System.runAs ( thisUser ) {
         
             String[] csrProfiles = new String[]{
-                    'CAC IB CSR', 'CAC IB TL', 'CAC IB SV', 'CAC IB QC', 'CAC IB Trainer',
-                    'CAC OB CSR', 'CAC OB TL', 'CAC OB SV', 'CAC OB QC', 'CAC OB Trainer',
-                    'CAC SSI CSR', 'CAC SSI TL', 'CAC SSI SV', 'CAC SSI QC', 'CAC SSI Trainer'
-            };
+                    'CAC IB CSR', 'CAC IB TL', 'CAC IB QC', 'CAC OB CSR', 'CAC OB TL', 'CAC OB QC', 'CAC SSI CSR', 'CAC SSI TL', 'CAC SSI SV', 'CAC SSI QC', 'CAC SSI Trainer'};
             List<Profile> profileIds = [
                 Select Id 
                 From Profile 
@@ -53,10 +50,9 @@ public class BatchAssignTasksTest {
             }
             
             insert newUsers;
-
         }
 		
-		String csrIds = newUsers[10].Id + ';' + newUsers[11].Id;
+		String csrIds = newUsers[9].Id + ';' + newUsers[10].Id;
 		
 		List<String> ids = csrIds.split(';');
    		for(Integer i=0;i<ids.size();i++){

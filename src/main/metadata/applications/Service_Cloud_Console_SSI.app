@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customApplicationComponents>
-        <alignment>right</alignment>
-    </customApplicationComponents>
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>Service Cloud Console for SSI CSR</description>
-    <detailPageRefreshMethod>none</detailPageRefreshMethod>
+    <detailPageRefreshMethod>autoRefresh</detailPageRefreshMethod>
     <enableKeyboardShortcuts>true</enableKeyboardShortcuts>
     <enableMultiMonitorComponents>true</enableMultiMonitorComponents>
     <isServiceCloudConsole>true</isServiceCloudConsole>
@@ -115,14 +112,17 @@
             <active>false</active>
             <keyCommand>SHIFT+K</keyCommand>
         </defaultShortcut>
+        <defaultShortcut>
+            <action>FOCUS_MACRO</action>
+            <active>false</active>
+            <keyCommand>M</keyCommand>
+        </defaultShortcut>
     </keyboardShortcuts>
     <label>Service Cloud Console SSI</label>
     <listPlacement>
-        <location>left</location>
-        <units>percent</units>
-        <width>30</width>
+        <location>full</location>
     </listPlacement>
-    <listRefreshMethod>none</listRefreshMethod>
+    <listRefreshMethod>refreshListRows</listRefreshMethod>
     <logo>Logo/MBCL_LOGO.png</logo>
     <saveUserSessions>true</saveUserSessions>
     <tab>Tasks</tab>
@@ -130,7 +130,6 @@
     <tab>standard-Account</tab>
     <tab>QC__c</tab>
     <tab>standard-report</tab>
-    <tab>Account_Link__c</tab>
     <workspaceMappings>
         <mapping>
             <tab>standard-report</tab>
@@ -146,9 +145,6 @@
         </mapping>
         <mapping>
             <tab>standard-Account</tab>
-        </mapping>
-        <mapping>
-            <tab>Account_Link__c</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>

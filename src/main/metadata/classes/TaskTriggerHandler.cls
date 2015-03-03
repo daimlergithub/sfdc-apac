@@ -203,10 +203,9 @@ public class TaskTriggerHandler {
                 From Task 
                 Where recordtypeid = :WCRTID And WhatId = :tk.WhatId And WhoId = :tk.WhoId];
             if(wccount == 0){
-                User obsv = [
-                    Select Id, ProfileId 
-                    From User 
-                    where profile.Name = 'CAC OB SV' And IsActive = true Limit 1];
+                profile profileId=[select Id,name from profile where Name='CAC OB TL'];
+                User obsv = [Select Id, ProfileId From User 
+                    where profileId=:profileId.Id And IsActive = true Limit 1];
                 Task t = new Task(
                     recordtypeid = WCRTID,
                     Subject = 'Welcome Call',
@@ -475,7 +474,7 @@ public class TaskTriggerHandler {
             }
         }    
 
-		/* TODO FL Campaign_Survey_Result__c not available in Kernel
+        /* TODO FL Campaign_Survey_Result__c not available in Kernel
         Map<Id, Campaign_Survey_Result__c> csrMap = new Map<Id, Campaign_Survey_Result__c>();
         if (relIds.size() > 0) {
             for (Campaign_Survey_Result__c csr : [Select Id, TaskId__c From Campaign_Survey_Result__c Where TaskId__c In :relIds]) {
@@ -487,7 +486,7 @@ public class TaskTriggerHandler {
                 tk.Survey_Result_Id__c = csrMap.get(tk.Related_Task_Id__c).Id;
             }
         }
-		*/
+        */
 
     }
     
@@ -528,7 +527,7 @@ public class TaskTriggerHandler {
             try{
                 update ssi;   
             }catch(Exception ex){}
-		}
+        }
     }
 
     public static void autoUpdateAccountOBTaskMessage(List<Task> tList){

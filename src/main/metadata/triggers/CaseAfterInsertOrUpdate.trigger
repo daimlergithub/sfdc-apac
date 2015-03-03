@@ -26,8 +26,8 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
     List<Sobject> insertCaseHistorys = new List<Sobject>();
     List<Sobject> insertCaseDescriptions = new List<Sobject>();
     List<Sobject> updateObjs = new List<Sobject>();
-    Map<id,String> vrsMap = new Map<id,String>();
-    Map<id,String> ursMap = new Map<id,String>();
+    Map<id,String> vehicleRelationshipMap = new Map<id,String>();
+    Map<id,String> userMap = new Map<id,String>();
     Map<id,id> casesToShare = new Map<id, id>();
     // ADD START AS-Complaint_002 CHAOS 2014/2/21
     Map<id,Set<Id>> casesToDeleteFromShare = new Map<Id, Set<Id>>();
@@ -35,17 +35,17 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
     // ADD END AS-Complaint_002 CHAOS 2014/2/21
     Map<String, String> vehicleToOwner = new Map<String, String>();
     Map<id,id> casesToShareRO = new Map<id, id>();
-    Set<id> vsrIds = new Set<id>();
+    Set<id> vehicleRelationship_Ids = new Set<id>();
     Set<id> userIds = new Set<id>();
     Set<id> smsIds = new Set<id>();
-    Set<id> accIds = new Set<id>();
+    Set<id> account_Ids = new Set<id>();
     List<String> targetList = null;    
     List<Case> casesForDescription = new List<Case>();
-    List<Id> CentralQID = new List<Id>();
+    List<Id> CentralQueue_ID = new List<Id>();
     List<Case> closeRelatedCase = new List<Case>();
     if(Trigger.isUpdate) {
         for(QueueSobject q : CaseHelper.BMBS_CENTRAL_CASE_QUEUES) {
-            CentralQID.add(q.QueueId);
+            CentralQueue_ID.add(q.QueueId);
         }
     }
     
@@ -88,8 +88,8 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
                     //tracking history
                     if(newValue != oldValue){
                         if (cloName == 'Vehicle_Relationship__c'){
-                            vsrIds.add(caseNew.Vehicle_Relationship__c);
-                            vsrIds.add(caseOld.Vehicle_Relationship__c);
+                            vehicleRelationship_Ids.add(caseNew.Vehicle_Relationship__c);
+                            vehicleRelationship_Ids.add(caseOld.Vehicle_Relationship__c);
                         }else if(cloName == 'OwnerId'){
                             userIds.add(caseNew.OwnerId);
                             userIds.add(caseOld.OwnerId);
@@ -125,8 +125,8 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
                 if(trigger.isUpdate && caseNew.OwnerId != Trigger.oldMap.get(caseNew.Id).OwnerId) {
                     casesToShare.put(caseNew.Id, caseNew.Case_Dealer__c);
                     boolean flag = false;
-                    for(integer i = 0;i<CentralQID.size();i++) {
-                        if(CentralQID[i] == caseNew.OwnerId) {
+                    for(integer i = 0;i<CentralQueue_ID.size();i++) {
+                        if(CentralQueue_ID[i] == caseNew.OwnerId) {
                             flag = true;
                         }
                     }
@@ -163,7 +163,7 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
         if (trigger.isInsert){
             if (caseNew.ParentId == null && caseNew.AccountId != null && caseNew.Handling_Level__c != 'Dealer' && (caseHelper.C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId ||caseHelper.C_MB_RECORD_TYPE == caseNew.RecordTypeId)){
                 smsIds.add(caseNew.Id);
-                accIds.add(caseNew.AccountId);
+                account_Ids.add(caseNew.AccountId);
             }
             
             //US-CC-024
@@ -177,21 +177,21 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
         CaseHelper.closeRelatedCase(closeRelatedCase);
     }
 
-    if (vsrIds.size()>0 || userIds.size()>0){
-        for(Vehicle_Relationship__c vr : [select id , name from Vehicle_Relationship__c where id in :vsrIds]){
-            if(!vrsMap.containsKey(vr.id)){
-                vrsMap.put(vr.id,vr.name);
+    if (vehicleRelationship_Ids.size()>0 || userIds.size()>0){
+        for(Vehicle_Relationship__c vr : [select id , name from Vehicle_Relationship__c where id in :vehicleRelationship_Ids]){
+            if(!vehicleRelationshipMap.containsKey(vr.id)){
+                vehicleRelationshipMap.put(vr.id,vr.name);
             }
         }
         
         for(user u:[select id , name from user where Id in :userIds]){
-            if(!ursMap.containsKey(u.id)){
-                ursMap.put(u.id,u.name);
+            if(!userMap.containsKey(u.id)){
+                userMap.put(u.id,u.name);
             }        
         }
         for(QueueSobject u:[select QueueId , queue.name from QueueSobject where QueueId in :userIds limit 100]){
-            if(!ursMap.containsKey(u.QueueId)){
-                ursMap.put(u.QueueId,u.queue.name);
+            if(!userMap.containsKey(u.QueueId)){
+                userMap.put(u.QueueId,u.queue.name);
             }        
         }
     
@@ -208,7 +208,7 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
             String labelName = CaseHelper.FLDOBJ_MAP.get('Vehicle_Relationship__c').getDescribe().getLabel();
             //tracking history
             if(newId != oldId){
-                insertCaseHistorys.add(CaseHelper.newCaseHistory(caseNew.Id, labelName , vrsMap.get(newId), vrsMap.get(oldId)));
+                insertCaseHistorys.add(CaseHelper.newCaseHistory(caseNew.Id, labelName , vehicleRelationshipMap.get(newId), vehicleRelationshipMap.get(oldId)));
             }
 
             newId = caseNew.OwnerId;
@@ -216,14 +216,14 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
             labelName= 'Case Owner';
             //tracking history
             if(newId != oldId){
-                insertCaseHistorys.add(CaseHelper.newCaseHistory(caseNew.Id, labelName , ursMap.get(newId), ursMap.get(oldId)));
+                insertCaseHistorys.add(CaseHelper.newCaseHistory(caseNew.Id, labelName , userMap.get(newId), userMap.get(oldId)));
             }            
         }
     }
 
     //create SMS tasks
     if(smsIds.size() > 0) {
-        CaseHelper.createSmsTasks(smsIds, accIds);
+        CaseHelper.createSmsTasks(smsIds, account_Ids);
     }
     
     // ADD START AS-Complaint_002 CHAOS 2014/2/21
@@ -288,7 +288,7 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
     if(trigger.isInsert){
         Set<String> caseIds = new Set<String>();
         for(Case c : Trigger.new){
-            if(c.RecordTypeId == '01290000000rXmLAAU' && c.ParentId != null){
+            if(c.RecordTypeId == Schema.SObjectType.Account.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId() && c.ParentId != null){
                 caseIds.add(c.Id);
             }
         }

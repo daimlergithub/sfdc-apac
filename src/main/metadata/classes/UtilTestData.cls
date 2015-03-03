@@ -85,7 +85,7 @@ Public class UtilTestData {
     }
     
     // Get UserRoleId by Role Name
-    private static Id getUserRoleId(String roleName) {
+    Public static Id getUserRoleId(String roleName) {
         return getUserRoleMapInstance().get(roleName);
     }
     
@@ -111,13 +111,80 @@ Public class UtilTestData {
         insert usr;
         return usr;
     }
+       // Create Test portal User
+    private static User createPortalUser(Id userRoleId, Id profileId) {        
+        Account acc = new Account ( Name = 'dummtyTestAcc');  
+        insert acc;      
+        System.assert(acc.Name=='dummtyTestAcc');
+        Contact con = new Contact ( AccountId = acc.id, LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true);
+        insert con;      
+        System.assert(con.LastName=='portalTestUser'); 
+        User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
+        System.assertEquals(UserInfo.getUserId(),thisUser.id);
+        User usr=new User();       
+        System.runAs ( thisUser ) {               
+                usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';            
+                usr.ProfileId=profileId;
+                usr.UserRoleId=userRoleId;
+                usr.LastName = 'Test User';
+                usr.Email = 'test001@daimler.com.full';
+                usr.Alias = 'test';
+                usr.TimeZoneSidKey = 'Asia/Shanghai';
+                usr.EmailEncodingKey = 'UTF-8';
+                usr.LanguageLocaleKey = 'en_US';
+                usr.localesidkey='en_US';
+                usr.isActive = true;
+                usr.ContactId =con.Id;
+                insert usr; 
+            }     
+        return usr;    
+    }
 
-    // Create Test User by Role Name and Profile Name
+     // Create Test portal User for different recordtype of an Account
+     /*
+    private static User createPortalUserforAccount(Id userRoleId, Id profileId,String accountRecordTypeId) {         
+        Account acc = (Account)UtilTestData.createSobject(new Account(),accountRecordTypeId);  
+        Contact con = new Contact ( AccountId = acc.id, LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true);
+        insert con;      
+        System.assert(con.LastName=='portalTestUser'); 
+        User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
+        System.assertEquals(UserInfo.getUserId(),thisUser.id);
+        User usr=new User();       
+        System.runAs ( thisUser ) {               
+                usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';            
+                usr.ProfileId=profileId;
+                usr.UserRoleId=userRoleId;
+                usr.LastName = 'Test User';
+                usr.Email = 'test001@daimler.com.full';
+                usr.Alias = 'test';
+                usr.TimeZoneSidKey = 'Asia/Shanghai';
+                usr.EmailEncodingKey = 'UTF-8';
+                usr.LanguageLocaleKey = 'en_US';
+                usr.localesidkey='en_US';
+                usr.isActive = true;
+                usr.ContactId =con.Id;
+                insert usr; 
+            }     
+        return usr;            
+    } */
+   // Create Test User by Role Name and Profile Name
     public static User createUser(String roleName, String profileName) {
         return createUser(getUserRoleId(roleName), 
                           getProfileId(profileName));
     }
-
+  
+    // Create Test portal User by Role Name and Profile Name
+    public static User createPortalUser(String roleName, String profileName) {
+        return createPortalUser(getUserRoleId(roleName), 
+                          getProfileId(profileName));
+    }
+  /*
+   // Create Test portal User by Role Name , Profile Name and Account Name
+    public static User createPortalUserforAccount(String roleName, String profileName,String accountRecordTypeName) {
+        return createPortalUserforAccount(getUserRoleId(roleName), 
+                          getProfileId(profileName),accountRecordTypeName);
+    } */
+  
     public static Sobject createSobject(Sobject so, String recordTypeName) {
         initiateSobject(so, recordTypeName);
         

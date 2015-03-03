@@ -19,7 +19,7 @@ public with sharing class UserHelper {
     public Static final String ErrorMessageContactSelect = 'Your contact must have to check with one of below: Dealer Lead Gate Keeper, Dealer Complaint Gate Keeper, Dealer Complaint User, Dealer Marketing Manager.';
     
     public Static Profile DealerComplaintUser = [select Id from Profile where Name = 'Dealer Community User'];
-    public Static Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Community Delegate Admin'];
+    public Static Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'];
     
     //validate No of Dealer Portal Licanses
     public static void ValidateUser(User newUser) {

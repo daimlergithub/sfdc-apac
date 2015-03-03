@@ -153,7 +153,7 @@ public class CaseHelper{
     //public static final String ERR_MSG_HAVEPARENT = 'This Vehicle has a same Complaint, please add it as parent case';
     
     // SMS content
-    public static final String SMS_MSG_1 = 'Thank you for your call, your feedback from the Mercedes-Benz customer service hotline has received, officials will continue to investigate the situation, get in touch with you as soon as possible. 【"Mercedes-Benz Service Center 4008181188】';
+    public static final String SMS_MSG_1 = 'Thank you for your call,your feedback from the Mercedes-Benz customer service hotline has received, officials will continue to investigate the situation,get in touch with you ASAP.['+'Mercedes-Benz Service Center 4008181188'+']';
    
     // Complaint is not a primary complaint reminder
     public static final String NOT_PRIMARY_REMINDER = 'This Complaint is not a primary complaint, please find the primary complaint.';
@@ -764,4 +764,881 @@ public class CaseHelper{
         }
         return accountAndsmManager;
     }
+    
+    
+    /****** Adding the logical manipulation for caseBeforeInsertUpdateTrigger *****/
+    public static void caseBeforeInsertUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal){
+		    String[] eAddresses = null;
+		    String email = null;
+		    Boolean isError = false;
+		    Set<id> caseIds = new Set<id>();
+		    Map<id,String> vrsMap = new Map<id,String>();
+		    
+		    for(Case caseNew : cases) {
+	        if(isInsert && caseNew.RecordTypeId == RETAIL_CAMPAIGN_RECORD_TYPE && CURRENT_PROFILE.Name.startsWith('CAC')) {
+	            caseIds.add(caseNew.Id);
+	        }
+	        // Check the Others email address
+	        if (C_MB_RECORD_TYPE == caseNew.RecordTypeId){
+	            // if the email address of the manager is blank, it can't be the recipient.
+	            if (caseNew.Notice_AS__c && (caseNew.Aftersales_Manager__c == null || caseNew.Aftersales_Manager__c.trim() == '')) {
+	                caseNew.Notice_AS__c = false;
+	            }
+	            if (caseNew.Notice_CRM__c && (caseNew.CRM_Manager__c == null || caseNew.CRM_Manager__c.trim() == '')) {
+	                caseNew.Notice_CRM__c = false;
+	            }
+	            if (caseNew.Notice_GM__c && (caseNew.General_Manager__c == null || caseNew.General_Manager__c.trim() == '')) {
+	                caseNew.Notice_GM__c = false;
+	            }
+	            if (caseNew.Notice_SM__c && (caseNew.Sales_Manager__c == null || caseNew.Sales_Manager__c.trim() == '')) {
+	                caseNew.Notice_SM__c = false;
+	            }
+	                
+	            if (caseNew.Others__c != null && caseNew.Others__c.trim() != '') {
+	                isError = false;
+	                email = '';
+	                eAddresses = caseNew.Others__c.trim().split('\n');
+	                
+	                for (String e : eAddresses) {
+	                    if (e.trim() != '') {
+	                        if (!pattern.matches('[_a-zA-Z\\d\\-\\./]+@[_a-zA-Z\\d\\-]+(\\.[_a-zA-Z\\d\\-]+)+',e.trim())) {
+	                            caseNew.addError('Other email address format is incorrect, and one can only fill in the email address.');
+	                            break;
+	                        } else {
+	                            email = email + e.trim() + '\n';
+	                        }
+	                    }
+	                }
+	                caseNew.Others__c = email.trim();
+	            }
+	        }
+	    }
+	    if (caseIds.size()>0){
+	        for(Case vr : [Select Id, Retail_Campaign__r.Record_Type_Name__c, Retail_Campaign__c From Case where id in :caseIds]){
+	            if(!vrsMap.containsKey(vr.id)){
+	                vrsMap.put(vr.id,vr.Retail_Campaign__r.Record_Type_Name__c);
+	            }
+	        }
+	    }
+	    
+	     // [End] Added by Cyril Huang on 2014-05-06(Release1.1b)
+	    
+	    
+		Map<Id, List<Id>> parentIdChildIds = new Map<Id, List<Id>>();
+	    Set<Id> parenthasParents = new Set<Id>();
+	    Set<Id> parentIds = new Set<Id>();
+	    Set<Id> vehicleRelationships = new Set<Id>();
+	    Map<Id, Vehicle_Relationship__c> vehicleRelationshipInfo = new Map<Id, Vehicle_Relationship__c>();
+	    List<Case> changeOwnerAndSendMailObjs = new List<Case>();
+	    // Delete Start - Release 1.3 - Deleted by Cyril
+	    //List<Case> changeOwnerObjs = new List<Case>();
+	    //Map<id,User> changeOwnerObjsResult = new Map<id,User>();
+	    // Delete End - Release 1.3 - Deleted by Cyril
+	    Map<id,User> changeOwnerAndSendMailObjsResult = new Map<id,User>();
+	    Set<Id> queueIds = new Set<Id>();
+	    Map<String, String> subTypeMap = new Map<String, String>();
+	    Map<Id, String> dealerIdsforRetailInquiry = new Map<Id, String>();
+	    Map<Id, Id> dealerIdUserId = new Map<Id, Id>();
+	    Set<Id> retailCaseOwners = new Set<id>();
+	    List<Case> retailCases = new List<Case>();
+	    Boolean viewCACIBSVUsers = false;
+	    List<User> CACIBSVUsers;
+	    Id accountId;
+	    if(UserInfo.getUserType() == 'PowerPartner' && trigger.isInsert) {
+	        accountId = [select id , AccountId from user where id = :userinfo.getUserId()].AccountId;
+	    }
+	    
+	    //get subtype chinese subject
+	    if(isInsert && CURRENT_PROFILE.Name.startsWith('CAC')){
+	        for(Case_SubType_Mapping__c csm: [select Name,Case_Subject_CN__c from Case_SubType_Mapping__c]){
+	            subTypeMap.put(csm.Name, csm.Case_Subject_CN__c);
+	        }
+	    }
+	    
+		    for(Case caseNew : cases) {
+	        if (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId || C_MB_RECORD_TYPE == caseNew.RecordTypeId){
+	            if (isInsert) {
+	                if(caseNew.ParentId != null){
+	                    parentIds.add(caseNew.ParentId);
+	                }
+	                if(accountId != null && caseNew.Case_Dealer__c == null ){
+	                    caseNew.Case_Dealer__c = accountId;
+	                    caseNew.Handling_Level__c = 'Dealer';
+	                }
+	            }
+	
+	            if (caseNew.Vehicle_Relationship__c != null){
+	                vehicleRelationships.add(caseNew.Vehicle_Relationship__c);
+	            }
+	
+	            // Modify Start - Release 1.3 - Deleted by Cyril
+	            // the complaint Case Owner will be auto changed to the Dealer's Complaint Gate keeper, if the following criteria is meet:
+	            // -Case Record Type = MB Complaints and Dealer Contact=Yes
+	            // and (Case SubType !="Fire or Gasbag Case" or On-Site Manager confirmed = True)
+	            //if (caseHelper.C_MB_RECORD_TYPE == caseNew.RecordTypeId && 'Yes' == caseNew.Dealer_Contact__c && 
+	            //    ('Fire or Gasbag Case' != caseNew.Case_SubType__c || caseNew.On_Site_Manager_Confirmed__c ) && currentUserProfle.Name.startsWith('CAC')){
+	            //    changeOwnerAndSendMailObjs.add(caseNew);
+	            //}
+	            //If Onsite Manager need to to assign the "Fire or Gasbag Case" Complaint to Dealer,
+	            //s/he will check "On-Site Manager Confirmed" field and the Complaint will be assigned to Dealer Gate Keeper following
+	            //if (Trigger.isUpdate && caseNew.On_Site_Manager_Confirmed__c && caseHelper.P_BMBS_ONSITE_CM_ID == UserInfo.getProfileId() && caseNew.OwnerId == Trigger.oldMap.get(caseNew.Id).OwnerId){
+	            //    changeOwnerObjs.add(caseNew);
+	            //}
+	            
+	            // All MB Cases that were created by CAC will be assigned to Dealer
+	            if (C_MB_RECORD_TYPE == caseNew.RecordTypeId && CURRENT_PROFILE.Name.startsWith('CAC')){
+	                changeOwnerAndSendMailObjs.add(caseNew);
+	            }
+	            // Modify End - Release 1.3 - Deleted by Cyril
+	        }
+	        if (C_MBDA_RECORD_TYPE == caseNew.RecordTypeId ){
+	            if (isInsert) {
+	                if(caseNew.ParentId != null){
+	                    parentIds.add(caseNew.ParentId);
+	                }
+	            }
+	        }
+	        
+	        if(isInsert && caseNew.RecordTypeId == RETAIL_CAMPAIGN_RECORD_TYPE && CURRENT_PROFILE.Name.startsWith('CAC')) {
+	            dealerIdsforRetailInquiry.put(caseNew.Case_Dealer__c , vrsMap.get(caseNew.Id));
+	        }
+	        
+	         if(isInsert && C_MB_RECORD_TYPE == caseNew.RecordTypeId && (caseNew.Case_SubType__c == 'RSA - Waiting Time of Assistance' 
+	            || caseNew.Case_SubType__c == 'RSA-RSA service attitude' || caseNew.Case_SubType__c == 'RSA - Professionalism of Rescue Worker' || caseNew.Case_Type__c == 'Finance service') 
+	            && !(CURRENT_PROFILE.Name.startsWith('Dealer'))) {
+	            viewCACIBSVUsers = true;   
+	        }
+	        
+	        // Added by Cyril Start -- Release1.3 Complaint Solution Team CR
+	        if (isInsert && CURRENT_PROFILE.Name.startsWith('CAC')) {
+	            caseNew.CreateByCAC__c = true;
+	        }
+	        // Added by Cyril End -- Release1.3 Complaint Solution Team CR
+	    }
+	    
+	    
+	        if(dealerIdsforRetailInquiry.size() > 0) {
+        dealerIdUserId = CaseHelper.getDealerSMManager(dealerIdsforRetailInquiry);
+    }
+
+    if (parentIds.size()>0){
+        for(Case ca : [select Id, ParentId from Case where ParentId in :parentIds]) {
+            if(!parentIdChildIds.containsKey(ca.ParentId)) {
+                parentIdChildIds.put(ca.ParentId, new List<Id>());
+            }
+            parentIdChildIds.get(ca.ParentId).add(ca.Id);
+        }
+
+        for(Case ca : [select Id, ParentId from Case where Id in :parentIds]) {
+            if(ca.ParentId != null) {
+                parenthasParents.add(ca.Id);
+            }
+        }
+    }
+
+   		//get vehicle infomation
+	    if (vehicleRelationships.size()>0){
+	        for(Vehicle_Relationship__c vr : [select Vehicle_Brand__c, Vehicle_Class__c , Vehicle_Model__c, Vehicle_ID__c, Vehicle_ID__r.UsVIN__c, Vehicle_ID__r.EuroVIN__c, Vehicle_ID__r.Latest_Sales_Person__c, Vehicle_ID__r.Warranty_Start_Date__c, Vehicle_ID__r.FirstRegistrationDate__c, Registration_Number__c from Vehicle_Relationship__c where Id in :vehicleRelationships]){
+	            vehicleRelationshipInfo.put(vr.id,vr);
+	        }
+	    }
+	    // Delete Start - Release 1.3 - Deleted by Cyril
+	    //get Gate Keeper Owner
+	    //if(changeOwnerObjs.size()>0){
+	    //    changeOwnerObjsResult = CaseHelper.getGateKeepers(changeOwnerObjs);
+	    //}
+	    // Delete End - Release 1.3 - Deleted by Cyril
+	
+	    //get Gate Keeper Owner US-CC-008
+	    if(changeOwnerAndSendMailObjs.size()>0){
+	        changeOwnerAndSendMailObjsResult = CaseHelper.getGateKeepers(changeOwnerAndSendMailObjs);
+	    }
+	
+	    for(QueueSobject qs : CENTRAL_REGIONAL_CASE_QUEUES) {
+	        queueIds.add(qs.QueueId);
+	    }
+	    
+	    if(viewCACIBSVUsers) {
+	        CACIBSVUsers = [select id from User where profile.name = 'CAC IB SV' and isActive = true];
+	    }
+	    
+	    
+		    for(Case caseNew : cases) {
+	        if (C_MBDA_RECORD_TYPE == caseNew.RecordTypeId){
+	            if(isInsert) {
+	                if(caseNew.CCMS_SourceId__c == '' || caseNew.CCMS_SourceId__c == null) {
+	                        caseNew.Repeat_Complaint_Times__c = 1;
+	                }
+	                //set repeat complaint times
+	                if (caseNew.ParentId != null){
+	                    if(parenthasParents.contains(caseNew.ParentId)) {
+	                            caseNew.addError(caseHelper.NOT_PRIMARY_REMINDER );
+	                        }
+	                        else
+	                        {
+	                            if(parentIdChildIds.containsKey(caseNew.ParentId)) {
+	                                caseNew.Repeat_Complaint_Times__c = parentIdChildIds.get(caseNew.ParentId).size() + 2;
+	                            }
+	                            else {
+	                                caseNew.Repeat_Complaint_Times__c = 2;
+	                            }
+	                    }
+	                }
+	            }
+	        }
+	        if (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId || C_MB_RECORD_TYPE == caseNew.RecordTypeId){
+	            if(isInsert) {
+	                //set "Case Subtype" to field "Subject"
+	                if(CURRENT_PROFILE.Name.startsWith('CAC')){
+	                    caseNew.Subject = subTypeMap.get(caseNew.Case_SubType__c);
+	                }
+	
+	                if(caseNew.CCMS_SourceId__c == '' || caseNew.CCMS_SourceId__c == null) {
+	                    caseNew.Repeat_Complaint_Times__c = 1;
+	                }
+	
+	                //set repeat complaint times
+	                if (caseNew.ParentId != null){
+	                    if(parenthasParents.contains(caseNew.ParentId)) {
+	                        caseNew.addError(NOT_PRIMARY_REMINDER );
+	                    }
+	                    else
+	                    {
+	                        if(parentIdChildIds.containsKey(caseNew.ParentId)) {
+	                            caseNew.Repeat_Complaint_Times__c = parentIdChildIds.get(caseNew.ParentId).size() + 2;
+	                        }
+	                        else {
+	                            caseNew.Repeat_Complaint_Times__c = 2;
+	                        }
+	                        caseNew.Feedback_to_CAC_New__c = '';
+	                        caseNew.Feedback_Read__c = false;
+	                        caseNew.Results_Response__c = '';
+	                        caseNew.Result__c = '';
+	                        caseNew.Final__c = false;
+	                        caseNew.On_Site_Manager_Confirmed__c = false;
+	                    }
+	                }
+	            }
+	            // ADD START AS-Complaint_002 CHAOS 2014/2/28
+	            Set<id> dealerAccounts = new Set<id>();
+	            
+	            Id oldSupportDealer1 = 
+	                (oldVal == null ) ? null : oldVal.get(caseNew.Id).Support_Dealer_1__c;
+	            Id oldSupportDealer2 = 
+	                (oldVal == null ) ? null : oldVal.get(caseNew.Id).Support_Dealer_2__c;
+	            Id oldSupportDealer3 = 
+	                (oldVal == null ) ? null : oldVal.get(caseNew.Id).Support_Dealer_3__c;
+	            
+	            if (caseNew.Support_Dealer_1__c != oldSupportDealer1 
+	                && caseNew.Support_Dealer_1__c != null ){
+	                dealerAccounts.add(caseNew.Support_Dealer_1__c);
+	            }
+	            if (caseNew.Support_Dealer_2__c != oldSupportDealer2 
+	                && caseNew.Support_Dealer_2__c != null ){
+	                dealerAccounts.add(caseNew.Support_Dealer_2__c);
+	            }
+	            if (caseNew.Support_Dealer_3__c != oldSupportDealer3
+	                && caseNew.Support_Dealer_3__c != null ){
+	                dealerAccounts.add(caseNew.Support_Dealer_3__c);
+	            }
+	            Map<id,String> accountAndKeeperEmail = getComplaintGateKeeperEmail(dealerAccounts);
+	            
+	            if (caseNew.Support_Dealer_1__c != oldSupportDealer1
+	                && caseNew.Support_Dealer_1__c != null 
+	                && caseNew.Send_Email_Support_Dealer1_Keeper_Email__c 
+	                            != accountAndKeeperEmail.get(caseNew.Support_Dealer_1__c)){
+	                caseNew.Send_Email_Support_Dealer1_Keeper__c = true;
+	                caseNew.Send_Email_Support_Dealer1_Keeper_Email__c =
+	                        accountAndKeeperEmail.get(caseNew.Support_Dealer_1__c);
+	            } else {
+	                caseNew.Send_Email_Support_Dealer1_Keeper_Email__c = '';
+	            }
+	
+	            if (caseNew.Support_Dealer_2__c != oldSupportDealer2
+	                && caseNew.Support_Dealer_2__c != null
+	                && caseNew.Send_Email_Support_Dealer2_Keeper_Email__c 
+	                            != accountAndKeeperEmail.get(caseNew.Support_Dealer_2__c)){
+	                caseNew.Send_Email_Support_Dealer2_Keeper__c = true;
+	                caseNew.Send_Email_Support_Dealer2_Keeper_Email__c =
+	                        accountAndKeeperEmail.get(caseNew.Support_Dealer_2__c);
+	            } else {
+	                caseNew.Send_Email_Support_Dealer2_Keeper_Email__c = '';
+	            }
+	            
+	            if (caseNew.Support_Dealer_3__c != oldSupportDealer3
+	                && caseNew.Support_Dealer_3__c != null
+	                && caseNew.Send_Email_Support_Dealer3_Keeper_Email__c 
+	                            != accountAndKeeperEmail.get(caseNew.Support_Dealer_3__c)){
+	                caseNew.Send_Email_Support_Dealer3_Keeper__c = true;
+	                caseNew.Send_Email_Support_Dealer3_Keeper_Email__c =
+	                        accountAndKeeperEmail.get(caseNew.Support_Dealer_3__c);
+	            } else {
+	                caseNew.Send_Email_Support_Dealer3_Keeper_Email__c = '';
+	            }
+	            // ADD END AS-Complaint_002 CHAOS 2014/2/28
+	            
+	            //set Vehicle infomation
+	            if (caseNew.Vehicle_Relationship__c != null && vehicleRelationshipInfo.get(caseNew.Vehicle_Relationship__c) != null){
+	                caseNew = caseHelper.setVehicleInfo(caseNew,vehicleRelationshipInfo.get(caseNew.Vehicle_Relationship__c));
+	            }
+	
+	            // Delete Start - Release 1.3 - Deleted by Cyril
+	            //if(changeOwnerObjsResult.containsKey(caseNew.id) && !queueIds.contains(caseNew.OwnerId)) {
+	            //    caseNew.OwnerId = changeOwnerObjsResult.get(caseNew.id).id;
+	            //    caseNew.Handling_Level__c = 'Dealer';
+	            //}
+	            // Delete End - Release 1.3 - Deleted by Cyril
+	
+	            if(changeOwnerAndSendMailObjsResult.containsKey(caseNew.id) && !queueIds.contains(caseNew.OwnerId)) {
+	                caseNew.OwnerId = changeOwnerAndSendMailObjsResult.get(caseNew.id).id;
+	                caseNew.Handling_Level__c = 'Dealer';
+	                caseNew.SendEmailToGateKeeper__c = true;
+	            }
+	
+	            //when owner changed, save previous owner in field
+	            if (C_MB_RECORD_TYPE == caseNew.RecordTypeId && isUpdate) {
+	                Id previousId = oldVal.get(caseNew.Id).OwnerId;
+	                if (caseNew.OwnerId != previousId && String.valueOf(previousId).substring(0,3).equals('005')) {
+	                    caseNew.Previous_Owner__c = previousId;
+	                }
+	            }
+	        }
+	
+	        //If Feedback to CAC changed from null to any values, change Has Feedback to true.
+	        if(isUpdate) {
+	            if(caseNew.Feedback_to_CAC_New__c != null && caseNew.Feedback_to_CAC_New__c != '' && (oldVal.get(caseNew.Id).Feedback_to_CAC_New__c == null || oldVal.get(caseNew.Id).Feedback_to_CAC_New__c == '')) {
+	                caseNew.Has_Feedback__c = true;
+	            }
+	
+	            //Update 15 Minutes Before Deadline when Deadline is inserted or updated.
+	            if(caseNew.Deadline__c != null && caseNew.Deadline__c != oldVal.get(caseNew.Id).Deadline__c) {
+	                caseNew.X15_Minutes_Before_Deadline__c = caseNew.Deadline__c.addMinutes(-15);
+	            }
+	        }
+	
+	        if(isInsert && caseNew.Deadline__c != null) {
+	            caseNew.X15_Minutes_Before_Deadline__c = caseNew.Deadline__c.addMinutes(-15);
+	        }
+	        
+	        if(isInsert && caseNew.RecordTypeId == RETAIL_CAMPAIGN_RECORD_TYPE && CURRENT_PROFILE.Name.startsWith('CAC') && dealerIdUserId.containsKey(caseNew.Case_Dealer__c)) {
+	            caseNew.OwnerId = dealerIdUserId.get(caseNew.Case_Dealer__c);
+	            caseNew.Retail_Case_Notice_Dealer_Flag__c = true;
+	        }
+	        
+	        if(isInsert && C_MB_RECORD_TYPE == caseNew.RecordTypeId && (caseNew.Case_SubType__c == 'RSA - Waiting Time of Assistance' 
+	            || caseNew.Case_SubType__c == 'RSA-RSA service attitude' || caseNew.Case_SubType__c == 'RSA - Professionalism of Rescue Worker' || caseNew.Case_Type__c == 'Finance service') 
+	            && !(CURRENT_PROFILE.Name.startsWith('Dealer')) && CACIBSVUsers.size() > 0) {
+	            caseNew.ownerId = CACIBSVUsers[0].id;
+	        }
+	    }
+	    
+		Set<String> carOwnerIds = new Set<String>();
+	    List<Case> casesList = new List<Case>();
+	
+	    List<Case> casesForVehicle = new List<Case>();
+	    List<Id> vehicleIds = new List<Id>();
+	
+	    for(Case newCase : cases){
+	        if(newCase.Car_Owner__c != null && (isInsert || (isUpdate && newCase.Car_Owner__c != oldVal.get(newCase.Id).Car_Owner__c))){
+	            carOwnerIds.add(newCase.Car_Owner__c);
+	            casesList.add(newCase);
+	        }
+	
+	        if(newCase.Vehicle__c != null && (isInsert || (isUpdate && newCase.Vehicle__c != oldVal.get(newCase.Id).Vehicle__c)))
+	        {
+	            casesForVehicle.add(newCase);
+	            vehicleIds.add(newCase.Vehicle__c);
+	        }
+	    }
+
+	    if(carOwnerIds.size() > 0) {
+	       populateCarOwnerValuesToCase(carOwnerIds, casesList);
+	    }
+	    if(casesForVehicle.size() > 0) {
+	        updateVehicleRelatedFields(casesForVehicle, vehicleIds);
+	    }
+	    
+		    // [Start] Added by Cyril Huang on 2014-05-06(Release1.1b)
+		    // Send case updating notification email to Dealer Managers
+		     // 2013-09-06 Created by Justin: Populate the car owner values to case.
+		    boolean isStatus = false;
+		    boolean isInfo = false;
+		    boolean isSettlement = false;
+		    boolean isDescChanged = false;
+		    String eAddress = '';
+		    String content = '';
+		    String accName = '';
+		    String statusTrack = '';
+		    String handleTrack = '';
+		    List<Messaging.SingleEmailMessage> messages = new List<Messaging.SingleEmailMessage>();
+		    // Add Start - Release 1.3 - Added by Cyril
+		    List<Task> taskListOf48H = new List<Task>();
+		    List<Task> taskListOf72H = new List<Task>();
+		    // Add End - Release 1.3 - Added by Cyril
+	    
+		    if (isUpdate) {
+	        for(Case caseNew : cases) {
+	            Case caseOld = oldVal.get(caseNew.id);
+	            Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+	            isStatus = false;
+	            isInfo = false;
+	            isSettlement = false;
+	            eAddress = '';
+	            content = '';
+	            statusTrack = '';
+	            handleTrack = '';
+	            
+	            // Add Start - Release 1.3 - Added by Cyril
+	            if (caseNew.CheckFlag_48H__c && !caseOld.CheckFlag_48H__c && caseNew.Customer_Care_Owner__c != null) {
+	                	taskListOf48H.add(new Task(
+	                    Subject= 'Case' + caseNew.CaseNumber + (caseNew.Dealer_Contact__c == 'Yes' ? 'After 48 hours, please check whether the dealer is given FP' : 'After 48 hours, please check whether the Distributor/area/Center gives FP'),
+	                    RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId(),
+	                    OwnerId = caseNew.Customer_Care_Owner__c,
+	                    Status = 'Open',
+	                    WhoId = caseNew.Account.id,
+	                    WhatId = caseNew.id,
+	                    ActivityDate = date.today(),
+	                    ReminderDateTime = DateTime.now(),
+	                    IsReminderSet = true
+	                    ));
+	            }
+	            if (caseNew.CheckFlag_72H__c && !caseOld.CheckFlag_72H__c && caseNew.Customer_Care_Owner__c != null) {
+	                taskListOf72H.add(new Task(
+	                    Subject= 'Case' + caseNew.CaseNumber + (caseNew.Dealer_Contact__c == 'Yes' ? 'After 72 hours, please check whether the dealer gives FP' : 'After 72 hours, please check whether the Distributor/area/Center FP is given, and in reply to end customers within 24 hours'),
+	                    RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId(),
+	                    OwnerId = caseNew.Customer_Care_Owner__c,
+	                    Status = 'Open',
+	                    WhoId = caseNew.Account.id,
+	                    WhatId = caseNew.id,
+	                    ActivityDate = date.today(),
+	                    ReminderDateTime = DateTime.now(),
+	                    IsReminderSet = true
+	                    ));
+	            }
+	            if (caseNew.CheckFlag_48H__c) caseNew.CheckFlag_48H__c = false;
+	            if (caseNew.CheckFlag_72H__c) caseNew.CheckFlag_72H__c = false;
+	            // Add End - Release 1.3 - Added by Cyril
+	            
+	            if (caseNew.Status != caseOld.Status) {
+	                isStatus = true;
+	                statusTrack = 'Updated From ' + caseOld.Status + ' To ' + caseNew.Status;
+	            }
+	            if (caseNew.Handling_Level__c != caseOld.Handling_Level__c) {
+	                isInfo = true;
+	                handleTrack = 'Updated From ' + caseOld.Handling_Level__c + ' To ' + caseNew.Handling_Level__c;
+	            }
+	            if (caseNew.Description_Changed__c) {
+	                isInfo = true;
+	                isDescChanged = true;
+	                caseNew.Description_Changed__c = false;
+	            }
+	            if (caseNew.Settlement_Changed__c) {
+	                isSettlement = true;
+	            }
+	            
+	            if (isStatus == false && isInfo == false && isSettlement == false) {
+	                continue;
+	            }
+	            
+	            if (caseNew.Notice_AS__c) {
+	                eAddress = eAddress + caseNew.Aftersales_Manager__c + '\n';
+	            }
+	            if (caseNew.Notice_CRM__c) {
+	                eAddress = eAddress + caseNew.CRM_Manager__c + '\n';
+	            }
+	            if (caseNew.Notice_GM__c) {
+	                eAddress = eAddress + caseNew.General_Manager__c + '\n';
+	            }
+	            if (caseNew.Notice_SM__c) {
+	                eAddress = eAddress + caseNew.Sales_Manager__c + '\n';
+	            }
+	            if (caseNew.Notice_Others__c) {
+	                eAddress = eAddress + caseNew.Others__c;
+	            } else if (eAddress != '') {
+	                eAddress = eAddress.substring(0, eAddress.lastIndexOf('\n'));
+	            }
+	            
+	            if (eAddress != '') {
+	                content = 'Dear Dealer Managers, \n\n' + 'Case ' + caseNew.CaseNumber + ' has been updated in the';
+	                if (isStatus) {
+	                    content = content + ' Status';
+	                }
+	                if (isInfo) {
+	                    content = content + ' ComplaintInfo';
+	                }
+	                if (isSettlement) {
+	                    content = content + ' Settlement';
+	                }
+	                if (caseNew.AccountId == null) {
+	                    accName = null;
+	                } else {
+	                    accName = [select name from Account where id = :caseNew.AccountId].name;
+	                }
+	                content = content + ' Section by ' + UserInfo.getName() + '.\n\n';
+	                content = content + 'The main information of the updated case:\n' 
+	                                  + ' - Subject = ' + caseNew.Subject + '\n'
+	                                  + ' - Complaint Status = ' + caseNew.Status + '\n'
+	                                  + ' - Complaint Date = ' + caseNew.Complaint_Date__c + '\n'
+	                                  + ' - Case Source = ' + caseNew.Case_Source__c + '\n'
+	                                  + ' - Account Name = ' + accName + '\n'
+	                                  + ' - Vehicle Series = ' + caseNew.Vehicle_Class__c + '\n'
+	                                  + ' - Vehicle Model = ' + caseNew.Car_Model__c + '\n'
+	                                  + ' - Description = ' + caseNew.Description + '\n'
+	                                  + ' - Description1 = ' + caseNew.DescriptionOne__c + '\n';
+	                if (statusTrack != '') {
+	                    content = content + ' - Status Tracking = ' + statusTrack + '\n';
+	                }
+	                if (handleTrack != '') {
+	                    content = content + ' - Handling Level Tracking = ' + handleTrack + '\n';
+	                }
+	                content = content + '\n';
+	                if (caseNew.Settlement_Changed__c) {
+	                    caseNew.Settlement_Changed__c = false;
+	                    content = content + 'Settlement Section:\n';
+	                    for (Settlement_Management__c sm : [select Name, Settlement_Type__c, Customer_Settlement_Amount__c, Dealer_Settlement_Amount__c, MB_Settlement_Amount__c, Total_Settlement_Amount__c, Other_Settlement_Type__c, LastModifiedDate from Settlement_Management__c where Case__c = :caseNew.Id order by LastModifiedDate Desc]) {
+	                        content = content + 'Settlement Management ' + sm.Name + ', '
+	                                          + 'LastModifiedDate = ' + sm.LastModifiedDate.format('yyyy/MM/dd HH:mm:ss') + '\n'
+	                                          + ' - Settlement Type = ' + sm.Settlement_Type__c + '\n'
+	                                          + ' - Customer Settlement Amount = ' + sm.Customer_Settlement_Amount__c + '\n'
+	                                          + ' - Dealer Settlement Amount = ' + sm.Dealer_Settlement_Amount__c + '\n'
+	                                          + ' - MB Settlement Amount = ' + sm.MB_Settlement_Amount__c + '\n'
+	                                          + ' - Total Settlement Amount = ' + sm.Total_Settlement_Amount__c + '\n'
+	                                          + ' - Other Settlement Type = ' + sm.Other_Settlement_Type__c + '\n\n';
+	                    }
+	                }
+	                if (isDescChanged) {
+	                    content = content + 'ComplaintInfo Section:\n';
+	                    for (Complaint_Description__c cd : [select Name, Description__c, LastModifiedDate from Complaint_Description__c where Case__c =: caseNew.Id order by LastModifiedDate Desc]) {
+	                        content = content + 'Complaint Description / Resolution ' + cd.Name + ', '
+	                                          + 'LastModifiedDate = ' + cd.LastModifiedDate.format('yyyy/MM/dd HH:mm:ss') + '\n'
+	                                          + ' - ' + cd.Description__c + '\n\n';
+	                    }
+	                }
+	                content = content + 'Best Regards,\n\n' + UserInfo.getName() + '.';
+	                
+	                message.setToAddresses(eAddress.split('\n'));
+	                message.setSubject('Case ' + caseNew.CaseNumber + ' has been updated');
+	                message.setSaveAsActivity(false);
+	                message.setPlainTextBody(content);
+	                messages.add(message);
+	            }
+	        }
+	        
+	        // Add Start - Release 1.3 - Added by Cyril
+	        if (taskListOf48H.size() > 0) {
+	            insert taskListOf48H;
+	        }
+	        if (taskListOf72H.size() > 0) {
+	            insert taskListOf72H;
+	        }
+	        // Add End - Release 1.3 - Added by Cyril
+	            
+	        if (messages.size() > 0) {
+	            Messaging.Email[] emails = new Messaging.Email[messages.size()];
+	            for(Integer i = 0; i < messages.size(); i++) {
+	                emails[i] = messages.get(i);
+	            }
+	            
+	            try {
+	                Messaging.sendEmail(emails);
+	            } catch(Exception ex) {
+	                system.debug('Exception occured when sending Case Updating Notification eamils to Dealer Managers :' + ex.getMessage());
+	            }
+	        }
+	    }
+	   
+    }
+    
+    /**************** CaseAfterInsertORUpdate Trigger merge **************************/
+    
+    public static void handleCaseAfterInsertOrUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal, Map<Id, Case> newVal){
+    
+	    List<Sobject> insertCaseHistorys = new List<Sobject>();
+	    List<Sobject> insertCaseDescriptions = new List<Sobject>();
+	    List<Sobject> updateObjs = new List<Sobject>();
+	    Map<id,String> vehicleRelationshipMap = new Map<id,String>();
+	    Map<id,String> userMap = new Map<id,String>();
+	    Map<id,id> casesToShare = new Map<id, id>();
+	    // ADD START AS-Complaint_002 CHAOS 2014/2/21
+	    Map<id,Set<Id>> casesToDeleteFromShare = new Map<Id, Set<Id>>();
+	    Map<id,Set<Id>> casesToShareForSupport = new Map<Id, Set<Id>>();
+	    // ADD END AS-Complaint_002 CHAOS 2014/2/21
+	    Map<String, String> vehicleToOwner = new Map<String, String>();
+	    Map<id,id> casesToShareRO = new Map<id, id>();
+	    Set<id> vehicleRelationship_Ids = new Set<id>();
+	    Set<id> userIds = new Set<id>();
+	    Set<id> smsIds = new Set<id>();
+	    Set<id> account_Ids = new Set<id>();
+	    List<String> targetList = null;    
+	    List<Case> casesForDescription = new List<Case>();
+	    List<Id> CentralQueue_ID = new List<Id>();
+	    List<Case> closeRelatedCase = new List<Case>();
+	    if(isUpdate) {
+	        for(QueueSobject q : BMBS_CENTRAL_CASE_QUEUES) {
+	            CentralQueue_ID.add(q.QueueId);
+	        }
+	    }
+	    
+	    for(Case caseNew : cases) {
+	        if (isUpdate){
+	            Case caseOld = oldVal.get(caseNew.Id);
+	            if (C_MB_RECORD_TYPE == caseNew.RecordTypeId){
+	                targetList = COLS_MB_TRACKING;
+	            }
+	            if (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId ){
+	                targetList = COLS_CHRYSLER_TRACKING;
+	            }
+	            //(US-CC-002,US-CC-003,US-CC-015)
+	            if ( targetList != null){
+	                for(String cloName: targetList){
+	                    String newValue = String.valueOf(caseNew.get(cloName));
+	                    String oldValue = String.valueOf(caseOld.get(cloName));
+	                    String labelName = FLDOBJ_MAP.get(cloName).getDescribe().getLabel();
+	                    String seToGKBef = String.valueOf(caseNew.get('SendEmailToGateKeeper__c'));
+	                    String seToGKAft = String.valueOf(caseOld.get('SendEmailToGateKeeper__c'));
+	                    if(seToGKBef != seToGKAft) {
+	                        continue;
+	                    }
+	
+	                    if (cloName == 'Escalate_Date_to_RO__c' || cloName == 'Escalate_Date_to_CO__c') {
+	                        if (newValue != null) {
+	                            Integer findex = newValue.indexOf(' ');
+	                            if (findex > 0) {
+	                                newValue = newValue.subString(0, findex);
+	                            }
+	                        }
+	                        if (oldValue != null) {
+	                            Integer findex = oldValue.indexOf(' ');
+	                            if (findex > 0) {
+	                                oldValue = oldValue.subString(0, findex);
+	                            }
+	                        }
+	                    }
+	
+	                    //tracking history
+	                    if(newValue != oldValue){
+	                        if (cloName == 'Vehicle_Relationship__c'){
+	                            vehicleRelationship_Ids.add(caseNew.Vehicle_Relationship__c);
+	                            vehicleRelationship_Ids.add(caseOld.Vehicle_Relationship__c);
+	                        }else if(cloName == 'OwnerId'){
+	                            userIds.add(caseNew.OwnerId);
+	                            userIds.add(caseOld.OwnerId);
+	                        }else{
+	                            insertCaseHistorys.add(CaseHelper.newCaseHistory(caseNew.Id, labelName , newValue, oldValue));
+	                            if(cloName == 'Case_Department__c') {
+	                                insertCaseDescriptions.add(CaseHelper.newCaseDescription(caseNew.Id, labelName , newValue, oldValue));
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	
+	        //US-CC-023
+	        if (C_INQUIRY_RECORD_TYPE == caseNew.RecordTypeId) {
+	            if (isUpdate && caseNew.Case_Dealer__c != null && caseNew.TL_Reviewed__c && !oldVal.get(caseNew.Id).TL_Reviewed__c) {
+	                casesToShare.put(caseNew.Id, caseNew.Case_Dealer__c);
+	            }
+	        }
+	        if (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId ||C_MB_RECORD_TYPE == caseNew.RecordTypeId) {
+	            // 2014-08-15 Created by lishuang: add for MB Complaint Case Close.
+	            if (isUpdate && C_MB_RECORD_TYPE == caseNew.RecordTypeId && caseNew.Close_Relevant_Repeat_Complaint__c == true && caseNew.Case_Dealer__c != null && caseNew.Status == 'Closed' && oldVal.get(caseNew.Id).Status != 'Closed') {
+	                closeRelatedCase.add(caseNew);
+	            }
+	            if (caseNew.Case_Dealer__c != null && 'Yes' == caseNew.Dealer_Contact__c){
+	                if(isInsert){
+	                    casesToShare.put(caseNew.Id, caseNew.Case_Dealer__c);
+	                }
+	                if(isUpdate && 'Yes' != oldVal.get(caseNew.Id).Dealer_Contact__c){
+	                    casesToShare.put(caseNew.Id, caseNew.Case_Dealer__c);
+	                }
+	                if(isUpdate && caseNew.OwnerId != oldVal.get(caseNew.Id).OwnerId) {
+	                    casesToShare.put(caseNew.Id, caseNew.Case_Dealer__c);
+	                    boolean flag = false;
+	                    for(integer i = 0;i<CentralQueue_ID.size();i++) {
+	                        if(CentralQueue_ID[i] == caseNew.OwnerId) {
+	                            flag = true;
+	                        }
+	                    }
+	                    if(isUpdate && flag && caseNew.Previous_Owner__c != null) {
+	                        casesToShareRO.put(caseNew.Id, caseNew.Previous_Owner__c);
+	                    }
+	                }
+	                
+	                // By Justin - maps the vehicle and owner in case, to share the vehicle to case owner.
+	                String caseOwnerId = caseNew.OwnerId;
+	                if(caseNew.Vehicle__c != null && caseNew.ParentId == null && caseOwnerId.startsWith('005') && !(isUpdate && caseNew.OwnerId == oldVal.get(caseNew.Id).OwnerId)){
+	                    vehicleToOwner.put(caseNew.Vehicle__c, caseNew.OwnerId);
+	                }
+	            } 
+	            // ADD START AS-Complaint_002 CHAOS 2014/2/21
+	            Id oldSupportDealer1 = 
+	                (oldVal == null )? null : oldVal.get(caseNew.Id).Support_Dealer_1__c;
+	            Id oldSupportDealer2 = 
+	                (oldVal == null )? null : oldVal.get(caseNew.Id).Support_Dealer_2__c;
+	            Id oldSupportDealer3 = 
+	                (oldVal == null )? null : oldVal.get(caseNew.Id).Support_Dealer_3__c;
+	
+	            if(!casesToShareForSupport.containsKey(caseNew.Id)) {
+	                casesToShareForSupport.put(caseNew.Id, new Set<Id>());
+	            }
+	            if(!casesToDeleteFromShare.containsKey(caseNew.Id)) {
+	                casesToDeleteFromShare.put(caseNew.Id, new Set<Id>());
+	            }
+	            
+	            // ADD END AS-Complaint_002 CHAOS 2014/2/21
+	        }
+	        if (isInsert){
+	            if (caseNew.ParentId == null && caseNew.AccountId != null && caseNew.Handling_Level__c != 'Dealer' && (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId ||C_MB_RECORD_TYPE == caseNew.RecordTypeId)){
+	                smsIds.add(caseNew.Id);
+	                account_Ids.add(caseNew.AccountId);
+	            }
+	            
+	            //US-CC-024
+	            if(C_MB_RECORD_TYPE == caseNew.RecordTypeId && !String.isBlank(caseNew.Description)) {
+	                casesForDescription.add(caseNew);
+	            }
+	        }
+	    }
+	    
+	    if (closeRelatedCase.size() > 0){
+	        closeRelatedCase(closeRelatedCase);
+	    }
+	
+	    if (vehicleRelationship_Ids.size()>0 || userIds.size()>0){
+	        for(Vehicle_Relationship__c vr : [select id , name from Vehicle_Relationship__c where id in :vehicleRelationship_Ids]){
+	            if(!vehicleRelationshipMap.containsKey(vr.id)){
+	                vehicleRelationshipMap.put(vr.id,vr.name);
+	            }
+	        }
+	        
+	        for(user u:[select id , name from user where Id in :userIds]){
+	            if(!userMap.containsKey(u.id)){
+	                userMap.put(u.id,u.name);
+	            }        
+	        }
+	        for(QueueSobject u:[select QueueId , queue.name from QueueSobject where QueueId in :userIds limit 100]){
+	            if(!userMap.containsKey(u.QueueId)){
+	                userMap.put(u.QueueId,u.queue.name);
+	            }        
+	        }
+	    
+	        for(Case caseNew : cases) {
+	            Case caseOld = oldVal.get(caseNew.Id);
+	            String seToGKBef = String.valueOf(caseNew.get('SendEmailToGateKeeper__c'));
+	            String seToGKAft = String.valueOf(caseOld.get('SendEmailToGateKeeper__c'));
+	            if(seToGKBef != seToGKAft) {
+	                continue;
+	            }
+	
+	            Id newId = caseNew.Vehicle_Relationship__c;
+	            Id oldId = caseOld.Vehicle_Relationship__c;
+	            String labelName = FLDOBJ_MAP.get('Vehicle_Relationship__c').getDescribe().getLabel();
+	            //tracking history
+	            if(newId != oldId){
+	                insertCaseHistorys.add(newCaseHistory(caseNew.Id, labelName , vehicleRelationshipMap.get(newId), vehicleRelationshipMap.get(oldId)));
+	            }
+	
+	            newId = caseNew.OwnerId;
+	            oldId = caseOld.OwnerId;
+	            labelName= 'Case Owner';
+	            //tracking history
+	            if(newId != oldId){
+	                insertCaseHistorys.add(newCaseHistory(caseNew.Id, labelName , userMap.get(newId), userMap.get(oldId)));
+	            }            
+	        }
+	    }
+	
+	    //create SMS tasks
+	    if(smsIds.size() > 0) {
+	        createSmsTasks(smsIds, account_Ids);
+	    }
+	    
+	    // ADD START AS-Complaint_002 CHAOS 2014/2/21
+	    if(casesToDeleteFromShare.keySet().size() > 0) {
+	        deleteShareFromCase(casesToDeleteFromShare);
+	    }
+	    
+	    if(casesToShareForSupport.keySet().size() > 0) {
+	        shareCaseWithoutshareVehicle(casesToShareForSupport);
+	    }
+	    // ADD END AS-Complaint_002 CHAOS 2014/2/21
+	    
+	    if(casesToShare.keySet().size() > 0) {
+	        shareCase(casesToShare, vehicleToOwner);
+	    }
+	
+	    if(casesToShareRO.keySet().size() > 0) {
+	        shareCaseToRO(casesToShareRO);
+	    } 
+	    
+	    if (insertCaseHistorys.size()>0){
+	        insertSobjects(insertCaseHistorys);
+	    }
+	    
+	    if (insertCaseDescriptions.size()>0){
+	        insertSobjects(insertCaseDescriptions);
+	    }
+	    
+	    //Creat the case description record
+	    if(casesForDescription.size() > 0) {
+	        creatCaseDescription(casesForDescription);
+	    }
+	    
+	   
+	    /**
+	     * 2014-03-24 updated by Justin Yu -- Added the child case description to the Parent MB Complaint case
+	     */
+	    if(isInsert){
+	        Set<String> caseIds = new Set<String>();
+	        for(Case c : cases){
+	            if(c.RecordTypeId == Schema.SObjectType.Account.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId() && c.ParentId != null){
+	                caseIds.add(c.Id);
+	            }
+	        }
+	        
+	        List<Case> parentCases = new List<Case>();
+	        if(caseIds.size() > 0){
+	            for(Case item : [select Description, DescriptionOne__c, Parent.Description, Parent.DescriptionOne__c from Case where Id in :caseIds]){
+	                item.Parent.Description = item.Description;
+	                item.Parent.DescriptionOne__c = item.DescriptionOne__c;
+	                parentCases.add(item.Parent);
+	            }
+	        }
+	        update parentCases;
+	    }
+	    //---------------------Bing add for data sharing-----------------
+	    AccountSharingDataHandler handler = new AccountSharingDataHandler('Complaint');
+	    handler.shareAccountByComplaint(newVal, oldVal, isInsert);
+	    //---------------------Bing add for data sharing-----------------
+    	
+    }
+    
+     // ADD START AS-Complaint_002 CHAOS 2014/2/21
+	    private void supportDealerMethod(Id newDealerId, Id oldDealerId, Id caseId ,Boolean isInsert ,Boolean isUpdate) {
+	
+			Map<id,Set<Id>> casesToDeleteFromShare = new Map<Id, Set<Id>>();
+			Map<id,Set<Id>> casesToShareForSupport = new Map<Id, Set<Id>>();
+	        if(isInsert){
+	            if (newDealerId != null && !casesToShareForSupport.get(caseId).contains(newDealerId)){
+	                casesToShareForSupport.get(caseId).add(newDealerId);
+	            }
+	        }
+	        if(isUpdate && (newDealerId != oldDealerId)) {
+	            if( oldDealerId == null  && !casesToShareForSupport.get(caseId).contains(newDealerId)) {
+	                
+	                casesToShareForSupport.get(caseId).add(newDealerId);
+	                
+	            } else {
+	                if( newDealerId != null  && !casesToShareForSupport.get(caseId).contains(newDealerId)) {
+	                    casesToShareForSupport.get(caseId).add(newDealerId);
+	                }
+	                if (!casesToDeleteFromShare.get(caseId).contains(oldDealerId)) {
+	                    casesToDeleteFromShare.get(caseId).add(oldDealerId);
+	                }
+	            }
+	        }
+	    }
+	    // ADD END AS-Complaint_002 CHAOS 2014/2/21
+	    
 }

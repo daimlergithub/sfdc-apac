@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
-    <description>Service Cloud Console for Outbound CSR</description>
+    <description>Service Cloud Console for Inbound</description>
     <detailPageRefreshMethod>autoRefresh</detailPageRefreshMethod>
+    <domainWhitelist>
+        <domain>www.salesforce.com</domain>
+    </domainWhitelist>
     <enableKeyboardShortcuts>true</enableKeyboardShortcuts>
     <enableMultiMonitorComponents>true</enableMultiMonitorComponents>
     <isServiceCloudConsole>true</isServiceCloudConsole>
@@ -118,19 +121,19 @@
             <keyCommand>M</keyCommand>
         </defaultShortcut>
     </keyboardShortcuts>
-    <label>Service Cloud Console OB</label>
+    <label>Service Cloud Console IB</label>
     <listPlacement>
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>refreshListRows</listRefreshMethod>
     <logo>Logo/MBCL_LOGO.png</logo>
     <saveUserSessions>true</saveUserSessions>
-    <tab>Tasks</tab>
+    <tab>standard-Account</tab>
+    <tab>standard-Case</tab>
     <tab>standard-Campaign</tab>
     <tab>Vehicle__c</tab>
     <tab>Vehicle_Relationship__c</tab>
-    <tab>standard-Case</tab>
-    <tab>standard-Account</tab>
+    <tab>Tasks</tab>
     <tab>QC__c</tab>
     <tab>standard-report</tab>
     <workspaceMappings>
@@ -141,24 +144,22 @@
             <tab>standard-report</tab>
         </mapping>
         <mapping>
-            <fieldName>ContactId</fieldName>
             <tab>standard-Case</tab>
         </mapping>
         <mapping>
             <tab>QC__c</tab>
         </mapping>
         <mapping>
-            <fieldName>Contact__c</fieldName>
             <tab>Vehicle_Relationship__c</tab>
         </mapping>
         <mapping>
             <tab>Tasks</tab>
         </mapping>
         <mapping>
-            <tab>standard-Account</tab>
+            <tab>Vehicle__c</tab>
         </mapping>
         <mapping>
-            <tab>Vehicle__c</tab>
+            <tab>standard-Account</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>

@@ -14,22 +14,17 @@ public class AccountSharingDataHandler {
     protected CMap parentIds = new CMap();
     protected CMap userOrGroupIds = new CMap();
         
-    public AccountSharingDataHandler(String processFlg) {
-        
+    public AccountSharingDataHandler(String processFlg) {        
         this.processFlg = processFlg;
-    }
+     }
 
     //person account record type
-    private Id personAccountRecordType =
-        UtilRecordType.getRecordTypeIdByName('Account', 'Person Account');
-
+    private Id personAccountRecordType = UtilRecordType.getRecordTypeIdByName('Account', 'Person Account');
     private String processFlg = '';
 
     
-    public void shareAccount(CMap parentIds, CMap userOrGroupIds){
-    
+    public void shareAccount(CMap parentIds, CMap userOrGroupIds){    
         List<sObject> shareRecs = makeInserRecords(parentIds, userOrGroupIds);
-
         try {
             List<Database.SaveResult> result = Database.insert(shareRecs,false);  
             system.debug('Success Amount: [' + result.size() +'] |  Is :' + result);            
@@ -56,19 +51,16 @@ public class AccountSharingDataHandler {
     public sObject createShareObject(id parentId, id UserOrGroupId){
 
         AccountShare shareObj = new AccountShare();
-
         shareObj.put('AccountId', parentId);
         shareObj.put('UserOrGroupId', UserOrGroupId);
         shareObj.put('AccountAccessLevel', 'Read');
         shareObj.put('OpportunityAccessLevel', 'Read');
-        //shareObj.put('RowCause', processFlg);
-        
+        //shareObj.put('RowCause', processFlg);        
         return shareObj;
     }
 
     //using sharing object and to be shared people make sharing record
     public List<sObject> makeInserRecords(CMap pIds, CMap uogIds){
-
         List<sObject> shareRecs = new List<sObject>();
         if (pIds != null)
         for(String crmCode: pIds.keySet()){
@@ -84,8 +76,7 @@ public class AccountSharingDataHandler {
         return shareRecs;
     }
 
-    public void shareAccountByCRMCode(Map<id,Lead__c> newData, Map<id,Lead__c> oldData, boolean isNew){
-        
+    public void shareAccountByCRMCode(Map<id,Lead__c> newData, Map<id,Lead__c> oldData, boolean isNew){        
         CMap cmsAndDealer = new CMap();
         CMap parent = new CMap();
         CMap users = new CMap();
@@ -123,17 +114,13 @@ public class AccountSharingDataHandler {
         for(Account a: [select id , Dealer_DMS_CRM_Code__c from account where Dealer_DMS_CRM_Code__c in :parent.keyset() and Dealer_Active__c = true and RecordTypeId = :dealerRecordtype]){
             cmsAndDealer.add(a.Dealer_DMS_CRM_Code__c, a.id);
         }
-
-        system.debug('parm1====================cmsAndDealer' + cmsAndDealer);
-        
+        system.debug('parm1====================cmsAndDealer' + cmsAndDealer);        
         //Query Dealer GateKeeper
         for (User u : [select id,  contact.Dealer_Lead_Gate_Keeper__c, AccountId from user 
-where contact.Dealer_Lead_Gate_Keeper__c = true and accountid in :cmsAndDealer.values2() and isactive = true]) {
+                      where contact.Dealer_Lead_Gate_Keeper__c = true and accountid in :cmsAndDealer.values2() and isactive = true]) {
             users.add(u.AccountId, u.id);
-        }
-            
-        system.debug('parm1====================users' + users);
-        
+          }            
+        system.debug('parm1====================users' + users);        
         for (String key : cmsAndDealer.KeySet()) {
             for(String id: cmsAndDealer.get(key)) {
                 if(users.get(id)!=null && users.get(id).size()>=1 ){
@@ -143,11 +130,9 @@ where contact.Dealer_Lead_Gate_Keeper__c = true and accountid in :cmsAndDealer.v
         }
         system.debug('setp1==================:'+ parent);
         system.debug('setp2==================:'+ userOrGroupIds);
-
         if(userOrGroupIds.values2().size()<1) return;
-        shareAccount(parent, userOrGroupIds);
-        
-    }
+          shareAccount(parent, userOrGroupIds);        
+     }
     
     /**
      * At complaint assignment, share person account to active comlaint gate keeper of dealer
@@ -335,15 +320,8 @@ where contact.Dealer_Lead_Gate_Keeper__c = true and accountid in :cmsAndDealer.v
     /**
      * share dealer to same code dealer
      */
-    public void shareDealerByCrmCode(Map<id,Account> newData, Map<id,Account> oldData, boolean isNew){
-        CMap cmsAndDealer = new CMap();
-        CMap parent = new CMap();
-        CMap users = new CMap();
-        CMap userOrGroupIds = new CMap();
-        CMap oldCmsAndDealer = new CMap();
-        Set<String> cmsCodes = new Set<String>();
-        Set<String> dealers = new Set<String>();
-        system.debug('Limit before shareDealerByCrmCode query========'+limits.getQueries() );
+    public void shareDealerByCrmCode(Map<id,Account> newData, Map<id,Account> oldData, boolean isNew){       
+        CMap parent = new CMap();   
         String dealerRecordtype = UtilRecordType.getRecordTypeIdByName('Account', 'Dealer');        
         
         //Delete Old share records
@@ -378,8 +356,7 @@ where contact.Dealer_Lead_Gate_Keeper__c = true and accountid in :cmsAndDealer.v
      * share dealer to same code dealer
      */
     public void share3rdAccount(Map<id,Account> newData){
-        Map<id, id> shareobjects = new Map<id,id>();
-        
+        Map<id, id> shareobjects = new Map<id,id>();        
         String dealerRecordtype = UtilRecordType.getRecordTypeIdByName('Account', '3rd Party');     
         
         for(Account a : newData.values()){
@@ -393,7 +370,7 @@ where contact.Dealer_Lead_Gate_Keeper__c = true and accountid in :cmsAndDealer.v
         List<String> profileName = new List<String>{'Dealer Community S&M Manager',
                                                     'Dealer Community AS Marketing Manager'};
         CMap parent = new CMap();
-        CMap accountids = new CMap();
+       // CMap accountids = new CMap();
         CMap userOrGroupIds = new CMap();
         
         for(user u: [select accountId, id from user where id in :shareObjects.keyset()]){
