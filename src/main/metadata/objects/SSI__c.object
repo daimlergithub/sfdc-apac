@@ -911,7 +911,6 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
 QC_Approved__c == true, 
 NOT(ISCHANGED(QC_Approved__c)), 
 $Profile.Name != &apos;System Administrator&apos;, 
-$Profile.Name != &apos;BMBS Sinotrust User&apos;, 
 $Profile.Name != &apos;CAC IT Manager&apos;, 
 OR(ISCHANGED(CustomerName__c), ISCHANGED(OriginalCustomerName__c), 
 ISCHANGED(CustomerTitle__c),ISCHANGED(OfficePhone__c), 

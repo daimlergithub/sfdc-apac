@@ -525,7 +525,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>PR_Comment_MBCL_Internal__c</field>
+                <field>PR_Comment_Central_Internal__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

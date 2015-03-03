@@ -464,7 +464,7 @@
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>BMBS_Dealer_Update_user</fullName>
+        <fullName>Central_Dealer_Update_user</fullName>
         <columns>FULL_NAME</columns>
         <columns>CORE.USERS.ALIAS</columns>
         <columns>CORE.USERS.USERNAME</columns>
@@ -477,13 +477,13 @@
         <filters>
             <field>CORE.PROFILE.NAME</field>
             <operation>equals</operation>
-            <value>BMBS Dealer Update user</value>
+            <value>Central Dealer Update user</value>
         </filters>
-        <label>BMBS Dealer Update user</label>
+        <label>Central Dealer Update user</label>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>BMBS_Regional</fullName>
+        <fullName>Central_Regional</fullName>
         <columns>FULL_NAME</columns>
         <columns>CORE.USERS.ALIAS</columns>
         <columns>CORE.USERS.USERNAME</columns>
@@ -496,13 +496,13 @@
         <filters>
             <field>FULL_NAME</field>
             <operation>contains</operation>
-            <value>BMBS Regional</value>
+            <value>Central Regional</value>
         </filters>
-        <label>BMBS Regional</label>
+        <label>Central Regional</label>
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>BMBS_Service_Technical_Manager_Users</fullName>
+        <fullName>Central_Service_Technical_Manager_Users</fullName>
         <columns>FULL_NAME</columns>
         <columns>CORE.USERS.ALIAS</columns>
         <columns>CORE.USERS.USERNAME</columns>
@@ -516,9 +516,9 @@
         <filters>
             <field>CORE.PROFILE.NAME</field>
             <operation>equals</operation>
-            <value>BMBS Service Technical Manager</value>
+            <value>Central Service Technical Manager</value>
         </filters>
-        <label>BMBS Service Technical Manager Users</label>
+        <label>Central Service Technical Manager Users</label>
         <language>en_US</language>
     </listViews>
     <listViews>

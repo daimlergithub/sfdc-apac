@@ -102,7 +102,7 @@ public class YearlyTAAchieTracingControllerTest {
         Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RT, Name = 'TestCpn', Dealer_Name__c = dealer.Id, 
             Apply_Status__c = 'Approved', Feedback_Status__c = 'Approved', Driven__c = 'Joint', 
             Actual_Start_Date__c = System.today().addDays(-10), Actual_End_Date__c = System.today().addDays(-5), 
-            Plan_Expense__c = 5000, Actual_Expense__c = 8000, Brand__c = 'MB', Relevant_BMBS_Campaign__c = cpn.Id, Delay_Reason__c  = 'test');
+            Plan_Expense__c = 5000, Actual_Expense__c = 8000, Brand__c = 'MB', Relevant_Central_Campaign__c = cpn.Id, Delay_Reason__c  = 'test');
         insert rc;
         
         PageReference yearlyTAAchievementTracingReport = Page.YearlyTAAchievementTracingReport ;
@@ -125,7 +125,7 @@ public class YearlyTAAchieTracingControllerTest {
         Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RT, Name = 'TestCpn', Dealer_Name__c = dealer.Id, 
             Apply_Status__c = 'Approved', Feedback_Status__c = 'Approved', Driven__c = 'Joint', 
             Actual_Start_Date__c = System.today().addDays(-10), Actual_End_Date__c = System.today().addDays(-5), 
-            Plan_Expense__c = 5000, Actual_Expense__c = 8000, Brand__c = 'MB', Relevant_BMBS_Campaign__c = cpn.Id, Delay_Reason__c  = 'test');
+            Plan_Expense__c = 5000, Actual_Expense__c = 8000, Brand__c = 'MB', Relevant_Central_Campaign__c = cpn.Id, Delay_Reason__c  = 'test');
         insert rc;
         
         PageReference yearlyTAAchievementTracingReport = Page.YearlyTAAchievementTracingReport ;
@@ -149,7 +149,7 @@ public class YearlyTAAchieTracingControllerTest {
             Apply_Status__c = 'Approved', Feedback_Status__c = 'Confirmed', Driven__c = 'Joint', 
             Actual_Start_Date__c = System.today().addDays(-10), Actual_End_Date__c = System.today().addDays(-5), 
             Plan_Start_Date__c = System.today().addDays(-10), Plan_End_Date__c = System.today().addDays(-5), 
-            Plan_Expense__c = 5000, Actual_Expense__c = 8000, Brand__c = 'MB', Relevant_BMBS_Campaign__c = cpn.Id, Delay_Reason__c  = 'test', 
+            Plan_Expense__c = 5000, Actual_Expense__c = 8000, Brand__c = 'MB', Relevant_Central_Campaign__c = cpn.Id, Delay_Reason__c  = 'test', 
             Actual_Order__c = 100, Feedback_Comments__c = 'Test');
         insert rc;
         
@@ -174,7 +174,7 @@ public class YearlyTAAchieTracingControllerTest {
             Apply_Status__c = 'Approved', Feedback_Status__c = 'Confirmed', Driven__c = 'Joint', 
             Actual_Start_Date__c = System.today().addDays(-10), Actual_End_Date__c = System.today().addDays(-5), 
             Plan_Start_Date__c = System.today().addDays(-10), Plan_End_Date__c = System.today().addDays(-5), 
-            Plan_Expense__c = 5000, Actual_Expense__c = 8000, Brand__c = 'MB', Relevant_BMBS_Campaign__c = cpn.Id, Delay_Reason__c  = 'test', 
+            Plan_Expense__c = 5000, Actual_Expense__c = 8000, Brand__c = 'MB', Relevant_Central_Campaign__c = cpn.Id, Delay_Reason__c  = 'test', 
             Actual_Order__c = 100, Feedback_Comments__c = 'Test');
         insert rc;
         

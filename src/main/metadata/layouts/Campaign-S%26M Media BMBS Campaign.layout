@@ -210,7 +210,7 @@
         <fields>Record_Type_Name__c</fields>
         <fields>CREATEDBY_USER</fields>
         <fields>CREATED_DATE</fields>
-        <relatedList>Retail_Campaign__c.Relevant_BMBS_Campaign__c</relatedList>
+        <relatedList>Retail_Campaign__c.Relevant_Central_Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedAttachmentList</relatedList>

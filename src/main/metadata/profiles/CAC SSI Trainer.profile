@@ -1,22 +1,22 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
-        <application>BMBS_CRM</application>
+        <application>Central_CRM</application>
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>BMBS_Dealer_Portal</application>
+        <application>Central_Dealer_Portal</application>
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>BMBS_Lead_Management</application>
+        <application>Central_Lead_Management</application>
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>BMBS_Marketing</application>
+        <application>Central_Marketing</application>
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
@@ -3997,7 +3997,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.PR_Comment_MBCL_Internal__c</field>
+        <field>Case.PR_Comment_Central_Internal__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6987,12 +6987,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>QC__c.R_Familiar_BMBS_smart_Knowledge_P_F_S1__c</field>
+        <field>QC__c.R_Familiar_Central_smart_Knowledge_P_F_S1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>QC__c.R_Familiar_BMBS_smart_Knowledge_P_F_S2__c</field>
+        <field>QC__c.R_Familiar_Central_smart_Knowledge_P_F_S2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7822,7 +7822,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Campaign__c.Relevant_BMBS_Campaign__c</field>
+        <field>Retail_Campaign__c.Relevant_Central_Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10532,8 +10532,8 @@
         <layout>Batch_Job__c-Batch Job Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-AS BMBS Campaign</layout>
-        <recordType>Campaign.AS_BMBS_Campaign</recordType>
+        <layout>Campaign-AS Central Campaign</layout>
+        <recordType>Campaign.AS_Cental_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-CAC CRM Campaign Layout</layout>
@@ -10568,11 +10568,11 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-S%26M Event BMBS Campaign</layout>
-        <recordType>Campaign.S_M_Event_BMBS_Campaign</recordType>
+        <recordType>Campaign.S_M_Event_Central_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-S%26M Media BMBS Campaign</layout>
-        <recordType>Campaign.S_M_Media_BMBS_Campaign</recordType>
+        <recordType>Campaign.S_M_Media_Central_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-smart BP</layout>
@@ -11297,7 +11297,7 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>BMBS_Campaigns</apexPage>
+        <apexPage>Central_Campaigns</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -11588,7 +11588,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Campaign.AS_BMBS_Campaign</recordType>
+        <recordType>Campaign.AS_Cental_Campaign</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -11628,12 +11628,12 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Campaign.S_M_Event_BMBS_Campaign</recordType>
+        <recordType>Campaign.S_M_Event_Central_Campaign</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Campaign.S_M_Media_BMBS_Campaign</recordType>
+        <recordType>Campaign.S_M_Media_Central_Campaign</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

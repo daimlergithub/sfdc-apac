@@ -1025,11 +1025,11 @@
         <label>Driven</label>
         <picklist>
             <picklistValues>
-                <fullName>Campaign Organized by BMBS</fullName>
+                <fullName>Campaign Organized by Mercedes Benz</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Extended Activities from BMBS’s Campaign</fullName>
+                <fullName>Extended Activities from Mercedes Benz’s Campaign</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1051,7 +1051,7 @@
     </fields>
     <fields>
         <fullName>Event_Type__c</fullName>
-        <description>BMBS Campaign: Event Type of the campaign.</description>
+        <description>Mercedes Benz Campaign: Event Type of the campaign.</description>
         <externalId>false</externalId>
         <label>Event Type</label>
         <picklist>
@@ -1288,7 +1288,7 @@
     </fields>
     <fields>
         <fullName>Media_Type__c</fullName>
-        <description>BMBS Campaign: Media Type of the campaign.</description>
+        <description>Mercedes Benz Campaign: Media Type of the campaign.</description>
         <externalId>false</externalId>
         <label>Media Type</label>
         <picklist>
@@ -1476,7 +1476,7 @@
     </fields>
     <fields>
         <fullName>Purpose__c</fullName>
-        <description>BMBS Campaign: Purpose of the campaign</description>
+        <description>Mercedes Benz Campaign: Purpose of the campaign</description>
         <externalId>false</externalId>
         <label>Purpose</label>
         <picklist>
@@ -2107,7 +2107,7 @@
         </sharedTo>	
     </listViews>
     <listViews>
-        <fullName>BMBSASCampaignRecord1</fullName>
+        <fullName>CentralASCampaignRecord1</fullName>
         <columns>CAMPAIGN.NAME</columns>
         <columns>Region__c</columns>
         <columns>CAMPAIGN.RECORDTYPE</columns>
@@ -2119,7 +2119,7 @@
         <filters>
             <field>CAMPAIGN.RECORDTYPE</field>
             <operation>equals</operation>
-            <value>Campaign.AS_BMBS_Campaign</value>
+            <value>Campaign.AS_Cental_Campaign</value>
         </filters>
         <filters>
             <field>CAMPAIGN.STATUS</field>
@@ -2130,7 +2130,7 @@
         <language>en_US</language>
     </listViews>
     <listViews>
-        <fullName>BMBSSMCampaignRecord</fullName>
+        <fullName>CentralSMCampaignRecord</fullName>
         <columns>CAMPAIGN.NAME</columns>
         <columns>CAMPAIGN.RECORDTYPE</columns>
         <columns>Plan_Start_Date__c</columns>
@@ -2142,7 +2142,7 @@
         <filters>
             <field>CAMPAIGN.RECORDTYPE</field>
             <operation>equals</operation>
-            <value>Campaign.S_M_Event_BMBS_Campaign,Campaign.S_M_Media_BMBS_Campaign</value>
+            <value>Campaign.S_M_Event_Central_Campaign,Campaign.S_M_Media_Central_Campaign</value>
         </filters>
         <filters>
             <field>CAMPAIGN.STATUS</field>
@@ -2192,10 +2192,10 @@
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
-        <fullName>AS_BMBS_Campaign</fullName>
+        <fullName>AS_Cental_Campaign</fullName>
         <active>true</active>
-        <description>For AS BMBS Campaign</description>
-        <label>AS BMBS Campaign</label>
+        <description>For AS Central Campaign</description>
+        <label>AS Central Campaign</label>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -2766,7 +2766,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
+                <fullName>Campaign Organized by Mercedes Benz</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6608,7 +6608,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
+                <fullName>Campaign Organized by Mercedes Benz</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6616,7 +6616,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
+                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6922,10 +6922,10 @@
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>S_M_Event_BMBS_Campaign</fullName>
+        <fullName>S_M_Event_Central_Campaign</fullName>
         <active>true</active>
-        <description>For S&amp;M Event BMBS Campaign</description>
-        <label>S&amp;M Event BMBS Campaign</label>
+        <description>For S&amp;M Event Central Campaign</description>
+        <label>S&amp;M Event Central Campaign</label>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -7496,7 +7496,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
+                <fullName>Campaign Organized by Mercedes Benz</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7782,10 +7782,10 @@
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>S_M_Media_BMBS_Campaign</fullName>
+        <fullName>S_M_Media_Central_Campaign</fullName>
         <active>true</active>
-        <description>For S&amp;M Media BMBS Campaign</description>
-        <label>S&amp;M Media BMBS Campaign</label>
+        <description>For S&amp;M Media Central Campaign</description>
+        <label>S&amp;M Media Central Campaign</label>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
             <values>
@@ -8356,7 +8356,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
+                <fullName>Campaign Organized by Mercedes Benz</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9195,7 +9195,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
+                <fullName>Campaign Organized by Mercedes Benz</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9203,7 +9203,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
+                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9535,13 +9535,13 @@
         <errorMessage>When Execution Type is DM, DM Material is Required.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Locked_for_BMBS_when_Published</fullName>
+        <fullName>Locked_for_Central_when_Published</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
 OR(
- RecordType.Name == &apos;S&amp;M Event BMBS Campaign&apos;,
- RecordType.Name == &apos;S&amp;M Media BMBS Campaign&apos;,
- RecordType.Name == &apos;AS BMBS Campaign&apos;
+ RecordType.Name == &apos;S&amp;M Event Central Campaign&apos;,
+ RecordType.Name == &apos;S&amp;M Media Central Campaign&apos;,
+ RecordType.Name == &apos;AS Central Campaign&apos;
 ), 
  OR(PRIORVALUE(Status)== &apos;Published&apos;,PRIORVALUE(Status)==&apos;Closed&apos;),
  OR(  ISCHANGED( Campaign_Code__c ),
