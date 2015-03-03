@@ -1181,7 +1181,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Did Not Fully Participate in Car Purchase Process, Unable to Find Qualified Interviewee</fullName>
+                <fullName>Did Not Fully Participating in Car Purchase Process, Unable to Find Qualified Interviewee</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2127,7 +2127,7 @@ noted by Lio on 10.28.2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Did Not Fully Participate in Car Purchase Process, Unable to Find Qualified Interviewee</fullName>
+                <fullName>Did Not Fully Participating in Car Purchase Process, Unable to Find Qualified Interviewee</fullName>
                 <controllingFieldValues>Solved</controllingFieldValues>
                 <default>false</default>
             </picklistValues>

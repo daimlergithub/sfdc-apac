@@ -45,7 +45,7 @@ trigger UserBeforeInsertUpdate on User (before insert, before update) {
     Set<Id> profileIds = new Set<Id>();
     profileIds.add(DealerUser.Id);
     profileIds.add(DealerDelegatedAdmin.Id);
-    if(Trigger.isInsert || Trigger.isUpdate) {
+    if((Trigger.isInsert || Trigger.isUpdate) && profileIds!=Null) {
         // if create user is a portal user, Validate NoOfLicense
         if(profileIds.contains(Trigger.new[0].ProfileId)) {
             UserHelper.ValidateUser(Trigger.new[0]);

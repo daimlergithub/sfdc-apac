@@ -54,7 +54,7 @@ trigger TriggerParticipatingDealer on Participating_Dealer__c (after insert, aft
     String pSetSmRetail = 'S_M_Retail_Campaign';
     String pSetBp = 'Best_Practise';
     
-    Id pIdDealerAdmin = [select Id from Profile where Name = 'Dealer Community Delegate Admin'].id;
+    Id pIdDealerAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'].id;
     Id pIdDealerUser = [select Id from Profile where Name = 'Dealer Community User'].id;
     
     // The values for sharing records
