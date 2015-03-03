@@ -7346,7 +7346,7 @@ Modify Reason:
 
         		TEXT(Contact__r.Gender__c) &lt;&gt; NULL,
 
-        		Contact__r.Province__c &lt;&gt; NULL,
+        		Text(Contact__r.Province__c) &lt;&gt; NULL,
 
         		Contact__r.City_CN__c &lt;&gt; NULL,
 

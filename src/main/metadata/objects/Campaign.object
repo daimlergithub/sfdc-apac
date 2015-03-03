@@ -1429,9 +1429,15 @@
         <fullName>Participating_Region_Province__c</fullName>
         <externalId>false</externalId>
         <label>Participating Region-Province</label>
-		<length>255</length>
+		<picklist>
+            <picklistValues>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        <type>Text</type>        
+        <type>Picklist</type>        
     </fields>
     <fields>
         <fullName>Plan_End_Date__c</fullName>
