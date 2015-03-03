@@ -541,13 +541,18 @@ Modify By:
 Modify Reason: 
 */
 Attribute in Data Dictionary object Vehicle Relationship is &quot;VehicleRel_RegistrationProvince&quot;</description>
-        <externalId>false</externalId>
         <inlineHelpText>Province the vehicle was registered</inlineHelpText>
         <label>Registration Province</label>
-		<length>255</length>	
+		<picklist>
+            <picklistValues>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>	
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Registration_City__c</fullName>

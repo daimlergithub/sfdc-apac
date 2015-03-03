@@ -77,10 +77,15 @@
     </fields>
     <fields>
         <fullName>Campaign_Province__c</fullName>
-        <externalId>false</externalId>
         <label>Campaign Province</label>
-		<length>255</length>
-        <type>Text</type>
+		<picklist>
+            <picklistValues>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>City</fullName>
