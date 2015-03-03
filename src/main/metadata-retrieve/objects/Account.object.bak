@@ -1959,6 +1959,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_CityEN&quot;</descrip
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Dealer_Complaint_Manager_Email__c</fullName>
@@ -7773,27 +7774,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Electronic</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Embassy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco and alcohol</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7801,7 +7786,19 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Stone</fullName>
+                <fullName>Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7809,11 +7806,19 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Stone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tobacco and alcohol</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Trade</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts</fullName>
+                <fullName>Vehicle Maintenance</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8179,7 +8184,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <picklistValues>
             <picklist>Ownership</picklist>
             <values>
-                <fullName>Special</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8187,7 +8192,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
+                <fullName>Special</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8278,11 +8283,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Warm</fullName>
+                <fullName>Hot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hot</fullName>
+                <fullName>Warm</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8769,6 +8774,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedes - Benz Financial</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
@@ -8794,10 +8803,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Web%2FMobile Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes - Benz Financial</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9487,6 +9492,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <picklistValues>
             <picklist>Hobby__c</picklist>
             <values>
+                <fullName>Bar</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bowling</fullName>
                 <default>false</default>
             </values>
@@ -9539,11 +9548,23 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Private clubs</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Riding horse</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Sailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shopping mall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slimming Beauty</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9559,23 +9580,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Shopping mall</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Yoga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Private clubs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Slimming Beauty</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bar</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9605,83 +9610,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Embassy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Credit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Army</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electronic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Property</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car rental</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9689,11 +9618,87 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts</fullName>
+                <fullName>Building</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Driving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Embassy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tobacco and alcohol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Maintenance</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10051,7 +10056,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <picklistValues>
             <picklist>Ownership</picklist>
             <values>
-                <fullName>Special</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10059,7 +10064,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
+                <fullName>Special</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10147,6 +10152,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             <picklist>Rating</picklist>
             <values>
                 <fullName>Cold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hot</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10648,6 +10657,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedes - Benz Financial</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
@@ -10679,10 +10692,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Web%2FMobile Phone</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Mercedes - Benz Financial</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Data_Sub_Source__c</picklist>
@@ -10699,7 +10708,15 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Au</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Auto Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Auto Show 2012</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10708,6 +10725,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Autohome</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Avant capital group</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10787,6 +10808,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Car reviews</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>China News</fullName>
                 <default>false</default>
             </values>
@@ -10812,6 +10837,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Dealers nomination</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Direct Mail</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10919,6 +10948,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Loan data</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>MB Arena</fullName>
                 <default>false</default>
             </values>
@@ -10967,6 +11000,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedes - Benz website _ sale</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes-Benz E-brochure and price list</fullName>
                 <default>false</default>
             </values>
@@ -10991,6 +11028,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Netcom agency</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>OB Call</fullName>
                 <default>false</default>
             </values>
@@ -10999,11 +11040,19 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Online Event Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Owners Club</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11184,46 +11233,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>mymb</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Online Event Registration</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Au</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Avant capital group</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes - Benz website _ sale</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car reviews</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Direct Mail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Netcom agency</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Loan data</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Owners Club</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Auto Show 2012</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11554,6 +11563,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Bar</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Basketball</fullName>
                 <default>false</default>
             </values>
@@ -11694,6 +11707,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Private clubs</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Racing</fullName>
                 <default>false</default>
             </values>
@@ -11707,6 +11724,14 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Sailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shopping mall</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Slimming Beauty</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11746,23 +11771,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Shopping mall</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Yoga</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Private clubs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Slimming Beauty</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bar</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11792,83 +11801,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Embassy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Credit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Army</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electronic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Property</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car rental</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11876,11 +11809,87 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts</fullName>
+                <fullName>Building</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Car rental</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Computer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Goods</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Distribution</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Driving</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electronic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Embassy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Franchising</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Law</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Property</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Stone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tobacco and alcohol</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Travel</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Maintenance</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12246,7 +12255,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <picklistValues>
             <picklist>Ownership</picklist>
             <values>
-                <fullName>Special</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12254,7 +12263,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
+                <fullName>Special</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12345,11 +12354,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Warm</fullName>
+                <fullName>Hot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hot</fullName>
+                <fullName>Warm</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12815,9 +12824,7 @@ $Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;
     <validationRules>
         <fullName>PersonHomePhone</fullName>
         <active>true</active>
-        <errorConditionFormula>
-		AND(OR(ISCHANGED(PersonHomePhone), ISNEW()),NOT(ISBLANK(PersonHomePhone)),RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;,OR( NOT(ISNUMBER(PersonHomePhone))), $Profile.Name != &apos;IntegrationAPI&apos;)
-		</errorConditionFormula>
+        <errorConditionFormula>AND(OR(ISCHANGED(PersonHomePhone), ISNEW()),NOT(ISBLANK(PersonHomePhone)),RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;,OR( NOT(ISNUMBER(PersonHomePhone))), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>PersonHomePhone</errorDisplayField>
         <errorMessage>Phone number must contain numbers only.</errorMessage>
     </validationRules>
@@ -12837,9 +12844,7 @@ $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
     <validationRules>
         <fullName>Phone</fullName>
         <active>true</active>
-        <errorConditionFormula>
-		AND(OR(ISCHANGED(Phone), ISNEW()),NOT(ISBLANK(Phone)),RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;,OR( NOT(ISNUMBER(Phone))),$Profile.Name != &apos;IntegrationAPI&apos;)
-		</errorConditionFormula>
+        <errorConditionFormula>AND(OR(ISCHANGED(Phone), ISNEW()),NOT(ISBLANK(Phone)),RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;,OR( NOT(ISNUMBER(Phone))),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>Phone</errorDisplayField>
         <errorMessage>Phone number must contain numbers only.</errorMessage>
     </validationRules>

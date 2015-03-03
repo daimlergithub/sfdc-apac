@@ -1959,7 +1959,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_CityEN&quot;</descrip
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Dealer_Complaint_Manager_Email__c</fullName>
