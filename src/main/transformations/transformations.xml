@@ -25,6 +25,26 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='Create_Simple_Execution']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_SIMPLE_EXECUTION_RECORD_TYPE_ID</token>
 	</changetext>
+	<changetext>
+		<filename>caseSharingRules\Case.sharingRules</filename>
+		<xpath>/CaseSharingRules/criteriaBasedRules[fullName/text()='Share_Central_East_Case_to_Regional']/criteriaItems/value/text()</xpath>
+		<token tokenonly="true">CENTRAL_OFFICE_QUEUE_ID</token>
+	</changetext>
+		<changetext>
+		<filename>caseSharingRules\Case.sharingRules</filename>
+		<xpath>/CaseSharingRules/criteriaBasedRules[fullName/text()='Share_Central_North_Case_to_Regional']/criteriaItems/value/text()</xpath>
+		<token tokenonly="true">CENTRAL_OFFICE_QUEUE_ID</token>
+	</changetext>
+		<changetext>
+		<filename>caseSharingRules\Case.sharingRules</filename>
+		<xpath>/CaseSharingRules/criteriaBasedRules[fullName/text()='Share_Central_South_Case_to_Regional']/criteriaItems/value/text()</xpath>
+		<token tokenonly="true">CENTRAL_OFFICE_QUEUE_ID</token>
+	</changetext>
+		<changetext>
+		<filename>caseSharingRules\Case.sharingRules</filename>
+		<xpath>/CaseSharingRules/criteriaBasedRules[fullName/text()='Share_Central_West_Case_to_Regional']/criteriaItems/value/text()</xpath>
+		<token tokenonly="true">CENTRAL_OFFICE_QUEUE_ID</token>
+	</changetext>
 	
 	<changetext>
 		<filename>settings\Case.settings</filename>
@@ -101,4 +121,53 @@
 		<xpath>/CustomObject/fields[fullName/text()='Selling_Dealer__c']/trackHistory/text()</xpath>
 		<value>true</value>
 	</changetext>
+	
+	<!-- fix missing deployment information -->
+	<addelement deploy="false">
+		<filename>layouts\Event-Event Master Layout.layout</filename>
+		<xpath>/Layout/layoutSections/layoutColumns/layoutItems[field/text()='IsAllDayEvent']</xpath>
+		<element><layoutItems>
+                <behavior>Required</behavior>
+                <field>ActivityDateTime</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>DurationInMinutes</field>
+            </layoutItems></element>
+	</addelement>
+	
+	<!-- fix missing deployment information -->
+	<addelement deploy="false">
+		<filename>layouts\Event-Event Master Layout.layout</filename>
+		<xpath>/Layout/layoutSections/layoutColumns/layoutItems[field/text()='QC_Quantity__c']</xpath>
+		<element><layoutItems>
+                <behavior>Required</behavior>
+                <field>ActivityDate</field>
+            </layoutItems></element>
+	</addelement>
+	
+	<!-- fix missing deployment information -->
+	<addelement deploy="false">
+		<filename>layouts\Event-Reservation Layout.layout</filename>
+		<xpath>/Layout/layoutSections/layoutColumns/layoutItems[field/text()='Subject']</xpath>
+		<element><layoutItems>
+                <behavior>Required</behavior>
+                <field>ActivityDate</field>
+            </layoutItems></element>
+	</addelement>
+	
+	<!-- fix missing deployment information -->
+	<addelement deploy="false">
+		<filename>layouts\Event-Reservation Layout.layout</filename>
+		<xpath>/Layout/layoutSections/layoutColumns/layoutItems[field/text()='IsAllDayEvent']</xpath>
+		<element><layoutItems>
+                <behavior>Required</behavior>
+                <field>ActivityDateTime</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>DurationInMinutes</field>
+            </layoutItems></element>
+	</addelement>
+	
 </transformations>
