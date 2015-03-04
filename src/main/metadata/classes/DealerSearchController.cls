@@ -23,7 +23,7 @@ public with sharing class DealerSearchController {
     private final Map<String, String> ADDRESS_FIELD_MAPPING = new Map<String, String> {
         'Dealer_Region__c' => 'Dealer_Region__c',
         'Province__c' => 'Province__c',
-        'City_CN__c' => 'City_CN__c'
+        'City__c' => 'City__c'
     };
     
     // Two Muti-Select Fields on Account
@@ -38,8 +38,8 @@ public with sharing class DealerSearchController {
     public List<SelectOption> getCityOptions(){
         List<SelectOption> options = new List<SelectOption>();
         Set<String> cities = new Set<String>();
-        for(Account dealer : [select City_CN__c from Account where RecordTypeId = '01290000000fpAE' and Province__c = :dealer.Province__c]){
-            cities.add(dealer.City_CN__c);
+        for(Account dealer : [select City__c from Account where RecordTypeId = '01290000000fpAE' and Province__c = :dealer.Province__c]){
+            cities.add(dealer.City__c);
         }
         cities.remove(null);
         options.add(new SelectOption('', '--None--'));
@@ -65,13 +65,13 @@ public with sharing class DealerSearchController {
         try {
             Account personAccount = [ SELECT Name,
                                              Dealer_Sales_Type__c, Dealer_Service_Codes__c,
-                                             Dealer_Region__c, Province__c, City_CN__c
+                                             Dealer_Region__c, Province__c, City__c
                                       FROM Account 
                                       WHERE Id = :con.getId()];
             
             // We only need pass the province and city to the search page
             dealer.Province__c = personAccount.Province__c;
-            dealer.City_CN__c = personAccount.City_CN__c;
+            dealer.City__c = personAccount.City__c;
         }
         catch (QueryException e) {
             // If user open this from home page, it means, 

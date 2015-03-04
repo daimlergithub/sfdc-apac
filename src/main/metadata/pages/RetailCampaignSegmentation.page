@@ -780,7 +780,7 @@
                         <apex:column value="{!account.PersonMobilePhone}"/>
                         <apex:column value="{!account.Phone}"/>
                         <apex:column value="{!account.PersonEmail}"/>
-                        <!-- <apex:column value="{!account.City_CN__c}"/> -->
+                        <!-- <apex:column value="{!account.City__c}"/> -->
                     </apex:pageBlockTable>
   
                 </apex:outputPanel>

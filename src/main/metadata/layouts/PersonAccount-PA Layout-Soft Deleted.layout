@@ -125,7 +125,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>City_CN__c</field>
+                <field>City__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -488,7 +488,7 @@
             <posY>0</posY>
         </summaryLayoutItems>
         <summaryLayoutItems>
-            <field>City_CN__c</field>
+            <field>City__c</field>
             <posX>3</posX>
             <posY>1</posY>
         </summaryLayoutItems>

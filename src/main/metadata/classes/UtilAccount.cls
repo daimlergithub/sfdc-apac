@@ -1,6 +1,6 @@
 /*
     Type:       Utility for TriggerAccount
-    Purpose:    Link Dealer to Dealer City by City CN and Province 
+    Purpose:    Link Dealer to Dealer City by City and Province 
     User Story: US-DS-001, US-Lead-009
     Used By:    TriggerAccount.trigger
     ---------------------------------------------------------------
@@ -19,16 +19,16 @@ public class UtilAccount {
             Set<String> provinces = new Set<String>();
 
             for (Account acc : triggerNew) {
-                // Get the dealer which City CN or Province has change
+                // Get the dealer which City or Province has change
                 Account oldAcc = (Account) trigger.oldMap.get(acc.Id);
                 if (acc.RecordTypeId == dealerRecordTypeId && 
-                        (acc.City_CN__c != oldAcc.City_CN__c ||
+                        (acc.City__c != oldAcc.City__c ||
                          acc.Province__c != oldAcc.Province__c)) {
                     dealerIdSet.add(acc.Id);
 
                     // Populate cities and provinces
-                    if (acc.City_CN__c != null) {
-                        cities.add(acc.City_CN__c);
+                    if (acc.City__c != null) {
+                        cities.add(acc.City__c);
                     }
 
                     if (acc.Province__c != null) {
