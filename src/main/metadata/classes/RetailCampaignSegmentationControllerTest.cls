@@ -24,7 +24,7 @@ public class RetailCampaignSegmentationControllerTest {
             
             Account customer = new Account(Dealer_DMS_SR_Code__c='',
                                         Status__c='xCustomer',
-                                        City_CN__c='Beijing',
+                                        City__c='Beijing',
                                         Phone = '80801010',
                                         Area_code__c = '010',
                                         Age_Range__c = '26-35',

@@ -431,7 +431,7 @@
         <fullName>City__c</fullName>
         <description>City of the dealer</description>
         <externalId>false</externalId>
-        <formula>Dealer_Name__r.City_CN__c</formula>
+        <formula>Dealer_Name__r.City__c</formula>
         <label>City</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

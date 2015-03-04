@@ -252,7 +252,7 @@
                           sObjectInstance['Province__c']=$scope.records[record][field];
                       }
                       else if(sObjectFields[field] == 'City') {
-                          sObjectInstance['City_CN__c']=$scope.records[record][field];
+                          sObjectInstance['City__c']=$scope.records[record][field];
                       }
                       else if(sObjectFields[field] == 'zipcode') {
                           sObjectInstance['ZipCode__c']=$scope.records[record][field];

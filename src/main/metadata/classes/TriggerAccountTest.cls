@@ -1,6 +1,6 @@
 /*
     Type:       Test Class for TriggerAccount
-    Purpose:    Link Dealer to Dealer City by City CN and Province 
+    Purpose:    Link Dealer to Dealer City by City and Province 
     User Story: US-DS-001
     Used By:    
     ---------------------------------------------------------------
@@ -15,8 +15,8 @@ private class TriggerAccountTest {
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_DEALER);
 
-        // Update Dealer City CN and Province according to dealerCity
-        dealer.City_CN__c = 'Dongcheng District';
+        // Update Dealer City and Province according to dealerCity
+        dealer.City__c = 'Dongcheng District';
         dealer.Province__c = 'Beijing';
         update dealer;
     }
