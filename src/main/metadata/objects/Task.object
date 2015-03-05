@@ -10083,6 +10083,10 @@
                 <fullName>Politely Decline</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>Did Not Fully Participate in Car Purchase Process, Unable to Find Qualified Interviewee</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Rejection During the Main Part of the Interview</fullName>
                 <default>false</default>
