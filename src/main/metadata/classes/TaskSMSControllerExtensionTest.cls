@@ -1,7 +1,7 @@
 /*
     Type:       test class
     Purpose:    TaskSMSControllerExtension test class
-    User Story: Central Interactive SMS Workbook
+    User Story: BMBS Interactive SMS Workbook
 
     Used By:    TaskSMSControllerExtension
     ---------------------------------------------------------------
@@ -27,7 +27,7 @@ public class TaskSMSControllerExtensionTest {
         insert customer;
         customer = [Select Customer_Number__c, PersonContactId From Account Where Id=:customer.Id];
         Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId
-            ,Dealer_Address_CN__c = 'chaoyang', City_CN__c = 'beijing', Province__c = '151');
+            ,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
         insert dealer;
 
         //User usr = UtilTestData.createUser('OB TL','CAC OB TL');
@@ -159,7 +159,7 @@ public class TaskSMSControllerExtensionTest {
         insert customer;
         customer = [Select Customer_Number__c, PersonContactId From Account Where Id=:customer.Id];
         Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId
-            ,Dealer_Address_CN__c = 'chaoyang', City_CN__c = 'beijing', Province__c = '151');
+            ,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
         insert dealer;
 
         //User usr = UtilTestData.createUser('OB TL','CAC OB TL');

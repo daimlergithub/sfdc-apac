@@ -46,7 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>This object is used for BMBS_Activity(Inbound Call) Handling,  Assign a munber od IB Call tasks to a number of CSRs or TLs.</description>
+    <description>This object is used for Central_Activity(Inbound Call) Handling,  Assign a munber od IB Call tasks to a number of CSRs or TLs.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableEnhancedLookup>false</enableEnhancedLookup>

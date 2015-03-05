@@ -81,10 +81,14 @@
         <fullName>Campaign_Province__c</fullName>
         <externalId>false</externalId>
         <label>Campaign Province</label>
-        <length>255</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
+        <picklist>
+            <picklistValues>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>City</fullName>
@@ -175,7 +179,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -345,6 +349,10 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Added</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Advisory did not apply</fullName>
                 <default>false</default>
             </picklistValues>
@@ -370,6 +378,14 @@
             </picklistValues>
             <picklistValues>
                 <fullName>B</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Blacklisted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bounced</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -402,6 +418,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Decline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Declined</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -530,6 +550,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Sent02</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shown up</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

@@ -14,7 +14,7 @@
         <name>Read/Write of Vehicle to CAC</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>Read_of_Vehicle_to_Central</fullName>
+        <fullName>Read_of_Vehicle_to_BMBS</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>
         </sharedTo>
@@ -24,7 +24,7 @@
             <value>Vehicle Relationship</value>
         </criteriaItems>
         <accessLevel>Read</accessLevel>
-        <name>Read of Vehicle to Central</name>
+        <name>Read of Vehicle to BMBS</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
         <fullName>soft_deleted_share_with_R_W_to_data_mgr</fullName>

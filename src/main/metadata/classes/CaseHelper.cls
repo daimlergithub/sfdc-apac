@@ -166,14 +166,14 @@ public class CaseHelper{
     public static Profile CURRENT_PROFILE = [select Id, Name from Profile where Id = :UserInfo.getProfileId()];
     public static List<User> REGIONAL_CRM_MGR_USERS = [select Id, UserRole.Name from User where UserRole.Name like 'Regional CRM Mgr%' and isActive = true];
     public static List<QueueSobject> CENTRAL_REGIONAL_CASE_QUEUES = [select Id, QueueId from QueueSobject where SobjectType = 'Case' and (Queue.Name like 'Central Office%' or Queue.Name like 'Regional Office%')];
-    public static List<QueueSobject> CENTRAL_CASE_QUEUES = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like '%Central Office%'];
+    public static List<QueueSobject> BMBS_CENTRAL_CASE_QUEUES = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like '%BMBS Central Office%'];
         
     public static void insertSobjects(List<Sobject> sos) {
         try {
             insert sos;
         }
         catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
+            sos[0].addError(e.getDMLMessage(0));
             System.debug('Exception message is :' + e.getDMLMessage(0));
         }
     }
@@ -183,7 +183,7 @@ public class CaseHelper{
             update sos;
         }
         catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
+            sos[0].addError(e.getDMLMessage(0));
             System.debug('Exception message is :' + e.getDMLMessage(0));
         }
     }
@@ -193,7 +193,7 @@ public class CaseHelper{
             delete sos;
         }
         catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
+            sos[0].addError(e.getDMLMessage(0));
             System.debug('Exception message is :' + e.getDMLMessage(0));
         }
     }
@@ -881,7 +881,7 @@ public class CaseHelper{
 	            //}
 	            //If Onsite Manager need to to assign the "Fire or Gasbag Case" Complaint to Dealer,
 	            //s/he will check "On-Site Manager Confirmed" field and the Complaint will be assigned to Dealer Gate Keeper following
-	            //if (Trigger.isUpdate && caseNew.On_Site_Manager_Confirmed__c && caseHelper.P_Central_ONSITE_CM_ID == UserInfo.getProfileId() && caseNew.OwnerId == Trigger.oldMap.get(caseNew.Id).OwnerId){
+	            //if (Trigger.isUpdate && caseNew.On_Site_Manager_Confirmed__c && caseHelper.P_BMBS_ONSITE_CM_ID == UserInfo.getProfileId() && caseNew.OwnerId == Trigger.oldMap.get(caseNew.Id).OwnerId){
 	            //    changeOwnerObjs.add(caseNew);
 	            //}
 	            
@@ -1351,6 +1351,32 @@ public class CaseHelper{
     
     /**************** CaseAfterInsertORUpdate Trigger merge **************************/
     
+    //ADD START AS-Complaint_002 CHAOS 2014/2/21
+    private static void supportDealerMethod(Id newDealerId, Id oldDealerId, Id caseId, Boolean isInsert, Boolean isUpdate) {
+		Map<id,Set<Id>> casesToDeleteFromShare = new Map<Id, Set<Id>>();
+		Map<id,Set<Id>> casesToShareForSupport = new Map<Id, Set<Id>>();
+        if(isInsert){
+            if (newDealerId != null && !casesToShareForSupport.get(caseId).contains(newDealerId)){
+                casesToShareForSupport.get(caseId).add(newDealerId);
+            }
+        }
+        if(isUpdate && (newDealerId != oldDealerId)) {
+            if( oldDealerId == null  && !casesToShareForSupport.get(caseId).contains(newDealerId)) {
+                
+                casesToShareForSupport.get(caseId).add(newDealerId);
+                
+            } else {
+                if( newDealerId != null  && !casesToShareForSupport.get(caseId).contains(newDealerId)) {
+                    casesToShareForSupport.get(caseId).add(newDealerId);
+                }
+                if (!casesToDeleteFromShare.get(caseId).contains(oldDealerId)) {
+                    casesToDeleteFromShare.get(caseId).add(oldDealerId);
+                }
+            }
+        }
+    }
+	//ADD END AS-Complaint_002 CHAOS 2014/2/21
+    
     public static void handleCaseAfterInsertOrUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal, Map<Id, Case> newVal){
     
 	    List<Sobject> insertCaseHistorys = new List<Sobject>();
@@ -1374,7 +1400,7 @@ public class CaseHelper{
 	    List<Id> CentralQueue_ID = new List<Id>();
 	    List<Case> closeRelatedCase = new List<Case>();
 	    if(isUpdate) {
-	        for(QueueSobject q : CENTRAL_CASE_QUEUES) {
+	        for(QueueSobject q : BMBS_CENTRAL_CASE_QUEUES) {
 	            CentralQueue_ID.add(q.QueueId);
 	        }
 	    }
@@ -1486,7 +1512,11 @@ public class CaseHelper{
 	                casesToDeleteFromShare.put(caseNew.Id, new Set<Id>());
 	            }
 	            
-	            // ADD END AS-Complaint_002 CHAOS 2014/2/21
+	            supportDealerMethod(caseNew.Support_Dealer_1__c,oldSupportDealer1,caseNew.Id, isInsert, isUpdate);
+	            supportDealerMethod(caseNew.Support_Dealer_2__c,oldSupportDealer2,caseNew.Id, isInsert, isUpdate);
+	            supportDealerMethod(caseNew.Support_Dealer_3__c,oldSupportDealer3,caseNew.Id, isInsert, isUpdate);
+	            
+	            //ADD END AS-Complaint_002 CHAOS 2014/2/21
 	        }
 	        if (isInsert){
 	            if (caseNew.ParentId == null && caseNew.AccountId != null && caseNew.Handling_Level__c != 'Dealer' && (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId ||C_MB_RECORD_TYPE == caseNew.RecordTypeId)){
@@ -1592,7 +1622,7 @@ public class CaseHelper{
 	    if(isInsert){
 	        Set<String> caseIds = new Set<String>();
 	        for(Case c : cases){
-	            if(c.RecordTypeId == Schema.SObjectType.Account.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId() && c.ParentId != null){
+	            if(c.RecordTypeId == Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId() && c.ParentId != null){
 	                caseIds.add(c.Id);
 	            }
 	        }
@@ -1613,32 +1643,5 @@ public class CaseHelper{
 	    //---------------------Bing add for data sharing-----------------
     	
     }
-    
-     // ADD START AS-Complaint_002 CHAOS 2014/2/21
-	    private void supportDealerMethod(Id newDealerId, Id oldDealerId, Id caseId ,Boolean isInsert ,Boolean isUpdate) {
-	
-			Map<id,Set<Id>> casesToDeleteFromShare = new Map<Id, Set<Id>>();
-			Map<id,Set<Id>> casesToShareForSupport = new Map<Id, Set<Id>>();
-	        if(isInsert){
-	            if (newDealerId != null && !casesToShareForSupport.get(caseId).contains(newDealerId)){
-	                casesToShareForSupport.get(caseId).add(newDealerId);
-	            }
-	        }
-	        if(isUpdate && (newDealerId != oldDealerId)) {
-	            if( oldDealerId == null  && !casesToShareForSupport.get(caseId).contains(newDealerId)) {
-	                
-	                casesToShareForSupport.get(caseId).add(newDealerId);
-	                
-	            } else {
-	                if( newDealerId != null  && !casesToShareForSupport.get(caseId).contains(newDealerId)) {
-	                    casesToShareForSupport.get(caseId).add(newDealerId);
-	                }
-	                if (!casesToDeleteFromShare.get(caseId).contains(oldDealerId)) {
-	                    casesToDeleteFromShare.get(caseId).add(oldDealerId);
-	                }
-	            }
-	        }
-	    }
-	    // ADD END AS-Complaint_002 CHAOS 2014/2/21
 	    
 }

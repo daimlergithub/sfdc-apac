@@ -5,7 +5,7 @@ public class GenericCSVLoaderControllerTest {
     
     static Account customer = new Account(Dealer_DMS_SR_Code__c='',
                                     Status__c='xCustomer',
-                                    City_CN__c='Beijing',
+                                    City__c='Beijing',
                                     Phone = '80801010',
                                     Area_code__c = '010',
                                     LastName = 'galaxy2',

@@ -103,13 +103,13 @@ public class SMSSendLeadResultExtension
                         }
                         else
                         {
-                            Account dealerInfo = [select Dealer_Address_CN__c, City_CN__c, Province__c from Account where Id = :sms.Dealer__c limit 1];
+                            Account dealerInfo = [select Dealer_Address_CN__c, City__c, Province__c from Account where Id = :sms.Dealer__c limit 1];
                             String dealerAddress = '';
                             if(dealerInfo.Province__c != null) {
                                 dealerAddress += dealerInfo.Province__c;
                             }
-                            if(dealerInfo.City_CN__c != null) {
-                                dealerAddress += dealerInfo.City_CN__c;
+                            if(dealerInfo.City__c != null) {
+                                dealerAddress += dealerInfo.City__c;
                             }
                             if(dealerInfo.Dealer_Address_CN__c != null) {
                                 dealerAddress += dealerInfo.Dealer_Address_CN__c;

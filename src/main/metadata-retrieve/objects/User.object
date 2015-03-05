@@ -345,9 +345,9 @@
         <columns>CORE.USERS.ACTIVE</columns>
         <columns>CORE.PROFILE.NAME</columns>
         <columns>LAST_UPDATE</columns>
+        <columns>MARKETING_USER</columns>
         <filterScope>Everything</filterScope>
         <label>All Users</label>
-        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>All_Marketing_Users</fullName>

@@ -18,24 +18,39 @@ public with sharing class UserHelper {
     public Static final String ErrorMessageGateKeeper = 'The user profile selected does not match with the contact role selected in the contact record.';
     public Static final String ErrorMessageContactSelect = 'Your contact must have to check with one of below: Dealer Lead Gate Keeper, Dealer Complaint Gate Keeper, Dealer Complaint User, Dealer Marketing Manager.';
     
-    public Static Profile DealerComplaintUser = [select Id from Profile where Name = 'Dealer Community User'];
-    public Static Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'];
+    public Static id DealerComplaintUserId = UtilCustomSettings.getProfileId('Dealer Community User');
+    public Static id DealerDelegatedAdminId = UtilCustomSettings.getProfileId('Dealer Delegate Admin');
+    
+    public Static id CACSSICSRId = UtilCustomSettings.getProfileId('CAC SSI CSR');
+    public Static id CACSSIQCId = UtilCustomSettings.getProfileId('CAC SSI QC');
+    public Static id CACSSISVId = UtilCustomSettings.getProfileId('CAC SSI SV');
+    public Static id CACSSITLId = UtilCustomSettings.getProfileId('CAC SSI TL');
+    public Static id CACSSITRAINERId = UtilCustomSettings.getProfileId('CAC SSI Trainer');
     
     //validate No of Dealer Portal Licanses
-    public static void ValidateUser(User newUser) {
-        Contact con = [select Id, AccountId, Account.No_of_Dealer_Portal_Licenses__c, Dealer_Lead_Gate_Keeper__c, Dealer_Complaint_Gate_Keeper__c, Dealer_Complaint_User__c, Dealer_Marketing_Manager__c from Contact where Id = :newUser.ContactId];
-        List<Contact> contacts = [select Id from Contact where Portal_user__c = true and Id != :newUser.ContactId and AccountId = :con.AccountId];
-
-        if(contacts.size() >= con.Account.No_of_Dealer_Portal_Licenses__c) {
-            newUser.addError(ErrorMessageFirstPart + con.Account.No_of_Dealer_Portal_Licenses__c + ErrorMessageSecondPart);
-        }
-        else {
-            //if(!con.Dealer_Lead_Gate_Keeper__c && !con.Dealer_Complaint_Gate_Keeper__c && !con.Dealer_Complaint_User__c && !con.Dealer_Marketing_Manager__c) {
-                //newUser.addError(ErrorMessageContactSelect);
-            //}
-            //Update portal user of contact to true
-            updateContact(newUser.ContactId, true);
-        }
+    public static void ValidateUser(list<user> usersList) {
+    
+     Set<Id> profileIds = new Set<Id>();
+         profileIds.add(DealerComplaintUserId);
+         profileIds.add(DealerDelegatedAdminId);
+         User userObj=usersList[0];
+         if(profileIds!=null && !profileIds.IsEmpty())
+         {
+         if(profileIds.contains(userObj.ProfileId) && userObj.ContactId!=null)
+         {
+                Contact con = [select Id, AccountId, Account.No_of_Dealer_Portal_Licenses__c, Dealer_Lead_Gate_Keeper__c, Dealer_Complaint_Gate_Keeper__c, Dealer_Complaint_User__c, Dealer_Marketing_Manager__c from Contact where Id = :userObj.ContactId];
+                   List<Contact> contacts = [select Id from Contact where Portal_user__c = true and Id != :userObj.ContactId and AccountId = :con.AccountId];
+           
+                   if(contacts.size() >= con.Account.No_of_Dealer_Portal_Licenses__c) {
+                       userObj.addError(ErrorMessageFirstPart + con.Account.No_of_Dealer_Portal_Licenses__c + ErrorMessageSecondPart);
+                   }
+                   else
+                   {
+                       //Update portal user of contact to true
+                       updateContact(userObj.ContactId, true);
+                   }
+         }
+         }
     }
     
     //Update Contact Portal User when portal user is enabled or disabled
@@ -87,49 +102,41 @@ public with sharing class UserHelper {
 
     @future
     public static void ShareAllDataToNewUserFuture(Id newUserId, Set<Id> existUserIds, Id profileId) {
-        //ShareVehicleToNewUser(newUserId, existUserIds);
-
-        //ShareVehicleRelationToNewUser(newUserId, existUserIds);
 
         User newUser = [select Id, Contact.Permission_Set_Settings__c from User where Id = :newUserId];
 
-        if(profileId == DealerDelegatedAdmin.Id || newUser.Contact.Permission_Set_Settings__c.contains('Complaint_Management')) {
+        if(profileId == DealerDelegatedAdminId || newUser.Contact.Permission_Set_Settings__c.contains('Complaint_Management')) {
             ShareCaseToNewUser(newUserId, existUserIds);
         }
 
-        if (profileId == DealerDelegatedAdmin.Id || newUser.Contact.Permission_Set_Settings__c.contains('Leads_Management')) {
+        if (profileId == DealerDelegatedAdminId || newUser.Contact.Permission_Set_Settings__c.contains('Leads_Management')) {
             ShareLeadsToNewUser(newUserId, existUserIds);
             ShareRetailLeadsToNewUser(newUserId, existUserIds);
         }
 
-        //if (profileId == DealerDelegatedAdmin.Id || newUser.Contact.Permission_Set_Settings__c.contains('Complaint_Management') || newUser.Contact.Permission_Set_Settings__c.contains('Leads_Management')){
-            //ShareAccountLinkToNewUser(newUserId, existUserIds);
-            //ShareRetailTaskToNewUser(newUserId, existUserIds);
-        //}
-
-        if (profileId == DealerDelegatedAdmin.Id || newUser.Contact.Permission_Set_Settings__c.contains('Tool_Kit')) {
+        if (profileId == DealerDelegatedAdminId || newUser.Contact.Permission_Set_Settings__c.contains('Tool_Kit')) {
             ShareToolKitToNewUser(newUserId, existUserIds);
         }
 
-        if (profileId == DealerDelegatedAdmin.Id || newUser.Contact.Permission_Set_Settings__c.contains('AS_Retail_Campaign') || newUser.Contact.Permission_Set_Settings__c.contains('Segmentation_execution_Retail_Lead')) {
+        if (profileId == DealerDelegatedAdminId || newUser.Contact.Permission_Set_Settings__c.contains('AS_Retail_Campaign') || newUser.Contact.Permission_Set_Settings__c.contains('Segmentation_execution_Retail_Lead')) {
             ShareAsRecordsToNewUser(newUserId, existUserIds);
             ShareAsCampaignToNewUser(newUserId, existUserIds);
         }
 
-        if (profileId == DealerDelegatedAdmin.Id || newUser.Contact.Permission_Set_Settings__c.contains('AS_Yearly_TA')) {
+        if (profileId == DealerDelegatedAdminId || newUser.Contact.Permission_Set_Settings__c.contains('AS_Yearly_TA')) {
             ShareAsYearlyTAToNewUser(newUserId, existUserIds);
         }
 
-        if (profileId == DealerDelegatedAdmin.Id || newUser.Contact.Permission_Set_Settings__c.contains('S_M_Retail_Campaign') || newUser.Contact.Permission_Set_Settings__c.contains('Segmentation_execution_Retail_Lead')) {
+        if (profileId == DealerDelegatedAdminId || newUser.Contact.Permission_Set_Settings__c.contains('S_M_Retail_Campaign') || newUser.Contact.Permission_Set_Settings__c.contains('Segmentation_execution_Retail_Lead')) {
             ShareSmRecordsToNewUser(newUserId, existUserIds);
             ShareSmCampaignToNewUser(newUserId, existUserIds);
         }
         
-        if (profileId == DealerDelegatedAdmin.Id || newUser.Contact.Permission_Set_Settings__c.contains('S_M_Yearly_TA')) {
+        if (profileId == DealerDelegatedAdminId || newUser.Contact.Permission_Set_Settings__c.contains('S_M_Yearly_TA')) {
             ShareSmYearlyTAToNewUser(newUserId, existUserIds);
         }
         
-        if (profileId == DealerDelegatedAdmin.Id || newUser.Contact.Permission_Set_Settings__c.contains('Best_Practise')) {
+        if (profileId == DealerDelegatedAdminId || newUser.Contact.Permission_Set_Settings__c.contains('Best_Practise')) {
             ShareRetailBestPracticeToNewUser(newUserId, existUserIds);
             ShareBestPracticeToNewUser(newUserId, existUserIds);
         }
@@ -149,7 +156,7 @@ public with sharing class UserHelper {
         try {
             DataBase.insert(shares, false);
         } catch (DMLException e) {
-            System.debug('DMLException Exception occured when sharing Vehicles to new Dealer user: ' + e);
+           System.debug('DMLException Exception occured when sharing Vehicles to new Dealer user: ' + e);
         }
     }
 
@@ -360,7 +367,7 @@ public with sharing class UserHelper {
         try {
             DataBase.insert(shares, false);
         } catch (DMLException e) {
-            System.debug('DMLException Exception occured when sharing S&M Records to new Dealer user: ' + e.getDMLMessage(0));
+           System.debug('DMLException Exception occured when sharing S&M Records to new Dealer user: ' + e.getDMLMessage(0));
         }
     }
     
@@ -388,7 +395,7 @@ public with sharing class UserHelper {
     
     public static void ShareAsCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS BMBS Campaign').getRecordTypeId());
         
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
@@ -408,8 +415,8 @@ public with sharing class UserHelper {
     
     public static void ShareSmCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId());
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media Central Campaign').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event BMBS Campaign').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media BMBS Campaign').getRecordTypeId());
         
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
@@ -465,7 +472,7 @@ public with sharing class UserHelper {
             System.debug('DMLException Exception occured when sharing Tool Kits to new Dealer user: ' + e.getDMLMessage(0));
         }
     }
- 
+
     public static void AssignPermissionSetForPortalUser(Set<Id> userIds) {
         List<PermissionSetAssignment> permissionSetAssignments = new List<PermissionSetAssignment>();
         Map<String, Id> permissionSetNameIdMap = new Map<String, Id>();
@@ -507,5 +514,64 @@ public with sharing class UserHelper {
         }catch (DMLException e) {
             System.debug('DMLException Exception occured when inserting the new permission set: ' + e.getDMLMessage(0));
         }
+    }
+    
+    public static void AfterInsert_UpdateMethod(list<User> usersList,map<id,User> userOldMap,boolean isInsert,boolean isUpdate)
+    {
+    Set<Id> profileIds = new Set<Id>();
+    
+     if(DealerComplaintUserId!=null)
+         profileIds.add(DealerComplaintUserId);
+         if(DealerDelegatedAdminId!=null) 
+         profileIds.add(DealerDelegatedAdminId);
+     
+         Set<Id> SSIprofileIds = new Set<Id>();
+         
+         if(CACSSIQCId!=null)
+         SSIprofileIds.add(CACSSIQCId);
+         if(CACSSISVId!=null)   
+         SSIprofileIds.add(CACSSISVId);
+         if(CACSSITLId!=null)   
+         SSIprofileIds.add(CACSSITLId);
+         if(CACSSITRAINERId!=null)   
+         SSIprofileIds.add(CACSSITRAINERId);
+         if(CACSSICSRId!=null)  
+         SSIprofileIds.add(CACSSICSRId); 
+
+         if(isUpdate) {
+             // if update user is a portal user
+             if(profileIds.contains(usersList[0].ProfileId) && !usersList[0].IsPortalEnabled && userOldMap.get(usersList[0].Id).IsPortalEnabled) {
+                 updateContact(usersList[0].ContactId, false);
+             }
+         }
+     
+         // [Start] Added by Cyril on 2014-05-08 (Release1.1b)
+         if(isInsert) {
+             if(profileIds.contains(usersList[0].ProfileId)) {
+                 //when the user insert, share the account, vehicle and vehicle relation to the user
+                 ShareAllDataToNewUserBatch(usersList[0].AccountId, usersList[0].Id);
+             }
+         }
+         // [End] Added by Cyril on 2014-05-08 (Release1.1b)
+     
+         // By Shuang Li BRD-AS-CAC-007---- strart
+         if(isUpdate) {
+             Set<Id> userIds = new Set<Id>();
+             Set<Id> userPermissionSetIds = new Set<Id>();
+             for(User userNew : usersList) {
+                 if(CACSSICSRId!=null && CACSSICSRId == userOldMap.get(userNew.Id).ProfileId && userNew.ProfileId != userOldMap.get(userNew.Id).ProfileId && SSIprofileIds!=null && !SSIprofileIds.contains(userNew.ProfileId)) {
+                     userIds.add(userNew.Id);
+                 }
+                 if(userNew.Active_Permission_Set__c && userNew.Active_Permission_Set__c != userOldMap.get(userNew.Id).Active_Permission_Set__c) {
+                     userPermissionSetIds.add(userNew.Id);
+                 }
+             }
+             TaskHelper.autoUpdateSSITask(userIds);
+     
+             if(userPermissionSetIds.size() > 0) {
+                 AssignPermissionSetForPortalUser(userPermissionSetIds);
+                 ShareAllDataToNewUser(usersList[0].AccountId, usersList[0].Id, usersList[0].ProfileId);
+             }
+         }
     }
 }

@@ -55,7 +55,7 @@ private class TriggerLeadTest {
         
         customer.Allow_Data_Sharing__c = 'Yes'; 
         customer.Province__c = 'jiangsu'; 
-        customer.City_CN__c = 'nanjing';
+        customer.City__c = 'nanjing';
         customer.Preferred_Language__c = 'English';
         customer.Dealer_LMS__c = 'No';
         customer.LastName = 'Customer';

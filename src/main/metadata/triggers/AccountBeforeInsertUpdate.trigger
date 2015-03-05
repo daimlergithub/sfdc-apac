@@ -53,8 +53,8 @@ trigger AccountBeforeInsertUpdate on Account (before insert, before update) {
             }           
         }
         
-        if (!String.isBlank(curAcc.City_CN__c)){
-            citys.add(curAcc.City_CN__c);
+        if (!String.isBlank(curAcc.City__c)){
+            citys.add(curAcc.City__c);
         }
         
     }
@@ -94,13 +94,13 @@ trigger AccountBeforeInsertUpdate on Account (before insert, before update) {
      * Added by Justin Yu on 2014-3-4. Fill in the Zip Code automatically based on the City
      */
     for(Account account : Trigger.new){
-        if(!Trigger.isUpdate || account.City_CN__c != Trigger.oldMap.get(account.Id).City_CN__c){
+        if(!Trigger.isUpdate || account.City__c != Trigger.oldMap.get(account.Id).City__c){
             try{
-                City__c city = City__c.getInstance(account.City_CN__c);
+                City__c city = City__c.getInstance(account.City__c);
                 account.ZipCode__c = city != null ? city.Zip__c : null;
             }
             catch (System.InvalidParameterValueException e){
-                // City_CN__c probably too long
+                // City__c probably too long
             }
         }
     }   

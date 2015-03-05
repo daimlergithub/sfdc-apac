@@ -116,6 +116,12 @@
         <relatedList>RelatedActivityList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>VERSION.TITLE</fields>
+        <fields>VERSION.CREATED_DATE</fields>
+        <fields>VERSION.LAST_UPDATE</fields>
+        <relatedList>ContentDocumentRelatedList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <relatedList>SMS_Code__c.Template__c</relatedList>
     </relatedLists>

@@ -21,12 +21,21 @@
     9. Shuang Li updated for Repeat Complaint Times  on 2014-08-14
     10. Cyril Huang updated on 2014-10-10(2014Release1.3)
 */
-trigger CaseBeforeInsertUpdate on Case (before insert, before update) { 
-	
-    if (!UtilCustomSettings.isEnabled('CaseBeforeInsertUpdate')) {
-        return;
-    }
+trigger CaseTrigger on Case (before insert, before update, after insert, after update) { 
     
-    CaseHelper.caseBeforeInsertUpdateEvents(Trigger.new, Trigger.isInsert,Trigger.isUpdate, Trigger.oldMap);
-   
+    if (trigger.isBefore){
+        
+        if (!UtilCustomSettings.isEnabled('CaseBeforeInsertUpdate')) {
+            return;
+        }
+        CaseHelper.caseBeforeInsertUpdateEvents(Trigger.new, Trigger.isInsert,Trigger.isUpdate, Trigger.oldMap);
+    }else if (trigger.isAfter){
+        
+        if (!UtilCustomSettings.isEnabled('CaseAfterInsertOrUpdate')) {
+            return;
+        }
+    
+        CaseHelper.handleCaseAfterInsertOrUpdateEvents(Trigger.new, trigger.isInsert, trigger.isUpdate, trigger.oldMap, trigger.newMap);
+    }
+       
 }

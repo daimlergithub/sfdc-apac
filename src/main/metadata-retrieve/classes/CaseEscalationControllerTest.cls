@@ -34,7 +34,7 @@ public class CaseEscalationControllerTest {
         Account dealer = new Account();
         dealer.Allow_Data_Sharing__c = 'Yes';
         dealer.Province__c = 'jiangsu';
-        dealer.City_CN__c = 'nanjing';
+        dealer.City__c = 'nanjing';
         dealer.Preferred_Language__c = 'English';
         dealer.Dealer_LMS__c = 'No';
         dealer.Name='shrek';

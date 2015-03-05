@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>AddCampaign</actionName>
@@ -1029,7 +1029,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
+                <fullName>Extended Activities from Central Campaign</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1984,7 +1984,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <!--<listViews>
+    <listViews>
         <fullName>AllActiveCACCRMCampaigns</fullName>
         <columns>CAMPAIGN.NAME</columns>
         <columns>Campaign_Code__c</columns>
@@ -2195,8 +2195,8 @@
         </filters>
         <label>smart Best Activities</label>
         <language>en_US</language>
-    </listViews>-->
-    <!--<recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    </listViews>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
         <fullName>AS_Cental_Campaign</fullName>
         <active>true</active>
@@ -6622,7 +6622,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
+                <fullName>Extended Activities from Central Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9209,7 +9209,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
+                <fullName>Extended Activities from Central Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9513,7 +9513,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>-->
+    </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>CAMPAIGN.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>Campaign_Code__c</customTabListAdditionalFields>

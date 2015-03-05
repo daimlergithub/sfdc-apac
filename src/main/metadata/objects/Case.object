@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
 	<fieldSets>
         <fullName>SLICK_CTI_CASE</fullName>
@@ -24941,10 +24941,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Interested in MB Accessories %26 Collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB Trucks</fullName>
                 <default>false</default>
             </values>
@@ -34214,10 +34210,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>HR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interested in MB Accessories %26 Collection</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52791,10 +52783,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Interested in MB Accessories %26 Collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MB Trucks</fullName>
                 <default>false</default>
             </values>
@@ -61431,10 +61419,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>HR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interested in MB Accessories %26 Collection</fullName>
                 <default>false</default>
             </values>
             <values>

@@ -7,21 +7,21 @@ public class DealerSearchControllerTest {
         DealerSearchController dealerSearch = new DealerSearchController(
             new ApexPages.StandardController(new Account()));
         System.assert(dealerSearch.dealer.Province__c == null);
-        System.assert(dealerSearch.dealer.City_CN__c == null);
+        System.assert(dealerSearch.dealer.City__c == null);
     }
     
     public static testMethod void testDealerSearch() {
         // Create dealer
         Account dealer = new Account(Name = 'Shanghai test',
                                      Province__c = 'Shanghai',
-                                     City_CN__c = 'Xuhui district,',
-                                     Dealer_Sales_Type__c = 'Central;Smart',
+                                     City__c = 'Xuhui district,',
+                                     Dealer_Sales_Type__c = 'MBCL;Smart',
                                      Dealer_Service_Codes__c = 'Sales;Parts');
         dealer = (Account)UtilTestData.createSobject(dealer, UtilTestData.ACCOUNT_RT_DEALER);
         
         // Create Person Account
         Account personAccount = new Account(Province__c = 'Shanghai',
-                                            City_CN__c = 'Xuhui district,');
+                                            City__c = 'Xuhui district,');
         personAccount = (Account)UtilTestData.createSobject(personAccount, 
             UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
         
@@ -46,7 +46,7 @@ public class DealerSearchControllerTest {
         System.assert(dealerSearch.dealers.size() == 1, 'Searched Dealers Size != 1');
         
         // Change Dealer_Sales_Type__c
-        dealerSearch.dealer.Dealer_Sales_Type__c = 'Central;Smart';
+        dealerSearch.dealer.Dealer_Sales_Type__c = 'MBCL;Smart';
         dealerSearch.query();
         System.assert(dealerSearch.dealers.size() == 1, 'Searched Dealers Size != 1');
         

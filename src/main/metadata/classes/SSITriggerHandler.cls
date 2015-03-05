@@ -10,26 +10,7 @@
 */
 
 public class SSITriggerHandler { 
-    /*  
-    public static void reassignSSITaskOwner(Map<Id,SSI__c> newMap, Map<Id,SSI__c> oldMap){
-        Map<Id,SSI__c> updateMap = new Map<Id,SSI__c>();
-        for(SSI__c ssi : newMap.values()){
-            if(oldMap.containsKey(ssi.Id) && ssi.OwnerId != oldMap.get(ssi.Id).OwnerId){
-                updateMap.put(ssi.Id, ssi);
-            }
-        }
-                
-        Id rtid = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
-        
-        List<Task> tasks = [Select id, OwnerId From Task Where RecordTypeId=:rtid And WhatId =: updateMap.keySet()]; 
-        for(Task t : tasks){
-            t.OwnerId = newMap.values()[0].OwnerId;
-        }       
-        if(tasks.size()>0){
-            update tasks;
-        }       
-    }
-    */
+
     public static void fieldsValidationRule(Map<Id,SSI__c> newMap, Map<Id,SSI__c> oldMap){
         for(SSI__c ssi : newMap.values()){
             SSI__c old = oldMap.get(ssi.Id);
@@ -138,30 +119,4 @@ public class SSITriggerHandler {
             }
         }
     }
-    
-    public static void calculateDataCleansingResult(Map<Id,SSI__c> newMap, Map<Id,SSI__c> oldMap){
-
-        List<Id> batchIds = new List<Id>();
-
-        for(SSI__c ssi : newMap.values()){
-
-            SSI__c old = oldMap.get(ssi.Id);
-            
-            if(ssi.Status__c == 'All Valid' && old.Status__c != 'All Valid'){
-                batchIds.add(ssi.Id);
-            }
-
-            if(ssi.Status__c == 'Invalid' && old.Status__c != 'Invalid'){
-                batchIds.add(ssi.Id);
-            }            
-
-            //System.debug('-------------------new Status----->' + ssi.Status__c + '-----old Status-----' + old.Status__c);
-        }    
-
-        if(!batchIds.isEmpty()){
-            //SSIDataCleansingSnapshot.generateSnapshot(batchIds);
-        }
-        
-    }
-
 }

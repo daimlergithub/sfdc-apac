@@ -358,7 +358,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -757,6 +757,20 @@ For Dealers this is populated by the GSSN system - not modified in SFDC
 Attribute in Data Dictionary object Dealer is &quot;Dealer_CityCN&quot;</description>
         <externalId>false</externalId>
         <label>City CN</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <description>Chinese dealer city name - 
+For Dealers this is populated by the GSSN system - not modified in SFDC
+Attribute in Data Dictionary object Dealer is &quot;Dealer_CityCN&quot;</description>
+        <externalId>false</externalId>
+        <label>City</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1280,7 +1294,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSubSource&quot;
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -1583,11 +1597,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSubSource&quot;
             <picklistValues>
                 <fullName>Auto Show 2012</fullName>
                 <controllingFieldValues>Event</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBCL</fullName>
-                <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -4822,7 +4831,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5092,12 +5101,16 @@ Attribute in Data Dictionary object Address is &quot;Address_Province&quot;
 Attribute in Data Dictionary object Dealer is &quot;Dealer_ProvinceEN&quot;</description>
         <externalId>false</externalId>
         <label>Province</label>
-        <length>255</length>
-        <required>false</required>
+        <picklist>
+            <picklistValues>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>R_Account18ID__c</fullName>
@@ -5816,11 +5829,11 @@ Attribute in Data Dictionary object Contact is &quot;Contact_SpecialCare&quot;</
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS&amp;BBAC</fullName>
+                <fullName>Central&amp;BBAC</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6390,7 +6403,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6673,10 +6686,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -6738,6 +6747,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Car reviews</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6882,10 +6895,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>MB Website Aftersales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8408,11 +8417,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS%26BBAC</fullName>
+                <fullName>Central%26BBAC</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8590,7 +8599,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8837,10 +8846,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -8858,6 +8863,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>C web special</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10280,11 +10289,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS%26BBAC</fullName>
+                <fullName>Central%26BBAC</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10461,7 +10470,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10744,10 +10753,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -10809,6 +10814,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Car reviews</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10957,10 +10966,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>MB Website Aftersales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12479,11 +12484,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS%26BBAC</fullName>
+                <fullName>Central%26BBAC</fullName>
                 <default>false</default>
             </values>
             <values>

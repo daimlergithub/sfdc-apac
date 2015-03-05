@@ -4,7 +4,7 @@
     <availableInTouch>false</availableInTouch>
     <confirmationTokenRequired>false</confirmationTokenRequired>
     <description>Retail Campaign</description>
-    <label>Central Campaigns</label>
+    <label>BMBS Campaigns</label>
     <packageVersions>
         <majorNumber>1</majorNumber>
         <minorNumber>6</minorNumber>

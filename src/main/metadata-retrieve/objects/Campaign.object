@@ -1024,11 +1024,11 @@
         <label>Driven</label>
         <picklist>
             <picklistValues>
-                <fullName>Campaign Organized by BMBS</fullName>
+                <fullName>Campaign Organized by Mercedes Benz</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Extended Activities from BMBS’s Campaign</fullName>
+                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1050,7 +1050,7 @@
     </fields>
     <fields>
         <fullName>Event_Type__c</fullName>
-        <description>BMBS Campaign: Event Type of the campaign.</description>
+        <description>Mercedes Benz Campaign: Event Type of the campaign.</description>
         <externalId>false</externalId>
         <label>Event Type</label>
         <picklist>
@@ -1287,7 +1287,7 @@
     </fields>
     <fields>
         <fullName>Media_Type__c</fullName>
-        <description>BMBS Campaign: Media Type of the campaign.</description>
+        <description>Mercedes Benz Campaign: Media Type of the campaign.</description>
         <externalId>false</externalId>
         <label>Media Type</label>
         <picklist>
@@ -1428,11 +1428,15 @@
         <fullName>Participating_Region_Province__c</fullName>
         <externalId>false</externalId>
         <label>Participating Region-Province</label>
-        <length>255</length>
-        <required>false</required>
+        <picklist>
+            <picklistValues>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackFeedHistory>false</trackFeedHistory>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Plan_End_Date__c</fullName>
@@ -1477,7 +1481,7 @@
     </fields>
     <fields>
         <fullName>Purpose__c</fullName>
-        <description>BMBS Campaign: Purpose of the campaign</description>
+        <description>Mercedes Benz Campaign: Purpose of the campaign</description>
         <externalId>false</externalId>
         <label>Purpose</label>
         <picklist>
@@ -2785,13 +2789,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Driven__c</picklist>
-            <values>
-                <fullName>Campaign Organized by BMBS</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
                 <fullName>Auto Show</fullName>
@@ -3639,15 +3636,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Campaign Organized by Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4471,15 +4460,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Campaign Organized by Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5151,15 +5132,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Campaign Organized by Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5823,15 +5796,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Campaign Organized by Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6515,15 +6480,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Campaign Organized by Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7211,15 +7168,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Campaign Organized by Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8063,15 +8012,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Campaign Organized by Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8949,13 +8890,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Driven__c</picklist>
-            <values>
-                <fullName>Campaign Organized by BMBS</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
                 <fullName>Auto Show</fullName>
@@ -9809,13 +9743,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Driven__c</picklist>
-            <values>
-                <fullName>Campaign Organized by BMBS</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
                 <fullName>Auto Show</fullName>
@@ -10650,15 +10577,7 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
-                <fullName>Campaign Organized by BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Campaign Organized by Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10997,6 +10916,41 @@ OR(
  RecordType.Name == 'S&amp;M Event BMBS Campaign',
  RecordType.Name == 'S&amp;M Media BMBS Campaign',
  RecordType.Name == 'AS BMBS Campaign'
+), 
+ OR(PRIORVALUE(Status)== 'Published',PRIORVALUE(Status)=='Closed'),
+ OR(  ISCHANGED( Campaign_Code__c ),
+      ISCHANGED( Name ),
+      ISCHANGED( Description ), 
+      ISCHANGED( Brand__c ), 
+      ISCHANGED( Plan_Start_Date__c ), 
+      ISCHANGED( Plan_End_Date__c ), 
+      ISCHANGED( Region__c ), 
+      ISCHANGED( Actual_Region_Expense__c ), 
+      ISCHANGED( Region_Budget__c ), 
+	  ISCHANGED( Media_Type__c ), 
+	  ISCHANGED( Event_Type__c ), 
+	  ISCHANGED( CBU_PbP__c ), 
+	  ISCHANGED( Other_Media_Type__c ), 
+	  ISCHANGED( Other_Event_Type__c ), 
+	  ISCHANGED( Car_Model__c ), 
+	  ISCHANGED( Campaign_Type__c ), 
+	  ISCHANGED( Driven__c ), 
+	  ISCHANGED( Min_Car_Age__c ), 
+	  ISCHANGED( Max_Car_Age__c ),
+	  ISCHANGED( Purpose__c )
+ ),
+ $Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorMessage>You cann't change this record when Status is published or closed.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Locked_for_Central_when_Published</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(
+OR(
+ RecordType.Name == 'S&amp;M Event Central Campaign',
+ RecordType.Name == 'S&amp;M Media Central Campaign',
+ RecordType.Name == 'AS Central Campaign'
 ), 
  OR(PRIORVALUE(Status)== 'Published',PRIORVALUE(Status)=='Closed'),
  OR(  ISCHANGED( Campaign_Code__c ),

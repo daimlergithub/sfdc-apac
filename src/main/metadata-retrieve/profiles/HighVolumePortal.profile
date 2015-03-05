@@ -1314,6 +1314,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.City__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Commercial_Reg_No__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8354,6 +8359,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>QC__c.R_Familiar_smart_Knowledge_P_F_S1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>QC__c.R_Familiar_smart_Knowledge_P_F_S2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>QC__c.R_Follow_The_Operation_Process_P_F_S1__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -9180,6 +9195,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Campaign__c.Relevant_BMBS_Campaign__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Retail_Campaign__c.Relevant_Central_Campaign__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

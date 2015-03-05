@@ -24,13 +24,13 @@ public with sharing class SelectAssignedDealerController {
     public Boolean hasMessage                    {get; set;}
     
     public SelectAssignedDealerController(ApexPages.StandardController controller) {
-        lead = [SELECT RecordType.Name, Name, Contact__r.Province__c, Contact__r.City_CN__c, 
+        lead = [SELECT RecordType.Name, Name, Contact__r.Province__c, Contact__r.City__c, 
                 Interested_Vehicle_Brand__c, Combine_Interested_Vehicle_Brand__c, Aftersales_Vehicle_Brand__c
                 FROM Lead__c WHERE Id = :controller.getId()];
         
         // Initiate dealer
         Id dealerRecordTypeId = UtilRecordType.getRecordTypeIdByName('Account', 'Dealer');
-        dealer = new Account(RecordTypeId = dealerRecordTypeId, Province__c = lead.Contact__r.Province__c, City_CN__c = lead.Contact__r.City_CN__c);
+        dealer = new Account(RecordTypeId = dealerRecordTypeId, Province__c = lead.Contact__r.Province__c, City__c = lead.Contact__r.City__c);
         
         // Get all related Campaign Leads
         List<Campaign_Lead__c> camLeads = [ SELECT Id, Campaign__r.Name, 
@@ -58,10 +58,10 @@ public with sharing class SelectAssignedDealerController {
     public List<SelectOption> getCityOptions(){
         List<SelectOption> options = new List<SelectOption>();
         Set<String> cities = new Set<String>();
-        for(Account dealer : [select City_CN__c from Account 
+        for(Account dealer : [select City__c from Account 
             where Dealer_Active__c = true 
             and RecordTypeId = '01290000000fpAE' and Province__c = :dealer.Province__c]){
-            cities.add(dealer.City_CN__c);
+            cities.add(dealer.City__c);
         }
         cities.remove(null);
         options.add(new SelectOption('', '--None--'));
@@ -156,9 +156,9 @@ public with sharing class SelectAssignedDealerController {
         }
         //for CR-000259 start
         
-        if (!String.isblank(dealer.City_CN__c)) {
-            String city = dealer.City_CN__c;
-            querySOQL += 'City_CN__c = :city AND ';
+        if (!String.isblank(dealer.City__c)) {
+            String city = dealer.City__c;
+            querySOQL += 'City__c = :city AND ';
         }
         
         //for CR-000259 end

@@ -3,7 +3,7 @@
     Purpose:    1. If Vehicle_Relationship__c Validity has change, just assign the changed value to 
                 corresponding Vehicle
                 2.  share the VR record to "Portal Role and Subordinates" with read only. 
-                    Partner Name should be Account Name + " " + "Partner Executive", e.g. 北京梅赛德斯4S店 Partner Executive
+                    Partner Name should be Account Name + " " + "Partner Executive", e.g. ??????4S? Partner Executive
     User Story: US-CP-008, US-CP-007,  ISSUE-0757
     Used By:    
     ---------------------------------------------------------------
@@ -18,10 +18,33 @@ trigger TriggerVehicleRelationship on Vehicle_Relationship__c(after insert, afte
     if (!UtilCustomSettings.isEnabled('TriggerVehicleRelationship')) {
         return;
     }
-
-    if (trigger.isAfter && trigger.isInsert) {
-        // US-CP-007
+	
+	if(trigger.isAfter && trigger.isInsert)
+    {
+    	// US-CP-007
         UtilVehicleRelationship.checkVehcileValidity(trigger.new);
+        
+        VehicleSharingWrapService vehicleWrapService = new VehicleSharingWrapService();
+        SharingService.shareVehicles(vehicleWrapService.wrapVehicleFromRetailRelationships(Trigger.new));
+        
+        VehicleRelationshipSharingWrapService retailWrapService = new VehicleRelationshipSharingWrapService();
+        SharingService.shareVehicleRelationships(retailWrapService.wrapRetailVehicleRelationships(Trigger.new));
+        
+        AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
+    	handler.shareAccountByRetailVR(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);	
+    }
+    if(trigger.isAfter && trigger.isUpdate)
+    {
+    	AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
+    	handler.shareAccountByRetailVR(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
+    }
+    if(trigger.isBefore && trigger.isInsert)
+    {
+    	//
+    }
+    if(trigger.isBefore && trigger.isUpdate)
+    {
+    	//
     }
 
     if (trigger.isUpdate && trigger.isAfter) {
@@ -57,34 +80,4 @@ trigger TriggerVehicleRelationship on Vehicle_Relationship__c(after insert, afte
             VehicleRelationshipHelper.shareVR(VRIdOwnerDealerId,VRIdContactId,VRIdVehicleId);
         }
     }
-
-    // 1. Shares vehicle to active users of owner dealer and the active dealers with the same CRM Code if
-    //    a new retail vehicle relationship is created
-    // 2. Shares vehicle relationships to active users of owner dealer and active dealers with the same CRM 
-    //    Code as the owner dealer.
-    if(Trigger.isInsert && Trigger.isAfter){
-        VehicleSharingWrapService vehicleWrapService = new VehicleSharingWrapService();
-        SharingService.shareVehicles(vehicleWrapService.wrapVehicleFromRetailRelationships(Trigger.new));
-        
-        VehicleRelationshipSharingWrapService retailWrapService = new VehicleRelationshipSharingWrapService();
-        SharingService.shareVehicleRelationships(retailWrapService.wrapRetailVehicleRelationships(Trigger.new));
-    }
-    
-    // CR-000119
-    
-    //------------------Added by bing---------------------
-    AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
-    if(Trigger.isAfter){
-    	handler.shareAccountByRetailVR(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
-    }
-    //------------------Added by bing---------------------
-    /*
-    if (Trigger.isInsert && trigger.isBefore ) {
-        for (Vehicle_Relationship__c vr : trigger.new) {
-            if (vr.Car_Relation__c == 'Owner') {
-                vr.Validity__c = 'Yes';
-            }
-        }
-    }
-    */
 }
