@@ -29,7 +29,7 @@ public class AssignCaseToDealerController {
     private final Map<String, String> ADDRESS_FIELD_MAPPING = new Map<String, String> {
         'Dealer_Region__c' => 'Dealer_Region__c',
         'Province__c' => 'Province__c',
-        'City_CN__c' => 'City_CN__c'
+        'City__c' => 'City__c'
     };
     
     // Two Muti-Select Fields on Account

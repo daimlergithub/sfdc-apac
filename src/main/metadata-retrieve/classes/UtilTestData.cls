@@ -90,7 +90,7 @@ Public class UtilTestData {
     }
     
     // Get ProfileId by Profile Name
-    private static Id getProfileId(String profileName) {
+    Public static Id getProfileId(String profileName) {
         return getProfileMapInstance().get(profileName);
     }
     

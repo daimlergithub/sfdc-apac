@@ -56,12 +56,12 @@ public class TaskHelper {
     
    public static void TaskFailBlacklist(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   		set<Id> setTaskIds = new set<Id>();
+        set<Id> setTaskIds = new set<Id>();
         for(Task tk : tasks)
         {
             if(isInsert && tk.Activity_Status__c == 'Fail-Blacklist')
             {
-            	setTaskIds.add(tk.Id);
+                setTaskIds.add(tk.Id);
             }
             if(isUpdate && tk.Activity_Status__c == 'Fail-Blacklist' && taskOldMap.get(tk.Id).Activity_Status__c != 'Fail-Blacklist')
             {
@@ -70,66 +70,66 @@ public class TaskHelper {
         }
         if(setTaskIds!=null && !setTaskIds.Isempty())
         {
-	        List<Task> lstTask = [SELECT Id, WhoId FROM Task WHERE Id in :setTaskIds];
-	        Set<Id> conIds = new Set<Id>();
-	        if(lstTask!=null && !lstTask.Isempty())
-	        {
-	        	for(Task tks : lstTask)
-		        {
-		            if (tks.WhoId != null)
-		            {
-		                conIds.add(tks.WhoId);
-		            }                
-		        }
-		        if (conIds.size() > 0)
-		        {
-		            List<Account> accs = [SELECT Id, Is_Blacklist__c FROM Account WHERE PersonContactId=:conIds And Is_Blacklist__c != true];
-		            if(accs!=null && !accs.IsEmpty())
-		            {
-		            	for(Account acc : accs)
-			            {
-			                acc.Is_Blacklist__c = true;
-			            }
-			            if (accs.size() > 0)
-			            {
-			                update accs;
-			            } 
-		            }
-		        }
-	        }
+            List<Task> lstTask = [SELECT Id, WhoId FROM Task WHERE Id in :setTaskIds];
+            Set<Id> conIds = new Set<Id>();
+            if(lstTask!=null && !lstTask.Isempty())
+            {
+                for(Task tks : lstTask)
+                {
+                    if (tks.WhoId != null)
+                    {
+                        conIds.add(tks.WhoId);
+                    }                
+                }
+                if (conIds.size() > 0)
+                {
+                    List<Account> accs = [SELECT Id, Is_Blacklist__c FROM Account WHERE PersonContactId=:conIds And Is_Blacklist__c != true];
+                    if(accs!=null && !accs.IsEmpty())
+                    {
+                        for(Account acc : accs)
+                        {
+                            acc.Is_Blacklist__c = true;
+                        }
+                        if (accs.size() > 0)
+                        {
+                            update accs;
+                        } 
+                    }
+                }
+            }
         }      
    }
    
    public static void updateCampaignMemberStatus(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   		if(isInsert)
-   			UtilTask.updateCampaignMemberStatus(tasks);
-   		if(isUpdate)
-   		{
-   			 List<Task> lstTaskUpdate = new List<Task>();
-	         for (Task newTask : tasks)
-	         {
-	            if (newTask.Activity_Status__c != taskOldMap.get(newTask.Id).Activity_Status__c)
-	            {
-	                lstTaskUpdate.add(newTask);
-	            }
-	         }
-	         UtilTask.updateCampaignMemberStatus(lstTaskUpdate);
-   		}	
+        if(isInsert)
+            UtilTask.updateCampaignMemberStatus(tasks);
+        if(isUpdate)
+        {
+             List<Task> lstTaskUpdate = new List<Task>();
+             for (Task newTask : tasks)
+             {
+                if (newTask.Activity_Status__c != taskOldMap.get(newTask.Id).Activity_Status__c)
+                {
+                    lstTaskUpdate.add(newTask);
+                }
+             }
+             UtilTask.updateCampaignMemberStatus(lstTaskUpdate);
+        }   
    }
    
    public static void recordTypeUpdate_Generaltask(List<Task> tasks)
    {
-   	   Set<String> contactIds = new Set<String>();
+       Set<String> contactIds = new Set<String>();
        Set<String> templateIds = new Set<String>();
        Set<Id> relatedOrderIds = new Set<Id>();
        List<User> assignedUsers = [select Id from User where Profile.Name = 'CAC SSI SV' and IsActive = true limit 1];
-	   Id assignedUserId = null;
-	   if(assignedUsers.size() > 0)
-	   {
-	       assignedUserId = assignedUsers[0].Id;
-	   }	
-   	   for(Task t : tasks) {            
+       Id assignedUserId = null;
+       if(assignedUsers.size() > 0)
+       {
+           assignedUserId = assignedUsers[0].Id;
+       }    
+       for(Task t : tasks) {            
             // By Justin -- for replace the content merge fields
             if(t.RecordTypeId == SMS_TASK_RECORDTYPEID || t.RecordTypeId == MMSTaskRecordTypeId){
                 contactIds.add(t.WhoId);
@@ -181,40 +181,40 @@ public class TaskHelper {
         }
         // Add By Chaos for MBDA END
         // By Justin --
-	    if(contactIds.size() > 0)
-	    {
-	        Map<String, Contact> contacts = new Map<String, Contact>([select Name, Account.Gender__c, SMSOptOut__c from Contact where Id in :contactIds]);
-	        if(!contacts.isEmpty())
-	        {
-	            // Prevents the sms task from saving when the SMS Opt Out of contact is checked
-	            preventTaskFromCreating(tasks, contacts);
-	            
-	            // Replaces the merge fields from templates before task saved
-	            replaceMergeFields(tasks, contacts);
-	        }
-	    }
-	    
-	    if(templateIds.size() > 0)
-	    {
-	        Map<String, Template__c> templates = new Map<String, Template__c>([select Type__c from Template__c where Id in :templateIds]);
-	        if(!templates.isEmpty())
-	        {
-	            // Checks the SMS Response Required field of task
-	            checkResponseRequired(tasks, templates);
-	        }
-	    }
+        if(contactIds.size() > 0)
+        {
+            Map<String, Contact> contacts = new Map<String, Contact>([select Name, Account.Gender__c, SMSOptOut__c from Contact where Id in :contactIds]);
+            if(!contacts.isEmpty())
+            {
+                // Prevents the sms task from saving when the SMS Opt Out of contact is checked
+                preventTaskFromCreating(tasks, contacts);
+                
+                // Replaces the merge fields from templates before task saved
+                replaceMergeFields(tasks, contacts);
+            }
+        }
+        
+        if(templateIds.size() > 0)
+        {
+            Map<String, Template__c> templates = new Map<String, Template__c>([select Type__c from Template__c where Id in :templateIds]);
+            if(!templates.isEmpty())
+            {
+                // Checks the SMS Response Required field of task
+                checkResponseRequired(tasks, templates);
+            }
+        }
         
    }
    
    public static void createIb_ob_Qc_Records(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-	   List<Task> taskforGenerateQC = new List<Task>();
-	   List<Task> taskforGenerateSSIQC = new List<Task>();
-	   List<Task> newTaskWithCase = new List<Task>();	
-	   Set<Id> taskOwnerIds = new Set<Id>();
-	   Map<Id, String> userIdNames = new Map<Id, String>();
-   	   for(Task t : tasks)
-   	   {   
+       List<Task> taskforGenerateQC = new List<Task>();
+       List<Task> taskforGenerateSSIQC = new List<Task>();
+       List<Task> newTaskWithCase = new List<Task>();   
+       Set<Id> taskOwnerIds = new Set<Id>();
+       Map<Id, String> userIdNames = new Map<Id, String>();
+       for(Task t : tasks)
+       {   
             //When Generate QC is true, insert IB/OB QC records.
             if(t.Generate_QC__c && !taskOldMap.get(t.Id).Generate_QC__c && t.QC_ID__c == null)
             {
@@ -223,141 +223,143 @@ public class TaskHelper {
             
             //When Activity Status is Successful, insert SSI QC records.
            /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code  
-		   if(t.Activity_Status__c == 'Successful' && Trigger.oldMap.get(t.Id).Activity_Status__c != 'Successful' 
+           if(t.Activity_Status__c == 'Successful' && Trigger.oldMap.get(t.Id).Activity_Status__c != 'Successful' 
             && (t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId) && t.QC_ID__c == null) */
-			
-			if(t.Activity_Status__c == 'Successful' && taskOldMap.get(t.Id).Activity_Status__c != 'Successful' 
+            
+            if(t.Activity_Status__c == 'Successful' && taskOldMap.get(t.Id).Activity_Status__c != 'Successful' 
             && t.RecordTypeId == SSITaskRecordTypeId && t.QC_ID__c == null) 
-			{
+            {
                 taskforGenerateSSIQC.add(t);
             }
             
             // By Shuang Li BRD-AS-CAC-007
-			/*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
+            /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
             if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed')
-			*/
-			
-			if (t.RecordTypeId == SSITaskRecordTypeId && t.Status == 'Closed' && taskOldMap.get(t.Id).Status != 'Closed') 
-			{
+            */
+            
+            if (t.RecordTypeId == SSITaskRecordTypeId && t.Status == 'Closed' && taskOldMap.get(t.Id).Status != 'Closed') 
+            {
                 taskOwnerIds.add(t.OwnerId);
             }
             
             // By Sinow HLD-CAC-003
-			/*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
+            /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
             if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId1 || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed') 
-			*/
-			
-			if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId1 || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && taskOldMap.get(t.Id).Status != 'Closed') 
-			{
+            */
+            
+            if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId1 || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && taskOldMap.get(t.Id).Status != 'Closed') 
+            {
                 t.SentTime__c = DateTime.now();
             }
         }
         
         if(taskOwnerIds.size() > 0)
         {
-	        for(User currentUser : [Select Id, Name From User Where Id in :taskOwnerIds])
-	        {
-	            userIdNames.put(currentUser.Id, currentUser.Name);
-	        }
-	    }
-	    
-	    // Create QC for IB/OB
-	    if(taskforGenerateQC!=null && !taskforGenerateQC.IsEmpty())
-	    {
-	        GenerateQCs(taskforGenerateQC);
-	    }
-	    
-	    // Create QC for SSI
-	    if(taskforGenerateSSIQC!=null && !taskforGenerateSSIQC.IsEmpty())
-	    {
-	        GenerateSSIQCs(taskforGenerateSSIQC);
-	    }
+            for(User currentUser : [Select Id, Name From User Where Id in :taskOwnerIds])
+            {
+                userIdNames.put(currentUser.Id, currentUser.Name);
+            }
+        }
+        
+        // Create QC for IB/OB
+        if(taskforGenerateQC!=null && !taskforGenerateQC.IsEmpty())
+        {
+            GenerateQCs(taskforGenerateQC);
+        }
+        
+        // Create QC for SSI
+        if(taskforGenerateSSIQC!=null && !taskforGenerateSSIQC.IsEmpty())
+        {
+            GenerateSSIQCs(taskforGenerateSSIQC);
+        }
    }
    
    public static void Reply_TD_unsubscribeForeachSMScontent(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   		Map<Id, String> userIdNames = new Map<Id, String>();
-   		Set<Id> taskOwnerIds = new Set<Id>();
-   		for(Task t : tasks)
-   	    {
-   	    	if (t.RecordTypeId == SSITaskRecordTypeId && t.Status == 'Closed' && taskOldMap.get(t.Id).Status != 'Closed') 
-			{
+        Map<Id, String> userIdNames = new Map<Id, String>();
+        Set<Id> taskOwnerIds = new Set<Id>();
+        for(Task t : tasks)
+        {
+            if (t.RecordTypeId == SSITaskRecordTypeId && t.Status == 'Closed' && taskOldMap.get(t.Id).Status != 'Closed') 
+            {
                 taskOwnerIds.add(t.OwnerId);
             }
-   	    }
-   	    if(taskOwnerIds.size() > 0)
+        }
+        if(taskOwnerIds.size() > 0)
         {
-	        for(User currentUser : [Select Id, Name From User Where Id in :taskOwnerIds])
-	        {
-	            userIdNames.put(currentUser.Id, currentUser.Name);
-	        }
-	    }
-   		for(Task task : tasks)
-   		{
-        	if(!isUpdate || taskOldMap.get(task.Id).Activity_Status__c != 'Sent')
-        	{
-            	if(task.Subject == 'SMS'&& task.Activity_Status__c == 'Sent' && !String.isBlank(task.SMS_Content__c) && task.SMS_Content__c.indexOf('Reply TD unsubscribe') == -1)
-            	{
-                	task.SMS_Content__c = task.SMS_Content__c + ' Reply TD unsubscribe';
-            	}
-        	}
-	        // By Shuang Li BRD-AS-CAC-007
-			/*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
-	        if (Trigger.isUpdate && (task.RecordTypeId == SSITaskRecordTypeId || task.RecordTypeId == SMARTSSITaskRecordTypeId) && task.Status == 'Closed' 
-	            && userIdNames.containsKey(task.OwnerId) && Trigger.oldMap.get(task.Id).Status != 'Closed') 
-			*/
-		
-			if (Trigger.isUpdate && task.RecordTypeId == SSITaskRecordTypeId && task.Status == 'Closed' 
-	            && userIdNames.containsKey(task.OwnerId) && taskOldMap.get(task.Id).Status != 'Closed') 
-			{
-            	task.Executed_CSR__c = userIdNames.get(task.OwnerId);
-			}
-    	}	
+            for(User currentUser : [Select Id, Name From User Where Id in :taskOwnerIds])
+            {
+                userIdNames.put(currentUser.Id, currentUser.Name);
+            }
+        }
+        for(Task task : tasks)
+        {
+            if(!isUpdate || taskOldMap.get(task.Id).Activity_Status__c != 'Sent')
+            {
+                if(task.Subject == 'SMS'&& task.Activity_Status__c == 'Sent' && !String.isBlank(task.SMS_Content__c) && task.SMS_Content__c.indexOf('Reply TD unsubscribe') == -1)
+                {
+                    task.SMS_Content__c = task.SMS_Content__c + ' Reply TD unsubscribe';
+                }
+            }
+            // By Shuang Li BRD-AS-CAC-007
+            /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
+            if (Trigger.isUpdate && (task.RecordTypeId == SSITaskRecordTypeId || task.RecordTypeId == SMARTSSITaskRecordTypeId) && task.Status == 'Closed' 
+                && userIdNames.containsKey(task.OwnerId) && Trigger.oldMap.get(task.Id).Status != 'Closed') 
+            */
+        
+            if (Trigger.isUpdate && task.RecordTypeId == SSITaskRecordTypeId && task.Status == 'Closed' 
+                && userIdNames.containsKey(task.OwnerId) && taskOldMap.get(task.Id).Status != 'Closed') 
+            {
+                task.Executed_CSR__c = userIdNames.get(task.OwnerId);
+            }
+        }   
    }
    
    public static void FillintheCampaignNameBasedontheRelatedtoObject(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   		Set<String> caseIds = new Set<String>();
-	    Set<String> campaignIds = new Set<String>();
-	    Set<String> campaignLeadIds = new Set<String>();
-	    
-   		for(Task task : tasks)
-   		{
-	        if((isInsert || (isUpdate && task.WhatId != taskOldMap.get(task.Id).WhatId)) && task.WhatId != null)
-	        {
-	            String relatedId = task.WhatId;
-	            if(relatedId.startsWith('500'))
-	            {
-	                caseIds.add(task.WhatId);
-	            }
-	            else if(relatedId.startsWith('701'))
-	            {
-	                campaignIds.add(task.WhatId);
-	            }
-	            else if(relatedId.startsWith('a0c'))
-	            {
-	                campaignLeadIds.add(task.WhatId);
-	            }
-	        }
-	    }
+        Set<String> caseIds = new Set<String>();
+        Set<String> campaignIds = new Set<String>();
+        Set<String> campaignLeadIds = new Set<String>();
+        
+        for(Task task : tasks)
+        {
+            if((isInsert || (isUpdate && task.WhatId != taskOldMap.get(task.Id).WhatId)) && task.WhatId != null)
+            {
+                String relatedId = task.WhatId;
+                if(relatedId.startsWith('500'))
+                {
+                    caseIds.add(task.WhatId);
+                }
+                else if(relatedId.startsWith('701'))
+                {
+                    campaignIds.add(task.WhatId);
+                }
+                else if(relatedId.startsWith('a0c'))
+                {
+                    campaignLeadIds.add(task.WhatId);
+                }
+            }
+        }
     
-	    if(caseIds.size() + campaignIds.size() + campaignLeadIds.size() > 0){
-	        copyCampaignNameFromRelatedToObject(caseIds, campaignIds, campaignLeadIds, trigger.new);
-	    }
-	    if(caseIds.size() > 0){
-	        copyIBCallTypeFromCase(caseIds, trigger.new);
-	    }	
+        if(caseIds.size() + campaignIds.size() + campaignLeadIds.size() > 0){
+            copyCampaignNameFromRelatedToObject(caseIds, campaignIds, campaignLeadIds, trigger.new);
+        }
+        if(caseIds.size() > 0){
+            copyIBCallTypeFromCase(caseIds, trigger.new);
+        }   
    }
    
    public static void SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
-   	   List<Task> taskforGenerateQC = new List<Task>();
-	   Set<String> taskForSMSIds = new Set<String>();
-	   Map<String, Task> taskMapForSMS = new Map<String, Task>();
-	   Map<Id, String> caseIdInteractionIds = new Map<Id,String>();
-	   	
-   	   if(isInsert)
-   	   {
+       List<Task> taskforGenerateQC = new List<Task>();
+       Set<String> taskForSMSIds = new Set<String>();
+       Map<String, Task> taskMapForSMS = new Map<String, Task>();
+       Map<Id, String> caseIdInteractionIds = new Map<Id,String>();
+       
+       System.debug('@Shrinivas Enter method:');
+       if(isInsert)
+       {
+            System.debug('@Shrinivas: Enter Insert block..');
             for(Task t : tasks)
             {
                 if(t.Task_RecordType_Name__c == 'IB Call' && t.CallType  == 'Inbound' && t.Phone__c != null
@@ -395,9 +397,10 @@ public class TaskHelper {
         }
         
         for(Task t : tasks) {
-        //When QC Quantity is changed, insert IB/OB QC records.
-        if(t.QC_Quantity__c > 0 && (taskOldMap.get(t.Id).QC_Quantity__c == 0 || taskOldMap.get(t.Id).QC_Quantity__c == null)) {
-            taskforGenerateQC.add(t);
+            System.debug('@Shrinivas: Enter for loop...' +taskOldMap);
+            //When QC Quantity is changed, insert IB/OB QC records.
+            if(t.QC_Quantity__c > 0 && (taskOldMap.get(t.Id).QC_Quantity__c == 0 || taskOldMap.get(t.Id).QC_Quantity__c == null)) {
+                taskforGenerateQC.add(t);
         }
     }
     

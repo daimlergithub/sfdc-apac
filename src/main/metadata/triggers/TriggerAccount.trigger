@@ -1,6 +1,6 @@
 /*
     Type:       Utility for TriggerAccount
-    Purpose:    Link Dealer to Dealer City by City CN and Province 
+    Purpose:    Link Dealer to Dealer City by City and Province 
     User Story: US-DS-001, US-Lead-009
     Used By:    
     ---------------------------------------------------------------
@@ -16,20 +16,18 @@ trigger TriggerAccount on Account (before update, after update) {
     }
 
     // If trigger is Enabled, continue
-    if (!UtilCustomSettings.isEnabled('TriggerAccount')) {
+    if (!UtilCustomSettings.isEnabled('TriggerAccount')) { 
         return;
     }
 
     // Get the Record Type Id of 'Dealer'
-    Id dealerRecordTypeId = 
-        UtilRecordType.getRecordTypeIdByName('Account', 'Dealer');
+    Id dealerRecordTypeId = UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,UtilRecordType.Dealer); 
 
     // Get the RecordType Id of 'Person Account'
-    Id personaRecordTypeId = 
-        UtilRecordType.getRecordTypeIdByName('Account', 'Person Account');
+    Id personaRecordTypeId = UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,UtilRecordType.person_Account);
 
     if (trigger.isUpdate && trigger.isBefore) {
-        // US-DS-001, link dealer to Dealer City by City CN and Province
+        // US-DS-001, link dealer to Dealer City by City and Province
         UtilAccount.linkDealerCity(trigger.new, dealerRecordTypeId);
     }
 
@@ -47,7 +45,7 @@ trigger TriggerAccount on Account (before update, after update) {
             if((newAcc.Allow_Data_Sharing__c == 'Yes' && newAcc.Allow_Data_Sharing__c != oldAcc.Allow_Data_Sharing__c) ||  
                (newAcc.Gender__c != null && newAcc.Gender__c != '' && newAcc.Gender__c != oldAcc.Gender__c) ||
                (newAcc.Province__c != null && newAcc.Province__c != '' && newAcc.Province__c != oldAcc.Province__c) ||
-               (newAcc.City_CN__c != null && newAcc.City_CN__c != '' && newAcc.City_CN__c != oldAcc.City_CN__c) ||
+               (newAcc.City__c != null && newAcc.City__c != '' && newAcc.City__c != oldAcc.City__c) ||
                (newAcc.Preferred_Language__c != null && newAcc.Preferred_Language__c != '' && newAcc.Preferred_Language__c != oldAcc.Preferred_Language__c) ) {
                 accIdSetForUpdateLead.add(newAcc.Id);
             }

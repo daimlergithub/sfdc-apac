@@ -2423,7 +2423,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>Leads (Contact)</relationshipLabel>
         <relationshipName>Lead_Contact</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -7351,9 +7350,9 @@ Modify Reason:
 
         		TEXT(Contact__r.Gender__c) &lt;&gt; NULL,
 
-        		Contact__r.Province__c &lt;&gt; NULL,
+        		Text(Contact__r.Province__c) &lt;&gt; NULL,
 
-        		Contact__r.City_CN__c &lt;&gt; NULL,
+        		Contact__r.City__c &lt;&gt; NULL,
 
         		TEXT(Contact__r.Preferred_Language__c) &lt;&gt; NULL,
 

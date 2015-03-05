@@ -162,7 +162,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>City_CN__c</field>
+                <field>City__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -696,7 +696,7 @@
             <posY>0</posY>
         </summaryLayoutItems>
         <summaryLayoutItems>
-            <field>City_CN__c</field>
+            <field>City__c</field>
             <posX>3</posX>
             <posY>1</posY>
         </summaryLayoutItems>

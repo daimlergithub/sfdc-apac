@@ -924,7 +924,7 @@
     <fields>
         <fullName>City__c</fullName>
         <externalId>false</externalId>
-        <formula>Dealer_Name__r.City_CN__c</formula>
+        <formula>Dealer_Name__r.City__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>City</label>
         <required>false</required>
@@ -2006,6 +2006,19 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Relevant_Central_Campaign__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Relevant Central Campaign</label>
+        <referenceTo>Campaign</referenceTo>
+        <relationshipLabel>Retail Campaigns</relationshipLabel>
+        <relationshipName>Retail_Central_Campaigns</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Relevant_Retail_Campaign__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -2314,7 +2327,7 @@
     <fields>
         <fullName>Y_City__c</fullName>
         <externalId>false</externalId>
-        <formula>Y_Dealer_Name__r.City_CN__c</formula>
+        <formula>Y_Dealer_Name__r.City__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>City</label>
         <required>false</required>
@@ -9113,6 +9126,22 @@ $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Relevant_BMBS_Campaign__c</errorDisplayField>
         <errorMessage>Relevant BMBS Campaign is mandatory when Driven is Joint.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Relevant_Central_Campaign_Mandatory</fullName>
+        <active>true</active>
+        <description>Be required when Driven is 'Joint'</description>
+        <errorConditionFormula>AND( 
+OR( 
+RecordType.Name =='S&amp;M Event Retail Campaign',
+RecordType.Name =='S&amp;M Media Retail Campaign'
+) ,
+ISPICKVAL(Driven__c , 'Joint') , 
+ISBLANK( Relevant_Central_Campaign__c),
+$Profile.Name != 'IntegrationAPI'
+)</errorConditionFormula>
+        <errorDisplayField>Relevant_Central_Campaign__c</errorDisplayField>
+        <errorMessage>Relevant Central Campaign is mandatory when Driven is Joint.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Retail_Candidate_must_match_the_MBSmart</fullName>

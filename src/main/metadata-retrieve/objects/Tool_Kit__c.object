@@ -430,7 +430,7 @@
         <fullName>City__c</fullName>
         <description>City of the dealer</description>
         <externalId>false</externalId>
-        <formula>Dealer_Name__r.City_CN__c</formula>
+        <formula>Dealer_Name__r.City__c</formula>
         <label>City</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1046,7 +1046,7 @@ MONTH(Submit_Date__c) &lt; 10,
             <filterItems>
                 <field>User.Profile.Name</field>
                 <operation>equals</operation>
-                <value>External Marketing User</value>
+                <value>BMBS External Marketing User</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>

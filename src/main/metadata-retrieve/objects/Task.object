@@ -3250,7 +3250,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
+                <fullName>Did Not Fully Participate in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5488,7 +5488,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
+                <fullName>Did Not Fully Participate in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6745,7 +6745,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
+                <fullName>Did Not Fully Participate in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7778,7 +7778,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Did Not Fully Participating in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
+                <fullName>Did Not Fully Participate in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10673,6 +10673,10 @@
             <picklist>Activity_Status__c</picklist>
             <values>
                 <fullName>Call Limitation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Did Not Fully Participate in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
                 <default>false</default>
             </values>
             <values>

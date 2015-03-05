@@ -82,7 +82,7 @@ public class DMControllerExtension {
         String accountId = ApexPages.currentPage().getParameters().get('accountId');
         
         if(accountId != null && accountId != ''){
-            List<Account> aList = [Select Id,Province__c, City_CN__c, Primary_Address__c From Account Where Id = :accountId];
+            List<Account> aList = [Select Id,Province__c, City__c, Primary_Address__c From Account Where Id = :accountId];
 
             if(aList!=null && aList.size()>0){
                 accountObject = aList[0];
@@ -91,7 +91,7 @@ public class DMControllerExtension {
             if(accountObject!=null){
                 dm.Customer_Name__c = accountObject.Id;
             
-                if(accountObject.Province__c == null || accountObject.City_CN__c == null || accountObject.Primary_Address__c == null){                    
+                if(accountObject.Province__c == null || accountObject.City__c == null || accountObject.Primary_Address__c == null){                    
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Customer address is not entirety, please fill it first.'));                
                 }
             }

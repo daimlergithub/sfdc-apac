@@ -47,7 +47,7 @@
                     <apex:inputfield value="{!dealer.Province__c}">
                         <apex:actionSupport action="{!refreshPage}" event="onchange" reRender="city" status="cityStatus"/>
                     </apex:inputfield>
-                    <apex:selectList id="city" value="{!dealer.City_CN__c}" multiselect="false" size="1">
+                    <apex:selectList id="city" value="{!dealer.City__c}" multiselect="false" size="1">
                         <apex:selectOptions value="{!cityOptions}" ></apex:selectOptions>
                         <apex:actionStatus id="cityStatus">
                             <apex:facet name="start">

@@ -258,10 +258,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -467,10 +463,6 @@
             </values>
             <values>
                 <fullName>MB Website Aftersales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2100,14 +2092,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BMBS%26BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Media</fullName>
                 <default>false</default>
             </values>
@@ -2512,10 +2496,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -2721,10 +2701,6 @@
             </values>
             <values>
                 <fullName>MB Website Aftersales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4394,14 +4370,6 @@
             <picklist>Special_Mark_on_Account__c</picklist>
             <values>
                 <fullName>BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BMBS%26BBAC</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4830,10 +4798,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -5039,10 +5003,6 @@
             </values>
             <values>
                 <fullName>MB Website Aftersales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6687,14 +6647,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BMBS%26BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Media</fullName>
                 <default>false</default>
             </values>
@@ -7100,10 +7052,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -7277,10 +7225,6 @@
             </values>
             <values>
                 <fullName>MB Website Aftersales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8837,14 +8781,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BMBS%26BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Media</fullName>
                 <default>false</default>
             </values>
@@ -8995,10 +8931,6 @@
             </values>
             <values>
                 <fullName>Autoshow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BMBS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9277,10 +9209,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -9486,10 +9414,6 @@
             </values>
             <values>
                 <fullName>MB Website Aftersales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11303,14 +11227,6 @@
             <picklist>Special_Mark_on_Account__c</picklist>
             <values>
                 <fullName>BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BMBS%26BBAC</fullName>
                 <default>false</default>
             </values>
             <values>

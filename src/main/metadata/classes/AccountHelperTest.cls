@@ -27,7 +27,7 @@ private class AccountHelperTest {
     static Account customer1 = new Account(Dealer_Default_Flag__c=false,
                                     Dealer_DMS_SR_Code__c='',
                                     Status__c='NoCustomer',
-                                    City_CN__c='Beijing',
+                                    City__c='Beijing',
                                     Gender__c = 'Male',
                                     Phone = '80801010',
                                     Area_code__c = '010',
@@ -42,7 +42,7 @@ private class AccountHelperTest {
     static Account customer2 = new Account(Dealer_Default_Flag__c=true,
                                     Dealer_DMS_SR_Code__c='',
                                     Status__c='xCustomer',
-                                    City_CN__c='Beijing',
+                                    City__c='Beijing',
                                     Phone = '80801010',
                                     Area_code__c = '010',
                                     LastName = 'galaxy2',
@@ -51,7 +51,7 @@ private class AccountHelperTest {
 
     static Account customer3 = new Account(
                                     Status__c='Customer',
-                                    City_CN__c='Beijing',
+                                    City__c='Beijing',
                                     Phone = '80801010',
                                     Area_code__c = '010',
                                     LastName = 'galaxy2',
@@ -92,7 +92,7 @@ private class AccountHelperTest {
         le1.Purchase_Time__c = '0 - 3 months';
         le1.Contact__c = customer1.id;
         insert le1;
-        customer1.City_CN__c = 'Shanghai';
+        customer1.City__c = 'Shanghai';
         customer1.Dealer_Default_Flag__c = true;
         customer1.Allow_Data_Sharing__c = 'yes';
         update customer1;

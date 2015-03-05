@@ -19,4 +19,14 @@ public class UtilCustomSettings {
             return true;
         }
     }
+    
+    public static Id getProfileId(String profileName)
+    {
+    	try {
+            return Environment_Specific_Values__c.getAll().get(profileName).Value__c;         
+        }
+        catch (NullPointerException e) {
+            return null;
+        }
+    }
 }

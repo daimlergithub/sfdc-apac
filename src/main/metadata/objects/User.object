@@ -244,6 +244,16 @@
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>ActiveUsers</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CORE.USERS.ACTIVE</field>
+            <operation>equals</operation>
+            <value>1</value>
+        </filters>
+        <label>Active Users</label>
+    </listViews>
+    <listViews>
         <fullName>Active_CRM_Factory_Users</fullName>
         <columns>FULL_NAME</columns>
         <columns>CORE.USERS.ALIAS</columns>

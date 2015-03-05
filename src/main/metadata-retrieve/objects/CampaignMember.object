@@ -81,10 +81,14 @@
         <fullName>Campaign_Province__c</fullName>
         <externalId>false</externalId>
         <label>Campaign Province</label>
-        <length>255</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
+        <picklist>
+            <picklistValues>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>City</fullName>

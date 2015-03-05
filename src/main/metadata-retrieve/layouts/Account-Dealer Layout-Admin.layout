@@ -124,7 +124,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>City_CN__c</field>
+                <field>City__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

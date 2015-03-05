@@ -383,7 +383,7 @@ public with sharing class RetailCampaignSegmentationController {
     
     private void setSoql(){
         /*
-        accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City_CN__c from Account '
+        accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
             + 'where (RecordTypeId = \'01290000000fpFD\' or ' 
             + 'RecordTypeId = \'01290000000rXmS\' or ' 
             + 'RecordTypeId = \'' + thirdParty + '\') and ';
@@ -396,7 +396,7 @@ public with sharing class RetailCampaignSegmentationController {
 		Environment_Specific_Values__c personAccntRecTypId = Environment_Specific_Values__c.getValues('Person Account');
         Environment_Specific_Values__c personAccntRetailRecTypId = Environment_Specific_Values__c.getValues('Person Account Retail');
 		
-        accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City_CN__c from Account '
+        accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
             + 'where (RecordTypeId =' + personAccntRecTypId + ' or ' 
             + 'RecordTypeId = ' + personAccntRetailRecTypId + ' or '
             + 'RecordTypeId = \'' + thirdParty + '\') and ';

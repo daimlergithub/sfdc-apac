@@ -1079,6 +1079,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilConstant</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilCustomSettings</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1310,6 +1314,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.City_CN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.City__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4286,6 +4295,11 @@
         <editable>true</editable>
         <field>Case.Owner_Tele__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.PR_Comment_Central_Internal__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8354,6 +8368,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>QC__c.R_Familiar_smart_Knowledge_P_F_S1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>QC__c.R_Familiar_smart_Knowledge_P_F_S2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>QC__c.R_Follow_The_Operation_Process_P_F_S1__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9181,6 +9205,11 @@
         <editable>true</editable>
         <field>Retail_Campaign__c.Relevant_BMBS_Campaign__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Retail_Campaign__c.Relevant_Central_Campaign__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -11976,11 +12005,23 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Central Campaign Layout</layout>
+        <recordType>Campaign.AS_Cental_Campaign</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Central Campaign Layout</layout>
         <recordType>Campaign.CAS_Marketing_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Central Campaign Layout</layout>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Central Campaign Layout</layout>
+        <recordType>Campaign.S_M_Event_Central_Campaign</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Central Campaign Layout</layout>
+        <recordType>Campaign.S_M_Media_Central_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-MB BP</layout>
@@ -12166,15 +12207,15 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
-        <recordType>Lead__c.Retail_Sales_Leads</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
         <recordType>Lead__c.Sales_Leads_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28CAC%29</layout>
         <recordType>Lead__c.Sales_Leads</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Sales Leads Layout %28Dealer%29</layout>
+        <recordType>Lead__c.Retail_Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Macro-Macro Layout</layout>
@@ -13330,6 +13371,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Campaign.AS_Cental_Campaign</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Campaign.CAC_CRM_Campaign</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -13370,8 +13416,18 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Campaign.S_M_Event_Central_Campaign</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Campaign.S_M_Media_BMBS_Campaign</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Campaign.S_M_Media_Central_Campaign</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

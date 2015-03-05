@@ -130,7 +130,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>City_CN__c</field>
+            <field>City__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -190,7 +190,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>City_CN__c</field>
+            <field>City__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -240,7 +240,7 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>City_CN__c</field>
+            <field>City__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -757,6 +757,20 @@ For Dealers this is populated by the GSSN system - not modified in SFDC
 Attribute in Data Dictionary object Dealer is &quot;Dealer_CityCN&quot;</description>
         <externalId>false</externalId>
         <label>City CN</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <description>Chinese dealer city name - 
+For Dealers this is populated by the GSSN system - not modified in SFDC
+Attribute in Data Dictionary object Dealer is &quot;Dealer_CityCN&quot;</description>
+        <externalId>false</externalId>
+        <label>City</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1959,6 +1973,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_CityEN&quot;</descrip
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Dealer_Complaint_Manager_Email__c</fullName>
@@ -5091,12 +5106,16 @@ Attribute in Data Dictionary object Address is &quot;Address_Province&quot;
 Attribute in Data Dictionary object Dealer is &quot;Dealer_ProvinceEN&quot;</description>
         <externalId>false</externalId>
         <label>Province</label>
-        <length>255</length>
-        <required>false</required>
+        <picklist>
+            <picklistValues>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>R_Account18ID__c</fullName>
@@ -6250,7 +6269,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>Province__c</columns>
-        <columns>City_CN__c</columns>
+        <columns>City__c</columns>
         <columns>ZipCode__c</columns>
         <columns>ACCOUNT.TYPE</columns>
         <columns>CREATEDBY_USER.ALIAS</columns>
@@ -6283,7 +6302,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <columns>Dealer_Region__c</columns>
         <columns>UPDATEDBY_USER.ALIAS</columns>
         <columns>Province__c</columns>
-        <columns>City_CN__c</columns>
+        <columns>City__c</columns>
         <columns>Dealer_City_EN__c</columns>
         <columns>Dealer_Active__c</columns>
         <columns>ACCOUNT.LAST_UPDATE</columns>
@@ -7770,10 +7789,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Driving</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electronic</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10151,10 +10166,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             <picklist>Rating</picklist>
             <values>
                 <fullName>Cold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hot</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12610,7 +12621,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <customTabListAdditionalFields>ACCOUNT.PHONE1</customTabListAdditionalFields>
         <customTabListAdditionalFields>PC_PHONE3</customTabListAdditionalFields>
         <customTabListAdditionalFields>Province__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>City_CN__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>City__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>ZipCode__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Address__c</customTabListAdditionalFields>
         <listViewButtons>Load_3rd_Party_Data</listViewButtons>
@@ -12619,7 +12630,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <lookupDialogsAdditionalFields>Dealer_Service_Codes__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Dealer_Sales_Type__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Province__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>City_CN__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>City__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Dealer_Address_CN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.PHONE1</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>PC_PHONE3</lookupDialogsAdditionalFields>
@@ -12635,7 +12646,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Province__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>City_CN__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>City__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ZipCode__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PC_PHONE3</searchResultsAdditionalFields>

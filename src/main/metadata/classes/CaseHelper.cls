@@ -608,7 +608,7 @@ public class CaseHelper{
 
     public static void populateCarOwnerValuesToCase(Set<String> carOwnerIds, List<Case> cases){
         Map<String, Account> carOwners = new Map<String, Account>([select Id, PersonBirthdate, Gender__c, Occupation__c, Phone,
-                                                                    Primary_Address__c, Province__c, City_CN__c, ZipCode__c
+                                                                    Primary_Address__c, Province__c, City__c, ZipCode__c
                                                                     from Account where Id in :carOwnerIds]);
         for(Case newcase : cases){
             Account carOwner = carOwners.get(newcase.Car_Owner__c);
@@ -626,7 +626,7 @@ public class CaseHelper{
             }
             if(String.isBlank(newcase.Address__c)){
                 String state = carOwner.Province__c == null ? '' : carOwner.Province__c;
-                String city = carOwner.City_CN__c == null ? '' : carOwner.City_CN__c;
+                String city = carOwner.City__c == null ? '' : carOwner.City__c;
                 String street = carOwner.Primary_Address__c == null ? '' : carOwner.Primary_Address__c;
                 String zip = carOwner.ZipCode__c == null ? '' : carOwner.ZipCode__c;
                 newcase.Address__c = state + '\n' + city + '\n' + street + '\n' + zip;

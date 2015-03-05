@@ -23,7 +23,7 @@ public class SMSControllerExtensionTest {
         Account customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId, PersonMobilePhone = '12345678901');
         insert customer;
         Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId
-            ,Dealer_Address_CN__c = 'chaoyang', City_CN__c = 'beijing', Province__c = '151');
+            ,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
         insert dealer;
         //String accountId = [Select Id, PersonMobilePhone, Name From Account where isPersonAccount = true Limit 1][0].Id;
         ApexPages.currentPage().getParameters().put('accountId',customer.Id);

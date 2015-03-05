@@ -9,7 +9,11 @@
     1. Mouse Created on 2013-3-11.
 
 */
-public with sharing class UtilRecordType {
+global with sharing class UtilRecordType {
+	
+	public final static String Account_Object = 'Account';  
+	public final static String person_Account = 'Person Account';  
+	public final static String Dealer = 'Dealer';  
     private static Map<Id, Schema.RecordTypeInfo> recordTypeInfoByIdMap = 
         new Map<Id, Schema.RecordTypeInfo>();
 

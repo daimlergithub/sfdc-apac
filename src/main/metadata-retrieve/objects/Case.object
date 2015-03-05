@@ -7401,7 +7401,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS Complaint</fullName>
+                <fullName>Central Complaint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8077,21 +8077,6 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MB Trucks</fullName>
-                <controllingFieldValues>Consultant MBCL truck</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Vans</fullName>
-                <controllingFieldValues>Consultanting MBCL microbus</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Interested in MB Accessories &amp; Collection</fullName>
-                <controllingFieldValues>MBCL gift</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Marketing Opportunities</fullName>
                 <controllingFieldValues>Marketing chance</controllingFieldValues>
                 <default>false</default>
@@ -8220,7 +8205,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8264,7 +8249,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Advisory BMBS or dealer activities</fullName>
+                <fullName>Advisory Central or dealer activities</fullName>
                 <controllingFieldValues>MB Campaign</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -8376,18 +8361,6 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Consultant MBCL truck</fullName>
-                <controllingFieldValues>Others-After-Sales</controllingFieldValues>
-                <controllingFieldValues>Others-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Consultanting MBCL microbus</fullName>
-                <controllingFieldValues>Others-After-Sales</controllingFieldValues>
-                <controllingFieldValues>Others-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Dealer contact method</fullName>
                 <controllingFieldValues>Others-Sales</controllingFieldValues>
                 <controllingFieldValues>Pre-Sales</controllingFieldValues>
@@ -8430,10 +8403,6 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <fullName>Maybach</fullName>
                 <controllingFieldValues>Others-After-Sales</controllingFieldValues>
                 <controllingFieldValues>Others-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBCL gift</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8518,7 +8487,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11222,7 +11191,7 @@ Modify Reason:
         <fullName>Origin</fullName>
         <picklist>
             <picklistValues>
-                <fullName>BMBS CAC</fullName>
+                <fullName>Central CAC</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11454,6 +11423,27 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PR_Comment_Central_Internal__c</fullName>
+        <description>/* 
+Created by: Tony Li 
+Used by: Tony Li 
+Function: PR Comments attached to the complaint, only seen by Central 
+Used in: Page Layouts, Reports 
+
+Modify History 
+Modify By: 
+Modify Reason: 
+*/</description>
+        <externalId>false</externalId>
+        <label>PR Comment</label>
+        <length>128000</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
     </fields>
     <fields>
         <fullName>PR_Comment_MBCL_Internal__c</fullName>
@@ -12692,7 +12682,7 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>Service_Station__c</fullName>
-        <description>Used by BMBS Complaint Case. Need Clarification</description>
+        <description>Used by Central Complaint Case. Need Clarification</description>
         <externalId>false</externalId>
         <label>Service Station</label>
         <length>255</length>
@@ -13259,7 +13249,7 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>VIN_Code__c</fullName>
-        <description>Used by BMBS Complaint Case. Need Clarification</description>
+        <description>Used by Central Complaint Case. Need Clarification</description>
         <externalId>false</externalId>
         <label>VIN Code</label>
         <length>100</length>
@@ -13785,7 +13775,7 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>Vehicle_ID__c</fullName>
-        <description>Used by BMBS Complaint Case. Need Clarification</description>
+        <description>Used by Central Complaint Case. Need Clarification</description>
         <externalId>false</externalId>
         <formula>Vehicle_Relationship__r.Vehicle_ID__c</formula>
         <label>Vehicle ID</label>
@@ -15921,7 +15911,7 @@ Modify Reason:
     <fields>
         <fullName>Vehicle_Relationship__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
-        <description>Used by BMBS Complaint Case. Need Clarification</description>
+        <description>Used by Central Complaint Case. Need Clarification</description>
         <externalId>false</externalId>
         <label>Vehicle Relationship</label>
         <lookupFilter>
@@ -17432,10 +17422,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Case_Category__c</picklist>
             <values>
-                <fullName>BMBS Complaint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chrysler Complaint</fullName>
                 <default>false</default>
             </values>
@@ -18705,10 +18691,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </picklistValues>
         <picklistValues>
             <picklist>Origin</picklist>
-            <values>
-                <fullName>BMBS CAC</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>CSI survey</fullName>
                 <default>false</default>
@@ -25506,10 +25488,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Case_Category__c</picklist>
             <values>
-                <fullName>BMBS Complaint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chrysler Complaint</fullName>
                 <default>false</default>
             </values>
@@ -25750,18 +25728,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Interested in MB Accessories %26 Collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Trucks</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Vans</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Maintenance Appointment Arrangement</fullName>
                 <default>false</default>
             </values>
@@ -25921,14 +25887,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Consultant MBCL truck</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultanting MBCL microbus</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Dealer contact method</fullName>
                 <default>false</default>
             </values>
@@ -25942,10 +25900,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>Individual information change</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL gift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26979,10 +26933,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </picklistValues>
         <picklistValues>
             <picklist>Origin</picklist>
-            <values>
-                <fullName>BMBS CAC</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>CSI survey</fullName>
                 <default>false</default>
@@ -34879,10 +34829,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Case_Category__c</picklist>
             <values>
-                <fullName>BMBS Complaint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chrysler Complaint</fullName>
                 <default>false</default>
             </values>
@@ -35043,10 +34989,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>CAC or smart Finance Complaints</fullName>
                 <default>false</default>
             </values>
@@ -35172,18 +35114,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>HR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interested in MB Accessories %26 Collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Trucks</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36384,10 +36314,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </picklistValues>
         <picklistValues>
             <picklist>Origin</picklist>
-            <values>
-                <fullName>BMBS CAC</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>CSI survey</fullName>
                 <default>false</default>
@@ -44512,10 +44438,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Case_Category__c</picklist>
             <values>
-                <fullName>BMBS Complaint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chrysler Complaint</fullName>
                 <default>false</default>
             </values>
@@ -44661,10 +44583,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>Advisory AMG driving Academy business content</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Advisory BMBS or dealer activities</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -45793,10 +45711,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </picklistValues>
         <picklistValues>
             <picklist>Origin</picklist>
-            <values>
-                <fullName>BMBS CAC</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>CSI survey</fullName>
                 <default>false</default>
@@ -49778,10 +49692,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Case_Category__c</picklist>
             <values>
-                <fullName>BMBS Complaint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chrysler Complaint</fullName>
                 <default>false</default>
             </values>
@@ -51055,10 +50965,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </picklistValues>
         <picklistValues>
             <picklist>Origin</picklist>
-            <values>
-                <fullName>BMBS CAC</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>Government Authority</fullName>
                 <default>false</default>
@@ -53616,10 +53522,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Case_Category__c</picklist>
             <values>
-                <fullName>BMBS Complaint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chrysler Complaint</fullName>
                 <default>false</default>
             </values>
@@ -53800,10 +53702,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>CAC or smart Finance Complaints</fullName>
                 <default>false</default>
             </values>
@@ -53929,18 +53827,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>HR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interested in MB Accessories %26 Collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Trucks</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -54147,10 +54033,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Call Center</fullName>
                 <default>false</default>
             </values>
@@ -54164,14 +54046,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>Complain %26 feedback</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultant MBCL truck</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultanting MBCL microbus</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -54192,10 +54066,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>Individual information change</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL gift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -55221,10 +55091,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </picklistValues>
         <picklistValues>
             <picklist>Origin</picklist>
-            <values>
-                <fullName>BMBS CAC</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>CSI survey</fullName>
                 <default>false</default>
@@ -62389,10 +62255,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Case_Category__c</picklist>
             <values>
-                <fullName>BMBS Complaint</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Chrysler Complaint</fullName>
                 <default>false</default>
             </values>
@@ -62577,10 +62439,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Advisory BMBS or dealer activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Advisory Mercedes-Benz driving Academy</fullName>
                 <default>false</default>
             </values>
@@ -62594,10 +62452,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>As customers cancel courses</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BMBS</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62774,18 +62628,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>HR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Interested in MB Accessories %26 Collection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Trucks</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63020,10 +62862,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>CSR</fullName>
                 <default>false</default>
             </values>
@@ -63041,14 +62879,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>Complain %26 feedback</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultant MBCL truck</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultanting MBCL microbus</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63089,10 +62919,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>MB Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL gift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -64186,10 +64012,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </picklistValues>
         <picklistValues>
             <picklist>Origin</picklist>
-            <values>
-                <fullName>BMBS CAC</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>CSI survey</fullName>
                 <default>false</default>
@@ -66712,9 +66534,9 @@ $Profile.Name != &apos;Dealer Community User&apos;
 &quot;Please fill in 1st FP Position Release Date&quot;</description>
         <errorConditionFormula>AND(
 ISPICKVAL(Progress_Status__c,&apos;1st FP Released&apos;),
-OR( $Profile.Name = &apos;BMBS Regional CRM Manager&apos;,
-     $Profile.Name = &apos;BMBS Service Technical Manager&apos;,
-     $Profile.Name = &apos;BMBS PL/WL Manager&apos;
+OR( $Profile.Name = &apos;Regional CRM Manager&apos;,
+     $Profile.Name = &apos;Central AS CRM Director&apos;,
+     $Profile.Name = &apos;Central PL/WL Manager&apos;
    ),
 ISNULL( X1st_FP_Position_Release_Date__c )
 )</errorConditionFormula>
@@ -66728,9 +66550,9 @@ ISNULL( X1st_FP_Position_Release_Date__c )
 &quot;Please fill in 2nd FP Position Release Date&quot;</description>
         <errorConditionFormula>AND(
 ISPICKVAL(Progress_Status__c,&apos;2nd FP Released&apos;),
-OR ( $Profile.Name = &apos;BMBS Regional CRM Manager&apos;,
-     $Profile.Name = &apos;BMBS Service Technical Manager&apos;,
-     $Profile.Name = &apos;BMBS PL/WL Manager&apos; 
+OR ( $Profile.Name = &apos;Regional CRM Manager&apos;,
+     $Profile.Name = &apos;Central AS CRM Director&apos;,
+     $Profile.Name = &apos;Central PL/WL Manager&apos; 
    ),
 ISNULL( X2nd_FP_Position_Release_Date__c )
 )</errorConditionFormula>
@@ -66744,9 +66566,9 @@ ISNULL( X2nd_FP_Position_Release_Date__c )
 &quot;Please fill in Resolved Date before Close the</description>
         <errorConditionFormula>AND(
 ISPICKVAL(Progress_Status__c,&apos;Closed&apos;),
-OR ( $Profile.Name = &apos;BMBS Regional CRM Manager&apos;,
-     $Profile.Name = &apos;BMBS Service Technical Manager&apos;, 
-     $Profile.Name = &apos;BMBS PL/WL Manager&apos;
+OR ( $Profile.Name = &apos;Regional CRM Manager&apos;,
+     $Profile.Name = &apos;Central AS CRM Director&apos;, 
+     $Profile.Name = &apos;Central PL/WL Manager&apos;
    ),
  ISNULL(Resolved_Date__c)
 )</errorConditionFormula>
@@ -66760,9 +66582,9 @@ OR ( $Profile.Name = &apos;BMBS Regional CRM Manager&apos;,
 &quot;Please fill in Suspended Date&quot;</description>
         <errorConditionFormula>AND(
 ISPICKVAL(Progress_Status__c,&apos;Suspended&apos;),
-OR ( $Profile.Name = &apos;BMBS Regional CRM Manager&apos;,
-     $Profile.Name = &apos;BMBS Service Technical Manager&apos;,
-     $Profile.Name = &apos;BMBS PL/WL Manager&apos;
+OR ( $Profile.Name = &apos;Regional CRM Manager&apos;,
+     $Profile.Name = &apos;Central AS CRM Director&apos;,
+     $Profile.Name = &apos;Central PL/WL Manager&apos;
    ),
 OR(
 ISBLANK(Suspended_Date__c),
@@ -66778,9 +66600,9 @@ ISBLANK(Suspended_Reason__c)
 &quot;Please fill in Overdue Reason&quot;</description>
         <errorConditionFormula>AND(
 ISPICKVAL(Overdue__c, &apos;Y&apos;),
-OR ( $Profile.Name = &apos;BMBS Regional CRM Manager&apos;,
-     $Profile.Name = &apos;BMBS Service Technical Manager&apos;,
-     $Profile.Name = &apos;BMBS PL/WL Manager&apos;
+OR ( $Profile.Name = &apos;Regional CRM Manager&apos;,
+     $Profile.Name = &apos;Central AS CRM Director&apos;,
+     $Profile.Name = &apos;Central PL/WL Manager&apos;
    ),
 ISPICKVAL(Overdue_Reason__c, &apos;&apos;) 
 )</errorConditionFormula>
@@ -66835,7 +66657,7 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , &apos;Suspended&apos;)&amp;&amp;
         <errorConditionFormula>AND(
     ISBLANK( Ref_No_Central__c ), 
     NOT(ISCHANGED(OwnerId)), 
-    $Profile.Name =&apos;BMBS Service Technical Manager&apos; 
+    $Profile.Name =&apos;Central AS CRM Director&apos; 
    )</errorConditionFormula>
         <errorDisplayField>Ref_No_Central__c</errorDisplayField>
         <errorMessage>Central  office user please fulfill the Ref.No-Central field.</errorMessage>
@@ -66847,7 +66669,7 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , &apos;Suspended&apos;)&amp;&amp;
         <errorConditionFormula>AND(
   ISBLANK( Ref_No_Regional__c ), 
   NOT(ISCHANGED(OwnerId)),
-  $Profile.Name =&apos;BMBS Regional CRM Manager&apos; 
+  $Profile.Name =&apos;Regional CRM Manager&apos; 
 )</errorConditionFormula>
         <errorDisplayField>Ref_No_Regional__c</errorDisplayField>
         <errorMessage>Please fulfill the Ref.No-Regional field.</errorMessage>
@@ -66864,9 +66686,9 @@ ISPICKVAL(Goodwill_Category__c, &apos;&apos;)
 ), 
 OR 
 ( 
-$Profile.Name =&apos;BMBS Regional CRM Manager&apos;, 
-$Profile.Name =&apos;BMBS Service Technical Manager&apos;,
-$Profile.Name = &apos;BMBS PL/WL Manager&apos;
+$Profile.Name =&apos;Regional CRM Manager&apos;, 
+$Profile.Name =&apos;Central AS CRM Director&apos;,
+$Profile.Name = &apos;Central PL/WL Manager&apos;
 ) 
 )</errorConditionFormula>
         <errorMessage>Please check Goodwill first before input Goodwill Details, Goodwill Cost or Goodwill Category.</errorMessage>
@@ -66878,8 +66700,8 @@ $Profile.Name = &apos;BMBS PL/WL Manager&apos;
 NOT(REGEX(Order_No__c, &quot;^[0-9]*$&quot;)), 
 OR 
 ( 
-$Profile.Name =&apos;BMBS Regional CRM Manager&apos;, 
-$Profile.Name =&apos;BMBS Service Technical Manager&apos;, 
+$Profile.Name =&apos;Regional CRM Manager&apos;, 
+$Profile.Name =&apos;Central AS CRM Director&apos;, 
 $Profile.Name =&apos;Dealer-Complaint Manager&apos;, 
 $Profile.Name =&apos;Dealer-Complaint User&apos;, 
 $Profile.Name =&apos;Dealer-Delegated Admin&apos;, 
@@ -66909,9 +66731,9 @@ ISPICKVAL(Progress_Status__c,&apos;2nd FP Released&apos;)
 ),
 ISPICKVAL(Overdue__c ,&apos;&apos;),
 OR(
-$Profile.Name = &apos;BMBS Service Technical Manager&apos;,
-$Profile.Name = &apos;BMBS Regional CRM Manager&apos;,
-$Profile.Name = &apos;BMBS PL/WL Manager&apos;
+$Profile.Name = &apos;Central AS CRM Director&apos;,
+$Profile.Name = &apos;Regional CRM Manager&apos;,
+$Profile.Name = &apos;Central PL/WL Manager&apos;
 )
 )</errorConditionFormula>
         <errorDisplayField>Overdue__c</errorDisplayField>
@@ -66924,8 +66746,8 @@ $Profile.Name = &apos;BMBS PL/WL Manager&apos;
 NOT(REGEX(Owned_MB_Vehicle__c, &quot;^[0-9]*$&quot;)), 
 OR 
 ( 
-$Profile.Name =&apos;BMBS Regional CRM Manager&apos;, 
-$Profile.Name =&apos;BMBS Service Technical Manager&apos;, 
+$Profile.Name =&apos;Regional CRM Manager&apos;, 
+$Profile.Name =&apos;Central AS CRM Director&apos;, 
 $Profile.Name =&apos;Dealer-Complaint Manager&apos;, 
 $Profile.Name =&apos;Dealer-Complaint User&apos;, 
 $Profile.Name =&apos;Dealer-Delegated Admin&apos;, 
@@ -66970,7 +66792,7 @@ $Profile.Name = &apos;Dealer-Delegated Admin&apos;,
 $Profile.Name = &apos;Dealer-Lead+Complaint Manager&apos;,
 !Is_Primary_Case__c,
 or(
-ISCHANGED(OwnerId),   ISCHANGED(Follow_Up_Inquiry__c),  ISCHANGED(Complaint_Date__c),  ISCHANGED(Case_Involvement_MPC__c),  ISCHANGED(Case_Source__c),  ISCHANGED(ParentId),  ISCHANGED(AccountId),  ISCHANGED(Region__c),  ISCHANGED(Handling_Level__c),   ISCHANGED(Data_Source__c),  ISCHANGED(Case_Department__c),  ISCHANGED(Data_Subsource__c),  ISCHANGED(Case_Status__c),  ISCHANGED(Progress_Status__c),  ISCHANGED(Escalate_Date_to_RO__c),  ISCHANGED(Escalate_Date_to_CO__c),  ISCHANGED(Suspended_Date__c),  ISCHANGED(Suspended_Reason__c),  ISCHANGED(Overdue__c),  ISCHANGED(Overdue_Reason__c),  ISCHANGED(X1st_FP_Position_Release_Date__c),  ISCHANGED(X2nd_FP_Position_Release_Date__c),  ISCHANGED(SFPositionDate__c),  ISCHANGED(FFPositionDate__c),  ISCHANGED(Release_Date__c),  ISCHANGED(Resolved_Date__c),  ISCHANGED(Contact_Person__c),  ISCHANGED(Perferred_Contact_Number__c),  ISCHANGED(Contact_Person_Tele__c),  ISCHANGED(Perferred_Contact_Email__c),  ISCHANGED(Customer_Background_Info__c),  ISCHANGED(Government_Background__c),  ISCHANGED(Car_Owner__c),  ISCHANGED(Gender__c),  ISCHANGED(Occupation__c),  ISCHANGED(Title__c),  ISCHANGED(Owner_Tele__c),  ISCHANGED(Date_of_Birth__c),  ISCHANGED(Address__c),  ISCHANGED(Licence_Number__c),  ISCHANGED(Other_Brand__c),  ISCHANGED(Owned_MB_Vehicle__c),  ISCHANGED(Vehicle_In_Workshop__c),  ISCHANGED(Dealer_Provides_Transport__c),  ISCHANGED(Customer_Requests_Transport__c),  ISCHANGED(Selling_Dealer__c),  ISCHANGED(Order_No__c),  ISCHANGED(Last_Known_Sales_Person__c),  ISCHANGED(Date_of_Warranty_Expiry__c),  ISCHANGED(Last_Known_Mileage__c),  ISCHANGED(Date_of_1st_Registration__c),  ISCHANGED(US_VIN__c),  ISCHANGED(EU_VIN__c),  ISCHANGED(Defective_Item__c),  ISCHANGED(Defective_SubItem__c),  ISCHANGED(Car_Type__c),  ISCHANGED(Vehicle_Source__c),  ISCHANGED(Vehicle_Model__c),  ISCHANGED(Vehicle_Brand__c),  ISCHANGED(Engine_Number__c),  ISCHANGED(Vehicle_Class__c),  ISCHANGED(Special_Goodwill__c),  ISCHANGED(Goodwill_Category__c),  ISCHANGED(Goodwill_Details__c),  ISCHANGED(Goodwill_Cost__c),  ISCHANGED(Case_Dealer__c),  ISCHANGED(Dealer_Case_Category__c),  ISCHANGED(Dealer_Case_Type__c), ISCHANGED(Subject),   ISCHANGED( Ref_No_Central__c ),   ISCHANGED( Ref_No_Regional__c ),   ISCHANGED(  PR_Comment_MBCL_Internal__c ),   ISCHANGED( MPC_Internal_Notes__c ),   ISCHANGED(Dealer_Case_SubType__c),
+ISCHANGED(OwnerId),   ISCHANGED(Follow_Up_Inquiry__c),  ISCHANGED(Complaint_Date__c),  ISCHANGED(Case_Involvement_MPC__c),  ISCHANGED(Case_Source__c),  ISCHANGED(ParentId),  ISCHANGED(AccountId),  ISCHANGED(Region__c),  ISCHANGED(Handling_Level__c),   ISCHANGED(Data_Source__c),  ISCHANGED(Case_Department__c),  ISCHANGED(Data_Subsource__c),  ISCHANGED(Case_Status__c),  ISCHANGED(Progress_Status__c),  ISCHANGED(Escalate_Date_to_RO__c),  ISCHANGED(Escalate_Date_to_CO__c),  ISCHANGED(Suspended_Date__c),  ISCHANGED(Suspended_Reason__c),  ISCHANGED(Overdue__c),  ISCHANGED(Overdue_Reason__c),  ISCHANGED(X1st_FP_Position_Release_Date__c),  ISCHANGED(X2nd_FP_Position_Release_Date__c),  ISCHANGED(SFPositionDate__c),  ISCHANGED(FFPositionDate__c),  ISCHANGED(Release_Date__c),  ISCHANGED(Resolved_Date__c),  ISCHANGED(Contact_Person__c),  ISCHANGED(Perferred_Contact_Number__c),  ISCHANGED(Contact_Person_Tele__c),  ISCHANGED(Perferred_Contact_Email__c),  ISCHANGED(Customer_Background_Info__c),  ISCHANGED(Government_Background__c),  ISCHANGED(Car_Owner__c),  ISCHANGED(Gender__c),  ISCHANGED(Occupation__c),  ISCHANGED(Title__c),  ISCHANGED(Owner_Tele__c),  ISCHANGED(Date_of_Birth__c),  ISCHANGED(Address__c),  ISCHANGED(Licence_Number__c),  ISCHANGED(Other_Brand__c),  ISCHANGED(Owned_MB_Vehicle__c),  ISCHANGED(Vehicle_In_Workshop__c),  ISCHANGED(Dealer_Provides_Transport__c),  ISCHANGED(Customer_Requests_Transport__c),  ISCHANGED(Selling_Dealer__c),  ISCHANGED(Order_No__c),  ISCHANGED(Last_Known_Sales_Person__c),  ISCHANGED(Date_of_Warranty_Expiry__c),  ISCHANGED(Last_Known_Mileage__c),  ISCHANGED(Date_of_1st_Registration__c),  ISCHANGED(US_VIN__c),  ISCHANGED(EU_VIN__c),  ISCHANGED(Defective_Item__c),  ISCHANGED(Defective_SubItem__c),  ISCHANGED(Car_Type__c),  ISCHANGED(Vehicle_Source__c),  ISCHANGED(Vehicle_Model__c),  ISCHANGED(Vehicle_Brand__c),  ISCHANGED(Engine_Number__c),  ISCHANGED(Vehicle_Class__c),  ISCHANGED(Special_Goodwill__c),  ISCHANGED(Goodwill_Category__c),  ISCHANGED(Goodwill_Details__c),  ISCHANGED(Goodwill_Cost__c),  ISCHANGED(Case_Dealer__c),  ISCHANGED(Dealer_Case_Category__c),  ISCHANGED(Dealer_Case_Type__c), ISCHANGED(Subject),   ISCHANGED( Ref_No_Central__c ),   ISCHANGED( Ref_No_Regional__c ),   ISCHANGED(  PR_Comment_Central_Internal__c ),   ISCHANGED( MPC_Internal_Notes__c ),   ISCHANGED(Dealer_Case_SubType__c),
 ISCHANGED(Support_Dealer_1__c),
 ISCHANGED(Support_Dealer_1_Branch_name__c),
 ISCHANGED(Support_Dealer_2__c),

@@ -31,7 +31,7 @@ public class SMSSendLeadResultExtensionTest {
 
             Account customer = new Account(LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId, PersonMobilePhone = '12345678901');
             insert customer;
-            Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId     ,Dealer_Address_CN__c = 'chaoyang', City_CN__c = 'beijing', Province__c = '151');
+            Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId     ,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
             insert dealer;
 
             Lead__c lead = new Lead__c();
@@ -103,7 +103,7 @@ public class SMSSendLeadResultExtensionTest {
         insert user1;
 
         System.runAs ( user1 ) {
-            Account customer = new Account(LastName = 'acme', Allow_Data_Sharing__c = 'Yes', Province__c = 'jiangsu', City_CN__c = 'nanjing', Preferred_Language__c = 'English', PersonOtherPhone = '12342221111', Phone = '1234567');
+            Account customer = new Account(LastName = 'acme', Allow_Data_Sharing__c = 'Yes', Province__c = 'jiangsu', City__c = 'nanjing', Preferred_Language__c = 'English', PersonOtherPhone = '12342221111', Phone = '1234567');
             customer.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
             customer.OwnerId = usr.Id;
             insert customer;
@@ -111,7 +111,7 @@ public class SMSSendLeadResultExtensionTest {
             // Create a dealer for lead dealer
             Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
             dealer.Province__c = '12345';
-            dealer.City_CN__c='beijing';
+            dealer.City__c='beijing';
             dealer.Dealer_Address_CN__c = 'Risinghong';
             update dealer;
 
@@ -166,7 +166,7 @@ public class SMSSendLeadResultExtensionTest {
         insert user1;
 
         System.runAs ( user1 ) {
-            Account customer = new Account(LastName = 'acme', Allow_Data_Sharing__c = 'Yes', Province__c = 'jiangsu', City_CN__c = 'nanjing', Preferred_Language__c = 'English');
+            Account customer = new Account(LastName = 'acme', Allow_Data_Sharing__c = 'Yes', Province__c = 'jiangsu', City__c = 'nanjing', Preferred_Language__c = 'English');
             customer.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
             customer.OwnerId = usr.Id;
             insert customer;

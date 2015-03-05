@@ -543,12 +543,16 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_Registra
         <externalId>false</externalId>
         <inlineHelpText>Province the vehicle was registered</inlineHelpText>
         <label>Registration Province</label>
-        <length>255</length>
-        <required>false</required>
+        <picklist>
+            <picklistValues>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Registration_City__c</fullName>

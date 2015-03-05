@@ -16,7 +16,7 @@ private class SelectAssignedDealerControllerTest {
             new Account(
                 Dealer_Sales_Type__c ='MB', 
                 Province__c = 'Anhui',
-                City_CN__c = 'anyang',
+                City__c = 'anyang',
                 Dealer_Active__c = true,
                 Dealer_Service_Codes__c = 'Sales',
                 Name = 'Beijing Test'
@@ -89,7 +89,7 @@ private class SelectAssignedDealerControllerTest {
 
         // Test Dealer Province is Beijing, so has query result
         selectDealer.dealer.Province__c = 'Anhui';
-        selectDealer.dealer.City_CN__c = 'Anyang';
+        selectDealer.dealer.City__c = 'Anyang';
         selectDealer.query();
         System.assert(selectDealer.dealers.size() == 1);
 
