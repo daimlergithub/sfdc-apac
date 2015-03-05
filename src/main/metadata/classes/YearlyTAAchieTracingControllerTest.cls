@@ -94,7 +94,7 @@ public class YearlyTAAchieTracingControllerTest {
         Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
         insert dealer;
         
-        String cpnRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media BMBS Campaign').getRecordTypeId();
+        String cpnRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media Central Campaign').getRecordTypeId();
         Campaign cpn = new Campaign(RecordTypeId = cpnRT, Name='TestCpn');
         insert cpn;
         
@@ -117,7 +117,7 @@ public class YearlyTAAchieTracingControllerTest {
         Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
         insert dealer;
         
-        String cpnRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media BMBS Campaign').getRecordTypeId();
+        String cpnRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media Central Campaign').getRecordTypeId();
         Campaign cpn = new Campaign(RecordTypeId = cpnRT, Name='TestCpn');
         insert cpn;
         
@@ -140,7 +140,7 @@ public class YearlyTAAchieTracingControllerTest {
         Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
         insert dealer;
         
-        String cpnRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event BMBS Campaign').getRecordTypeId();
+        String cpnRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId();
         Campaign cpn = new Campaign(RecordTypeId = cpnRT, Name='TestCpn');
         insert cpn;
         
@@ -165,7 +165,7 @@ public class YearlyTAAchieTracingControllerTest {
         Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
         insert dealer;
         
-        String cpnRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event BMBS Campaign').getRecordTypeId();
+        String cpnRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId();
         Campaign cpn = new Campaign(RecordTypeId = cpnRT, Name='TestCpn');
         insert cpn;
         

@@ -1793,7 +1793,7 @@ Breathe out,SSI:
     <fields>
         <fullName>Q6_Comments__c</fullName>
         <externalId>false</externalId>
-        <label>Familiar Central/smart/ Knowledge Comments</label>
+        <label>Familiar Smart/Knowledge Comments</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2063,11 +2063,11 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>R_Familiar_Central_smart_Knowledge_P_F_S1__c</fullName>
+        <fullName>R_Familiar_smart_Knowledge_P_F_S1__c</fullName>
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(FMSK__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Familiar Central/smart/ Knowledge P/F S1</label>
+        <label>Familiar Smart/Knowledge P/F S1</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2075,11 +2075,11 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>R_Familiar_Central_smart_Knowledge_P_F_S2__c</fullName>
+        <fullName>R_Familiar_smart_Knowledge_P_F_S2__c</fullName>
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(FMSK__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Familiar Central/smart/ Knowledge P/F S2</label>
+        <label>Familiar Smart/Knowledge P/F S2</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

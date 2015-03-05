@@ -26,10 +26,10 @@ public class CaseEscalationController {
     private Map<String, Id> centralQs= new Map<String, Id>();
     private Map<String, Id> regionalQs= new Map<String, Id>();
     private Map<String, String> CENTRAL_QUEUE_NAME = new Map<String, String>{
-        'EAST'=>'BMBS Central Office-ER team',
-        'SOUTH'=>'BMBS Central Office-SR team',
-        'NORTH'=>'BMBS Central Office-NR team',
-        'WEST'=>'BMBS Central Office-WR team'
+        'EAST'=>'Central Office-ER team',
+        'SOUTH'=>'Central Office-SR team',
+        'NORTH'=>'Central Office-NR team',
+        'WEST'=>'Central Office-WR team'
     };
     //CR No.: CR-AS-Complaint-008 END
     
@@ -121,7 +121,7 @@ public class CaseEscalationController {
     private void initalQueueMap(){
         //get central Q name and id
         for (QueueSobject qo : 
-        [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like 'BMBS Central Office-%']){
+        [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like 'Central Office-%']){
             centralQs.put(qo.Queue.Name,qo.QueueId);
         }
         //initial reginal name and id

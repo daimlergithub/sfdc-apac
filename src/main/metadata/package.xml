@@ -1105,10 +1105,10 @@
         <name>HomePageLayout</name>
     </types>
     <types>
-        <members>BMBS_Central_Office_ER_team</members>
-        <members>BMBS_Central_Office_NR_team</members>
-        <members>BMBS_Central_Office_SR_team</members>
-        <members>BMBS_Central_Office_WR_team</members>
+        <members>Central_Office_ER_team</members>
+        <members>Central_Office_NR_team</members>
+        <members>Central_Office_SR_team</members>
+        <members>Central_Office_WR_team</members>
         <members>Central_Office_PL_WL_Queue</members>
         <members>Central_Office_Queue</members>
         <members>Regional_Office_East_Queue</members>

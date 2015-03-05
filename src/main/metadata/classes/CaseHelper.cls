@@ -166,7 +166,7 @@ public class CaseHelper{
     public static Profile CURRENT_PROFILE = [select Id, Name from Profile where Id = :UserInfo.getProfileId()];
     public static List<User> REGIONAL_CRM_MGR_USERS = [select Id, UserRole.Name from User where UserRole.Name like 'Regional CRM Mgr%' and isActive = true];
     public static List<QueueSobject> CENTRAL_REGIONAL_CASE_QUEUES = [select Id, QueueId from QueueSobject where SobjectType = 'Case' and (Queue.Name like 'Central Office%' or Queue.Name like 'Regional Office%')];
-    public static List<QueueSobject> BMBS_CENTRAL_CASE_QUEUES = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like '%BMBS Central Office%'];
+    public static List<QueueSobject> CENTRAL_CASE_QUEUES = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like '%Central Office%'];
         
     public static void insertSobjects(List<Sobject> sos) {
         try {
@@ -881,7 +881,7 @@ public class CaseHelper{
 	            //}
 	            //If Onsite Manager need to to assign the "Fire or Gasbag Case" Complaint to Dealer,
 	            //s/he will check "On-Site Manager Confirmed" field and the Complaint will be assigned to Dealer Gate Keeper following
-	            //if (Trigger.isUpdate && caseNew.On_Site_Manager_Confirmed__c && caseHelper.P_BMBS_ONSITE_CM_ID == UserInfo.getProfileId() && caseNew.OwnerId == Trigger.oldMap.get(caseNew.Id).OwnerId){
+	            //if (Trigger.isUpdate && caseNew.On_Site_Manager_Confirmed__c && caseHelper.P_Central_ONSITE_CM_ID == UserInfo.getProfileId() && caseNew.OwnerId == Trigger.oldMap.get(caseNew.Id).OwnerId){
 	            //    changeOwnerObjs.add(caseNew);
 	            //}
 	            
@@ -1374,7 +1374,7 @@ public class CaseHelper{
 	    List<Id> CentralQueue_ID = new List<Id>();
 	    List<Case> closeRelatedCase = new List<Case>();
 	    if(isUpdate) {
-	        for(QueueSobject q : BMBS_CENTRAL_CASE_QUEUES) {
+	        for(QueueSobject q : CENTRAL_CASE_QUEUES) {
 	            CentralQueue_ID.add(q.QueueId);
 	        }
 	    }

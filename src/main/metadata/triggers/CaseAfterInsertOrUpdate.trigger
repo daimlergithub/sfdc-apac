@@ -44,7 +44,7 @@ trigger CaseAfterInsertOrUpdate on Case (after insert, after update) {
     List<Id> CentralQueue_ID = new List<Id>();
     List<Case> closeRelatedCase = new List<Case>();
     if(Trigger.isUpdate) {
-        for(QueueSobject q : CaseHelper.BMBS_CENTRAL_CASE_QUEUES) {
+        for(QueueSobject q : CaseHelper.CENTRAL_CASE_QUEUES) {
             CentralQueue_ID.add(q.QueueId);
         }
     }

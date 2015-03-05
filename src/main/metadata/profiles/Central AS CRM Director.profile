@@ -10572,11 +10572,11 @@
         <recordType>Campaign.MB_Best_Practice</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-S%26M Event BMBS Campaign</layout>
+        <layout>Campaign-S%26M Event Central Campaign</layout>
         <recordType>Campaign.S_M_Event_Central_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-S%26M Media BMBS Campaign</layout>
+        <layout>Campaign-S%26M Media Central Campaign</layout>
         <recordType>Campaign.S_M_Media_Central_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>

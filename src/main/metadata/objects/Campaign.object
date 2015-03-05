@@ -1029,7 +1029,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Extended Activities from Mercedes Benz’s Campaign</fullName>
+                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1984,7 +1984,7 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <listViews>
+    <!--<listViews>
         <fullName>AllActiveCACCRMCampaigns</fullName>
         <columns>CAMPAIGN.NAME</columns>
         <columns>Campaign_Code__c</columns>
@@ -2195,8 +2195,8 @@
         </filters>
         <label>smart Best Activities</label>
         <language>en_US</language>
-    </listViews>
-    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    </listViews>-->
+    <!--<recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
         <fullName>AS_Cental_Campaign</fullName>
         <active>true</active>
@@ -9513,7 +9513,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>
+    </recordTypes>-->
     <searchLayouts>
         <customTabListAdditionalFields>CAMPAIGN.NAME</customTabListAdditionalFields>
         <customTabListAdditionalFields>Campaign_Code__c</customTabListAdditionalFields>
