@@ -121,4 +121,53 @@
 		<xpath>/CustomObject/fields[fullName/text()='Selling_Dealer__c']/trackHistory/text()</xpath>
 		<value>true</value>
 	</changetext>
+	
+	<!-- fix missing deployment information -->
+	<addelement deploy="false">
+		<filename>layouts\Event-Event Master Layout.layout</filename>
+		<xpath>/Layout/layoutSections/layoutColumns/layoutItems[field/text()='IsAllDayEvent']</xpath>
+		<element><layoutItems>
+                <behavior>Required</behavior>
+                <field>ActivityDateTime</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>DurationInMinutes</field>
+            </layoutItems></element>
+	</addelement>
+	
+	<!-- fix missing deployment information -->
+	<addelement deploy="false">
+		<filename>layouts\Event-Event Master Layout.layout</filename>
+		<xpath>/Layout/layoutSections/layoutColumns/layoutItems[field/text()='QC_Quantity__c']</xpath>
+		<element><layoutItems>
+                <behavior>Required</behavior>
+                <field>ActivityDate</field>
+            </layoutItems></element>
+	</addelement>
+	
+	<!-- fix missing deployment information -->
+	<addelement deploy="false">
+		<filename>layouts\Event-Reservation Layout.layout</filename>
+		<xpath>/Layout/layoutSections/layoutColumns/layoutItems[field/text()='Subject']</xpath>
+		<element><layoutItems>
+                <behavior>Required</behavior>
+                <field>ActivityDate</field>
+            </layoutItems></element>
+	</addelement>
+	
+	<!-- fix missing deployment information -->
+	<addelement deploy="false">
+		<filename>layouts\Event-Reservation Layout.layout</filename>
+		<xpath>/Layout/layoutSections/layoutColumns/layoutItems[field/text()='IsAllDayEvent']</xpath>
+		<element><layoutItems>
+                <behavior>Required</behavior>
+                <field>ActivityDateTime</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>DurationInMinutes</field>
+            </layoutItems></element>
+	</addelement>
+	
 </transformations>

@@ -173,7 +173,7 @@ public class CaseHelper{
             insert sos;
         }
         catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
+            sos[0].addError(e.getDMLMessage(0));
             System.debug('Exception message is :' + e.getDMLMessage(0));
         }
     }
@@ -183,7 +183,7 @@ public class CaseHelper{
             update sos;
         }
         catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
+            sos[0].addError(e.getDMLMessage(0));
             System.debug('Exception message is :' + e.getDMLMessage(0));
         }
     }
@@ -193,7 +193,7 @@ public class CaseHelper{
             delete sos;
         }
         catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
+            sos[0].addError(e.getDMLMessage(0));
             System.debug('Exception message is :' + e.getDMLMessage(0));
         }
     }
@@ -608,7 +608,7 @@ public class CaseHelper{
 
     public static void populateCarOwnerValuesToCase(Set<String> carOwnerIds, List<Case> cases){
         Map<String, Account> carOwners = new Map<String, Account>([select Id, PersonBirthdate, Gender__c, Occupation__c, Phone,
-                                                                    Primary_Address__c, Province__c, City__c, ZipCode__c
+                                                                    Primary_Address__c, Province__c, City_CN__c, ZipCode__c
                                                                     from Account where Id in :carOwnerIds]);
         for(Case newcase : cases){
             Account carOwner = carOwners.get(newcase.Car_Owner__c);
@@ -626,7 +626,7 @@ public class CaseHelper{
             }
             if(String.isBlank(newcase.Address__c)){
                 String state = carOwner.Province__c == null ? '' : carOwner.Province__c;
-                String city = carOwner.City__c == null ? '' : carOwner.City__c;
+                String city = carOwner.City_CN__c == null ? '' : carOwner.City_CN__c;
                 String street = carOwner.Primary_Address__c == null ? '' : carOwner.Primary_Address__c;
                 String zip = carOwner.ZipCode__c == null ? '' : carOwner.ZipCode__c;
                 newcase.Address__c = state + '\n' + city + '\n' + street + '\n' + zip;
@@ -1351,6 +1351,32 @@ public class CaseHelper{
     
     /**************** CaseAfterInsertORUpdate Trigger merge **************************/
     
+    //ADD START AS-Complaint_002 CHAOS 2014/2/21
+    private static void supportDealerMethod(Id newDealerId, Id oldDealerId, Id caseId, Boolean isInsert, Boolean isUpdate) {
+		Map<id,Set<Id>> casesToDeleteFromShare = new Map<Id, Set<Id>>();
+		Map<id,Set<Id>> casesToShareForSupport = new Map<Id, Set<Id>>();
+        if(isInsert){
+            if (newDealerId != null && !casesToShareForSupport.get(caseId).contains(newDealerId)){
+                casesToShareForSupport.get(caseId).add(newDealerId);
+            }
+        }
+        if(isUpdate && (newDealerId != oldDealerId)) {
+            if( oldDealerId == null  && !casesToShareForSupport.get(caseId).contains(newDealerId)) {
+                
+                casesToShareForSupport.get(caseId).add(newDealerId);
+                
+            } else {
+                if( newDealerId != null  && !casesToShareForSupport.get(caseId).contains(newDealerId)) {
+                    casesToShareForSupport.get(caseId).add(newDealerId);
+                }
+                if (!casesToDeleteFromShare.get(caseId).contains(oldDealerId)) {
+                    casesToDeleteFromShare.get(caseId).add(oldDealerId);
+                }
+            }
+        }
+    }
+	//ADD END AS-Complaint_002 CHAOS 2014/2/21
+    
     public static void handleCaseAfterInsertOrUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal, Map<Id, Case> newVal){
     
 	    List<Sobject> insertCaseHistorys = new List<Sobject>();
@@ -1486,7 +1512,11 @@ public class CaseHelper{
 	                casesToDeleteFromShare.put(caseNew.Id, new Set<Id>());
 	            }
 	            
-	            // ADD END AS-Complaint_002 CHAOS 2014/2/21
+	            supportDealerMethod(caseNew.Support_Dealer_1__c,oldSupportDealer1,caseNew.Id, isInsert, isUpdate);
+	            supportDealerMethod(caseNew.Support_Dealer_2__c,oldSupportDealer2,caseNew.Id, isInsert, isUpdate);
+	            supportDealerMethod(caseNew.Support_Dealer_3__c,oldSupportDealer3,caseNew.Id, isInsert, isUpdate);
+	            
+	            //ADD END AS-Complaint_002 CHAOS 2014/2/21
 	        }
 	        if (isInsert){
 	            if (caseNew.ParentId == null && caseNew.AccountId != null && caseNew.Handling_Level__c != 'Dealer' && (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId ||C_MB_RECORD_TYPE == caseNew.RecordTypeId)){
@@ -1592,7 +1622,7 @@ public class CaseHelper{
 	    if(isInsert){
 	        Set<String> caseIds = new Set<String>();
 	        for(Case c : cases){
-	            if(c.RecordTypeId == Schema.SObjectType.Account.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId() && c.ParentId != null){
+	            if(c.RecordTypeId == Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId() && c.ParentId != null){
 	                caseIds.add(c.Id);
 	            }
 	        }
@@ -1613,32 +1643,5 @@ public class CaseHelper{
 	    //---------------------Bing add for data sharing-----------------
     	
     }
-    
-     // ADD START AS-Complaint_002 CHAOS 2014/2/21
-	    private void supportDealerMethod(Id newDealerId, Id oldDealerId, Id caseId ,Boolean isInsert ,Boolean isUpdate) {
-	
-			Map<id,Set<Id>> casesToDeleteFromShare = new Map<Id, Set<Id>>();
-			Map<id,Set<Id>> casesToShareForSupport = new Map<Id, Set<Id>>();
-	        if(isInsert){
-	            if (newDealerId != null && !casesToShareForSupport.get(caseId).contains(newDealerId)){
-	                casesToShareForSupport.get(caseId).add(newDealerId);
-	            }
-	        }
-	        if(isUpdate && (newDealerId != oldDealerId)) {
-	            if( oldDealerId == null  && !casesToShareForSupport.get(caseId).contains(newDealerId)) {
-	                
-	                casesToShareForSupport.get(caseId).add(newDealerId);
-	                
-	            } else {
-	                if( newDealerId != null  && !casesToShareForSupport.get(caseId).contains(newDealerId)) {
-	                    casesToShareForSupport.get(caseId).add(newDealerId);
-	                }
-	                if (!casesToDeleteFromShare.get(caseId).contains(oldDealerId)) {
-	                    casesToDeleteFromShare.get(caseId).add(oldDealerId);
-	                }
-	            }
-	        }
-	    }
-	    // ADD END AS-Complaint_002 CHAOS 2014/2/21
 	    
 }

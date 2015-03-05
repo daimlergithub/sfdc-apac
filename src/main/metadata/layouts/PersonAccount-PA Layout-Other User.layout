@@ -206,7 +206,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>City_CN__c</field>
+                <field>City__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -534,7 +534,7 @@
         <fields>Type</fields>
         <fields>Status__c</fields>
         <fields>Province__c</fields>
-        <fields>City_CN__c</fields>
+        <fields>City__c</fields>
         <fields>ZipCode__c</fields>
     </miniLayout>
     <relatedLists>
@@ -738,7 +738,7 @@
             <posY>0</posY>
         </summaryLayoutItems>
         <summaryLayoutItems>
-            <field>City_CN__c</field>
+            <field>City__c</field>
             <posX>3</posX>
             <posY>1</posY>
         </summaryLayoutItems>

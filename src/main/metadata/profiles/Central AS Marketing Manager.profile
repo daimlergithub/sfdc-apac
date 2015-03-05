@@ -1182,7 +1182,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.City_CN__c</field>
+        <field>Account.City__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10666,6 +10666,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Integration_Picklist__c-Integration Picklist Layout</layout>
+    </layoutAssignments>
+	 <layoutAssignments>
+        <layout>Lead__c-Sales Leads Layout %28Dealer%29</layout>
+        <recordType>Lead__c.Retail_Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>OB_Task_Handing__c-OB Task Handing Layout</layout>

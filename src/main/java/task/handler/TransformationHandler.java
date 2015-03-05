@@ -173,9 +173,6 @@ public class TransformationHandler
       return result;
     }
     catch (IOException e) {
-      // TODO
-      e.printStackTrace();
-
       throw new BuildException(String.format("Error reading environment mappings: %s.", e.getMessage()), e);
     }
   }
@@ -214,9 +211,6 @@ public class TransformationHandler
       return result;
     }
     catch (JAXBException | IOException e) {
-      // TODO
-      e.printStackTrace();
-
       throw new BuildException(String.format("Error reading transformations.xml in %s: %s.",
                                              basePath.getName(),
                                              e.getMessage()), e);
@@ -255,9 +249,6 @@ public class TransformationHandler
         applyTransformations(file.getName(), fis, fileTransformations, os, true);
       }
       catch (IOException e) {
-        // TODO
-        e.printStackTrace();
-
         throw new BuildException(String.format("Error saving file %s to ZIP: %s.", file.getName(), e.getMessage()), e);
       }
     }
@@ -266,7 +257,10 @@ public class TransformationHandler
   private void applyTransformations(String name, InputStream is, List<Transformation> fileTransformations, OutputStream os, boolean deploy)
   {
     try {
-      DocumentBuilder b = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+      DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+//      TODO dbf.setNamespaceAware(true);
+      DocumentBuilder b = dbf.newDocumentBuilder();
+      
       Document doc = b.parse(is);
       
       for (Transformation transformation : fileTransformations) {
@@ -278,16 +272,21 @@ public class TransformationHandler
       }
 
       Transformer transformer = TransformerFactory.newInstance().newTransformer();
+      transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
+      transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+      transformer.setOutputProperty(OutputKeys.VERSION, "1.0");
       transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+      transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+      transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
+      transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "4");
+      
       StreamResult result = new StreamResult(os);
       DOMSource source = new DOMSource(doc);
+      
       transformer.transform(source, result);
     }
     catch (ParserConfigurationException | SAXException | IOException | TransformerFactoryConfigurationError
         | TransformerException e) {
-      // TODO
-      e.printStackTrace();
-
       throw new BuildException(String.format("Error reading file %s: %s.", name, e.getMessage()), e);
     }
   }
@@ -306,9 +305,6 @@ public class TransformationHandler
       while (-1 != read);
     }
     catch (IOException e) {
-      // TODO
-      e.printStackTrace();
-
       throw new BuildException(String.format("Error copying file %s: %s.", file.getName(), e.getMessage()), e);
     }
   }
@@ -344,9 +340,6 @@ public class TransformationHandler
         applyTransformations(file.getName(), is, fileTransformations, fos, false);
       }
       catch (IOException e) {
-        // TODO
-        e.printStackTrace();
-
         throw new BuildException(String.format("Error saving file %s: %s.", file.getName(), e.getMessage()), e);
       }
     }
@@ -368,9 +361,6 @@ public class TransformationHandler
       while (-1 != read);
     }
     catch (IOException e) {
-      // TODO
-      e.printStackTrace();
-      
       throw new BuildException(String.format("Error copying file %s: %s.", file.getName(), e.getMessage()), e);
     }
   }
