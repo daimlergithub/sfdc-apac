@@ -179,7 +179,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
+=======
+                <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -349,10 +353,13 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
                 <fullName>Added</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Advisory did not apply</fullName>
                 <default>false</default>
             </picklistValues>
@@ -381,6 +388,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
                 <fullName>Blacklisted</fullName>
                 <default>false</default>
             </picklistValues>
@@ -389,6 +397,8 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>C</fullName>
                 <default>false</default>
             </picklistValues>
@@ -421,10 +431,13 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
                 <fullName>Declined</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Determined not to attend</fullName>
                 <default>false</default>
             </picklistValues>
@@ -553,10 +566,13 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
                 <fullName>Shown up</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Sign up</fullName>
                 <default>false</default>
             </picklistValues>

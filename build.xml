@@ -248,8 +248,8 @@
 	</target>
 	
 	<property name="typesets.circle">
-		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess
-		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource
+		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout
+		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile
 	</property>
 	
 	<!-- TODO
@@ -258,7 +258,7 @@
 	PermissionSet: check differences
 	-->
 	<property name="typesets.not-ready">
-		PermissionSet,CustomObject,Layout,Profile
+		
 	</property>
 	
 	<target name="retrieveAll" depends="init">

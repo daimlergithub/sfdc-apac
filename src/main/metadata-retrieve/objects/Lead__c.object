@@ -6281,7 +6281,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
+=======
+                <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -6560,6 +6564,14 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
+=======
+                <fullName>MBCL</fullName>
+                <controllingFieldValues>BBAC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Direct mail</fullName>
                 <controllingFieldValues>Other</controllingFieldValues>
                 <default>false</default>
@@ -7052,7 +7064,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
+=======
+                <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7347,7 +7363,11 @@ Modify Reason:
 
         		Text(Contact__r.Province__c) &lt;&gt; NULL,
 
+<<<<<<< HEAD
         		Contact__r.City_CN__c &lt;&gt; NULL,
+=======
+        		Contact__r.City__c &lt;&gt; NULL,
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
 
         		TEXT(Contact__r.Preferred_Language__c) &lt;&gt; NULL,
 
@@ -18198,6 +18218,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
+                <fullName>BMBS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -18266,10 +18293,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>China News</fullName>
                 <default>false</default>
             </values>
@@ -18410,6 +18440,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
+                <fullName>MBCL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>MBDA</fullName>
                 <default>false</default>
             </values>
@@ -18938,7 +18975,11 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
+=======
+                <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -28031,6 +28072,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
+                <fullName>BMBS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -28099,10 +28147,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>China News</fullName>
                 <default>false</default>
             </values>
@@ -28243,6 +28294,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
+                <fullName>MBCL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>MBDA</fullName>
                 <default>false</default>
             </values>
@@ -28775,7 +28833,11 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
+=======
+                <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -38052,6 +38114,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
+                <fullName>BMBS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -38120,10 +38189,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>China News</fullName>
                 <default>false</default>
             </values>
@@ -38264,6 +38336,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
+                <fullName>MBCL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>MBDA</fullName>
                 <default>false</default>
             </values>
@@ -38796,7 +38875,11 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
+=======
+                <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -47077,6 +47160,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
+                <fullName>BMBS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -47145,10 +47235,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>China News</fullName>
                 <default>false</default>
             </values>
@@ -47289,6 +47382,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
+                <fullName>MBCL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>MBDA</fullName>
                 <default>false</default>
             </values>
@@ -47817,7 +47917,11 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
+=======
+                <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -55354,6 +55458,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
+                <fullName>BMBS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -55414,10 +55525,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>China Unicom</fullName>
                 <default>false</default>
             </values>
@@ -55538,6 +55652,13 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
+                <fullName>MBCL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>MBDA</fullName>
                 <default>false</default>
             </values>
@@ -56014,7 +56135,11 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
                 <fullName>Central</fullName>
+=======
+                <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>

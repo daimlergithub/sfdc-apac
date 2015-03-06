@@ -57,9 +57,11 @@
     <fields>
         <fullName>CampaignCity__c</fullName>
         <externalId>false</externalId>
-        <label>Campaign City</label>    
-		<length>255</length>
+        <label>Campaign City</label>
+        <length>255</length>
+        <required>false</required>
         <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>CampaignId</fullName>

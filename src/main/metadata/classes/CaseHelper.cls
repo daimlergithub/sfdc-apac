@@ -1642,6 +1642,10 @@ public class CaseHelper{
 	    handler.shareAccountByComplaint(newVal, oldVal, isInsert);
 	    //---------------------Bing add for data sharing-----------------
     	
+<<<<<<< HEAD
     }
 	    
+=======
+    }	    
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
 }

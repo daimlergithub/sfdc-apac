@@ -16,17 +16,15 @@ trigger TriggerAccount on Account (before update, after update) {
     }
 
     // If trigger is Enabled, continue
-    if (!UtilCustomSettings.isEnabled('TriggerAccount')) {
+    if (!UtilCustomSettings.isEnabled('TriggerAccount')) { 
         return;
     }
 
     // Get the Record Type Id of 'Dealer'
-    Id dealerRecordTypeId = 
-        UtilRecordType.getRecordTypeIdByName('Account', 'Dealer');
+    Id dealerRecordTypeId = UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,UtilRecordType.Dealer); 
 
     // Get the RecordType Id of 'Person Account'
-    Id personaRecordTypeId = 
-        UtilRecordType.getRecordTypeIdByName('Account', 'Person Account');
+    Id personaRecordTypeId = UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,UtilRecordType.person_Account);
 
     if (trigger.isUpdate && trigger.isBefore) {
         // US-DS-001, link dealer to Dealer City by City and Province
