@@ -1182,7 +1182,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.City_CN__c</field>
+        <field>Account.City__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6977,12 +6977,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>QC__c.R_Familiar_Central_smart_Knowledge_P_F_S1__c</field>
+        <field>QC__c.R_Familiar_smart_Knowledge_P_F_S1__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>QC__c.R_Familiar_Central_smart_Knowledge_P_F_S2__c</field>
+        <field>QC__c.R_Familiar_smart_Knowledge_P_F_S2__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -10658,6 +10658,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Integration_Picklist__c-Integration Picklist Layout</layout>
+    </layoutAssignments>
+	 <layoutAssignments>
+        <layout>Lead__c-Sales Leads Layout %28Dealer%29</layout>
+        <recordType>Lead__c.Retail_Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28Dealer%29</layout>

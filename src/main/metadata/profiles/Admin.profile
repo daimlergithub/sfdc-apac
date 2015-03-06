@@ -1182,7 +1182,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.City_CN__c</field>
+        <field>Account.City__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6972,12 +6972,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>QC__c.R_Familiar_Central_smart_Knowledge_P_F_S1__c</field>
+        <field>QC__c.R_Familiar_smart_Knowledge_P_F_S1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>QC__c.R_Familiar_Central_smart_Knowledge_P_F_S2__c</field>
+        <field>QC__c.R_Familiar_smart_Knowledge_P_F_S2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

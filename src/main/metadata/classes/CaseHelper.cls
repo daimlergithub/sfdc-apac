@@ -166,7 +166,7 @@ public class CaseHelper{
     public static Profile CURRENT_PROFILE = [select Id, Name from Profile where Id = :UserInfo.getProfileId()];
     public static List<User> REGIONAL_CRM_MGR_USERS = [select Id, UserRole.Name from User where UserRole.Name like 'Regional CRM Mgr%' and isActive = true];
     public static List<QueueSobject> CENTRAL_REGIONAL_CASE_QUEUES = [select Id, QueueId from QueueSobject where SobjectType = 'Case' and (Queue.Name like 'Central Office%' or Queue.Name like 'Regional Office%')];
-    public static List<QueueSobject> BMBS_CENTRAL_CASE_QUEUES = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like '%BMBS Central Office%'];
+    public static List<QueueSobject> CENTRAL_CASE_QUEUES = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like '%Central Office%'];
         
     public static void insertSobjects(List<Sobject> sos) {
         try {
@@ -608,7 +608,7 @@ public class CaseHelper{
 
     public static void populateCarOwnerValuesToCase(Set<String> carOwnerIds, List<Case> cases){
         Map<String, Account> carOwners = new Map<String, Account>([select Id, PersonBirthdate, Gender__c, Occupation__c, Phone,
-                                                                    Primary_Address__c, Province__c, City_CN__c, ZipCode__c
+                                                                    Primary_Address__c, Province__c, City__c, ZipCode__c
                                                                     from Account where Id in :carOwnerIds]);
         for(Case newcase : cases){
             Account carOwner = carOwners.get(newcase.Car_Owner__c);
@@ -626,7 +626,7 @@ public class CaseHelper{
             }
             if(String.isBlank(newcase.Address__c)){
                 String state = carOwner.Province__c == null ? '' : carOwner.Province__c;
-                String city = carOwner.City_CN__c == null ? '' : carOwner.City_CN__c;
+                String city = carOwner.City__c == null ? '' : carOwner.City__c;
                 String street = carOwner.Primary_Address__c == null ? '' : carOwner.Primary_Address__c;
                 String zip = carOwner.ZipCode__c == null ? '' : carOwner.ZipCode__c;
                 newcase.Address__c = state + '\n' + city + '\n' + street + '\n' + zip;
@@ -881,7 +881,7 @@ public class CaseHelper{
 	            //}
 	            //If Onsite Manager need to to assign the "Fire or Gasbag Case" Complaint to Dealer,
 	            //s/he will check "On-Site Manager Confirmed" field and the Complaint will be assigned to Dealer Gate Keeper following
-	            //if (Trigger.isUpdate && caseNew.On_Site_Manager_Confirmed__c && caseHelper.P_BMBS_ONSITE_CM_ID == UserInfo.getProfileId() && caseNew.OwnerId == Trigger.oldMap.get(caseNew.Id).OwnerId){
+	            //if (Trigger.isUpdate && caseNew.On_Site_Manager_Confirmed__c && caseHelper.P_Central_ONSITE_CM_ID == UserInfo.getProfileId() && caseNew.OwnerId == Trigger.oldMap.get(caseNew.Id).OwnerId){
 	            //    changeOwnerObjs.add(caseNew);
 	            //}
 	            
@@ -1400,7 +1400,7 @@ public class CaseHelper{
 	    List<Id> CentralQueue_ID = new List<Id>();
 	    List<Case> closeRelatedCase = new List<Case>();
 	    if(isUpdate) {
-	        for(QueueSobject q : BMBS_CENTRAL_CASE_QUEUES) {
+	        for(QueueSobject q : CENTRAL_CASE_QUEUES) {
 	            CentralQueue_ID.add(q.QueueId);
 	        }
 	    }

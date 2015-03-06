@@ -123,7 +123,7 @@
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>refreshListRows</listRefreshMethod>
-    <logo>Logo/MBCL_LOGO.png</logo>
+    <logo>Logo/MB_LOGO.png</logo>
     <saveUserSessions>true</saveUserSessions>
     <tab>Tasks</tab>
     <tab>SSI__c</tab>

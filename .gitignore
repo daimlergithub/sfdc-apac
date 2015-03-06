@@ -8,3 +8,5 @@ timestamps-data.log
 /classes
 /build
 /logs
+/src/main/metadata-retrieve
+build-fixing.xml

@@ -26,10 +26,10 @@ public class CaseEscalationController {
     private Map<String, Id> centralQs= new Map<String, Id>();
     private Map<String, Id> regionalQs= new Map<String, Id>();
     private Map<String, String> CENTRAL_QUEUE_NAME = new Map<String, String>{
-        'EAST'=>'BMBS Central Office-ER team',
-        'SOUTH'=>'BMBS Central Office-SR team',
-        'NORTH'=>'BMBS Central Office-NR team',
-        'WEST'=>'BMBS Central Office-WR team'
+        'EAST'=>'Central Office-ER team',
+        'SOUTH'=>'Central Office-SR team',
+        'NORTH'=>'Central Office-NR team',
+        'WEST'=>'Central Office-WR team'
     };
     //CR No.: CR-AS-Complaint-008 END
     
@@ -121,7 +121,7 @@ public class CaseEscalationController {
     private void initalQueueMap(){
         //get central Q name and id
         for (QueueSobject qo : 
-        [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like 'BMBS Central Office-%']){
+        [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like 'Central Office-%']){
             centralQs.put(qo.Queue.Name,qo.QueueId);
         }
         //initial reginal name and id
@@ -145,10 +145,10 @@ public class CaseEscalationController {
     
     private void setEscalteInfo(String region, Profile currentUserProfle){
         EscalateCase.Status = AWAITING_MB;
-        EscalateCase.OwnerId = currentUserProfle.Name == 'BMBS Regional CRM Manager' ? 
+        EscalateCase.OwnerId = currentUserProfle.Name == 'Regional CRM Manager' ? 
             (EscalateCase.Case_Involvement_MPC__c == 'PL/WL' ? CentralPLWLQ.QueueId : centralQs.get(CENTRAL_QUEUE_NAME.get(region))) 
             : regionalQs.get(region);
-        EscalateCase.Handling_Level__c = currentUserProfle.Name == 'BMBS Regional CRM Manager' ? 'Central Office' : 'Regional Office';
+        EscalateCase.Handling_Level__c = currentUserProfle.Name == 'Regional CRM Manager' ? 'Central Office' : 'Regional Office';
     }
     //CR No.: CR-AS-Complaint-008 END
         
@@ -156,7 +156,7 @@ public class CaseEscalationController {
         Profile currentUserProfle = [select Id, Name from Profile where Id = :UserInfo.getProfileId()];
         
         for(String colName : MandatoryFields){
-            if(String.isEmpty(String.valueOf(EscalateCase.get(colName))) && currentUserProfle.Name != 'BMBS Regional CRM Manager'){
+            if(String.isEmpty(String.valueOf(EscalateCase.get(colName))) && currentUserProfle.Name != 'Regional CRM Manager'){
                 if(UserInfo.getLanguage() == 'English') {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, ERROR_MSG));
                 }
@@ -186,7 +186,7 @@ public class CaseEscalationController {
             EscalateCase.Escalate_Date_to_RO__c = Date.today();
         }
         system.debug('currentUserProfle:'+currentUserProfle);
-        if (EscalateCase.Escalate_Date_to_CO__c == null && currentUserProfle.Name == 'BMBS Regional CRM Manager') {
+        if (EscalateCase.Escalate_Date_to_CO__c == null && currentUserProfle.Name == 'Regional CRM Manager') {
             EscalateCase.Escalate_Date_to_CO__c = Date.today();
         }
 

@@ -24941,14 +24941,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Trucks</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Vans</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Maintenance Appointment Arrangement</fullName>
                 <default>false</default>
             </values>
@@ -34210,14 +34202,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>HR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Trucks</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -52779,18 +52763,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>HR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Trucks</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Vans</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Maintenance Appointment Arrangement</fullName>
                 <default>false</default>
             </values>
@@ -61419,14 +61391,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>HR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Trucks</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
