@@ -130,7 +130,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+<<<<<<< HEAD
+            <field>City_CN__c</field>
+=======
             <field>City__c</field>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -190,7 +194,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+<<<<<<< HEAD
+            <field>City_CN__c</field>
+=======
             <field>City__c</field>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -240,7 +248,11 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
+<<<<<<< HEAD
+            <field>City_CN__c</field>
+=======
             <field>City__c</field>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -358,7 +370,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
+                <fullName>Central</fullName>
+=======
                 <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1294,7 +1310,11 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSubSource&quot;
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
+                <fullName>Central</fullName>
+=======
                 <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -1600,11 +1620,14 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSubSource&quot;
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
+=======
                 <fullName>MBCL</fullName>
                 <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Direct Mail</fullName>
                 <controllingFieldValues>Other</controllingFieldValues>
                 <default>false</default>
@@ -4836,7 +4859,11 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
+                <fullName>Central</fullName>
+=======
                 <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5834,11 +5861,19 @@ Attribute in Data Dictionary object Contact is &quot;Contact_SpecialCare&quot;</
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
+                <fullName>Central&amp;BBAC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Central</fullName>
+=======
                 <fullName>BMBS&amp;BBAC</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6269,7 +6304,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <fullName>AllAccounts</fullName>
         <columns>ACCOUNT.NAME</columns>
         <columns>Province__c</columns>
+<<<<<<< HEAD
+        <columns>City_CN__c</columns>
+=======
         <columns>City__c</columns>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <columns>ZipCode__c</columns>
         <columns>ACCOUNT.TYPE</columns>
         <columns>CREATEDBY_USER.ALIAS</columns>
@@ -6302,7 +6341,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <columns>Dealer_Region__c</columns>
         <columns>UPDATEDBY_USER.ALIAS</columns>
         <columns>Province__c</columns>
+<<<<<<< HEAD
+        <columns>City_CN__c</columns>
+=======
         <columns>City__c</columns>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <columns>Dealer_City_EN__c</columns>
         <columns>Dealer_Active__c</columns>
         <columns>ACCOUNT.LAST_UPDATE</columns>
@@ -6408,7 +6451,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Central</fullName>
+=======
                 <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -6691,10 +6738,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
                 <fullName>BMBS</fullName>
                 <default>false</default>
             </values>
             <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -6759,6 +6809,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Central</fullName>
+                <default>false</default>
+            </values>
+            <values>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>China News</fullName>
                 <default>false</default>
             </values>
@@ -6903,10 +6960,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
                 <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>MBDA</fullName>
                 <default>false</default>
             </values>
@@ -7792,6 +7852,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Electronic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Embassy</fullName>
                 <default>false</default>
             </values>
@@ -8422,11 +8489,19 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Central</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central%26BBAC</fullName>
+=======
                 <fullName>BMBS</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>BMBS%26BBAC</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -8604,7 +8679,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Central</fullName>
+=======
                 <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -8851,10 +8930,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
                 <fullName>BMBS</fullName>
                 <default>false</default>
             </values>
             <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -8875,6 +8957,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Central</fullName>
+                <default>false</default>
+            </values>
+            <values>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>China News</fullName>
                 <default>false</default>
             </values>
@@ -10169,6 +10258,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Hot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Warm</fullName>
                 <default>false</default>
             </values>
@@ -10290,11 +10386,19 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Central</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central%26BBAC</fullName>
+=======
                 <fullName>BMBS</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>BMBS%26BBAC</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -10471,7 +10575,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Central</fullName>
+=======
                 <fullName>BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -10754,10 +10862,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
                 <fullName>BMBS</fullName>
                 <default>false</default>
             </values>
             <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -10822,6 +10933,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Central</fullName>
+                <default>false</default>
+            </values>
+            <values>
+=======
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>China News</fullName>
                 <default>false</default>
             </values>
@@ -10970,10 +11088,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
                 <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>MBDA</fullName>
                 <default>false</default>
             </values>
@@ -12489,11 +12610,19 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Central</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central%26BBAC</fullName>
+=======
                 <fullName>BMBS</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>BMBS%26BBAC</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -12621,7 +12750,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <customTabListAdditionalFields>ACCOUNT.PHONE1</customTabListAdditionalFields>
         <customTabListAdditionalFields>PC_PHONE3</customTabListAdditionalFields>
         <customTabListAdditionalFields>Province__c</customTabListAdditionalFields>
+<<<<<<< HEAD
+        <customTabListAdditionalFields>City_CN__c</customTabListAdditionalFields>
+=======
         <customTabListAdditionalFields>City__c</customTabListAdditionalFields>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <customTabListAdditionalFields>ZipCode__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Address__c</customTabListAdditionalFields>
         <listViewButtons>Load_3rd_Party_Data</listViewButtons>
@@ -12630,7 +12763,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <lookupDialogsAdditionalFields>Dealer_Service_Codes__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Dealer_Sales_Type__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>Province__c</lookupDialogsAdditionalFields>
+<<<<<<< HEAD
+        <lookupDialogsAdditionalFields>City_CN__c</lookupDialogsAdditionalFields>
+=======
         <lookupDialogsAdditionalFields>City__c</lookupDialogsAdditionalFields>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <lookupDialogsAdditionalFields>Dealer_Address_CN__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>ACCOUNT.PHONE1</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>PC_PHONE3</lookupDialogsAdditionalFields>
@@ -12646,7 +12783,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <searchFilterFields>ACCOUNT.RECORDTYPE</searchFilterFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Province__c</searchResultsAdditionalFields>
+<<<<<<< HEAD
+        <searchResultsAdditionalFields>City_CN__c</searchResultsAdditionalFields>
+=======
         <searchResultsAdditionalFields>City__c</searchResultsAdditionalFields>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <searchResultsAdditionalFields>ZipCode__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PC_PHONE3</searchResultsAdditionalFields>

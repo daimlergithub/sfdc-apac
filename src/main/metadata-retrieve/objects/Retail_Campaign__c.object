@@ -584,7 +584,11 @@
         <fullName>Campaign_Code__c</fullName>
         <description>A unique identifier to distinguish the campaign</description>
         <externalId>false</externalId>
+<<<<<<< HEAD
+        <formula>CASE(TEXT(Driven__c),'Joint', Relevant_Central_Campaign__r.Campaign_Code__c &amp; '_' &amp; Dealer_Name__r.Dealer_ND_Code__c &amp; '_' &amp; TEXT(MONTH(DATEVALUE(CreatedDate))) &amp; '_' &amp;  TEXT(DAY(DATEVALUE(CreatedDate))) &amp; '_' &amp;  RecordType.DeveloperName  &amp; '_'+RIGHT(Campaign_Code_Number__c , 9), 'Dealer Driven', TEXT(YEAR(DATEVALUE(CreatedDate))) &amp; '_dealerdriven' &amp;  Dealer_Name__r.Dealer_ND_Code__c  &amp;  '_'+ TEXT(MONTH(DATEVALUE(CreatedDate))) &amp; '_' &amp;  TEXT(DAY(DATEVALUE(CreatedDate))) &amp; '_' &amp;  RecordType.DeveloperName  &amp; '_' &amp; RIGHT(Campaign_Code_Number__c , 9),RIGHT(Campaign_Code_Number__c , 9))</formula>
+=======
         <formula>CASE(TEXT(Driven__c),'Joint', Relevant_BMBS_Campaign__r.Campaign_Code__c &amp; '_' &amp; Dealer_Name__r.Dealer_ND_Code__c &amp; '_' &amp; TEXT(MONTH(DATEVALUE(CreatedDate))) &amp; '_' &amp;  TEXT(DAY(DATEVALUE(CreatedDate))) &amp; '_' &amp;  RecordType.DeveloperName  &amp; '_'+RIGHT(Campaign_Code_Number__c , 9), 'Dealer Driven', TEXT(YEAR(DATEVALUE(CreatedDate))) &amp; '_dealerdriven' &amp;  Dealer_Name__r.Dealer_ND_Code__c  &amp;  '_'+ TEXT(MONTH(DATEVALUE(CreatedDate))) &amp; '_' &amp;  TEXT(DAY(DATEVALUE(CreatedDate))) &amp; '_' &amp;  RecordType.DeveloperName  &amp; '_' &amp; RIGHT(Campaign_Code_Number__c , 9),RIGHT(Campaign_Code_Number__c , 9))</formula>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <label>Campaign Code</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -924,7 +928,11 @@
     <fields>
         <fullName>City__c</fullName>
         <externalId>false</externalId>
+<<<<<<< HEAD
+        <formula>Dealer_Name__r.City_CN__c</formula>
+=======
         <formula>Dealer_Name__r.City__c</formula>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>City</label>
         <required>false</required>
@@ -1078,11 +1086,19 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+<<<<<<< HEAD
+                <fullName>Campaign Organized by Central</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Extended Activities from Central’s Campaign</fullName>
+=======
                 <fullName>Campaign Organized by BMBS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Extended Activities from BMBS’s Campaign</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2327,7 +2343,11 @@
     <fields>
         <fullName>Y_City__c</fullName>
         <externalId>false</externalId>
+<<<<<<< HEAD
+        <formula>Y_Dealer_Name__r.City_CN__c</formula>
+=======
         <formula>Y_Dealer_Name__r.City__c</formula>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>City</label>
         <required>false</required>
@@ -2753,7 +2773,11 @@
         <columns>Apply_Status__c</columns>
         <columns>Feedback_Status__c</columns>
         <columns>Feedback_Comments__c</columns>
+<<<<<<< HEAD
+        <columns>Relevant_Central_Campaign__c</columns>
+=======
         <columns>Relevant_BMBS_Campaign__c</columns>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <columns>Relevant_Retail_Campaign__c</columns>
         <columns>Plan_Start_Date__c</columns>
         <columns>Plan_End_Date__c</columns>
@@ -2777,7 +2801,11 @@
         <columns>Apply_Status__c</columns>
         <columns>Feedback_Status__c</columns>
         <columns>Feedback_Comments__c</columns>
+<<<<<<< HEAD
+        <columns>Relevant_Central_Campaign__c</columns>
+=======
         <columns>Relevant_BMBS_Campaign__c</columns>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <columns>Relevant_Retail_Campaign__c</columns>
         <columns>Plan_Start_Date__c</columns>
         <columns>Plan_End_Date__c</columns>
@@ -2859,7 +2887,11 @@
         <columns>Apply_Status__c</columns>
         <columns>Feedback_Status__c</columns>
         <columns>Feedback_Comments__c</columns>
+<<<<<<< HEAD
+        <columns>Relevant_Central_Campaign__c</columns>
+=======
         <columns>Relevant_BMBS_Campaign__c</columns>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <columns>Relevant_Retail_Campaign__c</columns>
         <columns>Plan_Start_Date__c</columns>
         <columns>Plan_End_Date__c</columns>
@@ -2885,7 +2917,11 @@
         <columns>Apply_Status__c</columns>
         <columns>Feedback_Status__c</columns>
         <columns>Feedback_Comments__c</columns>
+<<<<<<< HEAD
+        <columns>Relevant_Central_Campaign__c</columns>
+=======
         <columns>Relevant_BMBS_Campaign__c</columns>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <columns>Relevant_Retail_Campaign__c</columns>
         <columns>Plan_Start_Date__c</columns>
         <columns>Plan_End_Date__c</columns>
@@ -2925,7 +2961,11 @@
         <columns>Feedback_Status__c</columns>
         <columns>Approver__c</columns>
         <columns>Feedback_Comments__c</columns>
+<<<<<<< HEAD
+        <columns>Relevant_Central_Campaign__c</columns>
+=======
         <columns>Relevant_BMBS_Campaign__c</columns>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <columns>Relevant_Retail_Campaign__c</columns>
         <columns>Plan_Start_Date__c</columns>
         <columns>Plan_End_Date__c</columns>
@@ -2949,7 +2989,11 @@
         <columns>Apply_Status__c</columns>
         <columns>Feedback_Status__c</columns>
         <columns>Feedback_Comments__c</columns>
+<<<<<<< HEAD
+        <columns>Relevant_Central_Campaign__c</columns>
+=======
         <columns>Relevant_BMBS_Campaign__c</columns>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <columns>Relevant_Retail_Campaign__c</columns>
         <columns>Plan_Start_Date__c</columns>
         <columns>Plan_End_Date__c</columns>
@@ -3380,7 +3424,11 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
+<<<<<<< HEAD
+                <fullName>Campaign Organized by Central</fullName>
+=======
                 <fullName>Campaign Organized by BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -3388,7 +3436,11 @@
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
+=======
                 <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -6012,7 +6064,11 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
+<<<<<<< HEAD
+                <fullName>Campaign Organized by Central</fullName>
+=======
                 <fullName>Campaign Organized by BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -6020,7 +6076,11 @@
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
+=======
                 <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -7326,7 +7386,11 @@
         <picklistValues>
             <picklist>Driven__c</picklist>
             <values>
+<<<<<<< HEAD
+                <fullName>Campaign Organized by Central</fullName>
+=======
                 <fullName>Campaign Organized by BMBS</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -7334,7 +7398,11 @@
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
+=======
                 <fullName>Extended Activities from BMBS%E2%80%99s Campaign</fullName>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <default>false</default>
             </values>
             <values>
@@ -9206,7 +9274,11 @@ OR(ISCHANGED(Name),
 	   ISCHANGED(Plan_Show_up_Customer__c),
 	   ISCHANGED(Plan_Start_Date__c),
 	   ISCHANGED(Purpose__c),
+<<<<<<< HEAD
+	   ISCHANGED(Relevant_Central_Campaign__c),
+=======
 	   ISCHANGED(Relevant_BMBS_Campaign__c),
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
 	   ISCHANGED(Relevant_Retail_Campaign__c),
 	   ISCHANGED(Showroom__c),
 	   ISCHANGED(Site__c),
@@ -9267,6 +9339,15 @@ var campaignRecordTypeName = qr1.records.Name;
 var retailCampaignRecordTypeName;
 switch (campaignRecordTypeName )
 {
+<<<<<<< HEAD
+case 'AS Central Campaign':
+  retailCampaignRecordTypeName ="AS Retail Campaign";
+  break;
+case 'S&amp;M Event Central Campaign':
+  retailCampaignRecordTypeName ="S&amp;M Event Retail Campaign";
+  break;
+case 'S&amp;M Media Central Campaign':
+=======
 case 'AS BMBS Campaign':
   retailCampaignRecordTypeName ="AS Retail Campaign";
   break;
@@ -9274,6 +9355,7 @@ case 'S&amp;M Event BMBS Campaign':
   retailCampaignRecordTypeName ="S&amp;M Event Retail Campaign";
   break;
 case 'S&amp;M Media BMBS Campaign':
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
   retailCampaignRecordTypeName ="S&amp;M Media Retail Campaign";
   break;
 }

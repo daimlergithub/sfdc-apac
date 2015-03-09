@@ -182,7 +182,7 @@
     <criteriaBasedRules>
         <fullName>Share_ReadOnly_with_Regional_CRM_Manager</fullName>
         <sharedTo>
-            <group>BMBS_Regional_CRM_Manager</group>
+            <group>Regional_CRM_Manager</group>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
@@ -254,7 +254,7 @@
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>Share_read_with_all_central_bmbs</fullName>
+        <fullName>Share_read_with_all_Central</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
         </sharedTo>
@@ -271,7 +271,7 @@
         <accountAccessLevel>Read</accountAccessLevel>
         <caseAccessLevel>None</caseAccessLevel>
         <contactAccessLevel>Read</contactAccessLevel>
-        <name>Share read with all central bmbs</name>
+        <name>Share read with all central</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
@@ -296,7 +296,7 @@
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>VIP_PA_share_with_BMBS_CRM_Manager</fullName>
+        <fullName>VIP_PA_share_with_Central_CRM_Manager</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>Central_Sales_Marketing</roleAndSubordinatesInternal>
         </sharedTo>
@@ -313,7 +313,7 @@
         <accountAccessLevel>Read</accountAccessLevel>
         <caseAccessLevel>None</caseAccessLevel>
         <contactAccessLevel>Read</contactAccessLevel>
-        <name>VIP PA share with BMBS CRM Manager</name>
+        <name>VIP PA share with Central CRM Manager</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
 </AccountSharingRules>

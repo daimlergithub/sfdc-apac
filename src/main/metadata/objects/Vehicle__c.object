@@ -1528,7 +1528,7 @@ Attribute in Data Dictionary object Vehicle is &quot;Vehicle_Comment&quot;</desc
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: Reservation number of MBCL 
+Function: Reservation number
 Used in: Pagelayouts, Reports 
 
 Modify History 

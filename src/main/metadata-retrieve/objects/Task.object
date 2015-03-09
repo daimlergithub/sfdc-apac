@@ -10,9 +10,13 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Delete</actionName>
+<<<<<<< HEAD
+        <type>Default</type>
+=======
         <content>TaskDeleting</content>
         <skipRecordTypeSelect>false</skipRecordTypeSelect>
         <type>Visualforce</type>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
     </actionOverrides>
     <actionOverrides>
         <actionName>DeleteSeries</actionName>
@@ -10676,10 +10680,13 @@
                 <default>false</default>
             </values>
             <values>
+<<<<<<< HEAD
+=======
                 <fullName>Did Not Fully Participate in Car Purchase Process%2C Unable to Find Qualified Interviewee</fullName>
                 <default>false</default>
             </values>
             <values>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
                 <fullName>Engaged</fullName>
                 <default>false</default>
             </values>

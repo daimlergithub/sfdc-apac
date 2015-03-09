@@ -1079,10 +1079,13 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+<<<<<<< HEAD
+=======
         <apexClass>UtilConstant</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <apexClass>UtilCustomSettings</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -4298,11 +4301,14 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+<<<<<<< HEAD
+=======
         <field>Case.PR_Comment_Central_Internal__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <field>Case.PR_Comment_MBCL_Internal__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12005,10 +12011,13 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Central Campaign Layout</layout>
+<<<<<<< HEAD
+=======
         <recordType>Campaign.AS_Cental_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Central Campaign Layout</layout>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <recordType>Campaign.CAS_Marketing_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -12016,6 +12025,8 @@
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
+<<<<<<< HEAD
+=======
         <layout>Campaign-Central Campaign Layout</layout>
         <recordType>Campaign.S_M_Event_Central_Campaign</recordType>
     </layoutAssignments>
@@ -12024,6 +12035,7 @@
         <recordType>Campaign.S_M_Media_Central_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <layout>Campaign-MB BP</layout>
         <recordType>Campaign.MB_Best_Practice</recordType>
     </layoutAssignments>
@@ -13366,11 +13378,14 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+<<<<<<< HEAD
+=======
         <recordType>Campaign.AS_Cental_Campaign</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <recordType>Campaign.CAC_CRM_Campaign</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -13411,21 +13426,27 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+<<<<<<< HEAD
+=======
         <recordType>Campaign.S_M_Event_Central_Campaign</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <recordType>Campaign.S_M_Media_BMBS_Campaign</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+<<<<<<< HEAD
+=======
         <recordType>Campaign.S_M_Media_Central_Campaign</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+>>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         <recordType>Campaign.smart_Best_Practice</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>

@@ -41,19 +41,19 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>BMBS_CRM</name>
+        <name>Central_CRM</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>BMBS_Dealer_Portal</name>
+        <name>Central_Dealer_Portal</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>BMBS_Lead_Management</name>
+        <name>Central_Lead_Management</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>BMBS_Marketing</name>
+        <name>Central_Marketing</name>
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>

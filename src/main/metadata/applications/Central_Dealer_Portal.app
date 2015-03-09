@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
-    <label>BMBS Marketing</label>
-    <logo>Logo/MBCL_LOGO.png</logo>
+    <label>Central Dealer Portal</label>
     <tab>standard-Account</tab>
-    <tab>standard-Campaign</tab>
-    <tab>Participating_Dealer__c</tab>
-    <tab>Campaign_Partner__c</tab>
-    <tab>Template__c</tab>
-    <tab>DM_Material__c</tab>
+    <tab>Tasks</tab>
+    <tab>Lead__c</tab>
+    <tab>standard-Case</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
+    <tab>Retail_Campaign__c</tab>
     <tab>Account_Link__c</tab>
 </CustomApplication>

@@ -866,7 +866,7 @@ SSI:
 1. Fully understand and master configuration and performance smart products price, dealer distribution.
 2. Basic knowledge of car related knowledge.
 3. Q5031 and Q10041 on the topic, understanding the product highlights and accurate records of customers referred to.</inlineHelpText>-->
-        <label>Familiar BMBS/smart/ Knowledge</label>
+        <label>Familiar Central/smart/ Knowledge</label>
         <picklist>
             <picklistValues>
                 <fullName>Pass</fullName>
@@ -1793,7 +1793,7 @@ Breathe out,SSI:
     <fields>
         <fullName>Q6_Comments__c</fullName>
         <externalId>false</externalId>
-        <label>Familiar BMBS/smart/ Knowledge Comments</label>
+        <label>Familiar Smart/Knowledge Comments</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2063,11 +2063,11 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>R_Familiar_BMBS_smart_Knowledge_P_F_S1__c</fullName>
+        <fullName>R_Familiar_smart_Knowledge_P_F_S1__c</fullName>
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(FMSK__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Familiar BMBS/smart/ Knowledge P/F S1</label>
+        <label>Familiar Smart/Knowledge P/F S1</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2075,11 +2075,11 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>R_Familiar_BMBS_smart_Knowledge_P_F_S2__c</fullName>
+        <fullName>R_Familiar_smart_Knowledge_P_F_S2__c</fullName>
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(FMSK__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Familiar BMBS/smart/ Knowledge P/F S2</label>
+        <label>Familiar Smart/Knowledge P/F S2</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
