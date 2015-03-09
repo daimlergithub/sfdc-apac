@@ -10849,10 +10849,6 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Account.MBDA</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <recordType>Account_Link__c.Contact2Contact</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>

@@ -10512,10 +10512,6 @@
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Dealer Layout-Portal</layout>
-        <recordType>Account.MBDA</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
     </layoutAssignments>
     <layoutAssignments>

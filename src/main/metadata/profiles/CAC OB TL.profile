@@ -11617,11 +11617,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Account.MBDA</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
         <recordType>Account_Link__c.Contact2Contact</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>

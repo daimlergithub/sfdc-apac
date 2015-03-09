@@ -10443,10 +10443,6 @@
         <layout>Account-Dealer Layout-CAC</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Dealer Layout-CAC</layout>
-        <recordType>Account.MBDA</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Account-Dealer Layout-Portal</layout>
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
@@ -11358,11 +11354,6 @@
         <default>false</default>
         <recordType>Account.Dealer</recordType>
         <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Account.MBDA</recordType>
-        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
