@@ -395,11 +395,7 @@ public with sharing class UserHelper {
     
     public static void ShareAsCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
-<<<<<<< HEAD
         recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId());
-=======
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS BMBS Campaign').getRecordTypeId());
->>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
@@ -419,13 +415,9 @@ public with sharing class UserHelper {
     
     public static void ShareSmCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
-<<<<<<< HEAD
+
         recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId());
         recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media Central Campaign').getRecordTypeId());
-=======
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event BMBS Campaign').getRecordTypeId());
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media BMBS Campaign').getRecordTypeId());
->>>>>>> 0c75d2ee5961f764dff39b840af5b7a6d2543e81
         
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
