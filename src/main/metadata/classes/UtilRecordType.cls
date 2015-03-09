@@ -14,6 +14,10 @@ global with sharing class UtilRecordType {
 	public final static String Account_Object = 'Account';  
 	public final static String person_Account = 'Person Account';  
 	public final static String Dealer = 'Dealer';  
+	
+	public final static String Vehicle_Relationship ='Vehicle_Relationship__c';
+    public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
+  
     private static Map<Id, Schema.RecordTypeInfo> recordTypeInfoByIdMap = 
         new Map<Id, Schema.RecordTypeInfo>();
 
