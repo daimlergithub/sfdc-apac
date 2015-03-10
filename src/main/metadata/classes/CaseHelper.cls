@@ -167,37 +167,7 @@ public class CaseHelper{
     public static List<User> REGIONAL_CRM_MGR_USERS = [select Id, UserRole.Name from User where UserRole.Name like 'Regional CRM Mgr%' and isActive = true];
     public static List<QueueSobject> CENTRAL_REGIONAL_CASE_QUEUES = [select Id, QueueId from QueueSobject where SobjectType = 'Case' and (Queue.Name like 'Central Office%' or Queue.Name like 'Regional Office%')];
     public static List<QueueSobject> CENTRAL_CASE_QUEUES = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like '%Central Office%'];
-        
-    public static void insertSobjects(List<Sobject> sos) {
-        try {
-            insert sos;
-        }
-        catch (DMLException e) {
-            sos[0].addError(e.getDMLMessage(0));
-            System.debug('Exception message is :' + e.getDMLMessage(0));
-        }
-    }
-
-    public static void updateSobjects(List<Sobject> sos) {
-        try {
-            update sos;
-        }
-        catch (DMLException e) {
-            sos[0].addError(e.getDMLMessage(0));
-            System.debug('Exception message is :' + e.getDMLMessage(0));
-        }
-    }
     
-    public static void deleteSobjects(List<Sobject> sos) {
-        try {
-            delete sos;
-        }
-        catch (DMLException e) {
-            sos[0].addError(e.getDMLMessage(0));
-            System.debug('Exception message is :' + e.getDMLMessage(0));
-        }
-    }
-
     // set infomations about Vehicle
     public static Case setVehicleInfo(Case c, Vehicle_Relationship__c vr){
         
@@ -264,7 +234,7 @@ public class CaseHelper{
         for(User cus: [select id, AccountId from User 
                         where isActive=true 
                         and AccountId in :casesToShare.values() 
-                        and (Profile.Name = 'Dealer Community Delegate Admin' 
+                        and (Profile.Name =: UtilConstant.DEALER_DELEGATE_ADMIN
                         or Contact.Permission_Set_Settings__c includes ('Complaint_Management'))]) {
             if(!accountIdUserIds.containsKey(cus.AccountId)) {
                 accountIdUserIds.put(cus.AccountId, new List<Id>());
@@ -289,8 +259,8 @@ public class CaseHelper{
             }
         }
         
-        if(caseTeamMembers.size() > 0) {
-            insertSobjects(caseTeamMembers);
+        if(caseTeamMembers!=null && !caseTeamMembers.IsEmpty()) {
+            UtilSobject.insertSobjects(caseTeamMembers);
         }
         
         shareCaseVehicleToDealer(vehicleToOwner);
@@ -311,7 +281,7 @@ public class CaseHelper{
         for(User cus: [select id, AccountId from User 
                         where isActive=true 
                         and AccountId in :allAccountIds 
-                        and (Profile.Name = 'Dealer Community Delegate Admin' 
+                        and (Profile.Name =: UtilConstant.DEALER_DELEGATE_ADMIN 
                         or Contact.Permission_Set_Settings__c includes ('Complaint_Management'))]) {
             if(!accountIdUserIds.containsKey(cus.AccountId)) {
                 accountIdUserIds.put(cus.AccountId, new List<Id>());
@@ -338,8 +308,8 @@ public class CaseHelper{
             }
         }
         
-        if(caseTeamMembers.size() > 0) {
-            insertSobjects(caseTeamMembers);
+        if(caseTeamMembers!=null && !caseTeamMembers.IsEmpty()) {
+            UtilSobject.insertSobjects(caseTeamMembers);
         }
     }
     
@@ -357,7 +327,7 @@ public class CaseHelper{
         List<User> usrList = [select id, AccountId from User 
                                 where isActive=true 
                                 and AccountId in :allAccountIds 
-                                and (Profile.Name = 'Dealer Community Delegate Admin' 
+                                and (Profile.Name =: UtilConstant.DEALER_DELEGATE_ADMIN 
                         or Contact.Permission_Set_Settings__c includes ('Complaint_Management'))];
         
         for(CaseTeamMember ctm: [select id, ParentId from CaseTeamMember where MemberId in :usrList]){
@@ -368,8 +338,8 @@ public class CaseHelper{
             }
         }
 
-        if(caseTeamMembers.size() > 0) {
-            deleteSobjects(caseTeamMembers);
+        if(caseTeamMembers!=null && !caseTeamMembers.IsEmpty()) {
+            UtilSobject.deleteSobjects(caseTeamMembers);
         }
     }
     
@@ -485,8 +455,8 @@ public class CaseHelper{
             SMSTasks.add(smsTask);
         }
         
-        if(SMSTasks.size() > 0) {
-            insertSobjects(SMSTasks);
+        if(SMSTasks!=null && !SMSTasks.IsEmpty()) {
+            UtilSobject.insertSobjects(SMSTasks);
         }
     }
     
@@ -497,8 +467,8 @@ public class CaseHelper{
         for(case c : casesForDescription) {
             CaseDescrptions.add(new Complaint_Description__c(Case__c = c.id, Created_By__c = c.CreatedbyId, Description__c = c.Description, Date_Time__c = system.now(), Action__c = 'Created'));
         }      
-        if(CaseDescrptions.size() > 0) {
-            insertSobjects(CaseDescrptions);
+        if(CaseDescrptions!=null && !CaseDescrptions.IsEmpty()) {
+            UtilSobject.insertSobjects(CaseDescrptions);
         }
     }
     
@@ -519,8 +489,8 @@ public class CaseHelper{
             cs.add(new CaseShare(CaseId = UseridCaseid.get(i), UserOrGroupId = i));
         }
         
-        if(cs.size() > 0) {
-            insertSobjects(cs);
+        if(cs!=null && !cs.IsEmpty()) {
+            UtilSobject.insertSobjects(cs);
         }
     }
     
@@ -543,8 +513,8 @@ public class CaseHelper{
             }
         }
         
-        if(caseTeamMembers.size() > 0) {
-            insertSobjects(caseTeamMembers);
+        if(caseTeamMembers!=null && !caseTeamMembers.IsEmpty()) {
+            UtilSobject.insertSobjects(caseTeamMembers);
         }
     }
     
@@ -601,8 +571,8 @@ public class CaseHelper{
             caseIdExistUserIds.add(cs.ParentId + '__' + cs.MemberId);
         }
         
-        if(caseTeamMembers.size() > 0) {
-            insertSobjects(caseTeamMembers);
+        if(caseTeamMembers!=null && !caseTeamMembers.IsEmpty()) {
+            UtilSobject.insertSobjects(caseTeamMembers);
         }
     }
 
@@ -700,8 +670,8 @@ public class CaseHelper{
                     vehicleSharings.add(new Vehicle__Share(ParentId = vehicleId, UserOrGroupId = dealerId, AccessLevel = 'Read'));
                 }
             }
-            
-            insertSobjects(vehicleSharings);
+            if(vehicleSharings!=null && !vehicleSharings.IsEmpty())
+            UtilSobject.insertSobjects(vehicleSharings);
         }
     }
     
@@ -744,8 +714,8 @@ public class CaseHelper{
                updateCase.add(ca);
             }
         }
-        if (updateCase.size() > 0){
-           updateSobjects(updateCase);
+        if (updateCase!=null && !updateCase.IsEmpty()){
+           UtilSobject.updateSobjects(updateCase);
         }
     }
     
@@ -766,7 +736,7 @@ public class CaseHelper{
     }
     
     
-    /****** Adding the logical manipulation for caseBeforeInsertUpdateTrigger *****/
+    			/****** Adding the logical manipulation for caseBeforeInsertUpdateTrigger *****/
     public static void caseBeforeInsertUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal){
 		    String[] eAddresses = null;
 		    String email = null;
@@ -775,85 +745,84 @@ public class CaseHelper{
 		    Map<id,String> vrsMap = new Map<id,String>();
 		    
 		    for(Case caseNew : cases) {
-	        if(isInsert && caseNew.RecordTypeId == RETAIL_CAMPAIGN_RECORD_TYPE && CURRENT_PROFILE.Name.startsWith('CAC')) {
-	            caseIds.add(caseNew.Id);
-	        }
-	        // Check the Others email address
-	        if (C_MB_RECORD_TYPE == caseNew.RecordTypeId){
-	            // if the email address of the manager is blank, it can't be the recipient.
-	            if (caseNew.Notice_AS__c && (caseNew.Aftersales_Manager__c == null || caseNew.Aftersales_Manager__c.trim() == '')) {
-	                caseNew.Notice_AS__c = false;
-	            }
-	            if (caseNew.Notice_CRM__c && (caseNew.CRM_Manager__c == null || caseNew.CRM_Manager__c.trim() == '')) {
-	                caseNew.Notice_CRM__c = false;
-	            }
-	            if (caseNew.Notice_GM__c && (caseNew.General_Manager__c == null || caseNew.General_Manager__c.trim() == '')) {
-	                caseNew.Notice_GM__c = false;
-	            }
-	            if (caseNew.Notice_SM__c && (caseNew.Sales_Manager__c == null || caseNew.Sales_Manager__c.trim() == '')) {
-	                caseNew.Notice_SM__c = false;
-	            }
-	                
-	            if (caseNew.Others__c != null && caseNew.Others__c.trim() != '') {
-	                isError = false;
-	                email = '';
-	                eAddresses = caseNew.Others__c.trim().split('\n');
-	                
-	                for (String e : eAddresses) {
-	                    if (e.trim() != '') {
-	                        if (!pattern.matches('[_a-zA-Z\\d\\-\\./]+@[_a-zA-Z\\d\\-]+(\\.[_a-zA-Z\\d\\-]+)+',e.trim())) {
-	                            caseNew.addError('Other email address format is incorrect, and one can only fill in the email address.');
-	                            break;
-	                        } else {
-	                            email = email + e.trim() + '\n';
-	                        }
-	                    }
-	                }
-	                caseNew.Others__c = email.trim();
-	            }
-	        }
-	    }
-	    if (caseIds.size()>0){
-	        for(Case vr : [Select Id, Retail_Campaign__r.Record_Type_Name__c, Retail_Campaign__c From Case where id in :caseIds]){
-	            if(!vrsMap.containsKey(vr.id)){
-	                vrsMap.put(vr.id,vr.Retail_Campaign__r.Record_Type_Name__c);
-	            }
-	        }
-	    }
+		        if(isInsert && caseNew.RecordTypeId == RETAIL_CAMPAIGN_RECORD_TYPE && CURRENT_PROFILE.Name.startsWith('CAC')) {
+		            caseIds.add(caseNew.Id);
+		        }
+		        // Check the Others email address
+		        if (C_MB_RECORD_TYPE == caseNew.RecordTypeId){
+		            // if the email address of the manager is blank, it can't be the recipient.
+		            if (caseNew.Notice_AS__c && (caseNew.Aftersales_Manager__c == null || caseNew.Aftersales_Manager__c.trim() == '')) {
+		                caseNew.Notice_AS__c = false;
+		            }
+		            if (caseNew.Notice_CRM__c && (caseNew.CRM_Manager__c == null || caseNew.CRM_Manager__c.trim() == '')) {
+		                caseNew.Notice_CRM__c = false;
+		            }
+		            if (caseNew.Notice_GM__c && (caseNew.General_Manager__c == null || caseNew.General_Manager__c.trim() == '')) {
+		                caseNew.Notice_GM__c = false;
+		            }
+		            if (caseNew.Notice_SM__c && (caseNew.Sales_Manager__c == null || caseNew.Sales_Manager__c.trim() == '')) {
+		                caseNew.Notice_SM__c = false;
+		            }
+		                
+		            if (caseNew.Others__c != null && caseNew.Others__c.trim() != '') {
+		                isError = false;
+		                email = '';
+		                eAddresses = caseNew.Others__c.trim().split('\n');
+		                
+		                for (String e : eAddresses) {
+		                    if (e.trim() != '') {
+		                        if (!pattern.matches('[_a-zA-Z\\d\\-\\./]+@[_a-zA-Z\\d\\-]+(\\.[_a-zA-Z\\d\\-]+)+',e.trim())) {
+		                            caseNew.addError('Other email address format is incorrect, and one can only fill in the email address.');
+		                            break;
+		                        } else {
+		                            email = email + e.trim() + '\n';
+		                        }
+		                    }
+		                }
+		                caseNew.Others__c = email.trim();
+		            }
+		        }
+	    	}
+		    if (caseIds.size()>0){
+		        for(Case vr : [Select Id, Retail_Campaign__r.Record_Type_Name__c, Retail_Campaign__c From Case where id in :caseIds]){
+		            if(!vrsMap.containsKey(vr.id)){
+		                vrsMap.put(vr.id,vr.Retail_Campaign__r.Record_Type_Name__c);
+		            }
+		        }
+		    }
 	    
-	     // [End] Added by Cyril Huang on 2014-05-06(Release1.1b)
+	     // [End] Added by Cyril Huang on 2014-05-06(Release1.1b)	    
 	    
+			Map<Id, List<Id>> parentIdChildIds = new Map<Id, List<Id>>();
+		    Set<Id> parenthasParents = new Set<Id>();
+		    Set<Id> parentIds = new Set<Id>();
+		    Set<Id> vehicleRelationships = new Set<Id>();
+		    Map<Id, Vehicle_Relationship__c> vehicleRelationshipInfo = new Map<Id, Vehicle_Relationship__c>();
+		    List<Case> changeOwnerAndSendMailObjs = new List<Case>();
+		    // Delete Start - Release 1.3 - Deleted by Cyril
+		    //List<Case> changeOwnerObjs = new List<Case>();
+		    //Map<id,User> changeOwnerObjsResult = new Map<id,User>();
+		    // Delete End - Release 1.3 - Deleted by Cyril
+		    Map<id,User> changeOwnerAndSendMailObjsResult = new Map<id,User>();
+		    Set<Id> queueIds = new Set<Id>();
+		    Map<String, String> subTypeMap = new Map<String, String>();
+		    Map<Id, String> dealerIdsforRetailInquiry = new Map<Id, String>();
+		    Map<Id, Id> dealerIdUserId = new Map<Id, Id>();
+		    Set<Id> retailCaseOwners = new Set<id>();
+		    List<Case> retailCases = new List<Case>();
+		    Boolean viewCACIBSVUsers = false;
+		    List<User> CACIBSVUsers;
+		    Id accountId;
+		    if(UserInfo.getUserType() == 'PowerPartner' && isInsert) {
+		        accountId = [select id , AccountId from user where id = :userinfo.getUserId()].AccountId;
+		    }
 	    
-		Map<Id, List<Id>> parentIdChildIds = new Map<Id, List<Id>>();
-	    Set<Id> parenthasParents = new Set<Id>();
-	    Set<Id> parentIds = new Set<Id>();
-	    Set<Id> vehicleRelationships = new Set<Id>();
-	    Map<Id, Vehicle_Relationship__c> vehicleRelationshipInfo = new Map<Id, Vehicle_Relationship__c>();
-	    List<Case> changeOwnerAndSendMailObjs = new List<Case>();
-	    // Delete Start - Release 1.3 - Deleted by Cyril
-	    //List<Case> changeOwnerObjs = new List<Case>();
-	    //Map<id,User> changeOwnerObjsResult = new Map<id,User>();
-	    // Delete End - Release 1.3 - Deleted by Cyril
-	    Map<id,User> changeOwnerAndSendMailObjsResult = new Map<id,User>();
-	    Set<Id> queueIds = new Set<Id>();
-	    Map<String, String> subTypeMap = new Map<String, String>();
-	    Map<Id, String> dealerIdsforRetailInquiry = new Map<Id, String>();
-	    Map<Id, Id> dealerIdUserId = new Map<Id, Id>();
-	    Set<Id> retailCaseOwners = new Set<id>();
-	    List<Case> retailCases = new List<Case>();
-	    Boolean viewCACIBSVUsers = false;
-	    List<User> CACIBSVUsers;
-	    Id accountId;
-	    if(UserInfo.getUserType() == 'PowerPartner' && trigger.isInsert) {
-	        accountId = [select id , AccountId from user where id = :userinfo.getUserId()].AccountId;
-	    }
-	    
-	    //get subtype chinese subject
-	    if(isInsert && CURRENT_PROFILE.Name.startsWith('CAC')){
-	        for(Case_SubType_Mapping__c csm: [select Name,Case_Subject_CN__c from Case_SubType_Mapping__c]){
-	            subTypeMap.put(csm.Name, csm.Case_Subject_CN__c);
-	        }
-	    }
+	    	//get subtype chinese subject
+		    if(isInsert && CURRENT_PROFILE.Name.startsWith('CAC')){
+		        for(Case_SubType_Mapping__c csm: [select Name,Case_Subject_CN__c from Case_SubType_Mapping__c]){
+		            subTypeMap.put(csm.Name, csm.Case_Subject_CN__c);
+		        }
+		    }
 	    
 		    for(Case caseNew : cases) {
 	        if (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId || C_MB_RECORD_TYPE == caseNew.RecordTypeId){
@@ -918,23 +887,23 @@ public class CaseHelper{
 	    
 	    
 	        if(dealerIdsforRetailInquiry.size() > 0) {
-        dealerIdUserId = CaseHelper.getDealerSMManager(dealerIdsforRetailInquiry);
-    }
+        		dealerIdUserId = CaseHelper.getDealerSMManager(dealerIdsforRetailInquiry);
+    		}
 
-    if (parentIds.size()>0){
-        for(Case ca : [select Id, ParentId from Case where ParentId in :parentIds]) {
-            if(!parentIdChildIds.containsKey(ca.ParentId)) {
-                parentIdChildIds.put(ca.ParentId, new List<Id>());
-            }
-            parentIdChildIds.get(ca.ParentId).add(ca.Id);
-        }
-
-        for(Case ca : [select Id, ParentId from Case where Id in :parentIds]) {
-            if(ca.ParentId != null) {
-                parenthasParents.add(ca.Id);
-            }
-        }
-    }
+		    if (parentIds.size()>0){
+		        for(Case ca : [select Id, ParentId from Case where ParentId in :parentIds]) {
+		            if(!parentIdChildIds.containsKey(ca.ParentId)) {
+		                parentIdChildIds.put(ca.ParentId, new List<Id>());
+		            }
+		            parentIdChildIds.get(ca.ParentId).add(ca.Id);
+		        }
+		
+		        for(Case ca : [select Id, ParentId from Case where Id in :parentIds]) {
+		            if(ca.ParentId != null) {
+		                parenthasParents.add(ca.Id);
+		            }
+		        }
+		    }
 
    		//get vehicle infomation
 	    if (vehicleRelationships.size()>0){
@@ -1602,12 +1571,12 @@ public class CaseHelper{
 	        shareCaseToRO(casesToShareRO);
 	    } 
 	    
-	    if (insertCaseHistorys.size()>0){
-	        insertSobjects(insertCaseHistorys);
+	    if (insertCaseHistorys!=null && !insertCaseHistorys.IsEmpty()){
+	        UtilSobject.insertSobjects(insertCaseHistorys);
 	    }
 	    
-	    if (insertCaseDescriptions.size()>0){
-	        insertSobjects(insertCaseDescriptions);
+	    if (insertCaseDescriptions!=null && !insertCaseDescriptions.IsEmpty()){
+	        UtilSobject.insertSobjects(insertCaseDescriptions);
 	    }
 	    
 	    //Creat the case description record
@@ -1642,5 +1611,6 @@ public class CaseHelper{
 	    handler.shareAccountByComplaint(newVal, oldVal, isInsert);
 	    //---------------------Bing add for data sharing-----------------
     	
-    }	    
+    }
+	    
 }

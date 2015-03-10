@@ -18,19 +18,20 @@ public with sharing class UserHelper {
     public Static final String ErrorMessageGateKeeper = 'The user profile selected does not match with the contact role selected in the contact record.';
     public Static final String ErrorMessageContactSelect = 'Your contact must have to check with one of below: Dealer Lead Gate Keeper, Dealer Complaint Gate Keeper, Dealer Complaint User, Dealer Marketing Manager.';
     
-    public Static id DealerComplaintUserId = UtilCustomSettings.getProfileId('Dealer Community User');
-    public Static id DealerDelegatedAdminId = UtilCustomSettings.getProfileId('Dealer Delegate Admin');
+    public Static id DealerComplaintUserId;
+    public Static id DealerDelegatedAdminId;
     
-    public Static id CACSSICSRId = UtilCustomSettings.getProfileId('CAC SSI CSR');
-    public Static id CACSSIQCId = UtilCustomSettings.getProfileId('CAC SSI QC');
-    public Static id CACSSISVId = UtilCustomSettings.getProfileId('CAC SSI SV');
-    public Static id CACSSITLId = UtilCustomSettings.getProfileId('CAC SSI TL');
-    public Static id CACSSITRAINERId = UtilCustomSettings.getProfileId('CAC SSI Trainer');
+    public Static id CACSSICSRId;
+    public Static id CACSSIQCId;
+    public Static id CACSSISVId;
+    public Static id CACSSITLId;
+    public Static id CACSSITRAINERId;
     
     //validate No of Dealer Portal Licanses
-    public static void ValidateUser(list<user> usersList) {
-    
-     Set<Id> profileIds = new Set<Id>();
+    public static void ValidateUser(list<user> usersList)
+    {
+    	getPofileId();
+     	Set<Id> profileIds = new Set<Id>();
          profileIds.add(DealerComplaintUserId);
          profileIds.add(DealerDelegatedAdminId);
          User userObj=usersList[0];
@@ -102,7 +103,7 @@ public with sharing class UserHelper {
 
     @future
     public static void ShareAllDataToNewUserFuture(Id newUserId, Set<Id> existUserIds, Id profileId) {
-
+		getPofileId();
         User newUser = [select Id, Contact.Permission_Set_Settings__c from User where Id = :newUserId];
 
         if(profileId == DealerDelegatedAdminId || newUser.Contact.Permission_Set_Settings__c.contains('Complaint_Management')) {
@@ -395,7 +396,8 @@ public with sharing class UserHelper {
     
     public static void ShareAsCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS BMBS Campaign').getRecordTypeId());
+        
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             CampaignShare share = new CampaignShare();
@@ -414,8 +416,9 @@ public with sharing class UserHelper {
     
     public static void ShareSmCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId());
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media Central Campaign').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event BMBS Campaign').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media BMBS Campaign').getRecordTypeId());
+        
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             CampaignShare share = new CampaignShare();
@@ -516,12 +519,12 @@ public with sharing class UserHelper {
     
     public static void AfterInsert_UpdateMethod(list<User> usersList,map<id,User> userOldMap,boolean isInsert,boolean isUpdate)
     {
-    Set<Id> profileIds = new Set<Id>();
-    
-     if(DealerComplaintUserId!=null)
-         profileIds.add(DealerComplaintUserId);
-         if(DealerDelegatedAdminId!=null) 
-         profileIds.add(DealerDelegatedAdminId);
+	    getPofileId();	
+	    Set<Id> profileIds = new Set<Id>();
+     	if(DealerComplaintUserId!=null)
+        profileIds.add(DealerComplaintUserId);
+        if(DealerDelegatedAdminId!=null) 
+        profileIds.add(DealerDelegatedAdminId);
      
          Set<Id> SSIprofileIds = new Set<Id>();
          
@@ -566,10 +569,43 @@ public with sharing class UserHelper {
              }
              TaskHelper.autoUpdateSSITask(userIds);
      
-             if(userPermissionSetIds.size() > 0) {
+             if(userPermissionSetIds!=null && !userPermissionSetIds.IsEmpty()) {
                  AssignPermissionSetForPortalUser(userPermissionSetIds);
                  ShareAllDataToNewUser(usersList[0].AccountId, usersList[0].Id, usersList[0].ProfileId);
              }
          }
+    }
+    
+    public static void getPofileId()
+    {
+    	set<string> profleNames= new set<string>();
+    	profleNames.add('Dealer Community User');
+    	profleNames.add('Dealer Delegate Admin');
+    	profleNames.add('CAC SSI CSR');
+    	profleNames.add('CAC SSI QC');
+    	profleNames.add('CAC SSI SV');
+    	profleNames.add('CAC SSI TL');
+    	profleNames.add('CAC SSI Trainer');
+    	List<Profile> lstProfiles=[select id, name from Profile where name in:profleNames];
+    	if(lstProfiles!=null && !lstProfiles.IsEmpty())
+    	{
+    		for(Profile obj:lstProfiles)
+    		{
+    			if(obj.name=='Dealer Community User')
+    				DealerComplaintUserId=obj.Id;
+    			if(obj.name=='Dealer Delegate Admin')
+    				DealerDelegatedAdminId=obj.Id;
+    			if(obj.name=='CAC SSI CSR')
+    				CACSSICSRId=obj.Id;
+    			if(obj.name=='CAC SSI QC')
+    				CACSSIQCId=obj.Id;
+    			if(obj.name=='CAC SSI SV')
+    				CACSSISVId=obj.Id;
+    			if(obj.name=='CAC SSI TL')
+    				CACSSITLId=obj.Id;
+    			if(obj.name=='CAC SSI Trainer')
+    				CACSSITRAINERId=obj.Id;
+    		}
+    	}
     }
 }

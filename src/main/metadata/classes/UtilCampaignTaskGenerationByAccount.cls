@@ -18,6 +18,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
     
     private MisunderstoodTaskGeneration mis;
     public List<Campaign> cpUpdateList = new List<Campaign>(); 
+     public List<User> genericUserQueryList = new List<User>(); 
     public List<User> obuserList = new List<User>(); 
     public User intUser;
     public User fulfillmentSpUser;
@@ -39,10 +40,11 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
     
     global Map<String, Schema.RecordTypeInfo> taskRecordTypeMap;
     
-    global UtilCampaignTaskGenerationByAccount(List<Campaign> cpList, Id nexJobId) {
-        obuserList = [select id, name from User where UserRole.Name = 'OB Supervisor' and IsActive = true LIMIT 1];
+    global UtilCampaignTaskGenerationByAccount(List<Campaign> cpList, Id nexJobId) 
+    {
+        //obuserList = [select id, name from User where UserRole.Name = 'OB Supervisor' and IsActive = true LIMIT 1];
         intUser = [SELECT Id FROM User WHERE Profile.Name = 'IntegrationAPI' AND isActive = true  LIMIT 1];
-        fulfillmentSpUser = [SELECT Id FROM User WHERE UserRole.Name like '%Fulfillment Specialist%' AND isActive = true LIMIT 1];
+        //fulfillmentSpUser = [SELECT Id FROM User WHERE UserRole.Name like '%Fulfillment Specialist%' AND isActive = true LIMIT 1];
 
         for(Campaign cp : cpList) {
             cpIdList.add(cp.Id);
@@ -142,11 +144,11 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
         }
 
         if(cpm.Campaign.Execution_Type__c == strOBCall) {        
-            for(user u : obuserList) {
+          //  for(user u : obuserList) {
                 taskList.add(new Task(
                     Subject= strOBCall, 
                     RecordTypeId = taskRecordTypeMap.get('OB Task').getRecordTypeId(),
-                    OwnerId = u.Id,
+                   // OwnerId = u.Id,
                     Status = strOpenStatus,
                     DUP_Number__c = (cpm.ContactId == null ? ' ' : cpm.Contact.DUP_Number__c), 
                     WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
@@ -158,7 +160,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
                     ActivityDate = date.today(),
                     UniqueCampaignGenerateTask__c = uniqueTaskField)
                 );
-            }
+          //  }
         } else if (cpm.Campaign.Execution_Type__c == strSMS && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
             taskList.add(new Task(
                 Subject= strSMS, 
@@ -212,7 +214,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
             taskList.add(new Task(
                 Subject = strDM, 
                 RecordTypeId = taskRecordTypeMap.get('DM').getRecordTypeId(),
-                OwnerId = fulfillmentSpUser.Id,
+                //OwnerId = fulfillmentSpUser.Id,
                 Status = strOpenStatus,
                 WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
                 WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),

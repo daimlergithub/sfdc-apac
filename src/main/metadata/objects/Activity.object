@@ -383,6 +383,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>MBCL</fullName>
+                <controllingFieldValues>BBAC</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Voice mail</fullName>
                 <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
@@ -522,6 +527,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBCL</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1680,7 +1689,7 @@
         <formula>IF(Called__c == &apos;4008108880&apos;, 
 &apos;BBAC&apos;,
 IF (Called__c == &apos;4008181188&apos;,
-&apos;Central&apos;,
+&apos;BMBS&apos;,
 IF (Called__c == &apos;4008110000&apos;,
 &apos;Smart&apos;,&apos;&apos;)
 )
@@ -1694,7 +1703,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_Check_Activity_Status__c</fullName>
         <externalId>false</externalId>
-        <formula>if( ISPICKVAL( Status__c ,&apos;Valid&apos;),&apos;否&apos;,&apos;is&apos;)</formula>
+        <formula>if( ISPICKVAL( Status__c ,&apos;Valid&apos;),&apos;否&apos;,&apos;是&apos;)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Activity Status</label>
         <required>false</required>
@@ -2868,10 +2877,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
     <searchLayouts>
         <excludedStandardButtons>NewTask</excludedStandardButtons>
         <excludedStandardButtons>NewEvent</excludedStandardButtons>
-		<!-- TODO Commented as part of kernel deployment
-        <listViewButtons>Bulk_Assign</listViewButtons>		
-        <listViewButtons>Manual_Assign</listViewButtons>
-		-->
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>

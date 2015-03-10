@@ -18,24 +18,6 @@ public class QCHelper {
     private static Decimal failedFatalQuestions;
     private static Decimal failedFatalQuestionsForSSI2;
     
-    public static void insertSobjects(List<Sobject> sos) {
-        try {
-            insert sos;
-        }
-        catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
-        }
-    }
-    
-    private static void updateSobjects(List<Sobject> sos) {
-        try {
-            update sos;
-        }
-        catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
-        }
-    }
-    
     public static Decimal IBCallTotalScore(QC__c qc) {
         passedQuestions = 0;
         filledQuestions = 0;
@@ -337,19 +319,19 @@ public class QCHelper {
         failedFatalQuestions = 0;
 
         //summary failedFatalQuestions
-        if(qc.DA__c == 'middle' || qc.DA__c == 'Low') {
+        if(qc.DA__c == 'Medium' || qc.DA__c == 'Low') {
             failedFatalQuestions += 1;
         }
-        if(qc.FTOP__c == 'middle' || qc.FTOP__c == 'Low') {
+        if(qc.FTOP__c == 'Medium' || qc.FTOP__c == 'Low') {
             failedFatalQuestions += 1;
         }
-        if(qc.FQL__c == 'middle' || qc.FQL__c == 'Low') {
+        if(qc.FQL__c == 'Medium' || qc.FQL__c == 'Low') {
             failedFatalQuestions += 1;
         }
-        if(qc.PFOCF__c == 'middle' || qc.PFOCF__c == 'Low') {
+        if(qc.PFOCF__c == 'Medium' || qc.PFOCF__c == 'Low') {
             failedFatalQuestions += 1;
         }
-        if(qc.PPD__c == 'middle' || qc.PPD__c == 'Low') {
+        if(qc.PPD__c == 'Medium' || qc.PPD__c == 'Low') {
             failedFatalQuestions += 1;
         }
         
@@ -480,61 +462,61 @@ public class QCHelper {
         passedQuestions = 0;
         
         //summary passedQuestions
-        if(qc.PACI__c == 'High' || qc.PACI__c == 'middle') {
+        if(qc.PACI__c == 'High' || qc.PACI__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.DA__c == 'High' || qc.DA__c == 'middle') {
+        if(qc.DA__c == 'High' || qc.DA__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.CITQ__c == 'High' || qc.CITQ__c == 'middle') {
+        if(qc.CITQ__c == 'High' || qc.CITQ__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.FMSK__c == 'High' || qc.FMSK__c == 'middle') {
+        if(qc.FMSK__c == 'High' || qc.FMSK__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.FTOP__c == 'High' || qc.FTOP__c == 'middle') {
+        if(qc.FTOP__c == 'High' || qc.FTOP__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.FQL__c == 'High' || qc.FQL__c == 'middle') {
+        if(qc.FQL__c == 'High' || qc.FQL__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.SO__c == 'High' || qc.SO__c == 'middle') {
+        if(qc.SO__c == 'High' || qc.SO__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.PPIS__c == 'High' || qc.PPIS__c == 'middle') {
+        if(qc.PPIS__c == 'High' || qc.PPIS__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.SPL__c == 'High' || qc.SPL__c == 'middle') {
+        if(qc.SPL__c == 'High' || qc.SPL__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.SSL__c == 'High' || qc.SSL__c == 'middle') {
+        if(qc.SSL__c == 'High' || qc.SSL__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.SC__c == 'High' || qc.SC__c == 'middle') {
+        if(qc.SC__c == 'High' || qc.SC__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.CALA__c == 'High' || qc.CALA__c == 'middle') {
+        if(qc.CALA__c == 'High' || qc.CALA__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.CAI__c == 'High' || qc.CAI__c == 'middle') {
+        if(qc.CAI__c == 'High' || qc.CAI__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.CARR__c == 'High' || qc.CARR__c == 'middle') {
+        if(qc.CARR__c == 'High' || qc.CARR__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.PFOCF__c == 'High' || qc.PFOCF__c == 'middle') {
+        if(qc.PFOCF__c == 'High' || qc.PFOCF__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.PPD__c == 'High' || qc.PPD__c == 'middle') {
+        if(qc.PPD__c == 'High' || qc.PPD__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.PJ__c == 'High' || qc.PJ__c == 'middle') {
+        if(qc.PJ__c == 'High' || qc.PJ__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.PS__c == 'High' || qc.PS__c == 'middle') {
+        if(qc.PS__c == 'High' || qc.PS__c == 'Medium') {
             passedQuestions += 1;
         }
-        if(qc.PHU__c == 'High' || qc.PHU__c == 'middle') {
+        if(qc.PHU__c == 'High' || qc.PHU__c == 'Medium') {
             passedQuestions += 1;
         }
         return passedQuestions;
@@ -544,61 +526,61 @@ public class QCHelper {
         filledQuestions = 0;
         
         //summary filledQuestions
-        if(qc.PACI__c == 'High' || qc.PACI__c == 'middle' || qc.PACI__c == 'Low') {
+        if(qc.PACI__c == 'High' || qc.PACI__c == 'Medium' || qc.PACI__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.DA__c == 'High' || qc.DA__c == 'middle' || qc.DA__c == 'Low') {
+        if(qc.DA__c == 'High' || qc.DA__c == 'Medium' || qc.DA__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.CITQ__c == 'High' || qc.CITQ__c == 'middle' || qc.CITQ__c == 'Low') {
+        if(qc.CITQ__c == 'High' || qc.CITQ__c == 'Medium' || qc.CITQ__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.FMSK__c == 'High' || qc.FMSK__c == 'middle' || qc.FMSK__c == 'Low') {
+        if(qc.FMSK__c == 'High' || qc.FMSK__c == 'Medium' || qc.FMSK__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.FTOP__c == 'High' || qc.FTOP__c == 'middle' || qc.FTOP__c == 'Low') {
+        if(qc.FTOP__c == 'High' || qc.FTOP__c == 'Medium' || qc.FTOP__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.FQL__c == 'High' || qc.FQL__c == 'middle' || qc.FQL__c == 'Low') {
+        if(qc.FQL__c == 'High' || qc.FQL__c == 'Medium' || qc.FQL__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.SO__c == 'High' || qc.SO__c == 'middle' || qc.SO__c == 'Low') {
+        if(qc.SO__c == 'High' || qc.SO__c == 'Medium' || qc.SO__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.PPIS__c == 'High' || qc.PPIS__c == 'middle' || qc.PPIS__c == 'Low') {
+        if(qc.PPIS__c == 'High' || qc.PPIS__c == 'Medium' || qc.PPIS__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.SPL__c == 'High' || qc.SPL__c == 'middle' || qc.SPL__c == 'Low') {
+        if(qc.SPL__c == 'High' || qc.SPL__c == 'Medium' || qc.SPL__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.SSL__c == 'High' || qc.SSL__c == 'middle' || qc.SSL__c == 'Low') {
+        if(qc.SSL__c == 'High' || qc.SSL__c == 'Medium' || qc.SSL__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.SC__c == 'High' || qc.SC__c == 'middle' || qc.SC__c == 'Low') {
+        if(qc.SC__c == 'High' || qc.SC__c == 'Medium' || qc.SC__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.CALA__c == 'High' || qc.CALA__c == 'middle' || qc.CALA__c == 'Low') {
+        if(qc.CALA__c == 'High' || qc.CALA__c == 'Medium' || qc.CALA__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.CAI__c == 'High' || qc.CAI__c == 'middle' || qc.CAI__c == 'Low') {
+        if(qc.CAI__c == 'High' || qc.CAI__c == 'Medium' || qc.CAI__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.CARR__c == 'High' || qc.CARR__c == 'middle' || qc.CARR__c == 'Low') {
+        if(qc.CARR__c == 'High' || qc.CARR__c == 'Medium' || qc.CARR__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.PFOCF__c == 'High' || qc.PFOCF__c == 'middle' || qc.PFOCF__c == 'Low') {
+        if(qc.PFOCF__c == 'High' || qc.PFOCF__c == 'Medium' || qc.PFOCF__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.PPD__c == 'High' || qc.PPD__c == 'middle' || qc.PPD__c == 'Low') {
+        if(qc.PPD__c == 'High' || qc.PPD__c == 'Medium' || qc.PPD__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.PJ__c == 'High' || qc.PJ__c == 'middle' || qc.PJ__c == 'Low') {
+        if(qc.PJ__c == 'High' || qc.PJ__c == 'Medium' || qc.PJ__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.PS__c == 'High' || qc.PS__c == 'middle' || qc.PS__c == 'Low') {
+        if(qc.PS__c == 'High' || qc.PS__c == 'Medium' || qc.PS__c == 'Low') {
             filledQuestions += 1;
         }
-        if(qc.PHU__c == 'High' || qc.PHU__c == 'middle' || qc.PHU__c == 'Low') {
+        if(qc.PHU__c == 'High' || qc.PHU__c == 'Medium' || qc.PHU__c == 'Low') {
             filledQuestions += 1;
         }
         
@@ -634,7 +616,7 @@ public class QCHelper {
             }
         }
         if(sharingQCs.size() > 0) {
-            insertSobjects(sharingQCs);
+            UtilSobject.insertSobjects(sharingQCs);
         }
     }
     
@@ -653,14 +635,14 @@ public class QCHelper {
     
     public static String SetQualified(QC__c qc) {
 
-        if((qc.DA__c == 'middle' || qc.DA__c == 'High') && (qc.CITQ__c == 'middle' || qc.CITQ__c == 'High') && 
-           (qc.FMSK__c == 'middle' || qc.FMSK__c == 'High') && (qc.FTOP__c == 'middle' || qc.FTOP__c == 'High') && 
-           (qc.FQL__c == 'middle' || qc.FQL__c == 'High') && (qc.SO__c == 'middle' || qc.SO__c == 'High') &&
-           (qc.PPIS__c == 'middle' || qc.PPIS__c == 'High') && (qc.SPL__c == 'middle' || qc.SPL__c == 'High') &&
-           (qc.SSL__c == 'middle' || qc.SSL__c == 'High') && (qc.SC__c == 'middle' || qc.SC__c == 'High') &&
-           (qc.CALA__c == 'middle' || qc.CALA__c == 'High') && (qc.CAI__c == 'middle' || qc.CAI__c == 'High') &&
-           (qc.PFOCF__c == 'middle' || qc.PFOCF__c == 'High') && (qc.PPD__c == 'middle' || qc.PPD__c == 'High') &&
-           (qc.PJ__c == 'middle' || qc.PJ__c == 'High') && (qc.PHU__c == 'middle' || qc.PHU__c == 'High')) {
+        if((qc.DA__c == 'Medium' || qc.DA__c == 'High') && (qc.CITQ__c == 'Medium' || qc.CITQ__c == 'High') && 
+           (qc.FMSK__c == 'Medium' || qc.FMSK__c == 'High') && (qc.FTOP__c == 'Medium' || qc.FTOP__c == 'High') && 
+           (qc.FQL__c == 'Medium' || qc.FQL__c == 'High') && (qc.SO__c == 'Medium' || qc.SO__c == 'High') &&
+           (qc.PPIS__c == 'Medium' || qc.PPIS__c == 'High') && (qc.SPL__c == 'Medium' || qc.SPL__c == 'High') &&
+           (qc.SSL__c == 'Medium' || qc.SSL__c == 'High') && (qc.SC__c == 'Medium' || qc.SC__c == 'High') &&
+           (qc.CALA__c == 'Medium' || qc.CALA__c == 'High') && (qc.CAI__c == 'Medium' || qc.CAI__c == 'High') &&
+           (qc.PFOCF__c == 'Medium' || qc.PFOCF__c == 'High') && (qc.PPD__c == 'Medium' || qc.PPD__c == 'High') &&
+           (qc.PJ__c == 'Medium' || qc.PJ__c == 'High') && (qc.PHU__c == 'Medium' || qc.PHU__c == 'High')) {
             return 'Pass';
         }
         return 'Fail';

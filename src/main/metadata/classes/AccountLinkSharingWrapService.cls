@@ -62,14 +62,10 @@ public class AccountLinkSharingWrapService{
 
         Map<Id, Set<Id>> accountLink2Users = new Map<Id, Set<Id>>();
         for(Account_Link__c accountLink : accountLinks) {
-            String accountLinkName = accountLink.Name;
-            if(accountLinkName.indexOf('DMS-') > -1) {
-                accountLinkName = accountLinkName.substring(accountLinkName.indexOf('DMS-'));
-                String crmCode = accountLinkName.substring(accountLinkName.lastIndexOf('-') - 2, accountLinkName.lastIndexOf('-'));
+                String crmCode =AccountLinkHelper.nameParsing(accountLink.Name);
                 if(crmCode2Users.get(crmCode) != null) {
                     accountLink2Users.put(accountLink.Id, crmCode2Users.get(crmCode));
                 }
-            }
         }
         return SharingWrapperService.wrapSharings(accountLink2Users, rowCause, accessLevel);
     }

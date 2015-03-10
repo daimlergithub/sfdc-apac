@@ -275,6 +275,27 @@
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>
+        <fullName>Share_read_with_all_central_bmbs</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Dealer_Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <name>Share read with all central bmbs</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
         <fullName>VIP_CUSTOMER_Share_with_RW</fullName>
         <sharedTo>
             <role>Data_Service_Specialist</role>
@@ -293,6 +314,27 @@
         <caseAccessLevel>None</caseAccessLevel>
         <contactAccessLevel>Edit</contactAccessLevel>
         <name>VIP CUSTOMER Share with RW</name>
+        <opportunityAccessLevel>None</opportunityAccessLevel>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>VIP_PA_share_with_BMBS_CRM_Manager</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Central_Sales_Marketing</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Person Account</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Status__c</field>
+            <operation>equals</operation>
+            <value>VIP</value>
+        </criteriaItems>
+        <accountAccessLevel>Read</accountAccessLevel>
+        <caseAccessLevel>None</caseAccessLevel>
+        <contactAccessLevel>Read</contactAccessLevel>
+        <name>VIP PA share with BMBS CRM Manager</name>
         <opportunityAccessLevel>None</opportunityAccessLevel>
     </criteriaBasedRules>
     <criteriaBasedRules>

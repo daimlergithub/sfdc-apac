@@ -19,16 +19,6 @@ public class ContactHelper {
     private static final String HasMarketingManager = 'The Dealer already has a Dealer Marketing Manager.';
     private static String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     
-    private static void updateSobjects(List<Sobject> sos) {
-        try {
-            update sos;
-        }
-        catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
-            System.debug('DMLException Exception: ' + e);
-        }
-    }
-    
     public static void ValidateGateKeeper(List<Contact> contacts) {
     	
     	List<Contact> newContactsForGateKeeper = new List<Contact>();
@@ -256,8 +246,8 @@ public class ContactHelper {
             DealersToUpdate.add(acc);
         }
         
-        if(DealersToUpdate.size() > 0) {
-            updateSobjects(DealersToUpdate);
+        if(DealersToUpdate!=null && !DealersToUpdate.IsEmpty()) {
+            UtilSobject.updateSobjects(DealersToUpdate);
         }
     }
     
@@ -281,8 +271,8 @@ public class ContactHelper {
             DealersToUpdate.add(acc);
         }
         
-        if(DealersToUpdate.size() > 0) {
-            updateSobjects(DealersToUpdate);
+        if(DealersToUpdate!=null && !DealersToUpdate.IsEmpty()) {
+            UtilSobject.updateSobjects(DealersToUpdate);
         }
     }
     
@@ -306,8 +296,8 @@ public class ContactHelper {
             DealersToUpdate.add(acc);
         }
         
-        if(DealersToUpdate.size() > 0) {
-            updateSobjects(DealersToUpdate);
+        if(DealersToUpdate!=null && !DealersToUpdate.IsEmpty()) {
+            UtilSobject.updateSobjects(DealersToUpdate);
         }
     }
     
@@ -331,8 +321,8 @@ public class ContactHelper {
             DealersToUpdate.add(acc);
         }
         
-        if(DealersToUpdate.size() > 0) {
-            updateSobjects(DealersToUpdate);
+        if(DealersToUpdate!=null && !DealersToUpdate.IsEmpty()) {
+            UtilSobject.updateSobjects(DealersToUpdate);
         }
     }
     

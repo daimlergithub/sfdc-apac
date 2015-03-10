@@ -1284,7 +1284,7 @@ Attribute in Data Dictionary object Vehicle is &quot;Vehicle_Colour&quot;</descr
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>41 designo Graphite colour </fullName>
+                <fullName>41 designo Graphite colour</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1296,11 +1296,11 @@ Attribute in Data Dictionary object Vehicle is &quot;Vehicle_Colour&quot;</descr
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>47 designo Light silver paint </fullName>
+                <fullName>47 designo Light silver paint</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>48  Mystery  White </fullName>
+                <fullName>48  Mystery  White</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1332,7 +1332,7 @@ Attribute in Data Dictionary object Vehicle is &quot;Vehicle_Colour&quot;</descr
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>149  North Pole White </fullName>
+                <fullName>149  North Pole White</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1384,7 +1384,7 @@ Attribute in Data Dictionary object Vehicle is &quot;Vehicle_Colour&quot;</descr
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>434 AMG Le Mans  Red </fullName>
+                <fullName>434 AMG Le Mans  Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1404,11 +1404,11 @@ Attribute in Data Dictionary object Vehicle is &quot;Vehicle_Colour&quot;</descr
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>589 Paint，Jupiter Red </fullName>
+                <fullName>589 Paint，Jupiter Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>592  North Pole Light purple  Color </fullName>
+                <fullName>592  North Pole Light purple  Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1528,7 +1528,7 @@ Attribute in Data Dictionary object Vehicle is &quot;Vehicle_Comment&quot;</desc
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: Reservation number
+Function: Reservation number of MBCL 
 Used in: Pagelayouts, Reports 
 
 Modify History 
@@ -5142,7 +5142,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BRABUSLeather upholstery Kit </fullName>
+                <fullName>BRABUSLeather upholstery Kit</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5150,7 +5150,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Designo Interior trim，Chestnut Color </fullName>
+                <fullName>Designo Interior trim，Chestnut Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5174,7 +5174,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignoInterior trim， Mystery  Red </fullName>
+                <fullName>DesignoInterior trim， Mystery  Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5182,7 +5182,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignoInterior trim， Natural  Color </fullName>
+                <fullName>DesignoInterior trim， Natural  Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5198,7 +5198,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DesignoLeather upholstery,Porcelain yellow/ Black </fullName>
+                <fullName>DesignoLeather upholstery,Porcelain yellow/ Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5206,11 +5206,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Designo Style  Wood trim ,  Piano lacquer  Black </fullName>
+                <fullName>Designo Style  Wood trim ,  Piano lacquer  Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Designo Style  Steering wheel  and  Shift lever ,  Piano lacquer  Black </fullName>
+                <fullName>Designo Style  Steering wheel  and  Shift lever ,  Piano lacquer  Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5218,7 +5218,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Designo Style  Steering wheel  and  Shift lever ， Natural  Color </fullName>
+                <fullName>Designo Style  Steering wheel  and  Shift lever ， Natural  Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5238,7 +5238,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>California Shallow  Brown </fullName>
+                <fullName>California Shallow  Brown</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5262,23 +5262,23 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Single Color  Adjustable  designo  Sha Grey Leather </fullName>
+                <fullName>Single Color  Adjustable  designo  Sha Grey Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Single Color  Adjustable  designo  Porcelain Yellow Leather </fullName>
+                <fullName>Single Color  Adjustable  designo  Porcelain Yellow Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Single Color  Adjustable  designo  Classic Red Leather </fullName>
+                <fullName>Single Color  Adjustable  designo  Classic Red Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Single Color  Adjustable  designo Black Leather </fullName>
+                <fullName>Single Color  Adjustable  designo Black Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Cappuccino Brown </fullName>
+                <fullName>Cappuccino Brown</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5302,15 +5302,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Double Color  Adjustable  designo  Sha Grey Leather </fullName>
+                <fullName>Double Color  Adjustable  designo  Sha Grey Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Double Color  Adjustable  designo  Porcelain Yellow Leather </fullName>
+                <fullName>Double Color  Adjustable  designo  Porcelain Yellow Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Double Color  Adjustable  designo  Classic Red Leather </fullName>
+                <fullName>Double Color  Adjustable  designo  Classic Red Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5322,15 +5322,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Goose Egg Stone Yellow With special  smoke Brown Leather </fullName>
+                <fullName>Goose Egg Stone Yellow With special  smoke Brown Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Open Division  M  Color /Prairie Yellow Leather </fullName>
+                <fullName>Open Division  M  Color /Prairie Yellow Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Open Division  M  Color /Prairie Yellow Featured  Leather </fullName>
+                <fullName>Open Division  M  Color /Prairie Yellow Featured  Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5338,7 +5338,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Flamengo Red </fullName>
+                <fullName>Flamengo Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5346,11 +5346,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Sahara M  Color /Black Leather </fullName>
+                <fullName>Sahara M  Color /Black Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Sahara M  Color /Black Featured  Leather </fullName>
+                <fullName>Sahara M  Color /Black Featured  Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5362,7 +5362,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Chestnut Wood Brown/Black Featured  Leather </fullName>
+                <fullName>Chestnut Wood Brown/Black Featured  Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5370,15 +5370,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Chestnut Wood  Brown  Color  Leather </fullName>
+                <fullName>Chestnut Wood  Brown  Color  Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ChestnutBrown/Black Leather </fullName>
+                <fullName>ChestnutBrown/Black Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ChestnutBrown/Black Featured  Leather </fullName>
+                <fullName>ChestnutBrown/Black Featured  Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5386,15 +5386,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Maui Pearl Color </fullName>
+                <fullName>Maui Pearl Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Crystal GreyLeather upholstery Kit </fullName>
+                <fullName>Crystal GreyLeather upholstery Kit</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Shallow Browndesigno Premier Edition Natural Leather/Weave Leather</fullName>
+                <fullName>Shallow Browndesigno Premier Edition Natural Leather/Weave Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5410,35 +5410,35 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Carbon Grey /  Elegant  Red </fullName>
+                <fullName>Carbon Grey /  Elegant  Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Carbon Grey/ Berry Red </fullName>
+                <fullName>Carbon Grey/ Berry Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Carbon Grey/ Deep  Carbon Grey</fullName>
+                <fullName>Carbon Grey/ Deep  Carbon Grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Carbon Grey/Dark blue</fullName>
+                <fullName>Carbon Grey/Dark blue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Carbon Grey / Dark blue</fullName>
+                <fullName>Carbon Grey / Dark blue</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Carbon Grey /  Carbon Grey</fullName>
+                <fullName>Carbon Grey /  Carbon Grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Tropical Prairie  Yellow /Cashmere yellow Leather</fullName>
+                <fullName>Tropical Prairie  Yellow /Cashmere yellow Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Basalt GreyNAPPA Skin </fullName>
+                <fullName>Basalt GreyNAPPA Skin</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5446,7 +5446,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Basalt grey/Xuan Wu  Deep Grey Featured  Leather </fullName>
+                <fullName>Basalt grey/Xuan Wu  Deep Grey Featured  Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5458,51 +5458,51 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Coral Red </fullName>
+                <fullName>Coral Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> White Brandy Brown  Color /Black Featured leather</fullName>
+                <fullName>White Brandy Brown  Color /Black Featured leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> White Brandy Brown  Color Leather</fullName>
+                <fullName>White Brandy Brown  Color Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Leather ，Pebble m</fullName>
+                <fullName>Leather ，Pebble m</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Leather ，Egg Stone  Yellow </fullName>
+                <fullName>Leather ，Egg Stone  Yellow</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Leather ，Sahara M  Yellow /Black</fullName>
+                <fullName>Leather ，Sahara M  Yellow /Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Leather ，Xuan Wu Ash/ Deep Grey</fullName>
+                <fullName>Leather ，Xuan Wu Ash/ Deep Grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Leather ，Xuan Wu Ash/Black</fullName>
+                <fullName>Leather ，Xuan Wu Ash/Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Leather ，Alpaca grey </fullName>
+                <fullName>Leather ，Alpaca grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> Leather ，Black</fullName>
+                <fullName>Leather ，Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，TwinEgg Stone  Color </fullName>
+                <fullName>Leather，TwinEgg Stone  Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，TwinAlpaca grey </fullName>
+                <fullName>Leather，TwinAlpaca grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5510,15 +5510,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Twin Black </fullName>
+                <fullName>Leather，Twin Black</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Egg Stone  Color </fullName>
+                <fullName>Leather，Egg Stone  Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Egg Stone  Yellow </fullName>
+                <fullName>Leather，Egg Stone  Yellow</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5542,7 +5542,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Berry Red </fullName>
+                <fullName>Leather，Berry Red</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5562,7 +5562,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather， Graphite colour </fullName>
+                <fullName>Leather， Graphite colour</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5578,7 +5578,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Leather，Alpaca grey </fullName>
+                <fullName>Leather，Alpaca grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5594,15 +5594,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName> M  Color Alcantara Car roof lining</fullName>
+                <fullName>M  Color Alcantara Car roof lining</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Pure White aniline Leather </fullName>
+                <fullName>Pure White aniline Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Cashmere yellow, ARTICO Skin </fullName>
+                <fullName>Cashmere yellow, ARTICO Skin</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5614,7 +5614,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Cashmere yellow ARTICO Skin </fullName>
+                <fullName>Cashmere yellow ARTICO Skin</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5626,15 +5626,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Cashmere yellow Color  Nappa leather </fullName>
+                <fullName>Cashmere yellow Color  Nappa leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Cashmere yellow Color   Nappa leather </fullName>
+                <fullName>Cashmere yellow Color   Nappa leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Alpaca grey </fullName>
+                <fullName>Alpaca grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5642,7 +5642,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Alpaca grey  ARTICO Skin </fullName>
+                <fullName>Alpaca grey  ARTICO Skin</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5650,11 +5650,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Alpaca Grey/Basalt grey Leather </fullName>
+                <fullName>Alpaca Grey/Basalt grey Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Alpaca Grey/Basalt grey Featured  Leather </fullName>
+                <fullName>Alpaca Grey/Basalt grey Featured  Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5666,7 +5666,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Tundra Brown </fullName>
+                <fullName>Tundra Brown</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5694,7 +5694,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Senior Nappa leather ，Egg Stone  Color </fullName>
+                <fullName>Senior Nappa leather ，Egg Stone  Color</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5702,15 +5702,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Senior Nappa leather ，Java Yellow </fullName>
+                <fullName>Senior Nappa leather ，Java Yellow</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Senior Nappa leather ，Alpaca grey </fullName>
+                <fullName>Senior Nappa leather ，Alpaca grey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Gull wing Red  Nappa leather </fullName>
+                <fullName>Gull wing Red  Nappa leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5730,7 +5730,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Black/Black Featured  Leather </fullName>
+                <fullName>Black/Black Featured  Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5742,7 +5742,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Black ARTICO Skin </fullName>
+                <fullName>Black ARTICO Skin</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5754,7 +5754,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Black Featured  Leather </fullName>
+                <fullName>Black Featured  Leather</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5762,7 +5762,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Trim“</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Black， ARTICO Skin </fullName>
+                <fullName>Black， ARTICO Skin</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -6070,7 +6070,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>347 Chalcedony, blue</fullName>
+                <fullName>347 Chalcedony%2C blue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6254,11 +6254,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint%EF%BC%8CPalladium-silver</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium-silver</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6474,6 +6474,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>VW</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fuel__c</picklist>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6976,6 +6987,21 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>NationalType__c</picklist>
+            <values>
+                <fullName>S-00</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-02</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>model</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>SalesType__c</picklist>
             <values>
                 <fullName>Fleet</fullName>
@@ -7023,10 +7049,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ARTICO%2FPearl gloss meter Color Fabric</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ARTICO%2FAlpaca grey Fabric</fullName>
                 <default>false</default>
             </values>
@@ -7035,499 +7057,31 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BRABUSLeather upholstery Kit </fullName>
+                <fullName>ARTICO%2FPearl gloss meter Color Fabric</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Designo Interior trim%EF%BC%8C Elegant Red</fullName>
+                <fullName>Alpaca Grey%2FBasalt grey Featured  Leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Designo Interior trim%EF%BC%8CChestnut Color </fullName>
+                <fullName>Alpaca Grey%2FBasalt grey Featured leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Designo Interior trim%EF%BC%8CBlack</fullName>
+                <fullName>Alpaca Grey%2FBasalt grey Leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Mauritius Blue</fullName>
+                <fullName>Alpaca Grey%2FBlackLeather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Sha Grey</fullName>
+                <fullName>Alpaca grey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Shallow Brown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Stone Dark green</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Mystery  Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Mystery Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Natural  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8CSilver</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Wood trim %EF%BC%8C Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoLeather upholstery%2CPorcelain yellow%2F Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Style  Wood trim %2C  Piano lacquer  Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Style  Steering wheel  and  Shift lever %2C  Piano lacquer  Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Style  Steering wheel  and  Shift lever %EF%BC%8C Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Style  Steering wheel  and  Shift lever %EF%BC%8C Natural  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather Exclusive brown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB-TEX %2F LEATHER TWIN%2FARTICO - BLACK %2F ANTHRACITE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB-TEX %2F LEATHER TWIN%2FARTICO - GREY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NAPPA Natural  M  Color Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>California Shallow  Brown </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GalapagosAsh</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable  designo  Sha Grey Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable  designo  Porcelain Yellow Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable  designo  Classic Red Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable  designo Black Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable designo Premier Edition  Sha GreyLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable designo Premier Edition  Porcelain YellowLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable designo Premier Edition  Classic RedLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable designo Premier Edition BlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cappuccino Brown </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pebble m</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Egg Stone  Color ARTICOLeather upholstery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable  designo  Sha Grey Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable  designo  Porcelain Yellow Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable  designo  Classic Red Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable designo Premier Edition  Sha Ash%2FBlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable designo Premier Edition Porcelain yellow%2FBlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable designo Premier Edition  Classic  Red %2FBlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Matt Ash Limited Edition Interior trim</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz standard Interior trim</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Goose Egg Stone Yellow With special  smoke Brown Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Open Division  M  Color %2FPrairie Yellow Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Open Division  M  Color %2FPrairie Yellow Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Open Division  M  Color %2FPrairie Yellow Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Flamengo Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Labrador Retriever Carbon Ash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sahara M  Color %2FBlack Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sahara M  Color %2FBlack Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sahara M  Color %2FBlack Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dark RedLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chestnut Wood Brown%2FBlack Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chestnut Wood Brown%2FBlack Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chestnut Wood  Brown  Color  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ChestnutBrown%2FBlack Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ChestnutBrown%2FBlack Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ChestnutBrownLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maui Pearl Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crystal GreyLeather upholstery Kit </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Shallow Browndesigno Premier Edition Natural Leather%2FWeave Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grey Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GreyAlcantara Car roof lining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GreyLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey %2F  Elegant  Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey %2F Dark blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey %2F  Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey%2F Berry Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey%2F Deep  Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey%2FDark blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Tropical Prairie  Yellow %2FCashmere yellow Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Basalt GreyNAPPA Skin </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Xuan Wu Ash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basalt grey%2FXuan Wu  Deep Grey Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basalt grey%2FXuan Wu  Deep Grey Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basalt grey%2FBlack Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coral Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> White Brandy Brown  Color %2FBlack Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> White Brandy Brown  Color Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CPebble m</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CEgg Stone  Yellow </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CSahara M  Yellow %2FBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CXuan Wu Ash%2F Deep Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CXuan Wu Ash%2FBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CAlpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CTwinEgg Stone  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CTwinAlpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CTwin grandeur Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CTwin Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CEgg Stone  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CEgg Stone  Yellow </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Sierra Ash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Pacific Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CUniverseBlue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CBao Stone Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CDelta Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CBerry Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CFlame Red</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CAshRed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Carbon Ash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Tropical Prairie  Yellow %2FCashmere yellow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Graphite colour </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CBao Stone Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CAshRed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CAlpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C grandeur Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rocky gray-Artico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> M  Color Alcantara Car roof lining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pure White aniline Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow %2FBlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow ARTICO Skin </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow%2C ARTICO Skin </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow-ARTICO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow Color   Nappa leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow Color ARTICOLeather upholstery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow Color Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow Color  Nappa leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Alpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Alpaca grey  ARTICO Skin </fullName>
+                <fullName>Alpaca grey  ARTICO Skin</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7539,75 +7093,23 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Alpaca Grey%2FBasalt grey Leather </fullName>
+                <fullName>BRABUSLeather upholstery Kit</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Alpaca Grey%2FBasalt grey Featured  Leather </fullName>
+                <fullName>Basalt GreyNAPPA Skin</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Alpaca Grey%2FBasalt grey Featured leather</fullName>
+                <fullName>Basalt grey%2FBlack Featured leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Alpaca Grey%2FBlackLeather</fullName>
+                <fullName>Basalt grey%2FXuan Wu  Deep Grey Featured  Leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tundra Brown </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prairie Yellow%2FOpen Division  M  Color  Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design%EF%BC%8CGrey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design%EF%BC%8CBeige</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design%EF%BC%8CRed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design%EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maldives Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senior Nappa leather %EF%BC%8CEgg Stone  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senior Nappa leather %EF%BC%8C Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senior Nappa leather %EF%BC%8CJava Yellow </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senior Nappa leather %EF%BC%8CAlpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gull wing Red  Nappa leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yellow Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yellow%2FBlack Leather</fullName>
+                <fullName>Basalt grey%2FXuan Wu  Deep Grey Featured leather</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7615,15 +7117,19 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black ARTICO Skin </fullName>
+                <fullName>Black ARTICO Skin</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black%2FSahara M  Yellow Leather</fullName>
+                <fullName>Black Featured  Leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black%2FBlack Featured  Leather </fullName>
+                <fullName>Black Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Black%2FBlack Featured  Leather</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7631,7 +7137,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black%EF%BC%8C ARTICO Skin </fullName>
+                <fullName>Black%2FSahara M  Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Black%EF%BC%8C ARTICO Skin</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7647,11 +7157,527 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black Featured  Leather </fullName>
+                <fullName>California Shallow  Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black Featured leather</fullName>
+                <fullName>Cappuccino Brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey %2F  Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey %2F  Elegant  Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey %2F Dark blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey%2F Berry Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey%2F Deep  Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey%2FDark blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow %2FBlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow ARTICO Skin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow Color   Nappa leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow Color  Nappa leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow Color ARTICOLeather upholstery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow Color Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow%2C ARTICO Skin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow-ARTICO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chestnut Wood  Brown  Color  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chestnut Wood Brown%2FBlack Featured  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chestnut Wood Brown%2FBlack Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ChestnutBrown%2FBlack Featured  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ChestnutBrown%2FBlack Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ChestnutBrownLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coral Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crystal GreyLeather upholstery Kit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dark RedLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design%EF%BC%8CBeige</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design%EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design%EF%BC%8CGrey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design%EF%BC%8CRed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Interior trim%EF%BC%8C Elegant Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Interior trim%EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Interior trim%EF%BC%8CChestnut Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Style  Steering wheel  and  Shift lever %2C  Piano lacquer  Black</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Style  Steering wheel  and  Shift lever %EF%BC%8C Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Style  Steering wheel  and  Shift lever %EF%BC%8C Natural  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Style  Wood trim %2C  Piano lacquer  Black</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Wood trim %EF%BC%8C Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Mauritius Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Mystery  Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Mystery Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Natural  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Sha Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Shallow Brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Stone Dark green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8CSilver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoLeather upholstery%2CPorcelain yellow%2F Black</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable  designo  Classic Red Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable  designo  Porcelain Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable  designo  Sha Grey Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable designo Premier Edition  Classic  Red %2FBlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable designo Premier Edition  Sha Ash%2FBlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable designo Premier Edition Porcelain yellow%2FBlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Egg Stone  Color ARTICOLeather upholstery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flamengo Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GalapagosAsh</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goose Egg Stone Yellow With special  smoke Brown Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grey Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GreyAlcantara Car roof lining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GreyLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gull wing Red  Nappa leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labrador Retriever Carbon Ash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CAlpaca grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CEgg Stone  Yellow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CPebble m</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CSahara M  Yellow %2FBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CXuan Wu Ash%2F Deep Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CXuan Wu Ash%2FBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather Exclusive brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Carbon Ash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Graphite colour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CAshRed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CBao Stone Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Pacific Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Sierra Ash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Tropical Prairie  Yellow %2FCashmere yellow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C grandeur Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CAlpaca grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CAshRed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CBao Stone Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CBerry Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CDelta Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CEgg Stone  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CEgg Stone  Yellow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CFlame Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CTwin Black</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CTwin grandeur Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CTwinAlpaca grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CTwinEgg Stone  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CUniverseBlue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M  Color Alcantara Car roof lining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB-TEX %2F LEATHER TWIN%2FARTICO - BLACK %2F ANTHRACITE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB-TEX %2F LEATHER TWIN%2FARTICO - GREY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maldives Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matt Ash Limited Edition Interior trim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maui Pearl Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz standard Interior trim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAPPA Natural  M  Color Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open Division  M  Color %2FPrairie Yellow Featured  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open Division  M  Color %2FPrairie Yellow Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open Division  M  Color %2FPrairie Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pebble m</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prairie Yellow%2FOpen Division  M  Color  Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pure White aniline Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rocky gray-Artico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sahara M  Color %2FBlack Featured  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sahara M  Color %2FBlack Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sahara M  Color %2FBlack Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Nappa leather %EF%BC%8C Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Nappa leather %EF%BC%8CAlpaca grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Nappa leather %EF%BC%8CEgg Stone  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Nappa leather %EF%BC%8CJava Yellow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shallow Browndesigno Premier Edition Natural Leather%2FWeave Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable  designo  Classic Red Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable  designo  Porcelain Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable  designo  Sha Grey Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable  designo Black Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable designo Premier Edition  Classic RedLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable designo Premier Edition  Porcelain YellowLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable designo Premier Edition  Sha GreyLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable designo Premier Edition BlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tropical Prairie  Yellow %2FCashmere yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tundra Brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>White Brandy Brown  Color %2FBlack Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>White Brandy Brown  Color Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Xuan Wu Ash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow%2FBlack Leather</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7668,6 +7694,45 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             <values>
                 <fullName>Yes</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>VehicleStatus__c</picklist>
+            <values>
+                <fullName>Current vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo%2Fcourtesy vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoiced vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Part exchange vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quoted Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle in stock</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle to be ordered</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -8062,7 +8127,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>149  North Pole White </fullName>
+                <fullName>149  North Pole White</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8134,7 +8199,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>347 Chalcedony, blue</fullName>
+                <fullName>347 Chalcedony%2C blue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8182,7 +8247,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>41 designo Graphite colour </fullName>
+                <fullName>41 designo Graphite colour</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8190,7 +8255,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>434 AMG Le Mans  Red </fullName>
+                <fullName>434 AMG Le Mans  Red</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8202,7 +8267,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>47 designo Light silver paint </fullName>
+                <fullName>47 designo Light silver paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8214,7 +8279,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>48  Mystery  White </fullName>
+                <fullName>48  Mystery  White</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8310,7 +8375,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>589 Paint%EF%BC%8CJupiter Red </fullName>
+                <fullName>589 Paint%EF%BC%8CJupiter Red</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8318,7 +8383,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>592  North Pole Light purple  Color </fullName>
+                <fullName>592  North Pole Light purple  Color</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8434,11 +8499,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint%EF%BC%8CPalladium-silver</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium-silver</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8982,6 +9047,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>VW</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fuel__c</picklist>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10639,6 +10715,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mercedes-Benz SLS AMG Supercar sports Edition</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
@@ -11134,8 +11214,19 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <fullName>smart nightpurple edition</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>NationalType__c</picklist>
             <values>
-                <fullName>Mercedes-Benz SLS AMG Supercar sports Edition</fullName>
+                <fullName>S-00</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-02</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>model</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11187,10 +11278,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ARTICO%2FPearl gloss meter Color Fabric</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ARTICO%2FAlpaca grey Fabric</fullName>
                 <default>false</default>
             </values>
@@ -11199,503 +11286,35 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>ARTICO%2FPearl gloss meter Color Fabric</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>ARTICOLeather upholstery%2C Yellow</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BRABUSLeather upholstery Kit </fullName>
+                <fullName>Alpaca Grey%2FBasalt grey Featured  Leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Designo Interior trim%EF%BC%8C Elegant Red</fullName>
+                <fullName>Alpaca Grey%2FBasalt grey Featured leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Designo Interior trim%EF%BC%8CChestnut Color </fullName>
+                <fullName>Alpaca Grey%2FBasalt grey Leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Designo Interior trim%EF%BC%8CBlack</fullName>
+                <fullName>Alpaca Grey%2FBlackLeather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Mauritius Blue</fullName>
+                <fullName>Alpaca grey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Sha Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Shallow Brown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Stone Dark green</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Mystery  Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Mystery Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Natural  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8CSilver</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Wood trim %EF%BC%8C Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoLeather upholstery%2CPorcelain yellow%2F Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Style  Wood trim %2C  Piano lacquer  Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Style  Steering wheel  and  Shift lever %2C  Piano lacquer  Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Style  Steering wheel  and  Shift lever %EF%BC%8C Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Style  Steering wheel  and  Shift lever %EF%BC%8C Natural  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather Exclusive brown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB-TEX %2F LEATHER TWIN%2FARTICO - BLACK %2F ANTHRACITE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB-TEX %2F LEATHER TWIN%2FARTICO - GREY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NAPPA Natural  M  Color Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>California Shallow  Brown </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GalapagosAsh</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable  designo  Sha Grey Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable  designo  Porcelain Yellow Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable  designo  Classic Red Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable  designo Black Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable designo Premier Edition  Sha GreyLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable designo Premier Edition  Porcelain YellowLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable designo Premier Edition  Classic RedLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable designo Premier Edition BlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cappuccino Brown </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pebble m</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Egg Stone  Color ARTICOLeather upholstery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable  designo  Sha Grey Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable  designo  Porcelain Yellow Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable  designo  Classic Red Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable designo Premier Edition  Sha Ash%2FBlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable designo Premier Edition Porcelain yellow%2FBlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable designo Premier Edition  Classic  Red %2FBlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Matt Ash Limited Edition Interior trim</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz standard Interior trim</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Goose Egg Stone Yellow With special  smoke Brown Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Open Division  M  Color %2FPrairie Yellow Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Open Division  M  Color %2FPrairie Yellow Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Open Division  M  Color %2FPrairie Yellow Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Flamengo Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Labrador Retriever Carbon Ash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sahara M  Color %2FBlack Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sahara M  Color %2FBlack Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sahara M  Color %2FBlack Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dark RedLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chestnut Wood Brown%2FBlack Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chestnut Wood Brown%2FBlack Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chestnut Wood  Brown  Color  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ChestnutBrown%2FBlack Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ChestnutBrown%2FBlack Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ChestnutBrownLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maui Pearl Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crystal GreyLeather upholstery Kit </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Shallow Browndesigno Premier Edition Natural Leather%2FWeave Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grey Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GreyAlcantara Car roof lining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GreyLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey %2F  Elegant  Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey %2F Dark blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey %2F  Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey%2F Berry Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey%2F Deep  Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey%2FDark blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Tropical Prairie  Yellow %2FCashmere yellow Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Basalt GreyNAPPA Skin </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Xuan Wu Ash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basalt grey%2FXuan Wu  Deep Grey Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basalt grey%2FXuan Wu  Deep Grey Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basalt grey%2FBlack Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coral Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> White Brandy Brown  Color %2FBlack Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> White Brandy Brown  Color Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CPebble m</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CEgg Stone  Yellow </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CSahara M  Yellow %2FBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CXuan Wu Ash%2F Deep Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CXuan Wu Ash%2FBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CAlpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CTwinEgg Stone  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CTwinAlpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CTwin grandeur Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CTwin Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CEgg Stone  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CEgg Stone  Yellow </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Sierra Ash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Pacific Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CUniverseBlue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CBao Stone Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CDelta Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CBerry Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CFlame Red</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CAshRed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Carbon Ash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Tropical Prairie  Yellow %2FCashmere yellow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Graphite colour </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CBao Stone Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CAshRed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CAlpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C grandeur Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rocky gray-Artico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> M  Color Alcantara Car roof lining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pure White aniline Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow %2FBlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow ARTICO Skin </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow%2C ARTICO Skin </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow-ARTICO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow Color   Nappa leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow Color ARTICOLeather upholstery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow Color Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow Color  Nappa leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Alpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Alpaca grey  ARTICO Skin </fullName>
+                <fullName>Alpaca grey  ARTICO Skin</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11707,75 +11326,23 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Alpaca Grey%2FBasalt grey Leather </fullName>
+                <fullName>BRABUSLeather upholstery Kit</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Alpaca Grey%2FBasalt grey Featured  Leather </fullName>
+                <fullName>Basalt GreyNAPPA Skin</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Alpaca Grey%2FBasalt grey Featured leather</fullName>
+                <fullName>Basalt grey%2FBlack Featured leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Alpaca Grey%2FBlackLeather</fullName>
+                <fullName>Basalt grey%2FXuan Wu  Deep Grey Featured  Leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tundra Brown </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prairie Yellow%2FOpen Division  M  Color  Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design%EF%BC%8CGrey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design%EF%BC%8CBeige</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design%EF%BC%8CRed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design%EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maldives Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senior Nappa leather %EF%BC%8CEgg Stone  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senior Nappa leather %EF%BC%8C Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senior Nappa leather %EF%BC%8CJava Yellow </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senior Nappa leather %EF%BC%8CAlpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gull wing Red  Nappa leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yellow Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yellow%2FBlack Leather</fullName>
+                <fullName>Basalt grey%2FXuan Wu  Deep Grey Featured leather</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11783,15 +11350,19 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black ARTICO Skin </fullName>
+                <fullName>Black ARTICO Skin</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black%2FSahara M  Yellow Leather</fullName>
+                <fullName>Black Featured  Leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black%2FBlack Featured  Leather </fullName>
+                <fullName>Black Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Black%2FBlack Featured  Leather</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11799,7 +11370,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black%EF%BC%8C ARTICO Skin </fullName>
+                <fullName>Black%2FSahara M  Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Black%EF%BC%8C ARTICO Skin</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11815,11 +11390,527 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black Featured  Leather </fullName>
+                <fullName>California Shallow  Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black Featured leather</fullName>
+                <fullName>Cappuccino Brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey %2F  Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey %2F  Elegant  Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey %2F Dark blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey%2F Berry Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey%2F Deep  Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey%2FDark blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow %2FBlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow ARTICO Skin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow Color   Nappa leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow Color  Nappa leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow Color ARTICOLeather upholstery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow Color Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow%2C ARTICO Skin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow-ARTICO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chestnut Wood  Brown  Color  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chestnut Wood Brown%2FBlack Featured  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chestnut Wood Brown%2FBlack Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ChestnutBrown%2FBlack Featured  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ChestnutBrown%2FBlack Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ChestnutBrownLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coral Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crystal GreyLeather upholstery Kit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dark RedLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design%EF%BC%8CBeige</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design%EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design%EF%BC%8CGrey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design%EF%BC%8CRed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Interior trim%EF%BC%8C Elegant Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Interior trim%EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Interior trim%EF%BC%8CChestnut Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Style  Steering wheel  and  Shift lever %2C  Piano lacquer  Black</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Style  Steering wheel  and  Shift lever %EF%BC%8C Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Style  Steering wheel  and  Shift lever %EF%BC%8C Natural  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Style  Wood trim %2C  Piano lacquer  Black</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Wood trim %EF%BC%8C Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Mauritius Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Mystery  Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Mystery Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Natural  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Sha Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Shallow Brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Stone Dark green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8CSilver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoLeather upholstery%2CPorcelain yellow%2F Black</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable  designo  Classic Red Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable  designo  Porcelain Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable  designo  Sha Grey Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable designo Premier Edition  Classic  Red %2FBlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable designo Premier Edition  Sha Ash%2FBlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable designo Premier Edition Porcelain yellow%2FBlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Egg Stone  Color ARTICOLeather upholstery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flamengo Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GalapagosAsh</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goose Egg Stone Yellow With special  smoke Brown Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grey Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GreyAlcantara Car roof lining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GreyLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gull wing Red  Nappa leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labrador Retriever Carbon Ash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CAlpaca grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CEgg Stone  Yellow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CPebble m</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CSahara M  Yellow %2FBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CXuan Wu Ash%2F Deep Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CXuan Wu Ash%2FBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather Exclusive brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Carbon Ash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Graphite colour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CAshRed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CBao Stone Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Pacific Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Sierra Ash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Tropical Prairie  Yellow %2FCashmere yellow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C grandeur Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CAlpaca grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CAshRed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CBao Stone Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CBerry Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CDelta Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CEgg Stone  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CEgg Stone  Yellow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CFlame Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CTwin Black</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CTwin grandeur Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CTwinAlpaca grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CTwinEgg Stone  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CUniverseBlue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M  Color Alcantara Car roof lining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB-TEX %2F LEATHER TWIN%2FARTICO - BLACK %2F ANTHRACITE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB-TEX %2F LEATHER TWIN%2FARTICO - GREY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maldives Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matt Ash Limited Edition Interior trim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maui Pearl Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz standard Interior trim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAPPA Natural  M  Color Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open Division  M  Color %2FPrairie Yellow Featured  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open Division  M  Color %2FPrairie Yellow Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open Division  M  Color %2FPrairie Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pebble m</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prairie Yellow%2FOpen Division  M  Color  Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pure White aniline Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rocky gray-Artico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sahara M  Color %2FBlack Featured  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sahara M  Color %2FBlack Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sahara M  Color %2FBlack Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Nappa leather %EF%BC%8C Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Nappa leather %EF%BC%8CAlpaca grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Nappa leather %EF%BC%8CEgg Stone  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Nappa leather %EF%BC%8CJava Yellow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shallow Browndesigno Premier Edition Natural Leather%2FWeave Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable  designo  Classic Red Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable  designo  Porcelain Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable  designo  Sha Grey Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable  designo Black Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable designo Premier Edition  Classic RedLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable designo Premier Edition  Porcelain YellowLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable designo Premier Edition  Sha GreyLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable designo Premier Edition BlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tropical Prairie  Yellow %2FCashmere yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tundra Brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>White Brandy Brown  Color %2FBlack Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>White Brandy Brown  Color Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Xuan Wu Ash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow%2FBlack Leather</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11836,6 +11927,45 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             <values>
                 <fullName>Yes</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>VehicleStatus__c</picklist>
+            <values>
+                <fullName>Current vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo%2Fcourtesy vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoiced vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Part exchange vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quoted Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle in stock</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle to be ordered</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -12174,7 +12304,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>149  North Pole White </fullName>
+                <fullName>149  North Pole White</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12246,7 +12376,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>347 Chalcedony, blue</fullName>
+                <fullName>347 Chalcedony%2C blue</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12294,7 +12424,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>41 designo Graphite colour </fullName>
+                <fullName>41 designo Graphite colour</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12302,7 +12432,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>434 AMG Le Mans  Red </fullName>
+                <fullName>434 AMG Le Mans  Red</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12314,7 +12444,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>47 designo Light silver paint </fullName>
+                <fullName>47 designo Light silver paint</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12326,7 +12456,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>48  Mystery  White </fullName>
+                <fullName>48  Mystery  White</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12422,7 +12552,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>589 Paint%EF%BC%8CJupiter Red </fullName>
+                <fullName>589 Paint%EF%BC%8CJupiter Red</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12430,7 +12560,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>592  North Pole Light purple  Color </fullName>
+                <fullName>592  North Pole Light purple  Color</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12546,11 +12676,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint%EF%BC%8CPalladium-silver</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>792 Paint%EF%BC%8CPalladium silver%EF%BC%8CMetallic paint</fullName>
+                <fullName>792 Paint%EF%BC%8CPalladium-silver</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13094,6 +13224,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>VW</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Fuel__c</picklist>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>U</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14680,6 +14821,21 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>NationalType__c</picklist>
+            <values>
+                <fullName>S-00</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-02</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>model</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>SalesType__c</picklist>
             <values>
                 <fullName>Fleet</fullName>
@@ -14727,10 +14883,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ARTICO%2FPearl gloss meter Color Fabric</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ARTICO%2FAlpaca grey Fabric</fullName>
                 <default>false</default>
             </values>
@@ -14739,503 +14891,35 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>ARTICO%2FPearl gloss meter Color Fabric</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>ARTICOLeather upholstery%2C Yellow</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BRABUSLeather upholstery Kit </fullName>
+                <fullName>Alpaca Grey%2FBasalt grey Featured  Leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Designo Interior trim%EF%BC%8C Elegant Red</fullName>
+                <fullName>Alpaca Grey%2FBasalt grey Featured leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Designo Interior trim%EF%BC%8CChestnut Color </fullName>
+                <fullName>Alpaca Grey%2FBasalt grey Leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Designo Interior trim%EF%BC%8CBlack</fullName>
+                <fullName>Alpaca Grey%2FBlackLeather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Mauritius Blue</fullName>
+                <fullName>Alpaca grey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Sha Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Shallow Brown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Stone Dark green</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Mystery  Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Mystery Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8C Natural  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoInterior trim%EF%BC%8CSilver</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Wood trim %EF%BC%8C Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DesignoLeather upholstery%2CPorcelain yellow%2F Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Style  Wood trim %2C  Piano lacquer  Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Style  Steering wheel  and  Shift lever %2C  Piano lacquer  Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Style  Steering wheel  and  Shift lever %EF%BC%8C Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Designo Style  Steering wheel  and  Shift lever %EF%BC%8C Natural  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather Exclusive brown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB-TEX %2F LEATHER TWIN%2FARTICO - BLACK %2F ANTHRACITE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB-TEX %2F LEATHER TWIN%2FARTICO - GREY</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NAPPA Natural  M  Color Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>California Shallow  Brown </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GalapagosAsh</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable  designo  Sha Grey Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable  designo  Porcelain Yellow Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable  designo  Classic Red Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable  designo Black Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable designo Premier Edition  Sha GreyLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable designo Premier Edition  Porcelain YellowLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable designo Premier Edition  Classic RedLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single Color  Adjustable designo Premier Edition BlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cappuccino Brown </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pebble m</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Egg Stone  Color ARTICOLeather upholstery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable  designo  Sha Grey Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable  designo  Porcelain Yellow Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable  designo  Classic Red Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable designo Premier Edition  Sha Ash%2FBlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable designo Premier Edition Porcelain yellow%2FBlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Double Color  Adjustable designo Premier Edition  Classic  Red %2FBlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Matt Ash Limited Edition Interior trim</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz standard Interior trim</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Goose Egg Stone Yellow With special  smoke Brown Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Open Division  M  Color %2FPrairie Yellow Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Open Division  M  Color %2FPrairie Yellow Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Open Division  M  Color %2FPrairie Yellow Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Flamengo Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Labrador Retriever Carbon Ash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sahara M  Color %2FBlack Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sahara M  Color %2FBlack Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sahara M  Color %2FBlack Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dark RedLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chestnut Wood Brown%2FBlack Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chestnut Wood Brown%2FBlack Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chestnut Wood  Brown  Color  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ChestnutBrown%2FBlack Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ChestnutBrown%2FBlack Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>ChestnutBrownLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maui Pearl Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crystal GreyLeather upholstery Kit </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Shallow Browndesigno Premier Edition Natural Leather%2FWeave Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grey Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GreyAlcantara Car roof lining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>GreyLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey %2F  Elegant  Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey %2F Dark blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey %2F  Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey%2F Berry Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey%2F Deep  Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Carbon Grey%2FDark blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Tropical Prairie  Yellow %2FCashmere yellow Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Basalt GreyNAPPA Skin </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Xuan Wu Ash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basalt grey%2FXuan Wu  Deep Grey Featured  Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basalt grey%2FXuan Wu  Deep Grey Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Basalt grey%2FBlack Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coral Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> White Brandy Brown  Color %2FBlack Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> White Brandy Brown  Color Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CPebble m</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CEgg Stone  Yellow </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CSahara M  Yellow %2FBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CXuan Wu Ash%2F Deep Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CXuan Wu Ash%2FBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CAlpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> Leather %EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CTwinEgg Stone  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CTwinAlpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CTwin grandeur Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CTwin Black </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CEgg Stone  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CEgg Stone  Yellow </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Sierra Ash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Pacific Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CUniverseBlue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CBao Stone Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CDelta Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CBerry Red </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CFlame Red</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CAshRed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Carbon Ash</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Tropical Prairie  Yellow %2FCashmere yellow</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Graphite colour </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CBao Stone Gold</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CAshRed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CAlpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8C grandeur Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather%EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rocky gray-Artico</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName> M  Color Alcantara Car roof lining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pure White aniline Leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow %2FBlackLeather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow ARTICO Skin </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow%2C ARTICO Skin </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow-ARTICO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow Color   Nappa leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow Color ARTICOLeather upholstery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow Color Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Cashmere yellow Color  Nappa leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Alpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Alpaca grey  ARTICO Skin </fullName>
+                <fullName>Alpaca grey  ARTICO Skin</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15247,75 +14931,23 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Alpaca Grey%2FBasalt grey Leather </fullName>
+                <fullName>BRABUSLeather upholstery Kit</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Alpaca Grey%2FBasalt grey Featured  Leather </fullName>
+                <fullName>Basalt GreyNAPPA Skin</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Alpaca Grey%2FBasalt grey Featured leather</fullName>
+                <fullName>Basalt grey%2FBlack Featured leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Alpaca Grey%2FBlackLeather</fullName>
+                <fullName>Basalt grey%2FXuan Wu  Deep Grey Featured  Leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tundra Brown </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prairie Yellow%2FOpen Division  M  Color  Featured leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design%EF%BC%8CGrey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design%EF%BC%8CBeige</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design%EF%BC%8CRed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Design%EF%BC%8CBlack</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maldives Blue</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senior Nappa leather %EF%BC%8CEgg Stone  Color </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senior Nappa leather %EF%BC%8C Carbon Grey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senior Nappa leather %EF%BC%8CJava Yellow </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Senior Nappa leather %EF%BC%8CAlpaca grey </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gull wing Red  Nappa leather </fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yellow Leather</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yellow%2FBlack Leather</fullName>
+                <fullName>Basalt grey%2FXuan Wu  Deep Grey Featured leather</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15323,15 +14955,19 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black ARTICO Skin </fullName>
+                <fullName>Black ARTICO Skin</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black%2FSahara M  Yellow Leather</fullName>
+                <fullName>Black Featured  Leather</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black%2FBlack Featured  Leather </fullName>
+                <fullName>Black Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Black%2FBlack Featured  Leather</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15339,7 +14975,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black%EF%BC%8C ARTICO Skin </fullName>
+                <fullName>Black%2FSahara M  Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Black%EF%BC%8C ARTICO Skin</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15355,11 +14995,527 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black Featured  Leather </fullName>
+                <fullName>California Shallow  Brown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Black Featured leather</fullName>
+                <fullName>Cappuccino Brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey %2F  Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey %2F  Elegant  Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey %2F Dark blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey%2F Berry Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey%2F Deep  Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Carbon Grey%2FDark blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow %2FBlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow ARTICO Skin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow Color   Nappa leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow Color  Nappa leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow Color ARTICOLeather upholstery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow Color Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow%2C ARTICO Skin</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cashmere yellow-ARTICO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chestnut Wood  Brown  Color  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chestnut Wood Brown%2FBlack Featured  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chestnut Wood Brown%2FBlack Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ChestnutBrown%2FBlack Featured  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ChestnutBrown%2FBlack Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ChestnutBrownLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coral Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crystal GreyLeather upholstery Kit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dark RedLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design%EF%BC%8CBeige</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design%EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design%EF%BC%8CGrey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Design%EF%BC%8CRed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Interior trim%EF%BC%8C Elegant Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Interior trim%EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Interior trim%EF%BC%8CChestnut Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Style  Steering wheel  and  Shift lever %2C  Piano lacquer  Black</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Style  Steering wheel  and  Shift lever %EF%BC%8C Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Style  Steering wheel  and  Shift lever %EF%BC%8C Natural  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Style  Wood trim %2C  Piano lacquer  Black</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Designo Wood trim %EF%BC%8C Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Mauritius Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Mystery  Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Mystery Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Natural  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Sha Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Shallow Brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8C Stone Dark green</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoInterior trim%EF%BC%8CSilver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DesignoLeather upholstery%2CPorcelain yellow%2F Black</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable  designo  Classic Red Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable  designo  Porcelain Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable  designo  Sha Grey Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable designo Premier Edition  Classic  Red %2FBlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable designo Premier Edition  Sha Ash%2FBlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Double Color  Adjustable designo Premier Edition Porcelain yellow%2FBlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Egg Stone  Color ARTICOLeather upholstery</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Flamengo Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GalapagosAsh</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Goose Egg Stone Yellow With special  smoke Brown Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grey Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GreyAlcantara Car roof lining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GreyLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gull wing Red  Nappa leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Labrador Retriever Carbon Ash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CAlpaca grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CEgg Stone  Yellow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CPebble m</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CSahara M  Yellow %2FBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CXuan Wu Ash%2F Deep Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather %EF%BC%8CXuan Wu Ash%2FBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather Exclusive brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Carbon Ash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Graphite colour</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CAshRed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CBao Stone Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Nappa leather %EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Pacific Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Sierra Ash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C Tropical Prairie  Yellow %2FCashmere yellow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8C grandeur Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CAlpaca grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CAshRed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CBao Stone Gold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CBerry Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CBlack</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CDelta Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CEgg Stone  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CEgg Stone  Yellow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CFlame Red</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CTwin Black</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CTwin grandeur Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CTwinAlpaca grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CTwinEgg Stone  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Leather%EF%BC%8CUniverseBlue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M  Color Alcantara Car roof lining</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB-TEX %2F LEATHER TWIN%2FARTICO - BLACK %2F ANTHRACITE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB-TEX %2F LEATHER TWIN%2FARTICO - GREY</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maldives Blue</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Matt Ash Limited Edition Interior trim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maui Pearl Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Benz standard Interior trim</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NAPPA Natural  M  Color Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open Division  M  Color %2FPrairie Yellow Featured  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open Division  M  Color %2FPrairie Yellow Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Open Division  M  Color %2FPrairie Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pebble m</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prairie Yellow%2FOpen Division  M  Color  Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pure White aniline Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rocky gray-Artico</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sahara M  Color %2FBlack Featured  Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sahara M  Color %2FBlack Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sahara M  Color %2FBlack Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Nappa leather %EF%BC%8C Carbon Grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Nappa leather %EF%BC%8CAlpaca grey</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Nappa leather %EF%BC%8CEgg Stone  Color</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Senior Nappa leather %EF%BC%8CJava Yellow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shallow Browndesigno Premier Edition Natural Leather%2FWeave Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable  designo  Classic Red Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable  designo  Porcelain Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable  designo  Sha Grey Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable  designo Black Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable designo Premier Edition  Classic RedLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable designo Premier Edition  Porcelain YellowLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable designo Premier Edition  Sha GreyLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Single Color  Adjustable designo Premier Edition BlackLeather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tropical Prairie  Yellow %2FCashmere yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tundra Brown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>White Brandy Brown  Color %2FBlack Featured leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>White Brandy Brown  Color Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Xuan Wu Ash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow Leather</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yellow%2FBlack Leather</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15375,6 +15531,45 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>VehicleStatus__c</picklist>
+            <values>
+                <fullName>Current vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo%2Fcourtesy vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Invoiced vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Part exchange vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quoted Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle in stock</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle to be ordered</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -39,7 +39,8 @@ public class CaseHelperTest {
         Case c1 = new Case(Vehicle_Relationship__c = vrData1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
                            Case_SubType__c='Dealer-after sales service attitude', Case_Dealer__c = portalUser1.AccountId);
         sos.add(c1);
-        CaseHelper.insertSobjects(sos);
+        if(sos!=null && !sos.IsEmpty())
+        UtilSobject.insertSobjects(sos);
         
         c1 = [select Case_SubType__c,Subject,Vehicle_Brand__c,Vehicle_Class__c,Vehicle_Model__c,VIN_Code__c from case where id=:c1.id];
         system.assertEquals(c1.Vehicle_Brand__c,'BENZ');
@@ -72,7 +73,8 @@ public class CaseHelperTest {
         
         c1.Problem1__c = 'xxx';
         sos.add(c1);
-        CaseHelper.updateSobjects(sos);
+        if(sos!=null && !sos.IsEmpty())
+        UtilSobject.updateSobjects(sos);
         List<Complaint_Tracking__c> ctcs = [select Action__c from Complaint_Tracking__c where Case__c=:c1.id];
         system.assert(ctcs.size()>0);        
         Test.stopTest();

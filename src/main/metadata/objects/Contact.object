@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
-	<fieldSets>
-        <fullName>SLICK_CTI_CONTACT</fullName>
-        <description>Slick CTI - Record Popup display</description>
-        <displayedFields>
-            <field>Name</field>
-            <isFieldManaged>true</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>MobilePhone</field>
-            <isFieldManaged>true</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <label>SLICK_CTI_CONTACT</label>
-    </fieldSets>
     <actionOverrides>
         <actionName>AddToCampaign</actionName>
         <type>Default</type>
@@ -111,6 +96,21 @@
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <externalSharingModel>ControlledByParent</externalSharingModel>
+    <fieldSets>
+        <fullName>SLICK_CTI_CONTACT</fullName>
+        <description>Slick CTI - Record Popup display</description>
+        <displayedFields>
+            <field>Name</field>
+            <isFieldManaged>true</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>MobilePhone</field>
+            <isFieldManaged>true</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>SLICK_CTI_CONTACT</label>
+    </fieldSets>
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>true</trackFeedHistory>
@@ -152,11 +152,10 @@
         <length>20</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	<fields>
+    <fields>
         <fullName>Dealer_Aftersales_Manager__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Permission set: aftermarket annual plan, aftermarket activities information Center reports</description>
@@ -321,7 +320,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Central</fullName>
+                <fullName>BMBS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>

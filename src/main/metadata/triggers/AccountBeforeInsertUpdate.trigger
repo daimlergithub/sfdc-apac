@@ -10,13 +10,12 @@
     History:
     
     1. Bing Bai Created on 2013-06-05
-*/
-
-trigger AccountBeforeInsertUpdate on Account (before insert, before update) {
+*/ 
+trigger AccountBeforeInsertUpdate on Account (before insert, before update,after insert, after update) {/*
+    if(trigger.isBefore){
     if (!UtilCustomSettings.isEnabled('AccountBeforeInsertUpdate')) {
         return;
-    }
-    
+    }    
     Map<String, boolean> cp010Map = new Map<String, boolean>();
     Set<Id> cp016Map = new Set<Id>();
     Map<String, id> cp017Map = new Map<String, id>();
@@ -24,8 +23,8 @@ trigger AccountBeforeInsertUpdate on Account (before insert, before update) {
     List<id> ids = new List<id>();
     List<String> citys = new List<String>();
     
-    Profile IngretionProfile = [select Id from Profile where Name = 'IntegrationAPI'];
-    
+   // Profile IngretionProfile = [select Id from Profile where Name = 'IntegrationAPI'];
+    Id IngretionProfileId=UtilConstant.getProfileId(UtilConstant.Ingretion_Profile); 
     for(Account curAcc: trigger.new){
         
         // "Dealer DMS SR Code 1" has a value and "Dealer Default Flag" 
@@ -40,23 +39,17 @@ trigger AccountBeforeInsertUpdate on Account (before insert, before update) {
                 }
             }
         }
-
-        
-        if ('Customer' == curAcc.Status__c && UserInfo.getProfileId() != IngretionProfile.Id){
-            //if(trigger.isInsert){
-                //ids.add(curAcc.id);
-            //}
+       
+        if ('Customer' == curAcc.Status__c && UserInfo.getProfileId() != IngretionProfileId){           
             if(trigger.isUpdate){
                 if (trigger.oldMap.get(curAcc.id).Status__c != curAcc.Status__c){
                     ids.add(curAcc.id);
                 }
             }           
-        }
-        
+        }        
         if (!String.isBlank(curAcc.City__c)){
             citys.add(curAcc.City__c);
-        }
-        
+        }        
     }
     
     //get record counts from accout which Dealer_Default_Flag__c = true and "Dealer DMS SR Code 1" has a value
@@ -93,6 +86,7 @@ trigger AccountBeforeInsertUpdate on Account (before insert, before update) {
     /**
      * Added by Justin Yu on 2014-3-4. Fill in the Zip Code automatically based on the City
      */
+   /*
     for(Account account : Trigger.new){
         if(!Trigger.isUpdate || account.City__c != Trigger.oldMap.get(account.Id).City__c){
             try{
@@ -103,5 +97,17 @@ trigger AccountBeforeInsertUpdate on Account (before insert, before update) {
                 // City__c probably too long
             }
         }
-    }   
+    }  
+ } 
+ if(trigger.isAfter){
+        if (!UtilCustomSettings.isEnabled('AccountAfterInsertOrUpdate')) {
+            return;
+        }   
+        AccountSharingDataHandler accountDealerhandler = new AccountSharingDataHandler('AccountDealer');
+        accountDealerhandler.shareDealerByCrmCode(trigger.newMap,trigger.oldMap,trigger.isInsert);
+        if(trigger.isInsert){
+            accountDealerhandler.share3rdAccount(trigger.newMap);
+        }     
+       
+     } */
 }

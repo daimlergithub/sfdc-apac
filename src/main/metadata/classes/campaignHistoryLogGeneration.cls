@@ -10,7 +10,7 @@
     18-June-2013 Stephano.shi (Breakingpoint)    Created
 */
 public class campaignHistoryLogGeneration{
-    
+ List<Campaign_history_log__c>  lstCampaign_history=new List<Campaign_history_log__c>();
     public void logGeneration(String type, String objId, String action, Id cm, Id us, String objName){
         // LOG Record
     	Campaign_history_log__c chl = new Campaign_history_log__c();
@@ -20,7 +20,9 @@ public class campaignHistoryLogGeneration{
         chl.Campaign__c = cm;		// What campaign releated
         chl.User__c = us;			// Who makes the operation
         chl.Object_Name__c = objName;
+        lstCampaign_history.add(chl);
+            
         if(cm != null)
-        	insert chl;
+        	insert lstCampaign_history;
     }
 }

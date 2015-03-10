@@ -299,16 +299,6 @@
     <fields>
         <fullName>CAI__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>Inbound, outbound:
-1.Initiatives to provide relevant information or additional help;
-2.Appropriate to ask the customer if they need additional help, (inbound only);
-3.Answer detailed，attitude did not appear lazy,question-and-answer, love, Miss, and so on;
-4.Active control, call time, hold phone calls subject.
-SSI:
-1.Offered to provide relevant information or additional assistance.
-2.Answers to detailed, did not appear lazy attitude, question-and-answer, love, Miss, and so on.
-3.Active control, call time, grasp the call topics.
-4.Appropriate questions, open questions must go through repeated confirmation with the customer.</inlineHelpText>-->
         <label>Communicate Ability - Initiative</label>
         <picklist>
             <picklistValues>
@@ -344,9 +334,6 @@ SSI:
     <fields>
         <fullName>CALA__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>1.Active listening, concentration, "Yes, good" customer feedback in a timely manner;
-2. In the case of customers have expressed a clear, without customers and keep repeating the same information twice (not including two);
-3. Answer does not appear, deviation of the understanding, and so on.</inlineHelpText>-->
         <label>Communicate Ability - Listening Ability</label>
         <picklist>
             <picklistValues>
@@ -382,7 +369,7 @@ SSI:
     <fields>
         <fullName>CARR__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>Give quick response to customer needs, without pauses for a long time, or even customers reminded to respond to clients ' profiles.</inlineHelpText>
+        <inlineHelpText>Give quick response to customer needs, without pauses for a long time, or even customers reminded to respond to clients &apos; profiles.</inlineHelpText>
         <label>Communicate Ability - Rapid Response</label>
         <picklist>
             <picklistValues>
@@ -418,9 +405,6 @@ SSI:
     <fields>
         <fullName>CCCR__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>1. Through repetition, restructure and clarify the effective organization of language, confirm with customer demand and the important basic information;
-2. Accurately understanding customer intent, does not require customers to repeat;
-3. Information or comment is not subjective speculation without confirmation.</inlineHelpText>-->
         <label>Clarify&amp;Confirm Customer Requirement</label>
         <picklist>
             <picklistValues>
@@ -543,10 +527,10 @@ SSI:
         <fullName>CITQ__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>SSI:
-1. Do not mislead clients, actively verifying the customer's needs.
-2. When the customer says to the topic when you don't understand, be prepared to explain the meaning.
+1. Do not mislead clients, actively verifying the customer&apos;s needs.
+2. When the customer says to the topic when you don&apos;t understand, be prepared to explain the meaning.
 Breathe out:
-Do not mislead clients, actively verifying the customer's needs.</inlineHelpText>
+Do not mislead clients, actively verifying the customer&apos;s needs.</inlineHelpText>
         <label>Correctly Interpret The Questionnaire</label>
         <picklist>
             <picklistValues>
@@ -647,9 +631,6 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
     <fields>
         <fullName>ClarificationCustomerDemand__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>1. Retell, restructure and clarify the effective organization of language, confirm with customer demand and the important basic information, accurate understanding of customer intent
-2. Information or comment is not subjective speculation without confirmation
-3. Do not mislead clients, actively verifying customer needs</inlineHelpText>-->
         <label>Clarification Customer Demand</label>
         <picklist>
             <picklistValues>
@@ -683,10 +664,6 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
     <fields>
         <fullName>CustomerPerception__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>1.Use appropriate language and timely response to customer experience
-2.Using language to appease a customer (such as complaints), customer concern, empathy
-3.Don't address the issues that follow, complicated operation and not dodge in the question words
-4.Do not feel free to interrupt the customer not forestall other speakers with the customer, not in a hurry to hang up the phone, showed good patience, tone is not impatient</inlineHelpText>-->
         <label>Customer Perception</label>
         <picklist>
             <picklistValues>
@@ -710,12 +687,6 @@ Do not mislead clients, actively verifying the customer's needs.</inlineHelpText
     <fields>
         <fullName>DA__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>Inbound, outbound:
-1.  Record accurate information;
-2.  Match document calls substance.
-SSI:
-1. Accurately records the customer's answers, the document content matching call real.
-2. Initiative to clarify new words, such as spelling, such as customer name, non-common.</inlineHelpText>-->
         <label>Document Accuracy</label>
         <picklist>
             <picklistValues>
@@ -760,23 +731,6 @@ SSI:
     <fields>
         <fullName>Document_DeductedReason__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>IB:
-1.  Typos
-2. Create an information consulting
-3. Create sales leads
-4. Create a vehicle information
-5. Information type, classification, select errors
-6. The system template selection error
-7. Advisory notes, other notes and calls untrue
-8. other
-
-OB:
-1. Typos
-2. Select the correct communication status
-3. Create sales leads
-4. Create a vehicle information
-5. Advisory notes, other notes and calls untrue
-6. other</inlineHelpText>-->
         <label>Document Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -859,14 +813,7 @@ OB:
     <fields>
         <fullName>FMSK__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>Inbound, outbound:
-1.  Fully understand and master smart product price, resellers, distribution and current activities of knowledge;
-2.  Full understanding of car related knowledge.
-SSI:
-1. Fully understand and master configuration and performance smart products price, dealer distribution.
-2. Basic knowledge of car related knowledge.
-3. Q5031 and Q10041 on the topic, understanding the product highlights and accurate records of customers referred to.</inlineHelpText>-->
-        <label>Familiar Central/smart/ Knowledge</label>
+        <label>Familiar BMBS/smart/ Knowledge</label>
         <picklist>
             <picklistValues>
                 <fullName>Pass</fullName>
@@ -901,12 +848,6 @@ SSI:
     <fields>
         <fullName>FQL__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>Breathe out:
-1.Follow the logic questionnaire;
-2.According to the scripts collection, or express critical information.
-SSI:
-1.Follow the logic questionnaire, item-by-item with your customer information, such as customer information, vehicle information, and more.
-2.According to the scripts collection, or express critical information.</inlineHelpText>-->
         <label>Following Questionnaire Logic</label>
         <picklist>
             <picklistValues>
@@ -951,21 +892,6 @@ SSI:
     <fields>
         <fullName>FTOP_DeductedReason__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>IB:
-1. Advisory and upgrade process
-2. Customer information process flow
-3. Sales lead process
-4. Active processes
-5. Complaint handling process
-6. SMS sending process
-7. Call flow
-8. Other
-
-OB:
-1. Verifying data sharing
-2. Issue escalation procedures
-3. SMS sending process
-4. Other</inlineHelpText>-->
         <label>Follow The Operation Deducted Reason</label>
         <picklist>
             <picklistValues>
@@ -1026,19 +952,6 @@ OB:
     <fields>
         <fullName>FTOP__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>Calling people：1.Activity operating procedures
-2. Sales leads, business processes
-3. Complaint handling process
-4. General consultation processes
-5.  Transfer end IVR flow 
-6. Customers' willingness to share data and receive relevant information
-Breathe out:
-1. In the correct outbound process, using the appropriate scripts for call;
-2. Special problems of process.
-3. Customers ' willingness to share data and receive relevant information.
-SSI：
-1. according to the correct outbound process, call the script accordingly.
-2. Follow a special issue dealing with the process.</inlineHelpText>-->
         <label>Follow The Operation Process</label>
         <picklist>
             <picklistValues>
@@ -1074,9 +987,6 @@ SSI：
     <fields>
         <fullName>FollowTheOperationProcess__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>1.Follow the existing call center operational process
-2.Follow the special handling procedure
-3.In accordance with the procedures required to collect the necessary information, such as customer information, sales information, vehicle information, such as initial source of information</inlineHelpText>-->
         <label>Follow The Operation Process</label>
         <picklist>
             <picklistValues>
@@ -1267,9 +1177,6 @@ SSI：
     <fields>
         <fullName>PFOCF__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>1.Use appropriate language and timely response to customer experience,Such as&quot;I understand how you feel&quot;,&quot;I understand that ...&quot;&quot;Indeed ...&quot; &quot;I'm sorry for the inconvenience&quot; tricky words;
-2.Using language to appease a customer (such as complaints), customer concern, empathy.
-3.Respect to customer feedback, without forcing customers to answer a questionnaire, (SSI only)</inlineHelpText>-->
         <label>Perception - Focus On Customer Feel</label>
         <picklist>
             <picklistValues>
@@ -1344,9 +1251,6 @@ Customer hung up the phone and then hang up.</inlineHelpText>
     <fields>
         <fullName>PJ__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>1.Make customers feel uncomfortable is not used in the call (such as to contradict/questioning/denial) terminology such as&quot;Hey, huh?!I do not know,You have to do,There is no way,It is not possible to&quot;and so on；
-2.Cannot use rhetorical questions, questioning language, name-calling, sarcastic customer;
-3.Cannot chat with customers.</inlineHelpText>-->
         <label>Perception - JinYongYu</label>
         <picklist>
             <picklistValues>
@@ -1382,15 +1286,6 @@ Customer hung up the phone and then hang up.</inlineHelpText>
     <fields>
         <fullName>PPD__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>Incoming call:
-1.Exhibiting a high degree of patience, not impatient in tone, speed was not inappropriate to accelerate;
-2.Do not feel free to interrupt the customer, not in a hurry to hang up the phone;
-3.Some non-important issues without losing sight of customer;
-4.Don't address the issues that follow, complicated operation and not dodge words in the question.
-Breathe out,SSI:
-1.Exhibiting a high degree of patience, not impatient in tone, speed was not inappropriate to accelerate;
-2.Do not feel free to interrupt the customer, not in a hurry to hang up the phone;
-3.Some non-important issues without losing sight of customer, positive response to the customer;</inlineHelpText>-->
         <label>Perception - Patience Degree</label>
         <picklist>
             <picklistValues>
@@ -1793,7 +1688,7 @@ Breathe out,SSI:
     <fields>
         <fullName>Q6_Comments__c</fullName>
         <externalId>false</externalId>
-        <label>Familiar Smart/Knowledge Comments</label>
+        <label>Familiar BMBS/smart/ Knowledge Comments</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2060,6 +1955,30 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>R_Familiar_BMBS_smart_Knowledge_P_F_S1__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(FMSK__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Familiar BMBS/smart/ Knowledge P/F S1</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>R_Familiar_BMBS_smart_Knowledge_P_F_S2__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(FMSK__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Familiar BMBS/smart/ Knowledge P/F S2</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -2479,13 +2398,6 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>Responsibility__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>Incoming call:
-1.  For issues beyond the scope of reasoning skills, and duplicate acknowledgments, active record and follow-up;
-2.  Proactive and positive activities and product information;
-3.  Initiative to clarify new words, vocabulary, spelling, such as customer name, non-common.
-Breathe out:
-1.  Item-by-item with your customer information, such as customer information, vehicle information such as;
-2.  Initiative to clarify new words, vocabulary, spelling, such as customer name, non-common.</inlineHelpText>-->
         <label>Responsibility</label>
         <picklist>
             <picklistValues>
@@ -2654,16 +2566,6 @@ Breathe out:
     <fields>
         <fullName>SPL__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>Incoming call:
-1.Using the rules of courtesy and follow up calls that consistent;
-2.Apologized and expressed its gratitude to the customer after the customer wait;
-3.On the phone after learning of the customer last name moderate call customer last name;
-4.Due apologies, require customers to repeat;
-Breathe out, SSI:
-1.Using the rules of courtesy and follow up calls that consistent;
-2.Apologized and expressed its gratitude to the customer after the customer wait;
-3.In call moderate last name honorific customers more than 2 times (2 times);
-4.Need restatement of customers on proper apology</inlineHelpText>-->
         <label>Specification - Polite Language</label>
         <picklist>
             <picklistValues>
@@ -2725,7 +2627,7 @@ Breathe out, SSI:
         <fullName>SSL__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>1.Fluency in the call, no spoken language, dialect and other unprofessional language;
-2.No "Yes, Yes, of course, that's it, Oh, Oh," or unnecessary, such as "this ... The ... Hmm ...&quot; spoken language and dialects；</inlineHelpText>
+2.No &quot;Yes, Yes, of course, that&apos;s it, Oh, Oh,&quot; or unnecessary, such as &quot;this ... The ... Hmm ...&quot; spoken language and dialects；</inlineHelpText>
         <label>Specification - Spoken Language</label>
         <picklist>
             <picklistValues>
@@ -2770,13 +2672,6 @@ Breathe out, SSI:
     <fields>
         <fullName>SoftSkill__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>Language expression
-1.Narrative fluency, detail proper, professional, concise expression; a clear logical, matching the customer's awareness.
-2.Control, call time, grasp the phone theme
-3.Guests questions to answer/does not appear inappropriate to respond to customers in a timely manner (except in dialect, the line is not clear)
-Ability to listen
-1.In the case of customers have expressed a clear, without customers and keep repeating the same information twice (not including two)
-2.Don't ignore customers or ask for additional information</inlineHelpText>-->
         <label>Soft Skill</label>
         <picklist>
             <picklistValues>
@@ -2800,9 +2695,6 @@ Ability to listen
     <fields>
         <fullName>SpecificationLanguage__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>1.With the standard Mandarin, namely clarity, proper use of polite language
-2.Unused in calls such as &quot;Hey, I don't know, I don't know, AH (rising tone), won, OK, OK, Ah, you,?&quot;, and other inappropriate language
-3.No spoken language, dialect and other unprofessional language</inlineHelpText>-->
         <label>Specification Language</label>
         <picklist>
             <picklistValues>
@@ -2952,13 +2844,6 @@ Ability to listen
     <fields>
         <fullName>TheStandardOpeningClosing__c</fullName>
         <externalId>false</externalId>
-        <!--<inlineHelpText>Opening remarks
-1.Using a standard prologue, says do not leak or to the wrong
-2.Moderate tempo, clarity
-3.Started by show, including willingness to serve language and take the initiative to ask the customer name
-Concluding remarks:
-1.Using the standard closing, well the cat says
-2.Speed is moderate, does not appear impatient or speaking too fast to express lack of clarity</inlineHelpText>-->
         <label>The Standard Opening/Closing</label>
         <picklist>
             <picklistValues>
@@ -3112,10 +2997,10 @@ MAX(
         <label>My QC task</label>
         <language>en_US</language>
         <sharedTo>
+            <role>CAC_QC_SV_TM</role>
             <role>IB_QC</role>
             <role>OB_QC</role>
             <role>SSI_Supervisor</role>
-            <role>CAC_QC_SV_TM</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3135,11 +3020,11 @@ MAX(
         </filters>
         <label>Outstanding quality for my tasks</label>
         <language>en_US</language>
-		<sharedTo>
+        <sharedTo>
+            <role>CAC_QC_SV_TM</role>
             <role>IB_QC</role>
             <role>OB_QC</role>
             <role>SSI_Supervisor</role>
-            <role>CAC_QC_SV_TM</role>
         </sharedTo>
     </listViews>
     <listViews>
@@ -3180,7 +3065,7 @@ MAX(
         <columns>OWNER.ALIAS</columns>
         <columns>NAME</columns>
         <columns>Calibration__c</columns>
-		<filterScope>Everything</filterScope>
+        <filterScope>Everything</filterScope>
         <filters>
             <field>RECORDTYPE</field>
             <operation>equals</operation>
@@ -3189,9 +3074,9 @@ MAX(
         <label>Task pool</label>
         <language>en_US</language>
         <sharedTo>
-            <role>SSI_Supervisor</role>
             <role>CAC_QC_SV_TM</role>
-        </sharedTo>	
+            <role>SSI_Supervisor</role>
+        </sharedTo>
     </listViews>
     <nameField>
         <displayFormat>QC-{000000}</displayFormat>
@@ -3256,15 +3141,7 @@ MAX(
         <picklistValues>
             <picklist>Appeal_Type__c</picklist>
             <values>
-                <fullName>QC judge errors</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>QC change comments</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>QC regulation</fullName>
+                <fullName>Appeal fails</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3272,15 +3149,23 @@ MAX(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Temporary submission</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fuzzy audio</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Appeal fails</fullName>
+                <fullName>Major differences</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC change comments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC judge errors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC regulation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3288,7 +3173,7 @@ MAX(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Major differences</fullName>
+                <fullName>Temporary submission</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4061,15 +3946,7 @@ MAX(
         <picklistValues>
             <picklist>Appeal_Type__c</picklist>
             <values>
-                <fullName>QC judge errors</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>QC change comments</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>QC regulation</fullName>
+                <fullName>Appeal fails</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4077,15 +3954,23 @@ MAX(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Temporary submission</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fuzzy audio</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Appeal fails</fullName>
+                <fullName>Major differences</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC change comments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC judge errors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC regulation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4093,7 +3978,7 @@ MAX(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Major differences</fullName>
+                <fullName>Temporary submission</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4847,15 +4732,7 @@ MAX(
         <picklistValues>
             <picklist>Appeal_Type__c</picklist>
             <values>
-                <fullName>QC judge errors</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>QC change comments</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>QC regulation</fullName>
+                <fullName>Appeal fails</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4863,15 +4740,23 @@ MAX(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Temporary submission</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fuzzy audio</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Appeal fails</fullName>
+                <fullName>Major differences</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC change comments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC judge errors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QC regulation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4879,7 +4764,7 @@ MAX(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Major differences</fullName>
+                <fullName>Temporary submission</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4901,48 +4786,48 @@ MAX(
                 <default>false</default>
             </values>
             <values>
-                <fullName>Low</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>High</fullName>
                 <default>true</default>
+            </values>
+            <values>
+                <fullName>Low</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>CALA__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>CARR__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>CCCR__c</picklist>
             <values>
-                <fullName>Medium</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4950,7 +4835,7 @@ MAX(
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4976,7 +4861,7 @@ MAX(
         <picklistValues>
             <picklist>CCI__c</picklist>
             <values>
-                <fullName>Medium</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4984,23 +4869,23 @@ MAX(
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>CITQ__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -5047,16 +4932,16 @@ MAX(
         <picklistValues>
             <picklist>DA__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -5112,31 +4997,31 @@ MAX(
         <picklistValues>
             <picklist>FMSK__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>FQL__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -5177,16 +5062,16 @@ MAX(
         <picklistValues>
             <picklist>FTOP__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -5263,76 +5148,76 @@ MAX(
         <picklistValues>
             <picklist>PACI__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>PFOCF__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>PHU__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>PJ__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>PPD__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -5349,22 +5234,22 @@ MAX(
         <picklistValues>
             <picklist>PPIS__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>PS__c</picklist>
             <values>
-                <fullName>Medium</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5372,7 +5257,7 @@ MAX(
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5443,7 +5328,7 @@ MAX(
         <picklistValues>
             <picklist>Responsibility__c</picklist>
             <values>
-                <fullName>Medium</fullName>
+                <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5451,23 +5336,23 @@ MAX(
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
+                <fullName>Medium</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>SC__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -5499,46 +5384,46 @@ MAX(
         <picklistValues>
             <picklist>SO__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>SPL__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>SSL__c</picklist>
             <values>
-                <fullName>Medium</fullName>
-                <default>false</default>
+                <fullName>High</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>High</fullName>
-                <default>true</default>
+                <fullName>Medium</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>

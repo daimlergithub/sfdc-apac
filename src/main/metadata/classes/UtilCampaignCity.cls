@@ -13,12 +13,12 @@ public class UtilCampaignCity {
 	public static void deleteParticipatingDealer(List<Campaign_City__c> cpCityList){
 		Savepoint sp = Database.setSavepoint();
 		try{
-			List<ID> cityIdList = new List<ID>();
-			
-			System.debug('@!!!!! begin');
-			
-			List<Participating_Dealer__c> pDealerList = [select id from Participating_Dealer__c
-															where Campaign__c = :cpCityList[0].Campaign__c];
+			List<ID> cityIdList = new List<ID>();			
+			List<Participating_Dealer__c> pDealerList =new List<Participating_Dealer__c>();
+			for(Participating_Dealer__c p:[select id from Participating_Dealer__c where Campaign__c = :cpCityList[0].Campaign__c]){
+				pDealerList.add(p);
+			}
+			 
 															
 			if(pDealerList.size() > 0) {
 				delete pDealerList;
