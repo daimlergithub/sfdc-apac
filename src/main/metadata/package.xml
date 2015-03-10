@@ -220,6 +220,7 @@
         <members>TookKitSharingWrapService</members>
         <members>ToolKitSelectContentController</members>
         <members>ToolKitSelectContentControllerTest</members>
+        <members>ToolKit_TriggerHelper</members>
         <members>TriggerAccountTest</members>
         <members>TriggerCampaignCity_TestClass</members>
         <members>TriggerCampaignLeadTest</members>
@@ -421,18 +422,18 @@
         <members>RecallAfterInsertUpdate</members>
         <members>RecallBeforeDelete</members>
         <members>RetailCampaignMemberBeforeInsertUpdate</members>
+        <members>RetailCampaignTrigger</members>
         <members>RetailTaskAfter</members>
         <members>SSITrigger</members>
         <members>ShareAccountLinksToDealer</members>
         <members>ShareCampaignByClooaboration</members>
-        <members>ShareRecordToDealer</members>
         <members>ShareToolKits</members>
         <members>TaskTrigger</members>
         <members>TirggerCampaignParticipatingDealer</members>
         <members>ToolKitAfterInsertUpdateDelete</members>
         <members>ToolKitBeforeInsertUpdateDelete</members>
+        <members>ToolKit_Trigger</members>
         <members>TriggerAccount</members>
-        <members>TriggerAfterRetailCampaign</members>
         <members>TriggerBatchJob</members>
         <members>TriggerBeforeRetailCampaign</members>
         <members>TriggerCampaign</members>

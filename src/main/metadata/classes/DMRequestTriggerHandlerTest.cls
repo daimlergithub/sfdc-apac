@@ -83,7 +83,7 @@ private class DMRequestTriggerHandlerTest {
             System.debug('--------Scenario 1--------');
             DM_Request__c dmr1 = new DM_Request__c(Actual_DM_Material1__c=dm1.Id, Status__c='Open', Customer_Name__c=customer.Id );
             insert dmr1;
-            dm1 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm1.Id];
+            //dm1 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm1.Id];
             System.assertEquals(dm1.Stock__c, 10);
             
             // Scenario 3.1
