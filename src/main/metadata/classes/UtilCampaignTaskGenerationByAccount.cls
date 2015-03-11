@@ -14,21 +14,14 @@
 */
 
 global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<sObject>{
-    global List<ID> cpIdList = new List<ID>();
-    
+    global List<ID> cpIdList = new List<ID>();    
     private MisunderstoodTaskGeneration mis;
-    public List<Campaign> cpUpdateList = new List<Campaign>(); 
-     public List<User> genericUserQueryList = new List<User>(); 
-    public List<User> obuserList = new List<User>(); 
-    public User intUser;
-    public User fulfillmentSpUser;
-    
-    private ID taskRecordTypeId;
+    public List<Campaign> cpUpdateList = new List<Campaign>();   
+    public List<User> intUser = new List<User>();   
     private String strSMS = 'SMS';
     private String strOBCall = 'OB Call';
     private String streDM = 'eDM';
-    private String strDM = 'DM';
-    
+    private String strDM = 'DM';    
     private String strOpenStatus = 'Open';
     private String strCloseStatus = 'Closed';
     private String strVeriStatus = 'Need Verification';
@@ -36,26 +29,24 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
     
     public List<DM_Request__c> dmRequestList = new List<DM_Request__c>();
     // Batch Job Id
-    global Id jobId;
-    
+    global Id jobId;    
     global Map<String, Schema.RecordTypeInfo> taskRecordTypeMap;
     
     global UtilCampaignTaskGenerationByAccount(List<Campaign> cpList, Id nexJobId) 
-    {
-        //obuserList = [select id, name from User where UserRole.Name = 'OB Supervisor' and IsActive = true LIMIT 1];
-        intUser = [SELECT Id FROM User WHERE Profile.Name = 'IntegrationAPI' AND isActive = true  LIMIT 1];
-        //fulfillmentSpUser = [SELECT Id FROM User WHERE UserRole.Name like '%Fulfillment Specialist%' AND isActive = true LIMIT 1];
-
-        for(Campaign cp : cpList) {
-            cpIdList.add(cp.Id);
-            cpUpdateList.add(new Campaign(id = cp.Id, Create_Task__c = false));
-        }
-
+    {       
+       intUser = [SELECT Id FROM User WHERE Profile.Name = 'IntegrationAPI' AND isActive = true  LIMIT 1];
+       if(cpList!=Null && (!cpList.isEmpty())){
+           for(Campaign cp : cpList) {
+                cpIdList.add(cp.Id);
+                cpUpdateList.add(new Campaign(id = cp.Id, Create_Task__c = false));
+            }        
         // Initiate Mis
         mis = new MisunderstoodTaskGeneration(cpList, false);
-
+        }
         // Batch Job ID
-        jobId = nexJobId;
+        if(nexJobId!=Null){
+          jobId = nexJobId;
+         }
     }
     
     global Database.QueryLocator start(Database.BatchableContext BC){
@@ -75,8 +66,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
         List<Task> taskList = new List<Task>();
         taskRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
         Savepoint sp = Database.setSavepoint();
-        try {
-            System.debug('CampaignMember>>>' + scope);            
+        try {                        
             for(CampaignMember cpm : scope) {
                 taskList.addAll(generateTask(cpm,taskRecordTypeMap));
                 cpm.Task_Generated__c = true;
@@ -86,27 +76,28 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
             Map<String, Task> upMMSTaskList = new Map<String, Task>();
             Map<String, Task> upEDMTaskList = new Map<String, Task>();
             List<Task> upOtherTaskList = new List<Task>();
-            for(task tk : taskList){
-                if(tk.Subject == strSMS){
-                    upSMSTaskList.put(tk.UniqueCampaignMobile__c, tk);
+            if(taskList!=Null && (!taskList.isEmpty())){
+                for(task tk : taskList){
+                    if(tk.Subject == strSMS){
+                        upSMSTaskList.put(tk.UniqueCampaignMobile__c, tk);
+                    }
+                    else if(tk.Subject == 'MMS'){
+                        upMMSTaskList.put(tk.UniqueCampaignMobile__c, tk);
+                    }
+                    else if(tk.Subject == streDM){
+                        upEDMTaskList.put(tk.UniqueCampaignEmail__c, tk);
+                    } else{
+                        upOtherTaskList.add(tk);
+                    }
                 }
-                else if(tk.Subject == 'MMS'){
-                    upMMSTaskList.put(tk.UniqueCampaignMobile__c, tk);
-                }
-                else if(tk.Subject == streDM){
-                    upEDMTaskList.put(tk.UniqueCampaignEmail__c, tk);
-                } else{
-                    upOtherTaskList.add(tk);
-                }
-            }
+             }
             taskList = upOtherTaskList;
             taskList.addAll(upSMSTaskList.Values());
             taskList.addAll(upMMSTaskList.Values());
-            taskList.addAll(upEDMTaskList.Values());
-            
-            System.debug('taskList>>>' + taskList);
+            taskList.addAll(upEDMTaskList.Values());           
             update scope;
-            if(dmRequestList.size() > 0) insert dmRequestList;     
+           
+            if(dmRequestList!=Null && !dmRequestList.isEmpty()) insert dmRequestList;     
             
             // No need to consider duplicate Campaign Task of the same CAC Campaign
             // So if it is caused this reason, we need to append the campaign execution to 
@@ -115,15 +106,13 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
             mis.processMisunderstoodTasks(srs, taskList);
         } 
         catch(exception ex) {
-            Database.rollback(sp);
-            System.debug('create task failed : ' + ex.getTypeName());
+            Database.rollback(sp);            
             throw ex;
         }
     }
     
     
-    private List<Task> generateTask(CampaignMember cpm, Map<String, Schema.RecordTypeInfo> taskRecordTypeMap) {
-        System.debug('taskRecordTypeMap>>>' + taskRecordTypeMap); 
+    private List<Task> generateTask(CampaignMember cpm, Map<String, Schema.RecordTypeInfo> taskRecordTypeMap) {        
         List<Task> taskList = new List<Task>();        
         //taskRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
 
@@ -143,29 +132,11 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
                 cpm.Campaign.Execution_Type__c;
         }
 
-        if(cpm.Campaign.Execution_Type__c == strOBCall) {        
-          //  for(user u : obuserList) {
-                taskList.add(new Task(
-                    Subject= strOBCall, 
-                    RecordTypeId = taskRecordTypeMap.get('OB Task').getRecordTypeId(),
-                   // OwnerId = u.Id,
-                    Status = strOpenStatus,
-                    DUP_Number__c = (cpm.ContactId == null ? ' ' : cpm.Contact.DUP_Number__c), 
-                    WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
-                    WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
-                    Campaign_Member_ID__c = String.valueOf(cpm.Id), 
-                    Campaign_Name__c = cpm.Campaign.Name, 
-                    Flow_URL__c = cpm.Campaign.Flow_URL__c,
-                    Activity_Status__c = 'not started',
-                    ActivityDate = date.today(),
-                    UniqueCampaignGenerateTask__c = uniqueTaskField)
-                );
-          //  }
-        } else if (cpm.Campaign.Execution_Type__c == strSMS && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
+        if (cpm.Campaign.Execution_Type__c == strSMS && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
             taskList.add(new Task(
                 Subject= strSMS, 
                 RecordTypeId = taskRecordTypeMap.get('SMS').getRecordTypeId(),
-                OwnerId = intUser.Id,
+                OwnerId = intUser[0].Id,
                 Activity_Status__c = strVeriStatus,
                 Phone__c = cpm.Contact.MobilePhone,
                 WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
@@ -181,7 +152,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
             taskList.add(new Task(
                 Subject= 'MMS', 
                 RecordTypeId = taskRecordTypeMap.get('MMS').getRecordTypeId(),
-                OwnerId = intUser.Id,
+                OwnerId = intUser[0].Id,
                 Activity_Status__c = strVeriStatus,
                 Phone__c = cpm.Contact.MobilePhone,
                 WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
@@ -197,7 +168,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
             taskList.add(new Task(
                 Subject= streDM, 
                 RecordTypeId = taskRecordTypeMap.get('eDM').getRecordTypeId(),
-                OwnerId = intUser.Id,
+                OwnerId = intUser[0].Id,
                 Status = strCloseStatus,
                 Campaign_eDM_Template_Subject__c = cpm.Campaign.Template__r.Subject__c,
                 Campaign_eDM_Template_ID__c = cpm.Campaign.Template__r.Template_ID__c,                                 
@@ -209,24 +180,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
                 ActivityDate = date.today(),
                 eDM_Template__c = cpm.Campaign.Template_Name__c,
                 UniqueCampaignGenerateTask__c = uniqueTaskField)
-            );
-        } else if (cpm.Campaign.Execution_Type__c == strDM) {
-            taskList.add(new Task(
-                Subject = strDM, 
-                RecordTypeId = taskRecordTypeMap.get('DM').getRecordTypeId(),
-                //OwnerId = fulfillmentSpUser.Id,
-                Status = strOpenStatus,
-                WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
-                WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
-                ActivityDate = date.today(),
-                UniqueCampaignGenerateTask__c = uniqueTaskField)
-            );
-            if(cpm.Contact.AccountId <> null && cpm.ContactId <> null)
-                dmRequestList.add(new DM_Request__c(
-                    Campaign__c = cpm.CampaignId, 
-                    Customer_Name__c = cpm.Contact.AccountId,
-                    Expected_DM_Material1__c = cpm.Campaign.DM_Material__c)
-                );
+            ); 
         } 
         return taskList;
     }
@@ -240,9 +194,8 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
         // Batch Job Compeleted.
         if(jobId != null){
             String updateMsg = '';
-            try{
-                System.debug('cpUpdateList'+cpUpdateList);
-                if(cpUpdateList.size() > 0) update cpUpdateList;
+            try{              
+                if(cpUpdateList!=Null && !cpUpdateList.isEmpty()) update cpUpdateList;
             }catch (Exception ex){
                 updateMsg = ex.getMessage();
             }
@@ -254,7 +207,8 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
                 bj.Status__c = 'Fail';  
                 bj.Fail_Reason__c =  job.ExtendedStatus != null ? job.ExtendedStatus : updateMsg;    
             }
-            update bj;
+            if(bj!=Null)
+             update bj;
         } else {
             System.debug('JOBID>>> null');
         }

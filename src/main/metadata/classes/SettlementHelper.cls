@@ -10,16 +10,6 @@
 */
 public with sharing class SettlementHelper {
     
-    public static void upsertSobjects(List<Sobject> sos) {
-        try {
-            upsert sos;
-        }
-        catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
-            System.debug('Exception message is :' + e.getDMLMessage(0));
-        }
-    }
-    
     public static void updateSettlementTotalAmount(set<Id> caseIds) {
         List<Settlement_Management__c> settlements = new List<Settlement_Management__c>();
         Map<Id, Decimal> caseIdTotalMB_Amounts = new Map<Id, Decimal>();
@@ -73,8 +63,8 @@ public with sharing class SettlementHelper {
             }
         }
         
-        if(settlements.size() > 0) {
-            upsertSobjects(settlements);
+        if(settlements!=null && !settlements.IsEmpty()) {
+            UtilSobject.upsertSobjects(settlements);
         }
     }
     

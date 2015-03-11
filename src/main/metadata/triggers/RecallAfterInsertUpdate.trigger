@@ -25,7 +25,7 @@ trigger RecallAfterInsertUpdate on Recall__c (after insert) {
     }
 
     // update Recall checkbox status
-    if (VehicleIds .size() > 0){
+    if (!VehicleIds.isEmpty()){
        RecallHelper.updateRecall(VehicleIds);
     } 
 }

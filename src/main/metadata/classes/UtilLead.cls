@@ -11,8 +11,8 @@
 */
 public class UtilLead
 {
-    public static final String aftersalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
-    public static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
+    public static final String aftersalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
+    public static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     // US-Lead-009
     public static void updateLeadForDataSharing(List<Lead__c> leads)
     {
@@ -21,14 +21,16 @@ public class UtilLead
         {
             accIds.add(lead.Contact__c);
         }
-
-        Map<Id, Account> accMap = new Map<Id, Account>([SELECT Id, Allow_Data_Sharing__c FROM Account WHERE Id IN :accIds]);
-
-        for (Lead__c lead : leads)
-        {
-            String allowDataSharing = accMap.get(lead.Contact__c).Allow_Data_Sharing__c;
-            lead.Allow_Data_Sharing__c = allowDataSharing == 'Yes' ? true : false;
-        }
+		if(accIds!=null && !accIds.IsEmpty())
+		{
+	        Map<Id, Account> accMap = new Map<Id, Account>([SELECT Id, Allow_Data_Sharing__c FROM Account WHERE Id IN :accIds]);
+	
+	        for (Lead__c lead : leads)
+	        {
+	            String allowDataSharing = accMap.get(lead.Contact__c).Allow_Data_Sharing__c;
+	            lead.Allow_Data_Sharing__c = allowDataSharing == 'Yes' ? true : false;
+	        }
+		}
     }
 
     // US-Lead-021
@@ -42,34 +44,36 @@ public class UtilLead
                 leadIdSet.add(lead.VehicleRel_No__c);
             }
         }
-
-        Map<Id, Vehicle_Relationship__c> relationshipMap = 
-            new Map<Id, Vehicle_Relationship__c>([SELECT Id, Registration_Number__c, 
-                    Vehicle_ID__r.UsVIN__c, 
-                    Vehicle_ID__r.EuroVIN__c,
-                    Vehicle_ID__r.CurrentMileage__c,
-                    Vehicle_ID__r.NextMileage__c,
-                    Selling_Dealer__r.Name, 
-                    Vehicle_Model__c,
-                    Purchase_Date__c
-             FROM Vehicle_Relationship__c
-             WHERE Id IN :leadIdSet]);
-
-        for (Lead__c lead : leads)
-        {
-            if (lead.VehicleRel_No__c != null)
-            {
-                Vehicle_Relationship__c relationship = relationshipMap.get(lead.VehicleRel_No__c);
-                lead.Car_License__c = relationship.Registration_Number__c;
-                lead.UsVIN__c = relationship.Vehicle_ID__r.UsVIN__c;
-                lead.EuroVIN__c = relationship.Vehicle_ID__r.EuroVIN__c;
-                lead.Selling_Dealer__c = relationship.Selling_Dealer__r.Name;
-                lead.Car_Model__c = relationship.Vehicle_Model__c;
-                lead.Vehicle_Purchase_Date__c = relationship.Purchase_Date__c;
-                lead.CurrentMileage__c = relationship.Vehicle_ID__r.CurrentMileage__c;
-                lead.NextMileage__c = relationship.Vehicle_ID__r.NextMileage__c;
-            }
-        }
+		if(leadIdSet!=null && !leadIdSet.IsEmpty())
+		{
+	        Map<Id, Vehicle_Relationship__c> relationshipMap = 
+	            new Map<Id, Vehicle_Relationship__c>([SELECT Id, Registration_Number__c, 
+	                    Vehicle_ID__r.UsVIN__c, 
+	                    Vehicle_ID__r.EuroVIN__c,
+	                    Vehicle_ID__r.CurrentMileage__c,
+	                    Vehicle_ID__r.NextMileage__c,
+	                    Selling_Dealer__r.Name, 
+	                    Vehicle_Model__c,
+	                    Purchase_Date__c
+	             FROM Vehicle_Relationship__c
+	             WHERE Id IN :leadIdSet]);
+	
+	        for (Lead__c lead : leads)
+	        {
+	            if (lead.VehicleRel_No__c != null)
+	            {
+	                Vehicle_Relationship__c relationship = relationshipMap.get(lead.VehicleRel_No__c);
+	                lead.Car_License__c = relationship.Registration_Number__c;
+	                lead.UsVIN__c = relationship.Vehicle_ID__r.UsVIN__c;
+	                lead.EuroVIN__c = relationship.Vehicle_ID__r.EuroVIN__c;
+	                lead.Selling_Dealer__c = relationship.Selling_Dealer__r.Name;
+	                lead.Car_Model__c = relationship.Vehicle_Model__c;
+	                lead.Vehicle_Purchase_Date__c = relationship.Purchase_Date__c;
+	                lead.CurrentMileage__c = relationship.Vehicle_ID__r.CurrentMileage__c;
+	                lead.NextMileage__c = relationship.Vehicle_ID__r.NextMileage__c;
+	            }
+	        }
+		}
     }
     
     public static void beforeInsert_updateEvents(List<Lead__c> leadsNew,map<Id,Lead__c> leadOldmap,boolean isInsert,boolean isUpdate)

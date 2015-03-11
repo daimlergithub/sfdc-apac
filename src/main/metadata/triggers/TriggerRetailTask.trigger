@@ -7,7 +7,7 @@
 ** Created By: CC
 ** Date: 2014-6-15
 **/
-trigger RetailTaskAfter on Retail_Task__c (after insert) {
+trigger TriggerRetailTask on Retail_Task__c (after insert) {
     if (!UtilCustomSettings.isEnabled('RetailTaskAfter')) {
         return;
     }

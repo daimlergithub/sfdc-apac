@@ -17,7 +17,7 @@ public class ContactHelper {
     private static final String HasPresales = 'The Dealer already has a Dealer Presales.';
     private static final String HasCRMManager = 'The Dealer already has a Dealer CRM Manager.';
     private static final String HasMarketingManager = 'The Dealer already has a Dealer Marketing Manager.';
-    private static String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    private static String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilConstant.DEALER).getRecordTypeId();
     
     public static void ValidateGateKeeper(List<Contact> contacts) {
     	
@@ -189,38 +189,38 @@ public class ContactHelper {
 	    }
 	    
 	    //setup Complaint Manager infos to dealer
-	    if(ComplaintManagerContacts.size() > 0)
+	    if(ComplaintManagerContacts!=null && !ComplaintManagerContacts.IsEmpty())
 	    {
 	        CopyComplaintManagerInfoToDealer(ComplaintManagerContacts);
 	    }
 	    
 	    //setup presales infos to dealer
-	    if(PresalesContacts.size() > 0)
+	    if(PresalesContacts!=null && !PresalesContacts.IsEmpty())
 	    {
 	        CopyPresalesInfoToDealer(PresalesContacts);
 	    }
 	    
 	    //setup CRM manager infos to dealer
-	    if(CRMManagerContacts.size() > 0)
+	    if(CRMManagerContacts!=null && !CRMManagerContacts.IsEmpty())
 	    {
 	        CopyCRMManagerInfoToDealer(CRMManagerContacts);
 	    }
 	    
 	    //setup marketing manager infos to dealer
-	    if(MarketingManagerContacts.size() > 0)
+	    if(MarketingManagerContacts!=null && !MarketingManagerContacts.IsEmpty())
 	    {
 	        CopyMarketingManagerInfoToDealer(MarketingManagerContacts);
 	    }
 	    
 	    // Setup aftersales manager info to dealer
-	    if(aftersalesManagerIds.size() > 0)
+	    if(aftersalesManagerIds!=null && !aftersalesManagerIds.IsEmpty())
 	    {
 	        copyAftersalesManagerInfoToDealer(aftersalesManagerIds);
 	    }
 	    
 	    //Update related Lead owner when Contact's Lead gate keeper is checked.
 	    dealerIdsForAssignGateKeeper.remove(null);
-	    if(dealerIdsForAssignGateKeeper.size() > 0)
+	    if(dealerIdsForAssignGateKeeper!=null && !dealerIdsForAssignGateKeeper.IsEmpty())
 	    {
 	        assignGateKeeperToLeadOwner(dealerIdsForAssignGateKeeper);
 	    }
@@ -335,7 +335,7 @@ public class ContactHelper {
             con.Account.Dealer_Aftersales_Manager_Email__c = con.Email;
             dealers.add(con.Account);
         }
-        if(dealers.size() > 0){
+        if(dealers!=null && !dealers.IsEmpty()){
             update dealers;
         }
     }
@@ -359,7 +359,7 @@ public class ContactHelper {
                 }
             }
         }
-        if(leads.size() > 0){
+        if(leads!=null && !leads.isEmpty()){
             try{
                 update leads;
             }
