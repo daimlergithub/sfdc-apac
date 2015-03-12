@@ -16,7 +16,8 @@ trigger TriggerCampaignCity on Campaign_City__c (before delete) {
 
     // get all deleted records
     if (trigger.isDelete && trigger.isBefore) {
-        if(trigger.old.size() > 0) {
+       // if(trigger.old.size() > 0) {
+        if(!trigger.old.isEmpty()) {        	
             UtilCampaignCity.deleteParticipatingDealer(trigger.old);
         }
     }

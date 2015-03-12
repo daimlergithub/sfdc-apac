@@ -14,76 +14,86 @@
 
 public with sharing class VehicleRelationshipHelper {
 
-    private static void insertSobjects(List<Sobject> sos) {
-        try {
-            insert sos;
-        }
-        catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
-        }
-    }
-
-    public static void shareVR(Map<ID, ID> shareid, Map<ID, ID> vrIdcontactId, Map<ID, ID> vrIdvehicleId) {
-        
-        List<SObject> vehicleRelationshipShareToInsert = new List<SObject>();
-        List<SObject> accountShareToInsert = new List<SObject>();
-        List<SObject> vehicleShareToInsert = new List<SObject>();
-        Map<ID, String> account = new Map<ID, String>();
-        Map<String, ID> userrole = new Map<String, ID>();
-        Map<ID, ID> user = new Map<ID, ID>();
-        Map<ID, Set<ID>> users = new Map<ID, Set<ID>>();
-
-        
-        for(ACCOUNT a : [SELECT name, id FROM ACCOUNT WHERE id in : shareid.values()]){
-            String s = a.name + ' ' + 'Partner Executive';
-            account.put(a.id, s);
-        }
-                
-        for(UserRole ur : [SELECT id, name FROM UserRole WHERE name in : account.values()]){
-            userrole.put(ur.name, ur.id);
-        }
-        
-        for(User u : [SELECT id, userroleid FROM User WHERE userroleid in : userrole.values() AND isActive = true]){
-            user.put(u.userroleid, u.id);
-        }
-
-        for(ID a : user.keyset()){
-            Set<ID> s = getRoleSubordinateUsers(user.get(a));
-            users.put(a, s);
-        }    
-
-        for(ID share : shareid.keyset()){
-            if(shareid.containskey(share)){
-                if(account.containskey(shareid.get(share))){
-                    if(userrole.containskey(account.get(shareid.get(share)))){
-                        if(users.containskey(userrole.get(account.get(shareid.get(share))))){
-                            for(ID fid : users.get(userrole.get(account.get(shareid.get(share))))){
-                                vehicleRelationshipShareToInsert.add(new Vehicle_Relationship__Share(AccessLevel = 'Read', ParentId = share , UserOrGroupId = fid));
-                                if(vrIdcontactId.containsKey(share))
-                                {
-                                    accountShareToInsert.add(new AccountShare(AccountAccessLevel = 'Read', AccountId = vrIdcontactId.get(share), OpportunityAccessLevel = 'Read', CaseAccessLevel = 'Read', UserOrGroupId = fid));
-                                }
-                                if(vrIdvehicleId.containsKey(share))
-                                {
-                                    vehicleShareToInsert.add(new Vehicle__Share(AccessLevel = 'Read', ParentId = vrIdvehicleId.get(share) , UserOrGroupId = fid));
-                                }
-                            }
-                        }
-                    }
-                }
+    public static void shareVR(List<Vehicle_Relationship__c> vRelationshipNew)
+    {
+    	Map<ID, ID> shareid = new Map<ID, ID>();
+        Map<ID, ID> vrIdcontactId = new Map<ID, ID>();
+        Map<ID, ID> vrIdvehicleId = new Map<ID, ID>();
+    
+        for(Vehicle_Relationship__c vr : vRelationshipNew)
+        {
+            if(vr.Owner_Dealer__c != null && vr.RecordTypeId == Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId())
+            {
+                shareid.put(vr.id, vr.Owner_Dealer__c);
+                vrIdcontactId.put(vr.id, vr.Contact__c);
+                vrIdvehicleId.put(vr.id, vr.Vehicle_ID__c);
             }
         }
-
-        if(vehicleRelationshipShareToInsert.Size() > 0) {
-            insertSobjects(vehicleRelationshipShareToInsert);
-        }
-        
-        if(accountShareToInsert.Size() > 0) {
-            insertSobjects(accountShareToInsert);
-        }
-        
-        if(vehicleShareToInsert.Size() > 0) {
-            insertSobjects(vehicleShareToInsert);
+        if(shareid != null && !shareid.IsEmpty() && vrIdcontactId != null && !vrIdcontactId.IsEmpty() && vrIdvehicleId != null && !vrIdvehicleId.IsEmpty())
+        {
+	        List<SObject> vehicleRelationshipShareToInsert = new List<SObject>();
+	        List<SObject> accountShareToInsert = new List<SObject>();
+	        List<SObject> vehicleShareToInsert = new List<SObject>();
+	        Map<ID, String> account = new Map<ID, String>();
+	        Map<String, ID> userrole = new Map<String, ID>();
+	        Map<ID, ID> user = new Map<ID, ID>();
+	        Map<ID, Set<ID>> users = new Map<ID, Set<ID>>();
+	
+	        
+	        for(ACCOUNT a : [SELECT name, id FROM ACCOUNT WHERE id in : shareid.values()]){
+	            String s = a.name + ' ' + 'Partner Executive';
+	            account.put(a.id, s);
+	        }
+	                
+	        for(UserRole ur : [SELECT id, name FROM UserRole WHERE name in : account.values()]){
+	            userrole.put(ur.name, ur.id);
+	        }
+	        
+	        for(User u : [SELECT id, userroleid FROM User WHERE userroleid in : userrole.values() AND isActive = true]){
+	            user.put(u.userroleid, u.id);
+	        }
+	
+	        for(ID a : user.keyset()){
+	            Set<ID> s = getRoleSubordinateUsers(user.get(a));
+	            users.put(a, s);
+	        }    
+	
+	        for(ID share : shareid.keyset()){
+	            if(shareid.containskey(share)){
+	                if(account.containskey(shareid.get(share))){
+	                    if(userrole.containskey(account.get(shareid.get(share)))){
+	                        if(users.containskey(userrole.get(account.get(shareid.get(share))))){
+	                            for(ID fid : users.get(userrole.get(account.get(shareid.get(share))))){
+	                                vehicleRelationshipShareToInsert.add(new Vehicle_Relationship__Share(AccessLevel = 'Read', ParentId = share , UserOrGroupId = fid));
+	                                if(vrIdcontactId.containsKey(share))
+	                                {
+	                                    accountShareToInsert.add(new AccountShare(AccountAccessLevel = 'Read', AccountId = vrIdcontactId.get(share), OpportunityAccessLevel = 'Read', CaseAccessLevel = 'Read', UserOrGroupId = fid));
+	                                }
+	                                if(vrIdvehicleId.containsKey(share))
+	                                {
+	                                    vehicleShareToInsert.add(new Vehicle__Share(AccessLevel = 'Read', ParentId = vrIdvehicleId.get(share) , UserOrGroupId = fid));
+	                                }
+	                            }
+	                        }
+	                    }
+	                }
+	            }
+	        }
+	
+	        if(vehicleRelationshipShareToInsert != null && !vehicleRelationshipShareToInsert.IsEmpty())
+	        {
+	            UtilSobject.insertSobjects(vehicleRelationshipShareToInsert);
+	        }
+	        
+	        if(accountShareToInsert != null && !accountShareToInsert.IsEmpty())
+	        {
+	            UtilSobject.insertSobjects(accountShareToInsert);
+	        }
+	        
+	        if(vehicleShareToInsert != null && !vehicleShareToInsert.IsEmpty())
+	        {
+	            UtilSobject.insertSobjects(vehicleShareToInsert);
+	        }
         }
     }
 

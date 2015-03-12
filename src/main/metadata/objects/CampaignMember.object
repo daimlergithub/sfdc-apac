@@ -79,8 +79,9 @@
     </fields>
     <fields>
         <fullName>Campaign_Province__c</fullName>
+        <externalId>false</externalId>
         <label>Campaign Province</label>
-		<picklist>
+        <picklist>
             <picklistValues>
                 <fullName>Province1</fullName>
                 <default>false</default>
@@ -178,7 +179,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mercedes Benz</fullName>
+                <fullName>BMBS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -348,11 +349,27 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>A-Voucher</fullName>
+                <fullName>Advisory did not apply</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Again confirm the application successfully</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Already purchased</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>A-Purifier&amp;Filter screen</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Attended the event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A-Voucher</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -364,7 +381,47 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Communication</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirm attendance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed not to attend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed not to participate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed their attendance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Confirmed their participation</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Decline</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Determined not to attend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Did not complete the questionnaire</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Did not pay the deposit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Did not receive text messages</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -376,6 +433,18 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Has been added</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Has been verified as the owner and enrolment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Initial payment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Lead</fullName>
                 <default>false</default>
             </picklistValues>
@@ -384,7 +453,31 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>No communication</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No purchase</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No registration</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not participated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not received</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Not Sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Started</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -392,7 +485,43 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Pay the deposit</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Pending</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Qualified owners</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Questionnaire success</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Received</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Receive SMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registered</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Registration Success</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Replied</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -408,67 +537,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Not participated</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Again confirm the application successfully</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Advisory did not apply</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Qualified owners</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pay the deposit</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Initial payment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Attended the event</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Has been added</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Replied</fullName>
+                <fullName>Sign up</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Started</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rejected</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Received</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Has been verified as the owner and enrolment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Communication</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Registered</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Already purchased</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -480,51 +553,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Sign up</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Registration Success</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Receive SMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Did not pay the deposit</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unsent</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Did not complete the questionnaire</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not Started</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unsuccessful communication</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No registration</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not received</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Did not receive text messages</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No communication</fullName>
+                <fullName>The dealer did not follow up</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -532,39 +561,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>No purchase</fullName>
+                <fullName>Unsent</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Determined not to attend</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Confirmed their attendance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Confirmed not to attend</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Confirmed not to participate</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Confirm attendance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Confirmed their participation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>The dealer did not follow up</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Questionnaire success</fullName>
+                <fullName>Unsuccessful communication</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>true</sorted>

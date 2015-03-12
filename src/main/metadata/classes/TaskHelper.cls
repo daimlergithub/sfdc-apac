@@ -23,7 +23,6 @@ public class TaskHelper {
     private static String IBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('IB QC').getRecordTypeId();
     private static String OBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('OB QC').getRecordTypeId();
     private static String SSIQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('SSI QC').getRecordTypeId();
-    private static List<QueueSobject> QCSVQueues = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'QC__c' and Queue.Name = 'SSI QC' limit 1];
     
     //
     private static String OBTaskRecordTypeId1 = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Task').getRecordTypeId();
@@ -33,27 +32,7 @@ public class TaskHelper {
     private static String mbdaTaskRecordTypeId = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('MBDA Survey').getRecordTypeId();
     
     private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
-    
-    private static void updateSobjects(List<Sobject> sos) {
-        try {
-            update sos;
-        }
-        catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
-            System.debug('DMLException Exception: ' + e);
-        }
-    }
-    
-    private static void insertSobjects(List<Sobject> sos) {
-        try {
-            insert sos;
-        }
-        catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
-            System.debug('DMLException Exception: ' + e);
-        }
-    }
-    
+       
    public static void TaskFailBlacklist(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
         set<Id> setTaskIds = new set<Id>();
@@ -90,7 +69,7 @@ public class TaskHelper {
                         {
                             acc.Is_Blacklist__c = true;
                         }
-                        if (accs.size() > 0)
+                        if (accs!=null && !accs.IsEmpty())
                         {
                             update accs;
                         } 
@@ -125,7 +104,7 @@ public class TaskHelper {
        Set<Id> relatedOrderIds = new Set<Id>();
        List<User> assignedUsers = [select Id from User where Profile.Name = 'CAC SSI SV' and IsActive = true limit 1];
        Id assignedUserId = null;
-       if(assignedUsers.size() > 0)
+       if(assignedUsers!=null && !assignedUsers.IsEmpty())
        {
            assignedUserId = assignedUsers[0].Id;
        }    
@@ -181,7 +160,7 @@ public class TaskHelper {
         }
         // Add By Chaos for MBDA END
         // By Justin --
-        if(contactIds.size() > 0)
+        if(contactIds!=null && !contactIds.IsEmpty())
         {
             Map<String, Contact> contacts = new Map<String, Contact>([select Name, Account.Gender__c, SMSOptOut__c from Contact where Id in :contactIds]);
             if(!contacts.isEmpty())
@@ -194,7 +173,7 @@ public class TaskHelper {
             }
         }
         
-        if(templateIds.size() > 0)
+        if(templateIds!=null && !templateIds.IsEmpty())
         {
             Map<String, Template__c> templates = new Map<String, Template__c>([select Type__c from Template__c where Id in :templateIds]);
             if(!templates.isEmpty())
@@ -253,7 +232,7 @@ public class TaskHelper {
             }
         }
         
-        if(taskOwnerIds.size() > 0)
+        if(taskOwnerIds!=null && !taskOwnerIds.IsEmpty())
         {
             for(User currentUser : [Select Id, Name From User Where Id in :taskOwnerIds])
             {
@@ -344,7 +323,7 @@ public class TaskHelper {
         if(caseIds.size() + campaignIds.size() + campaignLeadIds.size() > 0){
             copyCampaignNameFromRelatedToObject(caseIds, campaignIds, campaignLeadIds, trigger.new);
         }
-        if(caseIds.size() > 0){
+        if(caseIds!=null && !caseIds.IsEmpty()){
             copyIBCallTypeFromCase(caseIds, trigger.new);
         }   
    }
@@ -356,7 +335,7 @@ public class TaskHelper {
        Map<String, Task> taskMapForSMS = new Map<String, Task>();
        Map<Id, String> caseIdInteractionIds = new Map<Id,String>();
        
-       System.debug('@Shrinivas Enter method:');
+       System.debug('@Shrinivas Enter method:' +isUpdate);
        if(isInsert)
        {
             System.debug('@Shrinivas: Enter Insert block..');
@@ -394,17 +373,19 @@ public class TaskHelper {
                     }
                 }
             }
+            
+            for(Task t : tasks) {
+	            System.debug('@Shrinivas: Enter for loop...' +taskOldMap);
+	            //When QC Quantity is changed, insert IB/OB QC records.
+	            if(t.QC_Quantity__c > 0 && (taskOldMap.get(t.Id).QC_Quantity__c == 0 || taskOldMap.get(t.Id).QC_Quantity__c == null)) {
+	                taskforGenerateQC.add(t);
+	        }
         }
         
-        for(Task t : tasks) {
-            System.debug('@Shrinivas: Enter for loop...' +taskOldMap);
-            //When QC Quantity is changed, insert IB/OB QC records.
-            if(t.QC_Quantity__c > 0 && (taskOldMap.get(t.Id).QC_Quantity__c == 0 || taskOldMap.get(t.Id).QC_Quantity__c == null)) {
-                taskforGenerateQC.add(t);
-        }
+        
     }
     
-    if(taskforGenerateQC.size() > 0) {
+    if(taskforGenerateQC!=null && !taskforGenerateQC.IsEmpty()) {
         GenerateMultipleQCs(taskforGenerateQC); 
     }
     
@@ -561,8 +542,8 @@ public class TaskHelper {
             }
             taskIds.add(t.Id);
         }
-        if(newQCs.size() > 0) {
-            insertSobjects(newQCs);
+        if(newQCs!=null && !newQCs.IsEmpty()) {
+            UtilSobject.insertSobjects(newQCs);
         }
         UpdateQCLink(taskIds, updateTasks);
     }
@@ -591,8 +572,8 @@ public class TaskHelper {
                 }
             }
         }
-        if(QCForInsert.size() > 0) {
-            insertSobjects(QCForInsert);
+        if(QCForInsert!=null && !QCForInsert.IsEmpty()) {
+            UtilSobject.insertSobjects(QCForInsert);
         }
     }
     
@@ -698,8 +679,8 @@ public class TaskHelper {
             smsTasks.add(smsTask);
         }
         
-        if(smsTasks.size() > 0) {
-            insertSobjects(smsTasks);
+        if(smsTasks!=null && !smsTasks.IsEmpty()) {
+            UtilSobject.insertSobjects(smsTasks);
         }
     }
     
@@ -715,8 +696,8 @@ public class TaskHelper {
             }
         }
         
-        if(caseForUpdate.size() > 0) {
-            updateSobjects(caseForUpdate);
+        if(caseForUpdate!=null && !caseForUpdate.IsEmpty()) {
+            UtilSobject.updateSobjects(caseForUpdate);
         }
     }
     
@@ -725,12 +706,12 @@ public class TaskHelper {
     public static void updateInteractionIds(Map<Id, String> taskIdUCIds) {
         List<Task> tasks = new List<Task>();
         for(Task t : [select Id, CreatedDate, InteractionIds__c from Task where Id in :taskIdUCIds.keySet()]) {
-            t.InteractionIds__c = AvatoHelper.getInteractionIds( taskIdUCIds.get(t.Id), t.CreatedDate);
+            t.InteractionIds__c = AvatoHelper.getInteractionIds( taskIdUCIds.get(t.Id), t.CreatedDate); 
             tasks.add(t);
         }
         
-        if(tasks.size() > 0) {
-            updateSobjects(tasks);
+        if(tasks!=null && !tasks.IsEmpty()) {
+            UtilSobject.updateSobjects(tasks);
         }
     }
     // By Shuang Li BRD-AS-CAC-007---- strart
@@ -740,7 +721,7 @@ public class TaskHelper {
         Id SSITaskRTId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
         List<Task> taskSSI = [SELECT ownerId FROM Task WHERE ownerId in :userIds AND RecordTypeId= :SSITaskRTId];
 
-         if(taskSSI.size() > 0){
+         if(taskSSI!=null && !taskSSI.IsEmpty()){
             User ssiSvUser = [Select id From User Where ProfileId = :CACSSISV.id and IsActive = true limit 1];
             for(Task tk : taskSSI){
                 tk.ownerId = ssiSvUser.id;
@@ -750,7 +731,6 @@ public class TaskHelper {
                 }
                 catch (DMLException e) {
                     trigger.new[0].addError(e.getDMLMessage(0));
-                    System.debug('DMLException Exception: ' + e);
                 }
        }
     }

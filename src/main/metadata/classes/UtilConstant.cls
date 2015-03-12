@@ -1,7 +1,16 @@
 Global with sharing class UtilConstant {
     private static Map<String, Id> roleMap;
     private static Map<String, Id> profileMap;
-    public final static String Ingretion_Profile = 'IntegrationAPI';  
+    public final static String Ingretion_Profile = 'IntegrationAPI';
+    public final static String DEALER_DELEGATE_ADMIN = 'Dealer Delegate Admin';
+    public final static String DEALER_COMMUNITY_USER = 'Dealer Community User';
+    public final static String SALES_LEADS = 'Sales Leads';
+    public final static String AFTER_SALES_LEADS = 'Aftersales Leads';
+    public final static String DEALER_LEAD_GATE_KEEPER_QUEUE = 'Dealer Lead Gate Keeper Queue';
+    public final static String LEAD = 'Lead__c';
+    public final static String MBDA_LEAD = 'MBDA Leads';
+    public final static String SMS = 'SMS';
+    public final static String OB_TASK = 'OB Task';
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {
         if (roleMap == null) {

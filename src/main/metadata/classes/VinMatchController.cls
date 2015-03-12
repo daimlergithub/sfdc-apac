@@ -28,7 +28,7 @@ public class VinMatchController{
 
     // public SSI__c fromSSI{get; set;}
     // public SSI__c toSSI{get; set;}
-    // InvoiceDate__c of SSI__c is readonly to 'Central Sinotrust User', so I have to change SSI__c to 
+    // InvoiceDate__c of SSI__c is readonly to 'BMBS Sinotrust User', so I have to change SSI__c to 
     // any date type field that is not readonly to Sinotrust.
     public Task fromTask{get; set;}
     public Task toTask{get; set;}

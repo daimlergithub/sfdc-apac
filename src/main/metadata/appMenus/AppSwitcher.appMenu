@@ -41,6 +41,18 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
+        <name>EPA_Administration</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Retail_CRM</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Private_APP_Exchange</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>Central_CRM</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -54,18 +66,6 @@
     </appMenuItems>
     <appMenuItems>
         <name>Central_Marketing</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>EPA_Administration</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>Retail_CRM</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
-        <name>Private_APP_Exchange</name>
         <type>CustomApplication</type>
     </appMenuItems>
 </AppMenu>

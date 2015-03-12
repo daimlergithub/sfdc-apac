@@ -41,7 +41,7 @@ public with Sharing class RetailCampaignCalendarController {
         Date cuDate = system.today();
         Date enDate = system.today();
         // query str variable
-        String selSTR = 'Select id, Name, Campaign_Type__c, Feedback_Status__c, Plan_End_Date__c, Plan_Start_Date__c, Relevant_Central_Campaign__c, Media_Type__c, Event_Type__c From Retail_Campaign__c ';
+        String selSTR = 'Select id, Name, Campaign_Type__c, Feedback_Status__c, Plan_End_Date__c, Plan_Start_Date__c, Relevant_BMBS_Campaign__c, Media_Type__c, Event_Type__c From Retail_Campaign__c ';
         String whrSTR = ' Where ';
         String whrAND = ' AND ';
         String whrCurD = '';
@@ -83,7 +83,7 @@ public with Sharing class RetailCampaignCalendarController {
         Date cuDate = system.today();
         Date enDate = system.today();
         // query str variable
-        String selSTR = 'Select id, Name, Campaign_Type__c, Feedback_Status__c, Plan_End_Date__c, Plan_Start_Date__c, Relevant_Central_Campaign__c, Media_Type__c, Event_Type__c From Retail_Campaign__c ';
+        String selSTR = 'Select id, Name, Campaign_Type__c, Feedback_Status__c, Plan_End_Date__c, Plan_Start_Date__c, Relevant_BMBS_Campaign__c, Media_Type__c, Event_Type__c From Retail_Campaign__c ';
         String whrSTR = ' Where ';
         String whrAND = ' AND ';
         String whrCurD = '';

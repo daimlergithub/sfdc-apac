@@ -220,13 +220,8 @@ public with sharing class UserService {
     **/
     public Map<String, Set<Id>> mapCrmCode2Users(List<Account_Link__c> accountLinks){
         Set<String> crmCodes = new Set<String>();
-        for(Account_Link__c accountLink : accountLinks) {
-            String accountLinkName = accountLink.Name;
-            if(accountLinkName.indexOf('DMS-') > -1) {
-                accountLinkName = accountLinkName.substring(accountLinkName.indexOf('DMS-'));
-                String crmCode = accountLinkName.substring(accountLinkName.lastIndexOf('-') - 2, accountLinkName.lastIndexOf('-'));
-                crmCodes.add(crmCode);
-            }
+        for(Account_Link__c accountLink : accountLinks) {                       
+            crmCodes.add(AccountLinkHelper.nameParsing(accountLink.Name));
         }
         return mapCrmCode2Users(crmCodes);
     }

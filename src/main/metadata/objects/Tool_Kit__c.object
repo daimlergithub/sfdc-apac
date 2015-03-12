@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -583,7 +583,7 @@
     <fields>
         <fullName>Event_Preview__c</fullName>
         <externalId>false</externalId>
-        <formula>IMAGE(   view__c , &apos;Event Kit&apos;, 400, 600)</formula>
+        <formula>IMAGE(   view__c , 'Event Kit', 400, 600)</formula>
         <label>Event Preview</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -654,7 +654,7 @@
     <fields>
         <fullName>Event_URL__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK(Event_Kit_URL__c, &apos;Event Kit URL&apos;)</formula>
+        <formula>HYPERLINK(Event_Kit_URL__c, 'Event Kit URL')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Event URL</label>
         <required>false</required>
@@ -788,7 +788,7 @@
     <fields>
         <fullName>Media_Preview__c</fullName>
         <externalId>false</externalId>
-        <formula>IMAGE(  view__c , &apos;Media Kit&apos;, 400, 600)</formula>
+        <formula>IMAGE(  view__c , 'Media Kit', 400, 600)</formula>
         <label>Media Preview</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -843,7 +843,7 @@
     <fields>
         <fullName>Media_URL__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK( Media_Kit_URL__c , &quot;Media Kit URL&quot;)</formula>
+        <formula>HYPERLINK( Media_Kit_URL__c , "Media Kit URL")</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Media URL</label>
         <required>false</required>
@@ -1047,7 +1047,7 @@ MONTH(Submit_Date__c) &lt; 10,
             <filterItems>
                 <field>User.Profile.Name</field>
                 <operation>equals</operation>
-                <value>External Marketing User</value>
+                <value>BMBS External Marketing User</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>
@@ -2106,9 +2106,9 @@ Plan_End_Date__c &lt; Plan_Start_Date__c
         <active>true</active>
         <errorConditionFormula>AND(
      NOT(
-          OR(ISPICKVAL( Apply_Status__c , &apos;Planned&apos;), 
-                 ISPICKVAL( Apply_Status__c , &apos;Need Modify&apos;),AND( RecordType.DeveloperName == &apos;smart_Event&apos; ,
-                 ISPICKVAL( Apply_Status__c , &apos;Tool Kit Finished&apos;))
+          OR(ISPICKVAL( Apply_Status__c , 'Planned'), 
+                 ISPICKVAL( Apply_Status__c , 'Need Modify'),AND( RecordType.DeveloperName == 'smart_Event' ,
+                 ISPICKVAL( Apply_Status__c , 'Tool Kit Finished'))
                 )
              ),
      OR(    ISCHANGED(Brand__c),
@@ -2141,19 +2141,19 @@ Plan_End_Date__c &lt; Plan_Start_Date__c
 			ISCHANGED(Showroom__c),
             ISCHANGED(Name))
 )</errorConditionFormula>
-        <errorMessage>You can&apos;t update Tool Kit information with current apply status.</errorMessage>
+        <errorMessage>You can't update Tool Kit information with current apply status.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Unlock_Application_Feedback</fullName>
         <active>true</active>
-        <errorConditionFormula>OR(AND( OR(ISPICKVAL( Feedback_Status__c , &apos;Confirmed&apos;),
-        ISPICKVAL( Feedback_Status__c , &apos;Approved&apos;)),
+        <errorConditionFormula>OR(AND( OR(ISPICKVAL( Feedback_Status__c , 'Confirmed'),
+        ISPICKVAL( Feedback_Status__c , 'Approved')),
      OR(ISCHANGED( Feedback_Comments__c ),  ISCHANGED( Actual_Start_Date__c ) ,ISCHANGED( Actual_End_Date__c ))),
-   AND(NOT(ISPICKVAL(  Apply_Status__c , &apos;Tool Kit Finished&apos;)),
+   AND(NOT(ISPICKVAL(  Apply_Status__c , 'Tool Kit Finished')),
    OR(ISCHANGED( Feedback_Comments__c ),ISCHANGED( Actual_Start_Date__c ) ,ISCHANGED( Actual_End_Date__c )))
 )</errorConditionFormula>
         <errorDisplayField>Actual_End_Date__c</errorDisplayField>
-        <errorMessage>You can&apos;t update Feedback information with current feedback status or apply status.</errorMessage>
+        <errorMessage>You can't update Feedback information with current feedback status or apply status.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Event_ToolKit_Quota_Report</fullName>
@@ -2164,11 +2164,11 @@ Plan_End_Date__c &lt; Plan_Start_Date__c
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>if( {!BEGINS(&apos;{!$Profile.Name}&apos;, &apos;Dealer&apos;)} ) {
-alert(&apos;You do not have permission to use this button.&apos;);
+        <url>if( {!BEGINS('{!$Profile.Name}', 'Dealer')} ) {
+alert('You do not have permission to use this button.');
 }
 else{
-location.href = &apos;/apex/EventToolKitQuotaReport&apos;;
+location.href = '/apex/EventToolKitQuotaReport';
 }</url>
     </webLinks>
     <webLinks>
@@ -2179,14 +2179,14 @@ location.href = &apos;/apex/EventToolKitQuotaReport&apos;;
         <masterLabel>Select Content</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 var retURLs = window.location.toString();
-var retURL = retURLs.split(&quot;com&quot;,1);
-var today = &apos;{!Tool_Kit__c.Today__c}&apos;.split(&quot; &quot;,1);
-var tkId = &apos;{!Tool_Kit__c.Id}&apos;;
-window.location.href = &quot;/apex/ToolKitSelectContent?toolkitId=&quot; + tkId + &quot;&amp;url=&quot; + retURL + &quot;&amp;today=&quot; +today;</url>
+var retURL = retURLs.split("com",1);
+var today = '{!Tool_Kit__c.Today__c}'.split(" ",1);
+var tkId = '{!Tool_Kit__c.Id}';
+window.location.href = "/apex/ToolKitSelectContent?toolkitId=" + tkId + "&amp;url=" + retURL + "&amp;today=" +today;</url>
     </webLinks>
     <webLinks>
         <fullName>Submit_for_Approval</fullName>
@@ -2196,70 +2196,70 @@ window.location.href = &quot;/apex/ToolKitSelectContent?toolkitId=&quot; + tkId 
         <masterLabel>Submit for Approval</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!$User.Id}&apos; == &apos;{!Tool_Kit__c.OwnerId}&apos; ){
+if('{!$User.Id}' == '{!Tool_Kit__c.OwnerId}' ){
 
-var dealerIds = sforce.connection.query(&quot;Select Dealer_Name__c from Tool_Kit__c where id = &apos;{!Tool_Kit__c.Id}&apos;&quot;);
-var qr = sforce.connection.query(&quot;Select id From Tool_Kit__c where id != &apos;{!Tool_Kit__c.Id}&apos; and Apply_Status__c = &apos;Confirmed&apos; and RecordTypeId = &apos;{!Tool_Kit__c.RecordTypeId}&apos; and Dealer_Name__c = &apos;&quot; + dealerIds.records.Dealer_Name__c + &quot;&apos;&quot;);
+var dealerIds = sforce.connection.query("Select Dealer_Name__c from Tool_Kit__c where id = '{!Tool_Kit__c.Id}'");
+var qr = sforce.connection.query("Select id From Tool_Kit__c where id != '{!Tool_Kit__c.Id}' and Apply_Status__c = 'Confirmed' and RecordTypeId = '{!Tool_Kit__c.RecordTypeId}' and Dealer_Name__c = '" + dealerIds.records.Dealer_Name__c + "'");
 
-var quotas = sforce.connection.query(&quot;Select id,Q1_Amount__c,Q2_Amount__c,Q3_Amount__c,Q4_Amount__c From Event_Tool_Kit_Quota__c where Name = &apos;{!Tool_Kit__c.Region__c}&apos;&quot;) ;
+var quotas = sforce.connection.query("Select id,Q1_Amount__c,Q2_Amount__c,Q3_Amount__c,Q4_Amount__c From Event_Tool_Kit_Quota__c where Name = '{!Tool_Kit__c.Region__c}'") ;
 
-var quota = &apos;&apos;;
-if(&apos;{!Tool_Kit__c.Quota__c}&apos; == &apos;1&apos;){
+var quota = '';
+if('{!Tool_Kit__c.Quota__c}' == '1'){
 quota = quotas.records.Q1_Amount__c;
-}else if(&apos;{!Tool_Kit__c.Quota__c}&apos; == &apos;2&apos;){
+}else if('{!Tool_Kit__c.Quota__c}' == '2'){
 quota = quotas.records.Q2_Amount__c;
-}else if(&apos;{!Tool_Kit__c.Quota__c}&apos; == &apos;3&apos;){
+}else if('{!Tool_Kit__c.Quota__c}' == '3'){
 quota = quotas.records.Q3_Amount__c;
-}else if(&apos;{!Tool_Kit__c.Quota__c}&apos; == &apos;4&apos;){
+}else if('{!Tool_Kit__c.Quota__c}' == '4'){
 quota = quotas.records.Q4_Amount__c;
 }
 
-var qr01 = sforce.connection.query(&quot;Select Id,RecordTypeId From Tool_Kit__c Where id = &apos;{!Tool_Kit__c.Id}&apos;&quot;); 
-var RTname = sforce.connection.query(&quot;Select name From RecordType Where id = &quot; + &quot;&apos;&quot; + qr01.records.RecordTypeId + &quot;&apos;&quot;);
+var qr01 = sforce.connection.query("Select Id,RecordTypeId From Tool_Kit__c Where id = '{!Tool_Kit__c.Id}'"); 
+var RTname = sforce.connection.query("Select name From RecordType Where id = " + "'" + qr01.records.RecordTypeId + "'");
 var tkSize = 0;
-if (RTname.records.Name == &apos;Event&apos;) {
-	var tkCount = sforce.connection.query(&quot;Select count() From Tool_Kit__c where (Apply_Status__c = &apos;Approved&apos; OR Apply_Status__c = &apos;Tool Kit Finished&apos;) AND RecordTypeId = &apos;{!Tool_Kit__c.RecordTypeId}&apos; AND Region__c = &apos;{!Tool_Kit__c.Region__c}&apos; AND counts__c = true&quot;);
+if (RTname.records.Name == 'Event') {
+	var tkCount = sforce.connection.query("Select count() From Tool_Kit__c where (Apply_Status__c = 'Approved' OR Apply_Status__c = 'Tool Kit Finished') AND RecordTypeId = '{!Tool_Kit__c.RecordTypeId}' AND Region__c = '{!Tool_Kit__c.Region__c}' AND counts__c = true");
 	tkSize = tkCount.size;
 }
 
-var callList = new sforce.SObject(&quot;Tool_Kit__c&quot;); 
-callList.Id = &apos;{!Tool_Kit__c.Id}&apos;; 
-callList.Submit_Date__c = &apos;{!Tool_Kit__c.Today__c}&apos;; 
+var callList = new sforce.SObject("Tool_Kit__c"); 
+callList.Id = '{!Tool_Kit__c.Id}'; 
+callList.Submit_Date__c = '{!Tool_Kit__c.Today__c}'; 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
 try { 
 var result = sforce.connection.update(campaignUpdate); 
 } catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 
 var validateFlag = true;
-if ((RTname.records.Name == &apos;Event&apos; &amp;&amp; &apos;{!Tool_Kit__c.Event_Kit_Name__c}&apos; == &apos;&apos;) || (RTname.records.Name == &apos;Media&apos; &amp;&amp; &apos;{!Tool_Kit__c.Media_Kit_Name__c}&apos; == &apos;&apos;)) {
-alert(&apos;Select an active suit.&apos;);
+if ((RTname.records.Name == 'Event' &amp;&amp; '{!Tool_Kit__c.Event_Kit_Name__c}' == '') || (RTname.records.Name == 'Media' &amp;&amp; '{!Tool_Kit__c.Media_Kit_Name__c}' == '')) {
+alert('Select an active suit.');
 validateFlag = true;
 }
 
 if (validateFlag) {
 if(quota - tkSize &gt; 0){
 if(qr.records != null) {
-alert(&quot;Toolbox application needs the previous approval before it can be.&quot;);
+alert("Toolbox application needs the previous approval before it can be.");
 }else{
-if(&apos;{!Tool_Kit__c.Apply_Status__c}&apos;==&apos;Planned&apos; || &apos;{!Tool_Kit__c.Apply_Status__c}&apos;==&apos;Need Modify&apos;){
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;If you submit this application for recording, you will not be able to modify or cancel the application continue?&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;If you submit this application for recording, you will not be able to modify or cancel the application continue?&apos;))) navigateToUrl(&apos;/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}&apos;);
+if('{!Tool_Kit__c.Apply_Status__c}'=='Planned' || '{!Tool_Kit__c.Apply_Status__c}'=='Need Modify'){
+if ((Modal.confirm &amp;&amp; Modal.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?')) || (!Modal.confirm &amp;&amp; window.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?'))) navigateToUrl('/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}');
 }else{
- alert(&apos;Application status error.&apos;);
+ alert('Application status error.');
 }
 }
 }else{
-alert(&quot;This quarter's quota has been reached.&quot;);
+alert("This quarter's quota has been reached.");
 }
 }
 }else{
- alert(&apos;You are not the owner of the record cannot be submitted&apos;);
+ alert('You are not the owner of the record cannot be submitted');
 }</url>
     </webLinks>
     <webLinks>
@@ -2270,40 +2270,40 @@ alert(&quot;This quarter's quota has been reached.&quot;);
         <masterLabel>Submit for Cancel</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!$User.Id}&apos; == &apos;{!Tool_Kit__c.OwnerId}&apos; ){
-var qr = sforce.connection.query(&quot;Select Id,Plan_Start_Date__c,RecordTypeId From Tool_Kit__c Where id = &apos;{!Tool_Kit__c.Id}&apos;&quot;); 
+if('{!$User.Id}' == '{!Tool_Kit__c.OwnerId}' ){
+var qr = sforce.connection.query("Select Id,Plan_Start_Date__c,RecordTypeId From Tool_Kit__c Where id = '{!Tool_Kit__c.Id}'"); 
 
 var flag = false;
 
-var RTname = sforce.connection.query(&quot;Select name From RecordType Where id = &quot; + &quot;&apos;&quot; + qr.records.RecordTypeId + &quot;&apos;&quot;);
+var RTname = sforce.connection.query("Select name From RecordType Where id = " + "'" + qr.records.RecordTypeId + "'");
 
-if(RTname.records.Name == &apos;Event&apos; &amp;&amp; &apos;{!Tool_Kit__c.eventdate__c}&apos; == 1){
+if(RTname.records.Name == 'Event' &amp;&amp; '{!Tool_Kit__c.eventdate__c}' == 1){
 flag = true;
-}else if(RTname.records.Name == &apos;Media&apos; &amp;&amp; &apos;{!Tool_Kit__c.mediadate__c}&apos; == 1){
+}else if(RTname.records.Name == 'Media' &amp;&amp; '{!Tool_Kit__c.mediadate__c}' == 1){
 flag = true;
 }
 
-if(&apos;{!Tool_Kit__c.Apply_Status__c}&apos;==&apos;Approved&apos;){
+if('{!Tool_Kit__c.Apply_Status__c}'=='Approved'){
 if(flag){
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;If you submit this application for recording, you will not be able to modify or cancel the application continue?&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;If you submit this application for recording, you will not be able to modify or cancel the application continue?&apos;))){
-navigateToUrl(&apos;/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}&apos;);
+if ((Modal.confirm &amp;&amp; Modal.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?')) || (!Modal.confirm &amp;&amp; window.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?'))){
+navigateToUrl('/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}');
 }
 }else{
-if(RTname.records.Name == &apos;Event&apos;){
-alert(&quot;Scheduled start time (to fill in for the first time time date) within 7 days may not apply for revocation&quot;);
+if(RTname.records.Name == 'Event'){
+alert("Scheduled start time (to fill in for the first time time date) within 7 days may not apply for revocation");
 }else{
-alert(&quot;Scheduled start time (to fill in for the first time time date) within 3 days may not apply for revocation&quot;);
+alert("Scheduled start time (to fill in for the first time time date) within 3 days may not apply for revocation");
 }
 }
 }else{
- alert(&apos;Application status error.&apos;);
+ alert('Application status error.');
 }
 }else{
- alert(&apos;You are not the owner of the record cannot be submitted&apos;);
+ alert('You are not the owner of the record cannot be submitted');
 }</url>
     </webLinks>
     <webLinks>
@@ -2314,44 +2314,44 @@ alert(&quot;Scheduled start time (to fill in for the first time time date) withi
         <masterLabel>Submit for Feedback</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!$User.Id}&apos; == &apos;{!Tool_Kit__c.OwnerId}&apos; ){
-var qr = sforce.connection.query(&quot;Select Id,RecordTypeId From Tool_Kit__c Where id = &apos;{!Tool_Kit__c.Id}&apos;&quot;); 
+if('{!$User.Id}' == '{!Tool_Kit__c.OwnerId}' ){
+var qr = sforce.connection.query("Select Id,RecordTypeId From Tool_Kit__c Where id = '{!Tool_Kit__c.Id}'"); 
 
 var flag = false;
 
-var RTname = sforce.connection.query(&quot;Select name From RecordType Where id = &quot; + &quot;&apos;&quot; + qr.records.RecordTypeId + &quot;&apos;&quot;);
+var RTname = sforce.connection.query("Select name From RecordType Where id = " + "'" + qr.records.RecordTypeId + "'");
 
-if(RTname.records.Name == &apos;Event&apos; &amp;&amp; &apos;{!Tool_Kit__c.Feedback_Comments__c}&apos; != &apos;&apos; &amp;&amp; &apos;{!Tool_Kit__c.Actual_Start_Date__c}&apos; != &apos;&apos; &amp;&amp; &apos;{!Tool_Kit__c.Actual_End_Date__c}&apos; != &apos;&apos;){
+if(RTname.records.Name == 'Event' &amp;&amp; '{!Tool_Kit__c.Feedback_Comments__c}' != '' &amp;&amp; '{!Tool_Kit__c.Actual_Start_Date__c}' != '' &amp;&amp; '{!Tool_Kit__c.Actual_End_Date__c}' != ''){
 flag = true;
-}else if(RTname.records.Name == &apos;Media&apos; &amp;&amp; &apos;{!Tool_Kit__c.Feedback_Comments__c}&apos; != &apos;&apos;){
+}else if(RTname.records.Name == 'Media' &amp;&amp; '{!Tool_Kit__c.Feedback_Comments__c}' != ''){
 flag = true;
-}else if(RTname.records.Name == &apos;smart Event&apos; &amp;&amp; &apos;{!Tool_Kit__c.Feedback_Comments__c}&apos; != &apos;&apos;){
+}else if(RTname.records.Name == 'smart Event' &amp;&amp; '{!Tool_Kit__c.Feedback_Comments__c}' != ''){
 flag = true;
 }
 
 if(flag){
-if(&apos;{!Tool_Kit__c.Apply_Status__c}&apos;==&apos;Tool Kit Finished&apos;&amp;&amp; (&apos;{!Tool_Kit__c.Feedback_Status__c}&apos;==&apos;Planned&apos; || &apos;{!Tool_Kit__c.Feedback_Status__c}&apos;==&apos;Need Modify&apos;)){
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;If you submit this application for recording, you will not be able to modify or cancel the application continue?&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;If you submit this application for recording, you will not be able to modify or cancel the application continue?&apos;))){
-navigateToUrl(&apos;/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}&apos;);
+if('{!Tool_Kit__c.Apply_Status__c}'=='Tool Kit Finished'&amp;&amp; ('{!Tool_Kit__c.Feedback_Status__c}'=='Planned' || '{!Tool_Kit__c.Feedback_Status__c}'=='Need Modify')){
+if ((Modal.confirm &amp;&amp; Modal.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?')) || (!Modal.confirm &amp;&amp; window.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?'))){
+navigateToUrl('/p/process/Submit?id={!Tool_Kit__c.Id}&amp;retURL=%2F{!Tool_Kit__c.Id}');
 }
 }else{
- alert(&apos;Application status or incorrect feedback status.&apos;);
+ alert('Application status or incorrect feedback status.');
 }
 }else{
-if(RTname.records.Name == &apos;Event&apos; &amp;&amp; (&apos;{!Tool_Kit__c.Feedback_Comments__c}&apos; == &apos;&apos; || &apos;{!Tool_Kit__c.Actual_Start_Date__c}&apos; == &apos;&apos; || &apos;{!Tool_Kit__c.Actual_End_Date__c}&apos; == &apos;&apos;)){
-alert(&apos;Please enter your feedback comments, set up time, withdrawal time.&apos;);
-}else if(RTname.records.Name == &apos;Media&apos; &amp;&amp; &apos;{!Tool_Kit__c.Feedback_Comments__c}&apos; == &apos;&apos;){
-alert(&apos;Please enter your feedback comments.&apos;);
-}else if(RTname.records.Name == &apos;smart Event&apos; &amp;&amp; &apos;{!Tool_Kit__c.Feedback_Comments__c}&apos; == &apos;&apos;){
-alert(&apos;Please enter your feedback comments.&apos;);
+if(RTname.records.Name == 'Event' &amp;&amp; ('{!Tool_Kit__c.Feedback_Comments__c}' == '' || '{!Tool_Kit__c.Actual_Start_Date__c}' == '' || '{!Tool_Kit__c.Actual_End_Date__c}' == '')){
+alert('Please enter your feedback comments, set up time, withdrawal time.');
+}else if(RTname.records.Name == 'Media' &amp;&amp; '{!Tool_Kit__c.Feedback_Comments__c}' == ''){
+alert('Please enter your feedback comments.');
+}else if(RTname.records.Name == 'smart Event' &amp;&amp; '{!Tool_Kit__c.Feedback_Comments__c}' == ''){
+alert('Please enter your feedback comments.');
 }
 }
 }else{
- alert(&apos;You are not the owner of the record, cannot be submitted&apos;);
+ alert('You are not the owner of the record, cannot be submitted');
 }</url>
     </webLinks>
     <webLinks>
@@ -2362,24 +2362,24 @@ alert(&apos;Please enter your feedback comments.&apos;);
         <masterLabel>Tool Kit Completion</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!Tool_Kit__c.Apply_Status__c}&apos;!=&apos;Approved&apos;) {
-alert(&quot;You should not complete the Toolbox unless the application has been approved.&quot;);
+if('{!Tool_Kit__c.Apply_Status__c}'!='Approved') {
+alert("You should not complete the Toolbox unless the application has been approved.");
 }else{
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;Records produced under this section, you will be prohibited from editing the data, do you want to continue?&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;Records produced under this section, you will be prohibited from editing the data, do you want to continue?&apos;))) {
+if ((Modal.confirm &amp;&amp; Modal.confirm('Records produced under this section, you will be prohibited from editing the data, do you want to continue?')) || (!Modal.confirm &amp;&amp; window.confirm('Records produced under this section, you will be prohibited from editing the data, do you want to continue?'))) {
 
-var callList = new sforce.SObject(&quot;Tool_Kit__c&quot;); 
-callList.Id = &apos;{!Tool_Kit__c.Id}&apos;; 
-callList.Apply_Status__c= &quot;Tool Kit Finished&quot;; 
+var callList = new sforce.SObject("Tool_Kit__c"); 
+callList.Id = '{!Tool_Kit__c.Id}'; 
+callList.Apply_Status__c= "Tool Kit Finished"; 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
 try { 
 var result = sforce.connection.update(campaignUpdate); 
 } catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 location.href = location.href;
 }
@@ -2393,28 +2393,28 @@ location.href = location.href;
         <masterLabel>Unlock Application</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!Tool_Kit__c.Apply_Status__c}&apos;!=&apos;Approved&apos;) {
-  if(&apos;{!Tool_Kit__c.Feedback_Status__c}&apos;!=&apos;Planned&apos;) {
-    alert(&quot;Feedback submitted cannot be withdrawn again after editing.&quot;);
+if('{!Tool_Kit__c.Apply_Status__c}'!='Approved') {
+  if('{!Tool_Kit__c.Feedback_Status__c}'!='Planned') {
+    alert("Feedback submitted cannot be withdrawn again after editing.");
   }else{
-    alert(&quot;You can not edit this record unless the application has been approved.&quot;);
+    alert("You can not edit this record unless the application has been approved.");
   }
 }else{
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;You will have to edit this data, do you want to continue?&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;You will have to edit this data, do you want to continue?&apos;))) {
+if ((Modal.confirm &amp;&amp; Modal.confirm('You will have to edit this data, do you want to continue?')) || (!Modal.confirm &amp;&amp; window.confirm('You will have to edit this data, do you want to continue?'))) {
 
-var callList = new sforce.SObject(&quot;Tool_Kit__c&quot;); 
-callList.Id = &apos;{!Tool_Kit__c.Id}&apos;; 
-callList.Apply_Status__c= &quot;Planned&quot;; 
+var callList = new sforce.SObject("Tool_Kit__c"); 
+callList.Id = '{!Tool_Kit__c.Id}'; 
+callList.Apply_Status__c= "Planned"; 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
 try { 
 var result = sforce.connection.update(campaignUpdate); 
 } catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 location.href = location.href;
 }
@@ -2428,31 +2428,31 @@ location.href = location.href;
         <masterLabel>Unlock Feedback</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 
-if(&apos;{!Tool_Kit__c.Unlock_Feedback_Check__c}&apos; == &apos;1&apos;){
-if(&apos;{!Tool_Kit__c.Feedback_Status__c}&apos;!=&apos;Approved&apos;) {
-alert(&quot;You can not edit this record unless the feedback has been approved.&quot;);
+if('{!Tool_Kit__c.Unlock_Feedback_Check__c}' == '1'){
+if('{!Tool_Kit__c.Feedback_Status__c}'!='Approved') {
+alert("You can not edit this record unless the feedback has been approved.");
 }else{
-if ((Modal.confirm &amp;&amp; Modal.confirm(&apos;You will have to edit this data, do you want to continue?&apos;)) || (!Modal.confirm &amp;&amp; window.confirm(&apos;You will have to edit this data, do you want to continue?&apos;))) {
+if ((Modal.confirm &amp;&amp; Modal.confirm('You will have to edit this data, do you want to continue?')) || (!Modal.confirm &amp;&amp; window.confirm('You will have to edit this data, do you want to continue?'))) {
 
-var callList = new sforce.SObject(&quot;Tool_Kit__c&quot;); 
-callList.Id = &apos;{!Tool_Kit__c.Id}&apos;; 
-callList.Feedback_Status__c = &quot;Planned&quot;; 
+var callList = new sforce.SObject("Tool_Kit__c"); 
+callList.Id = '{!Tool_Kit__c.Id}'; 
+callList.Feedback_Status__c = "Planned"; 
 var campaignUpdate = new Array(); 
 campaignUpdate.push(callList); 
 try { 
 var result = sforce.connection.update(campaignUpdate); 
 } catch(error) { 
-alert(&quot;Failed to update Field with error: &quot; + error); 
+alert("Failed to update Field with error: " + error); 
 } 
 location.href = location.href;
 }
 }
 }else{
-alert(&quot;Feedback has been unavailable for editing.&quot;); 
+alert("Feedback has been unavailable for editing."); 
 }</url>
     </webLinks>
 </CustomObject>

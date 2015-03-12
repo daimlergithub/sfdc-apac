@@ -72,10 +72,10 @@ trigger QCAfterUpdate on QC__c (after update) {
             QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Correctly Interpret The Questio Comments', qc.Q5_Comments__c, Trigger.oldMap.get(qc.Id).Q5_Comments__c));
         }
         if(qc.FMSK__c != Trigger.oldMap.get(qc.Id).FMSK__c) {
-            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Familiar Smart/ Knowledge', qc.FMSK__c, Trigger.oldMap.get(qc.Id).FMSK__c));
+            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Familiar MBCL/Smart/ Knowledge', qc.FMSK__c, Trigger.oldMap.get(qc.Id).FMSK__c));
         }
         if(qc.Q6_Comments__c != Trigger.oldMap.get(qc.Id).Q6_Comments__c) {
-            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Familiar Smart/ Knowledge Comments', qc.Q6_Comments__c, Trigger.oldMap.get(qc.Id).Q6_Comments__c));
+            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Familiar MBCL/Smart/ Knowledge Comments', qc.Q6_Comments__c, Trigger.oldMap.get(qc.Id).Q6_Comments__c));
         }
         if(qc.Responsibility__c != Trigger.oldMap.get(qc.Id).Responsibility__c) {
             QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Responsibility', qc.Responsibility__c, Trigger.oldMap.get(qc.Id).Responsibility__c));
@@ -182,8 +182,8 @@ trigger QCAfterUpdate on QC__c (after update) {
     }
     
     // Insert QC History tracking records
-    if(QCHistorys.size() > 0) {
-        QCHelper.insertSobjects(QCHistorys);
+    if(QCHistorys!=null && !QCHistorys.IsEmpty()) {
+        UtilSobject.insertSobjects(QCHistorys);
     }
     
     // Change the task status.

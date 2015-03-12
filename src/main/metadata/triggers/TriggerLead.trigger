@@ -12,80 +12,47 @@
     2. Mouse add logic on sharing related campaign lead to lead owner on 2013-04-27
     3. Mouse add logic for US-Lead-021 on 2013-05-17
 */
+/*
+    Type:       Trigger
+    Purpose:    1. Create a custom sharing to share the lead record with Smart Account Owner or the Star Elite Account Owner (from dealer record) with Read Only access.)
+                2. Share lead's contact to Dealer Sales Gate Keeper
+                3. If a lead is created from Inquiry case, copy lead id to Case's lead.  US-IB-001
+    User Story: US-DP-022, US-DP-023, US-DP-014, US-IB-001
+    Used By:    
+    ---------------------------------------------------------------
+    History:
+    
+    18-April-2013 Sinow Zhang (NTTData)  Created
+    16-06-2014 Bing(NDC) Modified
+*/
 trigger TriggerLead on Lead__c(before insert, before update, after update) {
     if (!UtilCustomSettings.isEnabled('TriggerLead')) {
         return;
     }
-
-    // If trigger is Enabled, continue
-    if (!UtilCustomSettings.isEnabled('TriggerLead')) {
-        return;
+	if(trigger.isAfter && trigger.isInsert)
+    {
+    	AccountSharingDataHandler handler = new AccountSharingDataHandler('Lead__c');
+    	handler.shareAccountByCRMCode(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
+    	LeadHelper.afterInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+    	LeadHelper.ShareLeadsToCampaignUser(trigger.new,trigger.OldMap,trigger.NewMap,trigger.isinsert,trigger.isUpdate);
+    	LeadHelper.SendMessageToCustomerAndInstructor(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
     }
-
-    Id aftersalesRecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead__c', 
-        'Aftersales Leads');
-
-    Id salesRecordTypeId = UtilRecordType.getRecordTypeIdByName('Lead__c', 
-        'Sales Leads');
-
-    if (trigger.isBefore && trigger.isInsert) {
-        List<Lead__c> leads = new List<Lead__c>();
-        for (Lead__c lead : trigger.new) {
-            // US-Lead-021
-            if (lead.VehicleRel_No__c != null &&
-                    lead.RecordTypeId == aftersalesRecordTypeId) {
-                leads.add(lead);
-            }
-        }
-
-        // US-Lead-021
-        if (leads.size() > 0) {
-            UtilLead.updateRelatedVehicleRelFields(leads);
-        }
-
-        // US-Lead-009
-        UtilLead.updateLeadForDataSharing(trigger.new);
+    if(trigger.isAfter && trigger.isUpdate)
+    {
+    	LeadHelper.afterInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+    	LeadHelper.ShareLeadsToCampaignUser(trigger.new,trigger.OldMap,trigger.NewMap,trigger.isinsert,trigger.isUpdate);
+    	LeadHelper.SendMessageToCustomerAndInstructor(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
     }
-
-    if (trigger.isBefore && trigger.isUpdate) {
-        List<Lead__c> vehicleRelationshipLead = new List<Lead__c>();
-        for (Lead__c newLead: trigger.new) {
-            // Get oldLead
-            Lead__c oldLead = trigger.oldMap.get(newLead.Id);
-
-            // US-Lead-016: If Assigned Date Time is not null and Dealer Audit is true, 
-            // just assign Dealer Lead Status to CAC Lead Status
-            if (newLead.Assigned_Date_Time__c != null 
-                    && !newLead.Dealer_Audit__c
-                    && newLead.RecordTypeId == salesRecordTypeId) {
-                newLead.CAC_Lead_Status__c = newLead.Dealer_Lead_Status__c;
-            }
-
-            // US-Lead-13: When lead CAC Lead Staus has change, 
-            // if this status is changed from New or Qualified to Lost(CAC), 
-            // update Lead Is Qualify to Unqualified, 
-            // otherwise, update it to Qualified
-            if (newLead.CAC_Lead_Status__c != oldLead.CAC_Lead_Status__c) {
-                if (newLead.CAC_Lead_Status__c == 'Lost(CAC)'
-                        && (oldLead.CAC_Lead_Status__c == 'New' 
-                            || oldLead.CAC_Lead_Status__c == 'Qualified')) {
-                    newLead.Is_Qualify__c = 'Unqualified';
-                }
-                else {
-                    newLead.Is_Qualify__c = 'Qualified';
-                }
-            }
-
-            // US-Lead-021: 
-            if (newLead.VehicleRel_No__c != oldLead.VehicleRel_No__c && 
-                    newLead.RecordTypeId == aftersalesRecordTypeId) {
-                vehicleRelationshipLead.add(newLead);
-            }
-        }
-
-        // US-Lead-021: 
-        if (vehicleRelationshipLead.size() > 0) {
-            UtilLead.updateRelatedVehicleRelFields(vehicleRelationshipLead);
-        }
+    if(trigger.isBefore && trigger.isInsert)
+    {
+    	// US-Lead-009
+    	UtilLead.updateLeadForDataSharing(trigger.new);
+    	UtilLead.beforeInsert_updateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+    	LeadHelper.beforeInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+    }
+    if(trigger.isBefore && trigger.isUpdate)
+    {
+    	UtilLead.beforeInsert_updateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+    	LeadHelper.beforeInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
     }
 }

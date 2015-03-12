@@ -31,12 +31,17 @@ trigger TriggerVehicleRelationship on Vehicle_Relationship__c(after insert, afte
         SharingService.shareVehicleRelationships(retailWrapService.wrapRetailVehicleRelationships(Trigger.new));
         
         AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
-    	handler.shareAccountByRetailVR(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);	
+    	handler.shareAccountByRetailVR(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
+    	
+    	//ISSUE-0757
+        VehicleRelationshipHelper.shareVR(Trigger.new);
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
     	AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
     	handler.shareAccountByRetailVR(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
+    	//
+    	UtilVehicleRelationship.updateVehicle(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
     }
     if(trigger.isBefore && trigger.isInsert)
     {
@@ -45,39 +50,5 @@ trigger TriggerVehicleRelationship on Vehicle_Relationship__c(after insert, afte
     if(trigger.isBefore && trigger.isUpdate)
     {
     	//
-    }
-
-    if (trigger.isUpdate && trigger.isAfter) {
-        // US-CP-008
-        Set<Id> vehicleIds = new Set<Id>();
-        for (Vehicle_Relationship__c relationship : trigger.new) {
-            Vehicle_Relationship__c oldRelationship = trigger.oldMap.get(relationship.Id);
-            if (oldRelationship.Validity__c != relationship.Validity__c) {
-                vehicleIds.add(relationship.Vehicle_Id__c);
-            }
-            
-            if (vehicleIds.size() > 0) {
-                UtilVehicleRelationship.updateVehicle(vehicleIds);
-            }
-        }
-    }
-    
-    if(Trigger.isInsert && trigger.isAfter) {
-        //ISSUE-0757
-        Map<ID, ID> VRIdOwnerDealerId = new Map<ID, ID>();
-         Map<ID, ID> VRIdContactId = new Map<ID, ID>();
-          Map<ID, ID> VRIdVehicleId = new Map<ID, ID>();
-    
-        for (Vehicle_Relationship__c vr : trigger.new) {
-            if(vr.Owner_Dealer__c != null && vr.RecordTypeId == Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId()){
-                VRIdOwnerDealerId.put(vr.id, vr.Owner_Dealer__c);
-                VRIdContactId.put(vr.id, vr.Contact__c);
-                VRIdVehicleId.put(vr.id, vr.Vehicle_ID__c);
-            }
-        }
-        
-        if (VRIdOwnerDealerId.size() > 0 ) {
-            VehicleRelationshipHelper.shareVR(VRIdOwnerDealerId,VRIdContactId,VRIdVehicleId);
-        }
     }
 }

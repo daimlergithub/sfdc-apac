@@ -18,19 +18,20 @@ public with sharing class UserHelper {
     public Static final String ErrorMessageGateKeeper = 'The user profile selected does not match with the contact role selected in the contact record.';
     public Static final String ErrorMessageContactSelect = 'Your contact must have to check with one of below: Dealer Lead Gate Keeper, Dealer Complaint Gate Keeper, Dealer Complaint User, Dealer Marketing Manager.';
     
-    public Static id DealerComplaintUserId = UtilCustomSettings.getProfileId('Dealer Community User');
-    public Static id DealerDelegatedAdminId = UtilCustomSettings.getProfileId('Dealer Delegate Admin');
+    public Static id DealerComplaintUserId;
+    public Static id DealerDelegatedAdminId;
     
-    public Static id CACSSICSRId = UtilCustomSettings.getProfileId('CAC SSI CSR');
-    public Static id CACSSIQCId = UtilCustomSettings.getProfileId('CAC SSI QC');
-    public Static id CACSSISVId = UtilCustomSettings.getProfileId('CAC SSI SV');
-    public Static id CACSSITLId = UtilCustomSettings.getProfileId('CAC SSI TL');
-    public Static id CACSSITRAINERId = UtilCustomSettings.getProfileId('CAC SSI Trainer');
+    public Static id CACSSICSRId;
+    public Static id CACSSIQCId;
+    public Static id CACSSISVId;
+    public Static id CACSSITLId;
+    public Static id CACSSITRAINERId;
     
     //validate No of Dealer Portal Licanses
-    public static void ValidateUser(list<user> usersList) {
-    
-     Set<Id> profileIds = new Set<Id>();
+    public static void ValidateUser(list<user> usersList)
+    {
+    	getPofileId();
+     	Set<Id> profileIds = new Set<Id>();
          profileIds.add(DealerComplaintUserId);
          profileIds.add(DealerDelegatedAdminId);
          User userObj=usersList[0];
@@ -102,7 +103,7 @@ public with sharing class UserHelper {
 
     @future
     public static void ShareAllDataToNewUserFuture(Id newUserId, Set<Id> existUserIds, Id profileId) {
-
+		getPofileId();
         User newUser = [select Id, Contact.Permission_Set_Settings__c from User where Id = :newUserId];
 
         if(profileId == DealerDelegatedAdminId || newUser.Contact.Permission_Set_Settings__c.contains('Complaint_Management')) {
@@ -243,158 +244,7 @@ public with sharing class UserHelper {
    
     public static void ShareLeadsToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId());
-        recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId());
-        
-        List<Lead__Share> shares = new List<Lead__Share>();
-        for(Lead__c lead : [Select Id from Lead__c Where Id in (select ParentId from Lead__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
-            Lead__Share share = new Lead__Share();
-            share.AccessLevel = 'Edit';
-            share.ParentID = lead.Id;
-            //share.RowCause = Schema.Lead__Share.RowCause.Manual;
-            share.UserOrGroupId = newUserId;
-            shares.add(share);
-        }
-        
-        try {
-            DataBase.insert(shares, false);
-        } catch (DMLException e) {
-            System.debug('DMLException Exception occured when sharing Leads to new Dealer user: ' + e.getDMLMessage(0));
-        }
-    }
-        
-    public static void ShareRetailLeadsToNewUser(Id newUserId, Set<Id> existUserIds) {
-        Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId());
-        
-        List<Lead__Share> shares = new List<Lead__Share>();
-        for(Lead__c lead : [Select Id from Lead__c Where Id in (select ParentId from Lead__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
-            Lead__Share share = new Lead__Share();
-            share.AccessLevel = 'Edit';
-            share.ParentID = lead.Id;
-            //share.RowCause = Schema.Lead__Share.RowCause.Manual;
-            share.UserOrGroupId = newUserId;
-            shares.add(share);
-        }
-        
-        try {
-            DataBase.insert(shares, false);
-        } catch (DMLException e) {
-            System.debug('DMLException Exception occured when sharing Retail Sale Leads to new Dealer user: ' + e.getDMLMessage(0));
-        }
-    }
-     
-    public static void ShareAsRecordsToNewUser(Id newUserId, Set<Id> existUserIds) {
-        Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('AS Retail Campaign').getRecordTypeId());
-        
-        List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
-        for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
-            Retail_Campaign__Share share = new Retail_Campaign__Share ();
-            share.AccessLevel = 'Edit';
-            share.ParentID = record.Id;
-            //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
-            share.UserOrGroupId = newUserId;
-            shares.add(share);
-        }
-        
-        try {
-            DataBase.insert(shares, false);
-        } catch (DMLException e) {
-            System.debug('DMLException Exception occured when sharing AS Records to new Dealer user: ' + e.getDMLMessage(0));
-        }
-    }
-    
-    public static void ShareAsYearlyTAToNewUser(Id newUserId, Set<Id> existUserIds) {
-        Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Aftersales Yearly TA').getRecordTypeId());
-        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Monthly TA').getRecordTypeId());
-        
-        List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
-        for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
-            Retail_Campaign__Share share = new Retail_Campaign__Share ();
-            share.AccessLevel = 'Edit';
-            share.ParentID = record.Id;
-            //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
-            share.UserOrGroupId = newUserId;
-            shares.add(share);
-        }
-        
-        try {
-            DataBase.insert(shares, false);
-        } catch (DMLException e) {
-            System.debug('DMLException Exception occured when sharing AS Records to new Dealer user: ' + e.getDMLMessage(0));
-        }
-    }
-    
-    public static void ShareSmYearlyTAToNewUser(Id newUserId, Set<Id> existUserIds) {
-        Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Sales & Marketing Yearly TA').getRecordTypeId());
-        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Monthly TA').getRecordTypeId());
-        
-        List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
-        for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
-            Retail_Campaign__Share share = new Retail_Campaign__Share();
-            share.AccessLevel = 'Edit';
-            share.ParentID = record.Id;
-            //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
-            share.UserOrGroupId = newUserId;
-            shares.add(share);
-        }
-        
-        try {
-            DataBase.insert(shares, false);
-        } catch (DMLException e) {
-            System.debug('DMLException Exception occured when sharing S&M Records to new Dealer user: ' + e.getDMLMessage(0));
-        }
-    }
-    
-    public static void ShareSmRecordsToNewUser(Id newUserId, Set<Id> existUserIds) {
-        Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Event Retail Campaign').getRecordTypeId());
-        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Media Retail Campaign').getRecordTypeId());
-        
-        List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
-        for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
-            Retail_Campaign__Share share = new Retail_Campaign__Share();
-            share.AccessLevel = 'Edit';
-            share.ParentID = record.Id;
-            //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
-            share.UserOrGroupId = newUserId;
-            shares.add(share);
-        }
-        
-        try {
-            DataBase.insert(shares, false);
-        } catch (DMLException e) {
-           System.debug('DMLException Exception occured when sharing S&M Records to new Dealer user: ' + e.getDMLMessage(0));
-        }
-    }
-    
-    public static void ShareRetailBestPracticeToNewUser(Id newUserId, Set<Id> existUserIds) {
-        Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Retail MB Best Practice').getRecordTypeId());
-        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Retail smart Best Practice').getRecordTypeId());
-        
-        List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
-        for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
-            Retail_Campaign__Share share = new Retail_Campaign__Share();
-            share.AccessLevel = 'Edit';
-            share.ParentID = record.Id;
-            //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
-            share.UserOrGroupId = newUserId;
-            shares.add(share);
-        }
-        
-        try {
-            DataBase.insert(shares, false);
-        } catch (DMLException e) {
-            System.debug('DMLException Exception occured when sharing S&M Records to new Dealer user: ' + e.getDMLMessage(0));
-        }
-    }
-    
-    public static void ShareAsCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
-        Set<Id> recordTypes = new Set<Id>();
+<<<<<<< HEAD
         recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId());
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
@@ -572,4 +422,370 @@ public with sharing class UserHelper {
              }
          }
     }
+=======
+        recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId());
+        
+        List<Lead__Share> shares = new List<Lead__Share>();
+        for(Lead__c lead : [Select Id from Lead__c Where Id in (select ParentId from Lead__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
+            Lead__Share share = new Lead__Share();
+            share.AccessLevel = 'Edit';
+            share.ParentID = lead.Id;
+            //share.RowCause = Schema.Lead__Share.RowCause.Manual;
+            share.UserOrGroupId = newUserId;
+            shares.add(share);
+        }
+        
+        try {
+            DataBase.insert(shares, false);
+        } catch (DMLException e) {
+            System.debug('DMLException Exception occured when sharing Leads to new Dealer user: ' + e.getDMLMessage(0));
+        }
+    }
+        
+    public static void ShareRetailLeadsToNewUser(Id newUserId, Set<Id> existUserIds) {
+        Set<Id> recordTypes = new Set<Id>();
+        recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId());
+        
+        List<Lead__Share> shares = new List<Lead__Share>();
+        for(Lead__c lead : [Select Id from Lead__c Where Id in (select ParentId from Lead__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
+            Lead__Share share = new Lead__Share();
+            share.AccessLevel = 'Edit';
+            share.ParentID = lead.Id;
+            //share.RowCause = Schema.Lead__Share.RowCause.Manual;
+            share.UserOrGroupId = newUserId;
+            shares.add(share);
+        }
+        
+        try {
+            DataBase.insert(shares, false);
+        } catch (DMLException e) {
+            System.debug('DMLException Exception occured when sharing Retail Sale Leads to new Dealer user: ' + e.getDMLMessage(0));
+        }
+    }
+     
+    public static void ShareAsRecordsToNewUser(Id newUserId, Set<Id> existUserIds) {
+        Set<Id> recordTypes = new Set<Id>();
+        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('AS Retail Campaign').getRecordTypeId());
+        
+        List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
+        for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
+            Retail_Campaign__Share share = new Retail_Campaign__Share ();
+            share.AccessLevel = 'Edit';
+            share.ParentID = record.Id;
+            //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
+            share.UserOrGroupId = newUserId;
+            shares.add(share);
+        }
+        
+        try {
+            DataBase.insert(shares, false);
+        } catch (DMLException e) {
+            System.debug('DMLException Exception occured when sharing AS Records to new Dealer user: ' + e.getDMLMessage(0));
+        }
+    }
+    
+    public static void ShareAsYearlyTAToNewUser(Id newUserId, Set<Id> existUserIds) {
+        Set<Id> recordTypes = new Set<Id>();
+        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Aftersales Yearly TA').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Monthly TA').getRecordTypeId());
+        
+        List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
+        for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
+            Retail_Campaign__Share share = new Retail_Campaign__Share ();
+            share.AccessLevel = 'Edit';
+            share.ParentID = record.Id;
+            //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
+            share.UserOrGroupId = newUserId;
+            shares.add(share);
+        }
+        
+        try {
+            DataBase.insert(shares, false);
+        } catch (DMLException e) {
+            System.debug('DMLException Exception occured when sharing AS Records to new Dealer user: ' + e.getDMLMessage(0));
+        }
+    }
+    
+    public static void ShareSmYearlyTAToNewUser(Id newUserId, Set<Id> existUserIds) {
+        Set<Id> recordTypes = new Set<Id>();
+        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Sales & Marketing Yearly TA').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Monthly TA').getRecordTypeId());
+        
+        List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
+        for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
+            Retail_Campaign__Share share = new Retail_Campaign__Share();
+            share.AccessLevel = 'Edit';
+            share.ParentID = record.Id;
+            //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
+            share.UserOrGroupId = newUserId;
+            shares.add(share);
+        }
+        
+        try {
+            DataBase.insert(shares, false);
+        } catch (DMLException e) {
+            System.debug('DMLException Exception occured when sharing S&M Records to new Dealer user: ' + e.getDMLMessage(0));
+        }
+    }
+    
+    public static void ShareSmRecordsToNewUser(Id newUserId, Set<Id> existUserIds) {
+        Set<Id> recordTypes = new Set<Id>();
+        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Event Retail Campaign').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Media Retail Campaign').getRecordTypeId());
+        
+        List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
+        for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
+            Retail_Campaign__Share share = new Retail_Campaign__Share();
+            share.AccessLevel = 'Edit';
+            share.ParentID = record.Id;
+            //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
+            share.UserOrGroupId = newUserId;
+            shares.add(share);
+        }
+        
+        try {
+            DataBase.insert(shares, false);
+        } catch (DMLException e) {
+           System.debug('DMLException Exception occured when sharing S&M Records to new Dealer user: ' + e.getDMLMessage(0));
+        }
+    }
+    
+    public static void ShareRetailBestPracticeToNewUser(Id newUserId, Set<Id> existUserIds) {
+        Set<Id> recordTypes = new Set<Id>();
+        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Retail MB Best Practice').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Retail smart Best Practice').getRecordTypeId());
+        
+        List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
+        for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
+            Retail_Campaign__Share share = new Retail_Campaign__Share();
+            share.AccessLevel = 'Edit';
+            share.ParentID = record.Id;
+            //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
+            share.UserOrGroupId = newUserId;
+            shares.add(share);
+        }
+        
+        try {
+            DataBase.insert(shares, false);
+        } catch (DMLException e) {
+            System.debug('DMLException Exception occured when sharing S&M Records to new Dealer user: ' + e.getDMLMessage(0));
+        }
+    }
+    
+    public static void ShareAsCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
+        Set<Id> recordTypes = new Set<Id>();
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS BMBS Campaign').getRecordTypeId());
+        
+        List<CampaignShare> shares = new List<CampaignShare>();
+        for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
+            CampaignShare share = new CampaignShare();
+            share.CampaignAccessLevel = 'Read';
+            share.CampaignId = cpn.Id;
+            share.UserOrGroupId = newUserId;
+            shares.add(share);
+        }
+        
+        try {
+            DataBase.insert(shares, false);
+        } catch (DMLException e) {
+            System.debug('DMLException Exception occured when sharing AS Campaigns to new Dealer user: ' + e.getDMLMessage(0));
+        }
+    }
+    
+    public static void ShareSmCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
+        Set<Id> recordTypes = new Set<Id>();
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event BMBS Campaign').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media BMBS Campaign').getRecordTypeId());
+        
+        List<CampaignShare> shares = new List<CampaignShare>();
+        for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
+            CampaignShare share = new CampaignShare();
+            share.CampaignAccessLevel = 'Read';
+            share.CampaignId = cpn.Id;
+            share.UserOrGroupId = newUserId;
+            shares.add(share);
+        }
+        
+        try {
+            DataBase.insert(shares, false);
+        } catch (DMLException e) {
+            System.debug('DMLException Exception occured when sharing S&M Campaigns to new Dealer user: ' + e.getDMLMessage(0));
+        }
+    }
+    
+    public static void ShareBestPracticeToNewUser(Id newUserId, Set<Id> existUserIds) {
+        Set<Id> recordTypes = new Set<Id>();
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('MB Best Practice').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('smart Best Practice').getRecordTypeId());
+
+        List<CampaignShare> shares = new List<CampaignShare>();
+        for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
+            CampaignShare share = new CampaignShare();
+            share.CampaignAccessLevel = 'Read';
+            share.CampaignId = cpn.Id;
+            share.UserOrGroupId = newUserId;
+            shares.add(share);
+        }
+        
+        try {
+            DataBase.insert(shares, false);
+        } catch (DMLException e) {
+            System.debug('DMLException Exception occured when sharing S&M Campaigns to new Dealer user: ' + e.getDMLMessage(0));
+        }
+    }
+    
+    public static void ShareToolKitToNewUser(Id newUserId, Set<Id> existUserIds) {
+        List<Tool_Kit__Share> shares = new List<Tool_Kit__Share>();
+        for(Tool_Kit__c tk : [Select Id from Tool_Kit__c Where Id in (select ParentId from Tool_Kit__Share where UserOrGroupId in :existUserIds)]) {
+            Tool_Kit__Share share = new Tool_Kit__Share();
+            share.AccessLevel  = 'Edit';
+            share.ParentId = tk.Id;
+            share.UserOrGroupId = newUserId;
+            //share.RowCause = Schema.Tool_Kit__Share.RowCause.Manual;
+            shares.add(share);
+        }
+        
+        try {
+            DataBase.insert(shares, false);
+        } catch (DMLException e) {
+            System.debug('DMLException Exception occured when sharing Tool Kits to new Dealer user: ' + e.getDMLMessage(0));
+        }
+    }
+
+    public static void AssignPermissionSetForPortalUser(Set<Id> userIds) {
+        List<PermissionSetAssignment> permissionSetAssignments = new List<PermissionSetAssignment>();
+        Map<String, Id> permissionSetNameIdMap = new Map<String, Id>();
+        
+        for(PermissionSet ps : [SELECT Id, Name FROM PermissionSet WHERE label like 'Dealer%']) {
+            permissionSetNameIdMap.put(ps.Name, ps.Id);
+        }
+        
+        for(User u : [SELECT Id, ContactId, contact.Permission_Set_Settings__c
+                       FROM  User WHERE Id in :userIds]) {
+            for(String permissionSetName : permissionSetNameIdMap.keySet()){
+                if (u.contact.Permission_Set_Settings__c != null && u.contact.Permission_Set_Settings__c.contains(permissionSetName)) {
+                    permissionSetAssignments.add(new PermissionSetAssignment(PermissionSetId = permissionSetNameIdMap.get(permissionSetName), AssigneeId = u.Id));
+                }
+            }
+        }
+        
+        try{
+            delete [select Id from PermissionSetAssignment where AssigneeId in :userIds and  permissionSet.label like 'Dealer%'];
+        } catch (DMLException e) {
+            System.debug('DMLException Exception occured when deleting the permission set: ' + e.getDMLMessage(0));
+        }
+         
+        List<User> users = [select Id, Active_Permission_Set__c from User where Id in :userIds];
+        for(User u : users) {
+            u.Active_Permission_Set__c = false;
+        }
+        
+        try{
+            update users;
+        } catch (DMLException e) {
+            System.debug('DMLException Exception occured when updating the user information: ' + e.getDMLMessage(0));
+        }
+    
+        try {
+            if(permissionSetAssignments.size() > 0) {
+                insert permissionSetAssignments;
+            }
+        }catch (DMLException e) {
+            System.debug('DMLException Exception occured when inserting the new permission set: ' + e.getDMLMessage(0));
+        }
+    }
+    
+    public static void AfterInsert_UpdateMethod(list<User> usersList,map<id,User> userOldMap,boolean isInsert,boolean isUpdate)
+    {
+	    getPofileId();	
+	    Set<Id> profileIds = new Set<Id>();
+     	if(DealerComplaintUserId!=null)
+        profileIds.add(DealerComplaintUserId);
+        if(DealerDelegatedAdminId!=null) 
+        profileIds.add(DealerDelegatedAdminId);
+     
+         Set<Id> SSIprofileIds = new Set<Id>();
+         
+         if(CACSSIQCId!=null)
+         SSIprofileIds.add(CACSSIQCId);
+         if(CACSSISVId!=null)   
+         SSIprofileIds.add(CACSSISVId);
+         if(CACSSITLId!=null)   
+         SSIprofileIds.add(CACSSITLId);
+         if(CACSSITRAINERId!=null)   
+         SSIprofileIds.add(CACSSITRAINERId);
+         if(CACSSICSRId!=null)  
+         SSIprofileIds.add(CACSSICSRId); 
+
+         if(isUpdate) {
+             // if update user is a portal user
+             if(profileIds.contains(usersList[0].ProfileId) && !usersList[0].IsPortalEnabled && userOldMap.get(usersList[0].Id).IsPortalEnabled) {
+                 updateContact(usersList[0].ContactId, false);
+             }
+         }
+     
+         // [Start] Added by Cyril on 2014-05-08 (Release1.1b)
+         if(isInsert) {
+             if(profileIds.contains(usersList[0].ProfileId)) {
+                 //when the user insert, share the account, vehicle and vehicle relation to the user
+                 ShareAllDataToNewUserBatch(usersList[0].AccountId, usersList[0].Id);
+             }
+         }
+         // [End] Added by Cyril on 2014-05-08 (Release1.1b)
+     
+         // By Shuang Li BRD-AS-CAC-007---- strart
+         if(isUpdate) {
+             Set<Id> userIds = new Set<Id>();
+             Set<Id> userPermissionSetIds = new Set<Id>();
+             for(User userNew : usersList) {
+                 if(CACSSICSRId!=null && CACSSICSRId == userOldMap.get(userNew.Id).ProfileId && userNew.ProfileId != userOldMap.get(userNew.Id).ProfileId && SSIprofileIds!=null && !SSIprofileIds.contains(userNew.ProfileId)) {
+                     userIds.add(userNew.Id);
+                 }
+                 if(userNew.Active_Permission_Set__c && userNew.Active_Permission_Set__c != userOldMap.get(userNew.Id).Active_Permission_Set__c) {
+                     userPermissionSetIds.add(userNew.Id);
+                 }
+             }
+             TaskHelper.autoUpdateSSITask(userIds);
+     
+             if(userPermissionSetIds!=null && !userPermissionSetIds.IsEmpty()) {
+                 AssignPermissionSetForPortalUser(userPermissionSetIds);
+                 ShareAllDataToNewUser(usersList[0].AccountId, usersList[0].Id, usersList[0].ProfileId);
+             }
+         }
+    }
+    
+    public static void getPofileId()
+    {
+    	set<string> profleNames= new set<string>();
+    	profleNames.add('Dealer Community User');
+    	profleNames.add('Dealer Delegate Admin');
+    	profleNames.add('CAC SSI CSR');
+    	profleNames.add('CAC SSI QC');
+    	profleNames.add('CAC SSI SV');
+    	profleNames.add('CAC SSI TL');
+    	profleNames.add('CAC SSI Trainer');
+    	List<Profile> lstProfiles=[select id, name from Profile where name in:profleNames];
+    	if(lstProfiles!=null && !lstProfiles.IsEmpty())
+    	{
+    		for(Profile obj:lstProfiles)
+    		{
+    			if(obj.name=='Dealer Community User')
+    				DealerComplaintUserId=obj.Id;
+    			if(obj.name=='Dealer Delegate Admin')
+    				DealerDelegatedAdminId=obj.Id;
+    			if(obj.name=='CAC SSI CSR')
+    				CACSSICSRId=obj.Id;
+    			if(obj.name=='CAC SSI QC')
+    				CACSSIQCId=obj.Id;
+    			if(obj.name=='CAC SSI SV')
+    				CACSSISVId=obj.Id;
+    			if(obj.name=='CAC SSI TL')
+    				CACSSITLId=obj.Id;
+    			if(obj.name=='CAC SSI Trainer')
+    				CACSSITRAINERId=obj.Id;
+    		}
+    	}
+    }
+>>>>>>> 993179c6ddf15ca08766523b383e3322462f44a1
 }

@@ -17,6 +17,9 @@ global with sharing class UtilRecordType {
 	
 	public final static String Vehicle_Relationship ='Vehicle_Relationship__c';
     public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
+    public final static String Contact2Contact ='Contact2Contact';
+    public final static String Account_Link='Account_Link__c';
+    
   
     private static Map<Id, Schema.RecordTypeInfo> recordTypeInfoByIdMap = 
         new Map<Id, Schema.RecordTypeInfo>();

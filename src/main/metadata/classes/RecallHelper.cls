@@ -2,9 +2,9 @@
     Type:       Utility for Recall trigger
     Purpose:    1.  If VIN of recall record matches UsVin of one vehicle record, 
                     system will link the recall record to this vehicle record automatically. 
-                    System flags “Recall” on related vehicle, vehicle relationship and customer record automatically.
+                    System flags �Recall� on related vehicle, vehicle relationship and customer record automatically.
                 2.  If VIN of recall record matches UsVin of one vehicle record, and if system deletes recall record, 
-                    system removes “Recall” flag on related vehicle, vehicle relationship and customer record automatically. 
+                    system removes �Recall� flag on related vehicle, vehicle relationship and customer record automatically. 
                 
     User Story: US-CP-022
     Used By:    
@@ -16,15 +16,6 @@
 */
 public with sharing class RecallHelper {
 
-    private static void updateSobjects(List<Sobject> sos) {
-        try {
-            update sos;
-        }
-        catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
-        }
-    }
-    
     /**
        Update Recall for Vehicle Relationship, Vehicle, Customer
      */
@@ -51,8 +42,8 @@ public with sharing class RecallHelper {
             objectsToUpdate.add(acc);
         }
         
-        if(objectsToUpdate.Size() > 0) {
-            updateSobjects(objectsToUpdate);
+        if(objectsToUpdate!=null && !objectsToUpdate.IsEMpty()) {
+            UtilSobject.updateSobjects(objectsToUpdate);
         }
     }
     
@@ -78,8 +69,8 @@ public with sharing class RecallHelper {
             objsToUpdate.add(acc);
         }
         
-        if(objsToUpdate.Size() > 0) {
-            updateSobjects(objsToUpdate);
+        if(objsToUpdate!=null && !objsToUpdate.IsEMpty()) {
+            UtilSobject.updateSobjects(objsToUpdate);
         }
     }
 }

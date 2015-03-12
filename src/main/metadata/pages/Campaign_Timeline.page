@@ -447,7 +447,7 @@ window.onload = function(){initPage();};
                         </option>
                         <option value="Finance">
                             <apex:outputText value="{!$Label.Campaign_Calendar_Page_CAC_CRM_Type_Finance}"/>
-                        </option>Loyalty Program
+                        </option>
                         <option value="Loyalty Program">
                             <apex:outputText value="{!$Label.Campaign_Calendar_Page_CAC_CRM_Type_Loyalty_Program}"/>
                         </option>

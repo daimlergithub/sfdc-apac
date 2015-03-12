@@ -32,8 +32,11 @@ Public class UtilTestData {
     
     public final static String ACCOUNT_RT_PERSON_ACCOUNT = 'Person Account';
     public final static String ACCOUNT_RT_DEALER = 'Dealer';
+    public final static String accountLink_Contact2Contact = 'Contact2Contact';
 
     public final static String LEAD_RT_SALES_LEADS = 'Sales Leads';
+    
+    public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
 
     public final static String CAMPAIGN_RT_CAMPAIGN_EXECUTION = 'Campaign Execution - Simple';
     public final static String CAMPAIGN_RT_CAC_CAMPAIGN = 'CAC Campaign';

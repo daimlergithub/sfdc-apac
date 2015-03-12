@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>CancelEdit</actionName>
@@ -3545,27 +3545,11 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Event/Festival marketing</fullName>
+                <fullName>Co-branded activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sports marketing activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Production of relevant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Local auto shows</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outreach/Roadshow</fullName>
+                <fullName>Event%2FFestival marketing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3573,34 +3557,46 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Local auto shows</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>New car market release</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Co-branded activities</fullName>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach%2FRoadshow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production of relevant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship%2Fcharity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports marketing activities</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Test drive</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Sponsorship/charity</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Other</fullName>
+                <fullName>Digital media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor</fullName>
+                <fullName>Magazine</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3612,11 +3608,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Digital media</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Magazine</fullName>
+                <fullName>Outdoor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5133,27 +5133,11 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Event/Festival marketing</fullName>
+                <fullName>Co-branded activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sports marketing activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Production of relevant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Local auto shows</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outreach/Roadshow</fullName>
+                <fullName>Event%2FFestival marketing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5161,34 +5145,46 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Local auto shows</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>New car market release</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Co-branded activities</fullName>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach%2FRoadshow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production of relevant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship%2Fcharity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports marketing activities</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Test drive</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Sponsorship/charity</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Other</fullName>
+                <fullName>Digital media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor</fullName>
+                <fullName>Magazine</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5200,11 +5196,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Digital media</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Magazine</fullName>
+                <fullName>Outdoor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6721,27 +6721,11 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Event/Festival marketing</fullName>
+                <fullName>Co-branded activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sports marketing activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Production of relevant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Local auto shows</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outreach/Roadshow</fullName>
+                <fullName>Event%2FFestival marketing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6749,34 +6733,46 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Local auto shows</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>New car market release</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Co-branded activities</fullName>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach%2FRoadshow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production of relevant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship%2Fcharity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports marketing activities</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Test drive</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Sponsorship/charity</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Other</fullName>
+                <fullName>Digital media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor</fullName>
+                <fullName>Magazine</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6788,11 +6784,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Digital media</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Magazine</fullName>
+                <fullName>Outdoor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8309,27 +8309,11 @@
         <picklistValues>
             <picklist>Event_Type__c</picklist>
             <values>
-                <fullName>Event/Festival marketing</fullName>
+                <fullName>Co-branded activities</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sports marketing activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Production of relevant</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Local auto shows</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outreach/Roadshow</fullName>
+                <fullName>Event%2FFestival marketing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8337,34 +8321,46 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Local auto shows</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>New car market release</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Co-branded activities</fullName>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Outreach%2FRoadshow</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Production of relevant</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship%2Fcharity</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sports marketing activities</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Test drive</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Sponsorship/charity</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Media_Type__c</picklist>
             <values>
-                <fullName>Other</fullName>
+                <fullName>Digital media</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Radio</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outdoor</fullName>
+                <fullName>Magazine</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8376,11 +8372,15 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Digital media</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Magazine</fullName>
+                <fullName>Outdoor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Radio</fullName>
                 <default>false</default>
             </values>
             <values>

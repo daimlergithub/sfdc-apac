@@ -13,14 +13,17 @@
         <members>Share_company_Read_Only</members>
         <members>Share_company_Read_Only1</members>
         <members>Share_company_Read_Only2</members>
+        <members>Share_read_with_all_Central</members>
         <members>Share_read_with_all_central_bmbs</members>
         <members>VIP_CUSTOMER_Share_with_RW</members>
+        <members>VIP_PA_share_with_BMBS_CRM_Manager</members>
         <members>VIP_PA_share_with_Central_CRM_Manager</members>
         <name>AccountCriteriaBasedSharingRule</name>
     </types>
     <types>
         <members>AccountHelper</members>
         <members>AccountHelperTest</members>
+        <members>AccountLinkHelper</members>
         <members>AccountLinkSharingTest</members>
         <members>AccountLinkSharingWrapService</members>
         <members>AccountSharingDataHandler</members>
@@ -269,6 +272,7 @@
         <members>UtilLeadEmailEscalation</members>
         <members>UtilRecordType</members>
         <members>UtilRecordTypeTest</members>
+        <members>UtilSobject</members>
         <members>UtilTask</members>
         <members>UtilTestData</members>
         <members>UtilVehicleRelationship</members>
@@ -316,6 +320,7 @@
         <members>Campaign_Timeline</members>
         <members>CaseConsoleRefresh</members>
         <members>CaseEscalation</members>
+        <members>Central_Campaigns</members>
         <members>ChangePassword</members>
         <members>CommunitiesLanding</members>
         <members>CommunitiesLogin</members>
@@ -410,8 +415,6 @@
         <members>ContactTrigger</members>
         <members>DMRequestAfterInsertUpdate</members>
         <members>IntegrationPicklistBeforeTrigger</members>
-        <members>LeadAfterInsertUpdate</members>
-        <members>LeadBeforeUpdate</members>
         <members>PicklistMappingBeforeTrigger</members>
         <members>QCAfterUpdate</members>
         <members>QCBeforeUpdate</members>
@@ -420,10 +423,8 @@
         <members>RetailCampaignMemberBeforeInsertUpdate</members>
         <members>RetailTaskAfter</members>
         <members>SSITrigger</members>
-        <members>SendMessageToCustomerAndInstructor</members>
         <members>ShareAccountLinksToDealer</members>
         <members>ShareCampaignByClooaboration</members>
-        <members>ShareLeadsToCampaignUser</members>
         <members>ShareRecordToDealer</members>
         <members>ShareToolKits</members>
         <members>TaskTrigger</members>
@@ -451,13 +452,22 @@
         <members>TriggerSettlementManagement</members>
         <members>TriggerVehicleRelationship</members>
         <members>UserTrigger</members>
-        <members>VehicleRelationshipAfter</members>
         <name>ApexTrigger</name>
     </types>
     <types>
         <members>AppSwitcher</members>
         <members>Salesforce1</members>
         <name>AppMenu</name>
+    </types>
+    <types>
+        <members>Retail_Campaign__c.RetailCampaign_Feedback_Approval_Process</members>
+        <members>Retail_Campaign__c.Retail_Campaign_Approval_Process</members>
+        <members>Retail_Campaign__c.Retail_Campaign_Cancel_Process</members>
+        <members>Retail_Campaign__c.Yearly_TA_Approval_Process</members>
+        <members>Tool_Kit__c.Tool_Kit_Approval_Process</members>
+        <members>Tool_Kit__c.Tool_Kit_Cancel_Process</members>
+        <members>Tool_Kit__c.Tool_Kit_Feedback_Approval_Process</members>
+        <name>ApprovalProcess</name>
     </types>
     <types>
         <members>SlickCTI</members>
@@ -485,6 +495,7 @@
         <members>Share_S_M_Campaign_with_Region_N</members>
         <members>Share_S_M_Campaign_with_Region_S</members>
         <members>Share_S_M_Campaign_with_Region_W</members>
+        <members>Share_S_M_Event_BMBS_Campaign_to_Call_Center</members>
         <members>Share_S_M_Event_Central_Campaign_to_Call_Center</members>
         <members>Share_S_M_with_Region_E</members>
         <members>Share_with_CAC_Data_Service_Mgr</members>
@@ -904,6 +915,109 @@
         <name>CustomLabel</name>
     </types>
     <types>
+        <members>Account</members>
+        <members>AccountContactRole</members>
+        <members>Account_Link__c</members>
+        <members>Activity</members>
+        <members>App_Setting__c</members>
+        <members>Asset</members>
+        <members>Attribute__c</members>
+        <members>Batch_Job__c</members>
+        <members>Campaign</members>
+        <members>CampaignMember</members>
+        <members>Campaign_City__c</members>
+        <members>Campaign_Lead__c</members>
+        <members>Campaign_Offering__c</members>
+        <members>Campaign_Package__c</members>
+        <members>Campaign_Partner__c</members>
+        <members>Campaign_history_log__c</members>
+        <members>Car_Enquiry__c</members>
+        <members>Car_Model_Attribute__c</members>
+        <members>Car_Model__c</members>
+        <members>Case</members>
+        <members>CaseContactRole</members>
+        <members>Case_SubType_Mapping__c</members>
+        <members>City__c</members>
+        <members>Collaboration_Team__c</members>
+        <members>Complaint_Description__c</members>
+        <members>Complaint_Tracking__c</members>
+        <members>Contact</members>
+        <members>ContentVersion</members>
+        <members>Contract</members>
+        <members>ContractContactRole</members>
+        <members>DM_Material__c</members>
+        <members>DM_Request__c</members>
+        <members>DM_Stock_Flow__c</members>
+        <members>DandBCompany</members>
+        <members>Dealer_Offering__c</members>
+        <members>DuplicateRecordItem</members>
+        <members>DuplicateRecordSet</members>
+        <members>EPA_Settings__c</members>
+        <members>EP_Integration_URLS__c</members>
+        <members>EP_Log_Interface__c</members>
+        <members>Environment_Specific_Values__c</members>
+        <members>EpAdapterUnitOfTransfer__c</members>
+        <members>EpAdapterUnitOfWork__c</members>
+        <members>Event</members>
+        <members>External_Picklist__c</members>
+        <members>Feeback_Day_Setting__c</members>
+        <members>FeedItem</members>
+        <members>Idea</members>
+        <members>Integration_Picklist__c</members>
+        <members>Lead</members>
+        <members>Lead__c</members>
+        <members>Macro</members>
+        <members>MacroAction</members>
+        <members>MacroInstruction</members>
+        <members>MonthlyRule__c</members>
+        <members>OB_Task_Handing__c</members>
+        <members>Opportunity</members>
+        <members>OpportunityCompetitor</members>
+        <members>OpportunityContactRole</members>
+        <members>OpportunityLineItem</members>
+        <members>Order</members>
+        <members>OrderItem</members>
+        <members>Package_Item__c</members>
+        <members>Participating_Dealer__c</members>
+        <members>PartnerRole</members>
+        <members>Picklist_Mapping__c</members>
+        <members>Pricebook2</members>
+        <members>PricebookEntry</members>
+        <members>Product2</members>
+        <members>QC_Result_Tracking__c</members>
+        <members>QC__c</members>
+        <members>Recall__c</members>
+        <members>Rejected_Duplicate_Log__c</members>
+        <members>Retail_Campaign_Member__c</members>
+        <members>Retail_Campaign__c</members>
+        <members>Retail_Task__c</members>
+        <members>SMSReplyHistory__c</members>
+        <members>SMS_Batch__c</members>
+        <members>SMS_Code__c</members>
+        <members>SMS__c</members>
+        <members>SR_History__c</members>
+        <members>SSI_Cleansing_Result__c</members>
+        <members>SSI__c</members>
+        <members>Settlement_Management__c</members>
+        <members>Site</members>
+        <members>SocialPersona</members>
+        <members>Solution</members>
+        <members>StreamingChannel</members>
+        <members>SurveyQuestionResponse__c</members>
+        <members>SurveyTaker__c</members>
+        <members>Survey_Question__c</members>
+        <members>Survey__c</members>
+        <members>TSP_Subscription__c</members>
+        <members>Task</members>
+        <members>Template__c</members>
+        <members>Tool_Kit__c</members>
+        <members>Trigger_Status__c</members>
+        <members>User</members>
+        <members>Vehicle_Relationship__c</members>
+        <members>Vehicle__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
         <members>Account_Link__c.Share_Account_Link_to_Call_Center</members>
         <members>Lead__c.Soft_Deleted_Cannot_View_By_CAC</members>
         <members>QC__c.Share_RW_with_IB_TL</members>
@@ -954,9 +1068,11 @@
         <members>Tool_Kit__c.Share_TK_with_Region_W</members>
         <members>Tool_Kit__c.Tool_Kit_Share_with_Central</members>
         <members>Vehicle_Relationship__c.Read_Write_of_Vehicle_to_CAC</members>
+        <members>Vehicle_Relationship__c.Read_of_Vehicle_to_BMBS</members>
         <members>Vehicle_Relationship__c.Read_of_Vehicle_to_Central</members>
         <members>Vehicle_Relationship__c.soft_deleted_share_with_R_W_to_data_mgr</members>
         <members>Vehicle__c.READ_WRITE_for_Vehicle_to_CAC</members>
+        <members>Vehicle__c.Read_of_Vehicle_to_BMBS</members>
         <members>Vehicle__c.Read_of_Vehicle_to_Central</members>
         <members>Vehicle__c.soft_deleted_V_share_read_with_data_mgr</members>
         <name>CustomObjectCriteriaBasedSharingRule</name>
@@ -983,13 +1099,13 @@
     <types>
         <members>Account_Link__c</members>
         <members>Attribute__c</members>
-        <members>BMBS_Campaigns</members>
         <members>Batch_Job__c</members>
         <members>Campaign_Calendar</members>
         <members>Campaign_Lead__c</members>
         <members>Campaign_Partner__c</members>
         <members>Car_Model_Attribute__c</members>
         <members>Car_Model__c</members>
+        <members>Central_Campaigns</members>
         <members>DM_Material__c</members>
         <members>DM_Request__c</members>
         <members>DM_Stock_Flow__c</members>
@@ -1029,6 +1145,7 @@
         <members>EPA/EPA_Logo.jpg</members>
         <members>Logo</members>
         <members>Logo/Logo_Mercedes_Benz.png</members>
+        <members>Logo/MBCL_LOGO.png</members>
         <members>Logo/MB_LOGO.png</members>
         <name>Document</name>
     </types>
@@ -1083,9 +1200,12 @@
         <members>All_Region</members>
         <members>BMBS_Central_AS_Content_Group</members>
         <members>BMBS_Central_S_M_Content_Group</members>
-        <members>Central_Regional_CRM_Manager</members>
+        <members>BMBS_Regional_CRM_Manager</members>
+        <members>Central_AS_Content_Group</members>
+        <members>Central_S_M_Content_Group</members>
         <members>East_Region_Group</members>
         <members>North_Region_Group</members>
+        <members>Regional_CRM_Manager</members>
         <members>Sourth_Region_Group</members>
         <members>West_Region_Group</members>
         <name>Group</name>
@@ -1102,12 +1222,106 @@
         <name>HomePageLayout</name>
     </types>
     <types>
+        <members>AS_Retail_Campaign</members>
+        <members>AS_Yearly_TA</members>
+        <members>Complaint_Management</members>
+        <members>Dealer_Report</members>
+        <members>Delete_Case_Authorization</members>
+        <members>Delete_Case_Authorization_V2</members>
+        <members>Enable_Knowlege_one</members>
+        <members>Info_Center</members>
+        <members>Leads_Management</members>
+        <members>ND_System_Process_Manager</members>
+        <members>Regional_Info_Data_Manager</members>
+        <members>SSI_Sales_Process_Dealer_Standard_Manager</members>
+        <members>S_M_Retail_Campaign</members>
+        <members>S_M_Yearly_TA</members>
+        <members>Segmentation_execution_Retail_Lead</members>
+        <members>Share_Case_to_CAC_Customer_Care_Team</members>
+        <members>Share_Case_to_YangBin</members>
+        <members>Smart_Operation_Team_user</members>
+        <members>Star_Elite_Used_Car_Operation</members>
+        <members>Tool_Kit</members>
+        <name>PermissionSet</name>
+    </types>
+    <types>
+        <members>Admin</members>
+        <members>Authenticated Website</members>
+        <members>CAC Data Manager</members>
+        <members>CAC IB CSR</members>
+        <members>CAC IB QC</members>
+        <members>CAC IB TL</members>
+        <members>CAC OB CSR</members>
+        <members>CAC OB QC</members>
+        <members>CAC OB TL</members>
+        <members>CAC QC SV%2FTQM</members>
+        <members>CAC SSI CSR</members>
+        <members>CAC SSI QC</members>
+        <members>CAC SSI SV</members>
+        <members>CAC SSI TL</members>
+        <members>CAC SSI Trainer</members>
+        <members>Central AS CRM Director</members>
+        <members>Central AS Marketing Manager</members>
+        <members>Central CRM Manager</members>
+        <members>Central PL%2FWL Manager</members>
+        <members>Central S%26M Marketing Manager</members>
+        <members>Chatter External User</members>
+        <members>Chatter Free User</members>
+        <members>Chatter Moderator User</members>
+        <members>Chatter Only User</members>
+        <members>ContractManager</members>
+        <members>Cross Org Data Proxy User</members>
+        <members>Custom%3A Marketing Profile</members>
+        <members>Custom%3A Sales Profile</members>
+        <members>Custom%3A Support Profile</members>
+        <members>Customer Community Login User</members>
+        <members>Customer Community Plus Login User</members>
+        <members>Customer Community Plus User</members>
+        <members>Customer Community User</members>
+        <members>Customer Portal Manager Custom</members>
+        <members>Customer Portal Manager Standard</members>
+        <members>CustomerManager</members>
+        <members>DaimlerKernelCommunity Profile</members>
+        <members>Dealer Community User</members>
+        <members>Dealer Delegate Admin</members>
+        <members>External Identity User</members>
+        <members>External Marketing User</members>
+        <members>Force%2Ecom - App Subscription User</members>
+        <members>Force%2Ecom - Free User</members>
+        <members>Gold Partner User</members>
+        <members>Guest</members>
+        <members>High Volume Customer Portal User</members>
+        <members>HighVolumePortal</members>
+        <members>Identity User</members>
+        <members>IntegrationAPI</members>
+        <members>MarketingProfile</members>
+        <members>Overage Customer Portal Manager Custom</members>
+        <members>Overage Customer Portal Manager Standard</members>
+        <members>Overage High Volume Customer Portal User</members>
+        <members>Partner</members>
+        <members>Partner App Subscription User</members>
+        <members>Partner Community Login User</members>
+        <members>Partner Community User</members>
+        <members>PlatformPortal</members>
+        <members>ReadOnly</members>
+        <members>Regional AS DM%2FCoordinator%2FDirector</members>
+        <members>Regional CRM Manager</members>
+        <members>Regional S%26M Manager</members>
+        <members>ServiceCloud</members>
+        <members>Silver Partner User</members>
+        <members>SolutionManager</members>
+        <members>Standard</members>
+        <members>StandardAul</members>
+        <members>Work%2Ecom Only User</members>
+        <name>Profile</name>
+    </types>
+    <types>
         <members>Central_Office_ER_team</members>
         <members>Central_Office_NR_team</members>
-        <members>Central_Office_SR_team</members>
-        <members>Central_Office_WR_team</members>
         <members>Central_Office_PL_WL_Queue</members>
         <members>Central_Office_Queue</members>
+        <members>Central_Office_SR_team</members>
+        <members>Central_Office_WR_team</members>
         <members>Regional_Office_East_Queue</members>
         <members>Regional_Office_North_Queue</members>
         <members>Regional_Office_South_Queue</members>
