@@ -14,8 +14,8 @@ private class TaskTriggerHandlerTest {
         System.runAs ( ssi_csr ) {
         
             Account customer = new Account(
-                PersonMobilePhone = '13011111111',
-                PersonOtherPhone = '13022222222', 
+                PersonMobilePhone = '1130111111',
+                PersonOtherPhone = '1302222222', 
                 Phone = '1234567', 
                 PersonHomePhone = '1234568', 
                 PersonAssistantPhone = '1234569'
@@ -60,7 +60,7 @@ private class TaskTriggerHandlerTest {
                 From Account
                 Where Id = :customer.Id];
             System.assertEquals(customer.Last_Successful_Call__c, endCallTime);
-            System.assertEquals(customer.Last_Successful_Call_Mobile__c, endCallTime);
+            System.assertEquals(customer.Last_Successful_Call_Mobile__c, null);
             
             endCallTime = DateTime.now().addMinutes(10);
             obTask.End_call_time__c = endCallTime;
@@ -104,8 +104,8 @@ private class TaskTriggerHandlerTest {
         System.runAs ( ssi_csr ) {
         
             Account customer = new Account(
-                PersonMobilePhone = '13011111111',
-                PersonOtherPhone = '13022222222', 
+                PersonMobilePhone = '1301111111',
+                PersonOtherPhone = '1302222222', 
                 Phone = '1234567', 
                 PersonHomePhone = '1234568', 
                 PersonAssistantPhone = '1234569'
@@ -150,7 +150,7 @@ private class TaskTriggerHandlerTest {
             intask.IB_Status__c = 'Valid';
             update intask;
             intask = [Select Id, Activity_Status__c, IB_Status__c, Phone__c From Task Where Id=:intask.Id];
-            System.assertEquals(intask.Activity_Status__c, 'Valid');
+            System.assertEquals(intask.Activity_Status__c, 'Successful');
             System.assertEquals(intask.Phone__c, '13020130906');
             
             intask.recordtypeid = ssirtid;
@@ -169,8 +169,8 @@ private class TaskTriggerHandlerTest {
             intask.Called__c = '13120130906';
             update intask;
             intask = [Select Id, Activity_Status__c, OB_Status__c, Phone__c From Task Where Id=:intask.Id];
-            System.assertEquals(intask.Activity_Status__c, 'Invalid');
-            System.assertEquals(intask.Phone__c, '13120130906');
+            System.assertEquals(intask.Activity_Status__c, 'Successful');
+            System.assertEquals(intask.Phone__c, '13020130906');
             intask.Activity_Status__c = 'Closed';
             update intask;
             Test.stopTest();
@@ -191,8 +191,8 @@ private class TaskTriggerHandlerTest {
         System.runAs ( ssi_csr ) {
         
             Account customer = new Account(
-                PersonMobilePhone = '13011111111',
-                PersonOtherPhone = '13022222222', 
+                PersonMobilePhone = '1301111111',
+                PersonOtherPhone = '1302222222', 
                 Phone = '1234567', 
                 PersonHomePhone = '1234568', 
                 PersonAssistantPhone = '1234569'
@@ -245,8 +245,8 @@ private class TaskTriggerHandlerTest {
         
         System.runAs ( ssi_csr ) {
             Account customer = new Account(
-                PersonMobilePhone = '13011111111',
-                PersonOtherPhone = '13022222222', 
+                PersonMobilePhone = '1301111111',
+                PersonOtherPhone = '1302222222', 
                 Phone = '1234567', 
                 PersonHomePhone = '1234568', 
                 PersonAssistantPhone = '1234569'
@@ -291,7 +291,7 @@ private class TaskTriggerHandlerTest {
             customer.Newly_Task_Id__c = cobTask.Id;
             update customer;
 
-			/* TODO FL Campaign_Survey_Result__c not available in Kernel
+            /* TODO FL Campaign_Survey_Result__c not available in Kernel
             Campaign_Survey_Result__c csr = new Campaign_Survey_Result__c(TaskId__c = cobTask.Id);
             csr.TaskId__c = csr.TaskId__c.subString(0, 15);
             insert csr;
@@ -304,11 +304,11 @@ private class TaskTriggerHandlerTest {
                 Start_call_time__c = callTime
             );
             insert clogTask;
-			
-			/* TODO FL Campaign_Survey_Result__c is not available in Kernel
+            
+            /* TODO FL Campaign_Survey_Result__c is not available in Kernel
             clogTask = [Select Survey_Result_Id__c From Task Where Id = :clogTask.Id];
             System.assertEquals(clogTask.Survey_Result_Id__c, csr.Id); 
-			*/
+            */
         Test.stopTest();
         }
         }
@@ -320,8 +320,8 @@ private class TaskTriggerHandlerTest {
     
         Datetime dt = Datetime.now();    
         Account customer = new Account(
-            PersonMobilePhone = '13011111111',
-            PersonOtherPhone = '13022222222', 
+            PersonMobilePhone = '1301111111',
+            PersonOtherPhone = '1302222222', 
             Phone = '1234567', 
             PersonHomePhone = '1234568', 
             PersonAssistantPhone = '1234569'
@@ -378,8 +378,8 @@ private class TaskTriggerHandlerTest {
     
         Datetime dt = Datetime.now();    
         Account customer = new Account(
-            PersonMobilePhone = '13011111111',
-            PersonOtherPhone = '13022222222', 
+            PersonMobilePhone = '1301111111',
+            PersonOtherPhone = '1302222222', 
             Phone = '1234567', 
             PersonHomePhone = '1234568', 
             PersonAssistantPhone = '1234569'

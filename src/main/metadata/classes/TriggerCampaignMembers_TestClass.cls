@@ -1,7 +1,7 @@
 /*
     Type:       Test Class
     Purpose:    TriggerCampaignMembers 
-    User Story: 	
+    User Story:     
     Used By:    
     ---------------------------------------------------------------
     History:
@@ -11,10 +11,10 @@
 @isTest
 public class TriggerCampaignMembers_TestClass{
     static testmethod void runTriggerCampaignMembers(){
-    	Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();
+        Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();
         Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
-    	Id caeSim_RecordTypeId = cpRecordTypeMap_test.get('Campaign Execution - Simple').getRecordTypeId();                       // CAC Campaign
-        Id accPerson_RecordTypeId = accRecordTypeMap_test.get('Person Account').getRecordTypeId();     	// Person Account.
+        Id caeSim_RecordTypeId = cpRecordTypeMap_test.get('Campaign Execution - Simple').getRecordTypeId();                       // CAC Campaign
+        Id accPerson_RecordTypeId = accRecordTypeMap_test.get('Person Account').getRecordTypeId();      // Person Account.
         
         // Execution Campaign Inital
         Campaign TestData_CAE_OBC = new Campaign(Name='TestData_CAE_OB_SIM_C',
@@ -31,18 +31,18 @@ public class TriggerCampaignMembers_TestClass{
                                       Province__c='Shanghai',
                                       City__c='Baoshan district',
                                       ZipCode__c='123456',
-                                      PersonMobilePhone='12345678910',
+                                      PersonMobilePhone='1235678910',
                                       RecordTypeId=accPerson_RecordTypeId
                                      );        
         insert(testPerAcc);
                                          
-		testPerAcc = [Select Id, PersonContactId From Account Where Id = :testPerAcc.Id];
+        testPerAcc = [Select Id, PersonContactId From Account Where Id = :testPerAcc.Id];
         
         // Campaign Member Initial
         CampaignMember cm1 = new CampaignMember(CampaignId = TestData_CAE_OBC.Id,
                                                 Status ='Sent',
                                                 ContactId = testPerAcc.PersonContactId
-                                                );	
+                                                );  
         insert cm1;
     }
         

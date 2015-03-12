@@ -2,9 +2,9 @@
     Type:       Utility for Recall trigger
     Purpose:    1.  If VIN of recall record matches UsVin of one vehicle record, 
                     system will link the recall record to this vehicle record automatically. 
-                    System flags �Recall� on related vehicle, vehicle relationship and customer record automatically.
+                    System flags ?Recall? on related vehicle, vehicle relationship and customer record automatically.
                 2.  If VIN of recall record matches UsVin of one vehicle record, and if system deletes recall record, 
-                    system removes �Recall� flag on related vehicle, vehicle relationship and customer record automatically. 
+                    system removes ?Recall? flag on related vehicle, vehicle relationship and customer record automatically. 
                 
     User Story: US-CP-022
     Used By:    
@@ -16,32 +16,67 @@
 */
 public with sharing class RecallHelper {
 
+
+    public static void beforeDeleteEvent(List<Recall__c> recallOld)
+    {
+        Set<Id> VehicleIds = new Set<Id>();
+        // get VIN and Vehicle ID from Recall
+        if(recallOld!=Null && (!recallOld.isEmpty())){
+           for (Recall__c r : recallOld)
+            {
+                VehicleIds .add(r.Vehicle_ID__c);
+            }
+            // update Recall checkbox status
+          if (VehicleIds!=null && (!VehicleIds.IsEmpty()))
+            {
+               removeRecall(VehicleIds);
+            } 
+        }
+    }
+    
+    public static void AfterInsertEvent(List<Recall__c> recallNew)
+       {
+        Set<Id> VehicleIds = new Set<Id>();
+        // get VIN and Vehicle ID from Recall
+        if (recallNew!=null && (!recallNew.IsEmpty())){
+            for (Recall__c r : recallNew)
+            {
+                VehicleIds .add(r.Vehicle_ID__c);
+            }
+            // update Recall checkbox status
+            if(VehicleIds!=null && (!VehicleIds.IsEmpty()))
+            {
+               updateRecall(VehicleIds);
+            } 
+         }
+      }
+   
     /**
        Update Recall for Vehicle Relationship, Vehicle, Customer
      */
-     
     public static void updateRecall(Set<Id> vehicleIds) {
     
         List<SObject> objectsToUpdate = new List<SObject>();
         Set<Id> customerIds = new Set<Id>();
-              
-        for(Vehicle_Relationship__c vr : [select Id, Contact__c, Recall__c from Vehicle_Relationship__c where Vehicle_ID__c in :vehicleIds])
-        {
-            vr.Recall__c = true;
-            customerIds.add(vr.Contact__c);
-            objectsToUpdate.add(vr);
+        if(vehicleIds!=Null && (!vehicleIds.isEmpty())) {    
+            for(Vehicle_Relationship__c vr : [select Id, Contact__c, Recall__c from Vehicle_Relationship__c where Vehicle_ID__c in :vehicleIds])
+            {
+                vr.Recall__c = true;
+                customerIds.add(vr.Contact__c);
+                objectsToUpdate.add(vr);
+            }
+            
+            for(Vehicle__c v : [select Id, Recall__c from Vehicle__c where Id in :vehicleIds]) {
+                v.Recall__c = true;
+                objectsToUpdate.add(v);
+            }
         }
-        
-        for(Vehicle__c v : [select Id, Recall__c from Vehicle__c where Id in :vehicleIds]) {
-            v.Recall__c = true;
-            objectsToUpdate.add(v);
+        if(customerIds!=Null && (!customerIds.isEmpty())) {    
+            for(Account acc : [select Id, Recall__c from Account where Id in :customerIds ]) {
+                acc.Recall__c = true;
+                objectsToUpdate.add(acc);
+            }
         }
-        
-        for(Account acc : [select Id, Recall__c from Account where Id in :customerIds ]) {
-            acc.Recall__c = true;
-            objectsToUpdate.add(acc);
-        }
-        
         if(objectsToUpdate!=null && !objectsToUpdate.IsEMpty()) {
             UtilSobject.updateSobjects(objectsToUpdate);
         }

@@ -8,7 +8,7 @@
     
     11-Mar-2013 Chris Huang (Breakingpoint)    Created
 */
-trigger DMRequestAfterInsertUpdate on DM_Request__c (after insert, after update) {
+trigger TriggerDMRequest on DM_Request__c (after insert, after update) {
     if (!UtilCustomSettings.isEnabled('DMRequestAfterInsertUpdate')) {
         return;
     }

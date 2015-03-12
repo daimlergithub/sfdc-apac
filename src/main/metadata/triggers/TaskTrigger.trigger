@@ -57,7 +57,6 @@ trigger TaskTrigger on Task (after update, after insert,before update, before in
         //  
         if(UtilCustomSettings.isEnabled('TaskAfterInsertUpdate'))
         {
-            system.debug('@Shrinivas*********');
             TaskTriggerHandler.updateAccountCallMessage(Trigger.newMap, Trigger.oldMap);
             TaskTriggerHandler.autoUpdateTaskAfterLogInserted(Trigger.new[0]);
             TaskTriggerHandler.autoUpdateAccountOBTaskMessage(Trigger.new);

@@ -90,7 +90,7 @@ public class SSITriggerHandler {
             generateTasks.add(t);
         }
         
-        if(generateTasks.size()>0){
+        if(generateTasks!=null && !generateTasks.IsEmpty()){
             insert generateTasks;
         }
     }

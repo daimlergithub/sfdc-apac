@@ -139,6 +139,7 @@
         <members>Operation</members>
         <members>OperationResult</members>
         <members>Paginator</members>
+        <members>ParticipatingDealerHelper</members>
         <members>PicklistMappingHelper</members>
         <members>PicklistMappingHelperTest</members>
         <members>QCHelper</members>
@@ -149,6 +150,7 @@
         <members>RetailCampaignCalendarController</members>
         <members>RetailCampaignCalendarControllerTest</members>
         <members>RetailCampaignHelper</members>
+        <members>RetailCampaignMemberHelper</members>
         <members>RetailCampaignSegmentationController</members>
         <members>RetailCampaignSegmentationControllerTest</members>
         <members>RetailCampaignSharingTest</members>
@@ -220,6 +222,7 @@
         <members>TookKitSharingWrapService</members>
         <members>ToolKitSelectContentController</members>
         <members>ToolKitSelectContentControllerTest</members>
+        <members>ToolKitTriggerHelper</members>
         <members>TriggerAccountTest</members>
         <members>TriggerCampaignCity_TestClass</members>
         <members>TriggerCampaignLeadTest</members>
@@ -413,28 +416,19 @@
         <members>CaseTrigger</members>
         <members>ComplaintDescriptionAfterInsert</members>
         <members>ContactTrigger</members>
-        <members>DMRequestAfterInsertUpdate</members>
-        <members>IntegrationPicklistBeforeTrigger</members>
-        <members>PicklistMappingBeforeTrigger</members>
-        <members>QCAfterUpdate</members>
-        <members>QCBeforeUpdate</members>
         <members>RecallAfterInsertUpdate</members>
         <members>RecallBeforeDelete</members>
-        <members>RetailCampaignMemberBeforeInsertUpdate</members>
-        <members>RetailTaskAfter</members>
+        <members>RetailCampaignTrigger</members>
         <members>SSITrigger</members>
         <members>ShareAccountLinksToDealer</members>
         <members>ShareCampaignByClooaboration</members>
-        <members>ShareRecordToDealer</members>
         <members>ShareToolKits</members>
         <members>TaskTrigger</members>
-        <members>TirggerCampaignParticipatingDealer</members>
         <members>ToolKitAfterInsertUpdateDelete</members>
         <members>ToolKitBeforeInsertUpdateDelete</members>
+        <members>ToolKitTrigger</members>
         <members>TriggerAccount</members>
-        <members>TriggerAfterRetailCampaign</members>
         <members>TriggerBatchJob</members>
-        <members>TriggerBeforeRetailCampaign</members>
         <members>TriggerCampaign</members>
         <members>TriggerCampaignCity</members>
         <members>TriggerCampaignLead</members>
@@ -445,10 +439,17 @@
         <members>TriggerCase</members>
         <members>TriggerComplaintDescAfterInsertUpdateDelete</members>
         <members>TriggerComplaintDescriptionBeforeInsert</members>
+        <members>TriggerDMRequest</members>
+        <members>TriggerIntegrationPicklist</members>
         <members>TriggerLead</members>
         <members>TriggerPackageItem</members>
         <members>TriggerParticipatingDealer</members>
-        <members>TriggerSMSReplyHistoryBeforeInsert</members>
+        <members>TriggerPicklistMapping</members>
+        <members>TriggerQC</members>
+        <members>TriggerRecall</members>
+        <members>TriggerRetailCampaignMember</members>
+        <members>TriggerRetailTask</members>
+        <members>TriggerSMSReplyHistory</members>
         <members>TriggerSettlementManagement</members>
         <members>TriggerVehicleRelationship</members>
         <members>UserTrigger</members>

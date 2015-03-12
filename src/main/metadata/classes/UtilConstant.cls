@@ -6,11 +6,28 @@ Global with sharing class UtilConstant {
     public final static String DEALER_COMMUNITY_USER = 'Dealer Community User';
     public final static String SALES_LEADS = 'Sales Leads';
     public final static String AFTER_SALES_LEADS = 'Aftersales Leads';
+    public final static String RETAIL_SALES_LEADS = 'Retail Sales Leads';
+    public final static String AS_RETAIL_CAMPAIGN = 'AS Retail Campaign';
     public final static String DEALER_LEAD_GATE_KEEPER_QUEUE = 'Dealer Lead Gate Keeper Queue';
     public final static String LEAD = 'Lead__c';
     public final static String MBDA_LEAD = 'MBDA Leads';
     public final static String SMS = 'SMS';
+    public final static String DEALER = 'Dealer';
+    public final static String MONTHLY_TA = 'Monthly TA';
+    public final static String SALES_MARKETING = 'Sales & Marketing Yearly TA';
+    public final static String AFTER_SALES_YEARLY = 'Aftersales Yearly TA';
     public final static String OB_TASK = 'OB Task';
+    public final static String REGIONAL_CRM_MANAGER_E = 'Regional CRM Mgr (E)';
+    public final static String REGIONAL_CRM_MANAGER_S = 'Regional CRM Mgr (S)';
+    public final static String REGIONAL_CRM_MANAGER_W = 'Regional CRM Mgr (W)';
+    public final static String REGIONAL_CRM_MANAGER_N = 'Regional CRM Mgr (N)';
+    public final static String MB_COMPLAINT = 'MB Complaint';
+    public final static String CHRYSLER_COMPLAINT = 'Chrysler Complaint';
+    public final static String MBDA_COMPLAINT = 'MBDA Complaint';
+    public final static String RETAIL_CAMPAIGN = 'Retail Campaign';
+    public final static String INQUIRY = 'Inquiry';
+    public final static String CAC_IB_TL = 'CAC IB TL';
+    
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {
         if (roleMap == null) {

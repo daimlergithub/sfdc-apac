@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <customButtons>Manage_Participating_Dealers</customButtons>
     <customButtons>Delete</customButtons>
     <customButtons>Create_CAC_Campaign</customButtons>
     <excludeButtons>Delete</excludeButtons>

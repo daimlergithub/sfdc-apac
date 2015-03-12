@@ -82,7 +82,7 @@ public class CaseHelperTest {
       public static testMethod void testUSCC004(){
         Test.startTest();
         List<Sobject> sos = new List<Sobject>();        
-        acc.PersonMobilePhone = '13011111111';
+        acc.PersonMobilePhone = '1301111111';
         insert acc;
         insert ve1;
         Vehicle_Relationship__c vrData = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, Contact__c =acc.Id,Registration_Number__c ='1');

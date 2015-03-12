@@ -13911,26 +13911,6 @@ window.parent.navigateToUrl("/a1j/e?RecordType="+qr.records.Id + "&amp;CF00N9000
 } else { alert('Invalid Dealer'); }</url>
     </webLinks>
     <webLinks>
-        <fullName>Manage_Participating_Dealers</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <hasMenubar>false</hasMenubar>
-        <hasScrollbars>true</hasScrollbars>
-        <hasToolbar>false</hasToolbar>
-        <height>600</height>
-        <isResizable>true</isResizable>
-        <linkType>url</linkType>
-        <masterLabel>Manage Participating Dealers</masterLabel>
-        <openType>newWindow</openType>
-        <position>fullScreen</position>
-        <protected>false</protected>
-        <showsLocation>false</showsLocation>
-        <showsStatus>false</showsStatus>
-        <url>/apex/CampaignPlanning?scontrolCaching=1&amp;id={!Campaign.Id}</url>
-        <width>800</width>
-    </webLinks>
-    <webLinks>
         <fullName>ViewAllCampaignMembers</fullName>
         <availability>online</availability>
         <displayType>link</displayType>

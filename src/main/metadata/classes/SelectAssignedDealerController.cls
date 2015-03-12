@@ -97,6 +97,7 @@ public with sharing class SelectAssignedDealerController {
             'IsPersonAccount, Id FROM Account WHERE Dealer_Active__c = true and ' + 
             'RecordType.Name = :ACCOUNT_RT_DEALER AND ';
 
+        system.debug('@Shrinivas:' +querySOQL);
         // If Lead Record Type is Sales Leads, this filter is must,
         // if not, no need.
         if (lead.RecordType.Name == 'Sales Leads') {

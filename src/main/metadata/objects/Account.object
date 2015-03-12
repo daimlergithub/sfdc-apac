@@ -10511,25 +10511,6 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
         <errorMessage>If customer has no vehicle relationship, Status must not be ‘Customer’.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Area_code_is_needed</fullName>
-        <active>true</active>
-        <description>When person account has phone , should input area code.</description>
-        <errorConditionFormula>OR(AND(ISBLANK( Area_Code__c ),ISCHANGED(Area_Code__c), 
-OR( AND(!ISBLANK( Phone ),!ISCHANGED(Phone) ), AND(!ISBLANK(PersonHomePhone),!ISCHANGED(PersonHomePhone) ))), 
-AND( 
-OR( 
-AND(!ISBLANK( Phone ),OR(ISCHANGED(Phone), ISNEW()) ), 
-AND(!ISBLANK( PersonHomePhone ),OR(ISCHANGED(PersonHomePhone), ISNEW()) ) 
-), 
-ISBLANK( Area_Code__c ), 
-$Profile.Name != &apos;IntegrationAPI&apos;, 
-RecordType.Name == &apos;Person Account&apos; 
-) 
-)</errorConditionFormula>
-        <errorDisplayField>Assigned_Lead_Amount_of_Everyday__c</errorDisplayField>
-        <errorMessage>Area Code can not be blank, if Home Phone or Office Phone has value.</errorMessage>
-    </validationRules>
-    <validationRules>
         <fullName>Birthday</fullName>
         <active>true</active>
         <description>Birthdate is not allowed to be later than today or earlier than 150 years.</description>
@@ -10582,36 +10563,48 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-        <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-AND (
-	OR (
-		ISNULL(Phone),
-		ISBLANK(Phone)
-	),
-	
-	OR (
-		ISNULL(PersonOtherPhone),
-		ISBLANK(PersonOtherPhone)
-	),
-	
-	OR (
-		ISNULL(PersonHomePhone),
-		ISBLANK(PersonHomePhone)
-	),
-	
-	OR (
-		ISNULL(PersonMobilePhone),
-		ISBLANK(PersonMobilePhone)
-	),
-
-        $Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;,
-
-        OR ( 
-                 RecordType.DeveloperName = &apos;PersonAccount&apos;, 
-                 RecordType.DeveloperName = &apos;ThirdParty&apos; 
-) 
+        <errorConditionFormula>OR ( 
+AND ( 
+OR ( 
+ISNULL(Phone), 
+ISBLANK(Phone) 
+), 
+OR ( 
+ISNULL(PersonOtherPhone), 
+ISBLANK(PersonOtherPhone) 
+), 
+OR ( 
+ISNULL(PersonHomePhone), 
+ISBLANK(PersonHomePhone) 
+), 
+OR ( 
+ISNULL(PersonMobilePhone), 
+ISBLANK(PersonMobilePhone) 
+), 
+$Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;, 
+RecordType.DeveloperName = &apos;PersonAccount&apos;
+),
+AND ( 
+OR ( 
+ISNULL(Retail_Fax__c), 
+ISBLANK(Retail_Fax__c) 
+), 
+OR ( 
+ISNULL(Retail_Home_Phone__c), 
+ISBLANK(Retail_Home_Phone__c) 
+), 
+OR ( 
+ISNULL(Retail_Mobile__c), 
+ISBLANK(Retail_Mobile__c) 
+), 
+OR ( 
+ISNULL(Retail_Work_Phone__c), 
+ISBLANK(Retail_Work_Phone__c) 
+), 
+$Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;, 
+RecordType.DeveloperName = &apos;ThirdParty&apos; 
+)
 )</errorConditionFormula>
-        <errorDisplayField>Assigned_Lead_Amount_of_Everyday__c</errorDisplayField>
         <errorMessage>Customer must have at least one phone field populated.</errorMessage>
     </validationRules>
     <validationRules>
@@ -10692,11 +10685,10 @@ $Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;
 OR(ISCHANGED(PersonMobilePhone), ISNEW()),
 NOT(ISBLANK(PersonMobilePhone)), 
 RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;, 
-OR( NOT(ISNUMBER(PersonMobilePhone)), NOT(BEGINS(PersonMobilePhone, &apos;1&apos;)) , NOT(LEN(PersonMobilePhone)=11),
-CONTAINS( PersonMobilePhone , &apos;e&apos;)), 
+OR( NOT(ISNUMBER(PersonMobilePhone)), NOT(LEN(PersonMobilePhone)=10)), 
 $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>PersonMobilePhone</errorDisplayField>
-        <errorMessage>Mobile phone must be start with ‘1’  and 11 digits  type of number .</errorMessage>
+        <errorMessage>Mobile phone number must be of lenght 10 digits.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Phone</fullName>
@@ -10726,11 +10718,10 @@ $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
 OR(ISCHANGED(PersonOtherPhone), ISNEW()),
 NOT(ISBLANK(PersonOtherPhone)), 
 RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;, 
-OR( NOT(ISNUMBER(PersonOtherPhone)), NOT(BEGINS(PersonOtherPhone, &apos;1&apos;)) , NOT(LEN(PersonOtherPhone)=11),
-CONTAINS(PersonOtherPhone, &apos;e&apos;)), 
+OR( NOT(ISNUMBER(PersonOtherPhone)), NOT(LEN(PersonOtherPhone)=10)), 
 $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>PersonOtherPhone</errorDisplayField>
-        <errorMessage>Mobile phone must be start with ‘1’ and 11 digits type of number .</errorMessage>
+        <errorMessage>Phone number must be of length 10 digits.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Social_ID</fullName>

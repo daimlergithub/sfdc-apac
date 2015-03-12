@@ -23,25 +23,25 @@
 private class SSITriggerHandlerTest {
 
     static testMethod void myUnitTest1() {
-    	
+        
         User ssi_sv = UtilTestData.createUser('SSI Supervisor','CAC SSI SV');
         
         User ssi_csr = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
         
         System.runAs ( ssi_sv ) {
-        	       	
-	        Account customer = new Account(
-	        	FirstName = 'Test-',
-	        	LastName =  DateTime.now().formatLong(),
-	        	PersonMobilePhone = '13011111111',
-				PersonOtherPhone = '13022222222', 
-				Phone = '1234567', 
-				PersonHomePhone = '1234567', 
-				PersonAssistantPhone = '1234567'
-			);
-	        customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-	        String customerName = [Select Name From Account Where Id = :customer.Id][0].Name;
-	        
+                    
+            Account customer = new Account(
+                FirstName = 'Test-',
+                LastName =  DateTime.now().formatLong(),
+                PersonMobilePhone = '1301111111',
+                PersonOtherPhone = '1302222222', 
+                Phone = '1234567', 
+                PersonHomePhone = '1234567', 
+                PersonAssistantPhone = '1234567'
+            );
+            customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+            String customerName = [Select Name From Account Where Id = :customer.Id][0].Name;
+            
             // create new ssi record
             SSI__c ssi = new SSI__c(CustomerName__c = customerName, DealerName__c = 'Test Dealer', Status__c = 'Matched');
             insert ssi;
@@ -87,8 +87,8 @@ private class SSITriggerHandlerTest {
             Account customer = new Account(
                 FirstName = 'Test-',
                 LastName =  DateTime.now().formatLong(),
-                PersonMobilePhone = '13011111111',
-                PersonOtherPhone = '13022222222', 
+                PersonMobilePhone = '1301111111',
+                PersonOtherPhone = '1302222222', 
                 Phone = '1234567', 
                 PersonHomePhone = '1234567', 
                 PersonAssistantPhone = '1234567'
@@ -116,7 +116,7 @@ private class SSITriggerHandlerTest {
             ssiTask.IB_Status__c = 'Valid';
             update ssiTask;
             ssiTask = [Select Id, Activity_Status__c, IB_Status__c From Task Where Id=:ssiTask.Id];
-            System.assertEquals(ssiTask.Activity_Status__c, 'Valid');
+            System.assertEquals(ssiTask.Activity_Status__c, 'Successful');
             
             ssitask.recordtypeid = recordtype;
             ssiTask.CallType = '';
@@ -132,7 +132,7 @@ private class SSITriggerHandlerTest {
             ssiTask.OB_Status__c = 'Invalid';
             update ssiTask;
             ssiTask = [Select Id, Activity_Status__c, OB_Status__c From Task Where Id=:ssiTask.Id];
-            System.assertEquals(ssiTask.Activity_Status__c, 'Invalid');
+            System.assertEquals(ssiTask.Activity_Status__c, 'Successful');
             
             ssi.DealerCheck_Status__c = 'Accept';
             ssi.CarModelCheck_Status__c = 'Accept';

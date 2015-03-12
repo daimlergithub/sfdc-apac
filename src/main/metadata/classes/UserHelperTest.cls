@@ -107,7 +107,7 @@ public class UserHelperTest {
             insert usr;
             Account person = new Account(
             RecordTypeId = personRecordtypeid,
-            PersonMobilePhone = '18610011001',
+            PersonMobilePhone = '1861001001',
             FirstName = 'First',
             LastName = 'Last',
             PersonEmail = 'test@test.com'

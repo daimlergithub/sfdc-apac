@@ -14,14 +14,14 @@ public class LeadConvertingController {
         ral = false;
         rsl = false;
 
-        if(leadRTname == 'AS Retail Campaign') {
-            leadRT = 'Aftersales Leads';
+        if(leadRTname == UtilConstant.AS_RETAIL_CAMPAIGN) {
+            leadRT = UtilConstant.AFTER_SALES_LEADS;
             ral = true;
         } else {
-            leadRT = 'Retail Sales Leads';
+            leadRT = UtilConstant.RETAIL_SALES_LEADS;
             rsl = true;
         }
-        leadRTId = [SELECT Id, Name FROM RecordType WHERE SobjectType = 'Lead__c' and name = :leadRT].id;
+        leadRTId = [SELECT Id, Name FROM RecordType WHERE SobjectType =: UtilConstant.LEAD and name = :leadRT].id;
         setRetailCampaignMemberInfos();
     }
     
@@ -77,7 +77,7 @@ public class LeadConvertingController {
     public PageReference converttolead() {
         List<Lead__c> tolead = new List<Lead__c>();
         List<Retail_Campaign_Member__c > retailCampaignMembers = new List<Retail_Campaign_Member__c>();
-        Id idDealerAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'].id;
+        Id idDealerAdmin = [select Id from Profile where Name =: UtilConstant.DEALER_DELEGATE_ADMIN].id;
         Map<Id, Id> dealerLeadgateKeeperMap = new Map<Id, Id>();
         Map<Id, Id> dealerAdminMap = new Map<Id, Id>();
         Set<Id> dealerIds = new Set<Id>();
@@ -95,7 +95,7 @@ public class LeadConvertingController {
             dealerLeadgateKeeperMap.put(u.AccountId, u.Id);
         }
         
-        for (User u : [select Id, AccountId from User where AccountId in :dealerIds and isActive = true and Profile.Name = 'Dealer Community Delegate Admin']) {
+        for (User u : [select Id, AccountId from User where AccountId in :dealerIds and isActive = true and Profile.Name =:UtilConstant.DEALER_DELEGATE_ADMIN]) {
             dealerAdminMap.put(u.AccountId, u.Id);
         }
         
@@ -195,7 +195,7 @@ public class LeadConvertingController {
         
         Savepoint sp = Database.setSavepoint();
         try {
-            if(tolead.size() > 0) {
+            if(tolead!=null && !tolead.IsEmpty()) {
                 update contacts;
                 upsert tolead;
             } else {
@@ -208,7 +208,7 @@ public class LeadConvertingController {
                 return null;
             }
             
-            if(retailCampaignMembers.size() > 0) {
+            if(retailCampaignMembers!=null && !retailCampaignMembers.IsEmpty()) {
                 update retailCampaignMembers;
             } else {
                 Database.rollback(sp);

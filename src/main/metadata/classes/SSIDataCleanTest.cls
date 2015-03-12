@@ -605,7 +605,8 @@ private class SSIDataCleanTest {
         // run rest rule
         Account dms2 = new Account(
             LastName = 'd1-customer-name1-8888a',
-            PersonMobilePhone = '13201309043', 
+           PersonMobilePhone = '1301111111',
+           PersonOtherPhone = '1301111122', 
             ZipCode__c = '123456',
             Recordtypeid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()
         );
