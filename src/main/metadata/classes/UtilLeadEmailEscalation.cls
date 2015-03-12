@@ -99,7 +99,7 @@ public class UtilLeadEmailEscalation {
                 '<td width="12%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
                     '<p align="center" style="margin:5px; text-align:center">' +
-                        'Follow-Up rate<br>(within 72 hours)<br>Sales lead follow-up rate<br>?KPI ? 90%?' +
+                        'Follow-Up rate<br>(within 72 hours)<br>Sales lead follow-up rate<br>（KPI ≥ 90%）' +
                     '</p>' +
                 '</td>' + 
 
@@ -114,7 +114,7 @@ public class UtilLeadEmailEscalation {
                 '<td width="12%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
                     '<p align="center" style="margin:5px; text-align:center">' + 
-                        'Successfully<br>Contacted Rate<br>Success contact rate<br>?KPI ? 80%?' +
+                        'Successfully<br>Contacted Rate<br>Success contact rate<br>（KPI ≥ 80%）' +
                     '</p>' +
                 '</td>' + 
 
@@ -130,7 +130,7 @@ public class UtilLeadEmailEscalation {
                 //    'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
                 //    '<p align="center" style="margin:5px; text-align:center">' +
                 //        'Leads Status Update<br>Authenticity Rate Checked<br>by CAC<br>' +
-                //        'Authenticity leads status update<br>?KPI ? 80%?' +
+                //        'Authenticity leads status update<br>（KPI ≥ 80%）' +
                 //    '</p>' +
                 //'</td>' + 
             '</tr>';
@@ -187,7 +187,7 @@ public class UtilLeadEmailEscalation {
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
                         'Follow-Up rate<br>(within 72 hours)<br>' +
-                        'Sales lead follow-up rate?KPI ? 90%?</p>' +
+                        'Sales lead follow-up rate（KPI ≥ 90%）</p>' +
                 '</td>' +
 
                 '<td width="15%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
@@ -201,7 +201,7 @@ public class UtilLeadEmailEscalation {
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
                     '<p align="center" style="margin:5px; text-align:center">' +
                         'Successfully<br>Contacted Rate<br>' +
-                        'Success contact rate?KPI ? 80%?</p>' +
+                        'Success contact rate（KPI ≥ 80%）</p>' +
                 '</td>' +
             '</tr>';
 
@@ -209,13 +209,13 @@ public class UtilLeadEmailEscalation {
         '<br>' +
         '<div align="left">' +
             '<div style="font-size: 12px;">' +
-                '<b>Note?</b>' +
+                '<b>Note：</b>' +
             '</div>' + 
             '<div style="font-size: 12px;">' +
-                '<b>Sales lead follow-up rate(KPI ? 90%): </b>[Follow up on sales leads within 72 hours/total number of assigned leads]' +
+                '<b>Sales lead follow-up rate(KPI ≥ 90%): </b>[Follow up on sales leads within 72 hours/total number of assigned leads]' +
             '</div>' + 
             '<div style="font-size: 12px;">' +
-                '<b>Success contact rate(KPI ? 80%): </b>[Successfully obtained within 72 hours contact/follow up on sales leads]' +
+                '<b>Success contact rate(KPI ≥ 80%): </b>[Successfully obtained within 72 hours contact/follow up on sales leads]' +
             '</div>' +
         '</div>';
 
@@ -226,9 +226,9 @@ public class UtilLeadEmailEscalation {
         
         String emailContent = 
             '<div align="left" style="font-size: 13px;">' + 
-                acc.Name + 'Dealer?<br>Last month?' + getDateLiteral(firstDayInLastMonth) + 
+                acc.Name + 'Dealer：<br>Last month（' + getDateLiteral(firstDayInLastMonth) + 
                 ' To ' + getDateLiteral(lastDayInLastMonth) + 
-                '?Your lead follow up are as follows?' +
+                '）Your lead follow up are as follows：' +
             '</div>';
 
         String monthlyTableTitle = 
@@ -269,7 +269,7 @@ public class UtilLeadEmailEscalation {
         
         String emailContent = 
             '<div align="left" style="font-size: 13px">' + 
-                acc.Name + 'Dealer?<br>Last week?' + getDateLiteral(lastMonday) + 
+                acc.Name + 'Dealer：<br>Last week（' + getDateLiteral(lastMonday) + 
                 ' To ' + getDateLiteral(lastSunday) + 
                 ')Of your sales lead follow-up rate of nonconformance (less than 90%),' + 
                 'Please follow up and update the status as soon as possible.' +
@@ -313,8 +313,8 @@ public class UtilLeadEmailEscalation {
         
         String emailContent = 
             '<div align="left" style="font-size: 13px;">' + 
-                'Last month?' + getDateLiteral(firstDayInLastMonth) + 
-                ' To ' + getDateLiteral(lastDayInLastMonth) + '?' +
+                'Last month（' + getDateLiteral(firstDayInLastMonth) + 
+                ' To ' + getDateLiteral(lastDayInLastMonth) + '）' +
                 (accs[0].Dealer_MB_Sub_Region__c == null ? '' : 
                  accs[0].Dealer_MB_Sub_Region__c) +  
                 'Regional sales lead follow up monthly report are as follows:' + 
@@ -363,8 +363,8 @@ public class UtilLeadEmailEscalation {
         
         String emailContent =
             '<div align="left" style="font-size: 13px;">' + 
-                'Last week?' + getDateLiteral(lastMonday) + 
-                ' To ' + getDateLiteral(lastSunday) + '?' +
+                'Last week（' + getDateLiteral(lastMonday) + 
+                ' To ' + getDateLiteral(lastSunday) + '）' +
                 (accs[0].Dealer_MB_Sub_Region__c == null ? '' : 
                  accs[0].Dealer_MB_Sub_Region__c) +  
                 'Regional sales lead follow-up weekly reports are as follows:' + 
@@ -509,7 +509,7 @@ public class UtilLeadEmailEscalation {
             '<tr height="" style="font-weight: bold;">' + 
                 '<td width="20%" style="border:solid black 1.0pt;background:#CDCDCD;' +
                     'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' +
-                    '<p align="center" style="margin:5px; text-align:center">Region<br>??</p>' +
+                    '<p align="center" style="margin:5px; text-align:center">Region<br>区域</p>' +
                 '</td>' + 
 
                 '<td width="20%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
@@ -540,7 +540,7 @@ public class UtilLeadEmailEscalation {
         '<br>' +
         '<div align="left">' +
             '<div style="font-size: 12px;">' +
-                '<b>??</b>' +
+                '<b>注：</b>' +
             '</div>' + 
             '<div style="font-size: 12px;">' +
                 '<b>Leads sent to dealers<sup>1</sup>: </b>Leads assigned to dealers 1 year ago.' +
@@ -558,8 +558,8 @@ public class UtilLeadEmailEscalation {
         
         String emailContent =
             '<div align="left" style="font-size: 13px;">' + 
-                '?' + getDateLiteral(firstDayInLastMonth.addYears(-1)) + 
-                ' To ' + getDateLiteral(lastDayInLastMonth.addYears(-1)) + '?' +
+                '（' + getDateLiteral(firstDayInLastMonth.addYears(-1)) + 
+                ' To ' + getDateLiteral(lastDayInLastMonth.addYears(-1)) + '）' +
                 (accsInPast12thMonth[0].Dealer_MB_Sub_Region__c == null ? '' : 
                  accsInPast12thMonth[0].Dealer_MB_Sub_Region__c) +  
                 'Monthly report of sales lead conversion rates are as follows:' + 

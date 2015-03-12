@@ -24,15 +24,38 @@
     1. Sichao Lai Created on 2013-06-07
 */
 trigger TriggerRecall on Recall__c (after insert,before Delete) {
-	
-	if(trigger.isAfter && trigger.isInsert)
-    {
+    
+    if(trigger.isAfter && trigger.isInsert)
+    { 
         if(UtilCustomSettings.isEnabled('RecallAfterInsertUpdate'))
             RecallHelper.AfterInsertEvent(Trigger.new);
+                 
+        Set<Id> VehicleIds = new Set<Id>();  
+        List<Vehicle_Relationship__c> lstVehicleIds = new List<Vehicle_Relationship__c>(); 
+        // get VIN and Vehicle ID from Recall
+        for (Recall__c r : Trigger.new){
+            VehicleIds .add(r.Vehicle_ID__c);
+        }
+    
+        // update Recall checkbox status
+        if (!VehicleIds.isEmpty()){           
+           RecallHelper.updateRecall(VehicleIds);
+         }  
     }
     if(trigger.isbefore && trigger.isDelete)
     {
         if(UtilCustomSettings.isEnabled('RecallBeforeDelete'))
             RecallHelper.beforeDeleteEvent(Trigger.old);
-    }
+            
+         Set<Id> VehicleIds = new Set<Id>();          
+        // get VIN and Vehicle ID from Recall
+        for (Recall__c r : Trigger.old){
+            VehicleIds .add(r.Vehicle_ID__c);
+        }
+    
+        // update Recall checkbox status
+        if (!VehicleIds.isEmpty()){      
+           RecallHelper.removeRecall(VehicleIds);
+       }    
+   }
 }

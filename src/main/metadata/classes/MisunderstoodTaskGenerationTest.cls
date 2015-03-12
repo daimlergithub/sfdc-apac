@@ -44,8 +44,8 @@ public class MisunderstoodTaskGenerationTest {
         Account customer = new Account(
             FirstName = 'Test-',
             LastName =  DateTime.now().formatLong(),
-            PersonMobilePhone = '13011111111',
-            PersonOtherPhone = '13022222222', 
+            PersonMobilePhone = '1301111111',
+            PersonOtherPhone = '1301111122', 
             Phone = '1234567', 
             PersonHomePhone = '1234567', 
             PersonAssistantPhone = '1234567'

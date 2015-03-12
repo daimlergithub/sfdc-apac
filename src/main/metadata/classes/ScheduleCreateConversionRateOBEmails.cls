@@ -11,13 +11,11 @@
 global class ScheduleCreateConversionRateOBEmails implements Schedulable {
     global void execute(SchedulableContext sc) {
     
-       /* TODO : Venki : Commented as part of Code refactoring - delete the below code later
         Map<Id, UserRole> roleMap = new Map<Id, UserRole>(
             [SELECT Id, (SELECT Id, Email FROM Users) 
              FROM UserRole] 
              
-        );*/ // commented on 10 mar-2015
-        
+        );
 
         // The Start Date and End Date of Past 12th Month Start
         // lastDay should be the first day of pasted 11th month

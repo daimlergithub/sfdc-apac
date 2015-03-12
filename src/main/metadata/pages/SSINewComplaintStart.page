@@ -25,12 +25,12 @@
                 <apex:commandButton value="New Complaint" action="{!newComplaint}" />                                
                 <apex:commandButton value="Cancel" onclick="doCancel(); return false;" />
             </apex:pageBlockButtons>
-			<div>
-            Dear Mr./Mrs. {!$Request.customerName},
-            We understand your concern, We would like to apologize for the inconvenience caused, kindly help us to record your concern in detail,
-the concerned department and the relevant staff would get in touch with you promptly.
+            <div>
+            {!$Request.customerName} Sir/Madam, I understand your feeling, for cars we apologize for any inconvenience to you, I wonder whether you will let me know and I will help you to record in detail,
+And will end the call after departments concerned, relevant staff will get in touch with you promptly. 
             <br/>
-            </div>                   
+            您看可以吗？ 
+            </div>                
          </apex:pageBlock>      
     </apex:form>
 </apex:page>

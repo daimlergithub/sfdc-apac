@@ -23,7 +23,7 @@ public class TaskSMSControllerExtensionTest {
         // Add parameters to page URL
         String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId, PersonMobilePhone = '12345678901');
+        Account customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
         insert customer;
         customer = [Select Customer_Number__c, PersonContactId From Account Where Id=:customer.Id];
         Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId
@@ -86,7 +86,7 @@ public class TaskSMSControllerExtensionTest {
         System.assertEquals(t.WhoId, [Select Id From Contact Where accountId = :customer.Id limit 1].Id);
         
         // Test case 2
-        customer.PersonOtherPhone='12345678901';
+        customer.PersonOtherPhone='1234678901';
         customer.PersonMobilePhone = '';
         update customer;
         //Test click SMS button from Task

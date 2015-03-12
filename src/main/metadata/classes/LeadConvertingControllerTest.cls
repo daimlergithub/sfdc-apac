@@ -22,10 +22,10 @@ public class LeadConvertingControllerTest {
         Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved');
         insert rc;
 
-        Account dealerContact = new Account(LastName = 'Test Amit', RecordTypeId = thirdPartyRTID, phone = '1344444');
-        insert dealerContact;
+        Account thirdParty = new Account(LastName = 'Test Amit', RecordTypeId = thirdPartyRTID, Phone ='12345678921',PersonOtherPhone='0231456987',PersonHomePhone='0231456989',PersonMobilePhone='0231456439',Retail_Fax__c='0237456989',Retail_Home_Phone__c='0281456989',Retail_Mobile__c='0231456949',Retail_Work_Phone__c='0231056989');
+        insert thirdParty;
         
-        Retail_Campaign_Member__c rtm = new Retail_Campaign_Member__c(Retail_Campaign__c = rc.Id, Contact__c = dealerContact.Id, Status__c = 'Show up');
+        Retail_Campaign_Member__c rtm = new Retail_Campaign_Member__c(Retail_Campaign__c = rc.Id, Contact__c = thirdParty.Id, Status__c = 'Show up');
         insert rtm;
         
         PageReference leadConverting = Page.LeadConverting;

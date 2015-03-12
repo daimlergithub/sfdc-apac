@@ -18,7 +18,11 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
     
     private MisunderstoodTaskGeneration mis;
     public List<Campaign> cpUpdateList = new List<Campaign>(); 
-    public List<User> intUser = new List<User>(); 
+    public List<User> obuserList = new List<User>(); 
+    public User intUser;
+    public User fulfillmentSpUser;
+    
+    private ID taskRecordTypeId;
     private String strSMS = 'SMS';
     private String strOBCall = 'OB Call';
     private String streDM = 'eDM';
@@ -36,18 +40,19 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
     global Map<String, Schema.RecordTypeInfo> taskRecordTypeMap;
     
     /* Construction Method */
-    global UtilCampaignTaskGenerationByCase(List<Campaign> cpList, Id nexJobId) { 
-        intUser = [SELECT Id FROM User WHERE Profile.Name = 'IntegrationAPI' AND isActive = true  LIMIT 1];   
-        if(cpList!=Null){
-            for(Campaign cp : cpList) {
-                cpIdList.add(cp.Id);
-                cpUpdateList.add(new Campaign(id = cp.Id, Create_Task__c = false));
-               }
+    global UtilCampaignTaskGenerationByCase(List<Campaign> cpList, Id nexJobId) {
+        //obuserList = [select id, name from User where UserRole.Name = 'OB Supervisor' and IsActive = true LIMIT 1];
+        intUser = [SELECT Id FROM User WHERE Profile.Name = 'System Administrator' AND isActive = true  LIMIT 1];
+       // fulfillmentSpUser = [SELECT Id FROM User WHERE UserRole.Name like '%Fulfillment Specialist%' AND isActive = true LIMIT 1];
+        for(Campaign cp : cpList) {
+            cpIdList.add(cp.Id);
+            cpUpdateList.add(new Campaign(id = cp.Id, Create_Task__c = false));
+        }
+        
         // Initiate Mis
         mis = new MisunderstoodTaskGeneration(cpList, false);
-        }
+        
         // Campaign Members 
-        if(cpIdList!=Null && (!cpIdList.isEmpty())){
         campMembers = [select id, ContactId, Contact.AccountId, LeadId, Task_Generated__c, CampaignId, Campaign.Content_Preview__c,
                                 Campaign.Execution_Type__c,  Campaign.Name, Contact.DUP_Number__c, Campaign.Template_Name__c, Campaign.DM_Material__c, Campaign.Flow_URL__c, Vehicle_Case_ID__c,
                                 Campaign.Template__r.Subject__c, Campaign.Template__r.Template_ID__c,
@@ -56,29 +61,29 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
                                 Campaign.Previous_Campaign_Execution__c,
                                 Campaign.Template__c
                       from CampaignMember where CampaignId in :cpIdList and Task_Generated__c = false];
-        }
-              
+        
+        System.debug('campMembers >>>' + campMembers);
+        
         // Campaign Members ID List
-        if(campMembers!=Null && (!campMembers.isEmpty())){
-            for(CampaignMember campMem:campMembers){
-                cpmIdList.add(campMem.Id);            
-                if(campMem.Vehicle_Case_ID__c != null && campMem.Vehicle_Case_ID__c != ''){
-                    for(String vcId:campMem.Vehicle_Case_ID__c.split(';')){
-                        vechCaseIdList.add((ID)vcId);
-                    }
+        for(CampaignMember campMem:campMembers){
+            cpmIdList.add(campMem.Id);
+            System.debug('Vehicle_Case_ID__c >>>' + campMem.Vehicle_Case_ID__c);
+            if(campMem.Vehicle_Case_ID__c != null && campMem.Vehicle_Case_ID__c != ''){
+                for(String vcId:campMem.Vehicle_Case_ID__c.split(';')){
+                    vechCaseIdList.add((ID)vcId);
                 }
             }
-        } 
+        }
+        
+         System.debug('vechCaseIdList >>>' + vechCaseIdList);
         
         // Batch Job ID
-        if(nexJobId!=Null){
-          jobId = nexJobId;
-        }
+        jobId = nexJobId;
     }
     
     /* Start Method */
     global Database.QueryLocator start(Database.BatchableContext BC){
-        // Case      
+        // Case
         return Database.getQueryLocator([Select Id, AccountId, Account.PersonMobilePhone, Account.PersonEmail From Case Where Id in :vechCaseIdList]);
     } 
     
@@ -87,44 +92,51 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
         // Map:Campaign Member and Case
         Map<CampaignMember, List<Case>> cmp_caseMap = new Map<CampaignMember, List<Case>>();
         taskRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
-        if(campMembers!=Null && (!campMembers.isEmpty())){
-            for(CampaignMember cm : campMembers){           
-               List<Case> vrList = new List<Case>();
-                for(Case vr : scope){
-                    if(cm.Vehicle_Case_ID__c != null && cm.Vehicle_Case_ID__c.contains(String.valueOf(vr.Id).subString(0, 15))){
-                        vrList.add(vr);
-                    }   
-                }                                        
-                cmp_caseMap.put(cm,vrList);
+        for(CampaignMember cm : campMembers){
+            System.debug('cm.Vehicle_Case_ID__c>>>' + cm.Vehicle_Case_ID__c);
+            System.debug('scope >>>' + scope);
+            List<Case> vrList = new List<Case>();
+            for(Case vr : scope){
+                if(cm.Vehicle_Case_ID__c != null && cm.Vehicle_Case_ID__c.contains(String.valueOf(vr.Id).subString(0, 15))){
+                    vrList.add(vr);
+                }   
             }
+            
+            System.debug('Vr List>>>' + vrList);
+            
+            cmp_caseMap.put(cm,vrList);
         }
         
         // Task list
         List<Task> taskList = new List<Task>();
         Savepoint sp = Database.setSavepoint();
-        try {           
+        try {
+            System.debug('Scope>>>' + scope);
+            System.debug('campMembers>>>' + campMembers);
             // Generate Tasks
-          if(campMembers!=Null && (!campMembers.isEmpty())){ 
             for(CampaignMember cpm : campMembers) {
                 taskList.addAll(generateTask(cpm, cmp_caseMap.get(cpm), taskRecordTypeMap));
                 cpm.Task_Generated__c = true;
-            }                        
+            }
+                        
             update campMembers;
-           }
-          if(dmRequestList.size() > 0) insert dmRequestList;
+            if(dmRequestList.size() > 0) insert dmRequestList;
             Database.SaveResult[] srs = Database.insert(taskList, false);
             mis.processMisunderstoodTasks(srs, taskList);
         } 
         catch(exception ex) {
-            Database.rollback(sp);          
+            Database.rollback(sp);
+            System.debug('create task failed : ' + ex.getMessage());   
             throw ex;          
         }
     }
     
     /* Method : generateTask */
     private List<Task> generateTask(CampaignMember cpm, List<Case> vrList, Map<String, Schema.RecordTypeInfo> taskRecordTypeMap) {
-        List<Task> taskList = new List<Task>(); 
-        if(vrList!=Null && (!vrList.isEmpty())){ 
+        
+        List<Task> taskList = new List<Task>();
+        
+        System.debug('Case>>>'+vrList);
         for(Case vr : vrList){
             // Combine Task.UniqueCampaignGenerateTask__c
             String uniqueTaskField = '';
@@ -144,11 +156,30 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
                     cpm.Campaign.Execution_Type__c;
             }
 
-          if(cpm.Campaign.Execution_Type__c == strSMS && vr.Account.PersonMobilePhone != null && vr.Account.PersonMobilePhone != '') {
+            if(cpm.Campaign.Execution_Type__c == strOBCall) {        
+               // for(user u : obuserList) {
+                    taskList.add(new Task(
+                        Subject= strOBCall, 
+                        RecordTypeId = taskRecordTypeMap.get('OB Task').getRecordTypeId(),
+                        //OwnerId = u.Id,
+                        Status = strOpenStatus,
+                        DUP_Number__c = (cpm.ContactId == null ? ' ' : cpm.Contact.DUP_Number__c), 
+                        WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
+                        WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
+                        Campaign_Name__c = cpm.Campaign.Name, 
+                        Activity_Status__c = 'not started',
+                        Campaign_Member_ID__c = String.valueOf(cpm.Id),
+                        Flow_URL__c = cpm.Campaign.Flow_URL__c,                                          
+                        ActivityDate = date.today(),
+                        Vehicle_Case_ID__c = String.valueOf(vr.Id),
+                        UniqueCampaignGenerateTask__c = uniqueTaskField)
+                    );
+                //}
+            } else if (cpm.Campaign.Execution_Type__c == strSMS && vr.Account.PersonMobilePhone != null && vr.Account.PersonMobilePhone != '') {
                 taskList.add(new Task(
                     Subject= strSMS, 
                     RecordTypeId = taskRecordTypeMap.get('SMS').getRecordTypeId(),
-                    OwnerId = intUser[0].Id,
+                    OwnerId = intUser.Id,
                     Activity_Status__c = strVeriStatus,
                     Phone__c = vr.Account.PersonMobilePhone,
                     WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
@@ -164,7 +195,7 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
                 taskList.add(new Task(
                     Subject= 'MMS', 
                     RecordTypeId = taskRecordTypeMap.get('MMS').getRecordTypeId(),
-                    OwnerId = intUser[0].Id,
+                    OwnerId = intUser.Id,
                     Activity_Status__c = strVeriStatus,
                     Phone__c = vr.Account.PersonMobilePhone,
                     WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
@@ -182,7 +213,7 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
                 taskList.add(new Task(
                     Subject= streDM, 
                     RecordTypeId = taskRecordTypeMap.get('eDM').getRecordTypeId(),
-                    OwnerId = intUser[0].Id,
+                    OwnerId = intUser.Id,
                     Status = strCloseStatus,
                     WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
                     WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
@@ -196,9 +227,28 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
                     Vehicle_Case_ID__c = String.valueOf(vr.Id),
                     UniqueCampaignGenerateTask__c = uniqueTaskField)
                 );
+            } else if (cpm.Campaign.Execution_Type__c == strDM) {
+                taskList.add(new Task(
+                    Subject= strDM, 
+                    RecordTypeId = taskRecordTypeMap.get('DM').getRecordTypeId(),
+                    //OwnerId = fulfillmentSpUser.Id,
+                    Status = strOpenStatus,
+                    WhoId = (cpm.ContactId == null ? cpm.LeadId : cpm.ContactId),
+                    WhatId = (cpm.ContactId == null ? null : cpm.CampaignId),
+                    ActivityDate = date.today(),
+                    Vehicle_Case_ID__c = String.valueOf(vr.Id),
+                    UniqueCampaignGenerateTask__c = uniqueTaskField)
+                );
+                
+                if(cpm.Contact.AccountId <> null && cpm.ContactId <> null)
+                    dmRequestList.add(new DM_Request__c(
+                        Campaign__c = cpm.CampaignId, 
+                        Customer_Name__c = cpm.Contact.AccountId,
+                        Expected_DM_Material1__c = cpm.Campaign.DM_Material__c)
+                    );
             } 
-        }  
-      }     
+        }
+        System.debug('taskList>>>'+taskList);
         return taskList;
     }
     
@@ -211,7 +261,8 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
         // Batch Job Compeleted.
         if(jobId != null){
             String updateMsg = '';
-            try{               
+            try{
+                System.debug('cpUpdateList'+cpUpdateList);
                 if(cpUpdateList.size() > 0) update cpUpdateList;
             }catch (Exception ex){
                 updateMsg = ex.getMessage();
@@ -224,9 +275,8 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
                 bj.Status__c = 'Fail';  
                 bj.Fail_Reason__c =  job.ExtendedStatus != null ? job.ExtendedStatus : updateMsg;    
             }
-            if(bj!=Null)
-              update bj;
-          } else {
+            update bj;
+        } else {
             System.debug('JOBID>>> null');
         }     
     }    

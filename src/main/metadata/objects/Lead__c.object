@@ -7393,7 +7393,7 @@ Modify Reason:
     <fields>
         <fullName>Need_Associate_Campaign__c</fullName>
         <externalId>false</externalId>
-        <formula>IMAGE('/resource/1425980378000/ReminderForCampaignRelation','Need Associate Campaign')</formula>
+        <formula>IMAGE('/resource/1392634763000/ReminderForCampaignRelation','Need Associate Campaign')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Need Associate Campaign</label>
         <required>false</required>
@@ -7438,7 +7438,7 @@ Modify Reason:
     <fields>
         <fullName>No_Assigned_Dealer__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Assigned_Dealer__c  &lt;&gt; Null, "", IMAGE('resource/1422335657000/Dealer_Reminder','Dealer Not Assigned'))</formula>
+        <formula>IF( Assigned_Dealer__c  &lt;&gt; Null, "", IMAGE('/resource/Dealer_Reminder_Chinese','Dealer Not Assigned'))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>No Assigned Dealer</label>
         <required>false</required>

@@ -54,7 +54,7 @@ public class UtilDealerOffering {
     	
     	Savepoint sp = Database.setSavepoint();
     	try {
-    		if(dealerOffering!=null && !dealerOffering.IsEmpty()) insert dealerOffering;
+    		if(dealerOffering.size() > 0) insert dealerOffering;
     	} catch(exception ex) {
     		Database.rollback(sp);
     	    ApexPages.Message msg = new ApexPages.Message(ApexPages.Severity.ERROR, ex.getMessage());
@@ -87,7 +87,7 @@ public class UtilDealerOffering {
     	
     	Savepoint sp = Database.setSavepoint();
     	try {
-    		if(dealerOfferingList!=null && !dealerOfferingList.IsEmpty()) delete dealerOfferingList;
+    		if(dealerOfferingList.size() > 0) delete dealerOfferingList;
     	} catch(exception ex) {
     		Database.rollback(sp);
     		ApexPages.Message msg = new ApexPages.Message(ApexPages.Severity.ERROR, ex.getMessage()); 
@@ -120,7 +120,7 @@ public class UtilDealerOffering {
     	
     	Savepoint sp = Database.setSavepoint();
     	try{
-    		if(dealerOfferingList!=null && !dealerOfferingList.IsEmpty()) delete dealerOfferingList;
+    		if(dealerOfferingList.size() > 0) delete dealerOfferingList;
     	} catch (exception ex) {
     		Database.rollback(sp);
     		ApexPages.Message msg = new ApexPages.Message(ApexPages.Severity.ERROR, ex.getMessage()); 
@@ -175,7 +175,7 @@ public class UtilDealerOffering {
     				}
     			}
     			
-    			if(DOInsertList!=null && !DOInsertList.isEmpty()) insert DOInsertList;
+    			if(DOInsertList.size() > 0) insert DOInsertList;
     		}
     	} catch(exception ex){
     		Database.rollback(sp);

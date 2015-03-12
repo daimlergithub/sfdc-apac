@@ -33,11 +33,11 @@ public class QCHelperTest {
                                   Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney3',
                                   TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
                                   EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
-        insert IBCSRUser;
+        insert IBCSRUser; 
         insert OBCSRUser;
         insert SSICSRUser;
         
-        QC__c qc = new QC__c(CSR_Name__c = IBCSRUser.Id, Status__c = 'Open', recordTypeId = IBQCRecordTypeId);
+        QC__c qc = new QC__c(CSR_Name__c = IBCSRUser.Id, Status__c = 'Open', recordTypeId = IBQCRecordTypeId,PACI__c='Pass');
         insert qc;
         qc = [select Id, Status__c, PACI__c, Q1_Comments__c, DA__c, Q2_Comments__c, FTOP__c, Q3_Comments__c, FQL__c, Q4_Comments__c, CITQ__c, Q5_Comments__c, FMSK__c, Q6_Comments__c, Responsibility__c, Q7_Comments__c, SO__c, Q8_Comments__c, PPIS__c, Q9_Comments__c, SPL__c, Q10_Comments__c, SSL__c, Q11_Comments__c, SC__c, Q13_Comments__c, CALA__c, Q12_Comments__c, CAI__c, Q15_Comments__c, CARR__c, Q14_Comments__c, PFOCF__c, Q16_Comments__c, PPD__c, Q17_Comments__c, PJ__c, Q18_Comments__c, PHU__c, Q19_Comments__c from QC__c where Id = :qc.Id];
         qc.Status__c = 'Complete';
@@ -125,7 +125,7 @@ public class QCHelperTest {
             OfficePhone__c = '1234567'       
         );        
         insert ssi ;
-        qc = new QC__c(SSI__c = ssi.id, CSR_Name__c = SSICSRUser.Id, Status__c = 'Open', recordTypeId = SSIQCRecordTypeId);
+        qc = new QC__c(SSI__c = ssi.id, CSR_Name__c = SSICSRUser.Id, Status__c = 'Open', recordTypeId = SSIQCRecordTypeId,PACI__c='Pass');
         insert qc;
         qc = [select Id, Status__c, PACI__c, DA__c, FTOP__c, FQL__c, CITQ__c, FMSK__c, Responsibility__c, SO__c, PPIS__c, SPL__c, SSL__c, SC__c, CALA__c, CAI__c, CARR__c, PFOCF__c, PPD__c, PJ__c, PHU__c from QC__c where Id = :qc.Id];
         qc.Status__c = 'Complete';

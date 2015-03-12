@@ -73,7 +73,7 @@ trigger ToolKitBeforeInsertUpdateDelete on Tool_Kit__c (before insert, before up
                 tk.Dealer_Sub_Region__c = DealerIDAccount.get(tk.Dealer_Name__c).Dealer_MB_Sub_Region__c;
             }
           
-          /*
+		  /*
             // zhongyang.si add for Release 1.3 CR7, When user created Took Kit record, the system automatically finds vendor according to the tool kit information
             for(Model_Mapping__c vtk : vendorForToolKitList){
                 if (vtk.region__c!=null && vtk.RecordType__c!=null && vtk.Brand__c!=null){
@@ -82,7 +82,7 @@ trigger ToolKitBeforeInsertUpdateDelete on Tool_Kit__c (before insert, before up
                     }                
                 }
             }
-            */
+			*/
             // zhongyang.si add for Release 1.3 CR7, When user created Took Kit record, the system automatically finds vendor according to the tool kit information
         }
     }

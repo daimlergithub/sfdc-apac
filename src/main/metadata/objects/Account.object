@@ -10563,8 +10563,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-        <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-OR ( 
+        <errorConditionFormula>OR ( 
 AND ( 
 OR ( 
 ISNULL(Phone), 
@@ -10583,8 +10582,8 @@ ISNULL(PersonMobilePhone),
 ISBLANK(PersonMobilePhone) 
 ), 
 $Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;, 
-RecordType.DeveloperName = 'PersonAccount' 
-), 
+RecordType.DeveloperName = &apos;PersonAccount&apos;
+),
 AND ( 
 OR ( 
 ISNULL(Retail_Fax__c), 
@@ -10603,8 +10602,8 @@ ISNULL(Retail_Work_Phone__c),
 ISBLANK(Retail_Work_Phone__c) 
 ), 
 $Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;, 
-RecordType.DeveloperName = 'ThirdParty' 
-) 
+RecordType.DeveloperName = &apos;ThirdParty&apos; 
+)
 )</errorConditionFormula>
         <errorMessage>Customer must have at least one phone field populated.</errorMessage>
     </validationRules>
@@ -10686,10 +10685,10 @@ $Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;
 OR(ISCHANGED(PersonMobilePhone), ISNEW()),
 NOT(ISBLANK(PersonMobilePhone)), 
 RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;, 
-OR( NOT(ISNUMBER(PersonMobilePhone)) , NOT(LEN(PersonMobilePhone)=10)), 
+OR( NOT(ISNUMBER(PersonMobilePhone)), NOT(LEN(PersonMobilePhone)=10)), 
 $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>PersonMobilePhone</errorDisplayField>
-        <errorMessage>Mobile phone number must be 10 digits.</errorMessage>
+        <errorMessage>Mobile phone number must be of lenght 10 digits.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Phone</fullName>
@@ -10719,10 +10718,10 @@ $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
 OR(ISCHANGED(PersonOtherPhone), ISNEW()),
 NOT(ISBLANK(PersonOtherPhone)), 
 RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;, 
-OR( NOT(ISNUMBER(PersonOtherPhone)) , NOT(LEN(PersonOtherPhone)=10)), 
+OR( NOT(ISNUMBER(PersonOtherPhone)), NOT(LEN(PersonOtherPhone)=10)), 
 $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>PersonOtherPhone</errorDisplayField>
-        <errorMessage>Mobile phone number must be 10 digits.</errorMessage>
+        <errorMessage>Phone number must be of length 10 digits.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Social_ID</fullName>

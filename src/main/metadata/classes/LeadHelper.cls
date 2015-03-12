@@ -17,6 +17,7 @@ public class LeadHelper
     private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     private static List<QueueSobject> LeadGateKeeperQ = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType =: UtilConstant.LEAD and Queue.Name =: UtilConstant.DEALER_LEAD_GATE_KEEPER_QUEUE limit 1];
+//    private static final String mbdaLeadRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.MBDA_LEAD).getRecordTypeId();
     private static final String SMSTaskRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.SMS).getRecordTypeId();
     private static final String OBTaskRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.OB_TASK).getRecordTypeId();    
         
@@ -435,13 +436,13 @@ public class LeadHelper
     
     public static void SendMessageToCustomerAndInstructor(list<Lead__c> leadsnew,map<id,Lead__c> leadOldMap,boolean isInsert, boolean isUpdate)
     {
-    	/*Set<Id> relatedContactIds = new Set<Id>();
+    	Set<Id> relatedContactIds = new Set<Id>();
 	    Set<Id> relatedUserIds = new Set<Id>();
 	    set<Id> dealerIds = new Set<Id>();
 	    List<Lead__c> mbdaLeads = new List<Lead__c>(); 
 	    if(isInsert)
 	    {
-	        for(Lead__c tempLead : leadsnew)
+	      /*  for(Lead__c tempLead : leadsnew)
 	        {
 	            if(tempLead.RecordTypeId == mbdaLeadRecordTypeId && (tempLead.Need_Contact__c == true || tempLead.Visit_Dealer__c == true))
 	            {
@@ -450,10 +451,10 @@ public class LeadHelper
 	                dealerIds.add(tempLead.Recommended_Dealer__c);
 	                mbdaLeads.add(tempLead);
 	            }
-	        }
+	        } */
 	    }
 	    if(isUpdate) {
-	        for(Lead__c tempLead : leadsnew) {
+	      /* for(Lead__c tempLead : leadsnew) {
 	           if(tempLead.RecordTypeId == mbdaLeadRecordTypeId && (tempLead.Need_Contact__c == true && tempLead.Need_Contact__c != leadOldMap.get(tempLead.Id).Need_Contact__c) || (tempLead.Visit_Dealer__c == true && tempLead.Visit_Dealer__c != leadOldMap.get(tempLead.Id).Visit_Dealer__c))
 	           {
 	               relatedContactIds.add(tempLead.Contact__c);
@@ -461,7 +462,7 @@ public class LeadHelper
 	               dealerIds.add(tempLead.Recommended_Dealer__c);
 	               mbdaLeads.add(tempLead);
 	           }
-	        }
+	        } */
 	    }
 	    
 	    if(mbdaLeads!=null && !mbdaLeads.IsEmpty())
@@ -494,7 +495,7 @@ public class LeadHelper
 	        }
 	        if(newSMSTasks!=null && !newSMSTasks.IsEmpty())
 	        	insert newSMSTasks;
-	    }*/
+	    }
     }
     /**
      * Private classes

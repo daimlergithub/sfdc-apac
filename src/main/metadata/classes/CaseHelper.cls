@@ -460,7 +460,7 @@ public class CaseHelper{
     }
     
     // creat a case description For US-CC-024
-    public static void creatCaseDescription(List<case> casesForDescription) {
+    public static void creatCaseDescription (List<case> casesForDescription) {
         List<Complaint_Description__c> CaseDescrptions = new List<Complaint_Description__c>();
         
         for(case c : casesForDescription) {
@@ -735,51 +735,13 @@ public class CaseHelper{
     }
     
     
-    /****** Adding the logical manipulation for caseBeforeInsertUpdateTrigger *****/
+    			/****** Adding the logical manipulation for caseBeforeInsertUpdateTrigger *****/
     public static void caseBeforeInsertUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal){
 		    String[] eAddresses = null;
 		    String email = null;
 		    Boolean isError = false;
 		    Set<id> caseIds = new Set<id>();
 		    Map<id,String> vrsMap = new Map<id,String>();
-		    // [End] Added by Cyril Huang on 2014-05-06(Release1.1b)	    
-			Map<Id, List<Id>> parentIdChildIds = new Map<Id, List<Id>>();
-		    Set<Id> parenthasParents = new Set<Id>();
-		    Set<Id> parentIds = new Set<Id>();
-		    Set<Id> vehicleRelationships = new Set<Id>();
-		    Map<Id, Vehicle_Relationship__c> vehicleRelationshipInfo = new Map<Id, Vehicle_Relationship__c>();
-		    List<Case> changeOwnerAndSendMailObjs = new List<Case>();
-		    // Delete Start - Release 1.3 - Deleted by Cyril
-		    //List<Case> changeOwnerObjs = new List<Case>();
-		    //Map<id,User> changeOwnerObjsResult = new Map<id,User>();
-		    // Delete End - Release 1.3 - Deleted by Cyril
-		    Map<id,User> changeOwnerAndSendMailObjsResult = new Map<id,User>();
-		    Set<Id> queueIds = new Set<Id>();
-		    Map<String, String> subTypeMap = new Map<String, String>();
-		    Map<Id, String> dealerIdsforRetailInquiry = new Map<Id, String>();
-		    Map<Id, Id> dealerIdUserId = new Map<Id, Id>();
-		    Set<Id> retailCaseOwners = new Set<id>();
-		    List<Case> retailCases = new List<Case>();
-		    Boolean viewCACIBSVUsers = false;
-		    List<User> CACIBSVUsers;
-		    Id accountId;
-		 	// [Start] Added by Cyril Huang on 2014-05-06(Release1.1b)
-		    // Send case updating notification email to Dealer Managers
-		    // 2013-09-06 Created by Justin: Populate the car owner values to case.
-		    boolean isStatus = false;
-		    boolean isInfo = false;
-		    boolean isSettlement = false;
-		    boolean isDescChanged = false;
-		    String eAddress = '';
-		    String content = '';
-		    String accName = '';
-		    String statusTrack = '';
-		    String handleTrack = '';
-		    List<Messaging.SingleEmailMessage> messages = new List<Messaging.SingleEmailMessage>();
-		    // Add Start - Release 1.3 - Added by Cyril
-		    List<Task> taskListOf48H = new List<Task>();
-		    List<Task> taskListOf72H = new List<Task>();
-		    // Add End - Release 1.3 - Added by Cyril
 		    
 		    for(Case caseNew : cases) {
 		        if(isInsert && caseNew.RecordTypeId == RETAIL_CAMPAIGN_RECORD_TYPE && CURRENT_PROFILE.Name.startsWith('CAC')) {
@@ -827,6 +789,29 @@ public class CaseHelper{
 		            }
 		        }
 		    }
+	    
+	     // [End] Added by Cyril Huang on 2014-05-06(Release1.1b)	    
+	    
+			Map<Id, List<Id>> parentIdChildIds = new Map<Id, List<Id>>();
+		    Set<Id> parenthasParents = new Set<Id>();
+		    Set<Id> parentIds = new Set<Id>();
+		    Set<Id> vehicleRelationships = new Set<Id>();
+		    Map<Id, Vehicle_Relationship__c> vehicleRelationshipInfo = new Map<Id, Vehicle_Relationship__c>();
+		    List<Case> changeOwnerAndSendMailObjs = new List<Case>();
+		    // Delete Start - Release 1.3 - Deleted by Cyril
+		    //List<Case> changeOwnerObjs = new List<Case>();
+		    //Map<id,User> changeOwnerObjsResult = new Map<id,User>();
+		    // Delete End - Release 1.3 - Deleted by Cyril
+		    Map<id,User> changeOwnerAndSendMailObjsResult = new Map<id,User>();
+		    Set<Id> queueIds = new Set<Id>();
+		    Map<String, String> subTypeMap = new Map<String, String>();
+		    Map<Id, String> dealerIdsforRetailInquiry = new Map<Id, String>();
+		    Map<Id, Id> dealerIdUserId = new Map<Id, Id>();
+		    Set<Id> retailCaseOwners = new Set<id>();
+		    List<Case> retailCases = new List<Case>();
+		    Boolean viewCACIBSVUsers = false;
+		    List<User> CACIBSVUsers;
+		    Id accountId;
 		    if(UserInfo.getUserType() == 'PowerPartner' && isInsert) {
 		        accountId = [select id , AccountId from user where id = :userinfo.getUserId()].AccountId;
 		    }
@@ -837,6 +822,7 @@ public class CaseHelper{
 		            subTypeMap.put(csm.Name, csm.Case_Subject_CN__c);
 		        }
 		    }
+	    
 		    for(Case caseNew : cases) {
 	        if (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId || C_MB_RECORD_TYPE == caseNew.RecordTypeId){
 	            if (isInsert) {
@@ -1139,6 +1125,24 @@ public class CaseHelper{
 	    if(casesForVehicle.size() > 0) {
 	        updateVehicleRelatedFields(casesForVehicle, vehicleIds);
 	    }
+	    
+		    // [Start] Added by Cyril Huang on 2014-05-06(Release1.1b)
+		    // Send case updating notification email to Dealer Managers
+		    // 2013-09-06 Created by Justin: Populate the car owner values to case.
+		    boolean isStatus = false;
+		    boolean isInfo = false;
+		    boolean isSettlement = false;
+		    boolean isDescChanged = false;
+		    String eAddress = '';
+		    String content = '';
+		    String accName = '';
+		    String statusTrack = '';
+		    String handleTrack = '';
+		    List<Messaging.SingleEmailMessage> messages = new List<Messaging.SingleEmailMessage>();
+		    // Add Start - Release 1.3 - Added by Cyril
+		    List<Task> taskListOf48H = new List<Task>();
+		    List<Task> taskListOf72H = new List<Task>();
+		    // Add End - Release 1.3 - Added by Cyril
 	    
 		    if (isUpdate) {
 	        for(Case caseNew : cases) {

@@ -22,7 +22,7 @@
     10. Cyril Huang updated on 2014-10-10(2014Release1.3)
 */
 trigger CaseTrigger on Case (before insert, before update, after insert, after update) { 
- /*   
+    
     if (trigger.isBefore){
         
         if (!UtilCustomSettings.isEnabled('CaseBeforeInsertUpdate')) {
@@ -37,5 +37,5 @@ trigger CaseTrigger on Case (before insert, before update, after insert, after u
     
         CaseHelper.handleCaseAfterInsertOrUpdateEvents(Trigger.new, trigger.isInsert, trigger.isUpdate, trigger.oldMap, trigger.newMap);
     }
- */      
+       
 }

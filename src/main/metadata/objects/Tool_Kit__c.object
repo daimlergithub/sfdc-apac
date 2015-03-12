@@ -1047,7 +1047,7 @@ MONTH(Submit_Date__c) &lt; 10,
             <filterItems>
                 <field>User.Profile.Name</field>
                 <operation>equals</operation>
-                <value>BMBS External Marketing User</value>
+                <value>External Marketing User</value>
             </filterItems>
             <isOptional>false</isOptional>
         </lookupFilter>

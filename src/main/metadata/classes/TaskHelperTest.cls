@@ -59,6 +59,7 @@ private class TaskHelperTest {
         update task;
         
         List<QC__c> qcs = [select Id from QC__c where task_ID__c = :task.Id];
+        system.debug('qcs>>>>>>>'+qcs.size());
         system.assert(qcs.size() == 1);
         
         //Inserts test data
@@ -110,8 +111,8 @@ private class TaskHelperTest {
         String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
         String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
         
-        Account acc = new Account(LastName = 'Acme', Area_Code__c = '010', Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '13701270000');
-        Account acccase = new Account(LastName = 'Acme', Area_Code__c = '010',Phone = '1391382', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '13701270001');
+        Account acc = new Account(LastName = 'Acme', Area_Code__c = '010', Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
+        Account acccase = new Account(LastName = 'Acme', Area_Code__c = '010',Phone = '1391382', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
         insert acc;
         insert acccase;
         

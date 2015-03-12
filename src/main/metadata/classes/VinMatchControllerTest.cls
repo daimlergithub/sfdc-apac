@@ -27,9 +27,9 @@ private class VinMatchControllerTest{
             acct.LastName = 'zhang';
             acct.FirstName = 'patrick' + i; 
             if (i < 10) {
-                acct.PersonMobilePhone = '1865842503' + i ;
+                acct.Phone = '186584250' + i ;
             }else{
-                acct.PersonMobilePhone = '186584250' + i ;
+                acct.Phone = '186584250' + i ;
             }
             accts.add(acct);
         }

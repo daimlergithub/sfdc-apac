@@ -24,7 +24,7 @@ trigger RecallBeforeDelete on Recall__c (before Delete) {
     }
 
     // update Recall checkbox status
-    if (!VehicleIds.isEmpty()){
+    if (VehicleIds .size() > 0){
        RecallHelper.removeRecall(VehicleIds);
     } 
 }

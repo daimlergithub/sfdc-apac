@@ -14,14 +14,20 @@
 */
 
 global Class UtilCampaignTaskGenerationByLeads implements Database.Batchable<sObject>{
-    global List<ID> cpIdList = new List<ID>();    
+    global List<ID> cpIdList = new List<ID>();
+    
     private MisunderstoodTaskGeneration mis;
-    public List<Campaign> cpUpdateList = new List<Campaign>();  
+    public List<Campaign> cpUpdateList = new List<Campaign>(); 
+  //  public List<User> obuserList = new List<User>(); 
     public List<User> intUser=new List<User>();
+ //   public User fulfillmentSpUser;
+    
+    private ID taskRecordTypeId;
     private String strSMS = 'SMS';
     private String strOBCall = 'OB Call';
     private String streDM = 'eDM';
-    private String strDM = 'DM';    
+    private String strDM = 'DM';
+    
     private String strOpenStatus = 'Open';
     private String strCloseStatus = 'Closed';
     private String strVeriStatus = 'Need Verification';    
@@ -32,20 +38,20 @@ global Class UtilCampaignTaskGenerationByLeads implements Database.Batchable<sOb
     global Id jobId;
     global Map<String, Schema.RecordTypeInfo> taskRecordTypeMap;
     
-    global UtilCampaignTaskGenerationByLeads(List<Campaign> cpList,Id nexJobId) {         
+    global UtilCampaignTaskGenerationByLeads(List<Campaign> cpList,Id nexJobId) {   
+       // obuserList = [select id, name from User where UserRole.Name = 'OB Supervisor' and IsActive = true LIMIT 1];
          intUser = [SELECT Id FROM User WHERE Profile.Name = 'IntegrationAPI' AND isActive = true  LIMIT 1];        
-         if(cpList!=Null && (!cpList.isEmpty())){
-             for(Campaign cp : cpList) {
-                cpIdList.add(cp.Id);
-                cpUpdateList.add(new Campaign(id = cp.Id, Create_Task__c = false));
-             }
+      //  fulfillmentSpUser = [SELECT Id FROM User WHERE UserRole.Name like '%Fulfillment Specialist%' AND isActive = true LIMIT 1];
+        for(Campaign cp : cpList) {
+            cpIdList.add(cp.Id);
+            cpUpdateList.add(new Campaign(id = cp.Id, Create_Task__c = false));
+        }
+        
         // Initiate Mis
-            mis = new MisunderstoodTaskGeneration(cpList, true);
-         }
+        mis = new MisunderstoodTaskGeneration(cpList, true);
+
         // Batch Job ID
-         if(nexJobId!=Null){
-          jobId = nexJobId;
-         }       
+        jobId = nexJobId;
     }
     
     global Database.QueryLocator start(Database.BatchableContext BC){
@@ -71,19 +77,21 @@ global Class UtilCampaignTaskGenerationByLeads implements Database.Batchable<sOb
         List<Task> taskList = new List<Task>();
         taskRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
         Savepoint sp = Database.setSavepoint();
-        try {           
+        try {
+            System.debug('CampaignMember>>>' + scope);
             for(Campaign_Lead__c cpm : scope) {
                 taskList.addAll(generateTask(cpm, taskRecordTypeMap));
                 cpm.Task_Generated__c = true;
             }
             update scope;
-            if(dmRequestList!=Null && !dmRequestList.isEmpty()) insert dmRequestList;
+            if(dmRequestList.size() > 0) insert dmRequestList;
 
             Database.SaveResult[] srs = Database.insert(taskList, false);
             mis.processMisunderstoodTasks(srs, taskList);
         }
-        catch(exception ex) {  
-            Database.rollback(sp);           
+        catch(exception ex) {
+            Database.rollback(sp);
+            System.debug('create task failed : ' + ex);     
             throw ex;           
         }
     }
@@ -96,11 +104,12 @@ global Class UtilCampaignTaskGenerationByLeads implements Database.Batchable<sOb
         // Batch Job Compeleted.
         if(jobId != null){
             String updateMsg = '';
-            try{               
-                if(cpUpdateList!=Null && !cpUpdateList.isEmpty()) update cpUpdateList;
-                }catch (Exception ex){
-                   updateMsg = ex.getMessage();
-              }
+            try{
+                System.debug('cpUpdateList'+cpUpdateList);
+                if(cpUpdateList.size() > 0) update cpUpdateList;
+            }catch (Exception ex){
+                updateMsg = ex.getMessage();
+            }
 
             Batch_Job__c bj = new Batch_Job__c(Id = jobId);
             if (job.ExtendedStatus == null && updateMsg.length() == 0) {                
@@ -130,58 +139,97 @@ global Class UtilCampaignTaskGenerationByLeads implements Database.Batchable<sOb
                 String.valueOf(cpm.Campaign__r.Parent.ParentId) + 
                 String.valueOf(cpm.Lead__c) + 
                 cpm.Campaign__r.Execution_Type__c;
-        }     
-      if (cpm.Campaign__r.Execution_Type__c == strSMS && cpm.Lead__r.Contact__r.PersonMobilePhone != null && cpm.Lead__r.Contact__r.PersonMobilePhone != '') {                      
-                 taskList.add(new Task(
-                        Subject= strSMS, 
-                        RecordTypeId = taskRecordTypeMap.get('SMS').getRecordTypeId(),
-                        OwnerId = intUser[0].Id,
-                        Activity_Status__c = strVeriStatus,
-                        Phone__c = cpm.Lead__r.Contact__r.PersonMobilePhone,
-                        WhoId = cpm.Lead__r.Contact__r.PersonContactId,
-                        WhatId = cpm.Id,
-                        ActivityDate = date.today(),
-                        UniqueCampaignMobile__c = cpm.Campaign__c + '-' + cpm.Lead__r.Contact__r.PersonMobilePhone,                                 
-                        SMS_Content__c = cpm.Campaign__r.Content_Preview__c,
-                        SMSTemplateID__c = cpm.Campaign__r.Template__c,
-                        UniqueCampaignGenerateTask__c = uniqueTaskField)
-                    );
-               }         
-        else if (cpm.Campaign__r.Execution_Type__c == 'MMS' && cpm.Lead__r.Contact__r.PersonMobilePhone != null && cpm.Lead__r.Contact__r.PersonMobilePhone != '') {            
+        }
+
+    /*    if(cpm.Campaign__r.Execution_Type__c == strOBCall) {
+            for(user u : obuserList) {
                 taskList.add(new Task(
-                        Subject= 'MMS', 
-                        RecordTypeId = taskRecordTypeMap.get('MMS').getRecordTypeId(),
-                        OwnerId = intUser[0].Id,
-                        Activity_Status__c = strVeriStatus,
-                        Phone__c = cpm.Lead__r.Contact__r.PersonMobilePhone,
-                        WhoId = cpm.Lead__r.Contact__r.PersonContactId,
-                        WhatId = cpm.Id,
-                        ActivityDate = date.today(),
-                        UniqueCampaignMobile__c = cpm.Campaign__c + '-' + cpm.Lead__r.Contact__r.PersonMobilePhone,                                 
-                        SMSTemplateID__c = cpm.Campaign__r.Template__c,
-                        eDM_Template__c = cpm.Campaign__r.Template__r.Template_ID__c,
-                        UniqueCampaignGenerateTask__c = uniqueTaskField)
-                  );
-            }        
-        else if (cpm.Campaign__r.Execution_Type__c == streDM) {        
-                taskList.add(new Task(
-                    Subject= streDM, 
-                    RecordTypeId = taskRecordTypeMap.get('eDM').getRecordTypeId(),
-                    OwnerId = intUser[0].Id,
-                    Status = strCloseStatus,
-                    Campaign_eDM_Template_Subject__c = cpm.Campaign__r.Template__r.Subject__c, 
-                    Campaign_eDM_Template_ID__c = cpm.Campaign__r.Template__r.Template_ID__c,                                  
+                    Subject= strOBCall, 
+                    RecordTypeId = taskRecordTypeMap.get('OB Task').getRecordTypeId(),
+                    OwnerId = u.Id,
+                    Status = strOpenStatus,
+                    DUP_Number__c = cpm.Lead__r.DUP_Number__c, 
                     WhoId = cpm.Lead__r.Contact__r.PersonContactId,
                     WhatId = cpm.Id,
-                    Email_Address__c = cpm.Lead__r.Contact__r.PersonEmail,
-                    Activity_Status__c = strSentActivityStatus,
-                    Car_Series__c = cpm.Lead__r.Interested_Vehicle_Model__c,
-                    UniqueCampaignEmail__c = cpm.Campaign__c + '-' + cpm.Lead__r.Contact__r.PersonEmail,                                 
+                    Activity_Status__c = 'not started',
+                    Campaign_Member_ID__c = String.valueOf(cpm.Id), 
+                    Campaign_Name__c = cpm.Campaign__r.Name,
+                    Flow_URL__c = cpm.Campaign__r.Flow_URL__c,                                      
                     ActivityDate = date.today(),
-                    eDM_Template__c = cpm.Campaign__r.Template_Name__c,
                     UniqueCampaignGenerateTask__c = uniqueTaskField)
                 );
-            }       
-      return taskList;
+            } 
+        } */
+      //  else 
+        if (cpm.Campaign__r.Execution_Type__c == strSMS && cpm.Lead__r.Contact__r.PersonMobilePhone != null && cpm.Lead__r.Contact__r.PersonMobilePhone != '') {        	      		
+		         taskList.add(new Task(
+		                Subject= strSMS, 
+		                RecordTypeId = taskRecordTypeMap.get('SMS').getRecordTypeId(),
+		                OwnerId = intUser[0].Id,
+		                Activity_Status__c = strVeriStatus,
+		                Phone__c = cpm.Lead__r.Contact__r.PersonMobilePhone,
+		                WhoId = cpm.Lead__r.Contact__r.PersonContactId,
+		                WhatId = cpm.Id,
+		                ActivityDate = date.today(),
+		                UniqueCampaignMobile__c = cpm.Campaign__c + '-' + cpm.Lead__r.Contact__r.PersonMobilePhone,                                 
+		                SMS_Content__c = cpm.Campaign__r.Content_Preview__c,
+		                SMSTemplateID__c = cpm.Campaign__r.Template__c,
+		                UniqueCampaignGenerateTask__c = uniqueTaskField)
+		            );
+	           }         
+        else if (cpm.Campaign__r.Execution_Type__c == 'MMS' && cpm.Lead__r.Contact__r.PersonMobilePhone != null && cpm.Lead__r.Contact__r.PersonMobilePhone != '') {        	
+		        taskList.add(new Task(
+		                Subject= 'MMS', 
+		                RecordTypeId = taskRecordTypeMap.get('MMS').getRecordTypeId(),
+		                OwnerId = intUser[0].Id,
+		                Activity_Status__c = strVeriStatus,
+		                Phone__c = cpm.Lead__r.Contact__r.PersonMobilePhone,
+		                WhoId = cpm.Lead__r.Contact__r.PersonContactId,
+		                WhatId = cpm.Id,
+		                ActivityDate = date.today(),
+		                UniqueCampaignMobile__c = cpm.Campaign__c + '-' + cpm.Lead__r.Contact__r.PersonMobilePhone,                                 
+		                SMSTemplateID__c = cpm.Campaign__r.Template__c,
+		                eDM_Template__c = cpm.Campaign__r.Template__r.Template_ID__c,
+		                UniqueCampaignGenerateTask__c = uniqueTaskField)
+		          );
+		    }        
+        else if (cpm.Campaign__r.Execution_Type__c == streDM) {        
+	            taskList.add(new Task(
+	                Subject= streDM, 
+	                RecordTypeId = taskRecordTypeMap.get('eDM').getRecordTypeId(),
+	                OwnerId = intUser[0].Id,
+	                Status = strCloseStatus,
+	                Campaign_eDM_Template_Subject__c = cpm.Campaign__r.Template__r.Subject__c, 
+	                Campaign_eDM_Template_ID__c = cpm.Campaign__r.Template__r.Template_ID__c,                                  
+	                WhoId = cpm.Lead__r.Contact__r.PersonContactId,
+	                WhatId = cpm.Id,
+	                Email_Address__c = cpm.Lead__r.Contact__r.PersonEmail,
+	                Activity_Status__c = strSentActivityStatus,
+	                Car_Series__c = cpm.Lead__r.Interested_Vehicle_Model__c,
+	                UniqueCampaignEmail__c = cpm.Campaign__c + '-' + cpm.Lead__r.Contact__r.PersonEmail,                                 
+	                ActivityDate = date.today(),
+	                eDM_Template__c = cpm.Campaign__r.Template_Name__c,
+	                UniqueCampaignGenerateTask__c = uniqueTaskField)
+	            );
+	        }         	
+	       /* else if (cpm.Campaign__r.Execution_Type__c == strDM) {
+            taskList.add(new Task(
+                Subject= strDM, 
+                RecordTypeId = taskRecordTypeMap.get('DM').getRecordTypeId(),
+                OwnerId = fulfillmentSpUser.Id,
+                Status = strOpenStatus,
+                WhoId = cpm.Lead__r.Contact__r.PersonContactId,
+                WhatId = cpm.Id,
+                Car_Series__c = cpm.Lead__r.Interested_Vehicle_Model__c,
+                ActivityDate = date.today(),
+                UniqueCampaignGenerateTask__c = uniqueTaskField)
+            );
+            dmRequestList.add(new DM_Request__c(Campaign__c = cpm.Campaign__c, 
+                                                Customer_Name__c = cpm.Lead_Account_Id__c,
+                                                Car_Series__c = cpm.Lead__r.Interested_Vehicle_Model__c,
+                                                Lead__c = cpm.Lead__c,
+                                                Expected_DM_Material1__c = cpm.Campaign__r.DM_Material__c));
+        } */
+        return taskList;
     }
 }

@@ -10,16 +10,6 @@ public with sharing class UtilSobject {
         }
     }
     
-    public static void upsertSobjects(List<Sobject> sos) {
-        try {
-            upsert sos;
-        }
-        catch (DMLException e) {
-            trigger.new[0].addError(e.getDMLMessage(0));
-            System.debug('Exception message is :' + e.getDMLMessage(0));
-        }
-    }
-    
     public static void updateSobjects(List<Sobject> sos) {
         try {
             update sos;

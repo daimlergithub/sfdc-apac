@@ -20,7 +20,7 @@ public class SMSControllerExtensionTest {
         // Add parameters to page URL
         String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId, PersonMobilePhone = '12345678901');
+        Account customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
         insert customer;
         Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId
             ,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
@@ -74,8 +74,8 @@ public class SMSControllerExtensionTest {
         Template__c tem3 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
                                            Name = 'lai', Message_Detail__c = '{DEALER_ADDRESS}');
         insert tem3;
-        customer.PersonOtherPhone='12345678901';
-        customer.PersonMobilePhone = '';
+        customer.PersonMobilePhone = '1301111111';            
+        customer.PersonOtherPhone = '1301111122';
         update customer;
         extension.templateId = tem3.id;
         Templates = extension.getTemplates();
@@ -149,7 +149,7 @@ public class SMSControllerExtensionTest {
         String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         String templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
-        Account customer = new Account(Area_Code__c = '010' ,LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId, PersonOtherPhone = '12345678901');
+        Account customer = new Account(Area_Code__c = '010' ,LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
         insert customer;
         Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId);
         insert dealer;
