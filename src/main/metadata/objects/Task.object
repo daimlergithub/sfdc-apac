@@ -1175,6 +1175,7 @@
     <recordTypes>
         <fullName>DM</fullName>
         <active>true</active>
+		<description>Direct mail</description>
         <label>DM</label>
         <picklistValues>
             <picklist>Activity_CommChannel__c</picklist>
@@ -3453,6 +3454,7 @@
     <recordTypes>
         <fullName>IB_Call</fullName>
         <active>true</active>
+		<description>Inbound Call</description>
         <label>IB Call</label>
         <picklistValues>
             <picklist>Activity_CommChannel__c</picklist>
@@ -6948,6 +6950,7 @@
     <recordTypes>
         <fullName>OB_Call</fullName>
         <active>true</active>
+		<description>Outbount Call</description>
         <label>OB Call</label>
         <picklistValues>
             <picklist>Activity_CommChannel__c</picklist>
@@ -8995,6 +8998,7 @@
     <recordTypes>
         <fullName>SMS</fullName>
         <active>true</active>
+		<description>Send Message to Customer</description>
         <label>SMS</label>
         <picklistValues>
             <picklist>Activity_CommChannel__c</picklist>
@@ -10008,6 +10012,7 @@
     <recordTypes>
         <fullName>SSI_Task</fullName>
         <active>true</active>
+		<description>Sales Satisfaction index</description>
         <label>SSI Task</label>
         <picklistValues>
             <picklist>Activity_CommChannel__c</picklist>
@@ -12098,6 +12103,7 @@
     <recordTypes>
         <fullName>Welcome_Call</fullName>
         <active>true</active>
+		<description>Call the Customer when he bought a new car.</description>
         <label>Welcome Call</label>
         <picklistValues>
             <picklist>Activity_CommChannel__c</picklist>
