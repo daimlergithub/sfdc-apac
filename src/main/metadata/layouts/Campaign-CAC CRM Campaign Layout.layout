@@ -284,7 +284,6 @@
         <relatedList>Campaign_Package__c.Campaign__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <customButtons>Manage_Participating_Dealers</customButtons>
         <fields>NAME</fields>
         <fields>Account.NAME</fields>
         <fields>Campaign_Package__c</fields>
