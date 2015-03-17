@@ -39,6 +39,7 @@
         <members>BatchAssignTasksTest</members>
         <members>BatchCalcAmountOfAssignedLeads</members>
         <members>BatchCreateDealerOBEmails</members>
+        <members>BatchJobHelper</members>
         <members>BatchUpdateRecords</members>
         <members>BatchUpdateRecordsTest</members>
         <members>BtlAdditionalInfo</members>
@@ -56,6 +57,8 @@
         <members>CampaignHelper</members>
         <members>CampaignHelperTest</members>
         <members>CampaignHistoryLog_TestClass</members>
+        <members>CampaignOfferingHelper</members>
+        <members>CampaignPackageHelper</members>
         <members>CaseEscalationController</members>
         <members>CaseEscalationControllerTest</members>
         <members>CaseHelper</members>
@@ -182,10 +185,15 @@
         <members>ScheduleCalcAmountOfAssignedLeads</members>
         <members>ScheduleCalcAmountOfAssignedLeadsTest</members>
         <members>ScheduleCreateConversionRateOBEmails</members>
+        <members>ScheduleCreateConversionRateOBEmailsTest</members>
         <members>ScheduleCreateMonthlyDealerOBEmails</members>
+        <members>ScheduleCreateMonthlyDealerOBEmailsTest</members>
         <members>ScheduleCreateMonthlyRegionOBEmails</members>
+        <members>ScheduleCreateMonthlyRegionOBEmailsTest</members>
         <members>ScheduleCreateWeeklyDealerOBEmails</members>
+        <members>ScheduleCreateWeeklyDealerOBEmailsTest</members>
         <members>ScheduleCreateWeeklyRegionOBEmails</members>
+        <members>ScheduleCreateWeeklyRegionOBEmailsTest</members>
         <members>ScheduledCreationTaskToDealers</members>
         <members>ScheduledCreationTaskToDealersTest</members>
         <members>ScheduledDeleteTaskToDealers</members>
@@ -410,35 +418,26 @@
     <types>
         <members>AccountAfterInsertOrUpdate</members>
         <members>AccountBeforeInsertUpdate</members>
-        <members>AccountLinkAfter</members>
         <members>AttachmentAfter</members>
         <members>CampaignMemberAfterTrigger</members>
         <members>CaseTrigger</members>
-        <members>ComplaintDescriptionAfterInsert</members>
         <members>ContactTrigger</members>
-        <members>RecallAfterInsertUpdate</members>
-        <members>RecallBeforeDelete</members>
         <members>RetailCampaignTrigger</members>
         <members>SSITrigger</members>
         <members>ShareAccountLinksToDealer</members>
         <members>ShareCampaignByClooaboration</members>
-        <members>ShareToolKits</members>
         <members>TaskTrigger</members>
-        <members>ToolKitAfterInsertUpdateDelete</members>
-        <members>ToolKitBeforeInsertUpdateDelete</members>
         <members>ToolKitTrigger</members>
         <members>TriggerAccount</members>
         <members>TriggerBatchJob</members>
         <members>TriggerCampaign</members>
         <members>TriggerCampaignCity</members>
         <members>TriggerCampaignLead</members>
-        <members>TriggerCampaignLeadAfterInsert</members>
         <members>TriggerCampaignMembers</members>
         <members>TriggerCampaignOffering</members>
         <members>TriggerCampaignPackage</members>
         <members>TriggerCase</members>
-        <members>TriggerComplaintDescAfterInsertUpdateDelete</members>
-        <members>TriggerComplaintDescriptionBeforeInsert</members>
+        <members>TriggerComplaintDescription</members>
         <members>TriggerDMRequest</members>
         <members>TriggerIntegrationPicklist</members>
         <members>TriggerLead</members>

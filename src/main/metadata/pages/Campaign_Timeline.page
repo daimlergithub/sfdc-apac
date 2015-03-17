@@ -114,7 +114,7 @@ function layoutCentralCamp(qr) {
                     end: new Date(rec.EndDate).toJSON(),
                     isDuration: true,
                     title: rec.Name,
-                    next: "/apex/Campaign_Timeline?sfdc.tabName=01rO00000008pra?partnerId=" + rec.Id,
+                    next: "/apex/Campaign_Timeline?sfdc.tabName=Retail_Campaign_Calender?partnerId=" + rec.Id,
                     link: "/" + rec.Id,
                     //link: "/" + rec.Id,
                     target: "_top",
@@ -141,7 +141,7 @@ function layoutCACCamp(qr) {
                     end: (rec.Repeat_End__c == null)?new Date(rec.Repeat_From__c).toJSON():new Date(rec.Repeat_End__c).toJSON(),
                     isDuration: true,
                     title: rec.Name,
-                    next: "/apex/Campaign_Timeline?sfdc.tabName=01rO00000008pra?partnerId=" + rec.Id,
+                    next: "/apex/Campaign_Timeline?sfdc.tabName=Retail_Campaign_Calender?partnerId=" + rec.Id,
                     link: "/" + rec.Id,
                     //link: "/" + rec.Id,
                     target: "_top",
@@ -345,7 +345,6 @@ window.onload = function(){initPage();};
                 </h2> 
                 <div class="blank">&nbsp;</div> 
             </div> 
-            <div class="links"><a href="javascript:openPopupFocusEscapePounds('/servlet/servlet.Integration?lid=01N90000000B0Uz&enc=UTF-8&ic=1', 'Help', 700, 600, 'width=700,height=600,resizable=yes,toolbar=no,status=no,scrollbars=yes,menubar=yes,directories=no,location=no,dependant=no', false, false);" title="Help for this Page (New Window)"><span class="helpLink">Help for this Page</span><img src="/s.gif" alt="" class="helpImage"/></a></div> 
         </div> 
         <div class="ptBreadcrumb">&nbsp;</div> 
     </div> 

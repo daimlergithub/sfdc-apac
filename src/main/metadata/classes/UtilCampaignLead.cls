@@ -11,19 +11,23 @@
     2. Mouse Add logic for populating Campaign Title and Notes on 2013-04-26
     3. Mouse Add logic for populate Contact__c on 2013-0509
 */
-public with sharing class UtilCampaignLead {
+public with sharing class UtilCampaignLead
+{
     // Update Contact__c of Campaign Lead
-    public static void updateContact(List<Campaign_Lead__c> campaignLeads) {
+    public static void updateContact(List<Campaign_Lead__c> campaignLeads)
+    {
         for (Campaign_Lead__c campaignLead : campaignLeads) {
             campaignLead.Contact__c = campaignLead.Lead_Account_Id__c;
         }
     }
 
     // Populating Campaign Title and Notes
-    public static void updateCampaignTitleAndNotes(List<Campaign_Lead__c> campaignLeads) {
+    public static void updateCampaignTitleAndNotes(List<Campaign_Lead__c> campaignLeads)
+    {
         // Get the map between AccountId and PersonContactId
         Set<Id> accountIds = new Set<Id>();
-        for (Campaign_Lead__c campaignLead : campaignLeads) {
+        for (Campaign_Lead__c campaignLead : campaignLeads)
+        {
             accountIds.add(campaignLead.Lead_Account_Id__c);
         }
 
@@ -33,13 +37,15 @@ public with sharing class UtilCampaignLead {
         // Get CampaignMembers by PersonContactIds and CampaignIds in Campaign Lead
         Set<Id> contactIds = new Set<Id>();
         Set<Id> campaignIds = new Set<Id>();
-        for (Campaign_Lead__c campaignLead : campaignLeads) {
-            if (campaignLead.Lead_Account_Id__c != null) {
-                contactIds.add(accMap.get(
-                    campaignLead.Lead_Account_Id__c).PersonContactId);
+        for (Campaign_Lead__c campaignLead : campaignLeads)
+        {
+            if (campaignLead.Lead_Account_Id__c != null)
+            {
+                contactIds.add(accMap.get(campaignLead.Lead_Account_Id__c).PersonContactId);
             }
 
-            if (campaignLead.Campaign__c != null) {
+            if (campaignLead.Campaign__c != null)
+            {
                 campaignIds.add(campaignLead.Campaign__c);
             }
         }
@@ -102,6 +108,57 @@ public with sharing class UtilCampaignLead {
                 campaignLead.Campaign_Title__c = null;
                 campaignLead.Campaign_Notes__c = null;
             }
+        }
+    }
+    
+    public static void beforeInsertEvents(list<Campaign_Lead__c> campaignLeadsNew)
+    {
+    	Set<String> campaignIds = new Set<String>();
+        Set<String> leadIds = new Set<String>();
+        for(Campaign_Lead__c cl : campaignLeadsNew)
+        {
+            campaignIds.add(cl.Campaign__c);
+            leadIds.add(cl.Lead__c);
+        }
+        if(campaignIds!=null && !campaignIds.IsEmpty() && leadIds!=null && !leadIds.IsEmpty())
+        {
+        	Set<String> campaignLeadIndexs = new Set<String>();
+	        for(Campaign_Lead__c cl : [select Campaign__c, Lead__c from Campaign_Lead__c where Campaign__c in :campaignIds and Lead__c in :leadIds])
+	        {
+	            String index = cl.Campaign__c + ':' + cl.Lead__c;
+	            campaignLeadIndexs.add(index);
+	        }
+	        
+	        List<Campaign_Lead__c> updatedCampaignLeads = new List<Campaign_Lead__c>();
+	        for(Campaign_Lead__c cl : campaignLeadsNew)
+	        {
+	            String index = cl.Campaign__c + ':' + cl.Lead__c;
+	            if(!campaignLeadIndexs.contains(index))
+	            {
+	                cl.FirstTimeImported__c = true;
+	            }
+	        }
+        }
+    }
+    
+    public static void beforeUpdateEvents(list<Campaign_Lead__c> campaignLeadsNew,map<id,Campaign_Lead__c> campaignLeadOldMap)
+    {
+    	// Get the campaign Lead which campaign or lead has change
+        List<Campaign_Lead__c> campaignLeads = new List<Campaign_Lead__c>();
+        for (Campaign_Lead__c campaignLead : campaignLeadsNew)
+        {
+            Campaign_Lead__c oldCampaignLead = campaignLeadOldMap.get(campaignLead.Id);
+            if (oldCampaignLead.Campaign__c != campaignLead.Campaign__c || oldCampaignLead.Lead__c != campaignLead.Lead__c)
+            {
+                campaignLeads.add(campaignLead);
+            }
+        }
+
+        // US-Lead-013, US-Lead-014: Update the Campaign Lead Title 
+        // which campaign or lead has change
+        if (campaignLeads!=null && !campaignLeads.IsEmpty())
+        {
+            updateCampaignTitleAndNotes(campaignLeads);
         }
     }
 }

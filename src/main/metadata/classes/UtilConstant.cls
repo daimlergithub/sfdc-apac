@@ -12,6 +12,7 @@ Global with sharing class UtilConstant {
     public final static String LEAD = 'Lead__c';
     public final static String MBDA_LEAD = 'MBDA Leads';
     public final static String SMS = 'SMS';
+    public final static String MMS = 'MMS';
     public final static String DEALER = 'Dealer';
     public final static String MONTHLY_TA = 'Monthly TA';
     public final static String SALES_MARKETING = 'Sales & Marketing Yearly TA';

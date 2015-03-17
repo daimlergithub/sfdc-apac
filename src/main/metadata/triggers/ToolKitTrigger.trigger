@@ -1,45 +1,42 @@
-trigger ToolKitTrigger on Tool_Kit__c (before insert,before update, after insert, after update, after delete) {
-
-
-if (!UtilCustomSettings.isEnabled('ToolKitBeforeInsertUpdateDelete')) {
-        return;
-   }
- //  for(Tool_Kit__c tk1 : trigger.new) {
-     if(trigger.isBefore)
+trigger ToolKitTrigger on Tool_Kit__c (before insert,before update, after insert, after update, after delete)
+{
+	if(trigger.isAfter && trigger.isInsert)
     {
-    ToolKitTriggerHelper.ToolKitBeforeInsertUpdateDelete(trigger.new);
+    	if(UtilCustomSettings.isEnabled('ToolKitAfterInsertUpdateDelete'))
+    	{
+    		ToolKitTriggerHelper.afterInsertUpdateDeleteEvents(Trigger.new,Trigger.old,Trigger.oldMap,Trigger.newMap,Trigger.isInsert,Trigger.isUpdate,Trigger.isDelete);
+    		TookKitSharingWrapService wrapService = new TookKitSharingWrapService();
+	        SharingService.shareToolKits(wrapService.wrapToolKits(Trigger.new));
+	        SharingService.shareToolKits(wrapService.wrapToolKitsFor3rdPartyUsers(Trigger.new));
+    	}	
     }
- //  }
-
-    if (!UtilCustomSettings.isEnabled('ToolKitAfterInsertUpdateDelete')) {
-        return;
+    if(trigger.isAfter && trigger.isUpdate)
+    {
+    	if(UtilCustomSettings.isEnabled('ToolKitAfterInsertUpdateDelete'))
+    	{
+    		ToolKitTriggerHelper.afterInsertUpdateDeleteEvents(Trigger.new,Trigger.old,Trigger.oldMap,Trigger.newMap,Trigger.isInsert,Trigger.isUpdate,Trigger.isDelete);
+    		ToolKitTriggerHelper.shareToolKit(Trigger.oldMap,Trigger.newMap);
+    	}	
     }
-    // When new or update tool kit, share it to Vendor
-    if (trigger.isInsert || trigger.isUpdate) {
-       ToolKitTriggerHelper.toolkitinsertupdate(trigger.new,Trigger.oldMap);
-    }  
-    
-    // Get the shared Tool Kits
-    if (trigger.isUpdate || trigger.isDelete) {
-               ToolKitTriggerHelper.toolkitupdatedelete(trigger.old,Trigger.newmap);
-        
+    if(trigger.isAfter && trigger.isDelete)
+    {
+    	if(UtilCustomSettings.isEnabled('ToolKitAfterInsertUpdateDelete'))
+    	{
+    		ToolKitTriggerHelper.afterInsertUpdateDeleteEvents(Trigger.new,Trigger.old,Trigger.oldMap,Trigger.newMap,Trigger.isInsert,Trigger.isUpdate,Trigger.isDelete);
+    	}	
     }
-    
-    if (!UtilCustomSettings.isEnabled('ShareToolKits')) {
-        return;
+    if(trigger.isBefore && trigger.isInsert)
+    {
+    	 if (UtilCustomSettings.isEnabled('ToolKitBeforeInsertUpdateDelete'))
+    	 {
+        	ToolKitTriggerHelper.beforeInsertUpdateDeleteEvents(Trigger.new,trigger.isinsert);	
+    	 }
     }
-    
-    if(Trigger.isAfter && Trigger.isInsert) {
-        // Shares new tool kits to campaign users and 3rd party users.
-        TookKitSharingWrapService wrapService = new TookKitSharingWrapService();
-        SharingService.shareToolKits(wrapService.wrapToolKits(Trigger.new));
-        SharingService.shareToolKits(wrapService.wrapToolKitsFor3rdPartyUsers(Trigger.new));
+    if(trigger.isBefore && trigger.isUpdate)
+    {
+    	 if (UtilCustomSettings.isEnabled('ToolKitBeforeInsertUpdateDelete'))
+    	 {
+    	 	ToolKitTriggerHelper.beforeInsertUpdateDeleteEvents(Trigger.new,trigger.isinsert);	
+    	 }
     }
-    else if(Trigger.isAfter && Trigger.isUpdate) {
-        // Updates the dealer sharing if a tool kit's dealer has changed.
-       ToolKitTriggerHelper.sharetoolkitupdate(Trigger.newmap,Trigger.oldMap);
-    }
-    
-    
-   
-   }
+}
