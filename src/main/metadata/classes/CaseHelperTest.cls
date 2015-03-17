@@ -190,7 +190,7 @@ public class CaseHelperTest {
         cd.Action__c = 'Changed';
         insert cd;
         
-        System.assertEquals([SELECT id FROM Complaint_Description__c WHERE Case__c = :c1.id].size(), 1);
+        System.assertEquals([SELECT id FROM Complaint_Description__c WHERE Case__c = :c1.id].size(), 2);
         Test.stopTest();
     } 
     

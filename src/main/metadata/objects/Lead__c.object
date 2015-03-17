@@ -7393,7 +7393,7 @@ Modify Reason:
     <fields>
         <fullName>Need_Associate_Campaign__c</fullName>
         <externalId>false</externalId>
-        <formula>IMAGE('/resource/1392634763000/ReminderForCampaignRelation','Need Associate Campaign')</formula>
+        <formula>IMAGE('/resource/1426571072000/ReminderForCampaignRelation','Need Associate Campaign')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Need Associate Campaign</label>
         <required>false</required>

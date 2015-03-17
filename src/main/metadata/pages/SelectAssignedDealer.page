@@ -68,15 +68,17 @@
                     </apex:pageblockSectionItem>
                     
                     <apex:inputField id="province" value="{!dealer.Province__c}" onchange="refreshPage()"/>
-                    <apex:selectList id="city" value="{!dealer.City__c}" multiselect="false" size="1">
-                        <apex:selectOptions value="{!cityOptions}" ></apex:selectOptions>
-                        <apex:actionStatus id="cityStatus" >
-                            <apex:facet name="start">
-                                <img src="/img/loading24.gif" style="vertical-align:middle;"/>
-                            </apex:facet>      
-                        </apex:actionStatus>
-                    </apex:selectList>
-
+                    <apex:inputField id="city" value="{!dealer.City__c}" /> 
+                    <!-- <apex:selectList id="city" value="{!dealer.City__c}" multiselect="false" size="1"> 
+                    
+	                        <apex:selectOptions value="{!cityOptions}" ></apex:selectOptions>
+	                        <apex:actionStatus id="cityStatus" >
+	                            <apex:facet name="start">
+	                                <img src="/img/loading24.gif" style="vertical-align:middle;"/>
+	                            </apex:facet>      
+	                        </apex:actionStatus>
+                    	</apex:selectList>
+					-->
                     <apex:pageblockSectionItem >
                         <apex:outputLabel value="Campaigns" />
                         <apex:selectList value="{!choosenCampaignId}" size="1" multiselect="false">

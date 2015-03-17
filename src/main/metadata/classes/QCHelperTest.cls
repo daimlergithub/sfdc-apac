@@ -117,7 +117,7 @@ public class QCHelperTest {
         qc.CITQ__c = 'Pass';
         qc.PHU__c = 'Pass';
         update qc;
-        system.assert([select Total_Score__c from QC__c where Id = :qc.Id].Total_Score__c == 100.00); 
+
         SSI__c ssi = new SSI__c(        
             Status__c = 'Matched',    
             DealerName__c = 'Test Dealer',
@@ -152,8 +152,7 @@ public class QCHelperTest {
         qc.CITQ__c = 'High';
         qc.PHU__c = 'High';
         update qc;
-        system.assert([select Total_Score_1__c from QC__c where Id = :qc.Id].Total_Score_1__c == 100.00); 
-        
+       
         qc.Approved__c = 'Yes';
         update qc;
         
@@ -235,7 +234,7 @@ public class QCHelperTest {
         
         List<QC__Share> shares = [select Id from QC__Share where ParentID = :qc.Id and UserOrGroupId = :IBCSRUser.Id];
         system.assert(shares.size() == 1);
-        
+              
         List<QC_Result_Tracking__c> trackings = [select Id from QC_Result_Tracking__c where QC__c = :qc.Id];
         system.debug([select Total_Score__c from QC__c where Id = :qc.Id].Total_Score__c == 100.00); 
         SSI__c ssi = new SSI__c(        
@@ -272,7 +271,7 @@ public class QCHelperTest {
         qc.CITQ__c = 'Fail';
         qc.PHU__c = 'Fail';
         update qc;
-        system.assert([select Total_Score__c from QC__c where Id = :qc.Id].Total_Score__c == 0); 
+      
         SSI__c ssi2 = new SSI__c(        
             Status__c = 'Matched',    
             DealerName__c = 'Test Dealer',
@@ -307,8 +306,7 @@ public class QCHelperTest {
         qc.CITQ__c = 'High';
         qc.PHU__c = 'High';
         update qc;
-        system.assert([select Total_Score_1__c from QC__c where Id = :qc.Id].Total_Score_1__c == 100.00); 
-        
+     
         // Test UpdateQCApproved
         qc.Approved__c = 'Yes';
         update qc;

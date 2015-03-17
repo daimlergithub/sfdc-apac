@@ -217,6 +217,7 @@
         <members>SlickCtiObjectHelper</members>
         <members>SoqlUowExecutor</members>
         <members>TaskDeletingController</members>
+        <members>TaskDeletingControllerTest</members>
         <members>TaskFailBlacklistTrigger_TestClass</members>
         <members>TaskHelper</members>
         <members>TaskHelperTest</members>

@@ -895,6 +895,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TaskDeletingControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TaskFailBlacklistTrigger_TestClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>

@@ -763,8 +763,8 @@ public class QCHelper {
 	    Set<String> failtaskIds = new Set<String>();
 	    
 	    for(QC__c qc : QCNew)
-	    {
-	        if(!qc.Calibration__c && qc.status__c == 'Complete' && qc.status__c != QCOldMap.get(qc.Id).status__c)
+	    {	    
+	      if(!qc.Calibration__c && qc.status__c == 'Complete' && qc.status__c != QCOldMap.get(qc.Id).status__c)
 	        {
 	            QCForShare.add(qc);
 	        }
@@ -777,9 +777,10 @@ public class QCHelper {
 			*/
 	        
 	        //If field value changed, create new QC history records
-	        if(qc.PACI__c!=Null && qc.PACI__c != QCOldMap.get(qc.Id).PACI__c) {
+	     if(QCOldMap!=Null && !QCOldMap.isEmpty()){
+	        if(qc.PACI__c!=Null && QCOldMap.get(qc.Id).PACI__c!=Null && qc.PACI__c != QCOldMap.get(qc.Id).PACI__c) {
 	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Provide Accurate Complete Information', qc.PACI__c, QCOldMap.get(qc.Id).PACI__c));
-	        }
+	        }	        
 	        if(qc.Q1_Comments__c != QCOldMap.get(qc.Id).Q1_Comments__c) {
 	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Provide Accurate Complete Info Comments', qc.Q1_Comments__c, QCOldMap.get(qc.Id).Q1_Comments__c));
 	        }
@@ -897,7 +898,7 @@ public class QCHelper {
 	        if(qc.CCI_Comments__c != QCOldMap.get(qc.Id).CCI_Comments__c) {
 	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Collect Customer Information Comments', qc.CCI_Comments__c, QCOldMap.get(qc.Id).CCI_Comments__c));
 	        }
-	           
+	     }    
 	        // Change the task status.
 	        if(qc.RecordTypeId == SSIQCRecordTypeId && qc.Qualified__c == 'Pass'){
 	            taskIds.add(qc.Task_ID__c);
