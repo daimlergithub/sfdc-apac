@@ -43,7 +43,9 @@
         <members>BatchUpdateRecords</members>
         <members>BatchUpdateRecordsTest</members>
         <members>BtlAdditionalInfo</members>
+        <members>BtlAdditionalInfoTest</members>
         <members>BtlError</members>
+        <members>BtlErrorTest</members>
         <members>BtlStep</members>
         <members>BtlTransaction</members>
         <members>BtlTransactionTest</members>
@@ -272,9 +274,12 @@
         <members>UtilCampaignLead</members>
         <members>UtilCampaignShareByCollaboration</members>
         <members>UtilCampaignTaskGenerationByAccount</members>
+        <members>UtilCampaignTaskGenerationByAccountTest</members>
         <members>UtilCampaignTaskGenerationByCase</members>
+        <members>UtilCampaignTaskGenerationByCaseTest</members>
         <members>UtilCampaignTaskGenerationByLeads</members>
         <members>UtilCampaignTaskGenerationByVehicle</members>
+        <members>UtilCampaignTaskGenerationByVehicleTest</members>
         <members>UtilCase</members>
         <members>UtilConstant</members>
         <members>UtilCustomSettings</members>
@@ -417,12 +422,11 @@
         <name>ApexPage</name>
     </types>
     <types>
-        <members>AccountAfterInsertOrUpdate</members>
-        <members>AccountBeforeInsertUpdate</members>
         <members>AttachmentAfter</members>
         <members>CampaignMemberAfterTrigger</members>
         <members>CaseTrigger</members>
         <members>ContactTrigger</members>
+        <members>RecallAfterInsertUpdate</members>
         <members>RetailCampaignTrigger</members>
         <members>SSITrigger</members>
         <members>ShareAccountLinksToDealer</members>
