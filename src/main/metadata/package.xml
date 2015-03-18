@@ -39,10 +39,13 @@
         <members>BatchAssignTasksTest</members>
         <members>BatchCalcAmountOfAssignedLeads</members>
         <members>BatchCreateDealerOBEmails</members>
+        <members>BatchJobHelper</members>
         <members>BatchUpdateRecords</members>
         <members>BatchUpdateRecordsTest</members>
         <members>BtlAdditionalInfo</members>
+        <members>BtlAdditionalInfoTest</members>
         <members>BtlError</members>
+        <members>BtlErrorTest</members>
         <members>BtlStep</members>
         <members>BtlTransaction</members>
         <members>BtlTransactionTest</members>
@@ -56,6 +59,8 @@
         <members>CampaignHelper</members>
         <members>CampaignHelperTest</members>
         <members>CampaignHistoryLog_TestClass</members>
+        <members>CampaignOfferingHelper</members>
+        <members>CampaignPackageHelper</members>
         <members>CaseEscalationController</members>
         <members>CaseEscalationControllerTest</members>
         <members>CaseHelper</members>
@@ -182,10 +187,15 @@
         <members>ScheduleCalcAmountOfAssignedLeads</members>
         <members>ScheduleCalcAmountOfAssignedLeadsTest</members>
         <members>ScheduleCreateConversionRateOBEmails</members>
+        <members>ScheduleCreateConversionRateOBEmailsTest</members>
         <members>ScheduleCreateMonthlyDealerOBEmails</members>
+        <members>ScheduleCreateMonthlyDealerOBEmailsTest</members>
         <members>ScheduleCreateMonthlyRegionOBEmails</members>
+        <members>ScheduleCreateMonthlyRegionOBEmailsTest</members>
         <members>ScheduleCreateWeeklyDealerOBEmails</members>
+        <members>ScheduleCreateWeeklyDealerOBEmailsTest</members>
         <members>ScheduleCreateWeeklyRegionOBEmails</members>
+        <members>ScheduleCreateWeeklyRegionOBEmailsTest</members>
         <members>ScheduledCreationTaskToDealers</members>
         <members>ScheduledCreationTaskToDealersTest</members>
         <members>ScheduledDeleteTaskToDealers</members>
@@ -209,6 +219,7 @@
         <members>SlickCtiObjectHelper</members>
         <members>SoqlUowExecutor</members>
         <members>TaskDeletingController</members>
+        <members>TaskDeletingControllerTest</members>
         <members>TaskFailBlacklistTrigger_TestClass</members>
         <members>TaskHelper</members>
         <members>TaskHelperTest</members>
@@ -263,9 +274,12 @@
         <members>UtilCampaignLead</members>
         <members>UtilCampaignShareByCollaboration</members>
         <members>UtilCampaignTaskGenerationByAccount</members>
+        <members>UtilCampaignTaskGenerationByAccountTest</members>
         <members>UtilCampaignTaskGenerationByCase</members>
+        <members>UtilCampaignTaskGenerationByCaseTest</members>
         <members>UtilCampaignTaskGenerationByLeads</members>
         <members>UtilCampaignTaskGenerationByVehicle</members>
+        <members>UtilCampaignTaskGenerationByVehicleTest</members>
         <members>UtilCase</members>
         <members>UtilConstant</members>
         <members>UtilCustomSettings</members>
@@ -408,37 +422,27 @@
         <name>ApexPage</name>
     </types>
     <types>
-        <members>AccountAfterInsertOrUpdate</members>
-        <members>AccountBeforeInsertUpdate</members>
-        <members>AccountLinkAfter</members>
         <members>AttachmentAfter</members>
         <members>CampaignMemberAfterTrigger</members>
         <members>CaseTrigger</members>
-        <members>ComplaintDescriptionAfterInsert</members>
         <members>ContactTrigger</members>
         <members>RecallAfterInsertUpdate</members>
-        <members>RecallBeforeDelete</members>
         <members>RetailCampaignTrigger</members>
         <members>SSITrigger</members>
         <members>ShareAccountLinksToDealer</members>
         <members>ShareCampaignByClooaboration</members>
-        <members>ShareToolKits</members>
         <members>TaskTrigger</members>
-        <members>ToolKitAfterInsertUpdateDelete</members>
-        <members>ToolKitBeforeInsertUpdateDelete</members>
         <members>ToolKitTrigger</members>
         <members>TriggerAccount</members>
         <members>TriggerBatchJob</members>
         <members>TriggerCampaign</members>
         <members>TriggerCampaignCity</members>
         <members>TriggerCampaignLead</members>
-        <members>TriggerCampaignLeadAfterInsert</members>
         <members>TriggerCampaignMembers</members>
         <members>TriggerCampaignOffering</members>
         <members>TriggerCampaignPackage</members>
         <members>TriggerCase</members>
-        <members>TriggerComplaintDescAfterInsertUpdateDelete</members>
-        <members>TriggerComplaintDescriptionBeforeInsert</members>
+        <members>TriggerComplaintDescription</members>
         <members>TriggerDMRequest</members>
         <members>TriggerIntegrationPicklist</members>
         <members>TriggerLead</members>
@@ -1392,7 +1396,6 @@
         <members>CampaignTimelineFrame</members>
         <members>CarModelComparison</members>
         <members>Dealer_Reminder</members>
-        <members>Dealer_Reminder_Chinese</members>
         <members>JSforce</members>
         <members>ReminderForCampaignRelation</members>
         <members>RetailCampaignSegmentation</members>

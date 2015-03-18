@@ -13,38 +13,16 @@ trigger TriggerCampaignOffering on Campaign_Offering__c (after insert, after upd
         return;
     }
     
-    Id cId;
-    
-    if(trigger.isDelete){
-        // Get Current Reocrd ID
-        cId = Trigger.old[0].Id;
-    } else {
-        cId = Trigger.new[0].Id;
+    if(trigger.isAfter && trigger.isInsert)
+    {
+    	CampaignOfferingHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
     }
-    Campaign_Offering__c co = [Select Id, Name, Campaign__c, Campaign__r.Name From Campaign_Offering__c Where Id = :cId];
-    String type = 'Campaign Offering';
-    String action = '';
-    String cm = co.Campaign__c;
-    String objName = co.Name;
-    Id us = Userinfo.getUserId();
-    
-    // LOG Generation Class initialize
-    campaignHistoryLogGeneration chlg = new campaignHistoryLogGeneration();
-    
-    if(trigger.isInsert){
-        // INSERT LOG
-        action = 'INSERT';
+    if(trigger.isAfter && trigger.isUpdate)
+    {
+    	CampaignOfferingHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
     }
-    
-    if(trigger.isUpdate){
-        // UPDATE LOG
-        action = 'UPDATE';
+    if(trigger.isBefore && trigger.isdelete)
+    {
+    	CampaignOfferingHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
     }
-    
-    if(trigger.isDelete){
-        // DELETE LOG
-        action = 'DELETE';
-    }
-    
-    chlg.logGeneration(type, String.valueof(cId), action, cm, us, objName);
 }

@@ -10628,6 +10628,38 @@ AND(RecordType.DeveloperName = &apos;Dealer&apos;, ISCHANGED(Name), $Profile.Nam
         <errorMessage>It&apos;s not allowed to change dealer name.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Digits_Validation_For_Extension_Number</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT( ISNUMBER(Extension_Number__c) ), 
+NOT( ISBLANK(Extension_Number__c) ) )</errorConditionFormula>
+        <errorDisplayField>Extension_Number__c</errorDisplayField>
+        <errorMessage>Phone number must contain digits only.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Digits_Validation_For_Retail_Home_Phone</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Home_Phone__c) ),
+      NOT( ISBLANK(Retail_Home_Phone__c) ) )</errorConditionFormula>
+        <errorDisplayField>Retail_Home_Phone__c</errorDisplayField>
+        <errorMessage>Phone number must contain digits only.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Digits_Validation_for_Retail_Mobile</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Mobile__c) ), 
+NOT( ISBLANK(Retail_Mobile__c ) ) )</errorConditionFormula>
+        <errorDisplayField>Retail_Mobile__c</errorDisplayField>
+        <errorMessage>Phone number must contain digits only.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Digits_Validation_for_Retail_Work_Phone</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Work_Phone__c) ), 
+NOT( ISBLANK(Retail_Work_Phone__c) ) )</errorConditionFormula>
+        <errorDisplayField>Retail_Work_Phone__c</errorDisplayField>
+        <errorMessage>Phone number must contain digits only.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Driver_License_Year</fullName>
         <active>true</active>
         <description>The driver&apos;s license year is not in correct format</description>
@@ -10645,6 +10677,14 @@ $Profile.Name != &apos;IntegrationAPI&apos;
 )</errorConditionFormula>
         <errorDisplayField>Driver_License_Year__c</errorDisplayField>
         <errorMessage>The driver&apos;s license year is not in correct format</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Fax_Validation</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Fax__c) ), 
+NOT( ISBLANK(Retail_Fax__c) ) )</errorConditionFormula>
+        <errorDisplayField>Retail_Fax__c</errorDisplayField>
+        <errorMessage>Fax must contain digits only.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Invalid_Email</fullName>
@@ -10676,7 +10716,7 @@ $Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;
         <active>true</active>
         <errorConditionFormula>AND(OR(ISCHANGED(PersonHomePhone), ISNEW()),NOT(ISBLANK(PersonHomePhone)),RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;,OR( NOT(ISNUMBER(PersonHomePhone))), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>PersonHomePhone</errorDisplayField>
-        <errorMessage>Phone number must contain numbers only.</errorMessage>
+        <errorMessage>Phone number must contain digits only.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>PersonMobilePhone</fullName>
@@ -10685,17 +10725,17 @@ $Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;
 OR(ISCHANGED(PersonMobilePhone), ISNEW()),
 NOT(ISBLANK(PersonMobilePhone)), 
 RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;, 
-OR( NOT(ISNUMBER(PersonMobilePhone)), NOT(LEN(PersonMobilePhone)=10)), 
+OR( NOT(ISNUMBER(PersonMobilePhone)), NOT(LEN(PersonMobilePhone)  &lt;=  15), NOT(LEN(PersonMobilePhone)&gt;= 10)), 
 $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>PersonMobilePhone</errorDisplayField>
-        <errorMessage>Mobile phone number must be of lenght 10 digits.</errorMessage>
+        <errorMessage>Mobile phone number must be digits, and it cannot exceed 15 digits and cannot be less than 10 digits.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Phone</fullName>
         <active>true</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Phone), ISNEW()),NOT(ISBLANK(Phone)),RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;,OR( NOT(ISNUMBER(Phone))),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>Phone</errorDisplayField>
-        <errorMessage>Phone number must contain numbers only.</errorMessage>
+        <errorMessage>Phone number must contain digits only.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Preferred_contact_method_Changed</fullName>
@@ -10718,10 +10758,10 @@ $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
 OR(ISCHANGED(PersonOtherPhone), ISNEW()),
 NOT(ISBLANK(PersonOtherPhone)), 
 RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;, 
-OR( NOT(ISNUMBER(PersonOtherPhone)), NOT(LEN(PersonOtherPhone)=10)), 
+OR( NOT(ISNUMBER(PersonOtherPhone)), NOT(LEN(PersonOtherPhone) &lt;=  15), NOT(LEN(PersonOtherPhone)&gt;= 10)), 
 $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>PersonOtherPhone</errorDisplayField>
-        <errorMessage>Phone number must be of length 10 digits.</errorMessage>
+        <errorMessage>Phone number must be digits, and it cannot exceed 15 digits and cannot be less than 10 digits.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Social_ID</fullName>
@@ -10732,6 +10772,14 @@ AND(
 IF( ISPICKVAL( ID_Type__c, &apos;ID card/Driving Card&apos;), OR( ISNULL(ID_Number__c), NOT(OR(LEN(ID_Number__c) = 15, LEN(ID_Number__c) = 18)), NOT(REGEX( ID_Number__c, &quot;^[A-Za-z0-9]+$&quot;))), FALSE), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorDisplayField>ID_Number__c</errorDisplayField>
         <errorMessage>If ID Type is ‘ID card/Driving Card’, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>URL_format_validation</fullName>
+        <active>true</active>
+        <description>Ensures the URL entered is in format www.*.*</description>
+        <errorConditionFormula>OR(RIGHT(Website,1) = &quot;.&quot;, LEFT(Website,1) = &quot;.&quot;)</errorConditionFormula>
+        <errorDisplayField>Website</errorDisplayField>
+        <errorMessage>Please ensure there is text before and after the &apos;.&apos;</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validation_on_Salutation_and_Gender</fullName>

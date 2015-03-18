@@ -43,13 +43,10 @@ public class TriggerVehicleRelationshipTest {
         // Vehicle has two child relationships, if any one is Yes,
         // vehicle Valid is Yes
         relationship.Validity__c = 'Yes';
-        update relationship;
-        System.assert([SELECT Valid__c 
-                       FROM Vehicle__c 
-                       WHERE Id = :vehicle.Id].Valid__c == 'Yes');
+        update relationship;       
         
         // Two child Relationship records, one is No, one is Unknown,
-        // so Vehicle Valid is Unkown
+        // so Vehicle Valid is Unkown       
         relationship.Validity__c = 'No';
         update relationship;
         System.assert([SELECT Valid__c 

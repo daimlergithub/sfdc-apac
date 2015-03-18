@@ -5753,6 +5753,6 @@ location.href = lookingURL;
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>/a1E/e?CF00N90000006ZqP4={!SSI__c.Name}&amp;CF00N90000006ZqP4_lkid={!SSI__c.Id}&amp;retURL={!SSI__c.Id}&amp;RecordType=01290000000rXmW&amp;ent=01I900000017wxq</url>
+        <url>/a0X/e?CF00N24000003keTq={!SSI__c.Name}&amp;CF00N24000003keTq_lkid={!SSI__c.Id}&amp;retURL={!SSI__c.Id}&amp;RecordType=01224000000JA2s&amp;ent=01I24000000PA26</url>
     </webLinks>
 </CustomObject>

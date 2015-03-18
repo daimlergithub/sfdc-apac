@@ -37,7 +37,7 @@ private class AccountHelperTest {
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
                                     Dealer_LMS__c = 'No',
-                                    RecordTypeId=accPerson_RecordTypeId);
+                                    RecordTypeId=accPerson_RecordTypeId); 
 
     static Account customer2 = new Account(Dealer_Default_Flag__c=true,
                                     Dealer_DMS_SR_Code__c='',
@@ -75,10 +75,8 @@ private class AccountHelperTest {
     @future
     private static void testMain1()
     {
-        String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        String PersonRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();       
         insert customer1;
-        
         //test Region_City_Mapping__c is auto setted When account update
         Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');
         insert dealer;
@@ -96,7 +94,7 @@ private class AccountHelperTest {
         customer1.Dealer_Default_Flag__c = true;
         customer1.Allow_Data_Sharing__c = 'yes';
         update customer1;
-		
+        
         //test same Dealer_DMS_SR_Code__c and Dealer_Default_Flag__c customer will not be created
         try{
             insert customer2;

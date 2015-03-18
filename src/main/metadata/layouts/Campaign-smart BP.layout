@@ -102,7 +102,6 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
-        <customButtons>Manage_Participating_Dealers</customButtons>
         <fields>NAME</fields>
         <fields>Account.NAME</fields>
         <fields>Account.Branch_name_CHS__c</fields>

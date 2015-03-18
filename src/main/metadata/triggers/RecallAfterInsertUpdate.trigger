@@ -12,7 +12,7 @@
     1. Sichao Lai Created on 2013-06-07
 */
 
-trigger RecallAfterInsertUpdate on Recall__c (after insert) {
+trigger RecallAfterInsertUpdate on Recall__c (after insert) {/*
     if (!UtilCustomSettings.isEnabled('RecallAfterInsertUpdate')) {
         return;
     }
@@ -26,6 +26,6 @@ trigger RecallAfterInsertUpdate on Recall__c (after insert) {
 
     // update Recall checkbox status
     if (VehicleIds .size() > 0){
-       RecallHelper.updateRecall(VehicleIds);
-    } 
+       //RecallHelper.updateRecall(VehicleIds);
+    } */
 }

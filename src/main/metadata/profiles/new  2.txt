@@ -1,0 +1,35 @@
+{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+
+if('{!$User.Id}' == '{!Tool_Kit__c.OwnerId}' ){
+var qr = sforce.connection.query("Select Id,Plan_Start_Date__c,RecordTypeId From Tool_Kit__c Where id = '{!Tool_Kit__c.Id}'"); 
+
+var flag = false;
+
+var RTname = sforce.connection.query("Select name From RecordType Where id = " + "'" + qr.records.RecordTypeId + "'");
+
+if(RTname.records.Name == 'Event' && '{!Tool_Kit__c.eventdate__c}' == 1){
+flag = true;
+}else if(RTname.records.Name == 'Media' && '{!Tool_Kit__c.mediadate__c}' == 1){
+flag = true;
+}
+
+if('{!Tool_Kit__c.Apply_Status__c}'=='Approved'){
+if(flag){
+if ((Modal.confirm && Modal.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?')) || (!Modal.confirm && window.confirm('If you submit this application for recording, you will not be able to modify or cancel the application continue?'))){
+navigateToUrl('/p/process/Submit?id={!Tool_Kit__c.Id}&retURL=%2F{!Tool_Kit__c.Id}');
+}
+}else{
+if(RTname.records.Name == 'Event'){
+alert("Scheduled start time (to fill in for the first time time date) within 7 days may not apply for revocation");
+}else{
+alert("Scheduled start time (to fill in for the first time time date) within 3 days may not apply for revocation");
+}
+}
+}else{
+alert('Application status error.');
+}
+}else{
+alert('You are not the owner of the record cannot be submitted');
+}

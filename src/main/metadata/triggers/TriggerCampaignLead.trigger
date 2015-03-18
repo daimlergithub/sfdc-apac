@@ -12,66 +12,32 @@
     3. (US-Lead-001) Mouse Add logic for populate Contact__c on 2013-0509
     4. 2014-2-21 Modified by Justin Yu
 */
-trigger TriggerCampaignLead on Campaign_Lead__c (before insert, before update) {
-    if (!UtilCustomSettings.isEnabled('TriggerCampaignLead')) {
-        return;
-    }
-
+trigger TriggerCampaignLead on Campaign_Lead__c (before insert, before update,after insert) {
+    
     // If trigger is Enabled, continue
     if (!UtilCustomSettings.isEnabled('TriggerCampaignLead')) {
         return;
     }
-
-    if (trigger.isBefore && trigger.isInsert) {
-        // US-Lead-013, US-Lead-014: Update Campaign Title and Notes
-        UtilCampaignLead.updateCampaignTitleAndNotes(trigger.new);
-
-        // US-Lead-001: Update Contact__c of Campaign Lead
-        UtilCampaignLead.updateContact(trigger.new);
-    }
     
-    if (trigger.isBefore && trigger.isUpdate) {
-        // Get the campaign Lead which campaign or lead has change
-        List<Campaign_Lead__c> campaignLeads = new List<Campaign_Lead__c>();
-        for (Campaign_Lead__c campaignLead : trigger.new) {
-            Campaign_Lead__c oldCampaignLead = trigger.oldMap.get(campaignLead.Id);
-            if (oldCampaignLead.Campaign__c != campaignLead.Campaign__c
-                  || oldCampaignLead.Lead__c != campaignLead.Lead__c) {
-                campaignLeads.add(campaignLead);
-            }
-        }
-
-        // US-Lead-013, US-Lead-014: Update the Campaign Lead Title 
-        // which campaign or lead has change
-        if (campaignLeads.size() > 0) {
-            UtilCampaignLead.updateCampaignTitleAndNotes(campaignLeads);
-        }
+    if(trigger.isAfter && trigger.isInsert)
+    {
+    	UtilInsertMemberByCampaignLeads u = new UtilInsertMemberByCampaignLeads();
+        u.insertMembers(trigger.new);	
     }
-    
-    /**
-     * 2014-2-21 adds By Justin Yu -- Set the First Time Imported filed on campaign lead
-     */
-    if(trigger.isInsert){
-    	
-	    Set<String> campaignIds = new Set<String>();
-	    Set<String> leadIds = new Set<String>();
-	    for(Campaign_Lead__c cl : trigger.new){
-	    	campaignIds.add(cl.Campaign__c);
-	    	leadIds.add(cl.Lead__c);
-	    }
-	    
-	    Set<String> campaignLeadIndexs = new Set<String>();
-	    for(Campaign_Lead__c cl : [select Campaign__c, Lead__c from Campaign_Lead__c where Campaign__c in :campaignIds and Lead__c in :leadIds]){
-	    	String index = cl.Campaign__c + ':' + cl.Lead__c;
-	    	campaignLeadIndexs.add(index);
-	    }
-	    
-	    List<Campaign_Lead__c> updatedCampaignLeads = new List<Campaign_Lead__c>();
-	    for(Campaign_Lead__c cl : trigger.new){
-	    	String index = cl.Campaign__c + ':' + cl.Lead__c;
-	    	if(!campaignLeadIndexs.contains(index)){
-	    		cl.FirstTimeImported__c = true;
-	    	}
-	    }
+    if(trigger.isAfter && trigger.isUpdate)
+    {
+    }
+    if(trigger.isBefore && trigger.isInsert)
+    {
+    	 UtilCampaignLead.updateCampaignTitleAndNotes(trigger.new);
+         // US-Lead-001: Update Contact__c of Campaign Lead
+         UtilCampaignLead.updateContact(trigger.new);
+         
+         UtilCampaignLead.beforeInsertEvents(trigger.new);
+    }
+         
+    if(trigger.isBefore && trigger.isUpdate)
+    {
+    	UtilCampaignLead.beforeUpdateEvents(trigger.new,trigger.oldmap);
     }
 }

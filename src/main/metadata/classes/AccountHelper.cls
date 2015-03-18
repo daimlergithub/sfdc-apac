@@ -53,6 +53,7 @@ public class AccountHelper {
         
         return cp016Map;
     }
+
     
     //US-DP-022, US-DP-023, when Allow Data Sharing changed to yes, update lead's owner.
     public static void updateLeads(Set<Id> contactIds) {

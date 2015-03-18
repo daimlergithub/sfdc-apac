@@ -98,7 +98,7 @@ public class CaseHelperTest {
         
         insert c1;
         //Complaint is a primary complaint(No Parent Case), there will be a SMS sent to customer
-        List<Task> tasks = [select id from Task where Phone__c='13011111111'];
+        List<Task> tasks = [select id from Task where Phone__c='1301111111'];
         system.assert(tasks.size()>0);
         
         //After add sub Complaint, the field in sub Complaint will auto plus 1
@@ -161,7 +161,7 @@ public class CaseHelperTest {
         System.assertEquals([SELECT id FROM Complaint_Description__c WHERE Case__c = :c1.id].size(), 1);
         Test.stopTest();
     }
-   
+  
     @isTest(seeAllData=true)
     public static void testUSCC031() { 
         Test.startTest();            
@@ -172,19 +172,27 @@ public class CaseHelperTest {
                                 where contact.Dealer_Complaint_Gate_Keeper__c = true and id=:user2.Id
                                 and isActive = true and AccountId <> :portalUser1.AccountId limit 1];
         Case c1 = new Case(RecordTypeId = MBRecordtypeid, Description = 'test', Case_Dealer__c = portalUser1.AccountId);
-        c1.Support_Dealer_1__c = portalUser2.AccountId;
-        c1.Support_Dealer_2__c = portalUser2.AccountId;
-        c1.Support_Dealer_3__c = portalUser2.AccountId;
-        
         insert c1;
+       
+     //   c1.Support_Dealer_1__c = portalUser2.AccountId;
+      //  c1.Support_Dealer_2__c = portalUser2.AccountId;
+    //    c1.Support_Dealer_3__c = portalUser2.AccountId;        
+   //     insert c1;
         c1.Support_Dealer_1__c = null;
         c1.Support_Dealer_2__c = null;
         update c1;
         
         c1 = [SELECT CreatedbyId FROM Case WHERE id = :c1.id];
-        System.assertEquals([SELECT id FROM Complaint_Description__c WHERE Case__c = :c1.id].size(), 1);
+        Complaint_Description__c cd=new Complaint_Description__c();
+        cd.Case__c = c1.Id;
+        cd.Created_By__c = UserInfo.getUserId();
+        cd.Date_Time__c = System.now();
+        cd.Action__c = 'Changed';
+        insert cd;
+        
+        System.assertEquals([SELECT id FROM Complaint_Description__c WHERE Case__c = :c1.id].size(), 2);
         Test.stopTest();
-    }
+    } 
     
     public static testMethod void testRelease11b01(){
         Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
