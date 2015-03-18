@@ -4,9 +4,11 @@ timestamps-updated.log
 timestamps-deployed.log
 timestamps-data.log
 /.settings
+/.sonar
 /tmp
 /classes
 /build
 /logs
 /src/main/metadata-retrieve
 build-fixing.xml
+.project.license
