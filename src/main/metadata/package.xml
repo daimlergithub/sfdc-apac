@@ -1396,7 +1396,6 @@
         <members>CampaignTimelineFrame</members>
         <members>CarModelComparison</members>
         <members>Dealer_Reminder</members>
-        <members>Dealer_Reminder_Chinese</members>
         <members>JSforce</members>
         <members>ReminderForCampaignRelation</members>
         <members>RetailCampaignSegmentation</members>
