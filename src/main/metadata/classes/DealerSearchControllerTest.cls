@@ -15,7 +15,7 @@ public class DealerSearchControllerTest {
         Account dealer = new Account(Name = 'Shanghai test',
                                      Province__c = 'Shanghai',
                                      City__c = 'Xuhui district,',
-                                     Dealer_Sales_Type__c = 'MBCL;Smart',
+                                     Dealer_Sales_Type__c = 'Smart',
                                      Dealer_Service_Codes__c = 'Sales;Parts');
         dealer = (Account)UtilTestData.createSobject(dealer, UtilTestData.ACCOUNT_RT_DEALER);
         
@@ -46,7 +46,7 @@ public class DealerSearchControllerTest {
         System.assert(dealerSearch.dealers.size() == 1, 'Searched Dealers Size != 1');
         
         // Change Dealer_Sales_Type__c
-        dealerSearch.dealer.Dealer_Sales_Type__c = 'MBCL;Smart';
+        dealerSearch.dealer.Dealer_Sales_Type__c = 'Smart';
         dealerSearch.query();
         System.assert(dealerSearch.dealers.size() == 1, 'Searched Dealers Size != 1');
         

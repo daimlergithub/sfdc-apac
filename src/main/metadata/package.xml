@@ -14,9 +14,9 @@
         <members>Share_company_Read_Only1</members>
         <members>Share_company_Read_Only2</members>
         <members>Share_read_with_all_Central</members>
-        <members>Share_read_with_all_central_bmbs</members>
+        <members>Share_read_with_all_central</members>
         <members>VIP_CUSTOMER_Share_with_RW</members>
-        <members>VIP_PA_share_with_BMBS_CRM_Manager</members>
+        <members>VIP_PA_share_with_Central_CRM_Manager</members>
         <members>VIP_PA_share_with_Central_CRM_Manager</members>
         <name>AccountCriteriaBasedSharingRule</name>
     </types>
@@ -330,7 +330,6 @@
         <members>AddToRetailCampaign</members>
         <members>AnswersHome</members>
         <members>AssignCaseToDealer</members>
-        <members>BMBS_Campaigns</members>
         <members>BandwidthExceeded</members>
         <members>CACFields</members>
         <members>CSRLookup</members>
@@ -500,7 +499,7 @@
         <members>Share_S_M_Campaign_with_Region_N</members>
         <members>Share_S_M_Campaign_with_Region_S</members>
         <members>Share_S_M_Campaign_with_Region_W</members>
-        <members>Share_S_M_Event_BMBS_Campaign_to_Call_Center</members>
+        <members>Share_S_M_Event_Central_Campaign_to_Call_Center</members>
         <members>Share_S_M_Event_Central_Campaign_to_Call_Center</members>
         <members>Share_S_M_with_Region_E</members>
         <members>Share_with_CAC_Data_Service_Mgr</members>
@@ -1072,12 +1071,10 @@
         <members>Tool_Kit__c.Share_TK_with_Region_South</members>
         <members>Tool_Kit__c.Share_TK_with_Region_W</members>
         <members>Tool_Kit__c.Tool_Kit_Share_with_Central</members>
-        <members>Vehicle_Relationship__c.Read_Write_of_Vehicle_to_CAC</members>
-        <members>Vehicle_Relationship__c.Read_of_Vehicle_to_BMBS</members>
+        <members>Vehicle_Relationship__c.Read_Write_of_Vehicle_to_CAC</members>        
         <members>Vehicle_Relationship__c.Read_of_Vehicle_to_Central</members>
         <members>Vehicle_Relationship__c.soft_deleted_share_with_R_W_to_data_mgr</members>
-        <members>Vehicle__c.READ_WRITE_for_Vehicle_to_CAC</members>
-        <members>Vehicle__c.Read_of_Vehicle_to_BMBS</members>
+        <members>Vehicle__c.READ_WRITE_for_Vehicle_to_CAC</members>        
         <members>Vehicle__c.Read_of_Vehicle_to_Central</members>
         <members>Vehicle__c.soft_deleted_V_share_read_with_data_mgr</members>
         <name>CustomObjectCriteriaBasedSharingRule</name>
@@ -1150,7 +1147,7 @@
         <members>EPA/EPA_Logo.jpg</members>
         <members>Logo</members>
         <members>Logo/Logo_Mercedes_Benz.png</members>
-        <members>Logo/MBCL_LOGO.png</members>
+        <members>Logo/Central_LOGO.png</members>
         <members>Logo/MB_LOGO.png</members>
         <name>Document</name>
     </types>
@@ -1203,9 +1200,6 @@
     <types>
         <members>All_Dealer_Group</members>
         <members>All_Region</members>
-        <members>BMBS_Central_AS_Content_Group</members>
-        <members>BMBS_Central_S_M_Content_Group</members>
-        <members>BMBS_Regional_CRM_Manager</members>
         <members>Central_AS_Content_Group</members>
         <members>Central_S_M_Content_Group</members>
         <members>East_Region_Group</members>

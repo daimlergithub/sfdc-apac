@@ -358,7 +358,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1294,7 +1294,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSubSource&quot;
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -1597,11 +1597,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSubSource&quot;
             <picklistValues>
                 <fullName>Auto Show 2012</fullName>
                 <controllingFieldValues>Event</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBCL</fullName>
-                <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -4836,7 +4831,7 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5834,11 +5829,11 @@ Attribute in Data Dictionary object Contact is &quot;Contact_SpecialCare&quot;</
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS&amp;BBAC</fullName>
+                <fullName>Central&amp;BBAC</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6687,7 +6682,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6896,10 +6891,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>MB Website Aftersales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8425,11 +8416,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS%26BBAC</fullName>
+                <fullName>Central%26BBAC</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8850,7 +8841,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10296,11 +10287,11 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BMBS%26BBAC</fullName>
+                <fullName>Central%26BBAC</fullName>
                 <default>false</default>
             </values>
             <values>

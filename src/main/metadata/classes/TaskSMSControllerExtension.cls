@@ -1,7 +1,7 @@
 /*
     Type:       controller
     Purpose:    TaskSMSSendResult General Controller
-    User Story: BMBS Interactive SMS Workbook
+    User Story: Centrtal Interactive SMS Workbook
 
     Used By:    VF Page - TaskSMSSendResult.page
     ---------------------------------------------------------------

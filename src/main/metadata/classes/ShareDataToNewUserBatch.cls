@@ -67,10 +67,10 @@ global class ShareDataToNewUserBatch implements Database.Batchable<sObject>{
             condition.add('id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in ('+existUserIDs+')) AND recordtypeid = '+ recordTypes);
         } else if ('ASCampaign'.equalsIgnoreCase(sobjectName)){
             String recordTypes = '';
-            recordTypes = recordTypes + '\'' +Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS BMBS Campaign').getRecordTypeId() + '\'';
+            recordTypes = recordTypes + '\'' +Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId() + '\'';
             condition.add('id');
             condition.add('Campaign');
-            condition.add('id in (select campaignId from CampaignShare where UserOrGroupId in ('+existUserIDs+')) AND recordtypeid = \'AS BMBS Campaign\'');
+            condition.add('id in (select campaignId from CampaignShare where UserOrGroupId in ('+existUserIDs+')) AND recordtypeid = \'AS Central Campaign\'');
         } else if ('AsYearlyTA'.equalsIgnoreCase(sobjectName)){
             String recordTypes = '';
             recordTypes = recordTypes + '\'' +Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Aftersales Yearly TA').getRecordTypeId() + '\',';
@@ -87,7 +87,7 @@ global class ShareDataToNewUserBatch implements Database.Batchable<sObject>{
             condition.add('id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in ('+existUserIDs+')) AND recordtypeid IN ('+recordTypes+')');
         } else if ('SmCampaign'.equalsIgnoreCase(sobjectName)){
             String recordTypes = '';
-            recordTypes = recordTypes + '\'' +Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event BMBS Campaign').getRecordTypeId() + '\'';
+            recordTypes = recordTypes + '\'' +Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Centrtal Campaign').getRecordTypeId() + '\'';
             condition.add('id');
             condition.add('Campaign');
             condition.add('id in (select campaignId from CampaignShare where UserOrGroupId in ('+existUserIDs+')) AND recordtypeid ='+recordTypes);   

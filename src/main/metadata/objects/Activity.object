@@ -383,11 +383,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MBCL</fullName>
-                <controllingFieldValues>BBAC</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Voice mail</fullName>
                 <controllingFieldValues>BBAC</controllingFieldValues>
                 <default>false</default>
@@ -527,10 +522,6 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1689,7 +1680,7 @@
         <formula>IF(Called__c == &apos;4008108880&apos;, 
 &apos;BBAC&apos;,
 IF (Called__c == &apos;4008181188&apos;,
-&apos;BMBS&apos;,
+&apos;Central&apos;,
 IF (Called__c == &apos;4008110000&apos;,
 &apos;Smart&apos;,&apos;&apos;)
 )

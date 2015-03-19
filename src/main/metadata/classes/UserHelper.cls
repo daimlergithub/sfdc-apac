@@ -244,185 +244,6 @@ public with sharing class UserHelper {
    
     public static void ShareLeadsToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
-<<<<<<< HEAD
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId());
-        List<CampaignShare> shares = new List<CampaignShare>();
-        for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
-            CampaignShare share = new CampaignShare();
-            share.CampaignAccessLevel = 'Read';
-            share.CampaignId = cpn.Id;
-            share.UserOrGroupId = newUserId;
-            shares.add(share);
-        }
-        
-        try {
-            DataBase.insert(shares, false);
-        } catch (DMLException e) {
-            System.debug('DMLException Exception occured when sharing AS Campaigns to new Dealer user: ' + e.getDMLMessage(0));
-        }
-    }
-    
-    public static void ShareSmCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
-        Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId());
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media Central Campaign').getRecordTypeId());
-        List<CampaignShare> shares = new List<CampaignShare>();
-        for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
-            CampaignShare share = new CampaignShare();
-            share.CampaignAccessLevel = 'Read';
-            share.CampaignId = cpn.Id;
-            share.UserOrGroupId = newUserId;
-            shares.add(share);
-        }
-        
-        try {
-            DataBase.insert(shares, false);
-        } catch (DMLException e) {
-            System.debug('DMLException Exception occured when sharing S&M Campaigns to new Dealer user: ' + e.getDMLMessage(0));
-        }
-    }
-    
-    public static void ShareBestPracticeToNewUser(Id newUserId, Set<Id> existUserIds) {
-        Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('MB Best Practice').getRecordTypeId());
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('smart Best Practice').getRecordTypeId());
-
-        List<CampaignShare> shares = new List<CampaignShare>();
-        for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
-            CampaignShare share = new CampaignShare();
-            share.CampaignAccessLevel = 'Read';
-            share.CampaignId = cpn.Id;
-            share.UserOrGroupId = newUserId;
-            shares.add(share);
-        }
-        
-        try {
-            DataBase.insert(shares, false);
-        } catch (DMLException e) {
-            System.debug('DMLException Exception occured when sharing S&M Campaigns to new Dealer user: ' + e.getDMLMessage(0));
-        }
-    }
-    
-    public static void ShareToolKitToNewUser(Id newUserId, Set<Id> existUserIds) {
-        List<Tool_Kit__Share> shares = new List<Tool_Kit__Share>();
-        for(Tool_Kit__c tk : [Select Id from Tool_Kit__c Where Id in (select ParentId from Tool_Kit__Share where UserOrGroupId in :existUserIds)]) {
-            Tool_Kit__Share share = new Tool_Kit__Share();
-            share.AccessLevel  = 'Edit';
-            share.ParentId = tk.Id;
-            share.UserOrGroupId = newUserId;
-            //share.RowCause = Schema.Tool_Kit__Share.RowCause.Manual;
-            shares.add(share);
-        }
-        
-        try {
-            DataBase.insert(shares, false);
-        } catch (DMLException e) {
-            System.debug('DMLException Exception occured when sharing Tool Kits to new Dealer user: ' + e.getDMLMessage(0));
-        }
-    }
-
-    public static void AssignPermissionSetForPortalUser(Set<Id> userIds) {
-        List<PermissionSetAssignment> permissionSetAssignments = new List<PermissionSetAssignment>();
-        Map<String, Id> permissionSetNameIdMap = new Map<String, Id>();
-        
-        for(PermissionSet ps : [SELECT Id, Name FROM PermissionSet WHERE label like 'Dealer%']) {
-            permissionSetNameIdMap.put(ps.Name, ps.Id);
-        }
-        
-        for(User u : [SELECT Id, ContactId, contact.Permission_Set_Settings__c
-                       FROM  User WHERE Id in :userIds]) {
-            for(String permissionSetName : permissionSetNameIdMap.keySet()){
-                if (u.contact.Permission_Set_Settings__c != null && u.contact.Permission_Set_Settings__c.contains(permissionSetName)) {
-                    permissionSetAssignments.add(new PermissionSetAssignment(PermissionSetId = permissionSetNameIdMap.get(permissionSetName), AssigneeId = u.Id));
-                }
-            }
-        }
-        
-        try{
-            delete [select Id from PermissionSetAssignment where AssigneeId in :userIds and  permissionSet.label like 'Dealer%'];
-        } catch (DMLException e) {
-            System.debug('DMLException Exception occured when deleting the permission set: ' + e.getDMLMessage(0));
-        }
-         
-        List<User> users = [select Id, Active_Permission_Set__c from User where Id in :userIds];
-        for(User u : users) {
-            u.Active_Permission_Set__c = false;
-        }
-        
-        try{
-            update users;
-        } catch (DMLException e) {
-            System.debug('DMLException Exception occured when updating the user information: ' + e.getDMLMessage(0));
-        }
-    
-        try {
-            if(permissionSetAssignments.size() > 0) {
-                insert permissionSetAssignments;
-            }
-        }catch (DMLException e) {
-            System.debug('DMLException Exception occured when inserting the new permission set: ' + e.getDMLMessage(0));
-        }
-    }
-    
-    public static void AfterInsert_UpdateMethod(list<User> usersList,map<id,User> userOldMap,boolean isInsert,boolean isUpdate)
-    {
-    Set<Id> profileIds = new Set<Id>();
-    
-     if(DealerComplaintUserId!=null)
-         profileIds.add(DealerComplaintUserId);
-         if(DealerDelegatedAdminId!=null) 
-         profileIds.add(DealerDelegatedAdminId);
-     
-         Set<Id> SSIprofileIds = new Set<Id>();
-         
-         if(CACSSIQCId!=null)
-         SSIprofileIds.add(CACSSIQCId);
-         if(CACSSISVId!=null)   
-         SSIprofileIds.add(CACSSISVId);
-         if(CACSSITLId!=null)   
-         SSIprofileIds.add(CACSSITLId);
-         if(CACSSITRAINERId!=null)   
-         SSIprofileIds.add(CACSSITRAINERId);
-         if(CACSSICSRId!=null)  
-         SSIprofileIds.add(CACSSICSRId); 
-
-         if(isUpdate) {
-             // if update user is a portal user
-             if(profileIds.contains(usersList[0].ProfileId) && !usersList[0].IsPortalEnabled && userOldMap.get(usersList[0].Id).IsPortalEnabled) {
-                 updateContact(usersList[0].ContactId, false);
-             }
-         }
-     
-         // [Start] Added by Cyril on 2014-05-08 (Release1.1b)
-         if(isInsert) {
-             if(profileIds.contains(usersList[0].ProfileId)) {
-                 //when the user insert, share the account, vehicle and vehicle relation to the user
-                 ShareAllDataToNewUserBatch(usersList[0].AccountId, usersList[0].Id);
-             }
-         }
-         // [End] Added by Cyril on 2014-05-08 (Release1.1b)
-     
-         // By Shuang Li BRD-AS-CAC-007---- strart
-         if(isUpdate) {
-             Set<Id> userIds = new Set<Id>();
-             Set<Id> userPermissionSetIds = new Set<Id>();
-             for(User userNew : usersList) {
-                 if(CACSSICSRId!=null && CACSSICSRId == userOldMap.get(userNew.Id).ProfileId && userNew.ProfileId != userOldMap.get(userNew.Id).ProfileId && SSIprofileIds!=null && !SSIprofileIds.contains(userNew.ProfileId)) {
-                     userIds.add(userNew.Id);
-                 }
-                 if(userNew.Active_Permission_Set__c && userNew.Active_Permission_Set__c != userOldMap.get(userNew.Id).Active_Permission_Set__c) {
-                     userPermissionSetIds.add(userNew.Id);
-                 }
-             }
-             TaskHelper.autoUpdateSSITask(userIds);
-     
-             if(userPermissionSetIds.size() > 0) {
-                 AssignPermissionSetForPortalUser(userPermissionSetIds);
-                 ShareAllDataToNewUser(usersList[0].AccountId, usersList[0].Id, usersList[0].ProfileId);
-             }
-         }
-    }
-=======
         recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId());
         recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId());
         
@@ -575,7 +396,7 @@ public with sharing class UserHelper {
     
     public static void ShareAsCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS BMBS Campaign').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId());
         
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
@@ -595,8 +416,8 @@ public with sharing class UserHelper {
     
     public static void ShareSmCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event BMBS Campaign').getRecordTypeId());
-        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media BMBS Campaign').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Centrtal Campaign').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media Centrtal Campaign').getRecordTypeId());
         
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
@@ -787,5 +608,4 @@ public with sharing class UserHelper {
     		}
     	}
     }
->>>>>>> 993179c6ddf15ca08766523b383e3322462f44a1
 }

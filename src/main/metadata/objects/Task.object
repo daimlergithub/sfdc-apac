@@ -392,10 +392,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -564,10 +560,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1382,10 +1374,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -1554,10 +1542,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2383,10 +2367,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -2555,10 +2535,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3661,10 +3637,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -3833,10 +3805,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4642,10 +4610,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -4814,10 +4778,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5899,10 +5859,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -6071,10 +6027,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7157,10 +7109,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -7329,10 +7277,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8175,10 +8119,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -8347,10 +8287,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9205,10 +9141,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -9377,10 +9309,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10219,10 +10147,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -10391,10 +10315,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11320,10 +11240,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -11492,10 +11408,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12310,10 +12222,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -12482,10 +12390,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13335,10 +13239,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>ML web special</fullName>
                 <default>false</default>
             </values>
@@ -13507,10 +13407,6 @@
             </values>
             <values>
                 <fullName>MB Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>

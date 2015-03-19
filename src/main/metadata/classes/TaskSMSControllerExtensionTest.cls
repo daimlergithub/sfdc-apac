@@ -1,7 +1,7 @@
 /*
     Type:       test class
     Purpose:    TaskSMSControllerExtension test class
-    User Story: BMBS Interactive SMS Workbook
+    User Story: Centrtal Interactive SMS Workbook
 
     Used By:    TaskSMSControllerExtension
     ---------------------------------------------------------------
