@@ -87,7 +87,7 @@ global class ShareDataToNewUserBatch implements Database.Batchable<sObject>{
             condition.add('id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in ('+existUserIDs+')) AND recordtypeid IN ('+recordTypes+')');
         } else if ('SmCampaign'.equalsIgnoreCase(sobjectName)){
             String recordTypes = '';
-            recordTypes = recordTypes + '\'' +Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Centrtal Campaign').getRecordTypeId() + '\'';
+            recordTypes = recordTypes + '\'' +Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId() + '\'';
             condition.add('id');
             condition.add('Campaign');
             condition.add('id in (select campaignId from CampaignShare where UserOrGroupId in ('+existUserIDs+')) AND recordtypeid ='+recordTypes);   
