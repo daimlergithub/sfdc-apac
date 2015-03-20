@@ -1,28 +1,29 @@
 <project name="VillageChief DataHub" xmlns:sf="salesforce">
-  <!--property file="${user.dir}/sonar-project.properties"/-->
   <property file="sonar.properties"/>
-  
-  
+    
   <!-- Define the Sonar task -->
   <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
     <classpath path="sonar-ant-task-2.2.jar" />
-	<!--classpath path="sonar-ant-task-1.4.jar" /-->
   </taskdef>
   
   <!-- Add the target -->
   <target name="sonar">
-    
-    <!-- db properties -->
-    <!--property name="sonar.jdbc.url" value="jdbc:h2:tcp://localhost:9092/sonar" />
-    <property name="sonar.jdbc.username" value="sonar" />
-    <property name="sonar.jdbc.password" value="sonar" /-->
-  
+    <!-- to be set by Jenkins or manually -->
+	<!--
+	sonar.host.url
+	sonar.login
+	sonar.password
+	sonar.jdbc.url
+	sonar.jdbc.username
+	sonar.jdbc.password
+	salesforce.username
+	salesforce.password
+	sonar.projectVersion
+	-->
+	
     <!-- location properties -->
 	<property name="sonar.sourceEncoding" value="UTF-8"/>
     <property name="sonar.sources" value="src/main/metadata" />
-    <!--property name="sonar.binaries" value="${user.dir}/bin" />
-    <property name="sonar.tests" value="${user.dir}/tests" />
-    <property name="sonar.libraries" value="${user.dir}/" /-->
     
     <!-- define if not already defined properties -->
     <property name="sonar.language" value="sf" />
@@ -30,7 +31,6 @@
    
 	<property name="sonar.projectKey" value="${sonar.projectKey}" />
 	<property name="sonar.projectName" value="${sonar.projectName}" />
-	<property name="sonar.projectVersion" value="1.0" />
    
     <sonar:sonar xmlns:sonar="antlib:org.sonar.ant"/>
   </target>
