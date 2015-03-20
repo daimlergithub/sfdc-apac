@@ -23,7 +23,7 @@
 public class BatchAssignTasksTest {
 
     public static testMethod void testMyController() {
-       
+       	
         List<User> newUsers = new List<User>();
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
 		System.runAs ( thisUser ) {
@@ -70,10 +70,13 @@ public class BatchAssignTasksTest {
             OfficePhone__c = '1234567'       
         );        
         insert ssi ;
-        for(integer i = 0; i < 201; i++) {
+        for(integer i = 0; i < 201; i++) {       	
             tasks.add(new Task(RecordTypeId = SMSRTID,WhatId = ssi.Id));
         }
+        
+        system.debug('@Shrinivas: Before Insert Task...' +tasks[0]);
         Insert tasks;
+        system.debug('@Shrinivas: After Insert Task...');
         
         Test.startTest();
         
@@ -85,14 +88,18 @@ public class BatchAssignTasksTest {
                 queryIds += ',';
             }
             queryIds = queryIds.subString(0, queryIds.length()-1);
-    
-            String queryStr = 
-                    'Select Id, OwnerId From Task Where Id In (' + queryIds + ') ';
-                
+    		
+            String queryStr = 'Select Id, OwnerId From Task Where Id In (' + queryIds + ') ';
+            
             BatchAssignTasks batcher = new BatchAssignTasks(queryStr, users);
             Database.executeBatch(batcher, 300);
+            
+            //Integer count  = [Select Count() From Task Where RecordTypeId = :SMSRTID And Status = 'Closed' And Activity_Status__c = 'Sent'];
+            Integer count  = [Select Count() From Task Where RecordTypeId = :SMSRTID];
+        	
+        	system.assertEquals(201, count, 'The count did not match the expected value');
         }
-        
+             
         Test.stopTest();
         
         //Integer count  = [Select Count() From Task Where RecordTypeId = :SMSRTID And Status = 'Closed' And Activity_Status__c = 'Sent'];

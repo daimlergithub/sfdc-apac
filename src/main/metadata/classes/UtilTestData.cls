@@ -142,34 +142,7 @@ Public class UtilTestData {
             }     
         return usr;    
     }
-
-     // Create Test portal User for different recordtype of an Account
-     /*
-    private static User createPortalUserforAccount(Id userRoleId, Id profileId,String accountRecordTypeId) {         
-        Account acc = (Account)UtilTestData.createSobject(new Account(),accountRecordTypeId);  
-        Contact con = new Contact ( AccountId = acc.id, LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true);
-        insert con;      
-        System.assert(con.LastName=='portalTestUser'); 
-        User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
-        System.assertEquals(UserInfo.getUserId(),thisUser.id);
-        User usr=new User();       
-        System.runAs ( thisUser ) {               
-                usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';            
-                usr.ProfileId=profileId;
-                usr.UserRoleId=userRoleId;
-                usr.LastName = 'Test User';
-                usr.Email = 'test001@daimler.com.full';
-                usr.Alias = 'test';
-                usr.TimeZoneSidKey = 'Asia/Shanghai';
-                usr.EmailEncodingKey = 'UTF-8';
-                usr.LanguageLocaleKey = 'en_US';
-                usr.localesidkey='en_US';
-                usr.isActive = true;
-                usr.ContactId =con.Id;
-                insert usr; 
-            }     
-        return usr;            
-    } */
+   
    // Create Test User by Role Name and Profile Name
     public static User createUser(String roleName, String profileName) {
         return createUser(getUserRoleId(roleName), 

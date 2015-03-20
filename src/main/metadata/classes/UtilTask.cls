@@ -129,7 +129,7 @@ public class UtilTask {
                 relatedTasksAmountMap.put(taskWhatId + taskWhoId, ++count);
             }
         }
-        System.debug('Debug Output ======> {' + relatedTasksAmountMap + '}');
+        System.debug('Debug Output:updateCampaignMemberStatus ======> {' + relatedTasksAmountMap + '}');
 
         // Update Campaign Members
         List<CampaignMember> membersNeedToUpdate = new List<CampaignMember>();

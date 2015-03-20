@@ -859,6 +859,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SharingDataHandlerBaseTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SharingService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1139,6 +1143,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilCampaignTaskGenerationByLeadsTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilCampaignTaskGenerationByVehicle</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1163,15 +1171,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>UtilInsertMemberByCampaignLeads</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>UtilLead</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>UtilLeadEmailEscalation</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilLeadEmailEscalationTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -4375,11 +4383,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.PR_Comment_Central_Internal__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.PR_Comment_MBCL_Internal__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8434,16 +8437,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>QC__c.R_Familiar_BMBS_smart_Knowledge_P_F_S1__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>QC__c.R_Familiar_BMBS_smart_Knowledge_P_F_S2__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>QC__c.R_Familiar_smart_Knowledge_P_F_S1__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -9275,11 +9268,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Campaign__c.Region__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Retail_Campaign__c.Relevant_BMBS_Campaign__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12128,10 +12116,6 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>BMBS_Campaigns</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>BandwidthExceeded</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -12510,12 +12494,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Campaign.AS_BMBS_Campaign</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Campaign.AS_Cental_Campaign</recordType>
+        <recordType>Campaign.AS_Central_Campaign</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -12555,17 +12534,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Campaign.S_M_Event_BMBS_Campaign</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
         <recordType>Campaign.S_M_Event_Central_Campaign</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Campaign.S_M_Media_BMBS_Campaign</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

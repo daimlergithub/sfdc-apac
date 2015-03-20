@@ -48,7 +48,7 @@ Account account2 = new Account(Dealer_Default_Flag__c=true,
                                     City__c='Beijing',
                                     Phone = '80801011',
                                     Area_Code__c = '010',            
-                                    Name = 'Beijing XING Services Limited - Alpha Review',
+                                    lastName = 'Beijing XING Services Limited - Alpha Review',
                                     ZipCode__c='100101',
                                     RecordTypeId=accPerson_RecordTypeIdp);
                                     insert account2;

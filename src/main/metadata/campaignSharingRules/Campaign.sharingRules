@@ -371,19 +371,6 @@
         <name>Share S&amp;M Campaign with Region-W</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>Share_S_M_Event_BMBS_Campaign_to_Call_Center</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>AS BMBS Campaign,S&amp;M Event BMBS Campaign,S&amp;M Media BMBS Campaign</value>
-        </criteriaItems>
-        <campaignAccessLevel>Edit</campaignAccessLevel>
-        <name>Share S&amp;M Event BMBS Campaign to Call Center</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
         <fullName>Share_S_M_Event_Central_Campaign_to_Call_Center</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>

@@ -16,62 +16,61 @@ public with sharing class UtilCampaignLead
     // Update Contact__c of Campaign Lead
     public static void updateContact(List<Campaign_Lead__c> campaignLeads)
     {
+      if(campaignLeads!=Null && !campaignLeads.isEmpty()){  
         for (Campaign_Lead__c campaignLead : campaignLeads) {
             campaignLead.Contact__c = campaignLead.Lead_Account_Id__c;
         }
+      }
     }
 
     // Populating Campaign Title and Notes
     public static void updateCampaignTitleAndNotes(List<Campaign_Lead__c> campaignLeads)
     {
         // Get the map between AccountId and PersonContactId
-        Set<Id> accountIds = new Set<Id>();
-        for (Campaign_Lead__c campaignLead : campaignLeads)
-        {
-            accountIds.add(campaignLead.Lead_Account_Id__c);
-        }
-
-        Map<Id, Account> accMap = new Map<Id, Account>(
-            [SELECT Id, PersonContactId FROM Account WHERE Id IN :accountIds]);
-
-        // Get CampaignMembers by PersonContactIds and CampaignIds in Campaign Lead
-        Set<Id> contactIds = new Set<Id>();
+        Set<Id> accountIds = new Set<Id>(); 
+        Set<ID> contactIds = new Set<ID>();       
+       // Get CampaignMembers by PersonContactIds and CampaignIds in Campaign Lead    
         Set<Id> campaignIds = new Set<Id>();
-        for (Campaign_Lead__c campaignLead : campaignLeads)
-        {
-            if (campaignLead.Lead_Account_Id__c != null)
-            {
-                contactIds.add(accMap.get(campaignLead.Lead_Account_Id__c).PersonContactId);
+        
+        if(campaignLeads!=Null && !campaignLeads.isEmpty()){  
+            for (Campaign_Lead__c campaignLead : campaignLeads)
+              {
+                accountIds.add(campaignLead.Lead_Account_Id__c);               
+              }
             }
+            Map<Id, Account> accMap = new Map<Id, Account>(
+                [SELECT Id, PersonContactId FROM Account WHERE Id IN :accountIds]);
 
-            if (campaignLead.Campaign__c != null)
+            for (Campaign_Lead__c campaignLead : campaignLeads)
             {
-                campaignIds.add(campaignLead.Campaign__c);
+                if (campaignLead.Lead_Account_Id__c != null)
+                {
+                    contactIds.add(accMap.get(campaignLead.Lead_Account_Id__c).PersonContactId);
+                }
+    
+                if (campaignLead.Campaign__c != null)
+                {
+                    campaignIds.add(campaignLead.Campaign__c);
+                }
             }
-        }
 
         // Populate Map<CampaignId + ContactId => CampaignMember>
-        List<CampaignMember> members = 
-            [SELECT Id, CampaignId, ContactId, Package_Name__c, 
-                    Package_Description__c, Participating_Dealer_Name__c,
-                    Registration_Notes__c
-             FROM CampaignMember 
-             WHERE CampaignId IN :campaignIds
-             AND ContactId IN :contactIds
-             AND (Package_Name__c != NULL 
-                  OR Package_Description__c != null
-                  OR Participating_Dealer_Name__c != null
-                  OR Package_Description__c != null)];
+        List<CampaignMember> members = [SELECT Id, CampaignId, ContactId, Package_Name__c, 
+                                        Package_Description__c, Participating_Dealer_Name__c,
+                                        Registration_Notes__c FROM CampaignMember 
+                                        WHERE CampaignId IN :campaignIds
+                                        AND ContactId IN :contactIds
+                                        AND (Package_Name__c != NULL 
+                                              OR Package_Description__c != null
+                                              OR Participating_Dealer_Name__c != null
+                                              OR Package_Description__c != null)];
 
-        Map<String, CampaignMember> campaignMemberMap = 
-            new Map<String, CampaignMember>();
+        Map<String, CampaignMember> campaignMemberMap = new Map<String, CampaignMember>();
         for (CampaignMember member : members) {
-            String key = String.valueOf(member.CampaignId) + 
+                String key = String.valueOf(member.CampaignId) + 
                 String.valueOf(member.ContactId);
-            campaignMemberMap.put(key, member);
+                campaignMemberMap.put(key, member);
         }
-        System.debug(campaignMemberMap);
-
         // Populate Campaign Title
         for (Campaign_Lead__c campaignLead : campaignLeads) {
             // Get CampaignMember by Campaign__c and contactId
@@ -113,7 +112,7 @@ public with sharing class UtilCampaignLead
     
     public static void beforeInsertEvents(list<Campaign_Lead__c> campaignLeadsNew)
     {
-    	Set<String> campaignIds = new Set<String>();
+        Set<String> campaignIds = new Set<String>();
         Set<String> leadIds = new Set<String>();
         for(Campaign_Lead__c cl : campaignLeadsNew)
         {
@@ -122,28 +121,28 @@ public with sharing class UtilCampaignLead
         }
         if(campaignIds!=null && !campaignIds.IsEmpty() && leadIds!=null && !leadIds.IsEmpty())
         {
-        	Set<String> campaignLeadIndexs = new Set<String>();
-	        for(Campaign_Lead__c cl : [select Campaign__c, Lead__c from Campaign_Lead__c where Campaign__c in :campaignIds and Lead__c in :leadIds])
-	        {
-	            String index = cl.Campaign__c + ':' + cl.Lead__c;
-	            campaignLeadIndexs.add(index);
-	        }
-	        
-	        List<Campaign_Lead__c> updatedCampaignLeads = new List<Campaign_Lead__c>();
-	        for(Campaign_Lead__c cl : campaignLeadsNew)
-	        {
-	            String index = cl.Campaign__c + ':' + cl.Lead__c;
-	            if(!campaignLeadIndexs.contains(index))
-	            {
-	                cl.FirstTimeImported__c = true;
-	            }
-	        }
+            Set<String> campaignLeadIndexs = new Set<String>();
+            for(Campaign_Lead__c cl : [select Campaign__c, Lead__c from Campaign_Lead__c where Campaign__c in :campaignIds and Lead__c in :leadIds])
+            {
+                String index = cl.Campaign__c + ':' + cl.Lead__c;
+                campaignLeadIndexs.add(index);
+            }
+            
+            List<Campaign_Lead__c> updatedCampaignLeads = new List<Campaign_Lead__c>();
+            for(Campaign_Lead__c cl : campaignLeadsNew)
+            {
+                String index = cl.Campaign__c + ':' + cl.Lead__c;
+                if(!campaignLeadIndexs.contains(index))
+                {
+                    cl.FirstTimeImported__c = true;
+                }
+            }
         }
     }
     
     public static void beforeUpdateEvents(list<Campaign_Lead__c> campaignLeadsNew,map<id,Campaign_Lead__c> campaignLeadOldMap)
     {
-    	// Get the campaign Lead which campaign or lead has change
+        // Get the campaign Lead which campaign or lead has change
         List<Campaign_Lead__c> campaignLeads = new List<Campaign_Lead__c>();
         for (Campaign_Lead__c campaignLead : campaignLeadsNew)
         {
@@ -161,4 +160,30 @@ public with sharing class UtilCampaignLead
             updateCampaignTitleAndNotes(campaignLeads);
         }
     }
+   public static void insertMembers(List<Campaign_Lead__c> clList) {
+        List<CampaignMember> cpmList = new List<CampaignMember>();
+        Set<ID> idSet = new Set<ID>();
+        for(Campaign_Lead__c cl : clList) {
+            if (cl.Contact__c != null) {
+                idSet.add(cl.Contact__c);
+            }           
+        }
+        
+        List<Contact> contactList = [select id, Name, AccountId from Contact where AccountId in :idSet];
+        
+        for(Contact c : contactList) {
+            for(Campaign_Lead__c cl : clList) {
+                if(cl.Contact__c == c.AccountId) cpmList.add(new CampaignMember(CampaignId = cl.Campaign__c, ContactId = c.Id, Status = 'Sent'));
+            }
+        }
+        
+        Savepoint sp = Database.setSavepoint();
+        try {
+            //if(cpmList.size() > 0) insert cpmList;
+            if(cpmList.size() > 0) Database.Insert(cpmList, false);
+        } catch (exception ex) {
+            Database.rollback(sp);
+            System.debug('create task failed : ' + ex);   
+        }
+    } 
 }

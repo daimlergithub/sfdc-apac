@@ -18,6 +18,8 @@ public class CACFieldsExtensionTest {
         CACFieldsExtension extension = new CACFieldsExtension(controller);
         extension.isEdit = true; 
         extension.edit();
+       
+        extension.cancel();
         extension.save();
     }
 }

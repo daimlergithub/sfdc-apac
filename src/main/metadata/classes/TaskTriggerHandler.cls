@@ -304,7 +304,7 @@ public class TaskTriggerHandler {
             System.debug('-------------objectIds---------->' + objectIds);
             System.debug('-------------ctiTasks---------->' + ctiTasks);
             // Added by Chris Huang. Additional logic to get cti call message when call object are not the same.
-            if (objectIds.size() == 1 && tasks[0].RecordTypeId == OBRTID && ctiTasks.size() == 0) {
+            if (objectIds.size() == 1 && tasks[0].RecordTypeId == OBRTID && ctiTasks.isEmpty()) { //code changed from size() == 0 to isEmpty()
                 List<Task> ctks = [
                     Select UCID__c, Caller__c, Called__c, Start_call_time__c, End_call_time__c, CallObject, CreatedDate 
                     From Task 

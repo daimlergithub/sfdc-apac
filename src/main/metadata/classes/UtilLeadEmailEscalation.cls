@@ -599,7 +599,7 @@ public class UtilLeadEmailEscalation {
         return emailBody;
     }
 
-    private static List<String> getConversionRateRowValue(List<Account> accsInPast12thMonth) {
+  @TestVisible  private static List<String> getConversionRateRowValue(List<Account> accsInPast12thMonth) {
         Decimal sentLeadsAmount = 0;
         Decimal contactedLeadsAmount = 0;
         Decimal convertedLeadsAmount = 0;
@@ -653,7 +653,7 @@ public class UtilLeadEmailEscalation {
     }
 
     // Get Dealer ToAddesses
-    private static String getDealerToAddresses(Account acc) {
+   @TestVisible private static String getDealerToAddresses(Account acc) {
         Set<String> emails = new Set<String> {
             acc.Dealer_CRM_Manager_Email__c, 
             acc.Dealer_General_Manager_Email__c, 
@@ -665,7 +665,7 @@ public class UtilLeadEmailEscalation {
     }
 
     // Get Dealer ccAddress 
-    private static String getDealerCcAddresses(Account acc) {
+    @TestVisible private static String getDealerCcAddresses(Account acc) {
         return getValidEmails(new Set<String>{acc.Owner.Email});
     }
     

@@ -14,19 +14,6 @@
         <name>READ/WRITE for Vehicle to CAC</name>
     </criteriaBasedRules>
     <criteriaBasedRules>
-        <fullName>Read_of_Vehicle_to_BMBS</fullName>
-        <sharedTo>
-            <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>
-        </sharedTo>
-        <criteriaItems>
-            <field>RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Competitor,MB</value>
-        </criteriaItems>
-        <accessLevel>Read</accessLevel>
-        <name>Read of Vehicle to BMBS</name>
-    </criteriaBasedRules>
-    <criteriaBasedRules>
         <fullName>Read_of_Vehicle_to_Central</fullName>
         <sharedTo>
             <roleAndSubordinatesInternal>WholeSale_CallCenter</roleAndSubordinatesInternal>

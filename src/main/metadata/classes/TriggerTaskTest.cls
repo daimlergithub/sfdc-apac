@@ -59,7 +59,9 @@ private class TriggerTaskTest {
         System.assert(member.Status == 'Failed/No Response');
     }
 
-    static testMethod void testUpdateCampaignMemberStatus_ManyAssignedTasks() {
+    static testMethod void testUpdateCampaignMemberStatus_ManyAssignedTasks() 
+    {
+       // test.startTest();
         Account personAccount = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
 
@@ -110,5 +112,6 @@ private class TriggerTaskTest {
         eDMTask.Activity_Status__c = 'Unsubscribe';
         member = [SELECT Status FROM CampaignMember WHERE Id = :member.Id];
         System.assert(member.Status == 'Registered');
+        //test.stopTest();
     }
 }

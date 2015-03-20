@@ -809,10 +809,10 @@ public class QCHelper {
 	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Correctly Interpret The Questio Comments', qc.Q5_Comments__c, QCOldMap.get(qc.Id).Q5_Comments__c));
 	        }
 	        if(qc.FMSK__c != QCOldMap.get(qc.Id).FMSK__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Familiar MBCL/Smart/ Knowledge', qc.FMSK__c, QCOldMap.get(qc.Id).FMSK__c));
+	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Familiar Central/Smart/ Knowledge', qc.FMSK__c, QCOldMap.get(qc.Id).FMSK__c));
 	        }
 	        if(qc.Q6_Comments__c != QCOldMap.get(qc.Id).Q6_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Familiar MBCL/Smart/ Knowledge Comments', qc.Q6_Comments__c, QCOldMap.get(qc.Id).Q6_Comments__c));
+	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Familiar Central/Smart/ Knowledge Comments', qc.Q6_Comments__c, QCOldMap.get(qc.Id).Q6_Comments__c));
 	        }
 	        if(qc.Responsibility__c != QCOldMap.get(qc.Id).Responsibility__c) {
 	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Responsibility', qc.Responsibility__c, QCOldMap.get(qc.Id).Responsibility__c));

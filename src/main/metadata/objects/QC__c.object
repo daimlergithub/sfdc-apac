@@ -813,7 +813,7 @@ Do not mislead clients, actively verifying the customer&apos;s needs.</inlineHel
     <fields>
         <fullName>FMSK__c</fullName>
         <externalId>false</externalId>
-        <label>Familiar BMBS/smart/ Knowledge</label>
+        <label>Familiar Central/smart/ Knowledge</label>
         <picklist>
             <picklistValues>
                 <fullName>Pass</fullName>
@@ -1688,7 +1688,7 @@ Customer hung up the phone and then hang up.</inlineHelpText>
     <fields>
         <fullName>Q6_Comments__c</fullName>
         <externalId>false</externalId>
-        <label>Familiar BMBS/smart/ Knowledge Comments</label>
+        <label>Familiar smart/Knowledge Comments</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -1955,30 +1955,6 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Familiar_BMBS_smart_Knowledge_P_F_S1__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FMSK__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Familiar BMBS/smart/ Knowledge P/F S1</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Familiar_BMBS_smart_Knowledge_P_F_S2__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FMSK__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Familiar BMBS/smart/ Knowledge P/F S2</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>

@@ -676,10 +676,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BMBS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Data marketing</fullName>
                 <default>false</default>
             </picklistValues>
