@@ -9098,7 +9098,7 @@ Plan_Start_Date__c &gt;  Plan_End_Date__c,
 $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorMessage>Plan Start Date must be less than or equal to Plan End Dat</errorMessage>
-    </validationRules>    
+    </validationRules>
     <validationRules>
         <fullName>Relevant_Central_Campaign_Mandatory</fullName>
         <active>true</active>

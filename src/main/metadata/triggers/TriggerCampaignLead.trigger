@@ -20,16 +20,13 @@ trigger TriggerCampaignLead on Campaign_Lead__c (before insert, before update,af
     }
     
     if(trigger.isAfter && trigger.isInsert)
-    {
-    	UtilInsertMemberByCampaignLeads u = new UtilInsertMemberByCampaignLeads();
-        u.insertMembers(trigger.new);	
+    {       
+        UtilCampaignLead.insertMembers(trigger.new);   
     }
-    if(trigger.isAfter && trigger.isUpdate)
-    {
-    }
+  
     if(trigger.isBefore && trigger.isInsert)
     {
-    	 UtilCampaignLead.updateCampaignTitleAndNotes(trigger.new);
+         UtilCampaignLead.updateCampaignTitleAndNotes(trigger.new);
          // US-Lead-001: Update Contact__c of Campaign Lead
          UtilCampaignLead.updateContact(trigger.new);
          
@@ -38,6 +35,6 @@ trigger TriggerCampaignLead on Campaign_Lead__c (before insert, before update,af
          
     if(trigger.isBefore && trigger.isUpdate)
     {
-    	UtilCampaignLead.beforeUpdateEvents(trigger.new,trigger.oldmap);
+        UtilCampaignLead.beforeUpdateEvents(trigger.new,trigger.oldmap);
     }
 }

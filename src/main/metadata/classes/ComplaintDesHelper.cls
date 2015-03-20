@@ -13,10 +13,6 @@
  */
 public without sharing class ComplaintDesHelper {
 
-    public ComplaintDesHelper() {
-
-    }
-
     //MB Complaint record type
     static String MB_COMPLAINT_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.MB_COMPLAINT).getRecordTypeId();
 

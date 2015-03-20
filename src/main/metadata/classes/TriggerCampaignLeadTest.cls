@@ -9,12 +9,12 @@
     1. Mouse Created on 2013-04-24
 */
 @isTest
-private class TriggerCampaignLeadTest {
+Public class TriggerCampaignLeadTest {
     // US-Lead-001
     public static testMethod void testTriggerCampaignLead_PopulateContact() {
         // Create one person account
         Account personAccount = (Account)UtilTestData.createSobject(new Account(), 
-            UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+           UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
 
         // One Lead which has a reference to this person account
         Lead__c lead = new Lead__c(Contact__c = personAccount.Id);
@@ -22,8 +22,7 @@ private class TriggerCampaignLeadTest {
             UtilTestData.LEAD_RT_SALES_LEADS);
 
         // Create Campaign Lead
-        Campaign_Lead__c camLead = new Campaign_Lead__c(
-            Lead__c = lead.Id);
+        Campaign_Lead__c camLead = new Campaign_Lead__c(Lead__c = lead.Id);
         camLead = (Campaign_Lead__c)UtilTestData.createSobject(camLead, null);
 
         // Start Test
@@ -46,13 +45,11 @@ private class TriggerCampaignLeadTest {
 
         // One Lead which has a reference to this person account
         Lead__c lead = new Lead__c(Contact__c = personAccount.Id);
-        lead = (Lead__c)UtilTestData.createSobject(lead,
-            UtilTestData.LEAD_RT_SALES_LEADS);
+        lead = (Lead__c)UtilTestData.createSobject(lead,UtilTestData.LEAD_RT_SALES_LEADS);
 
         // One Campaign Execution, one CAC Campaign and one Central Marketing Campaign
         // and one Participating Dealer of Central Marketing Campaign
-        Campaign centralMKTCampaign = (Campaign)UtilTestData.createSobject(
-            new Campaign(), UtilTestData.CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN);
+        Campaign centralMKTCampaign = (Campaign)UtilTestData.createSobject(new Campaign(), UtilTestData.CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN);
 
         // Create Campaign Package for Central MKT Campaign
         Campaign_Package__c camPackage = new Campaign_Package__c(

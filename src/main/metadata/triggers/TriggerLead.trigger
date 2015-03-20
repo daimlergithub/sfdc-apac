@@ -29,30 +29,30 @@ trigger TriggerLead on Lead__c(before insert, before update, after update) {
     if (!UtilCustomSettings.isEnabled('TriggerLead')) {
         return;
     }
-	if(trigger.isAfter && trigger.isInsert)
+    if(trigger.isAfter && trigger.isInsert)
     {
-    	AccountSharingDataHandler handler = new AccountSharingDataHandler('Lead__c');
-    	handler.shareAccountByCRMCode(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
-    	LeadHelper.afterInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-    	LeadHelper.ShareLeadsToCampaignUser(trigger.new,trigger.OldMap,trigger.NewMap,trigger.isinsert,trigger.isUpdate);
-    	LeadHelper.SendMessageToCustomerAndInstructor(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+        AccountSharingDataHandler handler = new AccountSharingDataHandler('Lead__c');
+        handler.shareAccountByCRMCode(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
+        LeadHelper.afterInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.ShareLeadsToCampaignUser(trigger.new,trigger.OldMap,trigger.NewMap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.SendMessageToCustomerAndInstructor(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
-    	LeadHelper.afterInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-    	LeadHelper.ShareLeadsToCampaignUser(trigger.new,trigger.OldMap,trigger.NewMap,trigger.isinsert,trigger.isUpdate);
-    	LeadHelper.SendMessageToCustomerAndInstructor(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.afterInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.ShareLeadsToCampaignUser(trigger.new,trigger.OldMap,trigger.NewMap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.SendMessageToCustomerAndInstructor(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
     }
     if(trigger.isBefore && trigger.isInsert)
     {
-    	// US-Lead-009
-    	UtilLead.updateLeadForDataSharing(trigger.new);
-    	UtilLead.beforeInsert_updateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-    	LeadHelper.beforeInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+        // US-Lead-009
+        UtilLead.updateLeadForDataSharing(trigger.new);
+        UtilLead.beforeInsert_updateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.beforeInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
     }
     if(trigger.isBefore && trigger.isUpdate)
     {
-    	UtilLead.beforeInsert_updateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-    	LeadHelper.beforeInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+        UtilLead.beforeInsert_updateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.beforeInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
     }
 }

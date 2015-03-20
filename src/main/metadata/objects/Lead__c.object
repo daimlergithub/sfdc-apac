@@ -18199,10 +18199,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -18268,6 +18264,10 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </values>
             <values>
                 <fullName>Car reviews</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28072,10 +28072,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -28141,6 +28137,10 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </values>
             <values>
                 <fullName>Car reviews</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -37097,10 +37097,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -37166,6 +37162,10 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </values>
             <values>
                 <fullName>Car reviews</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -45374,10 +45374,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -45435,6 +45431,10 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
             </values>
             <values>
                 <fullName>Car reviews</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>

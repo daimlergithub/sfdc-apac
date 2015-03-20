@@ -18706,11 +18706,11 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>CSI survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Central CAC</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25913,6 +25913,10 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
+                <fullName>Central gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Club</fullName>
                 <default>false</default>
             </values>
@@ -25942,10 +25946,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>Individual information change</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central gift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26980,11 +26980,11 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>CSI survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Central CAC</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -35043,11 +35043,11 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central</fullName>
+                <fullName>CAC or smart Finance Complaints</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CAC or smart Finance Complaints</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -36385,11 +36385,11 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>CSI survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Central CAC</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -45794,11 +45794,11 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>CSI survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Central CAC</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -53800,11 +53800,11 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central</fullName>
+                <fullName>CAC or smart Finance Complaints</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CAC or smart Finance Complaints</fullName>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -54147,15 +54147,19 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Call Center</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central gift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -54192,10 +54196,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>Individual information change</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central gift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -55222,11 +55222,11 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>CSI survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Central CAC</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -62597,10 +62597,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>CAC or smart Finance Complaints</fullName>
                 <default>false</default>
             </values>
@@ -62610,6 +62606,10 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>Cancel the order</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63020,10 +63020,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>CSR</fullName>
                 <default>false</default>
             </values>
@@ -63033,6 +63029,14 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central gift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -63089,10 +63093,6 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             </values>
             <values>
                 <fullName>MB Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central gift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -64187,11 +64187,11 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>CSI survey</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Central CAC</fullName>
                 <default>false</default>
             </values>
             <values>

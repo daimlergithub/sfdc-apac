@@ -321,10 +321,10 @@ public class TaskHelper {
         }
     
         if(caseIds.size() + campaignIds.size() + campaignLeadIds.size() > 0){
-            copyCampaignNameFromRelatedToObject(caseIds, campaignIds, campaignLeadIds, trigger.new);
+            copyCampaignNameFromRelatedToObject(caseIds, campaignIds, campaignLeadIds, tasks);
         }
         if(caseIds!=null && !caseIds.IsEmpty()){
-            copyIBCallTypeFromCase(caseIds, trigger.new);
+            copyIBCallTypeFromCase(caseIds, tasks);
         }   
    }
    
@@ -335,10 +335,8 @@ public class TaskHelper {
        Map<String, Task> taskMapForSMS = new Map<String, Task>();
        Map<Id, String> caseIdInteractionIds = new Map<Id,String>();
        
-       System.debug('@Shrinivas Enter method:' +isUpdate);
        if(isInsert)
        {
-            System.debug('@Shrinivas: Enter Insert block..');
             for(Task t : tasks)
             {
                 if(t.Task_RecordType_Name__c == 'IB Call' && t.CallType  == 'Inbound' && t.Phone__c != null
@@ -375,7 +373,6 @@ public class TaskHelper {
             }
             
             for(Task t : tasks) {
-	            System.debug('@Shrinivas: Enter for loop...' +taskOldMap);
 	            //When QC Quantity is changed, insert IB/OB QC records.
 	            if(t.QC_Quantity__c > 0 && (taskOldMap.get(t.Id).QC_Quantity__c == 0 || taskOldMap.get(t.Id).QC_Quantity__c == null)) {
 	                taskforGenerateQC.add(t);

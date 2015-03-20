@@ -2215,7 +2215,7 @@
         </filters>
         <label>smart Best Activities</label>
         <language>en_US</language>
-    </listViews>	
+    </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>
         <fullName>AS_Central_Campaign</fullName>
@@ -2906,6 +2906,13 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participating_Region_Province__c</picklist>
+            <values>
+                <fullName>Province1</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8332,7 +8339,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>    
+    </recordTypes>
     <recordTypes>
         <fullName>S_M_Event_Central_Campaign</fullName>
         <active>true</active>
@@ -9192,7 +9199,7 @@
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>    
+    </recordTypes>
     <recordTypes>
         <fullName>S_M_Media_Central_Campaign</fullName>
         <active>true</active>
@@ -10945,7 +10952,7 @@
         <errorConditionFormula>AND($Profile.Name !='IntegrationAPI',ISBLANK(DM_Material__c),ISPICKVAL(Execution_Type__c,"DM"))</errorConditionFormula>
         <errorDisplayField>DM_Material__c</errorDisplayField>
         <errorMessage>When Execution Type is DM, DM Material is Required.</errorMessage>
-    </validationRules>    
+    </validationRules>
     <validationRules>
         <fullName>Locked_for_Central_when_Published</fullName>
         <active>true</active>

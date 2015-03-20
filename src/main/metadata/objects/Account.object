@@ -358,10 +358,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Data marketing</fullName>
                 <default>false</default>
             </picklistValues>
@@ -4831,10 +4827,6 @@ Modify Reason:
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Data marketing</fullName>
                 <default>false</default>
             </picklistValues>
@@ -6682,10 +6674,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -6747,6 +6735,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Car reviews</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8841,10 +8833,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Baidu</fullName>
                 <default>false</default>
             </values>
@@ -8862,6 +8850,10 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>C web special</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Central</fullName>
                 <default>false</default>
             </values>
             <values>
