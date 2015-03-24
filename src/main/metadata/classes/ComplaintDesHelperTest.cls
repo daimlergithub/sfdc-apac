@@ -23,7 +23,7 @@ private class ComplaintDesHelperTest {
             insert dealer;
             c1 = new Case( AccountId = acc.Id, RecordTypeId = MB_COMPLAINT_RECORD_TYPE,
                                Case_SubType__c='Dealer-after sales service attitude',
-                               Urgent__c = true,Ref_No_Regional__c='SOUTH', Case_Dealer__c = dealer.Id);
+                               Urgent__c = true,Ref_No_Regional__c='SOUTH', Case_Dealer__c = dealer.Id,Ref_No_Central__c='SOUTH');
 
             insert c1;
 
@@ -34,10 +34,17 @@ private class ComplaintDesHelperTest {
             CaseTeamMember member2 = new CaseTeamMember(ParentId=c1.id,MemberId = user2.id,TeamRoleId=memberRole.id);
             insert member1;
             insert member2;
-
             test_method_one();
             test_method_two();
             Test.stopTest();
+            system.assert([select id from Account where id=:dealer.id].size()>0);
+            system.assert([select id from Case where id=:c1.id].size()>0);
+            system.assertEquals(member1.ParentId,c1.id); 
+            system.assertEquals(member2.ParentId,c1.id);
+            system.assertEquals(member1.MemberId,user1.id);
+            system.assertEquals(member2.MemberId,user2.id);
+            system.assertEquals(member1.TeamRoleId,memberRole.id);
+            system.assertEquals(member2.TeamRoleId,memberRole.id);
         }
 
     }
@@ -45,7 +52,7 @@ private class ComplaintDesHelperTest {
     /**
          As the case team member, when a  team member
          create  a complaint description/ resolution on MB Complaint ,
-         and the �Urgent� field of the case is ticked,
+         and the ?Urgent? field of the case is ticked,
          an notify email will be sent to other case team members.
     */
     static void test_method_one() {
@@ -57,7 +64,7 @@ private class ComplaintDesHelperTest {
 
     /**
         As the case team member, when a  team member  create  a attachment on MB Complaint ,
-        and the �Urgent� field of the case is ticked,
+        and the ?Urgent? field of the case is ticked,
         an notify email will be sent to other case team members.
     */
     static void test_method_two() {
@@ -67,6 +74,7 @@ private class ComplaintDesHelperTest {
     }
     
     public static testMethod void testTriggerComplaintDescAfterInsertUpdateDelete() {
+    	Test.startTest();
         Case cas = (Case)UtilTestData.createSobject(new Case(), UtilTestData.CASE_RT_MB_COMPLAINT);
         Complaint_Description__c sm = new Complaint_Description__c (
             Case__c = cas.id
@@ -82,10 +90,14 @@ private class ComplaintDesHelperTest {
         } catch  (DMLException e) {
             System.debug('update description error : ' + e.getDMLMessage(0));
         }
+        system.assert([select id from Complaint_Description__c where Id=:sm.id].size()>0); 
+        system.assertEquals(sm.Description__c,'ddd'); 
         try {
             delete sm;
         } catch  (DMLException e) {
             System.debug('delete description error : ' + e.getDMLMessage(0));
         }
-    }
+        Test.stopTest();   
+        system.assert([select id from Case where id=:cas.id].size()>0);       
+       }
 }

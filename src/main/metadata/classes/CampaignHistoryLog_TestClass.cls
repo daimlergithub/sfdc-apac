@@ -49,8 +49,9 @@ public class CampaignHistoryLog_TestClass{
         co.Description__c = '123';
         update co;
         delete co;
-        
         Test.stopTest();
+        System.assertEquals(co.Campaign__c, TestData_CCA.Id);
+        System.assertEquals(co.Description__c, '123');
     }
     
     /* Campaign Package Test */
@@ -66,7 +67,9 @@ public class CampaignHistoryLog_TestClass{
         update cp;
         delete cp;
         
-        Test.stopTest();    	
+        Test.stopTest();    
+        System.assertEquals(cp.Campaign__c, TestData_CCA.Id);
+        System.assertEquals(cp.Package_Description__c, '123');	
     }
 
     /* Campaign Participating Dealer Trigger Test */
@@ -86,6 +89,8 @@ public class CampaignHistoryLog_TestClass{
         update pd;
         delete pd;
         
-        Test.stopTest();    	
+        Test.stopTest();    
+        System.assertEquals(pd.Campaign__c, TestData_CCA.Id);
+        System.assertEquals(dealer.RecordTypeId, accDealerRT);	
     }    
 }

@@ -73,13 +73,9 @@ public class BatchAssignTasksTest {
         for(integer i = 0; i < 201; i++) {       	
             tasks.add(new Task(RecordTypeId = SMSRTID,WhatId = ssi.Id));
         }
-        
-        system.debug('@Shrinivas: Before Insert Task...' +tasks[0]);
         Insert tasks;
-        system.debug('@Shrinivas: After Insert Task...');
         
         Test.startTest();
-        
         if (tasks.size() > 0) {
     
             String queryIds = ' ';
@@ -99,7 +95,6 @@ public class BatchAssignTasksTest {
         	
         	system.assertEquals(201, count, 'The count did not match the expected value');
         }
-             
         Test.stopTest();
         
         //Integer count  = [Select Count() From Task Where RecordTypeId = :SMSRTID And Status = 'Closed' And Activity_Status__c = 'Sent'];

@@ -26,6 +26,7 @@
         <members>AccountLinkSharingWrapService</members>
         <members>AccountSharingDataHandler</members>
         <members>AddToRetailCampaignController</members>
+        <members>AddToRetailCampaignControllerTet</members>
         <members>AssignCaseToDealerController</members>
         <members>AssignCaseToDealerControllerTest</members>
         <members>AtomicMultipleUowExecutor</members>
@@ -38,6 +39,7 @@
         <members>BatchCalcAmountOfAssignedLeads</members>
         <members>BatchCreateDealerOBEmails</members>
         <members>BatchJobHelper</members>
+        <members>BatchJobHelperTest</members>
         <members>BatchUpdateRecords</members>
         <members>BatchUpdateRecordsTest</members>
         <members>BtlAdditionalInfo</members>
@@ -89,6 +91,7 @@
         <members>DealerSearchController</members>
         <members>DealerSearchControllerTest</members>
         <members>DeploymentUtil</members>
+        <members>DeploymentUtilTest</members>
         <members>Entity</members>
         <members>EpaAdminCommand</members>
         <members>EpaAdminCommandController</members>
@@ -141,6 +144,7 @@
         <members>NiceWebServices</members>
         <members>Operation</members>
         <members>OperationResult</members>
+        <members>OperationTest</members>
         <members>Paginator</members>
         <members>ParticipatingDealerHelper</members>
         <members>PicklistMappingHelper</members>

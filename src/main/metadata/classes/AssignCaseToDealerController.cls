@@ -71,12 +71,15 @@ public class AssignCaseToDealerController {
             accountIds.add(acc.Id);
             accountIdAccountBranchName.put(acc.Id, acc.Branch_name_CHS__c);
         }
-    
+        String Dealer='Dealer Delegate Admin';
         String querySOQL = 'Select Id, Name, FirstName, LastName, UserRole.Name, Profile.Name, AccountId ' +
                             'FROM User ' +
-                           'WHERE IsActive = true AND ' +
-                           '(Profile.Name = :DEALER_USER ' +
-                           'or Profile.Name = :DEALER_DELEGATED_ADMIN )';
+                           'WHERE IsActive = true ';// AND ' +
+                         //  '(Profile.Name like \%'+Dealer+'%\)';
+        String DEALER_DELEGATE_ADMIN=UtilConstant.DEALER_DELEGATE_ADMIN;
+        if(!String.isBlank(DEALER_DELEGATE_ADMIN)) {
+            querySOQL += ' AND Profile.Name LIKE \'%' + DEALER_DELEGATE_ADMIN + '%\'';
+        }                  
         // If userName filter is not null, add it into SOQL
         if(!String.isBlank(userName)) {
             querySOQL += ' AND Name LIKE \'%' + userName + '%\'';
@@ -88,15 +91,17 @@ public class AssignCaseToDealerController {
         querySOQL = querySOQL + 
             ' ORDER BY UserRole.Name DESC LIMIT ' + this.QUERY_LIMIT;
         System.debug(querySOQL);
-        
-        List<User> oblist = Database.query(querySOQL);
-        
+        List<User> oblist=new List<User>();
+        if(querySOQL!=Null){
+          	oblist = Database.query(querySOQL);
+        }
         // If no query result, system alert no search result.
         hasQueryResult = (oblist.size() > 0);
         if (!hasQueryResult) {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO, ERROR_MSG_1));
         }else{
             UserWithAccountInfo uai = null;
+            if(oblist!=Null && !oblist.isEmpty()){
             for (User ob : oblist) {
                 uai = new UserWithAccountInfo();
                 uai.userId = ob.Id;
@@ -109,6 +114,7 @@ public class AssignCaseToDealerController {
                 uai.profileName = ob.Profile.Name;
                 users.add(uai);
             }
+          }
         }
     }
     // Inner Class

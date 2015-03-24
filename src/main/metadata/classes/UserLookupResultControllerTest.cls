@@ -8,9 +8,12 @@
 @isTest
 public class UserLookupResultControllerTest {
 	
-	@isTest static void testUserLookupResultController(){
+	@isTest 
+	static void testUserLookupResultController(){
+		Test.startTest();
 		PageReference page = new PageReference('/apex/UserLookupResult?type=assignment');
 		Test.setCurrentPage(page);
 		UserLookupResultController controller = new UserLookupResultController();
+		Test.stopTest();
 	}
 }

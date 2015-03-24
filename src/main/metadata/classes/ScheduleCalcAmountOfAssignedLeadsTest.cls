@@ -9,8 +9,8 @@
   Create Date          : 2013-06-14
   Modify History       : 
  */
-@isTest
-private class ScheduleCalcAmountOfAssignedLeadsTest {
+@isTest(seeAllData = true)
+public class ScheduleCalcAmountOfAssignedLeadsTest {
     public static testMethod void testHasAssignedDealer() {
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_DEALER);
@@ -25,13 +25,32 @@ private class ScheduleCalcAmountOfAssignedLeadsTest {
         Test.startTest();
         ScheduleCalcAmountOfAssignedLeads schClass = new ScheduleCalcAmountOfAssignedLeads();
         Date next10thDay = System.today().addDays(10);
+        
+        
         String cron = '0 0 13 ' + next10thDay.day() + ' '
                                 + next10thDay.month() + ' ? ' 
                                 + next10thDay.year();
         System.debug('Debug Output ======> {' + cron + '}');
+        
         String jobName = 'Calc Assigned Leads' + Math.rint(Math.random() * 1000000);
+        
         System.schedule(jobName, cron, schClass);
+        
+        //Call the batch apex
+        String query = 'SELECT Id, Name, Assigned_Lead_Amount_of_Everyday__c, ' + 
+            '(SELECT OwnerId, Id FROM Lead_Assigned_Dealer__r WHERE CreatedDate = TODAY) ' + 
+            'FROM Account WHERE RecordType.Name = \'Dealer\' AND Name = \'test dealer\'';
+            
+        BatchCalcAmountOfAssignedLeads calcAssignedLeads = new BatchCalcAmountOfAssignedLeads(query);
+
+        Id batchId = Database.executeBatch(calcAssignedLeads, 200);
+        
         Test.stopTest();
+        
+         dealer = [SELECT Assigned_Lead_Amount_of_Everyday__c
+                  FROM Account WHERE Id = :dealer.Id];
+                  
+        system.assertEquals(1, dealer.Assigned_Lead_Amount_of_Everyday__c);
     }
 
     public static testMethod void testNoAssignedDealer() {
@@ -46,8 +65,25 @@ private class ScheduleCalcAmountOfAssignedLeadsTest {
                                 + next10thDay.month() + ' ? ' 
                                 + next10thDay.year();
         String jobName = 'Calc Assigned Leads' + Math.rint(Math.random() * 1000000);
-        System.schedule(jobName, cron, schClass);
+        
+        
+        //System.schedule(jobName, cron, schClass);
+        
+        //Call the batch apex
+        String query = 'SELECT Id, Name, Assigned_Lead_Amount_of_Everyday__c, ' + 
+            '(SELECT OwnerId, Id FROM Lead_Assigned_Dealer__r WHERE CreatedDate = TODAY) ' + 
+            'FROM Account WHERE RecordType.Name = \'Dealer\' AND Name = \'test dealer\'';
+            
+        BatchCalcAmountOfAssignedLeads calcAssignedLeads = new BatchCalcAmountOfAssignedLeads(query);
+
+        Id batchId = Database.executeBatch(calcAssignedLeads, 200);
+        
         Test.stopTest();
+        
+        dealer = [SELECT Assigned_Lead_Amount_of_Everyday__c
+                  FROM Account WHERE Id = :dealer.Id];
+        
+        system.assertEquals(0, dealer.Assigned_Lead_Amount_of_Everyday__c);
     }
     
     public static testMethod void testBatchCalcAssignedLeads() {

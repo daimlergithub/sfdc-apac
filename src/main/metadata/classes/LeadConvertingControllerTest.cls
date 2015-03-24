@@ -10,8 +10,11 @@
     9-Jun-2014 Sinow    Created
 */
 @isTest(SeeAllData=true)
-public class LeadConvertingControllerTest {
-    public static testMethod void testLeadConvertingController(){
+public class LeadConvertingControllerTest
+{
+    public static testMethod void testLeadConvertingController()
+    {
+    	Test.startTest();
         String thirdPartyRTID = Schema.SObjectType.Account.getRecordTypeInfosByName().get('3rd Party').getRecordTypeId();
         String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         Account dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer');
@@ -32,8 +35,8 @@ public class LeadConvertingControllerTest {
         leadConverting.getParameters().put('id',rc.id);
         Test.setCurrentPage(leadConverting);
         
-        LeadConvertingController extension = new LeadConvertingController();
-        extension.converttolead();
+        LeadConvertingController extension = new LeadConvertingController();        
+        extension.converttolead();        
         extension.cancel();
         extension.vehicleLooking();
         
@@ -45,5 +48,13 @@ public class LeadConvertingControllerTest {
         
         extension.retailCampaignMemberInfos[0].lead.Lead_Type__c = 'a';
         extension.converttolead();
+        Test.stopTest();  
+        system.assertEquals(dealer.RecordTypeId, dealerType);
+        system.assertEquals(thirdParty.RecordTypeId, thirdPartyRTID);
+        system.assertEquals(rtm.Contact__c, thirdParty.Id);
+        system.assertEquals(extension.retailCampaignMemberInfos[0].lead.Lead_Type__c, 'a');  
+        system.assertEquals(extension.retailCampaignMemberInfos[0].lead.Retail_Purchase_Time__c, '0 - 3 months');              
+        system.assert(extension.cancel()!=Null);
+        system.assertEquals(extension.vehicleLooking(),Null);  
     }
 }

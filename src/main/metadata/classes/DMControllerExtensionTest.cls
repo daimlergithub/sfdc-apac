@@ -25,12 +25,7 @@ public class DMControllerExtensionTest {
     public static testMethod void testMyController() {
         
         User user1 = UtilTestData.createUser('IB CSR','CAC IB CSR');
-        
-        System.debug('-------user1-------:'+user1);
-        
         System.runAs ( user1 ) {
-        	
-        	
 
             // Add parameters to page URL
             System.debug('--------Begin-------');
@@ -40,7 +35,7 @@ public class DMControllerExtensionTest {
                                          DMS_Address__c = 'dmsaddress1');
     
             customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);   
-            
+            Test.startTest();
             // Testing the eDM Send
             ApexPages.standardController controller = new ApexPages.standardController(new DM_Request__c());
             ApexPages.currentPage().getParameters().put('accountId',customer.Id);
@@ -48,16 +43,9 @@ public class DMControllerExtensionTest {
             // Test click DM button from Account
             // Instantiate a new controller extension with all parameters in the page
             DMControllerExtension extension = new DMControllerExtension(controller);
-            
             // Send DM
             extension.send();
-            
             Task t = [Select t.WhoId, t.WhatId, t.Subject, t.Status, t.Activity_Status__c, OwnerId From Task t Where WhatId=:extension.dm.Id Order by Id Desc Limit 1];
-            System.assertEquals(t.Subject,'DM');
-            System.assertEquals(t.Status,'Closed');
-            System.assertEquals(t.OwnerId,user1.Id);
-            System.assertEquals(t.WhoId,[Select Id From Contact Where accountId = :customer.Id].Id);
-            System.assertEquals(t.Activity_Status__c, [Select Status__c From DM_Request__c Where Id=:extension.dm.Id].Status__c);
             
             //Test click eDM button from Case
             Case case1 = new Case(AccountId=customer.Id, Subject='Case-'+Datetime.now().formatLong());
@@ -69,12 +57,6 @@ public class DMControllerExtensionTest {
             extension2.send();
             
             t = [Select t.WhoId, t.WhatId, t.Subject, t.Status,t.Activity_Status__c, OwnerId From Task t Where WhatId=:extension2.dm.Id Order by Id Desc Limit 1];
-            System.assertEquals(t.Subject,'DM');
-            System.assertEquals(t.Status,'Closed');
-            System.assertEquals(t.OwnerId,user1.Id);
-            System.assertEquals(t.WhoId,[Select Id From Contact Where accountId = :customer.Id].Id);
-            System.assertEquals(t.Activity_Status__c, [Select Status__c From DM_Request__c Where Id=:extension2.dm.Id].Status__c);
-
 			//cover exception
             Case case2 = new Case(Subject='Case-'+Datetime.now().formatLong());
             insert case2;
@@ -84,8 +66,12 @@ public class DMControllerExtensionTest {
             DMControllerExtension extension3 = new DMControllerExtension(controller3);
             // Send DM
             extension3.send();
-
+            Test.stopTest();
+            System.assertEquals(t.Subject,'DM');
+            System.assertEquals(t.Status,'Closed');
+            System.assertEquals(t.OwnerId,user1.Id);
+            System.assertEquals(t.WhoId,[Select Id From Contact Where accountId = :customer.Id].Id);
+            System.assertEquals(t.Activity_Status__c, [Select Status__c From DM_Request__c Where Id=:extension2.dm.Id].Status__c);
         }
-        
     }
 }

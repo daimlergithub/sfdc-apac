@@ -17,6 +17,7 @@ global class ScheduleCalcAmountOfAssignedLeads implements Schedulable {
         BatchCalcAmountOfAssignedLeads calcAssignedLeads = 
             new BatchCalcAmountOfAssignedLeads(query);
 
+		system.debug('@Shrinivas : Start Execution...' +query);
         Id batchId = Database.executeBatch(calcAssignedLeads, 200);
         System.debug('ScheduleMSASolidBaseRevenue Batch Job Id: ' + batchId);
     }

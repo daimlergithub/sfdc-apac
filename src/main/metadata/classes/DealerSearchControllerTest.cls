@@ -1,16 +1,20 @@
 @isTest
-public class DealerSearchControllerTest {
-    public static testMethod void testDealerSearch_QueryException() {
+public class DealerSearchControllerTest
+{
+    public static testMethod void testDealerSearch_QueryException()
+    {
+    	Test.startTest();
         // Test DealerSearch
         PageReference pr  = new PageReference('/apex/DealerSearch');
         Test.setCurrentPage(pr);
-        DealerSearchController dealerSearch = new DealerSearchController(
-            new ApexPages.StandardController(new Account()));
+        DealerSearchController dealerSearch = new DealerSearchController(new ApexPages.StandardController(new Account()));
+        Test.stopTest();
         System.assert(dealerSearch.dealer.Province__c == null);
         System.assert(dealerSearch.dealer.City__c == null);
     }
     
-    public static testMethod void testDealerSearch() {
+    public static testMethod void testDealerSearch()
+    {
         // Create dealer
         Account dealer = new Account(Name = 'Shanghai test',
                                      Province__c = 'Shanghai',
@@ -27,36 +31,26 @@ public class DealerSearchControllerTest {
         
         // Start Test
         Test.startTest();
-        
         // Test DealerSearch
         PageReference pr  = new PageReference('/apex/DealerSearch?Id=' + personAccount.Id);
         Test.setCurrentPage(pr);
-        DealerSearchController dealerSearch = new DealerSearchController(
-            new ApexPages.StandardController(personAccount));
-        System.assert(dealerSearch.dealers.size() == 1, 'Searched Dealers Size != 1');
-        
+        DealerSearchController dealerSearch = new DealerSearchController(new ApexPages.StandardController(personAccount));
         // Change name
         dealerSearch.name = 'Shanghai';
         dealerSearch.query();
-        System.assert(dealerSearch.dealers.size() == 1, 'Searched Dealers Size != 1');
-        
         // Change Dealer_Sales_Type__c
         dealerSearch.dealer.Province__c = null;
         dealerSearch.query();
-        System.assert(dealerSearch.dealers.size() == 1, 'Searched Dealers Size != 1');
-        
         // Change Dealer_Sales_Type__c
         dealerSearch.dealer.Dealer_Sales_Type__c = 'Smart';
         dealerSearch.query();
-        System.assert(dealerSearch.dealers.size() == 1, 'Searched Dealers Size != 1');
-        
         // Change Dealer_Service_Codes__c
         // Service is in 'Sales;Parts'
         dealerSearch.dealer.Dealer_Service_Codes__c = 'Service';
         dealerSearch.query();
-        System.assert(dealerSearch.dealers.size() == 0, 'Searched Dealers Size != 0');
-        
         // Stop Test
         Test.stopTest();
+        System.assert(dealerSearch.dealers.size() == 0, 'Searched Dealers Size != 0');
+        System.assertEquals(dealerSearch.dealer.Dealer_Service_Codes__c, 'Service');
     }
 }

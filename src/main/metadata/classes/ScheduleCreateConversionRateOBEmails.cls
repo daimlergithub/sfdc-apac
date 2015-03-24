@@ -15,8 +15,6 @@ global class ScheduleCreateConversionRateOBEmails implements Schedulable {
        Map<Id, UserRole> roleMap = new Map<Id, UserRole>(
             [SELECT Id, (SELECT Id, Email FROM Users) 
              FROM UserRole]); */
-             
-        
 
         // The Start Date and End Date of Past 12th Month Start
         // lastDay should be the first day of pasted 11th month
@@ -26,6 +24,7 @@ global class ScheduleCreateConversionRateOBEmails implements Schedulable {
         Date lastDay = System.today().toStartOfMonth().addMonths(-12);
         Date firstDay = lastDay.addMonths(-1);
 
+		system.debug('Dates :' +lastDay +firstDay);
         // Query Dealers and related leads that accept date is during past 12 months
         List<Account> accsInPast12Months = 
             [SELECT Id, Name, Dealer_CRM_Manager_Email__c, 
@@ -45,8 +44,12 @@ global class ScheduleCreateConversionRateOBEmails implements Schedulable {
             AND Dealer_MB_Sub_Region__c != null
             ORDER BY Dealer_MB_Sub_Region__c];
 
+		
+		system.debug('@Shrinivas Accounts in past :' +accsInPast12Months);
         // Populate the Region with the accounts in it
         Map<String, List<Account>> separatedAccountsBySubRegion = 
             UtilLeadEmailEscalation.getSeparateAccountsBySubRegion(accsInPast12Months);
+            
+        
     }
 }

@@ -10,7 +10,9 @@
 */
 @isTest
 private class SelectAssignedDealerControllerTest {
-    public static testMethod void testSelectAssignedDealerController_hasPartDealer() {
+    public static testMethod void testSelectAssignedDealerController_hasPartDealer()
+    {
+    	Test.startTest();
         // Two Account: one Dealer and one Person Account
         Account dealer = (Account)UtilTestData.createSobject(
             new Account(
@@ -79,39 +81,32 @@ private class SelectAssignedDealerControllerTest {
 
         PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
         Test.setCurrentPage(pr);
-        Test.startTest();
         SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(
             new ApexPages.StandardController(lead));
-        System.assert(selectDealer.dealers.size() == 1);
-        // One default -- None --, another is test data
-        System.assert(selectDealer.campaignOptions.size() == 2);
-        System.assert(selectDealer.dealers[0].Id == dealer.Id);
-
+        
         // Test Dealer Province is Beijing, so has query result
         selectDealer.dealer.Province__c = 'Anhui';
         selectDealer.dealer.City__c = 'Anyang';
         selectDealer.query();
-        System.assert(selectDealer.dealers.size() == 1);
 
         // Test Dealer Province Name is Beijing Test, so has result
         selectDealer.Name = 'Beijing';
         selectDealer.query();
-        System.assert(selectDealer.dealers.size() == 1);
 
         // Test Dealer Province is Beijing, so no query result
         selectDealer.dealer.Province__c = 'Shanghai';
         selectDealer.query();
-        System.assert(selectDealer.dealers.size() == 0);
-
         // Test choose action
         selectDealer.choosenDealerId = dealer.Id;
         selectDealer.choose();
-        //lead = [SELECT Assigned_Dealer__c FROM Lead__c WHERE Id = :lead.Id];
-        //System.assert(lead.Assigned_Dealer__c == dealer.Id);
         Test.stopTest();
+        System.assertequals(lead.Contact__c,personAccount.Id);
+        System.assertequals(camLead.Lead__c,lead.id);
     }
 
-   public static testMethod void testSelectAssignedDealerController_NoPartDealer() {
+   public static testMethod void testSelectAssignedDealerController_NoPartDealer() 
+   {
+   		Test.startTest();
         // Two Account: one Dealer and one Person Account
         Account dealer = new Account(Dealer_Sales_Type__c ='MB');
         dealer = (Account)UtilTestData.createSobject(dealer, 
@@ -150,7 +145,8 @@ private class SelectAssignedDealerControllerTest {
         Test.setCurrentPage(pr);
         SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(
             new ApexPages.StandardController(lead));
-        System.debug('Debug Output ======> {' + selectDealer.dealers + '}');
-        //System.assert(selectDealer.dealers.size() == 0);
+        Test.stopTest();
+        System.assertequals(lead.Contact__c,personAccount.Id);
+        System.assertequals(camLead.Lead__c,lead.id);
     }
 }

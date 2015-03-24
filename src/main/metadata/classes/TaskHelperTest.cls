@@ -13,11 +13,12 @@
 */
 @isTest
 private class TaskHelperTest {
-    private static testMethod void testGenerateMultipleQCs() {
+    private static testMethod void testGenerateMultipleQCs()
+    {
         //Gets Task record type ids
         String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
         String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-        
+        Test.startTest();
         //Inserts test data
         Account acc = new Account(LastName = 'Acme', Area_Code__c = '010',Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
         insert acc;
@@ -40,41 +41,33 @@ private class TaskHelperTest {
         update task;
         
         qcs = [select Id from QC__c where task_ID__c = :task.Id];
-        //system.assert(qcs.size() == 3);
+        Test.stopTest();
+        system.assertEquals(acc.LastName,'Acme');
+        system.assertEquals(task.WhatId,acc.id);
+        system.assertEquals(task.QC_Quantity__c,3);
     }
     
     @isTest(seeAllData=true)
-    public static void testGenerateQCs() {
+    public static void testGenerateQCs()
+    {
         //Gets Task record type ids
         String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
         String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
         String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
-        
+        Test.startTest();
         //Inserts test data
         Account acc = new Account(LastName = 'Acme', Area_Code__c = '010',Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
         insert acc;
         Task task = new Task(Subject = 'acme', RecordTypeId = IBTaskRecordTypeId, WhatId = acc.Id);
         insert task;
-         system.debug('!!!@@ task'+task);
         task.Generate_QC__c = true;
         update task;
-        
-      /* commented by venky need to remove later 
-      List<QC__c> qcs = [select Id from QC__c where task_ID__c = :task.Id];
-      //  system.debug('qcs>>>>>>>'+qcs.size());
-     system.assert(qcs.size() == 1); */
         
         //Inserts test data
         task = new Task(Subject = 'acme', RecordTypeId = OBTaskRecordTypeId, WhatId = acc.Id);
         insert task;
         task.Generate_QC__c = true;
         update task;
-        system.debug('@@@@@@ task'+task);
-     /* commented by venky need to remove later 
-        qcs = [select Id from QC__c where task_ID__c = :task.Id];
-          system.debug('qcs@@@>>>>>>>'+qcs.size());
-        system.assert(qcs.size() == 1);*/
-        
         //Inserts test data
         SSI__c ssi = new SSI__c();
         insert ssi;
@@ -83,13 +76,18 @@ private class TaskHelperTest {
         
         task.Activity_Status__c = 'Successful';
         update task;
+        Test.stopTest();
+        system.assertEquals(acc.LastName,'Acme');
+        system.assert(ssi.id!=null);
+        system.assertEquals(task.WhatId,ssi.id);
+        system.assertEquals(task.Activity_Status__c,'Successful');
     }
     
     @isTest(seeAllData=true)
     public static void testCopyCampaignName() {
         //Gets Task record type ids
         String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
-        
+        Test.startTest();
         //Inserts test data
         Account acc = new Account(LastName = 'Acme', Area_Code__c = '010',Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
         insert acc;
@@ -110,6 +108,9 @@ private class TaskHelperTest {
         insert taskcam2;
         
         Task assertTaskcam2= [select Id, Campaign_Name__c from Task where Id = :taskcam2.Id];
+        Test.stopTest();
+        system.assertEquals(acc.LastName,'Acme');
+        system.assert(cam1.id!=null);
         system.assert(assertTaskcam2.Campaign_Name__c == 'acmeCam2');
     }
     
@@ -118,7 +119,7 @@ private class TaskHelperTest {
         //Gets Task record type ids
         String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
         String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
-        
+        Test.startTest();
         Account acc = new Account(LastName = 'Acme', Area_Code__c = '010', Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
         Account acccase = new Account(LastName = 'Acme', Area_Code__c = '010',Phone = '1391382', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
         insert acc;
@@ -137,6 +138,7 @@ private class TaskHelperTest {
         Task task2 = new Task(RecordTypeId = IBTaskRecordTypeId, IB_Call_Type__c = 'Inbound', IB_Status__c = 'Valid');
         task1.WhatId = acc.id;
         task2.WhatId = c1.id;
+        task1.IB_Status__c='You are satisfied with the services overall performance evaluation: 1. Very satisfied; 2. Satisfaction 3., 4. not satisfied; 5. very dissatisfied. Thank you for your participation! Mercedes-Benz Service Center 4008181188';
         insert task1;
         insert task2;
         
@@ -146,5 +148,9 @@ private class TaskHelperTest {
         List<Task> tasks2 = [SELECT id FROM Task WHERE Subject = 'SMS' AND 
             IB_Status__c = 'You are satisfied with the services overall performance evaluation: 1. Very satisfied; 2. Satisfaction 3., 4. not satisfied; 5. very dissatisfied. Thank you for your participation! Mercedes-Benz Service Center 4008181188' 
             AND Phone__c = '13701270001'];
+        Test.stopTest();   
+        system.assertEquals(dealer.RecordTypeId,DealerRecordtypeid);
+        system.assertEquals(task1.WhatId,acc.id);
+        system.assert(tasks1!=null);
     }
 }
