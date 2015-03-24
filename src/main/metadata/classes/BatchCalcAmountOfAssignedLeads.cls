@@ -25,10 +25,13 @@ global class BatchCalcAmountOfAssignedLeads implements Database.Batchable<SObjec
         for (Account dealer : (List<Account>)scope) {
             List<Lead__c> leads = dealer.Lead_Assigned_Dealer__r;
 
+			system.debug('@Shrinivas : execute batch...');
             // If yesterday assigned leads is not 0 and today is 0
             if (dealer.Assigned_Lead_Amount_of_Everyday__c != 0 
                     && dealer.Assigned_Lead_Amount_of_Everyday__c != null
                     && leads.size() == 0) {
+                    	
+                system.debug('@Shrinivas : Enter if yesterday assigned...');
                 dealer.Assigned_Lead_Amount_of_Everyday__c = 0;
                 dealer.Dealer_Lead_Gate_Keeper__c = null;
                 dealers.add(dealer);
@@ -36,6 +39,8 @@ global class BatchCalcAmountOfAssignedLeads implements Database.Batchable<SObjec
 
             // If today is not 0
             if (leads.size() > 0) {
+            	
+            	system.debug('@Shrinivas : Enter if today assigned...');
                 dealer.Assigned_Lead_Amount_of_Everyday__c = leads.size();
                 dealer.Dealer_Lead_Gate_Keeper__c = leads[0].OwnerId;
                 dealers.add(dealer);

@@ -11,6 +11,9 @@
 		String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
 		String cacCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
 		String obCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Simple').getRecordTypeId();
+		String centralCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
+		
+		Test.startTest();
 		
 		Campaign top = new Campaign(
 			IsActive = true, 
@@ -20,6 +23,7 @@
 			EndDate = System.today(),
 			RecordTypeId = topCampRecordTypeId
 		);
+		
 		insert top;
 		
 		Campaign cac = new Campaign(
@@ -78,5 +82,26 @@
 		
 		ob1Member.Status = 'Responsed';
 		update ob1Member;
+		
+		Campaign objcampaign = new Campaign(
+			IsActive = true, 
+			Name = 'top', 
+			Status = 'Started', 
+			StartDate = System.today(), 
+			EndDate = System.today(),
+			RecordTypeId = centralCampaignId
+		);
+		
+		insert objcampaign;
+		
+		objcampaign.Status='Published';
+		update objcampaign;
+		Test.stopTest();
+		System.assertEquals(ob1Member.status, 'Responsed');
+		System.assertEquals(top.RecordTypeId, topCampRecordTypeId);
+		System.assertEquals(objcampaign.Status, 'Published');
+		System.assertEquals(topMember.CampaignId, top.Id);
+		System.assertEquals(ob1Member.ContactId, contact.Id);
+		System.assertEquals(ob2Member.CampaignId, ob2.Id);
 	}
 }

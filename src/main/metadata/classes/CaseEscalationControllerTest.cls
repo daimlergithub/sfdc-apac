@@ -22,8 +22,8 @@ public class CaseEscalationControllerTest {
         User user1 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
         system.runAs(user1){
             Test.startTest();
-            testCaseEscalationController();
-            Test.stopTest();
+            testCaseEscalationController();            
+            Test.stopTest();           
         }
         
     }
@@ -47,7 +47,7 @@ public class CaseEscalationControllerTest {
         dealer.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         dealer.Dealer_Region__c = 'West';
         insert dealer;
-
+        
         Case c = new Case();
         c.Subject = 'For Mail test';
         c.RecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
@@ -82,20 +82,23 @@ public class CaseEscalationControllerTest {
         c.RO_CO_Case_Category__c = 'Aftersales';
         c.Vehicle_In_Workshop__c = 'Yes';
         c.Ref_No_Regional__c = 'SOUTH';
+        c.Ref_No_Central__c='SOUTH';
         insert c;
+        system.assert([select id from case where id=:c.Id].size()>0);
+        system.assert([Select id from Account Where Id=:dealer.id].size()>0);
         
         PageReference caseEscalation = Page.CaseEscalation;
         caseEscalation.getParameters().put('id',c.id);
 
         Test.setCurrentPage(caseEscalation);
         CaseEscalationController controller = new CaseEscalationController();
-        
-        system.debug(controller);
-        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'EAST';
-
-        controller.escalate(); 
-        
+        system.debug(controller);      
+        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'EAST';          
+        controller.escalate();        
+        System.assertEquals(controller.EscalateCase.Case_Dealer__r.Dealer_Region__c,'EAST');     
         controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = '';
-        controller.escalate();
-    }
+        controller.escalate();      
+        System.assertEquals(controller.EscalateCase.Case_Dealer__r.Dealer_Region__c,'');
+      }
+   
 }

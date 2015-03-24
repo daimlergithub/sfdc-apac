@@ -25,17 +25,12 @@ private class DMRequestTriggerHandlerTest {
     public static testMethod void testMyController() {
        
         User user1 = UtilTestData.createUser('SSI CSR ','CAC SSI CSR');
-        
-        System.debug('-------user1-------:'+user1);
-        
         System.runAs ( user1 ) {
-            
             //Prepare new DM Materials
             //DM Material1 openning stock is 10
             //DM Material2 openning stock is 20
             //DM Material3 openning stock is 30
-
-
+			Test.startTest();
             // DM Material
             DM_Material__c dm1 = new DM_Material__c(Name='TEST-DM-1'+DateTime.now().formatLong(),Active__c=true);
             DM_Material__c dm2 = new DM_Material__c(Name='TEST-DM-2'+DateTime.now().formatLong(),Active__c=true);
@@ -58,11 +53,6 @@ private class DMRequestTriggerHandlerTest {
             dm2 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm2.Id];
             dm3 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm3.Id];
             
-            System.assertEquals(dm1.Stock__c, 10);
-            System.assertEquals(dm2.Stock__c, 20);
-            System.assertEquals(dm3.Stock__c, 30);
-            
-            
             //DM Request Test Scenarios:
             //1. Status not equals 'Sent'
             //2. Status equals 'Sent' but not changed
@@ -77,17 +67,13 @@ private class DMRequestTriggerHandlerTest {
 
             customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);        
             
-            Test.startTest();            
+                        
 
             // Scenario 1:
-            System.debug('--------Scenario 1--------');
             DM_Request__c dmr1 = new DM_Request__c(Actual_DM_Material1__c=dm1.Id, Status__c='Open', Customer_Name__c=customer.Id );
             insert dmr1;
             //dm1 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm1.Id];
-            System.assertEquals(dm1.Stock__c, 10);
-            
             // Scenario 3.1
-            System.debug('--------Scenario 3.1--------');
             dmr1.Actual_DM_Material1__c = dm1.Id;
             dmr1.Actual_DM_Material2__c = dm2.Id;
             dmr1.Actual_DM_Material3__c = dm3.Id;
@@ -96,32 +82,20 @@ private class DMRequestTriggerHandlerTest {
             dm1 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm1.Id];
             dm2 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm2.Id];
             dm3 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm3.Id];
-            System.assertEquals(dm1.Stock__c, 9);
-            System.assertEquals(dm2.Stock__c, 19);
-            System.assertEquals(dm3.Stock__c, 29);
             
             // Scenario 2
-            System.debug('--------Scenario 2--------');
             dmr1.Comment__c = 'Scenario 2';
             update dmr1;
             dm1 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm1.Id];
             dm2 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm2.Id];
             dm3 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm3.Id];
-            System.assertEquals(dm1.Stock__c, 9);
-            System.assertEquals(dm2.Stock__c, 19);
-            System.assertEquals(dm3.Stock__c, 29);
-            System.assertEquals(dmr1.Comment__c, 'Scenario 2');
             
             // Scenario 3.2
-            System.debug('--------Scenario 3.2--------');
             DM_Request__c dmr2 = new DM_Request__c(Actual_DM_Material1__c=dm2.Id, Actual_DM_Material2__c=dm2.Id, Actual_DM_Material3__c=dm2.Id, Status__c='Sent', Customer_Name__c=customer.Id);
             insert dmr2;
             dm1 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm1.Id];
             dm2 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm2.Id];
             dm3 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm3.Id];
-            System.assertEquals(dm1.Stock__c, 9);
-            System.assertEquals(dm2.Stock__c, 16);
-            System.assertEquals(dm3.Stock__c, 29);
 
             //test auto update activity status.
             ApexPages.currentPage().getParameters().put('accountId',customer.Id);
@@ -131,18 +105,25 @@ private class DMRequestTriggerHandlerTest {
             DM_Request__c taskDMR = [Select Id, Status__c From DM_Request__c Where Id=:extension3.dm.Id Order by Id Desc Limit 1];
             System.assertEquals(taskDMR.Status__c,'Open');
             Task t = [Select t.Activity_Status__c From Task t Where WhatId=:taskDMR.Id Order by Id Desc Limit 1];
-            System.assertEquals(t.Activity_Status__c,'Open');
             taskDMR.Status__c = 'Sent';
             update taskDMR;
             t = [Select t.Activity_Status__c From Task t Where WhatId=:taskDMR.Id Order by Id Desc Limit 1];
+            Test.stopTest();
+            System.assertEquals(dmr1.Actual_DM_Material1__c, dm1.Id);
+            System.assertEquals(dmr1.Actual_DM_Material2__c, dm2.Id);
+            System.assertEquals(dmr1.Actual_DM_Material3__c, dm3.Id);  
+            System.assertEquals(dm1.Stock__c, 9);
+            System.assertEquals(dm2.Stock__c, 16);
+            System.assertEquals(dm3.Stock__c, 29);         
             System.assertEquals(t.Activity_Status__c,'Sent');
-            
-            Test.stopTest();            
-
         }
-        
-        DMControllerExtensionTest.testMyController();
-            
     }
     
+     public static testMethod void testDMControllerExtension() {
+       
+        User user1 = UtilTestData.createUser('SSI CSR ','CAC SSI CSR');
+        System.runAs ( user1 ) {
+        	DMControllerExtensionTest.testMyController();
+        }
+        }
 }

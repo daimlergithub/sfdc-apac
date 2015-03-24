@@ -26,8 +26,6 @@ public class CSRLookupControllerTest {
         
         User user1 = UtilTestData.createUser('SSI TL','CAC SSI TL');
         
-        System.debug('-------user1-------:'+user1);
-        
         System.runAs ( user1 ) {        
         	
 			String[] csrProfiles = new String[]{
@@ -57,7 +55,6 @@ public class CSRLookupControllerTest {
         	insert newUsers;
         	
         	Test.startTest();
-        	
             CSRLookupController con = new CSRLookupController();
 			List<CSRLookupController.csrUsersWrapper> users = con.getcsrUsers();
 			PageReference pr0 = con.selectCSR();
@@ -67,10 +64,11 @@ public class CSRLookupControllerTest {
 			String ids = con.csrIds;
 			String namesText = con.selectNameText;
 			String idsText = con.selectIdText;
+			Test.stopTest();
+			System.assert(profileIds!=null);
+			System.assertEquals(ids, con.csrIds);
 			System.assertEquals(namesText, con.userList[0].csr.Name + '; ' + con.userList[1].csr.Name);
 			System.assertEquals(idsText, con.userList[0].csr.Id + ';' + con.userList[1].csr.Id);
-			
-			Test.stopTest();
         }
     }
 }

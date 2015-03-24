@@ -9,13 +9,16 @@
     10-July-2013 Stephano Shi (Breakingpoint)    Created
 */
 @isTest
-public class TaskFailBlacklistTrigger_TestClass{
-    static testmethod void runTaskFailBlacklistTrigger(){
+public class TaskFailBlacklistTrigger_TestClass
+{
+    static testmethod void runTaskFailBlacklistTrigger()
+    {
         Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
         Map<String, Schema.RecordTypeInfo> tkRecordTypeMap_test = Schema.SObjectType.Task.getRecordTypeInfosByName();
         Id accPerson_RecordTypeId = accRecordTypeMap_test.get('Person Account').getRecordTypeId();      // Person Account.
         Id tkSMS_recordTypeId = tkRecordTypeMap_test.get('SMS').getRecordTypeId();
         
+        Test.startTest();
         // Person Contact                
         Account testPerAcc = new Account(LastName='TEST ACC',
                                       Type='Company',
@@ -29,7 +32,7 @@ public class TaskFailBlacklistTrigger_TestClass{
                                      );        
         insert(testPerAcc);        
         
-        testPerAcc = [Select Id, PersonContactId From Account Where Id = :testPerAcc.Id]; 
+        testPerAcc = [Select Id,RecordTypeId, PersonContactId From Account Where Id = :testPerAcc.Id]; 
         
         Task testSMSTask = new Task(Subject='SMS TEST',
                                     WhoId=testPerAcc.PersonContactId,
@@ -40,6 +43,8 @@ public class TaskFailBlacklistTrigger_TestClass{
         testSMSTask.Activity_Status__c='Fail-Blacklist';
         
         update testSMSTask;
-                
+        Test.stopTest();
+        system.assertEquals(testPerAcc.RecordTypeId,accPerson_RecordTypeId);
+        system.assertEquals(testSMSTask.Activity_Status__c,'Fail-Blacklist');         
     }
 }

@@ -126,6 +126,7 @@
             <isOptional>false</isOptional>
         </lookupFilter>
         <referenceTo>Account</referenceTo>
+        <relationshipLabel>Leads (Assigned Dealer)</relationshipLabel>
         <relationshipName>Lead_Assigned_Dealer</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>

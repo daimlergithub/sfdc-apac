@@ -16,7 +16,7 @@ public class AssignCaseToDealerControllerTest {
     public static testMethod void testMyController() {
       
         User user1=UtilTestData.createPortalUser('Dealer','Gold Partner User');
-        User user2=UtilTestData.createPortalUser('Dealer','Gold Partner User');     
+        User user2=UtilTestData.createPortalUser('Dealer','Dealer Delegate Admin');     
         User Usr=[select id from user where id=:UserInfo.getuserId()];
         System.runAs(usr) {
             Test.startTest();         
@@ -36,18 +36,15 @@ public class AssignCaseToDealerControllerTest {
             Test.setCurrentPage(Page.AssignCaseToDealer);
             ApexPages.currentPage().getParameters().put('caseId', c.Id);
             AssignCaseToDealerController con = new AssignCaseToDealerController();
-            
             con.query();
-            //System.assertEquals(con.users.size() > 0, true);
-            
             con.clear();
-            //System.assertEquals(con.users.size(), 0);
-            
-         //   con.selectedUserId = selectedUser.Id;
-        //    con.assign();
-            //System.assertEquals(con.assignCase.ownerId, selectedUser.Id);
-            //System.assertEquals(con.assignCase.Case_Dealer__c, selectedUser.AccountId);
+            con.selectedUserId = selectedUser.Id;
+            con.assign();
             Test.stopTest();
+            system.assert(user1!=null);
+            System.assertEquals(c.Case_Dealer__c, portalUser.AccountId);
+            System.assertEquals(con.assignCase.ownerId, selectedUser.Id);
+            System.assertEquals(con.assignCase.Case_Dealer__c, selectedUser.AccountId);
          }
     }
 }

@@ -2,7 +2,9 @@
 public class PicklistMappingHelperTest {
 
     @isTest
-    public static void testExternalKeyNotEmpty() {
+    public static void testExternalKeyNotEmpty()
+    {
+    	Test.startTest();
         Integration_Picklist__c ip = new Integration_Picklist__c();
         ip.External_Key__c = 'IP-123456';
         
@@ -10,12 +12,14 @@ public class PicklistMappingHelperTest {
         triggerNew.add(ip);
         
         PicklistMappingHelper.updateExternalKey(triggerNew, 'IP'); 
-        
+        Test.stopTest();
         System.assert('IP-123456'.equals(triggerNew[0].External_Key__c));
     }
     
     @isTest
-    public static void testExternalKeyNotEmptyFormatMismatch() {
+    public static void testExternalKeyNotEmptyFormatMismatch()
+    {
+    	Test.startTest();
         Integration_Picklist__c ip = new Integration_Picklist__c();
         ip.External_Key__c = 'IP-12345';
         
@@ -23,22 +27,26 @@ public class PicklistMappingHelperTest {
         triggerNew.add(ip);
         
         PicklistMappingHelper.updateExternalKey(triggerNew, 'IP'); 
-        
+        Test.stopTest();
         System.assert('IP-000001'.equals(triggerNew[0].External_Key__c));
     }
     
     @isTest
-    public static void testNoExistingObjects() {
+    public static void testNoExistingObjects()
+    {
+    	Test.startTest();
         List<Integration_Picklist__c> triggerNew = new List<Integration_Picklist__c>();
         triggerNew.add(new Integration_Picklist__c());
         
         PicklistMappingHelper.updateExternalKey(triggerNew, 'IP');
-        
+        Test.stopTest();
         System.assert('IP-000001'.equals(triggerNew[0].External_Key__c));   
     }
     
     @isTest
-    public static void testExistingObjects() {
+    public static void testExistingObjects()
+    {
+    	Test.startTest();
         Picklist_Mapping__c existingPM = new Picklist_Mapping__c(External_Key__c='PM-000122', Name='LOV', Integration_Only__c=true);
         insert existingPM;
         
@@ -46,12 +54,14 @@ public class PicklistMappingHelperTest {
         triggerNew.add(new Picklist_Mapping__c());
         
         PicklistMappingHelper.updateExternalKey(triggerNew, 'PM');
-        
+        Test.stopTest();
         System.assert('PM-000123'.equals(triggerNew[0].External_Key__c));   
     }
     
     @isTest
-    public static void testMultipleNewValues() {
+    public static void testMultipleNewValues()
+    {
+    	Test.startTest();
         List<Integration_Picklist__c> triggerNew = new List<Integration_Picklist__c>();
         triggerNew.add(new Integration_Picklist__c());
         
@@ -61,7 +71,7 @@ public class PicklistMappingHelperTest {
         triggerNew.add(new Integration_Picklist__c());
         
         PicklistMappingHelper.updateExternalKey(triggerNew, 'IP');
-        
+        Test.stopTest();
         System.assert(3 == triggerNew.size());
         System.assert('IP-000007'.equals(triggerNew[0].External_Key__c));
         System.assert('IP-000006'.equals(triggerNew[1].External_Key__c));
@@ -69,17 +79,21 @@ public class PicklistMappingHelperTest {
     }
     
     @isTest
-    public static void testPicklistMappingBeforeTrigger() {
+    public static void testPicklistMappingBeforeTrigger()
+    {
+    	Test.startTest();
         Picklist_Mapping__c newPM = new Picklist_Mapping__c(Name='LOV', Integration_Only__c=true);
         insert newPM;
         
         Picklist_Mapping__c savedPM = [SELECT External_Key__c FROM Picklist_Mapping__c WHERE Id =: newPM.Id];
-        
+        Test.stopTest();
         System.assertEquals('PM-000001', savedPM.External_Key__c);
     }
     
     @isTest
-    public static void testIntegrationPicklistBeforeTrigger() {
+    public static void testIntegrationPicklistBeforeTrigger() 
+    {
+    	Test.startTest();
         Picklist_Mapping__c newPM = new Picklist_Mapping__c(Name='LOV', Integration_Only__c=true);
         insert newPM;
         
@@ -87,12 +101,14 @@ public class PicklistMappingHelperTest {
         insert newIP;
         
         Integration_Picklist__c savedIP = [SELECT External_Key__c FROM Integration_Picklist__c WHERE Id =: newIP.Id];
-        
+        Test.stopTest();
         System.assertEquals('IP-000001', savedIP.External_Key__c);
     }
     
     @isTest
-    public static void testExternalPicklistBeforeTrigger() {
+    public static void testExternalPicklistBeforeTrigger() 
+    {
+    	Test.startTest();
         Picklist_Mapping__c newPM = new Picklist_Mapping__c(Name='LOV', Integration_Only__c=true);
         insert newPM;
         
@@ -102,7 +118,7 @@ public class PicklistMappingHelperTest {
         insert newEP;
         
         External_Picklist__c savedEP = [SELECT External_Key__c FROM External_Picklist__c WHERE Id =: newEP.Id];
-        
+        Test.stopTest();
         System.assertEquals('EP-000001', savedEP.External_Key__c);
     }
 }

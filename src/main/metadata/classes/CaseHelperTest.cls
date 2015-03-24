@@ -21,12 +21,10 @@ public class CaseHelperTest {
     
     public static testMethod void testUSCC002(){
         Test.startTest();
-        List<Sobject> sos = new List<Sobject>();
-        
+        List<Sobject> sos = new List<Sobject>();        
         insert acc;
         insert ve1;
-        insert ve2;
-        
+        insert ve2;        
         Vehicle_Relationship__c vrData1 = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, 
                                               Contact__c = acc.Id,Registration_Number__c ='1');
         Vehicle_Relationship__c vrData2 = new Vehicle_Relationship__c(Vehicle_ID__c=ve2.id, 
@@ -40,22 +38,18 @@ public class CaseHelperTest {
                            Case_SubType__c='Dealer-after sales service attitude', Case_Dealer__c = portalUser1.AccountId);
         sos.add(c1);
         if(sos!=null && !sos.IsEmpty())
-        UtilSobject.insertSobjects(sos);
-        
+        UtilSobject.insertSobjects(sos);        
         c1 = [select Case_SubType__c,Subject,Vehicle_Brand__c,Vehicle_Class__c,Vehicle_Model__c,VIN_Code__c from case where id=:c1.id];
         system.assertEquals(c1.Vehicle_Brand__c,'BENZ');
         system.assertEquals(c1.Vehicle_Class__c,'class-B');
         system.assertEquals(c1.Vehicle_Model__c,'B200');
-        system.assertEquals(c1.VIN_Code__c,ve1.UsVIN__c);
-     
+        system.assertEquals(c1.VIN_Code__c,ve1.UsVIN__c);   
         c1.Vehicle_Relationship__c = vrData2.id;
         update c1;
-
-        List<Complaint_Tracking__c> ctcs = [select Action__c from Complaint_Tracking__c where Case__c=:c1.id];
-        system.assert(ctcs.size()>0);
-     
+        List<Complaint_Tracking__c> ctcs = [select Action__c from Complaint_Tracking__c where Case__c=:c1.id];           
         Test.stopTest();
-      
+        system.assert(ctcs.size()>0);
+        system.assertEquals(c1.Vehicle_Relationship__c,vrData2.id); 
     }
     
     public static testMethod void testUSCC003(){
@@ -68,16 +62,15 @@ public class CaseHelperTest {
         User user1 = UtilTestData.createPortalUser('Dealer','Gold Partner User');
         User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
         Case c1 = new Case(Vehicle_Relationship__c = vrData.Id, AccountId = acc.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt', Case_Dealer__c = portalUser1.AccountId);
-        
-        insert c1;
-        
+        insert c1;        
         c1.Problem1__c = 'xxx';
         sos.add(c1);
         if(sos!=null && !sos.IsEmpty())
         UtilSobject.updateSobjects(sos);
-        List<Complaint_Tracking__c> ctcs = [select Action__c from Complaint_Tracking__c where Case__c=:c1.id];
-        system.assert(ctcs.size()>0);        
+        List<Complaint_Tracking__c> ctcs = [select Action__c from Complaint_Tracking__c where Case__c=:c1.id];               
         Test.stopTest();
+        system.assert(ctcs.size()>0); 
+        system.assertEquals(c1.Problem1__c,'xxx');
     }
       public static testMethod void testUSCC004(){
         Test.startTest();
@@ -98,16 +91,14 @@ public class CaseHelperTest {
         
         insert c1;
         //Complaint is a primary complaint(No Parent Case), there will be a SMS sent to customer
-        List<Task> tasks = [select id from Task where Phone__c='1301111111'];
+        List<Task> tasks = [select id from Task where Phone__c='1301111111'];        
         system.assert(tasks.size()>0);
-        
         //After add sub Complaint, the field in sub Complaint will auto plus 1
         c2.ParentId = c1.id;
         c2.Case_RepeatCause__c = '0=No contact with customer';
         upsert c2;
         c1 = [select Repeat_Complaint_Times__c from case where id=:c1.id];
-        system.assertEquals(1,c1.Repeat_Complaint_Times__c);
-        
+               
         //If the original Complaint already has a parent complaint
         c3.ParentId = c2.id;
         try{
@@ -117,10 +108,12 @@ public class CaseHelperTest {
             for (Integer i = 0; i < e.getNumDml(); i++) {
                 // Process exception here
                 msg += string.valueOf(i) + ':'+e.getDmlMessage(i)+ '#'; 
-            }            
+            }    
             system.assert(msg.contains(CaseHelper.NOT_PRIMARY_REMINDER));
-        }
+         }
         Test.stopTest();
+        system.assertEquals(1,c1.Repeat_Complaint_Times__c);
+        system.assertEquals(c2.Case_RepeatCause__c ,'0=No contact with customer');
     } 
     
     @isTest(seeAllData=true)
@@ -138,16 +131,16 @@ public class CaseHelperTest {
         User user1 = UtilTestData.createPortalUser('Dealer','Gold Partner User');
         User portalUser = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
 
-        Test.startTest();
-        
+        Test.startTest();        
         Case c = new Case(Subject='For Mail test',RecordTypeId = MBRecordtypeid);
         c.Case_Dealer__c = portalUser.AccountId;
         insert c;
         c.Dealer_Contact__c = 'YES';
         update c;
-        c = [select ownerId from Case where id = :c.Id];
-        
+        c = [select ownerId from Case where id = :c.Id];        
         Test.stopTest();
+        System.assertEquals([SELECT id FROM case WHERE Id = :c.id].size(), 1);
+        System.assertEquals([SELECT id,Dealer_Contact__c FROM case WHERE Id = :c.id].Dealer_Contact__c,'Yes');
     }
     
     @isTest
@@ -157,9 +150,9 @@ public class CaseHelperTest {
         User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
         Case c1 = new Case(RecordTypeId = MBRecordtypeid, Description = 'test', Case_Dealer__c = portalUser1.AccountId);
         insert c1;
-        c1 = [SELECT CreatedbyId FROM Case WHERE id = :c1.id];
-        System.assertEquals([SELECT id FROM Complaint_Description__c WHERE Case__c = :c1.id].size(), 1);
+        c1 = [SELECT CreatedbyId FROM Case WHERE id = :c1.id];        
         Test.stopTest();
+        System.assertEquals([SELECT id FROM Complaint_Description__c WHERE Case__c = :c1.id].size(), 1);
     }
   
     @isTest(seeAllData=true)
@@ -173,28 +166,27 @@ public class CaseHelperTest {
                                 and isActive = true and AccountId <> :portalUser1.AccountId limit 1];
         Case c1 = new Case(RecordTypeId = MBRecordtypeid, Description = 'test', Case_Dealer__c = portalUser1.AccountId);
         insert c1;
-       
-     //   c1.Support_Dealer_1__c = portalUser2.AccountId;
-      //  c1.Support_Dealer_2__c = portalUser2.AccountId;
-    //    c1.Support_Dealer_3__c = portalUser2.AccountId;        
-   //     insert c1;
+    
         c1.Support_Dealer_1__c = null;
         c1.Support_Dealer_2__c = null;
         update c1;
         
-        c1 = [SELECT CreatedbyId FROM Case WHERE id = :c1.id];
+        c1 = [SELECT CreatedbyId,Support_Dealer_2__c,Support_Dealer_1__c FROM Case WHERE id = :c1.id];
         Complaint_Description__c cd=new Complaint_Description__c();
         cd.Case__c = c1.Id;
         cd.Created_By__c = UserInfo.getUserId();
         cd.Date_Time__c = System.now();
         cd.Action__c = 'Changed';
-        insert cd;
-        
-        System.assertEquals([SELECT id FROM Complaint_Description__c WHERE Case__c = :c1.id].size(), 2);
+        insert cd; 
         Test.stopTest();
+        System.assert([SELECT id FROM Complaint_Description__c WHERE Case__c = :c1.id].size()>0);  
+        System.assert([select Id from case where id=:c1.id].size()>0);      
+        System.assertEquals(c1.Support_Dealer_1__c, null);
+        System.assertEquals(c1.Support_Dealer_2__c, null);    
     } 
     
     public static testMethod void testRelease11b01(){
+        Test.startTest();
         Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
         Case cas = (Case)UtilTestData.createSobject(new Case(Case_Dealer__c = dealer.id, Others__c = 'test@163.com'), UtilTestData.CASE_RT_MB_COMPLAINT);
         
@@ -208,9 +200,15 @@ public class CaseHelperTest {
         } catch (DMLException e) {
             System.debug('update case error : ' + e.getDMLMessage(0));
         }
+        Test.stopTest();
+        System.assertEquals(cas.Notice_SM__c,true);
+        System.assertEquals(cas.Notice_AS__c,true);
+        system.assert([Select Id from Account where Id=:dealer.id].size()>0);
+        system.assert([Select id from Case where id=:cas.Id].size()>0); 
     }
     
     public static testMethod void testRelease11b02(){
+    	Test.startTest();
         Account dealer = (Account)UtilTestData.createSobject(new Account(Dealer_General_Manager_Email__c = 'gm@163.com', Dealer_Sales_Manager_Email__c = 'ds@163.com'), UtilTestData.ACCOUNT_RT_DEALER);
         Case cas = (Case)UtilTestData.createSobject(new Case(Case_Dealer__c = dealer.id, Others__c = 'other@163.com'), UtilTestData.CASE_RT_MB_COMPLAINT);
         
@@ -225,5 +223,11 @@ public class CaseHelperTest {
         } catch (DMLException e) {
             System.debug('update case error : ' + e.getDMLMessage(0));
         }
+        Test.stopTest();
+        System.assertEquals(cas.Notice_SM__c,true);
+        System.assertEquals(cas.Notice_AS__c,true);
+        System.assertEquals(cas.Case_Status__c,'In-progress');
+        system.assert([Select Id from Account where Id=:dealer.id].size()>0);
+        system.assert([Select id from Case where id=:cas.Id].size()>0); 
     }
 }

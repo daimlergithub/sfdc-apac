@@ -14,9 +14,9 @@ public class SMSControllerExtensionTest {
 
     public static testMethod void testSMSControllerExtension1() 
     {
+		Test.startTest();        
         // Testing the SMS Send
         ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
-        
         // Add parameters to page URL
         String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -58,10 +58,7 @@ public class SMSControllerExtensionTest {
         extension.send();
         
         Task t = [Select t.WhoId, t.WhatId, t.Subject, t.Status, t.SMS_Content__c From Task t Where WhatId=:customer.Id]; // and SMS_Content__c=:extension.templateMessage
-        System.assertEquals(t.Subject, 'SMS');
-        System.assertEquals(t.Status, 'Closed');
-        System.assertEquals(t.WhoId, [Select Id From Contact Where accountId = :customer.Id limit 1].Id);
-        
+        system.debug('WhoId>>>>>'+t);
         //Test click SMS button from Case
         String inquiryRecordTypeId = Schema.SObjectType.case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
         Case cas = new Case(AccountId = customer.Id, Subject = 'acme', RecordTypeId = inquiryRecordTypeId);
@@ -86,14 +83,17 @@ public class SMSControllerExtensionTest {
         message = extension.optimzeContent('temp{DEALER_ADDRESS}temp');
         // Send SMS
         extension.send();
-        //t = [Select t.WhoId, t.WhatId, t.Subject, t.Status, t.SMS_Content__c From Task t Where WhatId = :cas.Id]; // and SMS_Content__c=:extension.templateMessage
-        //System.assertEquals(t.Subject, 'SMS');
-        //System.assertEquals(t.Status, 'Closed');
-        //Contact personContact = [select Id from Contact where AccountId = :customer.Id limit 1];
-        //System.assertEquals(t.WhoId, personContact.Id);
+        Test.stopTest();
+        System.assertEquals(t.Subject, 'SMS');
+        System.assertEquals(t.Status, 'Closed');
+        System.assertEquals(customer.PersonMobilePhone, '1301111111');
+        System.assertEquals(customer.PersonOtherPhone, '1301111122');
+        System.assertEquals(t.WhatId,customer.Id);        
+        System.assertEquals(t.WhoId, [Select Id From Contact Where accountId = :customer.Id limit 1].Id);
     }
 
     public static testMethod void testSMSControllerExtensionErr1() {
+        Test.startTest();
         // Testing the SMS Send
         ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
         ApexPages.currentPage().getParameters().put('type','SMS');
@@ -113,10 +113,17 @@ public class SMSControllerExtensionTest {
         extension.parseTemplateMessage();
         // Send SMS
         extension.send();
-        
+        Test.stopTest();
+        system.assertEquals(extension.templateId, tem1.id);
+        system.assertEquals(dealer.RecordTypeId, dealerRecordTypeId);
+        system.assertEquals(tem1.Message_Detail__c, '{DEALER_NAME}');
+        system.assert(Templates!=Null);
+        system.assertequals(extension.parseTemplateMessage(),Null);
     }
     
     public static testMethod void testSMSControllerExtensionErr2() {
+        
+        Test.startTest();
         // Testing the SMS Send
         ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
         ApexPages.currentPage().getParameters().put('type','SMS');
@@ -138,10 +145,20 @@ public class SMSControllerExtensionTest {
         extension.parseTemplateMessage();
         // Send SMS
         extension.send();
-        
+        Test.stopTest();
+        system.assertEquals(customer.RecordTypeId, personAccountRecordTypeId);
+        system.assertEquals(dealer.RecordTypeId, dealerRecordTypeId);
+        system.assertEquals(extension.sms.Dealer__c,dealer.Id);
+        system.assertEquals(extension.templateId,'');
+        system.assertEquals(dealer.RecordTypeId, dealerRecordTypeId);        
+        system.assert(Templates!=Null);
+        system.assertequals(extension.parseTemplateMessage(),Null);
+        system.assertequals(extension.send(),Null);
     }
     
     public static testMethod void testSMSControllerExtensionErr3() {
+        
+        Test.startTest();
         // Testing the SMS Send
         ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
         ApexPages.currentPage().getParameters().put('type','SMS');
@@ -165,6 +182,16 @@ public class SMSControllerExtensionTest {
         extension.parseTemplateMessage();
         // Send SMS
         extension.send();
-        
+        Test.stopTest();
+        system.assertEquals(template.RecordTypeId,templateRecordTypeId);
+        system.assertEquals(dealer.Phone, '8888888');
+        system.assertEquals(customer.RecordTypeId, personAccountRecordTypeId);
+        system.assertEquals(dealer.RecordTypeId, dealerRecordTypeId);
+        system.assert(Templates!=Null);
+        system.assertEquals(extension.sms.Dealer__c,dealer.Id);
+        system.assertEquals(extension.templateId,template.Id);
+        system.assertequals(extension.parseTemplateMessage(),Null);
+        system.assertequals(extension.send(),Null);
+        system.assertequals(ApexPages.currentPage().getParameters().get('type'),'SMS');
     }
 }

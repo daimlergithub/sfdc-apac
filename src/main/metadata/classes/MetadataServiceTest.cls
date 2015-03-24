@@ -72,17 +72,20 @@ private class MetadataServiceTest
 	@IsTest
 	private static void coverGeneratedCodeCRUDOperations()
 	{	
+		Test.startTest();
     	// Null Web Service mock implementation
         System.Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
         // Only required to workaround a current code coverage bug in the platform
         MetadataService metaDataService = new MetadataService();
         // Invoke operations         
         MetadataService.MetadataPort metaDataPort = new MetadataService.MetadataPort();
+        Test.stopTest();
 	}
 	
 	@IsTest
     private static void coverGeneratedCodeFileBasedOperations1()
-    {    	
+    {   
+    	Test.startTest(); 	
     	// Null Web Service mock implementation
         System.Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
         // Only required to workaround a current code coverage bug in the platform
@@ -99,11 +102,13 @@ private class MetadataServiceTest
         metaDataPort.updateMetadata(null);
         metaDataPort.renameMetadata(null, null, null);
         metaDataPort.cancelDeploy(null);
+        Test.stopTest();
     }
 
     @IsTest
     private static void coverGeneratedCodeFileBasedOperations2()
     {       
+    	Test.startTest();	
         // Null Web Service mock implementation
         System.Test.setMock(WebServiceMock.class, new WebServiceMockImpl());
         // Only required to workaround a current code coverage bug in the platform
@@ -113,11 +118,13 @@ private class MetadataServiceTest
         metaDataPort.deleteMetadata(null, null);
         metaDataPort.upsertMetadata(null);
         metaDataPort.createMetadata(null);
+        Test.stopTest();
     }
         
 	@IsTest
     private static void coverGeneratedCodeTypes()
     {    	       
+    	Test.startTest();
         // Reference types
         new MetadataService();
         new MetadataService.listMetadataResponse_element();
@@ -870,6 +877,7 @@ private class MetadataServiceTest
         new MetadataService.AuraDefinitionBundle();
         new MetadataService.FeedItemSettings();
         new MetadataService.FlowBaseElement();
-        new MetadataService.Territory2();        
+        new MetadataService.Territory2();
+        Test.stopTest();        
     }
 }

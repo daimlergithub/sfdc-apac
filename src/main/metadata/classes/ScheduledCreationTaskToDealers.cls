@@ -10,11 +10,11 @@
 
 global class ScheduledCreationTaskToDealers  implements Schedulable{
 
-     
-
     global void execute(SchedulableContext SC) {
+
         //List<User> DealerUserList = [Select Id, ContactId From User Where (Profile.Name = 'Dealer Community S&M Manager' OR Profile.Name = 'Dealer Community Marketing Manager') And IsActive = true];
         List<User> DealerUserList = [Select Id, ContactId From User Where Contact.Permission_Set_Settings__c includes ('S_M_Retail_Campaign') And IsActive = true];
+        system.debug('@Shrinivas DealerUserList list:' +DealerUserList); 
         List<Task> taskList = new List<Task>();
         for(User user : DealerUserList ){
              taskList.add(generateTask(user, 'Please submit plan of activities and feedback'));
@@ -27,6 +27,7 @@ global class ScheduledCreationTaskToDealers  implements Schedulable{
                 System.debug('Exception message is :' + e.getDMLMessage(0));
             }
         }
+        system.debug('@Shrinivas task list:' +taskList); 
     }
     
     private Task generateTask(User user ,String strSubject) {

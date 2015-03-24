@@ -21,14 +21,18 @@ public class UtilLead
         {
             accIds.add(lead.Contact__c);
         }
-
-        Map<Id, Account> accMap = new Map<Id, Account>([SELECT Id, Allow_Data_Sharing__c FROM Account WHERE Id IN :accIds]);
-
-        for (Lead__c lead : leads)
-        {
-            String allowDataSharing = accMap.get(lead.Contact__c).Allow_Data_Sharing__c;
-            lead.Allow_Data_Sharing__c = allowDataSharing == 'Yes' ? true : false;
-        }
+		if(accIds!=null && !accIds.isEmpty())
+		{
+	        Map<Id, Account> accMap = new Map<Id, Account>([SELECT Id, Allow_Data_Sharing__c FROM Account WHERE Id IN :accIds]);
+	
+	        for (Lead__c lead : leads)
+	        {
+	        	String allowDataSharing;
+	        	if(accMap.get(lead.Contact__c)!=null && accMap.get(lead.Contact__c).Allow_Data_Sharing__c!=null)
+	            	allowDataSharing = accMap.get(lead.Contact__c).Allow_Data_Sharing__c;
+	            lead.Allow_Data_Sharing__c = allowDataSharing == 'Yes' ? true : false;
+	        }
+		}
     }
 
     // US-Lead-021

@@ -88,7 +88,7 @@ Account account2 = new Account(Dealer_Default_Flag__c=true,
         lead.Interested_Vehicle_Brand__c = 'Smart');
        insert lead;*/
        Lead__c lead = new Lead__c();
-       lead.Assigned_Dealer__c = account2.Id;
+       lead.Assigned_Dealer__c = dealer.Id;
        lead.CAC_Lead_Status__c = 'Qualified';
         lead.Lead_Type__c = 'New Car';
         lead.Allow_Data_Sharing__c=true;

@@ -12,6 +12,7 @@ global class ScheduledDeleteTaskToDealers  implements Schedulable{
 
     global void execute(SchedulableContext SC) {
         Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.task.getRecordTypeInfosByName();
+        system.debug('@Shrinivas :' +cpRecordTypeMap);
         List<Task> taskList = [Select Id From Task Where RecordTypeId = :cpRecordTypeMap.get('General Task').getRecordTypeId() And ActivityDate < :System.today()];
         if(taskList.size() > 0){
             try {

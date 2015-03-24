@@ -13,7 +13,12 @@ public class ScheduleCreateWeeklyDealerOBEmailsTest{
     static testMethod void testScheduleCreateWeeklyDealerOBEmails(){
 
         Test.startTest();
-        System.schedule('ScheduleCreateWeeklyDealerOBEmailsTest', '0 0 13 * * ?', new ScheduleCreateWeeklyDealerOBEmails());
+        String CRON_EXP = '0 0 0 1 1 ? 2025';  
+        String jobId = System.schedule('ScheduleCreateWeeklyDealerOBEmailsTest', CRON_EXP, new ScheduleCreateWeeklyDealerOBEmails() );
+        CronTrigger ct = [select id, CronExpression, TimesTriggered, NextFireTime from CronTrigger where id = :jobId];
+        System.assertEquals(CRON_EXP, ct.CronExpression); 
+        System.assertEquals(0, ct.TimesTriggered);
+        System.assertEquals('2025-01-01 00:00:00', String.valueOf(ct.NextFireTime));
         Test.stopTest();
     }
 }

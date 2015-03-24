@@ -13,7 +13,12 @@ public class ScheduleCreateMonthlyRegionOBEmailsTest{
     static testMethod void testScheduleCreateMonthlyRegionOBEmails(){
 
         Test.startTest();
-        System.schedule('ScheduleCreateMonthlyRegionOBEmailsTest', '0 0 13 * * ?', new ScheduleCreateMonthlyRegionOBEmails());
+        String CRON_EXP = '0 0 0 1 1 ? 2025';  
+        String jobId = System.schedule('ScheduleCreateMonthlyRegionOBEmailsTest', CRON_EXP, new ScheduleCreateMonthlyRegionOBEmails() );
+        CronTrigger ct = [select id, CronExpression, TimesTriggered, NextFireTime from CronTrigger where id = :jobId];
+        System.assertEquals(CRON_EXP, ct.CronExpression); 
+        System.assertEquals(0, ct.TimesTriggered);
+        System.assertEquals('2025-01-01 00:00:00', String.valueOf(ct.NextFireTime));
         Test.stopTest();
     }
 }
