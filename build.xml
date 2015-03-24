@@ -1,6 +1,6 @@
-<project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" default="deploy">
+<project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" xmlns:unless="ant:unless" default="deploy">
 
-    <property prefix="sfdc" file="build.properties"/>
+    <property prefix="sfdc" file="build.properties" unless:set="CI"/>
 	
 	<property name="typesets">
 		CustomLabels,CallCenter,StaticResource,ApexPage,Queue,Role,Group,CustomObject,Layout,Document,CustomTab,
