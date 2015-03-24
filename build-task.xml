@@ -2,7 +2,7 @@
 <project name="Task" basedir="." default="jar">
 
 	<presetdef name="java-c">
-		<javac includeantruntime="false" />
+		<javac includeantruntime="false" source="1.7" target="1.7"/>
 	</presetdef>
 
     <target name="clean" description="Delete all generated files">
