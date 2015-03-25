@@ -193,7 +193,8 @@ public class SfdcRetrievalTask
     if (full) {
       metadataHandler.removeNotcontainedMetadata(metadata2Update, typeSets, cleanupOther);
     }
-    updateStampHandler.updateTimestamps(metadataUpdatestamps, full);
+    
+    // TODO not used for now updateStampHandler.updateTimestamps(metadataUpdatestamps, full);
   }
 
   private void initialize()

@@ -25,10 +25,6 @@
 				dataRoot="src/main/resources/data" logDir="logs" timestamps="timestamps-data.log"/>
 	</presetdef>
 	
-	<target name="init">
-		<!-- nothing to init for now -->
-	</target>
-	
 	<target name="deployAll">
 		<delete file="timestamps-updated.log" quiet="true"/>
 		<antcall target="deploy">
@@ -42,13 +38,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
 	</target>
 	
-	<target name="deploy" depends="init, retrieveChecksums, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35, deploy40">
-		<!-- TODO consider only deployed entities -->
-		<sf:retrieveUpdatestamps
-				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" timestamps="timestamps-deployed.log">
-			<sf:typesets names="${typesets}"/>
-		</sf:retrieveUpdatestamps>
+	<target name="deploy" depends="retrieveChecksums, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35, deploy40">
 		<sf:deployChecksums sfdcName="${sfdc.checksums}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
@@ -263,13 +253,13 @@
 		
 	</property>
 	
-	<target name="retrieve" depends="init">
+	<target name="retrieve">
 		<!-- retrieves all metadata -->
 		<sf:retrieve
 				debug="${sfdc.debug}" dryRun="false" cleanupOther="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
-				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
+				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="dummy">
 			<sf:typesets names="${typesets.circle}"/>
 			<sf:feature name="exclude-checksums" param="Checksums"/>
 			<sf:feature name="include-personaccount"/>
