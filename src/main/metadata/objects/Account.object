@@ -945,12 +945,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_MagicNo&quot;</desc
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>DandbCompanyId</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Data_Source__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -2791,11 +2785,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DriversLicenseFlag&
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>DunsNumber</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Dup_Reason__c</fullName>
         <description>Duplication reason for suspected duplication to be filled by EP</description>
         <externalId>false</externalId>
@@ -4548,16 +4537,6 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>NaicsCode</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>NaicsDesc</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Name</fullName>
         <trackFeedHistory>true</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -6050,11 +6029,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Salutation&quot;</d
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Tradestyle</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
         <fullName>Type</fullName>
         <picklist>
             <picklistValues>
@@ -6195,11 +6169,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_VehicleAmount&quot;
     </fields>
     <fields>
         <fullName>Website</fullName>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>YearStarted</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
     </fields>
