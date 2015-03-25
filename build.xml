@@ -160,7 +160,7 @@
 				<sf:exclude name="EPA_.*"/>
 				<sf:exclude name="Tasks"/>
 				<sf:exclude name="Retail_Campaigns"/>
-				<sf:exclude name="BMBS_Campaigns"/>
+				<sf:exclude name="Central_Campaigns"/>
 				<sf:exclude name="Campaign_Calendar"/>
 				<sf:exclude name="Retail_Campaign__c"/>	
 				<sf:exclude name="Retail_Campaign_Calender"/>
@@ -182,7 +182,7 @@
 				<sf:include name="EPA_.*"/>
 				<sf:include name="Tasks"/>
 				<sf:include name="Retail_Campaigns"/>
-				<sf:include name="BMBS_Campaigns"/>
+				<sf:include name="Central_Campaigns"/>
 				<sf:include name="Campaign_Calendar"/>
 				<sf:include name="Retail_Campaign__c"/>	
 				<sf:include name="Retail_Campaign_Calender"/>
