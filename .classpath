@@ -5,7 +5,6 @@
 	<classpathentry kind="lib" path="lib-task/commons-lang3-3.3.2.jar"/>
 	<classpathentry kind="lib" path="lib-task/force-wsc-33.0.0-uber.jar"/>
 	<classpathentry kind="lib" path="C:/dev/kernel/sfdc-apac/lib-task/ant.jar"/>
-	<classpathentry kind="lib" path="C:/dev/kernel/sfdc-apac/lib/deployment-util.jar"/>
 	<classpathentry kind="lib" path="C:/dev/kernel/sfdc-apac/lib/enterprise-api.jar"/>
 	<classpathentry kind="lib" path="C:/dev/kernel/sfdc-apac/lib/metadata-api.jar"/>
 	<classpathentry kind="lib" path="C:/dev/kernel/sfdc-apac/lib/dataloader-30.0.0-uber.jar"/>

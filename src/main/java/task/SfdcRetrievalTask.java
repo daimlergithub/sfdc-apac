@@ -21,7 +21,6 @@ import task.handler.TransformationHandler;
 import task.handler.UpdateStampHandler;
 import task.handler.ZipFileHandler;
 import task.model.SfdcFeature;
-import task.model.SfdcFeature.FeatureName;
 import task.model.SfdcTypeSet;
 import task.model.SfdcTypeSets;
 
@@ -46,7 +45,9 @@ public class SfdcRetrievalTask
   private boolean dryRun;
   private List<SfdcTypeSet> typeSets;
   private String timestamps;
-  private boolean full;
+  
+  // non-full retrievals are broken! Retrieving the timestamps does not return changed value when the setting has been changed on the UI.
+  private final boolean full = true;
   private boolean cleanupOther;
   private String transformationsRoot;
   private Map<String, SfdcFeature> features;
@@ -110,11 +111,6 @@ public class SfdcRetrievalTask
   public void setTimestamps(String timestamps)
   {
     this.timestamps = timestamps;
-  }
-
-  public void setFull(boolean full)
-  {
-    this.full = full;
   }
 
   public void setCleanupOther(boolean cleanupOther)

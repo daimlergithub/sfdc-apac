@@ -49,6 +49,11 @@ public class RemoveElement extends Transformation {
   @Override
   public void applyForDeploy(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
   {
+    apply(logWrapper, document);
+  }
+
+  private void apply(LogWrapper logWrapper, Document document)
+  {
     XPath xPath = XPathFactory.newInstance().newXPath();
     
     try {
@@ -76,10 +81,7 @@ public class RemoveElement extends Transformation {
   @Override
   public void applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
   {
-    if (!isRetrieve()) {
-      // TODO is this really useful?
-      throw new BuildException("Not implemted yet.");
-    }
+    apply(logWrapper, document);
   }
 
 }

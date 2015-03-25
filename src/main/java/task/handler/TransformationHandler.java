@@ -254,19 +254,24 @@ public class TransformationHandler
     }
   }
 
-  private void applyTransformations(String name, InputStream is, List<Transformation> fileTransformations, OutputStream os, boolean deploy)
+  private void applyTransformations(String name,
+                                    InputStream is,
+                                    List<Transformation> fileTransformations,
+                                    OutputStream os,
+                                    boolean deploy)
   {
     try {
       DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-//      TODO dbf.setNamespaceAware(true);
+      //      TODO dbf.setNamespaceAware(true);
       DocumentBuilder b = dbf.newDocumentBuilder();
-      
+
       Document doc = b.parse(is);
-      
+
       for (Transformation transformation : fileTransformations) {
         if (deploy && transformation.isDeploy()) {
           transformation.applyForDeploy(logWrapper, doc, tokenMappings);
-        } else if (!deploy && transformation.isRetrieve()) {
+        }
+        else if (!deploy && transformation.isRetrieve()) {
           transformation.applyForRetrieve(logWrapper, doc, tokenMappings);
         }
       }
@@ -279,10 +284,10 @@ public class TransformationHandler
       transformer.setOutputProperty(OutputKeys.INDENT, "yes");
       transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
       transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "4");
-      
+
       StreamResult result = new StreamResult(os);
       DOMSource source = new DOMSource(doc);
-      
+
       transformer.transform(source, result);
     }
     catch (ParserConfigurationException | SAXException | IOException | TransformerFactoryConfigurationError
@@ -315,7 +320,8 @@ public class TransformationHandler
 
     List<Transformation> result = new ArrayList<>();
     for (Transformation transformation : transformations) {
-      if (fileName.endsWith(transformation.getFilename())) {
+      String fileNamePattern = transformToPattern(transformation.getFilename());
+      if (fileName.matches(fileNamePattern)) {
         result.add(transformation);
       }
     }
@@ -327,6 +333,34 @@ public class TransformationHandler
     // TODO validate only one rename file for each file
 
     return result;
+  }
+
+  private String transformToPattern(String fileName)
+  {
+    StringBuffer sb = new StringBuffer();
+    
+    // . -> \\., * -> .*, ? -> .
+    for (char c : fileName.toCharArray()) {
+      switch (c) {
+        case '*':
+          sb.append(".*");
+          break;
+        case '?':
+          sb.append(".");
+          break;
+        case '.':
+          sb.append("\\.");
+          break;
+        default:
+          sb.append(c);
+      }
+    }
+    
+    if (!sb.toString().startsWith(".*")) {
+      sb.insert(0, ".*");
+    }
+    
+    return sb.toString();
   }
 
   public void transformRetrieve(InputStream is, File file)
@@ -348,7 +382,7 @@ public class TransformationHandler
   private void copyFile(InputStream is, File file)
   {
     byte[] buffer = new byte[2048];
-    
+
     try (FileOutputStream fos = new FileOutputStream(file);
         BufferedOutputStream bos = new BufferedOutputStream(fos, buffer.length)) {
       int read = 0;

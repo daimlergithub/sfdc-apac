@@ -1,6 +1,6 @@
 <project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" xmlns:unless="ant:unless" default="deploy">
 
-    <property prefix="sfdc" file="build.properties" unless:set="CI"/>
+    <property prefix="sfdc" file="build.properties"/>
 	
 	<property name="typesets">
 		CustomLabels,CallCenter,StaticResource,ApexPage,Queue,Role,Group,CustomObject,Layout,Document,CustomTab,
@@ -208,7 +208,8 @@
 			</sf:typeset>
 			<sf:typeset name="permissionsets"/>
 			<sf:typeset name="profiles">
-			<sf:exclude name="Authenticated Website"/>
+				<!-- TODO fix this -->
+				<sf:exclude name="Authenticated Website"/>
 				<!-- TODO FALK these do not deploy on Oliver's org -->
 				<!--
 				<sf:exclude name="CAC IB CSR"/>
@@ -262,33 +263,8 @@
 		
 	</property>
 	
-	<target name="retrieveAll" depends="init">
-		<!-- retrieves all metadata -->
-		<sf:retrieve
-				debug="${sfdc.debug}" dryRun="false" full="true" cleanupOther="false"
-				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
-				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
-			<sf:typesets names="${typesets.circle}"/>
-			<sf:feature name="exclude-checksums" param="Checksums"/>
-			<!--sf:feature name="include-personaccount"/-->
-		</sf:retrieve>
-		
-		<!-- retrieves all metadata -->
-		<sf:retrieve
-				debug="${sfdc.debug}" dryRun="false" full="true" cleanupOther="true"
-				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
-				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
-			<sf:typesets names="${typesets.not-ready}"/>
-			<sf:feature name="include-personaccount"/>
-		</sf:retrieve>
-	</target>
-
 	<target name="retrieve" depends="init">
-		<fail message="DEPRECATED: Please use retrieveAll!"/>
-		
-		<!-- retrieves only changed metadata -->
+		<!-- retrieves all metadata -->
 		<sf:retrieve
 				debug="${sfdc.debug}" dryRun="false" cleanupOther="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
@@ -296,18 +272,18 @@
 				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets.circle}"/>
 			<sf:feature name="exclude-checksums" param="Checksums"/>
-			<!--sf:feature name="include-personaccount"/-->
+			<sf:feature name="include-personaccount"/>
 		</sf:retrieve>
 		
-		<!-- retrieves only changed metadata -->
-		<sf:retrieve
+		<!-- retrieves all metadata -->
+		<!--sf:retrieve
 				debug="${sfdc.debug}" dryRun="false" cleanupOther="true"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
 				retrieveRoot="src/main/metadata-retrieve" transformationsRoot="src/main/transformations" timestamps="timestamps-deployed.log">
 			<sf:typesets names="${typesets.not-ready}"/>
 			<sf:feature name="include-personaccount"/>
-		</sf:retrieve>
+		</sf:retrieve-->
 	</target>
 	
 	<!-- Work in Progress -->
