@@ -38,7 +38,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
 	</target>
 	
-	<target name="deploy" depends="retrieveChecksums, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy35, deploy40">
+	<target name="deploy" depends="retrieveChecksums, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy32, deploy35, deploy40">
 		<sf:deployChecksums sfdcName="${sfdc.checksums}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
@@ -141,6 +141,9 @@
 				<sf:exclude name="PersonAccount"/>
 				<sf:exclude name="Contact"/>
 				<sf:exclude name="Campaign"/>
+				<sf:exclude name="Task"/>
+				<!-- TODO FALK check this: do not deploy site -->
+				<sf:exclude name="Site"/>
 			    <sf:exclude name=".*__c"/>
 			</sf:typeset>
 		</deploy>
@@ -187,6 +190,14 @@
 			<sf:typeset name="triggers"/>
 		</deploy>
     </target>
+	
+	<target name="deploy32">
+			<deploy>
+				<sf:typeset name="objects">
+					<sf:include name="Task"/>
+				</sf:typeset>
+			</deploy>
+	    </target>
 	
 	<target name="deploy35">
 		<deploy>
