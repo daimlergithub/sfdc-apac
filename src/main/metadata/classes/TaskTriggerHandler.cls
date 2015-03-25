@@ -25,11 +25,11 @@ public class TaskTriggerHandler {
     private static void getRecordTypeId(){
         if(OBRTID == null){
             Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
-            SSIRTID = rtMap.get('SSI Task').getRecordTypeId();
-            WCRTID = rtMap.get('Welcome Call').getRecordTypeId();
-            IBRTID = rtMap.get('IB Call').getRecordTypeId();
-            OBRTID = rtMap.get('OB Call').getRecordTypeId();
-            OBTRTID = rtMap.get('OB Task').getRecordTypeId();
+            SSIRTID = rtMap.get(UtilConstant.SSI_TASK).getRecordTypeId();
+            WCRTID = rtMap.get(UtilConstant.WELCOME_CALL).getRecordTypeId();
+            IBRTID = rtMap.get(UtilConstant.IB_CALL).getRecordTypeId();
+            OBRTID = rtMap.get(UtilConstant.OB_CALL).getRecordTypeId();
+            OBTRTID = rtMap.get(UtilConstant.OB_TASK).getRecordTypeId();
         }
     }  
       
@@ -39,13 +39,13 @@ public class TaskTriggerHandler {
         Map<Id, Task> updateMap = new Map<Id, Task>();
         Set<Id> ssiTaskIds = new Set<Id>();
         for(Task t : newMap.values()){
-            if((t.RecordTypeId == OBRTID && t.OB_Status__c == 'successful')
-                || (t.RecordTypeId == IBRTID && t.IB_Status__c == 'Valid')){
+            if((t.RecordTypeId == OBRTID && t.OB_Status__c == UtilConstant.SUCCESSFUL)
+                || (t.RecordTypeId == IBRTID && t.IB_Status__c == UtilConstant.VALID)){
                 if(t.AccountId != null && !updateMap.containsKey(t.AccountId)){
                     updateMap.put(t.AccountId, t);
                 }                
             }
-            if(t.RecordTypeId == OBRTID && t.Activity_Status__c == 'Successful' && t.whoId == null) {
+            if(t.RecordTypeId == OBRTID && t.Activity_Status__c == UtilConstant.SUCCESSFUL && t.whoId == null) {
                 String ssiId = t.WhatId;
                 if(ssiId.subString(0, 3) == 'a1J') {
                     ssiTaskIds.add(t.Related_Task_Id__c);
@@ -77,8 +77,6 @@ public class TaskTriggerHandler {
                             acc.Last_Successful_Call_Mobile__c = tk.End_call_time__c;
                         }else if(acc.PersonOtherPhone != null && pNumber.contains(acc.PersonOtherPhone)){
                             acc.Last_Successful_Call_Second_Mobile__c = tk.End_call_time__c;
-                        }else if(acc.PersonAssistantPhone != null && pNumber.contains(acc.PersonAssistantPhone)){
-                            //acc.Last_Successful_Call_Extension_Number__c = tk.End_call_time__c;
                         }
                     }                
                     acc.Last_Successful_Call__c = tk.End_call_time__c;    
@@ -103,7 +101,7 @@ public class TaskTriggerHandler {
         List<Lead__c> updateOnlyLeads = new List<Lead__c>();   
         for (Lead__c ld : leads) {
             Account acc = accounts.get(ld.Contact__c);
-            if (acc.Last_Successful_Call__c > ld.CreatedDate.addMinutes(10) || ((ld.Lead_DataSource__c != 'OB Call' && ld.Lead_DataSource__c != 'IB Call'))) {
+            if (acc.Last_Successful_Call__c > ld.CreatedDate.addMinutes(10) || ((ld.Lead_DataSource__c != UtilConstant.OB_CALL && ld.Lead_DataSource__c != UtilConstant.IB_CALL))) {
                 
                 if (ld.CAC_Lead_Status__c == 'Purchased(Only Non BDC)' && (ld.Purchased_CAC_Date_Time__c == null || acc.Last_Successful_Call__c > ld.Purchased_CAC_Date_Time__c.addMinutes(10))) {
                     continue;
@@ -114,7 +112,7 @@ public class TaskTriggerHandler {
                 }
 
                 if (ld.Successful_Call_Number__c == null) {
-                    ld.Successful_Call_Number__c = (ld.Lead_DataSource__c == 'OB Call' || ld.Lead_DataSource__c == 'IB Call') ? 1 : 0;
+                    ld.Successful_Call_Number__c = (ld.Lead_DataSource__c == UtilConstant.OB_CALL || ld.Lead_DataSource__c == UtilConstant.IB_CALL) ? 1 : 0;
                 }
                 ld.Successful_Call_Number__c ++;
                 ld.Last_Successful_Call__c = acc.Last_Successful_Call__c;
@@ -141,9 +139,9 @@ public class TaskTriggerHandler {
             List<Campaign_Lead__c> updateCampaignLeads = new List<Campaign_Lead__c>();   
             for (Campaign_Lead__c cl : cls) {
                 Account acc = accounts.get(cl.Lead__r.Contact__c);
-                if (acc.Last_Successful_Call__c > cl.CreatedDate.addMinutes(10) || (cl.Lead__r.Lead_DataSource__c != 'OB Call' && cl.Lead__r.Lead_DataSource__c != 'IB Call') ) {
+                if (acc.Last_Successful_Call__c > cl.CreatedDate.addMinutes(10) || (cl.Lead__r.Lead_DataSource__c != UtilConstant.OB_CALL && cl.Lead__r.Lead_DataSource__c != UtilConstant.IB_CALL) ) {
                     if (cl.Successful_Call_Number__c == null) {
-                        cl.Successful_Call_Number__c = (cl.Lead__r.Lead_DataSource__c == 'OB Call' || cl.Lead__r.Lead_DataSource__c == 'IB Call') ? 1 : 0;
+                        cl.Successful_Call_Number__c = (cl.Lead__r.Lead_DataSource__c == UtilConstant.OB_CALL || cl.Lead__r.Lead_DataSource__c == UtilConstant.IB_CALL) ? 1 : 0;
                     }
                     cl.Successful_Call_Number__c ++;
                     cl.Last_Successful_Call__c = acc.Last_Successful_Call__c;
@@ -161,7 +159,7 @@ public class TaskTriggerHandler {
         getRecordTypeId();
         // By Shuang Li US-smart_SSI-008---- start
         if (tk.RecordTypeId == SSIRTID && tk.Subject == WELAND1STSURVEY && tk.AccountId !=null 
-            && tk.Status == 'Closed' && old.Status != 'Closed'
+            && tk.Status == UtilConstant.CLOSED && old.Status != UtilConstant.CLOSED
             && (
                 tk.Activity_Status__c == 'Phone Shut Down' ||
                 tk.Activity_Status__c == 'Engaged' ||
@@ -244,37 +242,33 @@ public class TaskTriggerHandler {
             
             if (tk.RecordTypeId == OBRTID && tk.CallType == 'Outbound') {
                 getCTIMessage(tk, ctiTasks);
-                if(tk.SSI_Status__c != null) {
-                    tk.Activity_Status__c = tk.SSI_Status__c;
-                }else {
+                if(tk.SSI_Status__c == null) {
                     tk.Activity_Status__c = tk.OB_Status__c;
+                }else {
+                	tk.Activity_Status__c = tk.SSI_Status__c;
                 }                
                 tk.Phone__c = tk.Called__c;
             }
             // By Shuang Li US-smart_SSI-008---- start
             if ((tk.RecordTypeId == SSIRTID || tk.RecordTypeId == WCRTID) 
-                && tk.Activity_Status__c == 'Successful') {
-                tk.Status = 'Closed';
+                && tk.Activity_Status__c == UtilConstant.SUCCESSFUL) {
+                tk.Status = UtilConstant.CLOSED;
             }
             // By Shuang Li US-smart_SSI-008---- end
             
             // if (tk.RecordTypeId == SSIRTID && tk.Subject == WELAND1STSURVEY 
-            //     && tk.Activity_Status__c != 'Successful' && tk.Activity_Status__c != null) {
-            //     tk.Status = 'Closed';            
+            //     && tk.Activity_Status__c != UtilConstant.SUCCESSFUL && tk.Activity_Status__c != null) {
+            //     tk.Status = UtilConstant.CLOSED;            
             // }
             
             // By Shuang Li US-smart_SSI-008---- start
-            if(tk.RecordTypeId == SSIRTID && tk.WhatId != null && tk.WhatId.getSObjectType().getDescribe().getName() == 'SSI__c'){
+            if(tk.RecordTypeId == SSIRTID && tk.WhatId != null && tk.WhatId.getSObjectType().getDescribe().getName() == UtilConstant.SSI){
             // By Shuang Li US-smart_SSI-008---- end
                 autoUpdateSSITasks.add(tk);             
             }
             
             if(tk.RecordTypeId == OBRTID){
                 autoUpdateOBCalls.add(tk);
-            }
-            
-            if(tk.RecordTypeId == WCRTID && tk.WhatId != null && tk.WhatId.getSObjectType().getDescribe().getName() == 'Account'){
-                //autoUpdateWelcomeCallTask(tk);             
             }
         }  
 
@@ -324,7 +318,7 @@ public class TaskTriggerHandler {
                     String pNumber = ctk.Called__c;   
                     Boolean isMatched = false;      
                     try {          
-                        if(tk.WhatId.getSObjectType().getDescribe().getName() == 'SSI__c'){
+                        if(tk.WhatId.getSObjectType().getDescribe().getName() == UtilConstant.SSI){
                             SSI__c ssi = [Select HomeMobilePhone__c, OfficePhone__c From SSI__c Where Id = :tk.WhatId];
                             if ((ssi.HomeMobilePhone__c != null && pNumber.contains(ssi.HomeMobilePhone__c)) 
                                     || (ssi.OfficePhone__c != null && pNumber.contains(ssi.OfficePhone__c))) {
@@ -341,8 +335,9 @@ public class TaskTriggerHandler {
                                 isMatched = true;
                             }
                         } 
-                    } catch (Exception ex) {}
-                    if (isMatched == true) {
+                    } catch (Exception ex) {
+                    	System.debug('errormessage>>' + ex.getmessage());}
+                    if (isMatched) {
                         ctiTasks.put(tk.CallObject, ctk);
                     }
                     
@@ -376,7 +371,7 @@ public class TaskTriggerHandler {
                     From Task 
                     Where RecordTypeId = :OBRTID And Related_Task_Id__c = :tk.Related_Task_Id__c And WhoId = :tk.WhoId And Start_call_time__c != null]; 
             // By Shuang Li US-smart_SSI-008---- start
-            } else if (tk.WhatId != null && tk.WhatId.getSObjectType().getDescribe().getName() == 'SSI__c') {
+            } else if (tk.WhatId != null && tk.WhatId.getSObjectType().getDescribe().getName() == UtilConstant.SSI) {
                 obCallCount = [
                     Select Count() 
                     From Task 
@@ -407,7 +402,7 @@ public class TaskTriggerHandler {
                     try{
                         update t;
                     }catch(DMLException ex){
-
+						System.debug('errormessage>>' + ex.getmessage());
                     } 
                 }           
             }
@@ -417,13 +412,12 @@ public class TaskTriggerHandler {
     private static void autoUpdateOBCall(Set<Task> tasks){
         Set<Id> accIds = new Set<Id>();
         Set<Id> ssiIds = new Set<Id>();
-        Set<Id> smartSsiIds = new Set<Id>();
         Set<Id> conIds = new Set<Id>();
         for (Task tk : tasks) {
             if(tk.WhatId != null){
                 if(tk.WhatId.getSObjectType().getDescribe().getName() == 'Account'){
                     accIds.add(tk.WhatId);
-                }else if(tk.WhatId.getSObjectType().getDescribe().getName() == 'SSI__c'){
+                }else if(tk.WhatId.getSObjectType().getDescribe().getName() == UtilConstant.SSI){
                     ssiIds.add(tk.WhatId);
                 }else if (tk.WhoId != null && tk.WhoId.getSObjectType().getDescribe().getName() == 'Contact') {
                     conIds.add(tk.WhoId);
@@ -514,7 +508,7 @@ public class TaskTriggerHandler {
     
     public static void autoUpdateSSISurveyStatus(Task tk, Task old){
         getRecordTypeId();
-        if(tk.RecordTypeId == SSIRTID && tk.Status == 'Closed' && old.Status != 'Closed' &&
+        if(tk.RecordTypeId == SSIRTID && tk.Status == UtilConstant.CLOSED && old.Status != UtilConstant.CLOSED &&
             (tk.Subject == WELAND1STSURVEY || tk.Subject == X1STSURVEY || tk.Subject == X2NDSURVEY)){
             updateSSISurveyStatus(tk.WhatId, tk.Subject);   
         }
@@ -526,7 +520,8 @@ public class TaskTriggerHandler {
             ssi.Survey_Finished__c = subject == X2NDSURVEY?'2nd Survey':'1st Survey';
             try{
                 update ssi;   
-            }catch(Exception ex){}
+            }catch(Exception ex){
+            	System.debug('errormessage>>' + ex.getmessage());}
         }
     }
 

@@ -158,7 +158,7 @@ public class UtilAccount {
                     account.ZipCode__c = city != null ? city.Zip__c : null;
                 }
                 catch (System.InvalidParameterValueException e){
-                    // City_CN__c probably too long
+                   	system.debug('DML Exception: ' + e.getMessage());
                 }
             }
           }

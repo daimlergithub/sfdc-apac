@@ -32,5 +32,9 @@ public class ScheduleCreateMonthlyDealerOBEmailsTest{
         System.assertEquals(0, ct.TimesTriggered);
         System.assertEquals('2025-01-01 00:00:00', String.valueOf(ct.NextFireTime));
         Test.stopTest();
+        
+        String emailBody = UtilLeadEmailEscalation.getMonthlyEmailBodyByDealer(testAccount);
+        system.debug('Email body' +emailBody);
+        system.assert(emailBody !=Null);
     }
 }

@@ -144,6 +144,7 @@ private class SSITriggerHandlerTest {
             try{
                 update ssi;
             }catch(Exception ex){
+            	system.debug('ex>>>>'+ex.getMessage());
             }
 
             Test.stopTest();

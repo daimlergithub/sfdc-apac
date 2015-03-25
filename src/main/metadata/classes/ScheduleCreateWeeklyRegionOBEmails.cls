@@ -33,5 +33,6 @@ global class ScheduleCreateWeeklyRegionOBEmails implements Schedulable {
         // Populate the Region with the accounts in it
         Map<String, List<Account>> separatedAccountsBySubRegion = 
             UtilLeadEmailEscalation.getSeparateAccountsBySubRegion(accs);
+            
     }
 }
