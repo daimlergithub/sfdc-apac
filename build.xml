@@ -142,6 +142,7 @@
 				<sf:exclude name="Contact"/>
 				<sf:exclude name="Campaign"/>
 				<sf:exclude name="Task"/>
+				<sf:exclude name="Activity"/>
 				<!-- TODO FALK check this: do not deploy site -->
 				<sf:exclude name="Site"/>
 			    <sf:exclude name=".*__c"/>
@@ -195,6 +196,7 @@
 			<deploy>
 				<sf:typeset name="objects">
 					<sf:include name="Task"/>
+					<sf:include name="Activity"/>
 				</sf:typeset>
 			</deploy>
 	    </target>
