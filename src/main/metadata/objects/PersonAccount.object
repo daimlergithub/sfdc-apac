@@ -466,10 +466,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MBDA</fullName>
                 <default>false</default>
             </values>
@@ -2716,10 +2712,6 @@
             </values>
             <values>
                 <fullName>MB Website Aftersales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5036,10 +5028,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MBDA</fullName>
                 <default>false</default>
             </values>
@@ -7273,10 +7261,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBCL</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>MBDA</fullName>
                 <default>false</default>
             </values>
@@ -9474,10 +9458,6 @@
             </values>
             <values>
                 <fullName>MB Website Aftersales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBCL</fullName>
                 <default>false</default>
             </values>
             <values>
