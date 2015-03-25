@@ -63,6 +63,7 @@
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
+			<sf:typeset name="queues"/>
 		</deploy>
     </target>
 	
@@ -164,7 +165,6 @@
 			<sf:typeset name="layouts"/>
 			<sf:typeset name="email"/>
 			<sf:typeset name="groups"/>
-			<sf:typeset name="queues"/>
 			<sf:typeset name="workflows"/>
 		</deploy>
     </target>
