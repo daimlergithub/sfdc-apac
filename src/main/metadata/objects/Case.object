@@ -133,10 +133,6 @@
             <fullName>Processed</fullName>
             <default>false</default>
         </values>
-        <values>
-            <fullName>已处理</fullName>
-            <default>false</default>
-        </values>
     </businessProcesses>
     <businessProcesses>
         <fullName>MBDA Inquiry Process</fullName>
@@ -220,10 +216,6 @@
         </values>
         <values>
             <fullName>Suspended</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Upgraded</fullName>
             <default>false</default>
         </values>
         <values>
