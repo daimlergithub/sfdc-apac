@@ -43,12 +43,4 @@ trigger TriggerVehicleRelationship on Vehicle_Relationship__c(after insert, afte
     	//
     	UtilVehicleRelationship.updateVehicle(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
     }
-    if(trigger.isBefore && trigger.isInsert)
-    {
-    	//
-    }
-    if(trigger.isBefore && trigger.isUpdate)
-    {
-    	//
-    }
 }

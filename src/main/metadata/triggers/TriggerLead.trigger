@@ -35,13 +35,11 @@ trigger TriggerLead on Lead__c(before insert, before update, after update) {
         handler.shareAccountByCRMCode(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
         LeadHelper.afterInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.ShareLeadsToCampaignUser(trigger.new,trigger.OldMap,trigger.NewMap,trigger.isinsert,trigger.isUpdate);
-        LeadHelper.SendMessageToCustomerAndInstructor(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
         LeadHelper.afterInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.ShareLeadsToCampaignUser(trigger.new,trigger.OldMap,trigger.NewMap,trigger.isinsert,trigger.isUpdate);
-        LeadHelper.SendMessageToCustomerAndInstructor(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
     }
     if(trigger.isBefore && trigger.isInsert)
     {

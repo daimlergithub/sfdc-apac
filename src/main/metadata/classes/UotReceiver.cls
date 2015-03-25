@@ -14,18 +14,7 @@ global class UotReceiver
         for (EpAdapterUnitOfWork__c sfdcUnitOfWork : sfdcUnitsOfWork) {
         	objectsToInsert.add(sfdcUnitOfWork);
         }
-        
-        try {
-            insert objectsToInsert;
-        }
-        catch (System.DMLException e) {
-            if (StatusCode.UNABLE_TO_LOCK_ROW == e.getDmlType(0)) {
-                Integer start = System.Now().millisecond();
-                while(System.Now().millisecond() < start + 250){ 
-                }
-                insert objectsToInsert;
-            }
-        }
+        insert objectsToInsert;
 
         Map<ID, Attachment> attachmentsBySfdcUnitOfWorkId = getAttachments(unitOfWork, sfdcUnitsOfWork);
 

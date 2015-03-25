@@ -48,7 +48,7 @@ public class SettlementHelperTest
         system.assert([select id from Settlement_Management__c where (id = :i1 OR id = :i2)].size() == 0);
         Settlement_Management__c ss2 = [select id, Customer_Settlement_Amount__c, Dealer_Settlement_Amount__c, MB_Settlement_Amount__c 
             from Settlement_Management__c where Settlement_Type__c = 'Total Complaint Settlement' and Case__c = :c1.id];
-        Test.stopTest();	
+        Test.stopTest();    
         system.assert(ssold.Customer_Settlement_Amount__c+1100 == ss1.Customer_Settlement_Amount__c);
         system.assert(ssold.Dealer_Settlement_Amount__c+2200 == ss1.Dealer_Settlement_Amount__c);
         system.assert(ssold.MB_Settlement_Amount__c+3300 == ss1.MB_Settlement_Amount__c);
@@ -59,28 +59,28 @@ public class SettlementHelperTest
     
     public static testMethod void testTriggerSettlementAfterInsertUpdateDelete() 
     {
-    	Test.startTest();
+        Test.startTest();
         Case cas = (Case)UtilTestData.createSobject(new Case(), UtilTestData.CASE_RT_MB_COMPLAINT);
         Settlement_Management__c sm = new Settlement_Management__c(
             Settlement_Type__c = 'No Settlement Require',
             Case__c = cas.id
         );
-        try {
+       // try {
             insert sm;
-        } catch (DMLException e) {
-            System.debug('new settlement error : ' + e.getDMLMessage(0));
-        }
+       // } catch (DMLException e) {
+        //    System.debug('new settlement error : ' + e.getDMLMessage(0));
+       // }
         sm.Other_Settlement_Type__c = 'os';
-        try {
+       // try {
             update sm;
-        } catch  (DMLException e) {
-            System.debug('update settlement error : ' + e.getDMLMessage(0));
-        }
-        try {
+       // } catch  (DMLException e) {
+       //     System.debug('update settlement error : ' + e.getDMLMessage(0));
+       // }
+        //try {
             delete sm;
-        } catch  (DMLException e) {
-            System.debug('delete settlement error : ' + e.getDMLMessage(0));
-        }
+       // } catch  (DMLException e) {
+       //     System.debug('delete settlement error : ' + e.getDMLMessage(0));
+       // }
         Test.stopTest();
         system.assertequals(sm.Case__c,cas.id);
     }

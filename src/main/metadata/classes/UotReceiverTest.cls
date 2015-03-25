@@ -15,6 +15,7 @@ public class UotReceiverTest
             System.assert(false, 'Exception should be thrown on retry of UoT');
         }
         catch (System.DMLException expected) {
+        		System.debug('------expected:------->' + expected.getMessage());
         }
         test.stopTest();
     }

@@ -1,8 +1,5 @@
 trigger SSITrigger on SSI__c (after update, after insert,before update, before insert) {
 	
-	if(trigger.isAfter && trigger.isInsert)
-    {
-    }
     if(trigger.isAfter && trigger.isUpdate)
     {
     	if(UtilCustomSettings.isEnabled('SSIAfterUpdate'))
@@ -14,9 +11,7 @@ trigger SSITrigger on SSI__c (after update, after insert,before update, before i
 		    //SSITriggerHandler.calculateDataCleansingResult(Trigger.newMap, Trigger.oldMap);	
     	}	
     }
-    if(trigger.isBefore && trigger.isInsert)
-    {
-    }
+    
     if(trigger.isBefore && trigger.isUpdate)
     {
     	 if (UtilCustomSettings.isEnabled('SSIBeforeUpdateInsert'))

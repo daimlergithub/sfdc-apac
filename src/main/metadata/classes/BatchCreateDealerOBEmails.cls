@@ -45,9 +45,6 @@ global class BatchCreateDealerOBEmails implements Database.Batchable<SObject> {
         }
 
         for (Account acc : Database.query(queryStr)) {
-        	
-        	system.debug('@Shrinivas :Query' +queryStr);
-        	system.debug('@Shrinivas :Acc Record' +acc);
             // If followup rate is > 90% and is Weekly schedule, no need to send email
             if (!isMonthly && UtilLeadEmailEscalation.checkFollowupRate(acc)) {
                 continue;

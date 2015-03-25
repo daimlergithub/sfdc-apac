@@ -317,9 +317,7 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
             
             //rule 1: Inconsistent time
             
-            if (ssi.HandoverDate__c == null && ssi.InvoiceDate__c != null) {
-
-            } else if(ssi.InvoiceDate__c == null){
+            if(ssi.InvoiceDate__c == null){
                 invalid(ssi, Rule_1);
                 continue;
             } else {

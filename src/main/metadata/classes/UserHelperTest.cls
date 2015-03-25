@@ -41,7 +41,7 @@ public class UserHelperTest {
         try {
             insert usr;
         }
-        catch(exception ex) {}
+        catch(exception ex) {system.debug('ex>>>>'+ex.getMessage());}
         
         //Update a user
         try {
@@ -49,7 +49,7 @@ public class UserHelperTest {
             usr.isActive = false;
             update usr;
         }
-        catch(exception ex) {}
+        catch(exception ex) {system.debug('ex>>>>'+ex.getMessage());}
         
         con = [select Id, Dealer_Lead_Gate_Keeper__c, Dealer_Complaint_Gate_Keeper__c from Contact where Id = :con.Id];
         dealer.No_of_Dealer_Portal_Licenses__c = 0;
@@ -71,7 +71,7 @@ public class UserHelperTest {
         try {
             insert usr;
         }
-        catch(exception ex) {}
+        catch(exception ex) {system.debug('ex>>>>'+ex.getMessage());}
         
         usr = new User(
             Username = System.now().millisecond() + 'test12345@test.com',
@@ -89,7 +89,7 @@ public class UserHelperTest {
         try {
             insert usr;
         }
-        catch(exception ex) {}
+        catch(exception ex) {system.debug('ex>>>>'+ex.getMessage());}
         
         usr = new User(
             Username = System.now().millisecond() + 'test12345@test.com',
@@ -142,7 +142,7 @@ public class UserHelperTest {
         usr.ProfileId = CACSSIQC.Id;
         update usr;
         }
-        catch(exception ex) {}
+        catch(exception ex) {system.debug('ex>>>>'+ex.getMessage());}
         Test.stopTest();
     }
     
@@ -231,7 +231,7 @@ public class UserHelperTest {
             Username = System.now().millisecond() + 'HuangTest@163.com',
             ContactId = conNew.Id,
             ProfileId = DealerDelegatedAdmin.Id,
-            Alias = 'HuangTestNew',
+            Alias = 'HuangTe',
             Email = 'HuangTestNew@163.com',
             EmailEncodingKey = 'UTF-8',
             LastName = 'Huang',
@@ -263,7 +263,7 @@ public class UserHelperTest {
         Test.stopTest();
     }
     public static testMethod void UserConstantTest() {
-    	User usrNew= UtilTestData.createPortalUser('Dealer','Dealer Community User');
+        User usrNew= UtilTestData.createPortalUser('Dealer','Dealer Community User');
         Test.startTest();
          UtilConstant uConst=new UtilConstant();
          UtilConstant.getUserRoleId('Retail'); 

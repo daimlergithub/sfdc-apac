@@ -74,30 +74,29 @@ private class ComplaintDesHelperTest {
     }
     
     public static testMethod void testTriggerComplaintDescAfterInsertUpdateDelete() {
-    	Test.startTest();
+        Test.startTest();
         Case cas = (Case)UtilTestData.createSobject(new Case(), UtilTestData.CASE_RT_MB_COMPLAINT);
         Complaint_Description__c sm = new Complaint_Description__c (
             Case__c = cas.id
         );
-        try {
+       try {
             insert sm;
         } catch (DMLException e) {
-            System.debug('new description error : ' + e.getDMLMessage(0));
-        }
+           System.debug('new description error : ' + e.getDMLMessage(0));
+       }
         sm.Description__c = 'ddd';
         try {
             update sm;
         } catch  (DMLException e) {
             System.debug('update description error : ' + e.getDMLMessage(0));
-        }
-        system.assert([select id from Complaint_Description__c where Id=:sm.id].size()>0); 
-        system.assertEquals(sm.Description__c,'ddd'); 
+       }
         try {
             delete sm;
         } catch  (DMLException e) {
             System.debug('delete description error : ' + e.getDMLMessage(0));
         }
-        Test.stopTest();   
+        Test.stopTest();  
+        system.assertEquals(sm.Description__c,'ddd');  
         system.assert([select id from Case where id=:cas.id].size()>0);       
        }
 }

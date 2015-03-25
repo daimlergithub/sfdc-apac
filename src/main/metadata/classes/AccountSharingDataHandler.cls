@@ -336,10 +336,7 @@ public class AccountSharingDataHandler {
                 }
             }
         }
-
-        if(!isNew){
-          //  deleteOldShare(oldData, 'Dealer');
-        }
+        
         if(parent.values2().size()<1) return;       
         userOrGroupIds = getSameCodeUser(parent.keySet());
         system.debug('setp1==================:'+ parent);

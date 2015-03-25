@@ -256,10 +256,7 @@ public class TaskSMSControllerExtension
                     // contact
                     contact = [Select Id, AccountId, Name, Salutation From Contact Where Id = :whoId];
                     accountId = contact.AccountId;
-                } else{
-                    // Lead
-                    // Standard Object 'Lead' isn't used in this system
-                }
+                } 
             }
         }
         if(accountId != null && accountId != '')

@@ -28,6 +28,14 @@ Global with sharing class UtilConstant {
     public final static String RETAIL_CAMPAIGN = 'Retail Campaign';
     public final static String INQUIRY = 'Inquiry';
     public final static String CAC_IB_TL = 'CAC IB TL';
+    public final static String SSI_TASK = 'SSI Task';
+    public final static String WELCOME_CALL = 'Welcome Call';
+    public final static String IB_CALL = 'IB Call';
+    public final static String OB_CALL = 'OB Call';
+    public final static String SUCCESSFUL = 'successful';
+    public final static String VALID = 'Valid';
+    public final static string SSI='ssi__c';
+    public final static string CLOSED='Closed';
     
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {
