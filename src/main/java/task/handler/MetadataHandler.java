@@ -100,10 +100,10 @@ public class MetadataHandler
     throw new BuildException(String.format("Could not find deployment unit for directory %s.", subDir));
   }
   
-  private DeploymentUnit findDeploymentUnitByNameOrChild(List<DeploymentUnit> duList, String objectName)
+  private DeploymentUnit findDeploymentUnitByName(List<DeploymentUnit> duList, String objectName, boolean includeChildren)
   {
     for (DeploymentUnit du : duList) {
-      if (du.getTypeName().equals(objectName) || du.isChild(objectName)) {
+      if (du.getTypeName().equals(objectName) || (includeChildren && du.isChild(objectName))) {
         return du;
       }
     }
@@ -343,7 +343,7 @@ public class MetadataHandler
     for (Map.Entry<String, List<String>> entry : metadata.entrySet()) {
       String entity = entry.getKey();
       
-      DeploymentUnit du = findDeploymentUnitByNameOrChild(configurations, entity);
+      DeploymentUnit du = findDeploymentUnitByName(configurations, entity, true);
       if (objects.contains(du.getTypeName())) {
         File baseDir = new File(metadataRoot);
         
@@ -506,6 +506,15 @@ public class MetadataHandler
   {
     // TODO implement
     
+  }
+
+  public void validateTypeSetsByName(List<SfdcTypeSet> typeSets)
+  {
+    List<DeploymentUnit> configurations = new DeploymentConfiguration().getConfigurations();
+    
+    for (SfdcTypeSet typeSet : typeSets) {
+      findDeploymentUnitByName(configurations, typeSet.getName(), true);
+    }
   }
   
 }

@@ -20,6 +20,7 @@ import task.handler.SfdcHandler;
 import task.handler.TransformationHandler;
 import task.handler.UpdateStampHandler;
 import task.handler.ZipFileHandler;
+import task.handler.configuration.DeploymentUnit;
 import task.model.SfdcFeature;
 import task.model.SfdcTypeSet;
 import task.model.SfdcTypeSets;
@@ -248,6 +249,8 @@ public class SfdcRetrievalTask
         checkSfdcTypeSet(typeNames, "Profile", relatedType);
       }
     }
+    
+    metadataHandler.validateTypeSetsByName(typeSets);
   }
 
   private void checkSfdcTypeSet(Set<String> typeNames, String parentType, String relatedType)
