@@ -41,9 +41,9 @@
         <field>Campaign_Code__c</field>
         <formula>CASE(
 RecordType.Name,
-&apos;S&amp;M Event Central Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+TEXT(Region__c) +&quot;_&quot;+Auto_Number__c,
-&apos;S&amp;M Media Central Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+TEXT(Region__c) +&quot;_&quot;+Auto_Number__c,
-&apos;AS Central Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+TEXT(Region__c) +&quot;_&quot;+Auto_Number__c,
+&apos;S&amp;M Event BMBS Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+TEXT(Region__c) +&quot;_&quot;+Auto_Number__c,
+&apos;S&amp;M Media BMBS Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+TEXT(Region__c) +&quot;_&quot;+Auto_Number__c,
+&apos;AS BMBS Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+TEXT(Region__c) +&quot;_&quot;+Auto_Number__c,
 &apos;Central Marketing Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+Auto_Number__c,
 &apos;CAC CRM Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+Auto_Number__c,
 &apos;CAS Marketing Campaign&apos;, &apos;L1&apos;+&quot;_&quot;+TEXT(YEAR(DATEVALUE(CreatedDate)))+&quot;_&quot;+Auto_Number__c,
@@ -137,7 +137,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
-            <value>AS Central Campaign,S&amp;M Event Central Campaign,S&amp;M Media Central Campaign</value>
+            <value>AS BMBS Campaign,S&amp;M Event BMBS Campaign,S&amp;M Media BMBS Campaign</value>
         </criteriaItems>
         <criteriaItems>
             <field>Campaign.Status</field>
@@ -156,7 +156,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
             <operation>equals</operation>
-            <value>AS Central Campaign,S&amp;M Event Central Campaign,S&amp;M Media Central Campaign</value>
+            <value>AS BMBS Campaign,S&amp;M Event BMBS Campaign,S&amp;M Media BMBS Campaign</value>
         </criteriaItems>
         <criteriaItems>
             <field>Campaign.Status</field>

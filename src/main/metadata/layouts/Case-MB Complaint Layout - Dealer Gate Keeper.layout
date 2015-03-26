@@ -116,10 +116,6 @@
                 <field>Progress_Status__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>PR_Comment_Central_Internal__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Repeat_Complaint_Times__c</field>
             </layoutItems>
