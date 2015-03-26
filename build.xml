@@ -38,7 +38,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
 	</target>
 	
-	<target name="deploy" depends="retrieveChecksums, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy30, deploy32, deploy35, deploy40">
+	<target name="deploy" depends="retrieveChecksums, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy32, deploy35, deploy40">
 		<sf:deployChecksums sfdcName="${sfdc.checksums}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
@@ -152,10 +152,7 @@
 	
 	<target name="deploy21">
 		<deploy>
-			<sf:typeset name="settings">
-				<!-- TODO only exclude on Oliver's org
-				<sf:exclude name="Address"/-->
-			</sf:typeset>
+			<sf:typeset name="settings"/>
 			<sf:typeset name="tabs">
 				<sf:exclude name="EPA_.*"/>
 				<sf:exclude name="Tasks"/>
@@ -185,7 +182,26 @@
 		</deploy>
     </target>
 	
-	
+	<target name="deploy25">			
+		<deploy>
+			<sf:typeset name="pages">
+				<sf:include name="Tasks"/>
+			</sf:typeset>
+			<sf:typeset name="tabs">
+				<sf:include name="Tasks"/>
+			</sf:typeset>
+			<sf:typeset name="classes">
+				<sf:include name="TaskDeletingController"/>
+			</sf:typeset>
+			<sf:typeset name="pages">
+				<sf:include name="TaskDeleting"/>
+			</sf:typeset>
+			<sf:typeset name="objects">
+				<sf:include name="Task"/>
+				<sf:include name="Activity"/>
+			</sf:typeset>
+		</deploy>
+    </target>
 	
 	<target name="deploy30">
 		<deploy>
@@ -208,10 +224,6 @@
 	
 	<target name="deploy32">
 			<deploy>
-				<sf:typeset name="objects">
-					<sf:include name="Task"/>
-					<sf:include name="Activity"/>
-				</sf:typeset>
 				<sf:typeset name="layouts">
 					<sf:include name="Campaign.*"/>
 					<sf:include name="Event.*"/>
