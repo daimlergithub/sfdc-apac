@@ -1732,11 +1732,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.DunsNumber</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Dup_Reason__c</field>
         <readable>false</readable>
     </fieldPermissions>
