@@ -2357,11 +2357,6 @@ Default Flag, All 6 DMS Codes</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.YearStarted</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.ZipCode__c</field>
         <readable>false</readable>
     </fieldPermissions>

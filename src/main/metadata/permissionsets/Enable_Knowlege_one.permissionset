@@ -2355,11 +2355,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.YearStarted</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.ZipCode__c</field>
         <readable>false</readable>
     </fieldPermissions>
