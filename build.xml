@@ -170,6 +170,9 @@
 				<sf:exclude name="Campaign.*"/>
 				<sf:exclude name="Event.*"/>
 				<sf:exclude name="Task.*"/>
+				<sf:exclude name="Case.*"/>
+				<sf:exclude name="PersonAccount.*"/>
+				<sf:exclude name="Lead__c.*"/>
 			</sf:typeset>
 			<sf:typeset name="email"/>
 			<sf:typeset name="groups"/>
@@ -210,12 +213,15 @@
 					<sf:include name="Campaign.*"/>
 					<sf:include name="Event.*"/>
 					<sf:include name="Task.*"/>
+					<sf:include name="Case.*"/>
+					<sf:include name="PersonAccount.*"/>
+					<sf:include name="Lead__c.*"/>
 				</sf:typeset>
 				<sf:typeset name="workflows">
-				<sf:include name="Task"/>
-				<sf:include name="Tool_Kit__c"/>
-				<sf:include name="Retail_Campaign__c"/>
-			</sf:typeset>
+					<sf:include name="Task"/>
+					<sf:include name="Tool_Kit__c"/>
+					<sf:include name="Retail_Campaign__c"/>
+				</sf:typeset>
 			</deploy>
 	    </target>
 	
@@ -271,7 +277,7 @@
 	</target>
 	
 	<property name="typesets.circle">
-		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout
+		CustomLabels,CallCenter,CustomTab,ApexClass,ApexComponent,ApexPage,ApexTrigger,Group,Queue,Document,AccountSharingRules,CustomPageWebLink,Role,ApprovalProcess,PermissionSet,CustomObject,Layout,
 		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile
 	</property>
 	
