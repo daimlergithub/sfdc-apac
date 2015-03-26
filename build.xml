@@ -172,6 +172,7 @@
 				<sf:exclude name="Task.*"/>
 				<sf:exclude name="Case.*"/>
 				<sf:exclude name="PersonAccount.*"/>
+				<sf:exclude name="Lead__c.*"/>
 			</sf:typeset>
 			<sf:typeset name="email"/>
 			<sf:typeset name="groups"/>
@@ -214,6 +215,7 @@
 					<sf:include name="Task.*"/>
 					<sf:include name="Case.*"/>
 					<sf:include name="PersonAccount.*"/>
+					<sf:include name="Lead__c.*"/>
 				</sf:typeset>
 				<sf:typeset name="workflows">
 					<sf:include name="Task"/>
