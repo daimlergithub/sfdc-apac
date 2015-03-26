@@ -170,6 +170,8 @@
 				<sf:exclude name="Campaign.*"/>
 				<sf:exclude name="Event.*"/>
 				<sf:exclude name="Task.*"/>
+				<sf:exclude name="Case.*"/>
+				<sf:exclude name="PersonAccount.*"/>
 			</sf:typeset>
 			<sf:typeset name="email"/>
 			<sf:typeset name="groups"/>
@@ -210,6 +212,8 @@
 					<sf:include name="Campaign.*"/>
 					<sf:include name="Event.*"/>
 					<sf:include name="Task.*"/>
+					<sf:include name="Case.*"/>
+					<sf:include name="PersonAccount.*"/>
 				</sf:typeset>
 				<sf:typeset name="workflows">
 					<sf:include name="Task"/>
