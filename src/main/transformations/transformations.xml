@@ -175,5 +175,9 @@
 		<filename>profiles\*.profile</filename>
 		<xpath>/Profile/userPermissions[name/text()='AllowUniversalSearch']</xpath>
 	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='AllowViewKnowledge']</xpath>
+	</removeelement>
 	
 </transformations>
