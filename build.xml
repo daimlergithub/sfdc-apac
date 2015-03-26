@@ -173,7 +173,11 @@
 			</sf:typeset>
 			<sf:typeset name="email"/>
 			<sf:typeset name="groups"/>
-			<sf:typeset name="workflows"/>
+			<sf:typeset name="workflows">
+				<sf:exclude name="Task"/>
+				<sf:exclude name="Tool_Kit__c"/>
+				<sf:exclude name="Retail_Campaign__c"/>
+			</sf:typeset>
 		</deploy>
     </target>
 	
@@ -207,6 +211,11 @@
 					<sf:include name="Event.*"/>
 					<sf:include name="Task.*"/>
 				</sf:typeset>
+				<sf:typeset name="workflows">
+				<sf:include name="Task"/>
+				<sf:include name="Tool_Kit__c"/>
+				<sf:include name="Retail_Campaign__c"/>
+			</sf:typeset>
 			</deploy>
 	    </target>
 	
