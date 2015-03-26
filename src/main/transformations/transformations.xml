@@ -170,4 +170,10 @@
             </layoutItems></element>
 	</addelement>
 	
+	<!-- fix for W-2264136 -->
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[fullName/text()='AllowUniversalSearch']</xpath>
+	</removeelement>
+	
 </transformations>
