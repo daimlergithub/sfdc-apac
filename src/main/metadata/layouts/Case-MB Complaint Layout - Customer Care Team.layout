@@ -322,10 +322,6 @@
                 <field>MPC_Internal_Notes__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>PR_Comment_Central_Internal__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Technical_Comments__c</field>
             </layoutItems>

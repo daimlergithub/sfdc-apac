@@ -115,10 +115,6 @@
                 <behavior>Edit</behavior>
                 <field>Progress_Status__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>PR_Comment_Central_Internal__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>

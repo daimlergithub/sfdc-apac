@@ -1,4 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Workflow xmlns="http://soap.sforce.com/2006/04/metadata">
     <alerts>
         <fullName>Email_notification_when_customer_doesn_t_allow_dealer_contact</fullName>
         <description>Email notification when customer doesn't allow dealer contact</description>

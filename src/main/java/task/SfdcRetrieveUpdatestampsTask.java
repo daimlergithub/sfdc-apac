@@ -1,7 +1,6 @@
 package task;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -12,7 +11,6 @@ import org.apache.tools.ant.taskdefs.Taskdef;
 import task.handler.LogWrapper;
 import task.handler.SfdcHandler;
 import task.handler.UpdateStampHandler;
-import task.model.SfdcFeature;
 import task.model.SfdcTypeSet;
 import task.model.SfdcTypeSets;
 
@@ -134,6 +132,9 @@ public class SfdcRetrieveUpdatestampsTask
     for (SfdcTypeSet typeSet : typeSets) {
       typeSet.validateSettings();
     }
+
+    // TODO fix this
+    // metadataHandler.validateTypeSetsByName(typeSets);
   }
   
 }
