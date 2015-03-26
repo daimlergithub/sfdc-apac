@@ -152,10 +152,7 @@
 	
 	<target name="deploy21">
 		<deploy>
-			<sf:typeset name="settings">
-				<!-- TODO only exclude on Oliver's org
-				<sf:exclude name="Address"/-->
-			</sf:typeset>
+			<sf:typeset name="settings"/>
 			<sf:typeset name="tabs">
 				<sf:exclude name="EPA_.*"/>
 				<sf:exclude name="Tasks"/>
@@ -186,24 +183,24 @@
     </target>
 	
 	<target name="deploy25">			
-			<deploy>
-				<sf:typeset name="pages">
-					<sf:include name="Tasks"/>
-				</sf:typeset>
-				<sf:typeset name="tabs">
-					<sf:include name="Tasks"/>
-				</sf:typeset>
-				<sf:typeset name="classes">					
-					<sf:include name="TaskDeletingController"/>					
-				</sf:typeset>
-				<sf:typeset name="pages">					
-					<sf:include name="TaskDeleting"/>
-				</sf:typeset>
-				<sf:typeset name="objects">
-					<sf:include name="Task"/>
-					<sf:include name="Activity"/>
-				</sf:typeset>
-			</deploy>
+		<deploy>
+			<sf:typeset name="pages">
+				<sf:include name="Tasks"/>
+			</sf:typeset>
+			<sf:typeset name="tabs">
+				<sf:include name="Tasks"/>
+			</sf:typeset>
+			<sf:typeset name="classes">
+				<sf:include name="TaskDeletingController"/>
+			</sf:typeset>
+			<sf:typeset name="pages">
+				<sf:include name="TaskDeleting"/>
+			</sf:typeset>
+			<sf:typeset name="objects">
+				<sf:include name="Task"/>
+				<sf:include name="Activity"/>
+			</sf:typeset>
+		</deploy>
     </target>
 	
 	<target name="deploy30">
