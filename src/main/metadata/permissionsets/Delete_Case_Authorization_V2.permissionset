@@ -1928,11 +1928,6 @@ yujing.he@daimler.com</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.NaicsCode</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.NaicsDesc</field>
         <readable>false</readable>
     </fieldPermissions>

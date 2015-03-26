@@ -207,5 +207,9 @@
 		<filename>profiles\*.profile</filename>
 		<xpath>/Profile/userPermissions[name/text()='ManageKnowledge']</xpath>
 	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='ManageKnowledgeImportExport']</xpath>
+	</removeelement>
 	
 </transformations>
