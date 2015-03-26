@@ -1943,11 +1943,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.NaicsDesc</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Newly_Task_Id__c</field>
         <readable>false</readable>
     </fieldPermissions>
