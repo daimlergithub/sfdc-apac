@@ -215,5 +215,17 @@
 		<filename>profiles\*.profile</filename>
 		<xpath>/Profile/userPermissions[name/text()='ManageNetworks']</xpath>
 	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='ManagePartners']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='WorkDotComUserPerm']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='AllowViewKnowledge']</xpath>
+	</removeelement>
 	
 </transformations>
