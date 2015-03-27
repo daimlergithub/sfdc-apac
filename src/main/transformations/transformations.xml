@@ -170,4 +170,66 @@
             </layoutItems></element>
 	</addelement>
 	
+	<!-- fix for W-2264136 -->
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='AllowUniversalSearch']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='AllowViewKnowledge']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='EditBillingInfo']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='EditKnowledge']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='ManageSynonyms']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='ViewGlobalHeader']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='ManageSelfService']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='ManageSearchPromotionRules']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='ManageKnowledge']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='ManageKnowledgeImportExport']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='ManageNetworks']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='ManagePartners']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='WorkDotComUserPerm']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='AllowViewKnowledge']</xpath>
+	</removeelement>
+	<removeelement retrieve="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/userPermissions[name/text()='ShareInternalArticles']</xpath>
+	</removeelement>
+	
 </transformations>
