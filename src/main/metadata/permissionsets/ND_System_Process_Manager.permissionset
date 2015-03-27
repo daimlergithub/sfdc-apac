@@ -12746,8 +12746,4 @@ Default Flag, All 6 DMS Codes</description>
         <visibility>None</visibility>
     </tabSettings>
     <userLicense>Salesforce</userLicense>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>AllowViewKnowledge</name>
-    </userPermissions>
 </PermissionSet>

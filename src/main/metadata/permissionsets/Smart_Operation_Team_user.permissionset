@@ -12746,8 +12746,4 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
         <visibility>None</visibility>
     </tabSettings>
     <userLicense>Salesforce</userLicense>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>AllowViewKnowledge</name>
-    </userPermissions>
 </PermissionSet>

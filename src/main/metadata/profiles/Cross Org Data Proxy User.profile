@@ -12693,8 +12693,4 @@
         <tab>standard-Idea</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>XOrgProxyUser</name>
-    </userPermissions>
 </Profile>

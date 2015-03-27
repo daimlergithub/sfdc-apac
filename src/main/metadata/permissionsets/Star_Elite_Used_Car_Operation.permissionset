@@ -12746,8 +12746,4 @@ Star Elite Account Owner</description>
         <visibility>None</visibility>
     </tabSettings>
     <userLicense>Salesforce</userLicense>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>AllowViewKnowledge</name>
-    </userPermissions>
 </PermissionSet>
