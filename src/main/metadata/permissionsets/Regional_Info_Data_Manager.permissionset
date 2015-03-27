@@ -4157,11 +4157,6 @@ Account Owner, MB Region, MB Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Case.IsSelfClosed</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Case.IsSelfServiceClosed</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -12815,10 +12810,6 @@ Account Owner, MB Region, MB Sub Region</description>
         <visibility>None</visibility>
     </tabSettings>
     <userLicense>Salesforce</userLicense>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>AllowViewKnowledge</name>
-    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>TransferAnyEntity</name>

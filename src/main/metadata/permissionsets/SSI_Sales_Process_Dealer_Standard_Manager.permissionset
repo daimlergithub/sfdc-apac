@@ -12813,9 +12813,4 @@
         <tab>standard-StreamingChannel</tab>
         <visibility>None</visibility>
     </tabSettings>
-    <userLicense>Salesforce</userLicense>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>AllowViewKnowledge</name>
-    </userPermissions>
 </PermissionSet>
