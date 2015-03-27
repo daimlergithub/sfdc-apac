@@ -29,7 +29,6 @@
     <tab>standard-Chatter</tab>
     <tab>standard-JigsawSearch</tab>
     <tab>standard-Sites</tab>
-    <tab>standard-DandBCompany</tab>
     <tab>standard-ProfilePlatformFeed</tab>
     <tab>standard-ProfilePlatformOverview</tab>
     <tab>standard-AppLauncher</tab>

@@ -31,63 +31,7 @@
     <applicationVisibilities>
         <application>Retail_CRM</application>
         <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Service_Cloud_Console_IB</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Service_Cloud_Console_OB</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Service_Cloud_Console_SSI</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__AppLauncher</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Chatter</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Community</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Content</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Marketing</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Platform</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Sales</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Service</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__ServiceConsole</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Sites</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>standard__Work</application>
-        <visible>false</visible>
-    </applicationVisibilities>
+    </applicationVisibilities>    
     <classAccesses>
         <apexClass>AccountHelper</apexClass>
         <enabled>false</enabled>
@@ -1462,11 +1406,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.DandbCompanyId</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Data_Source__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1737,11 +1676,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.DunsNumber</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Dup_Reason__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1928,16 +1862,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Most_Recent_Hobby__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.NaicsCode</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.NaicsDesc</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2347,11 +2271,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Tradestyle</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Type</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2378,11 +2297,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Website</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.YearStarted</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4183,11 +4097,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.IsEscalated</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.IsSelfClosed</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6442,17 +6351,7 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead.CompanyDunsNumber</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Lead.CurrentGenerators__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.DandbCompanyId</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6518,11 +6417,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead.NumberofLocations__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.PartnerAccountId</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7578,11 +7472,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Opportunity.OrderNumber__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.PartnerAccountId</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12818,14 +12707,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     </tabSettings>
     <tabSettings>
         <tab>standard-Contract</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>standard-DandBCompany</tab>
-        <visibility>None</visibility>
-    </tabSettings>
-    <tabSettings>
-        <tab>standard-DuplicateRecordSet</tab>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>
