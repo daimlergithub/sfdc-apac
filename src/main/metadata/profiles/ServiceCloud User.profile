@@ -13465,7 +13465,7 @@
         <tab>standard-StreamingChannel</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    <userLicense>Service Cloud</userLicense>
+    <userLicense>Service Cloud User</userLicense>
     <userPermissions>
         <enabled>true</enabled>
         <name>ActivateContract</name>
