@@ -232,4 +232,11 @@
 		<xpath>/Profile/userPermissions[name/text()='ShareInternalArticles']</xpath>
 	</removeelement>
 	
+	<!-- remove as long as we don't have community licenses -->
+	<skipfile retrieve="false">
+		<filename>profiles\Dealer Delegate Admin.profile</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>profiles\Dealer Community User.profile</filename>
+	</skipfile>
 </transformations>
