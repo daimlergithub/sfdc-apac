@@ -67,18 +67,18 @@ public class AddElement
   }
 
   @Override
-  public void applyForDeploy(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
+  public boolean applyForDeploy(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
   {
-    apply(logWrapper, document);
+    return apply(logWrapper, document);
   }
 
   @Override
-  public void applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
+  public boolean applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
   {
-    apply(logWrapper, document);
+    return apply(logWrapper, document);
   }
 
-  private void apply(LogWrapper logWrapper, Document document)
+  private boolean apply(LogWrapper logWrapper, Document document)
   {
     XPath xPath = XPathFactory.newInstance().newXPath();
 
@@ -99,6 +99,7 @@ public class AddElement
           n.getParentNode().insertBefore(copiedNode, n.getNextSibling());
         }
       }
+      return true;
     }
     catch (XPathExpressionException e) {
       throw new BuildException(String.format("Error reading transformations.xml: %s.", e.getMessage()), e);

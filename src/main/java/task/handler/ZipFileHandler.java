@@ -6,18 +6,26 @@ package task.handler;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-import org.apache.commons.codec.binary.Base64OutputStream;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.types.LogLevel;
 
+import task.handler.TransformationHandler.Operation;
 import task.handler.configuration.DeploymentUnit;
 
 /**
@@ -152,11 +160,8 @@ public class ZipFileHandler
   public ByteArrayOutputStream prepareZipFile(List<DeploymentInfo> deploymentInfos, byte[] packageXML)
   {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
-    Base64OutputStream b64os = new Base64OutputStream(baos);
 
-    try {
-      ZipOutputStream zos = new ZipOutputStream(baos);
-
+    try (ZipOutputStream zos = new ZipOutputStream(baos)) {
       for (DeploymentInfo info : deploymentInfos) {
         DeploymentUnit du = info.getDeploymentUnit();
 
@@ -164,30 +169,20 @@ public class ZipFileHandler
 
         logWrapper.log(String.format("Handle type %s for ZIP file.", type));
 
-        //        byte[] buffer = new byte[512];
-
         for (File file : info.getFileList()) {
           logWrapper.log(String.format("Add %s.", file.getName()));
 
           String zipEntryName = createZipEntryName(du, file);
 
-          try {
-            zos.putNextEntry(new ZipEntry(zipEntryName));
-
-            //            FileInputStream fis = new FileInputStream(file);
-
-            transformationHandler.transformDeploy(file, zos);
-            //            int read = 0;
-            //            do {
-            //              read = fis.read(buffer);
-            //              if (-1 != read) {
-            //                zos.write(buffer, 0, read);
-            //              }
-            //            }
-            //            while (-1 != read);
-
-            //            fis.close();
-            zos.closeEntry();
+          try (FileInputStream fis = new FileInputStream(file)) {
+            ByteArrayOutputStream fileBaos = transformationHandler.transform(fis, file, Operation.DEPLOY);
+            if (null != fileBaos) {
+              zos.putNextEntry(new ZipEntry(zipEntryName));
+              
+              zos.write(fileBaos.toByteArray());
+              
+              zos.closeEntry();
+            }
           }
           catch (Exception e) {
             throw new BuildException(String.format("Error reading metadata for type %s and file %s: %s",
@@ -201,9 +196,6 @@ public class ZipFileHandler
       zos.putNextEntry(new ZipEntry("unpackaged/package.xml"));
       zos.write(packageXML);
       zos.closeEntry();
-
-      zos.close();
-      b64os.close();
     }
     catch (IOException e) {
       throw new BuildException(String.format("Error preparing ZIP for deployment: %s.", e.getMessage()), e);
@@ -248,34 +240,22 @@ public class ZipFileHandler
         entry = zis.getNextEntry();
         if (null != entry) {
           String fileName = entry.getName();
-
+          
           if (fileName.startsWith(ZIP_BASE_DIR)) {
             fileName = fileName.substring(1 + ZIP_BASE_DIR.length());
           }
-
+          
           File file = new File(retrieveRoot, fileName);
-
-          File parentFile = file.getParentFile();
-          if (!parentFile.exists() && !parentFile.mkdirs()) {
-            throw new BuildException(String.format("Error creating directories while extracting file: %s.", fileName));
-          }
-
+          
           InputStreamWrapper isw = new InputStreamWrapper(zis);
 
-          transformationHandler.transformRetrieve(isw, file);
-
-          //          FileOutputStream fos = new FileOutputStream(file);
-          //          try (BufferedOutputStream bos = new BufferedOutputStream(fos, buffer.length))
-          //          {
-          //            int read = 0;
-          //            do {
-          //              read = zis.read(buffer);
-          //              if (0 < read) {
-          //                bos.write(buffer, 0, read);
-          //              }
-          //            }
-          //            while (-1 != read);
-          //          }
+          ByteArrayOutputStream fileBaos = transformationHandler.transform(isw, file, Operation.RETRIEVE);
+          if (null != fileBaos) {
+            File parentFile = file.getParentFile();
+            if (!parentFile.exists() && !parentFile.mkdirs()) {
+              throw new BuildException(String.format("Error creating directories while extracting file: %s.", fileName));
+            }
+          }
         }
       }
       while (null != entry);

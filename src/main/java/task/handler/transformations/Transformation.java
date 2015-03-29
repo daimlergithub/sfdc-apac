@@ -16,7 +16,6 @@ import task.handler.LogWrapper;
  *
  * @author  xlehmf
  */
-// TODO XmlSeeAlso({ChangeText.class, ChangeAttribute.class, RemoveElement.class, RenameFile.class})
 public abstract class Transformation {
 
   private String filename;
@@ -68,8 +67,8 @@ public abstract class Transformation {
     }
   }
 
-  public abstract void applyForDeploy(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings);
+  public abstract boolean applyForDeploy(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings);
   
-  public abstract void applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings);
+  public abstract boolean applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings);
   
 }

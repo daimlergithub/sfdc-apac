@@ -20,7 +20,6 @@ import task.handler.SfdcHandler;
 import task.handler.TransformationHandler;
 import task.handler.UpdateStampHandler;
 import task.handler.ZipFileHandler;
-import task.handler.configuration.DeploymentUnit;
 import task.model.SfdcFeature;
 import task.model.SfdcTypeSet;
 import task.model.SfdcTypeSets;
@@ -170,30 +169,34 @@ public class SfdcRetrievalTask
     validate();
     initialize();
 
+    // TODO incremental retrieve does not work!
+    // TODO if incremental functionality is removed, please remove in handlers as well!
+    
     Map<String, Map<String, Long>> metadataUpdatestamps = sfdcHandler.getUpdateStamps(typeSets);
 
     Map<String, List<String>> metadata2Update = null;
-    if (full) {
+    // if (full) {
       metadata2Update = updateStampHandler.buildEntityList(metadataUpdatestamps);
-    }
-    else {
-      Map<String, UpdateStampHandler.Action> differences =
-          updateStampHandler.calculateDifferences(metadataUpdatestamps);
-
-      metadata2Update = metadataHandler.collectMetadataToUpdate(differences);
-      metadataHandler.removeMetadataToDelete(typeSets, differences);
-      metadataHandler.createDestructivePackageXml(differences);
-    }
+//    }
+//    else {
+//      Map<String, UpdateStampHandler.Action> differences =
+//          updateStampHandler.calculateDifferences(metadataUpdatestamps);
+//
+//      metadata2Update = metadataHandler.collectMetadataToUpdate(differences);
+//      metadataHandler.removeMetadataToDelete(typeSets, differences);
+//      metadataHandler.createDestructivePackageXml(differences);
+//    }
 
     byte[] packageXml = metadataHandler.createPackageXml(metadata2Update);
     metadataHandler.savePackageXml(packageXml);
+    
     ByteArrayOutputStream zipFile = sfdcHandler.retrieveMetadata(metadata2Update);
     zipFileHandler.saveZipFile("retrieve", zipFile);
     zipFileHandler.extractZipFile(retrieveRoot, zipFile);
 
-    if (full) {
+//    if (full) {
       metadataHandler.removeNotcontainedMetadata(metadata2Update, typeSets, cleanupOther);
-    }
+//    }
     
     // TODO not used for now updateStampHandler.updateTimestamps(metadataUpdatestamps, full);
   }

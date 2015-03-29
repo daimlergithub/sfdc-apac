@@ -232,4 +232,48 @@
 		<xpath>/Profile/userPermissions[name/text()='ShareInternalArticles']</xpath>
 	</removeelement>
 	
+	<skipfile retrieve="false">
+		<filename>profiles\Dealer Community User.profile</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>profiles\Dealer Delegate Admin.profile</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>profiles\Partner Community Login User.profile</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>profiles\Partner Community User.profile</filename>
+	</skipfile>
+	
+	<skipfile retrieve="false">
+		<filename>permissionsets\Tool_Kit.permissionset</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>permissionsets\S_M_Yearly_TA.permissionset</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>permissionsets\S_M_Retail_Campaign.permissionset</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>permissionsets\Segmentation_execution_Retail_Lead.permissionset</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>permissionsets\Leads_Management.permissionset</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>permissionsets\Info_Center.permissionset</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>permissionsets\Dealer_Report.permissionset</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>permissionsets\Complaint_Management.permissionset</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>permissionsets\AS_Yearly_TA.permissionset</filename>
+	</skipfile>
+	<skipfile retrieve="false">
+		<filename>permissionsets\AS_Retail_Campaign.permissionset</filename>
+	</skipfile>
+	
 </transformations>

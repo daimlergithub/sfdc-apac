@@ -81,7 +81,7 @@ public class ChangeText extends Transformation {
   }
 
   @Override
-  public void applyForDeploy(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
+  public boolean applyForDeploy(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
   {
     XPath xPath = XPathFactory.newInstance().newXPath();
     
@@ -118,6 +118,7 @@ public class ChangeText extends Transformation {
         
         n.setNodeValue(newValue);
       }
+      return true;
     }
     catch (XPathExpressionException e) {
       // TODO
@@ -128,7 +129,7 @@ public class ChangeText extends Transformation {
   }
 
   @Override
-  public void applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
+  public boolean applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
   {
     XPath xPath = XPathFactory.newInstance().newXPath();
     
@@ -166,6 +167,7 @@ public class ChangeText extends Transformation {
         
         n.setNodeValue(newValue);
       }
+      return true;
     }
     catch (XPathExpressionException e) {
       // TODO

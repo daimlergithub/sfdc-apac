@@ -3,15 +3,13 @@
  */
 package task.handler;
 
-import java.io.BufferedOutputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -30,7 +28,6 @@ import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.TransformerFactoryConfigurationError;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 
@@ -53,6 +50,8 @@ import task.handler.transformations.Transformations;
 public class TransformationHandler
 {
 
+  public enum Operation { DEPLOY, RETRIEVE }
+  
   private LogWrapper logWrapper;
   private String userName;
   private String transformationsRoot;
@@ -238,27 +237,21 @@ public class TransformationHandler
     }
   }
 
-  public void transformDeploy(File file, OutputStream os)
+  public ByteArrayOutputStream transform(InputStream is, File file, Operation operation)
   {
     List<Transformation> fileTransformations = getTransformationsForFile(file);
     if (fileTransformations.isEmpty()) {
-      copyFile(file, os);
+      return copyFile(is, file.getName());
     }
     else {
-      try (FileInputStream fis = new FileInputStream(file)) {
-        applyTransformations(file.getName(), fis, fileTransformations, os, true);
-      }
-      catch (IOException e) {
-        throw new BuildException(String.format("Error saving file %s to ZIP: %s.", file.getName(), e.getMessage()), e);
-      }
+      return applyTransformations(file.getName(), is, fileTransformations, operation);
     }
   }
 
-  private void applyTransformations(String name,
-                                    InputStream is,
-                                    List<Transformation> fileTransformations,
-                                    OutputStream os,
-                                    boolean deploy)
+  private ByteArrayOutputStream applyTransformations(String name,
+                                                     InputStream is,
+                                                     List<Transformation> fileTransformations,
+                                                     Operation operation)
   {
     try {
       DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -267,50 +260,38 @@ public class TransformationHandler
 
       Document doc = b.parse(is);
 
+      boolean write = true;
       for (Transformation transformation : fileTransformations) {
-        if (deploy && transformation.isDeploy()) {
-          transformation.applyForDeploy(logWrapper, doc, tokenMappings);
+        if (Operation.DEPLOY.equals(operation) && transformation.isDeploy()) {
+          write &= transformation.applyForDeploy(logWrapper, doc, tokenMappings);
         }
-        else if (!deploy && transformation.isRetrieve()) {
-          transformation.applyForRetrieve(logWrapper, doc, tokenMappings);
+        else if (Operation.RETRIEVE.equals(operation) && transformation.isRetrieve()) {
+          write &= transformation.applyForRetrieve(logWrapper, doc, tokenMappings);
         }
       }
 
-      Transformer transformer = TransformerFactory.newInstance().newTransformer();
-      transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
-      transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-      transformer.setOutputProperty(OutputKeys.VERSION, "1.0");
-      transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
-      transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-      transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
-      transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "4");
+      if (write) {
+        Transformer transformer = TransformerFactory.newInstance().newTransformer();
+        transformer.setOutputProperty(OutputKeys.OMIT_XML_DECLARATION, "no");
+        transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+        transformer.setOutputProperty(OutputKeys.VERSION, "1.0");
+        transformer.setOutputProperty(OutputKeys.ENCODING, "UTF-8");
+        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+        transformer.setOutputProperty(OutputKeys.STANDALONE, "yes");
+        transformer.setOutputProperty("{http://xml.apache.org/xalan}indent-amount", "4");
 
-      StreamResult result = new StreamResult(os);
-      DOMSource source = new DOMSource(doc);
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        StreamResult result = new StreamResult(baos);
+        DOMSource source = new DOMSource(doc);
 
-      transformer.transform(source, result);
+        transformer.transform(source, result);
+
+        return baos;
+      }
+      return null;
     }
-    catch (ParserConfigurationException | SAXException | IOException | TransformerFactoryConfigurationError
-        | TransformerException e) {
+    catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
       throw new BuildException(String.format("Error reading file %s: %s.", name, e.getMessage()), e);
-    }
-  }
-
-  private void copyFile(File file, OutputStream os)
-  {
-    try (FileInputStream fis = new FileInputStream(file);) {
-      byte[] buffer = new byte[512];
-      int read = 0;
-      do {
-        read = fis.read(buffer);
-        if (-1 != read) {
-          os.write(buffer, 0, read);
-        }
-      }
-      while (-1 != read);
-    }
-    catch (IOException e) {
-      throw new BuildException(String.format("Error copying file %s: %s.", file.getName(), e.getMessage()), e);
     }
   }
 
@@ -331,6 +312,7 @@ public class TransformationHandler
     }
 
     // TODO validate only one rename file for each file
+    // TODO validate only one skip file for each file
 
     return result;
   }
@@ -338,65 +320,51 @@ public class TransformationHandler
   private String transformToPattern(String fileName)
   {
     StringBuffer sb = new StringBuffer();
-    
+
     // . -> \\., * -> .*, ? -> .
     for (char c : fileName.toCharArray()) {
       switch (c) {
-        case '*':
+        case '*' :
           sb.append(".*");
           break;
-        case '?':
+        case '?' :
           sb.append(".");
           break;
-        case '.':
+        case '.' :
           sb.append("\\.");
           break;
-        default:
+        default :
           sb.append(c);
       }
     }
-    
+
     if (!sb.toString().startsWith(".*")) {
       sb.insert(0, ".*");
     }
-    
+
     return sb.toString();
   }
 
-  public void transformRetrieve(InputStream is, File file)
+  private ByteArrayOutputStream copyFile(InputStream is, String fileName)
   {
-    List<Transformation> fileTransformations = getTransformationsForFile(file);
-    if (fileTransformations.isEmpty()) {
-      copyFile(is, file);
-    }
-    else {
-      try (FileOutputStream fos = new FileOutputStream(file)) {
-        applyTransformations(file.getName(), is, fileTransformations, fos, false);
-      }
-      catch (IOException e) {
-        throw new BuildException(String.format("Error saving file %s: %s.", file.getName(), e.getMessage()), e);
-      }
-    }
-  }
-
-  private void copyFile(InputStream is, File file)
-  {
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    
     byte[] buffer = new byte[2048];
 
-    try (FileOutputStream fos = new FileOutputStream(file);
-        BufferedOutputStream bos = new BufferedOutputStream(fos, buffer.length)) {
+    try {
       int read = 0;
       do {
         read = is.read(buffer);
         if (0 < read) {
-          bos.write(buffer, 0, read);
+          baos.write(buffer, 0, read);
         }
       }
       while (-1 != read);
+    } catch (IOException e) {
+      throw new BuildException(String.format("Error copying file %s: %s.", fileName, e.getMessage()), e);
     }
-    catch (IOException e) {
-      throw new BuildException(String.format("Error copying file %s: %s.", file.getName(), e.getMessage()), e);
-    }
+    
+    return baos;
   }
 
 }

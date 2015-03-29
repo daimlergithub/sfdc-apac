@@ -47,12 +47,12 @@ public class RemoveElement extends Transformation {
   }
 
   @Override
-  public void applyForDeploy(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
+  public boolean applyForDeploy(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
   {
-    apply(logWrapper, document);
+    return apply(logWrapper, document);
   }
 
-  private void apply(LogWrapper logWrapper, Document document)
+  private boolean apply(LogWrapper logWrapper, Document document)
   {
     XPath xPath = XPathFactory.newInstance().newXPath();
     
@@ -69,6 +69,8 @@ public class RemoveElement extends Transformation {
         
         n.getParentNode().removeChild(n);
       }
+      
+      return true;
     }
     catch (XPathExpressionException e) {
       // TODO
@@ -79,9 +81,9 @@ public class RemoveElement extends Transformation {
   }
 
   @Override
-  public void applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
+  public boolean applyForRetrieve(LogWrapper logWrapper, Document document, Map<String, String> tokenMappings)
   {
-    apply(logWrapper, document);
+    return apply(logWrapper, document);
   }
 
 }

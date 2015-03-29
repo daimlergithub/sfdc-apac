@@ -121,6 +121,7 @@ public class SfdcHandler
 
   private final static double VERSION = 32.0d;
   private final Set<String> noChildHandling = new HashSet<>();
+  private final Map<String, String> folderReplacements = new HashMap<>();
 
   private Task task;
   private int maxPoll;
@@ -139,6 +140,11 @@ public class SfdcHandler
     noChildHandling.add("CustomObject");
     // noChildHandling.add("CustomLabels");
     noChildHandling.add("Workflow");
+
+    folderReplacements.put("Document", "DocumentFolder");
+    folderReplacements.put("EmailTemplate", "EmailFolder");
+    folderReplacements.put("Dashboard", "DashboardFolder");
+    folderReplacements.put("Report", "ReportFolder");
   }
 
   @SuppressWarnings("hiding")
@@ -348,101 +354,6 @@ public class SfdcHandler
     return new MetadataConnection(mConfig);
   }
 
-  private Map<String, List<FileProperties>> listMetadata(final MetadataConnection mConnection,
-                                                         DescribeMetadataObject object)
-    throws ConnectionException
-  {
-    final String name = object.getXmlName();
-
-    Map<String, List<FileProperties>> filePropertiesMap = new HashMap<>();
-    if (0 < object.getChildXmlNames().length && !noChildHandling.contains(name)) {
-
-      ChunkedExecutor<String, Map<String, List<FileProperties>>, ConnectionException> childCE =
-          new ChunkedExecutor<String, Map<String, List<FileProperties>>, ConnectionException>() {
-
-            @Override
-            public Map<String, List<FileProperties>> chunky(List<String> chunk, Map<String, List<FileProperties>> map)
-              throws ConnectionException
-            {
-              List<ListMetadataQuery> queries = new ArrayList<>();
-              for (String child : chunk) {
-                ListMetadataQuery query = new ListMetadataQuery();
-                query.setType(child);
-                queries.add(query);
-              }
-
-              FileProperties[] metadata =
-                  mConnection.listMetadata(queries.toArray(new ListMetadataQuery[queries.size()]), VERSION);
-              for (FileProperties props : metadata) {
-                List<FileProperties> list = map.get(props.getType());
-                if (null == list) {
-                  list = new ArrayList<>();
-                  map.put(props.getType(), list);
-                }
-                list.add(props);
-              }
-              return map;
-            }
-
-          };
-      childCE.execute(Arrays.asList(object.getChildXmlNames()), 3, filePropertiesMap);
-    }
-    else {
-      if (object.isInFolder()) {
-        // folder objects
-        Map<String, String> replacements = new HashMap<>();
-        replacements.put("Document", "DocumentFolder");
-        replacements.put("EmailTemplate", "EmailFolder");
-        replacements.put("Dashboard", "DashboardFolder");
-        replacements.put("Report", "ReportFolder");
-
-        ListMetadataQuery query = new ListMetadataQuery();
-        query.setType(replacements.get(object.getXmlName()));
-        FileProperties[] folderFileProperties = mConnection.listMetadata(new ListMetadataQuery[]{ query }, VERSION);
-
-        ChunkedExecutor<FileProperties, List<FileProperties>, ConnectionException> folderCE =
-            new ChunkedExecutor<FileProperties, List<FileProperties>, ConnectionException>() {
-
-              @Override
-              public List<FileProperties> chunky(List<FileProperties> chunk, List<FileProperties> result)
-                throws ConnectionException
-              {
-                List<ListMetadataQuery> queries = new ArrayList<>();
-                List<String> elements = new ArrayList<>();
-                for (FileProperties fileProperties : chunk) {
-                  ListMetadataQuery fQuery = new ListMetadataQuery();
-                  fQuery.setType(name);
-                  fQuery.setFolder(fileProperties.getFullName());
-                  queries.add(fQuery);
-                  elements.add(fileProperties.getFullName());
-                }
-
-                result.addAll(Arrays.asList(mConnection.listMetadata(queries.toArray(new ListMetadataQuery[queries.size()]),
-                                                                     VERSION)));
-
-                return result;
-              }
-            };
-        List<FileProperties> fileList =
-            folderCE.execute(Arrays.asList(folderFileProperties), 3, new ArrayList<FileProperties>());
-
-        // add the folders itself
-        fileList.addAll(0, Arrays.asList(folderFileProperties));
-
-        filePropertiesMap.put(name, fileList);
-      }
-      else {
-        // regular metadata category
-        ListMetadataQuery query = new ListMetadataQuery();
-        query.setType(name);
-        List<FileProperties> list = Arrays.asList(mConnection.listMetadata(new ListMetadataQuery[]{ query }, VERSION));
-
-        filePropertiesMap.put(name, list);
-      }
-    }
-    return filePropertiesMap;
-  }
-
   public ByteArrayOutputStream retrieveMetadata(Map<String, List<String>> metadata)
   {
     ByteArrayOutputStream result = null;
@@ -524,7 +435,7 @@ public class SfdcHandler
   {
     Map<String, Map<String, Long>> result = new HashMap<>();
 
-    task.log("Get update stamps.");
+    task.log("Compile metadata list.");
 
     Map<String, SfdcTypeSet> objects = new HashMap<>();
     for (SfdcTypeSet typeSet : typeSets) {
@@ -544,34 +455,33 @@ public class SfdcHandler
         }
       }
 
-      compileQueries(dmos);
-      
-      Map<String, List<FileProperties>> filePropertiesMap = listMetadata(context.getMConnection(), dmos);
+      List<ListMetadataQuery> queries = compileQueries(dmos);
+      Map<String, List<FileProperties>> filePropertiesMap = new HashMap<>();
+      filePropertiesMap = listMetadata(context.getMConnection(), queries, filePropertiesMap);
+      // filePropertiesMap = processFolderMetadata(context.getMConnection(), filePropertiesMap);
 
-      {
-        for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
-          Map<String, Long> entryMap = new HashMap<>();
-          for (FileProperties properties : entry.getValue()) {
-            entryMap.put(properties.getFullName(), properties.getLastModifiedDate().getTimeInMillis());
-          }
-
-          // workaround for CustomObject PersonAccount
-          if (features.containsKey(FeatureName.INLCUDE_PERSONACCOUNT.name())) {
-            if ("CustomObject".equals(entry.getKey()) && !entryMap.containsKey("PersonAccount")) {
-              entryMap.put("PersonAccount", 0L);
-            }
-          }
-          // exclude Checksums from being retrieved
-          SfdcFeature feature = features.get(FeatureName.EXCLUDE_CHECKSUMS.name());
-          if (null != feature) {
-            if ("StaticResource".equals(entry.getKey()) && entryMap.containsKey(feature.getParam())) {
-              
-              entryMap.remove(feature.getParam());
-            }
-          }
-
-          result.put(entry.getKey(), entryMap);
+      for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
+        Map<String, Long> entryMap = new HashMap<>();
+        for (FileProperties properties : entry.getValue()) {
+          entryMap.put(properties.getFullName(), properties.getLastModifiedDate().getTimeInMillis());
         }
+
+        // workaround for CustomObject PersonAccount
+        if (features.containsKey(FeatureName.INLCUDE_PERSONACCOUNT.name())) {
+          if ("CustomObject".equals(entry.getKey()) && !entryMap.containsKey("PersonAccount")) {
+            entryMap.put("PersonAccount", 0L);
+          }
+        }
+        // exclude Checksums from being retrieved
+        SfdcFeature feature = features.get(FeatureName.EXCLUDE_CHECKSUMS.name());
+        if (null != feature) {
+          if ("StaticResource".equals(entry.getKey()) && entryMap.containsKey(feature.getParam())) {
+            
+            entryMap.remove(feature.getParam());
+          }
+        }
+
+        result.put(entry.getKey(), entryMap);
       }
 
       return result;
@@ -581,7 +491,7 @@ public class SfdcHandler
     }
   }
 
-  private void compileQueries(List<DescribeMetadataObject> dmos)
+  private List<ListMetadataQuery> compileQueries(List<DescribeMetadataObject> dmos)
   {
     List<ListMetadataQuery> queries = new ArrayList<>();
     
@@ -589,96 +499,131 @@ public class SfdcHandler
     
       final String name = dmo.getXmlName();
   
-      Map<String, List<FileProperties>> filePropertiesMap = new HashMap<>();
-      if (0 < object.getChildXmlNames().length && !noChildHandling.contains(name)) {
-  
-        ChunkedExecutor<String, Map<String, List<FileProperties>>, ConnectionException> childCE =
-            new ChunkedExecutor<String, Map<String, List<FileProperties>>, ConnectionException>() {
-  
-              @Override
-              public Map<String, List<FileProperties>> chunky(List<String> chunk, Map<String, List<FileProperties>> map)
-                throws ConnectionException
-              {
-                List<ListMetadataQuery> queries = new ArrayList<>();
-                for (String child : chunk) {
-                  ListMetadataQuery query = new ListMetadataQuery();
-                  query.setType(child);
-                  queries.add(query);
-                }
-  
-                FileProperties[] metadata =
-                    mConnection.listMetadata(queries.toArray(new ListMetadataQuery[queries.size()]), VERSION);
-                for (FileProperties props : metadata) {
-                  List<FileProperties> list = map.get(props.getType());
-                  if (null == list) {
-                    list = new ArrayList<>();
-                    map.put(props.getType(), list);
-                  }
-                  list.add(props);
-                }
-                return map;
-              }
-  
-            };
-        childCE.execute(Arrays.asList(object.getChildXmlNames()), 3, filePropertiesMap);
+      if (0 < dmo.getChildXmlNames().length && !noChildHandling.contains(name)) {
+        for (String child : dmo.getChildXmlNames()) {
+          ListMetadataQuery query = new ListMetadataQuery();
+          query.setType(child);
+          queries.add(query);
+        }
       }
       else {
-        if (object.isInFolder()) {
+        if (dmo.isInFolder()) {
           // folder objects
-          Map<String, String> replacements = new HashMap<>();
-          replacements.put("Document", "DocumentFolder");
-          replacements.put("EmailTemplate", "EmailFolder");
-          replacements.put("Dashboard", "DashboardFolder");
-          replacements.put("Report", "ReportFolder");
-  
           ListMetadataQuery query = new ListMetadataQuery();
-          query.setType(replacements.get(object.getXmlName()));
-          FileProperties[] folderFileProperties = mConnection.listMetadata(new ListMetadataQuery[]{ query }, VERSION);
-  
-          ChunkedExecutor<FileProperties, List<FileProperties>, ConnectionException> folderCE =
-              new ChunkedExecutor<FileProperties, List<FileProperties>, ConnectionException>() {
-  
-                @Override
-                public List<FileProperties> chunky(List<FileProperties> chunk, List<FileProperties> result)
-                  throws ConnectionException
-                {
-                  List<ListMetadataQuery> queries = new ArrayList<>();
-                  List<String> elements = new ArrayList<>();
-                  for (FileProperties fileProperties : chunk) {
-                    ListMetadataQuery fQuery = new ListMetadataQuery();
-                    fQuery.setType(name);
-                    fQuery.setFolder(fileProperties.getFullName());
-                    queries.add(fQuery);
-                    elements.add(fileProperties.getFullName());
-                  }
-  
-                  result.addAll(Arrays.asList(mConnection.listMetadata(queries.toArray(new ListMetadataQuery[queries.size()]),
-                                                                       VERSION)));
-  
-                  return result;
-                }
-              };
-          List<FileProperties> fileList =
-              folderCE.execute(Arrays.asList(folderFileProperties), 3, new ArrayList<FileProperties>());
-  
-          // add the folders itself
-          fileList.addAll(0, Arrays.asList(folderFileProperties));
-  
-          filePropertiesMap.put(name, fileList);
+          query.setType(folderReplacements.get(dmo.getXmlName()));
+          queries.add(query);
         }
         else {
           // regular metadata category
           ListMetadataQuery query = new ListMetadataQuery();
           query.setType(name);
-          List<FileProperties> list = Arrays.asList(mConnection.listMetadata(new ListMetadataQuery[]{ query }, VERSION));
-  
-          filePropertiesMap.put(name, list);
+          queries.add(query);
         }
       }
     }
     return queries;
-    
   }
+
+  private Map<String, List<FileProperties>> listMetadata(final MetadataConnection mConnection,
+                                                         final List<ListMetadataQuery> queries,
+                                                         Map<String, List<FileProperties>> filePropertiesMap)
+    throws ConnectionException
+  {
+    ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>, ConnectionException> ce =
+        new ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>, ConnectionException>() {
+          
+          @Override
+          public Map<String, List<FileProperties>> chunky(List<ListMetadataQuery> chunk, Map<String, List<FileProperties>> result)
+            throws ConnectionException
+          {
+            List<String> names = new ArrayList<>();
+            for (ListMetadataQuery query : chunk) {
+              names.add(query.getType());
+            }
+            task.log(String.format("Query: %s", StringUtils.join(names, ",")));
+            
+            FileProperties[] metadata = mConnection.listMetadata(chunk.toArray(new ListMetadataQuery[chunk.size()]), VERSION);
+            for (FileProperties props : metadata) {
+              String type = props.getType();
+              
+              if (folderReplacements.containsValue(type)) {
+                type = reverseFolderMapping(type);
+              
+                ListMetadataQuery folderQuery = new ListMetadataQuery();
+                folderQuery.setType(type);
+                folderQuery.setFolder(props.getFullName());
+                queries.add(folderQuery);
+              }
+              
+              List<FileProperties> list = result.get(type);
+              if (null == list) {
+                list = new ArrayList<>();
+                result.put(type, list);
+              }
+              
+              list.add(props);
+            }
+            
+            return result;
+          }
+        };
+    return ce.execute(queries, 3, filePropertiesMap);
+  }
+  
+  private String reverseFolderMapping(String type)
+  {
+    for (Map.Entry<String, String> entry : folderReplacements.entrySet()) {
+      if (type.equals(entry.getValue())) {
+        return entry.getKey();
+      }
+    }
+    return null;
+  }
+
+  /* TODO remove
+  private Map<String, List<FileProperties>> processFolderMetadata(final MetadataConnection mConnection,
+                                                                 Map<String, List<FileProperties>> filePropertiesMap)
+    throws ConnectionException
+  {
+    List<ListMetadataQuery> folderQueries = new ArrayList<>();
+    
+    for (Map.Entry<String, String> entry : folderReplacements.entrySet()) {
+      List<FileProperties> folders = filePropertiesMap.remove(entry.getValue());
+      if (null != folders) {
+        for (FileProperties fileProperties : folders) {
+          ListMetadataQuery fQuery = new ListMetadataQuery();
+          fQuery.setType(entry.getKey());
+          fQuery.setFolder(fileProperties.getFullName());
+          folderQueries.add(fQuery);
+        }
+        
+        filePropertiesMap.put(entry.getKey(), folders);
+      }
+    }
+    
+    ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>, ConnectionException> ce =
+        new ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>, ConnectionException>() {
+          
+          @Override
+          public Map<String, List<FileProperties>> chunky(List<ListMetadataQuery> chunk, Map<String, List<FileProperties>> result)
+            throws ConnectionException
+          {
+            FileProperties[] metadata = mConnection.listMetadata(chunk.toArray(new ListMetadataQuery[chunk.size()]), VERSION);
+            for (FileProperties props : metadata) {
+              List<FileProperties> list = result.get(props.getType());
+              if (null == list) {
+                list = new ArrayList<>();
+                result.put(props.getType(), list);
+              }
+              
+              list.add(props);
+            }
+            return result;
+          }
+        };
+    return ce.execute(folderQueries, 3, filePropertiesMap);
+  }
+  */
 
   public Map<String, String> retrieveChecksums(String sfdcName)
   {

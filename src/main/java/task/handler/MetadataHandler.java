@@ -266,18 +266,18 @@ public class MetadataHandler
   private void writeEntity(ByteArrayOutputStream baos, String type, List<String> entityNames)
     throws IOException, UnsupportedEncodingException
   {
-    baos.write("<types>\n".getBytes("UTF-8"));
+    baos.write("  <types>\n".getBytes("UTF-8"));
     for (String entityName : entityNames) {
-      baos.write(("<members>" + entityName + "</members>\n").getBytes("UTF-8"));
+      baos.write(("    <members>" + entityName + "</members>\n").getBytes("UTF-8"));
     }
-    baos.write(("<name>" + type + "</name>\n").getBytes("UTF-8"));
-    baos.write("</types>\n".getBytes("UTF-8"));
+    baos.write(("    <name>" + type + "</name>\n").getBytes("UTF-8"));
+    baos.write("  </types>\n".getBytes("UTF-8"));
   }
 
   private void writeFooter(ByteArrayOutputStream baos)
     throws IOException, UnsupportedEncodingException
   {
-    baos.write("<version>32.0</version>\n".getBytes("UTF-8"));
+    baos.write("  <version>32.0</version>\n".getBytes("UTF-8"));
     baos.write("</Package>\n".getBytes("UTF-8"));
   }
 
