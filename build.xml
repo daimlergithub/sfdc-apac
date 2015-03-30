@@ -243,11 +243,12 @@
 	<target name="deploy35">
 		<deploy>
 			<sf:typeset name="applications">
-				<!-- TODO excluded for now because of deployment errors in metadata API: missing keyboard shortcuts -->
+				<!-- TODO excluded for now because of deployment errors in metadata API: missing keyboard shortcuts 
 				<sf:exclude name="Service_Cloud_Console_OB"/>
 				<sf:exclude name="Serivce_Cloud_Console_IB"/>
 				<sf:exclude name="Service_Cloud_Console_SSI"/>
 			</sf:typeset>
+			-->
 			<sf:typeset name="permissionsets"/>
 			<sf:typeset name="profiles">
 				<!-- TODO fix this -->
