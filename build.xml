@@ -242,7 +242,7 @@
 	
 	<target name="deploy35">
 		<deploy>
-			<sf:typeset name="applications">
+			<sf:typeset name="applications"/>
 				<!-- TODO excluded for now because of deployment errors in metadata API: missing keyboard shortcuts 
 				<sf:exclude name="Service_Cloud_Console_OB"/>
 				<sf:exclude name="Serivce_Cloud_Console_IB"/>
