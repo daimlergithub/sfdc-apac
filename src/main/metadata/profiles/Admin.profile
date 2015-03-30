@@ -36,7 +36,6 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
-	<!--
     <applicationVisibilities>
         <application>Service_Cloud_Console_OB</application>
         <default>false</default>
@@ -47,7 +46,6 @@
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
-	-->
     <applicationVisibilities>	
         <application>standard__AppLauncher</application>
         <default>false</default>
