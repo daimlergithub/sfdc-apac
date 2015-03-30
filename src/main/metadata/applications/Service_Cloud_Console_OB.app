@@ -3,7 +3,7 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>Service Cloud Console for Outbound CSR</description>
     <detailPageRefreshMethod>autoRefresh</detailPageRefreshMethod>
-    <enableKeyboardShortcuts>true</enableKeyboardShortcuts>
+    <enableKeyboardShortcuts>false</enableKeyboardShortcuts>
     <enableMultiMonitorComponents>true</enableMultiMonitorComponents>
     <isServiceCloudConsole>true</isServiceCloudConsole>
     <keyboardShortcuts>
