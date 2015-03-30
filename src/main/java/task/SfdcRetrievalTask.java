@@ -45,7 +45,7 @@ public class SfdcRetrievalTask
   private boolean dryRun;
   private List<SfdcTypeSet> typeSets;
   private String timestamps;
-  
+
   // non-full retrievals are broken! Retrieving the timestamps does not return changed value when the setting has been changed on the UI.
   private final boolean full = true;
   private boolean cleanupOther;
@@ -126,7 +126,7 @@ public class SfdcRetrievalTask
   public void addConfigured(SfdcTypeSets typeSetNames)
   {
     typeSetNames.validateSettings();
-    
+
     String names = typeSetNames.getNames();
     String[] tokens = names.split(",");
     for (String token : tokens) {
@@ -171,33 +171,33 @@ public class SfdcRetrievalTask
 
     // TODO incremental retrieve does not work!
     // TODO if incremental functionality is removed, please remove in handlers as well!
-    
+
     Map<String, Map<String, Long>> metadataUpdatestamps = sfdcHandler.getUpdateStamps(typeSets);
 
     Map<String, List<String>> metadata2Update = null;
     // if (full) {
-      metadata2Update = updateStampHandler.buildEntityList(metadataUpdatestamps);
-//    }
-//    else {
-//      Map<String, UpdateStampHandler.Action> differences =
-//          updateStampHandler.calculateDifferences(metadataUpdatestamps);
-//
-//      metadata2Update = metadataHandler.collectMetadataToUpdate(differences);
-//      metadataHandler.removeMetadataToDelete(typeSets, differences);
-//      metadataHandler.createDestructivePackageXml(differences);
-//    }
+    metadata2Update = updateStampHandler.buildEntityList(metadataUpdatestamps);
+    //    }
+    //    else {
+    //      Map<String, UpdateStampHandler.Action> differences =
+    //          updateStampHandler.calculateDifferences(metadataUpdatestamps);
+    //
+    //      metadata2Update = metadataHandler.collectMetadataToUpdate(differences);
+    //      metadataHandler.removeMetadataToDelete(typeSets, differences);
+    //      metadataHandler.createDestructivePackageXml(differences);
+    //    }
 
     byte[] packageXml = metadataHandler.createPackageXml(metadata2Update);
     metadataHandler.savePackageXml(packageXml);
-    
+
     ByteArrayOutputStream zipFile = sfdcHandler.retrieveMetadata(metadata2Update);
     zipFileHandler.saveZipFile("retrieve", zipFile);
     zipFileHandler.extractZipFile(retrieveRoot, zipFile);
 
-//    if (full) {
-      metadataHandler.removeNotcontainedMetadata(metadata2Update, typeSets, cleanupOther);
-//    }
-    
+    //    if (full) {
+    metadataHandler.removeNotcontainedMetadata(metadata2Update, typeSets, cleanupOther);
+    //    }
+
     // TODO not used for now updateStampHandler.updateTimestamps(metadataUpdatestamps, full);
   }
 
@@ -208,6 +208,9 @@ public class SfdcRetrievalTask
     updateStampHandler.initialize(logWrapper, username, timestamps, !full);
     transformationHandler.initialize(logWrapper, username, transformationsRoot, retrieveRoot);
 
+    metadataHandler.initialize(logWrapper, retrieveRoot, debug, updateStampHandler);
+    zipFileHandler.initialize(logWrapper, debug, transformationHandler, metadataHandler);
+    
     sfdcHandler.initialize(this,
                            maxPoll,
                            dryRun,
@@ -219,8 +222,6 @@ public class SfdcRetrievalTask
                            proxyPort,
                            updateStampHandler,
                            features);
-    metadataHandler.initialize(logWrapper, retrieveRoot, debug, updateStampHandler);
-    zipFileHandler.initialize(logWrapper, debug, transformationHandler);
   }
 
   private void validate()
@@ -236,12 +237,20 @@ public class SfdcRetrievalTask
       throw new BuildException(String.format("The file %s does not exist. Please deploy first or use the target 'retrieveAll'.",
                                              timestamps));
     }
-    
+
     Set<String> typeNames = new HashSet<>();
     for (SfdcTypeSet typeSet : typeSets) {
       typeNames.add(typeSet.getName());
     }
-    String[] relatedTypes = new String[]{"CustomApplication", "ApexClass", "CustomPermission", "ExternalDataSource", "CustomObject", "ApexPage", "CustomTab"};
+    String[] relatedTypes =
+        new String[]{
+            "CustomApplication",
+            "ApexClass",
+            "CustomPermission",
+            "ExternalDataSource",
+            "CustomObject",
+            "ApexPage",
+            "CustomTab" };
     if (typeNames.contains("PermissionSet")) {
       for (String relatedType : relatedTypes) {
         checkSfdcTypeSet(typeNames, "PermissionSet", relatedType);
@@ -252,7 +261,7 @@ public class SfdcRetrievalTask
         checkSfdcTypeSet(typeNames, "Profile", relatedType);
       }
     }
-    
+
     metadataHandler.validateTypeSetsByName(typeSets);
   }
 
@@ -263,7 +272,7 @@ public class SfdcRetrievalTask
       SfdcTypeSet sts = new SfdcTypeSet();
       sts.setName(relatedType);
       typeSets.add(sts);
-      
+
       typeNames.add(relatedType);
     }
   }

@@ -27,7 +27,8 @@ public class Transformations
       @XmlElement(name = "changeattribute", type = ChangeAttribute.class),
       @XmlElement(name = "removeelement", type = RemoveElement.class),
       @XmlElement(name = "renamefile", type = RenameFile.class),
-      @XmlElement(name = "addelement", type = AddElement.class),})
+      @XmlElement(name = "addelement", type = AddElement.class),
+      @XmlElement(name = "skipfile", type = SkipFile.class)})
   public void setTransformations(List<Transformation> transformations)
   {
     this.transformations = transformations;

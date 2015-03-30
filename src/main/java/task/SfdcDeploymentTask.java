@@ -133,13 +133,10 @@ public class SfdcDeploymentTask
     initialize();
     
     List<DeploymentInfo> deploymentInfos = metadataHandler.compileDeploymentInfos(typeSets);
-    if (deploymentInfos.isEmpty()) {
+    ByteArrayOutputStream zipFile = zipFileHandler.prepareZipFile(deploymentInfos);
+    if (null == zipFile) {
       log(String.format("Nothing to deploy."));
-    }
-    else {
-      byte[] packageXml = metadataHandler.createPackageXml(deploymentInfos);
-      metadataHandler.savePackageXml(packageXml);
-      ByteArrayOutputStream zipFile = zipFileHandler.prepareZipFile(deploymentInfos, packageXml);
+    } else {
       zipFileHandler.saveZipFile("deploy", zipFile);
       sfdcHandler.deployTypes(zipFile, deploymentInfos);
     }
@@ -152,9 +149,9 @@ public class SfdcDeploymentTask
     checksumHandler.initialize(logWrapper, username, checksums, true);
     transformationHandler.initialize(logWrapper, username, transformationsRoot, deployRoot);
     
-    sfdcHandler.initialize(this, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler, null);
-    zipFileHandler.initialize(logWrapper, debug, transformationHandler);
     metadataHandler.initialize(logWrapper, deployRoot, debug, checksumHandler);
+    zipFileHandler.initialize(logWrapper, debug, transformationHandler, metadataHandler);
+    sfdcHandler.initialize(this, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, checksumHandler, null);
   }
 
   private void validate()

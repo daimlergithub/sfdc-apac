@@ -30,7 +30,7 @@ public class SkipFile extends Transformation {
 
   private boolean apply(LogWrapper logWrapper)
   {
-    logWrapper.log("Skipping file.");
+    logWrapper.log("Skip file.");
     
     return false;
   }
