@@ -243,24 +243,10 @@
 	<target name="deploy35">
 		<deploy>
 			<sf:typeset name="applications"/>
-				<!-- TODO excluded for now because of deployment errors in metadata API: missing keyboard shortcuts 
-				<sf:exclude name="Service_Cloud_Console_OB"/>
-				<sf:exclude name="Serivce_Cloud_Console_IB"/>
-				<sf:exclude name="Service_Cloud_Console_SSI"/>
-			</sf:typeset>
-			-->
 			<sf:typeset name="permissionsets"/>
 			<sf:typeset name="profiles">
 				<!-- TODO fix this -->
 				<sf:exclude name="Authenticated Website"/>
-				<!-- TODO FALK these do not deploy on Oliver's org -->
-				<!--
-				<sf:exclude name="CAC IB CSR"/>
-				<sf:exclude name="CAC SSI CSR"/>
-				<sf:exclude name="CAC SSI QC"/>
-				<sf:exclude name="CAC SSI SV"/>
-				<sf:exclude name="CAC SSI TL"/>  
-				-->
 			</sf:typeset>
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
@@ -297,13 +283,7 @@
 		Workflow,CampaignSharingRules,EmailTemplate,CustomApplication,AppMenu,CaseSharingRules,CustomObjectSharingRules,Settings,HomePageComponent,HomePageLayout,RemoteSiteSetting,StaticResource,Profile
 	</property>
 	
-	<!-- TODO
-	CustomObject: default objects not included, PersonAccount in retrieve missing
-	Profile: check
-	PermissionSet: check differences
-	-->
 	<property name="typesets.not-ready">
-		
 	</property>
 	
 	<target name="retrieve">
