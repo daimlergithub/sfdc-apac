@@ -10,17 +10,11 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
-
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.types.LogLevel;
@@ -114,12 +108,14 @@ public class ZipFileHandler
   private LogWrapper logWrapper;
   private boolean debug;
   private TransformationHandler transformationHandler;
+  private MetadataHandler metadataHandler;
 
-  public void initialize(LogWrapper logWrapper, boolean debug, TransformationHandler transformationHandler)
+  public void initialize(LogWrapper logWrapper, boolean debug, TransformationHandler transformationHandler, MetadataHandler metadataHandler)
   {
     this.logWrapper = logWrapper;
     this.debug = debug;
     this.transformationHandler = transformationHandler;
+    this.metadataHandler = metadataHandler;
 
     validate();
   }
@@ -131,6 +127,9 @@ public class ZipFileHandler
     }
     if (null == transformationHandler) {
       throw new BuildException("ZipFileHandler (transformationHandler) is not initialized.");
+    }
+    if (null == metadataHandler) {
+      throw new BuildException("ZipFileHandler (metadataHandler) is not initialized.");
     }
   }
 
@@ -157,10 +156,11 @@ public class ZipFileHandler
     }
   }
 
-  public ByteArrayOutputStream prepareZipFile(List<DeploymentInfo> deploymentInfos, byte[] packageXML)
+  public ByteArrayOutputStream prepareZipFile(List<DeploymentInfo> deploymentInfos)
   {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
+    
+    int counter = 0;
     try (ZipOutputStream zos = new ZipOutputStream(baos)) {
       for (DeploymentInfo info : deploymentInfos) {
         DeploymentUnit du = info.getDeploymentUnit();
@@ -169,6 +169,7 @@ public class ZipFileHandler
 
         logWrapper.log(String.format("Handle type %s for ZIP file.", type));
 
+        List<File> addedFiles = new ArrayList<>();
         for (File file : info.getFileList()) {
           logWrapper.log(String.format("Add %s.", file.getName()));
 
@@ -178,10 +179,11 @@ public class ZipFileHandler
             ByteArrayOutputStream fileBaos = transformationHandler.transform(fis, file, Operation.DEPLOY);
             if (null != fileBaos) {
               zos.putNextEntry(new ZipEntry(zipEntryName));
-              
               zos.write(fileBaos.toByteArray());
-              
               zos.closeEntry();
+              
+              addedFiles.add(file);
+              counter++;
             }
           }
           catch (Exception e) {
@@ -191,17 +193,23 @@ public class ZipFileHandler
                                                    e.getMessage()), e);
           }
         }
+        
+        info.getFileList().clear();
+        info.getFileList().addAll(addedFiles);
       }
-
+      
+      byte[] packageXml = metadataHandler.createPackageXml(deploymentInfos);
+      metadataHandler.savePackageXml(packageXml);
+      
       zos.putNextEntry(new ZipEntry("unpackaged/package.xml"));
-      zos.write(packageXML);
+      zos.write(packageXml);
       zos.closeEntry();
     }
     catch (IOException e) {
       throw new BuildException(String.format("Error preparing ZIP for deployment: %s.", e.getMessage()), e);
     }
 
-    return baos;
+    return (counter != 0) ? baos : null;
   }
 
   private String createZipEntryName(DeploymentUnit du, File file)
@@ -254,6 +262,10 @@ public class ZipFileHandler
             File parentFile = file.getParentFile();
             if (!parentFile.exists() && !parentFile.mkdirs()) {
               throw new BuildException(String.format("Error creating directories while extracting file: %s.", fileName));
+            }
+            
+            try (FileOutputStream fos = new FileOutputStream(file)) {
+              fos.write(fileBaos.toByteArray());
             }
           }
         }

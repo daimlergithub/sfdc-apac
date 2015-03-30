@@ -1,6 +1,5 @@
 package task;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
@@ -10,7 +9,6 @@ import org.apache.tools.ant.taskdefs.Taskdef;
 import task.handler.ChecksumHandler;
 import task.handler.LogWrapper;
 import task.handler.SfdcHandler;
-import task.model.SfdcFeature;
 
 /**
  * SfdcDeployChecksumsTask
