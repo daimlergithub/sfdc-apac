@@ -15552,6 +15552,10 @@
         <enabled>true</enabled>
         <name>SendSitRequests</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>false</enabled>
+        <name>SolutionImport</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>TransferAnyCase</name>
