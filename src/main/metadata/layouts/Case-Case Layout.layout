@@ -180,7 +180,7 @@
                 <field>AccountId</field>
             </layoutItem>
         </relatedContentItems>
-    </relatedContent>   
+    </relatedContent>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
