@@ -91,6 +91,42 @@
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Validity__c</fields>
+        <fields>Contact__c</fields>
+        <fields>Vehicle_ID__c</fields>
+        <fields>Car_Relation__c</fields>
+        <fields>Vehicle_Brand__c</fields>
+        <fields>Vehicle_Class__c</fields>
+        <fields>Vehicle_Model__c</fields>
+        <fields>Purchase_Date__c</fields>
+        <relatedList>Vehicle_Relationship__c.Considered_Model_1__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Validity__c</fields>
+        <fields>Contact__c</fields>
+        <fields>Vehicle_ID__c</fields>
+        <fields>Car_Relation__c</fields>
+        <fields>Vehicle_Brand__c</fields>
+        <fields>Vehicle_Class__c</fields>
+        <fields>Vehicle_Model__c</fields>
+        <fields>Purchase_Date__c</fields>
+        <relatedList>Vehicle_Relationship__c.Considered_Model_2__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Validity__c</fields>
+        <fields>Contact__c</fields>
+        <fields>Vehicle_ID__c</fields>
+        <fields>Car_Relation__c</fields>
+        <fields>Vehicle_Brand__c</fields>
+        <fields>Vehicle_Class__c</fields>
+        <fields>Vehicle_Model__c</fields>
+        <fields>Purchase_Date__c</fields>
+        <relatedList>Vehicle_Relationship__c.Previous_Model__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>true</showInteractionLogPanel>

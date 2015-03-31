@@ -124,7 +124,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Send letter</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1121,11 +1121,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2115,11 +2115,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3384,11 +3384,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4366,11 +4366,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5607,11 +5607,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6856,11 +6856,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7874,11 +7874,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8888,11 +8888,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9894,11 +9894,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10988,11 +10988,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11969,11 +11969,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12987,11 +12987,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13992,11 +13992,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send a quotation</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Send letter</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
             <values>

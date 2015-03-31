@@ -11,7 +11,7 @@
         <enableUserToDeviceLinking>false</enableUserToDeviceLinking>
     </salesforceMobile>
     <touchMobile>
-        <enableTouchAppIPad>true</enableTouchAppIPad>
+        <enableTouchAppIPad>false</enableTouchAppIPad>
         <enableTouchAppIPhone>true</enableTouchAppIPhone>
         <enableTouchBrowserIPad>false</enableTouchBrowserIPad>
         <enableVisualforceInTouch>false</enableVisualforceInTouch>

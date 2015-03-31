@@ -99,7 +99,7 @@
     </fields>
     <fields>
         <fullName>ManagerId</fullName>
-        <trackFeedHistory>true</trackFeedHistory>
+        <trackFeedHistory>false</trackFeedHistory>
         <type>Hierarchy</type>
     </fields>
     <fields>

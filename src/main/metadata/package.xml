@@ -67,6 +67,8 @@
         <members>CaseHelperTest</members>
         <members>ChangePasswordController</members>
         <members>ChangePasswordControllerTest</members>
+        <members>ChatterAnswers</members>
+        <members>ChatterAnswersEscalationTriggerTest</members>
         <members>CommunitiesLandingController</members>
         <members>CommunitiesLandingControllerTest</members>
         <members>CommunitiesLoginController</members>
@@ -237,6 +239,7 @@
         <members>ToolKitSelectContentController</members>
         <members>ToolKitSelectContentControllerTest</members>
         <members>ToolKitTriggerHelper</members>
+        <members>TrialCustomerPortalHomePageController</members>
         <members>TriggerAccountTest</members>
         <members>TriggerCampaignCity_TestClass</members>
         <members>TriggerCampaignLeadTest</members>
@@ -319,6 +322,7 @@
         <members>YearlyTargetController</members>
         <members>YearlyTargetControllerTest</members>
         <members>campaignHistoryLogGeneration</members>
+        <members>superSort</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -342,6 +346,13 @@
         <members>CaseEscalation</members>
         <members>Central_Campaigns</members>
         <members>ChangePassword</members>
+        <members>ChatterAnswersAgentView</members>
+        <members>ChatterAnswersChangePassword</members>
+        <members>ChatterAnswersForgotPassword</members>
+        <members>ChatterAnswersForgotPasswordConfirm</members>
+        <members>ChatterAnswersHelp</members>
+        <members>ChatterAnswersLogin</members>
+        <members>ChatterAnswersRegistration</members>
         <members>CommunitiesLanding</members>
         <members>CommunitiesLogin</members>
         <members>CommunitiesSelfReg</members>
@@ -411,6 +422,8 @@
         <members>TaskSMSSendResult</members>
         <members>Tasks</members>
         <members>ToolKitSelectContent</members>
+        <members>TrialCustomerPortalHomePage</members>
+        <members>Trial_Tour</members>
         <members>Unauthorized</members>
         <members>UnderConstruction</members>
         <members>UserLookupResult</members>
@@ -421,7 +434,11 @@
         <members>YearlyTA</members>
         <members>YearlyTAAchievementTracingReport</members>
         <members>Yearly_TA_Report</members>
+        <members>ca_tour_main</members>
+        <members>ca_tour_style</members>
         <members>labs_survey_css</members>
+        <members>scc_tour_main</members>
+        <members>scc_tour_style</members>
         <name>ApexPage</name>
     </types>
     <types>
@@ -460,6 +477,7 @@
         <members>TriggerSettlementManagement</members>
         <members>TriggerVehicleRelationship</members>
         <members>UserTrigger</members>
+        <members>chatter_answers_question_escalation_to_case_trigger</members>
         <name>ApexTrigger</name>
     </types>
     <types>
@@ -547,24 +565,21 @@
         <members>Central_Dealer_Portal</members>
         <members>Central_Lead_Management</members>
         <members>Central_Marketing</members>
+        <members>Chatter_Answers_Moderator</members>
         <members>EPA_Administration</members>
-        <members>Force_com</members>
-        <members>Private_APP_Exchange</members>
         <members>Retail_CRM</members>
+        <members>Service_Cloud_Console</members>
         <members>Service_Cloud_Console_IB</members>
         <members>Service_Cloud_Console_OB</members>
         <members>Service_Cloud_Console_SSI</members>
         <members>standard__AppLauncher</members>
         <members>standard__Chatter</members>
         <members>standard__Community</members>
-        <members>standard__Content</members>
         <members>standard__Marketing</members>
         <members>standard__Platform</members>
         <members>standard__Sales</members>
         <members>standard__Service</members>
         <members>standard__ServiceConsole</members>
-        <members>standard__Sites</members>
-        <members>standard__Work</members>
         <name>CustomApplication</name>
     </types>
     <types>
@@ -943,6 +958,7 @@
         <members>Car_Model__c</members>
         <members>Case</members>
         <members>CaseContactRole</members>
+        <members>CaseMilestone</members>
         <members>Case_SubType_Mapping__c</members>
         <members>City__c</members>
         <members>Collaboration_Team__c</members>
@@ -952,21 +968,22 @@
         <members>ContentVersion</members>
         <members>Contract</members>
         <members>ContractContactRole</members>
+        <members>ContractLineItem</members>
         <members>DM_Material__c</members>
         <members>DM_Request__c</members>
         <members>DM_Stock_Flow__c</members>
-        <members>DandBCompany</members>
         <members>Dealer_Offering__c</members>
-        <members>DuplicateRecordItem</members>
-        <members>DuplicateRecordSet</members>
         <members>EPA_Settings__c</members>
         <members>EP_Integration_URLS__c</members>
         <members>EP_Log_Interface__c</members>
+        <members>Entitlement</members>
+        <members>EntitlementContact</members>
         <members>Environment_Specific_Values__c</members>
         <members>EpAdapterUnitOfTransfer__c</members>
         <members>EpAdapterUnitOfWork__c</members>
         <members>Event</members>
         <members>External_Picklist__c</members>
+        <members>FAQ__kav</members>
         <members>Feeback_Day_Setting__c</members>
         <members>FeedItem</members>
         <members>Idea</members>
@@ -987,14 +1004,17 @@
         <members>Package_Item__c</members>
         <members>Participating_Dealer__c</members>
         <members>PartnerRole</members>
+        <members>PersonAccount</members>
         <members>Picklist_Mapping__c</members>
         <members>Pricebook2</members>
         <members>PricebookEntry</members>
         <members>Product2</members>
         <members>QC_Result_Tracking__c</members>
         <members>QC__c</members>
+        <members>Question</members>
         <members>Recall__c</members>
         <members>Rejected_Duplicate_Log__c</members>
+        <members>Reply</members>
         <members>Retail_Campaign_Member__c</members>
         <members>Retail_Campaign__c</members>
         <members>Retail_Task__c</members>
@@ -1005,6 +1025,7 @@
         <members>SR_History__c</members>
         <members>SSI_Cleansing_Result__c</members>
         <members>SSI__c</members>
+        <members>ServiceContract</members>
         <members>Settlement_Management__c</members>
         <members>Site</members>
         <members>SocialPersona</members>
@@ -1122,6 +1143,7 @@
         <members>EpAdapterUnitOfTransfer__c</members>
         <members>EpAdapterUnitOfWork__c</members>
         <members>External_Picklist__c</members>
+        <members>Getting_Started</members>
         <members>Integration_Picklist__c</members>
         <members>Lead__c</members>
         <members>Participating_Dealer__c</members>
@@ -1152,6 +1174,9 @@
         <members>Logo/Central_LOGO.png</members>
         <members>Logo/Logo_Mercedes_Benz.png</members>
         <members>Logo/MB_LOGO.png</members>
+        <members>SalesTools</members>
+        <members>SharedDocuments</members>
+        <members>Trial_Documents</members>
         <name>Document</name>
     </types>
     <types>
@@ -1177,18 +1202,22 @@
         <members>unfiled$public/CommunityForgotPasswordEmailTemplate</members>
         <members>unfiled$public/CommunityWelcomeEmailTemplate</members>
         <members>unfiled$public/Complaint_update_notification</members>
+        <members>unfiled$public/ContactFollowUpSAMPLE</members>
         <members>unfiled$public/CustomerPortalChangePwdEmail</members>
         <members>unfiled$public/CustomerPortalNewUserEmail</members>
         <members>unfiled$public/CustomerPortalSelfRegUserEmail</members>
+        <members>unfiled$public/LeadsNewassignmentnotificationSAMPLE</members>
+        <members>unfiled$public/LeadsWebtoLeademailresponseSAMPLE</members>
         <members>unfiled$public/MarketingProductInquiryResponse</members>
         <members>unfiled$public/PartnerChangePwdEmail</members>
         <members>unfiled$public/PartnerNewUserEmail</members>
-        <members>unfiled$public/SUPPORT%3A Self-Service New Comment %28SAMPLE%29</members>
-        <members>unfiled$public/SUPPORT%3A Self-Service New User Login %28SAMPLE%29</members>
-        <members>unfiled$public/SUPPORT%3A Self-Service Reset Password %28SAMPLE%29</members>
+        <members>unfiled$public/SUPPORTCaseResponsewithSolutionSAMPLE</members>
+        <members>unfiled$public/SUPPORTCaseescalationnotificationSAMPLE</members>
+        <members>unfiled$public/SUPPORTNewassignmentnotificationSAMPLE</members>
         <members>unfiled$public/SUPPORTSelfServiceNewCommentNotificationSAMPLE</members>
         <members>unfiled$public/SUPPORTSelfServiceNewUserLoginInformationSAMPLE</members>
         <members>unfiled$public/SUPPORTSelfServiceResetPasswordSAMPLE</members>
+        <members>unfiled$public/SUPPORTWebtoCaseemailresponseSAMPLE</members>
         <members>unfiled$public/SalesNewCustomerEmail</members>
         <members>unfiled$public/SupportCaseAssignmentNotification</members>
         <members>unfiled$public/SupportCaseCreatedPhoneInquiries</members>
@@ -1215,17 +1244,232 @@
     <types>
         <members>Mass Approval</members>
         <members>PortalUserHomePage</members>
+        <members>Trial - Customer Portal Home Page</members>
         <name>HomePageComponent</name>
     </types>
     <types>
+        <members>Dashboard Home Page Default</members>
         <members>DefaultHomePage</members>
         <members>PortalUserHomePage</members>
         <members>RegionHomePage</members>
+        <members>Trial - Customer Portal Home Page</members>
         <name>HomePageLayout</name>
+    </types>
+    <types>
+        <members>Account-Account Layout</members>
+        <members>Account-Account Master Layout</members>
+        <members>Account-Company Layout</members>
+        <members>Account-Dealer Layout-Admin</members>
+        <members>Account-Dealer Layout-CAC</members>
+        <members>Account-Dealer Layout-Portal</members>
+        <members>Account_Link__c-Account Link Layout</members>
+        <members>Asset-Asset Layout</members>
+        <members>Attribute__c-Car Attribute Layout</members>
+        <members>Batch_Job__c-Batch Job Layout</members>
+        <members>Campaign-AS Central Campaign</members>
+        <members>Campaign-CAC CRM Campaign Layout</members>
+        <members>Campaign-CAC Campaign Layout</members>
+        <members>Campaign-Campaign Execution Complex layout</members>
+        <members>Campaign-Campaign Execution Complex layout-Activate%2FSuspend SMS Batch</members>
+        <members>Campaign-Campaign Execution Simple layout</members>
+        <members>Campaign-Campaign Execution Simple layout-Activate%2FSuspend SMS Batch</members>
+        <members>Campaign-Campaign Execution layout</members>
+        <members>Campaign-Campaign Execution layout-Activate%2FSuspend SMS Batch</members>
+        <members>Campaign-Campaign Layout</members>
+        <members>Campaign-Campaign Master Layout</members>
+        <members>Campaign-Central Campaign Layout</members>
+        <members>Campaign-MB BP</members>
+        <members>Campaign-S%26M Event Central Campaign</members>
+        <members>Campaign-S%26M Media Central Campaign</members>
+        <members>Campaign-smart BP</members>
+        <members>CampaignMember-Campaign Member Page Layout</members>
+        <members>Campaign_City__c-Campaign City Layout</members>
+        <members>Campaign_Lead__c-Campaign Lead Layout</members>
+        <members>Campaign_Offering__c-Campaign Offering Layout</members>
+        <members>Campaign_Package__c-Campaign Package Layout</members>
+        <members>Campaign_Partner__c-Campaign Partner Layout</members>
+        <members>Campaign_history_log__c-Campaign History Log Layout</members>
+        <members>Car_Enquiry__c-Car Enquiry Layout</members>
+        <members>Car_Model_Attribute__c-Car Model Attribute Layout</members>
+        <members>Car_Model__c-Car Model Layout</members>
+        <members>Case-Case Layout</members>
+        <members>Case-Case Master Layout</members>
+        <members>Case-Chrysler Complaint Layout - CAC</members>
+        <members>Case-Inquiry Layout - CAC%28IB%2FOB%29</members>
+        <members>Case-MB Complaint Layout - CAC</members>
+        <members>Case-MB Complaint Layout - Customer Care Team</members>
+        <members>Case-MB Complaint Layout - Dealer Gate Keeper</members>
+        <members>Case-MB Complaint Layout - Dealer Portal User</members>
+        <members>Case-MB Complaint Layout - RO%2FCO</members>
+        <members>Case-MB Complaint Layout - System Admin</members>
+        <members>Case-Portal Case Layout</members>
+        <members>Case-Retail Campaign Layout</members>
+        <members>CaseClose-Case Close Master Layout</members>
+        <members>CaseClose-Close Case Layout</members>
+        <members>CaseInteraction-Case Feed Layout</members>
+        <members>CaseMilestone-Case Milestone Layout</members>
+        <members>Case_SubType_Mapping__c-Case SubType Mapping Layout</members>
+        <members>CollaborationGroup-Group Layout</members>
+        <members>CollaborationGroup-Panel layout</members>
+        <members>CollaborationGroup-小组 布局</members>
+        <members>Collaboration_Team__c-Collaboration Team Layout</members>
+        <members>Complaint_Description__c-Complaint Description %2F Resolution Layout</members>
+        <members>Complaint_Description__c-Complaint Description Layout</members>
+        <members>Complaint_Tracking__c-Complaint Tracking Layout</members>
+        <members>Contact-Contact Layout</members>
+        <members>Contact-Contact Master Layout</members>
+        <members>ContentVersion-Active Toolbox</members>
+        <members>ContentVersion-Advertising Kit</members>
+        <members>ContentVersion-Aftermarket class</members>
+        <members>ContentVersion-Category marketing</members>
+        <members>ContentVersion-General</members>
+        <members>ContentVersion-Sales</members>
+        <members>Contract-Contract Layout</members>
+        <members>ContractLineItem-Contract Line Item Layout</members>
+        <members>DM_Material__c-DM Layout</members>
+        <members>DM_Material__c-DM Material Layout</members>
+        <members>DM_Request__c-Create DM Request Layout</members>
+        <members>DM_Request__c-DM Fulfill Layout</members>
+        <members>DM_Request__c-DM Request Layout</members>
+        <members>DM_Stock_Flow__c-DM Stock Flow Layout</members>
+        <members>DM_Stock_Flow__c-DM Stock Flow 布局</members>
+        <members>Dealer_Offering__c-Dealer Offering Layout</members>
+        <members>EP_Log_Interface__c-EP Log Interface Layout</members>
+        <members>Entitlement-Entitlement Layout</members>
+        <members>EpAdapterUnitOfTransfer__c-Unit of Transfer Layout</members>
+        <members>EpAdapterUnitOfWork__c-EpAdapterUnitOfWork-Layout</members>
+        <members>EpAdapterUnitOfWork__c-Unit of Work Layout</members>
+        <members>Event-Event Layout</members>
+        <members>Event-Event Master Layout</members>
+        <members>Event-Reservation Layout</members>
+        <members>External_Picklist__c-External Picklist Layout</members>
+        <members>FAQ__kav-How To Layout</members>
+        <members>FeedItem-Feed Item Layout</members>
+        <members>Global-Global Layout</members>
+        <members>Idea-Idea Layout</members>
+        <members>Integration_Picklist__c-Integration Picklist Layout</members>
+        <members>Lead-Lead %28Marketing%29 Layout</members>
+        <members>Lead-Lead %28Sales%29 Layout</members>
+        <members>Lead-Lead %28Support%29 Layout</members>
+        <members>Lead-Lead Layout</members>
+        <members>Lead__c-Lead Layout</members>
+        <members>Lead__c-Leads Layout</members>
+        <members>Lead__c-Sales Leads Admin</members>
+        <members>Lead__c-Sales Leads Layout %28CAC%29</members>
+        <members>Lead__c-Sales Leads Layout %28Dealer%29</members>
+        <members>Macro-Macro Layout</members>
+        <members>OB_Task_Handing__c-OB Task Handing Layout</members>
+        <members>Opportunity-Opportunity %28Marketing%29 Layout</members>
+        <members>Opportunity-Opportunity %28Sales%29 Layout</members>
+        <members>Opportunity-Opportunity %28Support%29 Layout</members>
+        <members>Opportunity-Opportunity Layout</members>
+        <members>OpportunityLineItem-Opportunity Product Layout</members>
+        <members>Order-Order Layout</members>
+        <members>OrderItem-Order Product Layout</members>
+        <members>Package_Item__c-Package Item Layout</members>
+        <members>Participating_Dealer__c-Participating Dealer Layout</members>
+        <members>PersonAccount-3rd Pary Layout</members>
+        <members>PersonAccount-PA Layout-CAC IB%2FOB %28CSR%2FTL%2FOM%29</members>
+        <members>PersonAccount-PA Layout-Dealer Portal</members>
+        <members>PersonAccount-PA Layout-Other User</members>
+        <members>PersonAccount-PA Layout-Soft Deleted</members>
+        <members>PersonAccount-Person Account Layout</members>
+        <members>Picklist_Mapping__c-Picklist Mapping Layout</members>
+        <members>Pricebook2-Price Book Layout</members>
+        <members>PricebookEntry-Price Book Entry Layout</members>
+        <members>Product2-Product Layout</members>
+        <members>QC_Result_Tracking__c-QC Result Tracking Layout</members>
+        <members>QC_Result_Tracking__c-QC Score Comments History Layout</members>
+        <members>QC__c-IB QC</members>
+        <members>QC__c-OB QC</members>
+        <members>QC__c-QC Layout</members>
+        <members>QC__c-SSI</members>
+        <members>Question-Question Layout</members>
+        <members>Recall__c-Recall Layout</members>
+        <members>Rejected_Duplicate_Log__c-Rejected Duplicate Log Layout</members>
+        <members>Reply-Reply Layout</members>
+        <members>Retail_Campaign_Member__c-Retail Campaign Member Layout</members>
+        <members>Retail_Campaign__c-AS Retail Campaign</members>
+        <members>Retail_Campaign__c-AS Yearly TA</members>
+        <members>Retail_Campaign__c-Copy of Monthly TA</members>
+        <members>Retail_Campaign__c-Monthly TA</members>
+        <members>Retail_Campaign__c-Record Layout</members>
+        <members>Retail_Campaign__c-Retail Campaign Layout</members>
+        <members>Retail_Campaign__c-Retail Campaign Layout-central</members>
+        <members>Retail_Campaign__c-S%26M Event Retail Campaign</members>
+        <members>Retail_Campaign__c-S%26M Media Retail Campaign</members>
+        <members>Retail_Campaign__c-S%26M Yearly TA</members>
+        <members>Retail_Campaign__c-Segmentation</members>
+        <members>Retail_Task__c-Retail Task Layout</members>
+        <members>Retail_Task__c-Retail Task Layout%28Contract%29</members>
+        <members>Retail_Task__c-Retail Task Layout%28Retail Activity%29</members>
+        <members>Retail_Task__c-Retail Task Layout%28Service%29</members>
+        <members>SMSReplyHistory__c-SMS Reply History Layout</members>
+        <members>SMS_Batch__c-CAC Data SMS Layout</members>
+        <members>SMS_Batch__c-OB SMS Layout</members>
+        <members>SMS_Batch__c-SMS%2FMMS Batch Layout</members>
+        <members>SMS_Code__c-MMS Code Layout-Downstream</members>
+        <members>SMS_Code__c-SMS Code Layout</members>
+        <members>SMS_Code__c-SMS Code Layout-Downstream</members>
+        <members>SMS_Code__c-SMS Code Layout-OB Task</members>
+        <members>SMS_Code__c-SMS Code Layout-Register Campaign</members>
+        <members>SMS__c-SMS Layout</members>
+        <members>SR_History__c-SR History Layout</members>
+        <members>SSI_Cleansing_Result__c-SSI Cleansing Result Layout</members>
+        <members>SSI__c-SSI Layout</members>
+        <members>SSI__c-SSI Record IT Layout</members>
+        <members>SSI__c-SSI Record Layout</members>
+        <members>ServiceContract-Service Contract Layout</members>
+        <members>Settlement_Management__c-Settlement Management Layout</members>
+        <members>SocialPersona-Social Persona Layout</members>
+        <members>SocialPost-Social Post Layout</members>
+        <members>Solution-Solution Layout</members>
+        <members>SurveyQuestionResponse__c-Survey Question Answer Layout</members>
+        <members>SurveyQuestionResponse__c-Survey Question Response Layout</members>
+        <members>SurveyTaker__c-Survey Taken Layout</members>
+        <members>SurveyTaker__c-SurveyTaker Layout</members>
+        <members>Survey_Question__c-Survey Question Layout</members>
+        <members>Survey__c-Survey Layout</members>
+        <members>TSP_Subscription__c-TSP Subscription Layout</members>
+        <members>Task-Campaign Task</members>
+        <members>Task-DM</members>
+        <members>Task-IB Call</members>
+        <members>Task-OB Call</members>
+        <members>Task-OB Task</members>
+        <members>Task-SMS</members>
+        <members>Task-SMS with History Response</members>
+        <members>Task-SSI Task</members>
+        <members>Task-Social Media</members>
+        <members>Task-Task Layout</members>
+        <members>Task-Task Master Layout</members>
+        <members>Task-Welcome Call Task</members>
+        <members>Task-eDM</members>
+        <members>Template__c-Callscript</members>
+        <members>Template__c-Children MMS Template</members>
+        <members>Template__c-Children SMS Template</members>
+        <members>Template__c-MMS</members>
+        <members>Template__c-SMS</members>
+        <members>Template__c-Template Layout</members>
+        <members>Template__c-eDM Template</members>
+        <members>Tool_Kit__c-Event Tool Kit</members>
+        <members>Tool_Kit__c-Media Tool Kit</members>
+        <members>Tool_Kit__c-Tool Kit Layout</members>
+        <members>User-User Layout</members>
+        <members>User-User Master Layout</members>
+        <members>UserAlt-User Profile Layout</members>
+        <members>Vehicle_Relationship__c-Vehicle Relationship Layout</members>
+        <members>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</members>
+        <members>Vehicle_Relationship__c-Vehicle Relationship Layout-Dealer Portal</members>
+        <members>Vehicle__c-Competitor Vehicle Layout-CAC</members>
+        <members>Vehicle__c-MB Vehicle Layout-CAC</members>
+        <members>Vehicle__c-MB Vehicle Layout-Dealer Portal</members>
+        <members>Vehicle__c-Vehicle Layout</members>
+        <name>Layout</name>
     </types>
     <types>
         <members>AS_Retail_Campaign</members>
         <members>AS_Yearly_TA</members>
+        <members>Case_Feed</members>
         <members>Complaint_Management</members>
         <members>Dealer_Report</members>
         <members>Delete_Case_Authorization</members>
@@ -1248,7 +1492,6 @@
     </types>
     <types>
         <members>Admin</members>
-        <members>Authenticated Website</members>
         <members>CAC Data Manager</members>
         <members>CAC IB CSR</members>
         <members>CAC IB QC</members>
@@ -1270,51 +1513,23 @@
         <members>Chatter External User</members>
         <members>Chatter Free User</members>
         <members>Chatter Moderator User</members>
-        <members>Chatter Only User</members>
         <members>ContractManager</members>
         <members>Cross Org Data Proxy User</members>
-        <members>Custom%3A Marketing Profile</members>
-        <members>Custom%3A Sales Profile</members>
-        <members>Custom%3A Support Profile</members>
-        <members>Customer Community Login User</members>
-        <members>Customer Community Plus Login User</members>
-        <members>Customer Community Plus User</members>
-        <members>Customer Community User</members>
-        <members>Customer Portal Manager Custom</members>
-        <members>Customer Portal Manager Standard</members>
-        <members>CustomerManager</members>
-        <members>DaimlerKernelCommunity Profile</members>
-        <members>Dealer Community User</members>
-        <members>Dealer Delegate Admin</members>
         <members>External Identity User</members>
         <members>External Marketing User</members>
-        <members>Force%2Ecom - App Subscription User</members>
-        <members>Force%2Ecom - Free User</members>
-        <members>Gold Partner User</members>
-        <members>Guest</members>
+        <members>Guest License User</members>
         <members>High Volume Customer Portal User</members>
         <members>HighVolumePortal</members>
         <members>Identity User</members>
         <members>IntegrationAPI</members>
         <members>MarketingProfile</members>
-        <members>Overage Customer Portal Manager Custom</members>
-        <members>Overage Customer Portal Manager Standard</members>
-        <members>Overage High Volume Customer Portal User</members>
-        <members>Partner</members>
-        <members>Partner App Subscription User</members>
-        <members>Partner Community Login User</members>
-        <members>Partner Community User</members>
-        <members>PlatformPortal</members>
         <members>ReadOnly</members>
         <members>Regional AS DM%2FCoordinator%2FDirector</members>
         <members>Regional CRM Manager</members>
         <members>Regional S%26M Manager</members>
-        <members>ServiceCloud</members>
-        <members>Silver Partner User</members>
         <members>SolutionManager</members>
         <members>Standard</members>
-        <members>StandardAul</members>
-        <members>Work%2Ecom Only User</members>
+        <members>Trial Customer Portal User</members>
         <name>Profile</name>
     </types>
     <types>
@@ -1397,6 +1612,7 @@
         <members>ReminderForCampaignRelation</members>
         <members>RetailCampaignSegmentation</members>
         <members>RetailCampaignTimeline_JS</members>
+        <members>ServiceCloudLogo</members>
         <members>SiteSamples</members>
         <members>SlickCTI_CallCenterDefinition</members>
         <members>SlickCTI_DialPhone</members>
@@ -1416,6 +1632,7 @@
         <members>Timeline_CSS</members>
         <members>Timeline_JS</members>
         <members>Timeline_JS_Pa_Z</members>
+        <members>TrialPortalBanner</members>
         <members>UiBootstrap</members>
         <members>UserGuide</members>
         <members>insect</members>
@@ -1423,12 +1640,113 @@
         <members>jQueryCSV</members>
         <members>jquery142</members>
         <members>linked</members>
+        <members>scc_tour_images</members>
         <members>searching_img</members>
         <members>unlink</members>
         <members>webchat</members>
         <members>zzDealerSearch1</members>
         <members>zzDealerSearch2</members>
         <name>StaticResource</name>
+    </types>
+    <types>
+        <members>Account</members>
+        <members>Account_Link__c</members>
+        <members>App_Setting__c</members>
+        <members>Asset</members>
+        <members>Attribute__c</members>
+        <members>Batch_Job__c</members>
+        <members>Campaign</members>
+        <members>CampaignMember</members>
+        <members>Campaign_City__c</members>
+        <members>Campaign_Lead__c</members>
+        <members>Campaign_Offering__c</members>
+        <members>Campaign_Package__c</members>
+        <members>Campaign_Partner__c</members>
+        <members>Campaign_history_log__c</members>
+        <members>Car_Enquiry__c</members>
+        <members>Car_Model_Attribute__c</members>
+        <members>Car_Model__c</members>
+        <members>Case</members>
+        <members>Case_SubType_Mapping__c</members>
+        <members>City__c</members>
+        <members>Collaboration_Team__c</members>
+        <members>Complaint_Description__c</members>
+        <members>Complaint_Tracking__c</members>
+        <members>Contact</members>
+        <members>Contract</members>
+        <members>ContractLineItem</members>
+        <members>DM_Material__c</members>
+        <members>DM_Request__c</members>
+        <members>DM_Stock_Flow__c</members>
+        <members>Dealer_Offering__c</members>
+        <members>EPA_Settings__c</members>
+        <members>EP_Integration_URLS__c</members>
+        <members>EP_Log_Interface__c</members>
+        <members>EmailMessage</members>
+        <members>Entitlement</members>
+        <members>EntitlementContact</members>
+        <members>Environment_Specific_Values__c</members>
+        <members>EpAdapterUnitOfTransfer__c</members>
+        <members>EpAdapterUnitOfWork__c</members>
+        <members>Event</members>
+        <members>External_Picklist__c</members>
+        <members>FAQ__kav</members>
+        <members>Feeback_Day_Setting__c</members>
+        <members>FeedItem</members>
+        <members>Idea</members>
+        <members>Integration_Picklist__c</members>
+        <members>Lead</members>
+        <members>Lead__c</members>
+        <members>Macro</members>
+        <members>MacroAction</members>
+        <members>MacroInstruction</members>
+        <members>MonthlyRule__c</members>
+        <members>OB_Task_Handing__c</members>
+        <members>Opportunity</members>
+        <members>OpportunityLineItem</members>
+        <members>Order</members>
+        <members>OrderItem</members>
+        <members>Organization</members>
+        <members>Package_Item__c</members>
+        <members>Participating_Dealer__c</members>
+        <members>Picklist_Mapping__c</members>
+        <members>Product2</members>
+        <members>QC_Result_Tracking__c</members>
+        <members>QC__c</members>
+        <members>Question</members>
+        <members>Recall__c</members>
+        <members>Rejected_Duplicate_Log__c</members>
+        <members>Reply</members>
+        <members>Retail_Campaign_Member__c</members>
+        <members>Retail_Campaign__c</members>
+        <members>Retail_Task__c</members>
+        <members>SMSReplyHistory__c</members>
+        <members>SMS_Batch__c</members>
+        <members>SMS_Code__c</members>
+        <members>SMS__c</members>
+        <members>SR_History__c</members>
+        <members>SSI_Cleansing_Result__c</members>
+        <members>SSI__c</members>
+        <members>ServiceContract</members>
+        <members>Settlement_Management__c</members>
+        <members>Site</members>
+        <members>SocialPersona</members>
+        <members>Solution</members>
+        <members>StreamingChannel</members>
+        <members>SurveyQuestionResponse__c</members>
+        <members>SurveyTaker__c</members>
+        <members>Survey_Question__c</members>
+        <members>Survey__c</members>
+        <members>TSP_Subscription__c</members>
+        <members>Task</members>
+        <members>Template__c</members>
+        <members>Tool_Kit__c</members>
+        <members>Trigger_Status__c</members>
+        <members>User</members>
+        <members>UserLicense</members>
+        <members>Vehicle_Relationship__c</members>
+        <members>Vehicle__c</members>
+        <name>Workflow</name>
     </types>
     <types>
         <members>Account</members>
@@ -1442,8 +1760,6 @@
         <members>Entitlement</members>
         <members>Forecasting</members>
         <members>Ideas</members>
-        <members>Knowledge</members>
-        <members>LiveAgent</members>
         <members>Mobile</members>
         <members>Opportunity</members>
         <members>Order</members>
