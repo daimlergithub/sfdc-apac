@@ -247,6 +247,9 @@
 			<sf:typeset name="profiles">
 				<!-- TODO fix this -->
 				<sf:exclude name="Authenticated Website"/>
+				<!-- TODO excluding the below 2 profiles as they are related to communities -->
+				<sf:exclude name="Dealer Community User"/>
+				<sf:exclude name="Dealer Delegate Admin"/>
 			</sf:typeset>
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
