@@ -11,7 +11,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -170,6 +172,7 @@ public class ZipFileHandler
         logWrapper.log(String.format("Handle type %s for ZIP file.", type));
 
         List<File> addedFiles = new ArrayList<>();
+        Set<String> addedEntities = new HashSet<>();
         for (File file : info.getFileList()) {
           logWrapper.log(String.format("Add %s.", file.getName()));
 
@@ -183,6 +186,7 @@ public class ZipFileHandler
               zos.closeEntry();
               
               addedFiles.add(file);
+              addedEntities.add(info.getDeploymentUnit().getEntityName(file));
               counter++;
             }
           }
@@ -196,6 +200,8 @@ public class ZipFileHandler
         
         info.getFileList().clear();
         info.getFileList().addAll(addedFiles);
+        info.getEntityNames().clear();
+        info.getEntityNames().addAll(addedEntities);
       }
       
       byte[] packageXml = metadataHandler.createPackageXml(deploymentInfos);
