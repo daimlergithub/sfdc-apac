@@ -861,7 +861,7 @@
         <apexClass>SettlementHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
+    <classAccesses>  	
         <apexClass>SettlementHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
