@@ -8643,6 +8643,13 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>CommunityId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Complaint_Creator_Department__c</fullName>
         <externalId>false</externalId>
         <label>Complaint Creator Department</label>
@@ -10044,6 +10051,13 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>EntitlementId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Equal_to_Case_Dealer__c</fullName>
         <description>This field is for capturing case dealer ID for workflow, as Case dealer is a look up field which is can not be selected in the creteria field list.</description>
         <externalId>false</externalId>
@@ -10901,6 +10915,12 @@ Modify Reason:
         <trackTrending>false</trackTrending>
     </fields>
     <fields>
+        <fullName>IsStopped</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
         <fullName>IsVisibleInSelfService</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
@@ -11058,6 +11078,14 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MilestoneStatus</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>MilestoneStatusIcon</fullName>
+        <trackTrending>false</trackTrending>
     </fields>
     <fields>
         <fullName>Name__c</fullName>
@@ -11430,7 +11458,7 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
-        <trackFeedHistory>true</trackFeedHistory>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -11588,7 +11616,7 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>true</trackFeedHistory>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -11676,6 +11704,13 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ProductId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Product_Quality_Category__c</fullName>
@@ -11811,6 +11846,13 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>QuestionId</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>RME_CCMS_repeat__c</fullName>
@@ -12746,6 +12788,16 @@ Modify Reason:
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>SlaExitDate</fullName>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
+        <fullName>SlaStartDate</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+    </fields>
+    <fields>
         <fullName>Special_Goodwill__c</fullName>
         <defaultValue>false</defaultValue>
         <description>/* 
@@ -12875,10 +12927,14 @@ Modify Reason:
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
-        <trackFeedHistory>true</trackFeedHistory>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>StopStartDate</fullName>
+        <trackTrending>false</trackTrending>
     </fields>
     <fields>
         <fullName>Subject</fullName>
@@ -16074,9 +16130,17 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </filters>
         <label>All closed cases</label>
         <language>en_US</language>
-        <sharedTo>
-            <allPartnerUsers></allPartnerUsers>
-        </sharedTo>
+        <sharedTo/>
+    </listViews>
+    <listViews>
+        <fullName>AllOpenCases</fullName>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.CLOSED</field>
+            <operation>equals</operation>
+            <value>0</value>
+        </filters>
+        <label>All Open Cases</label>
     </listViews>
     <listViews>
         <fullName>All_Central_Office_Cases</fullName>
@@ -16339,6 +16403,15 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <queue>Central_Office_PL_WL_Queue</queue>
         <sharedTo>
             <role>PL_WL_Team</role>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Central_Office_PL_WL_Queue_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Central Office PL / WL Queue</label>
+        <queue>Central_Office_PL_WL_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16655,6 +16728,24 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>Regional_Office_East_Queue_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Regional Office East Queue</label>
+        <queue>Regional_Office_East_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Regional_Office_North_Queue_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Regional Office North Queue</label>
+        <queue>Regional_Office_North_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Regional_Office_Northth_Queue</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>CASES.SUBJECT</columns>
@@ -16689,6 +16780,15 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </sharedTo>
     </listViews>
     <listViews>
+        <fullName>Regional_Office_South_Queue_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Regional Office South Queue</label>
+        <queue>Regional_Office_South_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
         <fullName>Regional_Office_West_Queue</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>CASES.SUBJECT</columns>
@@ -16704,6 +16804,30 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
             <role>AS_Service_Technical_Director</role>
             <role>Regional_CRM_Manager</role>
         </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Regional_Office_West_Queue_Case</fullName>
+        <filterScope>Queue</filterScope>
+        <label>Regional Office West Queue</label>
+        <queue>Regional_Office_West_Queue</queue>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Sample_Cases</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.TYPE</field>
+            <operation>equals</operation>
+            <value>Sample Cases</value>
+        </filters>
+        <label>Sample Cases</label>
     </listViews>
     <listViews>
         <fullName>Support_Cases</fullName>
@@ -16724,6 +16848,21 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         </filters>
         <label>Supported by</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>Trial_Activities</fullName>
+        <columns>CASES.CASE_NUMBER</columns>
+        <columns>CASES.SUBJECT</columns>
+        <columns>CASES.STATUS</columns>
+        <columns>CASES.CREATED_DATE</columns>
+        <columns>CASES.CLOSED_DATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CASES.TYPE</field>
+            <operation>equals</operation>
+            <value>Trial</value>
+        </filters>
+        <label>Trial Activities</label>
     </listViews>
     <listViews>
         <fullName>View</fullName>
@@ -67633,7 +67772,7 @@ if(&quot;{!Account.SMSOptOut__pc}&quot; != &apos;1&apos;){
         <protected>false</protected>
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
-        <url>https://na1.salesforce.com/opp/oppedit.jsp?accid={!Account_ID}&amp;opp3=Up-sell+/+Cross-sell&amp;opp5=Existing+Customer&amp;opp6=Customer+Support</url>
+        <url>https://na1.salesforce.com/opp/oppedit.jsp?accid={!Account.Id}&amp;opp3=Up-sell+/+Cross-sell&amp;opp5=Existing+Customer&amp;opp6=Customer+Support</url>
     </webLinks>
     <webLinks>
         <fullName>eDM</fullName>

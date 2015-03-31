@@ -21,7 +21,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>CAC CRM Campaign,CAC Campaign,Campaign Execution - Simple,Central Marketing Campaign,CAS Marketing Campaign,Campaign Execution - Complex</value>
+            <value>CAC CRM Campaign,CAC Campaign,Central Marketing Campaign,Campaign Execution - Simple,Campaign Execution - Complex,CAS Marketing Campaign</value>
         </criteriaItems>
         <campaignAccessLevel>Read</campaignAccessLevel>
         <name>CAC CRM share to CRM Manager - CAC &amp; Data Mgt</name>
@@ -106,7 +106,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>CAC Campaign,Campaign Execution - Simple,Campaign Execution - Complex</value>
+            <value>Campaign Execution - Simple,CAC Campaign,Campaign Execution - Complex</value>
         </criteriaItems>
         <campaignAccessLevel>Read</campaignAccessLevel>
         <name>Campaign Execution Share to CAC</name>
@@ -119,7 +119,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>CAC CRM Campaign,CAC Campaign,Campaign Execution - Simple,CAS Marketing Campaign,Campaign Execution - Complex</value>
+            <value>CAC CRM Campaign,CAC Campaign,Campaign Execution - Simple,Campaign Execution - Complex,CAS Marketing Campaign</value>
         </criteriaItems>
         <campaignAccessLevel>Edit</campaignAccessLevel>
         <name>Campaign Share with Data Service Specialist</name>

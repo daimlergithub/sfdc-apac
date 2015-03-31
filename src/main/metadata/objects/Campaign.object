@@ -3769,6 +3769,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participating_Region_Province__c</picklist>
+            <values>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Purpose__c</picklist>
             <values>
                 <fullName>Acquisition</fullName>
@@ -4593,6 +4600,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participating_Region_Province__c</picklist>
+            <values>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Purpose__c</picklist>
             <values>
                 <fullName>Acquisition</fullName>
@@ -5265,6 +5279,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participating_Region_Province__c</picklist>
+            <values>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Purpose__c</picklist>
             <values>
                 <fullName>Acquisition</fullName>
@@ -5929,6 +5950,13 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participating_Region_Province__c</picklist>
+            <values>
+                <fullName>Province1</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6617,6 +6645,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participating_Region_Province__c</picklist>
+            <values>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Purpose__c</picklist>
             <values>
                 <fullName>Acquisition</fullName>
@@ -7297,6 +7332,13 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participating_Region_Province__c</picklist>
+            <values>
+                <fullName>Province1</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8157,6 +8199,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Participating_Region_Province__c</picklist>
+            <values>
+                <fullName>Province1</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Purpose__c</picklist>
             <values>
                 <fullName>Acquisition</fullName>
@@ -8909,6 +8958,25 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Driven__c</picklist>
+            <values>
+                <fullName>Campaign Organized by Central</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign Organized by Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Campaign on Festivals</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9769,6 +9837,25 @@
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Driven__c</picklist>
+            <values>
+                <fullName>Campaign Organized by Central</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign Organized by Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Extended Activities from Central%E2%80%99s Campaign</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Local Campaign on Festivals</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10740,6 +10827,13 @@
             </values>
             <values>
                 <fullName>TV</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Participating_Region_Province__c</picklist>
+            <values>
+                <fullName>Province1</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

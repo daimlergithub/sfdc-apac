@@ -14320,9 +14320,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         </filters>
         <label>All aftermarket sales leads</label>
         <language>en_US</language>
-        <sharedTo>
-            <allPartnerUsers/>
-        </sharedTo>
+        <sharedTo/>
     </listViews>
     <listViews>
         <fullName>All_presales_leads</fullName>
@@ -14340,9 +14338,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         </filters>
         <label>All pre sales cue</label>
         <language>en_US</language>
-        <sharedTo>
-            <allPartnerUsers/>
-        </sharedTo>
+        <sharedTo/>
     </listViews>
     <listViews>
         <fullName>All_smart_Lead</fullName>

@@ -5,9 +5,4 @@
     <confirmationTokenRequired>false</confirmationTokenRequired>
     <description>After 3 steps of data cleansing of SSI, Click the &apos;Vin Match&apos; button, it will take you to this page.</description>
     <label>VinMatch</label>
-    <packageVersions>
-        <majorNumber>1</majorNumber>
-        <minorNumber>6</minorNumber>
-        <namespace>sf_com_apps</namespace>
-    </packageVersions>
 </ApexPage>

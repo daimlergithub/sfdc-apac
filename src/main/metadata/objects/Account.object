@@ -4533,7 +4533,7 @@ Function: After a suspect account is rejected or merged, master account id shoul
     </fields>
     <fields>
         <fullName>Name</fullName>
-        <trackFeedHistory>true</trackFeedHistory>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>true</trackHistory>
     </fields>
     <fields>
@@ -4703,7 +4703,7 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>OwnerId</fullName>
-        <trackFeedHistory>true</trackFeedHistory>
+        <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
     </fields>
@@ -6237,7 +6237,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <label>All Customer Accounts</label>
         <language>en_US</language>
         <sharedTo>
-            <allPartnerUsers></allPartnerUsers>
             <role>WholeSale_CallCenter</role>
         </sharedTo>
     </listViews>
@@ -10795,7 +10794,7 @@ ISPICKVAL(  Gender__c , &apos;Male&apos;))
         <protected>false</protected>
         <showsLocation>true</showsLocation>
         <showsStatus>true</showsStatus>
-        <url>http://www.genwatt.com/genwatt/billing.htm?actname={!Account_Name}</url>
+        <url>http://www.genwatt.com/genwatt/billing.htm?actname={!Account.Name}</url>
     </webLinks>
     <webLinks>
         <fullName>Car_Model_Comparison</fullName>

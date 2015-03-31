@@ -29,7 +29,8 @@ public class BatchAssignTasksTest {
 		System.runAs ( thisUser ) {
         
             String[] csrProfiles = new String[]{
-                    'CAC IB CSR', 'CAC IB TL', 'CAC IB QC', 'CAC OB CSR', 'CAC OB TL', 'CAC OB QC', 'CAC SSI CSR', 'CAC SSI TL', 'CAC SSI SV', 'CAC SSI QC', 'CAC SSI Trainer'};
+                    'CAC IB CSR', 'CAC IB TL', 'CAC IB QC', 'CAC OB CSR', 'CAC OB TL', 
+                        'CAC OB QC', 'CAC SSI CSR', 'CAC SSI TL', 'CAC SSI SV', 'CAC SSI QC', 'CAC SSI Trainer'};
             List<Profile> profileIds = [
                 Select Id 
                 From Profile 

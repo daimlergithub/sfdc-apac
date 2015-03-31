@@ -215,6 +215,13 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Lodgement_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Lodgement Date</label>
+        <required>false</required>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Member_Latest_Update_Time__c</fullName>
         <externalId>false</externalId>
         <label>Member Latest Update Time</label>
