@@ -731,8 +731,7 @@ Public class UtilTestData {
         task.Status = 'Open';
         task.Priority__c = 'General';
     }
-    
-    public static Campaign dataPreparation(){
+	public static Campaign dataPreparation(){
         // Campaign Record Type Id Search
         Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();  
         // Central Campaign

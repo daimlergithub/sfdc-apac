@@ -23,7 +23,7 @@ public class AssignCaseToDealerController {
     private final Integer QUERY_LIMIT = 200;
     private final String ACCOUNT_RT_DEALER = 'Dealer';
     private final String DEALER_USER = 'Dealer Community User';
-    private final String DEALER_DELEGATED_ADMIN = 'Dealer Community Delegate Admin';
+    private final String DEALER_DELEGATED_ADMIN = 'Dealer Delegate Admin';
     
     // Account Address Fields Mapping with Dealer City
     private final Map<String, String> ADDRESS_FIELD_MAPPING = new Map<String, String> {
@@ -93,7 +93,7 @@ public class AssignCaseToDealerController {
         System.debug(querySOQL);
         List<User> oblist=new List<User>();
         if(querySOQL!=Null){
-          	oblist = Database.query(querySOQL);
+            oblist = Database.query(querySOQL);
         }
         // If no query result, system alert no search result.
         hasQueryResult = (oblist.size() > 0);
