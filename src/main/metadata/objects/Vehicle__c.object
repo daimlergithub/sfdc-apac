@@ -57,6 +57,35 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+        <fullName>AMG__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>AMG</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Add_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Add Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Add_User__c</fullName>
+        <externalId>false</externalId>
+        <label>Add User</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>BaumusterEx__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -112,6 +141,17 @@ Attribute in Data Dictionary object Vehicle is &quot;Vehicle_Baumuster&quot;</de
         <externalId>false</externalId>
         <label>Baumuster</label>
         <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>BodyBuilderInformation__c</fullName>
+        <externalId>false</externalId>
+        <label>Body Builder Information</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -331,6 +371,31 @@ Attribute in Data Dictionary object Vehicle is &quot;Vehicle_CBU-CKD&quot;</desc
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CROUser__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CRO User</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Vehicles</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Car_Model__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Car Model</label>
+        <referenceTo>Car_Model__c</referenceTo>
+        <relationshipLabel>Vehicles</relationshipLabel>
+        <relationshipName>Vehicles</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Class__c</fullName>
@@ -1706,6 +1771,17 @@ Attribute in Data Dictionary object Vehicle is &quot;Vehicle_CommissionNumber&qu
         <externalId>false</externalId>
         <label>Competitor Model</label>
         <length>50</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cost_Centre__c</fullName>
+        <externalId>false</externalId>
+        <label>Cost Centre</label>
+        <length>30</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -5888,6 +5964,28 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Vehicle_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Name</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Site__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Site</label>
+        <length>30</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Warranty_End_Date__c</fullName>
         <externalId>false</externalId>
         <label>Warranty End Date</label>
@@ -5905,6 +6003,26 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>last_update_changed_by__c</fullName>
+        <externalId>false</externalId>
+        <label>Last update changed by</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>last_updated__c</fullName>
+        <externalId>false</externalId>
+        <label>last updated</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
     </fields>
     <label>Vehicle</label>
     <listViews>

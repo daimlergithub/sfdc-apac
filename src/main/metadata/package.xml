@@ -948,6 +948,7 @@
         <members>App_Setting__c</members>
         <members>Asset</members>
         <members>Attribute__c</members>
+        <members>Audit_Trail__c</members>
         <members>Batch_Job__c</members>
         <members>Campaign</members>
         <members>CampaignMember</members>
@@ -1045,6 +1046,7 @@
         <members>Tool_Kit__c</members>
         <members>Trigger_Status__c</members>
         <members>User</members>
+        <members>Vehicle_Inspection__c</members>
         <members>Vehicle_Relationship__c</members>
         <members>Vehicle__c</members>
         <name>CustomObject</name>
@@ -1269,6 +1271,7 @@
         <members>Account_Link__c-Account Link Layout</members>
         <members>Asset-Asset Layout</members>
         <members>Attribute__c-Car Attribute Layout</members>
+        <members>Audit_Trail__c-Audit Trail Layout</members>
         <members>Batch_Job__c-Batch Job Layout</members>
         <members>Campaign-AS Central Campaign</members>
         <members>Campaign-CAC CRM Campaign Layout</members>
@@ -1460,6 +1463,8 @@
         <members>Tool_Kit__c-Tool Kit Layout</members>
         <members>User-User Layout</members>
         <members>User-User Master Layout</members>
+        <members>UserAlt-User Profile Layout</members>
+        <members>Vehicle_Inspection__c-Vehicle Inspection Layout</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout-Dealer Portal</members>
@@ -1659,6 +1664,7 @@
         <members>App_Setting__c</members>
         <members>Asset</members>
         <members>Attribute__c</members>
+        <members>Audit_Trail__c</members>
         <members>Batch_Job__c</members>
         <members>Campaign</members>
         <members>CampaignMember</members>
@@ -1749,6 +1755,7 @@
         <members>Trigger_Status__c</members>
         <members>User</members>
         <members>UserLicense</members>
+        <members>Vehicle_Inspection__c</members>
         <members>Vehicle_Relationship__c</members>
         <members>Vehicle__c</members>
         <name>Workflow</name>

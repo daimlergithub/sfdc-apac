@@ -6,8 +6,8 @@
     2014-2-18 Created by Justin Yu
 */
 public class CampaignHelper {
-	
-	public static Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName();    // Campaign Record Type MAP
+    
+    public static Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName();    // Campaign Record Type MAP
     public static Map<String, Schema.RecordTypeInfo> tkRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
     
     public static void copyTopCampaignStatusValueToSavedCampaign(Set<String> campaignIds){
@@ -34,8 +34,8 @@ public class CampaignHelper {
         
         CampaignMemberStatus[] statuses = [select IsDefault, HasResponded from CampaignMemberStatus where CampaignId in :campaignIds];
         for(CampaignMemberStatus status : statuses){
-        	status.IsDefault = false;
-        	status.HasResponded = false;
+            status.IsDefault = false;
+            status.HasResponded = false;
         }
         update statuses;
         delete statuses;
@@ -46,54 +46,54 @@ public class CampaignHelper {
     }
     
     public static void updateCampaignMemberStatusToRelatedCampaign(List<CampaignMember> members){
-    	
-    	Set<String> topCampaignIds = new Set<String>();
-    	Set<String> obcallCampaignIds = new Set<String>();
-    	Set<String> unknownCampaignIds = new Set<String>();
-    	Map<String, String> statusMap = new Map<String, String>();
-    	
-    	for(CampaignMember member : members){
-    		statusMap.put(member.ContactId, member.Status);
-    		
-    		if(member.Campaign_Execution_Type__c == 'OB Call' && member.Campaign.ParentId != null){
-    			topCampaignIds.add(member.Campaign.Parent.ParentId);
-    			obcallCampaignIds.add(member.CampaignId);
-    		}
-    		else{
-    			unknownCampaignIds.add(member.CampaignId);
-    		}
-    	}
-    	
-    	for(Campaign camp : [select Id, Parent.ParentId from Campaign where Parent.ParentId = :unknownCampaignIds and Execution_Type__c = 'OB Call']){
-    		topCampaignIds.add(camp.Parent.ParentId);
-    		obcallCampaignIds.add(camp.Id);
-    	}
-    	for(Campaign camp : [select Id from Campaign where Parent.ParentId = :topCampaignIds and Execution_Type__c = 'OB Call']){
-    		obcallCampaignIds.add(camp.Id);
-    	}
-    	
-    	Set<String> campaignIds = new Set<String>();
-    	campaignIds.addAll(topCampaignIds);
-    	campaignIds.addAll(obcallCampaignIds);
-    	campaignIds.remove(null);
-    	
-    	List<CampaignMember> updatedMembers = new List<CampaignMember>();
-    	for(CampaignMember mem : [select Status, ContactId from CampaignMember where CampaignId in :campaignIds and ContactId in :statusMap.keySet()]){
-    		String status = statusMap.get(mem.ContactId) ;
-    		if(status != null){
-    			mem.Latest_Status__c = status;
-    		}
-    		updatedMembers.add(mem);
-    	}
-    	
-    	if(updatedMembers.size() > 0){
-    		update updatedMembers;
-    	}
+        
+        Set<String> topCampaignIds = new Set<String>();
+        Set<String> obcallCampaignIds = new Set<String>();
+        Set<String> unknownCampaignIds = new Set<String>();
+        Map<String, String> statusMap = new Map<String, String>();
+        
+        for(CampaignMember member : members){
+            statusMap.put(member.ContactId, member.Status);
+            
+            if(member.Campaign_Execution_Type__c == 'OB Call' && member.Campaign.ParentId != null){
+                topCampaignIds.add(member.Campaign.Parent.ParentId);
+                obcallCampaignIds.add(member.CampaignId);
+            }
+            else{
+                unknownCampaignIds.add(member.CampaignId);
+            }
+        }
+        
+        for(Campaign camp : [select Id, Parent.ParentId from Campaign where Parent.ParentId = :unknownCampaignIds and Execution_Type__c = 'OB Call']){
+            topCampaignIds.add(camp.Parent.ParentId);
+            obcallCampaignIds.add(camp.Id);
+        }
+        for(Campaign camp : [select Id from Campaign where Parent.ParentId = :topCampaignIds and Execution_Type__c = 'OB Call']){
+            obcallCampaignIds.add(camp.Id);
+        }
+        
+        Set<String> campaignIds = new Set<String>();
+        campaignIds.addAll(topCampaignIds);
+        campaignIds.addAll(obcallCampaignIds);
+        campaignIds.remove(null);
+        
+        List<CampaignMember> updatedMembers = new List<CampaignMember>();
+        for(CampaignMember mem : [select Status, ContactId from CampaignMember where CampaignId in :campaignIds and ContactId in :statusMap.keySet()]){
+            String status = statusMap.get(mem.ContactId) ;
+            if(status != null){
+                mem.Latest_Status__c = status;
+            }
+            updatedMembers.add(mem);
+        }
+        
+        if(updatedMembers.size() > 0){
+            update updatedMembers;
+        }
     }
     
     public static void afterInsertUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap, boolean isUpdate)
     {
-    	
+        
         /* START Variable Definition    */
         Set<ID> cpIdSet = new Set<ID>(); // Campaign ID Set       
         List<Campaign> cpAccList = new List<Campaign>(); // Campaign Exection List by Contact 
@@ -203,7 +203,7 @@ public class CampaignHelper {
     
     public static void beforeUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
     {
-    	List<Campaign> cmpExes = new List<Campaign>();
+        List<Campaign> cmpExes = new List<Campaign>();
         Id cmpExeReTpIdS = cpRecordTypeMap.get('Campaign Execution - Simple').getRecordTypeId();
         Id cmpExeReTpIdC = cpRecordTypeMap.get('Campaign Execution - Complex').getRecordTypeId();
         Set<Id> campaignIds = new Set<Id>();
@@ -239,7 +239,7 @@ public class CampaignHelper {
      */
     public static void afterInsertEvents(list<Campaign> campaignNew)
     {
-    	Set<String> campaignIds = new Set<String>();
+        Set<String> campaignIds = new Set<String>();
         for(Campaign campaign : campaignNew){
             if(campaign.Execution_Type__c == 'OB Call')
             {
@@ -247,12 +247,12 @@ public class CampaignHelper {
             }
         }
         if(campaignIds!=null && !campaignIds.isEmpty())
-        	copyTopCampaignStatusValueToSavedCampaign(campaignIds);
+            copyTopCampaignStatusValueToSavedCampaign(campaignIds);
     }
     
     public static void afterUpdateEvents(list<Campaign> campaignNew,list<Campaign> campaignOld)
     {
-    	List<Id> cpSIds = new List<Id>();
+        List<Id> cpSIds = new List<Id>();
         List<Task> taskSMS = new List<Task>();
         Id tkRecTpId = tkRecordTypeMap.get('SMS').getRecordTypeId();
         
@@ -263,23 +263,23 @@ public class CampaignHelper {
                 cpSIds.add(campaignNew[j].Id);
             }
         }
-		if(cpSIds!=null && !cpSIds.isEmpty())
-		{
-			List<Campaign> cpExes = [SELECT Id, SMS_Task_Verified__c, Parent.Repeated_Campaign__c FROM Campaign WHERE Id in :cpSIds AND Parent.Repeated_Campaign__c = true];
-			if(cpExes!=null && !cpExes.isEmpty())
-			{
-		        for(Campaign cpe : cpExes)
-		        {
-		            cpe.SMS_Task_Verified__c = false;
-		        }
-		        update cpExes;
-			}
-		}
+        if(cpSIds!=null && !cpSIds.isEmpty())
+        {
+            List<Campaign> cpExes = [SELECT Id, SMS_Task_Verified__c, Parent.Repeated_Campaign__c FROM Campaign WHERE Id in :cpSIds AND Parent.Repeated_Campaign__c = true];
+            if(cpExes!=null && !cpExes.isEmpty())
+            {
+                for(Campaign cpe : cpExes)
+                {
+                    cpe.SMS_Task_Verified__c = false;
+                }
+                update cpExes;
+            }
+        }
     }
     
     public static void afterInsertEvents_CampaignShare(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
     {
-    	Id pIdDealerUser = null;
+        Id pIdDealerUser = null;
         Id pIdDealerAdmin = null;
         for (Profile pro : [select Id, Name from Profile where Name = 'Dealer Community User' or Name = 'Dealer Delegate Admin'])
         {
