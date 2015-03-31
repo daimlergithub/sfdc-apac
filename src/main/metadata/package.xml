@@ -58,9 +58,10 @@
         <members>CSRLookupControllerTest</members>
         <members>CampaignHelper</members>
         <members>CampaignHelperTest</members>
-        <members>CampaignHistoryLog_TestClass</members>
         <members>CampaignOfferingHelper</members>
+        <members>CampaignOfferingHelperTest</members>
         <members>CampaignPackageHelper</members>
+        <members>CampaignPackageHelperTest</members>
         <members>CaseEscalationController</members>
         <members>CaseEscalationControllerTest</members>
         <members>CaseHelper</members>
@@ -149,6 +150,7 @@
         <members>OperationTest</members>
         <members>Paginator</members>
         <members>ParticipatingDealerHelper</members>
+        <members>ParticipatingDealerHelperTest</members>
         <members>PicklistMappingHelper</members>
         <members>PicklistMappingHelperTest</members>
         <members>QCHelper</members>
@@ -567,6 +569,8 @@
         <members>Central_Marketing</members>
         <members>Chatter_Answers_Moderator</members>
         <members>EPA_Administration</members>
+        <members>Force_com</members>
+        <members>Private_APP_Exchange</members>
         <members>Retail_CRM</members>
         <members>Service_Cloud_Console</members>
         <members>Service_Cloud_Console_IB</members>
@@ -1515,6 +1519,8 @@
         <members>Chatter Moderator User</members>
         <members>ContractManager</members>
         <members>Cross Org Data Proxy User</members>
+        <members>Dealer Community User</members>
+        <members>Dealer Delegate Admin</members>
         <members>External Identity User</members>
         <members>External Marketing User</members>
         <members>Guest License User</members>

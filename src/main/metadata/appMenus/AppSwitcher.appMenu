@@ -49,6 +49,14 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
+        <name>Force_com</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Private_APP_Exchange</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>Retail_CRM</name>
         <type>CustomApplication</type>
     </appMenuItems>

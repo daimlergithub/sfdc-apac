@@ -731,4 +731,24 @@ Public class UtilTestData {
         task.Status = 'Open';
         task.Priority__c = 'General';
     }
+    
+    public static Campaign dataPreparation(){
+        // Campaign Record Type Id Search
+        Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();  
+        // Central Campaign
+        Id centCampaignRT = cpRecordTypeMap_test.get('Central Marketing Campaign').getRecordTypeId();                 
+        // Centre Campaign Data Prepared
+        // Central Campaign Inital
+        Campaign TestData_CCA = new Campaign(Name='TestData_CCA_Campaign',
+                                             Campaign_Code__c='Code_CCA',
+                                             Type='Other',
+                                             Campaign_Objectives__c='Objectives',
+                                             Description='Description',
+                                             Status='Confirmed',
+                                             StartDate=date.newinstance(2013, 5, 17),
+                                             EndDate=date.newinstance(2013, 10, 17),
+                                             RecordTypeId=centCampaignRT);  
+        insert TestData_CCA;
+        return TestData_CCA;
+    }
 }

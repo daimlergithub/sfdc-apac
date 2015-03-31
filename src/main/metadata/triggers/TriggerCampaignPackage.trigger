@@ -17,14 +17,14 @@ trigger TriggerCampaignPackage on Campaign_Package__c (after insert, after updat
     
     if(trigger.isAfter && trigger.isInsert)
     {
-    	CampaignPackageHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
+        CampaignPackageHelper.GenerateCampaignPackageHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
-    	CampaignPackageHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
+        CampaignPackageHelper.GenerateCampaignPackageHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
     }
     if(trigger.isBefore && trigger.isdelete)
     {
-    	CampaignPackageHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
+        CampaignPackageHelper.GenerateCampaignPackageHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
     }
 }
