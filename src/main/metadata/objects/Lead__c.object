@@ -145,18 +145,6 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Base_Rate__c</fullName>
-        <externalId>false</externalId>
-        <label>Base Rate</label>
-        <precision>8</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Percent</type>
-    </fields>
-    <fields>
         <fullName>Batch_No__c</fullName>
         <externalId>false</externalId>
         <label>Batch No.</label>
@@ -2352,16 +2340,6 @@
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Close_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Close Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Collectioner_Name__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -2413,20 +2391,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Company_Account__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Company Account</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Leads (Company Account)</relationshipLabel>
-        <relationshipName>Leads</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Contact_Failed_For_3_Days_Date_Time__c</fullName>
         <externalId>false</externalId>
         <label>Contact Failed For 3 Days Date Time</label>
@@ -2467,18 +2431,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Contract_Rate__c</fullName>
-        <externalId>false</externalId>
-        <label>Contract Rate</label>
-        <precision>8</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Percent</type>
     </fields>
     <fields>
         <fullName>Created_By_EP_Transaction__c</fullName>
@@ -2575,18 +2527,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_Commission__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Commission</label>
-        <precision>8</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
     </fields>
     <fields>
         <fullName>Dealer_LMS__c</fullName>
@@ -2914,28 +2854,6 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
         <visibleLines>5</visibleLines>
     </fields>
     <fields>
-        <fullName>Doc_Fee__c</fullName>
-        <externalId>false</externalId>
-        <label>Doc Fee</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Drop_off_Time__c</fullName>
-        <externalId>false</externalId>
-        <label>Drop-off Time</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
         <fullName>EuroVIN__c</fullName>
         <externalId>false</externalId>
         <label>EuroVIN</label>
@@ -2948,20 +2866,6 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Existing_Contract__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>CRM1 Existing Contract No.</label>
-        <referenceTo>Contract</referenceTo>
-        <relationshipLabel>Leads</relationshipLabel>
-        <relationshipName>Leads</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Feedback_To_MB_Call_Center__c</fullName>
         <externalId>false</externalId>
         <label>Feedback To MB Call Center</label>
@@ -2971,16 +2875,6 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Finance_Approved__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Finance Approved</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>First_Contact_Customer_Date_Time__c</fullName>
@@ -3001,18 +2895,6 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Fleet_Dealer__c</fullName>
-        <externalId>false</externalId>
-        <label>Fleet Dealer</label>
-        <length>200</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Gender__c</fullName>
@@ -5989,106 +5871,6 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Is_Finance_Send_Email_Before_150_Days__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>*Is Finance Send Email Before 150 Days</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Is_Finance_Send_Email_Before_15_Days__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Is Finance Send Email Before 15 Days</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Is_Finance_Send_Email_Before_20_Days__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Is Finance Send Email Before 20 Days</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Is_Finance_Send_Email_Before_45_Days__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Is Finance Send Email Before 45 Days</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Is_Finance_Send_Email_Before_60_Days__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Is Finance Send Email Before 60 Days</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Is_Fleet_Send_Email_Before_150_Days__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>*Is Fleet Send Email Before 150 Days</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Is_Fleet_Send_Email_Before_15_Days__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Is Fleet Send Email Before 15 Days</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Is_Fleet_Send_Email_Before_20_Days__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Is Fleet Send Email Before 20 Days</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Is_Fleet_Send_Email_Before_45_Days__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Is Fleet Send Email Before 45 Days</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Is_Fleet_Send_Email_Before_60_Days__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Is Fleet Send Email Before 60 Days</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Is_Qualify__c</fullName>
         <defaultValue>"Qualified"</defaultValue>
         <description>/* 
@@ -7500,16 +7282,6 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Lodgment_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Lodgment Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Lost_CAC_Date_Time__c</fullName>
         <externalId>false</externalId>
         <label>Lost(CAC) Date Time</label>
@@ -7548,28 +7320,6 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Lost_To__c</fullName>
-        <externalId>false</externalId>
-        <label>Lost To</label>
-        <length>200</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Marketing_Opt_Out__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Marketing Opt-Out</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Need_Assign_To_Dealer__c</fullName>
@@ -7669,18 +7419,6 @@ Modify Reason:
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>New_Insurance_Policy_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>New Insurance Policy Number</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>NextMileage__c</fullName>
         <externalId>false</externalId>
         <label>NextMileage</label>
@@ -7706,19 +7444,6 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Number_of_Units__c</fullName>
-        <externalId>false</externalId>
-        <label>Number of Units</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>OB_Call_Amount__c</fullName>
         <externalId>false</externalId>
         <formula>IF(ISPICKVAL(Lead_DataSource__c,'OB Call'),1,0 )</formula>
@@ -7730,18 +7455,6 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Opportunity_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Opportunity Name</label>
-        <length>120</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -7775,70 +7488,6 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Orig_Fee__c</fullName>
-        <externalId>false</externalId>
-        <label>Orig Fee</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Parts_Required__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Parts Required?</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Payment__c</fullName>
-        <externalId>false</externalId>
-        <label>Payment</label>
-        <precision>12</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Currency</type>
-    </fields>
-    <fields>
-        <fullName>Pick_up_Time__c</fullName>
-        <externalId>false</externalId>
-        <label>Pick-up Time</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Policy_Inception_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Policy Inception Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Preferred_Contact_Time__c</fullName>
-        <externalId>false</externalId>
-        <label>Preferred Contact Time</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>Price_Range__c</fullName>
@@ -8062,18 +7711,6 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>RORAC__c</fullName>
-        <externalId>false</externalId>
-        <label>RORAC</label>
-        <precision>5</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Percent</type>
     </fields>
     <fields>
         <fullName>R_Accepted_Leads__c</fullName>
@@ -12192,32 +11829,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Source_Campaign__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Source Campaign</label>
-        <referenceTo>Campaign</referenceTo>
-        <relationshipLabel>Leads</relationshipLabel>
-        <relationshipName>Leads</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Source_System__c</fullName>
-        <externalId>false</externalId>
-        <label>Source System</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Successful_Call_Number__c</fullName>
         <externalId>false</externalId>
         <label>Successful Call Number</label>
@@ -14556,30 +14167,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Vehicle_Model_Current__c</fullName>
-        <externalId>false</externalId>
-        <label>Vehicle Model - Current</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Vehicle_Model_Interest__c</fullName>
-        <externalId>false</externalId>
-        <label>Vehicle Model Interest</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Vehicle_Purchase_Date__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Purchase Date</label>
@@ -14618,26 +14205,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>X24H_Untouched__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>*24H Untouched</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>X72H_Untouched__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>*72H Untouched</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <label>Leads</label>
     <listViews>

@@ -99,6 +99,17 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Approver__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Approver</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Campaigns</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Auto_Number__c</fullName>
         <displayFormat>{000000}</displayFormat>
         <externalId>false</externalId>
@@ -174,6 +185,21 @@
         <trackFeedHistory>false</trackFeedHistory>
         <type>Number</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Body_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Body Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Brand__c</fullName>
@@ -1182,6 +1208,16 @@
         <type>Percent</type>
     </fields>
     <fields>
+        <fullName>Expected_Response_Rate__c</fullName>
+        <externalId>false</externalId>
+        <label>Expected Response Rate (%)</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
         <fullName>Flow_URL__c</fullName>
         <externalId>false</externalId>
         <label>Flow URL</label>
@@ -1730,6 +1766,20 @@
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
+        <fullName>S_M_Sub_group__c</fullName>
+        <externalId>false</externalId>
+        <label>S&amp;M Sub-group</label>
+        <picklist>
+            <picklistValues>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Scale_Volume__c</fullName>
         <externalId>false</externalId>
         <label>Scale/Volume</label>
@@ -2245,6 +2295,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Body_Type__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -3001,6 +3058,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>S_M_Sub_group__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status</picklist>
             <values>
                 <fullName>Closed</fullName>
@@ -3108,6 +3172,13 @@
             </values>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Body_Type__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3860,6 +3931,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>S_M_Sub_group__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -3963,6 +4041,13 @@
             </values>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Body_Type__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4691,6 +4776,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>S_M_Sub_group__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -4798,6 +4890,13 @@
             </values>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Body_Type__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5370,6 +5469,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>S_M_Sub_group__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -5473,6 +5579,13 @@
             </values>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Body_Type__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6041,6 +6154,13 @@
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>S_M_Sub_group__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6168,6 +6288,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Body_Type__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -6736,6 +6863,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>S_M_Sub_group__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -6855,6 +6989,13 @@
             </values>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Body_Type__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7427,6 +7568,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>S_M_Sub_group__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status</picklist>
             <values>
                 <fullName>Approved</fullName>
@@ -7530,6 +7678,13 @@
             </values>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Body_Type__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8286,6 +8441,13 @@
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>S_M_Sub_group__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8417,6 +8579,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Body_Type__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -9181,6 +9350,13 @@
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>S_M_Sub_group__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9296,6 +9472,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Body_Type__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
                 <fullName>AMG</fullName>
@@ -10064,6 +10247,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>S_M_Sub_group__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Status</picklist>
             <values>
                 <fullName>Closed</fullName>
@@ -10170,6 +10360,13 @@
             </values>
             <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Body_Type__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10918,6 +11115,13 @@
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>S_M_Sub_group__c</picklist>
+            <values>
+                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

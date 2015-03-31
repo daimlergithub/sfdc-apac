@@ -59,9 +59,7 @@
         <members>CampaignHelper</members>
         <members>CampaignHelperTest</members>
         <members>CampaignOfferingHelper</members>
-        <members>CampaignOfferingHelperTest</members>
         <members>CampaignPackageHelper</members>
-        <members>CampaignPackageHelperTest</members>
         <members>CaseEscalationController</members>
         <members>CaseEscalationControllerTest</members>
         <members>CaseHelper</members>
@@ -150,7 +148,6 @@
         <members>OperationTest</members>
         <members>Paginator</members>
         <members>ParticipatingDealerHelper</members>
-        <members>ParticipatingDealerHelperTest</members>
         <members>PicklistMappingHelper</members>
         <members>PicklistMappingHelperTest</members>
         <members>QCHelper</members>
@@ -1460,7 +1457,6 @@
         <members>Tool_Kit__c-Tool Kit Layout</members>
         <members>User-User Layout</members>
         <members>User-User Master Layout</members>
-        <members>UserAlt-User Profile Layout</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout-Dealer Portal</members>

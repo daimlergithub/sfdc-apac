@@ -178,13 +178,7 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>RECORDTYPE</fields>
-        <fields>Contact__c</fields>
-        <fields>Assigned_Dealer__c</fields>
-        <fields>CAC_Lead_Status__c</fields>
-        <fields>CREATED_DATE</fields>
-        <fields>CREATEDBY_USER</fields>
-        <relatedList>Lead__c.Existing_Contract__c</relatedList>
+        <relatedList>Account_Link__c.ContractId__c</relatedList>
     </relatedLists>
     <relatedObjects>AccountId</relatedObjects>
     <runAssignmentRulesDefault>false</runAssignmentRulesDefault>

@@ -1,6 +1,6 @@
 public with sharing class CampaignPackageHelper
 {
-	public static void GenerateCampaignPackageHistoryLOG(list<Campaign_Package__c> campaignPackageNew,list<Campaign_Package__c> campaignPackageOld, boolean isInsert, boolean isUpdate,boolean isDelete)
+	public static void GenerateCampaignOfferingHistoryLOG(list<Campaign_Package__c> campaignPackageNew,list<Campaign_Package__c> campaignPackageOld, boolean isInsert, boolean isUpdate,boolean isDelete)
     {
     	Id cId;
     	
