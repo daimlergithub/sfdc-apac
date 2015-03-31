@@ -15524,6 +15524,10 @@
         <enabled>true</enabled>
         <name>ManageRemoteAccess</name>
     </userPermissions>
+	<userPermissions>
+        <enabled>false</enabled>
+        <name>ManageSolutions</name>
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>MassInlineEdit</name>
