@@ -170,7 +170,6 @@
 				<sf:exclude name="Case.*"/>
 				<sf:exclude name="PersonAccount.*"/>
 				<sf:exclude name="Lead__c.*"/>
-				<sf:exclude name="UserAlt-User Profile Layout"/>
 			</sf:typeset>
 			<sf:typeset name="email"/>
 			<sf:typeset name="groups"/>
@@ -247,9 +246,6 @@
 			<sf:typeset name="profiles">
 				<!-- TODO fix this -->
 				<sf:exclude name="Authenticated Website"/>
-				<!-- TODO excluding the below 2 profiles as they are related to communities -->
-				<sf:exclude name="Dealer Community User"/>
-				<sf:exclude name="Dealer Delegate Admin"/>
 			</sf:typeset>
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
