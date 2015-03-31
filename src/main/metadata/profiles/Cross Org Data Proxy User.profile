@@ -13062,9 +13062,6 @@
         <layout>User-User Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>UserAlt-User Profile Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Vehicle_Relationship__c-Vehicle Relationship Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -14215,10 +14212,6 @@
     <tabVisibilities>
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>standard-SocialPersona</tab>
-        <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Solution</tab>
