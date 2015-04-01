@@ -1224,6 +1224,20 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>Vehicle_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Group</label>
+        <picklist>
+            <picklistValues>
+                <fullName>--None--</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
     <label>Car Model</label>
     <listViews>
         <fullName>All</fullName>
