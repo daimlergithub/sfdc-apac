@@ -272,4 +272,29 @@
 		<token tokenonly="true">CAMPAIGN_LEAD_OBJECT_ID</token>
 	</changetext>
 	
+	<changetext>
+		<filename>objects\Car_Enquiry__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">LEAD_OBJECT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Car_Enquiry__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">INTEREST_VEHICLE_BRAND_FIELD_ID_IN_LEAD</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Car_Enquiry__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">INTEREST_VEHICLE_CLASS_FIELD_ID_IN_LEAD</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Car_Enquiry__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">INTEREST_VEHICLE_MODEL_FIELD_ID_IN_LEAD</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Car_Enquiry__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
+		<token tokenonly="true">INTEREST_VEHICLE_CONTACT_FIELD_ID_IN_LEAD</token>
+	</changetext>
 </transformations>
