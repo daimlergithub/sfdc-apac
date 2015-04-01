@@ -248,7 +248,9 @@
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>
-			<sf:typeset name="appMenus"/>
+			<sf:typeset name="appMenus">
+				<sf:exclude name="AppSwitcher"/>
+			</sf:typeset>
 		</deploy>
 	</target>
 	
