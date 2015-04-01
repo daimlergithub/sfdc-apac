@@ -68281,17 +68281,17 @@ if(typeof(srcUp) == &apos;function&apos;) {
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, &apos;/500/e?def_account_id={!Account.Id}&amp;CF00N90000006ZqJE={!Vehicle__c.Name}&amp;CF00N90000006ZqJE_lkid={!Vehicle__c.Id}&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case&amp;tabId=&apos;+tabid, true, &apos;New Case&apos;); 
+sforce.console.openSubtab(tabid, &apos;/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case&amp;tabId=&apos;+tabid, true, &apos;New Case&apos;); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
-window.parent.navigateToUrl(&quot;/500/e?def_account_id={!Account.Id}&amp;CF00N90000006ZqJE={!Vehicle__c.Name}&amp;CF00N90000006ZqJE_lkid={!Vehicle__c.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;); 
+window.parent.navigateToUrl(&quot;/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;); 
 } 
 
 } 
 else { 
-window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;CF00N90000006ZqJE={!Vehicle__c.Name}&amp;CF00N90000006ZqJE_lkid={!Vehicle__c.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;width = 1000,height = 800&quot;); 
+window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;width = 1000,height = 800&quot;); 
 } 
 
 } 
@@ -68321,17 +68321,17 @@ if(typeof(srcUp) == &apos;function&apos;) {
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, &apos;/500/e?CF00N90000006ZqJC={!Vehicle_Relationship__c.Name}&amp;CF00N90000006ZqJC_lkid={!Vehicle_Relationship__c.Id}&amp;CF00N90000006ZqJE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case&amp;tabId=&apos;+tabid, true, &apos;New Case&apos;); 
+sforce.console.openSubtab(tabid, &apos;/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case&amp;tabId=&apos;+tabid, true, &apos;New Case&apos;); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
-window.parent.navigateToUrl(&quot;/500/e?CF00N90000006ZqJC={!Vehicle_Relationship__c.Name}&amp;CF00N90000006ZqJC_lkid={!Vehicle_Relationship__c.Id}&amp;CF00N90000006ZqJE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;); 
+window.parent.navigateToUrl(&quot;/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;); 
 } 
 
 } 
 else { 
-window.open(&quot;/500/e?CF00N90000006ZqJC={!Vehicle_Relationship__c.Name}&amp;CF00N90000006ZqJC_lkid={!Vehicle_Relationship__c.Id}&amp;CF00N90000006ZqJE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;width = 1000,height = 800&quot;); 
+window.open(&quot;/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;width = 1000,height = 800&quot;); 
 } 
 
 } 

@@ -297,4 +297,19 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
 		<token tokenonly="true">INTEREST_VEHICLE_CONTACT_FIELD_ID_IN_LEAD</token>
 	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Chrysler_Complaint']/url/text()</xpath>
+		<token tokenonly="true">VEHICLE_FIELD_ID_IN_CASE</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Chrysler_ComplaintForVehicleShip']/url/text()</xpath>
+		<token tokenonly="true">VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Case.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Chrysler_ComplaintForVehicleShip']/url/text()</xpath>
+		<token tokenonly="true">VEHICLE_FIELD_ID_IN_CASE</token>
+	</changetext>
 </transformations>
