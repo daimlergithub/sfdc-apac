@@ -1525,6 +1525,6 @@ IF(AND(ISPICKVAL( Lead__r.CAC_Lead_Status__c , &quot;Lost&quot;)
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>/a0c/e?CF00N90000006Zq4d={!Lead__c.Name}&amp;CF00N90000006Zq4d_lkid={!Lead__c.Id}&amp;retURL=%2F{!Lead__c.Id}&amp;00N90000006ZqAO={!Lead__c.Lead_Source__c}&amp;00N90000006ZqAN={!Lead__c.Lead_InfoSource__c}&amp;00N90000006ZqAM={!Lead__c.Lead_InfoSourceSub__c}&amp;00N90000006ZqAK={!Lead__c.Lead_DataSource__c}&amp;00N90000006ZqAL={!Lead__c.Lead_DataSubSource__c}&amp;saveURL=%2F{!Lead__c.Id}</url>
+        <url>/CAMPAIGN_LEAD_OBJECT_ID/e?CF00N90000006Zq4d={!Lead__c.Name}&amp;CF00N90000006Zq4d_lkid={!Lead__c.Id}&amp;retURL=%2F{!Lead__c.Id}&amp;00N90000006ZqAO={!Lead__c.Lead_Source__c}&amp;00N90000006ZqAN={!Lead__c.Lead_InfoSource__c}&amp;00N90000006ZqAM={!Lead__c.Lead_InfoSourceSub__c}&amp;00N90000006ZqAK={!Lead__c.Lead_DataSource__c}&amp;00N90000006ZqAL={!Lead__c.Lead_DataSubSource__c}&amp;saveURL=%2F{!Lead__c.Id}</url>
     </webLinks>
 </CustomObject>

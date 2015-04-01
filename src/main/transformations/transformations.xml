@@ -265,4 +265,26 @@
 				   Two-Factor Authentication for User Interface Logins, Upload AppExchange Packages, Use Identity Features, View All Data, View All Users, View Encrypted Data, 
 				   View Event Log Files, Weekly Data Export -->
 	</defaultpermissions>
+	
+	<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">CAMPAIGN_LEAD_OBJECT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">CAMPAIGN_LEAD_OBJECT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">CAMPAIGN_LEAD_OBJECT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Campaign_Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Campaign_Lead']/url/text()</xpath>
+		<token tokenonly="true">CAMPAIGN_LEAD_OBJECT_ID</token>
+	</changetext>
+	
 </transformations>
