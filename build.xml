@@ -170,7 +170,7 @@
 				<sf:exclude name="Case.*"/>
 				<sf:exclude name="PersonAccount.*"/>
 				<sf:exclude name="Lead__c.*"/>
-				<sf:exclude name="UserAlt-User Profile Layout"/>
+				<!-- TODO why? sf:exclude name="UserAlt-User Profile Layout"/-->
 			</sf:typeset>
 			<sf:typeset name="email"/>
 			<sf:typeset name="groups"/>
@@ -244,17 +244,11 @@
 		<deploy>
 			<sf:typeset name="applications"/>
 			<sf:typeset name="permissionsets"/>
-			<sf:typeset name="profiles">
-				<!-- TODO fix this -->
-				<sf:exclude name="Authenticated Website"/>
-			</sf:typeset>
+			<sf:typeset name="profiles"/>
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>
-			<sf:typeset name="appMenus">
-				<!-- TODO ecluded for now because retrieve does not include all apps which are necessary for deploy -->
-				<sf:exclude name="AppSwitcher"/>
-			</sf:typeset>
+			<sf:typeset name="appMenus"/>
 		</deploy>
 	</target>
 	
