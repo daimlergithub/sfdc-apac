@@ -170,7 +170,7 @@
 				<sf:exclude name="Case.*"/>
 				<sf:exclude name="PersonAccount.*"/>
 				<sf:exclude name="Lead__c.*"/>
-				<sf:exclude name="UserAlt-User Profile Layout"/>
+				<!-- TODO why? sf:exclude name="UserAlt-User Profile Layout"/-->
 			</sf:typeset>
 			<sf:typeset name="email"/>
 			<sf:typeset name="groups"/>
