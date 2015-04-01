@@ -13967,9 +13967,6 @@
         <layout>User-User Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>UserAlt-User Profile Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Vehicle_Inspection__c-Vehicle Inspection Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
