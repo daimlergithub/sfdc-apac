@@ -14169,7 +14169,7 @@ if (&quot;{!Task.Task_RecordType_Name__c}&quot; == &quot;OB Task&quot;) {
  window.open(url, &quot;&quot;, &quot;width = 800, height = 600&quot;); 
 } 
 else if (&apos;{!Task.QC_ID__c}&apos; != null &amp;&amp; &apos;{!Task.QC_ID__c}&apos;.length &gt; 0) {
-	alert(&apos;Outbound task has been completed, you can not modify the questionnaire results.&apos;);
+	alert(&apos;外呼任务已完成，您不能再修改问卷结果。&apos;);
 }
 else if (&quot;{!Task.Task_RecordType_Name__c}&quot; == &quot;smart SSI Task&quot;){
 	var url = &apos;/flow/smart_Welcome_Call?&apos;;

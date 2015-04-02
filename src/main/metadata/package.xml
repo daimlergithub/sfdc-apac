@@ -1040,6 +1040,7 @@
         <members>SocialPersona</members>
         <members>Solution</members>
         <members>StreamingChannel</members>
+        <members>Suburb_Zip_Mapping__c</members>
         <members>SurveyQuestionResponse__c</members>
         <members>SurveyTaker__c</members>
         <members>Survey_Question__c</members>
@@ -1050,6 +1051,7 @@
         <members>Tool_Kit__c</members>
         <members>Trigger_Status__c</members>
         <members>User</members>
+        <members>Vehicle_Group_Mapping__c</members>
         <members>Vehicle_Inspection__c</members>
         <members>Vehicle_Relationship__c</members>
         <members>Vehicle__c</members>
@@ -1345,6 +1347,7 @@
         <members>DM_Request__c-DM Fulfill Layout</members>
         <members>DM_Request__c-DM Request Layout</members>
         <members>DM_Stock_Flow__c-DM Stock Flow Layout</members>
+        <members>DM_Stock_Flow__c-DM Stock Flow 布局</members>
         <members>Dealer_Locator__c-Dealer Locator Layout</members>
         <members>Dealer_Offering__c-Dealer Offering Layout</members>
         <members>EP_Log_Interface__c-EP Log Interface Layout</members>
@@ -1438,6 +1441,7 @@
         <members>SocialPersona-Social Persona Layout</members>
         <members>SocialPost-Social Post Layout</members>
         <members>Solution-Solution Layout</members>
+        <members>Suburb_Zip_Mapping__c-Suburb Zip Mapping Layout</members>
         <members>SurveyQuestionResponse__c-Survey Question Answer Layout</members>
         <members>SurveyQuestionResponse__c-Survey Question Response Layout</members>
         <members>SurveyTaker__c-Survey Taken Layout</members>
@@ -1471,6 +1475,7 @@
         <members>User-User Layout</members>
         <members>User-User Master Layout</members>
         <members>UserAlt-User Profile Layout</members>
+        <members>Vehicle_Group_Mapping__c-Vehicle Group Mapping Layout</members>
         <members>Vehicle_Inspection__c-Vehicle Inspection Layout</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</members>
@@ -1530,6 +1535,8 @@
         <members>Chatter Moderator User</members>
         <members>ContractManager</members>
         <members>Cross Org Data Proxy User</members>
+        <members>Dealer Community User</members>
+        <members>Dealer Delegate Admin</members>
         <members>External Identity User</members>
         <members>External Marketing User</members>
         <members>Guest License User</members>
@@ -1753,6 +1760,7 @@
         <members>SocialPersona</members>
         <members>Solution</members>
         <members>StreamingChannel</members>
+        <members>Suburb_Zip_Mapping__c</members>
         <members>SurveyQuestionResponse__c</members>
         <members>SurveyTaker__c</members>
         <members>Survey_Question__c</members>
@@ -1764,6 +1772,7 @@
         <members>Trigger_Status__c</members>
         <members>User</members>
         <members>UserLicense</members>
+        <members>Vehicle_Group_Mapping__c</members>
         <members>Vehicle_Inspection__c</members>
         <members>Vehicle_Relationship__c</members>
         <members>Vehicle__c</members>

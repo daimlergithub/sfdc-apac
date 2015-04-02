@@ -147,6 +147,30 @@
         <type>Currency</type>
     </fields>
     <fields>
+        <fullName>Vehicle_Make__c</fullName>
+        <description>Formula is not provided ,after receiving  formula need to update field</description>
+        <externalId>false</externalId>
+        <formula>&quot;  &quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Vehicle Make</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Model__c</fullName>
+        <description>Formula is not provided ,after receiving  formula need to update field</description>
+        <externalId>false</externalId>
+        <formula>&quot; &quot;</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Vehicle Model</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>

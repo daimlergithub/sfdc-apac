@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -385,7 +385,7 @@ Modify Reason:
     <fields>
         <fullName>CMS_Contract_No__c</fullName>
         <externalId>false</externalId>
-        <formula>&apos;CMS Contract No&apos;</formula>
+        <formula>'CMS Contract No'</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CMS Contract No.</label>
         <required>false</required>
@@ -7384,7 +7384,7 @@ Modify Reason:
     <fields>
         <fullName>Case_Belong_To_Dealer__c</fullName>
         <externalId>false</externalId>
-        <formula>If ( ISPICKVAL(CreatedBy.UserType, &quot;PowerPartner&quot;) , &apos;Yes&apos;, &apos;No&apos;)</formula>
+        <formula>If ( ISPICKVAL(CreatedBy.UserType, "PowerPartner") , 'Yes', 'No')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Case Belong to Dealer</label>
         <required>false</required>
@@ -7637,7 +7637,7 @@ Modify Reason:
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: Complainant&apos;s involvement with MPC 
+Function: Complainant's involvement with MPC 
 Used in: Page Layouts, Reports 
 
 Modify History 
@@ -8360,7 +8360,7 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Couldn&apos;t get in touch with the customer</fullName>
+                <fullName>Couldn't get in touch with the customer</fullName>
                 <controllingFieldValues>Instructor call</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -10387,7 +10387,7 @@ Modify Reason:
     <fields>
         <fullName>FOS_Case_Link__c</fullName>
         <externalId>false</externalId>
-        <formula>&apos;Change Later&apos;</formula>
+        <formula>'Change Later'</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>FOS Case Number Link</label>
         <required>false</required>
@@ -11159,9 +11159,9 @@ Modify Reason:
     <fields>
         <fullName>Is_Primary_Case__c</fullName>
         <externalId>false</externalId>
-        <formula>OR(Case_Dealer__r.Name = SUBSTITUTE($UserRole.Name, &quot; Partner User&quot;, &quot;&quot;),
-Case_Dealer__r.Name = SUBSTITUTE($UserRole.Name, &quot; Partner Manager&quot;, &quot;&quot;),
-Case_Dealer__r.Name = SUBSTITUTE($UserRole.Name, &quot; Partner Executive&quot;, &quot;&quot;))</formula>
+        <formula>OR(Case_Dealer__r.Name = SUBSTITUTE($UserRole.Name, " Partner User", ""),
+Case_Dealer__r.Name = SUBSTITUTE($UserRole.Name, " Partner Manager", ""),
+Case_Dealer__r.Name = SUBSTITUTE($UserRole.Name, " Partner Executive", ""))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Is Primary Case</label>
         <trackHistory>false</trackHistory>
@@ -11291,7 +11291,7 @@ Modify Reason:
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: Vehicle&apos;s mileage at time of complaint 
+Function: Vehicle's mileage at time of complaint 
 Used in: Page Layouts, Reports 
 
 Modify History 
@@ -12209,7 +12209,7 @@ Modify Reason:
     <fields>
         <fullName>R_Aftersales_Complaints__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Case_Type__c ,&apos;After-Sales&apos;),1,0)</formula>
+        <formula>IF(ISPICKVAL(Case_Type__c ,'After-Sales'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Aftersales Complaints</label>
         <precision>18</precision>
@@ -12237,7 +12237,7 @@ Modify Reason:
     <fields>
         <fullName>R_Brand_Enquiries__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL( Vehicle_Brand__c,&apos;&apos;), 0,1)</formula>
+        <formula>IF(ISPICKVAL( Vehicle_Brand__c,''), 0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Brand Enquiries</label>
         <precision>18</precision>
@@ -12251,7 +12251,7 @@ Modify Reason:
     <fields>
         <fullName>R_Check_Case_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>If(ISPICKVAL(  Case_Type__c  , &apos;&apos;),&apos;Is&apos;,&apos;Whether&apos;)</formula>
+        <formula>If(ISPICKVAL(  Case_Type__c  , ''),'Is','Whether')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Case Type</label>
         <required>false</required>
@@ -12263,7 +12263,7 @@ Modify Reason:
     <fields>
         <fullName>R_Check_Complained_Dealer__c</fullName>
         <externalId>false</externalId>
-        <formula>If( AND(ISPICKVAL( Case_Type__c ,&apos;Pre-Sales&apos;), Case_Dealer__c ==&apos;&apos;),&apos;Is&apos;,&apos;Whether&apos;)</formula>
+        <formula>If( AND(ISPICKVAL( Case_Type__c ,'Pre-Sales'), Case_Dealer__c ==''),'Is','Whether')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Complained Dealer</label>
         <required>false</required>
@@ -12275,7 +12275,7 @@ Modify Reason:
     <fields>
         <fullName>R_Check_Vehicle_Brand__c</fullName>
         <externalId>false</externalId>
-        <formula>if( ISPICKVAL( Vehicle_Brand__c ,&apos;&apos;),&apos;Is&apos;,&apos;Whether&apos;)</formula>
+        <formula>if( ISPICKVAL( Vehicle_Brand__c ,''),'Is','Whether')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Vehicle Brand</label>
         <required>false</required>
@@ -12288,7 +12288,7 @@ Modify Reason:
         <fullName>R_Complaint_Handling_Efficiency_Rate_CO__c</fullName>
         <externalId>false</externalId>
         <formula>IF ( FFPSubEscCO__c  &gt; 0, 
-TEXT(FLOOR( FFPSubEscCO__c )) &amp; &quot; days &quot;, &quot;&quot;)</formula>
+TEXT(FLOOR( FFPSubEscCO__c )) &amp; " days ", "")</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Complaint Handling Efficiency Rate CO</label>
         <required>false</required>
@@ -12301,7 +12301,7 @@ TEXT(FLOOR( FFPSubEscCO__c )) &amp; &quot; days &quot;, &quot;&quot;)</formula>
         <fullName>R_Complaint_Handling_Efficiency_Rate_RO__c</fullName>
         <externalId>false</externalId>
         <formula>IF (  FFPSubEscRO__c &gt; 0, 
-TEXT(FLOOR( FFPSubEscRO__c  )) &amp; &quot; days &quot;, &quot;&quot;)</formula>
+TEXT(FLOOR( FFPSubEscRO__c  )) &amp; " days ", "")</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Complaint Handling Efficiency Rate RO</label>
         <required>false</required>
@@ -12355,7 +12355,7 @@ TEXT(FLOOR( FFPSubEscRO__c  )) &amp; &quot; days &quot;, &quot;&quot;)</formula>
     <fields>
         <fullName>R_MB_Complaint_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(RecordType.Name== &apos;MB Complaint&apos;,R_Complaint_Times__c,0)</formula>
+        <formula>IF(RecordType.Name== 'MB Complaint',R_Complaint_Times__c,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>MB Complaint Amount</label>
         <precision>18</precision>
@@ -12371,10 +12371,10 @@ TEXT(FLOOR( FFPSubEscRO__c  )) &amp; &quot; days &quot;, &quot;&quot;)</formula>
         <externalId>false</externalId>
         <formula>IF(
 OR(
-ISPICKVAL(Vehicle_Brand__c,&apos;MB saloon car&apos;), 
-ISPICKVAL(Vehicle_Brand__c,&apos;MB business car&apos;),
-ISPICKVAL(Vehicle_Brand__c,&apos;AMG&apos;),
-ISPICKVAL(Vehicle_Brand__c,&apos;Maybach&apos;)
+ISPICKVAL(Vehicle_Brand__c,'MB saloon car'), 
+ISPICKVAL(Vehicle_Brand__c,'MB business car'),
+ISPICKVAL(Vehicle_Brand__c,'AMG'),
+ISPICKVAL(Vehicle_Brand__c,'Maybach')
 ),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>MB Enquiry Amount</label>
@@ -12389,7 +12389,7 @@ ISPICKVAL(Vehicle_Brand__c,&apos;Maybach&apos;)
     <fields>
         <fullName>R_Other_Complaint_Times__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(!ISPICKVAL(Case_Type__c ,&apos;After-Sales&apos;),!ISPICKVAL(Case_Type__c ,&apos;Pre-Sales&apos;)),R_Complaint_Times__c,0)</formula>
+        <formula>IF(AND(!ISPICKVAL(Case_Type__c ,'After-Sales'),!ISPICKVAL(Case_Type__c ,'Pre-Sales')),R_Complaint_Times__c,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Other Complaint Times</label>
         <precision>18</precision>
@@ -12403,7 +12403,7 @@ ISPICKVAL(Vehicle_Brand__c,&apos;Maybach&apos;)
     <fields>
         <fullName>R_Sales_Complaint__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(   Case_Type__c ,&apos;Pre-Sales&apos;), 1,0)</formula>
+        <formula>IF(ISPICKVAL(   Case_Type__c ,'Pre-Sales'), 1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Sales Complaint Times</label>
         <precision>18</precision>
@@ -12417,7 +12417,7 @@ ISPICKVAL(Vehicle_Brand__c,&apos;Maybach&apos;)
     <fields>
         <fullName>R_Smart_Enquiry_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Vehicle_Brand__c,&apos;Smart&apos;),1,0)</formula>
+        <formula>IF(ISPICKVAL(Vehicle_Brand__c,'Smart'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Smart Enquiry Amount</label>
         <precision>18</precision>
@@ -12431,7 +12431,7 @@ ISPICKVAL(Vehicle_Brand__c,&apos;Maybach&apos;)
     <fields>
         <fullName>R_Subenquiry_Type_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Case_SubType__c,&apos;&apos;),0,1)</formula>
+        <formula>IF(ISPICKVAL(Case_SubType__c,''),0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Subenquiry Type Amount</label>
         <precision>18</precision>
@@ -16473,8 +16473,8 @@ Modify Reason:
         <fullName>Workflow_Order__c</fullName>
         <defaultValue>false</defaultValue>
         <description>for send mail to team member after insert a description or attchement .
-when Workflow Order = &apos;send mail&apos;&apos; , send mail and update field to &apos;send mail finished&apos;
-when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no action&apos;</description>
+when Workflow Order = 'send mail'' , send mail and update field to 'send mail finished'
+when  Workflow Order = 'send mail finished', update field to 'no action'</description>
         <externalId>false</externalId>
         <label>Workflow Order</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -16790,7 +16790,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>Central Office-ER team</label>
         <queue>Central_Office_ER_team</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16799,7 +16799,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>Central Office-NR team</label>
         <queue>Central_Office_NR_team</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16825,7 +16825,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>Central Office PL / WL Queue</label>
         <queue>Central_Office_PL_WL_Queue</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16834,7 +16834,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>Central Office Queue</label>
         <queue>Central_Office_Queue</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16843,7 +16843,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>Central Office-SR team</label>
         <queue>Central_Office_SR_team</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
@@ -16852,7 +16852,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>Central Office-WR team</label>
         <queue>Central_Office_WR_team</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
@@ -17147,7 +17147,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>Regional Office East Queue</label>
         <queue>Regional_Office_East_Queue</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
@@ -17156,7 +17156,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>Regional Office North Queue</label>
         <queue>Regional_Office_North_Queue</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
@@ -17199,7 +17199,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>Regional Office South Queue</label>
         <queue>Regional_Office_South_Queue</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
@@ -17225,7 +17225,7 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <label>Regional Office West Queue</label>
         <queue>Regional_Office_West_Queue</queue>
         <sharedTo>
-            <allInternalUsers></allInternalUsers>
+            <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
@@ -67724,32 +67724,32 @@ when  Workflow Order = &apos;send mail finished&apos;, update field to &apos;no 
         <fullName>Case_Dealer_is_Required</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
-RecordType.Name == &apos;MB Complaint&apos;, 
+RecordType.Name == 'MB Complaint', 
 NOT( OR( 
-TEXT(Case_SubType__c) == &apos;RSA - Waiting Time of Assistance&apos;, 
-TEXT(Case_SubType__c) == &apos;RSA-RSA service attitude&apos;, 
-TEXT(Case_SubType__c) == &apos;RSA - Professionalism of Rescue Worker&apos;, 
-TEXT(Case_Type__c) == &apos;Finance service&apos;,
-TEXT(Case_Type__c) == &apos;Public connection&apos; 
+TEXT(Case_SubType__c) == 'RSA - Waiting Time of Assistance', 
+TEXT(Case_SubType__c) == 'RSA-RSA service attitude', 
+TEXT(Case_SubType__c) == 'RSA - Professionalism of Rescue Worker', 
+TEXT(Case_Type__c) == 'Finance service',
+TEXT(Case_Type__c) == 'Public connection' 
 ) 
 ), 
 Case_Dealer__c == null, 
-$Profile.Name != &apos;IntegrationAPI&apos;, 
-$Profile.Name != &apos;System Administrator&apos;, 
-$Profile.Name != &apos;Dealer Community User&apos;
+$Profile.Name != 'IntegrationAPI', 
+$Profile.Name != 'System Administrator', 
+$Profile.Name != 'Dealer Community User'
 )</errorConditionFormula>
         <errorMessage>Case Dealer is compulsory, please fill in.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Change_Progress_Status_to_1st_rule</fullName>
         <active>true</active>
-        <description>Change &quot;Progress Status&quot; to &quot;1st Position Released&quot;, click &quot;Save&quot; button. The system won&apos;t save and the following error message display:
-&quot;Please fill in 1st FP Position Release Date&quot;</description>
+        <description>Change "Progress Status" to "1st Position Released", click "Save" button. The system won't save and the following error message display:
+"Please fill in 1st FP Position Release Date"</description>
         <errorConditionFormula>AND(
-ISPICKVAL(Progress_Status__c,&apos;1st FP Released&apos;),
-OR( $Profile.Name = &apos;Regional CRM Manager&apos;,
-     $Profile.Name = &apos;Regional CRM Manager&apos;,
-     $Profile.Name = &apos;Central PL/WL Manager&apos;
+ISPICKVAL(Progress_Status__c,'1st FP Released'),
+OR( $Profile.Name = 'Regional CRM Manager',
+     $Profile.Name = 'Regional CRM Manager',
+     $Profile.Name = 'Central PL/WL Manager'
    ),
 ISNULL( X1st_FP_Position_Release_Date__c )
 )</errorConditionFormula>
@@ -67759,13 +67759,13 @@ ISNULL( X1st_FP_Position_Release_Date__c )
     <validationRules>
         <fullName>Change_Progress_Status_to_2nd_rule</fullName>
         <active>true</active>
-        <description>Change &quot;Progress Status&quot; to &quot;2nd Final Position Released&quot;, click &quot;Save&quot; button. The system won&apos;t save and the following error message display:
-&quot;Please fill in 2nd FP Position Release Date&quot;</description>
+        <description>Change "Progress Status" to "2nd Final Position Released", click "Save" button. The system won't save and the following error message display:
+"Please fill in 2nd FP Position Release Date"</description>
         <errorConditionFormula>AND(
-ISPICKVAL(Progress_Status__c,&apos;2nd FP Released&apos;),
-OR ( $Profile.Name = &apos;Regional CRM Manager&apos;,
-     $Profile.Name = &apos;Regional CRM Manager&apos;,
-     $Profile.Name = &apos;Central PL/WL Manager&apos; 
+ISPICKVAL(Progress_Status__c,'2nd FP Released'),
+OR ( $Profile.Name = 'Regional CRM Manager',
+     $Profile.Name = 'Regional CRM Manager',
+     $Profile.Name = 'Central PL/WL Manager' 
    ),
 ISNULL( X2nd_FP_Position_Release_Date__c )
 )</errorConditionFormula>
@@ -67775,13 +67775,13 @@ ISNULL( X2nd_FP_Position_Release_Date__c )
     <validationRules>
         <fullName>Change_Progress_Status_to_Closed_rule</fullName>
         <active>true</active>
-        <description>Login as Regional Office User, Change &quot;Progress Status&quot; to &quot;Closed&quot;, click &quot;Save&quot; button. The system won&apos;t save and the following error message display:
-&quot;Please fill in Resolved Date before Close the</description>
+        <description>Login as Regional Office User, Change "Progress Status" to "Closed", click "Save" button. The system won't save and the following error message display:
+"Please fill in Resolved Date before Close the</description>
         <errorConditionFormula>AND(
-ISPICKVAL(Progress_Status__c,&apos;Closed&apos;),
-OR ( $Profile.Name = &apos;Regional CRM Manager&apos;,
-     $Profile.Name = &apos;Regional CRM Manager&apos;, 
-     $Profile.Name = &apos;Central PL/WL Manager&apos;
+ISPICKVAL(Progress_Status__c,'Closed'),
+OR ( $Profile.Name = 'Regional CRM Manager',
+     $Profile.Name = 'Regional CRM Manager', 
+     $Profile.Name = 'Central PL/WL Manager'
    ),
  ISNULL(Resolved_Date__c)
 )</errorConditionFormula>
@@ -67791,13 +67791,13 @@ OR ( $Profile.Name = &apos;Regional CRM Manager&apos;,
     <validationRules>
         <fullName>Change_Progress_Status_to_Suspended_rule</fullName>
         <active>true</active>
-        <description>Change &quot;Progress Status&quot; to &quot;Suspended&quot;, click &quot;Save&quot; button. The system won&apos;t save and the following error message display:
-&quot;Please fill in Suspended Date&quot;</description>
+        <description>Change "Progress Status" to "Suspended", click "Save" button. The system won't save and the following error message display:
+"Please fill in Suspended Date"</description>
         <errorConditionFormula>AND(
-ISPICKVAL(Progress_Status__c,&apos;Suspended&apos;),
-OR ( $Profile.Name = &apos;Regional CRM Manager&apos;,
-     $Profile.Name = &apos;Regional CRM Manager&apos;,
-     $Profile.Name = &apos;Central PL/WL Manager&apos;
+ISPICKVAL(Progress_Status__c,'Suspended'),
+OR ( $Profile.Name = 'Regional CRM Manager',
+     $Profile.Name = 'Regional CRM Manager',
+     $Profile.Name = 'Central PL/WL Manager'
    ),
 OR(
 ISBLANK(Suspended_Date__c),
@@ -67809,15 +67809,15 @@ ISBLANK(Suspended_Reason__c)
     <validationRules>
         <fullName>Check_Case_Overdue</fullName>
         <active>true</active>
-        <description>Check &quot;Case Overdue&quot; to Y, click &quot;Save&quot; button. The system won&apos;t save and the following error message display:
-&quot;Please fill in Overdue Reason&quot;</description>
+        <description>Check "Case Overdue" to Y, click "Save" button. The system won't save and the following error message display:
+"Please fill in Overdue Reason"</description>
         <errorConditionFormula>AND(
-ISPICKVAL(Overdue__c, &apos;Y&apos;),
-OR ( $Profile.Name = &apos;Regional CRM Manager&apos;,
-     $Profile.Name = &apos;Regional CRM Manager&apos;,
-     $Profile.Name = &apos;Central PL/WL Manager&apos;
+ISPICKVAL(Overdue__c, 'Y'),
+OR ( $Profile.Name = 'Regional CRM Manager',
+     $Profile.Name = 'Regional CRM Manager',
+     $Profile.Name = 'Central PL/WL Manager'
    ),
-ISPICKVAL(Overdue_Reason__c, &apos;&apos;) 
+ISPICKVAL(Overdue_Reason__c, '') 
 )</errorConditionFormula>
         <errorDisplayField>Overdue_Reason_old__c</errorDisplayField>
         <errorMessage>Please fill in Overdue Reason</errorMessage>
@@ -67827,50 +67827,50 @@ ISPICKVAL(Overdue_Reason__c, &apos;&apos;)
         <active>true</active>
         <errorConditionFormula>(Isblank( Release_Date__c) ||
 Isblank( Suspended_Reason__c ))&amp;&amp;
-ISPICKVAL(PRIORVALUE( Progress_Status__c ) , &apos;Suspended&apos;)&amp;&amp;
-!ISPICKVAL( Progress_Status__c , &apos;Suspended&apos;)</errorConditionFormula>
+ISPICKVAL(PRIORVALUE( Progress_Status__c ) , 'Suspended')&amp;&amp;
+!ISPICKVAL( Progress_Status__c , 'Suspended')</errorConditionFormula>
         <errorMessage>Please fill in Released Date</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Dealer_Cannt_Change_Owner_For_Escalated</fullName>
         <active>false</active>
-        <description>Dealer Cann&apos;t Change Owner For Escalated Cases</description>
+        <description>Dealer Cann't Change Owner For Escalated Cases</description>
         <errorConditionFormula>AND(
  ISCHANGED( OwnerId ),
  OR(
-   ISPICKVAL(Handling_Level__c , &apos;Central Office&apos;),
-   ISPICKVAL(Handling_Level__c , &apos;Regional Office&apos;)
+   ISPICKVAL(Handling_Level__c , 'Central Office'),
+   ISPICKVAL(Handling_Level__c , 'Regional Office')
  ),
  OR(
- $Profile.Name = &apos;Dealer-Complaint Manager&apos;,
- $Profile.Name = &apos;Dealer-Complaint User&apos;,
- $Profile.Name = &apos;Dealer-Delegated Admin&apos;,
- $Profile.Name = &apos;Dealer-Lead+Complaint Manager&apos;
+ $Profile.Name = 'Dealer-Complaint Manager',
+ $Profile.Name = 'Dealer-Complaint User',
+ $Profile.Name = 'Dealer-Delegated Admin',
+ $Profile.Name = 'Dealer-Lead+Complaint Manager'
 )
 )</errorConditionFormula>
-        <errorMessage>You cann&apos;t change owner when the case is escalated.</errorMessage>
+        <errorMessage>You cann't change owner when the case is escalated.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>EU_FIN_field_must_be_17_or_18_digits</fullName>
         <active>true</active>
-        <description>&quot;EU FIN&quot; must be 17 or 18 digits.</description>
+        <description>"EU FIN" must be 17 or 18 digits.</description>
         <errorConditionFormula>NOT(ISBLANK( EU_VIN__c ))&amp;&amp; 
 ((LEN( EU_VIN__c ) &lt;&gt; 17) &amp;&amp; (LEN( EU_VIN__c ) &lt;&gt; 18))&amp;&amp;  
-(($Profile.Name=&quot;Dealer-Complaint Manager&quot;) || 
-($Profile.Name=&quot;Dealer-Complaint User&quot;) || 
-($Profile.Name=&quot;Dealer-Delegated Admin&quot;) || 
-($Profile.Name=&quot;Dealer-Lead+Complaint Manager&quot;))</errorConditionFormula>
+(($Profile.Name="Dealer-Complaint Manager") || 
+($Profile.Name="Dealer-Complaint User") || 
+($Profile.Name="Dealer-Delegated Admin") || 
+($Profile.Name="Dealer-Lead+Complaint Manager"))</errorConditionFormula>
         <errorDisplayField>EU_VIN__c</errorDisplayField>
-        <errorMessage>&quot;EU FIN&quot; must be 17 or 18 digits.</errorMessage>
+        <errorMessage>"EU FIN" must be 17 or 18 digits.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Field_is_madatory_to_CO</fullName>
         <active>true</active>
-        <description>The &quot;Ref.No-Central&quot;field is mandatory for co user.</description>
+        <description>The "Ref.No-Central"field is mandatory for co user.</description>
         <errorConditionFormula>AND(
     ISBLANK( Ref_No_Central__c ), 
     NOT(ISCHANGED(OwnerId)), 
-    $Profile.Name =&apos;Regional CRM Manager&apos; 
+    $Profile.Name ='Regional CRM Manager' 
    )</errorConditionFormula>
         <errorDisplayField>Ref_No_Central__c</errorDisplayField>
         <errorMessage>Central  office user please fulfill the Ref.No-Central field.</errorMessage>
@@ -67878,11 +67878,11 @@ ISPICKVAL(PRIORVALUE( Progress_Status__c ) , &apos;Suspended&apos;)&amp;&amp;
     <validationRules>
         <fullName>Field_is_mandatory_for_RO</fullName>
         <active>true</active>
-        <description>The &quot;Ref.No-Central&quot;field is mandatory for ro user.</description>
+        <description>The "Ref.No-Central"field is mandatory for ro user.</description>
         <errorConditionFormula>AND(
   ISBLANK( Ref_No_Regional__c ), 
   NOT(ISCHANGED(OwnerId)),
-  $Profile.Name =&apos;Regional CRM Manager&apos; 
+  $Profile.Name ='Regional CRM Manager' 
 )</errorConditionFormula>
         <errorDisplayField>Ref_No_Regional__c</errorDisplayField>
         <errorMessage>Please fulfill the Ref.No-Regional field.</errorMessage>
@@ -67895,13 +67895,13 @@ Special_Goodwill__c,
 OR( 
 ISBLANK(Goodwill_Details__c), 
 ISBLANK(Goodwill_Cost__c), 
-ISPICKVAL(Goodwill_Category__c, &apos;&apos;) 
+ISPICKVAL(Goodwill_Category__c, '') 
 ), 
 OR 
 ( 
-$Profile.Name =&apos;Regional CRM Manager&apos;, 
-$Profile.Name =&apos;Regional CRM Manager&apos;,
-$Profile.Name = &apos;Central PL/WL Manager&apos;
+$Profile.Name ='Regional CRM Manager', 
+$Profile.Name ='Regional CRM Manager',
+$Profile.Name = 'Central PL/WL Manager'
 ) 
 )</errorConditionFormula>
         <errorMessage>Please check Goodwill first before input Goodwill Details, Goodwill Cost or Goodwill Category.</errorMessage>
@@ -67910,15 +67910,15 @@ $Profile.Name = &apos;Central PL/WL Manager&apos;
         <fullName>Order_No_Vehicle_Must_be_Number</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
-NOT(REGEX(Order_No__c, &quot;^[0-9]*$&quot;)), 
+NOT(REGEX(Order_No__c, "^[0-9]*$")), 
 OR 
 ( 
-$Profile.Name =&apos;Regional CRM Manager&apos;, 
-$Profile.Name =&apos;Regional CRM Manager&apos;, 
-$Profile.Name =&apos;Dealer-Complaint Manager&apos;, 
-$Profile.Name =&apos;Dealer-Complaint User&apos;, 
-$Profile.Name =&apos;Dealer-Delegated Admin&apos;, 
-$Profile.Name =&apos;Dealer-Lead+Complaint Manager&apos; 
+$Profile.Name ='Regional CRM Manager', 
+$Profile.Name ='Regional CRM Manager', 
+$Profile.Name ='Dealer-Complaint Manager', 
+$Profile.Name ='Dealer-Complaint User', 
+$Profile.Name ='Dealer-Delegated Admin', 
+$Profile.Name ='Dealer-Lead+Complaint Manager' 
 ) 
 )</errorConditionFormula>
         <errorDisplayField>Order_No__c</errorDisplayField>
@@ -67928,8 +67928,8 @@ $Profile.Name =&apos;Dealer-Lead+Complaint Manager&apos;
         <fullName>Overdue_Reason_mandatory</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-ISPICKVAL(Overdue__c,&apos;Y&apos;), 
-ISPICKVAL(Overdue_Reason__c ,&apos;&apos;)
+ISPICKVAL(Overdue__c,'Y'), 
+ISPICKVAL(Overdue_Reason__c ,'')
 )</errorConditionFormula>
         <errorDisplayField>Overdue_Reason__c</errorDisplayField>
         <errorMessage>Please fill in overdue reason if it is overdue.</errorMessage>
@@ -67939,14 +67939,14 @@ ISPICKVAL(Overdue_Reason__c ,&apos;&apos;)
         <active>true</active>
         <errorConditionFormula>AND(
 OR(
-ISPICKVAL(Progress_Status__c,&apos;1st FP Released&apos;),
-ISPICKVAL(Progress_Status__c,&apos;2nd FP Released&apos;)
+ISPICKVAL(Progress_Status__c,'1st FP Released'),
+ISPICKVAL(Progress_Status__c,'2nd FP Released')
 ),
-ISPICKVAL(Overdue__c ,&apos;&apos;),
+ISPICKVAL(Overdue__c ,''),
 OR(
-$Profile.Name = &apos;Regional CRM Manager&apos;,
-$Profile.Name = &apos;Regional CRM Manager&apos;,
-$Profile.Name = &apos;Central PL/WL Manager&apos;
+$Profile.Name = 'Regional CRM Manager',
+$Profile.Name = 'Regional CRM Manager',
+$Profile.Name = 'Central PL/WL Manager'
 )
 )</errorConditionFormula>
         <errorDisplayField>Overdue__c</errorDisplayField>
@@ -67956,15 +67956,15 @@ $Profile.Name = &apos;Central PL/WL Manager&apos;
         <fullName>Owned_MB_Vehicle_Must_be_Number</fullName>
         <active>false</active>
         <errorConditionFormula>AND( 
-NOT(REGEX(Owned_MB_Vehicle__c, &quot;^[0-9]*$&quot;)), 
+NOT(REGEX(Owned_MB_Vehicle__c, "^[0-9]*$")), 
 OR 
 ( 
-$Profile.Name =&apos;Regional CRM Manager&apos;, 
-$Profile.Name =&apos;Regional CRM Manager&apos;, 
-$Profile.Name =&apos;Dealer-Complaint Manager&apos;, 
-$Profile.Name =&apos;Dealer-Complaint User&apos;, 
-$Profile.Name =&apos;Dealer-Delegated Admin&apos;, 
-$Profile.Name =&apos;Dealer-Lead+Complaint Manager&apos; 
+$Profile.Name ='Regional CRM Manager', 
+$Profile.Name ='Regional CRM Manager', 
+$Profile.Name ='Dealer-Complaint Manager', 
+$Profile.Name ='Dealer-Complaint User', 
+$Profile.Name ='Dealer-Delegated Admin', 
+$Profile.Name ='Dealer-Lead+Complaint Manager' 
 ) 
 )</errorConditionFormula>
         <errorDisplayField>Owned_MB_Vehicle__c</errorDisplayField>
@@ -67973,9 +67973,9 @@ $Profile.Name =&apos;Dealer-Lead+Complaint Manager&apos;
     <validationRules>
         <fullName>PR_cannt_modify_status</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(CONTAINS($Profile.Name, &apos;PR&apos;), ISCHANGED(Status))</errorConditionFormula>
+        <errorConditionFormula>AND(CONTAINS($Profile.Name, 'PR'), ISCHANGED(Status))</errorConditionFormula>
         <errorDisplayField>Case_Status__c</errorDisplayField>
-        <errorMessage>PR cann&apos;t modify current case status.</errorMessage>
+        <errorMessage>PR cann't modify current case status.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Repeat_Complaint_Reason_is_Required</fullName>
@@ -67985,10 +67985,10 @@ $Profile.Name =&apos;Dealer-Lead+Complaint Manager&apos;
 Repeat_Complaint_Times__c &gt; 1,
 TEXT(Case_RepeatCause__c) == null,
 OR(
-$Profile.Name = &apos;CAC IB CSR&apos;,
-$Profile.Name = &apos;CAC IB TL&apos;,
-$Profile.Name = &apos;CAC IT Manager&apos;,
-$Profile.Name = &apos;CAC Data Manager&apos;
+$Profile.Name = 'CAC IB CSR',
+$Profile.Name = 'CAC IB TL',
+$Profile.Name = 'CAC IT Manager',
+$Profile.Name = 'CAC Data Manager'
 )
 )</errorConditionFormula>
         <errorDisplayField>Case_RepeatCause__c</errorDisplayField>
@@ -67999,10 +67999,10 @@ $Profile.Name = &apos;CAC Data Manager&apos;
         <active>true</active>
         <description>support dealers could only update the “complaint description/resolution”.</description>
         <errorConditionFormula>AND(
-$Profile.Name = &apos;Dealer-Complaint Manager&apos;,
-$Profile.Name = &apos;Dealer-Complaint User&apos;,
-$Profile.Name = &apos;Dealer-Delegated Admin&apos;,
-$Profile.Name = &apos;Dealer-Lead+Complaint Manager&apos;,
+$Profile.Name = 'Dealer-Complaint Manager',
+$Profile.Name = 'Dealer-Complaint User',
+$Profile.Name = 'Dealer-Delegated Admin',
+$Profile.Name = 'Dealer-Lead+Complaint Manager',
 !Is_Primary_Case__c,
 or(
 ISCHANGED(OwnerId),   ISCHANGED(Follow_Up_Inquiry__c),  ISCHANGED(Complaint_Date__c),  ISCHANGED(Case_Involvement_MPC__c),  ISCHANGED(Case_Source__c),  ISCHANGED(ParentId),  ISCHANGED(AccountId),  ISCHANGED(Region__c),  ISCHANGED(Handling_Level__c),   ISCHANGED(Data_Source__c),  ISCHANGED(Case_Department__c),  ISCHANGED(Data_Subsource__c),  ISCHANGED(Case_Status__c),  ISCHANGED(Progress_Status__c),  ISCHANGED(Escalate_Date_to_RO__c),  ISCHANGED(Escalate_Date_to_CO__c),  ISCHANGED(Suspended_Date__c),  ISCHANGED(Suspended_Reason__c),  ISCHANGED(Overdue__c),  ISCHANGED(Overdue_Reason__c),  ISCHANGED(X1st_FP_Position_Release_Date__c),  ISCHANGED(X2nd_FP_Position_Release_Date__c),  ISCHANGED(SFPositionDate__c),  ISCHANGED(FFPositionDate__c),  ISCHANGED(Release_Date__c),  ISCHANGED(Resolved_Date__c),  ISCHANGED(Contact_Person__c),  ISCHANGED(Perferred_Contact_Number__c),  ISCHANGED(Contact_Person_Tele__c),  ISCHANGED(Perferred_Contact_Email__c),  ISCHANGED(Customer_Background_Info__c),  ISCHANGED(Government_Background__c),  ISCHANGED(Car_Owner__c),  ISCHANGED(Gender__c),  ISCHANGED(Occupation__c),  ISCHANGED(Title__c),  ISCHANGED(Owner_Tele__c),  ISCHANGED(Date_of_Birth__c),  ISCHANGED(Address__c),  ISCHANGED(Licence_Number__c),  ISCHANGED(Other_Brand__c),  ISCHANGED(Owned_MB_Vehicle__c),  ISCHANGED(Vehicle_In_Workshop__c),  ISCHANGED(Dealer_Provides_Transport__c),  ISCHANGED(Customer_Requests_Transport__c),  ISCHANGED(Selling_Dealer__c),  ISCHANGED(Order_No__c),  ISCHANGED(Last_Known_Sales_Person__c),  ISCHANGED(Date_of_Warranty_Expiry__c),  ISCHANGED(Last_Known_Mileage__c),  ISCHANGED(Date_of_1st_Registration__c),  ISCHANGED(US_VIN__c),  ISCHANGED(EU_VIN__c),  ISCHANGED(Defective_Item__c),  ISCHANGED(Defective_SubItem__c),  ISCHANGED(Car_Type__c),  ISCHANGED(Vehicle_Source__c),  ISCHANGED(Vehicle_Model__c),  ISCHANGED(Vehicle_Brand__c),  ISCHANGED(Engine_Number__c),  ISCHANGED(Vehicle_Class__c),  ISCHANGED(Special_Goodwill__c),  ISCHANGED(Goodwill_Category__c),  ISCHANGED(Goodwill_Details__c),  ISCHANGED(Goodwill_Cost__c),  ISCHANGED(Case_Dealer__c),  ISCHANGED(Dealer_Case_Category__c),  ISCHANGED(Dealer_Case_Type__c), ISCHANGED(Subject),   ISCHANGED( Ref_No_Central__c ),   ISCHANGED( Ref_No_Regional__c ),   ISCHANGED(  PR_Comment_Central_Internal__c ),   ISCHANGED( MPC_Internal_Notes__c ),   ISCHANGED(Dealer_Case_SubType__c),
@@ -68035,15 +68035,15 @@ ISCHANGED(Car_Model__c)
     <validationRules>
         <fullName>US_VIN_field_must_be_17_digits</fullName>
         <active>true</active>
-        <description>&quot;US VIN&quot; field must be 17 digits</description>
+        <description>"US VIN" field must be 17 digits</description>
         <errorConditionFormula>NOT(ISBLANK( US_VIN__c ))&amp;&amp;
 (LEN( US_VIN__c )  &lt;&gt; 17) &amp;&amp;  
-(($Profile.Name=&quot;Dealer-Complaint Manager&quot;) || 
-($Profile.Name=&quot;Dealer-Complaint User&quot;) || 
-($Profile.Name=&quot;Dealer-Delegated Admin&quot;) || 
-($Profile.Name=&quot;Dealer-Lead+Complaint Manager&quot;))</errorConditionFormula>
+(($Profile.Name="Dealer-Complaint Manager") || 
+($Profile.Name="Dealer-Complaint User") || 
+($Profile.Name="Dealer-Delegated Admin") || 
+($Profile.Name="Dealer-Lead+Complaint Manager"))</errorConditionFormula>
         <errorDisplayField>US_VIN__c</errorDisplayField>
-        <errorMessage>&quot;US VIN&quot; field must be 17 digits</errorMessage>
+        <errorMessage>"US VIN" field must be 17 digits</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Update_Release_Date_to_Required</fullName>
@@ -68051,7 +68051,7 @@ ISCHANGED(Car_Model__c)
         <description>Update Release Date to Required</description>
         <errorConditionFormula>AND(
 ISCHANGED(Progress_Status__c),
-TEXT(PRIORVALUE(Progress_Status__c))= &quot;Suspended&quot;,
+TEXT(PRIORVALUE(Progress_Status__c))= "Suspended",
 ISNULL( Release_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>Release_Date__c</errorDisplayField>
@@ -68063,14 +68063,14 @@ ISNULL( Release_Date__c)
         <errorConditionFormula>OR
 (
 AND(
-ISPICKVAL(Vehicle_Source__c, &apos;Import&apos;),
-ISPICKVAL(Vehicle__r.CBU_CKD__c, &apos;CKD&apos;),
-$Profile.Name != &apos;IntegrationAPI&apos;
+ISPICKVAL(Vehicle_Source__c, 'Import'),
+ISPICKVAL(Vehicle__r.CBU_CKD__c, 'CKD'),
+$Profile.Name != 'IntegrationAPI'
 ),
 AND(
-ISPICKVAL(Vehicle_Source__c, &apos;Domestic&apos;),
-ISPICKVAL(Vehicle__r.CBU_CKD__c, &apos;CBU&apos;),
-$Profile.Name != &apos;IntegrationAPI&apos;
+ISPICKVAL(Vehicle_Source__c, 'Domestic'),
+ISPICKVAL(Vehicle__r.CBU_CKD__c, 'CBU'),
+$Profile.Name != 'IntegrationAPI'
 )
 )</errorConditionFormula>
         <errorDisplayField>Vehicle_Source__c</errorDisplayField>
@@ -68134,17 +68134,17 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <masterLabel>Car Model Comparison</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)}
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
 
 if (sforce.console.isInConsole()) {
 	javascript:sforce.console.getEnclosingPrimaryTabId(function openSubtab(res) {
-            sforce.console.openSubtab(res.id, &apos;/apex/CarModelComparison?retURL=/{!Account.Id}&amp;tabId=&apos; + res.id, 
-true, &apos;Car Model Comparison&apos;);
+            sforce.console.openSubtab(res.id, '/apex/CarModelComparison?retURL=/{!Account.Id}&amp;tabId=' + res.id, 
+true, 'Car Model Comparison');
 	});
 }
 else {
-    window.open(&quot;/apex/CarModelComparison?retURL=/{!Account.Id}&quot;, &quot;&quot;, &quot;width = 800, height = 600&quot;);
+    window.open("/apex/CarModelComparison?retURL=/{!Account.Id}", "", "width = 800, height = 600");
 }</url>
     </webLinks>
     <webLinks>
@@ -68156,11 +68156,11 @@ else {
         <masterLabel>Clone</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>if(&quot;{!Case.ParentId}&quot; == &quot;&quot;) {
-location.href = &quot;/{!Case.Id}/e?cas28_mod={!Case.Id}&amp;cas28={!Case.CaseNumber}&amp;clone=1&amp;retURL={!Case.Id}&quot;;
+        <url>if("{!Case.ParentId}" == "") {
+location.href = "/{!Case.Id}/e?cas28_mod={!Case.Id}&amp;cas28={!Case.CaseNumber}&amp;clone=1&amp;retURL={!Case.Id}";
 }
 else{
-alert(&quot;This Complaint is not a primary complaint, please find the primary complaint.&quot;);
+alert("This Complaint is not a primary complaint, please find the primary complaint.");
 }</url>
     </webLinks>
     <webLinks>
@@ -68171,21 +68171,21 @@ alert(&quot;This Complaint is not a primary complaint, please find the primary c
         <masterLabel>DM</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 if (sforce.console.isInConsole()) { 
 javascript:
 var showTabId = function showTabId(result) {
 var tabid = result.id;
 sforce.console.openSubtab(tabid , 
-&apos;/apex/DMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}&amp;tabId=&apos;+tabid, 
-true, &apos;DM&apos;); 
+'/apex/DMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}&amp;tabId='+tabid, 
+true, 'DM'); 
  };
 sforce.console.getFocusedPrimaryTabId(showTabId);
 
 } 
 else { 
-window.open(&quot;/apex/DMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}&quot;, &quot;&quot;, &quot;width = 800,height = 600&quot;); 
+window.open("/apex/DMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}", "", "width = 800,height = 600"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -68208,33 +68208,33 @@ window.open(&quot;/apex/DMSendResult?accountId={!Case.AccountId}&amp;caseId={!Ca
         <masterLabel>Follow Up Inquiry</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)}
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")}
 
-var qr = sforce.connection.query(&quot;Select id From recordtype where Name=&apos;Inquiry&apos; limit 1&quot;) ;
+var qr = sforce.connection.query("Select id From recordtype where Name='Inquiry' limit 1") ;
 
 if(qr.records != null) {
-var update_Case = new Array(new sforce.SObject(&quot;Temp_Setting__C&quot;));
+var update_Case = new Array(new sforce.SObject("Temp_Setting__C"));
 
-update_Case[0].Name = &apos;{!$User.Id}&apos;;
-update_Case[0].Value__c = &apos;{!Case.Id}&apos;;
+update_Case[0].Name = '{!$User.Id}';
+update_Case[0].Value__c = '{!Case.Id}';
 var result = sforce.connection.create(update_Case);
 
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, &apos;/500/e?retURL=%2F500%2Fo&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case?cas4_lkid={!Account.Id}&amp;cas4={!Account.Name}&apos;, true, &apos;New Inquiry Case&apos;); 
+sforce.console.openSubtab(tabid, '/500/e?retURL=%2F500%2Fo&amp;RecordType='+qr.records.Id+'&amp;ent=Case?cas4_lkid={!Account.Id}&amp;cas4={!Account.Name}', true, 'New Inquiry Case'); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else 
 { 
-window.parent.navigateToUrl(&quot;/500/e?retURL=%2F500%2Fo&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case?cas4_lkid={!Account.Id}&amp;cas4={!Account.Name}&quot;);
+window.parent.navigateToUrl("/500/e?retURL=%2F500%2Fo&amp;RecordType='+qr.records.Id+'&amp;ent=Case?cas4_lkid={!Account.Id}&amp;cas4={!Account.Name}");
 }
 }
 else{
-alert(&quot;Inquiy can&apos;t be used.Please contact System Administrator&quot;);
+alert("Inquiy can't be used.Please contact System Administrator");
 }</url>
     </webLinks>
     <webLinks>
@@ -68268,35 +68268,35 @@ alert(&quot;Inquiy can&apos;t be used.Please contact System Administrator&quot;)
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} 
 
-var qr = sforce.connection.query(&quot;Select id From recordtype where Name=&apos;Chrysler Complaint&apos; limit 1&quot;) ; 
+var qr = sforce.connection.query("Select id From recordtype where Name='Chrysler Complaint' limit 1") ; 
 
 if (qr.records != null) { 
 
-if(typeof(srcUp) == &apos;function&apos;) { 
+if(typeof(srcUp) == 'function') { 
 
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, &apos;/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case&amp;tabId=&apos;+tabid, true, &apos;New Case&apos;); 
+sforce.console.openSubtab(tabid, '/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
-window.parent.navigateToUrl(&quot;/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;); 
+window.parent.navigateToUrl("/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType="+qr.records.Id+"&amp;ent=Case"); 
 } 
 
 } 
 else { 
-window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;width = 1000,height = 800&quot;); 
+window.open("/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType="+qr.records.Id+"&amp;ent=Case", "width = 1000,height = 800"); 
 } 
 
 } 
 else{ 
-alert(&quot;Chrysler complaint can&apos;t be used.Please contact System Administrator&quot;); 
+alert("Chrysler complaint can't be used.Please contact System Administrator"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -68308,35 +68308,35 @@ alert(&quot;Chrysler complaint can&apos;t be used.Please contact System Administ
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} 
 
-var qr = sforce.connection.query(&quot;Select id From recordtype where Name=&apos;Chrysler Complaint&apos; limit 1&quot;) ; 
+var qr = sforce.connection.query("Select id From recordtype where Name='Chrysler Complaint' limit 1") ; 
 
 if (qr.records != null) { 
 
-if(typeof(srcUp) == &apos;function&apos;) { 
+if(typeof(srcUp) == 'function') { 
 
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, &apos;/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case&amp;tabId=&apos;+tabid, true, &apos;New Case&apos;); 
+sforce.console.openSubtab(tabid, '/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
-window.parent.navigateToUrl(&quot;/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;); 
+window.parent.navigateToUrl("/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType="+qr.records.Id+"&amp;ent=Case"); 
 } 
 
 } 
 else { 
-window.open(&quot;/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;width = 1000,height = 800&quot;); 
+window.open("/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType="+qr.records.Id+"&amp;ent=Case", "width = 1000,height = 800"); 
 } 
 
 } 
 else{ 
-alert(&quot;Chrysler complaint can&apos;t be used.Please contact System Administrator&quot;); 
+alert("Chrysler complaint can't be used.Please contact System Administrator"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -68348,35 +68348,35 @@ alert(&quot;Chrysler complaint can&apos;t be used.Please contact System Administ
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)}
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")}
 
-var qr = sforce.connection.query(&quot;Select id From recordtype where Name=&apos;Inquiry&apos; limit 1&quot;) ;
+var qr = sforce.connection.query("Select id From recordtype where Name='Inquiry' limit 1") ;
 
 if (qr.records != null){
 
-if(typeof(srcUp) == &apos;function&apos;) { 
+if(typeof(srcUp) == 'function') { 
 
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, &apos;/500/e?def_account_id={!Account.Id}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case&amp;tabId=&apos;+tabid, true, &apos;New Case&apos;); 
+sforce.console.openSubtab(tabid, '/500/e?def_account_id={!Account.Id}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
-window.parent.navigateToUrl(&quot;/500/e?def_account_id={!Account.Id}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;); 
+window.parent.navigateToUrl("/500/e?def_account_id={!Account.Id}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType="+qr.records.Id+"&amp;ent=Case"); 
 } 
 
 } 
 else { 
-window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;&quot;, &quot;width = 1000,height = 800&quot;); 
+window.open("/500/e?def_account_id={!Account.Id}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;RecordType="+qr.records.Id+"&amp;ent=Case", "", "width = 1000,height = 800"); 
 }
 
 }
 else{
-alert(&quot;Inquiry can&apos;t be used.Please contact System Administrator&quot;);
+alert("Inquiry can't be used.Please contact System Administrator");
 }</url>
     </webLinks>
     <webLinks>
@@ -68387,7 +68387,8 @@ alert(&quot;Inquiry can&apos;t be used.Please contact System Administrator&quot;
         <linkType>url</linkType>
         <masterLabel>New Lead</masterLabel>
         <openType>replace</openType>
-        <protected>false</protected>        <url>/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_ID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=%2Fa16%2Fe?CONTACT_FIELD_ID_IN_LEAD_lkid={!Account.Id}&amp;CONTACT_FIELD_ID_IN_LEAD={!Account.Name}&amp;CASE_FIELD_ID_IN_LEAD_lkid={!Case.Id}&amp;CASE_FIELD_ID_IN_LEAD={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
+        <protected>false</protected>
+        <url>/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_ID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=%2Fa16%2Fe?CONTACT_FIELD_ID_IN_LEAD_lkid={!Account.Id}&amp;CONTACT_FIELD_ID_IN_LEAD={!Account.Name}&amp;CASE_FIELD_ID_IN_LEAD_lkid={!Case.Id}&amp;CASE_FIELD_ID_IN_LEAD={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>
@@ -68398,36 +68399,36 @@ alert(&quot;Inquiry can&apos;t be used.Please contact System Administrator&quot;
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/xdomain/xdomain.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} 
 
-var qr = sforce.connection.query(&quot;Select id From recordtype where Name=&apos;MBDA Complaint&apos; limit 1&quot;) ; 
+var qr = sforce.connection.query("Select id From recordtype where Name='MBDA Complaint' limit 1") ; 
 
 if(qr.records != null) { 
 
- if(typeof(srcUp) == &apos;function&apos;) { 
+ if(typeof(srcUp) == 'function') { 
 
   if (sforce.console.isInConsole()) { 
    var showTabId = function showTabId(result) { 
     var tabid = result.id; 
-    sforce.console.openSubtab(tabid, &apos;/500/e?def_account_id={!Account.Id}&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case&amp;tabId=&apos;+tabid, true, &apos;New Case&apos;); 
+    sforce.console.openSubtab(tabid, '/500/e?def_account_id={!Account.Id}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
    }; 
    sforce.console.getEnclosingPrimaryTabId(showTabId); 
   } 
   else { 
-   window.parent.navigateToUrl(&quot;/500/e?def_account_id={!Account.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;); 
+   window.parent.navigateToUrl("/500/e?def_account_id={!Account.Id}&amp;RecordType="+qr.records.Id+"&amp;ent=Case"); 
   } 
 
  } 
  else { 
-  window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;&quot;, &quot;width = 1000,height = 800&quot;); 
+  window.open("/500/e?def_account_id={!Account.Id}&amp;RecordType="+qr.records.Id+"&amp;ent=Case", "", "width = 1000,height = 800"); 
  } 
 
 } 
 else{ 
- alert(&quot;MB complaint can&apos;t be used.Please contact System Administrator&quot;); 
+ alert("MB complaint can't be used.Please contact System Administrator"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -68439,27 +68440,27 @@ else{
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} 
 
-var recordTypes = sforce.connection.query(&apos;select id, name from RecordType where DeveloperName = \&apos;MBDA_Inquiry\&apos; and  SobjectType = \&apos;Case\&apos;&apos;); 
-var tempRecordTypeId = &apos;&apos;;
+var recordTypes = sforce.connection.query('select id, name from RecordType where DeveloperName = \'MBDA_Inquiry\' and  SobjectType = \'Case\''); 
+var tempRecordTypeId = '';
 if(recordTypes.size &gt; 0){
-	var records = recordTypes.getArray(&apos;records&apos;);
+	var records = recordTypes.getArray('records');
     tempRecordTypeId = records[0].Id;
 }
 else {
-	alert(&quot;MBDA Inquiry can&apos;t be used.Please contact System Administrator&quot;);
+	alert("MBDA Inquiry can't be used.Please contact System Administrator");
 }
 
-var url = &apos;/500/e?RecordType=&apos; + tempRecordTypeId + &apos;&amp;ent=Case&amp;def_account_id={!Account.Id}&amp;ent=Case&apos;; 
+var url = '/500/e?RecordType=' + tempRecordTypeId + '&amp;ent=Case&amp;def_account_id={!Account.Id}&amp;ent=Case'; 
 
-if(typeof(srcUp) == &apos;function&apos;) { 
+if(typeof(srcUp) == 'function') { 
 	if (sforce.console.isInConsole()) { 
 		var showTabId = function showTabId(result) { 
 				var tabid = result.id; 
-				sforce.console.openSubtab(tabid, url + &apos;&amp;tabId=&apos;+tabid, true, &apos;New Case&apos;); 
+				sforce.console.openSubtab(tabid, url + '&amp;tabId='+tabid, true, 'New Case'); 
 			}; 
 		sforce.console.getEnclosingPrimaryTabId(showTabId); 
 	}
@@ -68468,7 +68469,7 @@ if(typeof(srcUp) == &apos;function&apos;) {
 	}
 }
 else {
-	window.open(url + &apos;&amp;isdtp=vw&apos;, &quot;NewMBDAInquiry&quot;, &apos;height=600,width=700,top=50,left=50,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no&apos;);
+	window.open(url + '&amp;isdtp=vw', "NewMBDAInquiry", 'height=600,width=700,top=50,left=50,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no');
 }</url>
     </webLinks>
     <webLinks>
@@ -68480,36 +68481,36 @@ else {
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/xdomain/xdomain.js&quot;)}
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)}
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")}
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")}
 
-var qr = sforce.connection.query(&quot;Select id From recordtype where Name=&apos;MB Complaint&apos; limit 1&quot;) ;
+var qr = sforce.connection.query("Select id From recordtype where Name='MB Complaint' limit 1") ;
 
 if(qr.records != null) {
 
-if(typeof(srcUp) == &apos;function&apos;) {
+if(typeof(srcUp) == 'function') {
 
 if (sforce.console.isInConsole()) {
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, &apos;/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case&amp;tabId=&apos;+tabid, true, &apos;New Case&apos;); 
+sforce.console.openSubtab(tabid, '/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
 };
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
-window.parent.navigateToUrl(&quot;/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;);
+window.parent.navigateToUrl("/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType="+qr.records.Id+"&amp;ent=Case");
 } 
 
 }
 else {
-window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;width = 1000,height = 800&quot;);
+window.open("/500/e?def_account_id={!Account.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle__c.Name}&amp;VEHICLE_FIELD_ID_IN_CASE_lkid={!Vehicle__c.Id}&amp;RecordType="+qr.records.Id+"&amp;ent=Case", "width = 1000,height = 800");
 }
 
 }
 else{
-alert(&quot;MB complaint can&apos;t be used.Please contact System Administrator&quot;);
+alert("MB complaint can't be used.Please contact System Administrator");
 }</url>
     </webLinks>
     <webLinks>
@@ -68521,36 +68522,36 @@ alert(&quot;MB complaint can&apos;t be used.Please contact System Administrator&
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/xdomain/xdomain.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/xdomain/xdomain.js")} 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} 
 
-var qr = sforce.connection.query(&quot;Select id From recordtype where Name=&apos;MB Complaint&apos; limit 1&quot;) ; 
+var qr = sforce.connection.query("Select id From recordtype where Name='MB Complaint' limit 1") ; 
 
 if(qr.records != null) { 
 
-if(typeof(srcUp) == &apos;function&apos;) { 
+if(typeof(srcUp) == 'function') { 
 
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, &apos;/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case&amp;tabId=&apos;+tabid, true, &apos;New Case&apos;);
+sforce.console.openSubtab(tabid, '/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case');
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId);
 } 
 else { 
-window.parent.navigateToUrl(&quot;/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;); 
+window.parent.navigateToUrl("/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType="+qr.records.Id+"&amp;ent=Case"); 
 }
 
 }
 else {
-window.open(&quot;/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;width = 1000,height = 800&quot;); 
+window.open("/500/e?VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Name}&amp;VEHICLE_RELATIONSHIP_FIELD_ID_IN_CASE_lkid={!Vehicle_Relationship__c.Id}&amp;VEHICLE_FIELD_ID_IN_CASE={!Vehicle_Relationship__c.Vehicle_ID__c}&amp;cas4={!Vehicle_Relationship__c.Contact__c}&amp;RecordType="+qr.records.Id+"&amp;ent=Case", "width = 1000,height = 800"); 
 }
 
 } 
 else{ 
-alert(&quot;MB complaint can&apos;t be used.Please contact System Administrator&quot;); 
+alert("MB complaint can't be used.Please contact System Administrator"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -68562,35 +68563,35 @@ alert(&quot;MB complaint can&apos;t be used.Please contact System Administrator&
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/connection.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} 
 
-var qr = sforce.connection.query(&quot;Select id From recordtype where Name=&apos;Retail Campaign&apos; limit 1&quot;) ; 
+var qr = sforce.connection.query("Select id From recordtype where Name='Retail Campaign' limit 1") ; 
 
 if (qr.records != null) { 
 
-if(typeof(srcUp) == &apos;function&apos;) { 
+if(typeof(srcUp) == 'function') { 
 
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
-sforce.console.openSubtab(tabid, &apos;/500/e?def_account_id={!Account.Id}&amp;RecordType=&apos;+qr.records.Id+&apos;&amp;ent=Case&amp;tabId=&apos;+tabid, true, &apos;New Case&apos;); 
+sforce.console.openSubtab(tabid, '/500/e?def_account_id={!Account.Id}&amp;RecordType='+qr.records.Id+'&amp;ent=Case&amp;tabId='+tabid, true, 'New Case'); 
 }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 } 
 else { 
-window.parent.navigateToUrl(&quot;/500/e?def_account_id={!Account.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;); 
+window.parent.navigateToUrl("/500/e?def_account_id={!Account.Id}&amp;RecordType="+qr.records.Id+"&amp;ent=Case"); 
 } 
 
 } 
 else { 
-window.open(&quot;/500/e?def_account_id={!Account.Id}&amp;RecordType=&quot;+qr.records.Id+&quot;&amp;ent=Case&quot;, &quot;&quot;, &quot;width = 1000,height = 800&quot;); 
+window.open("/500/e?def_account_id={!Account.Id}&amp;RecordType="+qr.records.Id+"&amp;ent=Case", "", "width = 1000,height = 800"); 
 } 
 
 } 
 else{ 
-alert(&quot;Retail Campaign can&apos;t be used.Please contact System Administrator&quot;); 
+alert("Retail Campaign can't be used.Please contact System Administrator"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -68602,22 +68603,22 @@ alert(&quot;Retail Campaign can&apos;t be used.Please contact System Administrat
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 
-var url = &apos;/apex/SSINewComplaintStart?ssiId={!SSI__c.Id}&amp;ssiNumber={!SSI__c.Name}&amp;customerName={!SSI__c.CustomerName__c}&apos;;
-if(typeof(srcUp)==&apos;function&apos;){
+var url = '/apex/SSINewComplaintStart?ssiId={!SSI__c.Id}&amp;ssiNumber={!SSI__c.Name}&amp;customerName={!SSI__c.CustomerName__c}';
+if(typeof(srcUp)=='function'){
 if (sforce.console.isInConsole()) { 
 	var showTabId = function showTabId(result) {  
 		var tabid = result.id;  
-		sforce.console.openSubtab(tabid, url, true, &apos;New Complaint&apos;);  
+		sforce.console.openSubtab(tabid, url, true, 'New Complaint');  
 	}; 
 	sforce.console.getEnclosingPrimaryTabId(showTabId);  
 } else {  
 	window.parent.navigateToUrl(url); 
 }
 }else{
-	window.open(url, &quot;&quot;, &quot;width = 1000,height = 800&quot;); 
+	window.open(url, "", "width = 1000,height = 800"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -68639,23 +68640,23 @@ if (sforce.console.isInConsole()) {
         <masterLabel>SMS</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)}
-if(&quot;{!Account.SMSOptOut__pc}&quot; != &apos;1&apos;){
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
+if("{!Account.SMSOptOut__pc}" != '1'){
     if (sforce.console.isInConsole()) {
     javascript:
     var showTabId = function showTabId(result) {
     var tabid = result.id;
-    sforce.console.openSubtab(tabid, &apos;/apex/SMSSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL={!Case.Id}&amp;tabId=&apos;+tabid, true, &apos;SMS&apos;);
+    sforce.console.openSubtab(tabid, '/apex/SMSSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL={!Case.Id}&amp;tabId='+tabid, true, 'SMS');
     };
     sforce.console.getEnclosingPrimaryTabId(showTabId);
     }
     else {
-    window.open(&quot;/apex/SMSSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL={!Case.Id}&quot;, &quot;&quot;, &quot;width = 800,height = 600&quot;);
+    window.open("/apex/SMSSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL={!Case.Id}", "", "width = 800,height = 600");
     }
 }else{
-    //The customer is SMS Opt Out, you can&apos;t SMS to this customer.
-    alert(&quot;{!$Label.Task_SMS_Send_JS_ErrorMsg2}&quot;);
+    //The customer is SMS Opt Out, you can't SMS to this customer.
+    alert("{!$Label.Task_SMS_Send_JS_ErrorMsg2}");
 }</url>
     </webLinks>
     <webLinks>
@@ -68685,21 +68686,21 @@ if(&quot;{!Account.SMSOptOut__pc}&quot; != &apos;1&apos;){
         <masterLabel>eDM</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 if (sforce.console.isInConsole()) { 
 javascript:
 var showTabId = function showTabId(result) {
 var tabid = result.id;
 sforce.console.openSubtab(tabid , 
-&apos;/apex/eDMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}&amp;tabId=&apos;+tabid, 
-true, &apos;eDM&apos;); 
+'/apex/eDMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}&amp;tabId='+tabid, 
+true, 'eDM'); 
  };
 sforce.console.getFocusedPrimaryTabId(showTabId);
 
 } 
 else { 
-window.open(&quot;/apex/eDMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}&quot;, &quot;&quot;, &quot;width = 800,height = 600&quot;); 
+window.open("/apex/eDMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id}&amp;retURL=%2f{!Case.Id}", "", "width = 800,height = 600"); 
 }</url>
     </webLinks>
 </CustomObject>

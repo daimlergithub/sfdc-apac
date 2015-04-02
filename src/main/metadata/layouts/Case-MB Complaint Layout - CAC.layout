@@ -399,10 +399,6 @@
         <sortField>Date__c</sortField>
         <sortOrder>Desc</sortOrder>
     </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Contract_Relation__c.Case_No__c</relatedList>
-    </relatedLists>
     <relatedObjects>ContactId</relatedObjects>
     <relatedObjects>AccountId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>

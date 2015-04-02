@@ -11461,6 +11461,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Suburb_Zip_Mapping__c.Zip__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>SurveyQuestionResponse__c.Response__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -12506,6 +12511,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Vehicle_Group_Mapping__c.Vehicle_Group__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Vehicle_Inspection__c.Contract__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -12547,6 +12557,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Inspection__c.Total_of_UFWT__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle_Inspection__c.Vehicle_Make__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle_Inspection__c.Vehicle_Model__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

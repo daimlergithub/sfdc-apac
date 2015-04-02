@@ -180,10 +180,6 @@
         <fields>NAME</fields>
         <relatedList>Account_Link__c.ContractId__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Contract_Relation__c.Contract__c</relatedList>
-    </relatedLists>
     <relatedObjects>AccountId</relatedObjects>
     <runAssignmentRulesDefault>false</runAssignmentRulesDefault>
     <showEmailCheckbox>true</showEmailCheckbox>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -98,7 +98,7 @@
     <fields>
         <fullName>Car_Brand__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( Car_Model__c &lt;&gt;null, TEXT( Car_Model__r.Brand__c ), CASE(Car_Series__c, &quot;Smart&quot;, &quot;Smart&quot;, &quot;AMG&quot;, &quot;AMG&quot;, &quot;MB&quot;))</formula>
+        <formula>IF( Car_Model__c &lt;&gt;null, TEXT( Car_Model__r.Brand__c ), CASE(Car_Series__c, "Smart", "Smart", "AMG", "AMG", "MB"))</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Car Brand(deleted)</label>
         <required>false</required>
@@ -1972,20 +1972,20 @@
         <masterLabel>New Lead</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)}
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
 
 if (sforce.console.isInConsole()) {
     javascript:sforce.console.getEnclosingPrimaryTabId(
         function openSubTab(result) {
             sforce.console.openSubtab(result.id, 
-                &quot;/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_ID&amp;retURL=%2F{!Car_Enquiry__c.Id}&amp;save_new_url=%2Fa16%2Fe?INTEREST_VEHICLE_BRAND_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Brand__c}&amp;INTEREST_VEHICLE_CLASS_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Series__c}&amp;INTEREST_VEHICLE_MODEL_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Model__c}&amp;CONTACT_FIELD_ID_IN_LEAD_lkid={!Account.Id}&amp;CONTACT_FIELD_ID_IN_LEAD={!Account.Name}&amp;retURL=%2F{!Car_Enquiry__c.Id}&quot;, 
-                                true, &quot;Lead&quot;);
+                "/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_ID&amp;retURL=%2F{!Car_Enquiry__c.Id}&amp;save_new_url=%2Fa16%2Fe?INTEREST_VEHICLE_BRAND_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Brand__c}&amp;INTEREST_VEHICLE_CLASS_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Series__c}&amp;INTEREST_VEHICLE_MODEL_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Model__c}&amp;CONTACT_FIELD_ID_IN_LEAD_lkid={!Account.Id}&amp;CONTACT_FIELD_ID_IN_LEAD={!Account.Name}&amp;retURL=%2F{!Car_Enquiry__c.Id}", 
+                                true, "Lead");
         }
     )
 }
 else {
-    location.href = &quot;/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_ID&amp;retURL=%2F{!Car_Enquiry__c.Id}&amp;save_new_url=%2Fa16%2Fe?INTEREST_VEHICLE_BRAND_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Brand__c}&amp;INTEREST_VEHICLE_CLASS_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Series__c}&amp;INTEREST_VEHICLE_MODEL_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Model__c}&amp;CONTACT_FIELD_ID_IN_LEAD_lkid={!Account.Id}&amp;CONTACT_FIELD_ID_IN_LEAD={!Account.Name}&amp;retURL=%2F{!Car_Enquiry__c.Id}&quot;;
+    location.href = "/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_ID&amp;retURL=%2F{!Car_Enquiry__c.Id}&amp;save_new_url=%2Fa16%2Fe?INTEREST_VEHICLE_BRAND_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Brand__c}&amp;INTEREST_VEHICLE_CLASS_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Series__c}&amp;INTEREST_VEHICLE_MODEL_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Model__c}&amp;CONTACT_FIELD_ID_IN_LEAD_lkid={!Account.Id}&amp;CONTACT_FIELD_ID_IN_LEAD={!Account.Name}&amp;retURL=%2F{!Car_Enquiry__c.Id}";
 }</url>
     </webLinks>
 </CustomObject>
