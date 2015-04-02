@@ -203,7 +203,7 @@
 	<changetext>
 		<filename>objects\Car_Enquiry__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
-		<token tokenonly="true">LEAD_OBJECT_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Car_Enquiry__c.object</filename>
@@ -258,7 +258,7 @@
 	<changetext>
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Lead']/url/text()</xpath>
-		<token tokenonly="true">LEAD_OBJECT_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_ID</token>
 	</changetext>
 	<changetext>
 		<filename>objects\Case.object</filename>

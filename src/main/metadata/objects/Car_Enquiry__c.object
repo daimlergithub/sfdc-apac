@@ -1979,13 +1979,13 @@ if (sforce.console.isInConsole()) {
     javascript:sforce.console.getEnclosingPrimaryTabId(
         function openSubTab(result) {
             sforce.console.openSubtab(result.id, 
-                &quot;/setup/ui/recordtypeselect.jsp?ent=LEAD_OBJECT_ID&amp;retURL=%2F{!Car_Enquiry__c.Id}&amp;save_new_url=%2Fa16%2Fe?INTEREST_VEHICLE_BRAND_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Brand__c}&amp;INTEREST_VEHICLE_CLASS_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Series__c}&amp;INTEREST_VEHICLE_MODEL_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Model__c}&amp;CONTACT_FIELD_ID_IN_LEAD_lkid={!Account.Id}&amp;CONTACT_FIELD_ID_IN_LEAD={!Account.Name}&amp;retURL=%2F{!Car_Enquiry__c.Id}&quot;, 
+                &quot;/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_ID&amp;retURL=%2F{!Car_Enquiry__c.Id}&amp;save_new_url=%2Fa16%2Fe?INTEREST_VEHICLE_BRAND_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Brand__c}&amp;INTEREST_VEHICLE_CLASS_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Series__c}&amp;INTEREST_VEHICLE_MODEL_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Model__c}&amp;CONTACT_FIELD_ID_IN_LEAD_lkid={!Account.Id}&amp;CONTACT_FIELD_ID_IN_LEAD={!Account.Name}&amp;retURL=%2F{!Car_Enquiry__c.Id}&quot;, 
                                 true, &quot;Lead&quot;);
         }
     )
 }
 else {
-    location.href = &quot;/setup/ui/recordtypeselect.jsp?ent=LEAD_OBJECT_ID&amp;retURL=%2F{!Car_Enquiry__c.Id}&amp;save_new_url=%2Fa16%2Fe?INTEREST_VEHICLE_BRAND_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Brand__c}&amp;INTEREST_VEHICLE_CLASS_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Series__c}&amp;INTEREST_VEHICLE_MODEL_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Model__c}&amp;CONTACT_FIELD_ID_IN_LEAD_lkid={!Account.Id}&amp;CONTACT_FIELD_ID_IN_LEAD={!Account.Name}&amp;retURL=%2F{!Car_Enquiry__c.Id}&quot;;
+    location.href = &quot;/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_ID&amp;retURL=%2F{!Car_Enquiry__c.Id}&amp;save_new_url=%2Fa16%2Fe?INTEREST_VEHICLE_BRAND_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Brand__c}&amp;INTEREST_VEHICLE_CLASS_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Series__c}&amp;INTEREST_VEHICLE_MODEL_FIELD_ID_IN_LEAD={!Car_Enquiry__c.Car_Model__c}&amp;CONTACT_FIELD_ID_IN_LEAD_lkid={!Account.Id}&amp;CONTACT_FIELD_ID_IN_LEAD={!Account.Name}&amp;retURL=%2F{!Car_Enquiry__c.Id}&quot;;
 }</url>
     </webLinks>
 </CustomObject>

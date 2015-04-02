@@ -68387,7 +68387,7 @@ alert(&quot;Inquiry can&apos;t be used.Please contact System Administrator&quot;
         <linkType>url</linkType>
         <masterLabel>New Lead</masterLabel>
         <openType>replace</openType>
-        <protected>false</protected>        <url>/setup/ui/recordtypeselect.jsp?ent=LEAD_OBJECT_ID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=%2Fa16%2Fe?CONTACT_FIELD_ID_IN_LEAD_lkid={!Account.Id}&amp;CONTACT_FIELD_ID_IN_LEAD={!Account.Name}&amp;CASE_FIELD_ID_IN_LEAD_lkid={!Case.Id}&amp;CASE_FIELD_ID_IN_LEAD={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
+        <protected>false</protected>        <url>/setup/ui/recordtypeselect.jsp?ent=OBJECT_LEAD_ID&amp;retURL=%2F{!Case.Id}&amp;save_new_url=%2Fa16%2Fe?CONTACT_FIELD_ID_IN_LEAD_lkid={!Account.Id}&amp;CONTACT_FIELD_ID_IN_LEAD={!Account.Name}&amp;CASE_FIELD_ID_IN_LEAD_lkid={!Case.Id}&amp;CASE_FIELD_ID_IN_LEAD={!Case.CaseNumber}&amp;retURL=%2F{!Case.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>New_MBDA_Complaint</fullName>
