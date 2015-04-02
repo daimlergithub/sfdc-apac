@@ -113,6 +113,12 @@
 		<token tokenonly="true">OBJECT_QC_WEBLINK_OBJECT_ID</token>
 	</changetext>
 	
+		<changetext>
+		<filename>pages\Retail_Campaigns.page</filename>
+		<xpath>/apex:page/text()</xpath>
+		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_OBJECT_KEYPREFIX</token>
+	</changetext>
+	
 	<changetext>
 		<filename>objects\Retail_Campaign__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Generate_Retail_Campaign']/url/text()</xpath>
@@ -273,6 +279,17 @@
 		<filename>objects\Case.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_MB_ComplaintForVehicleShip']/url/text()</xpath>
 		<token tokenonly="true">VEHICLE_FIELD_ID_IN_CASE</token>
+	</changetext>
+	
+		<changetext>
+		<filename>settings\Case.settings</filename>
+		<xpath>/CaseSettings/defaultCaseOwner/text()</xpath>
+		<token>SETTING_DEFAULT_CASE_OWNER</token>
+	</changetext>
+	<changetext>
+		<filename>settings\Case.settings</filename>
+		<xpath>/CaseSettings/defaultCaseUser/text()</xpath>
+		<token>SETTING_DEFAULT_CASE_USER</token>
 	</changetext>
 	
 	<!-- history tracking cannot be set to true (as we like to have it) for the initial deployment, -->
