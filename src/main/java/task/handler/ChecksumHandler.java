@@ -23,7 +23,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.codec.DecoderException;
 import org.apache.commons.codec.binary.Base64;
+import org.apache.commons.codec.binary.Hex;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 
@@ -193,7 +195,14 @@ public class ChecksumHandler
       String type = URLDecoder.decode(tokens1[1], "UTF-8");
       String value = tokens1[2];
 
-      updateStamps.put(type, value);
+      try {
+        byte[] bytes = Hex.decodeHex(value.toCharArray());
+        String base64 = Base64.encodeBase64String(bytes);
+        updateStamps.put(type, base64);
+      }
+      catch (DecoderException e) {
+        // just ignore
+      }
     }
   }
 
