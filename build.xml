@@ -45,6 +45,7 @@
 		<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
+		<fail message="Deployment failed." if:set="deploy-failed"/>
 	</target>
 	
 	<!-- work in progress -->
