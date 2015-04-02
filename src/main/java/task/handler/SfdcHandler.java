@@ -29,6 +29,7 @@ import task.model.SfdcTypeSet;
 import com.sforce.soap.enterprise.EnterpriseConnection;
 import com.sforce.soap.enterprise.LoginResult;
 import com.sforce.soap.metadata.AsyncResult;
+import com.sforce.soap.metadata.DeployMessage;
 import com.sforce.soap.metadata.DeployOptions;
 import com.sforce.soap.metadata.DeployResult;
 import com.sforce.soap.metadata.DescribeMetadataObject;
@@ -202,10 +203,10 @@ public class SfdcHandler
       types.add(info.getDeploymentUnit().getTypeName());
     }
     String typeNames = StringUtils.join(types, ",");
-    
+
     deploy(zipFile, typeNames);
   }
-    
+
   /**
    * This method does the actual deployment of the given ZIP file.
    * 
@@ -213,7 +214,7 @@ public class SfdcHandler
    * @param logInfo The info which will be shown in case of success or error as part of the message what has been deployed.
    */
   public void deploy(ByteArrayOutputStream zipFile, String logInfo)
-  { 
+  {
     if (dryRun) {
       return;
     }
@@ -252,15 +253,21 @@ public class SfdcHandler
           task.log(String.format("Deployment of %s successful.", logInfo));
         }
         else {
-          task.log(String.format("Error %s: %s.",
-                                 null != status.getErrorStatusCode()
-                                                                    ? status.getErrorStatusCode().toString()
-                                                                    : "<null>",
-                                 status.getErrorMessage()), LogLevel.ERR.getLevel());
+          task.log("Deployment failed. Component errors:", LogLevel.ERR.getLevel());
+          for (DeployMessage dm : status.getDetails().getComponentFailures()) {
+            task.log(String.format("Name: %s Type: %s Line: %d Column: %d Problem: %s",
+                                   dm.getFullName(),
+                                   dm.getComponentType(),
+                                   dm.getLineNumber(),
+                                   dm.getColumnNumber(),
+                                   dm.getProblem()),
+                     LogLevel.ERR.getLevel());
+          }
 
           throw new BuildException(String.format("Deployment of %s not successful.", logInfo));
         }
-      } else {
+      }
+      else {
         throw new BuildException(String.format("Deployment of %s not successful.", logInfo));
       }
     }
@@ -450,7 +457,7 @@ public class SfdcHandler
       SfdcConnectionContext context = login();
 
       List<DescribeMetadataObject> dmos = new ArrayList<>();
-      
+
       DescribeMetadataResult describeMetadata = context.getMConnection().describeMetadata(VERSION);
       for (DescribeMetadataObject object : describeMetadata.getMetadataObjects()) {
         // only consider specified objects
@@ -480,7 +487,7 @@ public class SfdcHandler
         SfdcFeature feature = features.get(FeatureName.EXCLUDE_CHECKSUMS.name());
         if (null != feature) {
           if ("StaticResource".equals(entry.getKey()) && entryMap.containsKey(feature.getParam())) {
-            
+
             entryMap.remove(feature.getParam());
           }
         }
@@ -498,11 +505,11 @@ public class SfdcHandler
   private List<ListMetadataQuery> compileQueries(List<DescribeMetadataObject> dmos)
   {
     List<ListMetadataQuery> queries = new ArrayList<>();
-    
+
     for (DescribeMetadataObject dmo : dmos) {
-    
+
       final String name = dmo.getXmlName();
-  
+
       if (0 < dmo.getChildXmlNames().length && !noChildHandling.contains(name)) {
         for (String child : dmo.getChildXmlNames()) {
           ListMetadataQuery query = new ListMetadataQuery();
@@ -535,9 +542,10 @@ public class SfdcHandler
   {
     ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>, ConnectionException> ce =
         new ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>, ConnectionException>() {
-          
+
           @Override
-          public Map<String, List<FileProperties>> chunky(List<ListMetadataQuery> chunk, Map<String, List<FileProperties>> result)
+          public Map<String, List<FileProperties>> chunky(List<ListMetadataQuery> chunk,
+                                                          Map<String, List<FileProperties>> result)
             throws ConnectionException
           {
             List<String> names = new ArrayList<>();
@@ -545,35 +553,36 @@ public class SfdcHandler
               names.add(query.getType());
             }
             task.log(String.format("Query: %s", StringUtils.join(names, ",")));
-            
-            FileProperties[] metadata = mConnection.listMetadata(chunk.toArray(new ListMetadataQuery[chunk.size()]), VERSION);
+
+            FileProperties[] metadata =
+                mConnection.listMetadata(chunk.toArray(new ListMetadataQuery[chunk.size()]), VERSION);
             for (FileProperties props : metadata) {
               String type = props.getType();
-              
+
               if (folderReplacements.containsValue(type)) {
                 type = reverseFolderMapping(type);
-              
+
                 ListMetadataQuery folderQuery = new ListMetadataQuery();
                 folderQuery.setType(type);
                 folderQuery.setFolder(props.getFullName());
                 queries.add(folderQuery);
               }
-              
+
               List<FileProperties> list = result.get(type);
               if (null == list) {
                 list = new ArrayList<>();
                 result.put(type, list);
               }
-              
+
               list.add(props);
             }
-            
+
             return result;
           }
         };
     return ce.execute(queries, 3, filePropertiesMap);
   }
-  
+
   private String reverseFolderMapping(String type)
   {
     for (Map.Entry<String, String> entry : folderReplacements.entrySet()) {
@@ -584,50 +593,56 @@ public class SfdcHandler
     return null;
   }
 
-  /* TODO remove
-  private Map<String, List<FileProperties>> processFolderMetadata(final MetadataConnection mConnection,
-                                                                 Map<String, List<FileProperties>> filePropertiesMap)
-    throws ConnectionException
-  {
-    List<ListMetadataQuery> folderQueries = new ArrayList<>();
-    
-    for (Map.Entry<String, String> entry : folderReplacements.entrySet()) {
-      List<FileProperties> folders = filePropertiesMap.remove(entry.getValue());
-      if (null != folders) {
-        for (FileProperties fileProperties : folders) {
-          ListMetadataQuery fQuery = new ListMetadataQuery();
-          fQuery.setType(entry.getKey());
-          fQuery.setFolder(fileProperties.getFullName());
-          folderQueries.add(fQuery);
-        }
-        
-        filePropertiesMap.put(entry.getKey(), folders);
-      }
-    }
-    
-    ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>, ConnectionException> ce =
-        new ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>, ConnectionException>() {
-          
-          @Override
-          public Map<String, List<FileProperties>> chunky(List<ListMetadataQuery> chunk, Map<String, List<FileProperties>> result)
-            throws ConnectionException
-          {
-            FileProperties[] metadata = mConnection.listMetadata(chunk.toArray(new ListMetadataQuery[chunk.size()]), VERSION);
-            for (FileProperties props : metadata) {
-              List<FileProperties> list = result.get(props.getType());
-              if (null == list) {
-                list = new ArrayList<>();
-                result.put(props.getType(), list);
-              }
-              
-              list.add(props);
-            }
-            return result;
-          }
-        };
-    return ce.execute(folderQueries, 3, filePropertiesMap);
-  }
-  */
+  /*
+   * TODO remove
+   * private Map<String, List<FileProperties>> processFolderMetadata(final
+   * MetadataConnection mConnection,
+   * Map<String, List<FileProperties>> filePropertiesMap)
+   * throws ConnectionException
+   * {
+   * List<ListMetadataQuery> folderQueries = new ArrayList<>();
+   * 
+   * for (Map.Entry<String, String> entry : folderReplacements.entrySet()) {
+   * List<FileProperties> folders = filePropertiesMap.remove(entry.getValue());
+   * if (null != folders) {
+   * for (FileProperties fileProperties : folders) {
+   * ListMetadataQuery fQuery = new ListMetadataQuery();
+   * fQuery.setType(entry.getKey());
+   * fQuery.setFolder(fileProperties.getFullName());
+   * folderQueries.add(fQuery);
+   * }
+   * 
+   * filePropertiesMap.put(entry.getKey(), folders);
+   * }
+   * }
+   * 
+   * ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>,
+   * ConnectionException> ce =
+   * new ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>,
+   * ConnectionException>() {
+   * 
+   * @Override
+   * public Map<String, List<FileProperties>> chunky(List<ListMetadataQuery>
+   * chunk, Map<String, List<FileProperties>> result)
+   * throws ConnectionException
+   * {
+   * FileProperties[] metadata = mConnection.listMetadata(chunk.toArray(new
+   * ListMetadataQuery[chunk.size()]), VERSION);
+   * for (FileProperties props : metadata) {
+   * List<FileProperties> list = result.get(props.getType());
+   * if (null == list) {
+   * list = new ArrayList<>();
+   * result.put(props.getType(), list);
+   * }
+   * 
+   * list.add(props);
+   * }
+   * return result;
+   * }
+   * };
+   * return ce.execute(folderQueries, 3, filePropertiesMap);
+   * }
+   */
 
   public Map<String, String> retrieveChecksums(String sfdcName)
   {
@@ -717,7 +732,7 @@ public class SfdcHandler
   public Map<String, List<String>> buildEntityList(Map<String, Map<String, Long>> metadataUpdatestamps)
   {
     Map<String, List<String>> result = new HashMap<>();
-    
+
     for (Map.Entry<String, Map<String, Long>> entry : metadataUpdatestamps.entrySet()) {
       List<String> entries = new ArrayList<>();
       for (Map.Entry<String, Long> entityEntry : entry.getValue().entrySet()) {
