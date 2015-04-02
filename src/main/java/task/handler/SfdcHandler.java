@@ -469,7 +469,6 @@ public class SfdcHandler
       List<ListMetadataQuery> queries = compileQueries(dmos);
       Map<String, List<FileProperties>> filePropertiesMap = new HashMap<>();
       filePropertiesMap = listMetadata(context.getMConnection(), queries, filePropertiesMap);
-      // filePropertiesMap = processFolderMetadata(context.getMConnection(), filePropertiesMap);
 
       for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
         Map<String, Long> entryMap = new HashMap<>();
@@ -592,57 +591,6 @@ public class SfdcHandler
     }
     return null;
   }
-
-  /*
-   * TODO remove
-   * private Map<String, List<FileProperties>> processFolderMetadata(final
-   * MetadataConnection mConnection,
-   * Map<String, List<FileProperties>> filePropertiesMap)
-   * throws ConnectionException
-   * {
-   * List<ListMetadataQuery> folderQueries = new ArrayList<>();
-   * 
-   * for (Map.Entry<String, String> entry : folderReplacements.entrySet()) {
-   * List<FileProperties> folders = filePropertiesMap.remove(entry.getValue());
-   * if (null != folders) {
-   * for (FileProperties fileProperties : folders) {
-   * ListMetadataQuery fQuery = new ListMetadataQuery();
-   * fQuery.setType(entry.getKey());
-   * fQuery.setFolder(fileProperties.getFullName());
-   * folderQueries.add(fQuery);
-   * }
-   * 
-   * filePropertiesMap.put(entry.getKey(), folders);
-   * }
-   * }
-   * 
-   * ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>,
-   * ConnectionException> ce =
-   * new ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>,
-   * ConnectionException>() {
-   * 
-   * @Override
-   * public Map<String, List<FileProperties>> chunky(List<ListMetadataQuery>
-   * chunk, Map<String, List<FileProperties>> result)
-   * throws ConnectionException
-   * {
-   * FileProperties[] metadata = mConnection.listMetadata(chunk.toArray(new
-   * ListMetadataQuery[chunk.size()]), VERSION);
-   * for (FileProperties props : metadata) {
-   * List<FileProperties> list = result.get(props.getType());
-   * if (null == list) {
-   * list = new ArrayList<>();
-   * result.put(props.getType(), list);
-   * }
-   * 
-   * list.add(props);
-   * }
-   * return result;
-   * }
-   * };
-   * return ce.execute(folderQueries, 3, filePropertiesMap);
-   * }
-   */
 
   public Map<String, String> retrieveChecksums(String sfdcName)
   {
