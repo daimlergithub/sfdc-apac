@@ -199,7 +199,7 @@ public class MetadataHandler
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     
     try {
-      writeHeader(baos, null);
+      writeHeader(baos);
 
       for (DeploymentInfo info : deploymentInfos) {
         DeploymentUnit du = info.getDeploymentUnit();
@@ -208,7 +208,7 @@ public class MetadataHandler
 
         writeEntity(baos, type, info.getEntityNames());
       }
-      writeFooter(baos);
+      writeFooter(baos, true);
     }
     catch (IOException e) {
       throw new BuildException(String.format("Error creating package.xml: %s.", e.getMessage()), e);
@@ -222,7 +222,7 @@ public class MetadataHandler
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     
     try {
-      writeHeader(baos, null);
+      writeHeader(baos);
       
       for (Map.Entry<String, List<String>> entry : metadata.entrySet()) {
         List<String> fullNames = entry.getValue();
@@ -234,7 +234,7 @@ public class MetadataHandler
           writeEntity(baos, type, fullNames);
         }
       }
-      writeFooter(baos);
+      writeFooter(baos, true);
     }
     catch (IOException e) {
       throw new BuildException(String.format("Error creating package.xml: %s.", e.getMessage()), e);
@@ -275,21 +275,20 @@ public class MetadataHandler
     os.write("  </types>\n".getBytes("UTF-8"));
   }
 
-  private void writeFooter(OutputStream os)
+  private void writeFooter(OutputStream os, boolean includeVersion)
     throws IOException, UnsupportedEncodingException
   {
-    os.write("  <version>32.0</version>\n".getBytes("UTF-8"));
+    if (includeVersion) {
+      os.write("  <version>32.0</version>\n".getBytes("UTF-8"));
+    }
     os.write("</Package>\n".getBytes("UTF-8"));
   }
 
-  private void writeHeader(OutputStream os, String fullName)
+  private void writeHeader(OutputStream os)
     throws IOException, UnsupportedEncodingException
   {
     os.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n".getBytes("UTF-8"));
     os.write("<Package xmlns=\"http://soap.sforce.com/2006/04/metadata\">\n".getBytes("UTF-8"));
-    if (null != fullName) {
-      os.write(("  <fullName>" + fullName + "</fullName>\n").getBytes("UTF-8"));
-    }
   }
 
   private Set<String> collectObjectsFromTypeSets(List<SfdcTypeSet> typeSets)
@@ -439,11 +438,11 @@ public class MetadataHandler
       logWrapper.log(String.format("Create %s.", file.getName()));
       
       try (FileOutputStream fos = new FileOutputStream(file)) {
-        writeHeader(fos, "cleanup");
+        writeHeader(fos);
         for (Map.Entry<String, List<String>> entry : destructiveChanges.entrySet()) {
           writeEntity(fos, entry.getKey(), entry.getValue());
         }
-        writeFooter(fos);
+        writeFooter(fos, false);
       }
       catch (IOException e) {
         throw new BuildException(String.format("Error creating destructive changes xml: %s.", e.getMessage()), e);

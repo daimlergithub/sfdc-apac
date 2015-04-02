@@ -139,9 +139,13 @@ public class SfdcDeploymentTask
       log(String.format("Nothing to deploy."));
     } else {
       zipFileHandler.saveZipFile("deploy", zipFile);
-      sfdcHandler.deployTypes(zipFile, deploymentInfos);
-      // TODO add all children of deployed entities to checksum file
-      checksumHandler.updateTimestamp(deploymentInfos);
+      try {
+        sfdcHandler.deployTypes(zipFile, deploymentInfos);
+        checksumHandler.updateTimestamp(deploymentInfos);
+      } catch (BuildException e) {
+        // only set a property to prevent other deploy steps from being executed
+        getProject().setProperty("deploy-failed", "true");
+      }
     }
   }
 
@@ -149,7 +153,7 @@ public class SfdcDeploymentTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    checksumHandler.initialize(logWrapper, checksums, dryRun);
+    checksumHandler.initialize(logWrapper, checksums, true, dryRun);
     transformationHandler.initialize(logWrapper, username, transformationsRoot, deployRoot);
     
     metadataHandler.initialize(logWrapper, deployRoot, debug);

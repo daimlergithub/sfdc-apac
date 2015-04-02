@@ -42,6 +42,7 @@ public class ChecksumHandler
   private Map<String, String> updateStamps;
   private LogWrapper logWrapper;
   private String fileName;
+  private boolean loadFile;
   private boolean dryRun;
 
   private byte[] checkChecksum(File file)
@@ -91,20 +92,25 @@ public class ChecksumHandler
     return updateStamps;
   }
 
-  public void putChecksums(Map<String, String> checksums)
+  /**
+   * This method replaces the checksums in the internal cache and saves them in the given file.
+   *   
+   * @param checksums The checksums to use for replacement.
+   */
+  public void replaceChecksums(Map<String, String> checksums)
   {
-    if (!checksums.isEmpty()) {
-      updateStamps.clear();
-      updateStamps.putAll(checksums);
-    }
+    updateStamps.clear();
+    updateStamps.putAll(checksums);
+
     writeUpdateStampes();
   }
 
   @SuppressWarnings("hiding")
-  public void initialize(LogWrapper logWrapper, String fileName, boolean dryRun)
+  public void initialize(LogWrapper logWrapper, String fileName, boolean loadFile, boolean dryRun)
   {
     this.logWrapper = logWrapper;
     this.fileName = fileName;
+    this.loadFile = loadFile;
     this.dryRun = dryRun;
 
     validate();
@@ -125,37 +131,39 @@ public class ChecksumHandler
   {
     updateStamps = new HashMap<>();
 
-    File file = new File(fileName);
-    if (file.exists()) {
-      try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
-        String line = null;
-        do {
-          line = br.readLine();
-          if (null != line) {
-            int version = determineVersion(line);
-            switch (version) {
-              case 1 :
-                decodeVersion1(line);
-                break;
-              default :
-                decodeVersion0(line);
-                break;
+    if (loadFile) {
+      File file = new File(fileName);
+      if (file.exists()) {
+        try (FileReader fr = new FileReader(file); BufferedReader br = new BufferedReader(fr)) {
+          String line = null;
+          do {
+            line = br.readLine();
+            if (null != line) {
+              int version = determineVersion(line);
+              switch (version) {
+                case 1 :
+                  decodeVersion1(line);
+                  break;
+                default :
+                  decodeVersion0(line);
+                  break;
+              }
             }
           }
+          while (null != line);
+
+          br.close();
         }
-        while (null != line);
+        catch (IOException e) {
+          updateStamps.clear();
 
-        br.close();
+          logWrapper.log(String.format("Error reading update stamps: %s. Continue without update timestamps.",
+                                       e.getMessage()));
+        }
       }
-      catch (IOException e) {
-        updateStamps.clear();
-
-        logWrapper.log(String.format("Error reading update stamps: %s. Continue without update timestamps.",
-                                     e.getMessage()));
+      else {
+        logWrapper.log("Did not find update timestamps. Continue without update timestamps.");
       }
-    }
-    else {
-      logWrapper.log("Did not find update timestamps. Continue without update timestamps.");
     }
   }
 
@@ -164,7 +172,7 @@ public class ChecksumHandler
   {
     return String.format("1:%s:%s", URLEncoder.encode(entry.getKey(), "UTF-8"), entry.getValue());
   }
-  
+
   private void decodeVersion1(String line)
     throws UnsupportedEncodingException
   {

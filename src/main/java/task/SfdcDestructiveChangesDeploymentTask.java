@@ -36,6 +36,7 @@ public class SfdcDestructiveChangesDeploymentTask
   private String deployRoot;
   private String destructiveFile;
   private String checksums;
+  private boolean generate;
 
   private ChecksumHandler checksumHandler;
   private SfdcHandler sfdcHandler;
@@ -43,6 +44,10 @@ public class SfdcDestructiveChangesDeploymentTask
   private DestructiveChangesHandler destructiveHandler;
   private ZipFileHandler zipFileHandler;
 
+  public SfdcDestructiveChangesDeploymentTask() {
+    generate = true;
+  }
+  
   public void setUsername(String username)
   {
     this.username = username;
@@ -103,6 +108,11 @@ public class SfdcDestructiveChangesDeploymentTask
     this.checksums = checksums;
   }
 
+  public void setGenerate(boolean generate)
+  {
+    this.generate = generate;
+  }
+
   @Override
   public void init()
     throws BuildException
@@ -123,18 +133,25 @@ public class SfdcDestructiveChangesDeploymentTask
     initialize();
     
     // generate destructive changes files
-    Map<String, List<String>> destructiveChanges = destructiveHandler.readDestructiveChanges();
-    metadataHandler.createDestructivePackageXml(destructiveChanges);
-    destructiveHandler.resetDestructiveChanges();
+    if (generate) {
+      Map<String, List<String>> destructiveChanges = destructiveHandler.readDestructiveChanges();
+      metadataHandler.createDestructivePackageXml(destructiveChanges);
+      destructiveHandler.resetDestructiveChanges();
+    }
     
     // deploy destructive changes files
     Map<String, File> destructiveFiles = metadataHandler.collectDestructiveFiles();
     Map<String, File> destructiveFilesToDeploy = checksumHandler.filterDestructiveFiles(destructiveFiles);
     for (Map.Entry<String, File> destructiveEntry : destructiveFilesToDeploy.entrySet()) {
-      ByteArrayOutputStream zipFile = zipFileHandler.prepareZipFile(destructiveEntry.getValue());
+      ByteArrayOutputStream zipFile = zipFileHandler.prepareDestructiveZipFile(destructiveEntry.getValue());
       zipFileHandler.saveZipFile("destructiveChanges", zipFile);
-      sfdcHandler.deploy(zipFile, "destructive changes");
-      checksumHandler.updateDestructiveTimestamp(destructiveEntry.getKey());
+      try {
+        sfdcHandler.deploy(zipFile, "destructive changes");
+        checksumHandler.updateDestructiveTimestamp(destructiveEntry.getKey());
+      } catch (BuildException e) {
+        // only set a property to prevent other deploy steps from being executed
+        getProject().setProperty("deploy-failed", "true");
+      }
     }
   }
 
@@ -142,7 +159,7 @@ public class SfdcDestructiveChangesDeploymentTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    checksumHandler.initialize(logWrapper, checksums, dryRun);
+    checksumHandler.initialize(logWrapper, checksums, true, dryRun);
     metadataHandler.initialize(logWrapper, deployRoot, debug);
     sfdcHandler.initialize(this, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, null);
     destructiveHandler.initialize(logWrapper, deployRoot, destructiveFile);

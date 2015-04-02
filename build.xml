@@ -1,8 +1,9 @@
-<project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" xmlns:unless="ant:unless" default="deploy">
+<project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" xmlns:if="ant:if" xmlns:unless="ant:unless" default="deploy">
 
 	<property name="file.checksums.local" value="timestamps-updated.log"/> 
+	<property name="dryrun" value="false"/>
 	
-    <property prefix="sfdc" file="build.properties"/>
+    <property prefix="sfdc" file="build.properties" unless:set="CI"/>
 	
 	<property name="typesets">
 		CustomLabels,CallCenter,StaticResource,ApexPage,Queue,Role,Group,CustomObject,Layout,Document,CustomTab,
@@ -13,7 +14,7 @@
 	
 	<presetdef name="deploy">
 		<sf:deploy
-				debug="${sfdc.debug}" dryRun="false"
+				debug="${sfdc.debug}" dryRun="${dryrun}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"
 				transformationsRoot="src/main/transformations" checksums="${file.checksums.local}"/>
@@ -35,34 +36,38 @@
 	</target>
 	
 	<target name="retrieveChecksums" unless="skip-checksum-retrieval">
-		<sf:retrieveChecksums sfdcName="${sfdc.checksums}"
+		<sf:retrieveChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
 	</target>
 	
 	<target name="deploy" depends="retrieveChecksums, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy32, deploy35, deploy40, destructiveChanges">
-		<sf:deployChecksums sfdcName="${sfdc.checksums}"
+		<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
 	</target>
 	
 	<!-- work in progress -->
 	<target name="dc">
-		<sf:deployChecksums sfdcName="${sfdc.checksums}"
+		<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}"
 						username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 						useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
 	</target>
 	
 	<target name="destructiveChanges">
-		<sf:deployDestructiveChanges
-				debug="${sfdc.debug}" dryRun="false"
+		<!-- do not generate destructive change files on CI server -->
+		<property name="generate" value="true" unless:set="CI"/>
+		<property name="generate" value="false" if:set="CI"/>
+		
+		<sf:deployDestructiveChanges unless:set="deploy-failed"
+				debug="${sfdc.debug}" dryRun="${dryrun}" generate="${generate}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
 				deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
 	</target>
 	
 	<target name="deploy01">
-		<deploy>
+		<deploy unless:set="deploy-failed">
 			<sf:typeset name="labels"/>
 			<sf:typeset name="staticresources">
 				<!-- the Checksums resource is handled by separate tasks -->
@@ -75,14 +80,14 @@
     </target>
 	
 	<target name="deploy05">
-		<deploy>			
+		<deploy unless:set="deploy-failed">			
 			<sf:typeset name="documents"/>
 			<sf:typeset name="callCenters"/>
 		</deploy>
     </target>
 	
 	<target name="deploy07">
-		<deploy>
+		<deploy unless:set="deploy-failed">
 			<sf:typeset name="objects">
 				<sf:include name="Picklist_Mapping__c"/>
 				<sf:include name="Integration_Picklist__c"/>
@@ -92,7 +97,7 @@
     </target>
 	
 	<target name="deploy09">
-		<deploy>
+		<deploy unless:set="deploy-failed">
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
 				<sf:include name="PersonAccount"/>
@@ -102,7 +107,7 @@
     </target>
 
 	<target name="deploy10">
-		<deploy>
+		<deploy unless:set="deploy-failed">
 			<sf:typeset name="objects">
 			    <sf:include name=".*__c"/>
 				<sf:exclude name="Picklist_Mapping__c"/>
@@ -120,7 +125,7 @@
     </target>
 	
 	<target name="deploy12">
-		<deploy>
+		<deploy unless:set="deploy-failed">
 			<sf:typeset name="objects">
 				<sf:include name="Campaign"/>
 			</sf:typeset>
@@ -128,7 +133,7 @@
     </target>
 	
 	<target name="deploy15">
-		<deploy>
+		<deploy unless:set="deploy-failed">
 			<sf:typeset name="objects">
 				<sf:include name="Lead__c"/>
 				<sf:include name="Campaign_Lead__c"/>
@@ -142,7 +147,7 @@
     </target>
 	
 	<target name="deploy20">
-		<deploy>
+		<deploy unless:set="deploy-failed">
 			<sf:typeset name="objects">
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
@@ -158,7 +163,7 @@
     </target>
 	
 	<target name="deploy21">
-		<deploy>
+		<deploy unless:set="deploy-failed">
 			<sf:typeset name="settings"/>
 			<sf:typeset name="tabs">
 				<sf:exclude name="EPA_.*"/>
@@ -190,7 +195,7 @@
     </target>
 	
 	<target name="deploy25">			
-		<deploy>
+		<deploy unless:set="deploy-failed">
 			<sf:typeset name="pages">
 				<sf:include name="Tasks"/>
 			</sf:typeset>
@@ -211,7 +216,7 @@
     </target>
 	
 	<target name="deploy30">
-		<deploy>
+		<deploy unless:set="deploy-failed">
 			<sf:typeset name="classes"/>
 			<sf:typeset name="components"/>
 			<sf:typeset name="pages"/>
@@ -230,25 +235,25 @@
     </target>
 	
 	<target name="deploy32">
-			<deploy>
-				<sf:typeset name="layouts">
-					<sf:include name="Campaign.*"/>
-					<sf:include name="Event.*"/>
-					<sf:include name="Task.*"/>
-					<sf:include name="Case.*"/>
-					<sf:include name="PersonAccount.*"/>
-					<sf:include name="Lead__c.*"/>
-				</sf:typeset>
-				<sf:typeset name="workflows">
-					<sf:include name="Task"/>
-					<sf:include name="Tool_Kit__c"/>
-					<sf:include name="Retail_Campaign__c"/>
-				</sf:typeset>
-			</deploy>
-	    </target>
+		<deploy unless:set="deploy-failed">
+			<sf:typeset name="layouts">
+				<sf:include name="Campaign.*"/>
+				<sf:include name="Event.*"/>
+				<sf:include name="Task.*"/>
+				<sf:include name="Case.*"/>
+				<sf:include name="PersonAccount.*"/>
+				<sf:include name="Lead__c.*"/>
+			</sf:typeset>
+			<sf:typeset name="workflows">
+				<sf:include name="Task"/>
+				<sf:include name="Tool_Kit__c"/>
+				<sf:include name="Retail_Campaign__c"/>
+			</sf:typeset>
+		</deploy>
+    </target>
 	
 	<target name="deploy35">
-		<deploy>
+		<deploy unless:set="deploy-failed">
 			<sf:typeset name="applications"/>
 			<sf:typeset name="permissionsets"/>
 			<sf:typeset name="profiles"/>
@@ -263,7 +268,7 @@
 	</target>
 	
 	<target name="deploy40">
-		<deploy>
+		<deploy unless:set="deploy-failed">
 			<sf:typeset name="accountSharingRules"/>
 			<sf:typeset name="campaignSharingRules"/>
 			<sf:typeset name="caseSharingRules"/>

@@ -252,7 +252,7 @@ public class ZipFileHandler
     return sb.toString();
   }
 
-  public ByteArrayOutputStream prepareZipFile(File destructiveFile)
+  public ByteArrayOutputStream prepareDestructiveZipFile(File destructiveFile)
   {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     
@@ -274,6 +274,13 @@ public class ZipFileHandler
       }
       while (-1 != read);
       
+      zos.closeEntry();
+      
+      byte[] packageXml = metadataHandler.createPackageXml(new ArrayList<DeploymentInfo>());
+      metadataHandler.savePackageXml(packageXml);
+      
+      zos.putNextEntry(new ZipEntry(FILE_NAME_PACKAGE_XML));
+      zos.write(packageXml);
       zos.closeEntry();
     }
     catch (IOException e) {

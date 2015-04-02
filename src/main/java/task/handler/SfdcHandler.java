@@ -594,6 +594,8 @@ public class SfdcHandler
 
   public Map<String, String> retrieveChecksums(String sfdcName)
   {
+    Map<String, String> result = new HashMap<>();
+    
     try {
       SfdcConnectionContext context = login();
 
@@ -601,7 +603,6 @@ public class SfdcHandler
 
       Metadata[] mdInfo = readResult.getRecords();
 
-      Map<String, String> map = new HashMap<>();
       if (0 == mdInfo.length || null == mdInfo[0]) {
         task.log("Did not find checksums in SFDC.", LogLevel.WARN.getLevel());
       }
@@ -618,23 +619,28 @@ public class SfdcHandler
             if (null != line) {
               String[] tokens = line.split(":");
               if (2 == tokens.length) {
-                map.put(tokens[0], tokens[1]);
+                result.put(tokens[0], tokens[1]);
               }
             }
           }
           while (line != null);
         }
       }
-      return map;
     }
     catch (IOException | ConnectionException e) {
       throw new BuildException(String.format("Error retrieving checksums from SFDC: %s.", e.getMessage()), e);
     }
+    
+    return result;
   }
 
   // TODO think about zipping checksums before deploying
   public void deployChecksums(Map<String, String> checksumMap, String sfdcName)
   {
+    if (dryRun) {
+      return;
+    }
+    
     try {
       SfdcConnectionContext context = login();
 

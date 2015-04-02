@@ -2,7 +2,7 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
   <fullName>cleanup</fullName>
   <types>
-    <members>CollaborationGroup-小组 布局.layout</members>
+    <members>CollaborationGroup-小组 布局</members>
     <members>CollaborationGroup-Panel layout</members>
     <name>Layout</name>
   </types>

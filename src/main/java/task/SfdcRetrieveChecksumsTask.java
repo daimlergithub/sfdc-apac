@@ -28,6 +28,7 @@ public class SfdcRetrieveChecksumsTask
   private int proxyPort;
   private String checksums;
   private String sfdcName;
+  private boolean dryRun;
 
   private ChecksumHandler checksumHandler;
   private SfdcHandler sfdcHandler;
@@ -77,6 +78,11 @@ public class SfdcRetrieveChecksumsTask
     this.sfdcName = sfdcName;
   }
   
+  public void setDryRun(boolean dryRun)
+  {
+    this.dryRun = dryRun;
+  }
+  
   @Override
   public void init()
     throws BuildException
@@ -94,15 +100,14 @@ public class SfdcRetrieveChecksumsTask
     initialize();
     
     Map<String, String> checksumMap = sfdcHandler.retrieveChecksums(sfdcName);
-    checksumHandler.putChecksums(checksumMap);
+    checksumHandler.replaceChecksums(checksumMap);
   }
 
   private void initialize()
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    checksumHandler.initialize(logWrapper, checksums, false);
-    
+    checksumHandler.initialize(logWrapper, checksums, false, dryRun);
     sfdcHandler.initialize(this, maxPoll, false, serverurl, username, password, useProxy, proxyHost, proxyPort, null);
   }
 

@@ -113,11 +113,11 @@
 		<token tokenonly="true">OBJECT_QC_WEBLINK_OBJECT_ID</token>
 	</changetext>
 	
-		<changetext>
+	<changeattribute>
 		<filename>pages\Retail_Campaigns.page</filename>
-		<xpath>/apex:page/text()</xpath>
+		<xpath>/page/@action</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_OBJECT_KEYPREFIX</token>
-	</changetext>
+	</changeattribute>
 	
 	<changetext>
 		<filename>objects\Retail_Campaign__c.object</filename>
@@ -484,20 +484,25 @@
 		EditPublicDocuments,EditPublicFilters,EditPublicTemplates,EditReadonlyFields,EditReports,EditTask,EditTopics,EmailMass,EmailSingle,EnableNotifications,
 		ExportReport,ManageAnalyticSnapshots,ManageCallCenters,ManageCategories,ManageContentPermissions,ManageCssUsers,ManageCustomReportTypes,ManageDataCategories,
 		ManageDataIntegrations,ManageEmailClientConfig,ManageInteraction,ManageMobile,ManagePackageLicenses,ManageRemoteAccess,MassInlineEdit,RunReports,ScheduleReports,
-		SendSitRequests,TransferAnyCase,TransferAnyEntity,TransferAnyLead,UseTeamReassignWizards,ViewDataCategories,ViewHelpLink,IPRestrictRequests
+		SendSitRequests,TransferAnyCase,TransferAnyEntity,TransferAnyLead,UseTeamReassignWizards,ViewDataCategories,ViewHelpLink,IPRestrictRequests,RunFlow,NewReportBuilder,
+		AssignPermissionSets,AuthorApex,CanUseNewDashboardBuilder,ContentAdministrator,CreatePackaging,CustomizeApplication,DataExport,EditActivatedOrders,EditPublicReports,
+		InboundMigrationToolsUser,InstallPackaging,ManageAuthProviders,ManageBusinessHourHolidays,ManageContentProperties,ManageContentTypes,ManageCustomPermissions,
+		ManageDashboards,ManageDynamicDashboards,ManageEntitlements,ManageExchangeConfig,ManageInternalUsers,ManageIpAddresses,ManageLoginAccessPolicies,
+		ManagePasswordPolicies,ManageProfilesPermissionsets,ManageRoles,ManageSharing,ManageUnlistedGroups,ManageUsers,MergeTopics,ModifyAllData,
+		OutboundMigrationToolsUser,PublishPackaging,ScheduleJob,ViewAllData,ViewAllUsers,ViewEventLogFiles
 		</permissions>
-		<!-- TODO: Access Chatter For SharePoint, Api Only User, Assign Permission Sets, Author Apex, Checked	Manage Public Documents, Configure Custom Recommendations, 
+		<!-- TODO: Access Chatter For SharePoint, Api Only User, Checked	Manage Public Documents, Configure Custom Recommendations, 
 		           Create and Customize List Views, Create and Customize Reports, Create and Own New Chatter Groups, Create and Share Content Deliveries for Chatter Files, 
-				   Create and Upload Change Sets, Create AppExchange Packages, Create Libraries, Customize Application, Deliver Uploaded Files and Personal Content, 
-				   Deploy Change Sets, Download AppExchange Packages, Drag-and-Drop Dashboard Builder, Edit Activated Orders, Edit Opportunity Product Sales Price, 
-				   Edit Self-Service Users, Insert System Field Values for Chatter Feeds, Invite Customers To Chatter, Manage Auth. Providers, 
-				   Manage Business Hours Holidays, Manage Chatter Messages, Manage Connected Apps, Manage Content Properties, Manage Custom Permissions, Manage Dashboards, 
-				   Manage Dynamic Dashboards, Manage Entitlements, Manage Exchange Configurations, Manage Force.com Flow, Manage Internal Users, Manage IP Addresses, 
-				   Manage Letterheads, Manage Login Access Policies, Manage Password Policies, Manage Profiles and Permission Sets, Manage Public List Views, 
-				   Manage Public Reports, Manage Public Templates, Manage record types and layouts for Files, Manage Reporting Snapshots, Manage Roles, 
-				   Manage Salesforce CRM Content, Manage Sharing, Manage Unlisted Groups, Manage Users, Mass Edits from Lists, Merge Topics, Modify All Data, Report Builder, 
-				   Run Flows, Schedule Dashboards, Send Outbound Messages, Send Stay-in-Touch Requests, Two-Factor Authentication for API Logins, 
-				   Two-Factor Authentication for User Interface Logins, Upload AppExchange Packages, Use Identity Features, View All Data, View All Users, View Encrypted Data, 
-				   View Event Log Files, Weekly Data Export -->
+				   Create and Upload Change Sets, Create Libraries, Deliver Uploaded Files and Personal Content, 
+				   Deploy Change Sets, Download AppExchange Packages, Drag-and-Drop Dashboard Builder, Edit Opportunity Product Sales Price, 
+				   Edit Self-Service Users, Insert System Field Values for Chatter Feeds, Invite Customers To Chatter, 
+				   Manage Chatter Messages, Manage Connected Apps, Manage Custom Permissions, 
+				   Manage Force.com Flow,  
+				   Manage Letterheads, Manage Public List Views, 
+				   Manage Public Reports, Manage Public Templates, Manage record types and layouts for Files, Manage Reporting Snapshots, 
+				   Manage Salesforce CRM Content, Mass Edits from Lists, 
+				   Schedule Dashboards, Send Outbound Messages, Send Stay-in-Touch Requests, Two-Factor Authentication for API Logins, 
+				   Two-Factor Authentication for User Interface Logins, Upload AppExchange Packages, Use Identity Features, View Encrypted Data, 
+				   Weekly Data Export -->
 	</defaultpermissions>
 </transformations>

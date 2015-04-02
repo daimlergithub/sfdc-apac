@@ -28,6 +28,7 @@ public class SfdcDeployChecksumsTask
   private int proxyPort;
   private String checksums;
   private String sfdcName;
+  private boolean dryRun;
 
   private ChecksumHandler checksumHandler;
   private SfdcHandler sfdcHandler;
@@ -77,6 +78,11 @@ public class SfdcDeployChecksumsTask
     this.sfdcName = sfdcName;
   }
 
+  public void setDryRun(boolean dryRun)
+  {
+    this.dryRun = dryRun;
+  }
+  
   @Override
   public void init()
     throws BuildException
@@ -101,9 +107,8 @@ public class SfdcDeployChecksumsTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    checksumHandler.initialize(logWrapper, checksums, false);
-    
-    sfdcHandler.initialize(this, maxPoll, false, serverurl, username, password, useProxy, proxyHost, proxyPort, null);
+    checksumHandler.initialize(logWrapper, checksums, true, dryRun);
+    sfdcHandler.initialize(this, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, null);
   }
 
   private void validate()

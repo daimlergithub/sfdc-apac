@@ -93,6 +93,7 @@ public class DestructiveChangesHandler
     File file = new File(destructiveRoot, destructiveFile);
 
     List<String> lines = new ArrayList<>();
+    boolean containsOther = false;
     
     try (FileInputStream fis = new FileInputStream(file); InputStreamReader isr = new InputStreamReader(fis, "UTF-8"); BufferedReader br = new BufferedReader(isr)) {
       String line = null;
@@ -102,6 +103,8 @@ public class DestructiveChangesHandler
           String trimmed = line.trim();
           if (StringUtils.startsWith(trimmed, "#")) {
             lines.add(trimmed);
+          } else {
+            containsOther = true;
           }
         }
       } while (line != null);
@@ -110,14 +113,16 @@ public class DestructiveChangesHandler
       throw new BuildException(String.format("Error reading destrive changes: %s.", e.getMessage()), e);
     }
     
-    try (FileWriterWithEncoding fw = new FileWriterWithEncoding(file, "UTF-8"); BufferedWriter bw = new BufferedWriter(fw)) {
-      for (String line : lines) {
-        bw.write(line);
-        bw.newLine();
+    if (containsOther) {
+      try (FileWriterWithEncoding fw = new FileWriterWithEncoding(file, "UTF-8"); BufferedWriter bw = new BufferedWriter(fw)) {
+        for (String line : lines) {
+          bw.write(line);
+          bw.newLine();
+        }
       }
-    }
-    catch (IOException e) {
-      throw new BuildException(String.format("Error resetting changes: %s.", e.getMessage()), e);
+      catch (IOException e) {
+        throw new BuildException(String.format("Error resetting changes: %s.", e.getMessage()), e);
+      }
     }
   }
 
