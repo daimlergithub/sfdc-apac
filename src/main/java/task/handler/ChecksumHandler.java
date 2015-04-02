@@ -270,7 +270,7 @@ public class ChecksumHandler
     Map<String, File> filteredFiles = new HashMap<>();
 
     Set<String> deployedIds = getDestructiveIDs();
-
+    
     for (Map.Entry<String, File> destructiveEntry : destructiveFiles.entrySet()) {
       if (!deployedIds.contains(destructiveEntry.getKey())) {
         filteredFiles.put(destructiveEntry.getKey(), destructiveEntry.getValue());
@@ -286,7 +286,7 @@ public class ChecksumHandler
 
     String idString = updateStamps.get(KEY_UPDATESTAMP_DESTRUCTIVE_CHANGES);
     if (null != idString) {
-      deployedIds.addAll(Arrays.asList(StringUtils.split(",")));
+      deployedIds.addAll(Arrays.asList(StringUtils.split(idString, ",")));
     }
     return deployedIds;
   }
