@@ -1,30 +1,31 @@
 package task;
 
 import java.io.ByteArrayOutputStream;
-import java.util.ArrayList;
+import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.taskdefs.Taskdef;
 
 import task.handler.ChecksumHandler;
-import task.handler.DeploymentInfo;
+import task.handler.DestructiveChangesHandler;
 import task.handler.LogWrapper;
 import task.handler.MetadataHandler;
 import task.handler.SfdcHandler;
-import task.handler.TransformationHandler;
 import task.handler.ZipFileHandler;
-import task.model.SfdcTypeSet;
 
 /**
- * SfdcDeploymentTask
+ * SfdcDestructiveChangesDeploymentTask
  *
- * @author  xlehmf
+ * @author xlehmf
  */
-public class SfdcDeploymentTask
+public class SfdcDestructiveChangesDeploymentTask
   extends Taskdef
 {
 
+  private boolean debug;
+  private boolean dryRun;
   private String username;
   private String password;
   private String serverurl;
@@ -33,17 +34,14 @@ public class SfdcDeploymentTask
   private String proxyHost;
   private int proxyPort;
   private String deployRoot;
-  private boolean debug;
-  private boolean dryRun;
-  private List<SfdcTypeSet> typeSets;
-  private String transformationsRoot;
+  private String destructiveFile;
   private String checksums;
 
   private ChecksumHandler checksumHandler;
-  private ZipFileHandler zipFileHandler;
   private SfdcHandler sfdcHandler;
   private MetadataHandler metadataHandler;
-  private TransformationHandler transformationHandler;
+  private DestructiveChangesHandler destructiveHandler;
+  private ZipFileHandler zipFileHandler;
 
   public void setUsername(String username)
   {
@@ -95,21 +93,14 @@ public class SfdcDeploymentTask
     this.dryRun = dryRun;
   }
 
-  public void setTransformationsRoot(String transformationsRoot)
+  public void setDestructiveFile(String destructiveFile)
   {
-    this.transformationsRoot = transformationsRoot;
+    this.destructiveFile = destructiveFile;
   }
 
   public void setChecksums(String checksums)
   {
     this.checksums = checksums;
-  }
-
-  public void addConfigured(SfdcTypeSet typeSet)
-  {
-    typeSet.validateSettings();
-    
-    typeSets.add(typeSet);
   }
 
   @Override
@@ -118,12 +109,11 @@ public class SfdcDeploymentTask
   {
     super.init();
     
-    typeSets = new ArrayList<>();
     checksumHandler = new ChecksumHandler();
-    zipFileHandler = new ZipFileHandler();
     sfdcHandler = new SfdcHandler();
     metadataHandler = new MetadataHandler();
-    transformationHandler = new TransformationHandler();
+    zipFileHandler = new ZipFileHandler();
+    destructiveHandler = new DestructiveChangesHandler();
   }
 
   @Override
@@ -132,16 +122,19 @@ public class SfdcDeploymentTask
     validate();
     initialize();
     
-    // TODO get the checksumHandler out of the metadata handler
-    List<DeploymentInfo> deploymentInfos = metadataHandler.compileDeploymentInfos(typeSets, checksumHandler);
-    ByteArrayOutputStream zipFile = zipFileHandler.prepareZipFile(deploymentInfos);
-    if (null == zipFile) {
-      log(String.format("Nothing to deploy."));
-    } else {
-      zipFileHandler.saveZipFile("deploy", zipFile);
-      sfdcHandler.deployTypes(zipFile, deploymentInfos);
-      // TODO add all children of deployed entities to checksum file
-      checksumHandler.updateTimestamp(deploymentInfos);
+    // generate destructive changes files
+    Map<String, List<String>> destructiveChanges = destructiveHandler.readDestructiveChanges();
+    metadataHandler.createDestructivePackageXml(destructiveChanges);
+    destructiveHandler.resetDestructiveChanges();
+    
+    // deploy destructive changes files
+    Map<String, File> destructiveFiles = metadataHandler.collectDestructiveFiles();
+    Map<String, File> destructiveFilesToDeploy = checksumHandler.filterDestructiveFiles(destructiveFiles);
+    for (Map.Entry<String, File> destructiveEntry : destructiveFilesToDeploy.entrySet()) {
+      ByteArrayOutputStream zipFile = zipFileHandler.prepareZipFile(destructiveEntry.getValue());
+      zipFileHandler.saveZipFile("destructiveChanges", zipFile);
+      sfdcHandler.deploy(zipFile, "destructive changes");
+      checksumHandler.updateDestructiveTimestamp(destructiveEntry.getKey());
     }
   }
 
@@ -150,11 +143,10 @@ public class SfdcDeploymentTask
     LogWrapper logWrapper = new LogWrapper(this);
 
     checksumHandler.initialize(logWrapper, checksums, dryRun);
-    transformationHandler.initialize(logWrapper, username, transformationsRoot, deployRoot);
-    
     metadataHandler.initialize(logWrapper, deployRoot, debug);
-    zipFileHandler.initialize(logWrapper, debug, transformationHandler, metadataHandler);
     sfdcHandler.initialize(this, maxPoll, dryRun, serverurl, username, password, useProxy, proxyHost, proxyPort, null);
+    destructiveHandler.initialize(logWrapper, deployRoot, destructiveFile);
+    zipFileHandler.initialize(logWrapper, debug, null, metadataHandler);
   }
 
   private void validate()

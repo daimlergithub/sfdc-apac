@@ -1,7 +1,6 @@
 package task;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -18,7 +17,6 @@ import task.handler.LogWrapper;
 import task.handler.MetadataHandler;
 import task.handler.SfdcHandler;
 import task.handler.TransformationHandler;
-import task.handler.UpdateStampHandler;
 import task.handler.ZipFileHandler;
 import task.model.SfdcFeature;
 import task.model.SfdcTypeSet;
@@ -44,15 +42,10 @@ public class SfdcRetrievalTask
   private boolean debug;
   private boolean dryRun;
   private List<SfdcTypeSet> typeSets;
-  private String timestamps;
-
-  // non-full retrievals are broken! Retrieving the timestamps does not return changed value when the setting has been changed on the UI.
-  private final boolean full = true;
   private boolean cleanupOther;
   private String transformationsRoot;
   private Map<String, SfdcFeature> features;
 
-  private UpdateStampHandler updateStampHandler;
   private SfdcHandler sfdcHandler;
   private MetadataHandler metadataHandler;
   private ZipFileHandler zipFileHandler;
@@ -108,11 +101,6 @@ public class SfdcRetrievalTask
     this.dryRun = dryRun;
   }
 
-  public void setTimestamps(String timestamps)
-  {
-    this.timestamps = timestamps;
-  }
-
   public void setCleanupOther(boolean cleanupOther)
   {
     this.cleanupOther = cleanupOther;
@@ -153,7 +141,6 @@ public class SfdcRetrievalTask
     super.init();
 
     typeSets = new ArrayList<>();
-    updateStampHandler = new UpdateStampHandler();
     sfdcHandler = new SfdcHandler();
     metadataHandler = new MetadataHandler();
     zipFileHandler = new ZipFileHandler();
@@ -176,7 +163,7 @@ public class SfdcRetrievalTask
 
     Map<String, List<String>> metadata2Update = null;
     // if (full) {
-    metadata2Update = updateStampHandler.buildEntityList(metadataUpdatestamps);
+    metadata2Update = sfdcHandler.buildEntityList(metadataUpdatestamps);
     //    }
     //    else {
     //      Map<String, UpdateStampHandler.Action> differences =
@@ -205,10 +192,9 @@ public class SfdcRetrievalTask
   {
     LogWrapper logWrapper = new LogWrapper(this);
 
-    updateStampHandler.initialize(logWrapper, username, timestamps, !full);
     transformationHandler.initialize(logWrapper, username, transformationsRoot, retrieveRoot);
 
-    metadataHandler.initialize(logWrapper, retrieveRoot, debug, updateStampHandler);
+    metadataHandler.initialize(logWrapper, retrieveRoot, debug);
     zipFileHandler.initialize(logWrapper, debug, transformationHandler, metadataHandler);
     
     sfdcHandler.initialize(this,
@@ -220,7 +206,6 @@ public class SfdcRetrievalTask
                            useProxy,
                            proxyHost,
                            proxyPort,
-                           updateStampHandler,
                            features);
   }
 
@@ -229,13 +214,6 @@ public class SfdcRetrievalTask
     // TODO validate settings
     if (null == retrieveRoot) {
       throw new BuildException("The property retrieveRoot must be specified.");
-    }
-    if (!full && (null == timestamps)) {
-      throw new BuildException("The property timestamps must be specified.");
-    }
-    if (!full && !new File(timestamps).exists()) {
-      throw new BuildException(String.format("The file %s does not exist. Please deploy first or use the target 'retrieveAll'.",
-                                             timestamps));
     }
 
     Set<String> typeNames = new HashSet<>();

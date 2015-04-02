@@ -17,8 +17,11 @@ import com.sforce.soap.metadata.ApexPage;
 import com.sforce.soap.metadata.ApexTrigger;
 import com.sforce.soap.metadata.AppMenu;
 import com.sforce.soap.metadata.ApprovalProcess;
+import com.sforce.soap.metadata.AssignmentRule;
 import com.sforce.soap.metadata.AssignmentRules;
+import com.sforce.soap.metadata.AutoResponseRule;
 import com.sforce.soap.metadata.AutoResponseRules;
+import com.sforce.soap.metadata.BusinessProcess;
 import com.sforce.soap.metadata.CallCenter;
 import com.sforce.soap.metadata.CampaignCriteriaBasedSharingRule;
 import com.sforce.soap.metadata.CampaignOwnerSharingRule;
@@ -29,6 +32,7 @@ import com.sforce.soap.metadata.CaseSharingRules;
 import com.sforce.soap.metadata.Community;
 import com.sforce.soap.metadata.CustomApplication;
 import com.sforce.soap.metadata.CustomApplicationComponent;
+import com.sforce.soap.metadata.CustomField;
 import com.sforce.soap.metadata.CustomLabel;
 import com.sforce.soap.metadata.CustomLabels;
 import com.sforce.soap.metadata.CustomObject;
@@ -43,14 +47,17 @@ import com.sforce.soap.metadata.Dashboard;
 import com.sforce.soap.metadata.DataCategoryGroup;
 import com.sforce.soap.metadata.Document;
 import com.sforce.soap.metadata.EmailTemplate;
+import com.sforce.soap.metadata.EscalationRule;
 import com.sforce.soap.metadata.EscalationRules;
 import com.sforce.soap.metadata.ExternalDataSource;
+import com.sforce.soap.metadata.FieldSet;
 import com.sforce.soap.metadata.Flow;
 import com.sforce.soap.metadata.Group;
 import com.sforce.soap.metadata.HomePageComponent;
 import com.sforce.soap.metadata.HomePageLayout;
 import com.sforce.soap.metadata.Layout;
 import com.sforce.soap.metadata.Letterhead;
+import com.sforce.soap.metadata.ListView;
 import com.sforce.soap.metadata.Metadata;
 import com.sforce.soap.metadata.Network;
 import com.sforce.soap.metadata.PermissionSet;
@@ -63,10 +70,20 @@ import com.sforce.soap.metadata.Report;
 import com.sforce.soap.metadata.ReportType;
 import com.sforce.soap.metadata.Role;
 import com.sforce.soap.metadata.SamlSsoConfig;
+import com.sforce.soap.metadata.SharingReason;
 import com.sforce.soap.metadata.StaticResource;
 import com.sforce.soap.metadata.SynonymDictionary;
 import com.sforce.soap.metadata.Translations;
+import com.sforce.soap.metadata.ValidationRule;
+import com.sforce.soap.metadata.WebLink;
 import com.sforce.soap.metadata.Workflow;
+import com.sforce.soap.metadata.WorkflowAlert;
+import com.sforce.soap.metadata.WorkflowFieldUpdate;
+import com.sforce.soap.metadata.WorkflowKnowledgePublish;
+import com.sforce.soap.metadata.WorkflowOutboundMessage;
+import com.sforce.soap.metadata.WorkflowRule;
+import com.sforce.soap.metadata.WorkflowSend;
+import com.sforce.soap.metadata.WorkflowTask;
 
 /**
  * Manual Steps:
@@ -92,10 +109,13 @@ public class DeploymentConfiguration
     List<DeploymentUnit> duList = new ArrayList<>();
     duList.add(new DeploymentUnit(ApprovalProcess.class, "approvalProcesses"));
 
-    // TODO duList.add(new DeploymentUnit("InstalledPackage"));
-
-    duList.add(new DeploymentUnit(EscalationRules.class));
-    duList.add(new DeploymentUnit(AssignmentRules.class));
+    List<Class<? extends Metadata>> escalationRuleChilds = new ArrayList<>();
+    escalationRuleChilds.add(EscalationRule.class);
+    duList.add(new DeploymentUnit(EscalationRules.class, escalationRuleChilds));
+    
+    List<Class<? extends Metadata>> assignmentRuleChilds = new ArrayList<>();
+    assignmentRuleChilds.add(AssignmentRule.class);
+    duList.add(new DeploymentUnit(AssignmentRules.class, assignmentRuleChilds));
 
     // sharing rules
     List<Class<? extends Metadata>> customObjectSharingRuleChilds = new ArrayList<>();
@@ -134,14 +154,6 @@ public class DeploymentConfiguration
       
     });
 
-    //    duList.add(new DeploymentUnit("UserSharingRules.UserMembershipSharingRule"));
-    //    duList.add(new DeploymentUnit("UserSharingRules.UserCriteriaBasedSharingRule"));
-    //        duList.add(new DeploymentUnit("UserSharingRules"));
-    
-    //    duList.add(new DeploymentUnit("ContactSharingRules.ContactOwnerSharingRule"));
-    //    duList.add(new DeploymentUnit("ContactSharingRules.ContactCriteriaBasedSharingRule"));
-    //        duList.add(new DeploymentUnit("ContactSharingRules"));
-    
     List<Class<? extends Metadata>> caseSharingRuleChilds = new ArrayList<>();
     caseSharingRuleChilds.add(CaseOwnerSharingRule.class);
     caseSharingRuleChilds.add(CaseCriteriaBasedSharingRule.class);
@@ -157,13 +169,6 @@ public class DeploymentConfiguration
       }
       
     });
-    
-    //    duList.add(new DeploymentUnit("OpportunitySharingRules.OpportunityOwnerSharingRule"));
-    //    duList.add(new DeploymentUnit("OpportunitySharingRules.OpportunityCriteriaBasedSharingRule"));
-    //        duList.add(new DeploymentUnit("OpportunitySharingRules"));
-    //    duList.add(new DeploymentUnit("LeadSharingRules.LeadCriteriaBasedSharingRule"));
-    //    duList.add(new DeploymentUnit("LeadSharingRules.LeadOwnerSharingRule"));
-    //        duList.add(new DeploymentUnit("LeadSharingRules"));
     
     List<Class<? extends Metadata>> accountSharingRuleChilds = new ArrayList<>();
     accountSharingRuleChilds.add(AccountCriteriaBasedSharingRule.class);
@@ -181,14 +186,15 @@ public class DeploymentConfiguration
       
     });
 
-    //    duList.add(new DeploymentUnit("Workflow.WorkflowRule"));
-    //    duList.add(new DeploymentUnit("Workflow.WorkflowAlert"));
-    //    duList.add(new DeploymentUnit("Workflow.WorkflowFieldUpdate"));
-    //    duList.add(new DeploymentUnit("Workflow.WorkflowOutboundMessage"));
-    //    duList.add(new DeploymentUnit("Workflow.WorkflowKnowledgePublish"));
-    //    duList.add(new DeploymentUnit("Workflow.WorkflowSend"));
-    //    duList.add(new DeploymentUnit("Workflow.WorkflowTask"));
-    duList.add(new DeploymentUnit(Workflow.class, "workflows"));
+    List<Class<? extends Metadata>> workflowChilds = new ArrayList<>();
+    workflowChilds.add(WorkflowRule.class);
+    workflowChilds.add(WorkflowOutboundMessage.class);
+    workflowChilds.add(WorkflowFieldUpdate.class);
+    workflowChilds.add(WorkflowAlert.class);
+    workflowChilds.add(WorkflowTask.class);
+    workflowChilds.add(WorkflowKnowledgePublish.class);
+    workflowChilds.add(WorkflowSend.class);
+    duList.add(new DeploymentUnit(Workflow.class, workflowChilds, "workflows", "workflow"));
 
     duList.add(new DeploymentUnit(Layout.class, "layouts"));
 
@@ -204,7 +210,6 @@ public class DeploymentConfiguration
     duList.add(new DeploymentUnitWithContent(ApexComponent.class, "components", "component"));
     duList.add(new DeploymentUnitWithContent(ApexClass.class, "classes", "cls"));
 
-    // TODO
     duList.add(new DeploymentUnit(Profile.class, "profiles"));
 
     // need to be deleted from bottom up -> roles cannot be deleted if other roles report to it or users are assigned to that role
@@ -232,8 +237,16 @@ public class DeploymentConfiguration
 
     // -> CustomObjects
     duList.add(new DeploymentUnit(CustomObjectTranslation.class, "objectTranslations", "objectTranslation"));
-
-    duList.add(new DeploymentUnit(CustomObject.class, "objects", "object"));
+    
+    List<Class<? extends Metadata>> customObjectChildren = new ArrayList<>();
+    customObjectChildren.add(CustomField.class);
+    customObjectChildren.add(BusinessProcess.class);
+    customObjectChildren.add(WebLink.class);
+    customObjectChildren.add(ValidationRule.class);
+    customObjectChildren.add(SharingReason.class);
+    customObjectChildren.add(ListView.class);
+    customObjectChildren.add(FieldSet.class);
+    duList.add(new DeploymentUnit(CustomObject.class, customObjectChildren, "objects", "object"));
 
     duList.add(new DeploymentUnit(Translations.class, "translations", "translation"));
 
@@ -251,33 +264,23 @@ public class DeploymentConfiguration
     
     duList.add(new DeploymentUnit(Queue.class, "queues"));
 
-    duList.add(new DeploymentUnit(AutoResponseRules.class));
+    List<Class<? extends Metadata>> autoResponseRulesChildren = new ArrayList<>();
+    autoResponseRulesChildren.add(AutoResponseRule.class);
+    duList.add(new DeploymentUnit(AutoResponseRules.class, autoResponseRulesChildren));
     
     duList.add(new DeploymentUnitFolderWithContent(EmailTemplate.class, "email", "email", true));
 
-    //    duList.add(new DeploymentUnit("ManagedTopics.ManagedTopic"));
-    //    duList.add(new DeploymentUnit("ManagedTopics"));
 
-    // TODO AccountSettings, SecuritySettings, OpportunitySettings...
      duList.add(new DeploymentUnit(Settings.class));
-    //    duList.add(new DeploymentUnit("XOrgHub", true));
-
-    //    duList.add(new DeploymentUnit("Scontrol", true));
     duList.add(new DeploymentUnit(CustomPermission.class, "customPermissions", "customPermission"));
     duList.add(new DeploymentUnit(Network.class, "networks"));
-    //    duList.add(new DeploymentUnit("PostTemplate", true));
-    //    duList.add(new DeploymentUnit("FlexiPage", true));
-    //    duList.add(new DeploymentUnit("SiteDotCom", true));
     duList.add(new DeploymentUnit(CallCenter.class, "callCenters"));
     duList.add(new DeploymentUnit(DataCategoryGroup.class, "datacategorygroups"));
-    //    duList.add(new DeploymentUnit("AnalyticSnapshot", true));
     duList.add(new DeploymentUnit(PermissionSet.class, "permissionsets", "permissionset"));
     duList.add(new DeploymentUnit(CustomApplicationComponent.class, "customApplicationComponents"));
     duList.add(new DeploymentUnit(Group.class, "groups"));
     duList.add(new DeploymentUnit(SynonymDictionary.class, "synonymDictionaries"));
     duList.add(new DeploymentUnit(SamlSsoConfig.class, "samlssoconfigs", "samlssoconfig"));
-    //    duList.add(new DeploymentUnit("ConnectedApp", true));
-    //    duList.add(new DeploymentUnit("UiPlugin", true));
 
     // -> Documents
     duList.add(new DeploymentUnit(Portal.class, "portals"));
@@ -289,14 +292,40 @@ public class DeploymentConfiguration
     // -> DocumentFolder
     duList.add(new DeploymentUnitFolderWithContent(Document.class, "documents", null));
 
-    //    duList.add(new DeploymentUnit("SharingSet", true));
     duList.add(new DeploymentUnitWithContent(StaticResource.class, "staticresources", "resource"));
-    //    duList.add(new DeploymentUnit("AuthProvider", true));
-
-    // should be a manual task -> siteAdmin and subdomain need to be adjusted for target sandbox
-    // duList.add(new DeploymentUnit(CustomSite.class, "sites", "site"));
 
     duList.add(new DeploymentUnit(Community.class, "communities"));
+    
+    // Not handled metadata
+    //    duList.add(new DeploymentUnit("AnalyticSnapshot", true));
+    //    duList.add(new DeploymentUnit("SharingSet", true));
+    //    duList.add(new DeploymentUnit("AuthProvider", true));
+    // duList.add(new DeploymentUnit(CustomSite.class, "sites", "site")); // should be a manual task -> siteAdmin and subdomain need to be adjusted for target sandbox
+    //    duList.add(new DeploymentUnit("ConnectedApp", true));
+    //    duList.add(new DeploymentUnit("UiPlugin", true));
+    // duList.add(new DeploymentUnit("InstalledPackage"));
+    //    duList.add(new DeploymentUnit("UserSharingRules.UserMembershipSharingRule"));
+    //    duList.add(new DeploymentUnit("UserSharingRules.UserCriteriaBasedSharingRule"));
+    //        duList.add(new DeploymentUnit("UserSharingRules"));
+    
+    //    duList.add(new DeploymentUnit("ContactSharingRules.ContactOwnerSharingRule"));
+    //    duList.add(new DeploymentUnit("ContactSharingRules.ContactCriteriaBasedSharingRule"));
+    //        duList.add(new DeploymentUnit("ContactSharingRules"));
+    //    duList.add(new DeploymentUnit("OpportunitySharingRules.OpportunityOwnerSharingRule"));
+    //    duList.add(new DeploymentUnit("OpportunitySharingRules.OpportunityCriteriaBasedSharingRule"));
+    //        duList.add(new DeploymentUnit("OpportunitySharingRules"));
+    //    duList.add(new DeploymentUnit("LeadSharingRules.LeadCriteriaBasedSharingRule"));
+    //    duList.add(new DeploymentUnit("LeadSharingRules.LeadOwnerSharingRule"));
+    //        duList.add(new DeploymentUnit("LeadSharingRules"));
+    // MatchingRules (MatchingRule)
+    //    duList.add(new DeploymentUnit("PostTemplate", true));
+    //    duList.add(new DeploymentUnit("FlexiPage", true));
+    //    duList.add(new DeploymentUnit("SiteDotCom", true));
+    //    duList.add(new DeploymentUnit("XOrgHub", true));
+    //    duList.add(new DeploymentUnit("Scontrol", true));
+    //    duList.add(new DeploymentUnit("ManagedTopics.ManagedTopic"));
+    //    duList.add(new DeploymentUnit("ManagedTopics"));
+    // AccountSettings, SecuritySettings, OpportunitySettings...
     
     return duList;
   }

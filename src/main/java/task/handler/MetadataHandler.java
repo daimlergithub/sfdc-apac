@@ -8,6 +8,7 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -24,7 +25,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.types.LogLevel;
 
-import task.handler.UpdateStampHandler.Action;
 import task.handler.configuration.DeploymentConfiguration;
 import task.handler.configuration.DeploymentUnit;
 import task.model.SfdcExclude;
@@ -39,18 +39,20 @@ import task.model.SfdcTypeSet;
 public class MetadataHandler
 {
 
+  private static final String DESTRUCTIVE_CHANGES_SUBDIRECTORY = "generated";
+  private static final String DESTRUCTIVE_CHANGES_FILE_PREFX = "destructiveChanges-";
+  private static final String PACKAGE_XML_FILE_EXTENSION = ".xml";
+  
   private LogWrapper logWrapper;
   private String metadataRoot;
   private boolean debug;
-  private BaseUpdateHandler<?> updateStampHandler;
 
   @SuppressWarnings("hiding")
-  public void initialize(LogWrapper logWrapper, String metadataRoot, boolean debug, BaseUpdateHandler<?> updateStampHandler)
+  public void initialize(LogWrapper logWrapper, String metadataRoot, boolean debug)
   {
     this.logWrapper = logWrapper;
     this.metadataRoot = metadataRoot;
     this.debug = debug;
-    this.updateStampHandler = updateStampHandler;
     
     validate();
   }
@@ -63,12 +65,9 @@ public class MetadataHandler
     if (null == metadataRoot) {
       throw new BuildException("MetadataHandler (metadataRoot) not properly initialized.");
     }
-    if (null == updateStampHandler) {
-      throw new BuildException("MetadataHandler (updateStampHandler) not properly initialized.");
-    }
   }
 
-  public List<DeploymentInfo> compileDeploymentInfos(List<SfdcTypeSet> typeSets)
+  public List<DeploymentInfo> compileDeploymentInfos(List<SfdcTypeSet> typeSets, ChecksumHandler checksumHandler)
   {
     List<DeploymentUnit> duList = new DeploymentConfiguration().getConfigurations();
 
@@ -76,7 +75,7 @@ public class MetadataHandler
     for (SfdcTypeSet typeSet : typeSets) {
       DeploymentUnit du = findDeploymentUnitBySubDir(duList, typeSet.getName());
 
-      List<File> fileList = compileFileList(du, typeSet);
+      List<File> fileList = compileFileList(du, typeSet, checksumHandler);
       if (fileList.isEmpty()) {
         continue;
       }
@@ -111,7 +110,7 @@ public class MetadataHandler
     throw new BuildException(String.format("Could not find deployment unit for object name %s.", objectName));
   }
 
-  private List<File> compileFileList(DeploymentUnit du, SfdcTypeSet typeSet)
+  private List<File> compileFileList(DeploymentUnit du, SfdcTypeSet typeSet, ChecksumHandler checksumHandler)
   {
     String type = du.getTypeName();
 
@@ -154,7 +153,7 @@ public class MetadataHandler
     // check timestamps
     Set<String> entitiesToUpdate = new HashSet<>();
     for (File file : filteredFileList) {
-      if (updateStampHandler.isUpdateRequired(du, file)) {
+      if (checksumHandler.isUpdateRequired(du, file)) {
         entitiesToUpdate.add(du.getEntityName(file));
       }
     }
@@ -197,8 +196,10 @@ public class MetadataHandler
 
   public byte[] createPackageXml(List<DeploymentInfo> deploymentInfos)
   {
-    try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
-      writeHeader(baos);
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    
+    try {
+      writeHeader(baos, null);
 
       for (DeploymentInfo info : deploymentInfos) {
         DeploymentUnit du = info.getDeploymentUnit();
@@ -208,12 +209,12 @@ public class MetadataHandler
         writeEntity(baos, type, info.getEntityNames());
       }
       writeFooter(baos);
-      
-      return baos.toByteArray();
     }
     catch (IOException e) {
       throw new BuildException(String.format("Error creating package.xml: %s.", e.getMessage()), e);
     }
+    
+    return baos.toByteArray();
   }
   
   public byte[] createPackageXml(Map<String, List<String>> metadata)
@@ -221,7 +222,7 @@ public class MetadataHandler
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     
     try {
-      writeHeader(baos);
+      writeHeader(baos, null);
       
       for (Map.Entry<String, List<String>> entry : metadata.entrySet()) {
         List<String> fullNames = entry.getValue();
@@ -245,7 +246,7 @@ public class MetadataHandler
   public void savePackageXml(byte[] packageXml)
   {
     if (debug) {
-      String fileName = "metadata-" + System.currentTimeMillis() + ".xml";
+      String fileName = "metadata-" + System.currentTimeMillis() + PACKAGE_XML_FILE_EXTENSION;
       
       logWrapper.log(String.format("Save metadata."));
   
@@ -263,107 +264,32 @@ public class MetadataHandler
     }
   }
 
-  private void writeEntity(ByteArrayOutputStream baos, String type, List<String> entityNames)
+  private void writeEntity(OutputStream os, String type, List<String> entityNames)
     throws IOException, UnsupportedEncodingException
   {
-    baos.write("  <types>\n".getBytes("UTF-8"));
+    os.write("  <types>\n".getBytes("UTF-8"));
     for (String entityName : entityNames) {
-      baos.write(("    <members>" + entityName + "</members>\n").getBytes("UTF-8"));
+      os.write(("    <members>" + entityName + "</members>\n").getBytes("UTF-8"));
     }
-    baos.write(("    <name>" + type + "</name>\n").getBytes("UTF-8"));
-    baos.write("  </types>\n".getBytes("UTF-8"));
+    os.write(("    <name>" + type + "</name>\n").getBytes("UTF-8"));
+    os.write("  </types>\n".getBytes("UTF-8"));
   }
 
-  private void writeFooter(ByteArrayOutputStream baos)
+  private void writeFooter(OutputStream os)
     throws IOException, UnsupportedEncodingException
   {
-    baos.write("  <version>32.0</version>\n".getBytes("UTF-8"));
-    baos.write("</Package>\n".getBytes("UTF-8"));
+    os.write("  <version>32.0</version>\n".getBytes("UTF-8"));
+    os.write("</Package>\n".getBytes("UTF-8"));
   }
 
-  private void writeHeader(ByteArrayOutputStream baos)
+  private void writeHeader(OutputStream os, String fullName)
     throws IOException, UnsupportedEncodingException
   {
-    baos.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n".getBytes("UTF-8"));
-    baos.write("<Package xmlns=\"http://soap.sforce.com/2006/04/metadata\">\n".getBytes("UTF-8"));
-    //baos.write("<fullName>cleanup</fullName>".getBytes("UTF-8"));
-  }
-
-  public Map<String, List<String>> collectMetadataToUpdate(Map<String, Action> differences)
-  {
-    Map<String, List<String>> metadata = new HashMap<>();
-    
-    for (Map.Entry<String, UpdateStampHandler.Action> entry : differences.entrySet()) {
-      switch (entry.getValue()) {
-        case ADD:
-        case CHANGE:
-          String key = entry.getKey();
-          String entity = StringUtils.substringBefore(key, "/");
-          List<String> entities = metadata.get(entity);
-          if (null == entities) {
-            entities = new ArrayList<>();
-            metadata.put(entity, entities);
-          }
-          entities.add(StringUtils.substringAfter(key, "/"));
-          break;
-        default:
-          //nothing do to
-      }
+    os.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n".getBytes("UTF-8"));
+    os.write("<Package xmlns=\"http://soap.sforce.com/2006/04/metadata\">\n".getBytes("UTF-8"));
+    if (null != fullName) {
+      os.write(("  <fullName>" + fullName + "</fullName>\n").getBytes("UTF-8"));
     }
-
-    return metadata;
-  }
-
-  public void removeMetadataToDelete(List<SfdcTypeSet> typeSets, Map<String, Action> differences)
-  {
-    Map<String, List<String>> metadata = new HashMap<>();
-    
-    Set<String> objects = collectObjectsFromTypeSets(typeSets);
-    
-    for (Map.Entry<String, UpdateStampHandler.Action> entry : differences.entrySet()) {
-      switch (entry.getValue()) {
-        case DELETE:
-          String key = entry.getKey();
-          String entity = StringUtils.substringBefore(key, "/");
-          List<String> entities = metadata.get(entity);
-          if (null == entities) {
-            entities = new ArrayList<>();
-            metadata.put(entity, entities);
-          }
-          entities.add(StringUtils.substringAfter(key, "/"));
-          break;
-        default:
-          //nothing do to
-      }
-    }
-
-    List<DeploymentUnit> configurations = new DeploymentConfiguration().getConfigurations();
-    
-    // delete files for objects to be considered only
-    for (Map.Entry<String, List<String>> entry : metadata.entrySet()) {
-      String entity = entry.getKey();
-      
-      DeploymentUnit du = findDeploymentUnitByName(configurations, entity, true);
-      if (objects.contains(du.getTypeName())) {
-        File baseDir = new File(metadataRoot);
-        
-        List<File> files = du.getFiles(baseDir);
-        
-        Collections.reverse(files);
-        
-        Set<String> entities = new HashSet<>(entry.getValue());
-        for (File file : files) {
-          String entityName = du.getEntityName(file);
-          if (entities.contains(entityName)) {
-            logWrapper.log(String.format("Delete file %s for entity %s.", file.getName(), entityName));
-            if (!file.delete()) {
-              throw new BuildException(String.format("File %s of type %s could not be deleted.", file.getName(), entity));
-            }
-          }
-        }
-      }
-    }
-    
   }
 
   private Set<String> collectObjectsFromTypeSets(List<SfdcTypeSet> typeSets)
@@ -502,10 +428,27 @@ public class MetadataHandler
     return false;
   }
 
-  public void createDestructivePackageXml(Map<String, Action> differences)
+  public void createDestructivePackageXml(Map<String, List<String>> destructiveChanges)
   {
-    // TODO implement
+    File generatedDir = new File(metadataRoot, DESTRUCTIVE_CHANGES_SUBDIRECTORY);
+    generatedDir.mkdirs();
     
+    if (!destructiveChanges.isEmpty()) {
+      File file = new File(generatedDir, DESTRUCTIVE_CHANGES_FILE_PREFX + System.currentTimeMillis() + PACKAGE_XML_FILE_EXTENSION);
+      
+      logWrapper.log(String.format("Create %s.", file.getName()));
+      
+      try (FileOutputStream fos = new FileOutputStream(file)) {
+        writeHeader(fos, "cleanup");
+        for (Map.Entry<String, List<String>> entry : destructiveChanges.entrySet()) {
+          writeEntity(fos, entry.getKey(), entry.getValue());
+        }
+        writeFooter(fos);
+      }
+      catch (IOException e) {
+        throw new BuildException(String.format("Error creating destructive changes xml: %s.", e.getMessage()), e);
+      }
+    }
   }
 
   public void validateTypeSetsByName(List<SfdcTypeSet> typeSets)
@@ -515,6 +458,45 @@ public class MetadataHandler
     for (SfdcTypeSet typeSet : typeSets) {
       findDeploymentUnitByName(configurations, typeSet.getName(), true);
     }
+  }
+
+  /**
+   * Returns a map containing all destructive changes files.
+   * @return A map of ID to file mappings.
+   */
+  public Map<String, File> collectDestructiveFiles()
+  {
+    Map<String, File> destructiveFiles = new HashMap<>();
+    
+    File generatedDir = new File(metadataRoot, DESTRUCTIVE_CHANGES_SUBDIRECTORY);
+    if (generatedDir.exists()) {
+      
+      File[] files = generatedDir.listFiles(new FileFilter() {
+        
+        @Override
+        public boolean accept(File pathname)
+        {
+          if (pathname.isFile()) {
+            String name = pathname.getName();
+            return name.startsWith(DESTRUCTIVE_CHANGES_FILE_PREFX) && name.endsWith(PACKAGE_XML_FILE_EXTENSION);
+          }
+         return false;
+        }
+      });
+      
+      if (null != files) {
+        for (File file : files) {
+          String name = file.getName();
+          
+          String id = StringUtils.removeStart(name, DESTRUCTIVE_CHANGES_FILE_PREFX);
+          id = StringUtils.removeEnd(id, PACKAGE_XML_FILE_EXTENSION);
+          
+          destructiveFiles.put(id, file);
+        }
+      }
+    }
+    
+    return destructiveFiles;
   }
   
 }

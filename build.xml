@@ -1,5 +1,7 @@
 <project name="Sample usage of Salesforce Ant tasks" basedir="." xmlns:sf="antlib:task" xmlns:unless="ant:unless" default="deploy">
 
+	<property name="file.checksums.local" value="timestamps-updated.log"/> 
+	
     <property prefix="sfdc" file="build.properties"/>
 	
 	<property name="typesets">
@@ -14,7 +16,7 @@
 				debug="${sfdc.debug}" dryRun="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"
-				transformationsRoot="src/main/transformations" checksums="timestamps-updated.log"/>
+				transformationsRoot="src/main/transformations" checksums="${file.checksums.local}"/>
 	</presetdef>
 	
 	<presetdef name="loadData">
@@ -22,11 +24,11 @@
 				debug="${sfdc.debug}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}"
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
-				dataRoot="src/main/resources/data" logDir="logs" timestamps="timestamps-data.log"/>
+				dataRoot="src/main/resources/data" logDir="logs"/>
 	</presetdef>
 	
 	<target name="deployAll">
-		<delete file="timestamps-updated.log" quiet="true"/>
+		<delete file="${file.checksums.local}" quiet="true"/>
 		<antcall target="deploy">
 			<param name="skip-checksum-retrieval" value="true"/>
 		</antcall>
@@ -35,23 +37,28 @@
 	<target name="retrieveChecksums" unless="skip-checksum-retrieval">
 		<sf:retrieveChecksums sfdcName="${sfdc.checksums}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
 	</target>
 	
-	<target name="deploy" depends="retrieveChecksums, destructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy32, deploy35, deploy40">
+	<target name="deploy" depends="retrieveChecksums, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy32, deploy35, deploy40, destructiveChanges">
 		<sf:deployChecksums sfdcName="${sfdc.checksums}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
 	</target>
 	
+	<!-- work in progress -->
 	<target name="dc">
 		<sf:deployChecksums sfdcName="${sfdc.checksums}"
 						username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-						useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="timestamps-updated.log"/>
+						useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
 	</target>
 	
 	<target name="destructiveChanges">
-		<!-- TODO -->
+		<sf:deployDestructiveChanges
+				debug="${sfdc.debug}" dryRun="false"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
+				deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
 	</target>
 	
 	<target name="deploy01">
@@ -286,7 +293,7 @@
 				debug="${sfdc.debug}" dryRun="false" cleanupOther="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
-				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations" timestamps="dummy">
+				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations">
 			<sf:typesets names="${typesets.circle}"/>
 			<sf:feature name="exclude-checksums" param="Checksums"/>
 			<sf:feature name="include-personaccount"/>
@@ -301,17 +308,6 @@
 			<sf:typesets names="${typesets.not-ready}"/>
 			<sf:feature name="include-personaccount"/>
 		</sf:retrieve-->
-	</target>
-	
-	<!-- Work in Progress -->
-	<target name="retrieveUpdatestamps">
-		<fail message="DEPRECATED!"/>
-		
-		<sf:retrieveUpdatestamps
-				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" fileName="timestamps-target.log">
-			<sf:typesets names="${typesets}"/>
-		</sf:retrieveUpdatestamps>
 	</target>
 	
 </project>

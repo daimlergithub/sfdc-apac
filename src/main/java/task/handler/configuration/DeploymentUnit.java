@@ -39,6 +39,10 @@ public class DeploymentUnit {
   public DeploymentUnit(Class<? extends Metadata> type) {
     this(type, StringUtils.uncapitalize(type.getSimpleName()), StringUtils.uncapitalize(type.getSimpleName()));
   }
+  
+  public DeploymentUnit(Class<? extends Metadata> type, List<Class<? extends Metadata>> children) {
+    this(type, children, StringUtils.uncapitalize(type.getSimpleName()), StringUtils.uncapitalize(type.getSimpleName()));
+  }
 
   public String getTypeName()
   {

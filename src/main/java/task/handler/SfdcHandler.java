@@ -22,7 +22,6 @@ import org.apache.tools.ant.BuildListener;
 import org.apache.tools.ant.Task;
 import org.apache.tools.ant.types.LogLevel;
 
-import task.handler.configuration.DeploymentUnit;
 import task.model.SfdcFeature;
 import task.model.SfdcFeature.FeatureName;
 import task.model.SfdcTypeSet;
@@ -132,7 +131,6 @@ public class SfdcHandler
   private boolean useProxy;
   private String proxyHost;
   private int proxyPort;
-  private BaseUpdateHandler<?> updateHandler;
   private Map<String, SfdcFeature> features;
 
   public SfdcHandler()
@@ -157,7 +155,6 @@ public class SfdcHandler
                          boolean useProxy,
                          String proxyHost,
                          int proxyPort,
-                         BaseUpdateHandler<?> updateStampHandler,
                          Map<String, SfdcFeature> features)
   {
     this.task = task;
@@ -169,7 +166,6 @@ public class SfdcHandler
     this.useProxy = useProxy;
     this.proxyHost = proxyHost;
     this.proxyPort = proxyPort;
-    this.updateHandler = updateStampHandler;
     this.features = (null != features) ? features : new HashMap<String, SfdcFeature>();
 
     validate();
@@ -188,17 +184,38 @@ public class SfdcHandler
 
   private void validate()
   {
-    if (null == task || null == updateHandler || null == serverurl || null == username || null == password) {
+    if (null == task || null == serverurl || null == username || null == password) {
       throw new BuildException("SfdcHandler is not properly initialized.");
     }
   }
 
-  public boolean deployTypes(ByteArrayOutputStream zipFile, List<DeploymentInfo> infos)
+  /**
+   * This method does the actual deployment of the given ZIP file.
+   * 
+   * @param zipFile The ZIP file to deploy.
+   * @param infos The list of deployment infos being deployed. Will be used for logging purposes only.
+   */
+  public void deployTypes(ByteArrayOutputStream zipFile, List<DeploymentInfo> infos)
   {
-    boolean result = false;
-
+    List<String> types = new ArrayList<>();
+    for (DeploymentInfo info : infos) {
+      types.add(info.getDeploymentUnit().getTypeName());
+    }
+    String typeNames = StringUtils.join(types, ",");
+    
+    deploy(zipFile, typeNames);
+  }
+    
+  /**
+   * This method does the actual deployment of the given ZIP file.
+   * 
+   * @param zipFile The ZIP file to deploy.
+   * @param logInfo The info which will be shown in case of success or error as part of the message what has been deployed.
+   */
+  public void deploy(ByteArrayOutputStream zipFile, String logInfo)
+  { 
     if (dryRun) {
-      return false;
+      return;
     }
 
     try {
@@ -232,14 +249,7 @@ public class SfdcHandler
 
       if (status.isDone()) {
         if (status.isSuccess()) {
-          for (DeploymentInfo info : infos) {
-            DeploymentUnit du = info.getDeploymentUnit();
-
-            task.log(String.format("Deployment of %s and %s successful.",
-                                   du.getTypeName(),
-                                   Arrays.toString(info.getEntityNames().toArray(new String[0]))));
-          }
-          updateHandler.updateTimestamp(infos);
+          task.log(String.format("Deployment of %s successful.", logInfo));
         }
         else {
           task.log(String.format("Error %s: %s.",
@@ -248,17 +258,11 @@ public class SfdcHandler
                                                                     : "<null>",
                                  status.getErrorMessage()), LogLevel.ERR.getLevel());
 
-          List<String> types = new ArrayList<>();
-          for (DeploymentInfo info : infos) {
-            types.add(info.getDeploymentUnit().getTypeName());
-          }
-
-          throw new BuildException(String.format("Deployment of %s not successful.",
-                                                 Arrays.toString(types.toArray(new String[0]))));
+          throw new BuildException(String.format("Deployment of %s not successful.", logInfo));
         }
+      } else {
+        throw new BuildException(String.format("Deployment of %s not successful.", logInfo));
       }
-
-      return result;
     }
     catch (ConnectionException e) {
       throw new BuildException(String.format("Error connecting to SFDC: %s.", e.getMessage()), e);
@@ -708,5 +712,19 @@ public class SfdcHandler
     catch (IOException | ConnectionException e) {
       throw new BuildException(String.format("Error retrieving checksums from SFDC: %s.", e.getMessage()), e);
     }
+  }
+
+  public Map<String, List<String>> buildEntityList(Map<String, Map<String, Long>> metadataUpdatestamps)
+  {
+    Map<String, List<String>> result = new HashMap<>();
+    
+    for (Map.Entry<String, Map<String, Long>> entry : metadataUpdatestamps.entrySet()) {
+      List<String> entries = new ArrayList<>();
+      for (Map.Entry<String, Long> entityEntry : entry.getValue().entrySet()) {
+        entries.add(entityEntry.getKey());
+      }
+      result.put(entry.getKey(), entries);
+    }
+    return result;
   }
 }
