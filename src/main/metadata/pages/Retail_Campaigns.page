@@ -1,3 +1,3 @@
-<apex:page tabStyle="Retail_Campaign__c" action="{!URLfor('/a1j?isdtp=it')}">
+<apex:page tabStyle="Retail_Campaign__c" action="{!URLfor('/OBJECT_RETAIL_CAMPAIGN_WEBLINK_OBJECT_KEYPREFIX?isdtp=it')}">
   <h1>Retail Campaign</h1>
 </apex:page>

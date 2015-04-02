@@ -9253,7 +9253,7 @@ var qr2 = sforce.connection.query("Select id From recordtype where Name= '"+ ret
 var qr4 = sforce.connection.query("select Name from Account where id = '"+ qr3.records.AccountId+"'") ; 
 
 var FromPickListField = "{!Campaign.Car_Model__c}"; 
-var ToPickListFieldName ="00N9000000BhOxf"; 
+var ToPickListFieldName ="OBJECT_RETAIL_CAMPAIGN_WEBLINK_CAR_MODEL_FIELD_ID"; 
 var pairs = FromPickListField.split(";"); 
 
 var Fields = "" 
@@ -9262,17 +9262,17 @@ var ThisValue = pairs[i] ;
 Fields = Fields + ToPickListFieldName+ "=" + ThisValue + "&amp;";
  } 
 
-var navigateToUrl = "/a1j/e?CF00N9000000BhOyY={!Campaign.Name}&amp;CF00N9000000BhOyY_lkid={!Campaign.Id}&amp;CF00N9000000BhOxi="+qr4.records.Name+"&amp;CF00N9000000BhOxi_lkid="+qr3.records.AccountId+"&amp;RecordType="+qr2.records.Id+"&amp;ent=Retail_Campaign__c&amp;Name={!Campaign.Name}&amp;00N9000000BhOxZ={!Campaign.Brand__c}"+"&amp;"+Fields+"&amp;00N9000000BhOyS={!Campaign.Plan_Start_Date__c}&amp;00N9000000BhOyJ={!Campaign.Plan_End_Date__c}"
+var navigateToUrl = "/OBJECT_RETAIL_CAMPAIGN_WEBLINK_OBJECT_KEYPREFIX/e?OBJECT_RETAIL_CAMPAIGN_WEBLINK_RELEVANT_CENTRAL_CAMPAIGN_FIELD_ID={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_RELEVANT_CENTRAL_CAMPAIGN_FIELD_LKID={!Campaign.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DEALER_NAME_FIELD_ID="+qr4.records.Name+"&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DEALER_NAME_FIELD_LKID="+qr3.records.AccountId+"&amp;RecordType="+qr2.records.Id+"&amp;ent=Retail_Campaign__c&amp;Name={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID={!Campaign.Brand__c}"+"&amp;"+Fields+"&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PLAN_START_DATE_FIELD_ID={!Campaign.Plan_Start_Date__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PLAN_END_DATE_FIELD_ID={!Campaign.Plan_End_Date__c}"
 switch (retailCampaignRecordTypeName)
 {
 case 'AS Retail Campaign':
-  navigateToUrl = navigateToUrl+"&amp;00N9000000BhOyF={!Campaign.Min_Car_Age__c}&amp;00N9000000BhOyC={!Campaign.Max_Car_Age__c}&amp;00N9000000BhOxe={!Campaign.Campaign_Type__c}";
+  navigateToUrl = navigateToUrl+"&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_MIN_CAR_AGE_FIELD_ID={!Campaign.Min_Car_Age__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_MAX_CAR_AGE_FIELD_ID={!Campaign.Max_Car_Age__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CAMPAIGN_TYPE_FIELD_ID={!Campaign.Campaign_Type__c}";
   break;
 case 'S&amp;M Event Retail Campaign':
-  navigateToUrl = navigateToUrl + "&amp;00N9000000BhOxm=Joint&amp;00N9000000BhOxn={!Campaign.Event_Type__c}&amp;00N9000000BhOxa={!Campaign.CBU_PbP__c}";
+  navigateToUrl = navigateToUrl + "&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DRIVEN_FIELD_ID=Joint&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_EVENT_TYPE_FIELD_ID={!Campaign.Event_Type__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CUB_PBP_FIELD_ID={!Campaign.CBU_PbP__c}";
   break;
 case 'S&amp;M Media Retail Campaign':
-  navigateToUrl = navigateToUrl + "&amp;00N9000000BhOxm=Joint&amp;00N9000000BhOyE={!Campaign.Media_Type__c}&amp;00N9000000BhOxa={!Campaign.CBU_PbP__c}";
+  navigateToUrl = navigateToUrl + "&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DRIVEN_FIELD_ID=Joint&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_MEDIA_TYPE_FIELD_ID={!Campaign.Media_Type__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_CUB_PBP_FIELD_ID={!Campaign.CBU_PbP__c}";
   break;
 }
 window.parent.navigateToUrl(navigateToUrl);
