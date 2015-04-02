@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -369,7 +369,7 @@
     <fields>
         <fullName>CARR__c</fullName>
         <externalId>false</externalId>
-        <inlineHelpText>Give quick response to customer needs, without pauses for a long time, or even customers reminded to respond to clients &apos; profiles.</inlineHelpText>
+        <inlineHelpText>Give quick response to customer needs, without pauses for a long time, or even customers reminded to respond to clients ' profiles.</inlineHelpText>
         <label>Communicate Ability - Rapid Response</label>
         <picklist>
             <picklistValues>
@@ -527,10 +527,10 @@
         <fullName>CITQ__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>SSI:
-1. Do not mislead clients, actively verifying the customer&apos;s needs.
-2. When the customer says to the topic when you don&apos;t understand, be prepared to explain the meaning.
+1. Do not mislead clients, actively verifying the customer's needs.
+2. When the customer says to the topic when you don't understand, be prepared to explain the meaning.
 Breathe out:
-Do not mislead clients, actively verifying the customer&apos;s needs.</inlineHelpText>
+Do not mislead clients, actively verifying the customer's needs.</inlineHelpText>
         <label>Correctly Interpret The Questionnaire</label>
         <picklist>
             <picklistValues>
@@ -1732,9 +1732,9 @@ Customer hung up the phone and then hang up.</inlineHelpText>
     </fields>
     <fields>
         <fullName>Qualified__c</fullName>
-        <description>If all the Fatal score equal to &apos;High&apos;or &apos;Medium&apos; ， system will update Qualified to be &apos;Pass&apos;.
-Otherwise system will update Qualified to be &apos;Fail&apos;.
-Fatal score refers to &apos;SSI Quality standards and algorithms 2&apos;.</description>
+        <description>If all the Fatal score equal to 'High'or 'Medium' ， system will update Qualified to be 'Pass'.
+Otherwise system will update Qualified to be 'Fail'.
+Fatal score refers to 'SSI Quality standards and algorithms 2'.</description>
         <externalId>false</externalId>
         <label>Qualified</label>
         <picklist>
@@ -1755,7 +1755,7 @@ Fatal score refers to &apos;SSI Quality standards and algorithms 2&apos;.</descr
     <fields>
         <fullName>R_Communicate_Ability_Initiative_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CAI__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(CAI__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Communicate Ability - Initiative P/F S1</label>
         <required>false</required>
@@ -1767,7 +1767,7 @@ Fatal score refers to &apos;SSI Quality standards and algorithms 2&apos;.</descr
     <fields>
         <fullName>R_Communicate_Ability_Initiative_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CAI__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(CAI__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Communicate Ability - Initiative P/F S2</label>
         <required>false</required>
@@ -1779,7 +1779,7 @@ Fatal score refers to &apos;SSI Quality standards and algorithms 2&apos;.</descr
     <fields>
         <fullName>R_Communicate_Ability_Listening_A_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CALA__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(CALA__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Communicate Ability - Listening A P/F S1</label>
         <required>false</required>
@@ -1791,7 +1791,7 @@ Fatal score refers to &apos;SSI Quality standards and algorithms 2&apos;.</descr
     <fields>
         <fullName>R_Communicate_Ability_Listening_A_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CALA__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(CALA__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Communicate Ability - Listening A P/F S2</label>
         <required>false</required>
@@ -1803,7 +1803,7 @@ Fatal score refers to &apos;SSI Quality standards and algorithms 2&apos;.</descr
     <fields>
         <fullName>R_Communicate_Ability_Rapid_Resp_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CARR__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(CARR__c, "High"),'Pass','Fail')</formula>
         <label>Communicate Ability - Rapid Resp P/F S1</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1814,7 +1814,7 @@ Fatal score refers to &apos;SSI Quality standards and algorithms 2&apos;.</descr
     <fields>
         <fullName>R_Communicate_Ability_Rapid_Resp_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CARR__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(CARR__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Communicate Ability - Rapid Resp P/F S2</label>
         <required>false</required>
@@ -1826,7 +1826,7 @@ Fatal score refers to &apos;SSI Quality standards and algorithms 2&apos;.</descr
     <fields>
         <fullName>R_Correctly_Interpret_The_Q_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CITQ__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(CITQ__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Correctly Interpret The Q. P/F S1</label>
         <required>false</required>
@@ -1838,7 +1838,7 @@ Fatal score refers to &apos;SSI Quality standards and algorithms 2&apos;.</descr
     <fields>
         <fullName>R_Correctly_Interpret_The_Q_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(CITQ__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(CITQ__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Correctly Interpret The Q. P/F S2</label>
         <required>false</required>
@@ -1850,14 +1850,14 @@ Fatal score refers to &apos;SSI Quality standards and algorithms 2&apos;.</descr
     <fields>
         <fullName>R_Crit_Error_Amt_IB__c</fullName>
         <externalId>false</externalId>
-        <formula>if (ISPICKVAL( DA__c , &apos;Fail&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( FTOP__c , &apos;Fail&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(   CCCR__c  , &apos;Fail&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(    PACI__c , &apos;Fail&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(  CCI__c , &apos;Fail&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(  PFOCF__c , &apos;Fail&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( PPD__c   , &apos;Fail&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(  PJ__c , &apos;Fail&apos;)  ==TRUE,1,0)</formula>
+        <formula>if (ISPICKVAL( DA__c , 'Fail')  ==TRUE,1,0)+
+if (ISPICKVAL( FTOP__c , 'Fail')  ==TRUE,1,0)+
+if (ISPICKVAL(   CCCR__c  , 'Fail')  ==TRUE,1,0)+
+if (ISPICKVAL(    PACI__c , 'Fail')  ==TRUE,1,0)+
+if (ISPICKVAL(  CCI__c , 'Fail')  ==TRUE,1,0)+
+if (ISPICKVAL(  PFOCF__c , 'Fail')  ==TRUE,1,0)+
+if (ISPICKVAL( PPD__c   , 'Fail')  ==TRUE,1,0)+
+if (ISPICKVAL(  PJ__c , 'Fail')  ==TRUE,1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Critical Error Amount IB</label>
         <precision>18</precision>
@@ -1871,12 +1871,12 @@ if (ISPICKVAL(  PJ__c , &apos;Fail&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Crit_Error_Amt_OB__c</fullName>
         <externalId>false</externalId>
-        <formula>if (ISPICKVAL( PACI__c , &apos;Fail&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( DA__c , &apos;Fail&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(  FTOP__c  , &apos;Fail&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(  PFOCF__c , &apos;Fail&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( PPD__c   , &apos;Fail&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(  PJ__c , &apos;Fail&apos;)  ==TRUE,1,0)</formula>
+        <formula>if (ISPICKVAL( PACI__c , 'Fail')  ==TRUE,1,0)+
+if (ISPICKVAL( DA__c , 'Fail')  ==TRUE,1,0)+
+if (ISPICKVAL(  FTOP__c  , 'Fail')  ==TRUE,1,0)+
+if (ISPICKVAL(  PFOCF__c , 'Fail')  ==TRUE,1,0)+
+if (ISPICKVAL( PPD__c   , 'Fail')  ==TRUE,1,0)+
+if (ISPICKVAL(  PJ__c , 'Fail')  ==TRUE,1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Critical Error Amount OB</label>
         <precision>18</precision>
@@ -1890,11 +1890,11 @@ if (ISPICKVAL(  PJ__c , &apos;Fail&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Critical_Error_Amount_SSI__c</fullName>
         <externalId>false</externalId>
-        <formula>if (ISPICKVAL( DA__c , &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( FTOP__c , &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( FQL__c  , &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(  PFOCF__c , &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
+        <formula>if (ISPICKVAL( DA__c , 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL( FTOP__c , 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL( FQL__c  , 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL(  PFOCF__c , 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL( PPD__c   , 'Low')  ==TRUE,1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Critical Error Amount SSI</label>
         <precision>18</precision>
@@ -1908,7 +1908,7 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_DocumentAccuracyNO__c</fullName>
         <externalId>false</externalId>
-        <formula>if(ISPICKVAL( DA__c , &apos;Pass&apos;),1,0)</formula>
+        <formula>if(ISPICKVAL( DA__c , 'Pass'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Document Accuracy Pass</label>
         <precision>18</precision>
@@ -1922,7 +1922,7 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Document_Accuracy_FP_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(DA__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(DA__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Document Accuracy F/P S2</label>
         <required>false</required>
@@ -1934,7 +1934,7 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Document_Accuracy_F_P_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(DA__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(DA__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Document Accuracy F/P S1</label>
         <required>false</required>
@@ -1946,7 +1946,7 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Document_Accuracy_Pass_SSI__c</fullName>
         <externalId>false</externalId>
-        <formula>if(ISPICKVAL( DA__c , &apos;Low&apos;),0,1)</formula>
+        <formula>if(ISPICKVAL( DA__c , 'Low'),0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Document Accuracy Pass SSI</label>
         <precision>18</precision>
@@ -1960,7 +1960,7 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Familiar_smart_Knowledge_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FMSK__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(FMSK__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Familiar Smart/Knowledge P/F S1</label>
         <required>false</required>
@@ -1972,7 +1972,7 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Familiar_smart_Knowledge_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FMSK__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(FMSK__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Familiar Smart/Knowledge P/F S2</label>
         <required>false</required>
@@ -1984,7 +1984,7 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Follow_The_Operation_Process_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FTOP__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(FTOP__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Follow The Operation Process P/F S1</label>
         <required>false</required>
@@ -1996,7 +1996,7 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Follow_The_Operation_Process_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FTOP__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(FTOP__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Follow The Operation Process P/F S2</label>
         <required>false</required>
@@ -2008,7 +2008,7 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Following_Questionnaire_Logic_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FQL__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(FQL__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Following Questionnaire Logic P/F S1</label>
         <required>false</required>
@@ -2020,7 +2020,7 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Following_Questionnaire_Logic_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(FQL__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(FQL__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Following Questionnaire Logic P/F S2</label>
         <required>false</required>
@@ -2032,7 +2032,7 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Has_CSR_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>if(CSR_Name__c &lt;&gt;&apos;&apos;,1,0)</formula>
+        <formula>if(CSR_Name__c &lt;&gt;'',1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Has CSR Name</label>
         <precision>18</precision>
@@ -2046,19 +2046,19 @@ if (ISPICKVAL( PPD__c   , &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Non_Critical_Error_Amount_SSI__c</fullName>
         <externalId>false</externalId>
-        <formula>if (ISPICKVAL( PACI__c, &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(CITQ__c , &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(FMSK__c   , &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(  SO__c  , &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(PPIS__c  , &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( SPL__c , &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL( SSL__c, &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(SC__c  , &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(CALA__c, &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(CAI__c, &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(CARR__c, &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(PJ__c, &apos;Low&apos;)  ==TRUE,1,0)+
-if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
+        <formula>if (ISPICKVAL( PACI__c, 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL(CITQ__c , 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL(FMSK__c   , 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL(  SO__c  , 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL(PPIS__c  , 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL( SPL__c , 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL( SSL__c, 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL(SC__c  , 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL(CALA__c, 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL(CAI__c, 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL(CARR__c, 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL(PJ__c, 'Low')  ==TRUE,1,0)+
+if (ISPICKVAL(PS__c, 'Low')  ==TRUE,1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Non Critical Error Amount SSI</label>
         <precision>18</precision>
@@ -2072,7 +2072,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_Focus_On_Customer_F_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PFOCF__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(PFOCF__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - Focus On Customer F P/F S1</label>
         <required>false</required>
@@ -2084,7 +2084,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_Focus_On_Customer_F_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PFOCF__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(PFOCF__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - Focus On Customer F P/F S2</label>
         <required>false</required>
@@ -2096,7 +2096,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_Hang_Up_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PHU__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(PHU__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - Hang Up P/F S1</label>
         <required>false</required>
@@ -2108,7 +2108,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_Hang_Up_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PS__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(PS__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - Hang Up P/F S2</label>
         <required>false</required>
@@ -2120,7 +2120,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_JinYongYu_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PJ__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(PJ__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - JinYongYu P/F S1</label>
         <required>false</required>
@@ -2132,7 +2132,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_JinYongYu_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PJ__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(PJ__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - JinYongYu P/F S2</label>
         <required>false</required>
@@ -2144,7 +2144,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_Patience_Degree_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PPD__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(PPD__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - Patience Degree P/F S1</label>
         <required>false</required>
@@ -2156,7 +2156,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Perception_Patience_Degree_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PPD__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(PPD__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Perception - Patience Degree P/F S2</label>
         <required>false</required>
@@ -2168,7 +2168,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Proper_Pronunciation_Intonation_S_P_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PPIS__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(PPIS__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Proper Pronunciation&amp;Intonation&amp;S P/F S1</label>
         <required>false</required>
@@ -2180,7 +2180,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Proper_Pronunciation_Intonation_S_P_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PPIS__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(PPIS__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Proper Pronunciation&amp;Intonation&amp;S P/F S2</label>
         <required>false</required>
@@ -2192,7 +2192,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Provide_Accurate_Complete_Info_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PACI__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(PACI__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Provide Accurate&amp;Complete Info P/F S1</label>
         <required>false</required>
@@ -2204,7 +2204,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Provide_Accurate_Complete_Info_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(PACI__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(PACI__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Provide Accurate&amp;Complete Info P/F S2</label>
         <required>false</required>
@@ -2216,7 +2216,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Specification_Polite_Language_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SPL__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(SPL__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Specification - Polite Language P/F S1</label>
         <required>false</required>
@@ -2228,7 +2228,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Specification_Polite_Language_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SPL__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(SPL__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Specification - Polite Language P/F S2</label>
         <required>false</required>
@@ -2240,7 +2240,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Specification_Spoken_Language_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SSL__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(SSL__c, "High"),'Pass','Fail')</formula>
         <label>Specification - Spoken Language P/F S1</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2251,7 +2251,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Specification_Spoken_Language_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SSL__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(SSL__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Specification - Spoken Language P/F S2</label>
         <required>false</required>
@@ -2263,7 +2263,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Standard_Conclusion_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SC__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(SC__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Standard Conclusion P/F S1</label>
         <required>false</required>
@@ -2275,7 +2275,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Standard_Conclusion_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SC__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(SC__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Standard Conclusion P/F S2</label>
         <required>false</required>
@@ -2287,7 +2287,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Standard_Opening_P_F_S1__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SO__c, &quot;High&quot;),&apos;Pass&apos;,&apos;Fail&apos;)</formula>
+        <formula>IF(ISPICKVAL(SO__c, "High"),'Pass','Fail')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Standard Opening P/F S1</label>
         <required>false</required>
@@ -2299,7 +2299,7 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_Standard_Opening_P_F_S2__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(SO__c, &quot;Low&quot;),&apos;Fail&apos;,&apos;Pass&apos;)</formula>
+        <formula>IF(ISPICKVAL(SO__c, "Low"),'Fail','Pass')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Standard Opening P/F S2</label>
         <required>false</required>
@@ -2324,17 +2324,17 @@ if (ISPICKVAL(PS__c, &apos;Low&apos;)  ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_non_Crit_Error_Amt_IB__c</fullName>
         <externalId>false</externalId>
-        <formula>if (ISPICKVAL(  FMSK__c , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL(  Responsibility__c  , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL(  SO__c , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL( PPIS__c   , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL( SPL__c  , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL( SSL__c  , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL( SC__c  , &apos;Fail&apos;) ==TRUE,1,0)+
-if (ISPICKVAL( CALA__c  , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL(  CAI__c , &apos;Fail&apos;) ==TRUE,1,0)+
-if (ISPICKVAL( CARR__c  , &apos;Fail&apos;) ==TRUE,1,0)+
-if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
+        <formula>if (ISPICKVAL(  FMSK__c , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL(  Responsibility__c  , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL(  SO__c , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL( PPIS__c   , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL( SPL__c  , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL( SSL__c  , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL( SC__c  , 'Fail') ==TRUE,1,0)+
+if (ISPICKVAL( CALA__c  , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL(  CAI__c , 'Fail') ==TRUE,1,0)+
+if (ISPICKVAL( CARR__c  , 'Fail') ==TRUE,1,0)+
+if (ISPICKVAL( PS__c  , 'Fail') ==TRUE,1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Non Critical Error Amount IB</label>
         <precision>18</precision>
@@ -2348,19 +2348,19 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>R_non_Crit_Error_Amt_OB__c</fullName>
         <externalId>false</externalId>
-        <formula>if (ISPICKVAL(  CITQ__c , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL(   FMSK__c , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL(   FQL__c  , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL( SO__c  , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL( PPIS__c  , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL( SPL__c  , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL( SSL__c  , &apos;Fail&apos;) ==TRUE,1,0)+
-if (ISPICKVAL( SC__c  , &apos;Fail&apos;) ==TRUE,1,0)+ 
-if (ISPICKVAL(  CALA__c , &apos;Fail&apos;) ==TRUE,1,0)+
-if (ISPICKVAL( CAI__c  , &apos;Fail&apos;) ==TRUE,1,0)+
-if (ISPICKVAL( CARR__c  , &apos;Fail&apos;) ==TRUE,1,0)+
-if (ISPICKVAL( PHU__c  , &apos;Fail&apos;) ==TRUE,1,0)+
-if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
+        <formula>if (ISPICKVAL(  CITQ__c , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL(   FMSK__c , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL(   FQL__c  , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL( SO__c  , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL( PPIS__c  , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL( SPL__c  , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL( SSL__c  , 'Fail') ==TRUE,1,0)+
+if (ISPICKVAL( SC__c  , 'Fail') ==TRUE,1,0)+ 
+if (ISPICKVAL(  CALA__c , 'Fail') ==TRUE,1,0)+
+if (ISPICKVAL( CAI__c  , 'Fail') ==TRUE,1,0)+
+if (ISPICKVAL( CARR__c  , 'Fail') ==TRUE,1,0)+
+if (ISPICKVAL( PHU__c  , 'Fail') ==TRUE,1,0)+
+if (ISPICKVAL( PS__c  , 'Fail') ==TRUE,1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Non Critical Error Amount OB</label>
         <precision>18</precision>
@@ -2603,7 +2603,7 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
         <fullName>SSL__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>1.Fluency in the call, no spoken language, dialect and other unprofessional language;
-2.No &quot;Yes, Yes, of course, that&apos;s it, Oh, Oh,&quot; or unnecessary, such as &quot;this ... The ... Hmm ...&quot; spoken language and dialects；</inlineHelpText>
+2.No "Yes, Yes, of course, that's it, Oh, Oh," or unnecessary, such as "this ... The ... Hmm ..." spoken language and dialects；</inlineHelpText>
         <label>Specification - Spoken Language</label>
         <picklist>
             <picklistValues>
@@ -2774,7 +2774,7 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>TaskLink__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK(&quot;/&quot;+ Task_ID__c , &quot;View Task&quot;)</formula>
+        <formula>HYPERLINK("/"+ Task_ID__c , "View Task")</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Task Link</label>
         <required>false</required>
@@ -2843,21 +2843,21 @@ if (ISPICKVAL( PS__c  , &apos;Fail&apos;) ==TRUE,1,0)</formula>
     <fields>
         <fullName>TotalScore__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status__c , &apos;Cancel&apos;),
+        <formula>IF(ISPICKVAL(Status__c , 'Cancel'),
 0,
 MAX(
-    100 - CASE(TEXT(ClarificationCustomerDemand__c), &apos;Non-fatal&apos;, 5, &apos;Fatal&apos;, 15, 0)
-    - CASE(TEXT(CustomerPerception__c), &apos;Non-fatal&apos;, 5, &apos;Fatal&apos;, 15, 0)
-    - CASE(TEXT(Document__c), &apos;Non-fatal&apos;, 5, &apos;Fatal&apos;, 15, 0)
-    - CASE(TEXT(FollowTheOperationProcess__c), &apos;Non-fatal&apos;, 5, &apos;Fatal&apos;, 15, 0)
-    - CASE(TEXT(LogicInterpretation__c), &apos;Non-fatal&apos;, 5, &apos;Fatal&apos;, 15, 0)
-    - CASE(TEXT(OfflinePrompt__c), &apos;Non-fatal&apos;, 5, &apos;Fatal&apos;, 15, 0)
-    - CASE(TEXT(ProperPronunciation__c), &apos;Non-fatal&apos;, 5, &apos;Fatal&apos;, 15, 0)
-    - CASE(TEXT(ProvideTheRightSolution__c), &apos;Non-fatal&apos;, 5, &apos;Fatal&apos;, 15, 0)
-    - CASE(TEXT(SoftSkill__c), &apos;Non-fatal&apos;, 5, &apos;Fatal&apos;, 15, 0)
-    - CASE(TEXT(SpecificationLanguage__c), &apos;Non-fatal&apos;, 5, &apos;Fatal&apos;, 15, 0)
-    - CASE(TEXT(TheStandardOpeningClosing__c), &apos;Non-fatal&apos;, 5, &apos;Fatal&apos;, 15, 0)
-    - CASE(TEXT(ADeadlyMistake__c), &apos;Non-fatal&apos;, 100, &apos;Fatal&apos;, 100, 0),
+    100 - CASE(TEXT(ClarificationCustomerDemand__c), 'Non-fatal', 5, 'Fatal', 15, 0)
+    - CASE(TEXT(CustomerPerception__c), 'Non-fatal', 5, 'Fatal', 15, 0)
+    - CASE(TEXT(Document__c), 'Non-fatal', 5, 'Fatal', 15, 0)
+    - CASE(TEXT(FollowTheOperationProcess__c), 'Non-fatal', 5, 'Fatal', 15, 0)
+    - CASE(TEXT(LogicInterpretation__c), 'Non-fatal', 5, 'Fatal', 15, 0)
+    - CASE(TEXT(OfflinePrompt__c), 'Non-fatal', 5, 'Fatal', 15, 0)
+    - CASE(TEXT(ProperPronunciation__c), 'Non-fatal', 5, 'Fatal', 15, 0)
+    - CASE(TEXT(ProvideTheRightSolution__c), 'Non-fatal', 5, 'Fatal', 15, 0)
+    - CASE(TEXT(SoftSkill__c), 'Non-fatal', 5, 'Fatal', 15, 0)
+    - CASE(TEXT(SpecificationLanguage__c), 'Non-fatal', 5, 'Fatal', 15, 0)
+    - CASE(TEXT(TheStandardOpeningClosing__c), 'Non-fatal', 5, 'Fatal', 15, 0)
+    - CASE(TEXT(ADeadlyMistake__c), 'Non-fatal', 100, 'Fatal', 100, 0),
     0
 ) /100
 )</formula>
@@ -5498,8 +5498,8 @@ MAX(
         <description>QC IB/OB Description: User cannot edit canncelled QC.
 QC SSI Description: User cannot edit disqualified QC.</description>
         <errorConditionFormula>AND( 
-OR( $Profile.Name=&apos;CAC IB QC&apos;,  $Profile.Name =&apos;CAC OB QC&apos;, $Profile.Name=&apos;CAC SSI QC&apos;),
-OR(ISPICKVAL( PRIORVALUE(Status__c ) , &apos;Cancel&apos;), ISPICKVAL( PRIORVALUE(Status__c ) , &apos;Disqualified&apos;))
+OR( $Profile.Name='CAC IB QC',  $Profile.Name ='CAC OB QC', $Profile.Name='CAC SSI QC'),
+OR(ISPICKVAL( PRIORVALUE(Status__c ) , 'Cancel'), ISPICKVAL( PRIORVALUE(Status__c ) , 'Disqualified'))
 )</errorConditionFormula>
         <errorMessage>The QC is Cancelled or Disqualified, you cannot edit it.</errorMessage>
     </validationRules>
@@ -5508,12 +5508,12 @@ OR(ISPICKVAL( PRIORVALUE(Status__c ) , &apos;Cancel&apos;), ISPICKVAL( PRIORVALU
         <active>true</active>
         <errorConditionFormula>AND( 
 OR(
-$Profile.Name = &apos;CAC IB QC&apos;, 
-$Profile.Name = &apos;CAC OB QC&apos;, 
-$Profile.Name = &apos;CAC SSI QC&apos;,
-AND($User.FirstName = &apos;Li&apos;, $User.LastName = &apos;Li&apos;, $User.EmployeeNumber = &apos;CN654354&apos;)
+$Profile.Name = 'CAC IB QC', 
+$Profile.Name = 'CAC OB QC', 
+$Profile.Name = 'CAC SSI QC',
+AND($User.FirstName = 'Li', $User.LastName = 'Li', $User.EmployeeNumber = 'CN654354')
 ),   
-ISPICKVAL(PRIORVALUE( Status__c ), &apos;Complete&apos;),
+ISPICKVAL(PRIORVALUE( Status__c ), 'Complete'),
 OR(
 ISCHANGED( Appeal__c ), 
 ISCHANGED( Appeal_Comments__c ), 
@@ -5573,68 +5573,68 @@ ISCHANGED(PHU__c)
     <validationRules>
         <fullName>QC_must_be_accepted_before_edited</fullName>
         <active>true</active>
-        <errorConditionFormula>Owner:Queue.DeveloperName = &apos;SSI_QC&apos; &amp;&amp; $Profile.Name = &apos;CAC SSI QC&apos;</errorConditionFormula>
+        <errorConditionFormula>Owner:Queue.DeveloperName = 'SSI_QC' &amp;&amp; $Profile.Name = 'CAC SSI QC'</errorConditionFormula>
         <errorMessage>Please Accept record first.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>ValidateQuestionireWhenComplete</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-ISPICKVAL(Status__c, &apos;Complete&apos;), 
+ISPICKVAL(Status__c, 'Complete'), 
 OR( 
 AND(
-RecordType.Name == &apos;IB QC&apos;,
+RecordType.Name == 'IB QC',
 OR(
-ISPICKVAL(ADeadlyMistake__c, &apos;&apos;), 
-ISPICKVAL(ClarificationCustomerDemand__c, &apos;&apos;), 
-ISPICKVAL(CustomerPerception__c, &apos;&apos;), 
-ISPICKVAL(Document__c, &apos;&apos;), 
-ISPICKVAL(FollowTheOperationProcess__c, &apos;&apos;), 
-ISPICKVAL(OfflinePrompt__c, &apos;&apos;), 
-ISPICKVAL(ProvideTheRightSolution__c, &apos;&apos;), 
-ISPICKVAL(SoftSkill__c, &apos;&apos;), 
-ISPICKVAL(SpecificationLanguage__c, &apos;&apos;), 
-ISPICKVAL(TheStandardOpeningClosing__c, &apos;&apos;), 
-ISPICKVAL(ProperPronunciation__c, &apos;&apos;) 
+ISPICKVAL(ADeadlyMistake__c, ''), 
+ISPICKVAL(ClarificationCustomerDemand__c, ''), 
+ISPICKVAL(CustomerPerception__c, ''), 
+ISPICKVAL(Document__c, ''), 
+ISPICKVAL(FollowTheOperationProcess__c, ''), 
+ISPICKVAL(OfflinePrompt__c, ''), 
+ISPICKVAL(ProvideTheRightSolution__c, ''), 
+ISPICKVAL(SoftSkill__c, ''), 
+ISPICKVAL(SpecificationLanguage__c, ''), 
+ISPICKVAL(TheStandardOpeningClosing__c, ''), 
+ISPICKVAL(ProperPronunciation__c, '') 
 )
 ),
 AND(
-RecordType.Name == &apos;OB QC&apos;, 
+RecordType.Name == 'OB QC', 
 OR(
-ISPICKVAL(ADeadlyMistake__c, &apos;&apos;), 
-ISPICKVAL(LogicInterpretation__c, &apos;&apos;), 
-ISPICKVAL(CustomerPerception__c, &apos;&apos;), 
-ISPICKVAL(Document__c, &apos;&apos;), 
-ISPICKVAL(FollowTheOperationProcess__c, &apos;&apos;), 
-ISPICKVAL(OfflinePrompt__c, &apos;&apos;), 
-ISPICKVAL(ProvideTheRightSolution__c, &apos;&apos;), 
-ISPICKVAL(SoftSkill__c, &apos;&apos;), 
-ISPICKVAL(SpecificationLanguage__c, &apos;&apos;), 
-ISPICKVAL(TheStandardOpeningClosing__c, &apos;&apos;), 
-ISPICKVAL(ProperPronunciation__c, &apos;&apos;) 
+ISPICKVAL(ADeadlyMistake__c, ''), 
+ISPICKVAL(LogicInterpretation__c, ''), 
+ISPICKVAL(CustomerPerception__c, ''), 
+ISPICKVAL(Document__c, ''), 
+ISPICKVAL(FollowTheOperationProcess__c, ''), 
+ISPICKVAL(OfflinePrompt__c, ''), 
+ISPICKVAL(ProvideTheRightSolution__c, ''), 
+ISPICKVAL(SoftSkill__c, ''), 
+ISPICKVAL(SpecificationLanguage__c, ''), 
+ISPICKVAL(TheStandardOpeningClosing__c, ''), 
+ISPICKVAL(ProperPronunciation__c, '') 
 )
 ), 
 AND(
-RecordType.Name == &apos;SSI&apos;, 
+RecordType.Name == 'SSI', 
 OR(
-ISPICKVAL(CITQ__c, &apos;&apos;), 
-ISPICKVAL(PACI__c, &apos;&apos;), 
-ISPICKVAL(DA__c, &apos;&apos;), 
-ISPICKVAL(FTOP__c, &apos;&apos;), 
-ISPICKVAL(FMSK__c, &apos;&apos;), 
-ISPICKVAL(FQL__c, &apos;&apos;), 
-ISPICKVAL(SO__c, &apos;&apos;), 
-ISPICKVAL(PPIS__c, &apos;&apos;), 
-ISPICKVAL(SPL__c, &apos;&apos;), 
-ISPICKVAL(SSL__c, &apos;&apos;), 
-ISPICKVAL(SC__c, &apos;&apos;), 
-ISPICKVAL(CALA__c, &apos;&apos;), 
-ISPICKVAL(CAI__c, &apos;&apos;), 
-ISPICKVAL(CARR__c, &apos;&apos;), 
-ISPICKVAL(PFOCF__c, &apos;&apos;), 
-ISPICKVAL(PPD__c, &apos;&apos;), 
-ISPICKVAL(PJ__c, &apos;&apos;), 
-ISPICKVAL(PHU__c, &apos;&apos;)
+ISPICKVAL(CITQ__c, ''), 
+ISPICKVAL(PACI__c, ''), 
+ISPICKVAL(DA__c, ''), 
+ISPICKVAL(FTOP__c, ''), 
+ISPICKVAL(FMSK__c, ''), 
+ISPICKVAL(FQL__c, ''), 
+ISPICKVAL(SO__c, ''), 
+ISPICKVAL(PPIS__c, ''), 
+ISPICKVAL(SPL__c, ''), 
+ISPICKVAL(SSL__c, ''), 
+ISPICKVAL(SC__c, ''), 
+ISPICKVAL(CALA__c, ''), 
+ISPICKVAL(CAI__c, ''), 
+ISPICKVAL(CARR__c, ''), 
+ISPICKVAL(PFOCF__c, ''), 
+ISPICKVAL(PPD__c, ''), 
+ISPICKVAL(PJ__c, ''), 
+ISPICKVAL(PHU__c, '')
 ))))</errorConditionFormula>
         <errorMessage>You have to fill in all the questionnaires.</errorMessage>
     </validationRules>
@@ -5647,27 +5647,27 @@ ISPICKVAL(PHU__c, &apos;&apos;)
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
-{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}; 
+{!REQUIRESCRIPT("/soap/ajax/19.0/apex.js")}; 
+{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 var idList = {!GETRECORDIDS($ObjectType.QC__c)}; 
 var retURL = window.location.toString(); 
 var proceed = true; 
 if(idList.length &lt;= 0){ 
-alert(&apos;Please select record(s).&apos;); 
+alert('Please select record(s).'); 
 proceed = false; 
 } 
-if ((navigator.userAgent.indexOf(&apos;MSIE&apos;)) &gt;= 0) { 
+if ((navigator.userAgent.indexOf('MSIE')) &gt;= 0) { 
 if(idList.length &gt; 100){ 
-alert(&apos;Only maximum of 100 records can be selected.&apos;); 
+alert('Only maximum of 100 records can be selected.'); 
 proceed = false; 
 } 
 } 
 if(proceed){ 
-if (sforce.console.isInConsole() &amp;&amp; typeof(srcUp)!=&apos;undefined&apos;) { 
-srcUp(&quot;/apex/QCMassApproval?isdtp=vw&amp;objIds=&quot; + idList + &quot;&amp;retURL=&quot; + retURL); 
+if (sforce.console.isInConsole() &amp;&amp; typeof(srcUp)!='undefined') { 
+srcUp("/apex/QCMassApproval?isdtp=vw&amp;objIds=" + idList + "&amp;retURL=" + retURL); 
 } else { 
-window.location.href = &quot;/apex/QCMassApproval?objIds=&quot; + idList + &quot;&amp;retURL=&quot; + retURL; 
+window.location.href = "/apex/QCMassApproval?objIds=" + idList + "&amp;retURL=" + retURL; 
 } 
 
 }</url>
@@ -5695,27 +5695,27 @@ window.location.href = &quot;/apex/QCMassApproval?objIds=&quot; + idList + &quot
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>var newWin;
-var lookingURL = &apos;{!$Site.Prefix}/apex/QCMassCalibration&apos;;
+var lookingURL = '{!$Site.Prefix}/apex/QCMassCalibration';
 var idList = {!GETRECORDIDS($ObjectType.QC__c)};
 var proceed = true;
 if(idList.length &lt;= 0){
-alert(&apos;{!$Label.QCMassCalibrationNotice}&apos;);
+alert('{!$Label.QCMassCalibrationNotice}');
 proceed = false;
 }
-if((navigator.userAgent.indexOf(&apos;MSIE&apos;)) &gt;= 0){
+if((navigator.userAgent.indexOf('MSIE')) &gt;= 0){
 if(idList.length &gt; 100){
-alert(&apos;{!$Label.QC_Mass_Calibration_Max_Limits}&apos;);
+alert('{!$Label.QC_Mass_Calibration_Max_Limits}');
 proceed = false;
 }
 }
 if(idList.length &gt; 10 ){
-alert(&apos;{!$Label.QC_Mass_Calibration_Max_Limits}&apos;);
+alert('{!$Label.QC_Mass_Calibration_Max_Limits}');
 proceed = true;
 }
 if(proceed){
-lookingURL += &quot;?objIds=&quot; + idList;
+lookingURL += "?objIds=" + idList;
 
-//newWin = window.open(lookingURL, &apos;&apos;, &apos;fullscreen=no, height=500px, width=900px, //top=100, left=150, scrollbars=1&apos;);
+//newWin = window.open(lookingURL, '', 'fullscreen=no, height=500px, width=900px, //top=100, left=150, scrollbars=1');
 location.href = lookingURL;
 }</url>
     </webLinks>
@@ -5729,6 +5729,6 @@ location.href = lookingURL;
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>/OBJECT_QC_WEBLINK_OBJECT_KEYPREFIX/e?OBJECT_QC_WEBLINK_SSI__FIELD_ID={!SSI__c.Name}&amp;OBJECT_QC_WEBLINK_SSI__FIELD__LKID={!SSI__c.Id}&amp;retURL={!SSI__c.Id}&amp;RecordType=OBJECT_QC_WEBLINK_SSI_QC_RECORD_TYPE_ID&amp;ent=OBJECT_QC_WEBLINK_OBJECT_ID</url>
+        <url>/OBJECT_QC_WEBLINK_OBJECT_KEYPREFIX/e?OBJECT_QC_WEBLINK_SSI__FIELD_ID={!SSI__c.Name}&amp;OBJECT_QC_WEBLINK_SSI__FIELD_ID_lkid={!SSI__c.Id}&amp;retURL={!SSI__c.Id}&amp;RecordType=OBJECT_QC_WEBLINK_SSI_QC_RECORD_TYPE_ID&amp;ent=OBJECT_QC_WEBLINK_OBJECT_ID</url>
     </webLinks>
 </CustomObject>

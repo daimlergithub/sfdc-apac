@@ -98,6 +98,10 @@
         <fields>CommissionNumber__c</fields>
         <relatedList>Vehicle__c.Car_Model__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <relatedList>Pre_Order__c.VehicleInterested__c</relatedList>
+    </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>
     <showInteractionLogPanel>true</showInteractionLogPanel>
