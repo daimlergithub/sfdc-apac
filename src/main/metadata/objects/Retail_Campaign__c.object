@@ -9262,7 +9262,7 @@ var ThisValue = pairs[i] ;
 Fields = Fields + ToPickListFieldName+ "=" + ThisValue + "&amp;";
  } 
 
-var navigateToUrl = "/OBJECT_RETAIL_CAMPAIGN_WEBLINK_OBJECT_KEYPREFIX/e?OBJECT_RETAIL_CAMPAIGN_WEBLINK_RELEVANT_CENTRAL_CAMPAIGN_FIELD_ID={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_RELEVANT_CENTRAL_CAMPAIGN_FIELD_LKID={!Campaign.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DEALER_NAME_FIELD_ID="+qr4.records.Name+"&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DEALER_NAME_FIELD_LKID="+qr3.records.AccountId+"&amp;RecordType="+qr2.records.Id+"&amp;ent=Retail_Campaign__c&amp;Name={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID={!Campaign.Brand__c}"+"&amp;"+Fields+"&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PLAN_START_DATE_FIELD_ID={!Campaign.Plan_Start_Date__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PLAN_END_DATE_FIELD_ID={!Campaign.Plan_End_Date__c}"
+var navigateToUrl = "/OBJECT_RETAIL_CAMPAIGN_WEBLINK_OBJECT_KEYPREFIX/e?OBJECT_RETAIL_CAMPAIGN_WEBLINK_RELEVANT_CENTRAL_CAMPAIGN_FIELD_ID={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_RELEVANT_CENTRAL_CAMPAIGN_FIELD_ID_lkid={!Campaign.Id}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DEALER_NAME_FIELD_ID="+qr4.records.Name+"&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_DEALER_NAME_FIELD_ID_lkid="+qr3.records.AccountId+"&amp;RecordType="+qr2.records.Id+"&amp;ent=Retail_Campaign__c&amp;Name={!Campaign.Name}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_BRAND_FIELD_ID={!Campaign.Brand__c}"+"&amp;"+Fields+"&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PLAN_START_DATE_FIELD_ID={!Campaign.Plan_Start_Date__c}&amp;OBJECT_RETAIL_CAMPAIGN_WEBLINK_PLAN_END_DATE_FIELD_ID={!Campaign.Plan_End_Date__c}"
 switch (retailCampaignRecordTypeName)
 {
 case 'AS Retail Campaign':

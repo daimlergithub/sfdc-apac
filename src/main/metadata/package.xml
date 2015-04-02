@@ -946,6 +946,7 @@
         <members>AccountContactRole</members>
         <members>Account_Link__c</members>
         <members>Activity</members>
+        <members>Address__c</members>
         <members>App_Setting__c</members>
         <members>Asset</members>
         <members>Attribute__c</members>
@@ -1273,6 +1274,7 @@
         <members>Account-Dealer Layout-CAC</members>
         <members>Account-Dealer Layout-Portal</members>
         <members>Account_Link__c-Account Link Layout</members>
+        <members>Address__c-Address Layout</members>
         <members>Asset-Asset Layout</members>
         <members>Attribute__c-Car Attribute Layout</members>
         <members>Audit_Trail__c-Audit Trail Layout</members>
@@ -1344,7 +1346,6 @@
         <members>DM_Request__c-DM Fulfill Layout</members>
         <members>DM_Request__c-DM Request Layout</members>
         <members>DM_Stock_Flow__c-DM Stock Flow Layout</members>
-        <members>DM_Stock_Flow__c-DM Stock Flow 布局</members>
         <members>Dealer_Locator__c-Dealer Locator Layout</members>
         <members>Dealer_Offering__c-Dealer Offering Layout</members>
         <members>EP_Log_Interface__c-EP Log Interface Layout</members>
@@ -1666,6 +1667,7 @@
     <types>
         <members>Account</members>
         <members>Account_Link__c</members>
+        <members>Address__c</members>
         <members>App_Setting__c</members>
         <members>Asset</members>
         <members>Attribute__c</members>
