@@ -58,7 +58,6 @@
         <members>CSRLookupControllerTest</members>
         <members>CampaignHelper</members>
         <members>CampaignHelperTest</members>
-        <members>CampaignHistoryLog_TestClass</members>
         <members>CampaignOfferingHelper</members>
         <members>CampaignOfferingHelperTest</members>
         <members>CampaignPackageHelper</members>

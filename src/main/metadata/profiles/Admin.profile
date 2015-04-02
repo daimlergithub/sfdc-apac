@@ -262,10 +262,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>CampaignHistoryLog_TestClass</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>CampaignOfferingHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
