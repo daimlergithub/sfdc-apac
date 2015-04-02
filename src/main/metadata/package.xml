@@ -945,6 +945,7 @@
         <members>AccountContactRole</members>
         <members>Account_Link__c</members>
         <members>Activity</members>
+        <members>Address__c</members>
         <members>App_Setting__c</members>
         <members>Asset</members>
         <members>Attribute__c</members>
@@ -974,9 +975,11 @@
         <members>Contract</members>
         <members>ContractContactRole</members>
         <members>ContractLineItem</members>
+        <members>Contract_Relation__c</members>
         <members>DM_Material__c</members>
         <members>DM_Request__c</members>
         <members>DM_Stock_Flow__c</members>
+        <members>Dealer_Locator__c</members>
         <members>Dealer_Offering__c</members>
         <members>EPA_Settings__c</members>
         <members>EP_Integration_URLS__c</members>
@@ -1011,6 +1014,7 @@
         <members>PartnerRole</members>
         <members>PersonAccount</members>
         <members>Picklist_Mapping__c</members>
+        <members>Pre_Order__c</members>
         <members>Pricebook2</members>
         <members>PricebookEntry</members>
         <members>Product2</members>
@@ -1036,6 +1040,7 @@
         <members>SocialPersona</members>
         <members>Solution</members>
         <members>StreamingChannel</members>
+        <members>Suburb_Zip_Mapping__c</members>
         <members>SurveyQuestionResponse__c</members>
         <members>SurveyTaker__c</members>
         <members>Survey_Question__c</members>
@@ -1046,6 +1051,7 @@
         <members>Tool_Kit__c</members>
         <members>Trigger_Status__c</members>
         <members>User</members>
+        <members>Vehicle_Group_Mapping__c</members>
         <members>Vehicle_Inspection__c</members>
         <members>Vehicle_Relationship__c</members>
         <members>Vehicle__c</members>
@@ -1269,6 +1275,7 @@
         <members>Account-Dealer Layout-CAC</members>
         <members>Account-Dealer Layout-Portal</members>
         <members>Account_Link__c-Account Link Layout</members>
+        <members>Address__c-Address Layout</members>
         <members>Asset-Asset Layout</members>
         <members>Attribute__c-Car Attribute Layout</members>
         <members>Audit_Trail__c-Audit Trail Layout</members>
@@ -1333,6 +1340,7 @@
         <members>ContentVersion-Sales</members>
         <members>Contract-Contract Layout</members>
         <members>ContractLineItem-Contract Line Item Layout</members>
+        <members>Contract_Relation__c-Contract Relation Layout</members>
         <members>DM_Material__c-DM Layout</members>
         <members>DM_Material__c-DM Material Layout</members>
         <members>DM_Request__c-Create DM Request Layout</members>
@@ -1340,6 +1348,7 @@
         <members>DM_Request__c-DM Request Layout</members>
         <members>DM_Stock_Flow__c-DM Stock Flow Layout</members>
         <members>DM_Stock_Flow__c-DM Stock Flow 布局</members>
+        <members>Dealer_Locator__c-Dealer Locator Layout</members>
         <members>Dealer_Offering__c-Dealer Offering Layout</members>
         <members>EP_Log_Interface__c-EP Log Interface Layout</members>
         <members>Entitlement-Entitlement Layout</members>
@@ -1382,6 +1391,7 @@
         <members>PersonAccount-PA Layout-Soft Deleted</members>
         <members>PersonAccount-Person Account Layout</members>
         <members>Picklist_Mapping__c-Picklist Mapping Layout</members>
+        <members>Pre_Order__c-Pre Order Layout</members>
         <members>Pricebook2-Price Book Layout</members>
         <members>PricebookEntry-Price Book Entry Layout</members>
         <members>Product2-Product Layout</members>
@@ -1431,6 +1441,7 @@
         <members>SocialPersona-Social Persona Layout</members>
         <members>SocialPost-Social Post Layout</members>
         <members>Solution-Solution Layout</members>
+        <members>Suburb_Zip_Mapping__c-Suburb Zip Mapping Layout</members>
         <members>SurveyQuestionResponse__c-Survey Question Answer Layout</members>
         <members>SurveyQuestionResponse__c-Survey Question Response Layout</members>
         <members>SurveyTaker__c-Survey Taken Layout</members>
@@ -1464,6 +1475,7 @@
         <members>User-User Layout</members>
         <members>User-User Master Layout</members>
         <members>UserAlt-User Profile Layout</members>
+        <members>Vehicle_Group_Mapping__c-Vehicle Group Mapping Layout</members>
         <members>Vehicle_Inspection__c-Vehicle Inspection Layout</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</members>
@@ -1661,6 +1673,7 @@
     <types>
         <members>Account</members>
         <members>Account_Link__c</members>
+        <members>Address__c</members>
         <members>App_Setting__c</members>
         <members>Asset</members>
         <members>Attribute__c</members>
@@ -1686,9 +1699,11 @@
         <members>Contact</members>
         <members>Contract</members>
         <members>ContractLineItem</members>
+        <members>Contract_Relation__c</members>
         <members>DM_Material__c</members>
         <members>DM_Request__c</members>
         <members>DM_Stock_Flow__c</members>
+        <members>Dealer_Locator__c</members>
         <members>Dealer_Offering__c</members>
         <members>EPA_Settings__c</members>
         <members>EP_Integration_URLS__c</members>
@@ -1721,6 +1736,7 @@
         <members>Package_Item__c</members>
         <members>Participating_Dealer__c</members>
         <members>Picklist_Mapping__c</members>
+        <members>Pre_Order__c</members>
         <members>Product2</members>
         <members>QC_Result_Tracking__c</members>
         <members>QC__c</members>
@@ -1744,6 +1760,7 @@
         <members>SocialPersona</members>
         <members>Solution</members>
         <members>StreamingChannel</members>
+        <members>Suburb_Zip_Mapping__c</members>
         <members>SurveyQuestionResponse__c</members>
         <members>SurveyTaker__c</members>
         <members>Survey_Question__c</members>
@@ -1755,6 +1772,7 @@
         <members>Trigger_Status__c</members>
         <members>User</members>
         <members>UserLicense</members>
+        <members>Vehicle_Group_Mapping__c</members>
         <members>Vehicle_Inspection__c</members>
         <members>Vehicle_Relationship__c</members>
         <members>Vehicle__c</members>
