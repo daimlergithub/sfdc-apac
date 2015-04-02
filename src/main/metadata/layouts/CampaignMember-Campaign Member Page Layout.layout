@@ -28,6 +28,10 @@
                 <behavior>Edit</behavior>
                 <field>Newly_Added__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Lodgement_Date__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
