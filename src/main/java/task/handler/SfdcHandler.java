@@ -22,7 +22,6 @@ import org.apache.tools.ant.BuildListener;
 import org.apache.tools.ant.Task;
 import org.apache.tools.ant.types.LogLevel;
 
-import task.handler.configuration.DeploymentUnit;
 import task.model.SfdcFeature;
 import task.model.SfdcFeature.FeatureName;
 import task.model.SfdcTypeSet;
@@ -30,6 +29,7 @@ import task.model.SfdcTypeSet;
 import com.sforce.soap.enterprise.EnterpriseConnection;
 import com.sforce.soap.enterprise.LoginResult;
 import com.sforce.soap.metadata.AsyncResult;
+import com.sforce.soap.metadata.DeployMessage;
 import com.sforce.soap.metadata.DeployOptions;
 import com.sforce.soap.metadata.DeployResult;
 import com.sforce.soap.metadata.DescribeMetadataObject;
@@ -132,7 +132,6 @@ public class SfdcHandler
   private boolean useProxy;
   private String proxyHost;
   private int proxyPort;
-  private BaseUpdateHandler<?> updateHandler;
   private Map<String, SfdcFeature> features;
 
   public SfdcHandler()
@@ -157,7 +156,6 @@ public class SfdcHandler
                          boolean useProxy,
                          String proxyHost,
                          int proxyPort,
-                         BaseUpdateHandler<?> updateStampHandler,
                          Map<String, SfdcFeature> features)
   {
     this.task = task;
@@ -169,7 +167,6 @@ public class SfdcHandler
     this.useProxy = useProxy;
     this.proxyHost = proxyHost;
     this.proxyPort = proxyPort;
-    this.updateHandler = updateStampHandler;
     this.features = (null != features) ? features : new HashMap<String, SfdcFeature>();
 
     validate();
@@ -188,17 +185,38 @@ public class SfdcHandler
 
   private void validate()
   {
-    if (null == task || null == updateHandler || null == serverurl || null == username || null == password) {
+    if (null == task || null == serverurl || null == username || null == password) {
       throw new BuildException("SfdcHandler is not properly initialized.");
     }
   }
 
-  public boolean deployTypes(ByteArrayOutputStream zipFile, List<DeploymentInfo> infos)
+  /**
+   * This method does the actual deployment of the given ZIP file.
+   * 
+   * @param zipFile The ZIP file to deploy.
+   * @param infos The list of deployment infos being deployed. Will be used for logging purposes only.
+   */
+  public void deployTypes(ByteArrayOutputStream zipFile, List<DeploymentInfo> infos)
   {
-    boolean result = false;
+    List<String> types = new ArrayList<>();
+    for (DeploymentInfo info : infos) {
+      types.add(info.getDeploymentUnit().getTypeName());
+    }
+    String typeNames = StringUtils.join(types, ",");
 
+    deploy(zipFile, typeNames);
+  }
+
+  /**
+   * This method does the actual deployment of the given ZIP file.
+   * 
+   * @param zipFile The ZIP file to deploy.
+   * @param logInfo The info which will be shown in case of success or error as part of the message what has been deployed.
+   */
+  public void deploy(ByteArrayOutputStream zipFile, String logInfo)
+  {
     if (dryRun) {
-      return false;
+      return;
     }
 
     try {
@@ -232,33 +250,26 @@ public class SfdcHandler
 
       if (status.isDone()) {
         if (status.isSuccess()) {
-          for (DeploymentInfo info : infos) {
-            DeploymentUnit du = info.getDeploymentUnit();
-
-            task.log(String.format("Deployment of %s and %s successful.",
-                                   du.getTypeName(),
-                                   Arrays.toString(info.getEntityNames().toArray(new String[0]))));
-          }
-          updateHandler.updateTimestamp(infos);
+          task.log(String.format("Deployment of %s successful.", logInfo));
         }
         else {
-          task.log(String.format("Error %s: %s.",
-                                 null != status.getErrorStatusCode()
-                                                                    ? status.getErrorStatusCode().toString()
-                                                                    : "<null>",
-                                 status.getErrorMessage()), LogLevel.ERR.getLevel());
-
-          List<String> types = new ArrayList<>();
-          for (DeploymentInfo info : infos) {
-            types.add(info.getDeploymentUnit().getTypeName());
+          task.log("Deployment failed. Component errors:", LogLevel.ERR.getLevel());
+          for (DeployMessage dm : status.getDetails().getComponentFailures()) {
+            task.log(String.format("Name: %s Type: %s Line: %d Column: %d Problem: %s",
+                                   dm.getFullName(),
+                                   dm.getComponentType(),
+                                   dm.getLineNumber(),
+                                   dm.getColumnNumber(),
+                                   dm.getProblem()),
+                     LogLevel.ERR.getLevel());
           }
 
-          throw new BuildException(String.format("Deployment of %s not successful.",
-                                                 Arrays.toString(types.toArray(new String[0]))));
+          throw new BuildException(String.format("Deployment of %s not successful.", logInfo));
         }
       }
-
-      return result;
+      else {
+        throw new BuildException(String.format("Deployment of %s not successful.", logInfo));
+      }
     }
     catch (ConnectionException e) {
       throw new BuildException(String.format("Error connecting to SFDC: %s.", e.getMessage()), e);
@@ -446,7 +457,7 @@ public class SfdcHandler
       SfdcConnectionContext context = login();
 
       List<DescribeMetadataObject> dmos = new ArrayList<>();
-      
+
       DescribeMetadataResult describeMetadata = context.getMConnection().describeMetadata(VERSION);
       for (DescribeMetadataObject object : describeMetadata.getMetadataObjects()) {
         // only consider specified objects
@@ -458,7 +469,6 @@ public class SfdcHandler
       List<ListMetadataQuery> queries = compileQueries(dmos);
       Map<String, List<FileProperties>> filePropertiesMap = new HashMap<>();
       filePropertiesMap = listMetadata(context.getMConnection(), queries, filePropertiesMap);
-      // filePropertiesMap = processFolderMetadata(context.getMConnection(), filePropertiesMap);
 
       for (Map.Entry<String, List<FileProperties>> entry : filePropertiesMap.entrySet()) {
         Map<String, Long> entryMap = new HashMap<>();
@@ -476,7 +486,7 @@ public class SfdcHandler
         SfdcFeature feature = features.get(FeatureName.EXCLUDE_CHECKSUMS.name());
         if (null != feature) {
           if ("StaticResource".equals(entry.getKey()) && entryMap.containsKey(feature.getParam())) {
-            
+
             entryMap.remove(feature.getParam());
           }
         }
@@ -494,11 +504,11 @@ public class SfdcHandler
   private List<ListMetadataQuery> compileQueries(List<DescribeMetadataObject> dmos)
   {
     List<ListMetadataQuery> queries = new ArrayList<>();
-    
+
     for (DescribeMetadataObject dmo : dmos) {
-    
+
       final String name = dmo.getXmlName();
-  
+
       if (0 < dmo.getChildXmlNames().length && !noChildHandling.contains(name)) {
         for (String child : dmo.getChildXmlNames()) {
           ListMetadataQuery query = new ListMetadataQuery();
@@ -531,9 +541,10 @@ public class SfdcHandler
   {
     ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>, ConnectionException> ce =
         new ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>, ConnectionException>() {
-          
+
           @Override
-          public Map<String, List<FileProperties>> chunky(List<ListMetadataQuery> chunk, Map<String, List<FileProperties>> result)
+          public Map<String, List<FileProperties>> chunky(List<ListMetadataQuery> chunk,
+                                                          Map<String, List<FileProperties>> result)
             throws ConnectionException
           {
             List<String> names = new ArrayList<>();
@@ -541,35 +552,36 @@ public class SfdcHandler
               names.add(query.getType());
             }
             task.log(String.format("Query: %s", StringUtils.join(names, ",")));
-            
-            FileProperties[] metadata = mConnection.listMetadata(chunk.toArray(new ListMetadataQuery[chunk.size()]), VERSION);
+
+            FileProperties[] metadata =
+                mConnection.listMetadata(chunk.toArray(new ListMetadataQuery[chunk.size()]), VERSION);
             for (FileProperties props : metadata) {
               String type = props.getType();
-              
+
               if (folderReplacements.containsValue(type)) {
                 type = reverseFolderMapping(type);
-              
+
                 ListMetadataQuery folderQuery = new ListMetadataQuery();
                 folderQuery.setType(type);
                 folderQuery.setFolder(props.getFullName());
                 queries.add(folderQuery);
               }
-              
+
               List<FileProperties> list = result.get(type);
               if (null == list) {
                 list = new ArrayList<>();
                 result.put(type, list);
               }
-              
+
               list.add(props);
             }
-            
+
             return result;
           }
         };
     return ce.execute(queries, 3, filePropertiesMap);
   }
-  
+
   private String reverseFolderMapping(String type)
   {
     for (Map.Entry<String, String> entry : folderReplacements.entrySet()) {
@@ -580,53 +592,10 @@ public class SfdcHandler
     return null;
   }
 
-  /* TODO remove
-  private Map<String, List<FileProperties>> processFolderMetadata(final MetadataConnection mConnection,
-                                                                 Map<String, List<FileProperties>> filePropertiesMap)
-    throws ConnectionException
-  {
-    List<ListMetadataQuery> folderQueries = new ArrayList<>();
-    
-    for (Map.Entry<String, String> entry : folderReplacements.entrySet()) {
-      List<FileProperties> folders = filePropertiesMap.remove(entry.getValue());
-      if (null != folders) {
-        for (FileProperties fileProperties : folders) {
-          ListMetadataQuery fQuery = new ListMetadataQuery();
-          fQuery.setType(entry.getKey());
-          fQuery.setFolder(fileProperties.getFullName());
-          folderQueries.add(fQuery);
-        }
-        
-        filePropertiesMap.put(entry.getKey(), folders);
-      }
-    }
-    
-    ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>, ConnectionException> ce =
-        new ChunkedExecutor<ListMetadataQuery, Map<String, List<FileProperties>>, ConnectionException>() {
-          
-          @Override
-          public Map<String, List<FileProperties>> chunky(List<ListMetadataQuery> chunk, Map<String, List<FileProperties>> result)
-            throws ConnectionException
-          {
-            FileProperties[] metadata = mConnection.listMetadata(chunk.toArray(new ListMetadataQuery[chunk.size()]), VERSION);
-            for (FileProperties props : metadata) {
-              List<FileProperties> list = result.get(props.getType());
-              if (null == list) {
-                list = new ArrayList<>();
-                result.put(props.getType(), list);
-              }
-              
-              list.add(props);
-            }
-            return result;
-          }
-        };
-    return ce.execute(folderQueries, 3, filePropertiesMap);
-  }
-  */
-
   public Map<String, String> retrieveChecksums(String sfdcName)
   {
+    Map<String, String> result = new HashMap<>();
+    
     try {
       SfdcConnectionContext context = login();
 
@@ -634,7 +603,6 @@ public class SfdcHandler
 
       Metadata[] mdInfo = readResult.getRecords();
 
-      Map<String, String> map = new HashMap<>();
       if (0 == mdInfo.length || null == mdInfo[0]) {
         task.log("Did not find checksums in SFDC.", LogLevel.WARN.getLevel());
       }
@@ -651,23 +619,28 @@ public class SfdcHandler
             if (null != line) {
               String[] tokens = line.split(":");
               if (2 == tokens.length) {
-                map.put(tokens[0], tokens[1]);
+                result.put(tokens[0], tokens[1]);
               }
             }
           }
           while (line != null);
         }
       }
-      return map;
     }
     catch (IOException | ConnectionException e) {
       throw new BuildException(String.format("Error retrieving checksums from SFDC: %s.", e.getMessage()), e);
     }
+    
+    return result;
   }
 
   // TODO think about zipping checksums before deploying
   public void deployChecksums(Map<String, String> checksumMap, String sfdcName)
   {
+    if (dryRun) {
+      return;
+    }
+    
     try {
       SfdcConnectionContext context = login();
 
@@ -708,5 +681,19 @@ public class SfdcHandler
     catch (IOException | ConnectionException e) {
       throw new BuildException(String.format("Error retrieving checksums from SFDC: %s.", e.getMessage()), e);
     }
+  }
+
+  public Map<String, List<String>> buildEntityList(Map<String, Map<String, Long>> metadataUpdatestamps)
+  {
+    Map<String, List<String>> result = new HashMap<>();
+
+    for (Map.Entry<String, Map<String, Long>> entry : metadataUpdatestamps.entrySet()) {
+      List<String> entries = new ArrayList<>();
+      for (Map.Entry<String, Long> entityEntry : entry.getValue().entrySet()) {
+        entries.add(entityEntry.getKey());
+      }
+      result.put(entry.getKey(), entries);
+    }
+    return result;
   }
 }

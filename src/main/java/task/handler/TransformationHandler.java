@@ -137,9 +137,6 @@ public class TransformationHandler
       return result;
     }
     catch (IOException e) {
-      // TODO
-      e.printStackTrace();
-
       throw new BuildException(String.format("Error reading file token.properties for environmet %s: %s.",
                                              environment,
                                              e.getMessage()), e);

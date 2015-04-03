@@ -107,11 +107,15 @@ public class ZipFileHandler
   }
 
   private static final String ZIP_BASE_DIR = "unpackaged";
+  private static final String FILE_NAME_PACKAGE_XML = ZIP_BASE_DIR + "/package.xml";
+  private static final String FILE_NAME_DESTRUCTIVE_CHANGES = ZIP_BASE_DIR + "/destructiveChanges.xml";
+  
   private LogWrapper logWrapper;
   private boolean debug;
   private TransformationHandler transformationHandler;
   private MetadataHandler metadataHandler;
 
+  @SuppressWarnings("hiding")
   public void initialize(LogWrapper logWrapper, boolean debug, TransformationHandler transformationHandler, MetadataHandler metadataHandler)
   {
     this.logWrapper = logWrapper;
@@ -127,11 +131,15 @@ public class ZipFileHandler
     if (null == logWrapper) {
       throw new BuildException("ZipFileHandler (logWrapper) is not initialized.");
     }
-    if (null == transformationHandler) {
-      throw new BuildException("ZipFileHandler (transformationHandler) is not initialized.");
-    }
     if (null == metadataHandler) {
       throw new BuildException("ZipFileHandler (metadataHandler) is not initialized.");
+    }
+  }
+
+  private void validateTransformationHandler()
+  {
+    if (null == transformationHandler) {
+      throw new BuildException("ZipFileHandler (transformationHandler) is not initialized.");
     }
   }
 
@@ -161,6 +169,8 @@ public class ZipFileHandler
   public ByteArrayOutputStream prepareZipFile(List<DeploymentInfo> deploymentInfos)
   {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    
+    validateTransformationHandler();
     
     int counter = 0;
     try (ZipOutputStream zos = new ZipOutputStream(baos)) {
@@ -207,7 +217,7 @@ public class ZipFileHandler
       byte[] packageXml = metadataHandler.createPackageXml(deploymentInfos);
       metadataHandler.savePackageXml(packageXml);
       
-      zos.putNextEntry(new ZipEntry("unpackaged/package.xml"));
+      zos.putNextEntry(new ZipEntry(FILE_NAME_PACKAGE_XML));
       zos.write(packageXml);
       zos.closeEntry();
     }
@@ -222,18 +232,19 @@ public class ZipFileHandler
   {
     StringBuilder sb = new StringBuilder();
 
+    File loopFile = file;
     String filePart = null;
     do {
-      filePart = file.getName();
+      filePart = loopFile.getName();
 
       if (0 < sb.length()) {
         sb.insert(0, "/");
       }
       sb.insert(0, filePart);
 
-      file = file.getParentFile();
+      loopFile = loopFile.getParentFile();
     }
-    while (null != file && !filePart.equals(du.getSubDir()));
+    while (null != loopFile && !filePart.equals(du.getSubDir()));
 
     sb.insert(0, "/");
     sb.insert(0, ZIP_BASE_DIR);
@@ -241,8 +252,48 @@ public class ZipFileHandler
     return sb.toString();
   }
 
+  public ByteArrayOutputStream prepareDestructiveZipFile(File destructiveFile)
+  {
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    
+    try (ZipOutputStream zos = new ZipOutputStream(baos);FileInputStream fis = new FileInputStream(destructiveFile)) {
+      String name = destructiveFile.getName();
+
+      logWrapper.log(String.format("Handle destructive changes %s for ZIP file.", name));
+
+      zos.putNextEntry(new ZipEntry(FILE_NAME_DESTRUCTIVE_CHANGES));
+      
+      byte[] buffer = new byte[512];
+
+      int read = 0;
+      do {
+        read = fis.read(buffer);
+        if (0 < read) {
+          zos.write(buffer, 0, read);
+        }
+      }
+      while (-1 != read);
+      
+      zos.closeEntry();
+      
+      byte[] packageXml = metadataHandler.createPackageXml(new ArrayList<DeploymentInfo>());
+      metadataHandler.savePackageXml(packageXml);
+      
+      zos.putNextEntry(new ZipEntry(FILE_NAME_PACKAGE_XML));
+      zos.write(packageXml);
+      zos.closeEntry();
+    }
+    catch (IOException e) {
+      throw new BuildException(String.format("Error preparing ZIP for deployment: %s.", e.getMessage()), e);
+    }
+
+    return baos;
+  }
+  
   public void extractZipFile(String retrieveRoot, ByteArrayOutputStream zipFile)
   {
+    validateTransformationHandler();
+    
     logWrapper.log("Extract ZIP file.");
 
     ByteArrayInputStream bais = new ByteArrayInputStream(zipFile.toByteArray());

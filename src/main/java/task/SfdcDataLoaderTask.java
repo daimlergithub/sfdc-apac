@@ -24,7 +24,6 @@ public class SfdcDataLoaderTask
   private int proxyPort;
   private String dataRoot;
   private boolean debug;
-  private String timestamps;
 //  private String transformationsRoot;
   private String configId;
   private String logDir;
@@ -78,11 +77,6 @@ public class SfdcDataLoaderTask
   public void setDebug(boolean debug)
   {
     this.debug = debug;
-  }
-
-  public void setTimestamps(String timestamps)
-  {
-    this.timestamps = timestamps;
   }
 
 //  public void setTransformationsRoot(String transformationsRoot)
@@ -157,9 +151,6 @@ public class SfdcDataLoaderTask
     // TODO validate settings
     if (null == dataRoot) {
       throw new BuildException("The property dataRoot must be specified.");
-    }
-    if (null == timestamps) {
-      throw new BuildException("The property timestamps must be specified.");
     }
     if (null == configId) {
       throw new BuildException("The property configId must be specified.");
