@@ -11,40 +11,5 @@
 @isTest
 public class TaskFailBlacklistTrigger_TestClass
 {
-    static testmethod void runTaskFailBlacklistTrigger()
-    {
-        Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
-        Map<String, Schema.RecordTypeInfo> tkRecordTypeMap_test = Schema.SObjectType.Task.getRecordTypeInfosByName();
-        Id accPerson_RecordTypeId = accRecordTypeMap_test.get('Person Account').getRecordTypeId();      // Person Account.
-        Id tkSMS_recordTypeId = tkRecordTypeMap_test.get('SMS').getRecordTypeId();
-        
-        Test.startTest();
-        // Person Contact                
-        Account testPerAcc = new Account(LastName='TEST ACC',
-                                      Type='Company',
-                                      Status__c='VIP',
-                                      Province__c='Shanghai',
-                                      City__c='Baoshan district',
-                                      ZipCode__c='123456',
-                                      PersonMobilePhone = '1301111111',
-                                      PersonOtherPhone = '1301111122',
-                                      RecordTypeId=accPerson_RecordTypeId
-                                     );        
-        insert(testPerAcc);        
-        
-        testPerAcc = [Select Id,RecordTypeId, PersonContactId From Account Where Id = :testPerAcc.Id]; 
-        
-        Task testSMSTask = new Task(Subject='SMS TEST',
-                                    WhoId=testPerAcc.PersonContactId,
-                                    Activity_Status__c='Sent'
-                                    );
-        insert testSMSTask;
-        
-        testSMSTask.Activity_Status__c='Fail-Blacklist';
-        
-        update testSMSTask;
-        Test.stopTest();
-        system.assertEquals(testPerAcc.RecordTypeId,accPerson_RecordTypeId);
-        system.assertEquals(testSMSTask.Activity_Status__c,'Fail-Blacklist');         
-    }
+    
 }

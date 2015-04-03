@@ -11,27 +11,20 @@
     30-May-2013 Sinow Zhang (NTTData)  Created
 */     
 @isTest
-public class CaseEscalationControllerTest {
-    
-    static Map<String, Schema.SObjectField> FLDOBJ_MAP = schema.SObjectType.Case.fields.getMap();
-    static Map<String,String> positions = new Map<String,String>();
-
-    @isTest
-    static void runTest(){
-
-        User user1 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
-        system.runAs(user1){
-            Test.startTest();
-            testCaseEscalationController();            
-            Test.stopTest();           
-        }
-        
+public class CaseEscalationControllerTest { 
+  
+    static CaseEscalationController controller;
+    static Case c;
+    static User currentUsr;
+    static user objUsr;
+    static{
+       currentUsr = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
     }
-
-    @future
-    static void testCaseEscalationController(){
-
-        Account dealer = new Account();
+    static{
+        objUsr=[select id from user where id=:userinfo.getuserid()];
+    }   
+    static void init( boolean isrequired){
+     Account dealer = new Account();
         dealer.Allow_Data_Sharing__c = 'Yes';
         dealer.Province__c = 'jiangsu';
         dealer.City__c = 'nanjing';
@@ -47,8 +40,11 @@ public class CaseEscalationControllerTest {
         dealer.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         dealer.Dealer_Region__c = 'West';
         insert dealer;
-        
-        Case c = new Case();
+        Account Person = new Account();
+        Person.lastName='PersonAccount';
+        Person.RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Retail').getRecordTypeId();
+        insert Person;
+        c = new Case();
         c.Subject = 'For Mail test';
         c.RecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
         c.Case_Dealer__c = dealer.id;
@@ -77,28 +73,67 @@ public class CaseEscalationControllerTest {
         c.CLB__c = 'test';
         c.Registration_Number__c  = 'test'; 
         c.Car_Type__c = 'test';
-        c.Dealer_Case_Type__c = 'test';
+        if(isrequired)
+            c.Dealer_Case_Type__c = 'test';
+        else
+            c.Dealer_Case_Type__c = null;   
         c.Dealer_Case_SubType__c = 'test';
         c.RO_CO_Case_Category__c = 'Aftersales';
         c.Vehicle_In_Workshop__c = 'Yes';
         c.Ref_No_Regional__c = 'SOUTH';
         c.Ref_No_Central__c='SOUTH';
         insert c;
-        system.assert([select id from case where id=:c.Id].size()>0);
-        system.assert([Select id from Account Where Id=:dealer.id].size()>0);
-        
+              
         PageReference caseEscalation = Page.CaseEscalation;
         caseEscalation.getParameters().put('id',c.id);
-
         Test.setCurrentPage(caseEscalation);
-        CaseEscalationController controller = new CaseEscalationController();
-        system.debug(controller);      
+        controller = new CaseEscalationController();   
+    }
+    
+    @future
+    static void test_EscalateCase_Dealer_Region_East(){    
+        init(true);    
         controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'EAST';          
-        controller.escalate();        
-        System.assertEquals(controller.EscalateCase.Case_Dealer__r.Dealer_Region__c,'EAST');     
-        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = '';
         controller.escalate();      
-        System.assertEquals(controller.EscalateCase.Case_Dealer__r.Dealer_Region__c,'');
-      }
-   
-}
+      }    
+    @future
+    static void test_EscalateCase_Dealer_Region(){    
+        init(true);    
+        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = '';          
+        controller.escalate();      
+      } 
+   @future
+    static void test_EscalateCase_Dealer_Region_West_elsecondition(){    
+        init(false);    
+        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'WEST';          
+        controller.escalate();      
+      }             
+    public static testMethod void test_escalate_Dealer_EastRegion(){      
+         system.runAs(currentUsr){
+            Test.startTest();
+            test_EscalateCase_Dealer_Region_East();                     
+            Test.stopTest();                       
+            system.assert(controller.escalate()!=Null);  
+            system.assertequals(Date.today(),controller.EscalateCase.Escalate_Date_to_CO__c);               
+            system.assertequals('Awaiting MB',controller.EscalateCase.Status);  
+            system.assertequals('Central Office',controller.EscalateCase.Handling_Level__c);             
+         }        
+     }       
+     public static testMethod void test_escalate_Dealer_Region(){      
+         system.runAs(currentUsr){
+            Test.startTest();           
+            test_EscalateCase_Dealer_Region();          
+            Test.stopTest();         
+            system.assert(controller.escalate()==Null);                            
+         }        
+      } 
+     public static testMethod void testEscalate_West_elsecondition(){         
+        system.runAs(objUsr){     
+            Test.startTest();
+            test_EscalateCase_Dealer_Region_West_elsecondition();
+            Test.stopTest();  
+            system.assert([select Id, Name from Profile where Id = :UserInfo.getProfileId()].name!='Regional CRM Manager'); 
+            system.assertnotequals([select Id, Name from Profile where Id = :UserInfo.getProfileId()].name,'Regional CRM Manager');
+        }       
+     }    
+ }

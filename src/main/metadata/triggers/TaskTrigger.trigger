@@ -92,7 +92,7 @@ trigger TaskTrigger on Task (after update, after insert,before update, before in
     }
     if(trigger.isBefore && trigger.isUpdate)
     {
-         if (!UtilCustomSettings.isEnabled('TaskBeforeInsertUpdate'))
+         if (UtilCustomSettings.isEnabled('TaskBeforeInsertUpdate'))
          {
             // Update Activity Status after new records created
             TaskTriggerHandler.taskFieldsUpdate(Trigger.new, Trigger.oldMap);

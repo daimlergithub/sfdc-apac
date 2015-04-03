@@ -153,4 +153,125 @@ private class TaskHelperTest {
         system.assertEquals(task1.WhatId,acc.id);
         system.assert(tasks1!=null);
     }
+    
+    static testmethod void testTaskFailBlacklistTrigger()
+    {
+        Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
+        Map<String, Schema.RecordTypeInfo> tkRecordTypeMap_test = Schema.SObjectType.Task.getRecordTypeInfosByName();
+        Id accPerson_RecordTypeId = accRecordTypeMap_test.get('Person Account').getRecordTypeId();      // Person Account.
+        Id tkSMS_recordTypeId = tkRecordTypeMap_test.get('SMS').getRecordTypeId();
+        
+        Test.startTest();
+        // Person Contact                
+        Account testPerAcc = new Account(LastName='TEST ACC',
+                                      Type='Company',
+                                      Status__c='VIP',
+                                      Province__c='Shanghai',
+                                      City__c='Baoshan district',
+                                      ZipCode__c='123456',
+                                      PersonMobilePhone = '1301111111',
+                                      PersonOtherPhone = '1301111122',
+                                      RecordTypeId=accPerson_RecordTypeId
+                                     );        
+        insert(testPerAcc);        
+        
+        testPerAcc = [Select Id,RecordTypeId, PersonContactId From Account Where Id = :testPerAcc.Id]; 
+        
+        Task testSMSTask = new Task(Subject='SMS TEST',
+                                    WhoId=testPerAcc.PersonContactId,
+                                    Activity_Status__c='Sent'
+                                    );
+        insert testSMSTask;
+        
+        testSMSTask.Activity_Status__c='Fail-Blacklist';
+        
+        update testSMSTask;
+        Test.stopTest();
+        system.assertEquals(testPerAcc.RecordTypeId,accPerson_RecordTypeId);
+        list<Account> lst=[SELECT Is_Blacklist__c FROM Account WHERE PersonContactId=:testSMSTask.WhoId limit 1];
+        system.assertEquals(true,lst[0].Is_Blacklist__c);         
+    }
+    
+    static testmethod void testrecordTypeUpdate_Generaltask()
+    {
+    	User userobj = UtilTestData.createUser('SSI Supervisor','CAC SSI SV');
+    	
+    	System.runAs(userobj) 
+    	{
+                    
+	        Map<String, Schema.RecordTypeInfo> tkRecordTypeMap_test = Schema.SObjectType.Task.getRecordTypeInfosByName();
+	        Id tkSMS_recordTypeId = tkRecordTypeMap_test.get('SMS').getRecordTypeId();
+	        
+	        Test.startTest();
+	        // Person Contact                
+	        Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);    
+	        
+	        Contact conComplaint = new Contact(AccountId = dealer.Id, LastName = 'b', Phone = '1212313', email = 's@s.s', Dealer_Complaint_Gate_Keeper__c = true, Dealer_Presales__c = true);
+        	insert conComplaint;
+	        String templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
+            Template__c tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
+                                               Message_Detail__c = '{DEALER_name}', Name = 'lai');
+            insert tem1;
+             
+	        list<task> lstTask= new List<task>();
+	        for(integer i=0;i<5;i++)
+	        {
+		        Task testSMSTask = new Task(RecordTypeid=tkSMS_recordTypeId,Subject='MBDA Survey Task Temp',
+		                                    WhoId=conComplaint.id,
+		                                    Activity_Status__c='Sent',SMSTemplateID__c=tem1.id,SMS_Content__c='Thank you for your call,your feedback from the Mercedes-Benz customer service hotline has received, officials will continue to investigate the situation,get in touch with you ASAP.['+'Mercedes-Benz Service Center 4008181188'+']'
+		                                    );
+		        lstTask.add(testSMSTask);                             
+	        }
+	        insert lstTask;
+	        TaskHelper.recordTypeUpdate_Generaltask(lstTask);	
+	        Test.stopTest();
+        } 
+    }
+    
+    static testmethod void testcreateSMSTaskAfterIBCall()
+    {
+                    
+        Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
+	    Map<String, Schema.RecordTypeInfo> tkRecordTypeMap_test = Schema.SObjectType.Task.getRecordTypeInfosByName();            
+        String templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
+        Id accPerson_RecordTypeId = accRecordTypeMap_test.get('Person Account').getRecordTypeId();
+        Id tkSMS_recordTypeId = tkRecordTypeMap_test.get('SMS').getRecordTypeId();
+        Template__c temp1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
+                                           Message_Detail__c = '{DEALER_name}', Name = 'IB SMS IVR');
+        insert temp1;
+        Template__c temp2 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
+                                           Message_Detail__c = '{DEALER_name}', Name = 'IB SMS IVR Smart');
+        insert temp2;
+        Template__c temp3 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
+                                           Message_Detail__c = '{DEALER_name}', Name = 'IB SMS IVR MB');
+        insert temp3;
+        Test.startTest();
+        // Person Contact                
+        Account testPerAcc = new Account(LastName='TEST ACC',
+                                      Type='Company',
+                                      Status__c='VIP',
+                                      Province__c='Shanghai',
+                                      City__c='Baoshan district',
+                                      ZipCode__c='123456',
+                                      PersonMobilePhone = '1301111111',
+                                      PersonOtherPhone = '1301111122',
+                                      RecordTypeId=accPerson_RecordTypeId
+                                     );        
+        insert(testPerAcc);        
+        
+        testPerAcc = [Select Id,RecordTypeId, PersonContactId From Account Where Id = :testPerAcc.Id];
+         
+        list<task> lstTask= new List<task>();
+        for(integer i=0;i<5;i++)
+        {
+	        Task testSMSTask = new Task(RecordTypeid=tkSMS_recordTypeId,Subject='MBDA Survey Task Temp',
+	                                    WhoId=testPerAcc.PersonContactId,
+	                                    Activity_Status__c='Sent',SMSTemplateID__c=temp1.id
+	                                    );
+	        lstTask.add(testSMSTask);                             
+        }
+        insert lstTask;
+        TaskHelper.createSMSTaskAfterIBCall(lstTask);        
+        Test.stopTest();
+    }
 }

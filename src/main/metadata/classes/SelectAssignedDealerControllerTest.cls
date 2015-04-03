@@ -9,14 +9,148 @@
     1. Mouse Created on 2013-05-03
 */
 @isTest
-private class SelectAssignedDealerControllerTest {
-    public static testMethod void testSelectAssignedDealerController_hasPartDealer()
+private class SelectAssignedDealerControllerTest 
+{
+	private static Account dealer;
+	private static Account personAccount;
+	private static Lead__c lead;
+	private static Campaign centralMKTCampaign;
+	private static Campaign_Package__c camPackage;
+	private static Campaign_Offering__c offering;
+	private static Package_Item__c packageItem;
+	private static Participating_Dealer__c partDealer;
+	private static Campaign cacCampaign;
+	private static Campaign campaignExecution;
+	private static Campaign_Lead__c camLead;
+	
+	public static testMethod void testSelectAssignedDealerController()
+	{
+		Test.startTest();
+		prepareTestdata('UtilTestData.LEAD_RT_SALES_LEADS');
+        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        Test.setCurrentPage(pr);
+        SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
+        // Test Dealer Province is Beijing, so has query result
+        selectDealer.dealer.Province__c = 'Anhui';
+        selectDealer.dealer.City__c = 'Anyang';
+        selectDealer.query();
+        Test.stopTest();
+        System.assertequals(true,selectDealer.hasQueryResult);
+	}
+	
+	public static testMethod void testgetCityOptions()
+	{
+		Test.startTest();
+		prepareTestdata('UtilTestData.LEAD_RT_SALES_LEADS');
+        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        Test.setCurrentPage(pr);
+        SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
+        selectDealer.dealer.Province__c = 'Anhui';
+        List<SelectOption> options = new List<SelectOption>();
+        options.add(new SelectOption('', '--None--'));
+        options.add(new SelectOption(dealer.City__c,dealer.City__c));
+        selectDealer.getCityOptions();
+        Test.stopTest();
+        system.assertequals(options,selectDealer.getCityOptions());
+	}
+	
+	public static testMethod void testrefreshPage()
+	{
+		Test.startTest();
+		prepareTestdata('UtilTestData.LEAD_RT_SALES_LEADS');
+        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        Test.setCurrentPage(pr);
+        SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
+        selectDealer.refreshPage();
+        Test.stopTest();
+        system.assertequals(null,selectDealer.refreshPage());
+	}
+	
+	public static testMethod void testchoose()
+	{
+		Test.startTest();
+		prepareTestdata('UtilTestData.LEAD_RT_SALES_LEADS');
+        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        Test.setCurrentPage(pr);
+        SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
+        selectDealer.choosenDealerId=dealer.Id;
+        id expectedID;
+        selectDealer.choose();
+        expectedID=selectDealer.lead.Assigned_Dealer__c;
+        Test.stopTest();
+        system.assertequals(dealer.Id,expectedID);
+	}
+	
+	public static testMethod void testcampaignOptions()
+	{
+		Test.startTest();
+		prepareTestdata('UtilTestData.LEAD_RT_SALES_LEADS');
+        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        Test.setCurrentPage(pr);
+        SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
+        List<SelectOption> campaignOptions = new List<SelectOption>();
+        campaignOptions.add(new SelectOption('', '--None--'));
+        campaignOptions.add(new SelectOption(campaignExecution.Id, campaignExecution.Name));
+        List<SelectOption> temp=selectDealer.campaignOptions;
+        Test.stopTest();
+        system.assertequals(campaignOptions,temp);
+	}
+	
+	public static testMethod void testquery()
+	{
+		Test.startTest();
+		prepareTestdata('UtilTestData.LEAD_RT_AFTER_SALES_LEADS');
+        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        Test.setCurrentPage(pr);
+        SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
+        // Test Dealer Province is Beijing, so has query result
+        selectDealer.dealer.Province__c = 'Anhui';
+        selectDealer.dealer.City__c = 'Anyang';
+        selectDealer.lead= new Lead__c();
+        selectDealer.query();
+        Test.stopTest();
+        System.assertequals(true,selectDealer.hasQueryResult);
+        System.assertequals(camLead.Lead__c,lead.id);
+	}
+	
+	public static testMethod void testqueryelseCondition()
+	{
+		Test.startTest();
+		prepareTestdata('UtilTestData.LEAD_RT_AFTER_SALES_LEADS');
+        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        Test.setCurrentPage(pr);
+        SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
+        // Test Dealer Province is Beijing, so has query result
+        selectDealer.dealer.Province__c = 'test';
+        selectDealer.dealer.City__c = 'test';
+        selectDealer.lead= new Lead__c();
+        selectDealer.query();
+        Test.stopTest();
+        System.assertequals(false,selectDealer.hasQueryResult);
+        System.assertequals(camLead.Lead__c,lead.id);
+	}
+	
+	public static testMethod void testchooseelseCondition()
+	{
+		Test.startTest();
+		prepareTestdata('UtilTestData.LEAD_RT_SALES_LEADS');
+        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        Test.setCurrentPage(pr);
+        SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
+        selectDealer.choosenDealerId=personAccount.Id;
+        id expectedID;
+        selectDealer.choose();
+        expectedID=selectDealer.lead.Assigned_Dealer__c;
+        Test.stopTest();
+        system.assertequals(personAccount.Id,expectedID);
+	}
+    
+    static void prepareTestdata(string leadType)
     {
-    	Test.startTest();
-        // Two Account: one Dealer and one Person Account
-        Account dealer = (Account)UtilTestData.createSobject(
+    	// Two Account: one Dealer and one Person Account
+        dealer = (Account)UtilTestData.createSobject(
             new Account(
-                Dealer_Sales_Type__c ='MB', 
+                Dealer_Sales_Type__c ='MB',
                 Province__c = 'Anhui',
                 City__c = 'anyang',
                 Dealer_Active__c = true,
@@ -25,128 +159,58 @@ private class SelectAssignedDealerControllerTest {
             ), 
             UtilTestData.ACCOUNT_RT_DEALER);
 
-        Account personAccount = (Account)UtilTestData.createSobject(new Account(), 
+        personAccount = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
 
         // One Lead which has a reference to this person account
-        Lead__c lead = new Lead__c(Contact__c = personAccount.Id);
+        lead = new Lead__c(Contact__c = personAccount.Id);
         lead = (Lead__c)UtilTestData.createSobject(lead,
-            UtilTestData.LEAD_RT_SALES_LEADS);
+            leadType);
 
         // One Campaign Execution, one CAC Campaign and one Central Marketing Campaign
         // and one Participating Dealer of Central Marketing Campaign
-        Campaign centralMKTCampaign = (Campaign)UtilTestData.createSobject(
+        centralMKTCampaign = (Campaign)UtilTestData.createSobject(
             new Campaign(), UtilTestData.CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN);
 
         // Create Campaign Package for Central MKT Campaign
-        Campaign_Package__c camPackage = new Campaign_Package__c(
+        camPackage = new Campaign_Package__c(
             Campaign__c = centralMKTCampaign.Id);
         camPackage = (Campaign_Package__c)UtilTestData.createSobject(camPackage, null);
 
         // Create Package Item for this Central MKT Campaign
         // Because Campaign Offer is the Master Object of Package Item, 
         // so we need to create campaign offering firstly
-        Campaign_Offering__c offering = (Campaign_Offering__c)UtilTestData.createSobject(
+        offering = (Campaign_Offering__c)UtilTestData.createSobject(
             new Campaign_Offering__c(Campaign__c = centralMKTCampaign.Id), null);
 
         // Create packageItem under camPackage and offering
-        Package_Item__c packageItem = (Package_Item__c)UtilTestData.createSobject(
+        packageItem = (Package_Item__c)UtilTestData.createSobject(
             new Package_Item__c(
                 Offering__c = offering.Id,
                 Package_Name__c = camPackage.Id), null);
 
         // Create Participating_Dealer__c for centralMKTCampaign
-        Participating_Dealer__c partDealer = new Participating_Dealer__c(
+        partDealer = new Participating_Dealer__c(
             Campaign__c = centralMKTCampaign.Id,
             Dealer__c = dealer.Id,
             Campaign_Package__c = camPackage.Id);
         partDealer = (Participating_Dealer__c)UtilTestData.createSobject(partDealer, null);
 
-        Campaign cacCampaign = new Campaign(
+        cacCampaign = new Campaign(
             ParentId = centralMKTCampaign.Id);
         cacCampaign = (Campaign)UtilTestData.createSobject(
             cacCampaign, UtilTestData.CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN);
 
-        Campaign campaignExecution = new Campaign(
+        campaignExecution = new Campaign(
             ParentId = cacCampaign.Id);
         campaignExecution = (Campaign)UtilTestData.createSobject(
             campaignExecution, UtilTestData.CAMPAIGN_RT_CAMPAIGN_EXECUTION);
 
         // One related Campaign Lead which has a reference to Campaign Execution
         // and has a reference to Lead
-        Campaign_Lead__c camLead = new Campaign_Lead__c(
+        camLead = new Campaign_Lead__c(
             Lead__c = lead.Id,
             Campaign__c = campaignExecution.Id);
         camLead = (Campaign_Lead__c)UtilTestData.createSobject(camLead, null);
-
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
-        Test.setCurrentPage(pr);
-        SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(
-            new ApexPages.StandardController(lead));
-        
-        // Test Dealer Province is Beijing, so has query result
-        selectDealer.dealer.Province__c = 'Anhui';
-        selectDealer.dealer.City__c = 'Anyang';
-        selectDealer.query();
-
-        // Test Dealer Province Name is Beijing Test, so has result
-        selectDealer.Name = 'Beijing';
-        selectDealer.query();
-
-        // Test Dealer Province is Beijing, so no query result
-        selectDealer.dealer.Province__c = 'Shanghai';
-        selectDealer.query();
-        // Test choose action
-        selectDealer.choosenDealerId = dealer.Id;
-        selectDealer.choose();
-        Test.stopTest();
-        System.assertequals(lead.Contact__c,personAccount.Id);
-        System.assertequals(camLead.Lead__c,lead.id);
-    }
-
-   public static testMethod void testSelectAssignedDealerController_NoPartDealer() 
-   {
-   		Test.startTest();
-        // Two Account: one Dealer and one Person Account
-        Account dealer = new Account(Dealer_Sales_Type__c ='MB');
-        dealer = (Account)UtilTestData.createSobject(dealer, 
-            UtilTestData.ACCOUNT_RT_DEALER);
-        Account personAccount = (Account)UtilTestData.createSobject(new Account(), 
-            UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-
-        // One Lead which has a reference to this person account
-        Lead__c lead = new Lead__c(Contact__c = personAccount.Id);
-        lead = (Lead__c)UtilTestData.createSobject(lead,
-            UtilTestData.LEAD_RT_SALES_LEADS);
-
-        // One Campaign Execution, one CAC Campaign and one Central Marketing Campaign
-        // and one Participating Dealer of Central Marketing Campaign
-        Campaign centralMKTCampaign = (Campaign)UtilTestData.createSobject(
-            new Campaign(), UtilTestData.CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN);
-
-        Campaign cacCampaign = new Campaign(
-            ParentId = centralMKTCampaign.Id);
-        cacCampaign = (Campaign)UtilTestData.createSobject(
-            cacCampaign, UtilTestData.CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN);
-
-        Campaign campaignExecution = new Campaign(
-            ParentId = cacCampaign.Id);
-        campaignExecution = (Campaign)UtilTestData.createSobject(
-            campaignExecution, UtilTestData.CAMPAIGN_RT_CAMPAIGN_EXECUTION);
-
-        // One related Campaign Lead which has a reference to Campaign Execution
-        // and has a reference to Lead
-        Campaign_Lead__c camLead = new Campaign_Lead__c(
-            Lead__c = lead.Id,
-            Campaign__c = campaignExecution.Id);
-        camLead = (Campaign_Lead__c)UtilTestData.createSobject(camLead, null);
-
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
-        Test.setCurrentPage(pr);
-        SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(
-            new ApexPages.StandardController(lead));
-        Test.stopTest();
-        System.assertequals(lead.Contact__c,personAccount.Id);
-        System.assertequals(camLead.Lead__c,lead.id);
     }
 }
