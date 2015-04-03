@@ -11,16 +11,18 @@
     30-May-2013 Sinow Zhang (NTTData)  Created
 */     
 @isTest
-public class CaseEscalationControllerTest {
-    
-    static Map<String, Schema.SObjectField> FLDOBJ_MAP = schema.SObjectType.Case.fields.getMap();   
-    static Map<String,String> positions = new Map<String,String>();
+public class CaseEscalationControllerTest { 
+  
     static CaseEscalationController controller;
     static Case c;
     static User currentUsr;
+    static user objUsr;
     static{
        currentUsr = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
     }
+    static{
+        objUsr=[select id from user where id=:userinfo.getuserid()];
+    }   
     static void init( boolean isrequired){
      Account dealer = new Account();
         dealer.Allow_Data_Sharing__c = 'Yes';
@@ -72,9 +74,9 @@ public class CaseEscalationControllerTest {
         c.Registration_Number__c  = 'test'; 
         c.Car_Type__c = 'test';
         if(isrequired)
-        	c.Dealer_Case_Type__c = 'test';
+            c.Dealer_Case_Type__c = 'test';
         else
-        	c.Dealer_Case_Type__c = null;	
+            c.Dealer_Case_Type__c = null;   
         c.Dealer_Case_SubType__c = 'test';
         c.RO_CO_Case_Category__c = 'Aftersales';
         c.Vehicle_In_Workshop__c = 'Yes';
@@ -99,27 +101,39 @@ public class CaseEscalationControllerTest {
         init(true);    
         controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = '';          
         controller.escalate();      
-      }  
-    public static testMethod void test_escalate_Dealer_Region(){      
+      } 
+   @future
+    static void test_EscalateCase_Dealer_Region_West_elsecondition(){    
+        init(false);    
+        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'WEST';          
+        controller.escalate();      
+      }             
+    public static testMethod void test_escalate_Dealer_EastRegion(){      
          system.runAs(currentUsr){
             Test.startTest();
-            test_EscalateCase_Dealer_Region_East(); 
-            test_EscalateCase_Dealer_Region();			
-            Test.stopTest();           
+            test_EscalateCase_Dealer_Region_East();                     
+            Test.stopTest();                       
+            system.assert(controller.escalate()!=Null);  
+            system.assertequals(Date.today(),controller.EscalateCase.Escalate_Date_to_CO__c);               
+            system.assertequals('Awaiting MB',controller.EscalateCase.Status);  
+            system.assertequals('Central Office',controller.EscalateCase.Handling_Level__c);             
          }        
-     }
-     @future
-    static void test_EscalateCase_Dealer_Region_East_elsecondition(){    
-        init(false);    
-        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'EAST';          
-        controller.escalate();      
-      }
-     public static testMethod void testEscalate_elsecondition(){ 
-     	user obj=[select id from user where id=:userinfo.getuserid()];
-     	system.runAs(obj){     
+     }       
+     public static testMethod void test_escalate_Dealer_Region(){      
+         system.runAs(currentUsr){
+            Test.startTest();           
+            test_EscalateCase_Dealer_Region();          
+            Test.stopTest();         
+            system.assert(controller.escalate()==Null);                            
+         }        
+      } 
+     public static testMethod void testEscalate_West_elsecondition(){         
+        system.runAs(objUsr){     
             Test.startTest();
-            test_EscalateCase_Dealer_Region_East_elsecondition();
-            Test.stopTest();    
-     	}       
-     }  
-}
+            test_EscalateCase_Dealer_Region_West_elsecondition();
+            Test.stopTest();  
+            system.assert([select Id, Name from Profile where Id = :UserInfo.getProfileId()].name!='Regional CRM Manager'); 
+            system.assertnotequals([select Id, Name from Profile where Id = :UserInfo.getProfileId()].name,'Regional CRM Manager');
+        }       
+     }    
+ }
