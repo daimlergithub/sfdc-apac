@@ -16,11 +16,12 @@ public class CaseEscalationControllerTest {
     static Map<String, Schema.SObjectField> FLDOBJ_MAP = schema.SObjectType.Case.fields.getMap();   
     static Map<String,String> positions = new Map<String,String>();
     static CaseEscalationController controller;
+    static Case c;
     static User currentUsr;
     static{
        currentUsr = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
     }
-    static void init(){
+    static void init( boolean isrequired){
      Account dealer = new Account();
         dealer.Allow_Data_Sharing__c = 'Yes';
         dealer.Province__c = 'jiangsu';
@@ -41,7 +42,7 @@ public class CaseEscalationControllerTest {
         Person.lastName='PersonAccount';
         Person.RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Retail').getRecordTypeId();
         insert Person;
-        Case c = new Case();
+        c = new Case();
         c.Subject = 'For Mail test';
         c.RecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
         c.Case_Dealer__c = dealer.id;
@@ -70,7 +71,10 @@ public class CaseEscalationControllerTest {
         c.CLB__c = 'test';
         c.Registration_Number__c  = 'test'; 
         c.Car_Type__c = 'test';
-        c.Dealer_Case_Type__c = 'test';
+        if(isrequired)
+        	c.Dealer_Case_Type__c = 'test';
+        else
+        	c.Dealer_Case_Type__c = null;	
         c.Dealer_Case_SubType__c = 'test';
         c.RO_CO_Case_Category__c = 'Aftersales';
         c.Vehicle_In_Workshop__c = 'Yes';
@@ -83,15 +87,16 @@ public class CaseEscalationControllerTest {
         Test.setCurrentPage(caseEscalation);
         controller = new CaseEscalationController();   
     }
+    
     @future
     static void test_EscalateCase_Dealer_Region_East(){    
-        init();    
+        init(true);    
         controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'EAST';          
         controller.escalate();      
       }    
     @future
     static void test_EscalateCase_Dealer_Region(){    
-        init();    
+        init(true);    
         controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = '';          
         controller.escalate();      
       }  
@@ -102,5 +107,19 @@ public class CaseEscalationControllerTest {
             test_EscalateCase_Dealer_Region();			
             Test.stopTest();           
          }        
+     }
+     @future
+    static void test_EscalateCase_Dealer_Region_East_elsecondition(){    
+        init(false);    
+        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'EAST';          
+        controller.escalate();      
+      }
+     public static testMethod void testEscalate_elsecondition(){ 
+     	user obj=[select id from user where id=:userinfo.getuserid()];
+     	system.runAs(obj){     
+            Test.startTest();
+            test_EscalateCase_Dealer_Region_East_elsecondition();
+            Test.stopTest();    
+     	}       
      }  
 }
