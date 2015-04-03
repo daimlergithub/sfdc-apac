@@ -22,6 +22,7 @@ public with sharing class SelectAssignedDealerController {
     public Id choosenDealerId                    {get; set;}
     public Id choosenCampaignId                  {get; set;}
     public Boolean hasMessage                    {get; set;}
+    public Id dealerRecordTypeId                  {get; set;}
     
     public SelectAssignedDealerController(ApexPages.StandardController controller) {
         lead = [SELECT RecordType.Name, Name, Contact__r.Province__c, Contact__r.City__c, 
@@ -29,7 +30,7 @@ public with sharing class SelectAssignedDealerController {
                 FROM Lead__c WHERE Id = :controller.getId()];
         
         // Initiate dealer
-        Id dealerRecordTypeId = UtilRecordType.getRecordTypeIdByName('Account', 'Dealer');
+        dealerRecordTypeId = UtilRecordType.getRecordTypeIdByName('Account', 'Dealer');
         dealer = new Account(RecordTypeId = dealerRecordTypeId, Province__c = lead.Contact__r.Province__c, City__c = lead.Contact__r.City__c);
         
         // Get all related Campaign Leads
@@ -60,7 +61,7 @@ public with sharing class SelectAssignedDealerController {
         Set<String> cities = new Set<String>();
         for(Account dealer : [select City__c from Account 
             where Dealer_Active__c = true 
-            and RecordTypeId = '01290000000fpAE' and Province__c = :dealer.Province__c]){
+            and RecordTypeId =: dealerRecordTypeId and Province__c = :dealer.Province__c]){
             cities.add(dealer.City__c);
         }
         cities.remove(null);
@@ -96,8 +97,6 @@ public with sharing class SelectAssignedDealerController {
         String querySOQL = 'SELECT ' + this.getColumns() + 
             'IsPersonAccount, Id FROM Account WHERE Dealer_Active__c = true and ' + 
             'RecordType.Name = :ACCOUNT_RT_DEALER AND ';
-
-        system.debug('@Shrinivas:' +querySOQL);
         // If Lead Record Type is Sales Leads, this filter is must,
         // if not, no need.
         if (lead.RecordType.Name == 'Sales Leads') {
@@ -166,7 +165,6 @@ public with sharing class SelectAssignedDealerController {
         // Query Dealers               
         querySOQL = querySOQL.subString(0, querySOQL.length() - 4) + 
             'ORDER BY Dealer_Region__c DESC NULLS LAST LIMIT ' + this.QUERY_LIMIT;
-        System.debug('Debug Output ======> {' + querySOQL + '}');
         
         dealers = Database.query(querySOQL);
         
@@ -181,7 +179,6 @@ public with sharing class SelectAssignedDealerController {
         // Populate assigned dealer
         hasMessage = false;
         lead.Assigned_Dealer__c = choosenDealerId;
-
         try {
             update lead;
         }
@@ -210,14 +207,15 @@ public with sharing class SelectAssignedDealerController {
         return SObjectType.Account.FieldSets.AssignedDealerColumns.getFields();
     }
     
-    private void addNoParticipatingDealersMessage() {
+    //TODO: not used any where
+    /*private void addNoParticipatingDealersMessage() {
         dealers = new List<Account>();
         // If no query result, system alert no search result.
         hasQueryResult = (dealers.size() > 0);
         if (!hasQueryResult) {
             this.addInfoMessage('No Participating Dealers');
         }
-    }
+    }*/
 
     private void addInfoMessage(String msg) {
         ApexPages.addMessage(new ApexPages.Message(
