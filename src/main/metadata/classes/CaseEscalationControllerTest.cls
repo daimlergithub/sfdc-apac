@@ -13,25 +13,15 @@
 @isTest
 public class CaseEscalationControllerTest {
     
-    static Map<String, Schema.SObjectField> FLDOBJ_MAP = schema.SObjectType.Case.fields.getMap();
+    static Map<String, Schema.SObjectField> FLDOBJ_MAP = schema.SObjectType.Case.fields.getMap();   
     static Map<String,String> positions = new Map<String,String>();
-
-    @isTest
-    static void runTest(){
-
-        User user1 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
-        system.runAs(user1){
-            Test.startTest();
-            testCaseEscalationController();            
-            Test.stopTest();           
-        }
-        
+    static CaseEscalationController controller;
+    static User currentUsr;
+    static{
+       currentUsr = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
     }
-
-    @future
-    static void testCaseEscalationController(){
-
-        Account dealer = new Account();
+    static void init(){
+     Account dealer = new Account();
         dealer.Allow_Data_Sharing__c = 'Yes';
         dealer.Province__c = 'jiangsu';
         dealer.City__c = 'nanjing';
@@ -47,7 +37,10 @@ public class CaseEscalationControllerTest {
         dealer.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
         dealer.Dealer_Region__c = 'West';
         insert dealer;
-        
+        Account Person = new Account();
+        Person.lastName='PersonAccount';
+        Person.RecordTypeId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Retail').getRecordTypeId();
+        insert Person;
         Case c = new Case();
         c.Subject = 'For Mail test';
         c.RecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
@@ -84,21 +77,30 @@ public class CaseEscalationControllerTest {
         c.Ref_No_Regional__c = 'SOUTH';
         c.Ref_No_Central__c='SOUTH';
         insert c;
-        system.assert([select id from case where id=:c.Id].size()>0);
-        system.assert([Select id from Account Where Id=:dealer.id].size()>0);
-        
+              
         PageReference caseEscalation = Page.CaseEscalation;
         caseEscalation.getParameters().put('id',c.id);
-
         Test.setCurrentPage(caseEscalation);
-        CaseEscalationController controller = new CaseEscalationController();
-        system.debug(controller);      
+        controller = new CaseEscalationController();   
+    }
+    @future
+    static void test_EscalateCase_Dealer_Region_East(){    
+        init();    
         controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'EAST';          
-        controller.escalate();        
-        System.assertEquals(controller.EscalateCase.Case_Dealer__r.Dealer_Region__c,'EAST');     
-        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = '';
         controller.escalate();      
-        System.assertEquals(controller.EscalateCase.Case_Dealer__r.Dealer_Region__c,'');
-      }
-   
+      }    
+    @future
+    static void test_EscalateCase_Dealer_Region(){    
+        init();    
+        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = '';          
+        controller.escalate();      
+      }  
+    public static testMethod void test_escalate_Dealer_Region(){      
+         system.runAs(currentUsr){
+            Test.startTest();
+            test_EscalateCase_Dealer_Region_East(); 
+            test_EscalateCase_Dealer_Region();			
+            Test.stopTest();           
+         }        
+     }  
 }
