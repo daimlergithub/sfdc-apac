@@ -14145,6 +14145,9 @@
         <layout>User-User Master Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>UserAlt-User Profile Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Vehicle_Group_Mapping__c-Vehicle Group Mapping Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -15980,6 +15983,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-ServiceContract</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>standard-SocialPersona</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
     <tabVisibilities>
