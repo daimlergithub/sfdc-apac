@@ -185,7 +185,8 @@ public class TaskHelper {
         
    }
    
-   public static void createIb_ob_Qc_Records(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
+   //TODO - Not Used
+   /*public static void createIb_ob_Qc_Records(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
        List<Task> taskforGenerateQC = new List<Task>();
        List<Task> taskforGenerateSSIQC = new List<Task>();
@@ -203,7 +204,7 @@ public class TaskHelper {
             //When Activity Status is Successful, insert SSI QC records.
            /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code  
            if(t.Activity_Status__c == 'Successful' && Trigger.oldMap.get(t.Id).Activity_Status__c != 'Successful' 
-            && (t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId) && t.QC_ID__c == null) */
+            && (t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId) && t.QC_ID__c == null) *--
             
             if(t.Activity_Status__c == 'Successful' && taskOldMap.get(t.Id).Activity_Status__c != 'Successful' 
             && t.RecordTypeId == SSITaskRecordTypeId && t.QC_ID__c == null) 
@@ -214,7 +215,7 @@ public class TaskHelper {
             // By Shuang Li BRD-AS-CAC-007
             /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
             if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed')
-            */
+            *--
             
             if (t.RecordTypeId == SSITaskRecordTypeId && t.Status == 'Closed' && taskOldMap.get(t.Id).Status != 'Closed') 
             {
@@ -224,7 +225,7 @@ public class TaskHelper {
             // By Sinow HLD-CAC-003
             /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
             if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId1 || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed') 
-            */
+            *--
             
             if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId1 || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && taskOldMap.get(t.Id).Status != 'Closed') 
             {
@@ -251,7 +252,7 @@ public class TaskHelper {
         {
             GenerateSSIQCs(taskforGenerateSSIQC);
         }
-   }
+   }*/
    
    public static void Reply_TD_unsubscribeForeachSMScontent(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
@@ -516,7 +517,8 @@ public class TaskHelper {
         }
     }
     
-    public static void GenerateQCs(List<Task> updateTasks) {        
+    //TODO - Not Used
+    /*public static void GenerateQCs(List<Task> updateTasks) {        
         //new qc list for insert
         List<QC__c> newQCs = new List<QC__c>();
         QC__c qc;
@@ -547,7 +549,7 @@ public class TaskHelper {
     
     public static void GenerateSSIQCs(List<Task> updateTasks) {
 
-    }
+    }*/
     
     public static void GenerateMultipleQCs(List<Task> updateTasks) {
         List<QC__c> QCForInsert = new List<QC__c>();
@@ -613,7 +615,8 @@ public class TaskHelper {
         }
     }
     
-    private static void UpdateQCLink(Set<Id> taskIds, List<Task> tasks) {
+    //TODO - Not Used
+    /*private static void UpdateQCLink(Set<Id> taskIds, List<Task> tasks) {
         //map task id and new generate qc id
         Map<Id, Id> taskIdqcIdMap = new Map<Id, Id>();
         
@@ -629,7 +632,7 @@ public class TaskHelper {
                 t.QC_ID__c = taskIdqcIdMap.get(t.Id);
             }
         }
-    }
+    }*/
     
     // Creat new SMS Task 
     // --- Modified by Justin on 2013-12-10

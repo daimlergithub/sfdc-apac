@@ -36,7 +36,8 @@ public class UtilCampaignTaskGenerationByCaseTest
 	      Status = 'Started', 
 	      StartDate = System.today(), 
 	      EndDate = System.today(),
-	      RecordTypeId = topCampRecordTypeId
+	      RecordTypeId = topCampRecordTypeId,
+	      Previous_Campaign_Execution__c=null
 	    );
 	    insert top;
     
@@ -54,30 +55,33 @@ public class UtilCampaignTaskGenerationByCaseTest
         List<Campaign> ml = new List<Campaign>();
         for(Integer i=0;i<10;i++)
         {
-           Campaign m = new Campaign(Name = 'top',Status = 'Started',StartDate = System.today(), EndDate = System.today(),Content_Preview__c='Test',Execution_Type__c='Segmentation Only',Flow_URL__c='test url');
+           Campaign m = new Campaign(Name = 'top',Status = 'Started',StartDate = System.today(), parentid=top.Id,EndDate = System.today(),Content_Preview__c='Test',Execution_Type__c='Segmentation Only',Flow_URL__c='test url');
            ml.add(m);
         }
         insert ml;
-         
+        
+        List<case> listcase = new List<case>();
+	    for (Integer i=0;i<1;i++)
+	    {
+           Case c1 = new Case(Subject='',Status='Open',Case_Type__c='Others',Priority='yellow =3',Mileage__c=2);
+           listcase.add(c1);
+        }
+        insert listcase; 
                      
         List<CampaignMember> listcamp = new List<CampaignMember>();
         for (Campaign objCamp:ml)
         {
-         	CampaignMember ob1Member = new CampaignMember(
-		    CampaignId = objCamp.Id,
-		    ContactId = contact.Id,
-		    Status = 'Send',Task_Generated__c=false
-		    );
-            listcamp.add(ob1Member);
+        	for (Case objCase:listcase)
+        	{
+	         	CampaignMember ob1Member = new CampaignMember(
+			    CampaignId = objCamp.Id,
+			    ContactId = contact.Id,
+			    Status = 'Send',Task_Generated__c=false,Vehicle_Case_ID__c=objCase.id+';'
+			    );
+	            listcamp.add(ob1Member);
+        	}
        }
        insert listcamp;
-       List<case> listcase = new List<case>();
-	   for (Integer i=0;i<1;i++)
-	   {
-          Case c1 = new Case(Subject='',Status='Open',Case_Type__c='Others',Priority='yellow =3',Mileage__c=2);
-          listcase.add(c1);
-       }
-       insert listcase;
        
         Id jobId;
         test.startTest();
