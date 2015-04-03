@@ -10,5 +10,3 @@ timestamps-data.log
 /build
 /logs
 /src/main/metadata-retrieve
-build-fixing.xml
-.project.license

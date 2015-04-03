@@ -1,5 +1,0 @@
-<apex:page sidebar="false" showHeader="false" standardController="Account">
-  <apex:pageBlock >
-     <img src="{!$Resource.zzDealerSearch2}"/>
-  </apex:pageBlock>
-</apex:page>

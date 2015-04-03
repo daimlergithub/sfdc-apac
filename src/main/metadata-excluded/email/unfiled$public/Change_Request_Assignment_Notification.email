@@ -1,7 +1,0 @@
-Change Request Description:
-
-{!Change_Request__c.Change_Description__c}
-
-Request Date: {!Change_Request__c.Request_Date__c}
-
-View detail in SFDC at: {!Change_Request__c.Link}
