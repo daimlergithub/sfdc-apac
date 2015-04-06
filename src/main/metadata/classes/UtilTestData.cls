@@ -34,8 +34,8 @@ Public class UtilTestData {
     public final static String ACCOUNT_RT_DEALER = 'Dealer';
     public final static String accountLink_Contact2Contact = 'Contact2Contact';
 
-    public final static String LEAD_RT_SALES_LEADS = 'Sales Leads'; 
-    public final static String LEAD_RT_AFTER_SALES_LEADS = 'Aftersales Leads';
+    public final static String LEAD_RT_SALES_LEADS = 'Sales Leads';
+    
     public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
 
     public final static String CAMPAIGN_RT_CAMPAIGN_EXECUTION = 'Campaign Execution - Simple';
@@ -48,6 +48,7 @@ Public class UtilTestData {
     public final static String TASK_RT_EDM = 'eDM';
     public final static String TASK_RT_DM = 'DM';
     public final static String TASK_RT_OB = 'OB';
+    //public final static String GENERAL_TASK = 'General Task';
 
     public final static Integer BATCH_SIZE = 101;
     
@@ -268,6 +269,9 @@ Public class UtilTestData {
             }
             else if (recordTypeName == TASK_RT_EDM) {
                 initiateEDMTask(so);
+            }
+            else if (recordTypeName == 'General Task'){
+                initiateGeneralTask(so);
             }
         }
 
@@ -731,7 +735,24 @@ Public class UtilTestData {
         task.Status = 'Open';
         task.Priority__c = 'General';
     }
-	public static Campaign dataPreparation(){
+    
+    //Create General Task
+    private static void initiateGeneralTask(Sobject so) {
+        Task task = (Task)so;
+        task.RecordTypeId = getRecordTypeMapInstance().get('General Task'+ 'Task');
+        task.Subject = 'Test';
+        task.WhatId = task.WhatId == null ?
+            createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :
+            task.WhatId;
+
+        task.ActivityDate = System.today().addDays(-1);
+        task.Activity_Status__c = task.Activity_Status__c == null ?
+            'Pending' : task.Activity_Status__c;
+        task.Status = 'Open';
+        task.Priority__c = 'General';
+    }
+    
+    public static Campaign dataPreparation(){
         // Campaign Record Type Id Search
         Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();  
         // Central Campaign

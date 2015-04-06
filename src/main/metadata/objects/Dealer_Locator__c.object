@@ -46,6 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <description>Contains records for locating a dealer based on Postal or Business Unit criteria.</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -129,8 +130,9 @@
     </fields>
     <label>Dealer Locator</label>
     <nameField>
+        <displayFormat>{000000000}</displayFormat>
         <label>Dealer Locator</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Dealer Locators</pluralLabel>
     <searchLayouts/>
