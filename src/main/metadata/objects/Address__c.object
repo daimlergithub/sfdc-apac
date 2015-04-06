@@ -127,32 +127,6 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
-        <fullName>FS_Hardcopy_Last_Modified_By__c</fullName>
-        <externalId>false</externalId>
-        <label>FS Mail Last Modified By</label>
-        <length>50</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>FS_Hardcopy_Last_Modified_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>FS Mail Last Modified Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>FS_Opt_In_Hardcopy__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>FS Opt In Mail</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Hardcopy_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
         <label>Mail Last Modified By</label>

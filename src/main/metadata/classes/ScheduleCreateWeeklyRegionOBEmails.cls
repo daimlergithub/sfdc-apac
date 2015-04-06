@@ -29,7 +29,7 @@ global class ScheduleCreateWeeklyRegionOBEmails implements Schedulable {
             FROM Account WHERE RecordType.Name = 'Dealer'
             AND Dealer_MB_Sub_Region__c != null
             ORDER BY Dealer_MB_Sub_Region__c];
-		system.debug('accs>>>>'+json.serializepretty(accs));
+
         // Populate the Region with the accounts in it
         Map<String, List<Account>> separatedAccountsBySubRegion = 
             UtilLeadEmailEscalation.getSeparateAccountsBySubRegion(accs);
