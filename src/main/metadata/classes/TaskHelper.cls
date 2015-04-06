@@ -32,17 +32,18 @@ public class TaskHelper {
     private static String mbdaTaskRecordTypeId = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('MBDA Survey').getRecordTypeId();
     
     private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
+    private static String FAIL_BLACKLIST='Fail-Blacklist';
        
    public static void TaskFailBlacklist(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
         set<Id> setTaskIds = new set<Id>();
         for(Task tk : tasks)
         {
-            if(isInsert && tk.Activity_Status__c == 'Fail-Blacklist')
+            if(isInsert && tk.Activity_Status__c == FAIL_BLACKLIST)
             {
                 setTaskIds.add(tk.Id);
             }
-            if(isUpdate && tk.Activity_Status__c == 'Fail-Blacklist' && taskOldMap.get(tk.Id).Activity_Status__c != 'Fail-Blacklist')
+            if(isUpdate && tk.Activity_Status__c == FAIL_BLACKLIST && taskOldMap.get(tk.Id).Activity_Status__c != FAIL_BLACKLIST)
             {
                 setTaskIds.add(tk.Id);
             }
