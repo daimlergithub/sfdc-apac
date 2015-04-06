@@ -46,6 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <description>Records all vehicle inspections done for a vehicle towards the end of a financial contract.</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -184,8 +185,9 @@
     </fields>
     <label>Vehicle Inspection</label>
     <nameField>
+        <displayFormat>{000000}</displayFormat>
         <label>Vehicle Inspection</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Vehicle Inspections</pluralLabel>
     <searchLayouts/>
