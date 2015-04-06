@@ -23,6 +23,8 @@ public class LeadConvertingControllerTest
   static String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();  
   static String RTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Event Retail Campaign').getRecordTypeId();
   static String ASRTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('AS Retail Campaign').getRecordTypeId();
+  static Retail_Campaign__c campaign;
+  static String retailCampaignId; 
 
   static{
     Profile p = [select id from profile where name='System Administrator' limit 1];
@@ -42,7 +44,8 @@ public class LeadConvertingControllerTest
        rc = new Retail_Campaign__c(RecordTypeId =RTId,Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved');
        insert rc;      
        rtm = new Retail_Campaign_Member__c(Retail_Campaign__c = rc.Id, Contact__c = thirdParty.Id, Status__c = 'Show up');
-       insert rtm;       
+       insert rtm; 
+       retailCampaignId = ApexPages.currentPage().getParameters().put('id',rc.Id);        
    }
    private static void set_Lead_ASRETAILCAMPAIGN() {
        init();    
@@ -136,13 +139,14 @@ public class LeadConvertingControllerTest
         }        
       } 
      public static testMethod void test_Converttolead_RTSegmentation()
-       {
+       {       
         init();
         LeadRT_Segmentation();
-        Test.startTest();       
+        Test.startTest();            
         system.runAs(currentUser){ 
         extension.retailCampaignMemberInfos[0].isConverted =true;    
         extension.converttolead(); 
+        campaign = [select Actual_Lead__c from Retail_Campaign__c where Id = :retailCampaignId];
         Test.stopTest(); 
         system.assertequals(ApexPages.currentPage().getParameters().get('rt'),'Segmentation Only');
         system.assertequals(extension.retailCampaignMemberInfos[0].lead.Assigned_Date_Time__c,date.today());
@@ -150,7 +154,8 @@ public class LeadConvertingControllerTest
         system.assertequals(extension.retailCampaignMemberInfos[0].lead.Contact__c,extension.retailCampaignMemberInfos[0].retailCampaignMember.Contact__c);  
         system.assertequals('New',extension.retailCampaignMemberInfos[0].lead.CAC_Lead_Status__c);  
         system.assertequals(date.today(),extension.retailCampaignMemberInfos[0].lead.Order_Placed_Date__c);  
-        system.assertequals('Converted',extension.retailCampaignMemberInfos[0].retailCampaignMember.Status__c);
+        system.assertequals('Converted',extension.retailCampaignMemberInfos[0].retailCampaignMember.Status__c);       
+        system.assertequals(campaign.Actual_Lead__c,[select count() from Lead__c where Retail_Campaign_Name__c = :retailCampaignId]);
        }        
      } 
     public static testMethod void test_Converttolead_Lead_Desired_Service()

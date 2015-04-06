@@ -105,7 +105,7 @@ public class CaseEscalationController {
                                    US_VIN__c,
                                    Vehicle_In_Workshop__c,
                                    Car_Type__c,
-                   Handling_Level__c,
+                                   Handling_Level__c,
                                    Owner.ProfileId
                                    from Case where Id = :caseId];
             profileIds.add(DealerCommunityUser.Id);
