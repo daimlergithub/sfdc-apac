@@ -112,6 +112,40 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Finance_Product_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Product Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operating Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hire Purchase</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Consumer Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Asset Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Follow_Up_Date__c</fullName>
         <externalId>false</externalId>
         <label>Follow Up Date</label>
@@ -474,6 +508,21 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Product_Variation__c</fullName>
+        <externalId>false</externalId>
+        <label>Product Variation</label>
+        <picklist>
+            <picklistValues>
+                <fullName>TBC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>Purchase_Month__c</fullName>
         <externalId>false</externalId>
         <label>Purchase Month</label>
@@ -806,6 +855,21 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Sub_Product__c</fullName>
+        <externalId>false</externalId>
+        <label>Sub-Product</label>
+        <picklist>
+            <picklistValues>
+                <fullName>TBC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>Type__c</fullName>
         <externalId>false</externalId>
         <label>Type</label>
@@ -1126,6 +1190,33 @@
         <active>true</active>
         <label>Contract</label>
         <picklistValues>
+            <picklist>Finance_Product_Type__c</picklist>
+            <values>
+                <fullName>Asset Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hire Purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operating Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Follow_Up_Group__c</picklist>
             <values>
                 <fullName>Aftersales contacts</fullName>
@@ -1406,6 +1497,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Product_Variation__c</picklist>
+            <values>
+                <fullName>TBC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Sector__c</picklist>
             <values>
                 <fullName>Parts</fullName>
@@ -1487,6 +1585,13 @@
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Product__c</picklist>
+            <values>
+                <fullName>TBC</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1683,6 +1788,33 @@
         <active>true</active>
         <label>Retail Activity</label>
         <picklistValues>
+            <picklist>Finance_Product_Type__c</picklist>
+            <values>
+                <fullName>Asset Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hire Purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operating Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Follow_Up_Group__c</picklist>
             <values>
                 <fullName>Aftersales contacts</fullName>
@@ -1963,6 +2095,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Product_Variation__c</picklist>
+            <values>
+                <fullName>TBC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Sector__c</picklist>
             <values>
                 <fullName>Parts</fullName>
@@ -2044,6 +2183,13 @@
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Product__c</picklist>
+            <values>
+                <fullName>TBC</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2240,6 +2386,33 @@
         <active>true</active>
         <label>Service</label>
         <picklistValues>
+            <picklist>Finance_Product_Type__c</picklist>
+            <values>
+                <fullName>Asset Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Consumer Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hire Purchase</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operating Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Follow_Up_Group__c</picklist>
             <values>
                 <fullName>Aftersales contacts</fullName>
@@ -2520,6 +2693,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Product_Variation__c</picklist>
+            <values>
+                <fullName>TBC</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Sector__c</picklist>
             <values>
                 <fullName>Parts</fullName>
@@ -2601,6 +2781,13 @@
             </values>
             <values>
                 <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sub_Product__c</picklist>
+            <values>
+                <fullName>TBC</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

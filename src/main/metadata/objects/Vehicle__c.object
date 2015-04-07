@@ -5050,6 +5050,62 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_SalesType“</descript
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Sector__c</fullName>
+        <description>describes what kind of vehicle it is.</description>
+        <externalId>false</externalId>
+        <label>Sector</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cycle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Heavy Commercial Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Light Commercial Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>M/Cycle or Scooter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Truck &amp; Bus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Source__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -5955,6 +6011,29 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Part exchange vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Group</label>
+        <picklist>
+            <picklistValues>
+                <fullName>VAN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CV</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -7131,6 +7210,53 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heavy Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M%2FCycle or Scooter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Truck %26 Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Source__c</picklist>
             <values>
                 <fullName>Domestic</fullName>
@@ -7850,6 +7976,21 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Vehicle to be ordered</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Group__c</picklist>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VAN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11360,6 +11501,53 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heavy Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M%2FCycle or Scooter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Truck %26 Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Source__c</picklist>
             <values>
                 <fullName>Domestic</fullName>
@@ -12083,6 +12271,21 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Vehicle to be ordered</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Group__c</picklist>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VAN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14965,6 +15168,53 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heavy Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M%2FCycle or Scooter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Truck %26 Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Source__c</picklist>
             <values>
                 <fullName>Domestic</fullName>
@@ -15688,6 +15938,21 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Vehicle to be ordered</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Group__c</picklist>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VAN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

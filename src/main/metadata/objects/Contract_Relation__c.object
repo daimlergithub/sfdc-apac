@@ -90,18 +90,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Contract__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>CRM1 Contract</label>
-        <referenceTo>Contract</referenceTo>
-        <relationshipLabel>Contract Relations</relationshipLabel>
-        <relationshipName>Contract_Relations</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Lead__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
