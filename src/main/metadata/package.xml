@@ -1324,8 +1324,6 @@
         <members>CaseMilestone-Case Milestone Layout</members>
         <members>Case_SubType_Mapping__c-Case SubType Mapping Layout</members>
         <members>CollaborationGroup-Group Layout</members>
-        <members>CollaborationGroup-Panel layout</members>
-        <members>CollaborationGroup-小组 布局</members>
         <members>Collaboration_Team__c-Collaboration Team Layout</members>
         <members>Complaint_Description__c-Complaint Description %2F Resolution Layout</members>
         <members>Complaint_Description__c-Complaint Description Layout</members>
@@ -1347,7 +1345,6 @@
         <members>DM_Request__c-DM Fulfill Layout</members>
         <members>DM_Request__c-DM Request Layout</members>
         <members>DM_Stock_Flow__c-DM Stock Flow Layout</members>
-        <members>DM_Stock_Flow__c-DM Stock Flow 布局</members>
         <members>Dealer_Locator__c-Dealer Locator Layout</members>
         <members>Dealer_Offering__c-Dealer Offering Layout</members>
         <members>EP_Log_Interface__c-EP Log Interface Layout</members>

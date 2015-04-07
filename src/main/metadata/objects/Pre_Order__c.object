@@ -46,6 +46,7 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
+    <description>Contain all pre-order information that has been requested by a customer and vehicle pre-order information.</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
@@ -116,8 +117,9 @@
     </fields>
     <label>Pre Order</label>
     <nameField>
+        <displayFormat>{0000000}</displayFormat>
         <label>Pre Order</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Pre Orders</pluralLabel>
     <searchLayouts/>
