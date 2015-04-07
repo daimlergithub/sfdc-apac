@@ -106,6 +106,7 @@
 				<sf:include name="Picklist_Mapping__c"/>
 				<sf:include name="Integration_Picklist__c"/>
 				<sf:include name="External_Picklist__c"/>
+				<sf:include name="Car_Model__c"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -127,6 +128,7 @@
 				<sf:exclude name="Picklist_Mapping__c"/>
 				<sf:exclude name="Integration_Picklist__c"/>
 				<sf:exclude name="External_Picklist__c"/>
+				<sf:exclude name="Car_Model__c"/>
 				<sf:exclude name="SMS_Batch__c"/>
 				<sf:exclude name="Retail_Campaign__c"/>
 				<sf:exclude name="OB_Task_Handing__c"/>
