@@ -42,7 +42,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
 	</target>
 	
-	<target name="deploy" depends="retrieveChecksums, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy32, deploy35, deploy40, destructiveChanges">
+	<target name="deploy" depends="retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy32, deploy35, deploy40, postDestructiveChanges">
 		<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
@@ -56,13 +56,25 @@
 						useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
 	</target>
 	
-	<target name="destructiveChanges">
+	<target name="preDestructiveChanges">
 		<!-- on CI server only deploy destructive changes which have a valid timestamp already -->
 		<property name="persistedOnly" value="false" unless:set="CI"/>
 		<property name="persistedOnly" value="true" if:set="CI"/>
 		
 		<sf:deployDestructiveChanges
-				dryRun="${dryrun}" persistedOnly="${persistedOnly}"
+				dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="pre"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
+				deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
+	</target>
+
+	<target name="postDestructiveChanges">
+		<!-- on CI server only deploy destructive changes which have a valid timestamp already -->
+		<property name="persistedOnly" value="false" unless:set="CI"/>
+		<property name="persistedOnly" value="true" if:set="CI"/>
+		
+		<sf:deployDestructiveChanges
+				dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="post"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
 				deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
