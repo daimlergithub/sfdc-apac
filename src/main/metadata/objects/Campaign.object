@@ -11252,6 +11252,12 @@
         <errorMessage>When Execution Type is DM, DM Material is Required.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Expected_Outcome_Fields</fullName>
+        <active>true</active>
+        <errorConditionFormula>OR(Expected_Response_Rate__c &gt; 1,Expected_Participation__c &gt; 1,Expected_Registration__c &gt; 1, Expected_Lead__c &gt; 1)</errorConditionFormula>
+        <errorMessage>Expected Outcome fields should not be more than 100.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Locked_for_Central_when_Published</fullName>
         <active>true</active>
         <errorConditionFormula>AND(

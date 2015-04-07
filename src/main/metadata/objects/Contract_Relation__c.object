@@ -94,7 +94,7 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>CRM1 Contract</label>
-        <referenceTo>Contract</referenceTo>
+        <referenceTo>Retail_Task__c</referenceTo>
         <relationshipLabel>Contract Relations</relationshipLabel>
         <relationshipName>Contract_Relations</relationshipName>
         <required>false</required>

@@ -353,6 +353,18 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>DealerNo__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner_Dealer__r.SF_Dealer_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SF Dealer ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Delivery_Date__c</fullName>
         <externalId>false</externalId>
         <label>Delivery Date</label>
