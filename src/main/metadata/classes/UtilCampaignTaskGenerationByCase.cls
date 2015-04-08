@@ -62,15 +62,21 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
                                 Campaign.Template__c
                       from CampaignMember where CampaignId in :cpIdList and Task_Generated__c = false];
         
+        System.debug('campMembers >>>' + campMembers);
+        
         // Campaign Members ID List
         for(CampaignMember campMem:campMembers){
             cpmIdList.add(campMem.Id);
+            System.debug('Vehicle_Case_ID__c >>>' + campMem.Vehicle_Case_ID__c);
             if(campMem.Vehicle_Case_ID__c != null && campMem.Vehicle_Case_ID__c != ''){
                 for(String vcId:campMem.Vehicle_Case_ID__c.split(';')){
                     vechCaseIdList.add((ID)vcId);
                 }
             }
         }
+        
+         System.debug('vechCaseIdList >>>' + vechCaseIdList);
+        
         // Batch Job ID
         jobId = nexJobId;
     }
@@ -87,12 +93,17 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
         Map<CampaignMember, List<Case>> cmp_caseMap = new Map<CampaignMember, List<Case>>();
         taskRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
         for(CampaignMember cm : campMembers){
+            System.debug('cm.Vehicle_Case_ID__c>>>' + cm.Vehicle_Case_ID__c);
+            System.debug('scope >>>' + scope);
             List<Case> vrList = new List<Case>();
             for(Case vr : scope){
                 if(cm.Vehicle_Case_ID__c != null && cm.Vehicle_Case_ID__c.contains(String.valueOf(vr.Id).subString(0, 15))){
                     vrList.add(vr);
                 }   
             }
+            
+            System.debug('Vr List>>>' + vrList);
+            
             cmp_caseMap.put(cm,vrList);
         }
         
@@ -100,6 +111,8 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
         List<Task> taskList = new List<Task>();
         Savepoint sp = Database.setSavepoint();
         try {
+            System.debug('Scope>>>' + scope);
+            System.debug('campMembers>>>' + campMembers);
             // Generate Tasks
             for(CampaignMember cpm : campMembers) {
                 taskList.addAll(generateTask(cpm, cmp_caseMap.get(cpm), taskRecordTypeMap));
@@ -122,6 +135,8 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
     private List<Task> generateTask(CampaignMember cpm, List<Case> vrList, Map<String, Schema.RecordTypeInfo> taskRecordTypeMap) {
         
         List<Task> taskList = new List<Task>();
+        
+        System.debug('Case>>>'+vrList);
         for(Case vr : vrList){
             // Combine Task.UniqueCampaignGenerateTask__c
             String uniqueTaskField = '';
@@ -233,6 +248,7 @@ global class UtilCampaignTaskGenerationByCase implements Database.Batchable<sObj
                     );
             } 
         }
+        System.debug('taskList>>>'+taskList);
         return taskList;
     }
     
