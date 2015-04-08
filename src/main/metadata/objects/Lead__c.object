@@ -2506,6 +2506,18 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Customer_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Company_Account__c ) , IF( ISBLANK( Contact__c ) , '', Contact__r.Name ) , Company_Account__r.Name )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>DUP_Number__c</fullName>
         <externalId>false</externalId>
         <formula>Contact__r.DUP_Number__pc</formula>
@@ -2936,6 +2948,37 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+ISBLANK(Contact__c), 
+Company_Account__r.Email__c , 
+Contact__r.Email__c 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Escalation_Flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND(NOW()-LastModifiedDate &gt;= 1, NOW()-LastModifiedDate &lt; 3)
+, IMAGE('/img/samples/flag_yellow.gif','24H Untouched')
+, IF(NOW()-LastModifiedDate &gt;= 3, IMAGE('/img/samples/flag_red.gif','72H Untouched')
+, ''))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Escalation Flag</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>EuroVIN__c</fullName>
         <externalId>false</externalId>
         <label>EuroVIN</label>
@@ -2946,6 +2989,20 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Existing_Contract__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>CRM1 Existing Contract No.</label>
+        <referenceTo>Retail_Task__c</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Feedback_To_MB_Call_Center__c</fullName>
@@ -3006,6 +3063,22 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
         <formula>TEXT(Contact__r.Gender__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>*Gender</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Home_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+ISBLANK(Contact__c), 
+Company_Account__r.PersonHomePhone , 
+Collectioner_Name__r.HomePhone
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Home Phone</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -7558,6 +7631,22 @@ Modify Reason:
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Mobile__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+ISBLANK(Contact__c), 
+Company_Account__r.PersonMobilePhone, 
+Collectioner_Name__r.MobilePhone
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Mobile</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Need_Assign_To_Dealer__c</fullName>
         <description>/* 
 Created by: Mouse Liu
@@ -7934,6 +8023,17 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Purchase_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>VehicleRel_No__r.Purchase_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Purchase Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Purchase_Time__c</fullName>
@@ -8766,6 +8866,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Registration_No__c</fullName>
+        <externalId>false</externalId>
+        <formula>VehicleRel_No__r.Registration_Number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Registration No.</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Relation_With_The_Leads__c</fullName>
@@ -12237,6 +12349,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Contact__c ) , '', text(Contact__r.Salutation))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Trade_In_MB_Vehicle_Model__c</fullName>
         <externalId>false</externalId>
         <label>Trade-In MB Vehicle Model</label>
@@ -14604,6 +14728,22 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Work_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+ISBLANK(Contact__c), 
+Company_Account__r.Work_Phone__c  , 
+ Collectioner_Name__r.Phone  
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Work Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>X24H_Untouched__c</fullName>
