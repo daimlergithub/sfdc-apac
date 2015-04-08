@@ -277,6 +277,133 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
                 <fullName>CL-Class</fullName>
                 <default>false</default>
             </picklistValues>
+<<<<<<< HEAD
+=======
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Considered_Model_1__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Considered Model 1</label>
+        <referenceTo>Car_Model__c</referenceTo>
+        <relationshipLabel>Vehicle Relationship</relationshipLabel>
+        <relationshipName>Vehicle_Relationship</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Considered_Model_2__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Considered Model 2</label>
+        <referenceTo>Car_Model__c</referenceTo>
+        <relationshipLabel>Vehicle Relationship (Considered Model 2)</relationshipLabel>
+        <relationshipName>Vehicle_Relationship1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>/* 
+Created by: Amy Liang 
+Used by: Vehicle Relationship 
+Function: ID of related person 
+Used in: Pagelayouts, Reports 
+
+Modify History 
+Modify By: 
+Modify Reason: 
+*/
+Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contact“</description>
+        <externalId>false</externalId>
+        <inlineHelpText>ID of related person</inlineHelpText>
+        <label>Contact</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>Account.RecordTypeId</field>
+                <operation>equals</operation>
+                <value>Company, Person Account, Person Account Manual Merge, Person Account Retail, Person Account Soft Deleted</value>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Vehicle Relationships</relationshipLabel>
+        <relationshipName>Vehicle_Relationships2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Corporate_Sale__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Corporate Sale</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Create_Welcome_Call__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>SSI Process:  Used to indicate that a Welcome Call task should be created.   A Salesforce trigger will detect when this checkbox is enabled by EP and generate the associated Welcome Call.</description>
+        <externalId>false</externalId>
+        <label>Create Welcome Call</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Created_By_EP_Transaction__c</fullName>
+        <description>The integration layer (EP) needs this field for defect handling and debugging:</description>
+        <externalId>false</externalId>
+        <inlineHelpText>The integration layer (EP) needs this field for defect handling and debugging:</inlineHelpText>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>DealerNo__c</fullName>
+        <externalId>false</externalId>
+        <formula>Owner_Dealer__r.SF_Dealer_ID__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>SF Dealer ID</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Delivery_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Delivery Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Design__c</fullName>
+        <externalId>false</externalId>
+        <label>Design</label>
+        <picklist>
+>>>>>>> 04a5b38c4dd097277039d1cb0c31a8e2ffb10281
             <picklistValues>
                 <fullName>CLK-Class</fullName>
                 <default>false</default>

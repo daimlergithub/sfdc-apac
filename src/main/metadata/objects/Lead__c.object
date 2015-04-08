@@ -2602,6 +2602,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <unique>false</unique>
     </fields>
     <fields>
+<<<<<<< HEAD
         <fullName>Customer_Type__c</fullName>
         <externalId>false</externalId>
         <label>Customer Type</label>
@@ -2640,6 +2641,18 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+=======
+        <fullName>Customer_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Company_Account__c ) , IF( ISBLANK( Contact__c ) , '', Contact__r.Name ) , Company_Account__r.Name )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Name</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+>>>>>>> 04a5b38c4dd097277039d1cb0c31a8e2ffb10281
     </fields>
     <fields>
         <fullName>DUP_Number__c</fullName>
@@ -3072,6 +3085,37 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Email__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+ISBLANK(Contact__c), 
+Company_Account__r.Email__c , 
+Contact__r.Email__c 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Email</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Escalation_Flag__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(AND(NOW()-LastModifiedDate &gt;= 1, NOW()-LastModifiedDate &lt; 3)
+, IMAGE('/img/samples/flag_yellow.gif','24H Untouched')
+, IF(NOW()-LastModifiedDate &gt;= 3, IMAGE('/img/samples/flag_red.gif','72H Untouched')
+, ''))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Escalation Flag</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>EuroVIN__c</fullName>
         <externalId>false</externalId>
         <label>EuroVIN</label>
@@ -3086,6 +3130,7 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
     <fields>
         <fullName>Fee_Type__c</fullName>
         <externalId>false</externalId>
+<<<<<<< HEAD
         <label>Fee Type</label>
         <picklist>
             <picklistValues>
@@ -3106,6 +3151,13 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+=======
+        <label>CRM1 Existing Contract No.</label>
+        <referenceTo>Retail_Task__c</referenceTo>
+        <relationshipLabel>Leads</relationshipLabel>
+        <relationshipName>Leads</relationshipName>
+        <required>false</required>
+>>>>>>> 04a5b38c4dd097277039d1cb0c31a8e2ffb10281
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3214,6 +3266,22 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
         <formula>TEXT(Contact__r.Gender__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>*Gender</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Home_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+ISBLANK(Contact__c), 
+Company_Account__r.PersonHomePhone , 
+Collectioner_Name__r.HomePhone
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Home Phone</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -7780,7 +7848,306 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+<<<<<<< HEAD
         <fullName>MB_Vehicle_Interest__c</fullName>
+=======
+        <fullName>Marketing_Opt_Out__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Marketing Opt-Out</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Mobile__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+ISBLANK(Contact__c), 
+Company_Account__r.PersonMobilePhone, 
+Collectioner_Name__r.MobilePhone
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Mobile</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Need_Assign_To_Dealer__c</fullName>
+        <description>/* 
+Created by: Mouse Liu
+Used by: Lead__c (US-Lead-13)
+Function:  Judege whether lead is qualified
+Used in: Page Layouts, Reports, Workflow
+
+Modify History 
+Modify By: 
+Modify Reason: 
+*/</description>
+        <externalId>false</externalId>
+        <formula>IF (
+	OR (
+		Assigned_to_Dealer_Directly__c = true,
+		
+		AND (
+        		TEXT(Contact__r.Allow_Data_Sharing__c) == "Yes",
+
+        		TEXT(CAC_Lead_Status__c) &lt;&gt; "Purchased(Only Non BDC)",
+
+        		TEXT(CAC_Lead_Status__c) &lt;&gt; "Lost(CAC)",
+
+        		TEXT(Contact__r.Gender__c) &lt;&gt; NULL,
+
+        		Text(Contact__r.Province__c) &lt;&gt; NULL,
+
+        		Contact__r.City__c &lt;&gt; NULL,
+
+        		TEXT(Contact__r.Preferred_Language__c) &lt;&gt; NULL,
+
+        		TEXT(Relation_With_The_Leads__c) &lt;&gt; NULL,
+
+        		OR (
+            			TEXT(Lead_Type__c) == "New Car",
+
+           			AND ( 
+                			TEXT(Lead_Type__c) == "Used Car",
+                			INCLUDES(Lead_Desired_Service__c, "Trade-In")  
+            			)
+        		),
+
+        		TEXT(Purchase_Time__c)  &lt;&gt; NULL,
+
+        		TEXT(Interested_Vehicle_Brand__c) &lt;&gt; NULL,
+
+        		OR (
+            			INCLUDES(Lead_Desired_Service__c , "Test Drive"),
+           			TEXT(Purchase_Time__c)  == "0 - 3 months",
+            			TEXT(Purchase_Time__c)  == "4 - 6 months"
+        		)
+		)
+    	),
+
+    "Need",
+    "Not Need"
+)</formula>
+        <label>Need Assign To Dealer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Need_Associate_Campaign__c</fullName>
+        <externalId>false</externalId>
+        <formula>IMAGE('/resource/1426571072000/ReminderForCampaignRelation','Need Associate Campaign')</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Need Associate Campaign</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Need_Contact__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Need Contact</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Network_Registration_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Network Registration Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>New_Insurance_Policy_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>New Insurance Policy Number</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NextMileage__c</fullName>
+        <externalId>false</externalId>
+        <label>NextMileage</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>No_Assigned_Dealer__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Assigned_Dealer__c  &lt;&gt; Null, "", IMAGE('resource/1422335657000/Dealer_Reminder','Dealer Not Assigned'))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>No Assigned Dealer</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Number_of_Units__c</fullName>
+        <externalId>false</externalId>
+        <label>Number of Units</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OB_Call_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISPICKVAL(Lead_DataSource__c,'OB Call'),1,0 )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>OB Call Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Opportunity_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Opportunity Name</label>
+        <length>120</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Order No.</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Order_Placed_Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Order Placed Date Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Order_Placed_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Order Placed Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Orig_Fee__c</fullName>
+        <externalId>false</externalId>
+        <label>Orig Fee</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Parts_Required__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Parts Required?</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Payment__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment</label>
+        <precision>12</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Pick_up_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Pick-up Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Policy_Inception_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Policy Inception Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Contact_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Preferred Contact Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Price_Range__c</fullName>
+>>>>>>> 04a5b38c4dd097277039d1cb0c31a8e2ffb10281
         <externalId>false</externalId>
         <label>MB Vehicle Interest</label>
         <picklist>
@@ -8115,7 +8482,22 @@ Modify Reason:
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+<<<<<<< HEAD
         <fullName>MB_Vehicle_Outcome__c</fullName>
+=======
+        <fullName>Purchase_Date__c</fullName>
+        <externalId>false</externalId>
+        <formula>VehicleRel_No__r.Purchase_Date__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Purchase Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Purchase_Time__c</fullName>
+>>>>>>> 04a5b38c4dd097277039d1cb0c31a8e2ffb10281
         <externalId>false</externalId>
         <label>MB Vehicle Outcome</label>
         <picklist>
@@ -9830,6 +10212,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Registration_No__c</fullName>
+        <externalId>false</externalId>
+        <formula>VehicleRel_No__r.Registration_Number__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Registration No.</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Relation_With_The_Leads__c</fullName>
@@ -13458,6 +13852,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Title__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK( Contact__c ) , '', text(Contact__r.Salutation))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Title</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Trade_In_MB_Vehicle_Model__c</fullName>
         <externalId>false</externalId>
         <label>Trade-In MB Vehicle Model</label>
@@ -15763,7 +16169,102 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Lookup</type>
     </fields>
     <fields>
+<<<<<<< HEAD
         <fullName>Vehicle_Make_Current__c</fullName>
+=======
+        <fullName>Vehicle_Model_Current__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Model - Current</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Model_Interest__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Model Interest</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Purchase_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Purchase Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Visit_Dealer__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Visit Dealer</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Visited_Showroom_Date_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Visited Showroom Date Time</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Visited_Showroom_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Visited Showroom Date</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Work_Phone__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( 
+ISBLANK(Contact__c), 
+Company_Account__r.Work_Phone__c  , 
+ Collectioner_Name__r.Phone  
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Work Phone</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>X24H_Untouched__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>*24H Untouched</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>X72H_Untouched__c</fullName>
+        <defaultValue>false</defaultValue>
+>>>>>>> 04a5b38c4dd097277039d1cb0c31a8e2ffb10281
         <externalId>false</externalId>
         <label>Vehicle Make - Current</label>
         <picklist>
