@@ -235,6 +235,10 @@
                 <behavior>Edit</behavior>
                 <field>Mobile_Status__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Mail_Status__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

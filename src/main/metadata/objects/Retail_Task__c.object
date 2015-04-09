@@ -55,6 +55,7 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>Private</externalSharingModel>
     <fields>
+<<<<<<< HEAD
         <fullName>Account__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -205,6 +206,8 @@
         <unique>false</unique>
     </fields>
     <fields>
+=======
+>>>>>>> 562b9f83281bfbbf6e295220c60e030b1bb3d013
         <fullName>Contact_Date__c</fullName>
         <externalId>false</externalId>
         <label>Contact Date</label>
@@ -233,59 +236,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Current_Make__c</fullName>
-        <externalId>false</externalId>
-        <formula>Text(Related_Vehicle__r.Brand__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Current Make</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Current_Model__c</fullName>
-        <externalId>false</externalId>
-        <formula>Text(Related_Vehicle__r.Model__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Current Model</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Current_Year__c</fullName>
-        <externalId>false</externalId>
-        <formula>Text(Related_Vehicle__r.ModelYear__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Current Year</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Group__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Group</label>
-        <length>100</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Dealer_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Number</label>
-        <length>100</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Description__c</fullName>
         <externalId>false</externalId>
         <label>Description</label>
@@ -294,14 +244,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Direct_Debit_Authority__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Direct Debit Authority</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Duration__c</fullName>
@@ -315,73 +257,12 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>EOC_Call_Task_1_del__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>EOC Call Task 1</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>EOC_Call_Task_2_del__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>EOC Call Task 2</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>EOC_Call_Task_3_del__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>EOC Call Task 3</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>EOC_Call__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>EOC Call</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>EndDate__c</fullName>
         <externalId>false</externalId>
         <label>EndDate</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>FPI_Cover__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>FPI Cover</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>FPI_Premium_Amount__c</fullName>
-        <externalId>false</externalId>
-        <label>FPI Premium Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Finance_Brand__c</fullName>
-        <externalId>false</externalId>
-        <label>Finance Brand</label>
-        <length>100</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Finance_Product_Type__c</fullName>
@@ -416,14 +297,6 @@
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Fleet__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Fleet</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Follow_Up_Date__c</fullName>
@@ -674,51 +547,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Franchise_Description__c</fullName>
-        <externalId>false</externalId>
-        <label>Franchise Description</label>
-        <length>100</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>GAP_Cover__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>GAP Cover</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>GAP_Premium_Amount__c</fullName>
-        <externalId>false</externalId>
-        <label>GAP Premium Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>GFV__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>GFV</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Good_Customer__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Good Customer</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Group__c</fullName>
         <externalId>false</externalId>
         <label>Group</label>
@@ -765,14 +593,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Incident_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Incident Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Information__c</fullName>
         <externalId>false</externalId>
         <label>Information</label>
@@ -780,46 +600,6 @@
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>3</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Insurance_Rating__c</fullName>
-        <externalId>false</externalId>
-        <label>Insurance Rating</label>
-        <length>10</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Insured_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Insured Name</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
-    </fields>
-    <fields>
-        <fullName>Interest_Rate__c</fullName>
-        <externalId>false</externalId>
-        <label>Interest Rate</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>LDCL_Contract_Id__c</fullName>
-        <caseSensitive>false</caseSensitive>
-        <externalId>true</externalId>
-        <label>LDCL Contract Id</label>
-        <length>200</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
     </fields>
     <fields>
         <fullName>Latest_Contract_Date__c</fullName>
@@ -848,41 +628,12 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Lease_Exp_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Lease Exp. Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Level_of_Cover__c</fullName>
-        <externalId>false</externalId>
-        <label>Level of Cover</label>
-        <length>20</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>MileageMaximum__c</fullName>
         <externalId>false</externalId>
         <label>MileageMaximum</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Monthly_Repayment__c</fullName>
-        <externalId>false</externalId>
-        <label>Monthly Repayment</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
@@ -910,67 +661,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Policy_Class__c</fullName>
-        <externalId>false</externalId>
-        <label>Policy Class</label>
-        <length>20</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Policy_Number__c</fullName>
-        <externalId>false</externalId>
-        <label>Policy Number</label>
-        <length>50</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Premium_Amount__c</fullName>
-        <externalId>false</externalId>
-        <label>Premium Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>5</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Problem_Actual_Detail__c</fullName>
-        <externalId>false</externalId>
-        <label>Problem Actual Detail</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Problem_Detail__c</fullName>
-        <externalId>false</externalId>
-        <label>Problem Detail</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Problem__c</fullName>
-        <externalId>false</externalId>
-        <label>Problem</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Product_Variation__c</fullName>
         <externalId>false</externalId>
         <label>Product Variation</label>
@@ -984,16 +674,6 @@
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Purchase_Method__c</fullName>
-        <externalId>false</externalId>
-        <label>Purchase Method</label>
-        <length>20</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Purchase_Month__c</fullName>
@@ -1052,17 +732,6 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Residual__c</fullName>
-        <externalId>false</externalId>
-        <label>Residual</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Retail_CreatedDate__c</fullName>
@@ -1313,28 +982,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Signer__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Signer</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Retail Tasks (Signer)</relationshipLabel>
-        <relationshipName>Retail_Tasks4</relationshipName>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Source_System__c</fullName>
-        <externalId>false</externalId>
-        <label>Source System</label>
-        <length>200</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>StartDate__c</fullName>
         <externalId>false</externalId>
         <label>StartDate</label>
@@ -1374,16 +1021,6 @@
         <trackTrending>false</trackTrending>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>The_Day_After_Start_One_Year__c</fullName>
-        <externalId>false</externalId>
-        <formula>StartDate__c + 365</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>The Day After Start One Year</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
     </fields>
     <fields>
         <fullName>Type__c</fullName>
@@ -1580,41 +1217,10 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Underwriter_ID__c</fullName>
-        <externalId>false</externalId>
-        <label>Underwriter ID</label>
-        <length>20</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Underwriter__c</fullName>
-        <externalId>false</externalId>
-        <label>Underwriter</label>
-        <length>50</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <externalId>false</externalId>
         <label>Updated By EP Transactions</label>
         <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>VIN_Link__c</fullName>
-        <externalId>false</externalId>
-        <formula>Related_Vehicle__r.UsVIN__c</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>VIN</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -1628,53 +1234,6 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Vehicle_Registration_No__c</fullName>
-        <externalId>false</externalId>
-        <label>Vehicle Registration No</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Welcome_Call_Task__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Welcome Call Task</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Welcome_Call__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Welcome Call</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>X150_Days_Before_EOC__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>*150 Days Before EOC</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>livetime__c</fullName>
-        <externalId>false</externalId>
-        <formula>(year(EndDate__c) - year( StartDate__c)) * 12 + month(EndDate__c) - month( StartDate__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>livetime</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackTrending>false</trackTrending>
-        <type>Number</type>
         <unique>false</unique>
     </fields>
     <label>Retail Task</label>

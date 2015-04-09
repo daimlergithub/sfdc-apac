@@ -81,7 +81,67 @@
         <label>Address Type</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prev Mailing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>​Site address</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Postal address</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 1 -Main Location Sales, Service &amp; Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 2 -Main Location Sales Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 3 -Main Location Service &amp; Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 6 -Additional Sales, Service &amp; Parts location not within Site 1 or Site 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 7 -Service &amp; Parts ONLY Location</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 8 -Only Parts Location</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 9 -Auto Body</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -105,7 +165,11 @@
         <label>Country</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Australia</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Zealand</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -153,32 +217,6 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Hardcopy_Last_Modified_By__c</fullName>
-        <externalId>false</externalId>
-        <label>Mail Last Modified By</label>
-        <length>50</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Hardcopy_Last_Modified_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Mail Last Modified Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Opt_In_Hardcopy__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Opt In Mail</label>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Post_Code__c</fullName>
         <externalId>false</externalId>
         <label>Post Code</label>
@@ -208,11 +246,40 @@
     </fields>
     <fields>
         <fullName>State__c</fullName>
+        <description>States of Australia</description>
         <externalId>false</externalId>
         <label>State</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Australian Capital Territory</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New South Wales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Queensland</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Victoria</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tasmania</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western Australia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>South Australia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Northern Territory</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -226,7 +293,19 @@
         <label>Status</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dead Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Opt out</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
