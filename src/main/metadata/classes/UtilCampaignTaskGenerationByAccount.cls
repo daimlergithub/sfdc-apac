@@ -128,6 +128,8 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
         //taskRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
 
         // Combine Task.UniqueCampaignGenerateTask__c
+         system.debug('cpm.Campaign>>>>'+cpm.Campaign.ParentId);
+        system.debug('cpm>>>>'+json.serializepretty(cpm));
         String uniqueTaskField = '';
         if (cpm.Campaign.Parent.Task_De_dup_Range__c == 'By Campaign Execution'
                 && cpm.Campaign.Previous_Campaign_Execution__c == null) {
