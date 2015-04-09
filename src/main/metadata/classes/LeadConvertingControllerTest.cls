@@ -68,19 +68,22 @@ public class LeadConvertingControllerTest
        Test.setCurrentPage(leadConverting);
        extension = new LeadConvertingController();  
    }
-   public static testMethod void test_Converttolead_isConvertedtrue()
-     {
-        init();
-        set_Lead_ASRETAILCAMPAIGN();
-        Test.startTest();       
-        system.runAs(currentUser){        
-        extension.retailCampaignMemberInfos[0].isConverted =true; 
-        extension.converttolead();  
-        Test.stopTest();
-        system.assertequals(ApexPages.currentPage().getParameters().get('rt'),UtilConstant.AS_RETAIL_CAMPAIGN);
-        system.assertequals(Null,extension.retailCampaignMemberInfos[0].lead.Lead_Type__c);
-        }         
-      } 
+    
+  public static testMethod void test_Converttolead_isConvertedtrue()
+  {
+    init();
+    set_Lead_ASRETAILCAMPAIGN();
+    Test.startTest();       
+    System.runAs (currentUser) {        
+      System.assertEquals(1, extension.retailCampaignMemberInfos.size());
+      extension.retailCampaignMemberInfos[0].isConverted = true; 
+      extension.converttolead();  
+    }
+    Test.stopTest();
+
+    System.assertEquals(ApexPages.currentPage().getParameters().get('rt'),UtilConstant.AS_RETAIL_CAMPAIGN);
+  }  
+    
     public static testMethod void test_Converttolead_LeadType_Product()
        {
         init();

@@ -30,34 +30,20 @@ trigger TriggerComplaintDescription on Complaint_Description__c (before insert,a
     5-Dec-2013 Bing (NTTData)  Created
 */
     
+    if (!TriggerUtil.isTriggerEnabled('TriggerComplaintDescription')) {
+        return;
+    }
    
-   if(trigger.isAfter && trigger.isInsert)
-    {
-    	if(UtilCustomSettings.isEnabled('TriggerComplaintDescAfterInsertUpdateDelete'))
-    	{
-    		ComplaintDesHelper.before_AfterInsertEvents(Trigger.new);		
-    	}	
+    if (trigger.isAfter && trigger.isInsert) {
+        ComplaintDesHelper.before_AfterInsertEvents(Trigger.new);       
     }
-    if(trigger.isAfter && trigger.isUpdate)
-    {
-    	if(UtilCustomSettings.isEnabled('TriggerComplaintDescAfterInsertUpdateDelete'))
-    	{
-            ComplaintDesHelper.afterupdateEvents(Trigger.new,trigger.oldmap);	
-    	}	
+    if (trigger.isAfter && trigger.isUpdate) {
+        ComplaintDesHelper.afterupdateEvents(Trigger.new,trigger.oldmap);   
     }
-    if(trigger.isAfter && trigger.isdelete)
-    {
-    	if(UtilCustomSettings.isEnabled('TriggerComplaintDescAfterInsertUpdateDelete'))
-    	{
-            ComplaintDesHelper.afterDeleteEvents(Trigger.old);	
-    	}	
+    if (trigger.isAfter && trigger.isdelete) {
+        ComplaintDesHelper.afterDeleteEvents(Trigger.old);  
     }
-    if(trigger.isBefore && trigger.isInsert)
-    {
-    	 if (UtilCustomSettings.isEnabled('TriggerComplaintDescriptionBeforeInsert'))
-    	 {
-        	ComplaintDesHelper.updateComplaintDateandCreatedBy(Trigger.new);	
-    	 }
+    if (trigger.isBefore && trigger.isInsert) {
+         ComplaintDesHelper.updateComplaintDateandCreatedBy(Trigger.new);    
     }
-    
 }
