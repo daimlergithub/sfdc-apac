@@ -29,11 +29,7 @@
         <members>AddToRetailCampaignControllerTet</members>
         <members>AssignCaseToDealerController</members>
         <members>AssignCaseToDealerControllerTest</members>
-        <members>AtomicMultipleUowExecutor</members>
-        <members>AtomicSingleUowExecutor</members>
         <members>AvatoHelper</members>
-        <members>BaseEpaController</members>
-        <members>BaseUowExecutor</members>
         <members>BatchAssignTasks</members>
         <members>BatchAssignTasksTest</members>
         <members>BatchCalcAmountOfAssignedLeads</members>
@@ -42,13 +38,8 @@
         <members>BatchJobHelperTest</members>
         <members>BatchUpdateRecords</members>
         <members>BatchUpdateRecordsTest</members>
-        <members>BtlAdditionalInfo</members>
         <members>BtlAdditionalInfoTest</members>
-        <members>BtlError</members>
         <members>BtlErrorTest</members>
-        <members>BtlStep</members>
-        <members>BtlTransaction</members>
-        <members>BtlTransactionTest</members>
         <members>CACFieldsExtension</members>
         <members>CACFieldsExtensionTest</members>
         <members>CMap</members>
@@ -82,8 +73,6 @@
         <members>ComplaintDesHelperTest</members>
         <members>ComplaintDescriptionController</members>
         <members>ComplaintDescriptionControllerTest</members>
-        <members>CompoundMultiTypeUowExecutor</members>
-        <members>CompoundSameTypeUowExecutor</members>
         <members>ContactHelper</members>
         <members>ContactHelperTest</members>
         <members>CpCallControllerClass_Test</members>
@@ -95,24 +84,6 @@
         <members>DealerSearchControllerTest</members>
         <members>DeploymentUtil</members>
         <members>DeploymentUtilTest</members>
-        <members>Entity</members>
-        <members>EpaAdminCommand</members>
-        <members>EpaAdminCommandController</members>
-        <members>EpaAdminCommandControllerTest</members>
-        <members>EpaAdminCommandWebService</members>
-        <members>EpaAdminCommandWebServiceTest</members>
-        <members>EpaApplicationInfoWebservice</members>
-        <members>EpaApplicationInfoWebserviceTest</members>
-        <members>EpaBusinessTransactionLogController</members>
-        <members>EpaBusinessTransactionLogControllerTest</members>
-        <members>EpaBusinessTransactionLogWebService</members>
-        <members>EpaBusinessTransactionLogWebServiceTest</members>
-        <members>EpaResourceConsumptionController</members>
-        <members>EpaSystemStatusController</members>
-        <members>EpaThreadInfoWebService</members>
-        <members>EpaThreadInfoWebServiceTest</members>
-        <members>Error</members>
-        <members>Field</members>
         <members>ForgotPasswordController</members>
         <members>ForgotPasswordControllerTest</members>
         <members>GenericCSVLoaderController</members>
@@ -145,14 +116,10 @@
         <members>NewVehicleRelationshipController</members>
         <members>NewVehicleRelationshipControllerTest</members>
         <members>NiceWebServices</members>
-        <members>Operation</members>
-        <members>OperationResult</members>
         <members>OperationTest</members>
         <members>Paginator</members>
         <members>ParticipatingDealerHelper</members>
         <members>ParticipatingDealerHelperTest</members>
-        <members>PicklistMappingHelper</members>
-        <members>PicklistMappingHelperTest</members>
         <members>QCHelper</members>
         <members>QCHelperTest</members>
         <members>RecallHelper</members>
@@ -224,7 +191,6 @@
         <members>SiteRegisterControllerTest</members>
         <members>SlickCtiController</members>
         <members>SlickCtiObjectHelper</members>
-        <members>SoqlUowExecutor</members>
         <members>TaskDeletingController</members>
         <members>TaskDeletingControllerTest</members>
         <members>TaskFailBlacklistTrigger_TestClass</members>
@@ -253,23 +219,6 @@
         <members>TriggerRetailCampaignTest</members>
         <members>TriggerTaskTest</members>
         <members>TriggerVehicleRelationshipTest</members>
-        <members>UnitOfTransferAlreadyReceivedException</members>
-        <members>UnitOfTransferResponse</members>
-        <members>UnitOfWork</members>
-        <members>UnitOfWorkResponse</members>
-        <members>UnitOfWorkStatus</members>
-        <members>UnitOfWorkType</members>
-        <members>UotReceiver</members>
-        <members>UotReceiverDeleteTest</members>
-        <members>UotReceiverInsertTest</members>
-        <members>UotReceiverQueryTest</members>
-        <members>UotReceiverTest</members>
-        <members>UotReceiverUpdateTest</members>
-        <members>UotReceiverUpsertTest</members>
-        <members>UotRestReceiver</members>
-        <members>UotRestReceiverTest</members>
-        <members>UowDecompiler</members>
-        <members>UowDecompilerTest</members>
         <members>UserHelper</members>
         <members>UserHelperTest</members>
         <members>UserLookupResultController</members>
@@ -364,27 +313,6 @@
         <members>DMSendResult</members>
         <members>DealerClean</members>
         <members>DealerSearch</members>
-        <members>EPA_Admin_Command_Result</members>
-        <members>EPA_Admin_Commands</members>
-        <members>EPA_BTL_Advanced_Filter</members>
-        <members>EPA_BTL_Attachment</members>
-        <members>EPA_BTL_Errors</members>
-        <members>EPA_BTL_Transaction</members>
-        <members>EPA_BTL_Transaction_List</members>
-        <members>EPA_Business_Transaction_Log</members>
-        <members>EPA_Cluster_Commands</members>
-        <members>EPA_Commands</members>
-        <members>EPA_Resource_Consumption</members>
-        <members>EPA_Scheduled_Commands</members>
-        <members>EPA_Server_Commands</members>
-        <members>EPA_Server_Status</members>
-        <members>EPA_Show_Versions</members>
-        <members>EPA_System_Status</members>
-        <members>EPA_Thread_Dead_Locks</members>
-        <members>EPA_Thread_Details</members>
-        <members>EPA_Thread_Dump</members>
-        <members>EPA_Thread_List</members>
-        <members>EPA_Transaction_Costs</members>
         <members>Exception</members>
         <members>FileNotFound</members>
         <members>ForgotPassword</members>
@@ -466,11 +394,9 @@
         <members>TriggerCase</members>
         <members>TriggerComplaintDescription</members>
         <members>TriggerDMRequest</members>
-        <members>TriggerIntegrationPicklist</members>
         <members>TriggerLead</members>
         <members>TriggerPackageItem</members>
         <members>TriggerParticipatingDealer</members>
-        <members>TriggerPicklistMapping</members>
         <members>TriggerQC</members>
         <members>TriggerRecall</members>
         <members>TriggerRetailCampaignMember</members>
@@ -568,7 +494,6 @@
         <members>Central_Lead_Management</members>
         <members>Central_Marketing</members>
         <members>Chatter_Answers_Moderator</members>
-        <members>EPA_Administration</members>
         <members>Force_com</members>
         <members>Private_APP_Exchange</members>
         <members>Retail_CRM</members>
@@ -981,21 +906,16 @@
         <members>DM_Stock_Flow__c</members>
         <members>Dealer_Locator__c</members>
         <members>Dealer_Offering__c</members>
-        <members>EPA_Settings__c</members>
         <members>EP_Integration_URLS__c</members>
         <members>EP_Log_Interface__c</members>
         <members>Entitlement</members>
         <members>EntitlementContact</members>
         <members>Environment_Specific_Values__c</members>
-        <members>EpAdapterUnitOfTransfer__c</members>
-        <members>EpAdapterUnitOfWork__c</members>
         <members>Event</members>
-        <members>External_Picklist__c</members>
         <members>FAQ__kav</members>
         <members>Feeback_Day_Setting__c</members>
         <members>FeedItem</members>
         <members>Idea</members>
-        <members>Integration_Picklist__c</members>
         <members>Lead</members>
         <members>Lead__c</members>
         <members>Macro</members>
@@ -1013,7 +933,6 @@
         <members>Participating_Dealer__c</members>
         <members>PartnerRole</members>
         <members>PersonAccount</members>
-        <members>Picklist_Mapping__c</members>
         <members>Pre_Order__c</members>
         <members>Pricebook2</members>
         <members>PricebookEntry</members>
@@ -1147,19 +1066,10 @@
         <members>DM_Material__c</members>
         <members>DM_Request__c</members>
         <members>DM_Stock_Flow__c</members>
-        <members>EPA_Business_Transaction_Log</members>
-        <members>EPA_Commands</members>
-        <members>EPA_Resource_Consumption</members>
-        <members>EPA_System_Status</members>
         <members>EP_Log_Interface__c</members>
-        <members>EpAdapterUnitOfTransfer__c</members>
-        <members>EpAdapterUnitOfWork__c</members>
-        <members>External_Picklist__c</members>
         <members>Getting_Started</members>
-        <members>Integration_Picklist__c</members>
         <members>Lead__c</members>
         <members>Participating_Dealer__c</members>
-        <members>Picklist_Mapping__c</members>
         <members>QC__c</members>
         <members>Rejected_Duplicate_Log__c</members>
         <members>Retail_Campaign_Calender</members>
@@ -1181,7 +1091,6 @@
     </types>
     <types>
         <members>EPA</members>
-        <members>EPA/EPA_Logo.jpg</members>
         <members>Logo</members>
         <members>Logo/Central_LOGO.png</members>
         <members>Logo/Logo_Mercedes_Benz.png</members>
@@ -1349,18 +1258,13 @@
         <members>Dealer_Offering__c-Dealer Offering Layout</members>
         <members>EP_Log_Interface__c-EP Log Interface Layout</members>
         <members>Entitlement-Entitlement Layout</members>
-        <members>EpAdapterUnitOfTransfer__c-Unit of Transfer Layout</members>
-        <members>EpAdapterUnitOfWork__c-EpAdapterUnitOfWork-Layout</members>
-        <members>EpAdapterUnitOfWork__c-Unit of Work Layout</members>
         <members>Event-Event Layout</members>
         <members>Event-Event Master Layout</members>
         <members>Event-Reservation Layout</members>
-        <members>External_Picklist__c-External Picklist Layout</members>
         <members>FAQ__kav-How To Layout</members>
         <members>FeedItem-Feed Item Layout</members>
         <members>Global-Global Layout</members>
         <members>Idea-Idea Layout</members>
-        <members>Integration_Picklist__c-Integration Picklist Layout</members>
         <members>Lead-Lead %28Marketing%29 Layout</members>
         <members>Lead-Lead %28Sales%29 Layout</members>
         <members>Lead-Lead %28Support%29 Layout</members>
@@ -1387,7 +1291,6 @@
         <members>PersonAccount-PA Layout-Other User</members>
         <members>PersonAccount-PA Layout-Soft Deleted</members>
         <members>PersonAccount-Person Account Layout</members>
-        <members>Picklist_Mapping__c-Picklist Mapping Layout</members>
         <members>Pre_Order__c-Pre Order Layout</members>
         <members>Pricebook2-Price Book Layout</members>
         <members>PricebookEntry-Price Book Entry Layout</members>
@@ -1532,8 +1435,6 @@
         <members>Chatter Moderator User</members>
         <members>ContractManager</members>
         <members>Cross Org Data Proxy User</members>
-        <members>Dealer Community User</members>
-        <members>Dealer Delegate Admin</members>
         <members>External Identity User</members>
         <members>External Marketing User</members>
         <members>Guest License User</members>
@@ -1702,22 +1603,17 @@
         <members>DM_Stock_Flow__c</members>
         <members>Dealer_Locator__c</members>
         <members>Dealer_Offering__c</members>
-        <members>EPA_Settings__c</members>
         <members>EP_Integration_URLS__c</members>
         <members>EP_Log_Interface__c</members>
         <members>EmailMessage</members>
         <members>Entitlement</members>
         <members>EntitlementContact</members>
         <members>Environment_Specific_Values__c</members>
-        <members>EpAdapterUnitOfTransfer__c</members>
-        <members>EpAdapterUnitOfWork__c</members>
         <members>Event</members>
-        <members>External_Picklist__c</members>
         <members>FAQ__kav</members>
         <members>Feeback_Day_Setting__c</members>
         <members>FeedItem</members>
         <members>Idea</members>
-        <members>Integration_Picklist__c</members>
         <members>Lead</members>
         <members>Lead__c</members>
         <members>Macro</members>
@@ -1732,7 +1628,6 @@
         <members>Organization</members>
         <members>Package_Item__c</members>
         <members>Participating_Dealer__c</members>
-        <members>Picklist_Mapping__c</members>
         <members>Pre_Order__c</members>
         <members>Product2</members>
         <members>QC_Result_Tracking__c</members>

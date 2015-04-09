@@ -45,10 +45,6 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>EPA_Administration</name>
-        <type>CustomApplication</type>
-    </appMenuItems>
-    <appMenuItems>
         <name>Force_com</name>
         <type>CustomApplication</type>
     </appMenuItems>
