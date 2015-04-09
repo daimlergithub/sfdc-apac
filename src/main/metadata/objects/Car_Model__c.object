@@ -1230,15 +1230,7 @@
         <label>Vehicle Group</label>
         <picklist>
             <picklistValues>
-                <fullName>PC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CV</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Van</fullName>
+                <fullName>--None--</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

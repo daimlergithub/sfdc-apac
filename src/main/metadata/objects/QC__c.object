@@ -5729,6 +5729,6 @@ location.href = lookingURL;
         <openType>replace</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>/OBJECT_QC_WEBLINK_OBJECT_KEYPREFIX/e?OBJECT_QC_WEBLINK_SSI__FIELD_ID={!SSI__c.Name}&amp;OBJECT_QC_WEBLINK_SSI__FIELD_ID_lkid={!SSI__c.Id}&amp;retURL={!SSI__c.Id}&amp;RecordType=OBJECT_QC_WEBLINK_SSI_QC_RECORD_TYPE_ID&amp;ent=OBJECT_QC_WEBLINK_OBJECT_ID</url>
+        <url>/OBJECT_QC_WEBLINK_OBJECT_KEYPREFIX/e?CF00NO0000001aoZD={!SSI__c.Name}&amp;CF00NO0000001aoZD_lkid={!SSI__c.Id}&amp;retURL={!SSI__c.Id}&amp;RecordType=012O00000000fWu&amp;ent=01IO00000001JTd</url>
     </webLinks>
 </CustomObject>

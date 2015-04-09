@@ -9,24 +9,23 @@
     1. Mouse Created on 2013-05-06
 */
 public class UtilCustomSettings {
-    // If no corresonding data, just assign default true
     public static Boolean isEnabled(String triggerName) {
-        try {
+	    if (triggerName != null && Trigger_Status__c.getAll().get(triggerName) != null) {
             return Trigger_Status__c.getAll().get(triggerName).Enabled__c;         
-        }
-        catch (NullPointerException e) {
-            System.debug('UtilCustomSettings.isEnable() Exception: ' + e);
-            return true;
-        }
+		}
+		else {
+            // If no corresonding data, just assign default true
+		    return true;
+		}
     }
     
     public static Id getProfileId(String profileName)
     {
-    	try {
+	    if (profileName != null && Environment_Specific_Values__c.getAll().get(profileName) != null) {
             return Environment_Specific_Values__c.getAll().get(profileName).Value__c;         
-        }
-        catch (NullPointerException e) {
-            return null;
+		}
+		else {
+		    return null;
         }
     }
 }
