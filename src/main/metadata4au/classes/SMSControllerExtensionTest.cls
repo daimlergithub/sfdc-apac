@@ -1,0 +1,197 @@
+/*
+    Type:       test class
+    Purpose:    SMSControllerExtension test class
+    User Story: US-SMS-001 - Send SMS content to customer
+
+    Used By:    SMSControllerExtension
+    ---------------------------------------------------------------
+    History:
+
+    07-Mar-2013 Sinow zhang (Nttdata)    Created
+*/
+@isTest(SeeAllData=true)
+public class SMSControllerExtensionTest {
+
+    public static testMethod void testSMSControllerExtension1() 
+    {
+		Test.startTest();        
+        // Testing the SMS Send
+        ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+        // Add parameters to page URL
+        String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Account customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
+        insert customer;
+        Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId
+            ,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
+        insert dealer;
+        //String accountId = [Select Id, PersonMobilePhone, Name From Account where isPersonAccount = true Limit 1][0].Id;
+        ApexPages.currentPage().getParameters().put('accountId',customer.Id);
+        ApexPages.currentPage().getParameters().put('retURL',customer.Id);
+        ApexPages.currentPage().getParameters().put('type','SMS');
+        
+        // Test click SMS button from Account
+        // Instantiate a new controller extension with all parameters in the page
+        SMSControllerExtension extension = new SMSControllerExtension(controller);
+        extension.sms.Dealer__c = dealer.Id; 
+        String templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();       
+        List<Template__c> tems = new List<Template__c>();
+        Template__c tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
+                                           Name = 'lai', Message_Detail__c = '{DEALER_NAME}');
+        Template__c tem2 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
+                                           Name = 'lai', Message_Detail__c = '{DEALER_NAME}');
+        insert tem1;
+        insert tem2;
+        tems.add(tem1);
+        tems.add(tem2);
+        for(Template__c tem : tems) {
+            if(tem.Message_Detail__c.indexof('{DEALER_') != -1) {
+                extension.templateId = tem.id;
+            }
+        }
+        //extension.templateId
+        List<SelectOption> Templates = extension.getTemplates();
+        extension.parseTemplateMessage();
+        String message = extension.optimzeContent('temp{DEALER_NAME}temp');
+    
+        // Send SMS
+        extension.send();
+        
+        Task t = [Select t.WhoId, t.WhatId, t.Subject, t.Status, t.SMS_Content__c From Task t Where WhatId=:customer.Id]; // and SMS_Content__c=:extension.templateMessage
+        system.debug('WhoId>>>>>'+t);
+        //Test click SMS button from Case
+        String inquiryRecordTypeId = Schema.SObjectType.case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
+        Case cas = new Case(AccountId = customer.Id, Subject = 'acme', RecordTypeId = inquiryRecordTypeId);
+        insert cas;
+        ApexPages.currentPage().getParameters().put('caseId', cas.Id);
+        ApexPages.currentPage().getParameters().put('accountId', customer.Id);
+        ApexPages.currentPage().getParameters().put('retURL', cas.Id);
+        
+        extension = new SMSControllerExtension(controller);
+        Template__c tem3 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
+                                           Name = 'lai', Message_Detail__c = '{DEALER_ADDRESS}');
+        insert tem3;
+        customer.PersonMobilePhone = '1301111111';            
+        customer.PersonOtherPhone = '1301111122';
+        update customer;
+        extension.templateId = tem3.id;
+        Templates = extension.getTemplates();
+        extension.sms.Dealer__c = null; 
+        extension.parseTemplateMessage();        
+        extension.sms.Dealer__c = dealer.Id; 
+        extension.parseTemplateMessage();
+        message = extension.optimzeContent('temp{DEALER_ADDRESS}temp');
+        // Send SMS
+        extension.send();
+        Test.stopTest();
+        System.assertEquals(t.Subject, 'SMS');
+        System.assertEquals(t.Status, 'Closed');
+        System.assertEquals(customer.PersonMobilePhone, '1301111111');
+        System.assertEquals(customer.PersonOtherPhone, '1301111122');
+        System.assertEquals(t.WhatId,customer.Id);        
+        System.assertEquals(t.WhoId, [Select Id From Contact Where accountId = :customer.Id limit 1].Id);
+    }
+
+    public static testMethod void testSMSControllerExtensionErr1() {
+        Test.startTest();
+        // Testing the SMS Send
+        ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+        ApexPages.currentPage().getParameters().put('type','SMS');
+        // Add parameters to page URL
+        String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId);
+        insert dealer;     
+        SMSControllerExtension extension = new SMSControllerExtension(controller);
+        extension.sms.Dealer__c = dealer.Id;
+        String templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
+        Template__c tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
+                                           Name = 'lai', Message_Detail__c = '{DEALER_NAME}');
+        insert tem1;
+        extension.templateId = tem1.id;
+        List<SelectOption> Templates = extension.getTemplates();
+        extension.parseTemplateMessage();
+        // Send SMS
+        extension.send();
+        Test.stopTest();
+        system.assertEquals(extension.templateId, tem1.id);
+        system.assertEquals(dealer.RecordTypeId, dealerRecordTypeId);
+        system.assertEquals(tem1.Message_Detail__c, '{DEALER_NAME}');
+        system.assert(Templates!=Null);
+        system.assertequals(extension.parseTemplateMessage(),Null);
+    }
+    
+    public static testMethod void testSMSControllerExtensionErr2() {
+        
+        Test.startTest();
+        // Testing the SMS Send
+        ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+        ApexPages.currentPage().getParameters().put('type','SMS');
+        // Add parameters to page URL
+        String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        Account customer = new Account(Area_Code__c = '010' ,LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId);
+        insert customer;
+        Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId);
+        insert dealer;
+        //String accountId = [Select Id, PersonMobilePhone, Name From Account where isPersonAccount = true Limit 1][0].Id;
+        ApexPages.currentPage().getParameters().put('accountId',customer.Id);
+        ApexPages.currentPage().getParameters().put('retURL',customer.Id);
+        
+        SMSControllerExtension extension = new SMSControllerExtension(controller);
+        extension.sms.Dealer__c = dealer.Id;
+        extension.templateId = '';
+        List<SelectOption> Templates = extension.getTemplates();
+        extension.parseTemplateMessage();
+        // Send SMS
+        extension.send();
+        Test.stopTest();
+        system.assertEquals(customer.RecordTypeId, personAccountRecordTypeId);
+        system.assertEquals(dealer.RecordTypeId, dealerRecordTypeId);
+        system.assertEquals(extension.sms.Dealer__c,dealer.Id);
+        system.assertEquals(extension.templateId,'');
+        system.assertEquals(dealer.RecordTypeId, dealerRecordTypeId);        
+        system.assert(Templates!=Null);
+        system.assertequals(extension.parseTemplateMessage(),Null);
+        system.assertequals(extension.send(),Null);
+    }
+    
+    public static testMethod void testSMSControllerExtensionErr3() {
+        
+        Test.startTest();
+        // Testing the SMS Send
+        ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+        ApexPages.currentPage().getParameters().put('type','SMS');
+        // Add parameters to page URL
+        String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        String templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
+        Account customer = new Account(Area_Code__c = '010' ,LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
+        insert customer;
+        Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId);
+        insert dealer;
+        Template__c template = new Template__c(RecordTypeId = templateRecordTypeId,
+                                               Active__c = true);
+        insert template;
+        template.Message_Detail__c = 'DEALER_LAI';
+        update template;     
+        SMSControllerExtension extension = new SMSControllerExtension(controller);
+        extension.sms.Dealer__c = dealer.Id;
+        extension.templateId = template.Id;
+        List<SelectOption> Templates = extension.getTemplates();
+        extension.parseTemplateMessage();
+        // Send SMS
+        extension.send();
+        Test.stopTest();
+        system.assertEquals(template.RecordTypeId,templateRecordTypeId);
+        system.assertEquals(dealer.Phone, '8888888');
+        system.assertEquals(customer.RecordTypeId, personAccountRecordTypeId);
+        system.assertEquals(dealer.RecordTypeId, dealerRecordTypeId);
+        system.assert(Templates!=Null);
+        system.assertEquals(extension.sms.Dealer__c,dealer.Id);
+        system.assertEquals(extension.templateId,template.Id);
+        system.assertequals(extension.parseTemplateMessage(),Null);
+        system.assertequals(extension.send(),Null);
+        system.assertequals(ApexPages.currentPage().getParameters().get('type'),'SMS');
+    }
+}
