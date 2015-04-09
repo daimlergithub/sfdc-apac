@@ -1,3 +1,0 @@
-<apex:page controller="EpaResourceConsumptionController">
-    <apex:iframe src="/{!ReportId}?isdtp=nv" scrolling="true" height="1588px" width="100%"/>
-</apex:page>
