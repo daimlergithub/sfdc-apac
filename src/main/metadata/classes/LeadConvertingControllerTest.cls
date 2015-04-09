@@ -23,12 +23,6 @@ public class LeadConvertingControllerTest
   static String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();  
   static String RTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Event Retail Campaign').getRecordTypeId();
   static String ASRTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('AS Retail Campaign').getRecordTypeId();
-  static Retail_Campaign__c campaign;
-  static String retailCampaignId; 
-  static String recordType='rt';
-  static string id_Value='id';
-  static string Segmentation_Only='Segmentation Only';
-  static string blank_Value='';
 
   static{
     Profile p = [select id from profile where name='System Administrator' limit 1];
@@ -48,29 +42,29 @@ public class LeadConvertingControllerTest
        rc = new Retail_Campaign__c(RecordTypeId =RTId,Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved');
        insert rc;      
        rtm = new Retail_Campaign_Member__c(Retail_Campaign__c = rc.Id, Contact__c = thirdParty.Id, Status__c = 'Show up');
-       insert rtm; 
-       retailCampaignId = ApexPages.currentPage().getParameters().put(id_Value,rc.Id);        
-   }
-   private static void set_page(){
-       init();    
-       leadConverting = Page.LeadConverting;
-       leadConverting.getParameters().put(id_Value,rc.id);
+       insert rtm;       
    }
    private static void set_Lead_ASRETAILCAMPAIGN() {
-       set_page();
-       leadConverting.getParameters().put(recordType,UtilConstant.AS_RETAIL_CAMPAIGN); 
+       init();    
+       leadConverting = Page.LeadConverting;
+       leadConverting.getParameters().put('id',rc.id);
+       leadConverting.getParameters().put('rt',UtilConstant.AS_RETAIL_CAMPAIGN); 
        Test.setCurrentPage(leadConverting);
        extension = new LeadConvertingController();  
    }
    private static void LeadRT_Segmentation() {
-       set_page();
-       leadConverting.getParameters().put(recordType,Segmentation_Only); 
+       init();           
+       leadConverting = Page.LeadConverting;
+       leadConverting.getParameters().put('id',rc.id);
+       leadConverting.getParameters().put('rt','Segmentation Only'); 
        Test.setCurrentPage(leadConverting);
        extension = new LeadConvertingController();  
    }
    private static void LeadRT_notSegmentation() {
-       set_page();
-       leadConverting.getParameters().put(recordType,'Not Segmentation Only'); 
+       init();           
+       leadConverting = Page.LeadConverting;
+       leadConverting.getParameters().put('id',rc.id);
+       leadConverting.getParameters().put('rt','Not Segmentation Only'); 
        Test.setCurrentPage(leadConverting);
        extension = new LeadConvertingController();  
    }
@@ -83,7 +77,7 @@ public class LeadConvertingControllerTest
         extension.retailCampaignMemberInfos[0].isConverted =true; 
         extension.converttolead();  
         Test.stopTest();
-        system.assertequals(ApexPages.currentPage().getParameters().get(recordType),UtilConstant.AS_RETAIL_CAMPAIGN);
+        system.assertequals(ApexPages.currentPage().getParameters().get('rt'),UtilConstant.AS_RETAIL_CAMPAIGN);
         system.assertequals(Null,extension.retailCampaignMemberInfos[0].lead.Lead_Type__c);
         }         
       } 
@@ -95,10 +89,10 @@ public class LeadConvertingControllerTest
         system.runAs(currentUser){        
         extension.retailCampaignMemberInfos[0].isConverted =true;
         extension.retailCampaignMemberInfos[0].lead.Lead_Type__c ='Product';
-        extension.retailCampaignMemberInfos[0].lead.Lead_Sub_Type__c=blank_Value;
+        extension.retailCampaignMemberInfos[0].lead.Lead_Sub_Type__c='';
         extension.converttolead();  
         Test.stopTest(); 
-        system.assertequals(ApexPages.currentPage().getParameters().get(recordType),UtilConstant.AS_RETAIL_CAMPAIGN);
+        system.assertequals(ApexPages.currentPage().getParameters().get('rt'),UtilConstant.AS_RETAIL_CAMPAIGN);
         system.assert(extension.retailCampaignMemberInfos[0].lead.Lead_Type__c!=Null);      
         } 
       }  
@@ -112,10 +106,10 @@ public class LeadConvertingControllerTest
         extension.retailCampaignMemberInfos[0].isConverted =true;       
         extension.retailCampaignMemberInfos[0].lead.Lead_Sub_Type__c='Test'; 
         extension.retailCampaignMemberInfos[0].lead.Lead_Type__c ='ProductTest';
-        extension.retailCampaignMemberInfos[0].lead.Lead_Additional_Service__c=blank_Value;      
+        extension.retailCampaignMemberInfos[0].lead.Lead_Additional_Service__c='';      
         extension.converttolead();
         Test.stopTest();
-        system.assertequals(ApexPages.currentPage().getParameters().get(recordType),UtilConstant.AS_RETAIL_CAMPAIGN);
+        system.assertequals(ApexPages.currentPage().getParameters().get('rt'),UtilConstant.AS_RETAIL_CAMPAIGN);
         system.assert(extension.retailCampaignMemberInfos[0].lead.Lead_Type__c!=Null);
         system.assert(extension.retailCampaignMemberInfos[0].lead.Lead_Type__c!='product');
         system.assert(extension.retailCampaignMemberInfos[0].lead.Lead_Sub_Type__c!=Null);
@@ -134,7 +128,7 @@ public class LeadConvertingControllerTest
         extension.retailCampaignMemberInfos[0].lead.Collectioner_Notes__c = Null;
         extension.converttolead(); 
         Test.stopTest(); 
-        system.assertequals(ApexPages.currentPage().getParameters().get(recordType),UtilConstant.AS_RETAIL_CAMPAIGN);
+        system.assertequals(ApexPages.currentPage().getParameters().get('rt'),UtilConstant.AS_RETAIL_CAMPAIGN);
         system.assert(extension.retailCampaignMemberInfos[0].lead.Lead_Type__c!=Null);
         system.assert(extension.retailCampaignMemberInfos[0].lead.Lead_Type__c!='product');
         system.assert(extension.retailCampaignMemberInfos[0].lead.Lead_Sub_Type__c!=Null);
@@ -142,23 +136,21 @@ public class LeadConvertingControllerTest
         }        
       } 
      public static testMethod void test_Converttolead_RTSegmentation()
-       {       
+       {
         init();
         LeadRT_Segmentation();
-        Test.startTest();            
+        Test.startTest();       
         system.runAs(currentUser){ 
         extension.retailCampaignMemberInfos[0].isConverted =true;    
         extension.converttolead(); 
-        campaign = [select Actual_Lead__c from Retail_Campaign__c where Id = :retailCampaignId];
         Test.stopTest(); 
-        system.assertequals(ApexPages.currentPage().getParameters().get(recordType),Segmentation_Only);
+        system.assertequals(ApexPages.currentPage().getParameters().get('rt'),'Segmentation Only');
         system.assertequals(extension.retailCampaignMemberInfos[0].lead.Assigned_Date_Time__c,date.today());
         system.assert(extension.retailCampaignMemberInfos[0].dealerNameId!=Null);  
         system.assertequals(extension.retailCampaignMemberInfos[0].lead.Contact__c,extension.retailCampaignMemberInfos[0].retailCampaignMember.Contact__c);  
         system.assertequals('New',extension.retailCampaignMemberInfos[0].lead.CAC_Lead_Status__c);  
         system.assertequals(date.today(),extension.retailCampaignMemberInfos[0].lead.Order_Placed_Date__c);  
-        system.assertequals('Converted',extension.retailCampaignMemberInfos[0].retailCampaignMember.Status__c);       
-        system.assertequals(campaign.Actual_Lead__c,[select count() from Lead__c where Retail_Campaign_Name__c = :retailCampaignId]);
+        system.assertequals('Converted',extension.retailCampaignMemberInfos[0].retailCampaignMember.Status__c);
        }        
      } 
     public static testMethod void test_Converttolead_Lead_Desired_Service()
@@ -168,12 +160,12 @@ public class LeadConvertingControllerTest
             Test.startTest();       
             system.runAs(currentUser){ 
             extension.retailCampaignMemberInfos[0].isConverted =true;   
-            extension.retailCampaignMemberInfos[0].lead.Lead_Desired_Service__c=blank_Value;   
+            extension.retailCampaignMemberInfos[0].lead.Lead_Desired_Service__c='';   
             extension.converttolead(); 
             Test.stopTest(); 
-            system.assert(ApexPages.currentPage().getParameters().get(recordType)!=Segmentation_Only);
+            system.assert(ApexPages.currentPage().getParameters().get('rt')!='Segmentation Only');
             system.assertequals(true,extension.retailCampaignMemberInfos[0].isConverted); 
-            system.assertequals(blank_Value,extension.retailCampaignMemberInfos[0].lead.Lead_Desired_Service__c);           
+            system.assertequals('',extension.retailCampaignMemberInfos[0].lead.Lead_Desired_Service__c);           
          }        
       }      
     public static testMethod void test_Converttolead_Retail_Purchase_Time()
@@ -184,12 +176,12 @@ public class LeadConvertingControllerTest
             system.runAs(currentUser){ 
             extension.retailCampaignMemberInfos[0].isConverted =true;   
             extension.retailCampaignMemberInfos[0].lead.Lead_Desired_Service__c='DesiredService';  
-            extension.retailCampaignMemberInfos[0].lead.Retail_Purchase_Time__c =blank_Value;  
+            extension.retailCampaignMemberInfos[0].lead.Retail_Purchase_Time__c ='';  
             extension.converttolead(); 
             Test.stopTest(); 
-            system.assert(ApexPages.currentPage().getParameters().get(recordType)!=Segmentation_Only);
+            system.assert(ApexPages.currentPage().getParameters().get('rt')!='Segmentation Only');
             system.assertequals(true,extension.retailCampaignMemberInfos[0].isConverted);
-            system.assertequals(blank_Value,extension.retailCampaignMemberInfos[0].lead.Retail_Purchase_Time__c);
+            system.assertequals('',extension.retailCampaignMemberInfos[0].lead.Retail_Purchase_Time__c);
         }        
       } 
      public static testMethod void test_Converttolead_Lead_Type()
@@ -201,12 +193,12 @@ public class LeadConvertingControllerTest
             extension.retailCampaignMemberInfos[0].isConverted =true;   
             extension.retailCampaignMemberInfos[0].lead.Lead_Desired_Service__c='DesiredService';  
             extension.retailCampaignMemberInfos[0].lead.Retail_Purchase_Time__c ='PurchaseTime'; 
-            extension.retailCampaignMemberInfos[0].lead.Lead_Type__c =blank_Value;
+            extension.retailCampaignMemberInfos[0].lead.Lead_Type__c ='';
             extension.converttolead(); 
             Test.stopTest(); 
-            system.assert(ApexPages.currentPage().getParameters().get(recordType)!=Segmentation_Only);
+            system.assert(ApexPages.currentPage().getParameters().get('rt')!='Segmentation Only');
             system.assertequals(true,extension.retailCampaignMemberInfos[0].isConverted);
-            system.assertequals(blank_Value,extension.retailCampaignMemberInfos[0].lead.Lead_Type__c);
+            system.assertequals('',extension.retailCampaignMemberInfos[0].lead.Lead_Type__c);
          }        
       }
       public static testMethod void test_Cancel()
@@ -216,7 +208,7 @@ public class LeadConvertingControllerTest
         Test.startTest();           
         extension.cancel();
         Test.stopTest();  
-        system.assertequals(ApexPages.currentPage().getParameters().get(id_Value),rc.id);    
+        system.assertequals(ApexPages.currentPage().getParameters().get('id'),rc.id);    
         system.assert(extension.cancel()!=Null);  
       } 
       public static testMethod void test_VehicleLooking()
@@ -226,7 +218,7 @@ public class LeadConvertingControllerTest
         Test.startTest();           
         extension.vehicleLooking(); 
         Test.stopTest();   
-        system.assertequals(ApexPages.currentPage().getParameters().get(id_Value),rc.id);  
+        system.assertequals(ApexPages.currentPage().getParameters().get('id'),rc.id);  
         system.assertequals(extension.vehicleLooking(),Null);      
       }      
 }

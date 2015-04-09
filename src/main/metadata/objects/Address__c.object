@@ -256,4 +256,15 @@
     <pluralLabel>Addresses</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>CheckedState</fullName>
+        <active>true</active>
+        <description>State (only if country is equal to Australia)</description>
+        <errorConditionFormula>AND(ISPICKVAL(Country__c, &apos;Australia&apos;),
+ISPICKVAL(State__c, &apos;&apos;),
+$Profile.Name != &apos;IntegrationAPI&apos; 
+)</errorConditionFormula>
+        <errorDisplayField>State__c</errorDisplayField>
+        <errorMessage>State is a mandatory fields when your Country is Australia.</errorMessage>
+    </validationRules>
 </CustomObject>

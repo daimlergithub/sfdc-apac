@@ -151,7 +151,7 @@
         <fullName>Vehicle_Make__c</fullName>
         <description>Formula is not provided ,after receiving  formula need to update field</description>
         <externalId>false</externalId>
-        <formula>&quot;  &quot;</formula>
+        <formula>Text(Vehicle__r.Brand__c )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Vehicle Make</label>
         <required>false</required>
@@ -163,7 +163,7 @@
         <fullName>Vehicle_Model__c</fullName>
         <description>Formula is not provided ,after receiving  formula need to update field</description>
         <externalId>false</externalId>
-        <formula>&quot; &quot;</formula>
+        <formula>Text(Vehicle__r.Model__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Vehicle Model</label>
         <required>false</required>

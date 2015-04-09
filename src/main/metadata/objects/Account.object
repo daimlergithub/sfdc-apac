@@ -7787,6 +7787,26 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Occupation&quot;</d
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Opt_in_All_Channels__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(Opt_In_Email__c,  Opt_In_SMS__c,
+Opt_In_Email2__c, Opt_In_SMS2__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>*Opt in All Channels</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opt_in_at_least_One_Channel__c</fullName>
+        <externalId>false</externalId>
+        <formula>OR(Opt_In_Email__c,   Opt_In_SMS__c,
+Opt_In_Email2__c,  Opt_In_SMS2__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>*Opt in at least One Channel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Orgnization_Instance_URL__c</fullName>
         <description>/* 
 Created by: Mouse Liu 
