@@ -23,33 +23,20 @@
     8-May-2014  Cyril Huang (NTTData)  Modified
 */
 trigger UserTrigger on User (after update, after insert,before update, before insert) {
-	
-	if(trigger.isAfter && trigger.isInsert)
-    {
-    	if(UtilCustomSettings.isEnabled('UserAfterInsertUpdate'))
-    	{
-    		UserHelper.AfterInsert_UpdateMethod(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);		
-    	}	
+    if (!TriggerUtil.isTriggerEnabled('UserTrigger')) {
+        return;
     }
-    if(trigger.isAfter && trigger.isUpdate)
-    {
-    	if(UtilCustomSettings.isEnabled('UserAfterInsertUpdate'))
-    	{
-            UserHelper.AfterInsert_UpdateMethod(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);	
-    	}	
+    
+    if (trigger.isAfter && trigger.isInsert) {
+        UserHelper.AfterInsert_UpdateMethod(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);      
     }
-    if(trigger.isBefore && trigger.isInsert)
-    {
-    	 if (UtilCustomSettings.isEnabled('UserBeforeInsertUpdate'))
-    	 {
-        	UserHelper.ValidateUser(Trigger.new);	
-    	 }
+    if (trigger.isAfter && trigger.isUpdate) {
+        UserHelper.AfterInsert_UpdateMethod(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);  
     }
-    if(trigger.isBefore && trigger.isUpdate)
-    {
-    	 if (UtilCustomSettings.isEnabled('UserBeforeInsertUpdate'))
-    	 {
-    	 	UserHelper.ValidateUser(Trigger.new);	
-    	 }
+    if (trigger.isBefore && trigger.isInsert) {
+        UserHelper.ValidateUser(Trigger.new);   
+    }
+    if (trigger.isBefore && trigger.isUpdate) {
+        UserHelper.ValidateUser(Trigger.new);   
     }
 }

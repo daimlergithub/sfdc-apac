@@ -7057,6 +7057,33 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Mail_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Mail Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dead mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Opt out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Main_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>/* 
@@ -14707,6 +14734,25 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Mail_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dead mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opt out</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Marital_Status__c</picklist>
             <values>
                 <fullName>Divorced</fullName>
@@ -19873,6 +19919,25 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Mail_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dead mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opt out</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

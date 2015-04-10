@@ -25,25 +25,24 @@
     08-April-2013 Sinow Zhang (NTTData)  Created
 */
 trigger TriggerQC on QC__c (after insert,after Update) {
-	
-	if(trigger.isAfter && trigger.isInsert)
+    if (!TriggerUtil.isTriggerEnabled('TriggerQC')) {
+        return;
+    }
+    
+    if(trigger.isAfter && trigger.isInsert)
     {
-        if(UtilCustomSettings.isEnabled('QCAfterUpdate'))
-          QCHelper.afterInsertUpdateEvents(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+        QCHelper.afterInsertUpdateEvents(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
-        if(UtilCustomSettings.isEnabled('QCAfterUpdate'))
-         QCHelper.afterInsertUpdateEvents(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+        QCHelper.afterInsertUpdateEvents(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
     }
     if(trigger.isBefore && trigger.isInsert)
     {
-         if (UtilCustomSettings.isEnabled('QCBeforeUpdate'))
-            QCHelper.beforeInsertUpdateEvents(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+        QCHelper.beforeInsertUpdateEvents(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
     }
     if(trigger.isBefore && trigger.isUpdate)
     {
-         if (!UtilCustomSettings.isEnabled('QCBeforeUpdate'))
-            QCHelper.beforeInsertUpdateEvents(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+        QCHelper.beforeInsertUpdateEvents(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
     }
 }
