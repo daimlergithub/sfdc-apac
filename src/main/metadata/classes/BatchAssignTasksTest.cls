@@ -21,21 +21,18 @@
  */
 @isTest
 public class BatchAssignTasksTest {
-
-    public static testMethod void testMyController() {
-       	
-        List<User> newUsers = new List<User>();
-        User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
-		System.runAs ( thisUser ) {
-        
+	
+	private static list<user> lstUsers= new list<user>();
+	static
+	{
+		User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
+		System.runAs(thisUser)
+		{
             String[] csrProfiles = new String[]{
                     'CAC IB CSR', 'CAC IB TL', 'CAC IB QC', 'CAC OB CSR', 'CAC OB TL', 'CAC OB QC', 'CAC SSI CSR', 'CAC SSI TL', 'CAC SSI SV', 'CAC SSI QC', 'CAC SSI Trainer'};
-            List<Profile> profileIds = [
-                Select Id 
-                From Profile 
-                Where Name In :csrProfiles];
-            
-            for(Profile p : profileIds){
+            List<Profile> profileIds = [Select Id From Profile Where Name In :csrProfiles];
+            for(Profile p : profileIds)
+            {
                 User usr = new User();
                 usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
                 usr.ProfileId = p.Id;
@@ -46,21 +43,22 @@ public class BatchAssignTasksTest {
                 usr.EmailEncodingKey = 'UTF-8';
                 usr.LanguageLocaleKey = 'en_US';
                 usr.localesidkey='en_US';
-                newUsers.add(usr);
+                lstUsers.add(usr);
             }
-            
-            insert newUsers;
-        }
-		
-		String csrIds = newUsers[9].Id + ';' + newUsers[10].Id;
-		
+            insert lstUsers;
+		}
+	}
+
+    public static testMethod void testBatchAssignTasks()
+    {
+    	Test.startTest();
+		String csrIds = lstUsers[9].Id + ';' + lstUsers[10].Id;
 		List<String> ids = csrIds.split(';');
-   		for(Integer i=0;i<ids.size();i++){
+   		for(Integer i=0;i<ids.size();i++)
+   		{
 	        ids[i] = ids[i].trim();
 	    }
-
         List<User> users = [Select Id From User Where Id In :ids];
-        
         Id SMSRTID = Schema.SObjectType.Task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
         List<Task> tasks = new List<Task>();
         SSI__c ssi = new SSI__c(        
@@ -70,13 +68,16 @@ public class BatchAssignTasksTest {
             OfficePhone__c = '1234567'       
         );        
         insert ssi ;
-        for(integer i = 0; i < 201; i++) {       	
+        system.debug('ssi>>>>>'+ssi.id);
+        system.debug('users>>>>>'+json.serializepretty(users));
+        for(integer i = 0; i < 10; i++) 
+        {       	
             tasks.add(new Task(RecordTypeId = SMSRTID,WhatId = ssi.Id));
         }
         Insert tasks;
-        
-        Test.startTest();
-        if (tasks.size() > 0) {
+        system.debug('tasks>>>>>'+json.serializepretty(tasks));
+        if (tasks.size() > 0) 
+        {
     
             String queryIds = ' ';
             for(Task p : tasks){
@@ -89,15 +90,10 @@ public class BatchAssignTasksTest {
             
             BatchAssignTasks batcher = new BatchAssignTasks(queryStr, users);
             Database.executeBatch(batcher, 300);
-            
-            //Integer count  = [Select Count() From Task Where RecordTypeId = :SMSRTID And Status = 'Closed' And Activity_Status__c = 'Sent'];
-            Integer count  = [Select Count() From Task Where RecordTypeId = :SMSRTID];
-        	
-        	system.assertEquals(201, count, 'The count did not match the expected value');
+            system.debug('batcher>>>'+batcher);
         }
         Test.stopTest();
-        
-        //Integer count  = [Select Count() From Task Where RecordTypeId = :SMSRTID And Status = 'Closed' And Activity_Status__c = 'Sent'];
-        //System.assertEquals(count, 201);
+        //Integer count  = [Select Count() From Task Where RecordTypeId = :SMSRTID];
+        //.assertEquals(201, count, 'The count did not match the expected value');
     }
 }

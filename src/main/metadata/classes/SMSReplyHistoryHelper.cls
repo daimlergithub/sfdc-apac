@@ -48,9 +48,11 @@ public class SMSReplyHistoryHelper{
 		    
 		    // Finds the closure mms template and Smart Template
 		    Set<String> closureMmsTemplateIds = new Set<String>();
+		    Schema.DescribeSObjectResult objectId = Template__c.sObjectType.getDescribe();
+            string prefix=objectId.getKeyPrefix();
 		    for(Template__c template : templateMap.values())
 		    {
-		    	if(!String.isBlank(template.Closure_SMS__c) && template.Closure_SMS__c.trim().startsWith('a1S'))
+		    	if(!String.isBlank(template.Closure_SMS__c) && template.Closure_SMS__c.trim().startsWith(prefix))
 		    	{
 		    		closureMmsTemplateIds.add(template.Closure_SMS__c.trim());
 		    	}
@@ -98,6 +100,7 @@ public class SMSReplyHistoryHelper{
         Map<String, Task> newOBTaskMap = new Map<String, Task>();
         
         for(SMSReplyHistory__c reply : replies){
+            system.debug('reply>>>>>'+json.serializePretty(reply));
             Template__c template = getTemplate(reply.Template__c, templateMap);
             Task task = taskMap.get(reply.TaskID__c);
             
@@ -189,7 +192,7 @@ public class SMSReplyHistoryHelper{
                     }
                 }
             }
-            
+            system.debug('&&&*****&&&&'+reply.SMSCode__c+'>>>>'+String.isBlank(reply.SMSCode__c));
             // 3. Finds the invalid reply and sends error sms.
             if(reply.IsValid__c && String.isBlank(reply.SMSCode__c)){
                 reply.IsValid__c = false;
