@@ -833,6 +833,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TextInputtingControlelr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TextInputtingControlelrTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TookKitSharingTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -894,6 +902,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerTaskTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerUtil</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerUtilTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2414,6 +2430,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Magazine_Second__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Mail_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6308,6 +6329,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Contact.Business_Unit__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Contact.CAC_SourceId__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -6392,6 +6418,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.EOC_Recipient_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Email</field>
         <readable>true</readable>
@@ -6409,6 +6440,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.File_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Finance_Lead_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6437,6 +6473,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Job_Title__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Languages__c</field>
         <readable>true</readable>
@@ -6445,6 +6486,11 @@
         <editable>true</editable>
         <field>Contact.LeadSource</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Lead_Escalation_Recipient_Type__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -6479,6 +6525,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Contact.Permission_Set_Settings__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Person_Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -6517,9 +6568,19 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Sub_BusinessUnit__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Contact.Title</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Contact.Type__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -7053,6 +7114,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Dealer_Locator__c.Business_Unit__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Dealer_Locator__c.Category__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -7078,7 +7144,32 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Dealer_Locator__c.Metro_Rural__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_Locator__c.Offered_Service__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_Locator__c.PMA__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Dealer_Locator__c.Post_Code__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_Locator__c.Region__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Dealer_Locator__c.State__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8033,6 +8124,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Business_Unit__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.CAC_Lead_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8098,6 +8194,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Contact_Timing__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Contact__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8119,6 +8220,16 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Customer_Name__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Customer_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.DD_Authority2__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8223,12 +8334,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Fee_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Feedback_To_MB_Call_Center__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Finance_Approved__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Financial_Product2__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8269,6 +8390,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Interested_Vehicle_Brand__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Interested_Vehicle_Category__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8458,12 +8584,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.MB_Vehicle_Interest__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.MB_Vehicle_Outcome__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Marketing_Opt_Out__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Mobile__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Nature_of_Request__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8543,6 +8684,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Payment_Mode__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Payment_Type__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Payment__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8558,7 +8709,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Preferred_Contact_Method__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Preferred_Contact_Time__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Preferred_Test_Drive_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8913,6 +9074,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Sub_BusinessUnit__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Sub_Source__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Successful_Call_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8968,6 +9139,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Vehicle_Make_Current__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Vehicle_Model_Current__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8978,7 +9154,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Vehicle_Need__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Vehicle_Purchase_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Vehicle_Year_Current__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Vehicle_Year_Interest__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9429,6 +9620,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Participating_Dealer__c.Session_Start_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Pre_Order__c.ClosedReason__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14293,6 +14489,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Vehicle__c.Sector__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Vehicle__c.Source__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -14334,6 +14535,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle__c.VehicleStatus__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle__c.Vehicle_Group__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15255,6 +15461,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Tasks</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>TextInputting</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
