@@ -69,8 +69,7 @@
     <fields>
         <fullName>Aftersales_Vehicle_Brand__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(VehicleRel_No__r.Vehicle_ID__r.Brand__c)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <formula>TEXT(VehicleRel_No__r.Brand__c)</formula>
         <label>Aftersales Vehicle Brand</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2516,6 +2515,16 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>DD_Authority__c</fullName>
+        <externalId>false</externalId>
+        <formula>Existing_Contract__r.Direct_Debit_Authority__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Direct Debit Authority</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>DUP_Number__c</fullName>
         <externalId>false</externalId>
         <formula>Contact__r.DUP_Number__pc</formula>
@@ -2995,7 +3004,7 @@ Contact__r.Email__c
         <label>CRM1 Existing Contract No.</label>
         <referenceTo>Retail_Task__c</referenceTo>
         <relationshipLabel>Leads</relationshipLabel>
-        <relationshipName>Leads_del</relationshipName>
+        <relationshipName>Leads</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -3012,6 +3021,20 @@ Contact__r.Email__c
         <trackTrending>false</trackTrending>
         <type>LongTextArea</type>
         <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Finance_Amount__c</fullName>
+        <externalId>false</externalId>
+        <formula>Existing_Contract__r.Amount_Financed__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Finance Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Finance_Approved__c</fullName>
@@ -3095,6 +3118,20 @@ Collectioner_Name__r.HomePhone
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Interest_Rate__c</fullName>
+        <externalId>false</externalId>
+        <formula>Existing_Contract__r.Interest_Rate__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Interest Rate</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Interested_Body_Type__c</fullName>
@@ -8868,7 +8905,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
     <fields>
         <fullName>Registration_No__c</fullName>
         <externalId>false</externalId>
-        <formula>VehicleRel_No__r.Registration_Number__c</formula>
+        <formula>Existing_Contract__r.Related_Vehicle__r.RegistrationNo__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Registration No.</label>
         <required>false</required>
@@ -12314,6 +12351,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Status_Category__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(CAC_Lead_Status__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Status Category</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Successful_Call_Number__c</fullName>
         <externalId>false</externalId>
         <label>Successful Call Number</label>
@@ -14642,6 +14691,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>VIN__c</fullName>
+        <externalId>false</externalId>
+        <formula>Existing_Contract__r.Related_Vehicle__r.UsVIN__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>VIN</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>VehicleRel_No__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -14662,6 +14723,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Make__c</fullName>
+        <externalId>false</externalId>
+        <formula>Text(Existing_Contract__r.Related_Vehicle__r.Brand__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Vehicle Make</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Vehicle_Model_Current__c</fullName>
@@ -14688,6 +14761,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Vehicle_Model__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT( Existing_Contract__r.Related_Vehicle__r.Model__c )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Vehicle Model</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Vehicle_Purchase_Date__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Purchase Date</label>
@@ -14696,6 +14781,18 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Vehicle_Year__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Existing_Contract__r.Related_Vehicle__r.ModelYear__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Vehicle Year</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Visit_Dealer__c</fullName>
