@@ -38,8 +38,6 @@
         <members>BatchJobHelperTest</members>
         <members>BatchUpdateRecords</members>
         <members>BatchUpdateRecordsTest</members>
-        <members>BtlAdditionalInfoTest</members>
-        <members>BtlErrorTest</members>
         <members>CACFieldsExtension</members>
         <members>CACFieldsExtensionTest</members>
         <members>CMap</members>
@@ -116,7 +114,6 @@
         <members>NewVehicleRelationshipController</members>
         <members>NewVehicleRelationshipControllerTest</members>
         <members>NiceWebServices</members>
-        <members>OperationTest</members>
         <members>Paginator</members>
         <members>ParticipatingDealerHelper</members>
         <members>ParticipatingDealerHelperTest</members>
@@ -202,8 +199,6 @@
         <members>TaskSMSControllerExtensionTest</members>
         <members>TaskTriggerHandler</members>
         <members>TaskTriggerHandlerTest</members>
-        <members>TextInputtingControlelr</members>
-        <members>TextInputtingControlelrTest</members>
         <members>TookKitSharingTest</members>
         <members>TookKitSharingWrapService</members>
         <members>ToolKitSelectContentController</members>
@@ -355,7 +350,6 @@
         <members>TaskMassChangeOwner</members>
         <members>TaskSMSSendResult</members>
         <members>Tasks</members>
-        <members>TextInputting</members>
         <members>ToolKitSelectContent</members>
         <members>TrialCustomerPortalHomePage</members>
         <members>Trial_Tour</members>
@@ -975,7 +969,6 @@
         <members>Template__c</members>
         <members>Tool_Kit__c</members>
         <members>Trigger_Enabled__c</members>
-        <members>Trigger_Status__c</members>
         <members>User</members>
         <members>Vehicle_Group_Mapping__c</members>
         <members>Vehicle_Inspection__c</members>
@@ -1098,6 +1091,7 @@
     </types>
     <types>
         <members>EPA</members>
+        <members>EPA/EPA_Logo.jpg</members>
         <members>Logo</members>
         <members>Logo/Central_LOGO.png</members>
         <members>Logo/Logo_Mercedes_Benz.png</members>
@@ -1442,8 +1436,6 @@
         <members>Chatter Moderator User</members>
         <members>ContractManager</members>
         <members>Cross Org Data Proxy User</members>
-        <members>Dealer Community User</members>
-        <members>Dealer Delegate Admin</members>
         <members>External Identity User</members>
         <members>External Marketing User</members>
         <members>Guest License User</members>
@@ -1671,7 +1663,6 @@
         <members>Template__c</members>
         <members>Tool_Kit__c</members>
         <members>Trigger_Enabled__c</members>
-        <members>Trigger_Status__c</members>
         <members>User</members>
         <members>UserLicense</members>
         <members>Vehicle_Group_Mapping__c</members>

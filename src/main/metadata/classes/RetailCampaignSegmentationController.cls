@@ -393,12 +393,12 @@ public with sharing class RetailCampaignSegmentationController {
         + '(Select Id, Contact__c From Vehicle_Relationships2__r VEHICLEFILTER ), '
         + '(select Id, Contact__c from Lead_Contact__r LEADFILTER)'
         */
-        
-        string personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-        string personAccntRetailRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Retail').getRecordTypeId();
+		Environment_Specific_Values__c personAccntRecTypId = Environment_Specific_Values__c.getValues('Person Account');
+        Environment_Specific_Values__c personAccntRetailRecTypId = Environment_Specific_Values__c.getValues('Person Account Retail');
+		
         accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
-            + 'where (RecordTypeId =\'' + personAccntRecTypId + '\' or ' 
-            + 'RecordTypeId = \'' + personAccntRetailRecTypId + '\' or '
+            + 'where (RecordTypeId =' + personAccntRecTypId + ' or ' 
+            + 'RecordTypeId = ' + personAccntRetailRecTypId + ' or '
             + 'RecordTypeId = \'' + thirdParty + '\') and ';
         leadSoql = '(Select Contact__c from Lead__c where ';
         vehicleRelSoql = '(Select Contact__c From Vehicle_Relationship__c where ';
