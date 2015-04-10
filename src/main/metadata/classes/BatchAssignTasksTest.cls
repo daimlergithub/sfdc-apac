@@ -68,14 +68,11 @@ public class BatchAssignTasksTest {
             OfficePhone__c = '1234567'       
         );        
         insert ssi ;
-        system.debug('ssi>>>>>'+ssi.id);
-        system.debug('users>>>>>'+json.serializepretty(users));
         for(integer i = 0; i < 10; i++) 
         {       	
             tasks.add(new Task(RecordTypeId = SMSRTID,WhatId = ssi.Id));
         }
         Insert tasks;
-        system.debug('tasks>>>>>'+json.serializepretty(tasks));
         if (tasks.size() > 0) 
         {
     
@@ -90,10 +87,8 @@ public class BatchAssignTasksTest {
             
             BatchAssignTasks batcher = new BatchAssignTasks(queryStr, users);
             Database.executeBatch(batcher, 300);
-            system.debug('batcher>>>'+batcher);
         }
         Test.stopTest();
-        //Integer count  = [Select Count() From Task Where RecordTypeId = :SMSRTID];
-        //.assertEquals(201, count, 'The count did not match the expected value');
+        system.assertequals([select Id, Name,ownerId from SSI__c where Id = :ssi.id].ownerId,users[1].Id);
     }
 }
