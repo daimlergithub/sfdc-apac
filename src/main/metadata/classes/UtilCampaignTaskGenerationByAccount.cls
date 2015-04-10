@@ -75,8 +75,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
         List<Task> taskList = new List<Task>();
         taskRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
         Savepoint sp = Database.setSavepoint();
-        try {
-            System.debug('CampaignMember>>>' + scope);            
+        try {            
             for(CampaignMember cpm : scope) {
                 taskList.addAll(generateTask(cpm,taskRecordTypeMap));
                 cpm.Task_Generated__c = true;
@@ -104,7 +103,6 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
             taskList.addAll(upMMSTaskList.Values());
             taskList.addAll(upEDMTaskList.Values());
             
-            System.debug('taskList>>>' + taskList);
             update scope;
             if(dmRequestList.size() > 0) insert dmRequestList;     
             
@@ -123,7 +121,6 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
     
     
     private List<Task> generateTask(CampaignMember cpm, Map<String, Schema.RecordTypeInfo> taskRecordTypeMap) {
-        System.debug('taskRecordTypeMap>>>' + taskRecordTypeMap); 
         List<Task> taskList = new List<Task>();        
         //taskRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
 
@@ -241,7 +238,6 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
         if(jobId != null){
             String updateMsg = '';
             try{
-                System.debug('cpUpdateList'+cpUpdateList);
                 if(cpUpdateList.size() > 0) update cpUpdateList;
             }catch (Exception ex){
                 updateMsg = ex.getMessage();
