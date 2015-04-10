@@ -6,13 +6,6 @@
 	
     <property prefix="sfdc" file="build.properties" unless:set="CI"/>
 	
-	<property name="typesets">
-		CustomLabels,CallCenter,StaticResource,ApexPage,Queue,Role,Group,CustomObject,Layout,Document,CustomTab,
-		CustomApplication,EmailTemplate,Workflow,ApexClass,ApexTrigger,AppMenu,Profile,PermissionSet,
-		AccountSharingRules,CampaignSharingRules,CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
-		CustomPageWebLink,HomePageComponent,HomePageLayout,RemoteSiteSetting
-	</property>
-	
 	<presetdef name="deploy">
 		<sf:deploy
 				debug="${sfdc.debug}" dryRun="${dryrun}"
@@ -62,7 +55,7 @@
 		<property name="persistedOnly" value="true" if:set="CI"/>
 		
 		<sf:deployDestructiveChanges
-				dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="pre"
+				dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="pre" debug="${sfdc.debug}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
 				deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
@@ -74,7 +67,7 @@
 		<property name="persistedOnly" value="true" if:set="CI"/>
 		
 		<sf:deployDestructiveChanges
-				dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="post"
+				dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="post" debug="${sfdc.debug}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
 				deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
