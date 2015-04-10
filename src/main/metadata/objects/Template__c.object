@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -1134,7 +1134,7 @@
     <validationRules>
         <fullName>SMS_No_more_than_235</fullName>
         <active>true</active>
-        <errorConditionFormula>OR(AND(CONTAINS(RecordType.Name,&quot;SMS&quot;),(LEN( Closure_SMS__c)&gt;235 )),AND(CONTAINS(RecordType.Name,&quot;SMS&quot;),LEN(Message_Detail__c)&gt;235))</errorConditionFormula>
+        <errorConditionFormula>OR(AND(CONTAINS(RecordType.Name,"SMS"),(LEN( Closure_SMS__c)&gt;235 )),AND(CONTAINS(RecordType.Name,"SMS"),LEN(Message_Detail__c)&gt;235))</errorConditionFormula>
         <errorMessage>Sorry, the SMS content is too long. Please make it shorter</errorMessage>
     </validationRules>
 </CustomObject>

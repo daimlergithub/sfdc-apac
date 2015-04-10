@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <customSettingsType>List</customSettingsType>
     <customSettingsVisibility>Public</customSettingsVisibility>
-    <description>Create a Custom Setting called &quot;Trigger Status&quot; with 2 fields - Trigger Name, Enabled (Yes/No)
+    <description>Create a Custom Setting called "Trigger Status" with 2 fields - Trigger Name, Enabled (Yes/No)
 
-On top of every trigger, check the Enabled value of the correspondent trigger in &quot;Trigger Status&quot;, exit if Enabled = &apos;No&apos;
+On top of every trigger, check the Enabled value of the correspondent trigger in "Trigger Status", exit if Enabled = 'No'
 (This should be wrapped in a Helper/Utility class function)
 
 This way we can easily enabled/disable all/individual trigger any time we need it.</description>
@@ -13,9 +13,9 @@ This way we can easily enabled/disable all/individual trigger any time we need i
     <fields>
         <fullName>Enabled__c</fullName>
         <defaultValue>true</defaultValue>
-        <description>Create a Custom Setting called &quot;Trigger Status&quot; with 2 fields - Trigger Name, Enabled (Yes/No)
+        <description>Create a Custom Setting called "Trigger Status" with 2 fields - Trigger Name, Enabled (Yes/No)
 
-On top of every trigger, check the Enabled value of the correspondent trigger in &quot;Trigger Status&quot;, exit if Enabled = &apos;No&apos;
+On top of every trigger, check the Enabled value of the correspondent trigger in "Trigger Status", exit if Enabled = 'No'
 (This should be wrapped in a Helper/Utility class function)
 
 This way we can easily enabled/disable all/individual trigger any time we need it.</description>

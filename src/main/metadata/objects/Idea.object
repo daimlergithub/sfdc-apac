@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>CancelEdit</actionName>
@@ -42,6 +42,7 @@
         <columns>IDEA.STATUS</columns>
         <columns>IDEA.CATEGORIES</columns>
         <columns>COMMUNITY.NAME</columns>
+        <columns>IDEA.IDEA_THEME</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>IDEA.CREATED_DATE</field>
@@ -50,6 +51,7 @@
         </filters>
         <label>Last 7 Days</label>
     </listViews>
+    
     <recordTypes>
         <fullName>InternalIdeasIdeaRecordType</fullName>
         <active>true</active>

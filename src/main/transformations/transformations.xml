@@ -291,10 +291,18 @@
 		<token>SETTING_DEFAULT_CASE_USER</token>
 	</changetext>
 	
+	<!-- remove tab visibility for SocialPersona from profiles -->
 	<removeelement deploy="false">
 		<filename>profiles\*.profile</filename>
 		<xpath>/Profile/tabVisibilities[tab/text()='standard-SocialPersona']</xpath>
 	</removeelement>
+	
+	<!-- remove duplicate list views -->
+	<removeduplicateelement deploy="false">
+		<filename>objects\*.object</filename>
+		<xpath>/CustomObject/listViews/fullName/text()</xpath>
+		<distance>2</distance>
+	</removeduplicateelement>
 	
 	<!-- history tracking cannot be set to true (as we like to have it) for the initial deployment, -->
 	<!-- so we remove it completely in the deployment and it has to be set manually in SFDC and --> 
