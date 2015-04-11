@@ -112,11 +112,12 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_QC']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_QC_WEBLINK_OBJECT_ID</token>
 	</changetext>
-	<changetext>
+	
+	<changeattribute>
 		<filename>pages\Retail_Campaigns.page</filename>
-		<xpath>/apex:page/text()</xpath>
+		<xpath>/page/@action</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_OBJECT_KEYPREFIX</token>
-	</changetext>
+	</changeattribute>
 	
 	<changetext>
 		<filename>objects\Retail_Campaign__c.object</filename>
