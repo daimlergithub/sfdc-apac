@@ -26,6 +26,7 @@
 		<exec executable="git" outputproperty="git.version">
 			<arg line="rev-parse HEAD"/>
 		</exec>
+		<echo message="Git version is ${git.version}."/>
 	</target>
 	
 	<target name="deployAll">
