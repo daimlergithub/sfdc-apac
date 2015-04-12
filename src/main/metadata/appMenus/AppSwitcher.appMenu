@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <AppMenu xmlns="http://soap.sforce.com/2006/04/metadata">
     <appMenuItems>
         <name>standard__Platform</name>
@@ -56,4 +56,5 @@
         <name>Retail_CRM</name>
         <type>CustomApplication</type>
     </appMenuItems>
+    
 </AppMenu>
