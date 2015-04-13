@@ -38,8 +38,6 @@
         <members>BatchJobHelperTest</members>
         <members>BatchUpdateRecords</members>
         <members>BatchUpdateRecordsTest</members>
-        <members>BtlAdditionalInfoTest</members>
-        <members>BtlErrorTest</members>
         <members>CACFieldsExtension</members>
         <members>CACFieldsExtensionTest</members>
         <members>CMap</members>
@@ -116,7 +114,6 @@
         <members>NewVehicleRelationshipController</members>
         <members>NewVehicleRelationshipControllerTest</members>
         <members>NiceWebServices</members>
-        <members>OperationTest</members>
         <members>Paginator</members>
         <members>ParticipatingDealerHelper</members>
         <members>ParticipatingDealerHelperTest</members>

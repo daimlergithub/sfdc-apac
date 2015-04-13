@@ -177,14 +177,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BtlAdditionalInfoTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>BtlErrorTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>CACFieldsExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -486,10 +478,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>NiceWebServices</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>OperationTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
