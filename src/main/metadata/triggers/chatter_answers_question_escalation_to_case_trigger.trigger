@@ -1,8 +1,4 @@
 trigger chatter_answers_question_escalation_to_case_trigger on Question (after update) {
-    if (!TriggerUtil.isTriggerEnabled('chatter_answers_question_escalation_to_case_trigger')) {
-        return;
-    }
-    
     for (Question q: Trigger.new) {
         try {
             if (q.Priority == 'high' && (q.Cases == null || q.Cases.size() == 0) && Trigger.oldMap.get(q.id).Priority != 'high') {

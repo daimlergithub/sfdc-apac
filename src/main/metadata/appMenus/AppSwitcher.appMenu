@@ -78,6 +78,7 @@
     </appMenuItems>
     <appMenuItems>
         <name>Service_Cloud_Console_SSI</name>
+        <name>Retail_CRM</name>
         <type>CustomApplication</type>
     </appMenuItems>
 </AppMenu>

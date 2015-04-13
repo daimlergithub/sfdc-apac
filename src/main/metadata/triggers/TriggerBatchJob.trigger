@@ -10,7 +10,7 @@
   23-September-2013  Tony Li (Breakingpoint)    Created
 */
 trigger TriggerBatchJob on Batch_Job__c (after insert, after update) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerBatchJob')) {
+    if (!UtilCustomSettings.isEnabled('TriggerBatchJob')) {
         return;
     }
 

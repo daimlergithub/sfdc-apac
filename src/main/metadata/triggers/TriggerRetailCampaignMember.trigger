@@ -11,12 +11,11 @@
 */
 trigger TriggerRetailCampaignMember on Retail_Campaign_Member__c (before insert) 
 {
-    if (!TriggerUtil.isTriggerEnabled('TriggerRetailCampaignMember')) {
+    if (!UtilCustomSettings.isEnabled('RetailCampaignMemberBeforeInsertUpdate')) {
         return;
     }
-
     if(trigger.isBefore && trigger.isInsert)
     {
-        RetailCampaignMemberHelper.retailCampaignMemberDuplicateCheck(Trigger.new); 
+    	RetailCampaignMemberHelper.retailCampaignMemberDuplicateCheck(Trigger.new);	
     }
 }

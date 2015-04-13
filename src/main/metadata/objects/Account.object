@@ -7816,8 +7816,8 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
     <fields>
         <fullName>Opt_in_All_Channels__c</fullName>
         <externalId>false</externalId>
-        <formula>AND(Opt_In_Email__c,  Opt_In_SMS__c,
-Opt_In_Email2__c, Opt_In_SMS2__c)</formula>
+        <formula>AND(Opt_In_Email__c, Opt_In_Home_Phone__c, Opt_In_Home_Phone2__c, Opt_In_SMS__c,
+Opt_In_Email2__c, Opt_In_Work_Phone__c,Opt_In_Work_Phone2__c, Opt_In_SMS2__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>*Opt in All Channels</label>
         <trackHistory>false</trackHistory>
@@ -7826,8 +7826,8 @@ Opt_In_Email2__c, Opt_In_SMS2__c)</formula>
     <fields>
         <fullName>Opt_in_at_least_One_Channel__c</fullName>
         <externalId>false</externalId>
-        <formula>OR(Opt_In_Email__c,   Opt_In_SMS__c,
-Opt_In_Email2__c,  Opt_In_SMS2__c)</formula>
+        <formula>OR(Opt_In_Email__c, Opt_In_Home_Phone__c, Opt_In_Home_Phone2__c, Opt_In_SMS__c,
+Opt_In_Email2__c, Opt_In_Work_Phone__c,Opt_In_Work_Phone2__c, Opt_In_SMS2__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>*Opt in at least One Channel</label>
         <trackHistory>false</trackHistory>

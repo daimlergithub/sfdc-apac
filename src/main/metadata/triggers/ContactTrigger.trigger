@@ -24,26 +24,36 @@
 */
 trigger ContactTrigger on Contact (after update, after insert,before update, before insert)
 {
-    if (!TriggerUtil.isTriggerEnabled('ContactTrigger')) {
-        return;
-    }
     
-    if (trigger.isAfter && trigger.isInsert) {
-        ContactHelper.AfterInsertUpdateEvents(trigger.new);
+    if(trigger.isAfter && trigger.isInsert)
+    {
+    	if (UtilCustomSettings.isEnabled('ContactAfterInsertUpdate'))
+    		ContactHelper.AfterInsertUpdateEvents(trigger.new);
     }
-    if (trigger.isAfter && trigger.isUpdate) {
-        ContactHelper.AfterInsertUpdateEvents(trigger.new); 
+    if(trigger.isAfter && trigger.isUpdate)
+    {
+    	if (UtilCustomSettings.isEnabled('ContactAfterInsertUpdate'))
+    		ContactHelper.AfterInsertUpdateEvents(trigger.new);	
     }
-    if (trigger.isBefore && trigger.isInsert) {
-        // Validate Gate Keeper
-        ContactHelper.ValidateGateKeeper(Trigger.new);
-        // Validate complaint manager and presales
-        ContactHelper.ValidateManager(Trigger.new);
+    if(trigger.isBefore && trigger.isInsert)
+    {
+    	if (UtilCustomSettings.isEnabled('ContactBeforeInsertUpdate'))
+    	{
+	    	// Validate Gate Keeper
+		    ContactHelper.ValidateGateKeeper(Trigger.new);
+		    // Validate complaint manager and presales
+		    ContactHelper.ValidateManager(Trigger.new);
+    	}    
     }
-    if (trigger.isBefore && trigger.isUpdate) {
-        // Validate Gate Keeper
-        ContactHelper.ValidateGateKeeper(Trigger.new);
-        // Validate complaint manager and presales
-        ContactHelper.ValidateManager(Trigger.new);
+    if(trigger.isBefore && trigger.isUpdate)
+    {
+    	
+    	if (UtilCustomSettings.isEnabled('ContactBeforeInsertUpdate'))
+    	{
+    		 // Validate Gate Keeper
+		    ContactHelper.ValidateGateKeeper(Trigger.new);
+		    // Validate complaint manager and presales
+		    ContactHelper.ValidateManager(Trigger.new);
+    	}
     }
 }

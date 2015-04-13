@@ -45,53 +45,59 @@
     1. Mouse Created on 2013-07-12
 */
 trigger TaskTrigger on Task (after update, after insert,before update, before insert) {
-    if (!TriggerUtil.isTriggerEnabled('TaskTrigger')) {
-        return;
-    }
+    
     
     if(trigger.isAfter && trigger.isInsert)
     {
-        if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
+        if(UtilCustomSettings.isEnabled('TaskFailBlacklistTrigger'))
             TaskHelper.TaskFailBlacklist(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
-        }
-        
-        if (TriggerUtil.isTriggerEnabled('TriggerTask')) {
+        //  
+        if(UtilCustomSettings.isEnabled('TriggerTask'))
             TaskHelper.updateCampaignMemberStatus(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
-        }
-        
-        TaskTriggerHandler.updateAccountCallMessage(Trigger.newMap, Trigger.oldMap);
-        TaskTriggerHandler.autoUpdateTaskAfterLogInserted(Trigger.new[0]);
-        TaskTriggerHandler.autoUpdateAccountOBTaskMessage(Trigger.new);
-        TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);     
+        //  
+        if(UtilCustomSettings.isEnabled('TaskAfterInsertUpdate'))
+        {
+            TaskTriggerHandler.updateAccountCallMessage(Trigger.newMap, Trigger.oldMap);
+            TaskTriggerHandler.autoUpdateTaskAfterLogInserted(Trigger.new[0]);
+            TaskTriggerHandler.autoUpdateAccountOBTaskMessage(Trigger.new);
+            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);     
+        }   
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
-        if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
+        if(UtilCustomSettings.isEnabled('TaskFailBlacklistTrigger'))
             TaskHelper.TaskFailBlacklist(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
-        }
-        
-        if (TriggerUtil.isTriggerEnabled('TriggerTask')) {
+        //
+        if(UtilCustomSettings.isEnabled('TriggerTask'))
             TaskHelper.updateCampaignMemberStatus(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
-        }
-        
-        TaskTriggerHandler.updateAccountCallMessage(Trigger.newMap, Trigger.oldMap);
-        TaskTriggerHandler.autoUpdateTaskAfterLogInserted(Trigger.new[0]);
-        TaskTriggerHandler.autoUpdateSSISurveyStatus(Trigger.new[0], Trigger.old[0]);
-        TaskTriggerHandler.generateWelcomeCall(Trigger.new[0], Trigger.old[0]);
-        TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+        //  
+        if(UtilCustomSettings.isEnabled('TaskAfterInsertUpdate'))
+        {
+            TaskTriggerHandler.updateAccountCallMessage(Trigger.newMap, Trigger.oldMap);
+            TaskTriggerHandler.autoUpdateTaskAfterLogInserted(Trigger.new[0]);
+            TaskTriggerHandler.autoUpdateSSISurveyStatus(Trigger.new[0], Trigger.old[0]);
+            TaskTriggerHandler.generateWelcomeCall(Trigger.new[0], Trigger.old[0]);
+            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+        }   
     }
     if(trigger.isBefore && trigger.isInsert)
     {
-         // Update Activity Status after new records created
-        TaskTriggerHandler.taskFieldsUpdate(Trigger.new, Trigger.oldMap);
-        TaskHelper.Reply_TD_unsubscribeForeachSMScontent(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
-        TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+         if (UtilCustomSettings.isEnabled('TaskBeforeInsertUpdate'))
+         {
+            // Update Activity Status after new records created
+            TaskTriggerHandler.taskFieldsUpdate(Trigger.new, Trigger.oldMap);
+            TaskHelper.Reply_TD_unsubscribeForeachSMScontent(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+            TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+         }
     }
     if(trigger.isBefore && trigger.isUpdate)
     {
-        // Update Activity Status after new records created
-        TaskTriggerHandler.taskFieldsUpdate(Trigger.new, Trigger.oldMap);
-        TaskHelper.Reply_TD_unsubscribeForeachSMScontent(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
-        TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+         if (UtilCustomSettings.isEnabled('TaskBeforeInsertUpdate'))
+         {
+            // Update Activity Status after new records created
+            TaskTriggerHandler.taskFieldsUpdate(Trigger.new, Trigger.oldMap);
+            TaskHelper.Reply_TD_unsubscribeForeachSMScontent(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+            TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+         }
     }
 }

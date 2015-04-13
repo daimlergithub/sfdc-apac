@@ -24,16 +24,15 @@
     1. Sichao Lai Created on 2013-06-07
 */
 trigger TriggerRecall on Recall__c (after insert,before Delete) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerRecall')) {
-        return;
-    }
     
     if(trigger.isAfter && trigger.isInsert)
     { 
-        RecallHelper.AfterInsertEvent(Trigger.new);
+        if(UtilCustomSettings.isEnabled('RecallAfterInsertUpdate'))
+            RecallHelper.AfterInsertEvent(Trigger.new);
     }
     if(trigger.isbefore && trigger.isDelete)
     {
-        RecallHelper.beforeDeleteEvent(Trigger.old);
+        if(UtilCustomSettings.isEnabled('RecallBeforeDelete'))
+            RecallHelper.beforeDeleteEvent(Trigger.old);
    }
 }

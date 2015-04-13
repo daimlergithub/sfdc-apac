@@ -10,32 +10,32 @@
 */
 
 trigger TriggerParticipatingDealer on Participating_Dealer__c (after insert, after update, before delete) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerParticipatingDealer')) {
+    if (!UtilCustomSettings.isEnabled('TriggerParticipatingDealer')) {
         return;
     }
-    
-    if(trigger.isAfter && trigger.isInsert)
+	
+	if(trigger.isAfter && trigger.isInsert)
     {
         ParticipatingDealerHelper.afterinsertUpdateDeleteEvents(Trigger.new,Trigger.old,Trigger.newmap,Trigger.oldmap,trigger.isAfter,trigger.isinsert,trigger.isupdate,trigger.isDelete);
-        if (!TriggerUtil.isTriggerEnabled('TriggerCampaignParticipatingDealer')) {
-            return;
-        }
+        if (!UtilCustomSettings.isEnabled('TirggerCampaignParticipatingDealer')) {
+	        return;
+	    }
         ParticipatingDealerHelper.GenerateCampaignParticipatingDealerHistoryLOG(Trigger.new,Trigger.old,trigger.isinsert,trigger.isupdate,trigger.isDelete);
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
-        ParticipatingDealerHelper.afterinsertUpdateDeleteEvents(Trigger.new,Trigger.old,Trigger.newmap,Trigger.oldmap,trigger.isAfter,trigger.isinsert,trigger.isupdate,trigger.isDelete);
-        if (!TriggerUtil.isTriggerEnabled('TriggerCampaignParticipatingDealer')) {
-            return;
-        }
-        ParticipatingDealerHelper.GenerateCampaignParticipatingDealerHistoryLOG(Trigger.new,Trigger.old,trigger.isinsert,trigger.isupdate,trigger.isDelete);
+     	ParticipatingDealerHelper.afterinsertUpdateDeleteEvents(Trigger.new,Trigger.old,Trigger.newmap,Trigger.oldmap,trigger.isAfter,trigger.isinsert,trigger.isupdate,trigger.isDelete);
+     	if (!UtilCustomSettings.isEnabled('TirggerCampaignParticipatingDealer')) {
+	        return;
+	    }
+     	ParticipatingDealerHelper.GenerateCampaignParticipatingDealerHistoryLOG(Trigger.new,Trigger.old,trigger.isinsert,trigger.isupdate,trigger.isDelete);
     }
     if(trigger.isBefore && trigger.isdelete)
     {
         ParticipatingDealerHelper.afterinsertUpdateDeleteEvents(Trigger.new,Trigger.old,Trigger.newmap,Trigger.oldmap,trigger.isAfter,trigger.isinsert,trigger.isupdate,trigger.isDelete);
-        if (!TriggerUtil.isTriggerEnabled('TriggerCampaignParticipatingDealer')) {
-            return;
-        }
+        if (!UtilCustomSettings.isEnabled('TirggerCampaignParticipatingDealer')) {
+	        return;
+	    }
         ParticipatingDealerHelper.GenerateCampaignParticipatingDealerHistoryLOG(Trigger.new,Trigger.old,trigger.isinsert,trigger.isupdate,trigger.isDelete);
     }
 }

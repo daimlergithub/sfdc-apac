@@ -2,7 +2,7 @@
      <apex:define name="body">  
       <center>
 <apex:form id="theForm" forceSSL="true">
-                    <apex:pageMessages id="01pO00000007fjY"/>
+                    <apex:pageMessages id="Error"/>
                     <apex:panelGrid columns="2" style="margin-top:1em;">
                       <apex:outputLabel value="First Name" for="firstName"/>
                       <apex:inputText required="true" id="firstName" value="{!firstName}" label="First Name"/>
