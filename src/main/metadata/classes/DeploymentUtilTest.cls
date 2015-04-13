@@ -7,6 +7,7 @@ public class DeploymentUtilTest
         DeploymentUtil objOperation= new DeploymentUtil();
         list<string> lstString= new list<string>();
         DeploymentUtil.refreshUpdateStamps(lstString);
+        Field objField= new Field();
         Test.stopTest();
     }
 }

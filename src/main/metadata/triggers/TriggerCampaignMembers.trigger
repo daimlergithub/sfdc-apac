@@ -1,7 +1,7 @@
 /*
     Type:       Trigger
     Purpose:    Campaign Member  
-    User Story:     
+    User Story: 	
     Used By:    
     ---------------------------------------------------------------
     History:
@@ -9,7 +9,8 @@
     10-July-2013 Stephano Shi (Breakingpoint)    Created
 */
 trigger TriggerCampaignMembers on CampaignMember (after insert) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerCampaignMembers')) {
+    
+    if (!UtilCustomSettings.isEnabled('TriggerCampaignMembers')) {
         return;
     }
     
@@ -19,7 +20,7 @@ trigger TriggerCampaignMembers on CampaignMember (after insert) {
     Map<Id, Date> cmMap = new Map<Id, Date>();
     
     for(CampaignMember cm : cps){
-        ctIds.add(cm.ContactId);
+    	ctIds.add(cm.ContactId);
         cmMap.put(cm.ContactId, cm.CreatedDate.date());
     }
     

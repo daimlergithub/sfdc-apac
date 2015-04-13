@@ -199,8 +199,6 @@
         <members>TaskSMSControllerExtensionTest</members>
         <members>TaskTriggerHandler</members>
         <members>TaskTriggerHandlerTest</members>
-        <members>TextInputtingControlelr</members>
-        <members>TextInputtingControlelrTest</members>
         <members>TookKitSharingTest</members>
         <members>TookKitSharingWrapService</members>
         <members>ToolKitSelectContentController</members>
@@ -217,8 +215,6 @@
         <members>TriggerPackageItem_TestClass</members>
         <members>TriggerRetailCampaignTest</members>
         <members>TriggerTaskTest</members>
-        <members>TriggerUtil</members>
-        <members>TriggerUtilTest</members>
         <members>TriggerVehicleRelationshipTest</members>
         <members>UserHelper</members>
         <members>UserHelperTest</members>
@@ -352,7 +348,6 @@
         <members>TaskMassChangeOwner</members>
         <members>TaskSMSSendResult</members>
         <members>Tasks</members>
-        <members>TextInputting</members>
         <members>ToolKitSelectContent</members>
         <members>TrialCustomerPortalHomePage</members>
         <members>Trial_Tour</members>
@@ -405,7 +400,6 @@
         <members>TriggerRetailTask</members>
         <members>TriggerSMSReplyHistory</members>
         <members>TriggerSettlementManagement</members>
-        <members>TriggerUtilTestTrigger</members>
         <members>TriggerVehicleRelationship</members>
         <members>UserTrigger</members>
         <members>chatter_answers_question_escalation_to_case_trigger</members>
@@ -1439,6 +1433,8 @@
         <members>Chatter Moderator User</members>
         <members>ContractManager</members>
         <members>Cross Org Data Proxy User</members>
+        <members>Dealer Community User</members>
+        <members>Dealer Delegate Admin</members>
         <members>External Identity User</members>
         <members>External Marketing User</members>
         <members>Guest License User</members>

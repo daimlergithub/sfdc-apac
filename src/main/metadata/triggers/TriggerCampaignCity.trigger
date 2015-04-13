@@ -10,7 +10,7 @@
 */
 
 trigger TriggerCampaignCity on Campaign_City__c (before delete) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerCampaignCity')) {
+    if (!UtilCustomSettings.isEnabled('TriggerCampaignCity')) {
         return;
     }
 
@@ -18,7 +18,7 @@ trigger TriggerCampaignCity on Campaign_City__c (before delete) {
     if (trigger.isDelete && trigger.isBefore)
     {
         if(!trigger.old.isEmpty())
-        {           
+        {        	
             UtilCampaignCity.deleteParticipatingDealer(trigger.old);
         }
     }

@@ -11,23 +11,23 @@
     23-Sept-2013 Tony Li (Breakingpoint)    Created
 */
 trigger TriggerCampaign on Campaign (after insert, after update, before update) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerCampaign')) {
+    if (!UtilCustomSettings.isEnabled('TriggerCampaign')) {
         return;
     }
     
     if(trigger.isAfter && trigger.isInsert)
     {
-        CampaignHelper.afterInsertUpdateEvents(Trigger.new,trigger.oldmap,trigger.isupdate);
-        CampaignHelper.afterInsertEvents(Trigger.new);      
+		CampaignHelper.afterInsertUpdateEvents(Trigger.new,trigger.oldmap,trigger.isupdate);
+		CampaignHelper.afterInsertEvents(Trigger.new);		
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
         CampaignHelper.afterInsertUpdateEvents(Trigger.new,trigger.oldmap,trigger.isupdate);
         CampaignHelper.afterUpdateEvents(Trigger.new,Trigger.old);
-        CampaignHelper.afterInsertEvents_CampaignShare(Trigger.new,Trigger.oldmap); 
+        CampaignHelper.afterInsertEvents_CampaignShare(Trigger.new,Trigger.oldmap);	
     }
     if(trigger.isBefore && trigger.isUpdate)
     {
-        CampaignHelper.beforeUpdateEvents(Trigger.new,trigger.oldmap);
+ 		CampaignHelper.beforeUpdateEvents(Trigger.new,trigger.oldmap);
     }
 }

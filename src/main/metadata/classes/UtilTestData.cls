@@ -146,47 +146,20 @@ Public class UtilTestData {
    
    // Create Test User by Role Name and Profile Name
     public static User createUser(String roleName, String profileName) {
-        Id userRoleId = getUserRoleId(roleName);
-        if (userRoleId == null) {
-            throw new IllegalArgumentException('Unknown user role ' + roleName);
-        }
-        
-        Id profileId = getProfileId(profileName);
-        if (profileId == null) {
-            throw new IllegalArgumentException('Unknown profile ' + profileName);
-        }
-
-        return createUser(userRoleId, profileId);
+        return createUser(getUserRoleId(roleName), 
+                          getProfileId(profileName));
     }
   
     // Create Test portal User by Role Name and Profile Name
     public static User createPortalUser(String roleName, String profileName) {
-        Id userRoleId = getUserRoleId(roleName);
-        if (userRoleId == null) {
-            throw new IllegalArgumentException('Unknown user role ' + roleName);
-        }
-        
-        Id profileId = getProfileId(profileName);
-        if (profileId == null) {
-            throw new IllegalArgumentException('Unknown profile ' + profileName);
-        }
-
-        return createPortalUser(userRoleId, profileId);
+        return createPortalUser(getUserRoleId(roleName), 
+                          getProfileId(profileName));
     }
   /*
    // Create Test portal User by Role Name , Profile Name and Account Name
     public static User createPortalUserforAccount(String roleName, String profileName,String accountRecordTypeName) {
-        Id userRoleId = getUserRoleId(roleName);
-        if (userRoleId == null) {
-            throw new IllegalArgumentException('Unknown user role ' + roleName);
-        }
-        
-        Id profileId = getProfileId(profileName);
-        if (profileId == null) {
-            throw new IllegalArgumentException('Unknown profile ' + profileName);
-        }
-
-        return createPortalUserforAccount(userRoleId, profileId, accountRecordTypeName);
+        return createPortalUserforAccount(getUserRoleId(roleName), 
+                          getProfileId(profileName),accountRecordTypeName);
     } */
   
     public static Sobject createSobject(Sobject so, String recordTypeName) {
