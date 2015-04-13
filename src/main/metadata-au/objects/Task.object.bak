@@ -80,7 +80,7 @@
                 <highPriority>true</highPriority>
             </picklistValues>
             <picklistValues>
-                <fullName>Normal</fullName>
+                <fullName>General</fullName>
                 <default>true</default>
                 <highPriority>false</highPriority>
             </picklistValues>
@@ -103,28 +103,13 @@
         <fullName>Status</fullName>
         <picklist>
             <picklistValues>
-                <fullName>Complete</fullName>
-                <closed>true</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Not Started</fullName>
+                <fullName>Open</fullName>
                 <closed>false</closed>
                 <default>true</default>
             </picklistValues>
             <picklistValues>
-                <fullName>In Progress</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Waiting for someone else</fullName>
-                <closed>false</closed>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Deferred</fullName>
-                <closed>false</closed>
+                <fullName>Closed</fullName>
+                <closed>true</closed>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -135,19 +120,35 @@
         <fullName>Subject</fullName>
         <picklist>
             <picklistValues>
-                <fullName>Call</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Email</fullName>
+                <fullName>Send Letter</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Quote</fullName>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Welcome Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Welcome Call + 1st Survey Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>1st Survey Call</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2nd Survey Call</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -898,16 +899,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -1104,11 +1105,11 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
+                <fullName>1st Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
+                <fullName>2nd Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1116,22 +1117,38 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1876,16 +1893,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -2082,11 +2099,11 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
+                <fullName>1st Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
+                <fullName>2nd Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2094,22 +2111,38 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3125,16 +3158,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -3335,11 +3368,11 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
+                <fullName>1st Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
+                <fullName>2nd Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3347,22 +3380,38 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4103,16 +4152,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -4309,34 +4358,34 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5332,16 +5381,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -5542,11 +5591,11 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
+                <fullName>1st Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
+                <fullName>2nd Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5554,22 +5603,38 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6565,16 +6630,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -6775,11 +6840,11 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
+                <fullName>1st Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
+                <fullName>2nd Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6787,22 +6852,38 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7575,16 +7656,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -7785,34 +7866,34 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8585,16 +8666,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -8791,11 +8872,11 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
+                <fullName>1st Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
+                <fullName>2nd Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8803,22 +8884,38 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9575,16 +9672,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -9781,11 +9878,11 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
+                <fullName>1st Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
+                <fullName>2nd Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9793,22 +9890,38 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10653,16 +10766,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -10859,11 +10972,11 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
+                <fullName>1st Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
+                <fullName>2nd Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10871,22 +10984,38 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11618,16 +11747,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -11824,11 +11953,11 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
+                <fullName>1st Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
+                <fullName>2nd Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11836,22 +11965,38 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12620,16 +12765,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -12826,11 +12971,11 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
+                <fullName>1st Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
+                <fullName>2nd Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12838,22 +12983,38 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13609,16 +13770,16 @@
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
+                <fullName>General</fullName>
+                <default>true</default>
+            </values>
+            <values>
                 <fullName>High</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Low</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Normal</fullName>
-                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -13815,11 +13976,11 @@
         <picklistValues>
             <picklist>Subject</picklist>
             <values>
-                <fullName>Call</fullName>
+                <fullName>1st Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Email</fullName>
+                <fullName>2nd Survey Call</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13827,22 +13988,38 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Quote</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send Letter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Send a quotation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Welcome Call %2B 1st Survey Call</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Meeting</fullName>
+                <fullName>Conference</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
