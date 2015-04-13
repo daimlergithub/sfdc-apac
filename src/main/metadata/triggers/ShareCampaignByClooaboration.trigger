@@ -10,23 +10,23 @@
 */
 
 trigger ShareCampaignByClooaboration on Collaboration_Team__c (before insert, before update, before delete, after insert) {
-    if (!TriggerUtil.isTriggerEnabled('ShareCampaignByClooaboration')) {
+    if (!UtilCustomSettings.isEnabled('ShareCampaignByClooaboration')) {
         return;
     }
 
-    if (trigger.isBefore && trigger.isInsert) {
+    if(trigger.isBefore && trigger.isInsert) {
         UtilCampaignShareByCollaboration.shareToUserInsert(trigger.new);
     }
     
-    if (trigger.isBefore && trigger.isUpdate) {
+    if(trigger.isBefore && trigger.isUpdate) {
         UtilCampaignShareByCollaboration.shareToUserUpdate(trigger.new);
     }
     
-    if (trigger.isBefore && trigger.isDelete) {
+    if(trigger.isBefore && trigger.isDelete) {
         UtilCampaignShareByCollaboration.shareToUserDelete(trigger.old);
     }
    /* 
-    if (trigger.isAfter && trigger.isInsert) {
+    if(trigger.isAfter && trigger.isInsert) {
         Collaboration_Team__c cm = [Select Id, Campaign__r.Name, Member_Name__c, Member_Name__r.Email, Resource_Required__c From Collaboration_Team__c Where Id=:trigger.new[0].Id];
         User us = [Select Id, Email From User Where Id=:cm.Member_Name__c];
         Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();

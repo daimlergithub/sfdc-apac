@@ -22,28 +22,39 @@
 */
 trigger TriggerSettlementManagement on Settlement_Management__c (after update, after insert,after delete,before update, before insert)
 {
-    if (!TriggerUtil.isTriggerEnabled('TriggerSettlementManagement')) {
-        return;
-    }
-
-    if(trigger.isAfter && trigger.isInsert)
+	if(trigger.isAfter && trigger.isInsert)
     {
-        SettlementHelper.CalculateTotalAmountWhenSettlementIsChanged(Trigger.new,Trigger.old,trigger.oldmap,trigger.isinsert,trigger.isupdate,trigger.isdelete);    
+    	if(UtilCustomSettings.isEnabled('TriggerSettlementAfterInsertUpdateDelete'))
+    	{
+    		SettlementHelper.CalculateTotalAmountWhenSettlementIsChanged(Trigger.new,Trigger.old,trigger.oldmap,trigger.isinsert,trigger.isupdate,trigger.isdelete);	
+    	}	
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
-        SettlementHelper.CalculateTotalAmountWhenSettlementIsChanged(Trigger.new,Trigger.old,trigger.oldmap,trigger.isinsert,trigger.isupdate,trigger.isdelete);
+    	if(UtilCustomSettings.isEnabled('TriggerSettlementAfterInsertUpdateDelete'))
+    	{
+            SettlementHelper.CalculateTotalAmountWhenSettlementIsChanged(Trigger.new,Trigger.old,trigger.oldmap,trigger.isinsert,trigger.isupdate,trigger.isdelete);
+    	}	
     }
     if(trigger.isAfter && trigger.isdelete)
     {
-        SettlementHelper.CalculateTotalAmountWhenSettlementIsChanged(Trigger.new,Trigger.old,trigger.oldmap,trigger.isinsert,trigger.isupdate,trigger.isdelete);    
+    	if(UtilCustomSettings.isEnabled('TriggerSettlementAfterInsertUpdateDelete'))
+    	{
+            SettlementHelper.CalculateTotalAmountWhenSettlementIsChanged(Trigger.new,Trigger.old,trigger.oldmap,trigger.isinsert,trigger.isupdate,trigger.isdelete);	
+    	}	
     }
     if(trigger.isBefore && trigger.isInsert)
     {
-        SettlementHelper.setFieldvaluestoDefault_0(Trigger.new);    
+    	 if (UtilCustomSettings.isEnabled('TriggerSettlementBeforeInsertUpdate'))
+    	 {
+        	SettlementHelper.setFieldvaluestoDefault_0(Trigger.new);	
+    	 }
     }
     if(trigger.isBefore && trigger.isUpdate)
     {
-        SettlementHelper.setFieldvaluestoDefault_0(Trigger.new);    
+    	 if (UtilCustomSettings.isEnabled('TriggerSettlementBeforeInsertUpdate'))
+    	 {
+    	 	SettlementHelper.setFieldvaluestoDefault_0(Trigger.new);	
+    	 }
     }
 }

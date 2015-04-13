@@ -14,13 +14,14 @@
     3. CC Modified on 2014-06-12
 */
 trigger TriggerVehicleRelationship on Vehicle_Relationship__c(after insert, after update, before insert) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerVehicleRelationship')) {
+    // If trigger is Enabled, continue
+    if (!UtilCustomSettings.isEnabled('TriggerVehicleRelationship')) {
         return;
     }
-    
-    if(trigger.isAfter && trigger.isInsert)
+	
+	if(trigger.isAfter && trigger.isInsert)
     {
-        // US-CP-007
+    	// US-CP-007
         UtilVehicleRelationship.checkVehcileValidity(trigger.new);
         
         VehicleSharingWrapService vehicleWrapService = new VehicleSharingWrapService();
@@ -30,16 +31,16 @@ trigger TriggerVehicleRelationship on Vehicle_Relationship__c(after insert, afte
         SharingService.shareVehicleRelationships(retailWrapService.wrapRetailVehicleRelationships(Trigger.new));
         
         AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
-        handler.shareAccountByRetailVR(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
-        
-        //ISSUE-0757
+    	handler.shareAccountByRetailVR(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
+    	
+    	//ISSUE-0757
         VehicleRelationshipHelper.shareVR(Trigger.new);
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
-        AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
-        handler.shareAccountByRetailVR(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
-        //
-        UtilVehicleRelationship.updateVehicle(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
+    	AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
+    	handler.shareAccountByRetailVR(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
+    	//
+    	UtilVehicleRelationship.updateVehicle(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
     }
 }

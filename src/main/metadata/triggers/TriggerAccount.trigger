@@ -1,3 +1,5 @@
+trigger TriggerAccount on Account (before update,after update) {
+
 /*
     Type:       Utility for TriggerAccount
     Purpose:    Link Dealer to Dealer City by City CN and Province 
@@ -10,12 +12,14 @@
     2. Mouse Updated on 2013-07-04 for US-Lead-009
     3. Sinow Update on 2013-07-22 for US-DP-022, US-DP-023, when Allow Data Sharing changed to yes, update lead's owner.
 */
-trigger TriggerAccount on Account (before update,after update) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerAccount')) {
+   If(Trigger.isAfter || Trigger.isBefore &&Trigger.isUpdate){
+    if (!UtilCustomSettings.isEnabled('TriggerAccount')) {
         return;
     }
-
-   If(Trigger.isAfter || Trigger.isBefore &&Trigger.isUpdate){
+    // If trigger is Enabled, continue
+    if (!UtilCustomSettings.isEnabled('TriggerAccount')) {
+        return;
+    }
     // Get the Record Type Id of 'Dealer'
     Id dealerRecordTypeId = UtilRecordType.getRecordTypeIdByName('Account', 'Dealer');
     if (trigger.isUpdate && trigger.isBefore) {
@@ -40,6 +44,9 @@ trigger TriggerAccount on Account (before update,after update) {
     1. Bing Bai Created on 2013-06-05
 */
    If(Trigger.isBefore){
+     if (!UtilCustomSettings.isEnabled('AccountBeforeInsertUpdate')) {
+        return;
+     }
      UtilAccount.beforeAccDealerInfo(Trigger.new,Trigger.oldMap,Trigger.isInsert,Trigger.isUpdate);
    }
  }
