@@ -69,7 +69,7 @@
     <fields>
         <fullName>Aftersales_Vehicle_Brand__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(VehicleRel_No__r.Vehicle_ID__r.Brand__c)</formula>
+        <formula>TEXT(VehicleRel_No__r.Brand__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Aftersales Vehicle Brand</label>
         <required>false</required>

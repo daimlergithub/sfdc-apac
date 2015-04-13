@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <AppMenu xmlns="http://soap.sforce.com/2006/04/metadata">
     <appMenuItems>
         <name>standard__Platform</name>
@@ -25,6 +25,18 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
+        <name>standard__ServiceConsole</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Service_Cloud_Console</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Chatter_Answers_Moderator</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>standard__AppLauncher</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -45,6 +57,14 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
+        <name>Retail_CRM</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
+        <name>Service_Cloud_Console_IB</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
+    <appMenuItems>
         <name>Force_com</name>
         <type>CustomApplication</type>
     </appMenuItems>
@@ -53,8 +73,11 @@
         <type>CustomApplication</type>
     </appMenuItems>
     <appMenuItems>
-        <name>Retail_CRM</name>
+        <name>Service_Cloud_Console_OB</name>
         <type>CustomApplication</type>
     </appMenuItems>
-    
+    <appMenuItems>
+        <name>Service_Cloud_Console_SSI</name>
+        <type>CustomApplication</type>
+    </appMenuItems>
 </AppMenu>
