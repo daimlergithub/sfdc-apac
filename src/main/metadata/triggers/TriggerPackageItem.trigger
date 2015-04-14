@@ -10,7 +10,7 @@
 */
 
 trigger TriggerPackageItem on Package_Item__c (before delete, after insert) {
-    if (!UtilCustomSettings.isEnabled('TriggerPackageItem')) {
+    if (!TriggerUtil.isTriggerEnabled('TriggerPackageItem')) {
         return;
     }
 

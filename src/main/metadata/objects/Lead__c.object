@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -8343,7 +8343,7 @@ ISPICKVAL(Purchase_Time__c, '4 - 6 months'))
     <fields>
         <fullName>R_Check_Purchase_Time__c</fullName>
         <externalId>false</externalId>
-        <formula>if( ISPICKVAL( Purchase_Time__c ,''),'是','否')</formula>
+        <formula>if( ISPICKVAL( Purchase_Time__c ,''),'Yes','No')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Purchase Time</label>
         <required>false</required>
@@ -8355,7 +8355,7 @@ ISPICKVAL(Purchase_Time__c, '4 - 6 months'))
     <fields>
         <fullName>R_Check_Vehicle_Brand__c</fullName>
         <externalId>false</externalId>
-        <formula>if( ISPICKVAL( Interested_Vehicle_Brand__c ,''),'是','否')</formula>
+        <formula>if( ISPICKVAL( Interested_Vehicle_Brand__c ,''),'Yes','No')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Vehicle Brand</label>
         <required>false</required>
@@ -8942,7 +8942,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Registration_No__c</fullName>
         <externalId>false</externalId>
         <formula>Existing_Contract__r.Related_Vehicle__r.RegistrationNo__c</formula>
@@ -14757,7 +14757,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
         <fullName>VIN__c</fullName>
         <externalId>false</externalId>
         <formula>Existing_Contract__r.Related_Vehicle__r.UsVIN__c</formula>
@@ -14791,7 +14791,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>Vehicle_Make__c</fullName>
         <externalId>false</externalId>
         <formula>Text(Existing_Contract__r.Related_Vehicle__r.Brand__c)</formula>
@@ -14827,7 +14827,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	  <fields>
         <fullName>Vehicle_Model__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT( Existing_Contract__r.Related_Vehicle__r.Model__c )</formula>
@@ -14861,7 +14861,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Text</type>
         <unique>false</unique>
     </fields>
-    <fields>
+	<fields>
         <fullName>Vehicle_Year__c</fullName>
         <externalId>false</externalId>
         <formula>TEXT(Existing_Contract__r.Related_Vehicle__r.ModelYear__c)</formula>
