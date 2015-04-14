@@ -170,7 +170,7 @@
     <fields>
         <fullName>Dealer_Number__c</fullName>
         <externalId>false</externalId>
-        <formula>"Text"</formula>
+        <formula>Dealer_Name__r.SF_Dealer_ID__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dealer Number</label>
         <required>false</required>
