@@ -6,7 +6,7 @@ public class BatchJobHelper
         List<Batch_Job__c> jobs = [Select Id, Name From Batch_Job__c Where Status__c='In Progress' ];
         
         // no being executed batch
-        if(jobs!=null && !jobs.IsEmpty())
+        if(jobs==null || jobs.IsEmpty())
         {
             // the next pending job;
             for(Batch_Job__c nxJob : [Select Id, Name, Status__c, Campaign_Set__c, Batch_Type__c From Batch_Job__c Where Status__c='Pending' Order By Name ASC Limit 1])

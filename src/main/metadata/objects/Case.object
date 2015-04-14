@@ -10387,7 +10387,7 @@ Modify Reason:
     <fields>
         <fullName>FOS_Case_Link__c</fullName>
         <externalId>false</externalId>
-        <formula>'Change Later'</formula>
+        <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "?isdtp=vw'}", FOS_Case_Number__c, "_self" )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>FOS Case Number Link</label>
         <required>false</required>
@@ -68210,16 +68210,11 @@ window.open("/apex/DMSendResult?accountId={!Case.AccountId}&amp;caseId={!Case.Id
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 {!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} 
 
-var qr = sforce.connection.query("Select id From recordtype where Name='Inquiry' limit 1") ;
+var qr = sforce.connection.query("Select id From recordtype where Name='Inquiry' limit 1") ; 
 
-if(qr.records != null) {
-var update_Case = new Array(new sforce.SObject("Temp_Setting__C"));
-
-update_Case[0].Name = '{!$User.Id}';
-update_Case[0].Value__c = '{!Case.Id}';
-var result = sforce.connection.create(update_Case);
+if(qr.records != null) { 
 
 if (sforce.console.isInConsole()) { 
 var showTabId = function showTabId(result) { 
@@ -68230,11 +68225,11 @@ sforce.console.getEnclosingPrimaryTabId(showTabId);
 } 
 else 
 { 
-window.parent.navigateToUrl("/500/e?retURL=%2F500%2Fo&amp;RecordType='+qr.records.Id+'&amp;ent=Case?cas4_lkid={!Account.Id}&amp;cas4={!Account.Name}");
-}
-}
-else{
-alert("Inquiy can't be used.Please contact System Administrator");
+window.parent.navigateToUrl('/500/e?retURL=%2F500%2Fo&amp;RecordType='+qr.records.Id+'&amp;ent=Case?cas4_lkid={!Account.Id}&amp;cas4={!Account.Name}'); 
+} 
+} 
+else{ 
+alert("Inquiy can't be used.Please contact System Administrator"); 
 }</url>
     </webLinks>
     <webLinks>

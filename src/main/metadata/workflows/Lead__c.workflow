@@ -688,7 +688,7 @@ Modify Reason:
         <description>Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-14) 
 Function: update assigned date, recieved data and accepted date to now, and status to Accepted when Dealer LMS is No, Is Qualified is Qualified and Prefer Dealer is not null</description>
-        <formula>OR(  AND(RecordTypeId == "01290000000rXmP", Need_Assign_To_Dealer__c == "Need", Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == "No", Owner:Queue.Id &lt;&gt; "00G90000001WVWA", ISPICKVAL(CAC_Lead_Status__c,"Qualified") ),  AND(RecordTypeId == "01290000000rXmO", Assigned_Dealer__c &lt;&gt; NULL, Owner:Queue.Id &lt;&gt; "00G90000001WVWA", ISPICKVAL(CAC_Lead_Status__c,"Qualified") )  )</formula>
+        <formula>OR(AND(RecordTypeId == "01290000000rXmP", Need_Assign_To_Dealer__c == "Need", Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == "No", ISPICKVAL(CAC_Lead_Status__c,"Qualified")),  AND(RecordTypeId == "01290000000rXmO", Assigned_Dealer__c &lt;&gt; NULL,ISPICKVAL(CAC_Lead_Status__c,"Qualified")))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

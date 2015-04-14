@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -58,7 +58,7 @@
     <fields>
         <fullName>Case_Key__c</fullName>
         <externalId>false</externalId>
-        <formula>Contract_Key__c</formula>
+        <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "?isdtp=vw'}",  Case_No__r.FOS_Case_Number__c , "_self" )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>FOS Case Number</label>
         <required>false</required>
@@ -81,7 +81,7 @@
     <fields>
         <fullName>Contract_Key__c</fullName>
         <externalId>false</externalId>
-        <formula>Name__c</formula>
+        <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "?isdtp=vw'}", Contract__r.ContractNumber__c , "_self" )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CMS Contract No.</label>
         <required>false</required>
@@ -126,8 +126,7 @@
     <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
-        <formula>Null</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <formula>Text( Case_No__r.Status )</formula>
         <label>Status</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
