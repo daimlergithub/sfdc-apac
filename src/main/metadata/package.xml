@@ -80,8 +80,6 @@
         <members>DMRequestTriggerHandlerTest</members>
         <members>DealerSearchController</members>
         <members>DealerSearchControllerTest</members>
-        <members>DeploymentUtil</members>
-        <members>DeploymentUtilTest</members>
         <members>ForgotPasswordController</members>
         <members>ForgotPasswordControllerTest</members>
         <members>GenericCSVLoaderController</members>
@@ -1439,8 +1437,6 @@
         <members>Chatter Moderator User</members>
         <members>ContractManager</members>
         <members>Cross Org Data Proxy User</members>
-        <members>Dealer Community User</members>
-        <members>Dealer Delegate Admin</members>
         <members>External Identity User</members>
         <members>External Marketing User</members>
         <members>Guest License User</members>
