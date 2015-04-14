@@ -821,6 +821,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TextInputtingControlelr</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TextInputtingControlelrTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TookKitSharingTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -882,6 +890,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerTaskTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerUtil</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerUtilTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -8651,6 +8667,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Postcode__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Preferred_Contact_Time__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -15489,6 +15510,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Tasks</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>TextInputting</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
