@@ -870,47 +870,27 @@
         <label>Activity Purpose</label>
         <picklist>
             <picklistValues>
-                <fullName>Unknown</fullName>
+                <fullName>0=welcome call</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Appointment</fullName>
+                <fullName>2=data cleansing</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Dealership Promotion</fullName>
+                <fullName>3=feedback for service request</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Dinner</fullName>
+                <fullName>4=DM return</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Exhibition</fullName>
+                <fullName>5=SMS survey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Follow-up</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Golf</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Grand Prix</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Launch</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Meeting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Motor Show</fullName>
+                <fullName>6=Outbound survey</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1951,35 +1931,11 @@ noted by Lio on 10.28.2013</description>
         <label>Result</label>
         <picklist>
             <picklistValues>
-                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <fullName>Solved</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Decision Maker - Follow Up Required</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-Decision Maker - Call again later</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No Answer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Contact Details Invalid</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Follow Up Required</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Left Message</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Test Drive Booked</fullName>
+                <fullName>Unsolved</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

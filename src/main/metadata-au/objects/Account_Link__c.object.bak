@@ -217,11 +217,27 @@
         <label>Role</label>
         <picklist>
             <picklistValues>
-                <fullName>Co-Borrower</fullName>
+                <fullName>Employee</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Guarantor</fullName>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Child</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -427,11 +443,27 @@
         <picklistValues>
             <picklist>Role__c</picklist>
             <values>
-                <fullName>Co-Borrower</fullName>
+                <fullName>After-Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Guarantor</fullName>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -513,11 +545,27 @@
         <picklistValues>
             <picklist>Role__c</picklist>
             <values>
-                <fullName>Co-Borrower</fullName>
+                <fullName>After-Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Guarantor</fullName>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -599,11 +647,27 @@
         <picklistValues>
             <picklist>Role__c</picklist>
             <values>
-                <fullName>Co-Borrower</fullName>
+                <fullName>After-Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Guarantor</fullName>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

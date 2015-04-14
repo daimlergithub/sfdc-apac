@@ -230,6 +230,21 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
+    <fieldSets>
+        <fullName>SLICK_CTI_CASE</fullName>
+        <description>SLICK_CTI_CASE</description>
+        <displayedFields>
+            <field>CaseNumber</field>
+            <isFieldManaged>true</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Type</field>
+            <isFieldManaged>true</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <label>SLICK_CTI_CASE</label>
+    </fieldSets>
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
@@ -7422,19 +7437,39 @@ Modify Reason:
         <label>Case Class</label>
         <picklist>
             <picklistValues>
+                <fullName>Pre-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Sales</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>After Sales</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Financial Service</fullName>
+                <fullName>After-Sales</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others-After-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBDA Inquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBDA Complaint</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -9939,43 +9974,43 @@ Modify Reason:
         <label>Department</label>
         <picklist>
             <picklistValues>
-                <fullName>Collections</fullName>
+                <fullName>CG Other department</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Contracts Administration</fullName>
+                <fullName>CG After-sales department</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Credit</fullName>
+                <fullName>CG fittings department</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Customer Support Centre</fullName>
+                <fullName>CG Technical department</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Dealer Support</fullName>
+                <fullName>CG Sales department</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Hardship</fullName>
+                <fullName>Mercedes Other department</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Insurance Services</fullName>
+                <fullName>Mercedes After-sales department</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Legal Services</fullName>
+                <fullName>Mercedes fittings department</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Loss Recoveries</fullName>
+                <fullName>Mercedes Technical department</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Sales</fullName>
+                <fullName>Mercedes Sales department</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -17961,20 +17996,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Class__c</picklist>
             <values>
-                <fullName>After Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial Service</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
+                <fullName>Complaint</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -18823,43 +18846,43 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Department__c</picklist>
             <values>
-                <fullName>Collections</fullName>
+                <fullName>CG After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Contracts Administration</fullName>
+                <fullName>CG Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Credit</fullName>
+                <fullName>CG Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Customer Support Centre</fullName>
+                <fullName>CG Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealer Support</fullName>
+                <fullName>CG fittings department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hardship</fullName>
+                <fullName>Mercedes After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Insurance Services</fullName>
+                <fullName>Mercedes Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Legal Services</fullName>
+                <fullName>Mercedes Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Loss Recoveries</fullName>
+                <fullName>Mercedes Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales</fullName>
+                <fullName>Mercedes fittings department</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26117,11 +26140,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Class__c</picklist>
             <values>
-                <fullName>After Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial Service</fullName>
+                <fullName>After-Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -26129,7 +26148,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales</fullName>
+                <fullName>Others-After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Sales</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27159,43 +27186,43 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Department__c</picklist>
             <values>
-                <fullName>Collections</fullName>
+                <fullName>CG After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Contracts Administration</fullName>
+                <fullName>CG Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Credit</fullName>
+                <fullName>CG Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Customer Support Centre</fullName>
+                <fullName>CG Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealer Support</fullName>
+                <fullName>CG fittings department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hardship</fullName>
+                <fullName>Mercedes After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Insurance Services</fullName>
+                <fullName>Mercedes Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Legal Services</fullName>
+                <fullName>Mercedes Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Loss Recoveries</fullName>
+                <fullName>Mercedes Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales</fullName>
+                <fullName>Mercedes fittings department</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -35556,20 +35583,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Class__c</picklist>
             <values>
-                <fullName>After Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial Service</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
+                <fullName>MBDA Complaint</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -36646,43 +36661,43 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Department__c</picklist>
             <values>
-                <fullName>Collections</fullName>
+                <fullName>CG After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Contracts Administration</fullName>
+                <fullName>CG Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Credit</fullName>
+                <fullName>CG Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Customer Support Centre</fullName>
+                <fullName>CG Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealer Support</fullName>
+                <fullName>CG fittings department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hardship</fullName>
+                <fullName>Mercedes After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Insurance Services</fullName>
+                <fullName>Mercedes Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Legal Services</fullName>
+                <fullName>Mercedes Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Loss Recoveries</fullName>
+                <fullName>Mercedes Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales</fullName>
+                <fullName>Mercedes fittings department</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45271,20 +45286,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Class__c</picklist>
             <values>
-                <fullName>After Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial Service</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
+                <fullName>MBDA Inquiry</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -46137,43 +46140,43 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Department__c</picklist>
             <values>
-                <fullName>Collections</fullName>
+                <fullName>CG After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Contracts Administration</fullName>
+                <fullName>CG Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Credit</fullName>
+                <fullName>CG Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Customer Support Centre</fullName>
+                <fullName>CG Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealer Support</fullName>
+                <fullName>CG fittings department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hardship</fullName>
+                <fullName>Mercedes After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Insurance Services</fullName>
+                <fullName>Mercedes Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Legal Services</fullName>
+                <fullName>Mercedes Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Loss Recoveries</fullName>
+                <fullName>Mercedes Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales</fullName>
+                <fullName>Mercedes fittings department</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -50619,20 +50622,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Class__c</picklist>
             <values>
-                <fullName>After Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial Service</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales</fullName>
-                <default>false</default>
+                <fullName>Complaint</fullName>
+                <default>true</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -51485,43 +51476,43 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Department__c</picklist>
             <values>
-                <fullName>Collections</fullName>
+                <fullName>CG After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Contracts Administration</fullName>
+                <fullName>CG Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Credit</fullName>
+                <fullName>CG Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Customer Support Centre</fullName>
+                <fullName>CG Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealer Support</fullName>
+                <fullName>CG fittings department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hardship</fullName>
+                <fullName>Mercedes After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Insurance Services</fullName>
+                <fullName>Mercedes Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Legal Services</fullName>
+                <fullName>Mercedes Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Loss Recoveries</fullName>
+                <fullName>Mercedes Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales</fullName>
+                <fullName>Mercedes fittings department</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -54539,15 +54530,23 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Class__c</picklist>
             <values>
-                <fullName>After Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Financial Service</fullName>
+                <fullName>After-Sales</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others-After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -55713,43 +55712,43 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Department__c</picklist>
             <values>
-                <fullName>Collections</fullName>
+                <fullName>CG After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Contracts Administration</fullName>
+                <fullName>CG Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Credit</fullName>
+                <fullName>CG Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Customer Support Centre</fullName>
+                <fullName>CG Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealer Support</fullName>
+                <fullName>CG fittings department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hardship</fullName>
+                <fullName>Mercedes After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Insurance Services</fullName>
+                <fullName>Mercedes Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Legal Services</fullName>
+                <fullName>Mercedes Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Loss Recoveries</fullName>
+                <fullName>Mercedes Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales</fullName>
+                <fullName>Mercedes fittings department</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -63374,15 +63373,35 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Class__c</picklist>
             <values>
-                <fullName>After Sales</fullName>
+                <fullName>After-Sales</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Financial Service</fullName>
+                <fullName>Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBDA Complaint</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBDA Inquiry</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others-After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -64724,43 +64743,43 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Department__c</picklist>
             <values>
-                <fullName>Collections</fullName>
+                <fullName>CG After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Contracts Administration</fullName>
+                <fullName>CG Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Credit</fullName>
+                <fullName>CG Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Customer Support Centre</fullName>
+                <fullName>CG Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealer Support</fullName>
+                <fullName>CG fittings department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hardship</fullName>
+                <fullName>Mercedes After-sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Insurance Services</fullName>
+                <fullName>Mercedes Other department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Legal Services</fullName>
+                <fullName>Mercedes Sales department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Loss Recoveries</fullName>
+                <fullName>Mercedes Technical department</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Sales</fullName>
+                <fullName>Mercedes fittings department</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
