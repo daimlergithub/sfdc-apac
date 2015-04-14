@@ -96,21 +96,6 @@
     <enableFeeds>true</enableFeeds>
     <enableHistory>false</enableHistory>
     <externalSharingModel>ControlledByParent</externalSharingModel>
-    <fieldSets>
-        <fullName>SLICK_CTI_CONTACT</fullName>
-        <description>Slick CTI - Record Popup display</description>
-        <displayedFields>
-            <field>Name</field>
-            <isFieldManaged>true</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>MobilePhone</field>
-            <isFieldManaged>true</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <label>SLICK_CTI_CONTACT</label>
-    </fieldSets>
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
