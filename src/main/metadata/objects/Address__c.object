@@ -212,7 +212,35 @@
         <label>State</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NSW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>QLD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VIC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TAS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>WA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NT</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
