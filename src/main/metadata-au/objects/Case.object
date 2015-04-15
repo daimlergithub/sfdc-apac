@@ -230,21 +230,6 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <enableFeeds>true</enableFeeds>
     <externalSharingModel>Private</externalSharingModel>
-    <fieldSets>
-        <fullName>SLICK_CTI_CASE</fullName>
-        <description>SLICK_CTI_CASE</description>
-        <displayedFields>
-            <field>CaseNumber</field>
-            <isFieldManaged>true</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Type</field>
-            <isFieldManaged>true</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <label>SLICK_CTI_CASE</label>
-    </fieldSets>
     <fields>
         <fullName>AccountId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
