@@ -2312,23 +2312,933 @@
         <picklist>
             <controllingField>CAC_Lead_Status__c</controllingField>
             <picklistValues>
-                <fullName>Customer can not be reached</fullName>
-                <controllingFieldValues>Lost(CAC)</controllingFieldValues>
+                <fullName>Hoax / Child / Test</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Non-Daimler Purchase</fullName>
-                <controllingFieldValues>Lost(CAC)</controllingFieldValues>
+                <fullName>3 attempts no contact</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Interest Lost</fullName>
-                <controllingFieldValues>Lost(CAC)</controllingFieldValues>
+                <fullName>Customer went to competitor due to price</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Out of Campaign Period</fullName>
-                <controllingFieldValues>Lost(CAC)</controllingFieldValues>
+                <fullName>Customer went to competitor due to product</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer went to competitor due to service support</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Response time too long</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>                
+				<default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer changed their mind</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wrong / Invalid contact details</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer has already attended dealership</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Deal Structure</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Term</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Up to maximum Credit Limit</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Interest Rate</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approval Conditions</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Credit Related</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service loan car not available</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service time not suitable</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Part not available</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not interested (no quote)</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not approved</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pay out</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Paid by Cash</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fees and Charges</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Turnaround Time</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Existing Relationship</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Convenience</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Premium</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Policy Conditions</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Driving Record</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lost Competitor</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Hand Back</fullName>
+                 <controllingFieldValues>New Enquiry</controllingFieldValues>
+                 <controllingFieldValues>Contact Attempt Made</controllingFieldValues>
+                 <controllingFieldValues>Qualified</controllingFieldValues>
+                 <controllingFieldValues>Request Actioned</controllingFieldValues>
+                 <controllingFieldValues>Pending Response</controllingFieldValues>
+                 <controllingFieldValues>Pending Credit Information</controllingFieldValues>
+                 <controllingFieldValues>Quote Provided</controllingFieldValues>
+                 <controllingFieldValues>Quote Accepted</controllingFieldValues>
+                 <controllingFieldValues>Offer Accepted</controllingFieldValues>
+                 <controllingFieldValues>Actioned</controllingFieldValues>
+                 <controllingFieldValues>Refer to Head Office</controllingFieldValues>
+                 <controllingFieldValues>Credit Application Submitted</controllingFieldValues>
+                 <controllingFieldValues>Application Approved</controllingFieldValues>
+                 <controllingFieldValues>Application Rejected</controllingFieldValues>
+                 <controllingFieldValues>Credit in Progress</controllingFieldValues>
+                 <controllingFieldValues>Documents Received</controllingFieldValues>
+                 <controllingFieldValues>Financials Requested</controllingFieldValues>
+                 <controllingFieldValues>Pending Settlement</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle</controllingFieldValues>
+                 <controllingFieldValues>Sold Vehicle and Finance</controllingFieldValues>
+                 <controllingFieldValues>Sold Finance</controllingFieldValues>
+                 <controllingFieldValues>Refinanced</controllingFieldValues>
+                 <controllingFieldValues>Policy Sold</controllingFieldValues>
+                 <controllingFieldValues>Settled</controllingFieldValues>
+                 <controllingFieldValues>Closed</controllingFieldValues>
+                 <controllingFieldValues>Lost</controllingFieldValues>				
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -17026,7 +17936,83 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
-                <fullName>Interest Lost</fullName>
+                <fullName>3 attempts no contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approval Conditions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Convenience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer went to competitor due to price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer went to competitor due to product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer went to competitor due to service support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing Relationship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fees and Charges</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoax %2F Child %2F Test</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interest Rate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost Competitor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not interested %28no quote%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paid by Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pay out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turnaround Time</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Up to maximum Credit Limit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Hand Back</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27159,19 +28145,83 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
-                <fullName>Customer can not be reached</fullName>
+                <fullName>3 attempts no contact</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Interest Lost</fullName>
+                <fullName>Approval Conditions</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Non-Daimler Purchase</fullName>
+                <fullName>Convenience</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Out of Campaign Period</fullName>
+                <fullName>Credit Related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer went to competitor due to price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer went to competitor due to product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer went to competitor due to service support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing Relationship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fees and Charges</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoax %2F Child %2F Test</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interest Rate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost Competitor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not interested %28no quote%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paid by Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pay out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turnaround Time</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Up to maximum Credit Limit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Hand Back</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -37356,11 +38406,83 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
-                <fullName>Interest Lost</fullName>
+                <fullName>3 attempts no contact</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Non-Daimler Purchase</fullName>
+                <fullName>Approval Conditions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Convenience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer went to competitor due to price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer went to competitor due to product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer went to competitor due to service support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing Relationship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fees and Charges</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoax %2F Child %2F Test</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interest Rate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost Competitor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not interested %28no quote%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paid by Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pay out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turnaround Time</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Up to maximum Credit Limit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Hand Back</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -46369,15 +47491,83 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lost_Reason__c</picklist>
             <values>
-                <fullName>Customer can not be reached</fullName>
+                <fullName>3 attempts no contact</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Interest Lost</fullName>
+                <fullName>Approval Conditions</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Non-Daimler Purchase</fullName>
+                <fullName>Convenience</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Credit Related</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer went to competitor due to price</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer went to competitor due to product</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Customer went to competitor due to service support</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Existing Relationship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fees and Charges</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hoax %2F Child %2F Test</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Interest Rate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Lost Competitor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not interested %28no quote%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paid by Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pay out</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Term</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Turnaround Time</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Up to maximum Credit Limit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Hand Back</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -8374,246 +8374,66 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <picklist>
             <controllingField>Case_Class__c</controllingField>
             <picklistValues>
-                <fullName>After-Sales</fullName>
+                <fullName>Brochure &amp; Manual Requests</fullName>
                 <controllingFieldValues>Complaint</controllingFieldValues>
+				<controllingFieldValues>Sales</controllingFieldValues>
+				<controllingFieldValues>After Sales</controllingFieldValues>
+				<controllingFieldValues>Financial Service</controllingFieldValues>
+				<controllingFieldValues>Others</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Call Center</fullName>
+                <fullName>Child/Hoax</fullName>
                 <controllingFieldValues>Complaint</controllingFieldValues>
+				<controllingFieldValues>Sales</controllingFieldValues>
+				<controllingFieldValues>After Sales</controllingFieldValues>
+				<controllingFieldValues>Financial Service</controllingFieldValues>
+				<controllingFieldValues>Others</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Club</fullName>
+				<fullName>Complaints</fullName>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+				<controllingFieldValues>Sales</controllingFieldValues>
+				<controllingFieldValues>After Sales</controllingFieldValues>
+				<controllingFieldValues>Financial Service</controllingFieldValues>
+				<controllingFieldValues>Others</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Consultant Central truck</fullName>
-                <controllingFieldValues>Others-After-Sales</controllingFieldValues>
-                <controllingFieldValues>Others-Sales</controllingFieldValues>
+                <fullName>Employment</fullName>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+				<controllingFieldValues>Sales</controllingFieldValues>
+				<controllingFieldValues>After Sales</controllingFieldValues>
+				<controllingFieldValues>Financial Service</controllingFieldValues>
+				<controllingFieldValues>Others</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Consultanting Central microbus</fullName>
-                <controllingFieldValues>Others-After-Sales</controllingFieldValues>
-                <controllingFieldValues>Others-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer contact method</fullName>
-                <controllingFieldValues>Others-Sales</controllingFieldValues>
-                <controllingFieldValues>Pre-Sales</controllingFieldValues>
+                <fullName>Events &amp; Sponsorship</fullName>
+                <controllingFieldValues>Complaint</controllingFieldValues>
+				<controllingFieldValues>Sales</controllingFieldValues>
+				<controllingFieldValues>After Sales</controllingFieldValues>
+				<controllingFieldValues>Financial Service</controllingFieldValues>
+				<controllingFieldValues>Others</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance &amp; Insurance</fullName>
-                <controllingFieldValues>After-Sales</controllingFieldValues>
-                <controllingFieldValues>Pre-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Finance service</fullName>
                 <controllingFieldValues>Complaint</controllingFieldValues>
+				<controllingFieldValues>Sales</controllingFieldValues>
+				<controllingFieldValues>After Sales</controllingFieldValues>
+				<controllingFieldValues>Financial Service</controllingFieldValues>
+				<controllingFieldValues>Others</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Guarantee repair &amp; maintenance</fullName>
-                <controllingFieldValues>After-Sales</controllingFieldValues>
-                <controllingFieldValues>Others-After-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Individual information change</fullName>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Marketing chance</fullName>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Marketing crisis</fullName>
-                <controllingFieldValues>After-Sales</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Maybach</fullName>
-                <controllingFieldValues>Others-After-Sales</controllingFieldValues>
-                <controllingFieldValues>Others-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Central gift</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Network development department</fullName>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
+                <fullName>Vehicle Enquiry</fullName>
                 <controllingFieldValues>Complaint</controllingFieldValues>
-                <controllingFieldValues>MBDA Complaint</controllingFieldValues>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pre-Sales</fullName>
-                <controllingFieldValues>Complaint</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Product information</fullName>
-                <controllingFieldValues>Others-Sales</controllingFieldValues>
-                <controllingFieldValues>Pre-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Public connection</fullName>
-                <controllingFieldValues>Complaint</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Purchase &amp; deliver</fullName>
-                <controllingFieldValues>Pre-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Recruit campaign</fullName>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>RSA</fullName>
-                <controllingFieldValues>After-Sales</controllingFieldValues>
-                <controllingFieldValues>Others-After-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Second car exchange</fullName>
-                <controllingFieldValues>After-Sales</controllingFieldValues>
-                <controllingFieldValues>Pre-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Temporary hotline</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Complain &amp; feedback</fullName>
-                <controllingFieldValues>After-Sales</controllingFieldValues>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <controllingFieldValues>Others-After-Sales</controllingFieldValues>
-                <controllingFieldValues>Others-Sales</controllingFieldValues>
-                <controllingFieldValues>Pre-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Campaign</fullName>
-                <controllingFieldValues>After-Sales</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <controllingFieldValues>Pre-Sales</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AD Sale</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Advisory Mercedes-Benz driving Academy</fullName>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Instructor</fullName>
-                <controllingFieldValues>Complaint</controllingFieldValues>
-                <controllingFieldValues>MBDA Complaint</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CSR</fullName>
-                <controllingFieldValues>Complaint</controllingFieldValues>
-                <controllingFieldValues>MBDA Complaint</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle</fullName>
-                <controllingFieldValues>Complaint</controllingFieldValues>
-                <controllingFieldValues>MBDA Complaint</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBDA business</fullName>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBDA Campaign</fullName>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MBDA service</fullName>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB Campaign</fullName>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AMG Driving academy</fullName>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Public</fullName>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Recruiting</fullName>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Profile update</fullName>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Opportunity</fullName>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Instructor call</fullName>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Customer follow up</fullName>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Internal communication</fullName>
-                <controllingFieldValues>MBDA Inquiry</controllingFieldValues>
+				<controllingFieldValues>Sales</controllingFieldValues>
+				<controllingFieldValues>After Sales</controllingFieldValues>
+				<controllingFieldValues>Financial Service</controllingFieldValues>
+				<controllingFieldValues>Others</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8691,6 +8511,18 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <type>Text</type>
         <unique>false</unique>
     </fields>
+    <fields>
+        <fullName>Customer_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Title</label>
+        <length>10</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>	
     <fields>
         <fullName>Complaint_Creator_Department__c</fullName>
         <externalId>false</externalId>
@@ -18255,25 +18087,33 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Type__c</picklist>
             <values>
-                <fullName>After-Sales</fullName>
+                <fullName>Brochure &amp; Manual Requests</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Call Center</fullName>
+                <fullName>Child/Hoax</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Finance service</fullName>
+                <fullName>Complaints</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Employment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pre-Sales</fullName>
+                <fullName>Events &amp; Sponsorship</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Finance &amp; Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Enquiry</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Complaint_Creator_Department__c</picklist>
@@ -26515,101 +26355,33 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Type__c</picklist>
             <values>
-                <fullName>Advisory Mercedes-Benz driving Academy</fullName>
+                <fullName>Brochure &amp; Manual Requests</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Campaign</fullName>
+                <fullName>Child/Hoax</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central gift</fullName>
+                <fullName>Complaints</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Club</fullName>
+                <fullName>Employment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Complain %26 feedback</fullName>
+                <fullName>Events &amp; Sponsorship</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Consultant Central truck</fullName>
+                <fullName>Finance &amp; Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Consultanting Central microbus</fullName>
+                <fullName>Vehicle Enquiry</fullName>
                 <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer contact method</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance %26 Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guarantee repair %26 maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Individual information change</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing chance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing crisis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maybach</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Network development department</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Product information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Public connection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchase %26 deliver</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Recruit campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Second car exchange</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Smart</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Temporary hotline</fullName>
-                <default>false</default>
-            </values>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Complaint_Creator_Department__c</picklist>
@@ -36070,19 +35842,31 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Type__c</picklist>
             <values>
-                <fullName>CSR</fullName>
+                <fullName>Brochure &amp; Manual Requests</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Instructor</fullName>
+                <fullName>Child/Hoax</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Complaints</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Vehicle</fullName>
+                <fullName>Employment</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Events &amp; Sponsorship</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance &amp; Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Enquiry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -45525,59 +45309,31 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Type__c</picklist>
             <values>
-                <fullName>AMG Driving academy</fullName>
+                <fullName>Brochure &amp; Manual Requests</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Complain %26 feedback</fullName>
+                <fullName>Child/Hoax</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Customer follow up</fullName>
+                <fullName>Complaints</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Instructor call</fullName>
+                <fullName>Employment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Internal communication</fullName>
+                <fullName>Events &amp; Sponsorship</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB Campaign</fullName>
+                <fullName>Finance &amp; Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MBDA Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBDA business</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBDA service</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Opportunity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Profile update</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Public</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Recruiting</fullName>
+                <fullName>Vehicle Enquiry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -50913,27 +50669,31 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Type__c</picklist>
             <values>
-                <fullName>After-Sales</fullName>
+                <fullName>Brochure &amp; Manual Requests</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Call Center</fullName>
+                <fullName>Child/Hoax</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Finance service</fullName>
+                <fullName>Complaints</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Employment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pre-Sales</fullName>
+                <fullName>Events &amp; Sponsorship</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public connection</fullName>
+                <fullName>Finance &amp; Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle Enquiry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -55053,123 +54813,31 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Type__c</picklist>
             <values>
-                <fullName>AD Sale</fullName>
+                <fullName>Brochure &amp; Manual Requests</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Advisory Mercedes-Benz driving Academy</fullName>
+                <fullName>Child/Hoax</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>After-Sales</fullName>
+                <fullName>Complaints</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Call Center</fullName>
+                <fullName>Employment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Campaign</fullName>
+                <fullName>Events &amp; Sponsorship</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central</fullName>
+                <fullName>Finance &amp; Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central gift</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Club</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Complain %26 feedback</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultant Central truck</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultanting Central microbus</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer contact method</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance %26 Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance service</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guarantee repair %26 maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Individual information change</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing chance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing crisis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maybach</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Network development department</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pre-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Product information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Public connection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchase %26 deliver</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Recruit campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Second car exchange</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Smart</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Temporary hotline</fullName>
+                <fullName>Vehicle Enquiry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -63972,198 +63640,31 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Case_Type__c</picklist>
             <values>
-                <fullName>AD Sale</fullName>
+                <fullName>Brochure &amp; Manual Requests</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AMG Driving academy</fullName>
+                <fullName>Child/Hoax</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Advisory Mercedes-Benz driving Academy</fullName>
+                <fullName>Complaints</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>After-Sales</fullName>
+                <fullName>Employment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CSR</fullName>
+                <fullName>Events &amp; Sponsorship</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Call Center</fullName>
+                <fullName>Finance &amp; Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central gift</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Club</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Complain %26 feedback</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultant Central truck</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consultanting Central microbus</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer follow up</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer contact method</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance %26 Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Finance service</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guarantee repair %26 maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Individual information change</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructor</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instructor call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Internal communication</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MB Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBDA Campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBDA business</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MBDA service</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing chance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Marketing crisis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Maybach</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Network development department</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Opportunity</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pre-Sales</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Product information</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Profile update</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Public</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Public connection</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchase %26 deliver</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RSA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Recruit campaign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Recruiting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Second car exchange</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Smart</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Temporary hotline</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Complaint_Creator_Department__c</picklist>
-            <values>
-                <fullName>CAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>RO%2FCO</fullName>
+                <fullName>Vehicle Enquiry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
