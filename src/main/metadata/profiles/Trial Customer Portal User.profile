@@ -8719,6 +8719,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Postcode__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Preferred_Contact_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>

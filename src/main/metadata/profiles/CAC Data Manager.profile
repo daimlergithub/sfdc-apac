@@ -16154,7 +16154,7 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>TextInputting</apexPage>     
+        <apexPage>TextInputting</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
