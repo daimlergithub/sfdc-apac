@@ -121,7 +121,7 @@ private class DMRequestTriggerHandlerTest {
     
      public static testMethod void testDMControllerExtension() {
        
-        User user1 = UtilTestData.createUser('SSI CSR ','CAC SSI CSR');
+        User user1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
         System.runAs ( user1 ) {
         	DMControllerExtensionTest.testMyController();
         }
