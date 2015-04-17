@@ -53,7 +53,9 @@ global class BatchCalcAmountOfAssignedLeads implements Database.Batchable<SObjec
                             FROM AsyncApexJob
                             WHERE Id = :bc.getJobId()];
         Messaging.SingleEmailMessage mail = new Messaging.SingleEmailMessage();
-        String[] toAddresses = new String[] {'falk.lehmann@nttdata.com'};
+        Map<String,App_Setting__c> assignedLeads_eMailAddress = App_Setting__c.getAll();
+        String dailyAssignedLeads_ReporteMailAddress=assignedLeads_eMailAddress.get('DailyAssignedLeadsReport eMail Address').Value__c;
+        String[] toAddresses = new String[] {dailyAssignedLeads_ReporteMailAddress};
         mail.setToAddresses(toAddresses);
         mail.setSubject('Daily Assigned Leads Amount of Dealer Batch Status: ' + job.Status);
         mail.setPlainTextBody('The batch Apex job processed ' + job.TotalJobItems +
