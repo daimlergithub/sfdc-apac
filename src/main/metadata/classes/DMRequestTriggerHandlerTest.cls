@@ -24,7 +24,7 @@ private class DMRequestTriggerHandlerTest {
     
     public static testMethod void testMyController() {
        
-        User user1 = UtilTestData.createUser('SSI CSR ','CAC SSI CSR');
+        User user1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
         System.runAs ( user1 ) {
             //Prepare new DM Materials
             //DM Material1 openning stock is 10
