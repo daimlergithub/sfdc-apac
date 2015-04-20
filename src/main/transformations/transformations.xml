@@ -113,11 +113,11 @@
 		<token tokenonly="true">OBJECT_QC_WEBLINK_OBJECT_ID</token>
 	</changetext>
 	
-		<changetext>
+	<changeattribute>
 		<filename>pages\Retail_Campaigns.page</filename>
-		<xpath>/apex:page/text()</xpath>
+		<xpath>/page/@action</xpath>
 		<token tokenonly="true">OBJECT_RETAIL_CAMPAIGN_WEBLINK_OBJECT_KEYPREFIX</token>
-	</changetext>
+	</changeattribute>
 	
 	<changetext>
 		<filename>objects\Retail_Campaign__c.object</filename>
@@ -281,7 +281,7 @@
 		<token tokenonly="true">VEHICLE_FIELD_ID_IN_CASE</token>
 	</changetext>
 	
-		<changetext>
+	<changetext>
 		<filename>settings\Case.settings</filename>
 		<xpath>/CaseSettings/defaultCaseOwner/text()</xpath>
 		<token>SETTING_DEFAULT_CASE_OWNER</token>
@@ -291,6 +291,19 @@
 		<xpath>/CaseSettings/defaultCaseUser/text()</xpath>
 		<token>SETTING_DEFAULT_CASE_USER</token>
 	</changetext>
+	
+	<!-- remove tab visibility for SocialPersona from profiles -->
+	<removeelement deploy="false">
+		<filename>profiles\*.profile</filename>
+		<xpath>/Profile/tabVisibilities[tab/text()='standard-SocialPersona']</xpath>
+	</removeelement>
+	
+	<!-- remove duplicate list views -->
+	<removeduplicateelement deploy="false">
+		<filename>objects\*.object</filename>
+		<xpath>/CustomObject/listViews/fullName/text()</xpath>
+		<distance>2</distance>
+	</removeduplicateelement>
 	
 	<!-- history tracking cannot be set to true (as we like to have it) for the initial deployment, -->
 	<!-- so we remove it completely in the deployment and it has to be set manually in SFDC and --> 
@@ -405,68 +418,6 @@
             </layoutItems></element>
 	</addelement>
 	
-	<!-- fix for W-2264136 -->
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='AllowUniversalSearch']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='AllowViewKnowledge']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='EditBillingInfo']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='EditKnowledge']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='ManageSynonyms']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='ViewGlobalHeader']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='ManageSelfService']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='ManageSearchPromotionRules']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='ManageKnowledge']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='ManageKnowledgeImportExport']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='ManageNetworks']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='ManagePartners']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='WorkDotComUserPerm']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='AllowViewKnowledge']</xpath>
-	</removeelement>
-	<removeelement retrieve="false">
-		<filename>profiles\*.profile</filename>
-		<xpath>/Profile/userPermissions[name/text()='ShareInternalArticles']</xpath>
-	</removeelement>
-	
 	<!-- remove as long as we don't have community licenses -->
 	<skipfile retrieve="false">
 		<filename>profiles\Dealer Delegate Admin.profile</filename>
@@ -477,27 +428,19 @@
 	
 	<defaultpermissions>
 		<permissions>
-		ConvertLeads,CreateTopics,ManageCases,ManageSolutions,ManageLeads,BulkApiHardDelete,ImportLeads,ViewSetup,PasswordNeverExpires,ResetPasswords,ModerateChatter,
-		SolutionImport,ActivateContract,ActivateOrder,ApproveContract,AssignTopics,ConnectOrgToEnvironmentHub,ImportPersonal,ViewMyTeamsDashboards,ApiEnabled,
-		CanInsertFeedSystemFields,ChatterFileLink,ChatterInternalUser,ChatterInviteExternalUsers,ChatterOwnGroups,CreateCustomizeFilters,CreateWorkspaces,
-		DeleteActivatedContract,DeleteTopics,DistributeFromPersWksp,EditBrandTemplates,EditCaseComments,EditEvent,EditHtmlTemplates,EditOppLineItemUnitPrice,
-		EditPublicDocuments,EditPublicFilters,EditPublicTemplates,EditReadonlyFields,EditReports,EditTask,EditTopics,EmailMass,EmailSingle,EnableNotifications,
-		ExportReport,ManageAnalyticSnapshots,ManageCallCenters,ManageCategories,ManageContentPermissions,ManageCssUsers,ManageCustomReportTypes,ManageDataCategories,
-		ManageDataIntegrations,ManageEmailClientConfig,ManageInteraction,ManageMobile,ManagePackageLicenses,ManageRemoteAccess,MassInlineEdit,RunReports,ScheduleReports,
-		SendSitRequests,TransferAnyCase,TransferAnyEntity,TransferAnyLead,UseTeamReassignWizards,ViewDataCategories,ViewHelpLink,IPRestrictRequests
+		ActivateContract,ActivateOrder,ApiEnabled,ApproveContract,AssignPermissionSets,AssignTopics,AuthorApex,BulkApiHardDelete,CanInsertFeedSystemFields,
+		CanUseNewDashboardBuilder,ChatterFileLink,ChatterInternalUser,ChatterInviteExternalUsers,ChatterOwnGroups,ConnectOrgToEnvironmentHub,ContentAdministrator,
+		ConvertLeads,CreateCustomizeFilters,CreatePackaging,CreateTopics,CreateWorkspaces,CustomizeApplication,DataExport,DeleteActivatedContract,DeleteTopics,
+		DistributeFromPersWksp,EditActivatedOrders,EditBrandTemplates,EditCaseComments,EditEvent,EditHtmlTemplates,EditOppLineItemUnitPrice,EditPublicDocuments,
+		EditPublicFilters,EditPublicReports,EditPublicTemplates,EditReadonlyFields,EditReports,EditTask,EditTopics,EmailMass,EmailSingle,EnableNotifications,
+		ExportReport,ImportLeads,ImportPersonal,InboundMigrationToolsUser,InstallPackaging,IPRestrictRequests,ManageAnalyticSnapshots,ManageAuthProviders,
+		ManageBusinessHourHolidays,ManageCallCenters,ManageCases,ManageCategories,ManageContentPermissions,ManageContentProperties,ManageContentTypes,ManageCssUsers,
+		ManageCustomPermissions,ManageCustomReportTypes,ManageDashboards,ManageDataCategories,ManageDataIntegrations,ManageDynamicDashboards,ManageEmailClientConfig,
+		ManageEntitlements,ManageExchangeConfig,ManageInteraction,ManageInternalUsers,ManageIpAddresses,ManageLeads,ManageLoginAccessPolicies,ManageMobile,
+		ManagePackageLicenses,ManagePasswordPolicies,ManageProfilesPermissionsets,ManageRemoteAccess,ManageRoles,ManageSharing,ManageSolutions,ManageUnlistedGroups,
+		ManageUsers,MassInlineEdit,MergeTopics,ModerateChatter,ModifyAllData,NewReportBuilder,OutboundMigrationToolsUser,PasswordNeverExpires,PublishPackaging,
+		ResetPasswords,RunFlow,RunReports,ScheduleJob,ScheduleReports,SendSitRequests,SolutionImport,TransferAnyCase,TransferAnyEntity,TransferAnyLead,
+		UseTeamReassignWizards,ViewAllData,ViewAllUsers,ViewDataCategories,ViewEventLogFiles,ViewHelpLink,ViewMyTeamsDashboards,ViewSetup
 		</permissions>
-		<!-- TODO: Access Chatter For SharePoint, Api Only User, Assign Permission Sets, Author Apex, Checked	Manage Public Documents, Configure Custom Recommendations, 
-		           Create and Customize List Views, Create and Customize Reports, Create and Own New Chatter Groups, Create and Share Content Deliveries for Chatter Files, 
-				   Create and Upload Change Sets, Create AppExchange Packages, Create Libraries, Customize Application, Deliver Uploaded Files and Personal Content, 
-				   Deploy Change Sets, Download AppExchange Packages, Drag-and-Drop Dashboard Builder, Edit Activated Orders, Edit Opportunity Product Sales Price, 
-				   Edit Self-Service Users, Insert System Field Values for Chatter Feeds, Invite Customers To Chatter, Manage Auth. Providers, 
-				   Manage Business Hours Holidays, Manage Chatter Messages, Manage Connected Apps, Manage Content Properties, Manage Custom Permissions, Manage Dashboards, 
-				   Manage Dynamic Dashboards, Manage Entitlements, Manage Exchange Configurations, Manage Force.com Flow, Manage Internal Users, Manage IP Addresses, 
-				   Manage Letterheads, Manage Login Access Policies, Manage Password Policies, Manage Profiles and Permission Sets, Manage Public List Views, 
-				   Manage Public Reports, Manage Public Templates, Manage record types and layouts for Files, Manage Reporting Snapshots, Manage Roles, 
-				   Manage Salesforce CRM Content, Manage Sharing, Manage Unlisted Groups, Manage Users, Mass Edits from Lists, Merge Topics, Modify All Data, Report Builder, 
-				   Run Flows, Schedule Dashboards, Send Outbound Messages, Send Stay-in-Touch Requests, Two-Factor Authentication for API Logins, 
-				   Two-Factor Authentication for User Interface Logins, Upload AppExchange Packages, Use Identity Features, View All Data, View All Users, View Encrypted Data, 
-				   View Event Log Files, Weekly Data Export -->
 	</defaultpermissions>
 </transformations>
