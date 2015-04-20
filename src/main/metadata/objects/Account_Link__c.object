@@ -305,10 +305,6 @@
         <label>Status</label>
         <picklist>
             <picklistValues>
-                <fullName>--None--</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Preferred</fullName>
                 <default>false</default>
             </picklistValues>
