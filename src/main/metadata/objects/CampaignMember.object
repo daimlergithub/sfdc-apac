@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>CancelEdit</actionName>
@@ -108,6 +108,16 @@
         <externalId>false</externalId>
         <label>Created By EP Transaction</label>
         <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Customer_Name__c</fullName>
+        <externalId>false</externalId>
+        <formula>FirstName &amp; " " &amp;  LastName</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Customer Name</label>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
@@ -428,7 +438,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Don&apos;t Participated</fullName>
+                <fullName>Don't Participated</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -609,7 +619,7 @@
     <fields>
         <fullName>formula_num__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( ISPICKVAL( Status , &quot;Sent&quot;) , 1, 0)</formula>
+        <formula>IF( ISPICKVAL( Status , "Sent") , 1, 0)</formula>
         <label>formula(num)</label>
         <precision>18</precision>
         <required>false</required>

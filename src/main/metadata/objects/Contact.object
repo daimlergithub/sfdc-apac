@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>AddToCampaign</actionName>
@@ -135,6 +135,81 @@
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Business_Unit__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Unit</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Alliance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Allmakes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fleet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Freightliner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bus &amp; Coach</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cars</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBFS Cars</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBFS Trucks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Trucks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SelecTrucks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Vehicles</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unimog</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western Star</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>CAC_SourceId__c</fullName>
@@ -276,6 +351,57 @@
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
     <fields>
+        <fullName>EOC_Recipient_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>EOC Recipient Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>150 Days Primary</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>150 Days CC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>60 Days Primary</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>60 Days CC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>45 Days Primary</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>45 Days CC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>20 Days Primary</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>20 Days CC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>15 Days Primary</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>15 Days CC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>Email</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -305,6 +431,33 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Finance_Lead_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Finance Lead Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Key 2 Key</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Early Payout</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agility</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle Purchase</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>HasOptedOutOfEmail</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -327,6 +480,177 @@
     <fields>
         <fullName>Jigsaw</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Job_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Job Title</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Bodywork - Paint Specialist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bodywork - Panel Expert</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bodywork - Panel Specialist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management – Accounts Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management – Chairman</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management – Corporate Sales Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management - Dealer Principal</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management – Director</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management - F&amp;I Business Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management - Fixed Operations Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management - General Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management – General Sales Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management - Marketing Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management - Parts Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management - Sales Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Management - Service Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Staff - Customer Facing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Staff - Non Customer Facing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts/Accessories Salesperson</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts – Apprentice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts – Interpreter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Receptionist</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales - Cadet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales - Consultant</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales - Consultant (AMG Specialist)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales - Consultant (Corporate/Fleet)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service - Advisor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service - Workshop Controller/Foreman</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Stock Controller</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>System Technician</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technician - Apprentice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technician - Certified Diagnostic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technician - Diagnostic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technician - Maintenance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technician - System (Comfort and Safety)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technician - System (Driving Stability)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technician - System (Power Train)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Technician - System (Telecommunication)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty Administrator</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty Manager</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Languages__c</fullName>
@@ -391,6 +715,33 @@
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Lead_Escalation_Recipient_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Lead Escalation Recipient Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Immediate Notice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>24H Untouched Notice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>72H Untouched Notice</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CC Lead Escalation Recipient</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Level__c</fullName>
@@ -512,6 +863,24 @@ Adds an active member/membership status/update activity generated sales leads--t
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
+        <fullName>Person_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Person Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Director</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shareholder</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Phone</fullName>
         <trackFeedHistory>false</trackFeedHistory>
     </fields>
@@ -565,8 +934,70 @@ Adds an active member/membership status/update activity generated sales leads--t
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Sub_BusinessUnit__c</fullName>
+        <externalId>false</externalId>
+        <label>Offered Service</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance &amp; Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
         <fullName>Title</fullName>
         <trackFeedHistory>false</trackFeedHistory>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <description>The contact type for Customer(Company)</description>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warrantor</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Picklist</type>
     </fields>
     <listViews>
         <fullName>AllContacts</fullName>
@@ -657,19 +1088,19 @@ Adds an active member/membership status/update activity generated sales leads--t
         <fullName>RestrictCheckComplaintAndLeadGateKeeper</fullName>
         <active>true</active>
         <errorConditionFormula>AND(Dealer_Complaint_User__c,  Dealer_Lead_Gate_Keeper__c  )</errorConditionFormula>
-        <errorMessage>You must check only one for &quot;Dealer Lead Gate Keeper&quot; and &quot;Dealer Complaint User&quot;.</errorMessage>
+        <errorMessage>You must check only one for "Dealer Lead Gate Keeper" and "Dealer Complaint User".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>RestrictCheckComplaintGaAndComplaintUser</fullName>
         <active>true</active>
         <errorConditionFormula>AND( Dealer_Complaint_User__c ,  Dealer_Complaint_Gate_Keeper__c )</errorConditionFormula>
-        <errorMessage>You must check only one for &quot;Dealer Complaint Gate Keeper&quot; and &quot;Dealer Complaint User&quot;.</errorMessage>
+        <errorMessage>You must check only one for "Dealer Complaint Gate Keeper" and "Dealer Complaint User".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>RestrictCheckPresalesAndComplaintUser</fullName>
         <active>true</active>
         <errorConditionFormula>AND( Dealer_Presales__c  ,   Dealer_Complaint_Manager__c )</errorConditionFormula>
-        <errorMessage>You must check only one for &quot;Dealer Presales&quot; and &quot;Dealer Complaint Manager&quot;.</errorMessage>
+        <errorMessage>You must check only one for "Dealer Presales" and "Dealer Complaint Manager".</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Active_Permission_Set</fullName>
@@ -679,25 +1110,25 @@ Adds an active member/membership status/update activity generated sales leads--t
         <masterLabel>Active Permission Set</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+        <url>{!REQUIRESCRIPT("/soap/ajax/15.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
 
 var newRecords = [];
-var userInfo = sforce.connection.query(&quot;select Id from User where ContactId = &apos;&quot;+&apos;{!Contact.Id}&apos;+&quot;&apos;&quot;);
+var userInfo = sforce.connection.query("select Id from User where ContactId = '"+'{!Contact.Id}'+"'");
 
 if(userInfo.records != null) { 
-  var c = new sforce.SObject(&quot;User&quot;); 
+  var c = new sforce.SObject("User"); 
   c.id =userInfo.records.Id;
   c.Active_Permission_Set__c = true;
   newRecords.push(c); 
   result = sforce.connection.update(newRecords);
-  if(result[0].getBoolean(&quot;success&quot;)){
+  if(result[0].getBoolean("success")){
       window.location.reload();
   } else {
       alert(result[0].errors.message);
   }
 }else if(userInfo.records == null) {
-  alert(&quot;Users who are not associated with the current contact is created!&quot;);
+  alert("Users who are not associated with the current contact is created!");
 }</url>
     </webLinks>
     <webLinks>

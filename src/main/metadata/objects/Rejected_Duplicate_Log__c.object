@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -47,7 +47,7 @@
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
     <description>Requirement: US-DD-002
-Description: To support this solution we can create a new custom object to track the suspect-duplicates that have been manually confirmed as not a match. The custom object could be called &quot;Rejected Duplicate Log&quot; and would contain a the Master Account, Duplicate Account and Duplicate reason code.</description>
+Description: To support this solution we can create a new custom object to track the suspect-duplicates that have been manually confirmed as not a match. The custom object could be called "Rejected Duplicate Log" and would contain a the Master Account, Duplicate Account and Duplicate reason code.</description>
     <enableActivities>false</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableEnhancedLookup>false</enableEnhancedLookup>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -263,7 +263,23 @@
         <label>Sector</label>
         <picklist>
             <picklistValues>
-                <fullName>--None--</fullName>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trucks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service &amp; Parts</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -289,7 +305,23 @@
         <label>Status</label>
         <picklist>
             <picklistValues>
-                <fullName>--None--</fullName>
+                <fullName>Preferred</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Last Selling</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Last Servicing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Territory Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign/Project Dealer</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -308,21 +340,6 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Type__c</fullName>
-        <externalId>false</externalId>
-        <label>Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>--None--</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
@@ -470,21 +487,14 @@
         <picklistValues>
             <picklist>Sector__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>Passenger Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>--None--</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type__c</picklist>
-            <values>
-                <fullName>--None--</fullName>
+                <fullName>Preferred</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -572,21 +582,14 @@
         <picklistValues>
             <picklist>Sector__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>Passenger Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>--None--</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type__c</picklist>
-            <values>
-                <fullName>--None--</fullName>
+                <fullName>Preferred</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -674,21 +677,14 @@
         <picklistValues>
             <picklist>Sector__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>Passenger Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>--None--</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Type__c</picklist>
-            <values>
-                <fullName>--None--</fullName>
+                <fullName>Preferred</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -59,7 +59,7 @@
     <fields>
         <fullName>Assign_Task__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK(&quot;/apex/MassAssignRecallTasks?dealername=&quot;+Encode_Dealer_Name__c    , &quot;Assign Task&quot;)</formula>
+        <formula>HYPERLINK("/apex/MassAssignRecallTasks?dealername="+Encode_Dealer_Name__c    , "Assign Task")</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Assign Task</label>
         <required>false</required>
@@ -251,9 +251,9 @@ Used in Report HyberLink.</description>
         <fullName>Invalid_Reason__c</fullName>
         <externalId>false</externalId>
         <formula>IF(  
-ISPICKVAL(DealerCheck_Status__c , &apos;Reject&apos;) , &apos;Illegal Dealer&apos; ,
-IF( ISPICKVAL( CarModelCheck_Status__c , &apos;Reject&apos;) , &apos;Car Model Unmatched&apos; , 
-IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( Suspect_Reason__c ) 
+ISPICKVAL(DealerCheck_Status__c , 'Reject') , 'Illegal Dealer' ,
+IF( ISPICKVAL( CarModelCheck_Status__c , 'Reject') , 'Car Model Unmatched' , 
+IF( ISPICKVAL( Status__c , 'All Valid'), 'All Valid', TEXT( Suspect_Reason__c ) 
 )
 )
 )</formula>
@@ -277,7 +277,7 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
     <fields>
         <fullName>Invoice_Month__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(YEAR(InvoiceDate__c)) + IF(MONTH(InvoiceDate__c) &lt; 10, &apos;0&apos; + TEXT(MONTH(InvoiceDate__c)), TEXT(MONTH(InvoiceDate__c)))</formula>
+        <formula>TEXT(YEAR(InvoiceDate__c)) + IF(MONTH(InvoiceDate__c) &lt; 10, '0' + TEXT(MONTH(InvoiceDate__c)), TEXT(MONTH(InvoiceDate__c)))</formula>
         <label>Invoice Month</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -466,7 +466,7 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
         <fullName>SurveyAvailableDateSpan__c</fullName>
         <description>Calculate Survey available date span, used by 1st call flow, created by Chris 2013-9-22.</description>
         <externalId>false</externalId>
-        <formula>&quot;(Car month：&quot; + TEXT(YEAR(InvoiceDate__c)) + &quot;-&quot; + TEXT(MONTH(InvoiceDate__c)) + &quot;) Date interval：&quot; + TEXT( DATE( YEAR(InvoiceDate__c), MONTH(InvoiceDate__c), 1) ) + &quot; ~ &quot; + TEXT( TODAY() - 14 )</formula>
+        <formula>"(Car month：" + TEXT(YEAR(InvoiceDate__c)) + "-" + TEXT(MONTH(InvoiceDate__c)) + ") Date interval：" + TEXT( DATE( YEAR(InvoiceDate__c), MONTH(InvoiceDate__c), 1) ) + " ~ " + TEXT( TODAY() - 14 )</formula>
         <label>SurveyAvailableDateSpan</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -476,7 +476,7 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
     </fields>
     <fields>
         <fullName>Survey_Finished__c</fullName>
-        <description>If SSI Task Indicator=&apos;Close&apos;, update Survey Finished field on SSI object.</description>
+        <description>If SSI Task Indicator='Close', update Survey Finished field on SSI object.</description>
         <externalId>false</externalId>
         <label>Survey Finished</label>
         <picklist>
@@ -910,8 +910,8 @@ IF( ISPICKVAL( Status__c , &apos;All Valid&apos;), &apos;All Valid&apos;, TEXT( 
         <errorConditionFormula>AND( 
 QC_Approved__c == true, 
 NOT(ISCHANGED(QC_Approved__c)), 
-$Profile.Name != &apos;System Administrator&apos;, 
-$Profile.Name != &apos;CAC IT Manager&apos;, 
+$Profile.Name != 'System Administrator', 
+$Profile.Name != 'CAC IT Manager', 
 OR(ISCHANGED(CustomerName__c), ISCHANGED(OriginalCustomerName__c), 
 ISCHANGED(CustomerTitle__c),ISCHANGED(OfficePhone__c), 
 ISCHANGED(OriginalOfficePhone__c), 
@@ -924,28 +924,28 @@ ISCHANGED(CompanyName__c))
     <validationRules>
         <fullName>Comments_Mandatory_SuspectCarModel</fullName>
         <active>true</active>
-        <description>When field SuspectCarModel Review is &apos;Accept&apos;, Field &apos;Comments&apos; can not be blank</description>
+        <description>When field SuspectCarModel Review is 'Accept', Field 'Comments' can not be blank</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp;  
 AND(  
 ISCHANGED(CarModelCheck_Status__c ), 
-ISPICKVAL(CarModelCheck_Status__c ,&apos;Accept&apos;) , 
+ISPICKVAL(CarModelCheck_Status__c ,'Accept') , 
 ISBLANK(Comments__c )
  )</errorConditionFormula>
         <errorDisplayField>Comments__c</errorDisplayField>
-        <errorMessage>SuspectCarModel Review is &apos;Accept&apos;, Field &apos;Comments&apos; can not be blank</errorMessage>
+        <errorMessage>SuspectCarModel Review is 'Accept', Field 'Comments' can not be blank</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Comments_Mandatory_SuspectDealer_Review</fullName>
         <active>true</active>
-        <description>when field SuspectDealer Review is &apos;Accept&apos;, &apos;Comments&apos; fields can not be blank.</description>
+        <description>when field SuspectDealer Review is 'Accept', 'Comments' fields can not be blank.</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(  
 ISCHANGED(DealerCheck_Status__c ), 
-ISPICKVAL(DealerCheck_Status__c ,&apos;Accept&apos;) , 
+ISPICKVAL(DealerCheck_Status__c ,'Accept') , 
 ISBLANK(Comments__c )
  )</errorConditionFormula>
         <errorDisplayField>Comments__c</errorDisplayField>
-        <errorMessage>&apos;Comments&apos; fields can not be blank when field SuspectDealer Review is &apos;Accept&apos;</errorMessage>
+        <errorMessage>'Comments' fields can not be blank when field SuspectDealer Review is 'Accept'</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Car_Model_Cleansing</fullName>
@@ -956,18 +956,18 @@ ISBLANK(Comments__c )
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} //adds the proper code for inclusion of AJAX toolkit 
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)} 
-//Confirming user&apos;s action 
-var r = confirm(&quot;Click &apos;&apos;OK&apos;&apos; to start Car Model Cleansing.\nSalesforce.com will begin to schedule Car Model Cleansing. You will be notified by email when your process is completed.&quot;); 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")} //adds the proper code for inclusion of AJAX toolkit 
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")} 
+//Confirming user's action 
+var r = confirm("Click ''OK'' to start Car Model Cleansing.\nSalesforce.com will begin to schedule Car Model Cleansing. You will be notified by email when your process is completed."); 
 if (r == true) { 
 try { 
 //sforce.debug.trace=true; 
-var status = sforce.apex.execute(&quot;SSIDataClean&quot;,&quot;runCarModelRule&quot;,{}); 
+var status = sforce.apex.execute("SSIDataClean","runCarModelRule",{}); 
 if (status) { 
 //window.location.href = window.location.href;
 } else { 
-alert(&quot;Car Model Cleansing failed.&quot; + result[0]); 
+alert("Car Model Cleansing failed." + result[0]); 
 } 
 }catch (e) { 
 alert(e); 
@@ -983,18 +983,18 @@ alert(e);
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)} //adds the proper code for inclusion of AJAX toolkit 
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)} 
-//Confirming user&apos;s action 
-var r = confirm(&quot;Click &apos;&apos;OK&apos;&apos; to start Data Quality Cleansing.\nSalesforce.com will begin to schedule Data Quality Cleansing. You will be notified by email when your process is completed.&quot;); 
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")} //adds the proper code for inclusion of AJAX toolkit 
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")} 
+//Confirming user's action 
+var r = confirm("Click ''OK'' to start Data Quality Cleansing.\nSalesforce.com will begin to schedule Data Quality Cleansing. You will be notified by email when your process is completed."); 
 if (r == true) { 
 try { 
 //sforce.debug.trace=true; 
-var status = sforce.apex.execute(&quot;SSIDataClean&quot;,&quot;runRestRule&quot;,{}); 
+var status = sforce.apex.execute("SSIDataClean","runRestRule",{}); 
 if (status) { 
 //window.location.href = window.location.href; 
 } else { 
-alert(&quot;Data Quality Cleansing failed.&quot; + result[0]); 
+alert("Data Quality Cleansing failed." + result[0]); 
 } 
 }catch (e) { 
 alert(e); 
@@ -1010,7 +1010,7 @@ alert(e);
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>var lookingURL = &apos;{!$Site.Prefix}/apex/DealerClean&apos;;
+        <url>var lookingURL = '{!$Site.Prefix}/apex/DealerClean';
 location.href = lookingURL;</url>
     </webLinks>
     <webLinks>
@@ -1022,7 +1022,7 @@ location.href = lookingURL;</url>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
-        <url>var lookingURL = &apos;{!$Site.Prefix}/apex/VinMatch&apos;;
+        <url>var lookingURL = '{!$Site.Prefix}/apex/VinMatch';
 location.href = lookingURL;</url>
     </webLinks>
 </CustomObject>

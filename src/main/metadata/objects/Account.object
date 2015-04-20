@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>CallHighlightAction</actionName>
@@ -542,7 +542,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_AgeRange&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <externalId>false</externalId>
         <label>Age Range</label>
         <picklist>
@@ -593,7 +593,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_Deceased&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_Deceased"</description>
         <externalId>false</externalId>
         <label>Alive</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -612,7 +612,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_DoCdata&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_DoCdata"</description>
         <externalId>false</externalId>
         <label>Allow Data Sharing</label>
         <picklist>
@@ -646,7 +646,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_DoCmarket&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_DoCmarket"</description>
         <externalId>false</externalId>
         <label>Allow Marketing Info</label>
         <picklist>
@@ -685,7 +685,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_AnnualMileage&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_AnnualMileage"</description>
         <externalId>false</externalId>
         <label>Annual Mileage</label>
         <precision>10</precision>
@@ -740,7 +740,7 @@ LEN(PersonMobilePhone) &lt;&gt; 0,
 LEN( PersonOtherPhone ) &lt;&gt; 0,
 LEN( PersonHomePhone ) &lt;&gt; 0,
 LEN( Phone ) &lt;&gt; 0
-), &quot;Yes&quot;,&quot;No&quot;)</formula>
+), "Yes","No")</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>At Least One Phone</label>
         <required>false</required>
@@ -797,7 +797,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_BuyCycle&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <externalId>false</externalId>
         <label>Buy Cycle</label>
         <precision>10</precision>
@@ -1012,7 +1012,7 @@ Service Only - does have at least one After Sales Record</description>
         <fullName>City_CN__c</fullName>
         <description>Chinese dealer city name - 
 For Dealers this is populated by the GSSN system - not modified in SFDC
-Attribute in Data Dictionary object Dealer is &quot;Dealer_CityCN&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <externalId>false</externalId>
         <label>City CN</label>
         <length>255</length>
@@ -1026,7 +1026,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_CityCN&quot;</descrip
         <fullName>City__c</fullName>
         <description>Chinese dealer city name - 
 For Dealers this is populated by the GSSN system - not modified in SFDC
-Attribute in Data Dictionary object Dealer is &quot;Dealer_CityCN&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
         <externalId>false</externalId>
         <label>City</label>
         <length>255</length>
@@ -1084,7 +1084,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_CityCN&quot;</descrip
     </fields>
     <fields>
         <fullName>Company_Name__c</fullName>
-        <description>Attribute in Data Dictionary object Contact is &quot;Contact_CompanyName&quot;</description>
+        <description>Attribute in Data Dictionary object Contact is "Contact_CompanyName"</description>
         <externalId>false</externalId>
         <label>Company Name</label>
         <length>80</length>
@@ -1125,14 +1125,14 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_CityCN&quot;</descrip
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: Background information on the customer the customer&apos;s or any family member&apos;s background is with the government 
+Function: Background information on the customer the customer's or any family member's background is with the government 
 Used in: Page Layouts, Reports 
 
 Modify History 
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_BackgroundInfo&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_BackgroundInfo"</description>
         <externalId>false</externalId>
         <label>Contact Background</label>
         <length>255</length>
@@ -1239,11 +1239,11 @@ Attribute in Data Dictionary object Contact is &quot;Contact_BackgroundInfo&quot
     <fields>
         <fullName>Customer_Number__c</fullName>
         <description>Function: Customer Number 
-  For Dealer Accounts this field is used for the &quot;DMS magic number&quot;
+  For Dealer Accounts this field is used for the "DMS magic number"
 Used in: Page Layouts, Reports 
 
 Created by: Tony Li    Used by: Tony Li
-Attribute in Data Dictionary object Contact is &quot;Contact_MagicNo&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_MagicNo"</description>
         <displayFormat>C-{0000000000}</displayFormat>
         <externalId>false</externalId>
         <label>Customer Number</label>
@@ -1307,7 +1307,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_DataSource&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_DataSource"</description>
         <externalId>false</externalId>
         <label>Data Source</label>
         <picklist>
@@ -1409,7 +1409,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_DataSubSource&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_DataSubSource"</description>
         <externalId>false</externalId>
         <label>Data Sub-Source</label>
         <picklist>
@@ -2148,7 +2148,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DataSubSource&quot;
         <fullName>Dealer_Active__c</fullName>
         <defaultValue>true</defaultValue>
         <description>Active Flag for this dealer
-Attribute in Data Dictionary object Dealer is &quot;Dealer_ActiveFlag&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_ActiveFlag"</description>
         <externalId>false</externalId>
         <label>Dealer Active</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2209,7 +2209,7 @@ Modify History
 Modify By: Lio Huang
 Modify Reason: Dealer Address (Chinese) from GSSN
 */
-Attribute in Data Dictionary object Dealer is &quot;Dealer_AddressCN&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_AddressCN"</description>
         <externalId>false</externalId>
         <label>Dealer Address CN</label>
         <length>255</length>
@@ -2231,7 +2231,7 @@ Modify History
 Modify By: Lio Huang
 Modify Reason: Dealer Address (Chinese) from GSSN
 */
-Attribute in Data Dictionary object Dealer is &quot;Dealer_AddressEN&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_AddressEN"</description>
         <externalId>false</externalId>
         <label>Dealer Address EN</label>
         <length>255</length>
@@ -2292,7 +2292,7 @@ Allows up to 240 characters
 /* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: Dealer&apos;s name in Chinese
+Function: Dealer's name in Chinese
 Used in: Page Layouts, Reports 
 
 Modify History 
@@ -2300,7 +2300,7 @@ Modify By:  Lio,Tulipe, Rob -
 Modify Reason:  Will use this for the Dealer name in English
 Populated by GSSN for the Dealer
 */
-Attribute in Data Dictionary object Dealer is &quot;Dealer_NameEN&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_NameEN"</description>
         <externalId>false</externalId>
         <inlineHelpText>Alternate Dealer Name is populated by the GSSN interface
 Allows up to 240 characters</inlineHelpText>
@@ -2315,7 +2315,7 @@ Allows up to 240 characters</inlineHelpText>
     <fields>
         <fullName>Dealer_BTLInfo__c</fullName>
         <description>Will be used for a query like this one:
-select ID from account where BTLInfo &lt;&gt; &quot;123456789&quot;</description>
+select ID from account where BTLInfo &lt;&gt; "123456789"</description>
         <externalId>false</externalId>
         <label>Dealer BTLInfo</label>
         <length>30</length>
@@ -2339,7 +2339,7 @@ select ID from account where BTLInfo &lt;&gt; &quot;123456789&quot;</description
     </fields>
     <fields>
         <fullName>Dealer_Business_Hours__c</fullName>
-        <description>Attribute in Data Dictionary object Dealer is &quot;Dealer_BusinessHours&quot;</description>
+        <description>Attribute in Data Dictionary object Dealer is "Dealer_BusinessHours"</description>
         <externalId>false</externalId>
         <label>Dealer Business Hours</label>
         <length>500</length>
@@ -2487,7 +2487,7 @@ select ID from account where BTLInfo &lt;&gt; &quot;123456789&quot;</description
     <fields>
         <fullName>Dealer_City_EN__c</fullName>
         <description>Changed from the name city
-Attribute in Data Dictionary object Dealer is &quot;Dealer_CityEN&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_CityEN"</description>
         <externalId>false</externalId>
         <label>Dealer City EN</label>
         <length>255</length>
@@ -3040,14 +3040,14 @@ Feb18-2013-  Rob and Falk - based on GSSN interface requirements</description>
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: Dealer&apos;s general email address 
+Function: Dealer's general email address 
 Used in: Page Layouts, Reports 
 
 Modify History 
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Dealer is &quot;Dealer_Email&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_Email"</description>
         <externalId>false</externalId>
         <label>Dealer Email</label>
         <required>false</required>
@@ -3068,7 +3068,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Dealer is &quot;Dealer_EmergencyNumber&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_EmergencyNumber"</description>
         <externalId>false</externalId>
         <label>Dealer Emergency Number</label>
         <required>false</required>
@@ -3139,7 +3139,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Dealer is &quot;Dealer_GCcode &quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_GCcode "</description>
         <externalId>false</externalId>
         <label>Dealer GC Code</label>
         <length>40</length>
@@ -3379,7 +3379,7 @@ Modify By:
 Modify Reason: 
 */</description>
         <externalId>false</externalId>
-        <formula>Dealer_Lead_Gate_Keeper__r.Contact.LastName + &quot; &quot; +  Dealer_Lead_Gate_Keeper__r.Contact.FirstName</formula>
+        <formula>Dealer_Lead_Gate_Keeper__r.Contact.LastName + " " +  Dealer_Lead_Gate_Keeper__r.Contact.FirstName</formula>
         <label>*Dealer Lead Gate Keeper Name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -3433,7 +3433,7 @@ Modify Reason:
     <fields>
         <fullName>Dealer_Legal_Entity__c</fullName>
         <defaultValue>false</defaultValue>
-        <description>Attribute in Data Dictionary object Dealer is &quot;Dealer_isLegalEntity&quot;</description>
+        <description>Attribute in Data Dictionary object Dealer is "Dealer_isLegalEntity"</description>
         <externalId>false</externalId>
         <label>Dealer Legal Entity</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3472,7 +3472,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Dealer is &quot;Dealer_RegionSubMB&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_RegionSubMB"</description>
         <externalId>false</externalId>
         <label>Dealer MB Sub-Region</label>
         <picklist>
@@ -3590,7 +3590,7 @@ Feb-18-2012: Added by Rob and Falk</description>
         <label>Dealer Operating System</label>
         <picklist>
             <picklistValues>
-                <fullName>tbd</fullName>
+                <fullName>Dealer Sockets</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3725,7 +3725,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Dealer is &quot;Dealer_Region&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_Region"</description>
         <externalId>false</externalId>
         <label>Dealer Region</label>
         <picklist>
@@ -3801,14 +3801,14 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_Region&quot;</descrip
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: Status of dealer&apos;s participation in the SSI program 
+Function: Status of dealer's participation in the SSI program 
 Used in: Page Layouts, Reports 
 
 Modify History March 03, 2013
 Modify By: Lio Huang
-Modify Reason: Added the prefix &quot;Dealer&quot;, which indicates this field will only be used at dealer
+Modify Reason: Added the prefix "Dealer", which indicates this field will only be used at dealer
 */
-Attribute in Data Dictionary object Dealer is &quot;Dealer_NoSSI&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_NoSSI"</description>
         <externalId>false</externalId>
         <label>Dealer SSI Participation</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3850,7 +3850,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Dealer is &quot;Dealer_SalesType&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_SalesType"</description>
         <externalId>false</externalId>
         <label>Dealer Sales Type</label>
         <picklist>
@@ -3886,7 +3886,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_SalesType&quot;</desc
         <description>Dealer Services - based on the GSSN interface for the Dealer ActivityDefCodes
 
 Feb-18-2012: Added by Rob and Falk
-Attribute in Data Dictionary object Dealer is &quot;Dealer_Service&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
         <externalId>false</externalId>
         <label>Dealer Service Codes</label>
         <picklist>
@@ -3998,7 +3998,15 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_Service&quot;</descri
         <label>Trucks Sales Region</label>
         <picklist>
             <picklistValues>
-                <fullName>N/A</fullName>
+                <fullName>Eastern Region</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>STHN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NTHN</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4013,7 +4021,15 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_Service&quot;</descri
         <label>Trucks Service Region</label>
         <picklist>
             <picklistValues>
-                <fullName>N/A</fullName>
+                <fullName>Eastern Region</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>STHN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>NTHN</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4187,7 +4203,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Dealer is &quot;Dealer_RegionSubSmart&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_RegionSubSmart"</description>
         <externalId>false</externalId>
         <label>Dealer smart Sub-Region</label>
         <picklist>
@@ -4259,14 +4275,14 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_RegionSubSmart&quot;<
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: Year the contact got driver&apos;s license 
+Function: Year the contact got driver's license 
 Used in: Page Layouts, Reports 
 
 Modify History 
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_DriversLicenseYear&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_DriversLicenseYear"</description>
         <externalId>false</externalId>
         <label>Driver License Year</label>
         <length>4</length>
@@ -4282,14 +4298,14 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DriversLicenseYear&
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: Whether the person has driver&apos;s license or not 
+Function: Whether the person has driver's license or not 
 Used in: Page Layouts, Reports 
 
 Modify History 
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_DriversLicenseFlag&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_DriversLicenseFlag"</description>
         <externalId>false</externalId>
         <label>Driver License</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -4311,7 +4327,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DriversLicenseFlag&
     <fields>
         <fullName>Dupe_Merge__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(ISNumber( DUP_Number__pc), NOT(Master_Record__c)),   HYPERLINK(&apos;/apex/AccountMerge?id=&apos; +  Id , &apos;Merge &apos; + DUP_Number__pc ), &apos;&apos; )</formula>
+        <formula>IF(AND(ISNumber( DUP_Number__pc), NOT(Master_Record__c)),   HYPERLINK('/apex/AccountMerge?id=' +  Id , 'Merge ' + DUP_Number__pc ), '' )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dupe Merge</label>
         <required>false</required>
@@ -4322,7 +4338,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_DriversLicenseFlag&
     <fields>
         <fullName>Dupe_Reject__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(ISNumber( DUP_Number__pc), NOT(Master_Record__c)), HYPERLINK(&apos;/apex/AccountMerge?id=&apos; + Id , &apos;Reject &apos; + DUP_Number__pc ), &apos;&apos; )</formula>
+        <formula>IF(AND(ISNumber( DUP_Number__pc), NOT(Master_Record__c)), HYPERLINK('/apex/AccountMerge?id=' + Id , 'Reject ' + DUP_Number__pc ), '' )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dupe Reject</label>
         <required>false</required>
@@ -4342,7 +4358,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_Education&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <externalId>false</externalId>
         <label>Education</label>
         <picklist>
@@ -4451,6 +4467,25 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Education&quot;</de
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Email_Status_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Email Status 2</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Bounce-Back</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Email_Status__c</fullName>
         <description>value will be delivered in general by external sources, but can be maintained manually as well</description>
         <externalId>false</externalId>
@@ -4462,10 +4497,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Education&quot;</de
             </picklistValues>
             <picklistValues>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4783,7 +4814,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_FaxValidity&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</description>
         <externalId>false</externalId>
         <label>Fax Validity</label>
         <picklist>
@@ -4994,7 +5025,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_FaxValidity&quot;</
     <fields>
         <fullName>GSSN_Brand_Code_Sub_B__c</fullName>
         <externalId>false</externalId>
-        <label>GSSN Brand Code Sub &quot;B&quot;</label>
+        <label>GSSN Brand Code Sub "B"</label>
         <length>35</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -5005,7 +5036,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_FaxValidity&quot;</
     <fields>
         <fullName>GSSN_Brand_Code_Sub_C_D__c</fullName>
         <externalId>false</externalId>
-        <label>GSSN Brand Code Sub &quot;C&quot;/ &quot;D&quot;</label>
+        <label>GSSN Brand Code Sub "C"/ "D"</label>
         <length>47</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -5036,7 +5067,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_Gender&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_Gender"</description>
         <externalId>false</externalId>
         <label>Gender</label>
         <picklist>
@@ -5278,7 +5309,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_BackgroundGov&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_BackgroundGov"</description>
         <externalId>false</externalId>
         <label>Gov Background</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -5288,7 +5319,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_BackgroundGov&quot;
     <fields>
         <fullName>Hobby__c</fullName>
         <description>Hobbies of the customer
-Attribute in Data Dictinary &quot;Pref_Details&quot; of object &quot;Preference&quot;</description>
+Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
         <externalId>false</externalId>
         <label>Hobby</label>
         <picklist>
@@ -5568,6 +5599,25 @@ Attribute in Data Dictinary &quot;Pref_Details&quot; of object &quot;Preference&
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Home_Phone_Status_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Home Phone Status 2</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Household_Amount__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -5579,7 +5629,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_HouseholdAmount&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_HouseholdAmount"</description>
         <externalId>false</externalId>
         <label>Household Amount</label>
         <precision>2</precision>
@@ -5695,7 +5745,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_IDType&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
         <externalId>false</externalId>
         <label>ID Type</label>
         <picklist>
@@ -5791,10 +5841,6 @@ Income</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -6663,6 +6709,21 @@ Modify Reason:
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Job_Title__c</fullName>
+        <externalId>false</externalId>
+        <label>Job Title</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Job Title</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Job__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -6674,7 +6735,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_JobTitle&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
         <externalId>false</externalId>
         <label>Job</label>
         <picklist>
@@ -6821,7 +6882,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_LatestSalesDealer&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_LatestSalesDealer"</description>
         <externalId>false</externalId>
         <label>Latest Sales Dealer</label>
         <lookupFilter>
@@ -6854,7 +6915,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDealer&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"</description>
         <externalId>false</externalId>
         <label>Latest Service Dealer</label>
         <lookupFilter>
@@ -7057,6 +7118,33 @@ Attribute in Data Dictionary object Contact is &quot;Contact_LatestAftersalesDea
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Mail_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Mail Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dead mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Opt out</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Main_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>/* 
@@ -7069,7 +7157,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_MainDealer&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description>
         <externalId>false</externalId>
         <label>Main Dealer</label>
         <lookupFilter>
@@ -7094,14 +7182,14 @@ Attribute in Data Dictionary object Contact is &quot;Contact_MainDealer&quot;</d
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: Customer&apos;s marital status 
+Function: Customer's marital status 
 Used in: Page Layouts, Reports 
 
 Modify History 
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_MaritalStatus&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_MaritalStatus"</description>
         <externalId>false</externalId>
         <label>Marital Status</label>
         <picklist>
@@ -7305,10 +7393,6 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <picklist>
             <picklistValues>
                 <fullName>Invalid Number</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -7637,14 +7721,14 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: The person&apos;s profession 
+Function: The person's profession 
 Used in: Page Layouts, Reports 
 
 Modify History 
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_Occupation&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_Occupation"</description>
         <externalId>false</externalId>
         <label>Occupation</label>
         <picklist>
@@ -7787,6 +7871,26 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Occupation&quot;</d
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Opt_in_All_Channels__c</fullName>
+        <externalId>false</externalId>
+        <formula>AND(Opt_In_Email__c, Opt_In_Home_Phone__c, Opt_In_Home_Phone2__c, Opt_In_SMS__c,
+Opt_In_Email2__c, Opt_In_Work_Phone__c,Opt_In_Work_Phone2__c, Opt_In_SMS2__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>*Opt in All Channels</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opt_in_at_least_One_Channel__c</fullName>
+        <externalId>false</externalId>
+        <formula>OR(Opt_In_Email__c, Opt_In_Home_Phone__c, Opt_In_Home_Phone2__c, Opt_In_SMS__c,
+Opt_In_Email2__c, Opt_In_Work_Phone__c,Opt_In_Work_Phone2__c, Opt_In_SMS2__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>*Opt in at least One Channel</label>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Orgnization_Instance_URL__c</fullName>
         <description>/* 
 Created by: Mouse Liu 
@@ -7800,7 +7904,7 @@ Modify By:
 Modify Reason: 
 */</description>
         <externalId>false</externalId>
-        <formula>LEFT($Api.Partner_Server_URL_260, FIND( &apos;/services&apos;, $Api.Partner_Server_URL_260))</formula>
+        <formula>LEFT($Api.Partner_Server_URL_260, FIND( '/services', $Api.Partner_Server_URL_260))</formula>
         <label>*Orgnization Instance URL</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -8286,7 +8390,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_StopPostal&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_StopPostal"</description>
         <externalId>false</externalId>
         <label>Postal Opt Out</label>
         <trackFeedHistory>false</trackFeedHistory>
@@ -8305,7 +8409,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_PreferredContactMethod&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_PreferredContactMethod"</description>
         <externalId>false</externalId>
         <label>Preferred Contact Method</label>
         <picklist>
@@ -8347,7 +8451,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_PreferredContactTime&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_PreferredContactTime"</description>
         <externalId>false</externalId>
         <label>Preferred Contact Time</label>
         <length>40</length>
@@ -8369,7 +8473,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_PreferredLanguage &quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</description>
         <externalId>false</externalId>
         <label>Preferred Language</label>
         <picklist>
@@ -8477,8 +8581,8 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Address is &quot;Address_Province&quot;
-Attribute in Data Dictionary object Dealer is &quot;Dealer_ProvinceEN&quot;</description>
+Attribute in Data Dictionary object Address is "Address_Province"
+Attribute in Data Dictionary object Dealer is "Dealer_ProvinceEN"</description>
         <externalId>false</externalId>
         <label>Province</label>
         <picklist>
@@ -8506,7 +8610,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ProvinceEN&quot;</des
     <fields>
         <fullName>R_Car_Owner_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status__c,&apos;Customer&apos;),1,0)</formula>
+        <formula>IF(ISPICKVAL(Status__c,'Customer'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Car Owner Amount</label>
         <precision>18</precision>
@@ -8519,9 +8623,9 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ProvinceEN&quot;</des
     <fields>
         <fullName>R_Check_Address__c</fullName>
         <externalId>false</externalId>
-        <formula>If ( Primary_Address__c  = &apos;&apos;,0,
+        <formula>If ( Primary_Address__c  = '',0,
 if(
-OR(ISPICKVAL( Primary_Address_Validity__c , &apos;valid&apos;),ISPICKVAL( Primary_Address_Validity__c , &apos;Unknown&apos;) ),1,0)
+OR(ISPICKVAL( Primary_Address_Validity__c , 'valid'),ISPICKVAL( Primary_Address_Validity__c , 'Unknown') ),1,0)
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Address</label>
@@ -8535,7 +8639,7 @@ OR(ISPICKVAL( Primary_Address_Validity__c , &apos;valid&apos;),ISPICKVAL( Primar
     <fields>
         <fullName>R_Check_Age__c</fullName>
         <externalId>false</externalId>
-        <formula>If(ISPICKVAL( Age_Range__c , &apos;&apos;),0,1)</formula>
+        <formula>If(ISPICKVAL( Age_Range__c , ''),0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Age</label>
         <precision>18</precision>
@@ -8548,9 +8652,9 @@ OR(ISPICKVAL( Primary_Address_Validity__c , &apos;valid&apos;),ISPICKVAL( Primar
     <fields>
         <fullName>R_Check_Email__c</fullName>
         <externalId>false</externalId>
-        <formula>If (Owner.Email = &apos;&apos;,0, 
+        <formula>If (Owner.Email = '',0, 
 if( 
-OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, &apos;Unknown&apos;) ),1,0)
+OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown') ),1,0)
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Email</label>
@@ -8564,7 +8668,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_Check_Gender__c</fullName>
         <externalId>false</externalId>
-        <formula>If(ISPICKVAL( Gender__c , &apos;&apos;),0,1)</formula>
+        <formula>If(ISPICKVAL( Gender__c , ''),0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Gender</label>
         <precision>18</precision>
@@ -8577,7 +8681,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_Check_Household_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>If (  Household_Amount__c  &gt; 10  , &apos;是&apos;,&apos;否&apos;)</formula>
+        <formula>If (  Household_Amount__c  &gt; 10  , '是','否')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Household Amount</label>
         <required>false</required>
@@ -8588,7 +8692,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_Check_Mobile__c</fullName>
         <externalId>false</externalId>
-        <formula>If ( PersonMobilePhone  &lt;&gt; &apos;&apos;  , 1,0)</formula>
+        <formula>If ( PersonMobilePhone  &lt;&gt; ''  , 1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Mobile</label>
         <precision>18</precision>
@@ -8601,7 +8705,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_Check_Phone__c</fullName>
         <externalId>false</externalId>
-        <formula>If ( Phone  &lt;&gt; &apos;&apos;  , 1,0)</formula>
+        <formula>If ( Phone  &lt;&gt; ''  , 1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Phone</label>
         <precision>18</precision>
@@ -8614,7 +8718,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_Confirmed_by_user__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(RecordType.Name == &apos;Person Account Soft Deleted&apos;,1,0)</formula>
+        <formula>IF(RecordType.Name == 'Person Account Soft Deleted',1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Confirmed by user</label>
         <precision>18</precision>
@@ -8627,7 +8731,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_DataSource__c</fullName>
         <externalId>false</externalId>
-        <formula>if(  AND(CreatedById=&apos;ep.user1&apos;,ISPICKVAL(Data_Source__c,&apos;&apos;)), &apos;DMS&apos;, &apos;Others&apos;)</formula>
+        <formula>if(  AND(CreatedById='ep.user1',ISPICKVAL(Data_Source__c,'')), 'DMS', 'Others')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>DataSource</label>
         <required>false</required>
@@ -8638,7 +8742,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_Datasource_Count__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Data_Source__c,&apos;&apos;),0,1)</formula>
+        <formula>IF(ISPICKVAL(Data_Source__c,''),0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Datasource Count</label>
         <precision>18</precision>
@@ -8651,7 +8755,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_Dealer_Account_Code__c</fullName>
         <externalId>false</externalId>
-        <formula>Name &amp; &quot; (&quot; &amp; Dealer_ND_Code__c &amp; &quot;)&quot;</formula>
+        <formula>Name &amp; " (" &amp; Dealer_ND_Code__c &amp; ")"</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dealer Account + Code</label>
         <required>false</required>
@@ -8688,7 +8792,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_Last_Successful_Call_Check__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( ISBLANK(Last_Successful_Call__c) , &apos;Unverified&apos;,&apos;Verified&apos;)</formula>
+        <formula>IF( ISBLANK(Last_Successful_Call__c) , 'Unverified','Verified')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Last Successful Call Check</label>
         <required>false</required>
@@ -8699,7 +8803,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_NO_HouseHold__c</fullName>
         <externalId>false</externalId>
-        <formula>if(Household_Amount__c  &gt; 9,&apos;Y&apos;,&apos;N&apos;)</formula>
+        <formula>if(Household_Amount__c  &gt; 9,'Y','N')</formula>
         <label>R_NO_HouseHold</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -8709,7 +8813,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_Prospects_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status__c ,&apos;Prospects&apos;),1,0)</formula>
+        <formula>IF(ISPICKVAL(Status__c ,'Prospects'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Prospects Amount</label>
         <precision>18</precision>
@@ -8722,7 +8826,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_Suspected_Volumn__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(RecordType.Name  == &apos;Person Account&apos;,1,0)</formula>
+        <formula>IF(RecordType.Name  == 'Person Account',1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Suspected Volumn</label>
         <precision>18</precision>
@@ -8735,7 +8839,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_Valid_Address_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Primary_Address_Validity__c,&apos;Valid&apos;),1,0)</formula>
+        <formula>IF(ISPICKVAL(Primary_Address_Validity__c,'Valid'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Valid Address Amount</label>
         <precision>18</precision>
@@ -8748,7 +8852,7 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
     <fields>
         <fullName>R_Valid_Email_Address_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL( Email_Validity__c ,&apos;Valid&apos;),1,0)</formula>
+        <formula>IF(ISPICKVAL( Email_Validity__c ,'Valid'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Valid Email Address Amount</label>
         <precision>18</precision>
@@ -9197,6 +9301,21 @@ OR(ISPICKVAL(Email_Validity__c, &apos;Valid&apos;),ISPICKVAL(Email_Validity__c, 
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>SMS_MMS_IM_Status_2__c</fullName>
+        <externalId>false</externalId>
+        <label>SMS / MMS / IM Status 2</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Invalid Number</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Second_Make__c</fullName>
@@ -9984,7 +10103,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_SpecialCare&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_SpecialCare"</description>
         <externalId>false</externalId>
         <label>Special Care</label>
         <length>100</length>
@@ -10095,7 +10214,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_CustomerStatus&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_CustomerStatus"</description>
         <externalId>false</externalId>
         <label>Status</label>
         <picklist>
@@ -10955,9 +11074,9 @@ Used in: Page Layouts, Reports
 
 Modify History: March 1st
 Modify By: Lio Huang
-Modify Reason: Changed the values between Title and salutation, also removed the prefix &quot;Contact_&quot;
+Modify Reason: Changed the values between Title and salutation, also removed the prefix "Contact_"
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_Salutation&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_Salutation"</description>
         <externalId>false</externalId>
         <label>Title</label>
         <picklist>
@@ -11082,7 +11201,7 @@ Attribute in Data Dictionary object Contact is &quot;Contact_Salutation&quot;</d
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Benz employee&apos;s lineal relative</fullName>
+                <fullName>Benz employee's lineal relative</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11354,7 +11473,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Contact is &quot;Contact_VehicleAmount&quot;</description>
+Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</description>
         <externalId>false</externalId>
         <label>Vehicle Amount</label>
         <precision>2</precision>
@@ -11522,6 +11641,25 @@ Attribute in Data Dictionary object Contact is &quot;Contact_VehicleAmount&quot;
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Work_Phone_Status_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Work Phone Status 2</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Work_Phone_Status__c</fullName>
         <description>value will be delivered in general by external sources, but can be maintained manually as well</description>
         <externalId>false</externalId>
@@ -11533,10 +11671,6 @@ Attribute in Data Dictionary object Contact is &quot;Contact_VehicleAmount&quot;
             </picklistValues>
             <picklistValues>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -11559,14 +11693,14 @@ Attribute in Data Dictionary object Contact is &quot;Contact_VehicleAmount&quot;
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
-Function: Zip Code (Post Code) of customer&apos;s address 
+Function: Zip Code (Post Code) of customer's address 
 Used in: Page Layouts, Reports 
 
 Modify History 
 Modify By: 
 Modify Reason: 
 */
-Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</description>
+Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <externalId>false</externalId>
         <label>ZipCode</label>
         <length>10</length>
@@ -13187,7 +13321,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <picklistValues>
             <picklist>Dealer_Operating_System__c</picklist>
             <values>
-                <fullName>tbd</fullName>
+                <fullName>Dealer Sockets</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13347,14 +13481,14 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <picklistValues>
             <picklist>Dealer_Trucks_Sales_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13521,7 +13655,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Email_Status__c</picklist>
+            <picklist>Email_Status_2__c</picklist>
             <values>
                 <fullName>Bounce-Back</fullName>
                 <default>false</default>
@@ -13530,8 +13664,15 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Email_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Bounce-Back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14165,6 +14306,17 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Home_Phone_Status_2__c</picklist>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ID_Type__c</picklist>
             <values>
                 <fullName>ID Card%2FDriving Card</fullName>
@@ -14230,10 +14382,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14559,6 +14707,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Job_Title__c</picklist>
+            <values>
+                <fullName>Job Title</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job__c</picklist>
             <values>
                 <fullName>Department manager</fullName>
@@ -14683,6 +14838,25 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Mail_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dead mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opt out</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14824,10 +14998,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid Number</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15514,6 +15684,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SMS_MMS_IM_Status_2__c</picklist>
+            <values>
+                <fullName>Invalid Number</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17204,7 +17381,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Work_Phone_Status__c</picklist>
+            <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Duplicate</fullName>
                 <default>false</default>
@@ -17213,8 +17390,15 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Work_Phone_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18493,7 +18677,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <picklistValues>
             <picklist>Dealer_Operating_System__c</picklist>
             <values>
-                <fullName>tbd</fullName>
+                <fullName>Dealer Sockets</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18653,14 +18837,14 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <picklistValues>
             <picklist>Dealer_Trucks_Sales_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18827,7 +19011,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Email_Status__c</picklist>
+            <picklist>Email_Status_2__c</picklist>
             <values>
                 <fullName>Bounce-Back</fullName>
                 <default>false</default>
@@ -18836,8 +19020,15 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Email_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Bounce-Back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19335,6 +19526,17 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Home_Phone_Status_2__c</picklist>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ID_Type__c</picklist>
             <values>
                 <fullName>ID Card%2FDriving Card</fullName>
@@ -19400,10 +19602,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19729,6 +19927,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Job_Title__c</picklist>
+            <values>
+                <fullName>Job Title</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job__c</picklist>
             <values>
                 <fullName>Department manager</fullName>
@@ -19853,6 +20058,25 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Mail_Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dead mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opt out</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19994,10 +20218,6 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid Number</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -20680,6 +20900,13 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
             <values>
                 <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SMS_MMS_IM_Status_2__c</picklist>
+            <values>
+                <fullName>Invalid Number</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22370,7 +22597,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Work_Phone_Status__c</picklist>
+            <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Duplicate</fullName>
                 <default>false</default>
@@ -22379,8 +22606,15 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Work_Phone_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22429,7 +22663,7 @@ Attribute in Data Dictionary object Dealer is &quot;Dealer_ZipCode&quot;</descri
         <fullName>Account_Status</fullName>
         <active>true</active>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPICKVAL(  Status__c , &apos;Customer&apos;)</errorConditionFormula>
+ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  Status__c , 'Customer')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>If customer has no vehicle relationship, Status must not be ‘Customer’.</errorMessage>
     </validationRules>
@@ -22440,7 +22674,7 @@ ISNEW() &amp;&amp; $Profile.Name != &apos;IntegrationAPI&apos; &amp;&amp;   ISPI
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
 OR(YEAR( TODAY() ) -YEAR( PersonBirthdate) &gt;150,PersonBirthdate &gt; TODAY()),
-$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>PersonBirthdate</errorDisplayField>
         <errorMessage>Birthdate is not allowed to be later than today or earlier than 150 years.</errorMessage>
     </validationRules>
@@ -22460,8 +22694,8 @@ Modify By:
 Modify Reason: 
 */</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-AND ($Profile.Name != &apos;IntegrationAPI&apos;,
-	RecordType.Name = &apos;Person Account&apos;,
+AND ($Profile.Name != 'IntegrationAPI',
+	RecordType.Name = 'Person Account',
 	Gov_Background__c = false,
 	
 	AND (
@@ -22470,7 +22704,7 @@ AND ($Profile.Name != &apos;IntegrationAPI&apos;,
 	)
 )</errorConditionFormula>
         <errorDisplayField>Gov_Background__c</errorDisplayField>
-        <errorMessage>If Gov Background is not flaged, Contact Background could&apos;t be filled.</errorMessage>
+        <errorMessage>If Gov Background is not flaged, Contact Background could't be filled.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>CP_Customer_Phone_Check</fullName>
@@ -22504,8 +22738,8 @@ OR (
 ISNULL(PersonMobilePhone), 
 ISBLANK(PersonMobilePhone) 
 ), 
-$Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;, 
-RecordType.DeveloperName = &apos;PersonAccount&apos;
+$Profile.Name &lt;&gt; 'IntegrationAPI', 
+RecordType.DeveloperName = 'PersonAccount'
 ),
 AND ( 
 OR ( 
@@ -22524,8 +22758,8 @@ OR (
 ISNULL(Retail_Work_Phone__c), 
 ISBLANK(Retail_Work_Phone__c) 
 ), 
-$Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;, 
-RecordType.DeveloperName = &apos;ThirdParty&apos; 
+$Profile.Name &lt;&gt; 'IntegrationAPI', 
+RecordType.DeveloperName = 'ThirdParty' 
 )
 )</errorConditionFormula>
         <errorMessage>Customer must have at least one phone field populated.</errorMessage>
@@ -22536,19 +22770,19 @@ RecordType.DeveloperName = &apos;ThirdParty&apos;
         <description>HLD Dealer 004</description>
         <errorConditionFormula>AND(
 ISCHANGED(Dealer_Group__c),
-$Profile.Name != &apos;IntegrationAPI&apos;,
+$Profile.Name != 'IntegrationAPI',
 NOT(Dealer_Active__c)
 )</errorConditionFormula>
-        <errorMessage>You couldn&apos;t update Dealer Group when Dealer is inactive.</errorMessage>
+        <errorMessage>You couldn't update Dealer Group when Dealer is inactive.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Dealer_Name_Read_only</fullName>
         <active>true</active>
-        <description>It&apos;s not allowed to change dealer name.</description>
+        <description>It's not allowed to change dealer name.</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-AND(RecordType.DeveloperName = &apos;Dealer&apos;, ISCHANGED(Name), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+AND(RecordType.DeveloperName = 'Dealer', ISCHANGED(Name), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Name</errorDisplayField>
-        <errorMessage>It&apos;s not allowed to change dealer name.</errorMessage>
+        <errorMessage>It's not allowed to change dealer name.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Digits_Validation_For_Extension_Number</fullName>
@@ -22585,21 +22819,21 @@ NOT( ISBLANK(Retail_Work_Phone__c) ) )</errorConditionFormula>
     <validationRules>
         <fullName>Driver_License_Year</fullName>
         <active>true</active>
-        <description>The driver&apos;s license year is not in correct format</description>
+        <description>The driver's license year is not in correct format</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
 OR(
 AND(
-NOT(REGEX( Driver_License_Year__c , &quot;[0-9]{4}&quot;)),
+NOT(REGEX( Driver_License_Year__c , "[0-9]{4}")),
 NOT( ISBLANK(Driver_License_Year__c ) )
 ),
-AND(REGEX( Driver_License_Year__c , &quot;[0-9]{4}&quot;), 
+AND(REGEX( Driver_License_Year__c , "[0-9]{4}"), 
 DATE(VALUE(Driver_License_Year__c), 1, 1) &gt; TODAY()  )
 ),
-$Profile.Name != &apos;IntegrationAPI&apos;
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Driver_License_Year__c</errorDisplayField>
-        <errorMessage>The driver&apos;s license year is not in correct format</errorMessage>
+        <errorMessage>The driver's license year is not in correct format</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Fax_Validation</fullName>
@@ -22615,8 +22849,8 @@ NOT( ISBLANK(Retail_Fax__c) ) )</errorConditionFormula>
         <description>Email Validation on customer record .</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
-OR( CONTAINS(PersonEmail , &apos;?&apos;), CONTAINS(PersonEmail , &apos; &apos;), CONTAINS(PersonEmail , &apos;^&apos;), CONTAINS(PersonEmail , &apos;%&apos;), CONTAINS(PersonEmail , &apos;$&apos;), RIGHT(PersonEmail , 1)=&apos;.&apos;, BEGINS(PersonEmail , &apos;.&apos;) , CONTAINS(PersonEmail , &apos;@.&apos;), CONTAINS(PersonEmail , &apos;.@&apos;), CONTAINS(PersonEmail , &apos;..&apos;), NOT(CONTAINS(PersonEmail , &apos;.&apos;)), NOT(CONTAINS(PersonEmail , &apos;@&apos;)), CONTAINS( RIGHT( PersonEmail , LEN(PersonEmail) - FIND(&apos;@&apos;, PersonEmail )), &apos;@&apos;) , LEFT( RIGHT( PersonEmail , 2), 1)=&apos;.&apos;),
-$Profile.Name != &apos;IntegrationAPI&apos;
+OR( CONTAINS(PersonEmail , '?'), CONTAINS(PersonEmail , ' '), CONTAINS(PersonEmail , '^'), CONTAINS(PersonEmail , '%'), CONTAINS(PersonEmail , '$'), RIGHT(PersonEmail , 1)='.', BEGINS(PersonEmail , '.') , CONTAINS(PersonEmail , '@.'), CONTAINS(PersonEmail , '.@'), CONTAINS(PersonEmail , '..'), NOT(CONTAINS(PersonEmail , '.')), NOT(CONTAINS(PersonEmail , '@')), CONTAINS( RIGHT( PersonEmail , LEN(PersonEmail) - FIND('@', PersonEmail )), '@') , LEFT( RIGHT( PersonEmail , 2), 1)='.'),
+$Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>PersonEmail</errorDisplayField>
         <errorMessage>Invalid Email Address</errorMessage>
@@ -22628,8 +22862,8 @@ $Profile.Name != &apos;IntegrationAPI&apos;
         <errorConditionFormula>AND(
 OR(ISCHANGED(ZipCode__c ), ISNEW()),
 NOT( ISBLANK(ZipCode__c ) ),
-NOT(REGEX( ZipCode__c , &quot;[0-9]{6}&quot;)),
-$Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;
+NOT(REGEX( ZipCode__c , "[0-9]{6}")),
+$Profile.Name &lt;&gt; 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>Zip is not 6 digits long</errorMessage>
@@ -22637,7 +22871,7 @@ $Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;
     <validationRules>
         <fullName>PersonHomePhone</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(OR(ISCHANGED(PersonHomePhone), ISNEW()),NOT(ISBLANK(PersonHomePhone)),RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;,OR( NOT(ISNUMBER(PersonHomePhone))), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(OR(ISCHANGED(PersonHomePhone), ISNEW()),NOT(ISBLANK(PersonHomePhone)),RecordType.DeveloperName &lt;&gt; 'Dealer',OR( NOT(ISNUMBER(PersonHomePhone))), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>PersonHomePhone</errorDisplayField>
         <errorMessage>Phone number must contain digits only.</errorMessage>
     </validationRules>
@@ -22647,16 +22881,16 @@ $Profile.Name &lt;&gt; &apos;IntegrationAPI&apos;
         <errorConditionFormula>AND( 
 OR(ISCHANGED(PersonMobilePhone), ISNEW()),
 NOT(ISBLANK(PersonMobilePhone)), 
-RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;, 
+RecordType.DeveloperName &lt;&gt; 'Dealer', 
 OR( NOT(ISNUMBER(PersonMobilePhone)), NOT(LEN(PersonMobilePhone)  &lt;=  15), NOT(LEN(PersonMobilePhone)&gt;= 10)), 
-$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>PersonMobilePhone</errorDisplayField>
         <errorMessage>Mobile phone number must be digits, and it cannot exceed 15 digits and cannot be less than 10 digits.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Phone</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(OR(ISCHANGED(Phone), ISNEW()),NOT(ISBLANK(Phone)),RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;,OR( NOT(ISNUMBER(Phone))),$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+        <errorConditionFormula>AND(OR(ISCHANGED(Phone), ISNEW()),NOT(ISBLANK(Phone)),RecordType.DeveloperName &lt;&gt; 'Dealer',OR( NOT(ISNUMBER(Phone))),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>Phone</errorDisplayField>
         <errorMessage>Phone number must contain digits only.</errorMessage>
     </validationRules>
@@ -22664,11 +22898,11 @@ $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <fullName>Preferred_contact_method_Changed</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
-  NOT(ISPICKVAL(Preferred_Contact_Method__c, &apos;Phone&apos;) ) ,
-  NOT(ISPICKVAL(Preferred_Phone__c, &apos;&apos;) ) ,
+  NOT(ISPICKVAL(Preferred_Contact_Method__c, 'Phone') ) ,
+  NOT(ISPICKVAL(Preferred_Phone__c, '') ) ,
   NOT(AND(
-      ISPICKVAL(PRIORVALUE( Preferred_Contact_Method__c ),&apos;Phone&apos;),
-      NOT(ISPICKVAL(Preferred_Contact_Method__c, &apos;Phone&apos;)) 
+      ISPICKVAL(PRIORVALUE( Preferred_Contact_Method__c ),'Phone'),
+      NOT(ISPICKVAL(Preferred_Contact_Method__c, 'Phone')) 
       ))
 )</errorConditionFormula>
         <errorDisplayField>Preferred_Phone__c</errorDisplayField>
@@ -22680,9 +22914,9 @@ $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <errorConditionFormula>AND( 
 OR(ISCHANGED(PersonOtherPhone), ISNEW()),
 NOT(ISBLANK(PersonOtherPhone)), 
-RecordType.DeveloperName &lt;&gt; &apos;Dealer&apos;, 
+RecordType.DeveloperName &lt;&gt; 'Dealer', 
 OR( NOT(ISNUMBER(PersonOtherPhone)), NOT(LEN(PersonOtherPhone) &lt;=  15), NOT(LEN(PersonOtherPhone)&gt;= 10)), 
-$Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>PersonOtherPhone</errorDisplayField>
         <errorMessage>Phone number must be digits, and it cannot exceed 15 digits and cannot be less than 10 digits.</errorMessage>
     </validationRules>
@@ -22692,7 +22926,7 @@ $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
         <description>If ID Type is ‘ID card/Driving Card’, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
-IF( ISPICKVAL( ID_Type__c, &apos;ID card/Driving Card&apos;), OR( ISNULL(ID_Number__c), NOT(OR(LEN(ID_Number__c) = 15, LEN(ID_Number__c) = 18)), NOT(REGEX( ID_Number__c, &quot;^[A-Za-z0-9]+$&quot;))), FALSE), $Profile.Name != &apos;IntegrationAPI&apos;)</errorConditionFormula>
+IF( ISPICKVAL( ID_Type__c, 'ID card/Driving Card'), OR( ISNULL(ID_Number__c), NOT(OR(LEN(ID_Number__c) = 15, LEN(ID_Number__c) = 18)), NOT(REGEX( ID_Number__c, "^[A-Za-z0-9]+$"))), FALSE), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>ID_Number__c</errorDisplayField>
         <errorMessage>If ID Type is ‘ID card/Driving Card’, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</errorMessage>
     </validationRules>
@@ -22700,34 +22934,34 @@ IF( ISPICKVAL( ID_Type__c, &apos;ID card/Driving Card&apos;), OR( ISNULL(ID_Numb
         <fullName>URL_format_validation</fullName>
         <active>true</active>
         <description>Ensures the URL entered is in format www.*.*</description>
-        <errorConditionFormula>OR(RIGHT(Website,1) = &quot;.&quot;, LEFT(Website,1) = &quot;.&quot;)</errorConditionFormula>
+        <errorConditionFormula>OR(RIGHT(Website,1) = ".", LEFT(Website,1) = ".")</errorConditionFormula>
         <errorDisplayField>Website</errorDisplayField>
-        <errorMessage>Please ensure there is text before and after the &apos;.&apos;</errorMessage>
+        <errorMessage>Please ensure there is text before and after the '.'</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Validation_on_Salutation_and_Gender</fullName>
         <active>true</active>
         <description>As a CAC user, I want system to pop up error message automatically, if Gender is set to Female when Salutation is Mr. or , if Gender is set to Male when Salutation is Mrs.</description>
         <errorConditionFormula>AND(
-$Profile.Name != &apos;IntegrationAPI&apos;,
-RecordType.Name == &apos;Person Account&apos;,
+$Profile.Name != 'IntegrationAPI',
+RecordType.Name == 'Person Account',
 OR(
 AND(ISNEW(),
 OR
-(AND(ISPICKVAL( Salutation, &apos;Mr.&apos;),
-ISPICKVAL(  Gender__c , &apos;Female&apos;)),
-AND(ISPICKVAL( Salutation, &apos;Mrs.&apos;),
-ISPICKVAL(  Gender__c , &apos;Male&apos;))
+(AND(ISPICKVAL( Salutation, 'Mr.'),
+ISPICKVAL(  Gender__c , 'Female')),
+AND(ISPICKVAL( Salutation, 'Mrs.'),
+ISPICKVAL(  Gender__c , 'Male'))
 )
 ),
 AND(
 OR(ISCHANGED(Salutation), 
 ISCHANGED(Gender__c)),
 OR(
-AND(ISPICKVAL( Salutation, &apos;Mr.&apos;),
-ISPICKVAL(  Gender__c , &apos;Female&apos;)),
-AND(ISPICKVAL( Salutation, &apos;Mrs.&apos;),
-ISPICKVAL(  Gender__c , &apos;Male&apos;))
+AND(ISPICKVAL( Salutation, 'Mr.'),
+ISPICKVAL(  Gender__c , 'Female')),
+AND(ISPICKVAL( Salutation, 'Mrs.'),
+ISPICKVAL(  Gender__c , 'Male'))
 )
 )
 )
@@ -22781,17 +23015,17 @@ ISPICKVAL(  Gender__c , &apos;Male&apos;))
         <masterLabel>Car Model Comparison</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)}
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
 
 if (sforce.console.isInConsole()) {
 	javascript:sforce.console.getEnclosingPrimaryTabId(function openSubtab(res) {
-            sforce.console.openSubtab(res.id, &apos;/apex/CarModelComparison?retURL=/{!Account.Id}&amp;tabId=&apos; + res.id, 
-true, &apos;Car Model Comparison&apos;);
+            sforce.console.openSubtab(res.id, '/apex/CarModelComparison?retURL=/{!Account.Id}&amp;tabId=' + res.id, 
+true, 'Car Model Comparison');
 	});
 }
 else {
-    window.open(&quot;/apex/CarModelComparison?retURL=/{!Account.Id}&quot;, &quot;&quot;, &quot;width = 800, height = 600&quot;);
+    window.open("/apex/CarModelComparison?retURL=/{!Account.Id}", "", "width = 800, height = 600");
 }</url>
     </webLinks>
     <webLinks>
@@ -22802,21 +23036,21 @@ else {
         <masterLabel>DM</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 if (sforce.console.isInConsole()) { 
 javascript: 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
 sforce.console.openSubtab(tabid , 
-&apos;/apex/DMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}&amp;tabId=&apos;+tabid, 
-true, &apos;DM&apos;); 
+'/apex/DMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}&amp;tabId='+tabid, 
+true, 'DM'); 
  }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 
 } 
 else { 
-window.open(&quot;/apex/DMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}&quot;, &quot;&quot;, &quot;width = 800,height = 600&quot;); 
+window.open("/apex/DMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
 }</url>
     </webLinks>
     <webLinks>
@@ -22916,25 +23150,25 @@ window.open(&quot;/apex/DMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Acc
         <masterLabel>MMS</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/29.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)} 
-if(&quot;{!Account.SMSOptOut__pc}&quot; != &apos;1&apos;){
+        <url>{!REQUIRESCRIPT("/support/console/29.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")} 
+if("{!Account.SMSOptOut__pc}" != '1'){
     if (sforce.console.isInConsole()) { 
     var showTabId = function showTabId(result) { 
     var tabid = result.id;
     sforce.console.openSubtab(tabid, 
-    &apos;/apex/SMSSendResult?accountId={!Account.Id}&amp;type=mms&amp;retURL={!Account.Id}&amp;tabId=&apos;+tabid, 
-    true, &apos;MMS&apos;);
+    '/apex/SMSSendResult?accountId={!Account.Id}&amp;type=mms&amp;retURL={!Account.Id}&amp;tabId='+tabid, 
+    true, 'MMS');
     }; 
     sforce.console.getEnclosingPrimaryTabId(showTabId); 
     } 
     else { 
-    window.open(&quot;/apex/SMSSendResult?accountId={!Account.Id}&amp;type=mms&amp;retURL={!Account.Id}&quot;, 
-    &quot;&quot;, &quot;fullscreen=no, height=550px, width=900px, top=100, left=200, scrollbars=1&quot;); 
+    window.open("/apex/SMSSendResult?accountId={!Account.Id}&amp;type=mms&amp;retURL={!Account.Id}", 
+    "", "fullscreen=no, height=550px, width=900px, top=100, left=200, scrollbars=1"); 
     }
 }else{
-    //The customer is SMS Opt Out, you can&apos;t SMS to this customer.
-    alert(&quot;{!$Label.Task_SMS_Send_JS_ErrorMsg2}&quot;);
+    //The customer is SMS Opt Out, you can't SMS to this customer.
+    alert("{!$Label.Task_SMS_Send_JS_ErrorMsg2}");
 }</url>
     </webLinks>
     <webLinks>
@@ -22945,21 +23179,21 @@ if(&quot;{!Account.SMSOptOut__pc}&quot; != &apos;1&apos;){
         <masterLabel>Verify Duplicate</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)}
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
 
 if (sforce.console.isInConsole()) {
 	javascript:sforce.console.getEnclosingPrimaryTabId(
 		function openSubTab(result) {
 			sforce.console.openSubtab(result.id, 
-				&apos;/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}&apos;, 
-				true, &apos;Account Merge&apos;);
+				'/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}', 
+				true, 'Account Merge');
 		}
 	)
 }
 else {
-	window.open(&quot;/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}&quot;, &quot;&quot;, 
-		&quot;width = 800, height = 600&quot;);
+	window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "", 
+		"width = 800, height = 600");
 }</url>
     </webLinks>
     <webLinks>
@@ -22970,25 +23204,25 @@ else {
         <masterLabel>SMS</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
-if(&quot;{!Account.SMSOptOut__pc}&quot; != &apos;1&apos;){
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+if("{!Account.SMSOptOut__pc}" != '1'){
     if (sforce.console.isInConsole()) { 
     var showTabId = function showTabId(result) { 
     var tabid = result.id;
     sforce.console.openSubtab(tabid, 
-    &apos;/apex/SMSSendResult?accountId={!Account.Id}&amp;type=sms&amp;retURL={!Account.Id}&amp;tabId=&apos;+tabid, 
-    true, &apos;SMS&apos;);
+    '/apex/SMSSendResult?accountId={!Account.Id}&amp;type=sms&amp;retURL={!Account.Id}&amp;tabId='+tabid, 
+    true, 'SMS');
     }; 
     sforce.console.getEnclosingPrimaryTabId(showTabId); 
     } 
     else { 
-    window.open(&quot;/apex/SMSSendResult?accountId={!Account.Id}&amp;type=sms&amp;retURL={!Account.Id}&quot;, 
-    &quot;&quot;, &quot;height=550px, width=900px, top=100, left=200&quot;); 
+    window.open("/apex/SMSSendResult?accountId={!Account.Id}&amp;type=sms&amp;retURL={!Account.Id}", 
+    "", "height=550px, width=900px, top=100, left=200"); 
     }
 }else{
-    //The customer is SMS Opt Out, you can&apos;t SMS to this customer.
-    alert(&quot;{!$Label.Task_SMS_Send_JS_ErrorMsg2}&quot;);
+    //The customer is SMS Opt Out, you can't SMS to this customer.
+    alert("{!$Label.Task_SMS_Send_JS_ErrorMsg2}");
 }</url>
     </webLinks>
     <webLinks>
@@ -22999,13 +23233,13 @@ if(&quot;{!Account.SMSOptOut__pc}&quot; != &apos;1&apos;){
         <masterLabel>Search Dealers</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)}
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
 if (sforce.console.isInConsole()) {
-     javascript:sforce.console.openPrimaryTab(null, &apos;/apex/DealerSearch?Id={!Account.Id}&apos;, true, &apos;Dealer Search&apos;);
+     javascript:sforce.console.openPrimaryTab(null, '/apex/DealerSearch?Id={!Account.Id}', true, 'Dealer Search');
 }
 else {
-    window.open(&quot;/apex/DealerSearch?Id={!Account.Id}&quot;,&quot;&quot;, &quot;width = 800, height = 600&quot;);
+    window.open("/apex/DealerSearch?Id={!Account.Id}","", "width = 800, height = 600");
 }</url>
     </webLinks>
     <webLinks>
@@ -23016,16 +23250,16 @@ else {
         <masterLabel>Test</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)}
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 
 if (sforce.console.isInConsole()) {
  javascript:
    var showTabId = function showTabId(result) {
-       //alert(&quot;{!Account.Id}&quot;);
-       //window.open(&quot;{!Account.Id}&quot;, &quot;&quot;, &quot;width=800,height=600&quot;);
-       sforce.console.openSubtab(result.id, &apos;/a0P9000000B0ht3?tabId=&apos;+result.id, 
-                                                          true, &apos;Test&apos;);
+       //alert("{!Account.Id}");
+       //window.open("{!Account.Id}", "", "width=800,height=600");
+       sforce.console.openSubtab(result.id, '/a0P9000000B0ht3?tabId='+result.id, 
+                                                          true, 'Test');
    }
    sforce.console.getEnclosingPrimaryTabId(showTabId); 
 }</url>
@@ -23057,21 +23291,21 @@ if (sforce.console.isInConsole()) {
         <masterLabel>eDM</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/27.0/apex.js&quot;)} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 if (sforce.console.isInConsole()) { 
 javascript: 
 var showTabId = function showTabId(result) { 
 var tabid = result.id; 
 sforce.console.openSubtab(tabid , 
-&apos;/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}&amp;tabId=&apos;+tabid, 
-true, &apos;eDM&apos;); 
+'/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}&amp;tabId='+tabid, 
+true, 'eDM'); 
  }; 
 sforce.console.getEnclosingPrimaryTabId(showTabId); 
 
 } 
 else { 
-window.open(&quot;/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}&quot;, &quot;&quot;, &quot;width = 800,height = 600&quot;); 
+window.open("/apex/eDMSendResult?accountId={!Account.Id}&amp;retURL=%2f{!Account.Id}", "", "width = 800,height = 600"); 
 }</url>
     </webLinks>
 </CustomObject>

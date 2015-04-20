@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>CancelEdit</actionName>
@@ -1116,7 +1116,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Wrong Number (Not the person&apos;s phone number within the address book)</fullName>
+                <fullName>Wrong Number (Not the person's phone number within the address book)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1226,7 +1226,7 @@
     <fields>
         <fullName>Adhoc_eDM_Template_ID__c</fullName>
         <externalId>false</externalId>
-        <formula>If(Car_Series__c !=null, CASE(eDM_Type__c, &quot;Brochure&quot;, &quot;1096&quot;, &quot;Price List&quot;, &quot;1097&quot;, &quot;Brochure+Price List&quot;, &quot;1098&quot;, &quot;&quot;), &quot;&quot;)</formula>
+        <formula>If(Car_Series__c !=null, CASE(eDM_Type__c, "Brochure", "1096", "Price List", "1097", "Brochure+Price List", "1098", ""), "")</formula>
         <label>Adhoc eDM Template ID</label>
         <required>false</required>
         <type>Text</type>
@@ -1236,7 +1236,7 @@
         <fullName>Assignment_Status__c</fullName>
         <description>This field is created for display assignment status automatically.</description>
         <externalId>false</externalId>
-        <formula>IF(Owner:User.Profile.Name=&quot;CAC OB SV&quot;, &quot;Unassigned&quot;, IF(ISPICKVAL( Status , &quot;Closed&quot;), &quot;Finished&quot;,IF(ISPICKVAL( Status , &quot;Open&quot;), &quot;Executing&quot;,&quot;&quot;)))</formula>
+        <formula>IF(Owner:User.Profile.Name="CAC OB SV", "Unassigned", IF(ISPICKVAL( Status , "Closed"), "Finished",IF(ISPICKVAL( Status , "Open"), "Executing","")))</formula>
         <label>Assignment Status</label>
         <required>false</required>
         <type>Text</type>
@@ -1469,7 +1469,7 @@
     <fields>
         <fullName>More_Than_2_OB_Times__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( OB_Call_Times__c &gt;=3, IMAGE( &quot;/img/samples/flag_red.gif&quot;,&quot;&quot;), &quot;&quot;)</formula>
+        <formula>IF( OB_Call_Times__c &gt;=3, IMAGE( "/img/samples/flag_red.gif",""), "")</formula>
         <label>More Than 2 OB Times</label>
         <required>false</required>
         <type>Text</type>
@@ -1657,7 +1657,7 @@
     <fields>
         <fullName>QC_Link__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR( ISBLANK( QC_ID__c ),  ISNULL(QC_ID__c)), &apos;&apos;, HYPERLINK(&quot;/&quot;+ QC_ID__c , &quot;View QC&quot;) )</formula>
+        <formula>IF(OR( ISBLANK( QC_ID__c ),  ISNULL(QC_ID__c)), '', HYPERLINK("/"+ QC_ID__c , "View QC") )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>QC Link</label>
         <required>false</required>
@@ -1677,12 +1677,12 @@
     <fields>
         <fullName>R_Called_Type__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(Called__c == &apos;4008108880&apos;, 
-&apos;BBAC&apos;,
-IF (Called__c == &apos;4008181188&apos;,
-&apos;Central&apos;,
-IF (Called__c == &apos;4008110000&apos;,
-&apos;Smart&apos;,&apos;&apos;)
+        <formula>IF(Called__c == '4008108880', 
+'BBAC',
+IF (Called__c == '4008181188',
+'Central',
+IF (Called__c == '4008110000',
+'Smart','')
 )
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
@@ -1694,7 +1694,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_Check_Activity_Status__c</fullName>
         <externalId>false</externalId>
-        <formula>if( ISPICKVAL( Status__c ,&apos;Valid&apos;),&apos;否&apos;,&apos;是&apos;)</formula>
+        <formula>if( ISPICKVAL( Status__c ,'Valid'),'否','是')</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Activity Status</label>
         <required>false</required>
@@ -1704,7 +1704,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_Check_IB_enquiries__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(Id &lt;&gt;&apos;&apos;, Task_RecordType_Name__c==&apos;IB Call&apos;) ,1,0)</formula>
+        <formula>IF(AND(Id &lt;&gt;'', Task_RecordType_Name__c=='IB Call') ,1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check IB enquiries</label>
         <precision>18</precision>
@@ -1716,7 +1716,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_Check_Status__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status,&apos;&apos;),0,1)</formula>
+        <formula>IF(ISPICKVAL(Status,''),0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Check Status</label>
         <precision>18</precision>
@@ -1740,7 +1740,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_Completed_task_number__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status,&apos;Closed&apos;),1,0)</formula>
+        <formula>IF(ISPICKVAL(Status,'Closed'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Completed task number</label>
         <precision>18</precision>
@@ -1752,7 +1752,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_Has_Activity__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(AND(Id &lt;&gt;&apos;&apos;, Task_RecordType_Name__c==&apos;OB Call&apos;) ,1,0)</formula>
+        <formula>IF(AND(Id &lt;&gt;'', Task_RecordType_Name__c=='OB Call') ,1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Has Activity</label>
         <precision>18</precision>
@@ -1763,9 +1763,9 @@ IF (Called__c == &apos;4008110000&apos;,
     </fields>
     <fields>
         <fullName>R_IsAssigned__c</fullName>
-        <description>to calculate unassigned tasks, if a task is assigned to &apos;CAC OB SV&apos; it is unassigned task.</description>
+        <description>to calculate unassigned tasks, if a task is assigned to 'CAC OB SV' it is unassigned task.</description>
         <externalId>false</externalId>
-        <formula>if(Owner:User.User_Role__c == &apos;CAC OB SV&apos;,1,0)</formula>
+        <formula>if(Owner:User.User_Role__c == 'CAC OB SV',1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>IsAssigned</label>
         <precision>18</precision>
@@ -1777,7 +1777,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_IsCallSuccess__c</fullName>
         <externalId>false</externalId>
-        <formula>if( ISPICKVAL(Activity_Status__c,&apos;Successful&apos;),1,0)</formula>
+        <formula>if( ISPICKVAL(Activity_Status__c,'Successful'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>IsCallSuccess</label>
         <precision>18</precision>
@@ -1789,7 +1789,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_MB_Hotline__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(Called__c == &apos;4008181188&apos;, 1,0)</formula>
+        <formula>IF(Called__c == '4008181188', 1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>MB Hotline</label>
         <precision>18</precision>
@@ -1801,7 +1801,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_OB_task_initial_number_new__c</fullName>
         <externalId>false</externalId>
-        <formula>if(ISPICKVAL(Status,&apos;Open&apos;),1,0)</formula>
+        <formula>if(ISPICKVAL(Status,'Open'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>OB task initial number</label>
         <precision>18</precision>
@@ -1825,7 +1825,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_Outbound_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status,&apos;Closed&apos;),1,0)</formula>
+        <formula>IF(ISPICKVAL(Status,'Closed'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Outbound Amount</label>
         <precision>18</precision>
@@ -1837,7 +1837,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_Resolved_Case_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Result__c,&apos;&apos;),0,1)</formula>
+        <formula>IF(ISPICKVAL(Result__c,''),0,1)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Resolved Case Amount</label>
         <precision>18</precision>
@@ -1849,7 +1849,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_Result__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( ISPICKVAL( Result__c , &apos;Resolved&apos;),1,0)</formula>
+        <formula>IF( ISPICKVAL( Result__c , 'Resolved'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Result</label>
         <precision>18</precision>
@@ -1861,7 +1861,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_Smart_Hotline__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(Called__c == &apos;4008110000&apos;, 1,0)</formula>
+        <formula>IF(Called__c == '4008110000', 1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Smart Hotline</label>
         <precision>18</precision>
@@ -1873,7 +1873,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_Successful_Case_Amount__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status, &apos;Successful&apos;),1,0)</formula>
+        <formula>IF(ISPICKVAL(Status, 'Successful'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Successful Case Amount</label>
         <precision>18</precision>
@@ -1885,7 +1885,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_Successful_OB_Call__c</fullName>
         <externalId>false</externalId>
-        <formula>If( AND(Task_RecordType_Name__c==&apos;OB Call&apos;,ISPICKVAL(Activity_Status__c,&apos;Successful&apos;)),1,0)</formula>
+        <formula>If( AND(Task_RecordType_Name__c=='OB Call',ISPICKVAL(Activity_Status__c,'Successful')),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Successful OB Call</label>
         <precision>18</precision>
@@ -1897,7 +1897,7 @@ IF (Called__c == &apos;4008110000&apos;,
     <fields>
         <fullName>R_isSuccessOBCall__c</fullName>
         <externalId>false</externalId>
-        <formula>if(AND(ISPICKVAL(Activity_Status__c,&apos;Successful&apos;),RecordType.Name = &apos;OB Call&apos;),1,0)</formula>
+        <formula>if(AND(ISPICKVAL(Activity_Status__c,'Successful'),RecordType.Name = 'OB Call'),1,0)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>isSuccessOBCall</label>
         <precision>18</precision>
@@ -2057,7 +2057,7 @@ noted by Lio on 10.28.2013</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Wrong Number (Not the person&apos;s phone number within the address book)</fullName>
+                <fullName>Wrong Number (Not the person's phone number within the address book)</fullName>
                 <controllingFieldValues>Solved</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -2202,7 +2202,7 @@ noted by Lio on 10.28.2013</description>
     <fields>
         <fullName>Survey_Result_Link__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR( ISBLANK( Survey_Result_Id__c ), ISNULL(Survey_Result_Id__c)), &apos;&apos;, HYPERLINK(&quot;/&quot;+ Survey_Result_Id__c , &apos;View Survey Result&apos;) )</formula>
+        <formula>IF(OR( ISBLANK( Survey_Result_Id__c ), ISNULL(Survey_Result_Id__c)), '', HYPERLINK("/"+ Survey_Result_Id__c , 'View Survey Result') )</formula>
         <label>Survey Result Link</label>
         <required>false</required>
         <type>Text</type>
@@ -2307,7 +2307,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <fullName>eDM_Template_ID__c</fullName>
         <description>This ID is used for EP Interface.</description>
         <externalId>false</externalId>
-        <formula>Case(eDM_Type__c, &quot;Brochure&quot;, &quot;1096&quot;, &quot;Price List&quot;, &quot;1097&quot;, &quot;Brochure+Price List&quot;, &quot;1098&quot;, &quot;Error&quot;)</formula>
+        <formula>Case(eDM_Type__c, "Brochure", "1096", "Price List", "1097", "Brochure+Price List", "1098", "Error")</formula>
         <label>eDM Template ID</label>
         <required>false</required>
         <type>Text</type>
@@ -2487,7 +2487,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
     <listViews>
         <fullName>MyTeamsActivities</fullName>
         <filterScope>Team</filterScope>
-        <label>My Team&apos;s Activities</label>
+        <label>My Team's Activities</label>
     </listViews>
     <listViews>
         <fullName>My_Call_Being_QC</fullName>
@@ -2830,7 +2830,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <operation>lessThan</operation>
             <value>TOMORROW</value>
         </filters>
-        <label>Today&apos;s Tasks</label>
+        <label>Today's Tasks</label>
     </listViews>
     <listViews>
         <fullName>UpcomingEvents</fullName>
@@ -2868,7 +2868,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <operation>equals</operation>
             <value>THIS_MONTH</value>
         </filters>
-        <label>My Team&apos;s Welcome Call Task</label>
+        <label>My Team's Welcome Call Task</label>
         <language>en_US</language>
         <sharedTo>
             <role>OB_QC</role>
@@ -2876,8 +2876,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </sharedTo>
     </listViews>
     <searchLayouts>
-        <excludedStandardButtons>NewEvent</excludedStandardButtons>
         <excludedStandardButtons>NewTask</excludedStandardButtons>
+        <excludedStandardButtons>NewEvent</excludedStandardButtons>
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>
