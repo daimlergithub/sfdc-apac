@@ -8337,22 +8337,6 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Case_Sub_Type__c</fullName>
-        <externalId>false</externalId>
-        <label>Case Sub Type</label>
-        <picklist>
-            <picklistValues>
-                <fullName>--None--</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Case_Type__c</fullName>
         <externalId>false</externalId>
         <label>Case Type</label>
@@ -18063,13 +18047,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Sub_Type__c</picklist>
-            <values>
-                <fullName>--None--</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Type__c</picklist>
             <values>
                 <fullName>Brochure &amp; Manual Requests</fullName>
@@ -26327,13 +26304,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>smart deposit refund</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Case_Sub_Type__c</picklist>
-            <values>
-                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -35818,13 +35788,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Sub_Type__c</picklist>
-            <values>
-                <fullName>--None--</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Type__c</picklist>
             <values>
                 <fullName>Brochure &amp; Manual Requests</fullName>
@@ -45285,13 +45248,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Sub_Type__c</picklist>
-            <values>
-                <fullName>--None--</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Type__c</picklist>
             <values>
                 <fullName>Brochure &amp; Manual Requests</fullName>
@@ -50645,13 +50601,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Sub_Type__c</picklist>
-            <values>
-                <fullName>--None--</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Type__c</picklist>
             <values>
                 <fullName>Brochure &amp; Manual Requests</fullName>
@@ -54785,13 +54734,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>smart deposit refund</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Case_Sub_Type__c</picklist>
-            <values>
-                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -63612,13 +63554,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
             <values>
                 <fullName>smart deposit refund</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Case_Sub_Type__c</picklist>
-            <values>
-                <fullName>--None--</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
