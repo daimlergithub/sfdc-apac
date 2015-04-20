@@ -81,7 +81,67 @@
         <label>Address Type</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prev Mailing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site address</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Postal address</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 1 -Main Location Sales, Service &amp; Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 2 -Main Location Sales Only</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 3 -Main Location Service &amp; Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 6 -Additional Sales, Service &amp; Parts location not within Site 1 or Site 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 7 -Service &amp; Parts ONLY Location</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 8 -Only Parts Location</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Site 9 -Auto Body</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -105,7 +165,11 @@
         <label>Country</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Zealand</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -254,7 +318,19 @@
         <label>Status</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dead Mail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Opt out</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -266,15 +342,11 @@
         <fullName>Suburb__c</fullName>
         <externalId>false</externalId>
         <label>Suburb</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <length>255</length>
+        <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <label>Address</label>
     <nameField>
