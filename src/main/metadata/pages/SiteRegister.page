@@ -15,7 +15,7 @@
                   <apex:outputText styleClass="title" value="{!$Label.site.user_registration}"/>
                   <br/>
                   <apex:form id="theForm" forceSSL="true">
-                    <apex:pageMessages id="01pO00000007fuH"/>
+                    <apex:pageMessages id="Error"/>
                     <apex:panelGrid columns="2" style="margin-top:1em;">
                       <apex:outputLabel value="{!$Label.site.username}" for="username"/>
                       <apex:inputText required="true" id="username" value="{!username}"/>
