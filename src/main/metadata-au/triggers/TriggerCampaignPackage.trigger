@@ -10,21 +10,20 @@
 */
 trigger TriggerCampaignPackage on Campaign_Package__c (after insert, after update, before delete) 
 {
-    if (!UtilCustomSettings.isEnabled('TriggerCampaignPackage'))
-    {
+    if (!TriggerUtil.isTriggerEnabled('TriggerCampaignPackage')) {
         return;
     }
     
     if(trigger.isAfter && trigger.isInsert)
     {
-    	CampaignPackageHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
+        CampaignPackageHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
-    	CampaignPackageHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
+        CampaignPackageHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
     }
     if(trigger.isBefore && trigger.isdelete)
     {
-    	CampaignPackageHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
+        CampaignPackageHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
     }
 }

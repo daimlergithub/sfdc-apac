@@ -75,7 +75,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Price_Range__c</field>
+                <field>Price_Range_From__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Price_Range_To__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -447,7 +451,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h9000000Nlh1h</masterLabel>
+        <masterLabel>00hO0000000GoeJ</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

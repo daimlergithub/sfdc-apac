@@ -9,14 +9,9 @@
  
  */
 trigger TriggerCase on Case(after insert, after delete, after undelete) {
-    if (!UtilCustomSettings.isEnabled('TriggerCase')) {
+    if (!TriggerUtil.isTriggerEnabled('TriggerCase')) {
         return;
     }
-
-    // If trigger is Enabled, continue
-    //if (!UtilCustomSettings.isEnabled('TriggerCase')) {
-        //return;
-    //}
     
     if (trigger.isAfter && (trigger.isInsert || trigger.isUnDelete)) {
         UtilCase.rollupAccountComplaintAmount(trigger.new);

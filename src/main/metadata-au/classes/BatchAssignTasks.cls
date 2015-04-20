@@ -24,7 +24,7 @@ global class BatchAssignTasks implements Database.Batchable<sObject>{
     }
     
     global void execute(Database.BatchableContext BC, List<Task> scope){
-        //System.debug('--------scope.size()-------->' + scope.size());
+        System.debug('--------scope.size()-------->' + scope.size());
         Integer i = 0;
         for(Task s : scope){
             if (i >= userList.size()) {
@@ -57,6 +57,7 @@ global class BatchAssignTasks implements Database.Batchable<sObject>{
             }
             //END START Shuang Li US-SMART_SSI-007
         }
+        system.debug('ssiOwnerMap>>>'+json.serializePretty(ssiOwnerMap));
         if (ssiIds.size() > 0) {
             List<SSI__c> ssiList = [Select Id, OwnerId From SSI__c Where Id In :ssiIds];
             for (SSI__c ssiObj : ssiList) {

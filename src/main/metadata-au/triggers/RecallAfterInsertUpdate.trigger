@@ -13,7 +13,7 @@
 */
 
 trigger RecallAfterInsertUpdate on Recall__c (after insert) {/*
-    if (!UtilCustomSettings.isEnabled('RecallAfterInsertUpdate')) {
+    if (!TriggerUtil.isTriggerEnabled('RecallAfterInsertUpdate')) {
         return;
     }
 

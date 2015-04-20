@@ -13,9 +13,7 @@
     4. 2014-2-21 Modified by Justin Yu
 */
 trigger TriggerCampaignLead on Campaign_Lead__c (before insert, before update,after insert) {
-    
-    // If trigger is Enabled, continue
-    if (!UtilCustomSettings.isEnabled('TriggerCampaignLead')) {
+    if (!TriggerUtil.isTriggerEnabled('TriggerCampaignLead')) {
         return;
     }
     

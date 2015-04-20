@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>CallHighlightAction</actionName>
@@ -128,9 +128,9 @@
         <externalId>false</externalId>
         <formula>CASE(
     CompanyName,  
-    &quot;Bp&quot;, 500,
-    &quot;SFDC&quot;,    Daily_Rate__c  * 0.15,
-    &quot;NTT DATA EMEA&quot;,  937.13,
+    "Bp", 500,
+    "SFDC",    Daily_Rate__c  * 0.15,
+    "NTT DATA EMEA",  937.13,
     0
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
