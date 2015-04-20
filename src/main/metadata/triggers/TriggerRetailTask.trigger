@@ -8,7 +8,7 @@
 ** Date: 2014-6-15
 **/
 trigger TriggerRetailTask on Retail_Task__c (after insert) {
-    if (!UtilCustomSettings.isEnabled('RetailTaskAfter')) {
+    if (!TriggerUtil.isTriggerEnabled('TriggerRetailTask')) {
         return;
     }
     

@@ -6,13 +6,6 @@
 	
     <property prefix="sfdc" file="build.properties" unless:set="CI"/>
 	
-	<property name="typesets">
-		CustomLabels,CallCenter,StaticResource,ApexPage,Queue,Role,Group,CustomObject,Layout,Document,CustomTab,
-		CustomApplication,EmailTemplate,Workflow,ApexClass,ApexTrigger,AppMenu,Profile,PermissionSet,
-		AccountSharingRules,CampaignSharingRules,CaseSharingRules,CustomObjectSharingRules,Settings,ApprovalProcess,
-		CustomPageWebLink,HomePageComponent,HomePageLayout,RemoteSiteSetting
-	</property>
-	
 	<presetdef name="deploy">
 		<sf:deploy
 				debug="${sfdc.debug}" dryRun="${dryrun}"
@@ -29,6 +22,13 @@
 				dataRoot="src/main/resources/data" logDir="logs"/>
 	</presetdef>
 	
+	<target name="gitVersion">
+		<exec executable="git" outputproperty="git.version">
+			<arg line="rev-parse HEAD"/>
+		</exec>
+		<echo message="Git version is ${git.version}."/>
+	</target>
+	
 	<target name="deployAll">
 		<delete file="${file.checksums.local}" quiet="true"/>
 		<property name="skip.checksum.retrieval" value="true"/>
@@ -37,23 +37,16 @@
 	
 	<target name="retrieveChecksums">
 		<sf:retrieveChecksums unless:set="skip.checksum.retrieval"
-				sfdcName="${sfdc.checksums}" dryRun="${dryrun}"
+				sfdcName="${sfdc.checksums}" dryRun="${dryrun}" checksums="${file.checksums.local}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
 	</target>
 	
-	<target name="deploy" depends="retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy32, deploy35, deploy40, postDestructiveChanges">
-		<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}"
+	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy32, deploy35, deploy40, postDestructiveChanges">
+		<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
 		<fail if:set="failed.deploy.step" message="Deployment failed in step ${failed.deploy.step}."/>
-	</target>
-	
-	<!-- work in progress -->
-	<target name="dc">
-		<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}"
-						username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-						useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
 	</target>
 	
 	<target name="preDestructiveChanges">
@@ -62,7 +55,7 @@
 		<property name="persistedOnly" value="true" if:set="CI"/>
 		
 		<sf:deployDestructiveChanges
-				dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="pre"
+				dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="pre" debug="${sfdc.debug}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
 				deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
@@ -74,7 +67,7 @@
 		<property name="persistedOnly" value="true" if:set="CI"/>
 		
 		<sf:deployDestructiveChanges
-				dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="post"
+				dryRun="${dryrun}" persistedOnly="${persistedOnly}" mode="post" debug="${sfdc.debug}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
 				deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
@@ -106,6 +99,7 @@
 				<sf:include name="Picklist_Mapping__c"/>
 				<sf:include name="Integration_Picklist__c"/>
 				<sf:include name="External_Picklist__c"/>
+				<sf:include name="Car_Model__c"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -127,6 +121,7 @@
 				<sf:exclude name="Picklist_Mapping__c"/>
 				<sf:exclude name="Integration_Picklist__c"/>
 				<sf:exclude name="External_Picklist__c"/>
+				<sf:exclude name="Car_Model__c"/>
 				<sf:exclude name="SMS_Batch__c"/>
 				<sf:exclude name="Retail_Campaign__c"/>
 				<sf:exclude name="OB_Task_Handing__c"/>
@@ -308,7 +303,12 @@
 	<property name="typesets.not-ready">
 	</property>
 	
-	<target name="retrieve">
+	<target name="retrieve" depends="gitVersion">
+		<sf:checkChecksumsVersion
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}"
+				gitVersion="${git.version}" sfdcName="${sfdc.checksums}" dryRun="${dryrun}" checksums="${file.checksums.local}" />
+	
 		<!-- retrieves all metadata -->
 		<sf:retrieve
 				debug="${sfdc.debug}" dryRun="${dryrun}" cleanupOther="false"
