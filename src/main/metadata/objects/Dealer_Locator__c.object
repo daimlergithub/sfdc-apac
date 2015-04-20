@@ -139,7 +139,15 @@
         <label>Category</label>
         <picklist>
             <picklistValues>
-                <fullName>--None--</fullName>
+                <fullName>Delivery Area</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LVR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Post Office Boxes</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
