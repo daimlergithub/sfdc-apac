@@ -121,7 +121,11 @@
         <label>Status</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
