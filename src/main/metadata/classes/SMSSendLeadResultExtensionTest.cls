@@ -21,39 +21,34 @@ public class SMSSendLeadResultExtensionTest {
 	private static Template__c tem1;
 	private static Template__c tem2;
 	private static List<Template__c> tems = new List<Template__c>();
-
-    public static testMethod void testSMSSendLeadResultExtension()
-    {
-
-        Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
-        User userObj = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
+	static user userObj;
+	static{
+		Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
+        userObj = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
                                   Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
                                   TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
                                   EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
         insert userObj;
-
+	}
+	private static string LEAD_ID='leadid';
+	private static string RET_URL='retURL';
+    public static testMethod void testSMSSendLeadResultExtension()
+    {
         System.runAs(userObj) {
 			Test.startTest();
 			prepareTestData();
 			ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
-            ApexPages.currentPage().getParameters().put('leadId',lead.Id);
-            ApexPages.currentPage().getParameters().put('retURL',lead.Id);
+            ApexPages.currentPage().getParameters().put(LEAD_ID,lead.Id);
+            ApexPages.currentPage().getParameters().put(RET_URL,lead.Id);
             // Test click SMS button from Lead
             // Instantiate a new controller extension with all parameters in the page
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
+            system.assertequals(extension.leadInfo.Id,lead.Id);
         }
     }
     
     public static testMethod void testSMSSendLeadResultExtension_elsecondition()
     {
-
-        Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
-        User userObj = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
-                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
-                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
-        insert userObj;
-
         System.runAs(userObj) {
 			Test.startTest();
 			prepareTestData();
@@ -61,25 +56,18 @@ public class SMSSendLeadResultExtensionTest {
             // Test click SMS button from Lead
             // Instantiate a new controller extension with all parameters in the page
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
+            system.assertequals(extension.leadInfo,null);
         }
     }
     
     public static testMethod void testgetTemplates()
     {
-
-        Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
-        User userObj = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
-                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
-                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
-        insert userObj;
-
         System.runAs(userObj) {
 			Test.startTest();
 			prepareTestData();
 			ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
-            ApexPages.currentPage().getParameters().put('leadId',lead.Id);
-            ApexPages.currentPage().getParameters().put('retURL',lead.Id);
+            ApexPages.currentPage().getParameters().put(LEAD_ID,lead.Id);
+            ApexPages.currentPage().getParameters().put(RET_URL,lead.Id);
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
             List<SelectOption> options = new List<SelectOption>();
             options.add(new SelectOption('None','--None--'));
@@ -93,20 +81,12 @@ public class SMSSendLeadResultExtensionTest {
     
     public static testMethod void testsend()
     {
-
-        Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
-        User userObj = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
-                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
-                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
-        insert userObj;
-
         System.runAs(userObj) {
 			Test.startTest();
 			prepareTestData();
 			ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
-            ApexPages.currentPage().getParameters().put('leadId',lead.Id);
-            ApexPages.currentPage().getParameters().put('retURL',lead.Id);
+            ApexPages.currentPage().getParameters().put(LEAD_ID,lead.Id);
+            ApexPages.currentPage().getParameters().put(RET_URL,lead.Id);
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
             extension.templateId=tem1.Id;
             extension.templateMessage='test message';
@@ -119,20 +99,12 @@ public class SMSSendLeadResultExtensionTest {
     
     public static testMethod void testsend_elsecondition()
     {
-
-        Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
-        User userObj = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
-                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
-                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
-        insert userObj;
-
         System.runAs(userObj) {
 			Test.startTest();
 			prepareTestData_elsecondition();
 			ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
-            ApexPages.currentPage().getParameters().put('leadId',lead.Id);
-            ApexPages.currentPage().getParameters().put('retURL',lead.Id);
+            ApexPages.currentPage().getParameters().put(LEAD_ID,lead.Id);
+            ApexPages.currentPage().getParameters().put(RET_URL,lead.Id);
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
             extension.templateId=null;
             extension.send();
@@ -146,20 +118,12 @@ public class SMSSendLeadResultExtensionTest {
     
     public static testMethod void testparseTemplateMessage()
     {
-
-        Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
-        User userObj = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
-                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
-                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
-        insert userObj;
-
         System.runAs(userObj) {
 			Test.startTest();
 			prepareTestData();
 			ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
-            ApexPages.currentPage().getParameters().put('leadId',lead.Id);
-            ApexPages.currentPage().getParameters().put('retURL',lead.Id);
+            ApexPages.currentPage().getParameters().put(LEAD_ID,lead.Id);
+            ApexPages.currentPage().getParameters().put(RET_URL,lead.Id);
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
             extension.templateId=tem1.Id;
             extension.getTemplates();
@@ -182,7 +146,7 @@ public class SMSSendLeadResultExtensionTest {
     {
     	customer = new Account(LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId);
         insert customer;
-        dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
+        dealer = new Account(Name = 'Acme Dealer', Phone = '8888887', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
         insert dealer;
         createLead();
         createTemplate();
