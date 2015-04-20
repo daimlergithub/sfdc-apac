@@ -192,7 +192,67 @@
         <label>Body Type</label>
         <picklist>
             <picklistValues>
-                <fullName>--None--</fullName>
+                <fullName>5 door</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cabriolet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hatch</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LWB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>People Mover</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Roadster</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saloon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sedan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shooting Brake</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sports Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sports Tourer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SUV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SWB</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1771,7 +1831,51 @@
         <label>S&amp;M Sub-group</label>
         <picklist>
             <picklistValues>
-                <fullName>--None--</fullName>
+                <fullName>ALL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance - Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales - Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales - Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales - Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service - Finance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service- Finance- Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service - Insurance</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2370,7 +2474,7 @@
         <picklistValues>
             <picklist>Body_Type__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3133,7 +3237,7 @@
         <picklistValues>
             <picklist>S_M_Sub_group__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>ALL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3251,7 +3355,7 @@
         <picklistValues>
             <picklist>Body_Type__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4006,7 +4110,7 @@
         <picklistValues>
             <picklist>S_M_Sub_group__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>ALL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4120,7 +4224,7 @@
         <picklistValues>
             <picklist>Body_Type__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4851,7 +4955,7 @@
         <picklistValues>
             <picklist>S_M_Sub_group__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>ALL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4969,7 +5073,7 @@
         <picklistValues>
             <picklist>Body_Type__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5544,7 +5648,7 @@
         <picklistValues>
             <picklist>S_M_Sub_group__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>ALL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5658,7 +5762,7 @@
         <picklistValues>
             <picklist>Body_Type__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6233,7 +6337,7 @@
         <picklistValues>
             <picklist>S_M_Sub_group__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>ALL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6363,7 +6467,7 @@
         <picklistValues>
             <picklist>Body_Type__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6938,7 +7042,7 @@
         <picklistValues>
             <picklist>S_M_Sub_group__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>ALL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7068,7 +7172,7 @@
         <picklistValues>
             <picklist>Body_Type__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7643,7 +7747,7 @@
         <picklistValues>
             <picklist>S_M_Sub_group__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>ALL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7757,7 +7861,7 @@
         <picklistValues>
             <picklist>Body_Type__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8520,7 +8624,7 @@
         <picklistValues>
             <picklist>S_M_Sub_group__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>ALL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8654,7 +8758,7 @@
         <picklistValues>
             <picklist>Body_Type__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9429,7 +9533,7 @@
         <picklistValues>
             <picklist>S_M_Sub_group__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>ALL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9547,7 +9651,7 @@
         <picklistValues>
             <picklist>Body_Type__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10322,7 +10426,7 @@
         <picklistValues>
             <picklist>S_M_Sub_group__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>ALL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10439,7 +10543,7 @@
         <picklistValues>
             <picklist>Body_Type__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>3 door</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11194,7 +11298,7 @@
         <picklistValues>
             <picklist>S_M_Sub_group__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>ALL</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
