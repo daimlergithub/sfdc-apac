@@ -10,7 +10,7 @@
 		<sf:deploy
 				debug="${sfdc.debug}" dryRun="${dryrun}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
-				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata-au"
 				transformationsRoot="src/main/transformations" checksums="${file.checksums.local}"/>
 	</presetdef>
 	
@@ -314,7 +314,7 @@
 				debug="${sfdc.debug}" dryRun="${dryrun}" cleanupOther="false"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" 
-				retrieveRoot="src/main/metadata" transformationsRoot="src/main/transformations">
+				retrieveRoot="src/main/metadata-au" transformationsRoot="src/main/transformations">
 			<sf:typesets names="${typesets.circle}"/>
 			<sf:feature name="exclude-checksums" param="Checksums"/>
 			<sf:feature name="include-personaccount"/>
