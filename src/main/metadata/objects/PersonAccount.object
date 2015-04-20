@@ -1401,7 +1401,7 @@
         <picklistValues>
             <picklist>Dealer_Operating_System__c</picklist>
             <values>
-                <fullName>tbd</fullName>
+                <fullName>Dealer Sockets</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1518,14 +1518,14 @@
         <picklistValues>
             <picklist>Dealer_Trucks_Sales_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1700,7 +1700,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Email_Status__c</picklist>
+            <picklist>Email_Status_2__c</picklist>
             <values>
                 <fullName>Bounce-Back</fullName>
                 <default>false</default>
@@ -1709,8 +1709,15 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Email_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Bounce-Back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2303,6 +2310,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Home_Phone_Status_2__c</picklist>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ID_Type__c</picklist>
             <values>
                 <fullName>ID Card%2FDriving Card</fullName>
@@ -2368,10 +2386,6 @@
             </values>
             <values>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3033,6 +3047,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Job_Title__c</picklist>
+            <values>
+                <fullName>Job Title</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -3514,10 +3535,6 @@
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid Number</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4196,6 +4213,13 @@
             </values>
             <values>
                 <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SMS_MMS_IM_Status_2__c</picklist>
+            <values>
+                <fullName>Invalid Number</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5903,7 +5927,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Work_Phone_Status__c</picklist>
+            <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Duplicate</fullName>
                 <default>false</default>
@@ -5912,8 +5936,15 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Work_Phone_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7399,7 +7430,7 @@
         <picklistValues>
             <picklist>Dealer_Operating_System__c</picklist>
             <values>
-                <fullName>tbd</fullName>
+                <fullName>Dealer Sockets</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7547,14 +7578,14 @@
         <picklistValues>
             <picklist>Dealer_Trucks_Sales_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7736,7 +7767,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Email_Status__c</picklist>
+            <picklist>Email_Status_2__c</picklist>
             <values>
                 <fullName>Bounce-Back</fullName>
                 <default>false</default>
@@ -7745,8 +7776,15 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Email_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Bounce-Back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8203,6 +8241,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Home_Phone_Status_2__c</picklist>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ID_Type__c</picklist>
             <values>
                 <fullName>ID Card%2FDriving Card</fullName>
@@ -8268,10 +8317,6 @@
             </values>
             <values>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8933,6 +8978,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Job_Title__c</picklist>
+            <values>
+                <fullName>Job Title</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -9414,10 +9466,6 @@
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid Number</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10166,6 +10214,13 @@
             </values>
             <values>
                 <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SMS_MMS_IM_Status_2__c</picklist>
+            <values>
+                <fullName>Invalid Number</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11894,7 +11949,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Work_Phone_Status__c</picklist>
+            <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Duplicate</fullName>
                 <default>false</default>
@@ -11903,8 +11958,15 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Work_Phone_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13390,7 +13452,7 @@
         <picklistValues>
             <picklist>Dealer_Operating_System__c</picklist>
             <values>
-                <fullName>tbd</fullName>
+                <fullName>Dealer Sockets</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13514,14 +13576,14 @@
         <picklistValues>
             <picklist>Dealer_Trucks_Sales_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13703,7 +13765,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Email_Status__c</picklist>
+            <picklist>Email_Status_2__c</picklist>
             <values>
                 <fullName>Bounce-Back</fullName>
                 <default>false</default>
@@ -13712,8 +13774,15 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Email_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Bounce-Back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14170,6 +14239,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Home_Phone_Status_2__c</picklist>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ID_Type__c</picklist>
             <values>
                 <fullName>ID Card%2FDriving Card</fullName>
@@ -14235,10 +14315,6 @@
             </values>
             <values>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14896,6 +14972,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Job_Title__c</picklist>
+            <values>
+                <fullName>Job Title</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -15377,10 +15460,6 @@
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid Number</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16129,6 +16208,13 @@
             </values>
             <values>
                 <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SMS_MMS_IM_Status_2__c</picklist>
+            <values>
+                <fullName>Invalid Number</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17857,7 +17943,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Work_Phone_Status__c</picklist>
+            <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Duplicate</fullName>
                 <default>false</default>
@@ -17866,8 +17952,15 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Work_Phone_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19269,7 +19362,7 @@
         <picklistValues>
             <picklist>Dealer_Operating_System__c</picklist>
             <values>
-                <fullName>tbd</fullName>
+                <fullName>Dealer Sockets</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19417,14 +19510,14 @@
         <picklistValues>
             <picklist>Dealer_Trucks_Sales_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19606,7 +19699,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Email_Status__c</picklist>
+            <picklist>Email_Status_2__c</picklist>
             <values>
                 <fullName>Bounce-Back</fullName>
                 <default>false</default>
@@ -19615,8 +19708,15 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Email_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Bounce-Back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -20073,6 +20173,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Home_Phone_Status_2__c</picklist>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ID_Type__c</picklist>
             <values>
                 <fullName>ID Card%2FDriving Card</fullName>
@@ -20138,10 +20249,6 @@
             </values>
             <values>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -20719,6 +20826,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Job_Title__c</picklist>
+            <values>
+                <fullName>Job Title</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -21200,10 +21314,6 @@
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid Number</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -21952,6 +22062,13 @@
             </values>
             <values>
                 <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SMS_MMS_IM_Status_2__c</picklist>
+            <values>
+                <fullName>Invalid Number</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -23660,7 +23777,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Work_Phone_Status__c</picklist>
+            <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Duplicate</fullName>
                 <default>false</default>
@@ -23669,8 +23786,15 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Work_Phone_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -25171,7 +25295,7 @@
         <picklistValues>
             <picklist>Dealer_Operating_System__c</picklist>
             <values>
-                <fullName>tbd</fullName>
+                <fullName>Dealer Sockets</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -25307,14 +25431,14 @@
         <picklistValues>
             <picklist>Dealer_Trucks_Sales_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_Trucks_Service_Region__c</picklist>
             <values>
-                <fullName>N%2FA</fullName>
+                <fullName>Eastern Region</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -25524,7 +25648,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Email_Status__c</picklist>
+            <picklist>Email_Status_2__c</picklist>
             <values>
                 <fullName>Bounce-Back</fullName>
                 <default>false</default>
@@ -25533,8 +25657,15 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Email_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Bounce-Back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26127,6 +26258,17 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Home_Phone_Status_2__c</picklist>
+            <values>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>ID_Type__c</picklist>
             <values>
                 <fullName>ID Card%2FDriving Card</fullName>
@@ -26192,10 +26334,6 @@
             </values>
             <values>
                 <fullName>Incomplete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -26857,6 +26995,13 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Job_Title__c</picklist>
+            <values>
+                <fullName>Job Title</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -27338,10 +27483,6 @@
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid Number</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -28090,6 +28231,13 @@
             </values>
             <values>
                 <fullName>Silver</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>SMS_MMS_IM_Status_2__c</picklist>
+            <values>
+                <fullName>Invalid Number</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -29818,7 +29966,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Work_Phone_Status__c</picklist>
+            <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Duplicate</fullName>
                 <default>false</default>
@@ -29827,8 +29975,15 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Work_Phone_Status__c</picklist>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
