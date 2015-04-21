@@ -3,6 +3,7 @@ dev_58demo=oliver.koeth@58demo.com,falk.lehmann@58demo.org,raghuprasad.halakere@
 
 # only the CI server is allowed to deploy to CI sandbox!
 dev_sb_kernel_ci=falk.lehmann.ntt@kernel.daimler-apac.com.ci
+dev_sb_au_ci=falk.lehmann.ntt@au.daimler-apac.com.ci
 
 # Demo sandbox
 demo_sb_kernel_ci=falk.lehmann.ntt@kernel.daimler-apac.com.demo
@@ -16,3 +17,4 @@ dev_sb_kernel_dev6=shrinivas.desai.ntt@kernel.daimler-apac.com.dev6
 dev_sb_kernel_dev7=ayyavari.venkateswarlu.ntt@kernel.daimler-apac.com.dev7
 dev_sb_kernel_dev8=gerhard.henning.ntt@kernel.daimler-apac.com.dev8
 
+dev_sb_au_dev1=falk.lehmann.ntt@au.daimler-apac.com.dev1
