@@ -10,23 +10,7 @@
 
     5-Dec-2013 Bing (NTTData)  Created
 */
-trigger AttachmentAfter on Attachment (after insert) {
-    if (!TriggerUtil.isTriggerEnabled('AttachmentAfter')) {
-        return;
-    }
-
-    List<id> caseIds = new List<id>();
-
-    for(Attachment a : trigger.new){
-        //for purpose No.1
-        String parentIdString = String.valueof(a.parentId);
-        if(trigger.isInsert && parentIdString.startsWith('500')){
-            caseIds.add(a.parentId);
-        }
-    }
-
-    //for purpose No.1
-    if(caseIds.size()>0){
-        ComplaintDesHelper.sendMailToCaseMember(caseIds);
-    }
+trigger AttachmentAfter on Attachment (after insert) 
+{
+    TriggerUtil.handleTrigger('AttachmentAfter');
 }

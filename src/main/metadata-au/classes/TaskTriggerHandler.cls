@@ -9,9 +9,12 @@
     24-Apr-2013 Chris Huang (Breakingpoint)    Created
     10-mar-2014 shuang Li (NTTData) Update BRD-AS-CAC-007
     18-mar-2014 shuang Li (NTTData) Update US-smart_SSI-008
+    2015-04-21 Gerhard Henning (NTTData)  Moved code to TaskTriggerHandler
 */
 
-public class TaskTriggerHandler { 
+public class TaskTriggerHandler 
+    implements TriggerHandlerIf
+{ 
       
     private static final String WELAND1STSURVEY = 'Welcome Call + 1st Survey Call';
     private static final String X1STSURVEY = '1st Survey Call';
@@ -21,6 +24,55 @@ public class TaskTriggerHandler {
     private static Id SSIRTID;
     private static Id WCRTID;
     private static Id OBTRTID;
+    
+    public void handleTrigger()
+    {
+        if(trigger.isAfter && trigger.isInsert)
+        {
+            if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
+                TaskHelper.TaskFailBlacklist(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+            }
+            
+            if (TriggerUtil.isTriggerEnabled('TriggerTask')) {
+                TaskHelper.updateCampaignMemberStatus(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+            }
+            
+            TaskTriggerHandler.updateAccountCallMessage((Map<Id,Task>)Trigger.newMap, (Map<Id,Task>)Trigger.oldMap);
+            TaskTriggerHandler.autoUpdateTaskAfterLogInserted((Task)Trigger.new[0]);
+            TaskTriggerHandler.autoUpdateAccountOBTaskMessage(Trigger.new);
+            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);     
+        }
+        if(trigger.isAfter && trigger.isUpdate)
+        {
+            if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
+                TaskHelper.TaskFailBlacklist(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+            }
+            
+            if (TriggerUtil.isTriggerEnabled('TriggerTask')) {
+                TaskHelper.updateCampaignMemberStatus(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+            }
+            
+            TaskTriggerHandler.updateAccountCallMessage((Map<Id,Task>)Trigger.newMap, (Map<Id,Task>)Trigger.oldMap);
+            TaskTriggerHandler.autoUpdateTaskAfterLogInserted((Task)Trigger.new[0]);
+            TaskTriggerHandler.autoUpdateSSISurveyStatus((Task)Trigger.new[0], (Task)Trigger.old[0]);
+            TaskTriggerHandler.generateWelcomeCall((Task)Trigger.new[0], (Task)Trigger.old[0]);
+            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+        }
+        if(trigger.isBefore && trigger.isInsert)
+        {
+             // Update Activity Status after new records created
+            TaskTriggerHandler.taskFieldsUpdate(Trigger.new, (Map<Id,Task>)Trigger.oldMap);
+            TaskHelper.Reply_TD_unsubscribeForeachSMScontent(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+            TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+        }
+        if(trigger.isBefore && trigger.isUpdate)
+        {
+            // Update Activity Status after new records created
+            TaskTriggerHandler.taskFieldsUpdate(Trigger.new, (Map<Id,Task>)Trigger.oldMap);
+            TaskHelper.Reply_TD_unsubscribeForeachSMScontent(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+            TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+        }
+    }
     
     private static void getRecordTypeId(){
         if(OBRTID == null){

@@ -20,16 +20,9 @@
     8. Sinow updated for Once a Retail Inquiry Case was created by CAC IB CSR, the Case Owner shall be changed to Community Dealer S&M user. 2014/06/25.
     9. Shuang Li updated for Repeat Complaint Times  on 2014-08-14
     10. Cyril Huang updated on 2014-10-10(2014Release1.3)
+    11. 2015-04-21 Gerhard Henning (NTTData)  Moved code to CaseTriggerHandler
 */
-trigger CaseTrigger on Case (before insert, before update, after insert, after update) { 
-    if (!TriggerUtil.isTriggerEnabled('CaseTrigger')) {
-        return;
-    }
-
-    if (trigger.isBefore) {
-        CaseHelper.caseBeforeInsertUpdateEvents(Trigger.new, Trigger.isInsert,Trigger.isUpdate, Trigger.oldMap);
-    }
-    else if (trigger.isAfter) {
-        CaseHelper.handleCaseAfterInsertOrUpdateEvents(Trigger.new, trigger.isInsert, trigger.isUpdate, trigger.oldMap, trigger.newMap);
-    }
+trigger CaseTrigger on Case (before insert, before update, after insert, after update) 
+{ 
+    TriggerUtil.handleTrigger('CaseTrigger');
 }

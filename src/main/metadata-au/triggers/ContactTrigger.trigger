@@ -21,29 +21,9 @@
     1. Sinow Created on 2013-04-16
     2. Justin modified on 2013-07-30
     3. Sinow modified on 2013-09-10
+    4. Gerhard Henning (NTTData) moved code to ContactTriggerHandler on 2015-04-21
 */
 trigger ContactTrigger on Contact (after update, after insert,before update, before insert)
 {
-    if (!TriggerUtil.isTriggerEnabled('ContactTrigger')) {
-        return;
-    }
-    
-    if (trigger.isAfter && trigger.isInsert) {
-        ContactHelper.AfterInsertUpdateEvents(trigger.new);
-    }
-    if (trigger.isAfter && trigger.isUpdate) {
-        ContactHelper.AfterInsertUpdateEvents(trigger.new); 
-    }
-    if (trigger.isBefore && trigger.isInsert) {
-        // Validate Gate Keeper
-        ContactHelper.ValidateGateKeeper(Trigger.new);
-        // Validate complaint manager and presales
-        ContactHelper.ValidateManager(Trigger.new);
-    }
-    if (trigger.isBefore && trigger.isUpdate) {
-        // Validate Gate Keeper
-        ContactHelper.ValidateGateKeeper(Trigger.new);
-        // Validate complaint manager and presales
-        ContactHelper.ValidateManager(Trigger.new);
-    }
+    TriggerUtil.handleTrigger('ContactTrigger');
 }
