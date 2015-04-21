@@ -12,6 +12,18 @@ On start of a trigger this CustomerSetting is checked for the trigger's name and
 If the trigger is disabled, it is not processed, execution terminates.</description>
     <enableFeeds>false</enableFeeds>
     <fields>
+        <fullName>Trigger_Handler__c</fullName>
+        <description>Name of an Apex class that implements interface TriggerHandlerIf and contains all code to be executed if the trigger is called.</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Name of an Apex class that implements interface TriggerHandlerIf and contains all code to be executed if the trigger is called.</inlineHelpText>
+        <label>Trigger Handler</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Trigger_Name__c</fullName>
         <description>Name of the trigger (can be multiply used with different context settings)</description>
         <externalId>false</externalId>
@@ -66,18 +78,6 @@ If the trigger is disabled, it is not processed, execution terminates.</descript
         <label>insert</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>trigger_Handler__c</fullName>
-        <description>Name of an Apex class that implements interface TriggerHandlerIf and contains all code to be executed if the trigger is called.</description>
-        <externalId>false</externalId>
-        <inlineHelpText>Name of an Apex class that implements interface TriggerHandlerIf and contains all code to be executed if the trigger is called.</inlineHelpText>
-        <label>trigger Handler</label>
-        <length>255</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>update__c</fullName>

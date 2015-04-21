@@ -7,7 +7,7 @@
     
     1. HNG Created on 2015-04-21
 */
-public interface TriggerHandlerIf 
+public interface TriggerHandlerIf
 {
     void handleTrigger();
 }

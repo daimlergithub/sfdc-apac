@@ -293,4 +293,26 @@ public class TriggerUtilTest
         // verify
         System.assert(!triggerHandlerCalled);
     }
+   
+    public static testMethod void testHandleTrigger_NonExistingHandler()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', Trigger_Handler__c = 'UnknownTriggerHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        triggerHandlerCalled = false;
+        
+        // run test
+        Test.startTest();
+        try {
+            Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+            insert testIdea;
+            System.assert(false, 'Expected an IllegalArgumentException encapsulated by a System.DmlException to be thrown in case of an invalid trigger handler class being specified');
+        }
+        catch (System.DmlException expected) {
+            System.assert(expected.getMessage().contains('IllegalArgumentException'));
+        }
+        Test.stopTest();
+        
+        // verify
+        System.assert(!triggerHandlerCalled);
+    }
 }
