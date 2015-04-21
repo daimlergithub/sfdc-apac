@@ -2,101 +2,295 @@
 public class TriggerUtilTest 
 {
     public static Boolean triggerProcessed = false;
-    
-    public static testMethod void testIsTriggerEnabledAllDisabled()
+    public static Boolean triggerHandlerCalled = false;
+   
+    public static testMethod void testIsTriggerEnabled_AllDisabled_Insert()
     {
-        upsert new Trigger_Enabled__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
-        
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
         Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
         insert testIdea;
-        System.assert(!triggerProcessed);
+        Test.stopTest();
         
+        // verify
+        System.assert(!triggerProcessed);
+    }
+   
+    public static testMethod void testIsTriggerEnabled_AllDisabled_Update()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
         triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
         testIdea.Title = 'New';
         update testIdea;
-        System.assert(!triggerProcessed);
+        Test.stopTest();
         
+        // verify
+        System.assert(!triggerProcessed);
+    }
+   
+    public static testMethod void testIsTriggerEnabled_AllDisabled_Delete()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
         triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
         delete testIdea;
+        Test.stopTest();
+        
+        // verify
+        System.assert(!triggerProcessed);
+    }
+   
+    public static testMethod void testIsTriggerEnabled_InsertDisabled_Insert()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = true, update__c = false, delete__c = false);
+        triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
+        Test.stopTest();
+        
+        // verify
+        System.assert(!triggerProcessed);
+    }
+   
+    public static testMethod void testIsTriggerEnabled_InsertDisabled_Update()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = true, update__c = false, delete__c = false);
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
+        triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
+        testIdea.Title = 'New';
+        update testIdea;
+        Test.stopTest();
+        
+        // verify
+        System.assert(triggerProcessed);
+    }
+   
+    public static testMethod void testIsTriggerEnabled_InsertDisabled_Delete()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = true, update__c = false, delete__c = false);
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
+        triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
+        delete testIdea;
+        Test.stopTest();
+        
+        // verify
+        System.assert(triggerProcessed);
+    }
+   
+    public static testMethod void testIsTriggerEnabled_UpdateDisabled_Insert()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = true, delete__c = false);
+        triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
+        Test.stopTest();
+        
+        // verify
+        System.assert(triggerProcessed);
+    }
+   
+    public static testMethod void testIsTriggerEnabled_UpdateDisabled_Update()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = true, delete__c = false);
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
+        triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
+        testIdea.Title = 'New';
+        update testIdea;
+        Test.stopTest();
+        
+        // verify
+        System.assert(!triggerProcessed);
+    }
+   
+    public static testMethod void testIsTriggerEnabled_UpdateDisabled_Delete()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = true, delete__c = false);
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
+        triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
+        delete testIdea;
+        Test.stopTest();
+        
+        // verify
+        System.assert(triggerProcessed);
+    }
+   
+    public static testMethod void testIsTriggerEnabled_DeleteDisabled_Insert()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = false, delete__c = true);
+        triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
+        Test.stopTest();
+        
+        // verify
+        System.assert(triggerProcessed);
+    }
+   
+    public static testMethod void testIsTriggerEnabled_DeleteDisabled_Update()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = false, delete__c = true);
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
+        triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
+        testIdea.Title = 'New';
+        update testIdea;
+        Test.stopTest();
+        
+        // verify
+        System.assert(triggerProcessed);
+    }
+   
+    public static testMethod void testIsTriggerEnabled_DeleteDisabled_Delete()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = false, delete__c = true);
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
+        triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
+        delete testIdea;
+        Test.stopTest();
+        
+        // verify
         System.assert(!triggerProcessed);
     }
     
-    public static testMethod void testIsTriggerEnabledInsertDisabled()
+    public static testMethod void testIsTriggerEnabled_UpdateDisabledDeleteDisabled_Insert()
     {
-        upsert new Trigger_Enabled__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = true, update__c = false, delete__c = false);
-        
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = true, delete__c = false);
+        upsert new Trigger__c(Name = 'TestTrigger_2', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = false, delete__c = true);
         triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
         Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
         insert testIdea;
-        System.assert(!triggerProcessed);
+        Test.stopTest();
         
-        triggerProcessed = false;
-        testIdea.Title = 'New';
-        update testIdea;
-        System.assert(triggerProcessed);
-        
-        triggerProcessed = false;
-        delete testIdea;
+        // verify
         System.assert(triggerProcessed);
     }
     
-    public static testMethod void testIsTriggerEnabledUpdateDisabled()
+    public static testMethod void testIsTriggerEnabled_UpdateDisabledDeleteDisabled_Update()
     {
-        upsert new Trigger_Enabled__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = true, delete__c = false);
-        
-        triggerProcessed = false;
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = true, delete__c = false);
+        upsert new Trigger__c(Name = 'TestTrigger_2', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = false, delete__c = true);
         Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
         insert testIdea;
-        System.assert(triggerProcessed);
-        
         triggerProcessed = false;
+        
+        // run test
+        Test.startTest();
         testIdea.Title = 'New';
         update testIdea;
-        System.assert(!triggerProcessed);
+        Test.stopTest();
         
-        triggerProcessed = false;
-        delete testIdea;
-        System.assert(triggerProcessed);
-    }
-    
-    public static testMethod void testIsTriggerEnabledDeleteDisabled()
-    {
-        upsert new Trigger_Enabled__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = false, delete__c = true);
-        
-        triggerProcessed = false;
-        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
-        insert testIdea;
-        System.assert(triggerProcessed);
-        
-        triggerProcessed = false;
-        testIdea.Title = 'New';
-        update testIdea;
-        System.assert(triggerProcessed);
-        
-        triggerProcessed = false;
-        delete testIdea;
+        // verify
         System.assert(!triggerProcessed);
     }
     
-    public static testMethod void testIsTriggerEnabledMultipleCustomSettings()
+    public static testMethod void testIsTriggerEnabled_UpdateDisabledDeleteDisabled_Delete()
     {
-        
-        upsert new Trigger_Enabled__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = true, delete__c = false);
-        upsert new Trigger_Enabled__c(Name = 'TestTrigger_2', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = false, delete__c = true);
-        
-        triggerProcessed = false;
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = true, delete__c = false);
+        upsert new Trigger__c(Name = 'TestTrigger_2', Trigger_Name__c = 'TestTrigger', enabled__c = false, before__c = true, after__c = true, insert__c = false, update__c = false, delete__c = true);
         Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
         insert testIdea;
-        System.assert(triggerProcessed);
-        
         triggerProcessed = false;
-        testIdea.Title = 'New';
-        update testIdea;
-        System.assert(!triggerProcessed);
         
-        triggerProcessed = false;
+        // run test
+        Test.startTest();
         delete testIdea;
+        Test.stopTest();
+        
+        // verify
         System.assert(!triggerProcessed);
+    }
+   
+    public static testMethod void testHandleTrigger()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', Trigger_Handler__c = 'TestTriggerHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        triggerHandlerCalled = false;
+        
+        // run test
+        Test.startTest();
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
+        Test.stopTest();
+        
+        // verify
+        System.assert(triggerHandlerCalled);
+    }
+   
+    public static testMethod void testHandleTrigger_NoHandler()
+    {
+        // prepare test data
+        upsert new Trigger__c(Name = 'TestTrigger_1', Trigger_Name__c = 'TestTrigger', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        triggerHandlerCalled = false;
+        
+        // run test
+        Test.startTest();
+        Idea testIdea = new Idea(CommunityId = [select Id from Community where Name = 'Internal Community'].Id, Title = 'Test');
+        insert testIdea;
+        Test.stopTest();
+        
+        // verify
+        System.assert(!triggerHandlerCalled);
     }
 }
