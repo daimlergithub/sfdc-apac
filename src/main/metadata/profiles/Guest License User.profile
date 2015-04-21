@@ -7119,6 +7119,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Dealer_Locator__c.Category__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Dealer_Locator__c.Comment__c</field>
         <readable>false</readable>
     </fieldPermissions>

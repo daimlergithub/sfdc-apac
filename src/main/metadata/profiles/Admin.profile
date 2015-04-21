@@ -8713,6 +8713,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Odometer_Reading__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Payment_Type__c</field>
         <readable>true</readable>
@@ -8745,6 +8750,21 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Preferred_Contact_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Preferred_Test_Drive_Time__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Price_Range_From__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Price_Range_To__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
