@@ -331,7 +331,7 @@
     <classAccesses>
         <apexClass>DMRequestTriggerHandler</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses> 
     <classAccesses>
         <apexClass>DMRequestTriggerHandlerTest</apexClass>
         <enabled>false</enabled>
@@ -8735,6 +8735,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Postcode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Preferred_Contact_Method__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
