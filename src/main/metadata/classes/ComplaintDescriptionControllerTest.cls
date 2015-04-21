@@ -37,7 +37,6 @@ public class ComplaintDescriptionControllerTest {
         Test.setCurrentPage(ComplaintDescriptionViewAll);    
         extension= new ComplaintDescriptionController();
     }
-    //static PageReference BASE_URL; 
     public static testMethod void test_getTheResults(){       
         init();      
         insert lstComplaintDsc;               

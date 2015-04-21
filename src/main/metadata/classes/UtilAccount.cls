@@ -10,36 +10,6 @@
     2. Mouse Updated on 2013-07-04 for US-Lead-009
 */
 public class UtilAccount {
-    // US-DS-001
-    public static void linkDealerCity(List<Account> triggerNew, Id dealerRecordTypeId,Map<id,Account> oldAcc,boolean isUpdate,boolean isBefore,boolean isExecuting) {
-        if (isUpdate && isBefore && isExecuting) {
-            // Get cities, provinces and the dealer which city or province has change
-            Set<Id> dealerIdSet = new Set<Id>();
-            Set<String> cities = new Set<String>();
-            Set<String> provinces = new Set<String>();
-            if(triggerNew!=Null && !triggerNew.isEmpty()){
-                for (Account acc : triggerNew) {
-                    // Get the dealer which City or Province has change                
-                  if(oldAcc!=Null && !oldAcc.isEmpty()){
-                    if(acc.RecordTypeId == dealerRecordTypeId && 
-                            (acc.City__c != oldAcc.get(acc.Id).City__c ||
-                             acc.Province__c != oldAcc.get(acc.Id).Province__c)) {
-                        dealerIdSet.add(acc.Id);
-    
-                        // Populate cities and provinces
-                        if (acc.City__c != null) {
-                            cities.add(acc.City__c);
-                        }
-    
-                        if (acc.Province__c != null) {
-                            provinces.add(acc.Province__c);
-                        }
-                     }
-                   }
-                }
-             }
-        }
-    }
     // When Account Allow Data Sharing is True
     public static void accountSetForUpdateLead(List<Account> triggerNew,Map<id,Account> oldAcc){
         Set<Id> accIdSet = new Set<Id>();
@@ -95,7 +65,8 @@ public class UtilAccount {
             System.debug('UtilAccount.updateLeadForDataSharing eXception: ' + e);
         }
     }
-  //dealerCodes Info for an Account
+    
+   //dealerCodes Info for an Account
    public static void beforeAccDealerInfo(List<Account> triggerNew,Map<id,Account> oldAcc,boolean isInsert,boolean isUpdate){
         Map<String, boolean> cp010Map = new Map<String, boolean>();
         Set<Id> cp016Map = new Set<Id>();
@@ -103,15 +74,16 @@ public class UtilAccount {
         List<String> dealerCodes = new List<String>();
         List<id> ids = new List<id>();
         List<String> citys = new List<String>();        
-        Profile IngretionProfile = [select Id from Profile where Name = 'IntegrationAPI'];
-        for(Account curAcc:triggerNew){        
+        Profile integrationProfile = [select Id from Profile where Name = 'IntegrationAPI'];
+       
+        for (Account curAcc : triggerNew) {        
             // "Dealer DMS SR Code 1" has a value and "Dealer Default Flag" 
             if (curAcc.Dealer_Default_Flag__c && String.isBlank(curAcc.Dealer_DMS_SR_Code__c)){
-                if(isInsert){
+                if (isInsert) {
                     dealerCodes.add(curAcc.Dealer_DMS_SR_Code__c);
                 }
-                if(isUpdate){  
-                  if(oldAcc!=Null && !oldAcc.isEmpty()){                    
+                if (isUpdate) {  
+                  if (oldAcc!=Null && !oldAcc.isEmpty()) {                    
                     if (oldAcc.get(curAcc.Id).Dealer_Default_Flag__c != curAcc.Dealer_Default_Flag__c ||
                          oldAcc.get(curAcc.Id).Dealer_DMS_SR_Code__c != curAcc.Dealer_DMS_SR_Code__c){
                          dealerCodes.add(curAcc.Dealer_DMS_SR_Code__c);
@@ -120,7 +92,7 @@ public class UtilAccount {
                 }
             }    
             
-            if ('Customer' == curAcc.Status__c && UserInfo.getProfileId() != IngretionProfile.Id){
+            if ('Customer' == curAcc.Status__c && UserInfo.getProfileId() != integrationProfile.Id){
                 //if(trigger.isInsert){
                     //ids.add(curAcc.id);
                 //}
