@@ -5,4 +5,6 @@ trigger TriggerUtilTestTrigger on Idea (before insert, before update, before del
     }
 
     TriggerUtilTest.triggerProcessed = true;
+    
+    TriggerUtil.handleTrigger('TestTrigger');
 }

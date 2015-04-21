@@ -10,7 +10,7 @@
 */
 @isTest
 private class TriggerAccountTest {
-    public static testMethod void linkDealerCityTest() {
+    public static testMethod void testLinkDealerCity() {
         // Create Dealer
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_DEALER);
@@ -21,7 +21,7 @@ private class TriggerAccountTest {
         update dealer;
     }
 
-    public testMethod static void updateLeadDataSharing() {
+    public testMethod static void testUpdateLeadDataSharing() {
         Account personAccount = new Account();
         UtilTestData.createSobject(personAccount, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
 
