@@ -455,14 +455,14 @@
         <picklistValues>
             <picklist>Sector__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>Passenger Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>Preferred</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -534,14 +534,14 @@
         <picklistValues>
             <picklist>Sector__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>Passenger Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>Preferred</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -613,14 +613,14 @@
         <picklistValues>
             <picklist>Sector__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>Passenger Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>--None--</fullName>
+                <fullName>Preferred</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
