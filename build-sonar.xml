@@ -1,5 +1,4 @@
 <project name="VillageChief DataHub" xmlns:sf="salesforce">
-  <property file="sonar.properties"/>
     
   <!-- Define the Sonar task -->
   <taskdef uri="antlib:org.sonar.ant" resource="org/sonar/ant/antlib.xml">
@@ -19,6 +18,10 @@
 	salesforce.username
 	salesforce.password
 	sonar.projectVersion
+	sonar.projectKey
+	sonar.projectName
+	salesforce.url
+	scm
 	-->
 	
     <!-- location properties -->
