@@ -2909,188 +2909,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_FirstRegistrationDate�
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>InterestedBrandBeforePurchasingSmart__c</fullName>
-        <description>Interested brand before purchasing smart
-/*
-Created by: Lio Huang
-Used by: Lio Huang
-Function:
-Used in: Pagelayout
-
-Modify History
-Modify By:
-Modify Reason:
-*/</description>
-        <externalId>false</externalId>
-        <label>InterestedBrandBeforePurchasingSmart</label>
-        <picklist>
-            <picklistValues>
-                <fullName>BWM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VOLKSWAGEN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SUZUKI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PEUGOET</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FORD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BENZ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HONDA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>InterestedModelBeforePurchasingSmart__c</fullName>
-        <description>Interested model before purchasing smart
-/*
-Created by: Lio Huang
-Used by: Lio Huang
-Function:
-Used in: Pagelayout
-
-Modify History
-Modify By:
-Modify Reason:
-*/</description>
-        <externalId>false</externalId>
-        <label>InterestedModelBeforePurchasingSmart</label>
-        <picklist>
-            <controllingField>InterestedBrandBeforePurchasingSmart__c</controllingField>
-            <picklistValues>
-                <fullName>MINI COOPER</fullName>
-                <controllingFieldValues>BWM</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3 Series</fullName>
-                <controllingFieldValues>BWM</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Z4</fullName>
-                <controllingFieldValues>BWM</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X1</fullName>
-                <controllingFieldValues>BWM</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Beatles</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>golf</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>POLO</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CC</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Jetta</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Scirocco</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tiguan</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>swift</fullName>
-                <controllingFieldValues>SUZUKI</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JMRON</fullName>
-                <controllingFieldValues>SUZUKI</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PEUGOET206</fullName>
-                <controllingFieldValues>PEUGOET</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PEUGOET207</fullName>
-                <controllingFieldValues>PEUGOET</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FOX</fullName>
-                <controllingFieldValues>FORD</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Carnival</fullName>
-                <controllingFieldValues>FORD</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B Series</fullName>
-                <controllingFieldValues>BENZ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C Series</fullName>
-                <controllingFieldValues>BENZ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <controllingFieldValues>BENZ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CRV</fullName>
-                <controllingFieldValues>HONDA</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>LastServiceDate__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -5421,6 +5239,62 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Sector__c</fullName>
+        <description>describes what kind of vehicle it is.</description>
+        <externalId>false</externalId>
+        <label>Sector</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cycle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Heavy Commercial Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Light Commercial Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>M/Cycle or Scooter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Truck &amp; Bus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>	
+    <fields>
         <fullName>NationalType__c</fullName>
         <externalId>false</externalId>
         <label>NationalType</label>
@@ -5837,6 +5711,29 @@ Attribute in Data Dictionary object Vehicle is”Vehicle_Transmission“</descri
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
+    <fields>
+        <fullName>Vehicle_Group__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Group</label>
+        <picklist>
+            <picklistValues>
+                <fullName>VAN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>	
     <fields>
         <fullName>Trim__c</fullName>
         <description>/* 
@@ -6717,6 +6614,68 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Group__c</picklist>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VAN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heavy Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M%2FCycle or Scooter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Truck %26 Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
         <picklistValues>
             <picklist>BodyType__c</picklist>
             <values>
@@ -9214,6 +9173,68 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Group__c</picklist>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VAN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heavy Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M%2FCycle or Scooter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Truck %26 Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
         <picklistValues>
             <picklist>BodyType__c</picklist>
             <values>
@@ -14119,6 +14140,68 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Group__c</picklist>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VAN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heavy Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M%2FCycle or Scooter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Truck %26 Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>		
         <picklistValues>
             <picklist>BodyType__c</picklist>
             <values>
