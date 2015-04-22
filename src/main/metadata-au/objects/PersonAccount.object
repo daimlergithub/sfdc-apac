@@ -25530,6 +25530,49 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>EOC_Recipient_Type__pc</picklist>
+            <values>
+                <fullName>15 Days CC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>15 Days Primary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150 Days CC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>150 Days Primary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20 Days CC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>20 Days Primary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>45 Days CC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>45 Days Primary</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60 Days CC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>60 Days Primary</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Education__c</picklist>
             <values>
                 <fullName>College</fullName>
@@ -25577,6 +25620,17 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Email_Status_2__c</picklist>
+            <values>
+                <fullName>Bounce-Back</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

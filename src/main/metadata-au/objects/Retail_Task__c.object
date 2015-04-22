@@ -174,6 +174,17 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>CMS_Contract_Link__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "?isdtp=vw'}", ContractNumber__c , "_self" )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CMS Contract No.</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Campaign_Description__c</fullName>
         <externalId>false</externalId>
         <label>Campaign Description</label>
