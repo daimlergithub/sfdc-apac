@@ -56,6 +56,32 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>ClosedReason__c</fullName>
+        <externalId>false</externalId>
+        <label>Closed Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Vehicle purchased</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wait time too long</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Change of mind</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchased Competitor Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Closed_Date__c</fullName>
         <externalId>false</externalId>
         <label>Closed Date</label>
@@ -95,7 +121,11 @@
         <label>Status</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
