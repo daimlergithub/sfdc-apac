@@ -1347,6 +1347,10 @@
             <picklistValues>
                 <fullName>Approved for financing</fullName>
                 <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved for Sale</fullName>
+                <default>false</default>
             </picklistValues>			
             <picklistValues>
                 <fullName>Asset Released</fullName>
