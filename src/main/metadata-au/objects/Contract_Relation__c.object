@@ -67,6 +67,17 @@
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
+	<fields>
+        <fullName>Case_Key__c</fullName>
+        <externalId>false</externalId>
+        <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "?isdtp=vw'}", Case_No__r.FOS_Case_Number__c , "_self" )</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>FOS Case Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
     <fields>
         <fullName>Contract_Key__c</fullName>
         <externalId>false</externalId>
