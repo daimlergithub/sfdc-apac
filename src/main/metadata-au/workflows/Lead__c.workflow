@@ -83,7 +83,7 @@
     <fieldUpdates>
         <fullName>Update_CAC_Lead_Status_to_Accepted</fullName>
         <field>CAC_Lead_Status__c</field>
-        <literalValue>Accepted</literalValue>
+        <literalValue>Offer Accepted</literalValue>
         <name>Update CAC Lead Status to Accepted</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
@@ -92,7 +92,7 @@
     <fieldUpdates>
         <fullName>Update_CAC_Lead_Status_to_Assigned</fullName>
         <field>CAC_Lead_Status__c</field>
-        <literalValue>Assigned</literalValue>
+        <literalValue>Actioned</literalValue>
         <name>Update CAC Lead Status to Assigned</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>
@@ -578,7 +578,7 @@ Modify Reason:
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
-            <value>Lost(CAC)</value>
+            <value>Lost</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -612,7 +612,7 @@ Modify Reason:
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
-            <value>Purchased(Only Non BDC)</value>
+            <value>Policy Sold</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
