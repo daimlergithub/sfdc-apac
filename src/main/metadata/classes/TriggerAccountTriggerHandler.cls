@@ -13,7 +13,7 @@
     3. Sinow Update on 2013-07-22 for US-DP-022, US-DP-023, when Allow Data Sharing changed to yes, update lead's owner.
     4. Gerhard Henning (NTTData)  Moved code to TriggerAccountHandler on 2015-04-21
 */
-public class TriggerAccountHandler 
+public class TriggerAccountTriggerHandler 
     implements TriggerHandlerIf
 {
     public void handleTrigger()

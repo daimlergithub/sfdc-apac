@@ -6,18 +6,10 @@
   Author               : Mouse Liu
   Create Date          : 2013/7/9
   Modify History       : 
+    23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerCaseTriggerHandler
  
  */
-trigger TriggerCase on Case(after insert, after delete, after undelete) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerCase')) {
-        return;
-    }
-    
-    if (trigger.isAfter && (trigger.isInsert || trigger.isUnDelete)) {
-        UtilCase.rollupAccountComplaintAmount(trigger.new);
-    }
-
-    if (trigger.isAfter && trigger.isDelete) {
-        UtilCase.rollupAccountComplaintAmount(trigger.old);
-    }
+trigger TriggerCase on Case(after insert, after delete, after undelete) 
+{
+    TriggerUtil.handleTrigger('TriggerCase');
 }
