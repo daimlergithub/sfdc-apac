@@ -43,6 +43,7 @@ public class LeadConvertingControllerTest
        insert rc;      
        rtm = new Retail_Campaign_Member__c(Retail_Campaign__c = rc.Id, Contact__c = thirdParty.Id, Status__c = 'Show up');
        insert rtm;       
+       upsert new Trigger__c(Name = 'TriggerRetailCampaignMember', Trigger_Name__c = 'TriggerRetailCampaignMember', Trigger_Handler__c = 'TriggerRetailCampaignMemberHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
    }
    private static void set_Lead_ASRETAILCAMPAIGN() {
        init();    
