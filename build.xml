@@ -129,6 +129,7 @@
 				<sf:exclude name="Lead__c"/>
 				<sf:exclude name="Campaign_Lead__c"/>
 				<sf:exclude name="DM_Request__c"/>
+				<sf:exclude name="Contract_Relation__c"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -158,6 +159,7 @@
 	<target name="deploy20">
 		<deploy>
 			<sf:typeset name="objects">
+				<sf:include name="Contract_Relation__c"/>
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
 				<sf:exclude name="Contact"/>
