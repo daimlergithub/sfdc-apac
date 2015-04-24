@@ -158,11 +158,11 @@
         <fullName>Type</fullName>
         <picklist>
             <picklistValues>
-                <fullName>Phone</fullName>
+                <fullName>Call</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Conference</fullName>
+                <fullName>Meeting</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -787,27 +787,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -952,11 +972,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1078,11 +1122,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -1753,27 +1801,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1930,11 +1998,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2056,11 +2148,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -2730,27 +2826,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3179,11 +3295,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3309,11 +3449,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -3984,27 +4128,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4157,11 +4321,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4283,11 +4471,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -4957,27 +5149,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5386,11 +5598,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5516,11 +5752,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -6190,27 +6430,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6619,11 +6879,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6749,11 +7033,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -7424,27 +7712,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7629,11 +7937,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7759,11 +8091,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -8434,27 +8770,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8639,11 +8995,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8765,11 +9145,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -9440,27 +9824,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9629,11 +10033,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9755,11 +10183,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -10430,27 +10862,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10707,11 +11159,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10833,11 +11309,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -11507,27 +11987,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11672,11 +12172,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11798,11 +12322,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -12473,27 +13001,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12674,11 +13222,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12800,11 +13372,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
@@ -13474,27 +14050,47 @@
         <picklistValues>
             <picklist>Activity_Purpose__c</picklist>
             <values>
-                <fullName>0%3Dwelcome call</fullName>
+                <fullName>Appointment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3Ddata cleansing</fullName>
+                <fullName>Dealership Promotion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3Dfeedback for service request</fullName>
+                <fullName>Dinner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>4%3DDM return</fullName>
+                <fullName>Exhibition</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>5%3DSMS survey</fullName>
+                <fullName>Follow-up</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>6%3DOutbound survey</fullName>
+                <fullName>Golf</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand Prix</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Launch</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Meeting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Motor Show</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13663,11 +14259,35 @@
         <picklistValues>
             <picklist>Result__c</picklist>
             <values>
-                <fullName>Solved</fullName>
+                <fullName>Contact Details Invalid</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unsolved</fullName>
+                <fullName>Decision Maker - Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Decision Maker - Meaningful Contact</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Follow Up Required</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Left Message</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Answer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Non-Decision Maker - Call again later</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Test Drive Booked</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13789,11 +14409,15 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
-                <fullName>Closed</fullName>
+                <fullName>Complete</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Open</fullName>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
                 <default>true</default>
             </values>
         </picklistValues>
