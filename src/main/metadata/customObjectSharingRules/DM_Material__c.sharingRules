@@ -1,14 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
-    <ownerRules>
-        <fullName>Share_with_Data_Fulfillment_user_with_R_W</fullName>
-        <sharedTo>
-            <role>OB_QC</role>
-        </sharedTo>
-        <sharedFrom>
-            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
-        </sharedFrom>
-        <accessLevel>Edit</accessLevel>
-        <name>Share with Data Fulfillment user with R/W</name>
-    </ownerRules>
-</CustomObjectSharingRules>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
+
