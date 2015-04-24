@@ -1979,6 +1979,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Email_Status_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Email_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2209,6 +2214,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Home_Phone_Status_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Household_Amount__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -2301,6 +2311,11 @@
         <editable>false</editable>
         <field>Account.Jigsaw</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Job_Title__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2934,6 +2949,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.SMS_MMS_IM_Status_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Second_Make__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3234,6 +3254,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Work_Phone_Status_2__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Work_Phone_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3335,11 +3360,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.System__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account_Link__c.Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8715,6 +8735,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Postcode__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Preferred_Contact_Method__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

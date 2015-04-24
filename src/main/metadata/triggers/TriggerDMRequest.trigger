@@ -7,17 +7,9 @@
     History:
     
     11-Mar-2013 Chris Huang (Breakingpoint)    Created
+    23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerDMRequestTriggerHandler
 */
-trigger TriggerDMRequest on DM_Request__c (after insert, after update) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerDMRequest')) {
-        return;
-    }
-
-    // update sent total
-     DMRequestTriggerHandler.updateDaterialSentTotal(trigger.new, trigger.old);         
-    
-    // update activity status
-    if(trigger.isUpdate){
-        DMRequestTriggerHandler.updateActivityStatus(trigger.new);            
-    }  
+trigger TriggerDMRequest on DM_Request__c (after insert, after update) 
+{
+    TriggerUtil.handleTrigger('TriggerDMRequest');
 }

@@ -690,7 +690,7 @@ public class TaskHelper {
         List<App_Setting__c> appSettings = [select Name, Value__c from App_Setting__c where Name = 'Voice Recording Location'];
     
         for(Case c : [select Id, Voice_Record_Link__c from Case where Id in :caseIdInteractionIds.keySet()]) {
-            if((c.Voice_Record_Link__c != null || c.Voice_Record_Link__c != '') && (appSettings!=null && appSettings.size() == 1)) {
+            if(c.Voice_Record_Link__c != null && c.Voice_Record_Link__c != '' && appSettings!=null && appSettings.size() == 1) {
                 c.Voice_Record_Link__c = appSettings[0].Value__c + caseIdInteractionIds.get(c.Id);
                 caseForUpdate.add(c);
             }

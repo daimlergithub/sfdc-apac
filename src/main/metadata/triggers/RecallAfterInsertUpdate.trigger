@@ -10,22 +10,10 @@
     History:
     
     1. Sichao Lai Created on 2013-06-07
+    2. Gerhard Henning (NTTData)  Moved code to CampaignMemberAfterTriggerHandler on 2015-04-21
 */
 
-trigger RecallAfterInsertUpdate on Recall__c (after insert) {/*
-    if (!TriggerUtil.isTriggerEnabled('RecallAfterInsertUpdate')) {
-        return;
-    }
-
-    Set<Id> VehicleIds = new Set<Id>();
-
-    // get VIN and Vehicle ID from Recall
-    for (Recall__c r : Trigger.new){
-        VehicleIds .add(r.Vehicle_ID__c);
-    }
-
-    // update Recall checkbox status
-    if (VehicleIds .size() > 0){
-       //RecallHelper.updateRecall(VehicleIds);
-    } */
+trigger RecallAfterInsertUpdate on Recall__c (after insert) 
+{
+    TriggerUtil.handleTrigger('RecallAfterInsertUpdate');
 }
