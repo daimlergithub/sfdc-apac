@@ -6,7 +6,7 @@ public class UtilCampaignTaskGenerationByCaseTest
 	private static String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
 	private static List<Campaign> campaignList = new List<Campaign>();
 	private static List<case> listcase = new List<case>();
-	private static List<CampaignMember> listcamp = new List<CampaignMember>();
+	private static List<CampaignMember> campaignMemberList = new List<CampaignMember>();
 	private static Batch_Job__c batchJob;
 	private static Account dealer;
 	private static Contact contact;
@@ -20,7 +20,6 @@ public class UtilCampaignTaskGenerationByCaseTest
 	private static string MMSRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('MMS').getRecordTypeId();
 	private static string CallscriptRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('Callscript').getRecordTypeId();
 	private static string strVeriStatus = 'Need Verification';
-	string id=null; 
 	static{
 		Profile objProfile = [ select Id from profile where Name='IntegrationAPI'];
         objUsr = new User();
@@ -53,7 +52,7 @@ public class UtilCampaignTaskGenerationByCaseTest
 	        test.stopTest();
 	        list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
 	        task objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,RecordTypeId,Campaign_Member_ID__c,WhatId,DUP_Number__c from task limit 1];
-	        system.assertEquals(listcamp.size(),lstCM.size());
+	        system.assertEquals(campaignMemberList.size(),lstCM.size());
 	        system.assertEquals(objTask.DUP_Number__c,contact.DUP_Number__c);
 	        system.assertEquals(objTask.UniqueCampaignGenerateTask__c,childCampaign.Id+''+contact.Id+''+listcase[0].id+'OB Call');
 	        system.assertEquals(objTask.RecordTypeId,Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Task').getRecordTypeId());
@@ -78,8 +77,8 @@ public class UtilCampaignTaskGenerationByCaseTest
 	        test.stopTest();
 	        list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
         	task objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,RecordTypeId,Campaign_Member_ID__c,WhatId,SMSTemplateID__c from task limit 1];
-	        system.assertEquals(listcamp.size(),lstCM.size());
-	        system.assertEquals(objTask.UniqueCampaignMobile__c,listcamp[0].CampaignId+'-'+personAccount.PersonMobilePhone);
+	        system.assertEquals(campaignMemberList.size(),lstCM.size());
+	        system.assertEquals(objTask.UniqueCampaignMobile__c,campaignMemberList[0].CampaignId+'-'+personAccount.PersonMobilePhone);
 	        system.assertEquals(objTask.UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+listcase[0].id+'SMS');
 	        system.assertEquals(objTask.RecordTypeId,Schema.SObjectType.Task.getRecordTypeInfosByName().get('SMS').getRecordTypeId());
 	        system.assertEquals(objTask.Activity_Status__c,strVeriStatus);
@@ -103,8 +102,8 @@ public class UtilCampaignTaskGenerationByCaseTest
 	        test.stopTest();
 	        list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
 	        task objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,SMSTemplateID__c,RecordTypeId,Campaign_Member_ID__c,WhatId from task limit 1];
-	        system.assertEquals(listcamp.size(),lstCM.size());
-	        system.assertEquals(objTask.UniqueCampaignMobile__c,listcamp[0].CampaignId+'-'+personAccount.PersonMobilePhone);
+	        system.assertEquals(campaignMemberList.size(),lstCM.size());
+	        system.assertEquals(objTask.UniqueCampaignMobile__c,campaignMemberList[0].CampaignId+'-'+personAccount.PersonMobilePhone);
 	        system.assertEquals(objTask.UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+listcase[0].id+'MMS');
 	        system.assertEquals(objTask.RecordTypeId,Schema.SObjectType.Task.getRecordTypeInfosByName().get('MMS').getRecordTypeId());
 	        system.assertEquals(objTask.Activity_Status__c,strVeriStatus);
@@ -129,7 +128,7 @@ public class UtilCampaignTaskGenerationByCaseTest
 	        test.stopTest();
 	        list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
 	        task objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,RecordTypeId,Campaign_Member_ID__c,eDM_Template__c,WhatId,SMSTemplateID__c from task limit 1];
-	        system.assertEquals(listcamp.size(),lstCM.size());
+	        system.assertEquals(campaignMemberList.size(),lstCM.size());
 	        system.assertEquals(objTask.UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+listcase[0].id+'eDM');
 	        system.assertEquals(objTask.RecordTypeId,Schema.SObjectType.Task.getRecordTypeInfosByName().get('eDM').getRecordTypeId());
         }
@@ -152,7 +151,7 @@ public class UtilCampaignTaskGenerationByCaseTest
 	        test.stopTest();
 	        list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
 	        task objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,RecordTypeId,Campaign_Member_ID__c,WhatId,SMSTemplateID__c from task limit 1];
-	        system.assertEquals(listcamp.size(),lstCM.size());
+	        system.assertEquals(campaignMemberList.size(),lstCM.size());
 	        system.assertEquals(objTask.UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+listcase[0].id+'DM');
 	        system.assertEquals(objTask.RecordTypeId,Schema.SObjectType.Task.getRecordTypeInfosByName().get('DM').getRecordTypeId());
 	        system.assertEquals(objTask.Activity_Status__c,'Open');
@@ -242,11 +241,11 @@ public class UtilCampaignTaskGenerationByCaseTest
 			    ob1Member.Status = 'Send';
 			    ob1Member.Task_Generated__c=false;
 			    ob1Member.Vehicle_Case_ID__c=objCase.id+';';
-	            listcamp.add(ob1Member);
+	            campaignMemberList.add(ob1Member);
         	}
         	setCamId.add(objCamp.Id);
        }
-       insert listcamp;
+       insert campaignMemberList;
     }
     
     static void createBatchJob()
