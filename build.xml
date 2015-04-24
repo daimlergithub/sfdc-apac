@@ -42,7 +42,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
 	</target>
 	
-	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy32, deploy35, deploy40, postDestructiveChanges">
+	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy23, deploy25, deploy30, deploy32, deploy35, deploy40, postDestructiveChanges">
 		<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
@@ -158,8 +158,7 @@
 	
 	<target name="deploy20">
 		<deploy>
-			<sf:typeset name="objects">
-				<sf:include name="Contract_Relation__c"/>
+			<sf:typeset name="objects">				
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
 				<sf:exclude name="Contact"/>
@@ -172,8 +171,15 @@
 			</sf:typeset>
 		</deploy>
     </target>
-	
 	<target name="deploy21">
+		<deploy>
+			<sf:typeset name="objects">				
+				<sf:include name="Contract_Relation__c"/>
+			</sf:typeset>
+		</deploy>
+    </target>
+	
+	<target name="deploy23">
 		<deploy>
 			<sf:typeset name="settings"/>
 			<sf:typeset name="tabs">
