@@ -19,13 +19,58 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+	 <fieldUpdates>
+        <fullName>Activate_Dealer</fullName>
+        <field>Dealer_Active__c</field>
+        <literalValue>1</literalValue>
+        <name>Activate Dealer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Credit_License_Number</fullName>
+        <field>Credit_License_Number__c</field>
+        <formula>&quot;247271&quot;</formula>
+        <name>Credit License Number</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Deactivate_Dealer</fullName>
+        <field>Dealer_Active__c</field>
+        <literalValue>0</literalValue>
+        <name>Deactivate Dealer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Frist_Name_Change</fullName>
+        <field>FirstName</field>
+        <formula>UPPER(LEFT( FirstName , 1)) + RIGHT( FirstName , LEN(FirstName) - 1 )</formula>
+        <name>Frist Name Change</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Surname_Change</fullName>
+        <field>LastName</field>
+        <formula>UPPER(LEFT( LastName , 1)) + RIGHT( LastName , LEN(LastName) - 1 )</formula>
+        <name>Surname Change</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
     <rules>
         <fullName>Change Preferred phone to null</fullName>
         <actions>
             <name>Change_Preferred_Phone</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>When field “Preferred contact method” value is set to others from “Phone”,the field value changes to null</description>
         <formula>AND( ISPICKVAL(PRIORVALUE( Preferred_Contact_Method__c ),&apos;Phone&apos;), NOT(ISPICKVAL(Preferred_Contact_Method__c, &apos;Phone&apos;))  )</formula>
         <triggerType>onAllChanges</triggerType>
@@ -36,7 +81,7 @@
             <name>Dealer_Email_Notification_on_Amount_of_Assigned_Leads</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-14) 
@@ -49,5 +94,218 @@ Modify Reason:
 */</description>
         <formula>AND (     Assigned_Lead_Amount_of_Everyday__c &gt; 0,     ISCHANGED(Assigned_Lead_Amount_of_Everyday__c) )</formula>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+	<rules>
+        <fullName>Account Frist Name Change Capital</fullName>
+        <actions>
+            <name>Frist_Name_Change</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.FirstName</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Account Surname Change Capital</fullName>
+        <actions>
+            <name>Surname_Change</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.LastName</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Activate Dealer</fullName>
+        <actions>
+            <name>Activate_Dealer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Dealer_Active__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Activation_Date__c</field>
+            <operation>equals</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Activate Dealer With Time Trigger</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Dealer_Active__c</field>
+            <operation>equals</operation>
+            <value>False</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Activation_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Activation_Date__c</field>
+            <operation>notEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Activate_Dealer</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Account.Activation_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Deactivate Dealer</fullName>
+        <actions>
+            <name>Deactivate_Dealer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND ((3 AND 5 AND 9) OR (4 AND 6 AND 8)OR(3 AND 4 AND 7 AND 8 AND 9))</booleanFilter>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Dealer_Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Inactivation_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MBFS_Inactivation_Date__c</field>
+            <operation>lessOrEqual</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Dealer_Allocation__c</field>
+            <operation>equals</operation>
+            <value>MBAuP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Dealer_Allocation__c</field>
+            <operation>equals</operation>
+            <value>MBFS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Dealer_Allocation__c</field>
+            <operation>equals</operation>
+            <value>Both</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MBFS_Inactivation_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Inactivation_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Deactivate Dealer With Time Trigger</fullName>
+        <active>true</active>
+        <booleanFilter>1 AND 2 AND ((3 AND 6 AND 8) OR  (4 AND 5 AND 9)OR  (3 AND 4 AND 7 AND 8 AND 9))</booleanFilter>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Dealer_Active__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MBFS_Inactivation_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Inactivation_Date__c</field>
+            <operation>greaterThan</operation>
+            <value>TODAY</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Dealer_Allocation__c</field>
+            <operation>equals</operation>
+            <value>MBAuP</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Dealer_Allocation__c</field>
+            <operation>equals</operation>
+            <value>MBFS</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Dealer_Allocation__c</field>
+            <operation>equals</operation>
+            <value>Both</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.MBFS_Inactivation_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Inactivation_Date__c</field>
+            <operation>notEqual</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Deactivate_Dealer</name>
+                <type>FieldUpdate</type>
+            </actions>
+            <offsetFromField>Account.Inactivation_Date__c</offsetFromField>
+            <timeLength>0</timeLength>
+            <workflowTimeTriggerUnit>Hours</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+    </rules>
+    <rules>
+        <fullName>Update Credit License Number</fullName>
+        <actions>
+            <name>Credit_License_Number</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <criteriaItems>
+            <field>Account.Credit_License__c</field>
+            <operation>equals</operation>
+            <value>P.O.S. License</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.Credit_License__c</field>
+            <operation>equals</operation>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
 </Workflow>
