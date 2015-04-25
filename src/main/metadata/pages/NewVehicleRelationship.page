@@ -22,9 +22,7 @@
                 <apex:inputField value="{!vehicle.UsVIN__c}"/>
                 <apex:inputField value="{!vehicle.Model__c}"/>
                 <apex:inputField value="{!vehicle.CBU_CKD__c}"/>
-                <apex:inputField value="{!vehicle.InterestedBrandBeforePurchasingSmart__c}"/>
                 <apex:inputField value="{!vehicle.Recall__c}"/>
-                <apex:inputField value="{!vehicle.InterestedModelBeforePurchasingSmart__c}"/>
                 <apex:inputField value="{!vehicle.Info_Source__c}"/>
                 <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
                 <apex:inputField value="{!vehicle.Info_Sub_Source__c}"/>
@@ -87,7 +85,6 @@
                 <apex:inputField value="{!vehicleRelationship.Ownership__c}"/>
                 <apex:inputField value="{!vehicleRelationship.Recall__c}"/>
                 <apex:inputField value="{!vehicleRelationship.New_Used__c}"/>
-                <apex:inputField value="{!vehicleRelationship.CAC_SourceId__c}"/>
                 <apex:inputField value="{!vehicleRelationship.Owner_Relation__c}"/>
                 <apex:pageBlockSectionItem ></apex:pageBlockSectionItem>
                 <apex:inputField value="{!vehicleRelationship.Replacement__c}"/>

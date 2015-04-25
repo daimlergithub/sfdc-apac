@@ -2542,11 +2542,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Mail_Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Main_Dealer__c</field>
         <readable>true</readable>
@@ -4584,36 +4579,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Campaign_Partner__c.Description__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Campaign_history_log__c.Action__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Campaign_history_log__c.Campaign__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Campaign_history_log__c.Object_ID__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Campaign_history_log__c.Object_Name__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Campaign_history_log__c.Object_Type__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Campaign_history_log__c.User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11637,11 +11602,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.LDCL_Contract_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Latest_Contract_Date__c</field>
         <readable>false</readable>
@@ -14760,9 +14720,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign_Partner__c-Campaign Partner Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Campaign_history_log__c-Campaign History Log Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Car_Enquiry__c-Car Enquiry Layout</layout>

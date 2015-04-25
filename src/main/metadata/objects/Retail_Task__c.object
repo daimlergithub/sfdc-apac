@@ -811,17 +811,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>LDCL_Contract_Id__c</fullName>
-        <caseSensitive>false</caseSensitive>
-        <externalId>true</externalId>
-        <label>LDCL Contract Id</label>
-        <length>200</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
         <fullName>Latest_Contract_Date__c</fullName>
         <externalId>false</externalId>
         <label>Latest Contract Date</label>
