@@ -13541,6 +13541,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>User.Active__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>User.Cost_Price__c</field>
         <readable>true</readable>
     </fieldPermissions>
