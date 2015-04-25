@@ -5533,6 +5533,15 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
+        <fullName>Home_Phone_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Home Phone 2</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Phone</type>
+    </fields>
+    <fields>
         <fullName>Home_Phone_Last_Modified_By2__c</fullName>
         <externalId>false</externalId>
         <label>Home Phone Last Modified By 2</label>

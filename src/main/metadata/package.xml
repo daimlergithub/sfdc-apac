@@ -191,6 +191,8 @@
         <members>SiteRegisterControllerTest</members>
         <members>SlickCtiController</members>
         <members>SlickCtiObjectHelper</members>
+        <members>SubmitSurveyController</members>
+        <members>SubmitSurveyControllerTest</members>
         <members>TaskDeletingController</members>
         <members>TaskDeletingControllerTest</members>
         <members>TaskFailBlacklistTrigger_TestClass</members>
@@ -376,6 +378,7 @@
         <members>SlickCTI_CSS</members>
         <members>SlickCTI_Phone</members>
         <members>StdExceptionTemplate</members>
+        <members>SubmitSurvey</members>
         <members>TaskDeleting</members>
         <members>TaskLink</members>
         <members>TaskMassChangeOwner</members>
@@ -411,7 +414,6 @@
         <members>RetailCampaignTrigger</members>
         <members>SSITrigger</members>
         <members>ShareAccountLinksToDealer</members>
-        <members>ShareCampaignByClooaboration</members>
         <members>ShareCampaignByCollaboration</members>
         <members>TaskTrigger</members>
         <members>ToolKitTrigger</members>
@@ -560,6 +562,7 @@
         <members>Assign_Case_To_Dealer_Role</members>
         <members>Assign_Case_To_Dealer_User_Name</members>
         <members>Assign_QC</members>
+        <members>Btn_Preview_No_Questions</members>
         <members>Button_Approve</members>
         <members>Button_Search</members>
         <members>CL_Cancel</members>
@@ -848,6 +851,16 @@
         <members>Total_Amount_Spend_On_Car_Service_is_Greater_Than</members>
         <members>Used_car_buy_back_trade_in</members>
         <members>VEP_Seasonal_Check</members>
+        <members>VF_SubmitSurvey_Break_Btn</members>
+        <members>VF_SubmitSurvey_ErrorMsg_Invalid_ID</members>
+        <members>VF_SubmitSurvey_ErrorMsg_Redirected</members>
+        <members>VF_SubmitSurvey_FillNote_Msg</members>
+        <members>VF_SubmitSurvey_FinishSurvey_Msg</members>
+        <members>VF_SubmitSurvey_Next_Btn</members>
+        <members>VF_SubmitSurvey_Notes</members>
+        <members>VF_SubmitSurvey_Other_Picklist</members>
+        <members>VF_SubmitSurvey_Previous_Btn</members>
+        <members>VF_SubmitSurvey_Submit_Btn</members>
         <members>VF_ToolKitSelect_Return_Button</members>
         <members>VF_ToolkitSelect_File_Name</members>
         <members>VF_ToolkitSelect_Preview</members>
@@ -916,7 +929,6 @@
         <members>Campaign_Offering__c</members>
         <members>Campaign_Package__c</members>
         <members>Campaign_Partner__c</members>
-        <members>Campaign_history_log__c</members>
         <members>Car_Enquiry__c</members>
         <members>Car_Model_Attribute__c</members>
         <members>Car_Model__c</members>
@@ -1001,7 +1013,6 @@
         <members>Task</members>
         <members>Template__c</members>
         <members>Tool_Kit__c</members>
-        <members>Trigger_Enabled__c</members>
         <members>Trigger__c</members>
         <members>User</members>
         <members>Vehicle_Inspection__c</members>
@@ -1244,7 +1255,6 @@
         <members>Campaign_Offering__c-Campaign Offering Layout</members>
         <members>Campaign_Package__c-Campaign Package Layout</members>
         <members>Campaign_Partner__c-Campaign Partner Layout</members>
-        <members>Campaign_history_log__c-Campaign History Log Layout</members>
         <members>Car_Enquiry__c-Car Enquiry Layout</members>
         <members>Car_Model_Attribute__c-Car Model Attribute Layout</members>
         <members>Car_Model__c-Car Model Layout</members>
@@ -1467,6 +1477,8 @@
         <members>Chatter Moderator User</members>
         <members>ContractManager</members>
         <members>Cross Org Data Proxy User</members>
+        <members>Dealer Community User</members>
+        <members>Dealer Delegate Admin</members>
         <members>External Identity User</members>
         <members>External Marketing User</members>
         <members>Guest License User</members>
@@ -1616,7 +1628,6 @@
         <members>Campaign_Offering__c</members>
         <members>Campaign_Package__c</members>
         <members>Campaign_Partner__c</members>
-        <members>Campaign_history_log__c</members>
         <members>Car_Enquiry__c</members>
         <members>Car_Model_Attribute__c</members>
         <members>Car_Model__c</members>
@@ -1693,7 +1704,6 @@
         <members>Task</members>
         <members>Template__c</members>
         <members>Tool_Kit__c</members>
-        <members>Trigger_Enabled__c</members>
         <members>Trigger__c</members>
         <members>User</members>
         <members>UserLicense</members>

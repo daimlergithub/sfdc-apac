@@ -881,10 +881,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerAccountHandler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerAccountTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -2316,6 +2312,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Hobby__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Home_Phone_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
