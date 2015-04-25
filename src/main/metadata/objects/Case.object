@@ -17296,7 +17296,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     </listViews>
     <listViews>
         <fullName>MyOpenCases</fullName>
-        <booleanFilter>(1 OR 3 OR 4 OR 5 OR 6 OR 7 OR 8 OR 9 OR 10) AND 2</booleanFilter>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>Dealer_Case_Category__c</columns>
         <columns>Dealer_Case_Type__c</columns>
