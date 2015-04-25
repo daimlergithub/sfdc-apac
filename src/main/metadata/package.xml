@@ -29,6 +29,7 @@
         <members>AddToRetailCampaignControllerTet</members>
         <members>AssignCaseToDealerController</members>
         <members>AssignCaseToDealerControllerTest</members>
+        <members>AttachmentAfterTriggerHandler</members>
         <members>AvatoHelper</members>
         <members>BatchAssignTasks</members>
         <members>BatchAssignTasksTest</members>
@@ -47,6 +48,7 @@
         <members>CSRLookupControllerTest</members>
         <members>CampaignHelper</members>
         <members>CampaignHelperTest</members>
+        <members>CampaignMemberAfterTriggerHandler</members>
         <members>CampaignOfferingHelper</members>
         <members>CampaignOfferingHelperTest</members>
         <members>CampaignPackageHelper</members>
@@ -55,9 +57,11 @@
         <members>CaseEscalationControllerTest</members>
         <members>CaseHelper</members>
         <members>CaseHelperTest</members>
+        <members>CaseTriggerHandler</members>
         <members>ChangePasswordController</members>
         <members>ChangePasswordControllerTest</members>
         <members>ChatterAnswers</members>
+        <members>ChatterAnswersEscalationTriggerHandler</members>
         <members>ChatterAnswersEscalationTriggerTest</members>
         <members>CommunitiesLandingController</members>
         <members>CommunitiesLandingControllerTest</members>
@@ -73,6 +77,7 @@
         <members>ComplaintDescriptionControllerTest</members>
         <members>ContactHelper</members>
         <members>ContactHelperTest</members>
+        <members>ContactTriggerHandler</members>
         <members>CpCallControllerClass_Test</members>
         <members>DMControllerExtension</members>
         <members>DMControllerExtensionTest</members>
@@ -99,8 +104,6 @@
         <members>MassApproveToolKitControllerTest</members>
         <members>MassAssignRecallTasksControllerExtension</members>
         <members>MassAssignRecallTasksTest</members>
-        <members>MetadataService</members>
-        <members>MetadataServiceTest</members>
         <members>MisunderstoodTaskGeneration</members>
         <members>MisunderstoodTaskGenerationTest</members>
         <members>MonthlyMarketAmountReportController</members>
@@ -117,6 +120,7 @@
         <members>ParticipatingDealerHelperTest</members>
         <members>QCHelper</members>
         <members>QCHelperTest</members>
+        <members>RecallAfterInsertUpdateTriggerHandler</members>
         <members>RecallHelper</members>
         <members>RecallHelperTest</members>
         <members>ReservationMessageTemplate</members>
@@ -128,6 +132,7 @@
         <members>RetailCampaignSegmentationControllerTest</members>
         <members>RetailCampaignSharingTest</members>
         <members>RetailCampaignSharingWrapService</members>
+        <members>RetailCampaignTriggerHandler</members>
         <members>RetailTaskSharingTest</members>
         <members>RetailTaskSharingWrapService</members>
         <members>RuishiWebService</members>
@@ -162,8 +167,6 @@
         <members>ScheduleCreateMonthlyRegionOBEmailsTest</members>
         <members>ScheduleCreateWeeklyDealerOBEmails</members>
         <members>ScheduleCreateWeeklyDealerOBEmailsTest</members>
-        <members>ScheduleCreateWeeklyRegionOBEmails</members>
-        <members>ScheduleCreateWeeklyRegionOBEmailsTest</members>
         <members>ScheduledCreationTaskToDealers</members>
         <members>ScheduledCreationTaskToDealersTest</members>
         <members>ScheduledDeleteTaskToDealers</members>
@@ -174,6 +177,8 @@
         <members>SelectAssignedDealerControllerTest</members>
         <members>SettlementHelper</members>
         <members>SettlementHelperTest</members>
+        <members>ShareAccountLinksToDealerTriggerHandler</members>
+        <members>ShareCampaignByCollabTriggerHandler</members>
         <members>ShareDataToNewUserBatch</members>
         <members>SharingDataHandlerBase</members>
         <members>SharingDataHandlerBaseTest</members>
@@ -197,27 +202,51 @@
         <members>TaskSMSControllerExtensionTest</members>
         <members>TaskTriggerHandler</members>
         <members>TaskTriggerHandlerTest</members>
+        <members>TestTriggerHandler</members>
         <members>TextInputtingControlelr</members>
         <members>TextInputtingControlelrTest</members>
         <members>TookKitSharingTest</members>
         <members>TookKitSharingWrapService</members>
         <members>ToolKitSelectContentController</members>
         <members>ToolKitSelectContentControllerTest</members>
+        <members>ToolKitTriggerHandler</members>
         <members>ToolKitTriggerHelper</members>
         <members>TrialCustomerPortalHomePageController</members>
         <members>TriggerAccountTest</members>
+        <members>TriggerAccountTriggerHandler</members>
+        <members>TriggerBatchJobTriggerHandler</members>
+        <members>TriggerCampaignCityTriggerHandler</members>
         <members>TriggerCampaignCity_TestClass</members>
         <members>TriggerCampaignLeadTest</members>
+        <members>TriggerCampaignLeadTriggerHandler</members>
+        <members>TriggerCampaignMembersTriggerHandler</members>
         <members>TriggerCampaignMembers_TestClass</members>
+        <members>TriggerCampaignOfferingTriggerHandler</members>
+        <members>TriggerCampaignPackageTriggerHandler</members>
+        <members>TriggerCampaignTriggerHandler</members>
         <members>TriggerCaseTest</members>
+        <members>TriggerCaseTriggerHandler</members>
+        <members>TriggerComplaintDescriptionHandler</members>
+        <members>TriggerDMRequestTriggerHandler</members>
+        <members>TriggerHandlerIf</members>
         <members>TriggerLeadTest</members>
+        <members>TriggerLeadTriggerHandler</members>
         <members>TriggerPD_TestClass</members>
+        <members>TriggerPackageItemTriggerHandler</members>
         <members>TriggerPackageItem_TestClass</members>
+        <members>TriggerParticipatingDealerTriggerHandler</members>
+        <members>TriggerQCTriggerHandler</members>
+        <members>TriggerRecallTriggerHandler</members>
+        <members>TriggerRetailCampaignMemberHandler</members>
         <members>TriggerRetailCampaignTest</members>
+        <members>TriggerRetailTaskTriggerHandler</members>
+        <members>TriggerSMSReplyHistoryTriggerHandler</members>
+        <members>TriggerSettlementManagementHandler</members>
         <members>TriggerTaskTest</members>
         <members>TriggerUtil</members>
         <members>TriggerUtilTest</members>
         <members>TriggerVehicleRelationshipTest</members>
+        <members>TriggerVehicleRelationshipTriggerHandler</members>
         <members>UserHelper</members>
         <members>UserHelperTest</members>
         <members>UserLookupResultController</members>
@@ -225,6 +254,7 @@
         <members>UserService</members>
         <members>UserTriggerCallout</members>
         <members>UserTriggerCalloutTest</members>
+        <members>UserTriggerHandler</members>
         <members>UtilAccount</members>
         <members>UtilCampaignCity</members>
         <members>UtilCampaignLead</members>
@@ -244,6 +274,7 @@
         <members>UtilLead</members>
         <members>UtilLeadEmailEscalation</members>
         <members>UtilLeadEmailEscalationTest</members>
+        <members>UtilProfile</members>
         <members>UtilRecordType</members>
         <members>UtilRecordTypeTest</members>
         <members>UtilSobject</members>
@@ -381,6 +412,7 @@
         <members>SSITrigger</members>
         <members>ShareAccountLinksToDealer</members>
         <members>ShareCampaignByClooaboration</members>
+        <members>ShareCampaignByCollaboration</members>
         <members>TaskTrigger</members>
         <members>ToolKitTrigger</members>
         <members>TriggerAccount</members>
@@ -970,9 +1002,8 @@
         <members>Template__c</members>
         <members>Tool_Kit__c</members>
         <members>Trigger_Enabled__c</members>
-        <members>Trigger_Status__c</members>
+        <members>Trigger__c</members>
         <members>User</members>
-        <members>Vehicle_Group_Mapping__c</members>
         <members>Vehicle_Inspection__c</members>
         <members>Vehicle_Relationship__c</members>
         <members>Vehicle__c</members>
@@ -1377,7 +1408,6 @@
         <members>User-User Layout</members>
         <members>User-User Master Layout</members>
         <members>UserAlt-User Profile Layout</members>
-        <members>Vehicle_Group_Mapping__c-Vehicle Group Mapping Layout</members>
         <members>Vehicle_Inspection__c-Vehicle Inspection Layout</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout</members>
         <members>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</members>
@@ -1437,8 +1467,6 @@
         <members>Chatter Moderator User</members>
         <members>ContractManager</members>
         <members>Cross Org Data Proxy User</members>
-        <members>Dealer Community User</members>
-        <members>Dealer Delegate Admin</members>
         <members>External Identity User</members>
         <members>External Marketing User</members>
         <members>Guest License User</members>
@@ -1666,10 +1694,9 @@
         <members>Template__c</members>
         <members>Tool_Kit__c</members>
         <members>Trigger_Enabled__c</members>
-        <members>Trigger_Status__c</members>
+        <members>Trigger__c</members>
         <members>User</members>
         <members>UserLicense</members>
-        <members>Vehicle_Group_Mapping__c</members>
         <members>Vehicle_Inspection__c</members>
         <members>Vehicle_Relationship__c</members>
         <members>Vehicle__c</members>

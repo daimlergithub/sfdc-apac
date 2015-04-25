@@ -147,31 +147,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>CAC_SourceId__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <description>External id field for migration purpose</description>
-        <externalId>true</externalId>
-        <label>CAC SourceId</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
-        <fullName>CCMS_SourceId__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <externalId>true</externalId>
-        <label>CCMS SourceId</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
         <fullName>CP_Expiry_Date__c</fullName>
         <externalId>false</externalId>
         <label>CP Expiry Date</label>
@@ -3384,78 +3359,6 @@ What factors were influential in your purchase decision?
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Temp_field_1__c</fullName>
-        <description>Serves as a temporary replacement welcome call Survey solutions</description>
-        <externalId>false</externalId>
-        <label>Question1</label>
-        <picklist>
-            <picklistValues>
-                <fullName>A.Introduced</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B.Not introduced</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C.Forget Introduced</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Temp_field_2__c</fullName>
-        <description>Serves as a temporary replacement welcome call Survey solutions</description>
-        <externalId>false</externalId>
-        <label>Question2</label>
-        <picklist>
-            <picklistValues>
-                <fullName>A.Suspension</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B.Not suspended</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C.Not paying attention</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Temp_field_3__c</fullName>
-        <description>Serves as a temporary replacement welcome call Survey solutions</description>
-        <externalId>false</externalId>
-        <label>Question3</label>
-        <picklist>
-            <picklistValues>
-                <fullName>A.There are</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B.No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C.Not paying attention</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>TradeIn_Make__c</fullName>
         <externalId>false</externalId>
         <label>TradeIn Make</label>
@@ -4248,51 +4151,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Temp_field_1__c</picklist>
-            <values>
-                <fullName>A%2EIntroduced</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B%2ENot introduced</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C%2EForget Introduced</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Temp_field_2__c</picklist>
-            <values>
-                <fullName>A%2ESuspension</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B%2ENot suspended</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C%2ENot paying attention</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Temp_field_3__c</picklist>
-            <values>
-                <fullName>A%2EThere are</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B%2ENo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C%2ENot paying attention</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>TradeIn_Year__c</picklist>
             <values>
                 <fullName>%3C1980</fullName>
@@ -4648,51 +4506,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <picklist>Technology__c</picklist>
             <values>
                 <fullName>1</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Temp_field_1__c</picklist>
-            <values>
-                <fullName>A%2EIntroduced</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B%2ENot introduced</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C%2EForget Introduced</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Temp_field_2__c</picklist>
-            <values>
-                <fullName>A%2ESuspension</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B%2ENot suspended</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C%2ENot paying attention</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Temp_field_3__c</picklist>
-            <values>
-                <fullName>A%2EThere are</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B%2ENo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C%2ENot paying attention</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5053,51 +4866,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <picklist>Technology__c</picklist>
             <values>
                 <fullName>1</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Temp_field_1__c</picklist>
-            <values>
-                <fullName>A%2EIntroduced</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B%2ENot introduced</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C%2EForget Introduced</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Temp_field_2__c</picklist>
-            <values>
-                <fullName>A%2ESuspension</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B%2ENot suspended</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C%2ENot paying attention</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Temp_field_3__c</picklist>
-            <values>
-                <fullName>A%2EThere are</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B%2ENo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C%2ENot paying attention</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

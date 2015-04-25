@@ -354,6 +354,420 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Addresses</pluralLabel>
+    <recordTypes>
+        <fullName>Company</fullName>
+        <active>true</active>
+        <description>Record type for company addresses.</description>
+        <label>Company</label>
+        <picklistValues>
+            <picklist>Address_Type__c</picklist>
+            <values>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prev Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 1 -Main Location Sales%2C Service %26 Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 2 -Main Location Sales Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 3 -Main Location Service %26 Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 6 -Additional Sales%2C Service %26 Parts location not within Site 1 or Site 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 7 -Service %26 Parts ONLY Location</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 8 -Only Parts Location</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 9 -Auto Body</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site address</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country__c</picklist>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>State__c</picklist>
+            <values>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QLD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dead Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opt out</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Dealer</fullName>
+        <active>true</active>
+        <description>Record type for dealer addresses.</description>
+        <label>Dealer</label>
+        <picklistValues>
+            <picklist>Address_Type__c</picklist>
+            <values>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prev Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 1 -Main Location Sales%2C Service %26 Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 2 -Main Location Sales Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 3 -Main Location Service %26 Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 6 -Additional Sales%2C Service %26 Parts location not within Site 1 or Site 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 7 -Service %26 Parts ONLY Location</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 8 -Only Parts Location</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 9 -Auto Body</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site address</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country__c</picklist>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>State__c</picklist>
+            <values>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QLD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dead Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opt out</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Individual</fullName>
+        <active>true</active>
+        <description>Record type for individual addresses.</description>
+        <label>Individual</label>
+        <picklistValues>
+            <picklist>Address_Type__c</picklist>
+            <values>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prev Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 1 -Main Location Sales%2C Service %26 Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 2 -Main Location Sales Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 3 -Main Location Service %26 Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 6 -Additional Sales%2C Service %26 Parts location not within Site 1 or Site 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 7 -Service %26 Parts ONLY Location</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 8 -Only Parts Location</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 9 -Auto Body</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site address</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Country__c</picklist>
+            <values>
+                <fullName>Australia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>New Zealand</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>State__c</picklist>
+            <values>
+                <fullName>ACT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NSW</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>QLD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>WA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Active</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dead Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opt out</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>

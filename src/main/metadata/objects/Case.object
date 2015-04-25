@@ -322,34 +322,6 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>CAC_SourceId__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <description>External id field for migration purpose</description>
-        <externalId>true</externalId>
-        <label>CAC SourceId</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
-        <fullName>CCMS_SourceId__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <description>External id field for migration purpose</description>
-        <externalId>true</externalId>
-        <label>CCMS SourceId</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
         <fullName>CLB_Used__c</fullName>
         <description>For wholesale user.</description>
         <externalId>false</externalId>
@@ -13868,27 +13840,6 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Vehicle_Brandtest__c</fullName>
-        <description>/*
-Created by:  Chris.Huang
-Used by:  Chris.Huang
-Function: 
-Used in: Page Layouts, Reports 
-
-Modify History
-Modify By: 
-Modify Reason: 
-*/</description>
-        <externalId>false</externalId>
-        <formula>TEXT(Vehicle__r.Brand__c)</formula>
-        <label>Vehicle Brand</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Vehicle_Class__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Series</label>
@@ -14294,27 +14245,6 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Vehicle_Classtest__c</fullName>
-        <description>/*
-Created by:  Chris.Huang
-Used by:  Chris.Huang
-Function: 
-Used in: Page Layouts, Reports 
-
-Modify History
-Modify By: 
-Modify Reason: 
-*/</description>
-        <externalId>false</externalId>
-        <formula>TEXT(Vehicle__r.Class__c)</formula>
-        <label>Vehicle Class</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Vehicle_ID__c</fullName>
@@ -16950,7 +16880,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>Case_Type__c</columns>
         <columns>Case_SubType__c</columns>
         <columns>OWNER_NAME</columns>
-        <columns>CCMS_SourceId__c</columns>
         <columns>CASES.CREATED_DATE</columns>
         <filterScope>Everything</filterScope>
         <filters>
@@ -16984,7 +16913,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>Escalate_Date_to_CO__c</columns>
         <columns>Case_Source__c</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <columns>CCMS_SourceId__c</columns>
         <columns>Ref_No_Central__c</columns>
         <columns>Ref_No_Regional__c</columns>
         <filterScope>Everything</filterScope>
@@ -17016,7 +16944,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>Escalate_Date_to_CO__c</columns>
         <columns>Case_Source__c</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <columns>CCMS_SourceId__c</columns>
         <columns>Ref_No_Central__c</columns>
         <columns>Ref_No_Regional__c</columns>
         <filterScope>Everything</filterScope>
@@ -17034,10 +16961,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <field>Case_Involvement_MPC__c</field>
             <operation>equals</operation>
             <value>PL/WL</value>
-        </filters>
-        <filters>
-            <field>CCMS_SourceId__c</field>
-            <operation>equals</operation>
         </filters>
         <label>All PL/WL Cases</label>
         <language>en_US</language>
@@ -17057,7 +16980,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>Escalate_Date_to_CO__c</columns>
         <columns>Case_Source__c</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <columns>CCMS_SourceId__c</columns>
         <columns>Ref_No_Central__c</columns>
         <columns>Ref_No_Regional__c</columns>
         <filterScope>Everything</filterScope>
@@ -17089,7 +17011,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>Escalate_Date_to_CO__c</columns>
         <columns>Case_Source__c</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <columns>CCMS_SourceId__c</columns>
         <columns>Ref_No_Central__c</columns>
         <columns>Ref_No_Regional__c</columns>
         <filterScope>Everything</filterScope>
@@ -17121,7 +17042,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>Escalate_Date_to_CO__c</columns>
         <columns>Case_Source__c</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <columns>CCMS_SourceId__c</columns>
         <columns>Ref_No_Central__c</columns>
         <columns>Ref_No_Regional__c</columns>
         <filterScope>Everything</filterScope>
@@ -17153,7 +17073,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>Escalate_Date_to_CO__c</columns>
         <columns>Case_Source__c</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <columns>CCMS_SourceId__c</columns>
         <columns>Ref_No_Central__c</columns>
         <columns>Ref_No_Regional__c</columns>
         <filterScope>Everything</filterScope>
@@ -17226,7 +17145,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>CASES.PRIORITY</columns>
         <columns>CASES.CREATED_DATE</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <columns>CCMS_SourceId__c</columns>
         <filterScope>Queue</filterScope>
         <label>Central Office PL / WL Queue</label>
         <language>en_US</language>
@@ -17385,59 +17303,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>Dealer_Case_SubType__c</columns>
         <columns>OWNER_NAME</columns>
         <columns>CASES.CREATED_DATE</columns>
-        <columns>CAC_SourceId__c</columns>
         <columns>CASES.RECORDTYPE</columns>
         <columns>Case_Dealer__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
-            <field>CAC_SourceId__c</field>
-            <operation>contains</operation>
-            <value>217071,217061,217087,217099,217107,217115,217143,217183,217201,217209,217215</value>
-        </filters>
-        <filters>
             <field>CASES.RECORDTYPE</field>
             <operation>equals</operation>
             <value>Case.MB_Complaint,Case.Object_Connector</value>
-        </filters>
-        <filters>
-            <field>CAC_SourceId__c</field>
-            <operation>contains</operation>
-            <value>217221,217229,217241,217247,217279,217283,217293,217303,217307,217315,217317</value>
-        </filters>
-        <filters>
-            <field>CAC_SourceId__c</field>
-            <operation>contains</operation>
-            <value>217333,217337,217341,217355,217357,217361,217377,217379,217391,217399</value>
-        </filters>
-        <filters>
-            <field>CAC_SourceId__c</field>
-            <operation>contains</operation>
-            <value>216785,217065,217067,217073,217075,217081,217083,217089,217091,217093,217095</value>
-        </filters>
-        <filters>
-            <field>CAC_SourceId__c</field>
-            <operation>contains</operation>
-            <value>217101,217109,217113,217119,217137,217141,217145,217149,217153,217161,217163</value>
-        </filters>
-        <filters>
-            <field>CAC_SourceId__c</field>
-            <operation>contains</operation>
-            <value>217167,217169,217173,217179,217185,217189,217191,217193,217195,217213,217233</value>
-        </filters>
-        <filters>
-            <field>CAC_SourceId__c</field>
-            <operation>contains</operation>
-            <value>217239,217249,217255,217257,217261,217271,217273,217275,217281,217285,217287</value>
-        </filters>
-        <filters>
-            <field>CAC_SourceId__c</field>
-            <operation>contains</operation>
-            <value>217309,217311,217319,217325,217331,217335,217345,217349,217363,217365,217367</value>
-        </filters>
-        <filters>
-            <field>CAC_SourceId__c</field>
-            <operation>contains</operation>
-            <value>217371,217373,217375,217381,217387</value>
         </filters>
         <label>On site manager open Complaint</label>
         <language>en_US</language>
@@ -17454,7 +17326,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>Escalate_Date_to_CO__c</columns>
         <columns>Case_Source__c</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <columns>CCMS_SourceId__c</columns>
         <columns>Ref_No_Central__c</columns>
         <columns>Ref_No_Regional__c</columns>
         <filterScope>Team</filterScope>
@@ -17496,14 +17367,9 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>Escalate_Date_to_RO__c</columns>
         <columns>Case_Source__c</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <columns>CCMS_SourceId__c</columns>
         <columns>Ref_No_Central__c</columns>
         <columns>Ref_No_Regional__c</columns>
         <filterScope>Everything</filterScope>
-        <filters>
-            <field>CCMS_SourceId__c</field>
-            <operation>notEqual</operation>
-        </filters>
         <filters>
             <field>CASES.RECORDTYPE</field>
             <operation>equals</operation>
