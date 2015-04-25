@@ -1912,23 +1912,7 @@
         <fullName>Status</fullName>
         <picklist>
             <picklistValues>
-                <fullName>Planned</fullName>
-                <default>true</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Confirmed</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Approved</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Started</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Closed</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1936,7 +1920,31 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Published</fullName>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Opened</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Planned</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>To be Deleted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Submit for approval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3166,7 +3174,23 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opened</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3174,7 +3198,15 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Published</fullName>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submit for approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Deleted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4051,7 +4083,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Confirmed</fullName>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opened</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4059,7 +4095,15 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Started</fullName>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submit for approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Deleted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4896,7 +4940,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Confirmed</fullName>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opened</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4904,7 +4952,15 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Started</fullName>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submit for approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Deleted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5589,7 +5645,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Confirmed</fullName>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opened</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5597,7 +5657,15 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Started</fullName>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submit for approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Deleted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6278,7 +6346,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Confirmed</fullName>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opened</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6286,7 +6358,15 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Started</fullName>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submit for approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Deleted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6983,7 +7063,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Confirmed</fullName>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opened</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6991,7 +7075,15 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Started</fullName>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submit for approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Deleted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7688,7 +7780,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Confirmed</fullName>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opened</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7696,7 +7792,15 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Started</fullName>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submit for approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Deleted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8565,7 +8669,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Confirmed</fullName>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opened</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8573,11 +8681,15 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Published</fullName>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Started</fullName>
+                <fullName>Submit for approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Deleted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9462,7 +9574,23 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opened</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9470,7 +9598,15 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Published</fullName>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submit for approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Deleted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10355,7 +10491,23 @@
         <picklistValues>
             <picklist>Status</picklist>
             <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Closed</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opened</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10363,7 +10515,15 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Published</fullName>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Submit for approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Deleted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11239,7 +11399,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Confirmed</fullName>
+                <fullName>Dispatched</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Opened</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11247,11 +11411,15 @@
                 <default>true</default>
             </values>
             <values>
-                <fullName>Published</fullName>
+                <fullName>Rejected</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Started</fullName>
+                <fullName>Submit for approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>To be Deleted</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
