@@ -176,6 +176,7 @@
 			<sf:typeset name="objects">				
 				<sf:include name="Contract_Relation__c"/>
 			</sf:typeset>
+			<sf:typeset name="letterhead"/>
 		</deploy>
     </target>
 	
