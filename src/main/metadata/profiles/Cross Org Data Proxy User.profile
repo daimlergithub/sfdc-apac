@@ -789,6 +789,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SubmitSurveyController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SubmitSurveyControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TaskDeletingController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -870,6 +878,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TrialCustomerPortalHomePageController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerAccountHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -12572,6 +12584,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyQuestionResponse__c.Note__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>SurveyQuestionResponse__c.Response__c</field>
         <readable>false</readable>
@@ -12597,6 +12614,21 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Last_Answered_Question__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Lead__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Survey_Taking_Status__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>SurveyTaker__c.Survey__c</field>
         <readable>false</readable>
@@ -12605,6 +12637,11 @@
         <editable>false</editable>
         <field>SurveyTaker__c.Taken__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyTaker__c.Task_ID__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -12617,9 +12654,24 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Survey_Question__c.Need_Free_TextBox__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Survey_Question__c.Redirect_Question_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Survey_Question__c.Required__c</field>
         <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Survey_Question__c.Single_FreeText_Next_Question_No__c</field>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -15451,6 +15503,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>StdExceptionTemplate</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SubmitSurvey</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>

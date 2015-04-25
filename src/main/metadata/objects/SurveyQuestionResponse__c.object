@@ -56,6 +56,15 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Note__c</fullName>
+        <externalId>false</externalId>
+        <label>Note</label>
+        <length>32768</length>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
         <fullName>Response__c</fullName>
         <externalId>false</externalId>
         <label>Response</label>
