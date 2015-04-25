@@ -1483,6 +1483,19 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Finance_Dealer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Finance Dealer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Vehicle Relationship (Finance Dealer)</relationshipLabel>
+        <relationshipName>Vehicle_Relationship1</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Finance_Method__c</fullName>
         <externalId>false</externalId>
         <label>Finance Method</label>
