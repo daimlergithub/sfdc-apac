@@ -345,7 +345,7 @@ Proxy_Date_Time__c
             <name>Email_notification_when_customer_doesn_t_allow_dealer_contact</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.Assigned_Date_Time__c</field>
             <operation>notEqual</operation>
@@ -373,13 +373,13 @@ Proxy_Date_Time__c
             <name>Email_notification_when_interested_vehicle_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), Dealer_LMS__c = 'No', RecordType.Name = 'Sales Leads', OR( ISCHANGED(Interested_Vehicle_Brand__c),  ISCHANGED(Interested_Vehicle_Class__c),  ISCHANGED(Interested_Vehicle_Model__c) ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Email notification when no status is updated more than 10 days</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>AND ( ISBLANK(Proxy_Date_Time__c), RecordTypeId =='012O00000004Wxm' )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -394,7 +394,7 @@ Proxy_Date_Time__c
     </rules>
     <rules>
         <fullName>Email notification when no status is updated more than 5 days</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>AND ( ISBLANK(Proxy_Date_Time__c), RecordTypeId =='012O00000004Wxm' )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
@@ -413,7 +413,7 @@ Proxy_Date_Time__c
             <name>Email_notification_when_purchase_time_have_changed</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c), RecordType.Name = 'Sales Leads', Dealer_LMS__c = 'No' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -423,7 +423,7 @@ Proxy_Date_Time__c
             <name>When_lead_fields_updated_by_dealer_leads_owner_will_receive_an_email_notificatio</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(  CONTAINS( $Profile.Name , 'Dealer'),  OR(    ISCHANGED(Lead_Desired_Service__c),    ISCHANGED(Dealer_Lead_Status__c),    ISCHANGED(Lead_Type__c),    ISCHANGED(Lead_Sub_Type__c),    ISCHANGED(First_Contact_Customer_Date__c ),    ISCHANGED(Lead_Additional_Service__c),    ISCHANGED(Purchased_Date__c),    ISCHANGED(Dealer_Comments__c),    ISCHANGED(Purchase_Time__c),    ISCHANGED(Interested_Vehicle_Brand__c),    ISCHANGED(Interested_Vehicle_Class__c),    ISCHANGED(Interested_Vehicle_Model__c),    ISCHANGED(Test_Drive_Date__c),    ISCHANGED(Feedback_To_MB_Call_Center__c)  ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
@@ -460,7 +460,7 @@ Proxy_Date_Time__c
             <name>Set_Successful_Call_Number_is_0</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.Lead_DataSource__c</field>
             <operation>notEqual</operation>
@@ -474,7 +474,7 @@ Proxy_Date_Time__c
             <name>Set_Successful_Call_Number_is_1</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.Lead_DataSource__c</field>
             <operation>equals</operation>
@@ -488,7 +488,7 @@ Proxy_Date_Time__c
             <name>Link_Social_Media_Leads</name>
             <type>OutboundMessage</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.Lead_DataSource__c</field>
             <operation>equals</operation>
@@ -511,7 +511,7 @@ Proxy_Date_Time__c
             <name>Update_Proxy_Date_Time_to_Contact_Failed</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -525,7 +525,7 @@ Proxy_Date_Time__c
             <name>Update_Dealer_Owner_Email</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
             <operation>equals</operation>
@@ -539,7 +539,7 @@ Proxy_Date_Time__c
             <name>Update_Proxy_Date_Time_to_First_Contact</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"First Contact Customer")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -549,7 +549,7 @@ Proxy_Date_Time__c
             <name>Update_Qualified_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-18) 
@@ -574,7 +574,7 @@ Modify Reason:
             <name>Update_Lost_CAC_Date_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
@@ -588,7 +588,7 @@ Modify Reason:
             <name>Update_Proxy_Date_Time_to_Lost_Dealer</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"Lost(Dealer)")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -598,7 +598,7 @@ Modify Reason:
             <name>Update_Proxy_Date_Time_to_Order_Placed</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"Order Placed")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -608,7 +608,7 @@ Modify Reason:
             <name>Update_Purchased_CAC_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Lead__c.CAC_Lead_Status__c</field>
             <operation>equals</operation>
@@ -626,7 +626,7 @@ Modify Reason:
             <name>Update_Purchased_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"Purchased(Only Non BDC)")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -648,7 +648,7 @@ Modify Reason:
             <name>Send_Assigned_Dealer_to_EP</name>
             <type>OutboundMessage</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-15) 
@@ -684,7 +684,7 @@ Modify Reason:
             <name>Update_Lead_Recieved_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-14) 
 Function: update assigned date, recieved data and accepted date to now, and status to Accepted when Dealer LMS is No, Is Qualified is Qualified and Prefer Dealer is not null</description>
@@ -697,7 +697,7 @@ Function: update assigned date, recieved data and accepted date to now, and stat
             <name>Update_Proxy_Date_Time_to_Test_Drive</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"Test Drive")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -711,7 +711,7 @@ Function: update assigned date, recieved data and accepted date to now, and stat
             <name>Update_Visited_Showroom_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

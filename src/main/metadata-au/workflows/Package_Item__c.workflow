@@ -15,7 +15,7 @@
             <name>Update_Unique_Code_Field</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Package_Item__c.Name</field>
             <operation>notEqual</operation>

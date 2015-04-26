@@ -17,7 +17,7 @@
             <name>Collaboration_Team_Send_Email_to_Member</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Collaboration_Team__c.Member_Name__c</field>
             <operation>notEqual</operation>

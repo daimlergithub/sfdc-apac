@@ -12,7 +12,7 @@
     </fieldUpdates>
     <rules>
         <fullName>chatter_answers_no_best_reply_within_time_limit_wf</fullName>
-        <active>true</active>
+        <active>false</active>
         <formula>NOT(ISPICKVAL(Priority,&apos;high&apos;)) &amp;&amp; ISBLANK(BestReplyId)</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>

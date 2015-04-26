@@ -27,7 +27,7 @@
             <name>When_QC_has_the_Appeal_flag_check_send_an_email_to_QC_SV</name>
             <type>Alert</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>QC__c.Appeal__c</field>
             <operation>equals</operation>

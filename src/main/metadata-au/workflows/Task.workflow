@@ -28,7 +28,7 @@
             <name>Update_Call_Start_Time</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Task.CallType</field>
             <operation>equals</operation>
