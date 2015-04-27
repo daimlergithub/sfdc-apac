@@ -1,0 +1,31 @@
+<apex:page controller="NewCMSContractsRelationController">
+<!--
+<apex:page standardController="CMS_Contracts_Relation__c" extensions="NewCMSContractsRelationController">
+ -->
+    <apex:pageMessages />
+    <apex:form >
+        <apex:pageBlock title="New CMS Contracts Relation" rendered="{!isCase}">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveCMS}" value="Save"/>
+                <apex:commandButton action="{!cancelCMS}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="CMS Contracts Relation Edit" columns="2" collapsible="false">
+                <apex:inputField value="{!CMSContractsRelationInfo.Name}"/>
+                <apex:outputField value="{!CMSContractsRelationInfo.OwnerId}"/>
+                <apex:inputField value="{!CMSContractsRelationInfo.Case_No__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+        <apex:pageBlock title="New CMS Contracts Relation" rendered="{!NOT(isCase)}">
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveCMSforLead}" value="Save"/>
+                <apex:commandButton action="{!saveCMSforLeadAndNew}" value="Save & New"/>
+                <apex:commandButton action="{!cancelforLead}" value="Cancel"/>
+            </apex:pageBlockButtons>
+            <apex:pageBlockSection title="CMS Contracts Relation Edit" columns="2" collapsible="false">
+                <apex:inputField value="{!CMSContractsRelationInfo.Name}"/>
+                <apex:outputField value="{!CMSContractsRelationInfo.OwnerId}"/>
+                <apex:inputField value="{!CMSContractsRelationInfo.Lead__c}"/>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>  
+</apex:page>
