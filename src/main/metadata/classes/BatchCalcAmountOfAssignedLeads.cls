@@ -36,7 +36,7 @@ global class BatchCalcAmountOfAssignedLeads implements Database.Batchable<SObjec
             }
 
             // If today is not 0
-            if (leads!=Null && leads.isEmpty()) {               
+            if (leads!=Null && !leads.isEmpty()) {               
             
                 dealer.Assigned_Lead_Amount_of_Everyday__c = leads.size();
                 dealer.Dealer_Lead_Gate_Keeper__c = leads[0].OwnerId;
@@ -66,8 +66,7 @@ global class BatchCalcAmountOfAssignedLeads implements Database.Batchable<SObjec
            try{
               Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
            }catch(EmailException ex){
-              system.debug('============== email exception caught!!!Destination email address does not exist============='+ex.getMessage());
-              ex.getMessage();
+              system.debug('============== email exception caught!!!Destination email address does not exist============='+ex.getMessage());             
            }        
     }
 }
