@@ -15,26 +15,6 @@
                 <field>Reason</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Comments</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Lead__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_you_are_most_interested_in__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Purchase_Intention__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Best_Contact_Time__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CMS_Contract_No__c</field>
             </layoutItems>
@@ -48,7 +28,7 @@
     <showSolutionSection>true</showSolutionSection>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h9000000NeuvP</masterLabel>
+        <masterLabel>00hN0000000T4ux</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
