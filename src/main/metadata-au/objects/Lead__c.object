@@ -74517,7 +74517,157 @@ ISNULL(Visited_Showroom_Date__c)
         <errorDisplayField>Visited_Showroom_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is Visited Showroom(Only Non BDC), Visited Showroom Date is required.</errorMessage>
     </validationRules>
+	 <webLinks>
+        <fullName>Change_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Change Dealer</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/connection.js&quot;)}; 
+		{!REQUIRESCRIPT(&quot;/soap/ajax/19.0/apex.js&quot;)}; 
+		{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)} 
+		var proceed = true; 
+		if( &quot;{!$Profile.Name}&quot; != &apos;Network Devevlopment&apos; &amp;&amp; &quot;{!$Profile.Name}&quot; != &apos;FS Admin&apos; &amp;&amp; &quot;{!$Profile.Name}&quot; != &apos;System Administrator&apos;){
+		alert(&apos;You do not have permission to use this function&apos;); 
+		proceed = false;
+		}
+		var idList = {!GETRECORDIDS($ObjectType.Lead_Account__c)}; 
+		if(proceed &amp;&amp; idList.length &lt;= 0){ 
+		alert(&apos;Please select record(s).&apos;); 
+		proceed = false; 
+		} 
+		if (proceed &amp;&amp; (navigator.userAgent.indexOf(&apos;MSIE&apos;)) &gt;= 0) { 
+		if(idList.length &gt; 100){ 
+		alert(&apos;Only maximum of 100 records can be selected.&apos;); 
+		proceed = false;
+		}
+		}
+		if(proceed){ 
+		if (sforce.console.isInConsole() &amp;&amp; typeof(srcUp)!=&apos;undefined&apos;) { 
+		srcUp(&quot;/apex/LeadMassChangeDealer?objIds=&quot; + idList); 
+		} else { 
+		window.location.href = &quot;/apex/LeadMassChangeDealer?objIds=&quot; + idList; 
+		} 
+		}</url>
+	</webLinks>			
+	<webLinks>
+        <fullName>New_Fleet_Lead</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Fleet Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/apex/CommonJS&quot;)}
+		{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)}
+		{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
+
+		var leadRecordName = &apos;Fleet Lead&apos;;
+		var accountRecordName = &quot;{!Account.RecordType}&quot;;
+		var accountName = &quot;{!Account.Name}&quot;;
+		var accountId = &quot;{!Account.Id}&quot;;
+
+		newLeadAccount(leadRecordName,accountRecordName,accountName,accountId);</url>
+			</webLinks>
+			<webLinks>
+				<fullName>New_Insurance_Lead</fullName>
+				<availability>online</availability>
+				<displayType>massActionButton</displayType>
+				<linkType>javascript</linkType>
+				<masterLabel>New Insurance Lead</masterLabel>
+				<openType>onClickJavaScript</openType>
+				<protected>false</protected>
+				<requireRowSelection>false</requireRowSelection>
+				<url>{!REQUIRESCRIPT(&quot;/apex/CommonJS&quot;)}
+		{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)}
+		{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
+
+		var leadRecordName = &apos;Insurance Lead&apos;;
+		var accountRecordName = &quot;{!Account.RecordType}&quot;;
+		var accountName = &quot;{!Account.Name}&quot;;
+		var accountId = &quot;{!Account.Id}&quot;;
+
+		newLeadAccount(leadRecordName,accountRecordName,accountName,accountId);</url>
+    </webLinks>
+	<webLinks>
+        <fullName>New_Service_Parts_Lead</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Service/Parts Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/apex/CommonJS&quot;)}
+		{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)}
+		{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
+
+		var leadRecordName = &apos;Service/Parts Lead&apos;;
+		var accountRecordName = &quot;{!Account.RecordType}&quot;;
+		var accountName = &quot;{!Account.Name}&quot;;
+		var accountId = &quot;{!Account.Id}&quot;;
+
+		newLeadAccount(leadRecordName,accountRecordName,accountName,accountId);</url>
+    </webLinks>
     <webLinks>
+        <fullName>New_Vehicle_Lead</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Vehicle Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/apex/CommonJS&quot;)}
+		{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)}
+		{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
+
+		var leadRecordName = &apos;Vehicle Lead&apos;;
+		var accountRecordName = &quot;{!Account.RecordType}&quot;;
+		var accountName = &quot;{!Account.Name}&quot;;
+		var accountId = &quot;{!Account.Id}&quot;;
+
+		newLeadAccount(leadRecordName,accountRecordName,accountName,accountId);</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Print</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>page</linkType>
+        <masterLabel>Print</masterLabel>
+        <openType>newWindow</openType>
+        <page>Fleet_settlement_checklist</page>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <width>800</width>
+    </webLinks>	
+	 <webLinks>
+        <fullName>Select_Assigned_Dealer</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Select Assigned Dealer</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>if (&quot;{!Lead_Account__c.Lead_Status__c}&quot; == &quot;Qualified&quot;) { 
+			alert(&quot;Lead Status cannot be qualified before selecting dealer.&quot;); 
+		} 
+		else {
+			location.href = &quot;/apex/SelectAssignedDealer?Id={!Lead_Account__c.Id}&quot;;
+		}</url>
+    </webLinks>
+	<webLinks>
         <fullName>SMS</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
@@ -74526,48 +74676,20 @@ ISNULL(Visited_Showroom_Date__c)
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-if (sforce.console.isInConsole()) { 
-javascript:
-var showTabId = function showTabId(result) { 
-var tabid = result.id;
-sforce.console.openSubtab(tabid, 
-'/apex/SMSSendLeadResult?leadId={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;tabId='+tabid, 
-true, 'SMS');
-}; 
-sforce.console.getEnclosingPrimaryTabId(showTabId); 
-} 
-else { 
-window.open("/apex/SMSSendLeadResult?leadId={!Lead__c.Id}&amp;retURL={!Lead__c.Id}", "", "width = 800,height = 600"); 
-}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>Select_Assigned_Dealer</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>javascript</linkType>
-        <masterLabel>Select Assigned Dealer</masterLabel>
-        <openType>onClickJavaScript</openType>
-        <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
-
-if ("{!Lead__c.CAC_Lead_Status__c}" == "New" ||
-	"{!Lead__c.CAC_Lead_Status__c}" == "Qualified") {
-
-	if (sforce.console.isInConsole()) {
-		javascript:sforce.console.getEnclosingPrimaryTabId(function openSubtab(res) {
-	            sforce.console.openSubtab(res.id, 
-	            	'/apex/SelectAssignedDealer?Id={!Lead__c.Id}&amp;tabId=' + res.id, 
-					true, 'Select Prefer Dealer');
-		});
-	}
-	else {
-	    window.open("/apex/SelectAssignedDealer?Id={!Lead__c.Id}", "", "width = 800, height = 600");
-	}
-}
-else {
-	alert("Only new or qualified lead can select prefer dealer.");
-}</url>
-    </webLinks>
+		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+		if (sforce.console.isInConsole()) { 
+		javascript:
+		var showTabId = function showTabId(result) { 
+		var tabid = result.id;
+		sforce.console.openSubtab(tabid, 
+		'/apex/SMSSendLeadResult?leadId={!Lead__c.Id}&amp;retURL={!Lead__c.Id}&amp;tabId='+tabid, 
+		true, 'SMS');
+		}; 
+		sforce.console.getEnclosingPrimaryTabId(showTabId); 
+		} 
+		else { 
+		window.open("/apex/SMSSendLeadResult?leadId={!Lead__c.Id}&amp;retURL={!Lead__c.Id}", "", "width = 800,height = 600"); 
+		}</url>
+	</webLinks>
+			
 </CustomObject>

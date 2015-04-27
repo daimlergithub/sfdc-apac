@@ -14508,6 +14508,19 @@ ISPICKVAL( Activity_Status__c, &apos;&apos; )
         <errorConditionFormula>AND(SMS_Response_Required__c=TRUE, ISBLANK(SMSTemplateID__c) )</errorConditionFormula>
         <errorMessage>Sorry, for &quot;SMS Response Required&quot; task,Template ID is required</errorMessage>
     </validationRules>
+	<webLinks>
+        <fullName>Activate_Deactivate_CROs</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <height>600</height>
+        <linkType>url</linkType>
+        <masterLabel>Activate/Deactivate CROs</masterLabel>
+        <openType>sidebar</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/apex/TaskMassChangeActivateDeactive</url>
+    </webLinks>
     <webLinks>
         <fullName>Bulk_Assign</fullName>
         <availability>online</availability>
