@@ -10,6 +10,25 @@
         <operation>Literal</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <fieldUpdates>
+        <fullName>updateVINSearch</fullName>
+        <field>VIN_Search__c</field>
+        <formula>UsVIN__c</formula>
+        <name>updateVINSearch</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <rules>
+        <fullName>Customer Vehicle Relationship Copy VIN  to VIN Search</fullName>
+        <actions>
+            <name>updateVINSearch</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <formula>true</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
     <rules>
         <fullName>Validate Vehicle Relationship</fullName>
         <actions>
