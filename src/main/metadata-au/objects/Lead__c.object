@@ -74534,7 +74534,7 @@ ISNULL(Visited_Showroom_Date__c)
 		alert(&apos;You do not have permission to use this function&apos;); 
 		proceed = false;
 		}
-		var idList = {!GETRECORDIDS($ObjectType.Lead_Account__c)}; 
+		var idList = {!GETRECORDIDS($ObjectType.Lead__c)}; 
 		if(proceed &amp;&amp; idList.length &lt;= 0){ 
 		alert(&apos;Please select record(s).&apos;); 
 		proceed = false; 
@@ -74660,11 +74660,11 @@ ISNULL(Visited_Showroom_Date__c)
         <masterLabel>Select Assigned Dealer</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>if (&quot;{!Lead_Account__c.Lead_Status__c}&quot; == &quot;Qualified&quot;) { 
+        <url>if (&quot;{!Lead__c.CAC_Lead_Status__c}&quot; == &quot;Qualified&quot;) { 
 			alert(&quot;Lead Status cannot be qualified before selecting dealer.&quot;); 
 		} 
 		else {
-			location.href = &quot;/apex/SelectAssignedDealer?Id={!Lead_Account__c.Id}&quot;;
+			location.href = &quot;/apex/SelectAssignedDealer?Id={!Lead__c.Id}&quot;;
 		}</url>
     </webLinks>
 	<webLinks>
