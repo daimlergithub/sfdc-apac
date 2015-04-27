@@ -267,23 +267,31 @@
         <label>Brand</label>
         <picklist>
             <picklistValues>
-                <fullName>MB</fullName>
+                <fullName>Freightliner / Daimler Trucks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso / Daimler Trucks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Bus &amp; Coach</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Trucks / Daimler Trucks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AMG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>StarElite</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -448,19 +456,19 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>SMS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Call</fullName>
+                <fullName>Social Media</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Website</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Social Media</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -537,11 +545,11 @@
         <label>Campaign Offer Type</label>
         <picklist>
             <picklistValues>
-                <fullName>Test Drive</fullName>
+                <fullName>Event</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Event Participation</fullName>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -549,7 +557,23 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service Offer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Test Drive</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -579,11 +603,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Call</fullName>
+                <fullName>Mail</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -591,11 +611,19 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Visit Dealer</fullName>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Social Media</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Visit Dealer</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2120,15 +2148,51 @@
         <fullName>Type</fullName>
         <picklist>
             <picklistValues>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Functional (Finance &amp; Insurance)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RAK (Random Act of Kindness)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2411,15 +2475,27 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>AMG</fullName>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB</fullName>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>StarElite</fullName>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2507,15 +2583,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2569,7 +2645,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2577,7 +2657,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2588,15 +2680,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3266,15 +3362,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3316,15 +3448,27 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>AMG</fullName>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB</fullName>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3404,15 +3548,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3466,7 +3610,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3474,7 +3622,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3485,15 +3645,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4147,15 +4311,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4197,15 +4397,27 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>AMG</fullName>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB</fullName>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4265,15 +4477,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4323,7 +4535,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4331,7 +4547,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4342,15 +4570,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5008,15 +5240,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5058,15 +5326,27 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>AMG</fullName>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB</fullName>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5146,15 +5426,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5208,7 +5488,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5216,7 +5500,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5227,15 +5523,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5709,15 +6009,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5759,15 +6095,27 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>AMG</fullName>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB</fullName>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5847,15 +6195,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5905,7 +6253,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5913,7 +6265,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5924,15 +6288,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6426,15 +6794,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6476,15 +6880,27 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>AMG</fullName>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB</fullName>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6564,15 +6980,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6622,7 +7038,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6630,7 +7050,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6641,15 +7073,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7143,15 +7579,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7193,15 +7665,27 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>AMG</fullName>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB</fullName>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7281,15 +7765,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7343,7 +7827,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7351,7 +7839,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7362,15 +7862,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7844,15 +8348,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7894,8 +8434,32 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>MB</fullName>
-                <default>true</default>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -7978,15 +8542,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8040,7 +8604,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8048,7 +8616,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8059,15 +8639,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8749,15 +9333,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8799,15 +9419,27 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>AMG</fullName>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB</fullName>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>StarElite</fullName>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8895,15 +9527,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8957,7 +9589,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8965,7 +9601,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8976,15 +9624,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9666,15 +10318,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9716,15 +10404,27 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>AMG</fullName>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB</fullName>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>StarElite</fullName>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9812,15 +10512,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9874,7 +10574,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9882,7 +10586,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9893,15 +10609,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10583,15 +11303,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10632,8 +11388,32 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>smart</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -10716,15 +11496,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10778,7 +11558,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10786,7 +11570,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10797,15 +11593,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11479,15 +12279,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11566,15 +12402,27 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>AMG</fullName>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB</fullName>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>StarElite</fullName>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11585,15 +12433,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11647,7 +12495,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11655,7 +12507,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11666,15 +12530,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11817,15 +12685,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11991,15 +12895,27 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>AMG</fullName>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB</fullName>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>StarElite</fullName>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12010,15 +12926,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12072,7 +12988,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12080,7 +13000,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12091,15 +13023,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12242,15 +13178,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12416,15 +13388,27 @@
         <picklistValues>
             <picklist>Brand__c</picklist>
             <values>
-                <fullName>AMG</fullName>
+                <fullName>Freightliner %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MB</fullName>
+                <fullName>Fuso %2F Daimler Trucks</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>StarElite</fullName>
+                <fullName>MB Bus %26 Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks %2F Daimler Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12435,15 +13419,15 @@
         <picklistValues>
             <picklist>Campaign_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12497,7 +13481,11 @@
         <picklistValues>
             <picklist>Campaign_Offer_Type__c</picklist>
             <values>
-                <fullName>Event Participation</fullName>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12505,7 +13493,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Others</fullName>
+                <fullName>Insurance Offer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service Offer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12516,15 +13516,19 @@
         <picklistValues>
             <picklist>Campaign_Response_Channels__c</picklist>
             <values>
-                <fullName>Call</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mail</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Online Registration</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12667,15 +13671,51 @@
         <picklistValues>
             <picklist>Type</picklist>
             <values>
-                <fullName>CRM Acquisition Program</fullName>
+                <fullName>Acquistion</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CRM Loyalty Program</fullName>
+                <fullName>Competition</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Functional %28Finance %26 Insurance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Information</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Legal Requirement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loyalty</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RAK %28Random Act of Kindness%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retention</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sponsorship</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
