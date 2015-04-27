@@ -642,4 +642,42 @@
     <pluralLabel>Addresses</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+	 <webLinks>
+        <fullName>New_Company_Address</fullName>
+        <availability>online</availability>
+        <description>New_Company_Address</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Address</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a00/e?CF00N90000006qtIw={!Account.Name}&amp;CF00N90000006qtIw_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012900000008sYb&amp;ent=01I9000000059Be</url>
+    </webLinks>
+	<webLinks>
+        <fullName>New_DealerAddress</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New  Address</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a00/e?CF00N90000006qtIw={!Account.Name}&amp;CF00N90000006qtIw_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012N0000000Cxcm&amp;ent=01I9000000059Be</url>
+    </webLinks>
+	<webLinks>
+        <fullName>New_Individual_Address</fullName>
+        <availability>online</availability>
+        <description>New_Individual_Address</description>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Address</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a00/e?CF00N90000006qtIw={!Account.Name}&amp;CF00N90000006qtIw_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012900000008sYc&amp;ent=01I9000000059Be</url>
+    </webLinks>
 </CustomObject>
