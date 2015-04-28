@@ -1348,6 +1348,18 @@
         <label>Status</label>
         <picklist>
             <picklistValues>
+                <fullName>In Approval Process0</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activated0</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1362,12 +1374,12 @@
             <picklistValues>
                 <fullName>Approved for Sale</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>Asset Released</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Closed</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1382,15 +1394,15 @@
             <picklistValues>
                 <fullName>Conditioned</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>Continue with existing borrower</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Current</fullName>
                 <default>false</default>
-            </picklistValues>		
+            </picklistValues>
             <picklistValues>
                 <fullName>Declined</fullName>
                 <default>false</default>
@@ -1402,12 +1414,8 @@
             <picklistValues>
                 <fullName>Default-External Agent</fullName>
                 <default>false</default>
-            </picklistValues>			
-            <picklistValues>
-                <fullName>Draft</fullName>
-                <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Early Payout</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1422,12 +1430,12 @@
             <picklistValues>
                 <fullName>Early Payout-Sale of Asset</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>Executed</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Executed-Existing Borrower</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1442,15 +1450,15 @@
             <picklistValues>
                 <fullName>Flat Cancel Contract</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>In Process</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Insurance Loss Arrangement</fullName>
                 <default>false</default>
-            </picklistValues>		
+            </picklistValues>
             <picklistValues>
                 <fullName>Insurance Write off</fullName>
                 <default>false</default>
@@ -1462,15 +1470,15 @@
             <picklistValues>
                 <fullName>Irregular Complied</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>Litigation</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>New</fullName>
                 <default>false</default>
-            </picklistValues>		
+            </picklistValues>
             <picklistValues>
                 <fullName>Not Supported</fullName>
                 <default>false</default>
@@ -1482,12 +1490,12 @@
             <picklistValues>
                 <fullName>Partial Payment Received-Default</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>Partial Payment Received-Overdue</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Partial Redemption</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1502,15 +1510,15 @@
             <picklistValues>
                 <fullName>Payment Pending</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>Payment Received</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Payout</fullName>
                 <default>false</default>
-            </picklistValues>		
+            </picklistValues>
             <picklistValues>
                 <fullName>Pending</fullName>
                 <default>false</default>
@@ -1522,12 +1530,12 @@
             <picklistValues>
                 <fullName>Received</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>Refer</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Refinanced</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1542,12 +1550,12 @@
             <picklistValues>
                 <fullName>Repossessed</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>Repossessed-Voluntary Surrender</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Restructuring</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1562,15 +1570,15 @@
             <picklistValues>
                 <fullName>Sent to Printer</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>Settled</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Settled Irregular</fullName>
                 <default>false</default>
-            </picklistValues>		
+            </picklistValues>
             <picklistValues>
                 <fullName>Settlement Pending</fullName>
                 <default>false</default>
@@ -1582,15 +1590,24 @@
             <picklistValues>
                 <fullName>Support</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>Withdrawn</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Written Off</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
+            <picklistValues>
+                <fullName>In Approval Process</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Activated</fullName>
+                <default>false</default>
+            </picklistValues>
+            <restrictedPicklist>true</restrictedPicklist>
             <sorted>false</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
