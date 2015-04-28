@@ -978,7 +978,7 @@
         <members>Participating_Dealer__c</members>
         <members>PartnerRole</members>
         <members>PersonAccount</members>
-        <members>Pre_Order__c</members>
+        <members>PreOrder__c</members>
         <members>Pricebook2</members>
         <members>PricebookEntry</members>
         <members>Product2</members>
@@ -1334,7 +1334,7 @@
         <members>PersonAccount-PA Layout-Other User</members>
         <members>PersonAccount-PA Layout-Soft Deleted</members>
         <members>PersonAccount-Person Account Layout</members>
-        <members>Pre_Order__c-Pre Order Layout</members>
+        <members>PreOrder__c-Pre Order Layout</members>
         <members>Pricebook2-Price Book Layout</members>
         <members>PricebookEntry-Price Book Entry Layout</members>
         <members>Product2-Product Layout</members>
@@ -1671,7 +1671,7 @@
         <members>Organization</members>
         <members>Package_Item__c</members>
         <members>Participating_Dealer__c</members>
-        <members>Pre_Order__c</members>
+        <members>PreOrder__c</members>
         <members>Product2</members>
         <members>QC_Result_Tracking__c</members>
         <members>QC__c</members>

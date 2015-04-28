@@ -3406,6 +3406,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Address__c.District__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Address__c.FS_Hardcopy_Last_Modified_By__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3436,12 +3441,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Address__c.Post_Code__c</field>
+        <field>Address__c.Preferred__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Address__c.Preferred__c</field>
+        <field>Address__c.Province__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3451,17 +3456,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Address__c.State__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Address__c.Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Address__c.Suburb__c</field>
+        <field>Address__c.ZipCode__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7416,7 +7416,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Created_By_EP_Transaction__c</field>
+        <field>Event.Communication_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7682,11 +7682,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Event.UniqueCode__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Event.Updated_By_EP_Transactions__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9501,32 +9496,27 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Pre_Order__c.ClosedReason__c</field>
+        <field>PreOrder__c.ClosedDate__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Pre_Order__c.Closed_Date__c</field>
+        <field>PreOrder__c.ClosedReason__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Pre_Order__c.Closed_Reason__c</field>
+        <field>PreOrder__c.Customer__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Pre_Order__c.Customer__c</field>
+        <field>PreOrder__c.Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Pre_Order__c.Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Pre_Order__c.VehicleInterested__c</field>
+        <field>PreOrder__c.VehicleInterested__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12756,7 +12746,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Task.Created_By_EP_Transaction__c</field>
+        <field>Task.Communication_Method__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -13012,11 +13002,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.UniqueCode__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Updated_By_EP_Transactions__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14671,7 +14656,7 @@
         <recordType>PersonAccount.ThirdParty</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Pre_Order__c-Pre Order Layout</layout>
+        <layout>PreOrder__c-Pre Order Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Pricebook2-Price Book Layout</layout>

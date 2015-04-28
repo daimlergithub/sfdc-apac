@@ -191,6 +191,16 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>District__c</fullName>
+        <externalId>false</externalId>
+        <label>Suburb</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>FS_Hardcopy_Last_Modified_By__c</fullName>
         <externalId>false</externalId>
         <label>FS Mail Last Modified By</label>
@@ -243,16 +253,6 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Post_Code__c</fullName>
-        <externalId>false</externalId>
-        <label>Post Code</label>
-        <length>4</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Preferred__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -261,17 +261,7 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Source_System__c</fullName>
-        <externalId>false</externalId>
-        <label>Source System</label>
-        <length>200</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>State__c</fullName>
+        <fullName>Province__c</fullName>
         <externalId>false</externalId>
         <label>State</label>
         <picklist>
@@ -313,6 +303,16 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Source_System__c</fullName>
+        <externalId>false</externalId>
+        <label>Source System</label>
+        <length>200</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
@@ -339,10 +339,10 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Suburb__c</fullName>
+        <fullName>ZipCode__c</fullName>
         <externalId>false</externalId>
-        <label>Suburb</label>
-        <length>255</length>
+        <label>Post Code</label>
+        <length>4</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -438,7 +438,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>State__c</picklist>
+            <picklist>Province__c</picklist>
             <values>
                 <fullName>ACT</fullName>
                 <default>false</default>
@@ -576,7 +576,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>State__c</picklist>
+            <picklist>Province__c</picklist>
             <values>
                 <fullName>ACT</fullName>
                 <default>false</default>
@@ -714,7 +714,7 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>State__c</picklist>
+            <picklist>Province__c</picklist>
             <values>
                 <fullName>ACT</fullName>
                 <default>false</default>
@@ -775,10 +775,10 @@
         <active>true</active>
         <description>State (only if country is equal to Australia)</description>
         <errorConditionFormula>AND(ISPICKVAL(Country__c, 'Australia'),
-ISPICKVAL(State__c, ''),
+ISPICKVAL(Province__c, ''),
 $Profile.Name != 'IntegrationAPI' 
 )</errorConditionFormula>
-        <errorDisplayField>State__c</errorDisplayField>
+        <errorDisplayField>Province__c</errorDisplayField>
         <errorMessage>State is a mandatory fields when your Country is Australia.</errorMessage>
     </validationRules>
 </CustomObject>
