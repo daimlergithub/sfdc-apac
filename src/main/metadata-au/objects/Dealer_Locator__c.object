@@ -920,7 +920,7 @@
     </nameField>
     <pluralLabel>Dealer Locators</pluralLabel>
     <searchLayouts/>
-    <sharingModel>Private</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
 	  <webLinks>
         <fullName>New_Dealer_Locator</fullName>
         <availability>online</availability>
