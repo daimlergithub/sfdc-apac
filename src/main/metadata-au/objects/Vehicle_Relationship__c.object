@@ -12193,10 +12193,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>/500/e?RecordType=012N0000000Cl1A
-&amp;cas4={!Vehicle_Relationship__c.Contact__c}
-&amp;cas4_lkid={!Vehicle_Relationship__c.ContactId__c}
-&amp;CF00NN0000000Uktz={!Vehicle_Relationship__c.Vehicle_ID__c}
-&amp;CF00NN0000000Uktz_lkid={!Vehicle_Relationship__c.Vehicle_IDId__c}</url>
+		&amp;cas4={!Vehicle_Relationship__c.Contact__c}
+		&amp;cas4_lkid={!Vehicle_Relationship__c.ContactId__c}
+		&amp;CF00NN0000000Uktz={!Vehicle_Relationship__c.Vehicle_ID__c}
+		&amp;CF00NN0000000Uktz_lkid={!Vehicle_Relationship__c.Vehicle_IDId__c}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Vehicle_Relationship</fullName>
@@ -12208,30 +12208,30 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
         <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
-{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} 
+		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+		{!REQUIRESCRIPT("/soap/ajax/27.0/connection.js")} 
 
-var retURL = window.location.toString();  
+		var retURL = window.location.toString();  
 
-if(typeof(srcUp) == 'function') { 
+		if(typeof(srcUp) == 'function') { 
 
-if (sforce.console.isInConsole()) { 
-var showTabId = function showTabId(result) { 
-var tabid = result.id; 
+		if (sforce.console.isInConsole()) { 
+		var showTabId = function showTabId(result) { 
+		var tabid = result.id; 
 
-sforce.console.openSubtab(tabid, '/apex/NewVehicleRelationship?accountId=' + '{!Account.Id}' + '&amp;tabId='+tabid, true, 'New Vehicle'); 
-}; 
-sforce.console.getEnclosingPrimaryTabId(showTabId); 
-} 
-else { 
+		sforce.console.openSubtab(tabid, '/apex/NewVehicleRelationship?accountId=' + '{!Account.Id}' + '&amp;tabId='+tabid, true, 'New Vehicle'); 
+		}; 
+		sforce.console.getEnclosingPrimaryTabId(showTabId); 
+		} 
+		else { 
 
-window.parent.navigateToUrl('/apex/NewVehicleRelationship?accountId=' + '{!Account.Id}'); 
-} 
+		window.parent.navigateToUrl('/apex/NewVehicleRelationship?accountId=' + '{!Account.Id}'); 
+		} 
 
-} 
-else { 
-window.open("/apex/NewVehicleRelationship?retURL=" + retURL +"&amp;accountId=" + "{!Account.Id}"); 
-}</url>
+		} 
+		else { 
+		window.open("/apex/NewVehicleRelationship?retURL=" + retURL +"&amp;accountId=" + "{!Account.Id}"); 
+		}</url>
     </webLinks>
     <webLinks>
         <fullName>New_Vehicle_Relationship_for_Community</fullName>
@@ -12243,6 +12243,30 @@ window.open("/apex/NewVehicleRelationship?retURL=" + retURL +"&amp;accountId=" +
         <protected>false</protected>
         <requireRowSelection>true</requireRowSelection>
         <url>var retURL = window.location.toString(); 
-window.location.href = "{!URLFOR($Site.Prefix, '')}/apex/NewVehicleRelationship?retURL=" + retURL +"&amp;accountId=" + "{!Account.Id}";</url>
+		window.location.href = "{!URLFOR($Site.Prefix, '')}/apex/NewVehicleRelationship?retURL=" + retURL +"&amp;accountId=" + "{!Account.Id}";</url>
+    </webLinks>
+	 <webLinks>
+        <fullName>New_Company_Vehicle_Relationship</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Vehicle Relationship</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a05/e?CF00N90000006qtOz={!Account.Name}&amp;CF00N90000006qtOz_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012900000008sYi&amp;ent=01I9000000059Bj</url>
+    </webLinks>
+    <webLinks>
+        <fullName>New_Individual_Vehicle_Relationship</fullName> 
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>New Vehicle Relationship</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/a05/e?CF00N90000006qtOz={!Account.Name}&amp;CF00N90000006qtOz_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012900000008sYj&amp;ent=01IO000000096fv</url>
     </webLinks>
 </CustomObject>
