@@ -74707,5 +74707,84 @@ ISNULL(Visited_Showroom_Date__c)
 		window.open("/apex/SMSSendLeadResult?leadId={!Lead__c.Id}&amp;retURL={!Lead__c.Id}", "", "width = 800,height = 600"); 
 		}</url>
 	</webLinks>
-			
-</CustomObject>
+	 <webLinks>
+        <fullName>New_Finance_Lead</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Finance Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>
+		{!REQUIRESCRIPT(&quot;/xdomain/xdomain.js&quot;)}
+		{!REQUIRESCRIPT(&quot;/support/console/27.0/integration.js&quot;)}
+		{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/apex.js&quot;)}
+		{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)}
+
+		var leadRecordName = &apos;Finance Lead&apos;;
+		var accountRecordName = &quot;{!Account.RecordType}&quot;;
+		var accountName = &quot;{!Account.Name}&quot;;
+		var accountId = &quot;{!Account.Id}&quot;;
+		var contractId = &quot;{!Contract.Id}&quot;;
+		var contactParam = &quot;CF00N90000006qtQP&quot;;
+
+		var qr = sforce.connection.query(&quot;Select id From recordtype where Name=&apos;&quot;+leadRecordName +&quot;&apos; limit 1&quot;);
+		if(qr.records != null) {
+		//individual Account&apos;s param Name CF00NO0000000te36 and company is CF00NO0000000teO8
+		var urlParam1 = &quot;CF00N90000006qtQP&quot;;
+
+		if(accountRecordName==&quot;Company&quot;){
+		urlParam1 = &quot;CF00N90000006qtQN&quot;;
+		}
+
+		var url = &quot;/a08/e?&quot; + urlParam1 + &quot;=&quot; + encodeURIComponent(accountName) + &quot;&amp;&quot; + urlParam1 +&quot;_lkid=&quot; + accountId + &quot;&amp;retURL=&quot; + accountId + &quot;&amp;RecordType=&quot; + qr.records.Id + &quot;&amp;ent=Account&quot;;
+
+		var noContact = false;
+		if(contractId == &apos;&apos;) {
+
+		var contractInfo = sforce.connection.query(&quot;select Id from Contract where AccountId=&apos;&quot;+accountId+&quot;&apos; limit 1&quot;);
+		if(contractInfo.records != null) {
+		var contactInfo = sforce.connection.query(&quot;select ContactId__c, ContactId__r.Name from Co_Borrower_Guarantor__c where contractId__c=&apos;&quot;+contractInfo.records.Id+&quot;&apos; and ContactId__r.RecordType.Name = &apos;Person Account&apos; limit 1&quot;);
+		if(contactInfo.records != null) {
+		url = &quot;/a08/e?retURL=&quot; + accountId + &quot;&amp;RecordType=&quot; + qr.records.Id + &quot;&amp;ent=Account&quot;;
+
+		url += &quot;&amp;&quot; + contactParam + &quot;=&quot; + encodeURIComponent(contactInfo.records.ContactId__r.Name) + &quot;&amp;&quot; + contactParam +&quot;_lkid=&quot; + contactInfo.records.ContactId__c;
+		}
+		else { noContact = true; }
+		}
+		else { noContact = true; }
+		}
+		else { noContact = true; }
+
+		if(noContact) {
+		accountInfo = sforce.connection.query(&quot;Select Name, RecordType.Name From Account where Id=&apos;&quot;+accountId+&quot;&apos; limit 1&quot;);
+		if(accountInfo.records.RecordType.Name == &apos;Person Account&apos;) {
+		url += &quot;&amp;&quot; + contactParam + &quot;=&quot; + encodeURIComponent(accountInfo.records.Name) + &quot;&amp;&quot; + contactParam +&quot;_lkid=&quot; + accountId;
+		}
+
+		}
+
+		if(typeof(srcUp) == &apos;function&apos;) {
+
+		if (sforce.console.isInConsole()) {
+		var showTabId = function showTabId(result) {
+		var tabid = result.id;
+		sforce.console.openSubtab(tabid, url+&apos;&amp;tabId=&apos;+tabid, true, &apos;New Finance Lead&apos;);
+		};
+		sforce.console.getEnclosingPrimaryTabId(showTabId);
+		}
+		else {
+		window.parent.navigateToUrl(url);
+		}
+
+		}
+		else {
+		window.parent.navigateToUrl(url);
+		}
+		}else{
+		alert(leadRecordName +&quot; can&apos;t be used.Please contact System Administrator&quot;);
+		}
+	</url>
+	</webLinks>	
+ </CustomObject>
