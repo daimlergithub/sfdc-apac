@@ -74322,7 +74322,7 @@ Company_Account__r.Work_Phone__c  ,
         <searchFilterFields>Sales_Consultant__c</searchFilterFields>
         <searchFilterFields>Selling_Dealer__c</searchFilterFields>
     </searchLayouts>
-    <sharingModel>Private</sharingModel>
+    <sharingModel>ReadWrite</sharingModel>
     <sharingReasons>
         <fullName>Dealer_Campaign_Share__c</fullName>
         <label>Dealer Campaign Share</label>
@@ -74787,4 +74787,79 @@ ISNULL(Visited_Showroom_Date__c)
 		}
 	</url>
 	</webLinks>	
+	<webLinks>
+        <fullName>New_Finance_Lead_onContract</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Finance Lead</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>
+		{!REQUIRESCRIPT("/xdomain/xdomain.js")}
+		{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
+		{!REQUIRESCRIPT("/soap/ajax/29.0/apex.js")}
+		{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")}
+
+		var leadRecordName = 'Finance Lead';
+		var contractId = "{!Retail_Task__c.Id}";
+		var dealerName = "{!Retail_Task__c.Related_Dealer__c}";
+		var dealerId = "{!Retail_Task__c.Related_Dealer__c.Id}";
+		var vehicleName = "{!Retail_Task__c.Related_Vehicle__c}";
+		var vehicleId = "{!Retail_Task__c.Related_Vehicle__c.Id}";
+		var accountId = "{!Retail_Task__c.Account__c.Id}";
+		var contractName = "{!Retail_Task__c.ContractNumber__c}";
+
+		var qr = sforce.connection.query("Select id From recordtype where Name='"+leadRecordName +"' limit 1");
+
+		if(qr.records != null) {
+		var contactParam = "CF00N90000006qtQP";
+		var campanyParam = "CF00N90000006qtQN";
+		var vehicleParam = "CF00NN0000001H0SI";
+		var dealerParam = "CF00N90000006qtQJ";
+		var contractParam = "00NN0000001GapB";
+
+		var url = "/a08/e?" + dealerParam + "=" + encodeURIComponent(dealerName) + "&" + dealerParam +"_lkid=" + dealerId + "&" + vehicleParam + "=" + encodeURIComponent(vehicleName) + "&" + vehicleParam +"_lkid=" + vehicleId + "&retURL=" + accountId + "&RecordType=" + qr.records.Id + "&ent=01I55000000Cl01";
+
+		url += "&" + contractParam + "=" + contractName;
+
+		var accountInfo = sforce.connection.query("Select Name, RecordType.Name From Account where Id='"+accountId+"' limit 1"); 
+		if(accountInfo.records.RecordType.Name == 'Company') { 
+		url += "&" + campanyParam +"=" + encodeURIComponent(accountInfo.records.Name) + "&" + campanyParam +"_lkid=" + accountId; 
+
+		var contactInfo = sforce.connection.query("select toRole__c,toRole__r.Name from Account_Link__c where ContractId__c='"+contractId+"' and toRole__r.RecordType.Name = 'Person Account' limit 1"); 
+		if(contactInfo.records != null) { 
+		url += "&" + contactParam + "=" + encodeURIComponent(contactInfo.records.toRole__r.Name) + "&" + contactParam +"_lkid=" + contactInfo.records.toRole__c; 
+		} 
+		} 
+		else if(accountInfo.records.RecordType.Name == 'Person Account') {
+		url += "&" + contactParam + "=" + encodeURIComponent(accountInfo.records.Name) +"&" + contactParam +"_lkid=" + accountId;
+		}
+
+		if(typeof(srcUp) == 'function') {
+
+		if (sforce.console.isInConsole()) {
+		var showTabId = function showTabId(result) {
+		var tabid = result.id;
+		sforce.console.openSubtab(tabid, url+'&tabId='+tabid, true, 'New Finance Lead');
+		};
+		sforce.console.getEnclosingPrimaryTabId(showTabId);
+		}
+		else {
+		window.parent.navigateToUrl(url);
+		}
+
+		}
+		else {
+		//window.open(url, "", "width = 1000,height = 800");
+		window.parent.navigateToUrl(url);
+		}
+
+
+		}else{
+		alert(leadRecordName +" can't be used.Please contact System Administrator");
+		}
+		</url>
+    </webLinks>
  </CustomObject>
