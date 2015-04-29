@@ -30599,24 +30599,32 @@ Modify Reason:
         <externalId>false</externalId>
         <label>Lead Source</label>
         <picklist>
-            <picklistValues>
-                <fullName>Web Form</fullName>
+			<picklistValues>
+                <fullName>Campaign</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
+			<picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>End of Contract</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
                 <fullName>Inbound Call</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Campaign</fullName>
+			<picklistValues>
+                <fullName>Outbound Call</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Walk-In</fullName>
                 <default>false</default>
-            </picklistValues>
+            </picklistValues>			
             <picklistValues>
-                <fullName>End of Contract</fullName>
+                <fullName>Web Form</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -66304,13 +66312,17 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Outbound Call</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Walk-In</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Web Form</fullName>
                 <default>false</default>
-            </values>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
@@ -69032,6 +69044,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Campaign</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </values>			
             <values>
                 <fullName>End of Contract</fullName>
                 <default>false</default>
