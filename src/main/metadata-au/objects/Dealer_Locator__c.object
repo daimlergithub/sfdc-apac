@@ -921,4 +921,22 @@
     <pluralLabel>Dealer Locators</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+	  <webLinks>
+        <fullName>New_Dealer_Locator</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>New Dealer Locator</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
+		var qr = sforce.connection.query(&quot;SELECT COUNT() From Lead__c where Assigned_Dealer__c =&apos;{!Account.Id}&apos; &quot;) ; 
+		if(qr.size != 0) { 
+		window.parent.navigateToUrl(&quot;/a06/e?CF00N90000006qtPr={!Account.Name}&amp;CF00N90000006qtPr_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&quot;);
+		}
+		else {  
+		window.parent.navigateToUrl(&quot;/a06/e?CF00N90000006qtPr={!Account.Name}&amp;CF00N90000006qtPr_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;{!IF(ISBLANK(Address__c.Post_Code__c ), &apos;&apos;, &apos;00N90000006qtPx&apos;)}={!Address__c.Post_Code__c }&quot;);
+		}</url>
+    </webLinks>
 </CustomObject>
