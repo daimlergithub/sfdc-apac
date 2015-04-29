@@ -130,7 +130,8 @@
 				<sf:exclude name="Campaign_Lead__c"/>
 				<sf:exclude name="DM_Request__c"/>
 				<sf:exclude name="SurveyTaker__c"/>
-				<sf:exclude name="Contract_relation__c"/>
+				<sf:exclude name="SurveyQuestionResponse__c"/>
+				<sf:exclude name="Contract_Relation__c"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -154,6 +155,7 @@
 				<sf:include name="OB_Task_Handing__c"/>
 				<sf:include name="Retail_Campaign_Member__c"/>
 				<sf:include name="SurveyTaker__c"/>
+				<sf:include name="SurveyQuestionResponse__c"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -177,7 +179,7 @@
 	<target name="deploy21">
 		<deploy>
 			<sf:typeset name="objects">
-				<sf:include name="Contract_relation__c"/>
+				<sf:include name="Contract_Relation__c"/>
 			</sf:typeset>
 			<sf:typeset name="settings"/>
 			<sf:typeset name="tabs">
