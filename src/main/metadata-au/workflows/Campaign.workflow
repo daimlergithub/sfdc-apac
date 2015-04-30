@@ -32,34 +32,6 @@
         <template>unfiled$public/Campaign_approval_notification</template>
     </alerts>
     <fieldUpdates>
-        <fullName>Update_to_Approved</fullName>
-        <field>Status</field>
-        <literalValue>Approved</literalValue>
-        <name>Update to Approved</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_to_Rejected</fullName>
-        <field>Status</field>
-        <literalValue>Rejected</literalValue>
-        <name>Update to Rejected</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-    </fieldUpdates>
-    <fieldUpdates>
-        <fullName>Update_to_Submit_for_approval</fullName>
-        <field>Status</field>
-        <literalValue>Submit for approval</literalValue>
-        <name>Update to Submit for approval</name>
-        <notifyAssignee>false</notifyAssignee>
-        <operation>Literal</operation>
-        <protected>false</protected>
-        <reevaluateOnChange>true</reevaluateOnChange>
-    </fieldUpdates>
-    <fieldUpdates>
         <fullName>Activate_Campaign</fullName>
         <field>IsActive</field>
         <literalValue>1</literalValue>
@@ -125,6 +97,34 @@ RecordType.Name,
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_to_Approved</fullName>
+        <field>Status</field>
+        <literalValue>Approved</literalValue>
+        <name>Update to Approved</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_to_Rejected</fullName>
+        <field>Status</field>
+        <literalValue>Rejected</literalValue>
+        <name>Update to Rejected</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_to_Submit_for_approval</fullName>
+        <field>Status</field>
+        <literalValue>Submit for approval</literalValue>
+        <name>Update to Submit for approval</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+        <reevaluateOnChange>true</reevaluateOnChange>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>record_Close_Date</fullName>
         <field>Closed_Date__c</field>
         <formula>TODAY()</formula>
@@ -142,42 +142,6 @@ RecordType.Name,
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <rules>
-        <fullName>Notification for not approval</fullName>
-        <active>true</active>
-        <criteriaItems>
-            <field>Campaign.Status</field>
-            <operation>equals</operation>
-            <value>Submit for approval</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Campaign.IsActive</field>
-            <operation>equals</operation>
-            <value>True</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Campaign.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Creative Brief,Data Brief,Internal Campaign Brief</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Campaign_not_approved_Notification</name>
-                <type>Alert</type>
-            </actions>
-            <timeLength>2</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-        <workflowTimeTriggers>
-            <actions>
-                <name>Campaign_not_approved_Notification</name>
-                <type>Alert</type>
-            </actions>
-            <timeLength>5</timeLength>
-            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
-        </workflowTimeTriggers>
-    </rules>
     <rules>
         <fullName>Activate Campaign When Status Changes to %22Started%22</fullName>
         <actions>
@@ -221,6 +185,42 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
             <operation>notEqual</operation>
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Notification for not approval</fullName>
+        <active>true</active>
+        <criteriaItems>
+            <field>Campaign.Status</field>
+            <operation>equals</operation>
+            <value>Submit for approval</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.IsActive</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Campaign.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Creative Brief,Data Brief,Internal Campaign Brief</value>
+        </criteriaItems>
+        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Campaign_not_approved_Notification</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>2</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
+        <workflowTimeTriggers>
+            <actions>
+                <name>Campaign_not_approved_Notification</name>
+                <type>Alert</type>
+            </actions>
+            <timeLength>5</timeLength>
+            <workflowTimeTriggerUnit>Days</workflowTimeTriggerUnit>
+        </workflowTimeTriggers>
     </rules>
     <rules>
         <fullName>Record Close Date</fullName>
