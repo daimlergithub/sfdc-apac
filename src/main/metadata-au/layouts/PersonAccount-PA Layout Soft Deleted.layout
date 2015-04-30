@@ -40,7 +40,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Dealer_email__c</field>
+                <field>Dealer_Email__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -235,6 +235,7 @@
                 <emptySpace>true</emptySpace>
             </layoutItems>
         </layoutColumns>
+        <layoutColumns/>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
     <layoutSections>
@@ -299,7 +300,7 @@
                 <component>sfa:socialPanel</component>
             </layoutItem>
         </relatedContentItems>
-    </relatedContent>	
+    </relatedContent>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Company_Account__c</fields>
@@ -371,8 +372,8 @@
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Pre_Order__c.Customer__c</relatedList>
     </relatedLists>
-    <relatedLists>  
-		<fields>NAME</fields>
+    <relatedLists>
+        <fields>NAME</fields>
         <fields>Dealer_No__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>

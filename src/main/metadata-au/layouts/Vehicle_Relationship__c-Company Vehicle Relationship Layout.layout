@@ -260,12 +260,6 @@
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
             </layoutItems>
-			<!-- TODO Waiting for MElvin's confirmation on this field as it is not present in the mapping sheet
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>LDCL_Vehicle_Relationship_Id__c</field>
-            </layoutItems>
-			-->
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

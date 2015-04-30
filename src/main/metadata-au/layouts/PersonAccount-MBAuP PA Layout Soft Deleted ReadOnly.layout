@@ -113,8 +113,8 @@
         <fields>TradeIn__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
-    <relatedLists>  
-		<fields>NAME</fields>
+    <relatedLists>
+        <fields>NAME</fields>
         <fields>Dealer_No__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
@@ -154,7 +154,6 @@
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Pre_Order__c.Customer__c</relatedList>
     </relatedLists>
-	
     <relatedLists>
         <fields>ContractNumber__c</fields>
         <fields>NAME</fields>
@@ -163,7 +162,6 @@
         <fields>Status__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
-	
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Retail_Task__c.Related_Dealer__c</relatedList>

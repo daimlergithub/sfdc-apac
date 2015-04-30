@@ -333,7 +333,7 @@
                 <component>sfa:socialPanel</component>
             </layoutItem>
         </relatedContentItems>
-    </relatedContent>	
+    </relatedContent>
     <relatedLists>
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
@@ -429,7 +429,7 @@
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Pre_Order__c.Customer__c</relatedList>
     </relatedLists>
-	<relatedLists>
+    <relatedLists>
         <fields>ContractNumber__c</fields>
         <fields>StartDate__c</fields>
         <fields>EndDate__c</fields>
