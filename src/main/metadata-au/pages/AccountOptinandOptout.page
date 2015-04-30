@@ -1,0 +1,27 @@
+<apex:page standardcontroller="Account" extensions="AccountOptinandOptoutController">
+  <apex:form id="formId">
+      <apex:pageBlock >
+          <apex:pageBlockButtons location="bottom">
+              <apex:commandLink value="Update" action="{!updateAddress}" target="_parent" styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!isShow}"/>
+          </apex:pageBlockButtons>
+          <apex:pageBlockSection columns="2">
+              <apex:inputCheckbox label="Opt-in MBAup" value="{!objAddress.Opt_In_Hardcopy__c}"/>
+              <apex:inputCheckbox label="Opt-in MBFS" value="{!objAddress.FS_Opt_In_Hardcopy__c}"/>
+              <apex:outputText label="Last Modified By" value="{!objAddress.Hardcopy_Last_Modified_By__c}"/>
+              <apex:outputText label="Last Modified By" value="{!objAddress.FS_Hardcopy_Last_Modified_By__c}"/>
+              <apex:outputText value="{0,date,MM/dd/YYYY}" label="Last Modified Date"> <apex:param value="{!objAddress.Hardcopy_Last_Modified_Date__c}"/> </apex:outputtext>
+              <apex:outputText value="{0,date,MM/dd/YYYY}" label="Last Modified Date"> <apex:param value="{!objAddress.FS_Hardcopy_Last_Modified_Date__c}"/> </apex:outputtext>
+          </apex:pageBlockSection>
+      </apex:pageBlock>
+  </apex:form>
+  <style>
+        .bPageBlock.brandSecondaryBrd.apexDefaultPageBlock.secondaryPalette
+        {
+            background-color: white;
+        }
+        accountTab .secondaryPalette, .individualPalette .accountBlock .secondaryPalette {
+          background-color: white;
+          border-color: white;
+          }
+        </style> 
+</apex:page>
