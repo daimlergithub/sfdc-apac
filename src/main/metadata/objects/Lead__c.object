@@ -3096,7 +3096,7 @@ Accepted_Date_Time__c - 3 &gt; Received_Date_Time__c
         <externalId>false</externalId>
         <formula>IF( 
 ISBLANK(Contact__c), 
-Company_Account__r.Email__c , 
+Company_Account__r.Email__c, 
 Contact__r.Email__c 
 )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>

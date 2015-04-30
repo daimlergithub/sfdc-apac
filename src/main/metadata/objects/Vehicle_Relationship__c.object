@@ -1719,18 +1719,16 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
     </fields>
     <fields>
         <fullName>Fleet_End_Customer__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Fleet End Customer</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Vehicle Relationship (Fleet End Customer)</relationshipLabel>
+        <relationshipName>Vehicle_Relationship2</relationshipName>
+        <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Fleet__c</fullName>
@@ -3383,6 +3381,17 @@ What factors were influential in your purchase decision?
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>TradeIn_Model__c</fullName>
+        <externalId>false</externalId>
+        <label>TradeIn Model</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>TradeIn_Year__c</fullName>
         <externalId>false</externalId>
         <label>TradeIn Year</label>
@@ -3714,6 +3723,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Warranty_Expiry__c</fullName>
+        <externalId>false</externalId>
+        <label>Warranty Expiry Date</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Web_Auto__c</fullName>
         <description>What factors were influential in your purchase decision?
 (Please rank from 1-5, with 1 being most important and 5 less important)</description>
@@ -3951,13 +3969,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <picklist>Fleet_Category__c</picklist>
             <values>
                 <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Fleet_End_Customer__c</picklist>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4314,13 +4325,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Fleet_End_Customer__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Luxury__c</picklist>
             <values>
                 <fullName>1</fullName>
@@ -4670,13 +4674,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <picklist>Fleet_Category__c</picklist>
             <values>
                 <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Fleet_End_Customer__c</picklist>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

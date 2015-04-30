@@ -3306,6 +3306,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account_Link__c.Primary__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account_Link__c.Primary_c__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -14001,6 +14006,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Vehicle_Relationship__c.TradeIn_Model__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Vehicle_Relationship__c.TradeIn_Year__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -14062,6 +14072,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle_Relationship__c.Warranty_Expiry_Date__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle_Relationship__c.Warranty_Expiry__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

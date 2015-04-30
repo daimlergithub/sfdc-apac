@@ -68,7 +68,7 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Contract</label>
-        <referenceTo>Contract</referenceTo>
+        <referenceTo>Retail_Task__c</referenceTo>
         <relationshipLabel>Account Link</relationshipLabel>
         <relationshipName>Account_Link</relationshipName>
         <required>false</required>
@@ -117,6 +117,15 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Primary__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Primary</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Primary_c__c</fullName>
