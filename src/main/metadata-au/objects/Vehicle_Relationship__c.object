@@ -3729,7 +3729,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Warranty_Expiry_Date__c</fullName>
+        <fullName>Warranty_Expiry__c</fullName>
         <externalId>false</externalId>
         <label>Warranty Expiry Date</label>
         <required>false</required>
