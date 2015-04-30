@@ -3407,6 +3407,17 @@ What factors were influential in your purchase decision?
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>TradeIn_Model__c</fullName>
+        <externalId>false</externalId>
+        <label>TradeIn Model</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>TradeIn_Year__c</fullName>
         <externalId>false</externalId>
         <label>TradeIn Year</label>
