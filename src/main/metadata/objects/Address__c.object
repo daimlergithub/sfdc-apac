@@ -194,7 +194,7 @@
         <fullName>District__c</fullName>
         <externalId>false</externalId>
         <label>Suburb</label>
-        <length>255</length>
+        <length>100</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -306,7 +306,7 @@
         <fullName>Source_System__c</fullName>
         <externalId>false</externalId>
         <label>Source System</label>
-        <length>200</length>
+        <length>20</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -342,7 +342,7 @@
         <fullName>ZipCode__c</fullName>
         <externalId>false</externalId>
         <label>Post Code</label>
-        <length>4</length>
+        <length>6</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
