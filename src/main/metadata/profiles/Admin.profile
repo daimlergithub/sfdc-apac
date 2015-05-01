@@ -3121,6 +3121,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Timestamps__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.Title__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7997,11 +8002,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.CAC_Lost_Reason__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.CAC_SourceId__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14387,6 +14387,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.TSP_MDN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Vehicle__c.Timestamps__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

@@ -76,6 +76,11 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>standard__Content</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>standard__Marketing</application>
         <default>false</default>
         <visible>false</visible>
@@ -3117,6 +3122,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Tier_3__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Timestamps__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7997,11 +8007,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.CAC_Lost_Reason__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.CAC_SourceId__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14391,6 +14396,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Vehicle__c.Timestamps__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Vehicle__c.Transmission__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -14647,6 +14657,25 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Content Version Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Content Version Layout</layout>
+        <recordType>ContentVersion.RecordType</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Content Version Layout</layout>
+        <recordType>ContentVersion.RecordType1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Content Version Layout</layout>
+        <recordType>ContentVersion.RecordType2</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Content Version Layout</layout>
+        <recordType>ContentVersion.RecordType3</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contract-Contract Layout</layout>

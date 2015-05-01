@@ -3120,6 +3120,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>Account.Timestamps__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Account.Title__c</field>
         <readable>false</readable>
@@ -7997,11 +8002,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.CAC_Lost_Reason__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.CAC_SourceId__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14391,6 +14391,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Vehicle__c.Timestamps__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Vehicle__c.Transmission__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -14647,6 +14652,25 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contact-Contact Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Content Version Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Content Version Layout</layout>
+        <recordType>ContentVersion.RecordType</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Content Version Layout</layout>
+        <recordType>ContentVersion.RecordType1</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Content Version Layout</layout>
+        <recordType>ContentVersion.RecordType2</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>ContentVersion-Content Version Layout</layout>
+        <recordType>ContentVersion.RecordType3</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contract-Contract Layout</layout>
@@ -15110,6 +15134,15 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ContractLineItem</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
@@ -15149,6 +15182,15 @@
         <allowCreate>false</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>Order</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Pricebook2</object>
@@ -15170,6 +15212,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>Question</object>
+        <viewAllRecords>false</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>false</allowCreate>
+        <allowDelete>false</allowDelete>
+        <allowEdit>false</allowEdit>
+        <allowRead>false</allowRead>
+        <modifyAllRecords>false</modifyAllRecords>
+        <object>ServiceContract</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
