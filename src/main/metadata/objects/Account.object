@@ -8927,6 +8927,16 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Timestamps__c</fullName>
+        <externalId>false</externalId>
+        <label>Timestamps</label>
+        <length>2048</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
         <fullName>Title__c</fullName>
         <description>/* 
 Created by: Tony Li 

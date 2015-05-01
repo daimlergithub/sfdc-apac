@@ -539,6 +539,7 @@
         <members>standard__AppLauncher</members>
         <members>standard__Chatter</members>
         <members>standard__Community</members>
+        <members>standard__Content</members>
         <members>standard__Marketing</members>
         <members>standard__Platform</members>
         <members>standard__Sales</members>
@@ -1286,6 +1287,7 @@
         <members>ContentVersion-Advertising Kit</members>
         <members>ContentVersion-Aftermarket class</members>
         <members>ContentVersion-Category marketing</members>
+        <members>ContentVersion-Content Version Layout</members>
         <members>ContentVersion-General</members>
         <members>ContentVersion-Sales</members>
         <members>Contract-Contract Layout</members>
@@ -1477,8 +1479,6 @@
         <members>Chatter Moderator User</members>
         <members>ContractManager</members>
         <members>Cross Org Data Proxy User</members>
-        <members>Dealer Community User</members>
-        <members>Dealer Delegate Admin</members>
         <members>External Identity User</members>
         <members>External Marketing User</members>
         <members>Guest License User</members>

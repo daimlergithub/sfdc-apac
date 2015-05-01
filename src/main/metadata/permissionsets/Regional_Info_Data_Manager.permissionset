@@ -3102,6 +3102,11 @@ Account Owner, MB Region, MB Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Timestamps__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Title__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -7883,11 +7888,6 @@ Account Owner, MB Region, MB Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.CAC_Lost_Reason__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.CAC_SourceId__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14273,6 +14273,11 @@ Account Owner, MB Region, MB Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Vehicle__c.TSP_MDN__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Vehicle__c.Timestamps__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
