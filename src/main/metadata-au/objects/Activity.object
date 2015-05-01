@@ -1358,6 +1358,226 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Communication_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Communication Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Face2Face</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web Site</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Communication_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Communication Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Feedback</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gen. Note</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inbound</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outbound</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ToDo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Due_Task_Notification__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Due Task Notification</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Intention_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Intention Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Hand Back</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retain Payout</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retain Refinance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quoted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Notification_Email_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Notification Email Flag</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notification_Email_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Notification Email Time</label>
+        <required>false</required>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Other_Activity__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Activity</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Reason__c</fullName>
+        <externalId>false</externalId>
+        <label>Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Initial Attempt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2nd Attempt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3rd Attempt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quote Follow Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Enquiry Follow Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Scheduled Call Back</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Enquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Follow up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Follow up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Resource_Required__c</fullName>
+        <externalId>false</externalId>
+        <label>Resource Required</label>
+        <required>false</required>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Source_ID__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
+        <label>Source ID</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Source_System__c</fullName>
+        <externalId>false</externalId>
+        <label>Source System</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CustomerName__c</fullName>
         <description>SSI</description>
         <externalId>false</externalId>
@@ -1742,238 +1962,6 @@
         <fullName>QC_Quantity__c</fullName>
         <externalId>false</externalId>
         <label>QC Quantity</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Called_Type__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(Called__c == &apos;4008108880&apos;, 
-&apos;BBAC&apos;,
-IF (Called__c == &apos;4008181188&apos;,
-&apos;Central&apos;,
-IF (Called__c == &apos;4008110000&apos;,
-&apos;Smart&apos;,&apos;&apos;)
-)
-)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Called Type</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Check_Activity_Status__c</fullName>
-        <externalId>false</externalId>
-        <formula>if( ISPICKVAL( Status__c ,&apos;Valid&apos;),&apos;否&apos;,&apos;是&apos;)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Check Activity Status</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Check_IB_enquiries__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(AND(Id &lt;&gt;&apos;&apos;, Task_RecordType_Name__c==&apos;IB Call&apos;) ,1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Check IB enquiries</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Check_Status__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status,&apos;&apos;),0,1)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Check Status</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Check_activity_date__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISBLANK(CreatedDate)==true,0,1)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Check activity date</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Completed_task_number__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status,&apos;Closed&apos;),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Completed task number</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Has_Activity__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(AND(Id &lt;&gt;&apos;&apos;, Task_RecordType_Name__c==&apos;OB Call&apos;) ,1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Has Activity</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_IsAssigned__c</fullName>
-        <description>to calculate unassigned tasks, if a task is assigned to &apos;CAC OB SV&apos; it is unassigned task.</description>
-        <externalId>false</externalId>
-        <formula>if(Owner:User.User_Role__c == &apos;CAC OB SV&apos;,1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>IsAssigned</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_IsCallSuccess__c</fullName>
-        <externalId>false</externalId>
-        <formula>if( ISPICKVAL(Activity_Status__c,&apos;Successful&apos;),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>IsCallSuccess</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_MB_Hotline__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(Called__c == &apos;4008181188&apos;, 1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>MB Hotline</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_OB_task_initial_number_new__c</fullName>
-        <externalId>false</externalId>
-        <formula>if(ISPICKVAL(Status,&apos;Open&apos;),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>OB task initial number</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_OB_task_today_number__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(Activity_Date__c==TODAY(),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>OB task today number</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Outbound_Amount__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status,&apos;Closed&apos;),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Outbound Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Resolved_Case_Amount__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Result__c,&apos;&apos;),0,1)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Resolved Case Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Result__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF( ISPICKVAL( Result__c , &apos;Resolved&apos;),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Result</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Smart_Hotline__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(Called__c == &apos;4008110000&apos;, 1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Smart Hotline</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Successful_Case_Amount__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status, &apos;Successful&apos;),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Successful Case Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Successful_OB_Call__c</fullName>
-        <externalId>false</externalId>
-        <formula>If( AND(Task_RecordType_Name__c==&apos;OB Call&apos;,ISPICKVAL(Activity_Status__c,&apos;Successful&apos;)),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Successful OB Call</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_isSuccessOBCall__c</fullName>
-        <externalId>false</externalId>
-        <formula>if(AND(ISPICKVAL(Activity_Status__c,&apos;Successful&apos;),RecordType.Name = &apos;OB Call&apos;),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>isSuccessOBCall</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
