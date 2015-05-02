@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -64,6 +64,14 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Need_Free_TextBox__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Need Free TextBox?</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>OrderNumber__c</fullName>
         <description>Field to specify in which position the question is in the survey.</description>
         <externalId>false</externalId>
@@ -85,6 +93,14 @@
         <type>TextArea</type>
     </fields>
     <fields>
+        <fullName>Redirect_Question_Number__c</fullName>
+        <externalId>false</externalId>
+        <label>Redirect Question Number</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Required__c</fullName>
         <defaultValue>false</defaultValue>
         <description>Is the question required?</description>
@@ -93,6 +109,17 @@
         <label>Required</label>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Single_FreeText_Next_Question_No__c</fullName>
+        <externalId>false</externalId>
+        <label>Single FreeText Next Question No.</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Survey__c</fullName>
@@ -150,4 +177,19 @@
     <pluralLabel>Survey Questions</pluralLabel>
     <searchLayouts/>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Set_Single_Opinion_Text_Next_Question</fullName>
+        <active>true</active>
+        <description>If show the free text box and set the redirect no for this question, you also need set the next question number when fill in the free text</description>
+        <errorConditionFormula>AND(Need_Free_TextBox__c,NOT( ISBLANK( Redirect_Question_Number__c )), ISBLANK( Single_FreeText_Next_Question_No__c ) )</errorConditionFormula>
+        <errorDisplayField>Single_FreeText_Next_Question_No__c</errorDisplayField>
+        <errorMessage>Please set the single opinion free text next question number</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Type_Show_Free_TextBox</fullName>
+        <active>true</active>
+        <description>To controll which type question can show the free text box</description>
+        <errorConditionFormula>AND(OR(ISPICKVAL( Type__c , 'Multi-Select--Vertical'),ISPICKVAL( Type__c , 'Free Text')), Need_Free_TextBox__c)</errorConditionFormula>
+        <errorMessage>Only Single selection can show the free text box</errorMessage>
+    </validationRules>
 </CustomObject>
