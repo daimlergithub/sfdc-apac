@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata"/>
-
-=======
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
         <fullName>Share_Account_Link_to_Call_Center</fullName>
@@ -19,4 +15,3 @@
         <name>Share Account Link to Call Center</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>
->>>>>>> origin/kernel-to-au
