@@ -2,7 +2,6 @@
 private class TookKitSharingTest {
         
     private static Account dealer;
-    private static User dealerUser;
     private static User thirdPartyUser;
     
     static {
@@ -12,10 +11,6 @@ private class TookKitSharingTest {
 
         Contact dealerContact = new Contact(FirstName = 'Test', Lastname = 'Amit', AccountId = dealer.Id, Email = 'test@test.com', Dealer_Marketing_Manager__c = true);
         insert dealerContact;
-        
-        Profile portalProfile = [SELECT Id FROM Profile WHERE Name = 'Gold Partner User' Limit 1];
-        dealerUser = new User(Username = 'test12345test@test.com', ContactId = dealerContact.Id, ProfileId = portalProfile.Id, Alias = 'test123', Email = 'test12345@test.com', EmailEncodingKey = 'UTF-8', LastName = 'Kumar', CommunityNickname = 'test12345', TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US');
-        insert dealerUser;
 
         Profile venderProfile = [SELECT Id FROM Profile WHERE Name = 'External Marketing User' Limit 1];
         thirdPartyUser = new User(Username = 'test123456test@test.com', ProfileId = venderProfile.Id, Alias = 'test1234', Email = 'test123456@test.com', EmailEncodingKey = 'UTF-8', LastName = 'Kumarm', CommunityNickname = 'test123405', TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US');

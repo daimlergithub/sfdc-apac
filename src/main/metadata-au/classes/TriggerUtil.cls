@@ -27,7 +27,7 @@ public class TriggerUtil
         Trigger__c triggerInfo = getTriggerInfo(aTriggerName);
         
         if (isTriggerEnabled(triggerInfo)) {
-            TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo);
+            TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);
             
             if (triggerHandler != null) {
                 triggerHandler.handleTrigger();
@@ -64,19 +64,32 @@ public class TriggerUtil
 		return null;
     }
     
-    public static TriggerHandlerIf getTriggerHandler(Trigger__c aTriggerInfo)
+    public static TriggerHandlerIf getTriggerHandler(Trigger__c aTriggerInfo, String aTriggerName)
     {
+        String triggerHandlerName;
         if (aTriggerInfo != null && aTriggerInfo.Trigger_Handler__c != null) {
-            Type triggerHandlerType = Type.forName(aTriggerInfo.Trigger_Handler__c);
-            
-            if (triggerHandlerType == null) {
-                throw new IllegalArgumentException('Configured trigger handler class ' + aTriggerInfo.Trigger_Handler__c + ' not found. Please check custom setting Trigger for trigger name ' + aTriggerInfo.Trigger_Name__c);
-            }
-            
-            return (TriggerHandlerIf)triggerHandlerType.newInstance();
+            triggerHandlerName = aTriggerInfo.Trigger_Handler__c;
         }
         else {
-            return null;
+            triggerHandlerName = getDefaultTriggerHandlerName(aTriggerName);
+        }
+        
+        Type triggerHandlerType = Type.forName(triggerHandlerName);
+            
+        if (triggerHandlerType == null) {
+            throw new IllegalArgumentException('Trigger handler class ' + triggerHandlerName + ' not found. Please check custom setting Trigger for trigger name ' + aTriggerName);
+        }
+            
+        return (TriggerHandlerIf)triggerHandlerType.newInstance();
+    }
+    
+    private static String getDefaultTriggerHandlerName(String aTriggerName)
+    {
+        if (aTriggerName.endsWith('Trigger')) {
+            return aTriggerName + 'Handler';
+        }
+        else {
+            return aTriggerName + 'TriggerHandler';
         }
     }
 }

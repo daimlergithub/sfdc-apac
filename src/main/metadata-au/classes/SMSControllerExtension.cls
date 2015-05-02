@@ -24,7 +24,7 @@ public class SMSControllerExtension
     private Map<String, String> templateMap { get; set; }
     private Map<String, String> templateNameMap { get; set; }
     private ApexPages.standardController controller {get;set;}
-    private String taskType = ApexPages.currentPage().getParameters().get('type');
+    @testVisible private String taskType = ApexPages.currentPage().getParameters().get('type');
 
     /* Public Methods */
     public PageReference send() 
@@ -222,7 +222,7 @@ public class SMSControllerExtension
         }
     }
     
-    private Task smsTask 
+    @testVisible private Task smsTask 
     {
         get
         {

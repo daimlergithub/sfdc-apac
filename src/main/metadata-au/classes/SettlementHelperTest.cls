@@ -14,6 +14,11 @@ public class SettlementHelperTest
 {
     public static testMethod void testupdateSettlementTotalAmount1() 
     {
+        List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c = 'TriggerSettlementManagement'];
+        if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.size() == 0) {
+            upsert new Trigger__c(Name = 'TriggerSettlementManagement', Trigger_Name__c = 'TriggerSettlementManagement', Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        }
+
         String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
         String CHRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Chrysler Complaint').getRecordTypeId();
         String INQUIRYRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
@@ -59,6 +64,11 @@ public class SettlementHelperTest
     
     public static testMethod void testTriggerSettlementAfterInsertUpdateDelete() 
     {
+        List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c = 'TriggerSettlementManagement'];
+        if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.size() == 0) {
+            upsert new Trigger__c(Name = 'TriggerSettlementManagement', Trigger_Name__c = 'TriggerSettlementManagement', Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        }
+
         Test.startTest();
         Case cas = (Case)UtilTestData.createSobject(new Case(), UtilTestData.CASE_RT_MB_COMPLAINT);
         Settlement_Management__c sm = new Settlement_Management__c(

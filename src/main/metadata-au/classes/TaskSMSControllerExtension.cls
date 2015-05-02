@@ -31,7 +31,7 @@ public class TaskSMSControllerExtension
     public static final String ERROR_MSG_5 = Label.Task_SMS_Send_ErrorMsg5;
     
     /* Private Properties */
-    private Task taskObject {get;set;}
+    @TestVisible private Task taskObject {get;set;}
     private Contact contact {get;set;}
     private Map<String, String> templateMap { get; set; }
     private Map<String, String> templateNameMap { get; set; }
@@ -153,13 +153,20 @@ public class TaskSMSControllerExtension
         if (taskObject != null) {
             // Only Master SMS templates that are linked to the Task Campaign are available
             String compaignId = taskObject.WhatId;
-            if (compaignId.substring(0,3) == 'a0c'){
+            Schema.DescribeSobjectResult res=Campaign_Lead__c.sObjectType.getDescribe();
+            string prefix=res.getKeyPrefix();
+
+           // if (compaignId.substring(0,3) == 'a0t'){
+           if (compaignId.startsWith(prefix)){
                 // Campaign Lead
                 compaignId = [select Campaign__c from Campaign_Lead__c where Id = :taskObject.WhatId].Campaign__c;
+                
             }
+                system.debug('>>>>>>>>>>>>>> compaignId'+compaignId);
+
             // Get the template Id from Campaign's OBSMSTemplate__c field.
             Id tempId = [select OBSMSTemplate__c from Campaign where Id = :compaignId].OBSMSTemplate__c;
-            
+           
             for(Template__c tem : [select Id, Name, Message_Detail__c from Template__c 
                                                     where Id = :tempId and Active__c = true])
             {
@@ -172,7 +179,7 @@ public class TaskSMSControllerExtension
     }
 
     /* Private Methods */
-    private void createActivity()
+  @TestVisible  private void createActivity()
     {
         if(taskObject != null)
         {
@@ -210,7 +217,7 @@ public class TaskSMSControllerExtension
         }
     }
     
-    private Task smsTask 
+   @TestVisible private Task smsTask 
     {
         get
         {

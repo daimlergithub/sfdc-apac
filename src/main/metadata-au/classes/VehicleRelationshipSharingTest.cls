@@ -2,7 +2,6 @@
 private class VehicleRelationshipSharingTest {
 	
     private static Account dealer;
-    private static User dealerUser;
     private static Vehicle__c vehicle;
     
     static {
@@ -12,10 +11,6 @@ private class VehicleRelationshipSharingTest {
 
         Contact dealerContact = new Contact(FirstName = 'Test', Lastname = 'Amit', AccountId = dealer.Id, Email = 'test@test.com');
         insert dealerContact;
-        
-        Profile portalProfile = [SELECT Id FROM Profile WHERE Name = 'Gold Partner User' Limit 1];
-        dealerUser= new User(Username = 'test12345test@test.com', ContactId = dealerContact.Id, ProfileId = portalProfile.Id, Alias = 'test123', Email = 'test12345@test.com', EmailEncodingKey = 'UTF-8', LastName = 'Kumar', CommunityNickname = 'test12345', TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US');
-        insert dealerUser;
 
         vehicle = new Vehicle__c();
         insert vehicle;
