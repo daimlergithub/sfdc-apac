@@ -74,10 +74,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>AFL_Teams__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Dealer_Cars_Dlr_Class_After_Sales__c</field>
             </layoutItems>
             <layoutItems>
@@ -130,14 +126,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Golf_Handicap__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Income__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>MBFS_Car_Offered_Service__c</field>
             </layoutItems>
             <layoutItems>
@@ -154,18 +142,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Media_Habits__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Model_of_Interest__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>NRL_Teams__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Partner_Title__c</field>
             </layoutItems>
             <layoutItems>
@@ -175,14 +151,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Vehicle_Type__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Second_Make__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Second_Year__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -202,14 +170,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Third_Make__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Third_Year__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Dealer_Trucks_Dlr_Class_Sales__c</field>
             </layoutItems>
             <layoutItems>
@@ -219,10 +179,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Dealer_Trucks_Service_Region__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Union_Teams__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

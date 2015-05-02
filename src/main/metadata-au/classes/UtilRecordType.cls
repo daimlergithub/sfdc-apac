@@ -2,12 +2,6 @@
     Type:       Utility for RecordType for replacing SOQL
     Purpose:    Get Record Type Name By Id or Id by Name
     User Story: US-DD-002
-    Used By:    AccountMergeController.cls
-    ---------------------------------------------------------------
-    History:
-    
-    1. Mouse Created on 2013-3-11.
-
 */
 global with sharing class UtilRecordType {
 	

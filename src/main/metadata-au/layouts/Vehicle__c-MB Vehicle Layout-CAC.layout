@@ -26,14 +26,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>InterestedBrandBeforePurchasingSmart__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>InterestedModelBeforePurchasingSmart__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Comment__c</field>
             </layoutItems>
         </layoutColumns>

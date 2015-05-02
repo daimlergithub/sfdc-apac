@@ -934,9 +934,7 @@ public class CaseHelper{
 	    for(Case caseNew : cases) {
         if (C_MBDA_RECORD_TYPE == caseNew.RecordTypeId){
             if(isInsert) {
-                if(caseNew.CCMS_SourceId__c == '' || caseNew.CCMS_SourceId__c == null) {
-                        caseNew.Repeat_Complaint_Times__c = 1;
-                }
+                caseNew.Repeat_Complaint_Times__c = 1;
                 //set repeat complaint times
                 if (caseNew.ParentId != null){
                     if(parenthasParents.contains(caseNew.ParentId)) {
@@ -961,9 +959,7 @@ public class CaseHelper{
                     caseNew.Subject = subTypeMap.get(caseNew.Case_SubType__c);
                 }
 
-                if(caseNew.CCMS_SourceId__c == '' || caseNew.CCMS_SourceId__c == null) {
-                    caseNew.Repeat_Complaint_Times__c = 1;
-                }
+                caseNew.Repeat_Complaint_Times__c = 1;
 
                 //set repeat complaint times
                 if (caseNew.ParentId != null){

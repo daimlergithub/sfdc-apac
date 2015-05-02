@@ -45,8 +45,8 @@ public with sharing class ParticipatingDealerHelper {
 	    String pSetSmRetail = 'S_M_Retail_Campaign';
 	    String pSetBp = 'Best_Practise';
 	    
-	    Id pIdDealerAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'].id;
-	    Id pIdDealerUser = [select Id from Profile where Name = 'Dealer Community User'].id;
+	    Id pIdDealerAdmin = UtilProfile.getProfileId('Dealer Delegate Admin');
+	    Id pIdDealerUser = UtilProfile.getProfileId('Dealer Community User');
 	    
 	    // The values for sharing records
 	    List<CampaignShare> cpnShares = new List<CampaignShare>();
@@ -278,24 +278,24 @@ public with sharing class ParticipatingDealerHelper {
 	    	Participating_Dealer__c co = [Select Id, Name, Campaign__c From Participating_Dealer__c Where Id = :cId];
 		    String type = 'Participating Dealer';
 		    String action = '';
-		    String cm = co.Campaign__c;
+		    Id cm = co.Campaign__c;
 		    String objName = co.Name;
 		    Id us = Userinfo.getUserId();
 		    // LOG Generation Class initialize
 		    campaignHistoryLogGeneration chlg = new campaignHistoryLogGeneration();
 		    if(isInsert){
 		        // INSERT LOG
-		        action = 'INSERT';
+		        action = 'Add participating dealer ' + String.valueof(cId);
 		    }
 		    if(isUpdate){
 		        // UPDATE LOG
-		        action = 'UPDATE';
+		        action = 'Update participating dealer to ' + String.valueof(cId);
 		    }
 		    if(isDelete){
 		        // DELETE LOG
-		        action = 'DELETE';
+		        action = 'Delete participating dealer ' + String.valueof(cId);
 		    }
-		    chlg.logGeneration(type, String.valueof(cId), action, cm, us, objName);
+		    chlg.logGeneration(type, action, cm, us, objName);
 	    }
 	}
 }

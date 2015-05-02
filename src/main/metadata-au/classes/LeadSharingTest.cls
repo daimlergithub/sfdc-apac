@@ -2,7 +2,6 @@
 private class LeadSharingTest {
 	
 	private static Account dealer;
-    private static User dealerUser;
     private static Account contact;
     private static Lead__c lead;
     
@@ -16,10 +15,6 @@ private class LeadSharingTest {
         
         contact = (Account)UtilTestData.createSobject(new Account(), 
                 UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-
-        Profile portalProfile = [SELECT Id FROM Profile WHERE Name = 'Gold Partner User' Limit 1];
-        dealerUser = new User(Username = 'test12345test@test.com', ContactId = dealerContact.Id, ProfileId = portalProfile.Id, Alias = 'test123', Email = 'test12345@test.com', EmailEncodingKey = 'UTF-8', LastName = 'Kumar', CommunityNickname = 'test12345', TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US');
-        insert dealerUser;
 
         RecordType retailLeadType = [select Id, developername from recordtype where sobjecttype = 'lead__c' and developername = 'Retail_Sales_Leads'];
         lead = new Lead__c(Assigned_Dealer__c = dealer.Id, Contact__c = contact.Id, RecordTypeId = retailLeadType.Id);
