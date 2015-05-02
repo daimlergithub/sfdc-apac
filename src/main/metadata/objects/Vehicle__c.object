@@ -305,19 +305,6 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>CAC_SourceId__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <description>External id field for migration purpose</description>
-        <externalId>true</externalId>
-        <label>CAC SourceId</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
         <fullName>CBU_CKD__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -346,19 +333,6 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>CCMS_SourceId__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <description>External id field for migration purpose</description>
-        <externalId>true</externalId>
-        <label>CCMS SourceId</label>
-        <length>40</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
     </fields>
     <fields>
         <fullName>CO2Emission__c</fullName>
@@ -1602,7 +1576,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Vehicle is "Vehicle_CommissionNumber"</description>
         <externalId>false</externalId>
-        <label>CommissionNumber</label>
+        <label>Commission No.</label>
         <length>40</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -1815,7 +1789,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Vehicle is "Vehicle_CurrentMileage“</description>
         <externalId>false</externalId>
-        <label>CurrentMileage</label>
+        <label>Odometer Reading</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -1886,7 +1860,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Vehicle is ”Vehicle_EngineNumber“</description>
         <externalId>false</externalId>
-        <label>EngineNumber</label>
+        <label>Engine No.</label>
         <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -2281,188 +2255,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_FirstRegistrationDate�
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>InterestedBrandBeforePurchasingSmart__c</fullName>
-        <description>Interested brand before purchasing smart
-/*
-Created by: Lio Huang
-Used by: Lio Huang
-Function:
-Used in: Pagelayout
-
-Modify History
-Modify By:
-Modify Reason:
-*/</description>
-        <externalId>false</externalId>
-        <label>InterestedBrandBeforePurchasingSmart</label>
-        <picklist>
-            <picklistValues>
-                <fullName>BWM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VOLKSWAGEN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SUZUKI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PEUGOET</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FORD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BENZ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HONDA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>InterestedModelBeforePurchasingSmart__c</fullName>
-        <description>Interested model before purchasing smart
-/*
-Created by: Lio Huang
-Used by: Lio Huang
-Function:
-Used in: Pagelayout
-
-Modify History
-Modify By:
-Modify Reason:
-*/</description>
-        <externalId>false</externalId>
-        <label>InterestedModelBeforePurchasingSmart</label>
-        <picklist>
-            <controllingField>InterestedBrandBeforePurchasingSmart__c</controllingField>
-            <picklistValues>
-                <fullName>MINI COOPER</fullName>
-                <controllingFieldValues>BWM</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>3 Series</fullName>
-                <controllingFieldValues>BWM</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Z4</fullName>
-                <controllingFieldValues>BWM</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>X1</fullName>
-                <controllingFieldValues>BWM</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Beatles</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>golf</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>POLO</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CC</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Jetta</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Scirocco</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tiguan</fullName>
-                <controllingFieldValues>VOLKSWAGEN</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>swift</fullName>
-                <controllingFieldValues>SUZUKI</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JMRON</fullName>
-                <controllingFieldValues>SUZUKI</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PEUGOET206</fullName>
-                <controllingFieldValues>PEUGOET</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>PEUGOET207</fullName>
-                <controllingFieldValues>PEUGOET</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FOX</fullName>
-                <controllingFieldValues>FORD</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Carnival</fullName>
-                <controllingFieldValues>FORD</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>B Series</fullName>
-                <controllingFieldValues>BENZ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>C Series</fullName>
-                <controllingFieldValues>BENZ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <controllingFieldValues>BENZ</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CRV</fullName>
-                <controllingFieldValues>HONDA</controllingFieldValues>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>LastServiceDate__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -2538,7 +2330,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</description>
         <externalId>false</externalId>
-        <label>ModelYear</label>
+        <label>Year Of Manufacture</label>
         <picklist>
             <picklistValues>
                 <fullName>&lt;1980</fullName>
@@ -5172,6 +4964,16 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Timestamps__c</fullName>
+        <externalId>false</externalId>
+        <label>Timestamps</label>
+        <length>2048</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
         <fullName>Transmission__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -6912,128 +6714,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>InterestedBrandBeforePurchasingSmart__c</picklist>
-            <values>
-                <fullName>BENZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BWM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FORD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HONDA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PEUGOET</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SUZUKI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VOLKSWAGEN</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>InterestedModelBeforePurchasingSmart__c</picklist>
-            <values>
-                <fullName>3 Series</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B Series</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beatles</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C Series</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CRV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Carnival</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FOX</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JMRON</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Jetta</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MINI COOPER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PEUGOET206</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PEUGOET207</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>POLO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Scirocco</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tiguan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Z4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>swift</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9547,128 +9227,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>InterestedBrandBeforePurchasingSmart__c</picklist>
-            <values>
-                <fullName>BENZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BWM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FORD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HONDA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PEUGOET</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SUZUKI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VOLKSWAGEN</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>InterestedModelBeforePurchasingSmart__c</picklist>
-            <values>
-                <fullName>3 Series</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B Series</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beatles</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C Series</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CRV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Carnival</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FOX</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JMRON</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Jetta</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MINI COOPER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PEUGOET206</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PEUGOET207</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>POLO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Scirocco</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tiguan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Z4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>swift</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13786,128 +13344,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>InterestedBrandBeforePurchasingSmart__c</picklist>
-            <values>
-                <fullName>BENZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BWM</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FORD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HONDA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PEUGOET</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SUZUKI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VOLKSWAGEN</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>InterestedModelBeforePurchasingSmart__c</picklist>
-            <values>
-                <fullName>3 Series</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>B Series</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beatles</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>C Series</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CRV</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Carnival</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>FOX</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JMRON</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Jetta</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MINI COOPER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PEUGOET206</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>PEUGOET207</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>POLO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Scirocco</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tiguan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>X1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Z4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>golf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>swift</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

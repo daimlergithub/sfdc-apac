@@ -46,97 +46,98 @@
     </actionOverrides>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
     <deploymentStatus>Deployed</deploymentStatus>
-    <description>daily basis log if any changes happen to an ongoing campaign from the Central Marketing team, including campaign offering changes, campaign package changes and participating dealer changes .</description>
+    <description>Contain all pre-order information that has been requested by a customer and vehicle pre-order information.</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableEnhancedLookup>false</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>true</enableHistory>
+    <enableHistory>false</enableHistory>
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
-        <fullName>Action__c</fullName>
-        <description>Detail operation</description>
+        <fullName>ClosedDate__c</fullName>
         <externalId>false</externalId>
-        <label>Action</label>
-        <length>100</length>
+        <label>Closed Date</label>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Date</type>
     </fields>
     <fields>
-        <fullName>Campaign__c</fullName>
+        <fullName>ClosedReason__c</fullName>
+        <externalId>false</externalId>
+        <label>Closed Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Vehicle purchased</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wait time too long</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Change of mind</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchased Competitor Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Customer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Campaign</label>
-        <referenceTo>Campaign</referenceTo>
-        <relationshipLabel>Campaign History Log</relationshipLabel>
-        <relationshipName>Campaign_History_Log</relationshipName>
+        <label>Customer</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Pre Orders</relationshipLabel>
+        <relationshipName>Pre_Orders</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Object_ID__c</fullName>
+        <fullName>Status__c</fullName>
         <externalId>false</externalId>
-        <label>Object ID</label>
-        <length>50</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
+        <label>Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Open</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Object_Name__c</fullName>
-        <externalId>false</externalId>
-        <label>Object Name</label>
-        <length>100</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Object_Type__c</fullName>
-        <description>Campaign
-Campaign Offering
-Campaign Package
-Participating Dealer</description>
-        <externalId>false</externalId>
-        <label>Object Type</label>
-        <length>50</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>User__c</fullName>
+        <fullName>VehicleInterested__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>User</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Campaign_History_Log</relationshipName>
+        <label>Vehicle Interested</label>
+        <referenceTo>Car_Model__c</referenceTo>
+        <relationshipLabel>Pre Orders</relationshipLabel>
+        <relationshipName>Pre_Orders</relationshipName>
         <required>false</required>
-        <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
-    <label>Campaign History Log</label>
+    <label>Pre Order</label>
     <nameField>
-        <label>Log  Name</label>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
+        <displayFormat>{0000000}</displayFormat>
+        <label>Pre Order</label>
+        <type>AutoNumber</type>
     </nameField>
-    <pluralLabel>Campaign History Log</pluralLabel>
+    <pluralLabel>Pre Orders</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
 </CustomObject>

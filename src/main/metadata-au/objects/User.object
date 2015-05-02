@@ -68,6 +68,14 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Active__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Active</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Cost_Price__c</fullName>
         <externalId>false</externalId>
         <label>Cost Price</label>

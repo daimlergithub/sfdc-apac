@@ -56,6 +56,14 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
+        <fullName>ClosedDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Closed Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>ClosedReason__c</fullName>
         <externalId>false</externalId>
         <label>Closed Reason</label>
@@ -74,28 +82,6 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Purchased Competitor Vehicle</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Closed_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Closed Date</label>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Closed_Reason__c</fullName>
-        <externalId>false</externalId>
-        <label>Closed Reason</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
