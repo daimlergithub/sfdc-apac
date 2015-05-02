@@ -1400,6 +1400,16 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Created_By_EP_Transaction_c__c</fullName>
+        <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
+        <externalId>false</externalId>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>CustomerName__c</fullName>
         <description>SSI</description>
         <externalId>false</externalId>
@@ -2237,6 +2247,16 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
+        <externalId>false</externalId>
+        <label>Updated By EP Transactions</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Vehicle_Case_ID__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle/Case ID</label>
@@ -2835,8 +2855,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </sharedTo>
     </listViews>
     <searchLayouts>
-        <excludedStandardButtons>NewTask</excludedStandardButtons>
         <excludedStandardButtons>NewEvent</excludedStandardButtons>
+        <excludedStandardButtons>NewTask</excludedStandardButtons>
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>
