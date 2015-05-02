@@ -7,35 +7,9 @@
     History:
     
     25-Mar-2013 Jorry Chen (Breakingpoint)    Created
+    23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerParticipatingDealerTriggerHandler
 */
-
-trigger TriggerParticipatingDealer on Participating_Dealer__c (after insert, after update, before delete) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerParticipatingDealer')) {
-        return;
-    }
-    
-    if(trigger.isAfter && trigger.isInsert)
-    {
-        ParticipatingDealerHelper.afterinsertUpdateDeleteEvents(Trigger.new,Trigger.old,Trigger.newmap,Trigger.oldmap,trigger.isAfter,trigger.isinsert,trigger.isupdate,trigger.isDelete);
-        if (!TriggerUtil.isTriggerEnabled('TriggerCampaignParticipatingDealer')) {
-            return;
-        }
-        ParticipatingDealerHelper.GenerateCampaignParticipatingDealerHistoryLOG(Trigger.new,Trigger.old,trigger.isinsert,trigger.isupdate,trigger.isDelete);
-    }
-    if(trigger.isAfter && trigger.isUpdate)
-    {
-        ParticipatingDealerHelper.afterinsertUpdateDeleteEvents(Trigger.new,Trigger.old,Trigger.newmap,Trigger.oldmap,trigger.isAfter,trigger.isinsert,trigger.isupdate,trigger.isDelete);
-        if (!TriggerUtil.isTriggerEnabled('TriggerCampaignParticipatingDealer')) {
-            return;
-        }
-        ParticipatingDealerHelper.GenerateCampaignParticipatingDealerHistoryLOG(Trigger.new,Trigger.old,trigger.isinsert,trigger.isupdate,trigger.isDelete);
-    }
-    if(trigger.isBefore && trigger.isdelete)
-    {
-        ParticipatingDealerHelper.afterinsertUpdateDeleteEvents(Trigger.new,Trigger.old,Trigger.newmap,Trigger.oldmap,trigger.isAfter,trigger.isinsert,trigger.isupdate,trigger.isDelete);
-        if (!TriggerUtil.isTriggerEnabled('TriggerCampaignParticipatingDealer')) {
-            return;
-        }
-        ParticipatingDealerHelper.GenerateCampaignParticipatingDealerHistoryLOG(Trigger.new,Trigger.old,trigger.isinsert,trigger.isupdate,trigger.isDelete);
-    }
+trigger TriggerParticipatingDealer on Participating_Dealer__c (after insert, after update, before delete) 
+{
+    TriggerUtil.handleTrigger('TriggerParticipatingDealer');
 }

@@ -7,22 +7,9 @@
     History:
     
     1.  Stephano Created on 2013-06-18
+    2.  Gerhard Henning on 2015-04-23 Moved code to TriggerCampaignOfferingTriggerHandler
 */
-trigger TriggerCampaignOffering on Campaign_Offering__c (after insert, after update, before delete) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerCampaignOffering')) {
-        return;
-    }
-    
-    if(trigger.isAfter && trigger.isInsert)
-    {
-        CampaignOfferingHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
-    }
-    if(trigger.isAfter && trigger.isUpdate)
-    {
-        CampaignOfferingHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
-    }
-    if(trigger.isBefore && trigger.isdelete)
-    {
-        CampaignOfferingHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
-    }
+trigger TriggerCampaignOffering on Campaign_Offering__c (after insert, after update, before delete) 
+{
+    TriggerUtil.handleTrigger('TriggerCampaignOffering');
 }

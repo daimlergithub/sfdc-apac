@@ -7,13 +7,7 @@
 ** Created By: CC
 ** Date: 2014-6-15
 **/
-trigger TriggerRetailTask on Retail_Task__c (after insert) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerRetailTask')) {
-        return;
-    }
-    
-    if(Trigger.isInsert && Trigger.isAfter){
-        RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();
-        SharingService.shareRetailTasks(wrapService.wrapRetailTasks(Trigger.new));
-    }
+trigger TriggerRetailTask on Retail_Task__c (after insert) 
+{
+    TriggerUtil.handleTrigger('TriggerRetailTask');
 }

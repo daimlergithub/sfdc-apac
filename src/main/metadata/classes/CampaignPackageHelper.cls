@@ -17,7 +17,7 @@ public with sharing class CampaignPackageHelper
 	    	Campaign_Package__c co = [Select Id, Name, Campaign__c From Campaign_Package__c Where Id = :cId];
 		    String type = 'Campaign Package';
 		    String action = '';
-		    String cm = co.Campaign__c;
+		    Id cm = co.Campaign__c;
 		    String objName = co.Name;
 		    Id us = Userinfo.getUserId();
 		    
@@ -26,19 +26,20 @@ public with sharing class CampaignPackageHelper
 		    
 		    if(trigger.isInsert){
 		        // INSERT LOG
-		        action = 'INSERT';
+		        action = 'Add campaign package ' + String.valueof(cId);
 		    }
 		    
 		    if(trigger.isUpdate){
 		        // UPDATE LOG
-		        action = 'UPDATE';
+		        action = 'Update campaign package to ' + String.valueof(cId);
 		    }
 		    
 		    if(trigger.isDelete){
 		        // DELETE LOG
-		        action = 'DELETE';
+		        action = 'Delete campaign package ' + String.valueof(cId);
 		    }
-		    chlg.logGeneration(type, String.valueof(cId), action, cm, us, objName);
+			
+		    chlg.logGeneration(type, action, cm, us, objName);
 	    }
     }	
 }
