@@ -7,19 +7,9 @@
     History:
     
     08-Mar-2013 Jorry Chen (Breakingpoint)    Created
+    23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerCampaignCityTriggerHandler
 */
-
-trigger TriggerCampaignCity on Campaign_City__c (before delete) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerCampaignCity')) {
-        return;
-    }
-
-    // get all deleted records
-    if (trigger.isDelete && trigger.isBefore)
-    {
-        if(!trigger.old.isEmpty())
-        {           
-            UtilCampaignCity.deleteParticipatingDealer(trigger.old);
-        }
-    }
+trigger TriggerCampaignCity on Campaign_City__c (before delete) 
+{
+    TriggerUtil.handleTrigger('TriggerCampaignCity');
 }

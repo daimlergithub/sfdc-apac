@@ -110,9 +110,9 @@
         <assignedToType>owner</assignedToType>
         <dueDateOffset>3</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
-        <priority>Normal</priority>
+        <priority>General</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Your project has been approved by</subject>
     </tasks>
     <tasks>
@@ -122,7 +122,7 @@
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>After adjusting your project needs to resubmit</subject>
     </tasks>
     <tasks>
@@ -130,9 +130,9 @@
         <assignedToType>owner</assignedToType>
         <dueDateOffset>3</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
-        <priority>Normal</priority>
+        <priority>General</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Your annual plan has been approved by the</subject>
     </tasks>
     <tasks>
@@ -142,7 +142,7 @@
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Submit your annual plan needs to be adjusted to</subject>
     </tasks>
     <tasks>
@@ -150,9 +150,9 @@
         <assignedToType>owner</assignedToType>
         <dueDateOffset>3</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
-        <priority>Normal</priority>
+        <priority>General</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Your event you withdraw your application has been approved</subject>
     </tasks>
     <tasks>
@@ -162,7 +162,7 @@
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Activities of your revocation request has been rejected</subject>
     </tasks>
     <tasks>
@@ -170,9 +170,9 @@
         <assignedToType>owner</assignedToType>
         <dueDateOffset>3</dueDateOffset>
         <notifyAssignee>false</notifyAssignee>
-        <priority>Normal</priority>
+        <priority>General</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Your feedback has been approved</subject>
     </tasks>
     <tasks>
@@ -182,7 +182,7 @@
         <notifyAssignee>false</notifyAssignee>
         <priority>High</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Your feedback needs to be adjusted to resubmit</subject>
     </tasks>
 </Workflow>

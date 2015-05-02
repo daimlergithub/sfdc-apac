@@ -86,9 +86,9 @@
         <assignedToType>owner</assignedToType>
         <dueDateOffset>3</dueDateOffset>
         <notifyAssignee>true</notifyAssignee>
-        <priority>Normal</priority>
+        <priority>General</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Your Toolbox application has been approved</subject>
     </tasks>
     <tasks>
@@ -98,7 +98,7 @@
         <notifyAssignee>true</notifyAssignee>
         <priority>High</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Your Toolbox applications need to adjust to resubmit</subject>
     </tasks>
     <tasks>
@@ -106,9 +106,9 @@
         <assignedToType>owner</assignedToType>
         <dueDateOffset>3</dueDateOffset>
         <notifyAssignee>true</notifyAssignee>
-        <priority>Normal</priority>
+        <priority>General</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Your Toolbox revocation request has been approved by</subject>
     </tasks>
     <tasks>
@@ -118,7 +118,7 @@
         <notifyAssignee>true</notifyAssignee>
         <priority>High</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Your Toolbox revocation request has been rejected</subject>
     </tasks>
     <tasks>
@@ -126,9 +126,9 @@
         <assignedToType>owner</assignedToType>
         <dueDateOffset>3</dueDateOffset>
         <notifyAssignee>true</notifyAssignee>
-        <priority>Normal</priority>
+        <priority>General</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Your Toolbox feedback has been approved</subject>
     </tasks>
     <tasks>
@@ -138,7 +138,7 @@
         <notifyAssignee>true</notifyAssignee>
         <priority>High</priority>
         <protected>false</protected>
-        <status>Not Started</status>
+        <status>Open</status>
         <subject>Toolbox feedback you need to adjust to resubmit</subject>
     </tasks>
 </Workflow>
