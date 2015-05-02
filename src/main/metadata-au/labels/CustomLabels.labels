@@ -117,6 +117,14 @@
         <value>Assign QC</value>
     </labels>
     <labels>
+        <fullName>Btn_Preview_No_Questions</fullName>
+        <categories>Questionnaire Tool</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Btn Preview No Questions</shortDescription>
+        <value>There is no questions, you cannot preview the survey, please check the survey question again.</value>
+    </labels>
+    <labels>
         <fullName>Button_Approve</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
         <language>en_US</language>
@@ -2304,6 +2312,86 @@
         <protected>false</protected>
         <shortDescription>VEP(Seasonal Check)</shortDescription>
         <value>VEP(Seasonal Check)</value>
+    </labels>
+    <labels>
+        <fullName>VF_SubmitSurvey_Break_Btn</fullName>
+        <categories>Questionnaire Tool</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VF SubmitSurvey Break Btn</shortDescription>
+        <value>Save &amp; Break Survey</value>
+    </labels>
+    <labels>
+        <fullName>VF_SubmitSurvey_ErrorMsg_Invalid_ID</fullName>
+        <categories>Questionnaire Tool</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VF SubmitSurvey ErrorMsg Invalid ID</shortDescription>
+        <value>Invalid Survey ID, please contact your company admin.</value>
+    </labels>
+    <labels>
+        <fullName>VF_SubmitSurvey_ErrorMsg_Redirected</fullName>
+        <categories>Questionnaire Tool</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VF SubmitSurvey ErrorMsg Redirected</shortDescription>
+        <value>Invalid redirected survey question number, please check your survey again.</value>
+    </labels>
+    <labels>
+        <fullName>VF_SubmitSurvey_FillNote_Msg</fullName>
+        <categories>Questionnaire Tool</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VF SubmitSurvey FillNote Msg</shortDescription>
+        <value>Please fill in the note!</value>
+    </labels>
+    <labels>
+        <fullName>VF_SubmitSurvey_FinishSurvey_Msg</fullName>
+        <categories>Questionnaire Tool</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VF SubmitSurvey FinishSurvey Msg</shortDescription>
+        <value>The survey related to this OB Task has been finished!</value>
+    </labels>
+    <labels>
+        <fullName>VF_SubmitSurvey_Next_Btn</fullName>
+        <categories>Questionnaire Tool</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VF SubmitSurvey Next Btn</shortDescription>
+        <value>Next</value>
+    </labels>
+    <labels>
+        <fullName>VF_SubmitSurvey_Notes</fullName>
+        <categories>Questionnaire Tool</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VF SubmitSurvey Notes</shortDescription>
+        <value>Note</value>
+    </labels>
+    <labels>
+        <fullName>VF_SubmitSurvey_Other_Picklist</fullName>
+        <categories>Questionnaire Tool</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VF SubmitSurvey Other Picklist</shortDescription>
+        <value>Other(CSR Need to record)</value>
+    </labels>
+    <labels>
+        <fullName>VF_SubmitSurvey_Previous_Btn</fullName>
+        <categories>Questionnaire Tool</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VF SubmitSurvey Previous Btn</shortDescription>
+        <value>Previous</value>
+    </labels>
+    <labels>
+        <fullName>VF_SubmitSurvey_Submit_Btn</fullName>
+        <categories>Questionnaire Tool</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VF SubmitSurvey Submit Btn</shortDescription>
+        <value>Submit</value>
     </labels>
     <labels>
         <fullName>VF_ToolKitSelect_Return_Button</fullName>
