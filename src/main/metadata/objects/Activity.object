@@ -1250,17 +1250,6 @@
         <type>TextArea</type>
     </fields>
     <fields>
-        <fullName>CAC_SourceId__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <description>External id field for migration purpose</description>
-        <externalId>true</externalId>
-        <label>CAC SourceId</label>
-        <length>40</length>
-        <required>false</required>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
         <fullName>Called__c</fullName>
         <description>The Called field contains the called part of the call (also known as “DNIS”).</description>
         <externalId>false</externalId>
@@ -1329,7 +1318,90 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Created_By_EP_Transaction__c</fullName>
+        <fullName>Communication_Method__c</fullName>
+        <externalId>false</externalId>
+        <label>Communication Method</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DM</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Face2Face</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Phone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Web Site</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Communication_Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Communication Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Email</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Feedback</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gen. Note</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Inbound</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Outbound</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ToDo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Created_By_EP_Transaction_c__c</fullName>
+        <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
         <label>Created By EP Transaction</label>
         <length>20</length>
@@ -1365,6 +1437,13 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Due_Task_Notification__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Due Task Notification</label>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Email_Address__c</fullName>
@@ -1453,6 +1532,35 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Intention_Status__c</fullName>
+        <externalId>false</externalId>
+        <label>Intention Status</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Hand Back</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade In</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retain Payout</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retain Refinance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quoted</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>InteractionIds__c</fullName>
         <externalId>false</externalId>
         <label>InteractionIds</label>
@@ -1474,6 +1582,20 @@
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Notification_Email_Flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Notification Email Flag</label>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notification_Email_Time__c</fullName>
+        <externalId>false</externalId>
+        <label>Notification Email Time</label>
+        <required>false</required>
+        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>OB_Call_Times__c</fullName>
@@ -1552,6 +1674,15 @@
         <label>OfficePhone</label>
         <required>false</required>
         <type>Phone</type>
+    </fields>
+    <fields>
+        <fullName>Other_Activity__c</fullName>
+        <externalId>false</externalId>
+        <label>Other Activity</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>PersonAssistantPhone__c</fullName>
@@ -1675,236 +1806,57 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>R_Called_Type__c</fullName>
+        <fullName>Reason__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(Called__c == '4008108880', 
-'BBAC',
-IF (Called__c == '4008181188',
-'Central',
-IF (Called__c == '4008110000',
-'Smart','')
-)
-)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Called Type</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Check_Activity_Status__c</fullName>
-        <externalId>false</externalId>
-        <formula>if( ISPICKVAL( Status__c ,'Valid'),'否','是')</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Check Activity Status</label>
-        <required>false</required>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Check_IB_enquiries__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(AND(Id &lt;&gt;'', Task_RecordType_Name__c=='IB Call') ,1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Check IB enquiries</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Check_Status__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status,''),0,1)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Check Status</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Check_activity_date__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISBLANK(CreatedDate)==true,0,1)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Check activity date</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Completed_task_number__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status,'Closed'),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Completed task number</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Has_Activity__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(AND(Id &lt;&gt;'', Task_RecordType_Name__c=='OB Call') ,1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Has Activity</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_IsAssigned__c</fullName>
-        <description>to calculate unassigned tasks, if a task is assigned to 'CAC OB SV' it is unassigned task.</description>
-        <externalId>false</externalId>
-        <formula>if(Owner:User.User_Role__c == 'CAC OB SV',1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>IsAssigned</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_IsCallSuccess__c</fullName>
-        <externalId>false</externalId>
-        <formula>if( ISPICKVAL(Activity_Status__c,'Successful'),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>IsCallSuccess</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_MB_Hotline__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(Called__c == '4008181188', 1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>MB Hotline</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_OB_task_initial_number_new__c</fullName>
-        <externalId>false</externalId>
-        <formula>if(ISPICKVAL(Status,'Open'),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>OB task initial number</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_OB_task_today_number__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(Activity_Date__c==TODAY(),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>OB task today number</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Outbound_Amount__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status,'Closed'),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Outbound Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Resolved_Case_Amount__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Result__c,''),0,1)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Resolved Case Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Result__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF( ISPICKVAL( Result__c , 'Resolved'),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Result</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Smart_Hotline__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(Called__c == '4008110000', 1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Smart Hotline</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Successful_Case_Amount__c</fullName>
-        <externalId>false</externalId>
-        <formula>IF(ISPICKVAL(Status, 'Successful'),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Successful Case Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_Successful_OB_Call__c</fullName>
-        <externalId>false</externalId>
-        <formula>If( AND(Task_RecordType_Name__c=='OB Call',ISPICKVAL(Activity_Status__c,'Successful')),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>Successful OB Call</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>R_isSuccessOBCall__c</fullName>
-        <externalId>false</externalId>
-        <formula>if(AND(ISPICKVAL(Activity_Status__c,'Successful'),RecordType.Name = 'OB Call'),1,0)</formula>
-        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
-        <label>isSuccessOBCall</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <type>Number</type>
-        <unique>false</unique>
+        <label>Reason</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Initial Attempt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2nd Attempt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3rd Attempt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quote Follow Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Enquiry Follow Up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Scheduled Call Back</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New Enquiry</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Closed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Customer Follow up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Follow up</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Contact</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Recording_ID__c</fullName>
@@ -1924,6 +1876,13 @@ noted by Lio on 10.28.2013</description>
         <required>false</required>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Resource_Required__c</fullName>
+        <externalId>false</externalId>
+        <label>Resource Required</label>
+        <required>false</required>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Result__c</fullName>
@@ -2159,6 +2118,25 @@ noted by Lio on 10.28.2013</description>
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>Source_ID__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
+        <label>Source ID</label>
+        <length>40</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Source_System__c</fullName>
+        <externalId>false</externalId>
+        <label>Source System</label>
+        <length>255</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Start_Call_Time__c</fullName>
         <description>SSI</description>
         <externalId>false</externalId>
@@ -2270,6 +2248,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
     </fields>
     <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
+        <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
         <label>Updated By EP Transactions</label>
         <length>255</length>
@@ -2876,8 +2855,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </sharedTo>
     </listViews>
     <searchLayouts>
-        <excludedStandardButtons>NewTask</excludedStandardButtons>
         <excludedStandardButtons>NewEvent</excludedStandardButtons>
+        <excludedStandardButtons>NewTask</excludedStandardButtons>
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>

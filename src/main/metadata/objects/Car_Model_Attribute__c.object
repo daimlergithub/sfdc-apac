@@ -102,18 +102,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>CAC_SourceId__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <description>External id field for migration purpose</description>
-        <externalId>true</externalId>
-        <label>CAC SourceId</label>
-        <length>40</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
         <fullName>Car_Model__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>

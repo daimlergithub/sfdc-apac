@@ -8,7 +8,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Contact2Contact,ContactSector,ExternalLink</value>
+            <value>ExternalLink,ContactSector,Contact2Contact</value>
         </criteriaItems>
         <accessLevel>Read</accessLevel>
         <description>Share Account_Link__c of all record types with Call Center user.</description>

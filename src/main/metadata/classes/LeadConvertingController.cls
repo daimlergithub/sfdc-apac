@@ -77,7 +77,6 @@ public class LeadConvertingController {
     public PageReference converttolead() {
         List<Lead__c> tolead = new List<Lead__c>();
         List<Retail_Campaign_Member__c > retailCampaignMembers = new List<Retail_Campaign_Member__c>();
-        Id idDealerAdmin = [select Id from Profile where Name =: UtilConstant.DEALER_DELEGATE_ADMIN].id;
         Map<Id, Id> dealerLeadgateKeeperMap = new Map<Id, Id>();
         Map<Id, Id> dealerAdminMap = new Map<Id, Id>();
         Set<Id> dealerIds = new Set<Id>();

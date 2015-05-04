@@ -404,18 +404,6 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>CAC_SourceId__c</fullName>
-        <caseSensitive>true</caseSensitive>
-        <description>External id field for migration purpose</description>
-        <externalId>true</externalId>
-        <label>CAC SourceId</label>
-        <length>40</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <type>Text</type>
-        <unique>true</unique>
-    </fields>
-    <fields>
         <fullName>CBU_PbP__c</fullName>
         <externalId>false</externalId>
         <label>CBU/PbP</label>
@@ -2367,12 +2355,32 @@
         <language>en_US</language>
     </listViews>
     <listViews>
+        <fullName>CentralASCampaignRecords</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.RECORDTYPE</columns>
+        <columns>Plan_Start_Date__c</columns>
+        <columns>Plan_End_Date__c</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>Publish_Date_del__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Campaign.AS_Central_Campaign</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Central AS Campaign Records</label>
+    </listViews>
+    <listViews>
         <fullName>CentralSMCampaignRecord</fullName>
         <columns>CAMPAIGN.NAME</columns>
         <columns>CAMPAIGN.RECORDTYPE</columns>
         <columns>Plan_Start_Date__c</columns>
         <columns>Plan_End_Date__c</columns>
-        <columns>Region__c</columns>
         <columns>CAMPAIGN.STATUS</columns>
         <columns>Publish_Date_del__c</columns>
         <filterScope>Everything</filterScope>
@@ -2386,8 +2394,28 @@
             <operation>notEqual</operation>
             <value>Closed</value>
         </filters>
-        <label>Sales Joint Market activities</label>
-        <language>en_US</language>
+        <label>Central SM Campaign Records</label>
+    </listViews>
+    <listViews>
+        <fullName>CentralSMCampaignRecords</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.RECORDTYPE</columns>
+        <columns>Plan_Start_Date__c</columns>
+        <columns>Plan_End_Date__c</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>Publish_Date_del__c</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Campaign.S_M_Event_Central_Campaign,Campaign.S_M_Media_Central_Campaign</value>
+        </filters>
+        <filters>
+            <field>CAMPAIGN.STATUS</field>
+            <operation>notEqual</operation>
+            <value>Closed</value>
+        </filters>
+        <label>Central SM Campaign Records</label>
     </listViews>
     <listViews>
         <fullName>MB_Best_Practice</fullName>
@@ -2405,8 +2433,25 @@
             <operation>equals</operation>
             <value>Campaign.MB_Best_Practice</value>
         </filters>
-        <label>MB Best Activities</label>
-        <language>en_US</language>
+        <label>MB Best Practices</label>
+    </listViews>
+    <listViews>
+        <fullName>MB_Best_Practices</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>Campaign_Code__c</columns>
+        <columns>Brand__c</columns>
+        <columns>BP_Start_Date__c</columns>
+        <columns>BP_End_Date__c</columns>
+        <columns>Region_Best_Number__c</columns>
+        <columns>Region_Recommend_Number__c</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Campaign.MB_Best_Practice</value>
+        </filters>
+        <label>MB Best Practices</label>
     </listViews>
     <listViews>
         <fullName>MyActiveCampaigns</fullName>
@@ -2436,6 +2481,24 @@
         </filters>
         <label>smart Best Activities</label>
         <language>en_US</language>
+    </listViews>
+    <listViews>
+        <fullName>smart_Best_Practices</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>Campaign_Code__c</columns>
+        <columns>Brand__c</columns>
+        <columns>BP_Start_Date__c</columns>
+        <columns>BP_End_Date__c</columns>
+        <columns>Region_Best_Number__c</columns>
+        <columns>BP_Quarter__c</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>CAMPAIGN.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Campaign.smart_Best_Practice</value>
+        </filters>
+        <label>smart Best Practices</label>
     </listViews>
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypes>

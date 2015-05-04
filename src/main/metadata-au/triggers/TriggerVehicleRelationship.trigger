@@ -12,34 +12,9 @@
     1. Mouse Created on 2013-03-05
     2. Sinow Modified on 2013-06-20
     3. CC Modified on 2014-06-12
+    23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerVehicleRelationshipTriggerHandler
 */
-trigger TriggerVehicleRelationship on Vehicle_Relationship__c(after insert, after update, before insert) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerVehicleRelationship')) {
-        return;
-    }
-    
-    if(trigger.isAfter && trigger.isInsert)
-    {
-        // US-CP-007
-        UtilVehicleRelationship.checkVehcileValidity(trigger.new);
-        
-        VehicleSharingWrapService vehicleWrapService = new VehicleSharingWrapService();
-        SharingService.shareVehicles(vehicleWrapService.wrapVehicleFromRetailRelationships(Trigger.new));
-        
-        VehicleRelationshipSharingWrapService retailWrapService = new VehicleRelationshipSharingWrapService();
-        SharingService.shareVehicleRelationships(retailWrapService.wrapRetailVehicleRelationships(Trigger.new));
-        
-        AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
-        handler.shareAccountByRetailVR(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
-        
-        //ISSUE-0757
-        VehicleRelationshipHelper.shareVR(Trigger.new);
-    }
-    if(trigger.isAfter && trigger.isUpdate)
-    {
-        AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
-        handler.shareAccountByRetailVR(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
-        //
-        UtilVehicleRelationship.updateVehicle(Trigger.new,trigger.oldmap,trigger.isinsert,trigger.isupdate);
-    }
+trigger TriggerVehicleRelationship on Vehicle_Relationship__c(after insert, after update, before insert) 
+{
+    TriggerUtil.handleTrigger('TriggerVehicleRelationship');
 }

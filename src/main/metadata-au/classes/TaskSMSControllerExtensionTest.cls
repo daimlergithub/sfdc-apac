@@ -9,36 +9,201 @@
 
     27-Nov-2013 Chaos Huang (Nttdata)    Created
 */
-@isTest(SeeAllData=true)
-public class TaskSMSControllerExtensionTest 
-{
+@isTest
+public class TaskSMSControllerExtensionTest{
 
-    public static testMethod void testTaskSMSControllerExtensionErr2() 
+  private static String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+  private static String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+  private static String templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
+  private static String obTaskRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Task').getRecordTypeId();
+  private static Account customer;
+  private static Account dealer;
+  private static Campaign CampaignR;
+  private static Campaign_Lead__c camlead;
+  private static Task tas;
+  private static Template__c tem1;
+  private static Template__c tem2;
+  private static Lead__c lead;
+  private static List<Template__c> tems = new List<Template__c>();
+  static user userObj;
+  static{
+    Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
+        userObj = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
+                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+        insert userObj;
+  }
+ 
+ private static string acc_ID='taskId';
+ private static string RET_URL='retURL';
+ private static string TASK_ID='taskId';
+     public static testMethod void testTaskSMSControllerExtension()
     {
-        User usr = UtilTestData.createUser('OB TL','CAC OB TL');
-        system.runas(usr)
+        System.runAs(userObj)
         {
             Test.startTest();
-            // Testing the SMS Send
+            prepareTestData();
             ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
-            
-            // Add parameters to page URL
-            String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-            String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-            Account customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId);
-            insert customer;
-            customer = [Select Customer_Number__c, PersonContactId From Account Where Id=:customer.Id];
-            Account dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId
-                ,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
-            insert dealer;
+            ApexPages.currentPage().getParameters().put(acc_ID,dealer.Id);
+            ApexPages.currentPage().getParameters().put('taskid',tas.Id);
+
+            // Test click SMS button from Lead
+            // Instantiate a new controller extension with all parameters in the page
+            TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
+            Test.stopTest();
+            system.assertequals(extension.taskObject.id,tas.id);
+        }
+    }
     
-            //User usr = UtilTestData.createUser('OB TL','CAC OB TL');
-            Campaign cp = campaignPreparation();
-            String obTaskRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Task').getRecordTypeId();
-            Task tas = new Task(
+  
+    
+     public static testMethod void testgetTemplates()
+    {
+        System.runAs(userObj) {
+            Test.startTest();
+            prepareTestData();
+            ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+            ApexPages.currentPage().getParameters().put(Task_ID,tas.Id);
+            TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
+            List<SelectOption> options = new List<SelectOption>();
+            options.add(new SelectOption('None','--None--'));
+            for(Template__c obj:tems)
+                options.add(new SelectOption(obj.Id, obj.Name));
+            List<SelectOption> temp=extension.getTemplates();
+            Test.stopTest();
+           system.assertequals(temp,options);
+        }
+    }
+    
+     public static testMethod void testsend()
+    {
+        System.runAs(userObj) {
+            Test.startTest();
+            prepareTestData();
+            ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+            ApexPages.currentPage().getParameters().put('taskid',tas.Id);
+            TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
+            extension.sms.Dealer__c = dealer.Id;
+            extension.templateId=tem1.Id;
+            extension.templateMessage='test message';
+            extension.send();
+            Test.stopTest();
+            List<task> lsttask=[select whatid from task where whatid=:camlead.Id];
+            system.assertequals(true,!lsttask.isEmpty());
+        }
+    }
+    
+    public static testMethod void testsend_elsecondition()
+    {
+        System.runAs(userObj) {
+            Test.startTest();
+            prepareTestData_elsecondition();
+            ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+            ApexPages.currentPage().getParameters().put('taskid',tas.Id);
+            TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
+            extension.templateId=null;
+            extension.send();
+            TaskSMSControllerExtension extension1 = new TaskSMSControllerExtension(controller);
+            extension1.templateId=tem1.id;
+            extension1.templateMessage='test message';
+            extension1.send();
+            Test.stopTest();
+        }
+    }
+    
+    public static testMethod void testparseTemplateMessage()
+    {
+        System.runAs(userObj) {
+            Test.startTest();
+            prepareTestData();
+            ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+            ApexPages.currentPage().getParameters().put('CLead',camlead.Id);
+            ApexPages.currentPage().getParameters().put('taskid',tas.Id);
+            TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
+            extension.templateId=tem1.Id;
+            extension.getTemplates();
+            extension.parseTemplateMessage();
+            Test.stopTest();
+        }
+    }
+
+
+    static void prepareTestData()
+    {
+      customer = new Account(LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId, PersonMobilePhone = '12345678901');
+        insert customer;
+        dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
+        insert dealer;
+        campaignPreparation();
+       
+       
+    }
+    
+    static void prepareTestData_elsecondition()
+    {
+      customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId);
+        insert customer;
+        customer = [Select Customer_Number__c, PersonContactId From Account Where Id=:customer.Id];
+        dealer = new Account(Name = 'Acme Dealer', Phone = '8888887', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
+        insert dealer;
+        
+        campaignPreparation();
+      
+          }
+    
+    private static Campaign_Lead__c campaignPreparation()
+    {
+     tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true, 
+                                               Name = 'lai', Message_Detail__c = '{DEALER_NAME}');
+                                               insert tem1;
+        lead = new Lead__c();
+        lead.Assigned_Dealer__c = dealer.Id;
+        lead.Contact__c = customer.Id;
+        lead.CAC_Lead_Status__c = 'Qualified';
+        lead.Lead_Type__c = 'Used Car';
+        lead.Relation_With_The_Leads__c = 'test';
+        lead.Lead_Desired_Service__c = 'Trade-In';
+        lead.Purchase_Time__c = '0 - 3 months';
+        lead.Interested_Vehicle_Brand__c = 'test';
+        lead.Trade_In_MB_Vehicle_Model__c = 'benz';
+        lead.Trade_In_Vehicle_Brand__c = 'c230';
+        lead.Trade_In_Vehicle_Class__c = 'C-CLASS';
+        lead.Trade_In_Other_Vehicle_Model__c = 'C-CLASS';
+        insert lead;
+    
+       // Campaign Record Type Id Search
+        Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();  
+        // Central Campaign
+        Id centCampaignRT = cpRecordTypeMap_test.get('Central Marketing Campaign').getRecordTypeId();                         
+        // Centre Campaign Data Prepared
+        // Central Campaign Inital
+         CampaignR = new Campaign(Name='TestData_CCA_Campaign',
+                                             //Campaign_Code__c='Code_CCA',
+                                             Type='Other',
+                                             Campaign_Objectives__c='Objectives',
+                                             Description='Description',
+                                             Status='Confirmed',
+                                             StartDate=date.newinstance(2013, 8, 17),
+                                             EndDate=date.newinstance(2013, 11, 17),
+                                             RecordTypeId=centCampaignRT,
+                                             OBSMSTemplate__c=tem1.id,
+                                             Execution_Type__c= 'OB Call');  
+        insert CampaignR;
+        
+        camlead=new Campaign_Lead__c();
+        camlead.Contact__c=customer.id;
+        camlead.Lead__c=lead.id;
+        camlead.Campaign__c=CampaignR.id;
+        insert camlead;
+          
+
+    customer = [Select Customer_Number__c, PersonContactId From Account Where Id=:customer.Id];
+    
+    tas = new Task(
                 RecordTypeId = obTaskRecordTypeId,
-                OwnerId = usr.Id,
-                WhatId = cp.Id,
+                OwnerId = userObj.Id,
+                WhatId = camlead.Id,
                 WhoId = customer.PersonContactId,
                 Subject = 'OB Task',
                 Result__c = 'Solved',
@@ -48,88 +213,19 @@ public class TaskSMSControllerExtensionTest
             );
             
             insert tas;
-            
-            ApexPages.currentPage().getParameters().put('taskId', tas.Id);
-            
-            // Test click SMS button from Account
-            // Instantiate a new controller extension with all parameters in the page
-            TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
-            extension.sms.Dealer__c = dealer.Id; 
-            String templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();       
-            List<Template__c> tems = new List<Template__c>();
-            Template__c tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true, 
-                                               Name = 'lai', Message_Detail__c = '{DEALER_NAME}');
-            Template__c tem2 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true, 
-                                               Name = 'lai', Message_Detail__c = '{DEALER_NAME}');
-            insert tem1;
-            insert tem2;
-            tems.add(tem1);
-            tems.add(tem2);
-            for(Template__c tem : tems) {
-                if(tem.Message_Detail__c.indexof('{DEALER_') != -1) {
-                    extension.templateId = tem.id;
-                }
-            }
-            //extension.templateId
-            List<SelectOption> Templates = extension.getTemplates();
-            extension.parseTemplateMessage();
-            String message = extension.optimzeContent('temp{DEALER_NAME}temp');
+           
+             ApexPages.currentPage().getParameters().put('taskId', tas.Id);
+             
+             
+          tem2 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,Name = 'lai', Message_Detail__c = '{DEALER_NAME}');
+          insert tem2;
+                                                             
+        tems.add(tem1);
+               
+        return camlead;
         
-            // Send SMS
-            extension.send();
-            
-            extension.templateMessage = '';
-            extension.send();
-            
-            extension.templateId = '';
-            extension.send();
-            Test.stopTest();
-            system.assertEquals(tem1.Message_Detail__c,'{DEALER_NAME}');
-            system.assertEquals(extension.send(), null);
-            system.assertequals(ApexPages.currentPage().getParameters().get('taskId'),tas.Id);        
-            system.assertEquals(extension.templateMessage,'');        
-            system.assertEquals(tem1.RecordTypeId,templateRecordTypeId);
-            system.assertEquals(tas.WhoId,customer.PersonContactId);  
-            system.assertEquals(extension.sms.Dealer__c,dealer.Id); 
-            system.assertequals(extension.parseTemplateMessage(),Null);   
-            system.assertequals(extension.optimzeContent('temp{DEALER_ADDRESS}temp'),message);                       
-            system.assertEquals(extension.getTemplates(),Templates);
-        }
     }
-
-    // Create Campaign
-    private static Campaign campaignPreparation()
-    {
-        String tempRecordTypeId1 = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
-        String tempRecordTypeId2 = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('Callscript').getRecordTypeId();
-        Template__c tem1 = new Template__c(RecordTypeId = tempRecordTypeId1, Active__c = true,
-                                           Name = 'lai', Message_Detail__c = '{Contact_Name}');
-        Template__c tem2 = new Template__c(RecordTypeId = tempRecordTypeId2, Active__c = true,
-                                           Name = 'lai', Message_Detail__c = '{Contact_Name}');
-        insert tem1;
-        insert tem2;
-        // Campaign Record Type Id Search
-        Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();  
-        // Central Campaign
-        Id centCampaignRT = cpRecordTypeMap_test.get('Central Marketing Campaign').getRecordTypeId();                         
-        // Centre Campaign Data Prepared
-        // Central Campaign Inital
-        Campaign TestData_CCA = new Campaign(Name='TestData_CCA_Campaign',
-                                             //Campaign_Code__c='Code_CCA',
-                                             Type='Other',
-                                             Campaign_Objectives__c='Objectives',
-                                             Description='Description',
-                                             Status='Confirmed',
-                                             StartDate=date.newinstance(2013, 8, 17),
-                                             EndDate=date.newinstance(2013, 11, 17),
-                                             RecordTypeId=centCampaignRT,
-                                             Execution_Type__c= 'OB Call',
-                                             OBSMSTemplate__c=tem1.Id,
-                                             Template__c=tem2.Id);  
-        insert TestData_CCA;
-        System.assertEquals(TestData_CCA.OBSMSTemplate__c,tem1.Id);
-        System.assert(TestData_CCA.id!=null);
-        return TestData_CCA;
-    }
+    
+    
   
 }

@@ -17,28 +17,26 @@ public with sharing class CampaignOfferingHelper
 	    	Campaign_Offering__c co = [Select Id, Name, Campaign__c, Campaign__r.Name From Campaign_Offering__c Where Id = :cId];
 		    String type = 'Campaign Offering';
 		    String action = '';
-		    String cm = co.Campaign__c;
+		    Id cm = co.Campaign__c;
 		    String objName = co.Name;
 		    Id us = Userinfo.getUserId();
 		    // LOG Generation Class initialize
 		    campaignHistoryLogGeneration chlg = new campaignHistoryLogGeneration();
 		    
-		    if(isInsert)
-		    {
+		    if(isInsert){
 		        // INSERT LOG
-		        action = 'INSERT';
+		        action = 'Add campaign offering ' + String.valueof(cId);
 		    }
-		    
 		    if(isUpdate){
 		        // UPDATE LOG
-		        action = 'UPDATE';
+		        action = 'Update campaign offering to ' + String.valueof(cId);
 		    }
-		    
 		    if(isDelete){
 		        // DELETE LOG
-		        action = 'DELETE';
+		        action = 'Delete campaign offering ' + String.valueof(cId);
 		    }
-		    chlg.logGeneration(type, String.valueof(cId), action, cm, us, objName);
+			
+		    chlg.logGeneration(type, action, cm, us, objName);
 	    }
     }
 }

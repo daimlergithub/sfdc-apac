@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -178,6 +178,17 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Created_By_EP_Transaction__c</fullName>
+        <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
+        <externalId>false</externalId>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Customer__c</fullName>
         <externalId>false</externalId>
         <label>Account</label>
@@ -189,6 +200,16 @@
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>District__c</fullName>
+        <externalId>false</externalId>
+        <label>Suburb</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>FS_Hardcopy_Last_Modified_By__c</fullName>
@@ -261,16 +282,6 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Source_System__c</fullName>
-        <externalId>false</externalId>
-        <label>Source System</label>
-        <length>200</length>
-        <required>false</required>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Province__c</fullName>
         <externalId>false</externalId>
         <label>State</label>
@@ -313,6 +324,16 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Source_System__c</fullName>
+        <externalId>false</externalId>
+        <label>Source System</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
@@ -339,25 +360,33 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>District__c</fullName>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
-        <label>Suburb</label>
+        <label>Updated By EP Transactions</label>
         <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	
     <recordTypes>
         <fullName>Company</fullName>
         <active>true</active>
-        <description>For Company Account</description>
+        <description>Record type for company addresses.</description>
         <label>Company</label>
         <picklistValues>
             <picklist>Address_Type__c</picklist>
             <values>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -365,7 +394,51 @@
                 <default>true</default>
             </values>
             <values>
+                <fullName>Postal address</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Prev Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 1 -Main Location Sales%2C Service %26 Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 2 -Main Location Sales Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 3 -Main Location Service %26 Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 6 -Additional Sales%2C Service %26 Parts location not within Site 1 or Site 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 7 -Service %26 Parts ONLY Location</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 8 -Only Parts Location</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 9 -Auto Body</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -438,9 +511,34 @@
     <recordTypes>
         <fullName>Dealer</fullName>
         <active>true</active>
+        <description>Record type for dealer addresses.</description>
         <label>Dealer</label>
         <picklistValues>
             <picklist>Address_Type__c</picklist>
+            <values>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Postal address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prev Mailing</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Site 1 -Main Location Sales%2C Service %26 Parts</fullName>
                 <default>false</default>
@@ -475,6 +573,10 @@
             </values>
             <values>
                 <fullName>Site 9 -Auto Body</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -547,12 +649,16 @@
     <recordTypes>
         <fullName>Individual</fullName>
         <active>true</active>
-        <description>For Person Account</description>
+        <description>Record type for individual addresses.</description>
         <label>Individual</label>
         <picklistValues>
             <picklist>Address_Type__c</picklist>
             <values>
                 <fullName>Business</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -564,7 +670,51 @@
                 <default>true</default>
             </values>
             <values>
+                <fullName>Postal address</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Prev Mailing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 1 -Main Location Sales%2C Service %26 Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 2 -Main Location Sales Only</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 3 -Main Location Service %26 Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 6 -Additional Sales%2C Service %26 Parts location not within Site 1 or Site 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 7 -Service %26 Parts ONLY Location</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 8 -Only Parts Location</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site 9 -Auto Body</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Site address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -680,4 +830,15 @@
         <requireRowSelection>false</requireRowSelection>
         <url>/a00/e?CF00N90000006qtIw={!Account.Name}&amp;CF00N90000006qtIw_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012900000008sYc&amp;ent=01I9000000059Be</url>
     </webLinks>
+    <validationRules>
+        <fullName>CheckedState</fullName>
+        <active>true</active>
+        <description>State (only if country is equal to Australia)</description>
+        <errorConditionFormula>AND(ISPICKVAL(Country__c, 'Australia'),
+ISPICKVAL(Province__c, ''),
+$Profile.Name != 'IntegrationAPI' 
+)</errorConditionFormula>
+        <errorDisplayField>Province__c</errorDisplayField>
+        <errorMessage>State is a mandatory fields when your Country is Australia.</errorMessage>
+    </validationRules>
 </CustomObject>

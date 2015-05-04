@@ -89,10 +89,6 @@
                 <behavior>Readonly</behavior>
                 <field>DescriptionOne__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>CCMS_SourceId__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

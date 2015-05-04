@@ -10,19 +10,22 @@
     18-June-2013 Stephano.shi (Breakingpoint)    Created
 */
 public class campaignHistoryLogGeneration{
- List<Campaign_history_log__c>  lstCampaign_history=new List<Campaign_history_log__c>();
-    public void logGeneration(String type, String objId, String action, Id cm, Id us, String objName){
+    
+	public void logGeneration(String type, String action, Id cm, Id us, String objName){
+		Audit_Trail__c[] records = new List<Audit_Trail__c>();
+		
         // LOG Record
-    	Campaign_history_log__c chl = new Campaign_history_log__c();
-        chl.Object_Type__c = type;	// What type of reocrd
-        chl.Object_ID__c = objId;	// Object id
-        chl.Action__c = action;		// What operation
-        chl.Campaign__c = cm;		// What campaign releated
-        chl.User__c = us;			// Who makes the operation
-        chl.Object_Name__c = objName;
-        lstCampaign_history.add(chl);
-            
-        if(cm != null)
-        	insert lstCampaign_history;
+    	Audit_Trail__c chl = new Audit_Trail__c();
+        
+		chl.Name = objName;
+		chl.Action__c = action;		// What operation
+        chl.Date_of_Change__c = DateTime.now(); // when
+		chl.RecordTypeId = UtilRecordType.getRecordTypeIdByName('Audit_Trail__c', 'Campaign');
+		chl.Campaign__c = cm;		// What campaign releated
+		chl.User__c = us;			// Who makes the operation
+		
+		records.add(chl);
+		
+		UtilSobject.insertSobjects(records);
     }
 }

@@ -146,8 +146,26 @@
     <pluralLabel>Surveys</pluralLabel>
     <searchLayouts>
         <customTabListAdditionalFields>CREATED_DATE</customTabListAdditionalFields>
-        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
         <excludedStandardButtons>Accept</excludedStandardButtons>
+        <excludedStandardButtons>ChangeOwner</excludedStandardButtons>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
+    <webLinks>
+        <fullName>Preview</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Preview</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <url>{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")};
+
+var questions = sforce.connection.query("SELECT ID FROM Survey_Question__c WHERE Survey__c = '{!Survey__c.Id}'");
+var records = questions.getArray("records");
+if (records.length&gt;0) {
+window.open("/apex/SubmitSurvey?surveyID={!Survey__c.Id}&amp;type=preview","newwindow","height=300,width=500,top=200,left=750,scrollbars=yes");
+} else {
+alert("{!$Label.Btn_Preview_No_Questions}");
+}</url>
+    </webLinks>
 </CustomObject>

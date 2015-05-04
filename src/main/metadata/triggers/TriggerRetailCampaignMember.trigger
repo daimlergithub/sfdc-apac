@@ -8,15 +8,9 @@
     History:
     
     1. Sinow Created on 2014-06-019
+    23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerRetailCampaignMemberHandler
 */
 trigger TriggerRetailCampaignMember on Retail_Campaign_Member__c (before insert) 
 {
-    if (!TriggerUtil.isTriggerEnabled('TriggerRetailCampaignMember')) {
-        return;
-    }
-
-    if(trigger.isBefore && trigger.isInsert)
-    {
-        RetailCampaignMemberHelper.retailCampaignMemberDuplicateCheck(Trigger.new); 
-    }
+    TriggerUtil.handleTrigger('TriggerRetailCampaignMember');
 }

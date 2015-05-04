@@ -2,7 +2,6 @@
 private class VehicleSharingTest {
 	
 	private static Account dealer;
-    private static User dealerUser;
     private static Vehicle__c vehicle;
     Private static String accountLinkType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get(UtilTestData.accountLink_Contact2Contact).getRecordTypeId();   
     Private static String dealerType =Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
@@ -13,8 +12,6 @@ private class VehicleSharingTest {
 
         Contact dealerContact = new Contact(FirstName = 'Test', Lastname = 'Amit', AccountId = dealer.Id, Email = 'test@test.com');
         insert dealerContact;        
-      
-        dealerUser=UtilTestData.createPortalUser('Dealer','Gold Partner User');  
                       
         vehicle = new Vehicle__c();
         insert vehicle;
