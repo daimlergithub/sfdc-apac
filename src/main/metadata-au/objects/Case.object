@@ -9200,7 +9200,7 @@ Modify Reason:
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>CRM1 Contract Number</label>
-        <referenceTo>Contract</referenceTo>
+        <referenceTo>Retail_Task__c</referenceTo>
         <relationshipLabel>Cases</relationshipLabel>
         <relationshipName>Cases</relationshipName>
         <required>false</required>

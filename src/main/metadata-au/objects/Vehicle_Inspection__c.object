@@ -60,7 +60,7 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Contract</label>
-        <referenceTo>Contract</referenceTo>
+        <referenceTo>Retail_Task__c</referenceTo>
         <relationshipLabel>Vehicle Inspections</relationshipLabel>
         <relationshipName>Vehicle_Inspections</relationshipName>
         <required>false</required>
