@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
-    <detailPageRefreshMethod>autoRefresh</detailPageRefreshMethod>
+    <detailPageRefreshMethod>flag</detailPageRefreshMethod>
     <domainWhitelist>
-        <domain>www.salesforce.com</domain>
+        <domain>www.mercedes-benz.com.au</domain>
     </domainWhitelist>
     <enableKeyboardShortcuts>true</enableKeyboardShortcuts>
     <enableMultiMonitorComponents>true</enableMultiMonitorComponents>
@@ -120,7 +120,7 @@
             <keyCommand>M</keyCommand>
         </defaultShortcut>
     </keyboardShortcuts>
-    <label>Service Cloud Console</label>
+    <label>FOS Complaints Console</label>
     <listPlacement>
         <location>full</location>
     </listPlacement>
@@ -139,26 +139,20 @@
         </pushNotification>
     </pushNotifications>
     <saveUserSessions>true</saveUserSessions>
-    <tab>Tasks</tab>
-    <tab>standard-Account</tab>
-    <tab>Lead__c</tab>
+    <tab>standard-Case</tab>
     <tab>standard-Contract</tab>
-    <tab>Vehicle__c</tab>
+    <tab>standard-Account</tab>
+    <tab>standard-report</tab>
     <workspaceMappings>
         <mapping>
-            <fieldName>Contact__c</fieldName>
-            <tab>Lead__c</tab>
+            <tab>standard-report</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-Case</tab>
         </mapping>
         <mapping>
             <fieldName>AccountId</fieldName>
             <tab>standard-Contract</tab>
-        </mapping>
-        <mapping>
-            <tab>Tasks</tab>
-        </mapping>
-        <mapping>
-            <fieldName>Car_Model__c</fieldName>
-            <tab>Vehicle__c</tab>
         </mapping>
         <mapping>
             <tab>standard-Account</tab>
