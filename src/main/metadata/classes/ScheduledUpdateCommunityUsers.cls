@@ -14,7 +14,7 @@ global class ScheduledUpdateCommunityUsers implements Schedulable{
     global void execute(SchedulableContext SC) {
         Date currentDay = System.today();
         Date previousDay = System.today().addDays(-1);
-        Id licenseId = [Select Id From UserLicense Where Name = 'Partner Community'].Id;
+        Id licenseId = [Select Id From UserLicense Where Name = 'Salesforce'].Id;
         List<user> newCommunityUsers = [Select Id, FederationIdentifier, Contact.Federation_ID__c, UserPermissionsSFContentUser, Contact.Permission_Set_Settings__c from user where IsActive = true AND Profile.UserLicenseId = :licenseId AND Contact.LastModifiedDate >= :previousDay];
         List<user> updateList = new List<user>();
         Boolean needUpdate = false;

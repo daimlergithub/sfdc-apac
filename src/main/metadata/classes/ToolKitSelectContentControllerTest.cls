@@ -18,7 +18,7 @@ public class ToolKitSelectContentControllerTest {
         Id dealerRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         
         /*Insert account with record type Dealer*/
-        Id dealerRecTypeId = [SELECT Id FROM RecordType WHERE Name = 'Dealer'].Id;
+        Id dealerRecTypeId = [SELECT Id FROM RecordType WHERE Name = 'Dealer' limit 1].Id;
         Account dealerAcc = new Account (Name='Test Account', RecordTypeId=dealerRecTypeId, Dealer_Region__c='Test region');
         insert dealerAcc;
         

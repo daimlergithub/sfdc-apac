@@ -83,7 +83,7 @@ public class QCHelperTest {
         qc.Q18_Comments__c = 'acem';
         qc.Q19_Comments__c = 'acem';
         update qc;
-        
+        QCHelper.IBCallTotalScore(qc);
         List<QC__Share> shares = [select Id from QC__Share where ParentID = :qc.Id and UserOrGroupId = :IBCSRUser.Id];
         system.assert(shares.size() == 1);
         
@@ -117,7 +117,7 @@ public class QCHelperTest {
         qc.CITQ__c = 'Pass';
         qc.PHU__c = 'Pass';
         update qc;
-
+       QCHelper.OBCallTotalScore(qc);
         SSI__c ssi = new SSI__c(        
             Status__c = 'Matched',    
             DealerName__c = 'Test Dealer',
@@ -155,7 +155,7 @@ public class QCHelperTest {
        
         qc.Approved__c = 'Yes';
         update qc;
-        
+        QCHelper.SSIPassedQuestions2(qc);
     }
    
     @isTest(seeAllData=true) 
@@ -231,7 +231,7 @@ public class QCHelperTest {
         qc.Q18_Comments__c = 'acem';
         qc.Q19_Comments__c = 'acem';
         update qc;
-        
+          QCHelper.IBCallTotalScore(qc);
         List<QC__Share> shares = [select Id from QC__Share where ParentID = :qc.Id and UserOrGroupId = :IBCSRUser.Id];
         system.assert(shares.size() == 1);
               
@@ -271,7 +271,7 @@ public class QCHelperTest {
         qc.CITQ__c = 'Fail';
         qc.PHU__c = 'Fail';
         update qc;
-      
+        QCHelper.OBCallTotalScore(qc);
         SSI__c ssi2 = new SSI__c(        
             Status__c = 'Matched',    
             DealerName__c = 'Test Dealer',
@@ -306,9 +306,153 @@ public class QCHelperTest {
         qc.CITQ__c = 'High';
         qc.PHU__c = 'High';
         update qc;
-     
+     QCHelper.SSIPassedQuestions(qc);
+             QCHelper.SetQualified(qc);
+
         // Test UpdateQCApproved
         qc.Approved__c = 'Yes';
         update qc;
     }
+    
+     @isTest(seeAllData=true) 
+    public static void testQC3() {
+        //Gets qc record type ids
+        String IBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('IB QC').getRecordTypeId();
+        String OBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('OB QC').getRecordTypeId();
+        String SSIQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('SSI QC').getRecordTypeId();
+        
+        Profile IBProfile = [select Id from Profile where Name = 'CAC IB CSR'];
+        Profile OBProfile = [select Id from Profile where Name = 'CAC OB CSR'];
+        Profile SSIProfile = [select Id from Profile where Name = 'CAC SSI CSR'];
+        
+        User IBCSRUser = new User(ProfileId = IBProfile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
+                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+        User OBCSRUser = new User(ProfileId = OBProfile.Id, isActive = true, Username = 'lai2@nttdata.com', LastName = 'sichao',
+                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney2',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+        User SSICSRUser = new User(ProfileId = SSIProfile.Id, isActive = true, Username = 'lai3@nttdata.com', LastName = 'sichao',
+                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney3',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+        insert IBCSRUser;
+        insert OBCSRUser;
+        insert SSICSRUser;
+        
+        QC__c qc = new QC__c(CSR_Name__c = IBCSRUser.Id, Status__c = 'Open', recordTypeId = IBQCRecordTypeId);
+        insert qc;
+        qc = [select Id, Status__c, PACI__c, Q1_Comments__c, DA__c, Q2_Comments__c, FTOP__c, Q3_Comments__c, FQL__c, Q4_Comments__c, CITQ__c, Q5_Comments__c, FMSK__c, Q6_Comments__c, Responsibility__c, Q7_Comments__c, SO__c, Q8_Comments__c, PPIS__c, Q9_Comments__c, SPL__c, Q10_Comments__c, SSL__c, Q11_Comments__c, SC__c, Q13_Comments__c, CALA__c, Q12_Comments__c, CAI__c, Q15_Comments__c, CARR__c, Q14_Comments__c, PFOCF__c, Q16_Comments__c, PPD__c, Q17_Comments__c, PJ__c, Q18_Comments__c, PHU__c, Q19_Comments__c from QC__c where Id = :qc.Id];
+        qc.Status__c = 'Complete';
+        qc.DA__c='Medium';
+        qc.FTOP__c ='Medium';
+        qc.FQL__c = 'Medium';
+        qc.PFOCF__c = 'Medium';
+        qc.PPD__c ='Medium';
+        update qc;
+        QCHelper.SSITotalScore1(qc);
+        QCHelper.SetQualified(qc);
+        }
+        
+         @isTest(seeAllData=true) 
+    public static void testQC4() {
+        //Gets qc record type ids
+        String IBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('IB QC').getRecordTypeId();
+        String OBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('OB QC').getRecordTypeId();
+        String SSIQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('SSI QC').getRecordTypeId();
+        
+        Profile IBProfile = [select Id from Profile where Name = 'CAC IB CSR'];
+        Profile OBProfile = [select Id from Profile where Name = 'CAC OB CSR'];
+        Profile SSIProfile = [select Id from Profile where Name = 'CAC SSI CSR'];
+        
+        User IBCSRUser = new User(ProfileId = IBProfile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
+                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+        User OBCSRUser = new User(ProfileId = OBProfile.Id, isActive = true, Username = 'lai2@nttdata.com', LastName = 'sichao',
+                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney2',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+        User SSICSRUser = new User(ProfileId = SSIProfile.Id, isActive = true, Username = 'lai3@nttdata.com', LastName = 'sichao',
+                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney3',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+        insert IBCSRUser;
+        insert OBCSRUser;
+        insert SSICSRUser;
+        
+        QC__c qc = new QC__c(CSR_Name__c = IBCSRUser.Id, Status__c = 'Open', recordTypeId = IBQCRecordTypeId);
+        insert qc;
+        qc = [select Id, Status__c, PACI__c, Q1_Comments__c, DA__c, Q2_Comments__c, FTOP__c, Q3_Comments__c, FQL__c, Q4_Comments__c, CITQ__c, Q5_Comments__c, FMSK__c, Q6_Comments__c, Responsibility__c, Q7_Comments__c, SO__c, Q8_Comments__c, PPIS__c, Q9_Comments__c, SPL__c, Q10_Comments__c, SSL__c, Q11_Comments__c, SC__c, Q13_Comments__c, CALA__c, Q12_Comments__c, CAI__c, Q15_Comments__c, CARR__c, Q14_Comments__c, PFOCF__c, Q16_Comments__c, PPD__c, Q17_Comments__c, PJ__c, Q18_Comments__c, PHU__c, Q19_Comments__c from QC__c where Id = :qc.Id];
+        qc.Status__c = 'Complete';
+        qc.DA__c='Low';
+        qc.CITQ__c = 'Low';
+       qc.FMSK__c = 'Low';
+        qc.FQL__c = 'Low';
+        qc.SO__c = 'Low';
+        qc.PPIS__c = 'Low';
+        qc.SPL__c = 'Low';
+        qc.SC__c = 'Low';
+        qc.CALA__c = 'Low';
+        qc.CAI__c = 'Low';
+        qc.PFOCF__c = 'Low';
+        qc.PPD__c = 'Low';
+        qc.PJ__c = 'Low';
+        qc.PHU__c = 'Low';
+        update qc;
+        QCHelper.SSITotalScore1(qc);
+        
+        }
+         @isTest(seeAllData=true) 
+    public static void testQC5() {
+        //Gets qc record type ids
+        String IBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('IB QC').getRecordTypeId();
+        String OBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('OB QC').getRecordTypeId();
+        String SSIQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('SSI QC').getRecordTypeId();
+        
+        Profile IBProfile = [select Id from Profile where Name = 'CAC IB CSR'];
+        Profile OBProfile = [select Id from Profile where Name = 'CAC OB CSR'];
+        Profile SSIProfile = [select Id from Profile where Name = 'CAC SSI CSR'];
+        
+        User IBCSRUser = new User(ProfileId = IBProfile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
+                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+        User OBCSRUser = new User(ProfileId = OBProfile.Id, isActive = true, Username = 'lai2@nttdata.com', LastName = 'sichao',
+                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney2',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+        User SSICSRUser = new User(ProfileId = SSIProfile.Id, isActive = true, Username = 'lai3@nttdata.com', LastName = 'sichao',
+                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney3',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+        insert IBCSRUser;
+        insert OBCSRUser;
+        insert SSICSRUser;
+        
+        QC__c qc = new QC__c(CSR_Name__c = IBCSRUser.Id, Status__c = 'Open', recordTypeId = IBQCRecordTypeId);
+        insert qc;
+        qc = [select Id, Status__c, PACI__c, Q1_Comments__c, DA__c, Q2_Comments__c, FTOP__c, Q3_Comments__c, FQL__c, Q4_Comments__c, CITQ__c, Q5_Comments__c, FMSK__c, Q6_Comments__c, Responsibility__c, Q7_Comments__c, SO__c, Q8_Comments__c, PPIS__c, Q9_Comments__c, SPL__c, Q10_Comments__c, SSL__c, Q11_Comments__c, SC__c, Q13_Comments__c, CALA__c, Q12_Comments__c, CAI__c, Q15_Comments__c, CARR__c, Q14_Comments__c, PFOCF__c, Q16_Comments__c, PPD__c, Q17_Comments__c, PJ__c, Q18_Comments__c, PHU__c, Q19_Comments__c from QC__c where Id = :qc.Id];
+        qc.Status__c = 'Complete';
+        qc.DA__c='Low';
+        qc.CITQ__c = 'Low';
+       qc.FMSK__c = 'Low';
+       qc.FTOP__c = 'Low';
+        qc.FQL__c = 'Low';
+        qc.SO__c = 'Low';
+        qc.PPIS__c = 'Low';
+        qc.SPL__c = 'Low';
+        qc.SSL__c = 'Low';
+        qc.SC__c = 'Low';
+        qc.CALA__c = 'Low';
+        qc.CAI__c = 'Low';
+        qc.PFOCF__c = 'Low';
+        qc.PPD__c = 'Low';
+        qc.PJ__c = 'Low';
+        qc.PHU__c = 'Low';
+        update qc;
+        QCHelper.SSITotalScore2(qc);
+        
+        }
 }

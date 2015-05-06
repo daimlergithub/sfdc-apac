@@ -1,12 +1,12 @@
 /*
     Purpose:    Test Class
-    Class: 		UtilCampaignCity
-	Trigger:	TriggerCampaignCity
+    Class:      UtilCampaignCity
+    Trigger:    TriggerCampaignCity
     Used By:    
     ---------------------------------------------------------------
     History:
     
-	26-June-2013 Stephano (Breakingpoint)    Created
+    26-June-2013 Stephano (Breakingpoint)    Created
 */
 @isTest
 public class TriggerCampaignCity_TestClass{
@@ -41,8 +41,8 @@ public class TriggerCampaignCity_TestClass{
         insert dealer;
         
         // Participating Dealer
-        Participating_Dealer__c pd = new Participating_Dealer__c(Campaign__c=TestData_CCA.Id, Dealer__c=dealer.Id);
-        insert pd;
+        //Participating_Dealer__c pd = new Participating_Dealer__c(Campaign__c=TestData_CCA.Id, Dealer__c=dealer.Id);
+       // insert pd;
         
         Test.stopTest();
     }

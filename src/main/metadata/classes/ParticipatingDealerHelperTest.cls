@@ -11,7 +11,7 @@ public class ParticipatingDealerHelperTest
         Account dealer = new Account(Name='TEST Dealer999', ZipCode__c='123456', Phone='123456789', RecordTypeId=accDealerRT);
         insert dealer;
         
-        Participating_Dealer__c pd = new Participating_Dealer__c(Campaign__c=TestData_CCA.Id,
+       Participating_Dealer__c pd = new Participating_Dealer__c(Campaign__c=TestData_CCA.Id,
                                                                  Dealer__c=dealer.Id);
         insert pd;
         update pd;

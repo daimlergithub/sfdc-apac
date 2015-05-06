@@ -100,11 +100,11 @@ public class CaseEscalationControllerTest {
     static void test_EscalateCase_Dealer_Region(){    
         init(true);    
         controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = '';          
-        controller.escalate();      
+       controller.escalate();      
       } 
    @future
     static void test_EscalateCase_Dealer_Region_West_elsecondition(){    
-        init(false);    
+       init(false);    
         controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'WEST';          
         controller.escalate();      
       }             
@@ -124,7 +124,7 @@ public class CaseEscalationControllerTest {
             Test.startTest();           
             test_EscalateCase_Dealer_Region();          
             Test.stopTest();         
-            system.assert(controller.escalate()==Null);                            
+           system.assert(controller.escalate()==Null);                            
          }        
       } 
      public static testMethod void testEscalate_West_elsecondition(){         

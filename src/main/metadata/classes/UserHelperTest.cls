@@ -20,7 +20,7 @@ public class UserHelperTest {
         Contact con = new Contact(AccountId = dealer.Id, LastName = 'b', Phone = '123', email = 's@s.s');
         insert con;
         
-        Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'];
+        Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'System Administrator'];
         Profile CACSSICSR = [select Id from Profile where Name = 'CAC SSI CSR'];
         Profile CACSSIQC = [select Id from Profile where Name = 'CAC SSI QC'];
         
@@ -150,8 +150,8 @@ public class UserHelperTest {
         Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
         Contact con = new Contact(AccountId = dealer.Id, LastName = 'Huang', Phone = '8412877', email = 'HuangTest@163.com', Dealer_Complaint_Gate_Keeper__c = true);
         insert con;        
-        Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'];
-        User usr = UtilTestData.createPortalUser('Dealer','Dealer Delegate Admin');
+        Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'System Administrator'];
+        User usr = UtilTestData.createPortalUser('Dealer User','System Administrator');
          try {
             insert usr;
             System.debug('HSL: insert first user successfully.');
@@ -251,10 +251,10 @@ public class UserHelperTest {
     }
     
     public static testMethod void UserHelperTest02() {
-        Account dealer = [SELECT id,name FROM account limit 1];      
-        Contact conNew = new Contact(AccountId = dealer.Id, LastName = 'Huang', Phone = '8412877', email = 'HuangTest@163.com', Permission_Set_Settings__c = 'AS_Retail_Campaign;AS_Yearly_TA');
-        insert conNew;      
-        User usrNew= UtilTestData.createPortalUser('Dealer','Dealer Community User');
+       // Account dealer = [SELECT id,name FROM account limit 1];      
+       // Contact conNew = new Contact(AccountId = dealer.Id, LastName = 'Huang', Phone = '8412877', email = 'HuangTest@163.com', Permission_Set_Settings__c = 'AS_Retail_Campaign;AS_Yearly_TA');
+        //insert conNew;      
+        User usrNew= UtilTestData.createPortalUser('Dealer User','System Administrator');
         Test.startTest();
         Set<Id> userIds = new Set<Id>();
         userIds.add(usrNew.id);
@@ -263,7 +263,7 @@ public class UserHelperTest {
         Test.stopTest();
     }
     public static testMethod void UserConstantTest() {
-        User usrNew= UtilTestData.createPortalUser('Dealer','Dealer Community User');
+        User usrNew= UtilTestData.createPortalUser('Dealer User','System Administrator');
         Test.startTest();
          UtilConstant uConst=new UtilConstant();
          UtilConstant.getUserRoleId('Retail'); 

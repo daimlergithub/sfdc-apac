@@ -34,8 +34,9 @@ public class AddToRetailCampaignController {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, ex.getMessage()));
             return null;
         }
-        
+        system.debug('@@@@@@ before  try block');
         try {
+            system.debug('@@@@@@ try block');
             TheRetailCampaign = [select Id, Total_CAC_Source_Campaign_Member__c from Retail_Campaign__c where Id = :TheCase.Retail_Campaign__c];
             if(TheRetailCampaign.Total_CAC_Source_Campaign_Member__c == null) {
                 TheRetailCampaign.Total_CAC_Source_Campaign_Member__c = 1;
@@ -50,7 +51,7 @@ public class AddToRetailCampaignController {
             Database.rollback(sp);
             return null;
         }
-        
+        system.debug('@@@@@@ catch block');
         try {
             TheCase.Case_Status__c = 'Accepted';
             update TheCase;
