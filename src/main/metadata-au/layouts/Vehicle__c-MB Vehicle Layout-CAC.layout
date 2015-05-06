@@ -24,7 +24,6 @@
                 <field>Car_Model__c</field>
             </layoutItems>
             <layoutItems>
-<<<<<<< HEAD
                 <behavior>Readonly</behavior>
                 <field>Cost_Centre__c</field>
             </layoutItems>
@@ -36,10 +35,8 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>TMP_Car_Model__c</field>
-=======
                 <behavior>Edit</behavior>
                 <field>Comment__c</field>
->>>>>>> e3ce0fc12b3e8e7890a55306e937beb5c6fb3119
             </layoutItems>
 			-->
         </layoutColumns>
