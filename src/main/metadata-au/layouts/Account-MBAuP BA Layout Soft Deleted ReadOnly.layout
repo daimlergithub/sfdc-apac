@@ -120,12 +120,6 @@
         <fields>Fleet__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
-    <!-- TODO commented since multiple Account_Link__c related list are present<relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>fromRole__c</fields>
-        <fields>Dealer_No__c</fields>
-        <relatedList>Account_Link__c.toRole__c</relatedList>
-    </relatedLists> -->
     <relatedLists>
         <fields>VehicleInterested__c</fields>
         <fields>NAME</fields>

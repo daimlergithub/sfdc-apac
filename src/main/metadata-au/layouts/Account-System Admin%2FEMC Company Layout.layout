@@ -173,7 +173,7 @@
                 <behavior>Readonly</behavior>
                 <field>Home_Phone_Last_Modified_By__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Home_Phone_Last_Modified_By2__c</field>
             </layoutItems>
@@ -181,45 +181,45 @@
                 <behavior>Readonly</behavior>
                 <field>Home_Phone_Last_Modified_Date__c</field>
             </layoutItems>
-			<layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Home_Phone_Last_Modified_Date2__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
-	<layoutSections>
-	   <customLabel>true</customLabel>
-	   <detailHeading>true</detailHeading>
-	   <editHeading>false</editHeading>
-	   <label>Address Information</label>
-	   <layoutColumns>
-		   <layoutItems>
-			   <height>160</height>
-			   <page>Account_Address</page>
-			   <showLabel>false</showLabel>
-			   <showScrollbars>false</showScrollbars>
-			   <width>100%</width>
-		   </layoutItems>
-	   </layoutColumns>
-	   <style>OneColumn</style>
-	</layoutSections>
-	<layoutSections>
-	   <customLabel>true</customLabel>
-	   <detailHeading>true</detailHeading>
-	   <editHeading>false</editHeading>
-	   <label>Opt-In/Opt-Out Information</label>
-	   <layoutColumns>
-		   <layoutItems>
-			   <height>160</height>
-			   <page>AccountOptinandOptout</page>
-			   <showLabel>false</showLabel>
-			   <showScrollbars>false</showScrollbars>
-			   <width>100%</width>
-		   </layoutItems>
-	   </layoutColumns>
-	   <style>OneColumn</style>
-	</layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Address Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>160</height>
+                <page>Account_Address</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
+    <layoutSections>
+        <customLabel>true</customLabel>
+        <detailHeading>true</detailHeading>
+        <editHeading>false</editHeading>
+        <label>Opt-In/Opt-Out Information</label>
+        <layoutColumns>
+            <layoutItems>
+                <height>160</height>
+                <page>AccountOptinandOptout</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+        </layoutColumns>
+        <style>OneColumn</style>
+    </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -389,12 +389,6 @@
         <fields>Fleet__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
-    <!-- TODO Waiting for Melvins response<relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>fromRole__c</fields>
-        <fields>Dealer_No__c</fields>
-        <relatedList>Account_Link__c.toRole__c</relatedList>
-    </relatedLists> -->
     <relatedLists>
         <relatedList>RelatedAccountContactRoleList</relatedList>
     </relatedLists>
