@@ -209,18 +209,20 @@
 	
 	<target name="deploy25">			
 		<deploy>
+			<!-- TODO : Have dependency on code coverage. Will be pushed once coverage is above 75%.
 			<sf:typeset name="pages">
 				<sf:include name="Tasks"/>
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="Tasks"/>
-			</sf:typeset>
+			</sf:typeset>			
 			<sf:typeset name="classes">
 				<sf:include name="TaskDeletingController"/>
 			</sf:typeset>
 			<sf:typeset name="pages">
 				<sf:include name="TaskDeleting"/>
 			</sf:typeset>
+			-->
 			<sf:typeset name="objects">
 				<sf:include name="Task"/>
 				<sf:include name="Activity"/>
@@ -230,6 +232,7 @@
 	
 	<target name="deploy30">
 		<deploy>
+		<!-- TODO : Have dependency on code coverage. Will be pushed once coverage is above 75%.
 			<sf:typeset name="classes"/>
 			<sf:typeset name="components"/>
 			<sf:typeset name="pages"/>
@@ -242,8 +245,9 @@
 				<sf:include name="Retail_Campaign__c"/>	
 				<sf:include name="Retail_Campaign_Calender"/>
 				<sf:include name="Yearly_Target"/>
-			</sf:typeset>
+			</sf:typeset>		
 			<sf:typeset name="triggers"/>
+		-->	
 		</deploy>
     </target>
 	
