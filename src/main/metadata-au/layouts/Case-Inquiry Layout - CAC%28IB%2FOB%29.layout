@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customConsoleComponents>
+        <primaryTabComponents>
+            <containers>
+                <isContainerAutoSizeEnabled>false</isContainerAutoSizeEnabled>
+                <region>Right</region>
+                <sidebarComponents>
+                    <componentType>KnowledgeOne</componentType>
+                    <height>100</height>
+                    <unit>Percentage</unit>
+                </sidebarComponents>
+                <style>Stack</style>
+                <unit>Pixel</unit>
+                <width>450</width>
+            </containers>
+        </primaryTabComponents>
+    </customConsoleComponents>
     <excludeButtons>Clone</excludeButtons>
     <excludeButtons>Share</excludeButtons>
     <excludeButtons>Submit</excludeButtons>

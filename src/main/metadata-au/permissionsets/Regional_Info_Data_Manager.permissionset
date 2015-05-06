@@ -21,7 +21,35 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>FOS_Complaints_Console</application>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>Force_com</application>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>MBAuP_AS</application>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>MBAuP_CRM_Customer</application>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>MBAuP_Dealer_Portal</application>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>MBAuP_MBFS_Dealer</application>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>MBAuP_Marketing</application>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>MBFSAu</application>
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -85,6 +113,10 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>AccountConatctcontroller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -105,6 +137,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountOptinandOptoutController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -114,6 +150,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AddToRetailCampaignControllerTet</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AddressHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Addresscontroller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -193,6 +237,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CampaignCalendarController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CampaignCalendarControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CampaignHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -202,6 +254,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMemberAfterTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CampaignMemberHistoryController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CampaignMemberHistoryControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -349,6 +409,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ExtSelectAssignedDealer</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FleerCorverList</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ForgotPasswordController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -393,11 +461,27 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>LeadMassChangeDealerController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadMassChangeDealerControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>LeadSharingTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>LeadSharingWrapService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MakeUpdateLinkControl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MakeUpdateLinkControlTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -454,6 +538,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MyProfilePageControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>NewCMSContractsRelationController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>NewCMSContractsRelationControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -793,6 +885,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TaskMassChangeActivateDeactive</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TaskMassChangeActivateDeactiveTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TaskMassChangeOwner</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -814,6 +914,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TaskTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestDataUtil</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -854,6 +958,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TrialCustomerPortalHomePageController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerAccountHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1218,6 +1326,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>campaignHistoryLogGeneration</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>lead_Addresscontroller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -3443,6 +3555,11 @@ Account Owner, MB Region, MB Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Address__c.Post_Code__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Address__c.Preferred__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3458,7 +3575,17 @@ Account Owner, MB Region, MB Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Address__c.State__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Address__c.Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Address__c.Suburb__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4914,6 +5041,11 @@ Account Owner, MB Region, MB Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Customer_Statement__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Customer_Title__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7348,6 +7480,11 @@ Account Owner, MB Region, MB Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Event.Created_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Event.Created_By_EP_Transaction_c__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -7909,6 +8046,11 @@ Account Owner, MB Region, MB Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.CAC_Lost_Reason__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.CAC_SourceId__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12753,6 +12895,11 @@ Account Owner, MB Region, MB Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Task.Created_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Task.Created_By_EP_Transaction_c__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -14424,6 +14571,18 @@ Account Owner, MB Region, MB Sub Region</description>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>AccountContactInformation</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>AccountOptinandOptout</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Account_Address</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>AddToRetailCampaign</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -14445,6 +14604,14 @@ Account Owner, MB Region, MB Sub Region</description>
     </pageAccesses>
     <pageAccesses>
         <apexPage>CSRLookup</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CampaignCalendar</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CampaignMemberHistory</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -14528,7 +14695,15 @@ Account Owner, MB Region, MB Sub Region</description>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>DealerLookup</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>DealerSearch</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>DeleteFleet</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -14537,6 +14712,14 @@ Account Owner, MB Region, MB Sub Region</description>
     </pageAccesses>
     <pageAccesses>
         <apexPage>FileNotFound</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Fleet_checklist_output</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Fleet_settlement_checklist</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -14580,6 +14763,14 @@ Account Owner, MB Region, MB Sub Region</description>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>LeadMassChangeDealer</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Lead_Address</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>LeadsConsoleRefresh</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -14597,6 +14788,10 @@ Account Owner, MB Region, MB Sub Region</description>
     </pageAccesses>
     <pageAccesses>
         <apexPage>MyProfilePage</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>NewCMSContractsRelation</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -14665,6 +14860,10 @@ Account Owner, MB Region, MB Sub Region</description>
     </pageAccesses>
     <pageAccesses>
         <apexPage>TaskLink</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>TaskMassChangeActivateDeactive</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -14760,7 +14959,15 @@ Account Owner, MB Region, MB Sub Region</description>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <recordType>Account.Company_Soft_Deleted</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <recordType>Account.Dealer</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Account.Dealer_Group</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -14828,6 +15035,18 @@ Account Owner, MB Region, MB Sub Region</description>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <recordType>Campaign.Creative_Brief</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Campaign.Data_Brief</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Campaign.Internal_Campaign_Brief</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <recordType>Campaign.MB_Best_Practice</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -14845,6 +15064,10 @@ Account Owner, MB Region, MB Sub Region</description>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Case.Chrysler_Complaint</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Case.FOS_Complaint</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -14897,6 +15120,18 @@ Account Owner, MB Region, MB Sub Region</description>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Lead__c.Aftersales_Leads</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Lead__c.Finance_Lead</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Lead__c.Fleet_Lead</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Lead__c.Insurance_Lead</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -15024,11 +15259,23 @@ Account Owner, MB Region, MB Sub Region</description>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <recordType>Task.Annual_Call</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <recordType>Task.Campaign_Task</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Task.DM</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Task.EMC_Task</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Task.EOC_Call</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -15112,6 +15359,18 @@ Account Owner, MB Region, MB Sub Region</description>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <recordType>Vehicle_Relationship__c.Company</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Vehicle_Relationship__c.Individual</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Vehicle_Relationship__c.Lessee</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -15181,6 +15440,10 @@ Account Owner, MB Region, MB Sub Region</description>
     </tabSettings>
     <tabSettings>
         <tab>DM_Stock_Flow__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Dealer_Locator__c</tab>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>

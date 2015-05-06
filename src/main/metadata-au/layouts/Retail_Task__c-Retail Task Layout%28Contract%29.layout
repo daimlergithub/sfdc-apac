@@ -204,24 +204,12 @@
         <editHeading>true</editHeading>
         <label>System Information</label>
         <layoutColumns>
-		<!-- TODO Waiting for Melvin's confirm on the below field
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ActivatedById</field>
-            </layoutItems>
-			-->
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
-		<!-- TODO Waiting for Melvin's confirm on the below field
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>ActivatedDate</field>
-            </layoutItems>
-			-->
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
@@ -255,21 +243,6 @@
         <fields>CASES.PRIORITY</fields>
         <relatedList>Case.Contract_Number_or_Policy_Number__c</relatedList>
     </relatedLists>
-	<!-- TODO Check for the error
-    <relatedLists>
-        <fields>TASK.SUBJECT</fields>
-        <fields>TASK.WHO_NAME</fields>
-        <fields>ACTIVITY.TASK</fields>
-        <fields>TASK.DUE_DATE</fields>
-        <fields>TASK.STATUS</fields>
-        <fields>TASK.PRIORITY</fields>
-        <fields>CORE.USERS.FULL_NAME</fields>
-        <relatedList>RelatedActivityList</relatedList>
-    </relatedLists>
-	-->
-    <relatedLists>
-        <relatedList>RelatedEntityHistoryList</relatedList>
-    </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
@@ -283,9 +256,6 @@
         <relatedList>RelatedNoteList</relatedList>
     </relatedLists>
     <relatedLists>
-	<!-- TODO Check with Melvin on this Button
-        <customButtons>New_Finance_Lead_Con</customButtons>
-	-->
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Company_Account__c</fields>
@@ -300,15 +270,6 @@
         <fields>NAME</fields>
         <relatedList>Vehicle_Inspection__c.Contract__c</relatedList>
     </relatedLists>
-	<!-- TODO Waiting for Object model changes
-    <relatedLists>
-        <fields>NAME</fields>
-        <fields>toRole__c</fields>
-        <fields>Role__c</fields>
-        <fields>Primary__c</fields>
-        <relatedList>Account_Link__c.ContractId__c</relatedList>
-    </relatedLists>
-	-->
     <relatedLists>
         <fields>NAME</fields>
         <fields>Case_No__c</fields>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <layoutSections>
         <customLabel>false</customLabel>
@@ -17,6 +17,14 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>IsAllDayEvent</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>ActivityDateTime</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Required</behavior>
+                <field>DurationInMinutes</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>

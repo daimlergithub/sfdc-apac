@@ -3,6 +3,6 @@
     <doesSendEmailToMembers>true</doesSendEmailToMembers>
     <name>Regional Office West Queue</name>
     <queueSobject>
-        <sobjectType>Case</sobjectType>
+        <sobjectType>QC__c</sobjectType>
     </queueSobject>
 </Queue>
