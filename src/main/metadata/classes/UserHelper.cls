@@ -30,8 +30,8 @@ public with sharing class UserHelper {
     //validate No of Dealer Portal Licanses
     public static void ValidateUser(list<user> usersList)
     {
-    	getPofileId();
-     	Set<Id> profileIds = new Set<Id>();
+        getPofileId();
+        Set<Id> profileIds = new Set<Id>();
          profileIds.add(DealerComplaintUserId);
          profileIds.add(DealerDelegatedAdminId);
          User userObj=usersList[0];
@@ -103,7 +103,7 @@ public with sharing class UserHelper {
 
     @future
     public static void ShareAllDataToNewUserFuture(Id newUserId, Set<Id> existUserIds, Id profileId) {
-		getPofileId();
+        getPofileId();
         User newUser = [select Id, Contact.Permission_Set_Settings__c from User where Id = :newUserId];
 
         if(profileId == DealerDelegatedAdminId || newUser.Contact.Permission_Set_Settings__c.contains('Complaint_Management')) {
@@ -519,9 +519,9 @@ public with sharing class UserHelper {
     
     public static void AfterInsert_UpdateMethod(list<User> usersList,map<id,User> userOldMap,boolean isInsert,boolean isUpdate)
     {
-	    getPofileId();	
-	    Set<Id> profileIds = new Set<Id>();
-     	if(DealerComplaintUserId!=null)
+        getPofileId();  
+        Set<Id> profileIds = new Set<Id>();
+        if(DealerComplaintUserId!=null)
         profileIds.add(DealerComplaintUserId);
         if(DealerDelegatedAdminId!=null) 
         profileIds.add(DealerDelegatedAdminId);
@@ -578,34 +578,34 @@ public with sharing class UserHelper {
     
     public static void getPofileId()
     {
-    	set<string> profleNames= new set<string>();
-    	profleNames.add('Dealer Community User');
-    	profleNames.add('Dealer Delegate Admin');
-    	profleNames.add('CAC SSI CSR');
-    	profleNames.add('CAC SSI QC');
-    	profleNames.add('CAC SSI SV');
-    	profleNames.add('CAC SSI TL');
-    	profleNames.add('CAC SSI Trainer');
-    	List<Profile> lstProfiles=[select id, name from Profile where name in:profleNames];
-    	if(lstProfiles!=null && !lstProfiles.IsEmpty())
-    	{
-    		for(Profile obj:lstProfiles)
-    		{
-    			if(obj.name=='Dealer Community User')
-    				DealerComplaintUserId=obj.Id;
-    			if(obj.name=='Dealer Delegate Admin')
-    				DealerDelegatedAdminId=obj.Id;
-    			if(obj.name=='CAC SSI CSR')
-    				CACSSICSRId=obj.Id;
-    			if(obj.name=='CAC SSI QC')
-    				CACSSIQCId=obj.Id;
-    			if(obj.name=='CAC SSI SV')
-    				CACSSISVId=obj.Id;
-    			if(obj.name=='CAC SSI TL')
-    				CACSSITLId=obj.Id;
-    			if(obj.name=='CAC SSI Trainer')
-    				CACSSITRAINERId=obj.Id;
-    		}
-    	}
+        set<string> profleNames= new set<string>();
+        profleNames.add('System Administrator');
+        profleNames.add('System Administrator');
+        profleNames.add('CAC SSI CSR');
+        profleNames.add('CAC SSI QC');
+        profleNames.add('CAC SSI SV');
+        profleNames.add('CAC SSI TL');
+        profleNames.add('CAC SSI Trainer');
+        List<Profile> lstProfiles=[select id, name from Profile where name in:profleNames];
+        if(lstProfiles!=null && !lstProfiles.IsEmpty())
+        {
+            for(Profile obj:lstProfiles)
+            {
+                if(obj.name=='System Administrator')
+                    DealerComplaintUserId=obj.Id;
+                if(obj.name=='System Administrator')
+                    DealerDelegatedAdminId=obj.Id;
+                if(obj.name=='CAC SSI CSR')
+                    CACSSICSRId=obj.Id;
+                if(obj.name=='CAC SSI QC')
+                    CACSSIQCId=obj.Id;
+                if(obj.name=='CAC SSI SV')
+                    CACSSISVId=obj.Id;
+                if(obj.name=='CAC SSI TL')
+                    CACSSITLId=obj.Id;
+                if(obj.name=='CAC SSI Trainer')
+                    CACSSITRAINERId=obj.Id;
+            }
+        }
     }
 }

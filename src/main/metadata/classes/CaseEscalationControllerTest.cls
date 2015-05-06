@@ -92,31 +92,31 @@ public class CaseEscalationControllerTest {
     
     @future
     static void test_EscalateCase_Dealer_Region_East(){    
-      //  init(true);    
-       // controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'EAST';          
-        //controller.escalate();      
+        init(true);    
+        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'EAST';          
+        controller.escalate();      
       }    
     @future
     static void test_EscalateCase_Dealer_Region(){    
-       // init(true);    
-       // controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = '';          
-       //controller.escalate();      
+        init(true);    
+        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = '';          
+       controller.escalate();      
       } 
    @future
     static void test_EscalateCase_Dealer_Region_West_elsecondition(){    
-       // init(false);    
-       // controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'WEST';          
-      //  controller.escalate();      
+       init(false);    
+        controller.EscalateCase.Case_Dealer__r.Dealer_Region__c = 'WEST';          
+        controller.escalate();      
       }             
     public static testMethod void test_escalate_Dealer_EastRegion(){      
          system.runAs(currentUsr){
             Test.startTest();
             test_EscalateCase_Dealer_Region_East();                     
             Test.stopTest();                       
-           // system.assert(controller.escalate()!=Null);  
-           // system.assertequals(Date.today(),controller.EscalateCase.Escalate_Date_to_CO__c);               
-            //system.assertequals('Awaiting MB',controller.EscalateCase.Status);  
-            //system.assertequals('Central Office',controller.EscalateCase.Handling_Level__c);             
+            system.assert(controller.escalate()!=Null);  
+            system.assertequals(Date.today(),controller.EscalateCase.Escalate_Date_to_CO__c);               
+            system.assertequals('Awaiting MB',controller.EscalateCase.Status);  
+            system.assertequals('Central Office',controller.EscalateCase.Handling_Level__c);             
          }        
      }       
      public static testMethod void test_escalate_Dealer_Region(){      
@@ -124,7 +124,7 @@ public class CaseEscalationControllerTest {
             Test.startTest();           
             test_EscalateCase_Dealer_Region();          
             Test.stopTest();         
-         //   system.assert(controller.escalate()==Null);                            
+           system.assert(controller.escalate()==Null);                            
          }        
       } 
      public static testMethod void testEscalate_West_elsecondition(){         
