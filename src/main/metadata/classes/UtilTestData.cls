@@ -138,7 +138,7 @@ Public class UtilTestData {
                 usr.LanguageLocaleKey = 'en_US';
                 usr.localesidkey='en_US';
                 usr.isActive = true;
-                usr.ContactId =con.Id;
+               // usr.ContactId =con.Id;
                 insert usr; 
             }     
         return usr;    

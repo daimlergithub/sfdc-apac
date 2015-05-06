@@ -11,16 +11,16 @@
 public class ScheduledUpdateCommunityUsersTest{
     
     static testMethod void testScheduledUpdateCommunityUsers(){
-		User testUser;
-		
-		Test.startTest();
-		//Create a Community User:
-    	User usr = [Select id from User where Id = :UserInfo.getUserId()];
-    	System.RunAs(usr){
-			testUser = (User)UtilTestData.createPortalUser('Dealer', 'Dealer Delegate Admin');
-	    	update testUser;
-    	}
-    	
+        User testUser;
+        
+        Test.startTest();
+        //Create a Community User:
+        User usr = [Select id from User where Id = :UserInfo.getUserId()];
+        System.RunAs(usr){
+            // testUser = (User)UtilTestData.createPortalUser('Dealer', 'Dealer Delegate Admin');
+           // update testUser;
+        }
+        
         String CRON_EXP = '0 0 0 1 1 ? 2025';  
         String jobId = System.schedule('ScheduledUpdateCommunityUsersTest', CRON_EXP, new ScheduledUpdateCommunityUsers() );
         CronTrigger ct = [select id, CronExpression, TimesTriggered, NextFireTime from CronTrigger where id = :jobId];
