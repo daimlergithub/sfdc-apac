@@ -26,7 +26,42 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>FOS_Complaints_Console</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>Force_com</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>MBAuP_AS</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>MBAuP_CRM_Customer</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>MBAuP_Dealer_Portal</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>MBAuP_MBFS_Dealer</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>MBAuP_Marketing</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>MBFSAu</application>
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
@@ -106,6 +141,10 @@
         <visible>false</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>AccountConatctcontroller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -126,6 +165,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountOptinandOptoutController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -135,6 +178,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AddToRetailCampaignControllerTet</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AddressHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>Addresscontroller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -214,6 +265,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CampaignCalendarController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CampaignCalendarControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CampaignHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -223,6 +282,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CampaignMemberAfterTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CampaignMemberHistoryController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CampaignMemberHistoryControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -370,6 +437,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ExtSelectAssignedDealer</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FleerCorverList</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ForgotPasswordController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -414,11 +489,27 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>LeadMassChangeDealerController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadMassChangeDealerControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>LeadSharingTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>LeadSharingWrapService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MakeUpdateLinkControl</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>MakeUpdateLinkControlTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -475,6 +566,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>MyProfilePageControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>NewCMSContractsRelationController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>NewCMSContractsRelationControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -814,6 +913,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TaskMassChangeActivateDeactive</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TaskMassChangeActivateDeactiveTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TaskMassChangeOwner</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -835,6 +942,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TaskTriggerHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TestDataUtil</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -875,6 +986,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TrialCustomerPortalHomePageController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerAccountHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1239,6 +1354,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>campaignHistoryLogGeneration</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>lead_Addresscontroller</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -3463,6 +3582,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Address__c.Post_Code__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Address__c.Preferred__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3478,7 +3602,17 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Address__c.State__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Address__c.Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Address__c.Suburb__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -4934,6 +5068,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Customer_Statement__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Case.Customer_Title__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7462,6 +7601,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Event.Created_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Event.Created_By_EP_Transaction_c__c</field>
         <readable>true</readable>
@@ -8013,12 +8157,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Business_Unit__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.CAC_Lead_Status__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.CAC_Lost_Reason__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.CAC_SourceId__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8073,6 +8227,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.Contact_Timing__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Contact__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8095,6 +8254,11 @@
         <editable>false</editable>
         <field>Lead__c.Customer_Name__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Customer_Type__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -12852,6 +13016,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Task.Created_By_EP_Transaction__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Task.Created_By_EP_Transaction_c__c</field>
         <readable>true</readable>
@@ -14505,7 +14674,15 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Account Master Layout</layout>
+        <recordType>Account.Company_Soft_Deleted</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-Account Master Layout</layout>
         <recordType>Account.Dealer</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-Account Master Layout</layout>
+        <recordType>Account.Dealer_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
@@ -14594,6 +14771,18 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Campaign-Campaign Master Layout</layout>
+        <recordType>Campaign.Creative_Brief</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Campaign Master Layout</layout>
+        <recordType>Campaign.Data_Brief</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Campaign Master Layout</layout>
+        <recordType>Campaign.Internal_Campaign_Brief</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Campaign-Campaign Master Layout</layout>
         <recordType>Campaign.MB_Best_Practice</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -14641,6 +14830,10 @@
     <layoutAssignments>
         <layout>Case-Case Master Layout</layout>
         <recordType>Case.Chrysler_Complaint</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Case-Case Master Layout</layout>
+        <recordType>Case.FOS_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Case Master Layout</layout>
@@ -14770,6 +14963,18 @@
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
         <recordType>Lead__c.Aftersales_Leads</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.Finance_Lead</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.Fleet_Lead</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Lead Layout</layout>
+        <recordType>Lead__c.Insurance_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
@@ -15006,11 +15211,23 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
+        <recordType>Task.Annual_Call</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Task Master Layout</layout>
         <recordType>Task.Campaign_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
         <recordType>Task.DM</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Task Master Layout</layout>
+        <recordType>Task.EMC_Task</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Task Master Layout</layout>
+        <recordType>Task.EOC_Call</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
@@ -15109,6 +15326,18 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
+        <recordType>Vehicle_Relationship__c.Company</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
+        <recordType>Vehicle_Relationship__c.Individual</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
+        <recordType>Vehicle_Relationship__c.Lessee</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle_Relationship__c-Vehicle Relationship Layout-CAC</layout>
@@ -15317,6 +15546,18 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>AccountContactInformation</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>AccountOptinandOptout</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Account_Address</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>AddToRetailCampaign</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -15338,6 +15579,14 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>CSRLookup</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CampaignCalendar</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CampaignMemberHistory</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -15421,7 +15670,15 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>DealerLookup</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>DealerSearch</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>DeleteFleet</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -15430,6 +15687,14 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>FileNotFound</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Fleet_checklist_output</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Fleet_settlement_checklist</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -15473,6 +15738,14 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>LeadMassChangeDealer</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Lead_Address</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>LeadsConsoleRefresh</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -15490,6 +15763,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>MyProfilePage</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>NewCMSContractsRelation</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -15558,6 +15835,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>TaskLink</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>TaskMassChangeActivateDeactive</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -15655,7 +15936,17 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Account.Company_Soft_Deleted</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Account.Dealer</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account.Dealer_Group</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -15740,6 +16031,21 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Campaign.Creative_Brief</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Campaign.Data_Brief</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Campaign.Internal_Campaign_Brief</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Campaign.MB_Best_Practice</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -15761,6 +16067,11 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Case.Chrysler_Complaint</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Case.FOS_Complaint</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -15826,6 +16137,21 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Lead__c.Aftersales_Leads</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead__c.Finance_Lead</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead__c.Fleet_Lead</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Lead__c.Insurance_Lead</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -15986,12 +16312,27 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Task.Annual_Call</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Task.Campaign_Task</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Task.DM</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.EMC_Task</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Task.EOC_Call</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -16092,6 +16433,21 @@
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Tool_Kit__c.smart_Event</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Vehicle_Relationship__c.Company</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Vehicle_Relationship__c.Individual</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Vehicle_Relationship__c.Lessee</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

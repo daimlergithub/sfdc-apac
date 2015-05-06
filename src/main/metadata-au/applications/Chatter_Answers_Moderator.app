@@ -125,6 +125,19 @@
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>none</listRefreshMethod>
+    <pushNotifications>
+        <pushNotification>
+            <fieldNames>DeadLine__c</fieldNames>
+            <fieldNames>Estimated_Cost__c</fieldNames>
+            <objectName>Case</objectName>
+        </pushNotification>
+        <pushNotification>
+            <fieldNames>Id</fieldNames>
+            <fieldNames>LastModifiedDate</fieldNames>
+            <fieldNames>Status</fieldNames>
+            <objectName>Task</objectName>
+        </pushNotification>
+    </pushNotifications>
     <saveUserSessions>false</saveUserSessions>
     <tab>standard-Questions</tab>
     <tab>standard-Case</tab>
