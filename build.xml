@@ -82,7 +82,6 @@
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
-			<sf:typeset name="queues"/>
 		</deploy>
     </target>
 	
@@ -204,6 +203,7 @@
 				<sf:exclude name="Account.*"/>
 			</sf:typeset>
 			<sf:typeset name="groups"/>
+			<sf:typeset name="queues"/>
 		</deploy>
     </target>
 	
