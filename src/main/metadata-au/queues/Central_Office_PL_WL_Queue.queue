@@ -3,6 +3,6 @@
     <doesSendEmailToMembers>false</doesSendEmailToMembers>
     <name>Central Office PL / WL Queue</name>
     <queueSobject>
-        <sobjectType>Case</sobjectType>
+        <sobjectType>QC__c</sobjectType>
     </queueSobject>
 </Queue>
