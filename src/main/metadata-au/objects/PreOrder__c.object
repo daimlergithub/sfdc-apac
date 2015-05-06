@@ -88,15 +88,15 @@
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-    </fields>
-    <fields>
+	</fields>
+	<fields>
         <fullName>Customer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Customer</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Pre Orders</relationshipLabel>
-        <relationshipName>Pre_Orders</relationshipName>
+        <relationshipName>PreOrders</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
@@ -119,14 +119,14 @@
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-    <fields>
+	<fields>
         <fullName>VehicleInterested__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Vehicle Interested</label>
         <referenceTo>Car_Model__c</referenceTo>
         <relationshipLabel>Pre Orders</relationshipLabel>
-        <relationshipName>Pre_Orders</relationshipName>
+        <relationshipName>PreOrders</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>

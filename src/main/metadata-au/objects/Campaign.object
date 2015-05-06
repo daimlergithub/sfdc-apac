@@ -696,242 +696,530 @@
             <controllingField>Brand__c</controllingField>
             <picklistValues>
                 <fullName>A-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>B-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class Estate</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Coupe</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CL-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLK-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E Coupe Sport</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Cabriolet</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>G-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GL-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>ML-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>R-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SL-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK-CLASS</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Concept Car</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
-                <controllingFieldValues>smart</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
-                <controllingFieldValues>StarElite</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>G65 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>G63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>G55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>ML63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S65 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SL63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SLS AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>TRUCKS</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Coupe</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GL 63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S 63 L AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GenericModel</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>ML 55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SL55 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class Sport Sedan</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S 63 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLA-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA 45 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+                <controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -948,107 +1236,233 @@
             <controllingField>Brand__c</controllingField>
             <picklistValues>
                 <fullName>A-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>B-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>C-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CL-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLK-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLS-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>E-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>G-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GL-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>ML-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>R-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>S-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SL-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>SLK-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
-                <controllingFieldValues>smart</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other</fullName>
-                <controllingFieldValues>Others</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>CLA-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA-Class</fullName>
-                <controllingFieldValues>MB</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GLA 45 AMG</fullName>
-                <controllingFieldValues>AMG</controllingFieldValues>
+				<controllingFieldValues>Freightliner / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>Fuso / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Bus &amp; Coach</controllingFieldValues>
+				<controllingFieldValues>MB Cars</controllingFieldValues>
+				<controllingFieldValues>MB Trucks / Daimler Trucks</controllingFieldValues>
+				<controllingFieldValues>MB Vans</controllingFieldValues>
+				<controllingFieldValues>smart</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

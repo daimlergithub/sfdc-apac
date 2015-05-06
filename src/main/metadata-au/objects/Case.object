@@ -61,31 +61,6 @@
         <type>Default</type>
     </actionOverrides>
     <businessProcesses>
-        <fullName>Chrysler Complaint Process</fullName>
-        <description>Complaint Process</description>
-        <isActive>true</isActive>
-        <values>
-            <fullName>Finished</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Have tracked</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Need track</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Waiting Process</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Waiting for Reply</fullName>
-            <default>true</default>
-        </values>
-    </businessProcesses>
-    <businessProcesses>
         <fullName>Inquiry Process</fullName>
         <description>Inquiry Process</description>
         <isActive>true</isActive>
@@ -116,115 +91,6 @@
         <values>
             <fullName>Open</fullName>
             <default>true</default>
-        </values>
-    </businessProcesses>
-    <businessProcesses>
-        <fullName>MBDA Complaint Process</fullName>
-        <isActive>true</isActive>
-        <values>
-            <fullName>In progress</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Open</fullName>
-            <default>true</default>
-        </values>
-        <values>
-            <fullName>Processed</fullName>
-            <default>false</default>
-        </values>
-    </businessProcesses>
-    <businessProcesses>
-        <fullName>MBDA Inquiry Process</fullName>
-        <isActive>true</isActive>
-        <values>
-            <fullName>In progress</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Open</fullName>
-            <default>true</default>
-        </values>
-    </businessProcesses>
-    <businessProcesses>
-        <fullName>Object Connector Process</fullName>
-        <description>For migrating history Cases. explicitly created for the linkage of Task. Requested by migration team James.</description>
-        <isActive>true</isActive>
-        <values>
-            <fullName>2nd Final Position Released</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Awaiting MB</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Call waiting</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Closed</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Closed %28Final%29</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Final Position Released</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Finished</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Have tracked</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>In progress</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Insufficient Document</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Investigating</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Need track</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>New</fullName>
-            <default>true</default>
-        </values>
-        <values>
-            <fullName>Open</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Reopened</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Requires Manager Review</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Suspended</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Waiting Process</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>Waiting for Reply</fullName>
-            <default>false</default>
         </values>
     </businessProcesses>
     <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
@@ -9160,7 +9026,7 @@ Modify Reason:
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>CRM1 Contract Number</label>
-        <referenceTo>Contract</referenceTo>
+        <referenceTo>Retail_Task__c</referenceTo>
         <relationshipLabel>Cases</relationshipLabel>
         <relationshipName>Cases</relationshipName>
         <required>false</required>
@@ -17476,18 +17342,16 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     </listViews>
     <listViews>
         <fullName>Central_Office_ER_team_Case</fullName>
-        <filterScope>Queue</filterScope>
         <label>Central Office-ER team</label>
-        <queue>Central_Office_ER_team</queue>
+		<filterScope>Everything</filterScope>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_NR_team_Case</fullName>
-        <filterScope>Queue</filterScope>
         <label>Central Office-NR team</label>
-        <queue>Central_Office_NR_team</queue>
+		<filterScope>Everything</filterScope>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -17500,46 +17364,41 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>CASES.PRIORITY</columns>
         <columns>CASES.CREATED_DATE</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Queue</filterScope>
         <label>Central Office PL / WL Queue</label>
+		<filterScope>Everything</filterScope>
         <language>en_US</language>
-        <queue>Central_Office_PL_WL_Queue</queue>
         <sharedTo>
             <role>PL_WL_Team</role>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_PL_WL_Queue_Case</fullName>
-        <filterScope>Queue</filterScope>
         <label>Central Office PL / WL Queue</label>
-        <queue>Central_Office_PL_WL_Queue</queue>
+		<filterScope>Everything</filterScope>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_Queue_Case</fullName>
-        <filterScope>Queue</filterScope>
         <label>Central Office Queue</label>
-        <queue>Central_Office_Queue</queue>
+		<filterScope>Everything</filterScope>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_SR_team_Case</fullName>
-        <filterScope>Queue</filterScope>
         <label>Central Office-SR team</label>
-        <queue>Central_Office_SR_team</queue>
+		<filterScope>Everything</filterScope>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Central_Office_WR_team_Case</fullName>
-        <filterScope>Queue</filterScope>
         <label>Central Office-WR team</label>
-        <queue>Central_Office_WR_team</queue>
+		<filterScope>Everything</filterScope>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -17768,10 +17627,9 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>CASES.PRIORITY</columns>
         <columns>CASES.CREATED_DATE</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Queue</filterScope>
         <label>Regional Office East Queue</label>
+		<filterScope>Everything</filterScope>
         <language>en_US</language>
-        <queue>Regional_Office_East_Queue</queue>
         <sharedTo>
             <role>AS_Service_Technical_Director</role>
             <role>Regional_CRM_Manager</role>
@@ -17779,18 +17637,16 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     </listViews>
     <listViews>
         <fullName>Regional_Office_East_Queue_Case</fullName>
-        <filterScope>Queue</filterScope>
         <label>Regional Office East Queue</label>
-        <queue>Regional_Office_East_Queue</queue>
+		<filterScope>Everything</filterScope>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
     </listViews>
     <listViews>
         <fullName>Regional_Office_North_Queue_Case</fullName>
-        <filterScope>Queue</filterScope>
+        <filterScope>Everything</filterScope>
         <label>Regional Office North Queue</label>
-        <queue>Regional_Office_North_Queue</queue>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -17803,10 +17659,9 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>CASES.PRIORITY</columns>
         <columns>CASES.CREATED_DATE</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Queue</filterScope>
         <label>Regional Office North Queue</label>
+		<filterScope>Everything</filterScope>
         <language>en_US</language>
-        <queue>Regional_Office_North_Queue</queue>
         <sharedTo>
             <role>AS_Service_Technical_Director</role>
             <role>Regional_CRM_Manager</role>
@@ -17820,10 +17675,9 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>CASES.PRIORITY</columns>
         <columns>CASES.CREATED_DATE</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Queue</filterScope>
         <label>Regional Office South Queue</label>
+		<filterScope>Everything</filterScope>
         <language>en_US</language>
-        <queue>Regional_Office_South_Queue</queue>
         <sharedTo>
             <role>AS_Service_Technical_Director</role>
             <role>Regional_CRM_Manager</role>
@@ -17831,9 +17685,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     </listViews>
     <listViews>
         <fullName>Regional_Office_South_Queue_Case</fullName>
-        <filterScope>Queue</filterScope>
         <label>Regional Office South Queue</label>
-        <queue>Regional_Office_South_Queue</queue>
+		<filterScope>Everything</filterScope>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -17846,10 +17699,9 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <columns>CASES.PRIORITY</columns>
         <columns>CASES.CREATED_DATE</columns>
         <columns>CORE.USERS.ALIAS</columns>
-        <filterScope>Queue</filterScope>
         <label>Regional Office West Queue</label>
+		<filterScope>Everything</filterScope>
         <language>en_US</language>
-        <queue>Regional_Office_West_Queue</queue>
         <sharedTo>
             <role>AS_Service_Technical_Director</role>
             <role>Regional_CRM_Manager</role>
@@ -17857,9 +17709,8 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     </listViews>
     <listViews>
         <fullName>Regional_Office_West_Queue_Case</fullName>
-        <filterScope>Queue</filterScope>
         <label>Regional Office West Queue</label>
-        <queue>Regional_Office_West_Queue</queue>
+		<filterScope>Everything</filterScope>
         <sharedTo>
             <allInternalUsers/>
         </sharedTo>
@@ -17975,7 +17826,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     <recordTypes>
         <fullName>Chrysler_Complaint</fullName>
         <active>true</active>
-        <businessProcess>Chrysler Complaint Process</businessProcess>
+		<businessProcess>Chrysler Complaint Process</businessProcess>
         <description>Chrysler Complaint Record Type</description>
         <label>Chrysler Complaint</label>
         <picklistValues>
@@ -30489,7 +30340,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     <recordTypes>
         <fullName>MBDA_Complaint</fullName>
         <active>true</active>
-        <businessProcess>MBDA Complaint Process</businessProcess>
+		<businessProcess>MBDA Complaint Process</businessProcess>
         <label>MBDA Complaint</label>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
@@ -40205,7 +40056,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     <recordTypes>
         <fullName>MBDA_Inquiry</fullName>
         <active>true</active>
-        <businessProcess>MBDA Inquiry Process</businessProcess>
+		<businessProcess>MBDA Inquiry Process</businessProcess>
         <label>MBDA Inquiry</label>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
@@ -54482,7 +54333,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     <recordTypes>
         <fullName>Object_Connector</fullName>
         <active>true</active>
-        <businessProcess>Object Connector Process</businessProcess>
+		<businessProcess>Object Connector Process</businessProcess>
         <description>For migrating history Cases. explicitly created for the linkage of Task. Requested by migration team James.</description>
         <label>Object Connector</label>
         <picklistValues>

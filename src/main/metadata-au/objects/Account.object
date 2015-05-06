@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+ï»¿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>CallHighlightAction</actionName>
@@ -445,31 +445,51 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <label>Age Range</label>
         <picklist>
             <picklistValues>
-                <fullName>17-25</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>26-35</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>36-45</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>46-55</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>56-65</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>65+</fullName>
+                <fullName>0 - 20</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>18 - 24</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>25 - 29</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>30 - 34</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>35 - 39</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>40 -44</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>45 - 49</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>50 - 54</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>55 -59</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>60 - 64</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>65+</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2735,7 +2755,7 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Auto IT  PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2763,7 +2783,7 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Gateway Solutions – Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -10828,7 +10848,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10852,7 +10872,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14528,7 +14548,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14552,7 +14572,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17797,7 +17817,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17821,7 +17841,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19913,7 +19933,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Auto IT %C2%A0PMDS Viaduct 2000</fullName>
+                <fullName>Auto IT PMDS Viaduct 2000</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19937,7 +19957,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gateway Solutions %E2%80%93 Voyager</fullName>
+                <fullName>Gateway Solutions â€“ Voyager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21015,25 +21035,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Marital_Status__c</picklist>
-            <values>
-                <fullName>Divorced</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Married</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>N%2FA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Single</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid Number</fullName>
@@ -22054,17 +22055,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
         </picklistValues>		
-        <picklistValues>
-            <picklist>Work_Phone_Status__c</picklist>
-            <values>
-                <fullName>Duplicate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Incomplete</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>	
     </recordTypes>	
     <searchLayouts>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
@@ -22112,7 +22102,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  Status__c , 'Customer')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
-        <errorMessage>If customer has no vehicle relationship, Status must not be ‘Customer’.</errorMessage>
+        <errorMessage>If customer has no vehicle relationship, Status must not be ?ustomer?</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Birthday</fullName>
@@ -22353,7 +22343,7 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
       ))
 )</errorConditionFormula>
         <errorDisplayField>Preferred_Phone__c</errorDisplayField>
-        <errorMessage>Preferred phone can not be set unless Preferred contact method  is set to “Phone”.</errorMessage>
+        <errorMessage>Preferred phone can not be set unless Preferred contact method  is set to ?hone?</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Second_Mobile</fullName>
@@ -22370,12 +22360,12 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
     <validationRules>
         <fullName>Social_ID</fullName>
         <active>true</active>
-        <description>If ID Type is ‘ID card/Driving Card’, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</description>
+        <description>If ID Type is ?D card/Driving Card? ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
 IF( ISPICKVAL( ID_Type__c, 'ID card/Driving Card'), OR( ISNULL(ID_Number__c), NOT(OR(LEN(ID_Number__c) = 15, LEN(ID_Number__c) = 18)), NOT(REGEX( ID_Number__c, "^[A-Za-z0-9]+$"))), FALSE), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>ID_Number__c</errorDisplayField>
-        <errorMessage>If ID Type is ‘ID card/Driving Card’, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</errorMessage>
+        <errorMessage>If ID Type is ?D card/Driving Card? ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>URL_format_validation</fullName>
