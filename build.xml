@@ -183,8 +183,7 @@
 			<sf:typeset name="objects">
 				<sf:include name="Contract_Relation__c"/>
 			</sf:typeset>
-			<sf:typeset name="letterhead"/>
-			<sf:typeset name="settings"/>
+			<sf:typeset name="letterhead"/>			
 			<sf:typeset name="tabs">
 				<sf:exclude name="EPA_.*"/>
 				<sf:exclude name="Tasks"/>
@@ -260,6 +259,7 @@
 				<sf:include name="Account.*"/>
 			</sf:typeset>
 			<sf:typeset name="email"/>
+			<sf:typeset name="settings"/>
 			<sf:typeset name="workflows"/>
 		</deploy>
     </target>
