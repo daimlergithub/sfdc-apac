@@ -148,6 +148,7 @@
 		<deploy>
 			<sf:typeset name="pages">
 				<sf:include name="Fleet_settlement_checklist"/>
+				<sf:include name="Fleet_checklist_output"/>
 			</sf:typeset>
 			<sf:typeset name="classes">
 				<sf:include name="FleerCorverList"/>
