@@ -127,8 +127,8 @@
     <listRefreshMethod>refreshListRows</listRefreshMethod>
     <pushNotifications>
         <pushNotification>
-            <fieldNames>Estimated_Cost__c</fieldNames>
             <fieldNames>DeadLine__c</fieldNames>
+            <fieldNames>Estimated_Cost__c</fieldNames>
             <objectName>Case</objectName>
         </pushNotification>
         <pushNotification>

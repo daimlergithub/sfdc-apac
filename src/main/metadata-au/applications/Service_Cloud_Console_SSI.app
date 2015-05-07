@@ -124,6 +124,19 @@
     </listPlacement>
     <listRefreshMethod>refreshListRows</listRefreshMethod>
     <logo>Logo/Central_LOGO.png</logo>
+    <pushNotifications>
+        <pushNotification>
+            <fieldNames>DeadLine__c</fieldNames>
+            <fieldNames>Estimated_Cost__c</fieldNames>
+            <objectName>Case</objectName>
+        </pushNotification>
+        <pushNotification>
+            <fieldNames>Id</fieldNames>
+            <fieldNames>LastModifiedDate</fieldNames>
+            <fieldNames>Status</fieldNames>
+            <objectName>Task</objectName>
+        </pushNotification>
+    </pushNotifications>
     <saveUserSessions>true</saveUserSessions>
     <tab>Tasks</tab>
     <tab>SSI__c</tab>
