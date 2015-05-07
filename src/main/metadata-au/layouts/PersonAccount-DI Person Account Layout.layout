@@ -394,7 +394,7 @@
         <fields>ClosedReason__c</fields>
         <fields>CREATEDBY_USER</fields>
         <fields>OWNER.ALIAS</fields>
-        <fields>Closed_Date__c</fields>
+        <fields>ClosedDate__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>PreOrder__c.Customer__c</relatedList>
     </relatedLists>
