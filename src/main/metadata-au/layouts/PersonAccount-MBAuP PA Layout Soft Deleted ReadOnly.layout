@@ -152,7 +152,7 @@
         <fields>OWNER.ALIAS</fields>
         <fields>Closed_Date__c</fields>
         <fields>UPDATEDBY_USER</fields>
-        <relatedList>Pre_Order__c.Customer__c</relatedList>
+        <relatedList>PreOrder__c.Customer__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>ContractNumber__c</fields>
