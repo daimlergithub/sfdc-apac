@@ -230,6 +230,9 @@
 	
 	<target name="deploy30">
 		<deploy>		
+			<sf:typeset name="profiles">
+				<sf:include name="Admin"/>
+			</sf:typeset>
 			<sf:typeset name="classes"/>
 			<sf:typeset name="components"/>
 			<sf:typeset name="pages"/>
