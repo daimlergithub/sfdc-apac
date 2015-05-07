@@ -17826,6 +17826,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     <recordTypes>
         <fullName>Chrysler_Complaint</fullName>
         <active>true</active>
+		<businessProcess>Inquiry Process</businessProcess>
         <description>Chrysler Complaint Record Type</description>
         <label>Chrysler Complaint</label>
         <picklistValues>
@@ -30339,6 +30340,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     <recordTypes>
         <fullName>MBDA_Complaint</fullName>
         <active>true</active>
+		<businessProcess>MB Complaint Process</businessProcess>
         <label>MBDA Complaint</label>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
@@ -40054,6 +40056,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     <recordTypes>
         <fullName>MBDA_Inquiry</fullName>
         <active>true</active>
+		<businessProcess>Inquiry Process</businessProcess>
         <label>MBDA Inquiry</label>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
@@ -54330,6 +54333,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     <recordTypes>
         <fullName>Object_Connector</fullName>
         <active>true</active>
+		<businessProcess>MB Complaint Process</businessProcess>
         <description>For migrating history Cases. explicitly created for the linkage of Task. Requested by migration team James.</description>
         <label>Object Connector</label>
         <picklistValues>
