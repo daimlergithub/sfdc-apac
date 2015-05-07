@@ -152,7 +152,7 @@ RecordType.Name,
         <criteriaItems>
             <field>Campaign.Status</field>
             <operation>equals</operation>
-            <value>Started</value>
+            <value>Planned</value>
         </criteriaItems>
         <criteriaItems>
             <field>Campaign.RecordTypeId</field>
@@ -162,7 +162,7 @@ RecordType.Name,
         <criteriaItems>
             <field>Campaign.IsActive</field>
             <operation>equals</operation>
-            <value>0</value>
+            <value>false</value>
         </criteriaItems>
         <description>When Status changed to Started, update Active to true.
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
