@@ -46,10 +46,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Model_of_Interest__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Fleet_Category__c</field>
             </layoutItems>
         </layoutColumns>
