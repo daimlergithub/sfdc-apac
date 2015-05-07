@@ -17,7 +17,7 @@ public static Id AccountId;
                         AccountId=led.Company_Account__c;
                     }  
                 }          
-              addresslist=[select id,Name,Customer__c,Preferred__c,Address_Type__c,Address_Line_1__c,Address_Line_2__c,Country__c,Post_Code__c,State__c,Status__c,Suburb__c 
+              addresslist=[select id,Name,Customer__c,Preferred__c,Address_Type__c,Address_Line_1__c,Address_Line_2__c,Country__c,ZipCode__c,Province__c,Status__c,District__c 
                             from Address__c Where Customer__c=:AccountId AND Preferred__c=:true Limit 1]; 
              if(addresslist!=Null && !addresslist.isEmpty()){             
                  Preferred=false; }                               

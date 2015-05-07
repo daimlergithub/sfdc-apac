@@ -3582,7 +3582,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Address__c.Post_Code__c</field>
+        <field>Address__c.ZipCode__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3602,7 +3602,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Address__c.State__c</field>
+        <field>Address__c.Province__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3612,7 +3612,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Address__c.Suburb__c</field>
+        <field>Address__c.District__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

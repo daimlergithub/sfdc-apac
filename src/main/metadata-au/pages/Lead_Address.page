@@ -7,11 +7,11 @@
              <apex:outputField value="{!lead_List.Work_Phone__c}"/>
              <apex:outputField value="{!addressList_details.Address_Line_2__c}"/>
              <apex:outputField value="{!lead_List.Email__c}"/>
-             <apex:outputField value="{!addressList_details.Suburb__c}"/>
+             <apex:outputField value="{!addressList_details.District__c}"/>
               <apex:outputField value="{!lead_List.Mobile__c}"/>
-             <apex:outputField value="{!addressList_details.State__c}"/>
+             <apex:outputField value="{!addressList_details.Province__c}"/>
              <apex:outputText value=""/> 
-             <apex:outputField value="{!addressList_details.Post_Code__c}"/>            
+             <apex:outputField value="{!addressList_details.ZipCode__c}"/>            
         </apex:pageBlockSection>    
          <apex:pageBlockSection columns="2" rendered="{!Preferred}"> 
              <apex:outputText label="Home Phone"/>

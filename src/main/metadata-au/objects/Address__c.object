@@ -267,7 +267,7 @@
         <fullName>ZipCode__c</fullName>
         <externalId>false</externalId>
         <label>Post Code</label>
-        <length>4</length>
+        <length>6</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -450,41 +450,6 @@
             </values>
             <values>
                 <fullName>New Zealand</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Province__c</picklist>
-            <values>
-                <fullName>ACT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NSW</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>NT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>QLD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TAS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>VIC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>WA</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -14,11 +14,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>Post_Code__c</field>
+                <field>ZipCode__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Suburb__c</field>
+                <field>District__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
@@ -64,7 +64,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>State__c</field>
+                <field>Province__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

@@ -64,9 +64,9 @@ public class TestDataUtil {
             if(standardAddress == null){
                 standardAddress = new Address__c(
                     Address_Line_1__c = 'Address Line', 
-                    Suburb__c = 'Suburb',
+                    District__c = 'Suburb',
                     Address_Type__c = 'Mailing', 
-          Post_Code__c = '1000', 
+          ZipCode__c = '1000', 
           Preferred__c = true, 
           Status__c = 'Incomplete',
           Country__c = 'New Zeeland'

@@ -315,7 +315,7 @@
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Address_Type__c</fields>
-        <fields>Post_Code__c</fields>
+        <fields>ZipCode__c</fields>
         <fields>Country__c</fields>
         <fields>Status__c</fields>
         <fields>Preferred__c</fields>
