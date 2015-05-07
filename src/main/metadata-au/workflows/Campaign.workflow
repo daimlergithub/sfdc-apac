@@ -162,7 +162,7 @@ RecordType.Name,
         <criteriaItems>
             <field>Campaign.IsActive</field>
             <operation>equals</operation>
-            <value>False</value>
+            <value>0</value>
         </criteriaItems>
         <description>When Status changed to Started, update Active to true.
 Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign</description>
@@ -256,7 +256,7 @@ Record Type = CAC CRM Campaign,CAS Marketing Campaign,Central Marketing Campaign
         <criteriaItems>
             <field>Campaign.Status</field>
             <operation>equals</operation>
-            <value>Published</value>
+            <value>Dispatched</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
