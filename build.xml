@@ -146,6 +146,12 @@
 	
 	<target name="deploy15">
 		<deploy>
+			<sf:typeset name="pages">
+				<sf:include name="Fleet_settlement_checklist"/>
+			</sf:typeset>
+			<sf:typeset name="classes">
+				<sf:include name="FleerCorverList"/>
+			</sf:typeset>
 			<sf:typeset name="objects">
 				<sf:include name="Lead__c"/>
 				<sf:include name="Campaign_Lead__c"/>
