@@ -47,8 +47,8 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBAuP_Marketing</application>
-        <default>false</default>
-        <visible>false</visible>
+        <default>true</default>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBFSAu</application>

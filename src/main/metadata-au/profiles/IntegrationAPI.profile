@@ -27,8 +27,8 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBAuP_CRM_Customer</application>
-        <default>false</default>
-        <visible>false</visible>
+        <default>true</default>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBAuP_Dealer_Portal</application>

@@ -6,11 +6,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>Central_Marketing</application>
-        <default>true</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>Chatter_Answers_Moderator</application>
         <default>false</default>
         <visible>false</visible>
@@ -47,8 +42,8 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBAuP_Marketing</application>
-        <default>false</default>
-        <visible>false</visible>
+        <default>true</default>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBFSAu</application>
