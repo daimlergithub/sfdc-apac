@@ -14,7 +14,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
-                <field>ZipCode__c</field>
+                <field>Post_Code__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
