@@ -15,8 +15,13 @@ public class TrialCustomerPortalHomePageController {
    public String previousSortField3 {get; set;}
    public String sortField4 {get; set;}
    public String previousSortField4 {get; set;}
+    public String sortField5 {get; set;}
+   public String previousSortField5 {get; set;}
+    public String sortField6 {get; set;}
+   public String previousSortField6 {get; set;}
             
-   public TrialCustomerPortalHomePageController() {        
+   public TrialCustomerPortalHomePageController() {
+        
         MyRegisteredProducts = [select id,Name,SerialNumber,InstallDate,UsageEndDate,Status,createddate
                                 from Asset 
                                 where ContactId = :loggedInUser.ContactId 
@@ -30,13 +35,14 @@ public class TrialCustomerPortalHomePageController {
         TopSolutions = [select id,SolutionName,TimesUsed,LastModifiedDate,CreatedById 
                         from Solution 
                         order by TimesUsed desc limit 3];
-                     system.debug('@@@@ TopSolutions'+TopSolutions);         
+                           
         PopularIdeas = [select id,Title,Categories,VoteTotal,CreatedById,lastmodifiedbyid
                         from Idea 
                         order by VoteTotal desc limit 3];
    }
    
-  /*  public void SortProducts(){        
+  /*  public void SortProducts(){
+        system.debug('@@@@ MyRegisteredProducts'+MyRegisteredProducts);
         String order = 'asc';
         if(previousSortField1 == sortField1){
             order = 'desc';
@@ -47,19 +53,17 @@ public class TrialCustomerPortalHomePageController {
        system.debug('@@@@ MyRegisteredProducts1'+MyRegisteredProducts);
         superSort.sortList(MyRegisteredProducts,sortField1,order);
     } */
-    public void SortCases(){
-      /*  String order = 'asc';
+   /*  public void SortCases(){
+       String order = 'asc';
         if(previousSortField2 == sortField2){
             order = 'desc';
             previousSortField2 = null;
         }else{
             previousSortField2 = sortField2;
         }
-        superSort.sortList(MyRecentCases,sortField2,order);*/
-    } 
+        superSort.sortList(MyRecentCases,sortField2,order);
+    } */
     public void SortSolutions(){
-        system.debug('@@@@ TopSolutions!!!'+TopSolutions);
-        system.debug('@@@@ sortField3'+sortField3);
         String order = 'asc';
         if(previousSortField3 == sortField3){
             order = 'desc';
