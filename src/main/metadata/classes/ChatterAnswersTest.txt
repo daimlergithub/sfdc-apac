@@ -1,0 +1,10 @@
+@isTest
+public class ChatterAnswersTest {
+static testMethod void testcreateAccount(){
+Test.Starttest();
+ChatterAnswers obj= new ChatterAnswers();
+obj.createAccount('firstname', 'lastname', userInfo.getUserId());
+Test.Stoptest();
+
+}
+}

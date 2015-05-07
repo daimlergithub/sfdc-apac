@@ -16,27 +16,27 @@ public class TrialCustomerPortalHomePageController {
    public String sortField4 {get; set;}
    public String previousSortField4 {get; set;}
             
-   public TrialCustomerPortalHomePageController() {
-        MyRegisteredProducts = [select id,Name,SerialNumber,InstallDate,UsageEndDate,Status 
+   public TrialCustomerPortalHomePageController() {        
+        MyRegisteredProducts = [select id,Name,SerialNumber,InstallDate,UsageEndDate,Status,createddate
                                 from Asset 
                                 where ContactId = :loggedInUser.ContactId 
                                 order by SerialNumber desc limit 3];
         
-        MyRecentCases = [select id,CaseNumber,Subject,Status,LastModifiedDate 
+        MyRecentCases = [select id,CaseNumber,Subject,Status,LastModifiedDate,CreatedById
                          from Case 
                          where ContactId = :loggedInUser.ContactId 
                          order by LastModifiedDate desc limit 3];
         
-        TopSolutions = [select id,SolutionName,TimesUsed,LastModifiedDate 
+        TopSolutions = [select id,SolutionName,TimesUsed,LastModifiedDate,CreatedById 
                         from Solution 
                         order by TimesUsed desc limit 3];
-                              
-        PopularIdeas = [select id,Title,Categories,VoteTotal 
+                     system.debug('@@@@ TopSolutions'+TopSolutions);         
+        PopularIdeas = [select id,Title,Categories,VoteTotal,CreatedById,lastmodifiedbyid
                         from Idea 
                         order by VoteTotal desc limit 3];
    }
    
-   public void SortProducts(){
+  /*  public void SortProducts(){        
         String order = 'asc';
         if(previousSortField1 == sortField1){
             order = 'desc';
@@ -44,19 +44,22 @@ public class TrialCustomerPortalHomePageController {
         }else{
             previousSortField1 = sortField1;
         }
+       system.debug('@@@@ MyRegisteredProducts1'+MyRegisteredProducts);
         superSort.sortList(MyRegisteredProducts,sortField1,order);
-    }
+    } */
     public void SortCases(){
-        String order = 'asc';
+      /*  String order = 'asc';
         if(previousSortField2 == sortField2){
             order = 'desc';
             previousSortField2 = null;
         }else{
             previousSortField2 = sortField2;
         }
-        superSort.sortList(MyRecentCases,sortField2,order);
-    }
+        superSort.sortList(MyRecentCases,sortField2,order);*/
+    } 
     public void SortSolutions(){
+        system.debug('@@@@ TopSolutions!!!'+TopSolutions);
+        system.debug('@@@@ sortField3'+sortField3);
         String order = 'asc';
         if(previousSortField3 == sortField3){
             order = 'desc';
@@ -64,9 +67,10 @@ public class TrialCustomerPortalHomePageController {
         }else{
             previousSortField3 = sortField3;
         }
+                                     
         superSort.sortList(TopSolutions,sortField3,order);
     }
-    public void SortIdeas(){
+  /*  public void SortIdeas(){
         String order = 'asc';
         if(previousSortField4 == sortField4){
             order = 'desc';
@@ -75,6 +79,6 @@ public class TrialCustomerPortalHomePageController {
             previousSortField4 = sortField4;
         }
         superSort.sortList(PopularIdeas,sortField4,order);
-    }
+    } */
     
 }
