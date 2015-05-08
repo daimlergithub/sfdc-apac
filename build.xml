@@ -235,6 +235,8 @@
 			-->
 			<sf:typeset name="profiles">
 				<sf:include name="IntegrationAPI"/>
+				<sf:include name="Dealer Community User"/>
+				<sf:include name="Dealer Delegate Admin"/>
 			</sf:typeset>
 			<!-- TODO : Commenting out for kernel prod deployment
 			<sf:typeset name="classes"/>

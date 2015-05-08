@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+<!-- TODO : Commenting out for kernel prod deployment
     <applicationVisibilities>
         <application>Central_CRM</application>
         <default>false</default>
@@ -1248,6 +1249,7 @@
         <apexClass>superSort</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	-->
     <custom>true</custom>
     <fieldPermissions>
         <editable>false</editable>
@@ -14339,6 +14341,7 @@
         <field>Vehicle__c.last_updated__c</field>
         <readable>false</readable>
     </fieldPermissions>
+	<!-- TODO : Commenting out for kernel prod deployment
     <layoutAssignments>
         <layout>Account-Account Master Layout</layout>
         <recordType>Account.Dealer</recordType>
@@ -14980,6 +14983,7 @@
         <layout>Vehicle__c-MB Vehicle Layout-Dealer Portal</layout>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
+	-->
     <loginIpRanges>
         <endAddress>255.255.255.255</endAddress>
         <startAddress>0.0.0.0</startAddress>
@@ -15173,6 +15177,7 @@
         <object>StreamingChannel</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
+	<!-- TODO : Commenting out for kernel prod deployment
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
         <enabled>true</enabled>
@@ -15521,6 +15526,7 @@
         <apexPage>scc_tour_style</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+	-->
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Company</recordType>
@@ -15997,6 +16003,7 @@
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
+	<!-- TODO : Commenting out for kernel prod deployment
     <tabVisibilities>
         <tab>Getting_Started</tab>
         <visibility>DefaultOff</visibility>
@@ -16070,6 +16077,7 @@
         <tab>standard-StreamingChannel</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+	-->
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
