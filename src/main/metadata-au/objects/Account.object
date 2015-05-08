@@ -22414,8 +22414,7 @@ ISPICKVAL(  Gender__c , 'Male'))
         <linkType>url</linkType>
         <masterLabel>New Contacts &amp; Relation</masterLabel>
         <openType>replace</openType>
-        <protected>false</protected>
-        <url>/001/e?retURL=/001/o&amp;RecordType=01290000000qyvs&amp;ent=Account&amp;CF00N90000006qtJH_lkid={!Account.Id}&amp;CF00N90000006qtJH={!Account.Name}</url>
+        <protected>false</protected>        <url>/001/e?retURL=/001/o&amp;RecordType=OBJECT_ACCOUNT_WEBLINK_PERSON_ACCOUNT_RECORDTYPE_ID&amp;ent=Account&amp;OBJECT_ACCOUNT_WEBLINK_COMPANY_FIELD_LKID={!Account.Id}&amp;OBJECT_ACCOUNT_WEBLINK_COMPANY_FIELD_ID={!Account.Name}</url>
     </webLinks>
 	<webLinks>
         <fullName>New_Person_Account</fullName>
@@ -22426,8 +22425,7 @@ ISPICKVAL(  Gender__c , 'Male'))
         <masterLabel>New Contact</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-        <url>/001/e?CF00N90000006qtJH={!Account.Name}&amp;CF00N90000006qtJH_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=01290000000qyvs&amp;ent=Account</url>
+        <requireRowSelection>false</requireRowSelection>        <url>/001/e?OBJECT_ACCOUNT_WEBLINK_COMPANY_FIELD_ID={!Account.Name}&amp;OBJECT_ACCOUNT_WEBLINK_COMPANY_FIELD_LKID={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ACCOUNT_WEBLINK_PERSON_ACCOUNT_RECORDTYPE_ID&amp;ent=Account</url>
     </webLinks>
     <webLinks>
         <fullName>AltavistaNews</fullName>

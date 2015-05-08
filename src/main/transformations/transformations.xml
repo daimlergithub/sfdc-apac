@@ -443,4 +443,35 @@
 		UseTeamReassignWizards,ViewAllData,ViewAllUsers,ViewDataCategories,ViewEventLogFiles,ViewHelpLink,ViewMyTeamsDashboards,ViewSetup
 		</permissions>
 	</defaultpermissions>
+	<!-- Au related weblinks-->		
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Person_Account']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACCOUNT_WEBLINK_COMPANY_FIELD_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Person_Account']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACCOUNT_WEBLINK_COMPANY_FIELD_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Person_Account']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACCOUNT_WEBLINK_PERSON_ACCOUNT_RECORDTYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Contacts_Relation']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACCOUNT_WEBLINK_COMPANY_FIELD_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Contacts_Relation']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACCOUNT_WEBLINK_COMPANY_FIELD_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Account.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Contacts_Relation']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_ACCOUNT_WEBLINK_PERSON_ACCOUNT_RECORDTYPE_ID</token>
+	</changetext>
 </transformations>
