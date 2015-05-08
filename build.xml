@@ -230,8 +230,13 @@
 	
 	<target name="deploy30">
 		<deploy>
+			<!-- TODO : Commenting out for kernel prod deployment
 			<sf:typeset name="applications"/>
+			-->
 			<sf:typeset name="profiles"/>
+				<sf:include name="IntegrationAPI"/>
+			</sf:typeset>
+			<!-- TODO : Commenting out for kernel prod deployment
 			<sf:typeset name="classes"/>
 			<sf:typeset name="components"/>
 			<sf:typeset name="pages"/>
@@ -244,7 +249,7 @@
 				<sf:include name="Retail_Campaign__c"/>	
 				<sf:include name="Retail_Campaign_Calender"/>
 				<sf:include name="Yearly_Target"/>
-			</sf:typeset>
+			</sf:typeset>			
 			<sf:typeset name="layouts">
 				<sf:include name="Campaign.*"/>
 				<sf:include name="Event.*"/>
@@ -253,13 +258,15 @@
 				<sf:include name="PersonAccount.*"/>
 				<sf:include name="Lead__c.*"/>
 				<sf:include name="Account.*"/>
-			</sf:typeset>
+			</sf:typeset>			
 			<sf:typeset name="triggers"/>
+			-->
 		</deploy>
     </target>
 	
 	<target name="deploy35">
 		<deploy>
+		<!-- TODO : Commenting out for kernel prod deployment
 			<sf:typeset name="settings"/>
 			<sf:typeset name="email"/>
 			<sf:typeset name="workflows"/>
@@ -267,10 +274,12 @@
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>
-			<!-- TODO commented the AppSwitcher appMenu, it is a known salesforce issue and it is failing during deployment -->
+			
+			<!-- TODO commented the AppSwitcher appMenu, it is a known salesforce issue and it is failing during deployment
 			<sf:typeset name="appMenus">
 				<sf:exclude name="AppSwitcher"/>
 			</sf:typeset>
+		-->
 		</deploy>
 	</target>
 	
@@ -280,7 +289,9 @@
 			<sf:typeset name="campaignSharingRules"/>
 			<sf:typeset name="caseSharingRules"/>
 			<sf:typeset name="customObjectSharingRules"/>
+			<!-- TODO : Commenting out for kernel prod deployment
 			<sf:typeset name="approvalProcesses"/>
+			-->
 		</deploy>
     </target>
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
+<!-- TODO : Commenting out for kernel prod deployment
     <applicationVisibilities>
         <application>Central_CRM</application>
         <default>true</default>
@@ -104,7 +105,7 @@
         <application>standard__ServiceConsole</application>
         <default>false</default>
         <visible>false</visible>
-    </applicationVisibilities>
+    </applicationVisibilities>	
     <classAccesses>
         <apexClass>AccountHelper</apexClass>
         <enabled>false</enabled>
@@ -1253,6 +1254,7 @@
         <apexClass>superSort</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	-->
     <custom>true</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -15791,6 +15793,7 @@
         <object>Vehicle__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
+	<!-- TODO : Commenting out for kernel prod deployment
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
         <enabled>true</enabled>
@@ -16139,6 +16142,7 @@
         <apexPage>scc_tour_style</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+	-->
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Company</recordType>
@@ -16616,6 +16620,7 @@
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
+	<!-- TODO : Commenting out for kernel prod deployment
     <tabVisibilities>
         <tab>Account_Link__c</tab>
         <visibility>DefaultOn</visibility>
@@ -16773,6 +16778,7 @@
         <tab>standard-StreamingChannel</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
+	-->
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>
