@@ -17034,6 +17034,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Address__c</tab>
+        <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Attribute__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>

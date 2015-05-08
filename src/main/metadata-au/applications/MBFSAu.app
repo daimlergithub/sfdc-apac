@@ -16,4 +16,5 @@
     <tab>standard-Contact</tab>
     <tab>standard-Console</tab>
     <tab>Campaign_Calendar</tab>
+	<tab>Address__c</tab>
 </CustomApplication>

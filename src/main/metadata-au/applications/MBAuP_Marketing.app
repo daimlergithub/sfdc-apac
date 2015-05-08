@@ -12,4 +12,5 @@
     <tab>standard-Contract</tab>
     <tab>standard-Contact</tab>
     <tab>Campaign_Calendar</tab>
+	<tab>Address__c</tab>
 </CustomApplication>
