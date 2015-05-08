@@ -767,8 +767,7 @@
         <masterLabel>New Address</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-        <url>/a00/e?CF00N90000006qtIw={!Account.Name}&amp;CF00N90000006qtIw_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012900000008sYb&amp;ent=01I9000000059Be</url>
+        <requireRowSelection>false</requireRowSelection>        <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_LKID={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_INDIVIDUAL_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url>
     </webLinks>
 	<webLinks>
         <fullName>New_DealerAddress</fullName>
@@ -779,8 +778,7 @@
         <masterLabel>New  Address</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-        <url>/a00/e?CF00N90000006qtIw={!Account.Name}&amp;CF00N90000006qtIw_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012N0000000Cxcm&amp;ent=01I9000000059Be</url>
+        <requireRowSelection>false</requireRowSelection>        <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_LKID={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_INDIVIDUAL_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url>
     </webLinks>
 	<webLinks>
         <fullName>New_Individual_Address</fullName>
@@ -792,8 +790,7 @@
         <masterLabel>New Address</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-        <url>/a00/e?CF00N90000006qtIw={!Account.Name}&amp;CF00N90000006qtIw_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012900000008sYc&amp;ent=01I9000000059Be</url>
+        <requireRowSelection>false</requireRowSelection>        <url>/OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID/e?OBJECT_ADDRESS_WEBLINK_CUSTOMER_ID={!Account.Name}&amp;OBJECT_ADDRESS_WEBLINK_CUSTOMER_LKID={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_ADDRESS_WEBLINK_INDIVIDUAL_RECORDTYPE_ID&amp;ent=OBJECT_ADDRESS_WEBLINK_ADDRESS_OBJECT_ID</url>
     </webLinks>
     <validationRules>
         <fullName>CheckedState</fullName>

@@ -74724,7 +74724,7 @@ ISNULL(Visited_Showroom_Date__c)
 		urlParam1 = &quot;CF00N90000006qtQN&quot;;
 		}
 
-		var url = &quot;/a08/e?&quot; + urlParam1 + &quot;=&quot; + encodeURIComponent(accountName) + &quot;&amp;&quot; + urlParam1 +&quot;_lkid=&quot; + accountId + &quot;&amp;retURL=&quot; + accountId + &quot;&amp;RecordType=&quot; + qr.records.Id + &quot;&amp;ent=Account&quot;;
+		var url = &quot;/OBJECT_LEAD_WEBLINK_LEAD_TAB_ID/e?&quot; + urlParam1 + &quot;=&quot; + encodeURIComponent(accountName) + &quot;&amp;&quot; + urlParam1 +&quot;_lkid=&quot; + accountId + &quot;&amp;retURL=&quot; + accountId + &quot;&amp;RecordType=&quot; + qr.records.Id + &quot;&amp;ent=Account&quot;;
 
 		var noContact = false;
 		if(contractId == &apos;&apos;) {
@@ -74733,7 +74733,7 @@ ISNULL(Visited_Showroom_Date__c)
 		if(contractInfo.records != null) {
 		var contactInfo = sforce.connection.query(&quot;select ContactId__c, ContactId__r.Name from Co_Borrower_Guarantor__c where contractId__c=&apos;&quot;+contractInfo.records.Id+&quot;&apos; and ContactId__r.RecordType.Name = &apos;Person Account&apos; limit 1&quot;);
 		if(contactInfo.records != null) {
-		url = &quot;/a08/e?retURL=&quot; + accountId + &quot;&amp;RecordType=&quot; + qr.records.Id + &quot;&amp;ent=Account&quot;;
+		url = &quot;/OBJECT_LEAD_WEBLINK_LEAD_TAB_ID/e?retURL=&quot; + accountId + &quot;&amp;RecordType=&quot; + qr.records.Id + &quot;&amp;ent=Account&quot;;
 
 		url += &quot;&amp;&quot; + contactParam + &quot;=&quot; + encodeURIComponent(contactInfo.records.ContactId__r.Name) + &quot;&amp;&quot; + contactParam +&quot;_lkid=&quot; + contactInfo.records.ContactId__c;
 		}
@@ -74805,7 +74805,7 @@ ISNULL(Visited_Showroom_Date__c)
 		var dealerParam = &quot;OBJECT_LEAD_WEBLINK_ASSIGNED_DEALER_ID&quot;;
 		var contractParam = &quot;00NN0000001GapB&quot;;
 
-		var url = &quot;/a08/e?&quot; + dealerParam + &quot;=&quot; + encodeURIComponent(dealerName) + &quot;&amp;&quot; + dealerParam +&quot;_lkid=&quot; + dealerId + &quot;&amp;&quot; + &quot;&amp;retURL=&quot; + accountId + &quot;&amp;RecordType=&quot; + qr.records.Id + &quot;&amp;ent=01I55000000Cl01&quot;;
+		var url = &quot;/OBJECT_LEAD_WEBLINK_LEAD_TAB_ID/e?&quot; + dealerParam + &quot;=&quot; + encodeURIComponent(dealerName) + &quot;&amp;&quot; + dealerParam +&quot;_lkid=&quot; + dealerId + &quot;&amp;&quot; + &quot;&amp;retURL=&quot; + accountId + &quot;&amp;RecordType=&quot; + qr.records.Id + &quot;&amp;ent=01I55000000Cl01&quot;;
 
 		url += &quot;&amp;&quot; + contractParam + &quot;=&quot; + contractName;
 
