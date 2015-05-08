@@ -473,5 +473,25 @@
 		<filename>objects\Account.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Contacts_Relation']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ACCOUNT_WEBLINK_PERSON_ACCOUNT_RECORDTYPE_ID</token>
+	</changetext>	
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_CONTACT_ID</token>
+	</changetext>	
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_CONTACT_ID</token>
+	</changetext>		
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Lead__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Finance_Lead_onContract']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_ASSIGNED_DEALER_ID</token>
 	</changetext>
 </transformations>
