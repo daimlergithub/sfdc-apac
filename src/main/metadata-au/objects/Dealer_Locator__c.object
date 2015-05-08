@@ -933,10 +933,9 @@
         <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
 		var qr = sforce.connection.query(&quot;SELECT COUNT() From Lead__c where Assigned_Dealer__c =&apos;{!Account.Id}&apos; &quot;) ; 
 		if(qr.size != 0) { 
-		window.parent.navigateToUrl(&quot;/a06/e?CF00N90000006qtPr={!Account.Name}&amp;CF00N90000006qtPr_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&quot;);
+		window.parent.navigateToUrl(&quot;/a06/e?OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_ID={!Account.Name}&amp;OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_LKID={!Account.Id}&amp;retURL=%2F{!Account.Id}&quot;);
 		}
-		else {  
-		window.parent.navigateToUrl(&quot;/a06/e?CF00N90000006qtPr={!Account.Name}&amp;CF00N90000006qtPr_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;{!IF(ISBLANK(Address__c.ZipCode__c ), &apos;&apos;, &apos;00N90000006qtPx&apos;)}={!Address__c.ZipCode__c }&quot;);
+		else {		window.parent.navigateToUrl(&quot;/a06/e?OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_ID={!Account.Name}&amp;OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_LKID={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;{!IF(ISBLANK(Address__c.ZipCode__c ), &apos;&apos;, &apos;OBJECT_DEALER_LOCATOR_WEBLINK_POST_CODE_ID&apos;)}={!Address__c.ZipCode__c }&quot;);
 		}</url>
     </webLinks>
 </CustomObject>
