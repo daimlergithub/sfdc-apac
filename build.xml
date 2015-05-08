@@ -42,7 +42,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
 	</target>
 	
-	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy32, deploy35, deploy40, postDestructiveChanges">
+	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy35, deploy40, postDestructiveChanges">
 		<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
@@ -183,7 +183,8 @@
 			<sf:typeset name="objects">
 				<sf:include name="Contract_Relation__c"/>
 			</sf:typeset>
-			<sf:typeset name="letterhead"/>			
+			<sf:typeset name="letterhead"/>
+			<sf:typeset name="settings"/>
 			<sf:typeset name="tabs">
 				<sf:exclude name="EPA_.*"/>
 				<sf:exclude name="Tasks"/>
@@ -208,19 +209,19 @@
     </target>
 	
 	<target name="deploy25">			
-		<deploy>			
+		<deploy>
 			<sf:typeset name="pages">
 				<sf:include name="Tasks"/>
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="Tasks"/>
-			</sf:typeset>			
+			</sf:typeset>
 			<sf:typeset name="classes">
 				<sf:include name="TaskDeletingController"/>
 			</sf:typeset>
 			<sf:typeset name="pages">
 				<sf:include name="TaskDeleting"/>
-			</sf:typeset>			
+			</sf:typeset>
 			<sf:typeset name="objects">
 				<sf:include name="Task"/>
 				<sf:include name="Activity"/>
@@ -229,10 +230,9 @@
     </target>
 	
 	<target name="deploy30">
-		<deploy>		
-			<sf:typeset name="profiles">
-				<sf:include name="Admin"/>
-			</sf:typeset>
+		<deploy>
+			<sf:typeset name="applications"/>
+			<sf:typeset name="profiles"/>
 			<sf:typeset name="classes"/>
 			<sf:typeset name="components"/>
 			<sf:typeset name="pages"/>
@@ -245,13 +245,7 @@
 				<sf:include name="Retail_Campaign__c"/>	
 				<sf:include name="Retail_Campaign_Calender"/>
 				<sf:include name="Yearly_Target"/>
-			</sf:typeset>		
-			<sf:typeset name="triggers"/>		
-		</deploy>
-    </target>
-	
-	<target name="deploy32">
-		<deploy>
+			</sf:typeset>
 			<sf:typeset name="layouts">
 				<sf:include name="Campaign.*"/>
 				<sf:include name="Event.*"/>
@@ -261,17 +255,15 @@
 				<sf:include name="Lead__c.*"/>
 				<sf:include name="Account.*"/>
 			</sf:typeset>
-			<sf:typeset name="email"/>
-			<sf:typeset name="settings"/>
-			<sf:typeset name="workflows"/>
+			<sf:typeset name="triggers"/>
 		</deploy>
     </target>
 	
 	<target name="deploy35">
 		<deploy>
-			<sf:typeset name="applications"/>
-			<sf:typeset name="permissionsets"/>
-			<sf:typeset name="profiles"/>
+			<sf:typeset name="email"/>
+			<sf:typeset name="workflows"/>
+			<sf:typeset name="permissionsets"/>			
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
 			<sf:typeset name="homePageLayouts"/>
