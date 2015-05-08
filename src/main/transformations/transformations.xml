@@ -594,4 +594,54 @@
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Individual_Address']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_ADDRESS_WEBLINK_ADDRESS_TAB_ID</token>
 	</changetext>
+	<changetext>
+		<filename>objects\Vehicle_Relationship__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Company_Vehicle_Relationship']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_V_R_TAB_TAB_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Vehicle_Relationship__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Company_Vehicle_Relationship']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_CONTACT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Vehicle_Relationship__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Company_Vehicle_Relationship']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_CONTACT_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Vehicle_Relationship__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Company_Vehicle_Relationship']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_INDIVIDUAL_RECORDTYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Vehicle_Relationship__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Company_Vehicle_Relationship']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_OBJECT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Vehicle_Relationship__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Individual_Vehicle_Relationship']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_V_R_TAB_TAB_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Vehicle_Relationship__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Individual_Vehicle_Relationship']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_CONTACT_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Vehicle_Relationship__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Individual_Vehicle_Relationship']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_CONTACT_LKID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Vehicle_Relationship__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Individual_Vehicle_Relationship']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_INDIVIDUAL_RECORDTYPE_ID</token>
+	</changetext>
+	<changetext>
+		<filename>objects\Vehicle_Relationship__c.object</filename>
+		<xpath>/CustomObject/webLinks[fullName/text()='New_Individual_Vehicle_Relationship']/url/text()</xpath>
+		<token tokenonly="true">OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_OBJECT_ID</token>
+	</changetext>
 </transformations>

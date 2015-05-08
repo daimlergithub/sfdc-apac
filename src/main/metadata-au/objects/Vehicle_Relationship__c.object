@@ -12032,8 +12032,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <masterLabel>New Vehicle Relationship</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-        <url>/a05/e?CF00N90000006qtOz={!Account.Name}&amp;CF00N90000006qtOz_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012900000008sYi&amp;ent=01I9000000059Bj</url>
+        <requireRowSelection>false</requireRowSelection>        <url>/OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_V_R_TAB_TAB_ID/e?OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_CONTACT_ID={!Account.Name}&amp;OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_CONTACT_LKID={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_INDIVIDUAL_RECORDTYPE_ID&amp;ent=OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_OBJECT_ID</url>
     </webLinks>
     <webLinks>
         <fullName>New_Individual_Vehicle_Relationship</fullName> 
@@ -12044,7 +12043,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <masterLabel>New Vehicle Relationship</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-        <url>/a05/e?CF00N90000006qtOz={!Account.Name}&amp;CF00N90000006qtOz_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012900000008sYj&amp;ent=01IO000000096fv</url>
+        <requireRowSelection>false</requireRowSelection>        <url>/OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_V_R_TAB_TAB_ID/e?OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_CONTACT_ID={!Account.Name}&amp;OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_CONTACT_LKID={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_INDIVIDUAL_RECORDTYPE_ID&amp;ent=OBJECT_VEHICLE_RELATIONSHIP_WEBLINK_OBJECT_ID</url>
     </webLinks>
 </CustomObject>
