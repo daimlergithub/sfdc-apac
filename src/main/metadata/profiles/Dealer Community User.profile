@@ -133,6 +133,7 @@
         <apexClass>AddToRetailCampaignControllerTet</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	-->
     <classAccesses>
         <apexClass>AssignCaseToDealerController</apexClass>
         <enabled>false</enabled>
@@ -141,6 +142,7 @@
         <apexClass>AssignCaseToDealerControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<!-- TODO : Commenting out for kernel prod deployment
     <classAccesses>
         <apexClass>AttachmentAfterTriggerHandler</apexClass>
         <enabled>false</enabled>
@@ -1105,10 +1107,12 @@
         <apexClass>UtilCase</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	-->	
     <classAccesses>
         <apexClass>UtilConstant</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<!-- TODO : Commenting out for kernel prod deployment
     <classAccesses>
         <apexClass>UtilCustomSettings</apexClass>
         <enabled>true</enabled>
@@ -1149,10 +1153,12 @@
         <apexClass>UtilTask</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	-->
     <classAccesses>
         <apexClass>UtilTestData</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+	<!-- TODO : Commenting out for kernel prod deployment
     <classAccesses>
         <apexClass>UtilVehicleRelationship</apexClass>
         <enabled>false</enabled>
