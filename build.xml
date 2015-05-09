@@ -238,6 +238,12 @@
 				<sf:include name="Dealer Community User"/>
 				<sf:include name="Dealer Delegate Admin"/>
 			</sf:typeset>
+			<sf:typeset name="classes">
+				<sf:include name="UtilConstant"/>
+				<sf:include name="UtilTestData"/>
+				<sf:include name="AssignCaseToDealerController"/>
+				<sf:include name="AssignCaseToDealerControllerTest"/>
+			</sf:typeset>
 			<!-- TODO : Commenting out for kernel prod deployment
 			<sf:typeset name="classes"/>
 			<sf:typeset name="components"/>
