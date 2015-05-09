@@ -16,7 +16,7 @@ public class AssignCaseToDealerControllerTest {
     public static testMethod void testquery() {
       
         User user1=UtilTestData.createPortalUser('Dealer User','Dealer Community User');
-        User user2=UtilTestData.createPortalUser('Dealer User,,'Dealer Delegate Admin');     
+        User user2=UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');     
         User Usr=[select id from user where id=:UserInfo.getuserId()];
         System.runAs(usr) {
             Test.startTest();         
