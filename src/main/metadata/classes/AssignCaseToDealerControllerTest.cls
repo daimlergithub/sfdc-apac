@@ -16,14 +16,16 @@ public class AssignCaseToDealerControllerTest {
     public static testMethod void testquery() {
       
         User user1=UtilTestData.createPortalUser('Dealer User','Dealer Community User');
-        User user2=UtilTestData.createPortalUser('Dealer User','Dealer Community User');     
+        User user2=UtilTestData.createPortalUser('Dealer User,'Dealer Delegate Admin');     
         User Usr=[select id from user where id=:UserInfo.getuserId()];
         System.runAs(usr) {
             Test.startTest();         
-            User portalUser = [select accountId,email from user where contact.Dealer_Complaint_Gate_Keeper__c = true and id =:user1.Id and isActive = true limit 1];              
- 
-            User selectedUser = [select accountId,email from user where id =:user2.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];                               
-
+            User portalUser = [select accountId,email from user 
+                                    where contact.Dealer_Complaint_Gate_Keeper__c = true and id =:user1.Id
+                                    and isActive = true limit 1];   
+            User selectedUser = [select accountId,email from user where id =:user2.Id and contact.Dealer_Complaint_Gate_Keeper__c = true 
+                                    and isActive = true limit 1];                               
+       
             Case c = new Case(Subject='For Controller test',
                               RecordTypeId = MBRecordtypeid, 
                               Ref_No_Central__c = 'test',
@@ -45,14 +47,16 @@ public class AssignCaseToDealerControllerTest {
         public static testMethod void testclear() {
       
         User user1=UtilTestData.createPortalUser('Dealer User','Dealer Community User');
-        User user2=UtilTestData.createPortalUser('Dealer User','Dealer Community User');     
+        User user2=UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');     
         User Usr=[select id from user where id=:UserInfo.getuserId()];
         System.runAs(usr) {
             Test.startTest();         
-            User portalUser = [select accountId,email from user where contact.Dealer_Complaint_Gate_Keeper__c = true and id =:user1.Id and isActive = true limit 1];             
-  
-            User selectedUser = [select accountId,email from user where id =:user2.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];                                           
-
+            User portalUser = [select accountId,email from user 
+                                    where contact.Dealer_Complaint_Gate_Keeper__c = true and id =:user1.Id
+                                    and isActive = true limit 1];   
+            User selectedUser = [select accountId,email from user where id =:user2.Id and contact.Dealer_Complaint_Gate_Keeper__c = true 
+                                    and isActive = true limit 1];                               
+       
             Case c = new Case(Subject='For Controller test',
                               RecordTypeId = MBRecordtypeid, 
                               Ref_No_Central__c = 'test',
@@ -75,16 +79,17 @@ public class AssignCaseToDealerControllerTest {
     }
       public static testMethod void testassign() {
       
-        User user1=UtilTestData.createPortalUser('Dealer User','Dealer Community User');
-        User user2=UtilTestData.createPortalUser('Dealer User','Dealer Community User');     
+        User user1=UtilTestData.createPortalUser('Dealer User','Gold Partner User');
+        User user2=UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');     
         User Usr=[select id from user where id=:UserInfo.getuserId()];
         System.runAs(usr) {
             Test.startTest();         
-            User portalUser = [select accountId,email from user where contact.Dealer_Complaint_Gate_Keeper__c = true and id =:user1.Id and isActive = true limit 1];   
-            
-
-            User selectedUser = [select accountId,email from user where id =:user2.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];                                          
-
+            User portalUser = [select accountId,email from user 
+                                    where contact.Dealer_Complaint_Gate_Keeper__c = true and id =:user1.Id
+                                    and isActive = true limit 1];   
+            User selectedUser = [select accountId,email from user where id =:user2.Id and contact.Dealer_Complaint_Gate_Keeper__c = true 
+                                    and isActive = true limit 1];                               
+       
             Case c = new Case(Subject='For Controller test',
                               RecordTypeId = MBRecordtypeid, 
                               Ref_No_Central__c = 'test',
