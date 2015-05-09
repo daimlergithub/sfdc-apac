@@ -419,12 +419,14 @@
 	</addelement>
 	
 	<!-- remove as long as we don't have community licenses -->
-	<skipfile retrieve="false">
+	<!-- Adding the below profiles into deployment process as we have community licenses now-->
+	<!--<skipfile retrieve="false">
 		<filename>profiles\Dealer Delegate Admin.profile</filename>
 	</skipfile>
 	<skipfile retrieve="false">
 		<filename>profiles\Dealer Community User.profile</filename>
 	</skipfile>
+	-->
 	
 	<defaultpermissions>
 		<permissions>
