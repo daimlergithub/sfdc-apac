@@ -3814,7 +3814,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-EMC</layout>
-        <recordType>Task.Task</recordType>
+        <recordType>Task.General_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Welcome Call%2F Annual Call%2F EOC Call</layout>
