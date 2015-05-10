@@ -5070,11 +5070,6 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
-        <recordType>Campaign.Central_Campaign_AU</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <default>false</default>
         <recordType>Campaign.Creative_Brief</recordType>
         <visible>true</visible>
