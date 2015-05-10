@@ -3827,7 +3827,7 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle__c-Vehicle Layout</layout>
-        <recordType>Vehicle__c.Master</recordType>
+        <recordType>Vehicle__c.MB</recordType>
     </layoutAssignments>
     <loginIpRanges>
         <endAddress>255.255.255.255</endAddress>
