@@ -3460,11 +3460,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Task.Work_Phone__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>User.Active__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3495,11 +3490,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Vehicle_Group_Mapping__c.Vehicle_Group__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Vehicle_Inspection__c.Contract__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3520,17 +3510,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Vehicle_Inspection__c.Description_of_UFWT__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Vehicle_Inspection__c.Inspection_Dealership__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Vehicle_Inspection__c.KMS__c</field>
+        <field>Vehicle_Inspection__c.Mileage__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
