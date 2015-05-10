@@ -16,7 +16,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
     private static final Id personAccountRT = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     
 
-    global void execute(SchedulableContext SC) {
+    global void execute(SchedulableContext SC) { 
         List<Retail_Task__c> contracts = new List<Retail_Task__c>();
         List<Retail_Task__c> Welcontracts = new List<Retail_Task__c>();
         List<Retail_Task__c> Ann1contracts = new List<Retail_Task__c>();
@@ -298,5 +298,5 @@ global class ScheduledSharingContractToCROs implements Schedulable{
             task.Activity_Date__c= con.StartDate__c;
         }
         return task;
-    }
+    } 
 }
