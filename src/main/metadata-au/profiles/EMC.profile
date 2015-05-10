@@ -4038,10 +4038,6 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <pageAccesses>
-        <apexPage>ActivityReportUserBased</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>CampaignCalendar</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
