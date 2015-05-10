@@ -3820,9 +3820,6 @@
         <layout>User-User Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle_Group_Mapping__c-Vehicle Group Mapping Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Vehicle_Inspection__c-Vehicle Inspection Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
