@@ -4345,10 +4345,6 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
-        <tab>Suburb_Zip_Mapping__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
         <tab>Tasks</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
