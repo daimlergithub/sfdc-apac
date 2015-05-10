@@ -4,8 +4,7 @@
    <apex:pageBlock id="myTable">
       <table style="width:100%" rules="rows">               
         <tr>        
-            <td></td>   
-            <td></td>  
+            <td></td> 
             <td></td>
             <th>Status</th>        
             <th>Opt-in MBAuP</th>    
@@ -19,9 +18,8 @@
         
         <tr>        
         <th>Mobile 1</th>       
-            <td><apex:outputField value="{!accountList_details.Mobile__c}"/></td> 
-            <td></td>                      
-            <td><apex:outputField value="{!accountList_details.Mobile_Status__c}"/></td>       
+            <td><apex:inputField value="{!accountList_details.Mobile__c}"/></td> 
+            <td><apex:inputField value="{!accountList_details.Mobile_Status__c}"/></td>       
             <td><apex:inputField value="{!accountList_details.Opt_In_SMS__c}"/></td>   
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_SMS__c}"/></td>        
             <td>Preferred</td>
@@ -34,7 +32,7 @@
             </td>        
             <td><apex:outputField value="{!accountList_details.SMS_Last_Modified_Date__c}"/></td>
             <td>
-                <apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_SMS_Last_Modified_By__c}');" onmouseout="callHidepopUp();">
+                <apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_SMS_Last_Modified_By__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_SMS_Last_Modified_By__c}</apex:outputLink>
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup,myTable" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_SMS_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
@@ -45,13 +43,12 @@
        
         <tr>        
         <th>Mobile 2</th>     
-            <td><apex:outputField value="{!accountList_details.Mobile2__c}"/></td>            
-            <td></td>  
-            <td><apex:outputField value="{!accountList_details.Mobile_Status__c}"/></td>        
-            <td><apex:outputField value="{!accountList_details.Opt_In_SMS2__c}"/></td>   
-            <td><apex:outputField value="{!accountList_details.FS_Opt_In_SMS2__c}"/></td>        
+            <td><apex:inputField value="{!accountList_details.Mobile2__c}"/></td>  
+            <td><apex:inputField value="{!accountList_details.Mobile_Status__c}"/></td>        
+            <td><apex:inputField value="{!accountList_details.Opt_In_SMS2__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_SMS2__c}"/></td>        
             <td>Preferred</td>
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.SMS_Last_Modified_By2__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.SMS_Last_Modified_By2__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.SMS_Last_Modified_By2__c}</apex:outputLink>  
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.SMS_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
@@ -59,7 +56,7 @@
             </td>                  
             <td><apex:outputField value="{!accountList_details.SMS_Last_Modified_Date2__c}"/></td>
             
-             <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_SMS_Last_Modified_By2__c}');" onmouseout="callHidepopUp();">
+             <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_SMS_Last_Modified_By2__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_SMS_Last_Modified_By2__c}</apex:outputLink> 
                  <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_SMS_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
@@ -70,20 +67,19 @@
          
         <tr>        
         <th>Home Phone 1</th>        
-            <td><apex:outputField value="{!accountList_details.PersonHomePhone}"/></td>  
-            <td></td>      
-            <td><apex:outputField value="{!accountList_details.Individual_Home_Phone_Status__c}"/></td>   
-            <td><apex:outputField value="{!accountList_details.Opt_In_Home_Phone__c}"/></td>    
-            <td><apex:outputField value="{!accountList_details.FS_Opt_In_Home_Phone__c}"/></td>     
+            <td><apex:inputField value="{!accountList_details.PersonHomePhone}"/></td> 
+            <td><apex:inputField value="{!accountList_details.Individual_Home_Phone_Status__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone__c}"/></td>    
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone__c}"/></td>     
             <td>Preferred</td>
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Home_Phone_Last_Modified_By__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Home_Phone_Last_Modified_By__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.Home_Phone_Last_Modified_By__c}</apex:outputLink> 
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.Home_Phone_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
                 </apex:actionFunction>               
             </td>
             <td><apex:outputField value="{!accountList_details.Home_Phone_Last_Modified_Date__c}"/></td>    
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_Home_Phone_Last_Modified_By__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_Home_Phone_Last_Modified_By__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_Home_Phone_Last_Modified_By__c}</apex:outputLink> 
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_Home_Phone_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
@@ -94,13 +90,12 @@
         
         <tr>        
         <th>Home Phone 2</th>        
-            <td><apex:outputField value="{!accountList_details.Individual_Home_Phone__c}"/></td> 
-            <td></td>                    
-            <td><apex:outputField value="{!accountList_details.Home_Phone_Status_2__c}"/></td>   
-            <td><apex:outputField value="{!accountList_details.Opt_In_Home_Phone2__c}"/></td>   
-            <td><apex:outputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>            
+            <td><apex:inputField value="{!accountList_details.Individual_Home_Phone__c}"/></td> 
+            <td><apex:inputField value="{!accountList_details.Home_Phone_Status_2__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone2__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>            
             <td>Preferred</td>
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Home_Phone_Last_Modified_By2__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Home_Phone_Last_Modified_By2__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.Home_Phone_Last_Modified_By2__c}</apex:outputLink>
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.Home_Phone_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
@@ -108,7 +103,7 @@
             </td>      
             <td><apex:outputField value="{!accountList_details.Home_Phone_Last_Modified_Date2__c}"/></td>
             
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_Home_Phone_Last_Modified_By2__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_Home_Phone_Last_Modified_By2__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_Home_Phone_Last_Modified_By2__c}</apex:outputLink>   
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_Home_Phone_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
@@ -119,13 +114,12 @@
        
         <tr>        
         <th>Work Phone 1</th>                
-            <td><apex:outputField value="{!accountList_details.Work_Phone__c}"/></td> 
-            <td></td>                   
-            <td><apex:outputField value="{!accountList_details.Work_Phone_Status__c}"/></td>   
-            <td><apex:outputField value="{!accountList_details.Opt_In_Work_Phone__c}"/></td>   
-            <td><apex:outputField value="{!accountList_details.FS_Opt_In_Work_Phone__c}"/></td>            
+            <td><apex:inputField value="{!accountList_details.Work_Phone__c}"/></td> 
+            <td><apex:inputField value="{!accountList_details.Work_Phone_Status__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Work_Phone__c}"/></td>            
             <td>Preferred</td>
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Work_Phone_Last_Modified_By__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Work_Phone_Last_Modified_By__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.Work_Phone_Last_Modified_By__c}</apex:outputLink>
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.Work_Phone_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
@@ -133,7 +127,7 @@
             </td>      
             <td><apex:outputField value="{!accountList_details.Work_Phone_Last_Modified_Date__c}"/></td>
             
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_Work_Phone_Last_Modified_By__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_Work_Phone_Last_Modified_By__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_Work_Phone_Last_Modified_By__c}</apex:outputLink>   
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_Work_Phone_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
@@ -144,13 +138,12 @@
         
         <tr>        
         <th>Work Phone 2</th>        
-            <td><apex:outputField value="{!accountList_details.Work_Phone__c}"/></td> 
-            <td></td>                   
-            <td><apex:outputField value="{!accountList_details.Work_Phone_Status_2__c}"/></td>   
-            <td><apex:outputField value="{!accountList_details.Opt_In_Work_Phone2__c}"/></td>   
-            <td><apex:outputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>            
+            <td><apex:inputField value="{!accountList_details.Work_Phone__c}"/></td> 
+            <td><apex:inputField value="{!accountList_details.Work_Phone_Status_2__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone2__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>            
             <td>Preferred</td>
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Work_Phone_Last_Modified_By2__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Work_Phone_Last_Modified_By2__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.Work_Phone_Last_Modified_By2__c}</apex:outputLink>
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.Work_Phone_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
@@ -158,7 +151,7 @@
             </td>      
             <td><apex:outputField value="{!accountList_details.Work_Phone_Last_Modified_Date2__c}"/></td>
             
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_Work_Phone_Last_Modified_By2__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_Work_Phone_Last_Modified_By2__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_Work_Phone_Last_Modified_By2__c}</apex:outputLink>    
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_Work_Phone_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
@@ -169,13 +162,12 @@
         
         <tr>        
         <th>Email 1</th>        
-            <td><apex:outputField value="{!accountList_details.Email__c}"/></td>  
-            <td></td>                  
-            <td><apex:outputField value="{!accountList_details.Email_Status__c}"/></td>   
-            <td><apex:outputField value="{!accountList_details.Opt_In_Email__c}"/></td>   
-            <td><apex:outputField value="{!accountList_details.FS_Opt_In_Email__c}"/></td>            
+            <td><apex:inputField value="{!accountList_details.Email__c}"/></td>           
+            <td><apex:inputField value="{!accountList_details.Email_Status__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Opt_In_Email__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email__c}"/></td>            
             <td>Preferred</td>
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Email_Last_Modified_By__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Email_Last_Modified_By__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.Email_Last_Modified_By__c}</apex:outputLink> 
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.Email_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
@@ -183,7 +175,7 @@
             </td>      
             <td><apex:outputField value="{!accountList_details.Email_Last_Modified_Date__c}"/></td>
             
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_Email_Last_Modified_By__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_Email_Last_Modified_By__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_Email_Last_Modified_By__c}</apex:outputLink>  
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
                          <apex:param name="userName" value="{!accountList_details.FS_Email_Last_Modified_By__c}" assignTo="{!selectedUserName}"/>
@@ -194,24 +186,23 @@
         
         <tr>        
         <th>Email 2</th>        
-            <td><apex:outputField value="{!accountList_details.Email2__c}"/></td>
-            <td></td>                  
-            <td><apex:outputField value="{!accountList_details.Email_Status_2__c}"/></td>   
-            <td><apex:outputField value="{!accountList_details.Opt_In_Email2__c}"/></td>   
-            <td><apex:outputField value="{!accountList_details.FS_Opt_In_Email2__c}"/></td>            
+            <td><apex:inputField value="{!accountList_details.Email2__c}"/></td>                           
+            <td><apex:inputField value="{!accountList_details.Email_Status_2__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.Opt_In_Email2__c}"/></td>   
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Email2__c}"/></td>            
             <td>Preferred</td>
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Email_Last_Modified_By2__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Email_Last_Modified_By2__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.Email_Last_Modified_By2__c}</apex:outputLink>
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
-                         <apex:param name="userName" value="{!accountList_details.Email_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
+                         <apex:param name="userName" value="{!accountList_details.Email_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>                         
                 </apex:actionFunction>                                  
             </td>      
             <td><apex:outputField value="{!accountList_details.Email_Last_Modified_Date2__c}"/></td>
             
-            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_Email_Last_Modified_By2__c}');" onmouseout="callHidepopUp();">
+            <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.FS_Email_Last_Modified_By2__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.FS_Email_Last_Modified_By2__c}</apex:outputLink>       
                 <apex:actionFunction name="callShowpopUp" action="{!showPopup}" rerender="tstpopup" immediate="true">
-                         <apex:param name="userName" value="{!accountList_details.FS_Email_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>
+                         <apex:param name="userName" value="{!accountList_details.FS_Email_Last_Modified_By2__c}" assignTo="{!selectedUserName}"/>                                             
                 </apex:actionFunction>              
             </td>                
             <td><apex:outputField value="{!accountList_details.FS_Email_Last_Modified_Date2__c}"/></td>        
@@ -221,17 +212,22 @@
               <apex:commandLink value="Update" action="{!updateAccount}" target="_parent" styleClass="btn" style="text-decoration:none;padding:4px;" />
      </apex:pageBlockButtons>
     </apex:pageBlock>  
-   <apex:outputPanel id="tstpopup">               
+   <apex:outputPanel id="tstpopup">  
+      <apex:outputPanel styleClass="popupBackground" layout="block" rendered="{!displayPopUp}"/>             
          <apex:outputPanel styleClass="custPopup" layout="block" rendered="{!displayPopUp}">
                  <h3> User Informations </h3><br/>
-                 <h4>Name = :</h4><b> {!userName} </b> <br/>
-                 <h4>Title= :</h4><b> {!UserTitle} </b>
-           </apex:outputPanel>
+                 <h4>Name = :</h4><b> {!usrInfolst.Name} </b> <br/>
+                 <h4>Title= :</h4><b> {!usrInfolst.Title} </b> <br/>              
+             <!--    <h4>Last Modified By= :</h4><b>{!LastModifiedby}</b><br/>
+                 <h4>Last Modified Date= :</h4><b>{!LastModifieddate}</b><br/>
+                 <h4>FS Last Modified By= :</h4><b>{!FSLastModifiedby}</b><br/>
+                 <h4>FS Last Modified Date= :</h4><b>{!FSLastModifieddate}</b><br/> 
+                 {!selectedUserName} -->
+         </apex:outputPanel>     
     </apex:outputPanel>   
 </apex:form>
   <script  type="text/javascript">
-    function UserRedirect() {      
-        var theControllerValue = '{!userId}';        
+    function UserRedirect() {               
         window.open('');
     }
   </script>
@@ -261,7 +257,19 @@
             width: 500px;
             margin-left: -250px;
             top:100px;
-        }         
+        } 
+        .popupBackground{
+            background-color:black;
+            opacity: 0.20;
+            filter: alpha(opacity = 20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            //z-index: 9998;
+        }   
+        
   </style>
   
 </apex:page>
