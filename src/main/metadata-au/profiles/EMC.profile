@@ -109,6 +109,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CollaborationTeamHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ContractHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -4035,10 +4039,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>CampaignMemberHistory</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>CommonJS</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
