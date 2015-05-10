@@ -4639,11 +4639,11 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Service%2FParts Lead Layout</layout>
-        <recordType>Lead__c.Service_Parts_Lead</recordType>
+        <recordType>Lead__c.Aftersales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Vehicle Lead Layout</layout>
-        <recordType>Lead__c.Vehicle_Lead</recordType>
+        <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Macro-Macro Layout</layout>
