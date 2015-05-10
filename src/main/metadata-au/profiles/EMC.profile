@@ -113,10 +113,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>ExtSelectAssignedDealerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>FleerCorverList</apexClass>
         <enabled>false</enabled>
     </classAccesses>
