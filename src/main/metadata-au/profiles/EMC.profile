@@ -1350,11 +1350,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Campaign.Campaign_Objective__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Campaign.Campaign_Offer_Type__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -1405,7 +1400,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Campaign.Frequency_Category__c</field>
+        <field>Campaign.CAC_Frequency_Category__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1516,11 +1511,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Campaign.Type</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Campaign.Vehicle_Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
