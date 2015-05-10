@@ -3,11 +3,13 @@ public class AccountConatctcontroller{
 public static list<Account> contactList=new list<Account>();
 public Account accountList_details{get;set;}
 public boolean displayPopup {get; set;}  
-public String selectedUserName{get; set;}    
-public String UserName{get;set;} 
-public String UserTitle{get;set;} 
-public String UserId{get;set;} 
+public String selectedUserName{get; set;}   
+Public User usrInfolst{get;set;} 
 
+public String LastModifiedby{get;set;} 
+public String LastModifieddate{get;set;} 
+public String FSLastModifiedby{get;set;}
+public date FSLastModifieddate{get;set;}  
 //Constructor Called to get the current account record id
    public AccountConatctcontroller(ApexPages.StandardController controller) {    
           accountList_details= new Account();     
@@ -47,22 +49,23 @@ public String UserId{get;set;}
         }
        
     public void closePopup() {        
-        displayPopup = false;    
+        displayPopup = false;  
+        if(usrInfolst!=Null){
+           usrInfolst.clear(); } 
     }     
     public void showPopup() { 
         userInfo();              
-        displayPopup = true;      
+        displayPopup = true; 
+        system.debug('FSLastModifiedby>>>>'+FSLastModifiedby);     
     } 
     public void userInfo(){
       for(User usr:[Select id,Name,title from User])
       {
         if(usr.Name==selectedUserName)
         {
-          UserName=usr.Name;
-          UserTitle=usr.title;
-          UserId=usr.Id;
+          usrInfolst=[select id,Name,Title from User where id=:usr.Id];     
         }
-      }
-    }        
+      }     
+     }        
   
 }

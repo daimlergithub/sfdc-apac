@@ -18,6 +18,14 @@
                 <behavior>Edit</behavior>
                 <field>WhatId</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Reason__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Result__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -56,6 +64,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>ActivityDate</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Due_Task_Notification__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns/>
