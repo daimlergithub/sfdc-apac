@@ -3330,11 +3330,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Participating_Dealer__c.Dealer__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>PreOrder__c.ClosedDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
