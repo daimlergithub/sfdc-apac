@@ -3817,18 +3817,6 @@
         <recordType>Task.General_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Task-Welcome Call%2F Annual Call%2F EOC Call</layout>
-        <recordType>Task.Annual_Call</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-Welcome Call%2F Annual Call%2F EOC Call</layout>
-        <recordType>Task.EOC_Call</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-Welcome Call%2F Annual Call%2F EOC Call</layout>
-        <recordType>Task.Welcome_Call</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>User-User Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
