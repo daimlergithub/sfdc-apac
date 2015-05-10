@@ -1590,7 +1590,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Case.Case_Sub_Type__c</field>
+        <field>Case.Case_SubType__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1616,16 +1616,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Case.Complaint_Contact_FirstName__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Case.Complaint_Contact_Surname__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.Complaint_Contact_Title__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1732,16 +1722,6 @@
         <editable>false</editable>
         <field>Case.IsEscalated</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.LDCL_Case_Id__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Case.LDCL_ID__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
