@@ -810,11 +810,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Individual_Home_Phone_Area_Code__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Account.Individual_Home_Phone_Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
