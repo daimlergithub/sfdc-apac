@@ -26,6 +26,11 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+        <application>MBAuP_AS</application>
+        <default>false</default>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>MBAuP_CRM_Customer</application>
         <default>false</default>
         <visible>false</visible>
@@ -8153,6 +8158,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.CAC_Lost_Reason__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.CAC_SourceId__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

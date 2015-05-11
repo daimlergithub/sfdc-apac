@@ -36,6 +36,7 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
+>>>>>>> au
         <application>MBAuP_MBFS_Dealer</application>
         <default>false</default>
         <visible>true</visible>
@@ -8133,6 +8134,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.CAC_Lost_Reason__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.CAC_SourceId__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
