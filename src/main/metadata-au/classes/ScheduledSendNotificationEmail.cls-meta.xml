@@ -1,23 +1,5 @@
-
-git add src/main/metadata-au/layouts/Campaign-Central\ Campaign\ Layout.layout
-git add src/main/metadata-au/layouts/CampaignMember-Campaign Member\ Page\ Layout.layout
-git add src/main/metadata-au/layouts/Car_Model__c-Car\ Model\ Layout.layout
-git add src/main/metadata-au/layouts/CollaborationGroup-Group\ Layout.layout
-git add src/main/metadata-au/layouts/Collaboration_Team__c-Collaboration\ Team\ Layout.layout
-git add src/main/metadata-au/layouts/Event-Event\ Master\ Layout.layout
-git add src/main/metadata-au/layouts/Opportunity-Opportunity\ Layout.layout
-git add src/main/metadata-au/layouts/OpportunityLineItem-Opportunity\ Product\ Layout.layout
-git add src/main/metadata-au/layouts/Participating_Dealer__c-Participating\ Dealer\ Layout.layout
-git add src/main/metadata-au/layouts/Product2-Product\ Layout.layout
-git add src/main/metadata-au/layouts/Retail_Task__c-Retail\ Task\ Layout%28Contract%29.layout
-git add src/main/metadata-au/layouts/Retail_Task__c-Retail\ Task\ Layout%28Service%29.layout
-git add src/main/metadata-au/layouts/Solution-Solution\ Layout.layout
-git add src/main/metadata-au/layouts/Task-Campaign\ Task.layout
-git add src/main/metadata-au/layouts/Task-OB\ Call.layout
-git add src/main/metadata-au/layouts/Task-Welcome\ Call\ Task.layout
-git add src/main/metadata-au/layouts/User-User\ Master\ Layout.layout
-git add src/main/metadata-au/layouts/Vehicle__c-MB\ Vehicle\ Layout-CAC.layout
-git add src/main/metadata-au/objects/Case.object
-git add src/main/metadata-au/objects/Vehicle_Inspection__c.object
-git add src/main/metadata/layouts/Retail_Task__c-Retail Task\ Layout%28Contract%29.layout
-git add src/main/metadata/layouts/Retail_Task__c-Retail Task\ Layout%28Service%29.layout
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexClass xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>33.0</apiVersion>
+    <status>Active</status>
+</ApexClass>
