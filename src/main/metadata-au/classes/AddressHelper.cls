@@ -27,14 +27,14 @@ public class AddressHelper
 	    
 	    Map<String,String> suburbAndPostCodeMapping = getMappingBetweenSuburbAndZip(suburbs);
 	    
-	    for(Address__c addre : listNewAddress){
+	    for(Address__c address : listNewAddress){
 	        //US_AU-CD-003, Auto-fill the post code if the suburb-postcode mapping is existed 
-	        if(String.isBlank(addre.ZipCode__c) 
-	            && !String.isBlank(addre.District__c) 
-	            && suburbAndPostCodeMapping.containsKey(addre.District__c)
-	            && (addre.RecordTypeId == personAccountRTID || addre.RecordTypeId == companyRTID)) {
+	        if(String.isBlank(address.ZipCode__c) 
+	            && !String.isBlank(address.District__c) 
+	            && suburbAndPostCodeMapping.containsKey(address.District__c)
+	            && (address.RecordTypeId == personAccountRTID || address.RecordTypeId == companyRTID)) {
 	                
-	            addre.ZipCode__c = suburbAndPostCodeMapping.get(addre.District__c);
+	            address.ZipCode__c = suburbAndPostCodeMapping.get(address.District__c);
 	        }
 	    }
 	    
