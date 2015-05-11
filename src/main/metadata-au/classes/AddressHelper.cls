@@ -8,19 +8,19 @@ public class AddressHelper
 	    Set<String> csIds = new Set<String>();
 	    Set<String> suburbs = new Set<String>();
 	  
-	    for(Address__c addre : listNewAddress) {
-	        if(!csIds.contains(addre.Customer__c)){
-	            csIds.add(addre.Customer__c);
+	    for(Address__c addr : listNewAddress) {
+	        if(!csIds.contains(addr.Customer__c)){
+	            csIds.add(addr.Customer__c);
 	        }
 	           
 	        //US_AU-CD-032 Make sure the letters of suburb is capital ones
-	        if(!String.isBlank(addre.District__c)){
-	            addre.District__c = addre.District__c.toUpperCase();
-	            suburbs.add(addre.District__c);
+	        if(!String.isBlank(addr.District__c)){
+	            addr.District__c = addr.District__c.toUpperCase();
+	            suburbs.add(addr.District__c);
 	        
 	        // US_AU-CD-001.6 Track the updating history for FS fields.
 	        if(isUpdate){
-	            trackUpdatHistoryForFsInfo(addre, addressOldMap.get(addre.Id));
+	            trackUpdatHistoryForFsInfo(addr, addressOldMap.get(addr.Id));
 	        }
 	    }
 	    
