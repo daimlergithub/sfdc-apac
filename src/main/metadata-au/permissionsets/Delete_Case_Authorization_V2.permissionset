@@ -20,12 +20,6 @@
         <application>MBAuP_AS</application>
         <visible>false</visible>
     </applicationVisibilities>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>MBAuP_AS</application>
-        <visible>false</visible>
-    </applicationVisibilities>
     <applicationVisibilities>
         <application>MBAuP_CRM_Customer</application>
         <visible>false</visible>
@@ -7485,11 +7479,6 @@ yujing.he@daimler.com</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Created_By_EP_Transaction_c__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.CustomerName__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -12891,11 +12880,6 @@ yujing.he@daimler.com</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Created_By_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Created_By_EP_Transaction_c__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

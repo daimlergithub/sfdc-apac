@@ -26,11 +26,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>MBAuP_AS</application>
-        <default>false</default>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>MBAuP_CRM_Customer</application>
         <default>false</default>
         <visible>false</visible>
@@ -7597,11 +7592,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Event.Created_By_EP_Transaction_c__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Event.CustomerName__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -13003,11 +12993,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Task.Created_By_EP_Transaction__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Task.Created_By_EP_Transaction_c__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

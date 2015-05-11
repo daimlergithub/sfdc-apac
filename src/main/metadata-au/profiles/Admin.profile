@@ -36,7 +36,6 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
->>>>>>> au
         <application>MBAuP_MBFS_Dealer</application>
         <default>false</default>
         <visible>true</visible>
@@ -7573,11 +7572,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Event.Created_By_EP_Transaction_c__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Event.CustomerName__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12979,11 +12973,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Task.Created_By_EP_Transaction__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Created_By_EP_Transaction_c__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
