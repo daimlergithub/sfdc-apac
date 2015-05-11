@@ -8,33 +8,34 @@ public class AddressHelper
 	    Set<String> csIds = new Set<String>();
 	    Set<String> suburbs = new Set<String>();
 	  
-	    for(Address__c addr : listNewAddress) {
-	        if(!csIds.contains(addr.Customer__c)){
-	            csIds.add(addr.Customer__c);
+	    for(Address__c addre : listNewAddress) {
+	        if(!csIds.contains(addre.Customer__c)){
+	            csIds.add(addre.Customer__c);
 	        }
 	           
 	        //US_AU-CD-032 Make sure the letters of suburb is capital ones
-	        if(!String.isBlank(addr.District__c)){
-	            addr.District__c = addr.District__c.toUpperCase();
-	            suburbs.add(addr.District__c);
+	        if(!String.isBlank(addre.District__c)){
+	            addre.District__c = addre.District__c.toUpperCase();
+	            suburbs.add(addre.District__c);
+	        }
 	        
 	        // US_AU-CD-001.6 Track the updating history for FS fields.
 	        if(isUpdate){
-	            trackUpdatHistoryForFsInfo(addr, addressOldMap.get(addr.Id));
+	            trackUpdatHistoryForFsInfo(addre, addressOldMap.get(addre.Id));
 	        }
 	    }
 	    
 	    
 	    Map<String,String> suburbAndPostCodeMapping = getMappingBetweenSuburbAndZip(suburbs);
 	    
-	    for(Address__c address : listNewAddress){
+	    for(Address__c addre : listNewAddress){
 	        //US_AU-CD-003, Auto-fill the post code if the suburb-postcode mapping is existed 
-	        if(String.isBlank(address.ZipCode__c) 
-	            && !String.isBlank(address.District__c) 
-	            && suburbAndPostCodeMapping.containsKey(address.District__c)
-	            && (address.RecordTypeId == personAccountRTID || address.RecordTypeId == companyRTID)) {
+	        if(String.isBlank(addre.ZipCode__c) 
+	            && !String.isBlank(addre.District__c) 
+	            && suburbAndPostCodeMapping.containsKey(addre.District__c)
+	            && (addre.RecordTypeId == personAccountRTID || addre.RecordTypeId == companyRTID)) {
 	                
-	            address.ZipCode__c = suburbAndPostCodeMapping.get(address.District__c);
+	            addre.ZipCode__c = suburbAndPostCodeMapping.get(addre.District__c);
 	        }
 	    }
 	    
