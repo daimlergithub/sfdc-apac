@@ -229,24 +229,9 @@
     </target>
 	
 	<target name="deploy30">
-		<deploy>
-			<!-- TODO : Commenting out for kernel prod deployment
-			<sf:typeset name="applications"/>
-			-->
-			<sf:typeset name="classes">
-				<sf:include name="UtilConstant"/>
-				<sf:include name="UtilTestData"/>
-				<sf:include name="AssignCaseToDealerController"/>
-				<sf:include name="AssignCaseToDealerControllerTest"/>
-			</sf:typeset>			
-			<sf:typeset name="profiles">
-				<sf:include name="IntegrationAPI"/>
-				<sf:include name="Admin"/>
-				<sf:include name="Dealer Community User"/>
-				<sf:include name="Dealer Delegate Admin"/>
-			</sf:typeset>
-			<!-- TODO : Commenting out for kernel prod deployment
-			<sf:typeset name="classes"/>
+		<deploy>			
+			<sf:typeset name="applications"/>			
+			<sf:typeset name="classes"/>														
 			<sf:typeset name="components"/>
 			<sf:typeset name="pages"/>
 			<sf:typeset name="tabs">
@@ -269,26 +254,22 @@
 				<sf:include name="Account.*"/>
 			</sf:typeset>			
 			<sf:typeset name="triggers"/>
-			-->
+			<sf:typeset name="profiles"/>			
 		</deploy>
     </target>
 	
 	<target name="deploy35">
-		<deploy>
-		<!-- TODO : Commenting out for kernel prod deployment
+		<deploy>		
 			<sf:typeset name="settings"/>
 			<sf:typeset name="email"/>
 			<sf:typeset name="workflows"/>
 			<sf:typeset name="permissionsets"/>			
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
-			<sf:typeset name="homePageLayouts"/>
-			
-			TODO commented the AppSwitcher appMenu, it is a known salesforce issue and it is failing during deployment
+			<sf:typeset name="homePageLayouts"/>					
 			<sf:typeset name="appMenus">
 				<sf:exclude name="AppSwitcher"/>
 			</sf:typeset>
-		-->
 		</deploy>
 	</target>
 	

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
-<!-- TODO : Commenting out for kernel prod deployment
     <applicationVisibilities>
         <application>Central_CRM</application>
         <default>true</default>
@@ -138,7 +137,6 @@
         <apexClass>AddToRetailCampaignControllerTet</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	-->
     <classAccesses>
         <apexClass>AssignCaseToDealerController</apexClass>
         <enabled>true</enabled>
@@ -147,7 +145,6 @@
         <apexClass>AssignCaseToDealerControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	<!-- TODO : Commenting out for kernel prod deployment
     <classAccesses>
         <apexClass>AttachmentAfterTriggerHandler</apexClass>
         <enabled>true</enabled>
@@ -1112,12 +1109,10 @@
         <apexClass>UtilCase</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	-->
     <classAccesses>
         <apexClass>UtilConstant</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	<!-- TODO : Commenting out for kernel prod deployment
     <classAccesses>
         <apexClass>UtilCustomSettings</apexClass>
         <enabled>true</enabled>
@@ -1158,12 +1153,10 @@
         <apexClass>UtilTask</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	-->
     <classAccesses>
         <apexClass>UtilTestData</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	<!-- TODO : Commenting out for kernel prod deployment
     <classAccesses>
         <apexClass>UtilVehicleRelationship</apexClass>
         <enabled>true</enabled>
@@ -1260,7 +1253,6 @@
         <apexClass>superSort</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-	-->
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
@@ -14542,7 +14534,6 @@
         <field>Vehicle__c.last_updated__c</field>
         <readable>true</readable>
     </fieldPermissions>
-	<!-- TODO : Commenting out for kernel prod deployment
     <layoutAssignments>
         <layout>Account-Company Layout</layout>
         <recordType>Account.Company</recordType>
@@ -15184,7 +15175,6 @@
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
-	-->
     <loginIpRanges>
         <endAddress>255.255.255.255</endAddress>
         <startAddress>0.0.0.0</startAddress>
@@ -15873,7 +15863,6 @@
         <object>Vehicle__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
-	<!-- TODO : Commenting out for kernel prod deployment
     <pageAccesses>
         <apexPage>AccountButtonContainer</apexPage>
         <enabled>true</enabled>
@@ -16222,7 +16211,6 @@
         <apexPage>scc_tour_style</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-	-->
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Account.Company</recordType>
@@ -16700,7 +16688,6 @@
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
-	<!-- TODO : Commenting out for kernel prod deployment
     <tabVisibilities>
         <tab>Account_Link__c</tab>
         <visibility>DefaultOn</visibility>
@@ -16878,7 +16865,6 @@
         <tab>standard-StreamingChannel</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-	-->
     <userLicense>Salesforce</userLicense>
     <userPermissions>
         <enabled>true</enabled>

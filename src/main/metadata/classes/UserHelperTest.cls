@@ -263,7 +263,7 @@ public class UserHelperTest {
         Test.stopTest();
     }
     public static testMethod void UserConstantTest() {
-        User usrNew= UtilTestData.createPortalUser('Dealer User','System Administrator');
+        User usrNew= UtilTestData.createPortalUser('Dealer User','Dealer Community User');
         Test.startTest();
          UtilConstant uConst=new UtilConstant();
          UtilConstant.getUserRoleId('Retail'); 

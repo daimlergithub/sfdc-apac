@@ -1,4 +1,4 @@
-@isTest(seealldata=true)
+@isTest
 public class AddToRetailCampaignControllerTet
 {
     final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
@@ -28,18 +28,13 @@ public class AddToRetailCampaignControllerTet
         insert dealer;   
         Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=1);     
         insert rc;        
-        User user1 = UtilTestData.createPortalUser('Dealer User','System Administrator');
-       // User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
-       User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and isActive = true limit 1];
+        User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
+        //User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and isActive = true limit 1];
 
         Case c1 = new Case(Vehicle_Relationship__c = vrData1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
-                          Case_SubType__c='Dealer-after sales service attitude', Case_Dealer__c = portalUser1.AccountId,Retail_Campaign__c=rc.Id);
-                          c1.Case_Status__c = 'Accepted';
-                 
-        Retail_Campaign__c TheRetailCampaign = [select Id, Total_CAC_Source_Campaign_Member__c from Retail_Campaign__c where Id = :c1.Retail_Campaign__c];
-        system.debug('@@@@@@ TheRetailCampaign '+TheRetailCampaign);
+                          Case_SubType__c='Dealer-after sales service attitude', Case_Dealer__c = portalUser1.AccountId,Retail_Campaign__c=rc.Id,Case_Status__c = 'Accepted');
         sos.add(c1);
-        
         if(sos!=null && !sos.IsEmpty())
         UtilSobject.insertSobjects(sos);  
         PageReference pr  = new PageReference('/apex/AddToRetailCampaign?id=' + c1.Id);
@@ -48,8 +43,7 @@ public class AddToRetailCampaignControllerTet
         addRetail.addTo();
         PageReference pr1  = new PageReference('/apex/AddToRetailCampaign?id='+null);
         Test.setCurrentPage(pr1);
-        AddToRetailCampaignController addRetail1 = new AddToRetailCampaignController();
-        addRetail1.addTo();      
+        AddToRetailCampaignController addRetail1 = new AddToRetailCampaignController();      
         c1 = [select Case_SubType__c,Subject,Vehicle_Brand__c,Vehicle_Class__c,Vehicle_Model__c,VIN_Code__c from case where id=:c1.id];
         c1.Vehicle_Relationship__c = vrData2.id;
         update c1;

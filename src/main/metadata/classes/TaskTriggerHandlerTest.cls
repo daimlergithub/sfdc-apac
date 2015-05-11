@@ -1,117 +1,104 @@
 @isTest
 private class TaskTriggerHandlerTest {
-    public static Id OBRTID;
-    private static Id IBRTID; 
-    private static Id SSIRTID;
-    private static Id WCRTID;
-    private static Id OBTRTID;
-    public static Account customer;
-    public static DateTime endCallTime;
-    public static Task obTask1;
-    public static User ssi_csr1;
-    
-   public  static testMethod void testGetRecordTypeId(){
-        Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
-         ssirtid = rtMap.get('SSI Task').getRecordTypeId();
-         wcrtid = rtMap.get('Welcome Call').getRecordTypeId();
-         ibrtid = rtMap.get('IB Call').getRecordTypeId();
-         obrtid = rtMap.get('OB Call').getRecordTypeId();
-         obtrtid = rtMap.get('OB Task').getRecordTypeId();
-        
-    }
-    
 
-    static testMethod void testUpdateAccountCallMessage1() {
+    static testMethod void myUnitTest0()
+    {
+        Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
+        Id ssirtid = rtMap.get('SSI Task').getRecordTypeId();
+        Id wcrtid = rtMap.get('Welcome Call').getRecordTypeId();
+        Id ibrtid = rtMap.get('IB Call').getRecordTypeId();
+        Id obrtid = rtMap.get('OB Call').getRecordTypeId();
+        Id obtrtid = rtMap.get('OB Task').getRecordTypeId();
+    
+        User ssi_csr = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
+
+        System.runAs ( ssi_csr ) 
+        {
         
-    	ssi_csr1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
-        System.runAs ( ssi_csr1 ){
-             endCallTime = DateTime.now();
-            customer = new Account( PersonMobilePhone = '1302222220',PersonOtherPhone = '1130111111',Phone = '1130111112',PersonHomePhone = '1234567',PersonAssistantPhone = '1234569');
+            Account customer = new Account(
+                PersonMobilePhone = '1130111111',
+                PersonOtherPhone = '1302222222', 
+                Phone = '1234567', 
+                PersonHomePhone = '1234568', 
+                PersonAssistantPhone = '1234569'
+            );
     
             customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
             
             Test.startTest();
-            testgetRecordTypeId();
-           
-            obTask1 = new Task(RecordTypeId = obrtid, WhatId = customer.Id, End_call_time__c = endCallTime);
-            insert obTask1;
-          
-            obTask1.Activity_Status__c = 'successful';
-            obTask1.OB_Status__c='successful';
-            obTask1.End_call_time__c = endCallTime;
-            obTask1.Called__c = '1130111111';
-            update obTask1;
-   
+            // cover autoUpdateAccountOBTaskMessage
+            Task accobTask = new Task(RecordTypeId = obtrtid, WhatId = customer.Id);
+            insert accobTask;
+            customer = [
+                Select Id, Last_OB_Task_Create_Date__c 
+                From Account
+                Where Id = :customer.Id];
+            accobTask = [Select Id, CreatedDate From Task Where Id = :accobTask.Id];    
+            // cover updateAccountCallMessage
+            DateTime endCallTime = DateTime.now();
+            Task obTask = new Task(RecordTypeId = obrtid, WhatId = customer.Id, End_call_time__c = endCallTime);
+            insert obTask;
             
-         customer = [ select Last_Successful_Call__c, Last_Successful_Call_Second_Mobile__c, Last_Successful_Call_Office_Phone__c, Last_Successful_Call_Mobile__c, Last_Successful_Call_Home_Phone__c 
-                        From Account Where Id = :customer.Id];           
-         System.assertEquals(customer.Last_Successful_Call_Second_Mobile__c, endCallTime);     
-         }    
+            obTask.Called__c = '13011111111';
+            obTask.OB_Status__c = 'busy';
+            update obTask;
+            customer = [
+                Select Last_Successful_Call__c, Last_Successful_Call_Second_Mobile__c, Last_Successful_Call_Office_Phone__c, Last_Successful_Call_Mobile__c, Last_Successful_Call_Home_Phone__c 
+                From Account
+                Where Id = :customer.Id];
+            System.assertNotEquals(customer.Last_Successful_Call__c, endCallTime);
+            System.assertNotEquals(customer.Last_Successful_Call_Mobile__c, endCallTime);
+            
+            endCallTime = DateTime.now();
+            obTask.End_call_time__c = endCallTime;
+            obTask.Called__c = '13011111111';
+            obTask.OB_Status__c = 'successful';
+            update obTask;
+            customer = [
+                Select Last_Successful_Call__c, Last_Successful_Call_Second_Mobile__c, Last_Successful_Call_Office_Phone__c, Last_Successful_Call_Mobile__c, Last_Successful_Call_Home_Phone__c 
+                From Account
+                Where Id = :customer.Id];
+            
+            endCallTime = DateTime.now().addMinutes(10);
+            obTask.End_call_time__c = endCallTime;
+            obTask.Called__c = '13022222222';
+            obTask.OB_Status__c = 'successful';
+            update obTask;
+            customer = [
+                Select Last_Successful_Call__c, Last_Successful_Call_Second_Mobile__c, Last_Successful_Call_Office_Phone__c, Last_Successful_Call_Mobile__c, Last_Successful_Call_Home_Phone__c 
+                From Account
+                Where Id = :customer.Id];
+            
+            endCallTime = DateTime.now().addMinutes(20);
+            obTask.End_call_time__c = endCallTime;
+            obTask.Called__c = '1234567';
+            obTask.OB_Status__c = 'successful';
+            update obTask;
+            customer = [
+                Select Last_Successful_Call__c, Last_Successful_Call_Second_Mobile__c, Last_Successful_Call_Office_Phone__c, Last_Successful_Call_Mobile__c, Last_Successful_Call_Home_Phone__c 
+                From Account
+                Where Id = :customer.Id];
+            Test.stopTest();
+            System.assertEquals(customer.Last_Successful_Call__c, endCallTime);
+            System.assertEquals(customer.Last_Successful_Call_Office_Phone__c, endCallTime);
+        }    
     }
-        static testMethod void testUpdateAccountCallMessage2() {
-        
-    	ssi_csr1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
-        System.runAs ( ssi_csr1 ){
-             endCallTime = DateTime.now();
-            customer = new Account( PersonMobilePhone = '1130111111',PersonOtherPhone = '1130111111',Phone = '1130111112',PersonHomePhone = '1302222220',PersonAssistantPhone = '1234568');
-            customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
-            
-            Test.startTest();
-            testgetRecordTypeId();
-           
-            obTask1 = new Task(RecordTypeId = obrtid, WhatId = customer.Id, End_call_time__c = endCallTime);
-            insert obTask1;
-           
-         
-            obTask1.Activity_Status__c = 'successful';
-            obTask1.OB_Status__c='successful';
-            obTask1.End_call_time__c = endCallTime;
-            obTask1.Called__c = '1302222220';
-            update obTask1;
-                       
-            
-         customer = [ select Last_Successful_Call__c, Last_Successful_Call_Second_Mobile__c, Last_Successful_Call_Office_Phone__c, Last_Successful_Call_Mobile__c, Last_Successful_Call_Home_Phone__c 
-                        From Account Where Id = :customer.Id];           
-         System.assertEquals(customer.Last_Successful_Call_Home_Phone__c, endCallTime);     
-         }    
-    }
-    static testMethod void testUpdateAccountCallMessage3() {
-        
-    	ssi_csr1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
-        System.runAs ( ssi_csr1 ){
-             endCallTime = DateTime.now();
-            customer = new Account( PersonMobilePhone = '1130111111',PersonOtherPhone = '1130111111',Phone = '1302222220',PersonHomePhone = '1130111112',PersonAssistantPhone = '1234568');
-            customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
-            
-            Test.startTest();
-            testgetRecordTypeId();
-           
-            obTask1 = new Task(RecordTypeId = obrtid, WhatId = customer.Id, End_call_time__c = endCallTime);
-            insert obTask1;
-           
-         
-            obTask1.Activity_Status__c = 'successful';
-            obTask1.OB_Status__c='successful';
-            obTask1.End_call_time__c = endCallTime;
-            obTask1.Called__c = '1302222220';
-            update obTask1;
-                       
-            
-         customer = [ select Last_Successful_Call__c, Last_Successful_Call_Second_Mobile__c, Last_Successful_Call_Office_Phone__c, Last_Successful_Call_Mobile__c, Last_Successful_Call_Home_Phone__c 
-                        From Account Where Id = :customer.Id];           
-         System.assertEquals(customer.Last_Successful_Call_Office_Phone__c, endCallTime);     
-         }    
-    }
+    
     static testMethod void myUnitTest1() {
 
-       testgetRecordTypeId();
+        Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
+        Id ssirtid = rtMap.get('SSI Task').getRecordTypeId();
+        Id wcrtid = rtMap.get('Welcome Call').getRecordTypeId();
+        Id ibrtid = rtMap.get('IB Call').getRecordTypeId();
+        Id obrtid = rtMap.get('OB Call').getRecordTypeId();
+        Id obtrtid = rtMap.get('OB Task').getRecordTypeId();
     
         User ssi_csr = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
 
         System.runAs ( ssi_csr )
         {
         
-            customer = new Account(
+            Account customer = new Account(
                 PersonMobilePhone = '1301111111',
                 PersonOtherPhone = '1302222222', 
                 Phone = '1234567', 
@@ -123,7 +110,7 @@ private class TaskTriggerHandlerTest {
             
             Test.startTest();
 
-            endCallTime = DateTime.now().addMinutes(30);
+            DateTime endCallTime = DateTime.now().addMinutes(30);
 
             Task obTask = new Task(RecordTypeId = obrtid, WhatId = customer.Id, End_call_time__c = endCallTime);
             insert obTask;
@@ -185,66 +172,79 @@ private class TaskTriggerHandlerTest {
     static testMethod void myUnitTest2() 
     {
 
-       testgetRecordTypeId();
+        Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
+        Id ssirtid = rtMap.get('SSI Task').getRecordTypeId();
+        Id wcrtid = rtMap.get('Welcome Call').getRecordTypeId();
+        Id ibrtid = rtMap.get('IB Call').getRecordTypeId();
+        Id obrtid = rtMap.get('OB Call').getRecordTypeId();
+        Id obtrtid = rtMap.get('OB Task').getRecordTypeId();
     
-        User ssi_csr = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
+        User ssi_csr = UtilTestData.createUser('SSI CSR','CAC OB TL');
         
         System.runAs ( ssi_csr )
          {
             Test.startTest();
-            customer = new Account(
+            Account customer = new Account(
                 PersonMobilePhone = '1301111111',
                 PersonOtherPhone = '1302222222', 
                 Phone = '1234567', 
                 PersonHomePhone = '1234568', 
                 PersonAssistantPhone = '1234569'
             );
-        
+                system.debug('!!! Account records@@@'+customer);
+
             customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
-        
+        system.debug('!!! Account records'+customer);
             Task obTask = new Task(RecordTypeId = obrtid, WhatId = customer.Id);
             insert obTask;
+                            system.debug('!!! Task records@@@'+obTask);
             // cover generateWelcomeCall
             System.debug('-------------Test generateWelcomeCall-----------------');
             SSI__c ssi = new SSI__c(Status__c = 'Matched');
             insert ssi;
-            
+                                        system.debug('!!! ssi records@@@'+ssi);
             Contact cont = [Select Id From Contact Where AccountId = :customer.Id];
+                                                    system.debug('!!! contact records@@@'+cont);
+
             Task ssiTask = new Task(RecordTypeId = ssirtid, WhatId = ssi.Id, WhoId = cont.Id, Subject = 'Welcome Call + 1st Survey Call');
             insert ssiTask;
+             system.debug('!!! inserted records task@@@'+cont);
             ssiTask.Activity_Status__c = 'Unanswered';
             ssiTask.Status = 'Closed';
-            try{
             update ssiTask;
-            }catch(exception e){}
-            Task wcTask = new Task(RecordTypeId = wcrtid , WhatId = customer.Id, WhoId = cont.Id, Subject = 'Welcome Call + 1st Survey Call');
-            insert wcTask ;
+                         system.debug('!!! updated records task@@@'+cont);
+
             
             ssi = [Select Id, Survey_Finished__c From SSI__c Where Id = :ssi.Id];
-           /* Task wcTask = [
+            Task wcTask = [
                 Select Id, PersonAssistantPhone__c, PersonHomePhone__c, PersonMobilePhone__c, Called__c, PersonOtherPhone__c
-                From Task Where recordtypeid = :wcrtid And AccountId = :customer.Id limit 1];*/
+                From Task Where recordtypeid = :wcrtid And AccountId = :customer.Id limit 1];
 
             Account acc = [Select Id, PersonOtherPhone, Phone, PersonMobilePhone, PersonHomePhone, PersonAssistantPhone From Account Where Id=:customer.Id];    
             Test.stopTest();
-            System.assertnotEquals(ssi.Survey_Finished__c, '1st Survey');
-            System.assertnotEquals(wcTask.PersonAssistantPhone__c, acc.PersonAssistantPhone);
-            System.assertnotEquals(wcTask.PersonHomePhone__c, acc.PersonHomePhone);
-            System.assertnotEquals(wcTask.PersonMobilePhone__c, acc.PersonMobilePhone);
-            System.assertnotEquals(wcTask.Called__c, acc.Phone);
-            System.assertnotEquals(wcTask.PersonOtherPhone__c, acc.PersonOtherPhone);
+            System.assertEquals(ssi.Survey_Finished__c, '1st Survey');
+            System.assertEquals(wcTask.PersonAssistantPhone__c, acc.PersonAssistantPhone);
+            System.assertEquals(wcTask.PersonHomePhone__c, acc.PersonHomePhone);
+            System.assertEquals(wcTask.PersonMobilePhone__c, acc.PersonMobilePhone);
+            System.assertEquals(wcTask.Called__c, acc.Phone);
+            System.assertEquals(wcTask.PersonOtherPhone__c, acc.PersonOtherPhone);
         }    
     }
     static testMethod void myUnitTest3()
     {
-       testgetRecordTypeId();
+        Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
+        Id ssirtid = rtMap.get('SSI Task').getRecordTypeId();
+        Id wcrtid = rtMap.get('Welcome Call').getRecordTypeId();
+        Id ibrtid = rtMap.get('IB Call').getRecordTypeId();
+        Id obrtid = rtMap.get('OB Call').getRecordTypeId();
+        Id obtrtid = rtMap.get('OB Task').getRecordTypeId();
     
         User ssi_csr = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
         
         System.runAs ( ssi_csr )
         {
             Test.startTest();
-            customer = new Account(
+            Account customer = new Account(
                 PersonMobilePhone = '1301111111',
                 PersonOtherPhone = '1302222222', 
                 Phone = '1234567', 
@@ -292,13 +292,14 @@ private class TaskTriggerHandlerTest {
         }
     }
 
-    static testMethod void testUpdateLeadAndCampaignLead() 
+    static testMethod void testLeadAndCampaignLeadUpdate() 
     {
 
-        testgetRecordTypeId();
+        Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
+        Id obrtid = rtMap.get('OB Call').getRecordTypeId();
         Test.startTest();
-        Datetime dt = Datetime.now().addMinutes(30);   
-       customer = new Account(
+        Datetime dt = Datetime.now();    
+        Account customer = new Account(
             PersonMobilePhone = '1301111111',
             PersonOtherPhone = '1302222222', 
             Phone = '1234567', 
@@ -319,8 +320,8 @@ private class TaskTriggerHandlerTest {
             Campaign_Objectives__c = 'Objectives',
             Description = 'Description',
             Status = 'Confirmed',
-            StartDate = date.today(),
-            EndDate = date.today());
+            StartDate = date.today().addDays(10),
+            EndDate = date.today().addDays(20));
         insert cam;
 
         Campaign_Lead__c cl2 = new Campaign_Lead__c(Lead__c = lead1.Id, Campaign__c = cam.Id);
@@ -330,7 +331,7 @@ private class TaskTriggerHandlerTest {
         Task obTask = new Task(RecordTypeId = obrtid, WhatId = customer.Id);
         insert obTask;
 
-      endCallTime = DateTime.now();
+        DateTime endCallTime = DateTime.now();
         obTask.End_call_time__c = endCallTime;
         obTask.Called__c = '13011111111';
         obTask.OB_Status__c = 'successful';
@@ -340,21 +341,19 @@ private class TaskTriggerHandlerTest {
             From Account
             Where Id = :customer.Id];
         Test.stopTest();
-        
-        
-        
         System.assertEquals(customer.Last_Successful_Call__c, endCallTime);
         System.assertEquals(customer.Last_Successful_Call_Mobile__c, endCallTime);
-        
     }
 
     static testMethod void TestCTIFunction() 
     {
 
-       testgetRecordTypeId();
+        Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
+        Id obrtid = rtMap.get('OB Call').getRecordTypeId();
+        Id obtrtid = rtMap.get('OB Task').getRecordTypeId();
         Test.startTest();
         Datetime dt = Datetime.now();    
-       customer = new Account(
+        Account customer = new Account(
             PersonMobilePhone = '1301111111',
             PersonOtherPhone = '1302222222', 
             Phone = '1234567', 
@@ -382,10 +381,10 @@ private class TaskTriggerHandlerTest {
 
         Task obCall2 = new Task(Related_Task_Id__c = obTask.Id, RecordTypeId = obrtid, WhatId = customer.Id, WhoId = customer.PersonContactId, callObject = callObject+'1');
         insert obCall2;
-        
+
         Test.stopTest();
-      //  System.assertEquals(obTask.WhoId, customer.PersonContactId);
-       // System.assertEquals(obTask.WhatId, customer.Id);
+        System.assertEquals(obTask.WhoId, customer.PersonContactId);
+        System.assertEquals(obTask.WhatId, customer.Id);
         System.assertEquals(obCall1.Related_Task_Id__c, obTask.Id);
         System.assertEquals(obCall1.RecordTypeId, obrtid);
     }
