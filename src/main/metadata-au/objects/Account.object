@@ -30285,29 +30285,6 @@ else {
 }</url>
     </webLinks>
     <webLinks>
-        <fullName>New_Contacts_Relation</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
-        <masterLabel>New Contacts &amp; Relation</masterLabel>
-        <openType>replace</openType>
-        <protected>false</protected>
-        <url>/001/e?retURL=/001/o&amp;RecordType=01290000000qyvs&amp;ent=Account&amp;CF00N90000006qtJH_lkid={!Account.Id}&amp;CF00N90000006qtJH={!Account.Name}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>New_Person_Account</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
-        <masterLabel>New Contact</masterLabel>
-        <openType>replace</openType>
-        <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-        <url>/001/e?CF00N90000006qtJH={!Account.Name}&amp;CF00N90000006qtJH_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=01290000000qyvs&amp;ent=Account</url>
-    </webLinks>
-    <webLinks>
         <fullName>SMS</fullName>
         <availability>online</availability>
         <displayType>button</displayType>

@@ -12219,18 +12219,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <label>Retail Vehicle Relationship Share</label>
     </sharingReasons>
     <webLinks>
-        <fullName>New_Company_Vehicle_Relationship</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
-        <masterLabel>New Vehicle Relationship</masterLabel>
-        <openType>replace</openType>
-        <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-        <url>/a05/e?CF00N90000006qtOz={!Account.Name}&amp;CF00N90000006qtOz_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012900000008sYi&amp;ent=01I9000000059Bj</url>
-    </webLinks>
-    <webLinks>
         <fullName>New_Complaint</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -12245,18 +12233,6 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
 		&amp;cas4_lkid={!Vehicle_Relationship__c.ContactId__c}
 		&amp;CF00NN0000000Uktz={!Vehicle_Relationship__c.Vehicle_ID__c}
 		&amp;CF00NN0000000Uktz_lkid={!Vehicle_Relationship__c.Vehicle_IDId__c}</url>
-    </webLinks>
-    <webLinks>
-        <fullName>New_Individual_Vehicle_Relationship</fullName>
-        <availability>online</availability>
-        <displayType>massActionButton</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <linkType>url</linkType>
-        <masterLabel>New Vehicle Relationship</masterLabel>
-        <openType>replace</openType>
-        <protected>false</protected>
-        <requireRowSelection>false</requireRowSelection>
-        <url>/a05/e?CF00N90000006qtOz={!Account.Name}&amp;CF00N90000006qtOz_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;RecordType=012900000008sYj&amp;ent=01IO000000096fv</url>
     </webLinks>
     <webLinks>
         <fullName>New_Vehicle_Relationship</fullName>
