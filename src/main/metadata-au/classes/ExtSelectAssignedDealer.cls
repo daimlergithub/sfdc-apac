@@ -74,13 +74,8 @@ public with sharing class ExtSelectAssignedDealer {
 
             // Filtered by 'Suburb'
             //TODO
-<<<<<<< HEAD
             //if (dealer.District__c != null && dealer.District__c != '') {
                 //String suburb = dealer.District__c;
-=======
-            //if (dealer.Suburb__c != null && dealer.Suburb__c != '') {
-                //String suburb = dealer.Suburb__c;
->>>>>>> au
                 //querySOQL += 'Suburb__c =: suburb AND ';
             //}
 

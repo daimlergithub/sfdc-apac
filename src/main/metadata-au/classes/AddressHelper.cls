@@ -14,16 +14,9 @@ public class AddressHelper
 	        }
 	           
 	        //US_AU-CD-032 Make sure the letters of suburb is capital ones
-<<<<<<< HEAD
 	        if(!String.isBlank(addre.District__c)){
 	            addre.District__c = addre.District__c.toUpperCase();
 	            suburbs.add(addre.District__c);
-=======
-	        if(!String.isBlank(addre.Suburb__c)){
-	            addre.Suburb__c = addre.Suburb__c.toUpperCase();
-	            suburbs.add(addre.Suburb__c);
->>>>>>> au
-	        }
 	        
 	        // US_AU-CD-001.6 Track the updating history for FS fields.
 	        if(isUpdate){
@@ -36,21 +29,12 @@ public class AddressHelper
 	    
 	    for(Address__c addre : listNewAddress){
 	        //US_AU-CD-003, Auto-fill the post code if the suburb-postcode mapping is existed 
-<<<<<<< HEAD
 	        if(String.isBlank(addre.ZipCode__c) 
 	            && !String.isBlank(addre.District__c) 
 	            && suburbAndPostCodeMapping.containsKey(addre.District__c)
 	            && (addre.RecordTypeId == personAccountRTID || addre.RecordTypeId == companyRTID)) {
 	                
 	            addre.ZipCode__c = suburbAndPostCodeMapping.get(addre.District__c);
-=======
-	        if(String.isBlank(addre.Post_Code__c) 
-	            && !String.isBlank(addre.Suburb__c) 
-	            && suburbAndPostCodeMapping.containsKey(addre.Suburb__c)
-	            && (addre.RecordTypeId == personAccountRTID || addre.RecordTypeId == companyRTID)) {
-	                
-	            addre.Post_Code__c = suburbAndPostCodeMapping.get(addre.Suburb__c);
->>>>>>> au
 	        }
 	    }
 	    
@@ -113,11 +97,7 @@ public class AddressHelper
     public static Map<String,List<Address__c>> getAllAddresses(Set<String> customerIds){
         Map<String,List<Address__c>> result = new Map<String, List<Address__c>>();
         for(Address__c address : [select Preferred__c, Status__c, Customer__c,Address_Line_1__c, Address_Line_2__c, Address_Type__c,
-<<<<<<< HEAD
                                          Country__c, District__c, ZipCode__c, Province__c, Customer__r.Id
-=======
-                                         Country__c, Suburb__c, Post_Code__c, State__c, Customer__r.Id
->>>>>>> au
                                   from Address__c where Customer__c in :customerIds]){
             if(result.containsKey(address.Customer__c)){
                 result.get(address.Customer__c).add(address);
@@ -139,11 +119,7 @@ public class AddressHelper
         Map<String, Account> idAccount = new Map<String, Account>();
         //TODO
         /*for(Account acc : [select id, Status__c, Address_State__c,Address_Line_1__c, Address_Line_2__c, Address_Type__c,
-<<<<<<< HEAD
                            Company_Name__c, Country__c, District__c, ZipCode__c from Account where id in :customerIds]) {
-=======
-                           Company_Name__c, Country__c, Suburb__c, Post_Code__c from Account where id in :customerIds]) {
->>>>>>> au
             idAccount.put(acc.id, acc);
         }*/
         
@@ -165,13 +141,8 @@ public class AddressHelper
                 acc.Address_Type__c = '';
                 acc.Company_Name__c = '';
                 acc.Country__c = '';
-<<<<<<< HEAD
                 acc.District__c = '';
                 acc.ZipCode__c = '';
-=======
-                acc.Suburb__c = '';
-                acc.Post_Code__c = '';
->>>>>>> au
                 
                 updateAccounts.add(acc);
             }*/
@@ -217,11 +188,7 @@ public class AddressHelper
         //todo
         /*for(Address__c address: preferredAddresses){
                 address.Customer__r.Status__c = address.Status__c;
-<<<<<<< HEAD
                 address.Customer__r.Address_State__c = address.Province__c;
-=======
-                address.Customer__r.Address_State__c = address.State__c;
->>>>>>> au
                 address.Customer__r.Address_Line_1__c = address.Address_Line_1__c;
                 address.Customer__r.Address_Line_2__c = address.Address_Line_2__c;
                 address.Customer__r.Address_Type__c = address.Address_Type__c;
@@ -229,13 +196,8 @@ public class AddressHelper
                 address.Customer__r.Company_Name__c = address.Company_Name__c;
                 //for CR-000202 end
                 address.Customer__r.Country__c = address.Country__c;
-<<<<<<< HEAD
                 address.Customer__r.District__c = address.District__c;
                 address.Customer__r.ZipCode__c = String.valueOf(address.ZipCode__c);
-=======
-                address.Customer__r.Suburb__c = address.Suburb__c;
-                address.Customer__r.Post_Code__c = String.valueOf(address.Post_Code__c);
->>>>>>> au
                 updateAccounts.add(address.Customer__r);
         }*/
         
@@ -247,11 +209,7 @@ public class AddressHelper
         Map<String,List<AddressWrapper>> result = new Map<String, List<AddressWrapper>>();
         //for CR-000202 start
         for(Address__c address : [select Preferred__c, Status__c, Customer__c,Address_Line_1__c, Address_Line_2__c, Address_Type__c,
-<<<<<<< HEAD
                                          Company_Name__c, Country__c, District__c, ZipCode__c, Province__c, Customer__r.Id
-=======
-                                         Company_Name__c, Country__c, Suburb__c, Post_Code__c, State__c, Customer__r.Id
->>>>>>> au
                                   from Address__c where Customer__c in :customerIds]){
             if(result.containsKey(address.Customer__c)){
                 result.get(address.Customer__c).add(new AddressWrapper(address));
