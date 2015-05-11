@@ -78,7 +78,7 @@ public class ScheduledSendNotificationEmailTest{
         insert fleetLeadWith60Days;
         
         Test.startTest();
-        System.schedule('ScheduledSendNotificationEmailTest', '0 0 13 * * ?', new ScheduledSendNotificationEmail());
+       System.schedule('ScheduledSendNotificationEmailTest', '0 0 13 * * ?', new ScheduledSendNotificationEmail());
         Test.stopTest();
     }
 }

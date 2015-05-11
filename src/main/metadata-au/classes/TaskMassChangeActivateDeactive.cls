@@ -35,7 +35,7 @@ public with sharing class TaskMassChangeActivateDeactive {
         }  
         //ist<User> user = [select id, Active_Inactive_Flag__c from User where id = :task.ownerId];
         List<User> user = [select id from User where id = :task.ownerId];
-        //user[0].Active_Inactive_Flag__c = false;
+     //   user[0].Active_Inactive_Flag__c = false;
         UserUpdate(user);
         List<Task> tasks = new List<Task>();
         List<User> users = new List<User>();

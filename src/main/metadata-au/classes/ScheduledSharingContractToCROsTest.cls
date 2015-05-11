@@ -188,6 +188,6 @@ public class ScheduledSharingContractToCROsTest{
                                           EOC_Call_Task_3_del__c = true);
         insert contract77;
         
-        String jobId = System.schedule('ScheduledSharingContractToCROsTest', '0 0 6 * * ?', new ScheduledSharingContractToCROs());
+     String jobId = System.schedule('ScheduledSharingContractToCROsTest', '0 0 6 * * ?', new ScheduledSharingContractToCROs());
     }
 }
