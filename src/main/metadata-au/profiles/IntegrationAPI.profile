@@ -2477,11 +2477,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.How_old_are_they__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.ID_Number__c</field>
         <readable>true</readable>
@@ -3137,11 +3132,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Second_Make__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.SelecTrucks_Offered_Service__c</field>
         <readable>true</readable>
@@ -3245,11 +3235,6 @@
         <editable>true</editable>
         <field>Account.TSP_Esa_Flg__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Third_Make__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3629,7 +3614,7 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Source_System__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8082,11 +8067,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead.PartnerAccountId</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Phone</field>
         <readable>true</readable>
@@ -9559,11 +9539,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Opportunity.OrderNumber__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Opportunity.PartnerAccountId</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14730,11 +14705,7 @@
         <recordType>Account_Link__c.ExternalLink</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Co-Borrower%2FGuarantor Layout</layout>
-        <recordType>Account_Link__c.Co_Borrower_Guarantor</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account_Link__c-Vehicle External Key Layout</layout>
+        <layout>Account_Link__c-Account Link Layout</layout>
         <recordType>Account_Link__c.Vehicle_External_Link</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -14935,14 +14906,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Contact-Contact Master Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Contact-Directors and Shareholders Layout</layout>
-        <recordType>Contact.Directors_Shareholders</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Contact-MBAuP Contact Layout</layout>
-        <recordType>Contact.MBAuP_Contacts</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>ContentVersion-Active Toolbox</layout>
@@ -15183,10 +15146,6 @@
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Insurance Layout</layout>
-        <recordType>Retail_Task__c.Insurance</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout</layout>
         <recordType>Retail_Task__c.Insurance</recordType>
     </layoutAssignments>
@@ -15208,10 +15167,6 @@
     <layoutAssignments>
         <layout>Retail_Task__c-Retail Task Layout%28Service%29</layout>
         <recordType>Retail_Task__c.Service</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Retail_Task__c-Roadside Assistant Layout</layout>
-        <recordType>Retail_Task__c.Roadside_Assistant</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>SMSReplyHistory__c-SMS Reply History Layout</layout>
@@ -17495,10 +17450,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SendSitRequests</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubmitMacrosAllowed</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
