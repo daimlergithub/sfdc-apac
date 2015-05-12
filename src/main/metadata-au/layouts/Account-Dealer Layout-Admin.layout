@@ -710,13 +710,13 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>Dealer_Number__c</fields>
-        <fields>ZipCode__c</fields>
-        <fields>District__c</fields>
+        <fields>Post_Code__c</fields>
+        <fields>Suburb__c</fields>
         <fields>Business_Unit__c</fields>
         <fields>Offered_Service__c</fields>
         <fields>Metro_Rural__c</fields>
         <fields>Category__c</fields>
-        <fields>Province__c</fields>
+        <fields>State__c</fields>
         <relatedList>Dealer_Locator__c.Dealer_Name__c</relatedList>
     </relatedLists>
     <relatedLists>
