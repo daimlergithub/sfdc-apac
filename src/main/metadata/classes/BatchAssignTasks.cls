@@ -43,6 +43,7 @@ global class BatchAssignTasks implements Database.Batchable<sObject>{
         Map<Id, Id> ssiOwnerMap = new Map<Id, Id>();
         for (Task tk : scope) {
             if (tk.WhatId != null && tk.What.Type == 'SSI__c') {
+            system.debug('>>>>> tk.WhatId >>> in If >>>'+tk.WhatId);
                 ssiIds.add(tk.WhatId);
                 ssiOwnerMap.put(tk.WhatId, tk.OwnerId);
                 String tkid = tk.Id;
@@ -50,6 +51,7 @@ global class BatchAssignTasks implements Database.Batchable<sObject>{
                 assignTaskIds.add(tkid); 
             //ADD START Shuang Li US-SMART_SSI-007
             }else if(tk.WhatId != null && tk.What.Type == 'smart_SSI__c') {
+            system.debug('>>>>> tk.WhatId >>> in elseIf >>>'+tk.WhatId);            
                 ssiOwnerMap.put(tk.WhatId, tk.OwnerId);
                 String tkid = tk.Id;
                 tkid = tkid.length() > 15 ? tkid.subString(0, 15) : tkid;
@@ -61,7 +63,9 @@ global class BatchAssignTasks implements Database.Batchable<sObject>{
         if (ssiIds.size() > 0) {
             List<SSI__c> ssiList = [Select Id, OwnerId From SSI__c Where Id In :ssiIds];
             for (SSI__c ssiObj : ssiList) {
+            system.debug('@@@ ownerId '+ssiOwnerMap.get(ssiObj.Id));
                 ssiObj.OwnerId = ssiOwnerMap.get(ssiObj.Id);
+                
             }
             if (ssiList.size() > 0) {
                 update ssiList;

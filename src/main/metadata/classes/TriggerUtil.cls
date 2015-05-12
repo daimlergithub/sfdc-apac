@@ -14,11 +14,11 @@ public class TriggerUtil
     
     public static Boolean isTriggerEnabled(Trigger__c aTriggerInfo) 
     {
-	    if (aTriggerInfo != null) {
+        if (aTriggerInfo != null) {
             return aTriggerInfo.enabled__c;
-		}
+        }
         else {
-		    return true;
+            return true;
         }
     }
     
@@ -37,7 +37,7 @@ public class TriggerUtil
     
     public static Trigger__c getTriggerInfo(String aTriggerName) 
     {
-	    if (aTriggerName != null) {
+        if (aTriggerName != null) {
             for (Trigger__c triggerInfo : Trigger__c.getAll().values()) {
                 if (aTriggerName.equals(triggerInfo.Trigger_Name__c)) {
                     if (trigger.isAfter && !triggerInfo.after__c) {
@@ -58,10 +58,10 @@ public class TriggerUtil
                     return triggerInfo;
                 }
             }
-		}
+        }
         
         // If no corresonding data, just return null
-		return null;
+        return null;
     }
     
     public static TriggerHandlerIf getTriggerHandler(Trigger__c aTriggerInfo, String aTriggerName)

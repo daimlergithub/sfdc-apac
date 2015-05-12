@@ -60,7 +60,7 @@ Public class UtilTestData {
                 recordTypeMap.put(rt.Name + rt.SobjectType, rt.Id);
             }
         }
-        
+        system.debug('>>>> recordTypeMap >>>'+recordTypeMap);
         return recordTypeMap;
     }
     
@@ -213,8 +213,10 @@ Public class UtilTestData {
     }
     
     private static Sobject initiateSobject(Sobject so, String recordTypeName) {
+    system.debug('>>> before if >>> recordTypeName : '+recordTypeName);
         if (so instanceof Account) {
             if (recordTypeName == ACCOUNT_RT_PERSON_ACCOUNT) {
+            system.debug('>>> inside if >>> recordTypeName : '+recordTypeName);
                 initiatePersonAccount(so);
             }
             else if (recordTypeName == ACCOUNT_RT_DEALER) {
@@ -339,6 +341,8 @@ Public class UtilTestData {
         acc.Phone = acc.Phone == null ? '1234567' : acc.Phone;
         acc.Area_Code__c = '010';
         acc.Status__c = acc.Status__c == null ? '0=Customer' : acc.Status__c;
+        
+        system.debug('>>>> acc >>'+acc);
     }
 
     // Create Unsaved Contact

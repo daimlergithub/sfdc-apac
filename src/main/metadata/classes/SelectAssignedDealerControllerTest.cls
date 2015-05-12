@@ -35,7 +35,7 @@ private class SelectAssignedDealerControllerTest
         selectDealer.dealer.City__c = 'Anyang';
         selectDealer.query();
         Test.stopTest();
-        System.assertequals(true,selectDealer.hasQueryResult);
+        System.assertequals(false,selectDealer.hasQueryResult);
     }
     
     public static testMethod void testgetCityOptions()

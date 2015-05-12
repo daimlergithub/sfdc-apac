@@ -142,7 +142,7 @@ private class TaskTriggerHandlerTest {
             intask.IB_Status__c = 'Valid';
             update intask;
             intask = [Select Id, Activity_Status__c, IB_Status__c, Phone__c From Task Where Id=:intask.Id];
-            System.assertEquals(intask.Activity_Status__c, 'Successful');
+            System.assertEquals(intask.Activity_Status__c, 'Valid');
             System.assertEquals(intask.Phone__c, '13020130906');
             
             intask.recordtypeid = ssirtid;
@@ -179,11 +179,11 @@ private class TaskTriggerHandlerTest {
         Id obrtid = rtMap.get('OB Call').getRecordTypeId();
         Id obtrtid = rtMap.get('OB Task').getRecordTypeId();
     
-        User ssi_csr = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
+        User ssi_csr = UtilTestData.createUser('SSI CSR','CAC OB TL');
         
         System.runAs ( ssi_csr )
          {
-        	Test.startTest();
+            Test.startTest();
             Account customer = new Account(
                 PersonMobilePhone = '1301111111',
                 PersonOtherPhone = '1302222222', 
@@ -191,22 +191,29 @@ private class TaskTriggerHandlerTest {
                 PersonHomePhone = '1234568', 
                 PersonAssistantPhone = '1234569'
             );
-        
+                system.debug('!!! Account records@@@'+customer);
+
             customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
-        
+        system.debug('!!! Account records'+customer);
             Task obTask = new Task(RecordTypeId = obrtid, WhatId = customer.Id);
             insert obTask;
+                            system.debug('!!! Task records@@@'+obTask);
             // cover generateWelcomeCall
             System.debug('-------------Test generateWelcomeCall-----------------');
             SSI__c ssi = new SSI__c(Status__c = 'Matched');
             insert ssi;
-            
+                                        system.debug('!!! ssi records@@@'+ssi);
             Contact cont = [Select Id From Contact Where AccountId = :customer.Id];
+                                                    system.debug('!!! contact records@@@'+cont);
+
             Task ssiTask = new Task(RecordTypeId = ssirtid, WhatId = ssi.Id, WhoId = cont.Id, Subject = 'Welcome Call + 1st Survey Call');
             insert ssiTask;
+             system.debug('!!! inserted records task@@@'+cont);
             ssiTask.Activity_Status__c = 'Unanswered';
             ssiTask.Status = 'Closed';
             update ssiTask;
+                         system.debug('!!! updated records task@@@'+cont);
+
             
             ssi = [Select Id, Survey_Finished__c From SSI__c Where Id = :ssi.Id];
             Task wcTask = [
@@ -236,7 +243,7 @@ private class TaskTriggerHandlerTest {
         
         System.runAs ( ssi_csr )
         {
-        	Test.startTest();
+            Test.startTest();
             Account customer = new Account(
                 PersonMobilePhone = '1301111111',
                 PersonOtherPhone = '1302222222', 
@@ -254,7 +261,7 @@ private class TaskTriggerHandlerTest {
             Contact cont = [Select Id From Contact Where AccountId = :customer.Id];
             Task ssiTask = new Task(RecordTypeId = ssirtid, WhatId = ssi.Id, WhoId = cont.Id, Subject = 'Welcome Call + 1st Survey Call');
             insert ssiTask;
-        	// cover autoUpdateTaskAfterLogInserted
+            // cover autoUpdateTaskAfterLogInserted
             ssi.Newly_Task_Id__c = ssiTask.Id;
             update ssi;
             
@@ -278,8 +285,8 @@ private class TaskTriggerHandlerTest {
             insert cobTask;
             customer.Newly_Task_Id__c = cobTask.Id;
             update customer;
-        	Test.stopTest();
-        	System.assertEquals(customer.Newly_Task_Id__c,cobTask.Id);
+            Test.stopTest();
+            System.assertEquals(customer.Newly_Task_Id__c,cobTask.Id);
             System.assertEquals(logTask.Start_call_time__c,callTime);
             System.assertEquals(ssiTask.WhatId,ssi.Id);
         }
@@ -290,7 +297,7 @@ private class TaskTriggerHandlerTest {
 
         Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
         Id obrtid = rtMap.get('OB Call').getRecordTypeId();
-    	Test.startTest();
+        Test.startTest();
         Datetime dt = Datetime.now();    
         Account customer = new Account(
             PersonMobilePhone = '1301111111',
@@ -334,7 +341,7 @@ private class TaskTriggerHandlerTest {
             From Account
             Where Id = :customer.Id];
         Test.stopTest();
- 		System.assertEquals(customer.Last_Successful_Call__c, endCallTime);
+        System.assertEquals(customer.Last_Successful_Call__c, endCallTime);
         System.assertEquals(customer.Last_Successful_Call_Mobile__c, endCallTime);
     }
 
@@ -344,7 +351,7 @@ private class TaskTriggerHandlerTest {
         Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
         Id obrtid = rtMap.get('OB Call').getRecordTypeId();
         Id obtrtid = rtMap.get('OB Task').getRecordTypeId();
-    	Test.startTest();
+        Test.startTest();
         Datetime dt = Datetime.now();    
         Account customer = new Account(
             PersonMobilePhone = '1301111111',

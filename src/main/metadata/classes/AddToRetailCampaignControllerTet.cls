@@ -28,9 +28,9 @@ public class AddToRetailCampaignControllerTet
         insert dealer;   
         Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=1);     
         insert rc;        
-        User user1 = UtilTestData.createPortalUser('Dealer User','System Administrator');
-       // User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
-       User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and isActive = true limit 1];
+        User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
+        //User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and isActive = true limit 1];
 
         Case c1 = new Case(Vehicle_Relationship__c = vrData1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
                           Case_SubType__c='Dealer-after sales service attitude', Case_Dealer__c = portalUser1.AccountId,Retail_Campaign__c=rc.Id,Case_Status__c = 'Accepted');

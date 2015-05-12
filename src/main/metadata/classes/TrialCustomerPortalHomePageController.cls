@@ -15,23 +15,27 @@ public class TrialCustomerPortalHomePageController {
    public String previousSortField3 {get; set;}
    public String sortField4 {get; set;}
    public String previousSortField4 {get; set;}
+   public String sortField5 {get; set;}
+   public String previousSortField5 {get; set;}
+   public String sortField6 {get; set;}
+   public String previousSortField6 {get; set;}
             
    public TrialCustomerPortalHomePageController() {
-        MyRegisteredProducts = [select id,Name,SerialNumber,InstallDate,UsageEndDate,Status 
+        MyRegisteredProducts = [select id,Name,SerialNumber,InstallDate,UsageEndDate,Status ,CreatedById
                                 from Asset 
                                 where ContactId = :loggedInUser.ContactId 
                                 order by SerialNumber desc limit 3];
         
-        MyRecentCases = [select id,CaseNumber,Subject,Status,LastModifiedDate 
+        MyRecentCases = [select id,CaseNumber,Subject,Status,LastModifiedDate ,CreatedById
                          from Case 
                          where ContactId = :loggedInUser.ContactId 
                          order by LastModifiedDate desc limit 3];
         
-        TopSolutions = [select id,SolutionName,TimesUsed,LastModifiedDate 
+        TopSolutions = [select id,SolutionName,TimesUsed,LastModifiedDate,CreatedById 
                         from Solution 
                         order by TimesUsed desc limit 3];
                               
-        PopularIdeas = [select id,Title,Categories,VoteTotal 
+        PopularIdeas = [select id,Title,Categories,VoteTotal,CreatedById 
                         from Idea 
                         order by VoteTotal desc limit 3];
    }
