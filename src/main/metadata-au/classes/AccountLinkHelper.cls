@@ -1,5 +1,8 @@
 public class AccountLinkHelper
 {
+	private static final String CUSTOMER_TYPE = 'Customer', SERVICE_TYPE = 'Service', PROSPECT_TYPE = 'Prospect';
+    private static final String NO_TYPE = 'The imported relationship has no type';
+    
 	public static string nameParsing(string name)
     {
     	String crmCode;
@@ -10,4 +13,91 @@ public class AccountLinkHelper
         }
         return crmCode;    
     }
+    //Existing AU Functionality starts here.
+    public static void auBefore_Insert_Events(list<Account_Link__c> listALNew)
+    {
+    	List<Account_Link__c> cdrs = new List<Account_Link__c>();
+	    for(Account_Link__c cdr : listALNew){
+	        if(cdr.toRole__c == null || cdr.fromRole__c == null){
+	            cdr.addError('Customer or Dealer must be provided!');
+	        }
+	        else{
+	            cdrs.add(cdr);
+	        }
+	    }
+	    if(cdrs!=null && !cdrs.isEmpty()){
+	        preventRelationshipSaving(cdrs);
+	    }
+    }
+    
+     public static void preventRelationshipSaving(List<Account_Link__c> relationships){
+        
+        Map<String, Account_Link__c> existentRelationships = getAllExistentRelationships(relationships);
+        List<Account_Link__c> removedRelationships = new List<Account_Link__c>();
+        
+        //TODO commented : Type__c doesn't exist.
+        /*for(Account_Link__c rel : relationships){
+            if(String.isBlank(rel.Type__c)){
+                rel.addError(NO_TYPE);
+                continue;
+            }
+            
+            String index = getIndex(rel);
+            if(existentRelationships.containsKey(index)){
+                Account_Link__c existentRel = existentRelationships.get(index);
+                if(isHigherPriority(existentRel.Type__c, rel.Type__c)){
+                    rel.Type__c = existentRel.Type__c;
+                }
+            }
+        }*/
+        
+        if(existentRelationships!=null && !existentRelationships.isEmpty()){
+            delete existentRelationships.values();
+        }
+    }
+    
+    /**
+     *  Finds all existent customer dealer relationships according to the new relationships, Maps with customer ID and Dealer ID.
+     */
+    private static Map<String, Account_Link__c> getAllExistentRelationships(List<Account_Link__c> relationships){
+        Set<String> customerIds = new Set<String>();
+        Set<String> dealerIds = new Set<String>();
+        
+        for(Account_Link__c item : relationships){
+            customerIds.add(item.toRole__c);
+            dealerIds.add(item.fromRole__c);
+        }
+        
+        Map<String, Account_Link__c> resultMap = new Map<String, Account_Link__c>();
+        for(Account_Link__c item : [select Id, toRole__c, fromRole__c
+                                                    from Account_Link__c
+                                                    where toRole__c in :customerIds and fromRole__c in :dealerIds]){
+            String index = getIndex(item);
+            if(resultMap.containskey(index)){
+            }
+            else{
+                resultMap.put(index, item);
+            }
+        }
+        return resultMap;
+    }
+    
+    private static String getIndex(Account_Link__c relationship){
+        String cid = relationship.toRole__c, did = relationship.fromRole__c;
+        return cid.substring(0, 15) + ';' + did.substring(0, 15);
+    }
+    
+    private static Boolean isHigherPriority(String one, String two){
+        if(two == CUSTOMER_TYPE){
+            return false;
+        }
+        if(one == CUSTOMER_TYPE){
+            return true;
+        }
+        if(one > two){
+            return true;
+        }
+        return false;
+    }
+    //Existing AU Functionality ends here.
 }
