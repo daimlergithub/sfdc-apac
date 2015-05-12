@@ -28,7 +28,7 @@ public class TaskHelper {
     private static String OBTaskRecordTypeId1 = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Task').getRecordTypeId();
     private static String WelcomeCallRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
     private static String MMSTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('MMS').getRecordTypeId();
-    private static String GeneralTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId();
+   // private static String GeneralTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId();
     private static String mbdaTaskRecordTypeId = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('MBDA Survey').getRecordTypeId();
     
     private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
@@ -114,7 +114,7 @@ public class TaskHelper {
                 contactIds.add(t.WhoId);
                 templateIds.add(t.SMSTemplateID__c);
             }
-            if(t.Subject == 'Your annual plan has been approved' || 
+         /*   if(t.Subject == 'Your annual plan has been approved' || 
             t.Subject == 'Submit your annual plan needs to be adjusted to' || 
             t.Subject == 'Your project has been approved' || 
             t.Subject == 'After adjusting your project needs to resubmit' || 
@@ -130,7 +130,7 @@ public class TaskHelper {
             t.Subject == 'You need to adjust Toolbox feedback to resubmit' || 
             t.Subject == 'Toolbox has been produced' ){
                 t.RecordTypeId = GeneralTaskRecordTypeId;
-            }
+            } */
             // Add By Chaos for MBDA START
             if(t.Subject == 'MBDA Survey Task Temp'){
                 t.Subject = 'MBDA Survey Task';
@@ -374,10 +374,10 @@ public class TaskHelper {
             }
             
             for(Task t : tasks) {
-	            //When QC Quantity is changed, insert IB/OB QC records.
-	            if(t.QC_Quantity__c > 0 && (taskOldMap.get(t.Id).QC_Quantity__c == 0 || taskOldMap.get(t.Id).QC_Quantity__c == null)) {
-	                taskforGenerateQC.add(t);
-	        }
+                //When QC Quantity is changed, insert IB/OB QC records.
+                if(t.QC_Quantity__c > 0 && (taskOldMap.get(t.Id).QC_Quantity__c == 0 || taskOldMap.get(t.Id).QC_Quantity__c == null)) {
+                    taskforGenerateQC.add(t);
+            }
         }
         
         
