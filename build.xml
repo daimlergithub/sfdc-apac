@@ -42,7 +42,7 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
 	</target>
 	
-	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy32, deploy35, deploy40, postDestructiveChanges">
+	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy15, deploy20, deploy21, deploy25, deploy30, deploy32, deploy35, deploy40, postDestructiveChanges">
 		<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
@@ -109,13 +109,8 @@
 			    <sf:include name="Contact"/>
 				<sf:include name="PersonAccount"/>
 				<sf:include name="Account"/>
-			</sf:typeset>
-		</deploy>
-    </target>
-
-	<target name="deploy10">
-		<deploy>
-			<sf:typeset name="objects">
+				<sf:include name="Campaign"/>
+				<sf:include name="CampaignMember"/>				
 			    <sf:include name=".*__c"/>
 				<sf:exclude name="Picklist_Mapping__c"/>
 				<sf:exclude name="Integration_Picklist__c"/>
@@ -132,14 +127,6 @@
 				<sf:exclude name="SurveyQuestionResponse__c"/>
 				<sf:exclude name="Survey_Question__c"/>
 				<sf:exclude name="Contract_Relation__c"/>
-			</sf:typeset>
-		</deploy>
-    </target>
-	
-	<target name="deploy12">
-		<deploy>
-			<sf:typeset name="objects">
-				<sf:include name="Campaign"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -164,6 +151,8 @@
 				<sf:include name="SurveyTaker__c"/>
 				<sf:include name="SurveyQuestionResponse__c"/>
 				<sf:include name="Survey_Question__c"/>
+				<sf:exclude name="Contract_Relation__c"/>
+				<sf:exclude name="CampaignMember"/>
 			</sf:typeset>
 		</deploy>
     </target>
