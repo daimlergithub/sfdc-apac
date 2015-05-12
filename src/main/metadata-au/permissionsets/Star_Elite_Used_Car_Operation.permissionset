@@ -15640,9 +15640,5 @@ Star Elite Account Owner</description>
         <tab>standard-StreamingChannel</tab>
         <visibility>None</visibility>
     </tabSettings>
-    <tabSettings>
-        <tab>standard-UserProvisioningRequest</tab>
-        <visibility>None</visibility>
-    </tabSettings>
     <userLicense>Salesforce</userLicense>
 </PermissionSet>
