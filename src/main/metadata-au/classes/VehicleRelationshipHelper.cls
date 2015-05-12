@@ -135,7 +135,7 @@ public with sharing class VehicleRelationshipHelper {
         }     
         return currentRoleIds;
     }
-    
+    //Existing Au Functionality satrts from here
     //Get vehiches Vehicle_Group__c by vehicle id
     public static Map<id,Vehicle__c> getVehichles(set<Id> ids){
         return new Map<id,Vehicle__c>(
@@ -213,4 +213,35 @@ public with sharing class VehicleRelationshipHelper {
           UtilDB.updateSobjects(accounts.values());
     }     
     
+    public static void auAfter_Insert_Update_Events(list<Vehicle_Relationship__c> listVRNew,boolean isInsert)
+    {
+    	Set<Id> vehicleIds = new Set<Id>();
+	    Set<Id> customerIds = new Set<Id>();
+	    List<Vehicle_Relationship__c> insertCvrs = new List<Vehicle_Relationship__c>();
+	    
+	    for(Vehicle_Relationship__c cvr : listVRNew) {
+	        if(isInsert){
+	            // Make sure the vehicle id not null
+	            if (null == cvr.Vehicle_ID__c){
+	                cvr.addError('Please select the vehicle Id !');
+	                return;
+	            }
+	            
+	            if (!customerIds.contains(cvr.Contact__c)){
+	                customerIds.add(cvr.Contact__c);
+	            }
+	                        
+	            if (!vehicleIds.contains(cvr.Vehicle_ID__c)){
+	                vehicleIds.add(cvr.Vehicle_ID__c);
+	            }
+	            
+	            insertCvrs.add(cvr);
+	        }
+	    }
+	    //US_AU-CD-001 & 002 & 001.1 & 002.1
+	    if(customerIds!=null && !customerIds.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()){
+	        updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs);
+	    }
+    }
+    //Existing Au functionality ends here    
 }
