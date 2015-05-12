@@ -38,13 +38,16 @@ public class TriggerVehicleRelationshipTriggerHandler
             
             //ISSUE-0757
             VehicleRelationshipHelper.shareVR(Trigger.new);
+            //Existing au functionality
+            VehicleRelationshipHelper.auAfter_Insert_Update_Events(Trigger.new,trigger.isinsert);
         }
         if(trigger.isAfter && trigger.isUpdate)
         {
             AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
             handler.shareAccountByRetailVR(newMap, oldMap, Trigger.isInsert);
-            //
             UtilVehicleRelationship.updateVehicle(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);
+            //Existing au functionality
+            VehicleRelationshipHelper.auAfter_Insert_Update_Events(Trigger.new,trigger.isinsert);
         }
     }
 }
