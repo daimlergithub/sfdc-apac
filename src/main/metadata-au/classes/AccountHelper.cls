@@ -82,7 +82,7 @@ public class AccountHelper {
     // For the new company with inserting or updating.
     public static void auBefore_Insert_Update_Events(List<Account> listAccounts,map<Id,Account> oldAccountMap, boolean isUpdate)
     {
-    	for(Account acc : listAccounts){
+        for(Account acc : listAccounts){
         //US_AU-CD-001 No.7, US_AU-002
         if (RECORD_TYPE_SET.contains(acc.RecordTypeId)){
             acc = updateDisplayName(acc);
@@ -125,11 +125,11 @@ public class AccountHelper {
     if(!newCompanyIds.isEmpty()){
         cancelPrimaryContact(newCompanyIds, personIds);
     }
-	}
-	
-	 //US-CD-001 #7. update field "Display Name"
+    }
+    
+     //US-CD-001 #7. update field "Display Name"
     public static Account updateDisplayName(Account acc){
-    	
+        
         if (String.isblank(acc.Partner_Surname__c)) {
             //if no partner information available than <Customer Title> < First Name> <Surname> <Suffix>
             acc.Display_Name__c = 
@@ -226,72 +226,72 @@ public class AccountHelper {
     
     public static void auAfter_Insert_Update_Delete_Events(map<id,Account> accountNewMap,map<id,Account> accountOldMap,list<Account> listNewAccounts,list<Account> listOldAccounts,boolean isInsert,boolean isDelete,boolean isUpdate)
     {
-    	Set<String> companyIds = new Set<String>();
-	    Set<Id> dealerIds = new Set<Id>();
-	    List<AccountContactRole> AccountContactRoles = new List<AccountContactRole>();
-	    Set<Id> personAccountIds = new Set<Id>();
-	    Map<Id, Id> personAccountIdcontactId = new Map<Id, Id>();
-	    AccountContactRole temp;
-	    
-	    if(isDelete || isUpdate) {
-	        for(Account item : listOldAccounts){
-	            if(item.isPersonAccount && item.Primary__pc && item.Company__c != null){
-	                if(isDelete){
-	                    companyIds.add(item.Company__c);
-	                }
-	                if(isUpdate && item.Company__c != accountNewMap.get(item.Id).Company__c){
-	                    companyIds.add(item.Company__c);
-	                }
-	            }
-	        }
-	    }
-	    
-	    if(isInsert) {
-	        for(Account item : listNewAccounts){
-	            if(item.isPersonAccount && item.Company__c != null){
-	                personAccountIds.add(item.Id);
-	            }
-	        }
-	    }
-	    
-	    if(!personAccountIds.IsEmpty()) {
-	        for(Contact con : [select Id, AccountId from Contact where AccountId in :personAccountIds]) {
-	            personAccountIdcontactId.put(con.AccountId, con.Id);
-	        }
-	    }
-	    
-	    if(isInsert) {
-	        for(Account item : listNewAccounts){
-	            if(item.isPersonAccount && item.Company__c != null && personAccountIdcontactId.containsKey(item.Id)){
-	                temp = new AccountContactRole();
-	                temp.AccountId = item.Company__c;
-	                temp.ContactId = personAccountIdcontactId.get(item.Id);
-	                temp.Role = item.Job_Title__c;
-	                AccountContactRoles.add(temp);
-	            }
-	        }
-	    }
-	
-	    if(isUpdate){
-	        String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-	        for(Account item : listNewAccounts){
-	            if(item.RecordTypeId == dealerRecordTypeId && !item.Dealer_Active__c && accountOldMap.get(item.Id).Dealer_Active__c) {
-	                dealerIds.add(item.Id);
-	            }
-	        }
-	    }
-	    
-	    if(!companyIds.IsEmpty()){
-	        flagPrimaryContact(companyIds);
-	    }
-	    
-	    if(!dealerIds.IsEmpty()){
-	        deleteDealerLocators(dealerIds);
-	    }
-	    
-	    if(!AccountContactRoles.IsEmpty()) {
-	        insert AccountContactRoles;
-	    }
+        Set<String> companyIds = new Set<String>();
+        Set<Id> dealerIds = new Set<Id>();
+        List<AccountContactRole> AccountContactRoles = new List<AccountContactRole>();
+        Set<Id> personAccountIds = new Set<Id>();
+        Map<Id, Id> personAccountIdcontactId = new Map<Id, Id>();
+        AccountContactRole temp;
+        
+        if(isDelete || isUpdate) {
+            for(Account item : listOldAccounts){
+                if(item.isPersonAccount && item.Primary__pc && item.Company__c != null){
+                    if(isDelete){
+                        companyIds.add(item.Company__c);
+                    }
+                    if(isUpdate && item.Company__c != accountNewMap.get(item.Id).Company__c){
+                        companyIds.add(item.Company__c);
+                    }
+                }
+            }
+        }
+        
+        if(isInsert) {
+            for(Account item : listNewAccounts){
+                if(item.isPersonAccount && item.Company__c != null){
+                    personAccountIds.add(item.Id);
+                }
+            }
+        }
+        
+        if(!personAccountIds.IsEmpty()) {
+            for(Contact con : [select Id, AccountId from Contact where AccountId in :personAccountIds]) {
+                personAccountIdcontactId.put(con.AccountId, con.Id);
+            }
+        }
+        
+        if(isInsert) {
+            for(Account item : listNewAccounts){
+                if(item.isPersonAccount && item.Company__c != null && personAccountIdcontactId.containsKey(item.Id)){
+                    temp = new AccountContactRole();
+                    temp.AccountId = item.Company__c;
+                    temp.ContactId = personAccountIdcontactId.get(item.Id);
+                    temp.Role = item.Job_Title__c;
+                    AccountContactRoles.add(temp);
+                }
+            }
+        }
+    
+        if(isUpdate){
+            String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+            for(Account item : listNewAccounts){
+                if(item.RecordTypeId == dealerRecordTypeId && !item.Dealer_Active__c && accountOldMap.get(item.Id).Dealer_Active__c) {
+                    dealerIds.add(item.Id);
+                }
+            }
+        }
+        
+        if(!companyIds.IsEmpty()){
+            flagPrimaryContact(companyIds);
+        }
+        
+        if(!dealerIds.IsEmpty()){
+            deleteDealerLocators(dealerIds);
+        }
+        
+        if(!AccountContactRoles.IsEmpty()) {
+            insert AccountContactRoles;
+        }
     }
     
      // US_AU-CD-004: flag the primary contact.
@@ -346,7 +346,7 @@ public class AccountHelper {
     
     //US-CD-001, US-CD-002 Get pc status and cv status by customerIds
     public static Map<id,Account> getCustomerInfos(set<Id> ids){
-    	//TODO
+        //TODO
         return new Map<id,Account>([
                select id,
                        PC_Status__c,
