@@ -31,10 +31,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>How_old_are_they__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Area_Code__c</field>
             </layoutItems>
             <layoutItems>
@@ -64,14 +60,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Fleet_Category__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Second_Make__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Third_Make__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
