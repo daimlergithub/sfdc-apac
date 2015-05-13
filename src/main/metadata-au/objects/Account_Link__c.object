@@ -685,7 +685,7 @@
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Customer_External_Link</fullName>
+        <fullName>ExternalLink</fullName>
         <active>true</active>
         <label>Customer External Link</label>
         <picklistValues>
