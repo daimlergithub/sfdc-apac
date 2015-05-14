@@ -11924,55 +11924,15 @@ Modify Reason:
         <fullName>Origin</fullName>
         <picklist>
             <picklistValues>
-                <fullName>Central CAC</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Hotline</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>mail/fax/email</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealership Walk-in</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CSI survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SSI survey</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Walk-in</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Legal Attested Letter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Via MB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Government Authority</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Via Cooperate</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>From CAC</fullName>
+                <fullName>Web</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -12297,15 +12257,15 @@ Modify Reason:
         <fullName>Priority</fullName>
         <picklist>
             <picklistValues>
-                <fullName>Green &lt;= 2</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Yellow = 3</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Red &gt;= 4</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -19932,51 +19892,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealership Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government Authority</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hotline</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Legal Attested Letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SSI survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via Cooperate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via MB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>mail%2Ffax%2Femail</fullName>
+                <fullName>Web</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -20055,15 +19979,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green %3C%3D 2</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red %3E%3D 4</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow %3D 3</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -28824,51 +28748,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealership Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government Authority</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hotline</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Legal Attested Letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SSI survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via Cooperate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via MB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>mail%2Ffax%2Femail</fullName>
+                <fullName>Web</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -28947,15 +28835,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green %3C%3D 2</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red %3E%3D 4</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow %3D 3</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -38465,51 +38353,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealership Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government Authority</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hotline</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Legal Attested Letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SSI survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via Cooperate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via MB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>mail%2Ffax%2Femail</fullName>
+                <fullName>Web</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -38588,15 +38440,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green %3C%3D 2</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red %3E%3D 4</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow %3D 3</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -47957,51 +47809,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealership Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government Authority</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hotline</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Legal Attested Letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SSI survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via Cooperate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via MB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>mail%2Ffax%2Femail</fullName>
+                <fullName>Web</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -48080,15 +47896,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green %3C%3D 2</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red %3E%3D 4</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow %3D 3</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -57413,51 +57229,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealership Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government Authority</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hotline</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Legal Attested Letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SSI survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via Cooperate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via MB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>mail%2Ffax%2Femail</fullName>
+                <fullName>Web</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -57536,15 +57316,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green %3C%3D 2</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red %3E%3D 4</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow %3D 3</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -62754,43 +62534,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Government Authority</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hotline</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Legal Attested Letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SSI survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via Cooperate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via MB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>mail%2Ffax%2Femail</fullName>
+                <fullName>Web</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -62869,15 +62621,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green %3C%3D 2</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red %3E%3D 4</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow %3D 3</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -66883,51 +66635,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealership Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government Authority</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hotline</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Legal Attested Letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SSI survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via Cooperate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via MB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>mail%2Ffax%2Femail</fullName>
+                <fullName>Web</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -67006,15 +66722,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green %3C%3D 2</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red %3E%3D 4</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow %3D 3</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -75739,51 +75455,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Origin</picklist>
             <values>
-                <fullName>CSI survey</fullName>
+                <fullName>Email</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Central CAC</fullName>
+                <fullName>Phone</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealership Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Government Authority</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hotline</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Legal Attested Letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SSI survey</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via Cooperate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Via MB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Walk-in</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>mail%2Ffax%2Femail</fullName>
+                <fullName>Web</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -75862,15 +75542,15 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Priority</picklist>
             <values>
-                <fullName>Green %3C%3D 2</fullName>
+                <fullName>High</fullName>
                 <default>true</default>
             </values>
             <values>
-                <fullName>Red %3E%3D 4</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yellow %3D 3</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
