@@ -254,7 +254,10 @@
 				<sf:include name="Account.*"/>
 			</sf:typeset>			
 			<sf:typeset name="triggers"/>
-			<sf:typeset name="profiles"/>			
+			<sf:typeset name="profiles"/>
+			<sf:typeset name="approvalProcesses"/>
+			<sf:typeset name="email"/>
+			<sf:typeset name="workflows"/>			
 		</deploy>
     </target>
 	
