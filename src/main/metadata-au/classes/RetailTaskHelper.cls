@@ -1,0 +1,209 @@
+public with sharing class RetailTaskHelper {
+	
+	public static void au_After_Insert_Update_Events(list<Retail_Task__c> lstRTNew,map<id,Retail_Task__c> rtNewMap,map<id,Retail_Task__c> rtOldMap,boolean isInsert)
+	{
+		Set<ID> vehicleIds = new Set<ID>();
+	    Set<ID> customerIds = new Set<ID>();
+	    List<Retail_Task__c> insertCvrs = new List<Retail_Task__c>();
+	    
+	    // For US_AU-CD-019
+	    Set<String> contractIds = new Set<String>();
+	    
+	    for(Retail_Task__c cvr : lstRTNew) {
+	        if(isInsert){
+	            customerIds.add(cvr.Account__c);
+	            vehicleIds.add(cvr.Related_Vehicle__c);
+	            insertCvrs.add(cvr);
+	        }
+	        contractIds.add(cvr.Id);
+	    }
+	    
+	    // US_AU-CD-001 & 2 No.11
+	    if(customerIds.size()>0 && vehicleIds.size()>0){
+	        updataWhenCreateCCR(vehicleIds, customerIds, insertCvrs);
+	    }
+	    
+	    // US_AU-CD-019, If the borrower is company, create a Company Individual Relationship.
+	    if(contractIds.size() > 0){
+	        createCompanyIndividualRelationship(contractIds);
+	    }
+	
+	    // Added by Polaris Yu 2013-8-23; For User Story: 
+	    //    US_AU-Lead-011, US_AU-Lead-012
+	    if(Trigger.isUpdate){
+	        // Auto create leads for contracts at 150 days before the
+	        //    end date
+	        autoCreateLeads(rtNewMap, rtOldMap);
+	    }
+	}
+	
+	//US-CD-001
+    //Get vehiches Vehicle_Group__c by vehicle id
+    public static Map<id,Vehicle__c> getVehichles(set<Id> ids){
+        return new Map<id,Vehicle__c>(
+        [select id,
+               Vehicle_Group__c
+        from Vehicle__c 
+        where Id in :ids]);
+    }
+       
+    //US-CD-001 No.11
+    //When PA gets a Customer_Contract_Relationship__c
+    public static void updataWhenCreateCCR(Set<Id> vehicleIds ,Set<Id> customerIds, List<Retail_Task__c> cvrs){
+        // Modified by Polaris Yu 2013-10-22, changed 'List<Account>' to 'Set<Account>'
+        List<Account> accounts = new List<Account>();
+
+        Map<id,Account> accs = AccountHelper.getCustomerInfos(customerIds);
+        Map<id,Account> accountsForUpdate = new Map<id,Account>();
+        Map<id,Vehicle__c> vehichles = getVehichles(vehicleIds);
+        for(Retail_Task__c curCcr: cvrs){
+            if(!String.isblank(curCcr.Account__c)){
+                Account acc = accs.get(curCcr.Account__c);
+                if(vehichles.get(curCcr.Related_Vehicle__c) != null){
+                    if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'PC' ){
+                        if(acc.PC_Status__c == 'Customer'){
+                           continue;
+                        }else{
+                           acc.PC_Status__c = 'Customer';
+                        }
+                    }
+                    if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'CV'){
+                        if(acc.CV_Status__c == 'Customer'){
+                           continue;
+                        }else{
+                           acc.CV_Status__c = 'Customer';
+                        }
+                    }
+                    if (vehichles.get(curCcr.Related_Vehicle__c).Vehicle_Group__c == 'Van'){
+                        if(acc.VAN_Status__c == 'Customer'){
+                           continue;
+                        }else{
+                           acc.VAN_Status__c = 'Customer';
+                        }
+                    }
+                }
+                accountsForUpdate.put(acc.Id, acc);
+            }
+        }
+        
+        DBUtil.updateSobjects(accountsForUpdate.values());
+        // End of Added Part, Polaris Yu 2013-10-22
+    }    
+    
+    // For US-CD-019 NO.2
+    public static void createCompanyIndividualRelationship(Set<String> contractIds){
+        List<Account> personAccounts = new List<Account>();
+        //Barney lai 2014-3-13 start
+        Map<Id, Account> idPersonAccounts = new Map<Id, Account>();
+        //Barney lai 2014-3-13 end
+        for(Retail_Task__c contract : [select Account__c, Signer__c, Account__r.RecordType.Name, Signer__r.Company__c
+                                 from Retail_Task__c where Id in :contractIds]){
+            if(contract.Account__r.RecordType.Name == 'Company' && contract.Signer__c != null){
+                contract.Signer__r.Company__c = contract.Account__c;
+                //Barney lai 2014-3-13 start
+                idPersonAccounts.put(contract.Signer__r.id, contract.Signer__r);
+                //Barney lai 2014-3-13 end
+            }
+        }
+        //Barney lai 2014-3-13 start
+        personAccounts = idPersonAccounts.values();
+        //Barney lai 2014-3-13 end
+        update personAccounts;
+    }
+
+    // Auto Create Leads
+    // Added by Polaris Yu 2013-8-23; For User Story: 
+    //    US_AU-Lead-011, US_AU-Lead-012
+    public static void autoCreateLeads(Map<Id, Retail_Task__c> newMap
+        , Map<Id, Retail_Task__c> oldMap){
+        // Select the contracts that the '*150 Days Before EOC'
+        //    field of which are updated to TRUE
+        List<Retail_Task__c> finCntrctList = new List<Retail_Task__c>();
+        List<Retail_Task__c> fltCntrctList = new List<Retail_Task__c>();
+        Date today = Date.Today();
+        for(Id curCntrctId : newMap.keySet()){
+            if((oldMap.get(curCntrctId).X150_Days_Before_EOC__c
+                != newMap.get(curCntrctId).X150_Days_Before_EOC__c)
+                && newMap.get(curCntrctId).X150_Days_Before_EOC__c == TRUE && newMap.get(curCntrctId).EndDate__c > today){
+                if(newMap.get(curCntrctId).Fleet__c == TRUE){
+                    fltCntrctList.add(newMap.get(curCntrctId));
+                }
+                else{
+                    finCntrctList.add(newMap.get(curCntrctId));
+                }
+            }
+        }
+
+        List<Lead__c> newLeadList = new List<Lead__c>();
+        // Create finance leads based on the non-fleet contracts
+        if(finCntrctList.size() > 0){
+            // Get the finance lead record type information
+            RecordType financeLdRT = [SELECT Id, Name FROM RecordType
+                                      WHERE Name = 'Finance Lead'];
+            if(financeLdRT != null){
+                for(Retail_Task__c curCntrct : finCntrctList){
+                    Lead__c newLead = new Lead__c();
+                    newLead.RecordTypeId = financeLdRT.Id;
+                    newLead.Existing_Contract__c = curCntrct.Id;
+                    newLead.Nature_of_Request__c = 'End of Contract';
+                    newLead.OwnerId = curCntrct.OwnerId;
+                    newLead.CAC_Lead_Status__c = 'New Enquiry';
+                    newLead.Lead_Source__c = 'End of Contract';
+                    newLead.Contact__c = curCntrct.Account__c;
+                    newLead.Assigned_Dealer__c = curCntrct.Related_Dealer__c;
+                    newLead.Is_Finance_Send_Email_Before_150_Days__c = true;
+                    //TODO
+                    //newLead.CMS_Contract_Number__c = curCntrct.Contract_Id__c;
+                    //TODO
+                    //newLead.Vehicle__c = curCntrct.Vehicle__c;
+                    newLeadList.add(newLead);
+                }
+            }
+        }
+
+        // Create fleet leads based on the fleet contracts
+        if(fltCntrctList.size() > 0){
+            // Get the fleet lead record type information
+            RecordType fleetLdRT = [SELECT Id, Name FROM RecordType
+                                    WHERE Name = 'Fleet Lead'];
+            if(fleetLdRT != null){
+                for(Retail_Task__c curCntrct : fltCntrctList){
+                    Lead__c newLead = new Lead__c();
+                    newLead.RecordTypeId = fleetLdRT.Id;
+                    newLead.Existing_Contract__c = curCntrct.Id;
+                    newLead.Nature_of_Request__c = 'End of Contract';
+                    newLead.OwnerId = curCntrct.OwnerId;
+                    newLead.CAC_Lead_Status__c = 'New Enquiry';
+                    newLead.Lead_Source__c = 'End of Contract';
+                    newLead.Company_Account__c = curCntrct.Account__c;
+                    newLead.Assigned_Dealer__c = curCntrct.Related_Dealer__c;
+                    newLead.Business_Unit__c = 'Fleet';
+                    newLead.Sub_BusinessUnit__c = 'Finance';
+                    newLead.Is_Fleet_Send_Email_Before_150_Days__c = true;
+                    //TODO
+                    //newLead.CMS_Contract_Number__c = curCntrct.Contract_Id__c;
+                    //TODO
+                    //newLead.Vehicle__c = curCntrct.Vehicle__c;
+                    newLeadList.add(newLead);
+                }
+            }
+        }
+
+        // Insert the new leads into the system
+        if(newLeadList.size() > 0){
+            try{
+                insert newLeadList;
+                
+                // Send email notifications to corresponding recipients
+                //US_AU_CR-000171 Modified by Bing Start
+                //LeadHelper.sendEOCEmailNotifications(newLeadList);
+                LeadHelper.send171Email(newLeadList);
+                //US_AU_CR-000171 Modified by Bing End
+            }
+            catch(DMLException e){
+                Trigger.new[0].addError('Error: ' + e);
+            }
+        }
+    }
+    // End of added part, Polaris Yu 2013-8-23
+}

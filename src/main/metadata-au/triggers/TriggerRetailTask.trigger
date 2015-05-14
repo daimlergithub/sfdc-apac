@@ -7,7 +7,7 @@
 ** Created By: CC
 ** Date: 2014-6-15
 **/
-trigger TriggerRetailTask on Retail_Task__c (after insert) 
+trigger TriggerRetailTask on Retail_Task__c (after insert,after update) 
 {
     TriggerUtil.handleTrigger('TriggerRetailTask');
 }

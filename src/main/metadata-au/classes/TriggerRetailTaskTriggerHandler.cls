@@ -16,8 +16,16 @@ public class TriggerRetailTaskTriggerHandler
         Map<Id,Retail_Task__c> newmap = (Map<Id,Retail_Task__c>)trigger.newmap;
         
         if(Trigger.isInsert && Trigger.isAfter){
+        	/*TODO -commented need to add trigger switching mechanism
             RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();
-            SharingService.shareRetailTasks(wrapService.wrapRetailTasks(Trigger.new));
+            SharingService.shareRetailTasks(wrapService.wrapRetailTasks(Trigger.new));*/
+            
+            //existing au functionality
+            RetailTaskHelper.au_After_Insert_Update_Events(trigger.new,newmap,oldmap,Trigger.isInsert);
+        }
+        //existing au functionality
+        if(Trigger.isUpdate && Trigger.isAfter){
+            RetailTaskHelper.au_After_Insert_Update_Events(trigger.new,newmap,oldmap,Trigger.isInsert);
         }
     }
 }
