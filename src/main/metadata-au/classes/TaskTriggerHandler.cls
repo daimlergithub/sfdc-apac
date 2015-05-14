@@ -29,7 +29,8 @@ public class TaskTriggerHandler
     {
         if(trigger.isAfter && trigger.isInsert)
         {
-            if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
+        	//todo commented: need to add trigger wsitching mechanism
+            /*if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
                 TaskHelper.TaskFailBlacklist(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
             }
             
@@ -40,10 +41,12 @@ public class TaskTriggerHandler
             TaskTriggerHandler.updateAccountCallMessage((Map<Id,Task>)Trigger.newMap, (Map<Id,Task>)Trigger.oldMap);
             TaskTriggerHandler.autoUpdateTaskAfterLogInserted((Task)Trigger.new[0]);
             TaskTriggerHandler.autoUpdateAccountOBTaskMessage(Trigger.new);
-            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);     
+            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);*/     
         }
         if(trigger.isAfter && trigger.isUpdate)
         {
+        	//todo commented: need to add trigger wsitching mechanism
+            /*
             if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
                 TaskHelper.TaskFailBlacklist(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
             }
@@ -56,21 +59,29 @@ public class TaskTriggerHandler
             TaskTriggerHandler.autoUpdateTaskAfterLogInserted((Task)Trigger.new[0]);
             TaskTriggerHandler.autoUpdateSSISurveyStatus((Task)Trigger.new[0], (Task)Trigger.old[0]);
             TaskTriggerHandler.generateWelcomeCall((Task)Trigger.new[0], (Task)Trigger.old[0]);
-            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);*/
         }
         if(trigger.isBefore && trigger.isInsert)
         {
+        	//todo commented: need to add trigger wsitching mechanism
+            /*
              // Update Activity Status after new records created
             TaskTriggerHandler.taskFieldsUpdate(Trigger.new, (Map<Id,Task>)Trigger.oldMap);
             TaskHelper.Reply_TD_unsubscribeForeachSMScontent(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
-            TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+            TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);*/
+            //Existing AU functionality
+            TaskTriggerHandler.au_Before_Insert_Update_Events(Trigger.new,trigger.isinsert,trigger.isupdate);
         }
         if(trigger.isBefore && trigger.isUpdate)
         {
+        	//todo commented: need to add trigger wsitching mechanism
+            /*
             // Update Activity Status after new records created
             TaskTriggerHandler.taskFieldsUpdate(Trigger.new, (Map<Id,Task>)Trigger.oldMap);
             TaskHelper.Reply_TD_unsubscribeForeachSMScontent(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
-            TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+            TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);*/
+            //Existing AU functionality
+            TaskTriggerHandler.au_Before_Insert_Update_Events(Trigger.new,trigger.isinsert,trigger.isupdate);
         }
     }
     
@@ -610,4 +621,81 @@ public class TaskTriggerHandler
             }
         }
     }
+    
+    //Existing au functionality starts here
+    public static void au_Before_Insert_Update_Events(list<task> listTaskNew,boolean isInsert,boolean isUpdate)
+    {
+    	 if(isInsert || isUpdate){
+	        List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+	        for(Task task : listTaskNew) {
+	            if(task.ActivityDate != null){
+	                task.Notification_Email_Time__c = datetime.newInstance(task.ActivityDate, Time.newInstance(9, 0, 0, 0));
+	            }
+	            if(task.Notification_Email_Flag__c){
+	                User us = [Select Id, FirstName, LastName, Email From User Where Id = :task.OwnerId];
+	                Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+	                message.setSubject(task.Subject);
+	                message.setPlainTextBody('Due Task' +
+	                '\nTo:'+ us.FirstName + us.LastName + '\nPlease action this task!' + '\nSubject: ' + task.Subject + '\nPriority: ' + task.Priority + '\nFor more details, click the following link: \n' + 'https://c.ap1.visual.force.com/' + task.id);
+	                message.setToAddresses(new String[] {us.Email});
+	                message.setSaveAsActivity(false);
+	                task.Notification_Email_Flag__c = false;
+	                mails.add(message);
+	            }
+	        }
+	        if (mails.size() > 0) {
+	            try {
+	                Messaging.sendEmail(mails);
+	            }
+	            catch(Exception ex) {
+	                system.debug('Send Due Task Email Exception :' + ex.getMessage());
+	            }
+	        }
+	    }
+	    
+	    if(isInsert) {
+	        Set<Id> RECORD_TYPE_SET = new Set<Id> {
+	        Schema.SObjectType.Task.getRecordTypeInfosByName().get('Annual Call').getRecordTypeId(),
+	        Schema.SObjectType.Task.getRecordTypeInfosByName().get('EOC Call').getRecordTypeId(),
+	        Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId()
+	        };
+	        Set<Id> contractIds = new Set<Id>();
+	        for(Task task : listTaskNew) {
+	            if(RECORD_TYPE_SET.contains(task.RecordTypeId) && String.valueOf(task.WhatId).startswith('01I'))  {
+	                contractIds.add(task.WhatId);
+	            }
+	        }
+	        
+	        Map<Id, Retail_Task__c> contracts = new Map<Id, Retail_Task__c>([select Id, StartDate__c, EndDate__c, Dealer_Number__c,
+	                                                             Amount_Financed__c, Base_Interest_Rate__c, Campaign_Description__c, 
+	                                                             Duration__c, Dealer_Group__c, Direct_Debit_Authority__c, 
+	                                                             Finance_Brand__c, Finance_Product_Type__c, Franchise_Description__c,
+	                                                             Interest_Rate__c, Sub_Product__c, Product_Variation__c, Monthly_Repayment__c, 
+	                                                             Residual__c from Retail_Task__c where Id in :contractIds]);
+	        
+	        for(Task task : listTaskNew) {
+	            if(RECORD_TYPE_SET.contains(task.RecordTypeId) && contracts.containsKey(task.WhatId))  {
+	            	//TODO
+	                //task.Contract_Start_Date__c = contracts.get(task.WhatId).StartDate__c;
+	                //task.Contract_End_Date__c = contracts.get(task.WhatId).EndDate__c;
+	                task.Dealer_Name__c = contracts.get(task.WhatId).Dealer_Number__c;
+	                //task.Amount_Financed__c = contracts.get(task.WhatId).Amount_Financed__c;
+	                //task.Base_Interest_Rate__c = contracts.get(task.WhatId).Base_Interest_Rate__c;
+	                //task.Campaign_Description__c = contracts.get(task.WhatId).Campaign_Description__c;
+	                //task.Contract_Term_months__c = contracts.get(task.WhatId).Duration__c;
+	                //task.Dealer_Group__c = contracts.get(task.WhatId).Dealer_Group__c;
+	                //task.Direct_Debit_Authority__c = contracts.get(task.WhatId).Direct_Debit_Authority__c;
+	                //task.Finance_Brand__c = contracts.get(task.WhatId).Finance_Brand__c;
+	                //task.Finance_Product_Type__c = contracts.get(task.WhatId).Finance_Product_Type__c;
+	                //task.Franchise_Description__c = contracts.get(task.WhatId).Franchise_Description__c;
+	                //task.Interest_Rate__c = contracts.get(task.WhatId).Interest_Rate__c;
+	                //task.Sub_Product__c = contracts.get(task.WhatId).Sub_Product__c;
+	                //task.Product_Variation__c = contracts.get(task.WhatId).Product_Variation__c;
+	                //task.Monthly_Repayment__c = contracts.get(task.WhatId).Monthly_Repayment__c;
+	                //task.Residual__c = contracts.get(task.WhatId).Residual__c;
+	            }
+	        }
+	    }
+    }
+    //existing au functionality ends here
 }
