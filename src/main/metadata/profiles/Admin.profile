@@ -750,6 +750,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ShareCampaignByCollaborationTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ShareDataToNewUserBatch</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -903,6 +907,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerBatchJobTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerCampaignCityTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -16668,18 +16676,19 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Retail</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
         <recordType>Vehicle_Relationship__c.Vehicle_Relationship_Soft_Deleted</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

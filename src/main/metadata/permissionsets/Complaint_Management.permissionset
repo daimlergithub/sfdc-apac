@@ -261,6 +261,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ChatterAnswersTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CommunitiesLandingController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -725,6 +729,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ShareCampaignByCollaborationTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ShareDataToNewUserBatch</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -865,6 +873,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TrialCustomerPortalHomePageTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerAccountTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -874,6 +886,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerBatchJobTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerCampaignCityTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1230,6 +1246,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>superSort</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>superSortTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <description>To set contact of dealer for Dealer Complaint Gate Keeper role，case will automatically assigned Dealer Complaint Gate Keeper.</description>

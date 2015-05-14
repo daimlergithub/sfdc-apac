@@ -24,13 +24,13 @@ private class DMRequestTriggerHandlerTest {
     
     public static testMethod void testMyController() {
        
-        User user1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
-        System.runAs ( user1 ) {
+      //  User user1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
+      //  System.runAs ( user1 ) {
             //Prepare new DM Materials
             //DM Material1 openning stock is 10
             //DM Material2 openning stock is 20
             //DM Material3 openning stock is 30
-			Test.startTest();
+            Test.startTest();
             // DM Material
             DM_Material__c dm1 = new DM_Material__c(Name='TEST-DM-1'+DateTime.now().formatLong(),Active__c=true);
             DM_Material__c dm2 = new DM_Material__c(Name='TEST-DM-2'+DateTime.now().formatLong(),Active__c=true);
@@ -116,14 +116,14 @@ private class DMRequestTriggerHandlerTest {
             System.assertEquals(dm2.Stock__c, 16);
             System.assertEquals(dm3.Stock__c, 29);         
             System.assertEquals(t.Activity_Status__c,'Sent');
-        }
+       // }
     }
     
      public static testMethod void testDMControllerExtension() {
        
-        User user1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
-        System.runAs ( user1 ) {
-        	DMControllerExtensionTest.testMyController();
-        }
+        //User user1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
+       // System.runAs ( user1 ) {
+            DMControllerExtensionTest.testMyController();
+       // }
         }
 }

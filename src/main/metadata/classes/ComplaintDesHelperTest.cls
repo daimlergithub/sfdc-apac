@@ -13,14 +13,15 @@ private class ComplaintDesHelperTest {
     static testMethod void sendMailToCaseMember() {
         User user1 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
         User user2 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
-        //upsert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+      //upsert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionTriggerHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         system.runAs(user1){
             Test.startTest();
-            Account acc = new Account(LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid);
-            insert acc;
+           // Account acc = new Account(LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid);
+           // insert acc;
+           // system.debug('Person account >>>>>>>>>>'+acc);  
             Account dealer = new Account(Name = 'dealer', RecordTypeId = dealerRecordtypeid);
             insert dealer;
-            c1 = new Case( AccountId = acc.Id, RecordTypeId = MB_COMPLAINT_RECORD_TYPE,
+            c1 = new Case( AccountId = dealer.Id, RecordTypeId = MB_COMPLAINT_RECORD_TYPE,
                                Case_SubType__c='Dealer-after sales service attitude',
                                Urgent__c = true,Ref_No_Regional__c='SOUTH', Case_Dealer__c = dealer.Id,Ref_No_Central__c='SOUTH');
             insert c1;                          
@@ -32,8 +33,8 @@ private class ComplaintDesHelperTest {
             insert member2;            
            // Complaint_Description__c cdc= new Complaint_Description__c(Case__c=c1.id);           
            // insert cdc;            
-            Attachment a = new Attachment(ParentId = c1.id , Name='testFile' , body=Blob.valueOf('Unit Test Attachment Body'));
-            insert a;       
+            Attachment at= new Attachment(ParentId = c1.id , Name='testFile' , body=Blob.valueOf('Unit Test Attachment Body'));
+            insert at;       
             Test.stopTest();           
         }
     }
