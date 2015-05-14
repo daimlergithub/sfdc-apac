@@ -140,8 +140,8 @@
     </pushNotifications>
     <saveUserSessions>true</saveUserSessions>
     <tab>standard-Case</tab>
-    <tab>standard-Contract</tab>
     <tab>standard-Account</tab>
+    <tab>Retail_Task__c</tab>
     <tab>standard-report</tab>
     <workspaceMappings>
         <mapping>
@@ -151,8 +151,7 @@
             <tab>standard-Case</tab>
         </mapping>
         <mapping>
-            <fieldName>AccountId</fieldName>
-            <tab>standard-Contract</tab>
+            <tab>Retail_Task__c</tab>
         </mapping>
         <mapping>
             <tab>standard-Account</tab>

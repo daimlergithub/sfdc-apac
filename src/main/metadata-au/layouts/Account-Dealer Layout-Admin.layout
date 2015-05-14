@@ -694,14 +694,16 @@
         </quickActionListItems>
     </quickActionList>
     <relatedLists>
+        <customButtons>New_DealerAddress</customButtons>
+        <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Address_Type__c</fields>
         <fields>Address_Line_1__c</fields>
-        <fields>Address_Line_2__c</fields>
         <fields>District__c</fields>
         <fields>ZipCode__c</fields>
         <fields>Province__c</fields>
-        <fields>Country__c</fields>
+        <fields>Opt_In_Hardcopy__c</fields>
+        <fields>FS_Opt_In_Hardcopy__c</fields>
         <fields>Status__c</fields>
         <fields>Preferred__c</fields>
         <relatedList>Address__c.Customer__c</relatedList>
@@ -737,7 +739,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h55000000RGDF</masterLabel>
+        <masterLabel>00h17000000Jkpo</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
