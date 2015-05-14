@@ -142,7 +142,7 @@
     <tab>Tasks</tab>
     <tab>standard-Account</tab>
     <tab>Lead__c</tab>
-    <tab>standard-Contract</tab>
+    <tab>Retail_Task__c</tab>
     <tab>Vehicle__c</tab>
     <workspaceMappings>
         <mapping>
@@ -150,8 +150,7 @@
             <tab>Lead__c</tab>
         </mapping>
         <mapping>
-            <fieldName>AccountId</fieldName>
-            <tab>standard-Contract</tab>
+            <tab>Retail_Task__c</tab>
         </mapping>
         <mapping>
             <tab>Tasks</tab>

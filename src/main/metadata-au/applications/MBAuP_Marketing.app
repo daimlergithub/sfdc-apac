@@ -9,8 +9,7 @@
     <tab>Retail_Task__c</tab>
     <tab>Lead__c</tab>
     <tab>standard-Campaign</tab>
-    <tab>standard-Contract</tab>
     <tab>standard-Contact</tab>
     <tab>Campaign_Calendar</tab>
-	<tab>Address__c</tab>
+    <tab>Address__c</tab>
 </CustomApplication>

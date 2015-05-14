@@ -334,6 +334,21 @@
         </relatedContentItems>
     </relatedContent>
     <relatedLists>
+        <customButtons>New_Individual_Address</customButtons>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>Address_Type__c</fields>
+        <fields>Address_Line_1__c</fields>
+        <fields>District__c</fields>
+        <fields>ZipCode__c</fields>
+        <fields>Province__c</fields>
+        <fields>Opt_In_Hardcopy__c</fields>
+        <fields>FS_Opt_In_Hardcopy__c</fields>
+        <fields>Status__c</fields>
+        <fields>Preferred__c</fields>
+        <relatedList>Address__c.Customer__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
         <fields>TASK.WHAT_NAME</fields>

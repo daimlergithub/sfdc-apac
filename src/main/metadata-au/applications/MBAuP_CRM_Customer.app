@@ -6,9 +6,8 @@
     <tab>standard-Campaign</tab>
     <tab>standard-Case</tab>
     <tab>standard-Contact</tab>
-    <tab>standard-Contract</tab>
+    <tab>Retail_Task__c</tab>
     <tab>Lead__c</tab>
     <tab>Vehicle__c</tab>
-    <tab>Retail_Task__c</tab>
-	<tab>Address__c</tab>
+    <tab>Address__c</tab>
 </CustomApplication>
