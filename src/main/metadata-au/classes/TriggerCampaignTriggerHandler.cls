@@ -21,18 +21,28 @@ public class TriggerCampaignTriggerHandler
         
         if(trigger.isAfter && trigger.isInsert)
         {
-            CampaignHelper.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate);
-            CampaignHelper.afterInsertEvents(Trigger.new);      
+        	//TODO-commented-- need to add trigger switching mechanism
+            /*CampaignHelper.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate);
+            CampaignHelper.afterInsertEvents(Trigger.new);*/      
         }
         if(trigger.isAfter && trigger.isUpdate)
         {
-            CampaignHelper.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate);
+            //TODO-commented--need to add trigger switching mechanism
+            /*CampaignHelper.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate);
             CampaignHelper.afterUpdateEvents(Trigger.new,Trigger.old);
-            CampaignHelper.afterInsertEvents_CampaignShare(Trigger.new,oldmap); 
+            CampaignHelper.afterInsertEvents_CampaignShare(Trigger.new,oldmap);*/ 
         }
         if(trigger.isBefore && trigger.isUpdate)
         {
-            CampaignHelper.beforeUpdateEvents(Trigger.new,oldmap);
+            //TODO-commented--need to add trigger switching mechanism
+            /*CampaignHelper.beforeUpdateEvents(Trigger.new,oldmap);*/
+            //Existing au functionality
+            CampaignHelper.au_Before_Insert_Update_Events(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);
+        }
+        if(trigger.isBefore && trigger.isInsert)
+        {
+            //Existing au functionality
+            CampaignHelper.au_Before_Insert_Update_Events(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);
         }
     }
 }

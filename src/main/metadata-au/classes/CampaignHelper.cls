@@ -410,4 +410,29 @@ public class CampaignHelper {
             }
         }
     }
+    //Existing Au functionality starts here
+    public static void au_Before_Insert_Update_Events(list<Campaign> listCampaignNew,map<id,Campaign> campaignOldMap,boolean isInsert,boolean isUpdate)
+    {
+    	//Start  --- Update Approver field when Campaign is created or updated. 
+	    Set<Id> CamOwnerIds = new Set<Id>();
+	    
+	    for(Campaign cam : listCampaignNew) {
+	        if(isInsert) {
+	            CamOwnerIds.add(cam.OwnerId);
+	        }
+	        if(isUpdate && cam.OwnerId != campaignOldMap.get(cam.Id).OwnerId) {
+	            CamOwnerIds.add(cam.OwnerId);
+	        }
+	    }
+	    Map<Id, User> OwnerId_MangerId = new Map<Id, User>([select Id, ManagerId from User where id in :CamOwnerIds]);
+	    for(Campaign cam : listCampaignNew) {
+	        if(isInsert && OwnerId_MangerId.containsKey(cam.OwnerId)) {
+	            cam.Approver__c = OwnerId_MangerId.get(cam.OwnerId).ManagerId;
+	        }
+	        if(isUpdate && cam.OwnerId != campaignOldMap.get(cam.Id).OwnerId && OwnerId_MangerId.containsKey(cam.OwnerId)) {
+	            cam.Approver__c = OwnerId_MangerId.get(cam.OwnerId).ManagerId;
+	        }
+	    }
+    }
+    //Existing au functuonality ends here
 }
