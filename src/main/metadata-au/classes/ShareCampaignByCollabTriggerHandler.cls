@@ -3,7 +3,10 @@ public class ShareCampaignByCollabTriggerHandler
 {
     public void handleTrigger()
     {
-        if (trigger.isBefore && trigger.isInsert) {
+    	Map<Id,Collaboration_Team__c> oldmap = (Map<Id,Collaboration_Team__c>)trigger.oldmap;
+        Map<Id,Collaboration_Team__c> newmap = (Map<Id,Collaboration_Team__c>)trigger.newmap;
+    	//todo commented kernel functionlity need to add trigger wsitching mechanism
+        /*if (trigger.isBefore && trigger.isInsert) {
             UtilCampaignShareByCollaboration.shareToUserInsert(trigger.new);
         }
         
@@ -13,7 +16,10 @@ public class ShareCampaignByCollabTriggerHandler
         
         if (trigger.isBefore && trigger.isDelete) {
             UtilCampaignShareByCollaboration.shareToUserDelete(trigger.old);
-        }
+        }*/
+        
+        
+        //not required, commented in china full copy.
        /* 
         if (trigger.isAfter && trigger.isInsert) {
             Collaboration_Team__c cm = [Select Id, Campaign__r.Name, Member_Name__c, Member_Name__r.Email, Resource_Required__c From Collaboration_Team__c Where Id=:trigger.new[0].Id];
@@ -32,5 +38,21 @@ public class ShareCampaignByCollabTriggerHandler
                 system.debug('Send Collaboration Team Email Exception ::' + ex.getMessage());
             }
         } */
+        
+        if(trigger.isAfter && trigger.isInsert)
+        {
+        	//existing au functionality
+            UtilCampaignShareByCollaboration.au_After_Insert_Update_Delete_Events(Trigger.new,Trigger.old,oldmap,trigger.isInsert,trigger.isupdate,trigger.isdelete);
+        }
+        if(trigger.isAfter && trigger.isUpdate)
+        {
+        	//existing au functionality
+            UtilCampaignShareByCollaboration.au_After_Insert_Update_Delete_Events(Trigger.new,Trigger.old,oldmap,trigger.isInsert,trigger.isupdate,trigger.isdelete);     
+        }
+        if(trigger.isAfter && trigger.isdelete)
+        {
+        	//existing au functionality
+            UtilCampaignShareByCollaboration.au_After_Insert_Update_Delete_Events(Trigger.new,Trigger.old,oldmap,trigger.isInsert,trigger.isupdate,trigger.isdelete);      
+        }
     }
 }

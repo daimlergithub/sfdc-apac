@@ -10,7 +10,7 @@
     2015-04-21 Gerhard Henning (NTTData)  Moved code to CampaignMemberAfterTriggerHandler
 */
 
-trigger ShareCampaignByCollaboration on Collaboration_Team__c (before insert, before update, before delete, after insert) 
+trigger ShareCampaignByCollaboration on Collaboration_Team__c (before insert, before update, before delete, after insert, after update, after delete) 
 {
     TriggerUtil.handleTrigger('ShareCampaignByCollaboration');
 }
