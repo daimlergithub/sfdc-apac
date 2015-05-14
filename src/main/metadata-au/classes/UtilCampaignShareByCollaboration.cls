@@ -137,15 +137,15 @@ public class UtilCampaignShareByCollaboration {
 	    }
 	    
 	    if(newCollaborationTeams.size() > 0) {
-	        CollaborationTeamHelper.insertCampaignSharing(newCollaborationTeams);
+	        insertCampaignSharing(newCollaborationTeams);
 	    }
 	    
 	    if(updatedCollaborationTeams.size() > 0) {
-	        CollaborationTeamHelper.updateCampaignSharing(updatedCollaborationTeams);
+	        updateCampaignSharing(updatedCollaborationTeams);
 	    }
 	    
 	    if(deletedCollaborationTeams.size() > 0) {
-	        CollaborationTeamHelper.deleteCampaignSharing(deletedCollaborationTeams);
+	        deleteCampaignSharing(deletedCollaborationTeams);
 	    }
 	}
 	
