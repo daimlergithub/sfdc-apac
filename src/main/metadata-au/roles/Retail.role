@@ -6,4 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Retail</name>
     <opportunityAccessLevel>None</opportunityAccessLevel>
+	<parentRole>Australia</parentRole>
 </Role>
