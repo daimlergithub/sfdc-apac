@@ -80,14 +80,14 @@ public class AccountHelper {
      // The following variables are for US-CD-004
     // Flag the primary person account: the lastest inserted contact or updated contact is primary.
     // For the new company with inserting or updating.
-    public static void auBefore_Insert_Update_Events(List<Account> listAccounts,map<Id,Account> oldAccountMap, boolean isUpdate)
+    public static void auBefore_Insert_Update_Events(List<Account> listAccounts,map<Id,Account> oldAccountMap, boolean isInsert,boolean isUpdate)
     {
         for(Account acc : listAccounts){
         //US_AU-CD-001 No.7, US_AU-002
         if (RECORD_TYPE_SET.contains(acc.RecordTypeId)){
             acc = updateDisplayName(acc);
             //set field PC & CV Status with defalut value 
-            if (trigger.isInsert) {
+            if (isInsert) {
                 acc = setDefaultValue(acc);
             }
         }
@@ -235,7 +235,7 @@ public class AccountHelper {
         
         if(isDelete || isUpdate) {
             for(Account item : listOldAccounts){
-                if(item.isPersonAccount && item.Primary__pc && item.Company__c != null){
+                  if(item.isPersonAccount && item.Primary__pc && item.Company__c != null){
                     if(isDelete){
                         companyIds.add(item.Company__c);
                     }
@@ -332,11 +332,12 @@ public class AccountHelper {
                  dl.Inactive__c = true;
             }
             update dealerLocators;
-            List<Contact> contacts = [select id from Contact where AccountId in :dealerIds];
-            for (Contact con : contacts){
+            //TODO: Inactive__c doesn't exist in Retail_Task__c
+            /*List<Retail_Task__c> contacts = [select id from Retail_Task__c where Account__c in :dealerIds];
+            for (Retail_Task__c con : contacts){
                  con.Inactive__c = true;
             }
-            update contacts;
+            update contacts;*/
             //   CR-000213 end
         }
         catch(Exception ex) {

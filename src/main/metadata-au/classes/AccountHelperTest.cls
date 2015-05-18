@@ -20,105 +20,261 @@
  * See the Apex Language Reference for more information about Testing and Code Coverage.
  */
 @isTest
-private class AccountHelperTest {
-
-    static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();     // Person Account.
-                                    
-    static Account customer1 = new Account(Dealer_Default_Flag__c=false,
-                                    Dealer_DMS_SR_Code__c='',
-                                    Status__c='NoCustomer',
-                                    City__c='Beijing',
-                                    Gender__c = 'Male',
-                                    Phone = '80801010',
-                                    Area_code__c = '010',
-                                    LastName = 'galaxy1',
-                                    Province__c = 'Shanghai',
-                                    ZipCode__c='000000',
-                                    Allow_Data_Sharing__c='no',
-                                    Preferred_Language__c = 'English',
-                                    Dealer_LMS__c = 'No',
-                                    RecordTypeId=accPerson_RecordTypeId); 
-
-    static Account customer2 = new Account(Dealer_Default_Flag__c=true,
-                                    Dealer_DMS_SR_Code__c='',
-                                    Status__c='xCustomer',
-                                    City__c='Beijing',
-                                    Phone = '80801010',
-                                    Area_code__c = '010',
-                                    LastName = 'galaxy2',
-                                    ZipCode__c='000000',
-                                    RecordTypeId=accPerson_RecordTypeId);
-
-    static Account customer3 = new Account(
-                                    Status__c='Customer',
-                                    City__c='Beijing',
-                                    Phone = '80801010',
-                                    Area_code__c = '010',
-                                    LastName = 'galaxy2',
-                                    ZipCode__c='000000',
-                                    RecordTypeId=accPerson_RecordTypeId);                                     
-    
-    static testMethod void myUnitTest() {
+private class AccountHelperTest
+{
+    private static final Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    private static final Id accCompany_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
+    private static final Id accDealer_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    private static Account objAccount;
+    private static Account objAccDisplayName;
+    private static Account objPersonAcc;
+    private static Address__c objAddress;
+    private static Dealer_Locator__c objDL;
+    private static Vehicle_Relationship__c objVR;
+    private static Vehicle__c objVehicle;
         
-        User user1 = UtilTestData.createUser('IB CSR','CAC Data Manager');
-   
-        system.runAs(user1){
-            Test.startTest();
-            testMain1();
-            testMain2();
-            Test.stopTest();
-        }
+    public static testMethod void testauBefore_Insert_Update_Events()
+    {
+    	//prepare test data
+        Account objAcc=createAccount();
+        insert objAcc;
+        createAddress(objAcc.id);
+      
+        //process
+        test.startTest();
+        test.stopTest();
         
+        //verify
     }
     
-    
-    @future
-    private static void testMain1()
+    public static testMethod void testupdateDisplayName()
     {
-        String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();       
-        insert customer1;
-        //test Region_City_Mapping__c is auto setted When account update
-        Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');
-        insert dealer;
-        Lead__c le1 = new Lead__c();
-        //le1.Need_Assign_To_Dealer__c = 'Need';
-        le1.Assigned_Dealer__c = dealer.id;
-        le1.Lead_Type__c = 'New Car';
-        le1.Relation_With_The_Leads__c = 'I owner';
-        le1.Purchase_Time__c = '0 - 3 months';
-        le1.Interested_Vehicle_Brand__c = 'MB';
-        le1.Purchase_Time__c = '0 - 3 months';
-        le1.Contact__c = customer1.id;
-        insert le1;
-        customer1.City__c = 'Shanghai';
-        customer1.Dealer_Default_Flag__c = true;
-        customer1.Allow_Data_Sharing__c = 'yes';
-        update customer1;
+    	//prepare test data
+        Account objAcc=createAccount();
+        objAcc.Partner_Surname__c='Test';
+        insert objAcc;
+        //process
+        test.startTest();
+        test.stopTest();
         
-        //test same Dealer_DMS_SR_Code__c and Dealer_Default_Flag__c customer will not be created
-        try{
-            insert customer2;
-        }catch (system.DmlException ex){
-            system.assert(ex.getMessage().contains(AccountHelper.ERROR_MSG_CP_010));
-        }  
-        
+        //verify
     }
     
-    @future
-    private static void testMain2()
+    public static testMethod void testupdateDisplayName_Lastname_Equals_Partnersurname()
     {
-        //test Account having no vehichle relationship, status can not be set Customer
-        try{
-            insert customer3;
-        }catch (system.DmlException ex){
-            system.assert(ex.getMessage().contains(AccountHelper.ERROR_MSG_CP_016));
-        }
+    	//prepare test data
+        Account objAcc=createPersonAccount();
+        insert objAcc;
+        //process
+        test.startTest();
+        test.stopTest();
         
-        try{
-            customer1.Status__c = 'Customer';
-            update customer1;
-        }catch (system.DmlException ex){
-            system.assert(ex.getMessage().contains(AccountHelper.ERROR_MSG_CP_016));
-        }
+        //verify
+    }
+    
+    public static testMethod void test_trackUpdatHistoryForFsInfo()
+    {
+    	//prepare test data
+        Account objAcc=createPersonAccount();
+        objAcc.FS_Opt_In_Email__c=false;
+        objAcc.FS_Opt_In_SMS__c=false;
+        objAcc.Opt_In_Email__c=false;
+        objAcc.Opt_In_SMS__c=false;
+        insert objAcc;
+        //process
+        test.startTest();
+        objAcc.FS_Opt_In_Email__c=true;
+        objAcc.FS_Opt_In_SMS__c=true;
+        objAcc.Opt_In_Email__c=true;
+        objAcc.Opt_In_SMS__c=true;
+        update objAcc;
+        test.stopTest();
+        
+        //verify
+    }
+    
+    public static testMethod void test_auAfter_Insert_Update_Delete_Events()
+    {
+    	//prepare test data
+    	Account objCompany=createAccount();
+    	insert objCompany;
+    	Account objCompany1=createAccount();
+    	insert objCompany1;
+        Account objAcc=createPersonAccount();
+        objAcc.FS_Opt_In_Email__c=false;
+        objAcc.FS_Opt_In_SMS__c=false;
+        objAcc.Opt_In_Email__c=false;
+        objAcc.Opt_In_SMS__c=false;
+        objAcc.Primary__pc=true;
+        insert objAcc;
+        
+        Account objAcc1=createPersonAccount();
+        objAcc1.FS_Opt_In_Email__c=false;
+        objAcc1.FS_Opt_In_SMS__c=false;
+        objAcc1.Opt_In_Email__c=false;
+        objAcc1.Opt_In_SMS__c=false;
+        objAcc1.Primary__pc=true;
+        insert objAcc1;
+        
+        //process
+        test.startTest();
+        objAcc.FS_Opt_In_Email__c=true;
+        objAcc.FS_Opt_In_SMS__c=true;
+        objAcc.Opt_In_Email__c=true;
+        objAcc.Opt_In_SMS__c=true;
+        objAcc.Company__c=objCompany1.id;
+        update objAcc;
+        test.stopTest();
+        
+        //verify
+    }
+    
+    public static testMethod void test_getCustomerInfos()
+    {
+    	//prepare test data
+        Account objAcc=createPersonAccount();
+        objAcc.FS_Opt_In_Email__c=false;
+        objAcc.FS_Opt_In_SMS__c=false;
+        objAcc.Opt_In_Email__c=false;
+        objAcc.Opt_In_SMS__c=false;
+        insert objAcc;
+        //process
+        test.startTest();
+        set<id> AccId= new set<id>();
+        AccId.add(objAcc.id);
+        AccountHelper.getCustomerInfos(AccId);
+        test.stopTest();
+        
+        //verify
+    }
+    
+    public static testMethod void test_flagPrimaryContact()
+    {
+    	//prepare test data
+        Account objAcc=createAccount();
+        Account objAcc1=createPersonAccount();
+        objAcc1.Company__c=objAcc.Id;
+        insert objAcc1;
+        //process
+        test.startTest();
+        set<string> AccId= new set<string>();
+        AccId.add(objAcc.id);
+        AccountHelper.flagPrimaryContact(AccId);
+        test.stopTest();
+        
+        //verify
+    }
+    
+    public static testMethod void test_deleteDealerLocators()
+    {
+    	//prepare test data
+        Account objAcc=createAccount();
+        insert objAcc;
+        createDealerLocator();
+        //process
+        test.startTest();
+        set<id> AccId= new set<id>();
+        AccId.add(objAcc.id);
+        AccountHelper.deleteDealerLocators(AccId);
+        test.stopTest();
+        
+        //verify
+    }
+    
+    public static testMethod void test_getVSCountInfo()
+    {
+    	//prepare test data
+        Account objAcc=createAccount();
+        insert objAcc;
+        createVehicle();
+        createVehicleRelationship();
+        //process
+        test.startTest();
+        list<id> AccId= new list<id>();
+        AccId.add(objAcc.id);
+        AccountHelper.getVSCountInfo(AccId);
+        test.stopTest();
+        
+        //verify
+    }
+    
+    public static testMethod void test_getDealerCountInfo()
+    {
+    	//prepare test data
+        Account objDealer=createAccount();
+        objDealer.RecordtypeId=accDealer_RecordTypeId;
+        objDealer.Dealer_DMS_SR_Code__c='DEALER_CODE_1';
+        objDealer.Dealer_Default_Flag__c=true;
+        insert objDealer;
+        //process
+        test.startTest();
+        list<String> dealerCode= new list<String>();
+        dealerCode.add(objDealer.Dealer_DMS_SR_Code__c);
+        AccountHelper.getDealerCountInfo(dealerCode);
+        test.stopTest();
+        
+        //verify
+    }
+    
+    static account createAccount()
+    {
+	   objAccount= new Account();
+	   objAccount.RecordtypeId=accCompany_RecordTypeId;
+	   objAccount.Name='Test Person 1st';
+	   objAccount.Type='Personal';
+	   objAccount.Status__c='Active';
+	   objAccount.Province__c='Province1';
+	   objAccount.City__c='Test';
+	   objAccount.Email__c='test@mbau.com';
+	   objAccount.Mobile__c ='8884545243';
+	   return objAccount;
+    }
+    
+    static account createPersonAccount()
+    {
+	   objPersonAcc= new Account();
+	   objPersonAcc.RecordtypeId=accPerson_RecordTypeId;
+	   objPersonAcc.Firstname='Test Person 1st';
+	   objPersonAcc.LastName='Test Person';
+       objPersonAcc.salutation='Mr.';
+	   objPersonAcc.Type='Personal';
+	   objPersonAcc.Status__c='Active';
+	   objPersonAcc.Province__c='Province1';
+	   objPersonAcc.City__c='Test';
+	   objPersonAcc.Email__c='test@mbau.com';
+	   objPersonAcc.PersonMobilePhone ='8884545243';
+	   objPersonAcc.Partner_Surname__c='Test Person';
+	   return objPersonAcc;
+    }
+	
+    static void createAddress(id accountid)
+    {
+	   objAddress= new Address__c();
+	   objAddress.Customer__c=accountid;
+	   objAddress.Preferred__c=true;
+	   objAddress.Province__c='ACT';
+	   insert objAddress;
+    }
+    
+    static void createDealerLocator()
+    {
+    	objDL= new Dealer_Locator__c();
+    	objDL.Dealer_Name__c=objAccount.id;
+    	objDL.Inactive__c=false;
+    	insert objDL;
+    }
+    
+    static void createVehicleRelationship()
+    {
+    	objVR= new Vehicle_Relationship__c();
+    	objVR.Contact__c=objAccount.id;
+    	objVR.Vehicle_ID__c=objVehicle.id;
+    	insert objVR;
+    }
+    
+    static void createVehicle()
+    {
+    	objVehicle= new Vehicle__c(Class__c='C-Class Sedan');
+    	insert objVehicle;
     }
 }
