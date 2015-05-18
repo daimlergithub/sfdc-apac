@@ -35,7 +35,7 @@ public class TestDataUtil {
                     Suffix__c = 'suffix',
                     PersonEmail = 'test@test.com',
                     RecordTypeId = person_RecordTypeId,
-                    PersonMobilePhone = '1800 999 999'
+                    PersonMobilePhone = '1800999999'
                 );
             }
             return standardPersonAccount;
