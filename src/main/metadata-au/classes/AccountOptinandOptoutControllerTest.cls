@@ -36,6 +36,9 @@ public class AccountOptinandOptoutControllerTest
         objaccountOptinandOptoutController.objAddress = new Address__c();
         objaccountOptinandOptoutController.objAddress.Opt_In_Hardcopy__c=true;
         objaccountOptinandOptoutController.objAddress.FS_Opt_In_Hardcopy__c=true;
+        objAddress.Opt_In_Hardcopy__c=true;
+        objAddress.FS_Opt_In_Hardcopy__c=true;
+        update objAddress;
         objaccountOptinandOptoutController.updateAddress();
         test.stopTest();
         
