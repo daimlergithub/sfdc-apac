@@ -306,7 +306,7 @@
     <fields>
         <fullName>Duration__c</fullName>
         <externalId>false</externalId>
-        <label>Duration</label>
+        <label>Contract Term (Months)</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
