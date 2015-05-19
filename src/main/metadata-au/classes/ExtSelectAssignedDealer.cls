@@ -128,7 +128,8 @@ public with sharing class ExtSelectAssignedDealer {
         }
         
         // Query Dealers               
-        querySOQL += ' ORDER BY Suburb__c DESC NULLS LAST LIMIT ' + this.QUERY_LIMIT;
+        //todo :' ORDER BY Suburb__c DESC NULLS LAST LIMIT ' +
+        //querySOQL += ' DESC NULLS LAST LIMIT ' +this.QUERY_LIMIT;
         System.debug('Debug Output ======> {' + querySOQL + '}');
         System.debug('Debug Output ======> {recordType:'
             + dealerRecordTypeId + '}');
