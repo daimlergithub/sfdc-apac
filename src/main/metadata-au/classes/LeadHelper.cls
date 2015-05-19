@@ -25,7 +25,7 @@ public class LeadHelper
     private static final String leadSPRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId();
     private static final String leadVehicleRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId(); 
     private static final Map<Id, User> IntegrationUsers = new Map<Id, User>([select Id from User where Profile.Name = 'IntegrationAPI']);
-    private static final String OrgWideEmailAddressId = [Select id from OrgWideEmailAddress where Address = 'customer_care@daimler.com'].Id;
+    private static final String OrgWideEmailAddressId = [Select id from OrgWideEmailAddress where Address = 'shrinivas.desai@nttdata.com'].Id;
          
     // Insert the corresponding lead sharing records
     public static void insertLeadSharing(Map<Id, Id> UsedCarLeadDealerId, Map<Id, Id> newCarLeadDealerId)
