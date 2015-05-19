@@ -41,12 +41,12 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>MBAuP_CRM_Customer</application>
+        <application>Central_CRM</application>
         <default>true</default>
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>MBAuP_Dealer_Portal</application>
+        <application>Central_Dealer_Portal</application>
         <default>false</default>
         <visible>false</visible>
     </applicationVisibilities>
@@ -56,7 +56,7 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>MBAuP_Marketing</application>
+        <application>Central_Marketing</application>
         <default>false</default>
         <visible>true</visible>
     </applicationVisibilities>
@@ -158,10 +158,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AccountLinkHelper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AccountLinkHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -17584,10 +17580,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ManagePackageLicenses</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ManagePartners</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
