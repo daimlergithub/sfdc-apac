@@ -22,7 +22,7 @@ public class ScheduledSendNotificationEmailTest{
         account.FirstName = 'FirstName';
         account.Suffix__c = 'suffix';
         account.PersonEmail='bing.bai@nttdata.com';
-        account.PersonMobilePhone ='1800 999 999';
+        account.PersonMobilePhone ='1800999999';
         insert account;
         
         Vehicle__c vehicle = new Vehicle__c(Class__c = 'C-Class Sedan');
@@ -78,7 +78,7 @@ public class ScheduledSendNotificationEmailTest{
         insert fleetLeadWith60Days;
         
         Test.startTest();
-       System.schedule('ScheduledSendNotificationEmailTest', '0 0 13 * * ?', new ScheduledSendNotificationEmail());
+        System.schedule('ScheduledSendNotificationEmailTest', '0 0 13 * * ?', new ScheduledSendNotificationEmail());
         Test.stopTest();
     }
 }

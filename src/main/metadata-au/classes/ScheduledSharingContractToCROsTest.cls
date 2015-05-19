@@ -60,6 +60,7 @@ public class ScheduledSharingContractToCROsTest{
             Salutation = 'Doctor',
             Email__c = 'xiaomusyz@sohu.com',
             PersonAssistantPhone = '1234567',
+            PersonMobilePhone ='1800999999',
             RecordTypeId = personAccountRT);
         insert account2;
         
