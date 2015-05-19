@@ -11,10 +11,13 @@
 @isTest
 public class MakeUpdateLinkControlTest {
     @isTest(seeALLData = true)
-    public static void testMakeUpdateLinkControl(){
+    public static void testMakeUpdateLinkControl()
+    {
+    	test.starttest();
         MakeUpdateLinkControl controller = new MakeUpdateLinkControl();
         String address = controller.getEmailserviceAddress();
         String leadId = controller.getLeadId();
+        test.stoptest();
         System.assertEquals(null, leadId);
     }
 }

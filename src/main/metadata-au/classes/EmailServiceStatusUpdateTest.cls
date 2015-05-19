@@ -51,10 +51,10 @@ private class EmailServiceStatusUpdateTest {
                                          EOC_Recipient_Type__c = '60 Days Primary');
         
         insert contact1;
-        Contract contract1 = new Contract ( AccountId = personaccount1.Id,
-                                            StartDate = Date.Today(),
-                                            ContractTerm = 2,
-                                            Status = 'Draft');
+        Retail_Task__c contract1 = new Retail_Task__c ( Account__c = personaccount1.Id,
+                                            StartDate__c = Date.Today(),
+                                            duration__c = 2,
+                                            Status__c = 'Draft');
                                             
         insert contract1;        
         
@@ -95,17 +95,7 @@ private class EmailServiceStatusUpdateTest {
         emailProcess.handleInboundEmail(email, env);
         
         leadAfterUpdate = [select CAC_Lead_Status__c,CAC_Lost_Reason__c from Lead__c where id =: leada.id];
-        system.assertEquals('Closed',leadAfterUpdate.CAC_Lead_Status__c);
-        system.assertEquals('Interest Rate',leadAfterUpdate.CAC_Lost_Reason__c );
 
-/**
-        email.subject='subject';
-        emailProcess.handleInboundEmail(email, env);
-        
-        leadAfterUpdate = [select CAC_Lost_Reason__c,CAC_Lead_Status__c from Lead_Account__c where id =: leada.id];
-        system.assertEquals('Closed',leadAfterUpdate.Lead_Status__c);
-        system.assertEquals('Interest Rate',leadAfterUpdate.Lost_Reason__c);
-*/
         Case cas = new Case();
         cas.Status = 'Open';
         cas.recordTypeId = FOS_RecordTypeId;
@@ -120,8 +110,9 @@ private class EmailServiceStatusUpdateTest {
         emsg1.MessageDate = system.now();
         emsg1.ParentId = cas.Id;
         insert emsg1;
-            
         Test.stopTest() ;
+        system.assertEquals('Closed',leadAfterUpdate.CAC_Lead_Status__c);
+        system.assertEquals('Interest Rate',leadAfterUpdate.CAC_Lost_Reason__c );
     }
 
 }
