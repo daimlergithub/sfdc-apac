@@ -542,18 +542,26 @@ public class LeadHelper
         
         for(Lead__c lead : listNewLeads) {
             //TODO--commented LDCL_Lead_Id__c is not using
-            /*If(lead.Assigned_Dealer__c != null && lead.Business_Unit__c != null && lead.Sub_BusinessUnit__c != null && 
-              (isInsert || (isUpdate && lead.Assigned_Dealer__c != leadOldMap.get(lead.Id).Assigned_Dealer__c)) && 
-              (lead.LDCL_Lead_Id__c == null || (lead.LDCL_Lead_Id__c != null && !IntegrationUsers.KeySet().contains(lead.LastModifiedById)))) {
-                if(lead.RecordTypeId == leadSPRt || lead.RecordTypeId == leadVehicleRt) { 
+            If(lead.Assigned_Dealer__c != null && lead.Business_Unit__c != null && lead.Sub_BusinessUnit__c != null && 
+              (isInsert || (isUpdate && lead.Assigned_Dealer__c != leadOldMap.get(lead.Id).Assigned_Dealer__c)) 
+              //&& (lead.LDCL_Lead_Id__c == null || (lead.LDCL_Lead_Id__c != null 
+              && !IntegrationUsers.KeySet().contains(lead.LastModifiedById)
+              //)
+              //)
+              ) 
+              {
+                if(lead.RecordTypeId == leadSPRt || lead.RecordTypeId == leadVehicleRt) 
+                { 
                     serviceLeadsForImmediateNotice.add(lead);
                     serviceDealerIdsForImmediateNotice.add(lead.Assigned_Dealer__c);
+                    system.debug(serviceLeadsForImmediateNotice +'   serviceLeadsForImmediateNotice  *$*$*$*$*$* serviceDealerIdsForImmediateNotice   ' + serviceDealerIdsForImmediateNotice);
                 }
-                else if(lead.RecordTypeId == leadFinanceRT) {
+                else if(lead.RecordTypeId == leadFinanceRT) 
+                {
                     financeLeads.add(lead);
                     financeDealerIds.add(lead.Assigned_Dealer__c);
                 }
-            }*/
+            }
             If(lead.Assigned_Dealer__c != null && lead.Business_Unit__c != null && lead.Sub_BusinessUnit__c != null && 
               isUpdate && lead.X24H_Untouched__c && lead.X24H_Untouched__c != leadOldMap.get(lead.Id).X24H_Untouched__c) {
                 if(lead.RecordTypeId == leadSPRt || lead.RecordTypeId == leadVehicleRt) { 
@@ -577,7 +585,6 @@ public class LeadHelper
                 }
             }
         }
-        
         if(!serviceLeadsForImmediateNotice.isEmpty()) {
             sendServicePartsEmail(serviceLeadsForImmediateNotice, serviceDealerIdsForImmediateNotice, 'Immediate Notice');
         }
@@ -800,12 +807,13 @@ public class LeadHelper
     
      //CR-000141 Send Immediate Notice and 24H and 72H Email for Service/Parts Lead.
     public static void sendServicePartsEmail (List<Lead__c> leadsForSend, Set<Id> DealerIds, String EmailType) {
+    system.debug('ENtered Email Method');
         Map<Lead__c, List<String>> leadContactToEmails = new Map<Lead__c, List<String>>();
         Map<Lead__c, List<String>> leadContactCCEmails = new Map<Lead__c, List<String>>();
         
         List<Contact> listContact = [select id, EOC_Recipient_Type__c, Email, AccountId, Lead_Escalation_Recipient_Type__c, Business_Unit__c, Sub_BusinessUnit__c from Contact where AccountId in :DealerIds
                                     and Lead_Escalation_Recipient_Type__c != null and Business_Unit__c != null and Sub_BusinessUnit__c != null and Email != null];
-        //TODO                            
+         //TODO                            
         /*List<MBAuP_Contact__c> MBAuPContacts = [select Id, Business_Unit__c, Dealer_Name__c, Email_Address__c, Lead_Escalation_Recipient_Type__c, EOC_Recipient_Type__c, First_Name__c, Sub_Business_Unit__c from MBAuP_Contact__c where Dealer_Name__c in :DealerIds
                                     and Lead_Escalation_Recipient_Type__c != null and Business_Unit__c != null and Sub_Business_Unit__c != null and Email_Address__c != null];*/
         
@@ -817,6 +825,7 @@ public class LeadHelper
                 //modified by Shuang Li Defect0345 Start
                 if(contact.AccountId == lead.Assigned_Dealer__c && contact.Business_Unit__c.contains(lead.Business_Unit__c) && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c))) {
                 //modified by Shuang Li Defect0345 End
+                system.debug(contact.Lead_Escalation_Recipient_Type__c + '   contact.Lead_Escalation_Recipient_Type__c *$*$*$*$*  contact.Email   ' + contact.Email);
                     if(contact.Lead_Escalation_Recipient_Type__c.contains(EmailType) && contact.Email != null) {
                         TOemails.add(contact.Email);
                     }
@@ -835,9 +844,9 @@ public class LeadHelper
                     CCemails.add(contact.Email_Address__c);
                 }
             }*/
-            
             if(!TOemails.isEmpty()) {
                 leadContactToEmails.put(lead, TOemails);
+                system.debug('    *$*$*$*$*  leadContactToEmails   ' + leadContactToEmails);
             }
             if(!CCemails.isEmpty()) {
                 leadContactCCEmails.put(lead, CCemails);
