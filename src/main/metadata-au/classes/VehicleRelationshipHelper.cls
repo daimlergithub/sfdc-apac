@@ -155,7 +155,7 @@ public with sharing class VehicleRelationshipHelper {
         return  recordsInfo;
     }
     private static Map<String, List<String>> colsMap = new Map<String,List<String>>
-        {'PC'=> new List<String>{'PC_Status__c','PC_No_Brand_Purchases__c','PC_Tenure__c'},
+        {'PC'=> new List<String>{'PC_Status__c','Buy_Cycle__c','PC_Tenure__c'},
          'CV'=> new List<String>{'CV_Status__c','CV_No_Brand_Purchases__c','CV_Tenure__c'},
          'VAN'=> new List<String>{'VAN_Status__c','VAN_No_Brand_Purchases__c','VAN_Tenure__c'}
         };
@@ -183,6 +183,7 @@ public with sharing class VehicleRelationshipHelper {
     
     //When PA gets a Vehicle-Relationship
     public static void updataWhenCreateCVR(Set<Id> vehicleIds, Set<Id> customerIds, List<Vehicle_Relationship__c> cvrs) {
+    	system.debug('cvrs>>>'+cvrs);
         Map<id,Account> accounts = new Map<id,Account>();
         Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
         //get pc first date records
@@ -207,7 +208,6 @@ public with sharing class VehicleRelationshipHelper {
                 acc = accs.get(curCvr.Contact__c);
             }
             acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord);
-            
             accounts.put(acc.id,acc);
         }
           UtilDB.updateSobjects(accounts.values());
@@ -238,6 +238,8 @@ public with sharing class VehicleRelationshipHelper {
 	            insertCvrs.add(cvr);
 	        }
 	    }
+	    system.debug('>>>customerIds'+customerIds);
+	    system.debug('>>>vehicleIds'+vehicleIds);
 	    //US_AU-CD-001 & 002 & 001.1 & 002.1
 	    if(customerIds!=null && !customerIds.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()){
 	        updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs);
