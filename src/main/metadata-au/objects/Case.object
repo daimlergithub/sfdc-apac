@@ -7758,7 +7758,6 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <externalId>false</externalId>
         <label>Case SubType</label>
         <picklist>
-            <controllingField>Case_Type__c</controllingField>
             <picklistValues>
                 <fullName>Unknown</fullName>
                 <default>false</default>
@@ -7769,475 +7768,174 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             </picklistValues>
             <picklistValues>
                 <fullName>Agent Service</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>The Call Could Not Be Get Through</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Professional Level Of Agent</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Others</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-pre-sales service attitude</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer - Professionalism of  Sales Consultant</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-delivered date</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-sales price</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-integrity</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Fire or Gasbag Case</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-after sales service attitude</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-maintenance speciality and skills</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-maintenance latency time</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer - Environment And Facility of Rest Area/Workshop</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-repaire/maintenance/fitting price</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-change component quality</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-component delivery data</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-problem feedback processing time</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Product-quality</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Product-others</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>RSA - Waiting Time of Assistance</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>RSA-RSA service attitude</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>RSA - Professionalism of Rescue Worker</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Financial Consultant Service</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Waiting Time Of Finance Service</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Refused</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Unreasonable Criteria</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>smart</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>smart deposit refund</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Opt-Out for Contact / DM / EDM</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Personal Profile Change</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Request for MB Magazine</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Request for Test Drive</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Request for Product Range Card</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Pre-Owned / Trade-In</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Corporate-Sales</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Consult Chrysler</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Consult Sebring</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Diplomatic-Sales</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Request for Brochure / Catalog</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Pricing &amp; Benchmarking</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Function / Technical / Accessory Specification</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Request for Product Information</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8250,167 +7948,62 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             </picklistValues>
             <picklistValues>
                 <fullName>Maintenance Appointment Arrangement</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Warranty Enquiry</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Technical / Parts / Car Maintenance Enquiry</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Owner Club</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>PR</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Product Recall</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Crisis Management</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>MB Trucks</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>MB Vans</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Interested in MB Accessories &amp; Collection</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Marketing Opportunities</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>AD Sale</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>After-Sales Complaint</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Pre-Sales Complaint</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Feedback by Customer</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8427,13 +8020,6 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             </picklistValues>
             <picklistValues>
                 <fullName>HR</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8442,13 +8028,6 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             </picklistValues>
             <picklistValues>
                 <fullName>Events Enquiry</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8457,101 +8036,38 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             </picklistValues>
             <picklistValues>
                 <fullName>Dealership Contacts</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Network Development</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Delivery Enquiry</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Purchase process</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>smart RSA</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>RSA Queries</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>RSA Emergency Requests</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance &amp; Insurance</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8564,46 +8080,18 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             </picklistValues>
             <picklistValues>
                 <fullName>Other sales complaint</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-other sales complaint</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other after sales complaint</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dealer-other after sales complaint</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8612,13 +8100,6 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             </picklistValues>
             <picklistValues>
                 <fullName>Advisory Mercedes-Benz driving Academy</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -8627,255 +8108,94 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
             </picklistValues>
             <picklistValues>
                 <fullName>Consulting the driving school business</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Contact MBDA or dealers activity</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Place an order</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Special courses</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Cancel the order</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Change appointment</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Advisory Central or dealer activities</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Advisory AMG driving Academy business content</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Reporter/photographer/media inquiries</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Search for job opportunities</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Change your personal information</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Cancel contact/Direct mail/Email</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Complaints before sale</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Complaints after sale</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Feedback</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Advertising sales</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Market/Sponsor&amp;Partner opportunities</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Feedback Course summary</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Update payment status</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>As customers cancel courses</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>For customers to postpone the course</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>For customers booking courses</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Couldn't get in touch with the customer</fullName>
-                <controllingFieldValues>Brochure &amp; Manual Requests</controllingFieldValues>
-                <controllingFieldValues>Child/Hoax</controllingFieldValues>
-                <controllingFieldValues>Complaints</controllingFieldValues>
-                <controllingFieldValues>Employment</controllingFieldValues>
-                <controllingFieldValues>Events &amp; Sponsorship</controllingFieldValues>
-                <controllingFieldValues>Finance &amp; Insurance</controllingFieldValues>
-                <controllingFieldValues>Vehicle Enquiry</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8890,61 +8210,32 @@ Modify Reason: Complaint Sub Type changed to Case Sub Type
         <externalId>false</externalId>
         <label>Case Type</label>
         <picklist>
-            <controllingField>Case_Class__c</controllingField>
             <picklistValues>
                 <fullName>Brochure &amp; Manual Requests</fullName>
-                <controllingFieldValues>After Sales</controllingFieldValues>
-                <controllingFieldValues>Financial Service</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <controllingFieldValues>Sales</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Child/Hoax</fullName>
-                <controllingFieldValues>After Sales</controllingFieldValues>
-                <controllingFieldValues>Financial Service</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <controllingFieldValues>Sales</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Complaints</fullName>
-                <controllingFieldValues>After Sales</controllingFieldValues>
-                <controllingFieldValues>Financial Service</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <controllingFieldValues>Sales</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Employment</fullName>
-                <controllingFieldValues>After Sales</controllingFieldValues>
-                <controllingFieldValues>Financial Service</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <controllingFieldValues>Sales</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Events &amp; Sponsorship</fullName>
-                <controllingFieldValues>After Sales</controllingFieldValues>
-                <controllingFieldValues>Financial Service</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <controllingFieldValues>Sales</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Finance &amp; Insurance</fullName>
-                <controllingFieldValues>After Sales</controllingFieldValues>
-                <controllingFieldValues>Financial Service</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <controllingFieldValues>Sales</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Vehicle Enquiry</fullName>
-                <controllingFieldValues>After Sales</controllingFieldValues>
-                <controllingFieldValues>Financial Service</controllingFieldValues>
-                <controllingFieldValues>Others</controllingFieldValues>
-                <controllingFieldValues>Sales</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -19983,11 +19274,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>true</default>
             </values>
             <values>
-                <fullName>Middle</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Low</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -28839,11 +28130,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>true</default>
             </values>
             <values>
-                <fullName>Middle</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Low</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -38444,11 +37735,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>true</default>
             </values>
             <values>
-                <fullName>Middle</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Low</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -47900,11 +47191,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>true</default>
             </values>
             <values>
-                <fullName>Middle</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Low</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -57320,11 +56611,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>true</default>
             </values>
             <values>
-                <fullName>Middle</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Low</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -62625,11 +61916,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>true</default>
             </values>
             <values>
-                <fullName>Middle</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Low</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -66726,11 +66017,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>true</default>
             </values>
             <values>
-                <fullName>Middle</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Low</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -75546,11 +74837,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>true</default>
             </values>
             <values>
-                <fullName>Middle</fullName>
+                <fullName>Low</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Low</fullName>
+                <fullName>Middle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
