@@ -511,6 +511,7 @@ public class LeadHelper
     //Existing AU Functionality Starts Here
     public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<id,Lead__c> leadNewMap,map<Id,Lead__c> leadOldMap,boolean isInsert,boolean isUpdate)
     {
+    	system.debug('>>>>'+listNewLeads);
         List<Lead__c> preparedLeads = new List<Lead__c>();
         for(Lead__c lead : listNewLeads) {
             preparedLeads.add(lead);
@@ -549,12 +550,11 @@ public class LeadHelper
               //)
               //)
               ) 
-              {
+              {  
                 if(lead.RecordTypeId == leadSPRt || lead.RecordTypeId == leadVehicleRt) 
                 { 
                     serviceLeadsForImmediateNotice.add(lead);
                     serviceDealerIdsForImmediateNotice.add(lead.Assigned_Dealer__c);
-                    system.debug(serviceLeadsForImmediateNotice +'   serviceLeadsForImmediateNotice  *$*$*$*$*$* serviceDealerIdsForImmediateNotice   ' + serviceDealerIdsForImmediateNotice);
                 }
                 else if(lead.RecordTypeId == leadFinanceRT) 
                 {

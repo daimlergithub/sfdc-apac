@@ -25,7 +25,7 @@
     18-April-2013 Sinow Zhang (NTTData)  Created
     16-06-2014 Bing(NDC) Modified
 */
-trigger TriggerLead on Lead__c(before insert, before update, after update) {
+trigger TriggerLead on Lead__c(before insert, before update, after update,after insert) {
     if (!TriggerUtil.isTriggerEnabled('TriggerLead')) {
         return;
     }
