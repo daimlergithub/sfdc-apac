@@ -258,8 +258,7 @@
 			<sf:typeset name="approvalProcesses"/>
 			<sf:typeset name="email"/>
 			<sf:typeset name="workflows"/>			
-		</deploy>			
-		</deploy>
+		</deploy>					
     </target>
 	
 	<target name="deploy35">
