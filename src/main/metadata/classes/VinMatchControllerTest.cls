@@ -13,70 +13,7 @@
 private class VinMatchControllerTest{
 
 private static String ssiPrefix = Schema.getGlobalDescribe().get('SSI__c').getDescribe().getKeyPrefix();
-    static testMethod void testVinMatch_NoTasksSpecified()
-       {        
-        User user1 = [Select Id From User Where Id =: UserInfo.getUserId()];
-        System.runAs(user1)
-        {               
-        Test.startTest();
-        prepareTestData();
-        VinMatchController con = new VinMatchController();
-        PageReference pr = con.vinMatch();
-        Test.stopTest();
-        System.assertNotEquals(null,pr);
-        System.assertEquals('/'+ssiPrefix ,pr.getUrl());   
-        
-        }       
-       }
-       
-      static testMethod void testVinMatch_withTask()
-      {
-        Test.startTest();
-        prepareTestData();
-        VinMatchController con2 = new VinMatchController();
-        Task task1 = new Task();
-        task1.Activity_Date__c = Date.newInstance(2013, 7, 15);
-        con2.fromTask = task1;
-        PageReference pr2 = con2.vinMatch();
-        Test.stopTest();        
-        System.assertNotEquals(null,pr2);
-        System.assertEquals('/'+ssiPrefix ,pr2.getUrl());
-      }
-      static testMethod void testVinMatch_TaskElseCondition()
-      {
-        Test.startTest();
-        prepareTestData();
-        VinMatchController con3 = new VinMatchController();
-        Task task2 = new Task();
-        task2.Activity_Date__c = Date.newInstance(2013, 7, 15);
-        con3.toTask = task2;
-        PageReference pageRef= con3.vinMatch();
-        Test.stopTest();
-              
-         //Beginning of System Asserts, verify pageRef and URL First
-        System.assertNotEquals(null,pageRef);
-        System.assertEquals('/'+ssiPrefix ,pageRef.getUrl());
-
-         
-        
-      }
-      static testMethod void testVinMatch_TaskStart_and_Enddate()
-      {
-        Test.startTest();
-        prepareTestData();
-        VinMatchController con4 = new VinMatchController();
-        Task task3 = new Task();
-        task3.Activity_Date__c = Date.newInstance(2013, 11, 15);
-        Task task4 = new Task();
-        task4.Activity_Date__c = Date.newInstance(2013, 3, 15);
-        con4.fromTask = task4;
-        con4.toTask = task3;
-        PageReference pr4 = con4.vinMatch();
-        Test.stopTest();
-        System.assertNotEquals(null,pr4);
-        System.assertEquals('/'+ssiPrefix ,pr4.getUrl());      
-        }
-        
+   
          static testMethod void testVinMatch_TaskStart_and_Enddate_Elsecondition()
       {
         Test.startTest();
@@ -137,11 +74,14 @@ private static String ssiPrefix = Schema.getGlobalDescribe().get('SSI__c').getDe
         
       static void prepareTestData()
       {
+          Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Account.getRecordTypeInfosByName();
+          Id dlrrtid = rtMap.get('Person Account').getRecordTypeId();
        List<Account> accts = new List<Account>();
         for (Integer i = 0; i < 24; i++) {
             Account acct = new Account();
-            acct.LastName = 'zhang';
+            acct.LastName= 'zhang';
             acct.FirstName = 'patrick' + i; 
+            acct.RecordtypeId = dlrrtid;
             if (i < 10) {
                 acct.Phone = '186584250' + i ;
             }else{

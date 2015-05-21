@@ -350,6 +350,9 @@ public class QCHelperTest {
         qc.FQL__c = 'Medium';
         qc.PFOCF__c = 'Medium';
         qc.PPD__c ='Medium';
+        qc.PACI__c='Medium';
+        qc.CARR__c='Medium';
+        qc.PS__c='Medium';
         update qc;
         QCHelper.SSITotalScore1(qc);
         QCHelper.SetQualified(qc);
@@ -451,8 +454,13 @@ public class QCHelperTest {
         qc.PPD__c = 'Low';
         qc.PJ__c = 'Low';
         qc.PHU__c = 'Low';
+        qc.PACI__c='Low';
+        qc.CARR__c='Low';
+        qc.PS__c='Low';
         update qc;
         QCHelper.SSITotalScore2(qc);
-        
+        Set<String> taskIds=new set<String>();
+        QCHelper.changeTask(taskIds);
+        QCHelper.changeFailTask(taskIds);
         }
 }
