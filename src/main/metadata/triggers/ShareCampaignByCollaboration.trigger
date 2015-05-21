@@ -12,5 +12,7 @@
 
 trigger ShareCampaignByCollaboration on Collaboration_Team__c (before insert, before update, before delete, after insert) 
 {
-    TriggerUtil.handleTrigger('ShareCampaignByCollaboration');
+    TriggerUtil.handleTrigger('ShareCampaignByCollab');
+    
+    
 }
