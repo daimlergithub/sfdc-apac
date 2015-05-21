@@ -230,7 +230,7 @@
     </target>
 	
 	<target name="deploy30">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="classes"/>
 			<sf:typeset name="components"/>
 			<sf:typeset name="pages"/>
@@ -288,11 +288,6 @@
 			<sf:typeset name="approvalProcesses"/>
 		</deploy>
     </target>
-
-	<target name="loaddata-oliver">
-		<mkdir dir="logs"/>
-		<loadData logDir="logs" configId="oliverkoethap1__Environment_Specific_Values__c"/>
-	</target>
 	
 	<target name="loaddata">
 		<mkdir dir="logs"/>
