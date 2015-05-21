@@ -258,14 +258,13 @@
 			<sf:typeset name="approvalProcesses"/>
 			<sf:typeset name="email"/>
 			<sf:typeset name="workflows"/>			
+		</deploy>			
 		</deploy>
     </target>
 	
 	<target name="deploy35">
-		<deploy>		
+		<deploy>
 			<sf:typeset name="settings"/>
-			<sf:typeset name="email"/>
-			<sf:typeset name="workflows"/>
 			<sf:typeset name="permissionsets"/>			
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
