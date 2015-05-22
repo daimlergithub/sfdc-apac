@@ -258,6 +258,18 @@
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>FULL_NAME</fields>
+        <fields>CONTACT.SALUTATION</fields>
+        <fields>CONTACT.FIRST_NAME</fields>
+        <fields>CONTACT.LAST_NAME</fields>
+        <fields>CONTACT.EMAIL</fields>
+        <fields>CONTACT.PHONE1</fields>
+        <fields>CONTACT.PHONE3</fields>
+        <fields>CONTACT.TITLE</fields>
+        <fields>Inactive__c</fields>
+        <relatedList>RelatedContactList</relatedList>
+    </relatedLists>
+    <relatedLists>
         <customButtons>New_Person_Account</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>ACCOUNT.NAME</fields>

@@ -118,6 +118,10 @@
                 <behavior>Readonly</behavior>
                 <field>VAN_No_Brand_Purchases__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MB_Replacement_Date__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
