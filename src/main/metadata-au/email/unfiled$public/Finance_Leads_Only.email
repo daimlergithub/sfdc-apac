@@ -1,4 +1,4 @@
-<messaging:emailTemplate subject="Finance Lead Follow Up on Finance:  {!if(isblank(relatedTo.Company_Account__c), relatedTo.Contact__r.Name,relatedTo.Company_Account__r.Name)} / Dealer : {!relatedTo.Assigned_Dealer__r.Name}, {!relatedTo.Nature_of_Request__c}" recipientType="Contact" relatedToType="Lead__c">
+<messaging:emailTemplate subject="{!relatedTo.Nature_of_Request__c} Lead:{!if(isblank(relatedTo.Company_Account__c), relatedTo.Contact__r.Name,relatedTo.Company_Account__r.Name)}" recipientType="Contact" relatedToType="Lead__c">
 <messaging:htmlEmailBody >
 
 The following {!relatedTo.Nature_of_Request__c} lead has been referred to you for follow up.
@@ -7,12 +7,13 @@ The following {!relatedTo.Nature_of_Request__c} lead has been referred to you fo
 Please return acknowledgement of the status of this referral by clicking on the relevant link below.
 <br/><br/>
 
-{!if(isblank(relatedTo.Company_Account__c),"Contact:    "&relatedTo.Contact__r.Name,"Company Account:     "&relatedTo.Company_Account__r.Name)}<br/>
+{!if(isblank(relatedTo.Company_Account__c),"Contact:"&relatedTo.Contact__r.Name,"Company Account:     "&relatedTo.Company_Account__r.Name)}<br/>
 Lead No.: {!relatedTo.Name}<br/>
 Nature of Request:  {!relatedTo.Nature_of_Request__c}<br/>
 Assigned Dealer: {!relatedTo.Assigned_Dealer__r.Name}<br/>
 <br/>
 <b>Contact Details</b><br/>
+Contact Name:{!relatedTo.Contact__r.FirstName}{!relatedTo.Contact__r.LastName}<br/>
 Work Phone: {!relatedTo.Work_Phone__c}<br/>
 Home Phone: {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.PersonHomePhone,relatedTo.Company_Account__r.Phone)}<br/>
 Mobile: {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.Mobile__c,relatedTo.Company_Account__r.Mobile__c)}<br/>
@@ -23,6 +24,11 @@ Existing Contract: {!relatedTo.Existing_Contract__r.ContractNumber__c}<br/>
 Vehicle Make - Current: {!relatedTo.Vehicle_Make_Current__c}<br/>
 Vehicle Model - Current: {!relatedTo.Vehicle_Model_Current__c}<br/>
 Vehicle Year - Current: {!relatedTo.Vehicle_Year_Current__c}<br/>
+Registration No.: {!relatedTo.Existing_Contract__r.Vehicle_Registration_No__c}<br/>
+Finance Product: {!relatedTo.Existing_Contract__r.Finance_Product_Type__c}<br/>
+Product Variation: {!relatedTo.Existing_Contract__r.Product_Variation__c}<br/>
+Finance Amount: $<apex:outputText value="{0, number, ###,###,###,##0}"><apex:param value="{!relatedTo.Finance_Amount__c}"/></apex:outputText><!-- {!relatedTo.Finance_Amount2__c} --><br/>
+Term (Months): {!FLOOR(relatedTo.Term_Month__c)}<br/>
  {! IF((relatedTo.Financial_Product__c == 'Operating Lease'), "Residual Amount:"& text(relatedTo.Existing_Contract__r.Balloon_RV_Amount__c),'' ) }
 Original Monthly Payment: {!relatedTo.Monthly_Payment__c }<br/>
 Interest Rate: {!relatedTo.Interest_Rate__c }<br/>
@@ -42,7 +48,7 @@ Lead No.
     {!relatedTo.name}
 </apex:outputLink><br/>
 Kind Regards,<br/>
-Customer Retention
+{!relatedTo.Owner.Name}
 
 </messaging:htmlEmailBody>
 

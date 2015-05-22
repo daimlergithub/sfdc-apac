@@ -140,19 +140,29 @@ public class AccountHelper {
         }else{
             //if the surname of Customer and Partner is equal then <Title Customer> and <Title Partner> <Surname Customer>
             if (acc.LastName == acc.Partner_Surname__c){
-                acc.Display_Name__c = 
-                    (String.isblank(acc.Salutation)? '' : acc.Salutation) + 
-                    ' and ' + 
-                    (String.isblank(acc.Partner_Title__c)?'': acc.Partner_Title__c) + ONE_SPACE + 
-                    (String.isblank(acc.LastName)?'': acc.LastName);
+                    string cTitle='';
+                    if(!String.isblank(acc.Salutation) && acc.Salutation!='Unknown')
+                	   cTitle=acc.Salutation;
+                    string pTitle='';
+                    if(!String.isblank(acc.Partner_Title__c) && acc.Partner_Title__c!='Unknown')
+                		pTitle=acc.Partner_Title__c;
+                	if(cTitle!='' && pTitle!='')		
+                		acc.Display_Name__c=acc.Salutation+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_Title__c+ONE_SPACE+acc.FirstName+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_First_Name__c+ONE_SPACE+acc.LastName;
+                    if(cTitle=='' && pTitle=='')
+                    	acc.Display_Name__c=acc.FirstName+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_First_Name__c+ONE_SPACE+acc.LastName;
+                    if(cTitle!='' && pTitle=='')
+                    	acc.Display_Name__c=acc.Salutation+ONE_SPACE+acc.FirstName+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_First_Name__c+ONE_SPACE+acc.LastName;
+                    if(cTitle=='' && pTitle!='')
+                    	acc.Display_Name__c=acc.FirstName+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_Title__c+ONE_SPACE+acc.Partner_First_Name__c+ONE_SPACE+acc.LastName; 		
+                    
             }else{
                //If the surname is unequal the <Title Customer> <First Name Surname Customer> and <Title Partner> <First Name Surname Partner>
-                acc.Display_Name__c = (String.isblank(acc.Salutation)?'': acc.Salutation + ONE_SPACE) + 
-                                      (String.isblank(acc.FirstName)?'': acc.FirstName + ONE_SPACE) + 
-                                      (String.isblank(acc.LastName)?'': acc.LastName) + ' and ' +
-                                      (String.isblank(acc.Partner_Title__c)?'': acc.Partner_Title__c + ONE_SPACE) +
-                                      (String.isblank(acc.Partner_First_Name__c)?'': acc.Partner_First_Name__c + ONE_SPACE) +
-                                      (String.isblank(acc.Partner_Surname__c)?'': acc.Partner_Surname__c);
+              acc.Display_Name__c =  (String.isblank(acc.Salutation)?'': (acc.Salutation=='Unknown'?'': acc.Salutation) + ONE_SPACE) +   
+              					     (String.isblank(acc.FirstName)?'': acc.FirstName + ONE_SPACE) +
+              					     (String.isblank(acc.LastName)?'': acc.LastName + ONE_SPACE+'and ') +
+              					     (String.isblank(acc.Partner_Title__c)?'': (acc.Partner_Title__c=='Unknown'?'': acc.Partner_Title__c) + ONE_SPACE)+
+              					     (String.isblank(acc.Partner_First_Name__c)?'': acc.Partner_First_Name__c + ONE_SPACE) +
+              					     (String.isblank(acc.Partner_Surname__c)?'': acc.Partner_Surname__c);
             }
         }
         return acc;

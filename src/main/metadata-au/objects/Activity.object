@@ -1136,7 +1136,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Wrong Number (Not the person&apos;s phone number within the address book)</fullName>
+                <fullName>Wrong Number (Not the person's phone number within the address book)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1246,7 +1246,7 @@
     <fields>
         <fullName>Adhoc_eDM_Template_ID__c</fullName>
         <externalId>false</externalId>
-        <formula>If(Car_Series__c !=null, CASE(eDM_Type__c, &quot;Brochure&quot;, &quot;1096&quot;, &quot;Price List&quot;, &quot;1097&quot;, &quot;Brochure+Price List&quot;, &quot;1098&quot;, &quot;&quot;), &quot;&quot;)</formula>
+        <formula>If(Car_Series__c !=null, CASE(eDM_Type__c, "Brochure", "1096", "Price List", "1097", "Brochure+Price List", "1098", ""), "")</formula>
         <label>Adhoc eDM Template ID</label>
         <required>false</required>
         <type>Text</type>
@@ -1256,7 +1256,7 @@
         <fullName>Assignment_Status__c</fullName>
         <description>This field is created for display assignment status automatically.</description>
         <externalId>false</externalId>
-        <formula>IF(Owner:User.Profile.Name=&quot;CAC OB SV&quot;, &quot;Unassigned&quot;, IF(ISPICKVAL( Status , &quot;Closed&quot;), &quot;Finished&quot;,IF(ISPICKVAL( Status , &quot;Open&quot;), &quot;Executing&quot;,&quot;&quot;)))</formula>
+        <formula>IF(Owner:User.Profile.Name="CAC OB SV", "Unassigned", IF(ISPICKVAL( Status , "Closed"), "Finished",IF(ISPICKVAL( Status , "Open"), "Executing","")))</formula>
         <label>Assignment Status</label>
         <required>false</required>
         <type>Text</type>
@@ -1597,7 +1597,7 @@
     <fields>
         <fullName>More_Than_2_OB_Times__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( OB_Call_Times__c &gt;=3, IMAGE( &quot;/img/samples/flag_red.gif&quot;,&quot;&quot;), &quot;&quot;)</formula>
+        <formula>IF( OB_Call_Times__c &gt;=3, IMAGE( "/img/samples/flag_red.gif",""), "")</formula>
         <label>More Than 2 OB Times</label>
         <required>false</required>
         <type>Text</type>
@@ -1635,98 +1635,98 @@
             <controllingField>Result__c</controllingField>
             <picklistValues>
                 <fullName>no answer</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>busy</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>reject</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>wrong number</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>no such person</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>invalid data</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>reservation</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>successful</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1862,7 +1862,7 @@
     <fields>
         <fullName>QC_Link__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR( ISBLANK( QC_ID__c ),  ISNULL(QC_ID__c)), &apos;&apos;, HYPERLINK(&quot;/&quot;+ QC_ID__c , &quot;View QC&quot;) )</formula>
+        <formula>IF(OR( ISBLANK( QC_ID__c ),  ISNULL(QC_ID__c)), '', HYPERLINK("/"+ QC_ID__c , "View QC") )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>QC Link</label>
         <required>false</required>
@@ -2053,350 +2053,350 @@ noted by Lio on 10.28.2013</description>
             <controllingField>Result__c</controllingField>
             <picklistValues>
                 <fullName>Successful</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Number Does Not Exist</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Unanswered</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Fax</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Engaged</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Phone Shut Down</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Insufficient Fund</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Number Expired</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Out of Service</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Voice Mail</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Call Limitation</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Wrong Number (Not the person&apos;s phone number within the address book)</fullName>
+                <fullName>Wrong Number (Not the person's phone number within the address book)</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Unauthorized Dealer</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Unable to Contact Qualified Interviewee</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Interviewed</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Language Obstacle</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Status</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Expired</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Interview Reservation</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Rejection During the Probing Question Phase</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Rejection During the Main Part of the Interview</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Vehicle Sold</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Politely Decline</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Did Not Fully Participate in Car Purchase Process, Unable to Find Qualified Interviewee</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Inconsistent Car Model</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Not the Car Purchase Decision Maker</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Inconsistent Car Pick Up Time</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>No Purchase</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Other Status (Transfer to dealer)</fullName>
+                <controllingFieldValues>Contact Details Invalid</controllingFieldValues>
+                <controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
                 <controllingFieldValues>Decision Maker - Meaningful Contact</controllingFieldValues>
-				<controllingFieldValues>Decision Maker - Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
-				<controllingFieldValues>No Answer</controllingFieldValues>
-				<controllingFieldValues>Contact Details Invalid</controllingFieldValues>
-				<controllingFieldValues>Follow Up Required</controllingFieldValues>
-				<controllingFieldValues>Left Message</controllingFieldValues>
-				<controllingFieldValues>Test Drive Booked</controllingFieldValues>
+                <controllingFieldValues>Follow Up Required</controllingFieldValues>
+                <controllingFieldValues>Left Message</controllingFieldValues>
+                <controllingFieldValues>No Answer</controllingFieldValues>
+                <controllingFieldValues>Non-Decision Maker - Call again later</controllingFieldValues>
+                <controllingFieldValues>Test Drive Booked</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2473,7 +2473,7 @@ noted by Lio on 10.28.2013</description>
     <fields>
         <fullName>Survey_Result_Link__c</fullName>
         <externalId>false</externalId>
-        <formula>IF(OR( ISBLANK( Survey_Result_Id__c ), ISNULL(Survey_Result_Id__c)), &apos;&apos;, HYPERLINK(&quot;/&quot;+ Survey_Result_Id__c , &apos;View Survey Result&apos;) )</formula>
+        <formula>IF(OR( ISBLANK( Survey_Result_Id__c ), ISNULL(Survey_Result_Id__c)), '', HYPERLINK("/"+ Survey_Result_Id__c , 'View Survey Result') )</formula>
         <label>Survey Result Link</label>
         <required>false</required>
         <type>Text</type>
@@ -2579,7 +2579,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <fullName>eDM_Template_ID__c</fullName>
         <description>This ID is used for EP Interface.</description>
         <externalId>false</externalId>
-        <formula>Case(eDM_Type__c, &quot;Brochure&quot;, &quot;1096&quot;, &quot;Price List&quot;, &quot;1097&quot;, &quot;Brochure+Price List&quot;, &quot;1098&quot;, &quot;Error&quot;)</formula>
+        <formula>Case(eDM_Type__c, "Brochure", "1096", "Price List", "1097", "Brochure+Price List", "1098", "Error")</formula>
         <label>eDM Template ID</label>
         <required>false</required>
         <type>Text</type>
@@ -2759,7 +2759,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
     <listViews>
         <fullName>MyTeamsActivities</fullName>
         <filterScope>Team</filterScope>
-        <label>My Team&apos;s Activities</label>
+        <label>My Team's Activities</label>
     </listViews>
     <listViews>
         <fullName>My_Call_Being_QC</fullName>
@@ -3102,7 +3102,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <operation>lessThan</operation>
             <value>TOMORROW</value>
         </filters>
-        <label>Today&apos;s Tasks</label>
+        <label>Today's Tasks</label>
     </listViews>
     <listViews>
         <fullName>UpcomingEvents</fullName>
@@ -3140,7 +3140,7 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <operation>equals</operation>
             <value>THIS_MONTH</value>
         </filters>
-        <label>My Team&apos;s Welcome Call Task</label>
+        <label>My Team's Welcome Call Task</label>
         <language>en_US</language>
         <sharedTo>
             <role>OB_QC</role>
@@ -3148,8 +3148,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </sharedTo>
     </listViews>
     <searchLayouts>
-        <excludedStandardButtons>NewEvent</excludedStandardButtons>
         <excludedStandardButtons>NewTask</excludedStandardButtons>
+        <excludedStandardButtons>NewEvent</excludedStandardButtons>
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>
