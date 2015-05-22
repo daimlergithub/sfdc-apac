@@ -194,8 +194,7 @@
                 <behavior>Edit</behavior>
                 <field>Description__c</field>
             </layoutItems>
-        </layoutColumns>
-        <layoutColumns/>
+        </layoutColumns>        
         <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
