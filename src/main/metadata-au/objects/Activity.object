@@ -867,7 +867,7 @@
         <fullName>Activity_Purpose__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Activity Purpose</inlineHelpText>
-        <label>Activity Purpose</label>
+        <label>Activity Type</label>
         <picklist>
             <picklistValues>
                 <fullName>Unknown</fullName>
@@ -1452,7 +1452,7 @@
     <fields>
         <fullName>Dealer_Name__c</fullName>
         <externalId>false</externalId>
-        <label>Dealer Name</label>
+        <label>Dealership/Sales Person</label>
         <length>200</length>
         <required>false</required>
         <type>Text</type>
@@ -1961,7 +1961,7 @@ noted by Lio on 10.28.2013</description>
     <fields>
         <fullName>Result__c</fullName>
         <externalId>false</externalId>
-        <label>Result</label>
+        <label>Outcome</label>
         <picklist>
             <picklistValues>
                 <fullName>Decision Maker - Meaningful Contact</fullName>
@@ -3150,8 +3150,6 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
     <searchLayouts>
         <excludedStandardButtons>NewTask</excludedStandardButtons>
         <excludedStandardButtons>NewEvent</excludedStandardButtons>
-        <listViewButtons>Activate_Deactivate_CROs</listViewButtons>
-        <listViewButtons>Manual_Assign</listViewButtons>
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>
