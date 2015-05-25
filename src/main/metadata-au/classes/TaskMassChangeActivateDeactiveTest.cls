@@ -46,11 +46,11 @@ public class TaskMassChangeActivateDeactiveTest {
         TaskMassChangeActivateDeactive controller = new TaskMassChangeActivateDeactive();
         controller.task = task1;
         controller.Activate();
-        //usr = [select id, Active_Inactive_Flag__c from User where id = :usr.id];
-        //System.assertEquals(usr.Active_Inactive_Flag__c, true);
+        usr = [select id, Active__c from User where id = :usr.id];
+        System.assertEquals(usr.Active__c, true);
         controller.Deactivate();
-        //usr = [select id, Active_Inactive_Flag__c from User where id = :usr.id];
-        //System.assertEquals(usr.Active_Inactive_Flag__c, false); 
+        usr = [select id, Active__c from User where id = :usr.id];
+        System.assertEquals(usr.Active__c, false); 
         Test.stopTest();
     }
     
@@ -76,8 +76,7 @@ public class TaskMassChangeActivateDeactiveTest {
         );
         insert task1;
         
-        //User usr = [select id, Active_Inactive_Flag__c from User where isActive = true limit 1];
-        User usr = [select id from User where isActive = true limit 1];
+        User usr = [select id, Active__c from User where isActive = true limit 1];
         
         task1.ownerId = usr.id;
         update task1;

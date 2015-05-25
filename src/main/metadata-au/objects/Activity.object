@@ -484,7 +484,7 @@
     <fields>
         <fullName>Activity_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Activity Date</label>
+        <label>Effective Date</label>
         <required>false</required>
         <type>Date</type>
     </fields>
@@ -867,7 +867,7 @@
         <fullName>Activity_Purpose__c</fullName>
         <externalId>false</externalId>
         <inlineHelpText>Activity Purpose</inlineHelpText>
-        <label>Activity Purpose</label>
+        <label>Activity Type</label>
         <picklist>
             <picklistValues>
                 <fullName>Unknown</fullName>
@@ -1452,7 +1452,7 @@
     <fields>
         <fullName>Dealer_Name__c</fullName>
         <externalId>false</externalId>
-        <label>Dealer Name</label>
+        <label>Dealership/Sales Person</label>
         <length>200</length>
         <required>false</required>
         <type>Text</type>
@@ -1517,7 +1517,7 @@
         <fullName>HomeMobilePhone__c</fullName>
         <description>SSI</description>
         <externalId>false</externalId>
-        <label>HomeMobilePhone</label>
+        <label>Mobile</label>
         <required>false</required>
         <type>Phone</type>
     </fields>
@@ -1745,7 +1745,7 @@
         <fullName>OfficePhone__c</fullName>
         <description>SSI</description>
         <externalId>false</externalId>
-        <label>OfficePhone</label>
+        <label>Work Phone</label>
         <required>false</required>
         <type>Phone</type>
     </fields>
@@ -1961,7 +1961,7 @@ noted by Lio on 10.28.2013</description>
     <fields>
         <fullName>Result__c</fullName>
         <externalId>false</externalId>
-        <label>Result</label>
+        <label>Outcome</label>
         <picklist>
             <picklistValues>
                 <fullName>Decision Maker - Meaningful Contact</fullName>

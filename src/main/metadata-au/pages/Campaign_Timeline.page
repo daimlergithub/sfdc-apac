@@ -360,7 +360,7 @@ window.onload = function(){initPage();};
                     <option value="Central Marketing Campaign" selected="selected">
                         <apex:outputText value="{!$Label.Campaign_Calendar_Page_Central_Marketing_Campaign}"/>
                     </option>
-                    <option value="CAS Marketing Campaign">
+                    <!-- commented : As per sdfcau-138<option value="CAS Marketing Campaign">
                         <apex:outputText value="{!$Label.Campaign_Calendar_Page_CAS_Marketing_Campaign}"/>
                     </option> 
                     <option value="CAC CRM Campaign">
@@ -368,7 +368,7 @@ window.onload = function(){initPage();};
                     </option> 
                     <option value="CAC Campaign">
                         <apex:outputText value="{!$Label.Campaign_Calendar_Page_CAC_Campaign}"/>
-                    </option> 
+                    </option>--> 
                 </select>     
                 <BR/>
                 <!-- Patrick -->
