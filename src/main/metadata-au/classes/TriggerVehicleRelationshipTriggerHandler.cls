@@ -25,7 +25,7 @@ public class TriggerVehicleRelationshipTriggerHandler
         if(trigger.isAfter && trigger.isInsert)
         {
             // US-CP-007
-            UtilVehicleRelationship.checkVehcileValidity(trigger.new);
+            /*UtilVehicleRelationship.checkVehcileValidity(trigger.new);
             
             VehicleSharingWrapService vehicleWrapService = new VehicleSharingWrapService();
             SharingService.shareVehicles(vehicleWrapService.wrapVehicleFromRetailRelationships(Trigger.new));
@@ -37,15 +37,15 @@ public class TriggerVehicleRelationshipTriggerHandler
             handler.shareAccountByRetailVR(newMap, oldMap, Trigger.isInsert);
             
             //ISSUE-0757
-            VehicleRelationshipHelper.shareVR(Trigger.new);
+            VehicleRelationshipHelper.shareVR(Trigger.new);*/
             //Existing au functionality
             VehicleRelationshipHelper.auAfter_Insert_Update_Events(Trigger.new,trigger.isinsert);
         }
         if(trigger.isAfter && trigger.isUpdate)
         {
-            AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
+            /*AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
             handler.shareAccountByRetailVR(newMap, oldMap, Trigger.isInsert);
-            UtilVehicleRelationship.updateVehicle(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);
+            UtilVehicleRelationship.updateVehicle(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);*/
             //Existing au functionality
             VehicleRelationshipHelper.auAfter_Insert_Update_Events(Trigger.new,trigger.isinsert);
         }

@@ -654,45 +654,39 @@ public class TaskTriggerHandler
 	    }
 	    
 	    if(isInsert) {
-	        Set<Id> RECORD_TYPE_SET = new Set<Id> {
-	        Schema.SObjectType.Task.getRecordTypeInfosByName().get('Annual Call').getRecordTypeId(),
-	        Schema.SObjectType.Task.getRecordTypeInfosByName().get('EOC Call').getRecordTypeId(),
-	        Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId()
-	        };
+	        Set<Id> RECORD_TYPE_SET = new Set<Id>();
+	        id recAnnualId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Annual Call').getRecordTypeId();
+	        id recEOCId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('EOC Call').getRecordTypeId();
+	        id recWelcomeId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId(); 
+	        RECORD_TYPE_SET.add(recAnnualId);
+	        RECORD_TYPE_SET.add(recEOCId);
+	        RECORD_TYPE_SET.add(recWelcomeId);
 	        Set<Id> contractIds = new Set<Id>();
+	        Schema.DescribeSobjectResult r= Retail_Task__c.sObjectType.getDescribe();
+	        string keyPrefix=r.getKeyPrefix();
 	        for(Task task : listTaskNew) {
-	            if(RECORD_TYPE_SET.contains(task.RecordTypeId) && String.valueOf(task.WhatId).startswith('01I'))  {
+	            if(RECORD_TYPE_SET.contains(task.RecordTypeId) && String.valueOf(task.WhatId).startswith(keyPrefix))  {
 	                contractIds.add(task.WhatId);
 	            }
 	        }
 	        
-	        Map<Id, Retail_Task__c> contracts = new Map<Id, Retail_Task__c>([select Id, StartDate__c, EndDate__c, Dealer_Number__c,
-	                                                             Amount_Financed__c, Base_Interest_Rate__c, Campaign_Description__c, 
-	                                                             Duration__c, Dealer_Group__c, Direct_Debit_Authority__c, 
-	                                                             Finance_Brand__c, Finance_Product_Type__c, Franchise_Description__c,
-	                                                             Interest_Rate__c, Sub_Product__c, Product_Variation__c, Monthly_Repayment__c, 
-	                                                             Residual__c from Retail_Task__c where Id in :contractIds]);
+	        Map<Id, Retail_Task__c> contracts = new Map<Id, Retail_Task__c>([select Id, Account__c,Account__r.Individual_Home_Phone__c,Account__r.Work_Phone__c,Account__r.Mobile__c,
+	        																StartDate__c,EndDate__c from Retail_Task__c where Id in :contractIds]);
 	        
 	        for(Task task : listTaskNew) {
 	            if(RECORD_TYPE_SET.contains(task.RecordTypeId) && contracts.containsKey(task.WhatId))  {
 	            	//TODO
-	                //task.Contract_Start_Date__c = contracts.get(task.WhatId).StartDate__c;
-	                //task.Contract_End_Date__c = contracts.get(task.WhatId).EndDate__c;
-	                task.Dealer_Name__c = contracts.get(task.WhatId).Dealer_Number__c;
-	                //task.Amount_Financed__c = contracts.get(task.WhatId).Amount_Financed__c;
-	                //task.Base_Interest_Rate__c = contracts.get(task.WhatId).Base_Interest_Rate__c;
-	                //task.Campaign_Description__c = contracts.get(task.WhatId).Campaign_Description__c;
-	                //task.Contract_Term_months__c = contracts.get(task.WhatId).Duration__c;
-	                //task.Dealer_Group__c = contracts.get(task.WhatId).Dealer_Group__c;
-	                //task.Direct_Debit_Authority__c = contracts.get(task.WhatId).Direct_Debit_Authority__c;
-	                //task.Finance_Brand__c = contracts.get(task.WhatId).Finance_Brand__c;
-	                //task.Finance_Product_Type__c = contracts.get(task.WhatId).Finance_Product_Type__c;
-	                //task.Franchise_Description__c = contracts.get(task.WhatId).Franchise_Description__c;
-	                //task.Interest_Rate__c = contracts.get(task.WhatId).Interest_Rate__c;
-	                //task.Sub_Product__c = contracts.get(task.WhatId).Sub_Product__c;
-	                //task.Product_Variation__c = contracts.get(task.WhatId).Product_Variation__c;
-	                //task.Monthly_Repayment__c = contracts.get(task.WhatId).Monthly_Repayment__c;
-	                //task.Residual__c = contracts.get(task.WhatId).Residual__c;
+	            	system.debug('contractIds>>>>'+json.serializepretty(contracts));
+	            	if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Individual_Home_Phone__c!=null)
+	                	task.HomeMobilePhone__c=contracts.get(task.WhatId).Account__r.Individual_Home_Phone__c;
+	                if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Work_Phone__c!=null)	
+	                	task.OfficePhone__c=contracts.get(task.WhatId).Account__r.Work_Phone__c;
+	                if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Mobile__c!=null)	
+	                	task.PersonHomePhone__c=contracts.get(task.WhatId).Account__r.Mobile__c;
+	                if(task.RecordTypeId==recAnnualId || task.RecordTypeId==recWelcomeId && (contracts.get(task.WhatId).StartDate__c!=null))
+	                	task.Activity_Date__c=contracts.get(task.WhatId).StartDate__c;
+	                if(task.RecordTypeId==recEOCId && (contracts.get(task.WhatId).EndDate__c!=null))
+	                	task.Activity_Date__c=contracts.get(task.WhatId).EndDate__c;	
 	            }
 	        }
 	    }

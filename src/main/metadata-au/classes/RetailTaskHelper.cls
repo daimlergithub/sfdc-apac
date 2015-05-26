@@ -177,8 +177,8 @@ public with sharing class RetailTaskHelper {
                     newLead.Lead_Source__c = 'End of Contract';
                     newLead.Company_Account__c = curCntrct.Account__c;
                     newLead.Assigned_Dealer__c = curCntrct.Related_Dealer__c;
-                    newLead.Business_Unit__c = 'Fleet';
-                    newLead.Sub_BusinessUnit__c = 'Finance';
+                    newLead.Business_Unit__c = 'MBFS Cars';
+                    newLead.Sub_BusinessUnit__c = 'Finance & Insurance';
                     newLead.Is_Fleet_Send_Email_Before_150_Days__c = true;
                     //TODO
                     //newLead.CMS_Contract_Number__c = curCntrct.Contract_Id__c;

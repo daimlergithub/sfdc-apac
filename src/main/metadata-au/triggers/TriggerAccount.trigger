@@ -15,7 +15,7 @@
 */
 trigger TriggerAccount on Account (before insert,before update,after insert, after update, after delete) 
 {
-	if (!TriggerUtil.isTriggerEnabled('TriggerAccount')) {
+    if (!TriggerUtil.isTriggerEnabled('TriggerAccount')) {
         return;
     }
     if(trigger.isAfter && trigger.isInsert)
@@ -32,10 +32,10 @@ trigger TriggerAccount on Account (before insert,before update,after insert, aft
     }
     if(trigger.isBefore && trigger.isInsert)
     {
-        AccountHelper.auBefore_Insert_Update_Events(trigger.new,trigger.OldMap,trigger.isUpdate);
+        AccountHelper.auBefore_Insert_Update_Events(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
     }
     if(trigger.isBefore && trigger.isUpdate)
     {
-        AccountHelper.auBefore_Insert_Update_Events(trigger.new,trigger.OldMap,trigger.isUpdate);
+        AccountHelper.auBefore_Insert_Update_Events(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
     }
 }

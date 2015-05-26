@@ -25,16 +25,20 @@ public class UserTriggerHandler
         Map<Id,User> newmap = (Map<Id,User>)trigger.newmap;
         
         if (trigger.isAfter && trigger.isInsert) {
-            UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);      
+        	//TODO : commented kernel functionality
+            //UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);      
         }
         if (trigger.isAfter && trigger.isUpdate) {
-            UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);  
+        	//TODO : commented kernel functionality
+            //UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);  
         }
         if (trigger.isBefore && trigger.isInsert) {
-            UserHelper.ValidateUser(Trigger.new);   
+        	//TODO : commented kernel functionality
+            //UserHelper.ValidateUser(Trigger.new);   
         }
         if (trigger.isBefore && trigger.isUpdate) {
-            UserHelper.ValidateUser(Trigger.new);   
+        	//TODO : commented kernel functionality
+            //UserHelper.ValidateUser(Trigger.new);   
         }
     }
 }
