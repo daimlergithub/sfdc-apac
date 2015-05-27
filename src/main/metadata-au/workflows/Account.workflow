@@ -165,24 +165,19 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND ((3 AND 5 AND 9) OR (4 AND 6 AND 8)OR(3 AND 4 AND 7 AND 8 AND 9))</booleanFilter>
+        <booleanFilter>1 AND 2 AND 3 AND 8 AND (4 OR 6) OR (1 AND 2 AND 3 AND 5 AND 7)</booleanFilter>
         <criteriaItems>
             <field>Account.RecordTypeId</field>
             <operation>equals</operation>
             <value>Dealer</value>
         </criteriaItems>
         <criteriaItems>
-            <field>Account.Dealer_Active__c</field>
+            <field>Account.Active__c</field>
             <operation>equals</operation>
-            <value>True</value>
+            <value>Yes</value>
         </criteriaItems>
         <criteriaItems>
             <field>Account.Inactivation_Date__c</field>
-            <operation>lessOrEqual</operation>
-            <value>TODAY</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.MBFS_Inactivation_Date__c</field>
             <operation>lessOrEqual</operation>
             <value>TODAY</value>
         </criteriaItems>
