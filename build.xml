@@ -231,7 +231,7 @@
 	<target name="deploy30">
 		<deploy>			
 			<sf:typeset name="applications"/>			
-			<sf:typeset name="classes"/>	
+			<sf:typeset name="classes">	
 			<sf:include name="TriggerParticipatingDealerTriggerHandler"/>
 			<sf:include name="ParticipatingDealerHelper"/> 
 			<sf:include name="ParticipatingDealerHelperTest"/>
