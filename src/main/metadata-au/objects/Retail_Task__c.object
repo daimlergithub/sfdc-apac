@@ -965,7 +965,7 @@
         <label>Product Variation</label>
         <picklist>
             <picklistValues>
-                <fullName>TBC</fullName>
+                <fullName>Agility</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1608,7 +1608,283 @@
         <label>Sub-Product</label>
         <picklist>
             <picklistValues>
-                <fullName>TBC</fullName>
+                <fullName>100K Special</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealership Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employee Vehicle Program</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FUSO Fast Track</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Ins (Prime)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Isuzu D-Max Fast Track</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Isuzu Fast Track</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Atego Fast Track</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Insurance (Prime)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Van Fast Track</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Van Star Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operating Lease - Non Maintained</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operating Lease - Star Lease Maintained</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Payment Holiday - One Month</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime - Cars &amp; Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Professional Fast Track</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>RV Extension</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Safeguard Classic</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Safeguard Classic Plus (Van only)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Safeguard Platinum</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Safeguard Platinum Advantage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Staff Loan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Standard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Star fleet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Star Lease Service Platinum</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Star Lease Service silver</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Toll Rental Agreement N/A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UD Fast Track</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime CL - Cars &amp; Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Ins (Prime) CL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Ins (Std)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Ins (Std) CL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime Cars &amp; Vans Used</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime CL Prime Cars &amp; Vans Used</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Ins Used (Prime)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Ins Used (Prime) CL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Ins Used (Std)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Ins Used (Std) CL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Std Spl</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Std Spl CL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime Spl</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime Spl CL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spl MB Ins (Prime)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spl MB Ins (Std)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spl MB Ins (Std) CL</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime Used - N/A</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime Heavy Commercial</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime Heavy Commercial Used</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime Fuso</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Ins (Std)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Ins Used (Std)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime Fuso Used</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Ins Used &lt;4 Yrs (Prime)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Ins Used &gt;4 Years (Prime)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime MBFS Cars Used</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Replacement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Spl MB Ins(Prime)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Super Prime</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-Paid Agility</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rate Lock</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A Residual Value</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>B Residual Value</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C Residual Value</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>D Residual Value</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>No Financials</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Prime - MBFS PC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso Ins Used &gt;4 Years (Std)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chess Move</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Super Prime (Fuso)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Operating Lease-Star Lease NonMaintained</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2335,7 +2611,7 @@
         <picklistValues>
             <picklist>Product_Variation__c</picklist>
             <values>
-                <fullName>TBC</fullName>
+                <fullName>Agility</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2663,7 +2939,283 @@
         <picklistValues>
             <picklist>Sub_Product__c</picklist>
             <values>
-                <fullName>TBC</fullName>
+                <fullName>100K Special</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>A Residual Value</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B Residual Value</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C Residual Value</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chess Move</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D Residual Value</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealership Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee Vehicle Program</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FUSO Fast Track</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Ins %28Prime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Ins %28Std%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Ins Used %28Std%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Ins Used %3C4 Yrs %28Prime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Ins Used %3E4 Years %28Prime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso Ins Used %3E4 Years %28Std%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Isuzu D-Max Fast Track</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Isuzu Fast Track</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Atego Fast Track</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Ins %28Prime%29 CL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Ins %28Std%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Ins %28Std%29 CL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Ins Used %28Prime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Ins Used %28Prime%29 CL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Ins Used %28Std%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Ins Used %28Std%29 CL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Insurance %28Prime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Van Fast Track</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Van Star Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No Financials</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operating Lease - Non Maintained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operating Lease - Star Lease Maintained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Operating Lease-Star Lease NonMaintained</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payment Holiday - One Month</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Paid Agility</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime - Cars %26 Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime - MBFS PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime CL - Cars %26 Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime CL Prime Cars %26 Vans Used</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime Cars %26 Vans Used</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime Fuso</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime Fuso Used</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime Heavy Commercial</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime Heavy Commercial Used</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime MBFS Cars Used</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime Spl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime Spl CL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Prime Used - N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Professional Fast Track</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>RV Extension</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rate Lock</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replacement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safeguard Classic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safeguard Classic Plus %28Van only%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safeguard Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Safeguard Platinum Advantage</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spl MB Ins %28Prime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spl MB Ins %28Std%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spl MB Ins %28Std%29 CL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Spl MB Ins%28Prime%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Staff Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Standard</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Star Lease Service Platinum</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Star Lease Service silver</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Star fleet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Std Spl</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Std Spl CL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Prime</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Super Prime %28Fuso%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Toll Rental Agreement N%2FA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UD Fast Track</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3169,7 +3721,7 @@
         <picklistValues>
             <picklist>Product_Variation__c</picklist>
             <values>
-                <fullName>TBC</fullName>
+                <fullName>Agility</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3517,7 +4069,7 @@
         <picklistValues>
             <picklist>Sub_Product__c</picklist>
             <values>
-                <fullName>TBC</fullName>
+                <fullName>100K Special</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4023,7 +4575,7 @@
         <picklistValues>
             <picklist>Product_Variation__c</picklist>
             <values>
-                <fullName>TBC</fullName>
+                <fullName>Agility</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4351,7 +4903,7 @@
         <picklistValues>
             <picklist>Sub_Product__c</picklist>
             <values>
-                <fullName>TBC</fullName>
+                <fullName>100K Special</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4857,7 +5409,7 @@
         <picklistValues>
             <picklist>Product_Variation__c</picklist>
             <values>
-                <fullName>TBC</fullName>
+                <fullName>Agility</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5205,7 +5757,7 @@
         <picklistValues>
             <picklist>Sub_Product__c</picklist>
             <values>
-                <fullName>TBC</fullName>
+                <fullName>100K Special</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5711,7 +6263,7 @@
         <picklistValues>
             <picklist>Product_Variation__c</picklist>
             <values>
-                <fullName>TBC</fullName>
+                <fullName>Agility</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6039,7 +6591,7 @@
         <picklistValues>
             <picklist>Sub_Product__c</picklist>
             <values>
-                <fullName>TBC</fullName>
+                <fullName>100K Special</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
