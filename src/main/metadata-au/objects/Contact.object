@@ -615,6 +615,62 @@
                 <fullName>Warranty Manager</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>BDM Army Trucks - Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BDM Cars - After-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BDM Cars - Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BDM Freightliner - Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BDM Fuso - Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BDM MB Bus - Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BDM MB Trucks/Freightliner - Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BDM Trucks - After-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BDM Vans - After-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BDM Vans - Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DRM MBFS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FSM Trucks - After-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FSM Vans - After-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TSM Cars - After-Sales</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2496,6 +2552,46 @@ Adds an active member/membership status/update activity generated sales leads--t
         <picklistValues>
             <picklist>Job_Title__c</picklist>
             <values>
+                <fullName>BDM Army Trucks - Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDM Cars - After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDM Cars - Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDM Freightliner - Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDM Fuso - Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDM MB Bus - Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDM MB Trucks%2FFreightliner - Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDM Trucks - After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDM Vans - After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BDM Vans - Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
                 <default>false</default>
             </values>
@@ -2505,6 +2601,18 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Bodywork - Panel Specialist</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DRM MBFS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FSM Trucks - After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>FSM Vans - After-Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2613,6 +2721,10 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>System Technician</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TSM Cars - After-Sales</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3056,24 +3168,6 @@ Adds an active member/membership status/update activity generated sales leads--t
 &amp;&amp;!ISBLANK(MobilePhone)</errorConditionFormula>
         <errorDisplayField>MobilePhone</errorDisplayField>
         <errorMessage>Mobile should be a numric value</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>RestrictCheckComplaintAndLeadGateKeeper</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND(Dealer_Complaint_User__c,  Dealer_Lead_Gate_Keeper__c  )</errorConditionFormula>
-        <errorMessage>You must check only one for "Dealer Lead Gate Keeper" and "Dealer Complaint User".</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>RestrictCheckComplaintGaAndComplaintUser</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND( Dealer_Complaint_User__c ,  Dealer_Complaint_Gate_Keeper__c )</errorConditionFormula>
-        <errorMessage>You must check only one for "Dealer Complaint Gate Keeper" and "Dealer Complaint User".</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>RestrictCheckPresalesAndComplaintUser</fullName>
-        <active>true</active>
-        <errorConditionFormula>AND( Dealer_Presales__c  ,   Dealer_Complaint_Manager__c )</errorConditionFormula>
-        <errorMessage>You must check only one for "Dealer Presales" and "Dealer Complaint Manager".</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>Active_Permission_Set</fullName>
