@@ -5777,6 +5777,74 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <fullName>Utilities ( gas / electric )</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Accommodation, Cafes and Restaurants</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Agriculture, Forestry &amp; Fishing, Farming</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Communication Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction/Engineering</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Electricity, Gas and Water Supply</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banking/Finance/Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fishing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Government / Administration and Defence</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Health and Community Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mining</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal and Other Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Property Development/Real Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cultural and Recreational Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retail Trade</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transport and Storage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marine</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -15695,6 +15763,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Accommodation%2C Cafes and Restaurants</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Accounting</fullName>
                 <default>false</default>
             </values>
@@ -15704,6 +15776,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agriculture%2C Forestry %26 Fishing%2C Farming</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15728,6 +15804,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking%2FFinance%2FInsurance</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15779,6 +15859,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Communication Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Communications equipment%2C computers and other electronic equipment manufacturing</fullName>
                 <default>false</default>
             </values>
@@ -15795,6 +15879,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Construction%2FEngineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Consumer Goods</fullName>
                 <default>false</default>
             </values>
@@ -15804,6 +15892,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cultural and Recreational Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15828,6 +15920,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Electricity %2C heat production and supply industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity%2C Gas and Water Supply</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15867,6 +15963,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Food Manufacturing</fullName>
                 <default>false</default>
             </values>
@@ -15899,6 +15999,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Government %2F Administration and Defence</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Grassroots autonomous organizations</fullName>
                 <default>false</default>
             </values>
@@ -15912,6 +16016,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health and Community Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15947,11 +16055,23 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mass organizations %2C community groups and religious organizations</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16007,6 +16127,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Personal and Other Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Petroleum processing%2C coking and nuclear fuel processing industry</fullName>
                 <default>false</default>
             </values>
@@ -16043,6 +16167,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Property Development%2FReal Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Public Facilities Management</fullName>
                 <default>false</default>
             </values>
@@ -16068,6 +16196,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail Trade</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16136,6 +16268,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transport and Storage</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19103,6 +19239,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Accommodation%2C Cafes and Restaurants</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Accounting</fullName>
                 <default>false</default>
             </values>
@@ -19112,6 +19252,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agriculture%2C Forestry %26 Fishing%2C Farming</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19136,6 +19280,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking%2FFinance%2FInsurance</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19187,6 +19335,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Communication Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Communications equipment%2C computers and other electronic equipment manufacturing</fullName>
                 <default>false</default>
             </values>
@@ -19203,6 +19355,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Construction%2FEngineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Consumer Goods</fullName>
                 <default>false</default>
             </values>
@@ -19212,6 +19368,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cultural and Recreational Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19236,6 +19396,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Electricity %2C heat production and supply industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity%2C Gas and Water Supply</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19275,6 +19439,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Food Manufacturing</fullName>
                 <default>false</default>
             </values>
@@ -19307,6 +19475,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Government %2F Administration and Defence</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Grassroots autonomous organizations</fullName>
                 <default>false</default>
             </values>
@@ -19320,6 +19492,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health and Community Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19355,11 +19531,23 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mass organizations %2C community groups and religious organizations</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19415,6 +19603,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Personal and Other Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Petroleum processing%2C coking and nuclear fuel processing industry</fullName>
                 <default>false</default>
             </values>
@@ -19451,6 +19643,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Property Development%2FReal Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Public Facilities Management</fullName>
                 <default>false</default>
             </values>
@@ -19476,6 +19672,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail Trade</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19544,6 +19744,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transport and Storage</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23142,6 +23346,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Accommodation%2C Cafes and Restaurants</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Accounting</fullName>
                 <default>false</default>
             </values>
@@ -23151,6 +23359,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agriculture%2C Forestry %26 Fishing%2C Farming</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23175,6 +23387,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking%2FFinance%2FInsurance</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23226,6 +23442,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Communication Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Communications equipment%2C computers and other electronic equipment manufacturing</fullName>
                 <default>false</default>
             </values>
@@ -23242,6 +23462,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Construction%2FEngineering</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Consumer Goods</fullName>
                 <default>false</default>
             </values>
@@ -23251,6 +23475,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Credit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cultural and Recreational Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23275,6 +23503,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Electricity %2C heat production and supply industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity%2C Gas and Water Supply</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23314,6 +23546,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fishing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Food Manufacturing</fullName>
                 <default>false</default>
             </values>
@@ -23346,6 +23582,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Government %2F Administration and Defence</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Grassroots autonomous organizations</fullName>
                 <default>false</default>
             </values>
@@ -23359,6 +23599,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health and Community Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23394,11 +23638,23 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marine</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mass organizations %2C community groups and religious organizations</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mining</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23454,6 +23710,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Personal and Other Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Petroleum processing%2C coking and nuclear fuel processing industry</fullName>
                 <default>false</default>
             </values>
@@ -23490,6 +23750,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Property Development%2FReal Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Public Facilities Management</fullName>
                 <default>false</default>
             </values>
@@ -23515,6 +23779,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail Trade</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23583,6 +23851,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transport and Storage</fullName>
                 <default>false</default>
             </values>
             <values>
