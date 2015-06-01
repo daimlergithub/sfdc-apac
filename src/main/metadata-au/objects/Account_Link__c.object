@@ -335,6 +335,10 @@
                 <fullName>Campaign/Project Dealer</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Last Financing</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -509,6 +513,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Last Financing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Last Selling</fullName>
                 <default>false</default>
             </values>
@@ -600,7 +608,27 @@
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
+                <fullName>Campaign%2FProject Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Financing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Selling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Servicing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Preferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Territory Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -679,7 +707,27 @@
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
+                <fullName>Campaign%2FProject Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Financing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Selling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Servicing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Preferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Territory Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -758,7 +806,27 @@
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
+                <fullName>Campaign%2FProject Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Financing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Selling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Servicing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Preferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Territory Dealer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -854,6 +922,10 @@
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Campaign%2FProject Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Financing</fullName>
                 <default>false</default>
             </values>
             <values>
