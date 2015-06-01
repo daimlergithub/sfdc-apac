@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
     <excludeButtons>Share</excludeButtons>
@@ -10,6 +11,10 @@
         <editHeading>true</editHeading>
         <label>Person Account Basic Information</label>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>OwnerId</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Required</behavior>
                 <field>Name</field>
@@ -30,27 +35,11 @@
                 <behavior>Readonly</behavior>
                 <field>VAN_Status__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>RecordTypeId</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>OwnerId</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Customer_Number__c</field>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Gender__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Marital_Status__c</field>
+                <field>Fax</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -58,7 +47,15 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Primary__pc</field>
+                <field>Marital_Status__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Gender__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>RecordTypeId</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -67,54 +64,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Contact Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Individual_Home_Phone__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Individual_Home_Phone_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>PersonMobilePhone</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Mobile_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Email__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Email_Status__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Phone</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Work_Phone_Status__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Fax</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Other Information</label>
+        <label>Description Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
@@ -122,7 +72,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Job__c</field>
+                <field>Job_Title__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -200,72 +150,34 @@
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
-        <editHeading>true</editHeading>
-        <label>Contact Info Status</label>
+        <editHeading>false</editHeading>
+        <label>Opt-in / Opt-out</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Opt_In_Email__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Email_Last_Modified_By__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Email_Last_Modified_Date__c</field>
+                <height>200</height>
+                <page>AccountOptinandOptout</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Opt_In_SMS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SMS_Last_Modified_By__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>SMS_Last_Modified_Date__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsTopToBottom</style>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>FS Contact Info Status</label>
+        <label>Contact Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>FS_Opt_In_Email__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>FS_Email_Last_Modified_By__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>FS_Email_Last_Modified_Date__c</field>
+                <height>200</height>
+                <page>Account_Address</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
             </layoutItems>
         </layoutColumns>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>FS_Opt_In_SMS__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>FS_SMS_Last_Modified_By__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>FS_SMS_Last_Modified_Date__c</field>
-            </layoutItems>
-        </layoutColumns>
-        <style>TwoColumnsLeftToRight</style>
+        <style>OneColumn</style>
     </layoutSections>
     <layoutSections>
         <customLabel>false</customLabel>
@@ -303,21 +215,6 @@
             </layoutItem>
         </relatedContentItems>
     </relatedContent>
-    <relatedLists>
-        <relatedList>RelatedNoteList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <relatedList>RelatedAccountContactRoleList</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>CAMPAIGN.NAME</fields>
-        <fields>CAMPAIGN.START_DATE</fields>
-        <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
-        <fields>CM.STATUS</fields>
-        <fields>CM.RESPONDED</fields>
-        <fields>CM.LAST_UPDATE</fields>
-        <relatedList>RelatedCampaignList</relatedList>
-    </relatedLists>
     <relatedLists>
         <customButtons>New_Individual_Address</customButtons>
         <excludeButtons>New</excludeButtons>
@@ -357,14 +254,30 @@
         <fields>NAME</fields>
         <fields>Car_Relation__c</fields>
         <fields>UsVIN__c</fields>
-        <fields>Owner_Dealer__c</fields>
-        <fields>DealerNo__c</fields>
-        <fields>Purchase_Date__c</fields>
+        <fields>Validity__c</fields>
+        <fields>Vehicle_ID__c</fields>
+        <fields>Vehicle_Brand__c</fields>
+        <fields>Vehicle_Class__c</fields>
         <fields>Vehicle_Model__c</fields>
-        <fields>Status__c</fields>
-        <fields>Corporate_Sale__c</fields>
-        <fields>TradeIn__c</fields>
+        <fields>Purchase_Date__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>CAMPAIGN.NAME</fields>
+        <fields>CAMPAIGN.START_DATE</fields>
+        <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
+        <fields>CM.STATUS</fields>
+        <fields>CM.RESPONDED</fields>
+        <fields>CM.LAST_UPDATE</fields>
+        <relatedList>RelatedCampaignList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Start_Date__c</fields>
+        <fields>End_Date__c</fields>
+        <fields>fromRole__c</fields>
+        <fields>Primary__c</fields>
+        <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <customButtons>New_Vehicle_Lead</customButtons>
@@ -387,11 +300,29 @@
         <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
+        <fields>ContractNumber__c</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>Related_Vehicle__c</fields>
+        <fields>Related_Dealer__c</fields>
+        <fields>Dealer_Number__c</fields>
+        <relatedList>Retail_Task__c.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
+        <fields>NAME</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.PRIORITY</fields>
+        <fields>CASES.CREATED_DATE_DATE_ONLY</fields>
         <fields>CASES.STATUS</fields>
-        <fields>Vehicle__c</fields>
-        <fields>CASES.RECORDTYPE</fields>
+        <fields>OWNER_NAME</fields>
         <relatedList>RelatedCaseList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedNoteList</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedAccountContactRoleList</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>VehicleInterested__c</fields>
@@ -403,21 +334,6 @@
         <fields>ClosedDate__c</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>PreOrder__c.Customer__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>ContractNumber__c</fields>
-        <fields>StartDate__c</fields>
-        <fields>EndDate__c</fields>
-        <fields>Related_Vehicle__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <fields>Dealer_Number__c</fields>
-        <relatedList>Retail_Task__c.Account__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <excludeButtons>New</excludeButtons>
-        <fields>fromRole__c</fields>
-        <fields>Dealer_No__c</fields>
-        <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
@@ -436,7 +352,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000000Jkqi</masterLabel>
+        <masterLabel>00h17000000Jm8z</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
