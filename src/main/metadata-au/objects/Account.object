@@ -25663,12 +25663,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <lookupDialogsAdditionalFields>ACCOUNT.PHONE1</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>PC_PHONE3</lookupDialogsAdditionalFields>
         <lookupFilterFields>ACCOUNT.NAME</lookupFilterFields>
-        <lookupFilterFields>00N17000000eZRX</lookupFilterFields>
-        <lookupFilterFields>00N17000000eZRp</lookupFilterFields>
-        <lookupFilterFields>00N17000000eZRo</lookupFilterFields>
-        <lookupFilterFields>00N17000000eZUE</lookupFilterFields>
-        <lookupFilterFields>00N17000000eZQ4</lookupFilterFields>
-        <lookupFilterFields>00N17000000eZQX</lookupFilterFields>
         <lookupFilterFields>ACCOUNT.PHONE1</lookupFilterFields>
         <lookupFilterFields>PC_PHONE3</lookupFilterFields>
         <lookupPhoneDialogsAdditionalFields>ACCOUNT.NAME</lookupPhoneDialogsAdditionalFields>
