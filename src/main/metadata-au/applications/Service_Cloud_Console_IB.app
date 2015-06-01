@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customApplicationComponents>
+        <alignment>left</alignment>
+        <customApplicationComponent>Console.BuiltInComponent.mostRecentlyUsed</customApplicationComponent>
+    </customApplicationComponents>
     <defaultLandingTab>standard-home</defaultLandingTab>
     <description>Service Cloud Console for Inbound</description>
     <detailPageRefreshMethod>autoRefresh</detailPageRefreshMethod>
@@ -121,7 +125,7 @@
             <keyCommand>M</keyCommand>
         </defaultShortcut>
     </keyboardShortcuts>
-    <label>Service Cloud Console IB</label>
+    <label>Customer Retention</label>
     <listPlacement>
         <location>full</location>
     </listPlacement>
@@ -141,29 +145,17 @@
         </pushNotification>
     </pushNotifications>
     <saveUserSessions>true</saveUserSessions>
-    <tab>standard-Account</tab>
-    <tab>standard-Case</tab>
-    <tab>standard-Campaign</tab>
-    <tab>Vehicle__c</tab>
-    <tab>Vehicle_Relationship__c</tab>
     <tab>Tasks</tab>
-    <tab>QC__c</tab>
-    <tab>standard-report</tab>
+    <tab>standard-Account</tab>
+    <tab>standard-Lead</tab>
+    <tab>standard-Contract</tab>
+    <tab>Vehicle__c</tab>
     <workspaceMappings>
         <mapping>
-            <tab>standard-Campaign</tab>
+            <tab>standard-Contract</tab>
         </mapping>
         <mapping>
-            <tab>standard-report</tab>
-        </mapping>
-        <mapping>
-            <tab>standard-Case</tab>
-        </mapping>
-        <mapping>
-            <tab>QC__c</tab>
-        </mapping>
-        <mapping>
-            <tab>Vehicle_Relationship__c</tab>
+            <tab>standard-Lead</tab>
         </mapping>
         <mapping>
             <tab>Tasks</tab>
