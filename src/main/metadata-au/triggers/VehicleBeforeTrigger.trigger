@@ -26,9 +26,13 @@ trigger VehicleBeforeTrigger on Vehicle__c (before insert, before update) {
             vehicleGroupMappings.put(stringName,vgm.Vehicle_Group__c);
         }
     }
-    for(Vehicle__c newCar : trigger.new){
-        String stringClass = newCar.Class__c;
-        stringClass = stringClass.toUpperCase();
-        newCar.Vehicle_Group__c = vehicleGroupMappings.get(stringClass);
+    for(Vehicle__c newCar : trigger.new)
+	{
+        if(newCar.Class__c != null && newCar.Class__c != '')
+        {
+            String stringClass = newCar.Class__c;
+            stringClass = stringClass.toUpperCase();
+            newCar.Vehicle_Group__c = vehicleGroupMappings.get(stringClass);
+        }
     }
 }
