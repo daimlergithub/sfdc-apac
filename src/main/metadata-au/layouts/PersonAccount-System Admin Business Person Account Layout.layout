@@ -350,13 +350,12 @@
         <fields>NAME</fields>
         <fields>Car_Relation__c</fields>
         <fields>UsVIN__c</fields>
-        <fields>Owner_Dealer__c</fields>
-        <fields>DealerNo__c</fields>
-        <fields>Purchase_Date__c</fields>
+        <fields>Validity__c</fields>
+        <fields>Vehicle_ID__c</fields>
+        <fields>Vehicle_Brand__c</fields>
+        <fields>Vehicle_Class__c</fields>
         <fields>Vehicle_Model__c</fields>
-        <fields>Status__c</fields>
-        <fields>Corporate_Sale__c</fields>
-        <fields>TradeIn__c</fields>
+        <fields>Purchase_Date__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -381,9 +380,12 @@
     </relatedLists>
     <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
+        <fields>NAME</fields>
+        <fields>CASES.SUBJECT</fields>
+        <fields>CASES.PRIORITY</fields>
+        <fields>CASES.CREATED_DATE_DATE_ONLY</fields>
         <fields>CASES.STATUS</fields>
-        <fields>Vehicle__c</fields>
-        <fields>CASES.RECORDTYPE</fields>
+        <fields>OWNER_NAME</fields>
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
@@ -417,8 +419,11 @@
     </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>Start_Date__c</fields>
+        <fields>End_Date__c</fields>
         <fields>fromRole__c</fields>
-        <fields>Dealer_No__c</fields>
+        <fields>Primary__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
