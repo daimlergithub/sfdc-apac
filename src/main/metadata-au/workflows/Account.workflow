@@ -165,46 +165,30 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 AND 2 AND 3 AND 8 AND (4 OR 6) OR (1 AND 2 AND 3 AND 5 AND 7)</booleanFilter>
-        <criteriaItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Dealer</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Active__c</field>
-            <operation>equals</operation>
-            <value>Yes</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Inactivation_Date__c</field>
-            <operation>lessOrEqual</operation>
-            <value>TODAY</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Dealer_Allocation__c</field>
-            <operation>equals</operation>
-            <value>MBAuP</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Dealer_Allocation__c</field>
-            <operation>equals</operation>
-            <value>MBFS</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Dealer_Allocation__c</field>
-            <operation>equals</operation>
-            <value>Both</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.MBFS_Inactivation_Date__c</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Inactivation_Date__c</field>
-            <operation>notEqual</operation>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <formula>OR(
+AND(
+(RecordType.Name = &apos;Dealer&apos;),
+(ISPICKVAL(Active__c , &apos;Yes&apos;) 
+),
+(Inactivation_Date__c &lt;= TODAY()),
+ (NOT(ISBLANK(Inactivation_Date__c))),
+OR(
+( ISPICKVAL( Dealer_Allocation__c , &apos;MBAuP&apos;) ),
+( ISPICKVAL( Dealer_Allocation__c , &apos;MBFS&apos;))
+)
+), 
+
+AND(
+(RecordType.Name = &apos;Dealer&apos;),
+( ISPICKVAL( Active__c , &apos;Yes&apos;) ),
+( Inactivation_Date__c &lt;= TODAY()),
+( ISPICKVAL( Dealer_Allocation__c , &apos;Both&apos;) ),
+( MBFS_Inactivation_Date__c &lt;= TODAY() ),
+(NOT(ISBLANK( MBFS_Inactivation_Date__c ))),
+(NOT(ISBLANK(Inactivation_Date__c)))
+)
+)</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Deactivate Dealer With Time Trigger</fullName>
