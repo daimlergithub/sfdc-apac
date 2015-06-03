@@ -19609,7 +19609,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_SalesType“</descript
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -22479,6 +22479,53 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heavy Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M%2FCycle or Scooter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Truck %26 Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Source__c</picklist>
             <values>
                 <fullName>Domestic</fullName>
@@ -23174,6 +23221,21 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Used</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Group__c</picklist>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VAN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27154,6 +27216,53 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heavy Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M%2FCycle or Scooter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Truck %26 Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Source__c</picklist>
             <values>
                 <fullName>Domestic</fullName>
@@ -27853,6 +27962,21 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Used</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Group__c</picklist>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VAN</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -31261,6 +31385,53 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cycle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Heavy Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Light Commercial Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M%2FCycle or Scooter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Truck %26 Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Source__c</picklist>
             <values>
                 <fullName>Domestic</fullName>
@@ -31963,6 +32134,21 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Group__c</picklist>
+            <values>
+                <fullName>CV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VAN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>BodyType__c</customTabListAdditionalFields>
@@ -31991,79 +32177,4 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <fullName>Retail_Vehicle_Relationship_Share__c</fullName>
         <label>Retail Vehicle Relationship Share</label>
     </sharingReasons>
-    <validationRules>
-        <fullName>CP_EURO_VIN_Lenght_Check</fullName>
-        <active>true</active>
-        <description>/* 
-Created by: Mouse Liu 
-Used by: US-CP-004 
-Function: 
-1. CP means Contact Portfolio 
-2. EURO-VIN must be 17 or 18 characters. 
-Used in: 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/</description>
-        <errorConditionFormula>AND (
-	NOT(ISNULL( EuroVIN__c )),
-	NOT(ISBLANK( EuroVIN__c )),
-	LEN( EuroVIN__c ) &lt;&gt; 17,
-	LEN( EuroVIN__c ) &lt;&gt; 18,
-$Profile.Name != 'IntegrationAPI',
- RecordType.DeveloperName = 'MB'
-)</errorConditionFormula>
-        <errorDisplayField>EuroVIN__c</errorDisplayField>
-        <errorMessage>EURO-VIN must be 17 or 18 characters.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>CP_US_VIN_Length_Check</fullName>
-        <active>true</active>
-        <description>/* 
-Created by: Mouse Liu 
-Used by: US-CP-004 
-Function: 
-1. CP means Contact Portfolio 
-2. US-VIN must be 17 characters. 
-Used in: 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/</description>
-        <errorConditionFormula>AND (
-	NOT(ISNULL( UsVIN__c )),
-	NOT(ISBLANK( UsVIN__c )),
-	LEN( UsVIN__c ) &lt;&gt; 17
-)</errorConditionFormula>
-        <errorDisplayField>UsVIN__c</errorDisplayField>
-        <errorMessage>US-VIN must be 17 characters.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Euro_VIN_Invalid_Syntax</fullName>
-        <active>true</active>
-        <description>VIN is not allowed to have invalid syntax: $,%,^, ?, -, _, (, ), Space , *, @, punctuation, Chinese character.</description>
-        <errorConditionFormula>AND(	NOT(ISNULL( EuroVIN__c )),
-	NOT(ISBLANK( EuroVIN__c )),NOT(REGEX( EuroVIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI',  RecordType.DeveloperName = 'MB')</errorConditionFormula>
-        <errorDisplayField>EuroVIN__c</errorDisplayField>
-        <errorMessage>Euro VIN Has Invalid Syntax.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>US_VIN_Invalid_Syntax</fullName>
-        <active>true</active>
-        <description>VIN is not allowed to have invalid syntax: $,%,^, ?, -, _, (, ), Space , *, @, punctuation, Chinese character.</description>
-        <errorConditionFormula>AND(	NOT(ISNULL( UsVIN__c )),
-	NOT(ISBLANK( UsVIN__c )),NOT(REGEX( UsVIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI', RecordType.DeveloperName = 'MB')</errorConditionFormula>
-        <errorDisplayField>UsVIN__c</errorDisplayField>
-        <errorMessage>US VIN Has Invalid Syntax.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>UsVIN_Read_Only</fullName>
-        <active>true</active>
-        <description>If the vehicle is imported from interface, it's not allowed to change UsVIN in salesforce manually by CAC user.</description>
-        <errorConditionFormula>AND($Profile.Name &lt;&gt; "IntegrationAPI",ISCHANGED( UsVIN__c ) , NOT( ISBLANK(Created_By_EP_Transaction__c ) ), RecordType.DeveloperName = 'MB')</errorConditionFormula>
-        <errorDisplayField>UsVIN__c</errorDisplayField>
-        <errorMessage>It's not allowed to change UsVIN for a vehicle from interface.</errorMessage>
-    </validationRules>
 </CustomObject>
