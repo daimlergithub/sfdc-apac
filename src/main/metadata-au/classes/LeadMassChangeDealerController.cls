@@ -87,7 +87,7 @@ public class LeadMassChangeDealerController {
                 return null;       
             } 
         }
-        return new PageReference('/a08');   
+        return new PageReference('/a0r');   
     }
     
     public PageReference choose() {
