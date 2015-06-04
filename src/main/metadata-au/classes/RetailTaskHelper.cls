@@ -1,43 +1,43 @@
 public with sharing class RetailTaskHelper {
-	
-	public static void au_After_Insert_Update_Events(list<Retail_Task__c> lstRTNew,map<id,Retail_Task__c> rtNewMap,map<id,Retail_Task__c> rtOldMap,boolean isInsert)
-	{
-		Set<ID> vehicleIds = new Set<ID>();
-	    Set<ID> customerIds = new Set<ID>();
-	    List<Retail_Task__c> insertCvrs = new List<Retail_Task__c>();
-	    
-	    // For US_AU-CD-019
-	    Set<String> contractIds = new Set<String>();
-	    
-	    for(Retail_Task__c cvr : lstRTNew) {
-	        if(isInsert){
-	            customerIds.add(cvr.Account__c);
-	            vehicleIds.add(cvr.Related_Vehicle__c);
-	            insertCvrs.add(cvr);
-	        }
-	        contractIds.add(cvr.Id);
-	    }
-	    
-	    // US_AU-CD-001 & 2 No.11
-	    if(customerIds.size()>0 && vehicleIds.size()>0){
-	        updataWhenCreateCCR(vehicleIds, customerIds, insertCvrs);
-	    }
-	    
-	    // US_AU-CD-019, If the borrower is company, create a Company Individual Relationship.
-	    if(contractIds.size() > 0){
-	        createCompanyIndividualRelationship(contractIds);
-	    }
-	
-	    // Added by Polaris Yu 2013-8-23; For User Story: 
-	    //    US_AU-Lead-011, US_AU-Lead-012
-	    if(Trigger.isUpdate){
-	        // Auto create leads for contracts at 150 days before the
-	        //    end date
-	        autoCreateLeads(rtNewMap, rtOldMap);
-	    }
-	}
-	
-	//US-CD-001
+    
+    public static void au_After_Insert_Update_Events(list<Retail_Task__c> lstRTNew,map<id,Retail_Task__c> rtNewMap,map<id,Retail_Task__c> rtOldMap,boolean isInsert,boolean isUpdate)
+    {
+        Set<ID> vehicleIds = new Set<ID>();
+        Set<ID> customerIds = new Set<ID>();
+        List<Retail_Task__c> insertCvrs = new List<Retail_Task__c>();
+        
+        // For US_AU-CD-019
+        Set<String> contractIds = new Set<String>();
+        
+        for(Retail_Task__c cvr : lstRTNew) {
+            if(isInsert){
+                customerIds.add(cvr.Account__c);
+                vehicleIds.add(cvr.Related_Vehicle__c);
+                insertCvrs.add(cvr);
+            }
+            contractIds.add(cvr.Id);
+        }
+        
+        // US_AU-CD-001 & 2 No.11
+        if(customerIds.size()>0 && vehicleIds.size()>0){
+            updataWhenCreateCCR(vehicleIds, customerIds, insertCvrs);
+        }
+        
+        // US_AU-CD-019, If the borrower is company, create a Company Individual Relationship.
+        if(contractIds.size() > 0){
+            createCompanyIndividualRelationship(contractIds);
+        }
+    
+        // Added by Polaris Yu 2013-8-23; For User Story: 
+        //    US_AU-Lead-011, US_AU-Lead-012
+        if(isUpdate){
+            // Auto create leads for contracts at 150 days before the
+            //    end date
+            autoCreateLeads(rtNewMap, rtOldMap);
+        }
+    }
+    
+    //US-CD-001
     //Get vehiches Vehicle_Group__c by vehicle id
     public static Map<id,Vehicle__c> getVehichles(set<Id> ids){
         return new Map<id,Vehicle__c>(
@@ -122,6 +122,7 @@ public with sharing class RetailTaskHelper {
         List<Retail_Task__c> fltCntrctList = new List<Retail_Task__c>();
         Date today = Date.Today();
         for(Id curCntrctId : newMap.keySet()){
+            system.debug('>>>>'+oldMap.get(curCntrctId).X150_Days_Before_EOC__c);
             if((oldMap.get(curCntrctId).X150_Days_Before_EOC__c
                 != newMap.get(curCntrctId).X150_Days_Before_EOC__c)
                 && newMap.get(curCntrctId).X150_Days_Before_EOC__c == TRUE && newMap.get(curCntrctId).EndDate__c > today){
@@ -152,6 +153,8 @@ public with sharing class RetailTaskHelper {
                     newLead.Contact__c = curCntrct.Account__c;
                     newLead.Assigned_Dealer__c = curCntrct.Related_Dealer__c;
                     newLead.Is_Finance_Send_Email_Before_150_Days__c = true;
+                    newLead.Business_Unit__c = 'MBFS Cars';
+                    newLead.Sub_BusinessUnit__c = 'Finance & Insurance';
                     //TODO
                     //newLead.CMS_Contract_Number__c = curCntrct.Contract_Id__c;
                     //TODO

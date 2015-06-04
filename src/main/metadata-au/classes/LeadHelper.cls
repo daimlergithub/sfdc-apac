@@ -25,8 +25,8 @@ public class LeadHelper
     private static final String leadSPRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId();
     private static final String leadVehicleRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId(); 
     private static final Map<Id, User> IntegrationUsers = new Map<Id, User>([select Id from User where Profile.Name = 'IntegrationAPI']);
-    private static final String OrgWideEmailAddressId = [Select id from OrgWideEmailAddress where Address = 'shrinivas.desai@nttdata.com'].Id;
-         
+    private static final String OrgWideEmailAddressId= [Select id from OrgWideEmailAddress where Address = 'sukumar.rajashekaran@nttdata.com'].Id;
+   
     // Insert the corresponding lead sharing records
     public static void insertLeadSharing(Map<Id, Id> UsedCarLeadDealerId, Map<Id, Id> newCarLeadDealerId)
     {
@@ -36,7 +36,7 @@ public class LeadHelper
         Map<Id, Id> leadIdContactIds = new Map<Id, Id>();
         List<Lead__Share> SharesToInsert = new List<Lead__Share>();
         List<AccountShare> AccSharesToInsert = new List<AccountShare>();
-        
+      
         // Map account id and Star Elite Owner or Smart Owner
         for(Account acc : [select Id, Star_Elite_Account_Owner__c, Star_Elite_Account_Owner__r.isActive, Smart_Account_Owner__c, Smart_Account_Owner__r.isActive from Account where Id in :UsedCarLeadDealerId.values() or Id in :newCarLeadDealerId.values()])
         {
@@ -511,7 +511,7 @@ public class LeadHelper
     //Existing AU Functionality Starts Here
     public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<id,Lead__c> leadNewMap,map<Id,Lead__c> leadOldMap,boolean isInsert,boolean isUpdate)
     {
-    	system.debug('>>>>'+listNewLeads);
+        system.debug('>>>>'+listNewLeads);
         List<Lead__c> preparedLeads = new List<Lead__c>();
         for(Lead__c lead : listNewLeads) {
             preparedLeads.add(lead);
@@ -812,7 +812,7 @@ public class LeadHelper
         Map<Lead__c, List<String>> leadContactCCEmails = new Map<Lead__c, List<String>>();
         
         List<Contact> listContact = [select id, EOC_Recipient_Type__c, Email, AccountId, Lead_Escalation_Recipient_Type__c, Business_Unit__c, Sub_BusinessUnit__c from Contact where AccountId in :DealerIds
-                                    and Lead_Escalation_Recipient_Type__c != null and Business_Unit__c != null and Sub_BusinessUnit__c != null and Email != null];
+                                    and Lead_Escalation_Recipient_Type__c != null and Business_Unit__c != null and Sub_BusinessUnit__c != null and Email != null and contact.Inactive__c = false];
          //TODO                            
         /*List<MBAuP_Contact__c> MBAuPContacts = [select Id, Business_Unit__c, Dealer_Name__c, Email_Address__c, Lead_Escalation_Recipient_Type__c, EOC_Recipient_Type__c, First_Name__c, Sub_Business_Unit__c from MBAuP_Contact__c where Dealer_Name__c in :DealerIds
                                     and Lead_Escalation_Recipient_Type__c != null and Business_Unit__c != null and Sub_Business_Unit__c != null and Email_Address__c != null];*/
@@ -980,7 +980,9 @@ public class LeadHelper
         EmailTemplate financeTemplate = [select id ,developername from EmailTemplate where developername = 'Finance_Leads_Only'];
         
         List<Contact> listContact = [select id, EOC_Recipient_Type__c, Email, AccountId, Finance_Lead_Type__c, Lead_Escalation_Recipient_Type__c, Business_Unit__c, Sub_BusinessUnit__c 
-                                     from Contact where AccountId in :DealerIds and Lead_Escalation_Recipient_Type__c != null];
+                                     from Contact where AccountId in :DealerIds and Lead_Escalation_Recipient_Type__c != null and contact.Inactive__c = false];
+        
+        //Added contact Inactive check in the above query 3/6/2015(SFDCAU-164)
         //TODO
         /*List<MBAuP_Contact__c> MBAuPContacts = [select Id, Business_Unit__c, Dealer_Name__c, Finance_Lead_Type__c, Email_Address__c, Lead_Escalation_Recipient_Type__c, EOC_Recipient_Type__c, First_Name__c, Sub_Business_Unit__c 
                                                 from MBAuP_Contact__c where Dealer_Name__c in :DealerIds and Lead_Escalation_Recipient_Type__c != null];*/

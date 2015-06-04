@@ -3,12 +3,12 @@
     <applicationVisibilities>
         <application>Central_CRM</application>
         <default>false</default>
-        <visible>false</visible>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>Central_Dealer_Portal</application>
         <default>false</default>
-        <visible>false</visible>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>Central_Lead_Management</application>
@@ -17,8 +17,8 @@
     </applicationVisibilities>
     <applicationVisibilities>
         <application>Central_Marketing</application>
-        <default>false</default>
-        <visible>false</visible>
+        <default>true</default>
+        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>Chatter_Answers_Moderator</application>
@@ -41,24 +41,9 @@
         <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>Central_CRM</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Central_Dealer_Portal</application>
-        <default>false</default>
-        <visible>true</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>MBAuP_MBFS_Dealer</application>
         <default>false</default>
         <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>Central_Marketing</application>
-        <default>true</default>
-        <visible>true</visible>
     </applicationVisibilities>
     <applicationVisibilities>
         <application>MBFSAu</application>
@@ -1189,6 +1174,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerVehicleTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UserHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1452,11 +1441,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Add_Date__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Add_User__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3208,11 +3192,6 @@
         <editable>false</editable>
         <field>Account.Social_Media_Parameter__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Southpac_Dealer_Code__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -13866,6 +13845,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Vehicle_Relationship__c.Add_User__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.Additional_Offer_Others__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14789,7 +14773,7 @@
         <layout>Campaign-Campaign Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Campaign Layout</layout>
+        <layout>Campaign-Central Campaign Layout</layout>
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>

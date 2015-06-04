@@ -49,7 +49,7 @@
     <description>Contact Portfolio: Vehicle Relationship record linked to customer and a vehicle</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -64,6 +64,17 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Add_User__c</fullName>
+        <externalId>false</externalId>
+        <label>Add User</label>
+        <length>200</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Additional_Offer_Others__c</fullName>
@@ -194,6 +205,22 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
             </picklistValues>
             <picklistValues>
                 <fullName>Lessee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Considered Vehicle 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Considered Vehicle 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3866,11 +3893,27 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
+                <fullName>Considered Vehicle 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Considered Vehicle 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Driver</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6362,11 +6405,27 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
+                <fullName>Considered Vehicle 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Considered Vehicle 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Driver</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8858,6 +8917,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
+                <fullName>Considered Vehicle 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Considered Vehicle 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Driver</fullName>
                 <default>false</default>
             </values>
@@ -8867,6 +8934,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11319,6 +11394,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
+                <fullName>Considered Vehicle 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Considered Vehicle 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Driver</fullName>
                 <default>false</default>
             </values>
@@ -11328,6 +11411,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11615,6 +11706,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
+                <fullName>Considered Vehicle 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Considered Vehicle 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Driver</fullName>
                 <default>false</default>
             </values>
@@ -11624,6 +11723,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11912,6 +12019,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
+                <fullName>Considered Vehicle 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Considered Vehicle 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Driver</fullName>
                 <default>false</default>
             </values>
@@ -11921,6 +12036,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Owner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
