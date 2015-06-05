@@ -202,6 +202,16 @@
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
     </fields>
     <fields>
+        <fullName>Delivery_Point_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>Delivery Point ID</label>
+        <length>8</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>District__c</fullName>
         <externalId>false</externalId>
         <label>Suburb</label>
@@ -372,8 +382,9 @@
     </fields>
     <label>Address</label>
     <nameField>
+        <displayFormat>A-{0000000}</displayFormat>
         <label>Address</label>
-        <type>Text</type>
+        <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Addresses</pluralLabel>
     <recordTypes>
