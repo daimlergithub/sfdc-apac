@@ -2550,11 +2550,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.How_old_are_they__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.ID_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
