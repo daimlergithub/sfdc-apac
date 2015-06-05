@@ -60,7 +60,7 @@ Public class UtilTestData {
                 recordTypeMap.put(rt.Name + rt.SobjectType, rt.Id);
             }
         }
-        system.debug('>>>> recordTypeMap >>>'+recordTypeMap);
+        
         return recordTypeMap;
     }
     
@@ -116,20 +116,27 @@ Public class UtilTestData {
         return usr;
     }
        // Create Test portal User
-    private static User createPortalUser(Id userRoleId, Id profileId) {        
-        Account acc = new Account ( Name = 'dummtyTestAcc');  
+    private static User createPortalUser(Id userRoleId, Id profileId) {   
+        Account acc = new Account ( Name = 'dummtyTestAcc');
+        acc.RecordTypeId = 
+            getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + 'Account');		
         insert acc;      
         System.assert(acc.Name=='dummtyTestAcc');
         Contact con = new Contact ( AccountId = acc.id, LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true, Permission_Set_Settings__c = 'S_M_Retail_Campaign');
         insert con;      
         System.assert(con.LastName=='portalTestUser'); 
+        System.Debug('@@@@@@@@@@ profileId '+profileId);
+        System.Debug('@@@@@@@@@@@ userRoleId'+userRoleId); 
+        //Set<String> customerUserTypes = new Set<String> {'CSPLiteUser', 'PowerPartner', 'PowerCustomerSuccess',   'CustomerSuccess'};
+        //Profile PartnerPrfile = [select Id,name from Profile where UserType in :customerUserTypes limit 1];
+        //System.Debug('@@@@@@@@@@@ PartnerPrfile.Id'+PartnerPrfile.Id); 
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
-        System.assertEquals(UserInfo.getUserId(),thisUser.id);
+        System.assertEquals(UserInfo.getUserId(),thisUser.id);   
         User usr=new User();       
         System.runAs ( thisUser ) {               
-                usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';            
+                usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
                 usr.ProfileId=profileId;
-                usr.UserRoleId=userRoleId;
+                //usr.UserRoleId=userRoleId;
                 usr.LastName = 'Test User';
                 usr.Email = 'test001@daimler.com.full';
                 usr.Alias = 'test';
@@ -138,17 +145,19 @@ Public class UtilTestData {
                 usr.LanguageLocaleKey = 'en_US';
                 usr.localesidkey='en_US';
                 usr.isActive = true;
-               // usr.ContactId =con.Id;
-                insert usr; 
-            }     
-        return usr;    
+                usr.ContactId =con.Id;
+                Database.insert(usr); 
+                system.debug('!!!!! User Records'+usr); 
+         }                        
+        return usr; 
+          
     }
    
    // Create Test User by Role Name and Profile Name
     public static User createUser(String roleName, String profileName) {
         Id userRoleId = getUserRoleId(roleName);
         if (userRoleId == null) {
-            throw new IllegalArgumentException('Unknown user role ' + roleName);
+            throw new IllegalArgumentException('Unknown user role ' + roleName);       
         }
         
         Id profileId = getProfileId(profileName);
@@ -170,7 +179,8 @@ Public class UtilTestData {
         if (profileId == null) {
             throw new IllegalArgumentException('Unknown profile ' + profileName);
         }
-
+System.Debug('@@@@@@@@@@ profileName'+profileName);
+        System.Debug('@@@@@@@@@@@ roleName'+roleName);
         return createPortalUser(userRoleId, profileId);
     }
   /*
@@ -213,10 +223,8 @@ Public class UtilTestData {
     }
     
     private static Sobject initiateSobject(Sobject so, String recordTypeName) {
-    system.debug('>>> before if >>> recordTypeName : '+recordTypeName);
         if (so instanceof Account) {
             if (recordTypeName == ACCOUNT_RT_PERSON_ACCOUNT) {
-            system.debug('>>> inside if >>> recordTypeName : '+recordTypeName);
                 initiatePersonAccount(so);
             }
             else if (recordTypeName == ACCOUNT_RT_DEALER) {
@@ -341,8 +349,6 @@ Public class UtilTestData {
         acc.Phone = acc.Phone == null ? '1234567' : acc.Phone;
         acc.Area_Code__c = '010';
         acc.Status__c = acc.Status__c == null ? '0=Customer' : acc.Status__c;
-        
-        system.debug('>>>> acc >>'+acc);
     }
 
     // Create Unsaved Contact

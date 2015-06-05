@@ -2,6 +2,8 @@
 private class VehicleSharingTest {
 	
 	private static Account dealer;
+    private static UserRole userrole;
+     private static User userWithRole;
     private static Vehicle__c vehicle;
     Private static String accountLinkType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get(UtilTestData.accountLink_Contact2Contact).getRecordTypeId();   
     Private static String dealerType =Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
@@ -9,7 +11,9 @@ private class VehicleSharingTest {
     static {      
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer');
         insert dealer;
-
+        
+     
+        
         Contact dealerContact = new Contact(FirstName = 'Test', Lastname = 'Amit', AccountId = dealer.Id, Email = 'test@test.com');
         insert dealerContact;        
                       

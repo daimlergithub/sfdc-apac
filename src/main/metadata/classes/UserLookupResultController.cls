@@ -46,8 +46,8 @@ public class UserLookupResultController {
 	}
 	
 	private Map<String, Integer> getQcCount(Set<String> userIds){
-		Map<String, Integer> qcCountMap = new Map<String, Integer>();
-		for(AggregateResult result : [select OwnerId, COUNT(Id) qcSize from QC__c where RecordTypeId = '01290000000rXmW'and Status__c = 'New'
+		Map<String, Integer> qcCountMap = new Map<String, Integer>();//01290000000rXmW this record type id doesnot exist.
+		for(AggregateResult result : [select OwnerId, COUNT(Id) qcSize from QC__c where RecordTypeId = '012O00000000flz'and Status__c = 'New'
 									  and Status__c = 'In Progress' and OwnerId in :userIds group by OwnerId]){
 			qcCountMap.put((String)result.get('OwnerId'), (Integer)result.get('qcSize'));
 		}

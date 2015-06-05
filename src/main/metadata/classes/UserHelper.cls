@@ -97,10 +97,10 @@ public with sharing class UserHelper {
 
         Integer batchSize = 2000;
         Database.executeBatch(new ShareDataToNewUserBatch(newUserId,existUserIds,'Account'), batchSize);
-        if(!Test.isRunningTest()){
+        //if(!Test.isRunningTest()){
         Database.executeBatch(new ShareDataToNewUserBatch(newUserId,existUserIds,'Vehicle'), batchSize);
         Database.executeBatch(new ShareDataToNewUserBatch(newUserId,existUserIds,'VehicleRelation'), batchSize);
-        }
+       // }
     }
 
     @future

@@ -17,7 +17,7 @@ public class RetailCampaignSegmentationControllerTest {
         
        Contact con = new Contact();
         con.Title = 'Title';
-        con.Id = u.ContactId;
+        //con.Id = u.ContactId;
         con.LastName = 'LastName';
         insert con;
         //Contact con = [select Id, SegmentationFilters__c from Contact where Id = :u.ContactId];

@@ -42,7 +42,7 @@ public class AssignCaseToDealerController {
         Id caseId = ApexPages.currentPage().getParameters().get('caseId');
         
         try {
-            assignCase = [SELECT Id, OwnerId FROM Case WHERE Id = :caseId];
+            assignCase = [SELECT Id, OwnerId,Case_Dealer__c FROM Case WHERE Id = :caseId];
             system.debug('######################=assignCase0'+assignCase);
         }
         catch (QueryException e) {
