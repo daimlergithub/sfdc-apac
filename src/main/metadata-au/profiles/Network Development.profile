@@ -16399,7 +16399,6 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <personAccountDefault>true</personAccountDefault>
         <recordType>Contact.DealerStaff</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
