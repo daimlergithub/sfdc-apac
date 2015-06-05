@@ -216,6 +216,54 @@
                 <behavior>Edit</behavior>
                 <field>Mobile_Status__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Anti_bribery_Confirmation__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_Bank__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Dealer_BSB__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Base_Flex__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Mobile_1__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Mobile_2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Home_Phone_1__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Home_Phone_2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Work_Phone_1__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Work_Phone_2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Email_1__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Preferred_Email_2__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -654,6 +702,22 @@
                 <behavior>Edit</behavior>
                 <field>Western_Star_Offered_Service__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Business_Unit__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Alliance_Offered_Service__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Allmakes_Offered_Service__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Bus_Offered_Service__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
@@ -777,15 +841,12 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>ContractNumber__c</fields>
-        <fields>Duration__c</fields>
-        <fields>Follow_Up_Date__c</fields>
-        <fields>Follow_Up_Type__c</fields>
-        <fields>Group__c</fields>
-        <fields>Origin__c</fields>
-        <fields>Related_Dealer__c</fields>
-        <fields>Related_Vehicle__c</fields>
-        <relatedList>Retail_Task__c.Related_Contact__c</relatedList>
+        <fields>Service_Date__c</fields>
+        <fields>Type__c</fields>
+		<fields>Related_Dealer__c</fields>
+        <fields>Service_Mileage__c</fields>
+        <fields>RECORDTYPE</fields>
+        <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
@@ -811,15 +872,14 @@
     <relatedLists>
         <customButtons>New_Vehicle_Relationship</customButtons>
         <fields>NAME</fields>
+        <fields>Car_Relation__c</fields>
+        <fields>UsVIN__c</fields>
         <fields>Validity__c</fields>
-        <fields>Recall__c</fields>
         <fields>Vehicle_ID__c</fields>
         <fields>Vehicle_Brand__c</fields>
         <fields>Vehicle_Class__c</fields>
+        <fields>Vehicle_Model__c</fields>
         <fields>Purchase_Date__c</fields>
-        <fields>Registration_Number__c</fields>
-        <fields>Car_Relation__c</fields>
-        <fields>Selling_Dealer__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
