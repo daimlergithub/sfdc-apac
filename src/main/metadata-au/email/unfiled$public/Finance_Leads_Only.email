@@ -27,7 +27,7 @@ Vehicle Year - Current: {!relatedTo.Vehicle_Year_Current__c}<br/>
 Registration No.: {!relatedTo.Existing_Contract__r.Vehicle_Registration_No__c}<br/>
 Finance Product: {!relatedTo.Existing_Contract__r.Finance_Product_Type__c}<br/>
 Product Variation: {!relatedTo.Existing_Contract__r.Product_Variation__c}<br/>
-Finance Amount: $<apex:outputText value="{0, number, ###,###,###,##0}"><apex:param value="{!relatedTo.Finance_Amount__c}"/></apex:outputText><!-- {!relatedTo.Finance_Amount2__c} --><br/>
+Finance Amount: $<apex:outputText value="{0, number, ###,###,###,##0}"><apex:param value="{!relatedTo.Finance_Amount__c}"/></apex:outputText> {!relatedTo.Finance_Amount2__c}<br/>
 Term (Months): {!FLOOR(relatedTo.Term_Month__c)}<br/>
  {! IF((relatedTo.Financial_Product__c == 'Operating Lease'), "Residual Amount:"& text(relatedTo.Existing_Contract__r.Balloon_RV_Amount__c),'' ) }
 Original Monthly Payment: {!relatedTo.Monthly_Payment__c }<br/>
