@@ -35,13 +35,13 @@ public with sharing class YearlyTAAchieTracingController {
         Map<Id, Decimal> DealerIdEventJointExpense = new Map<Id, Decimal>();
         Map<Id, Decimal> DealerIdEventDrivenExpense = new Map<Id, Decimal>();
         
-        for(Retail_Campaign__c rt : [select Id, RecordType.Name, Dealer_Name__c, Dealer_Name__r.Name, Dealer_Name__r.Branch_name_CHS__c, Driven__c, Actual_Expense__c from Retail_Campaign__c 
+        for(Retail_Campaign__c rt : [select Id, RecordType.Name, Dealer_Name__c, Dealer_Name__r.Name, Dealer_Name__r.Branch_name__c, Driven__c, Actual_Expense__c from Retail_Campaign__c 
                                      where (RecordType.Name = 'S&M Event Retail Campaign' or RecordType.Name = 'S&M Media Retail Campaign') and (Driven__c = 'Joint' or Driven__c = 'Dealer Driven') and 
                                       Feedback_Status__c = 'Approved' and Actual_Start_Date__c >= :startDate and Dealer_Name__c != null]) {
             if(rt.Dealer_Name__c != null) {
                 DealerIdDealerName.put(rt.Dealer_Name__c, rt.Dealer_Name__r.Name);
-                if(!String.isBlank(rt.Dealer_Name__r.Branch_name_CHS__c)) {
-                    DealerIdDealerName.put(rt.Dealer_Name__c,  rt.Dealer_Name__r.Name + ' - ' + rt.Dealer_Name__r.Branch_name_CHS__c);
+                if(!String.isBlank(rt.Dealer_Name__r.Branch_name__c)) {
+                    DealerIdDealerName.put(rt.Dealer_Name__c,  rt.Dealer_Name__r.Name + ' - ' + rt.Dealer_Name__r.Branch_name__c);
                 }
                 
                 if(rt.Actual_Expense__c > 0) {
@@ -78,13 +78,13 @@ public with sharing class YearlyTAAchieTracingController {
             }       
         }
         
-        for(Retail_Campaign__c rt : [select Id, RecordType.Name, Driven__c, Dealer_Name__c, Dealer_Name__r.Name, Dealer_Name__r.Branch_name_CHS__c, Plan_Expense__c from Retail_Campaign__c 
+        for(Retail_Campaign__c rt : [select Id, RecordType.Name, Driven__c, Dealer_Name__c, Dealer_Name__r.Name, Dealer_Name__r.Branch_name__c, Plan_Expense__c from Retail_Campaign__c 
                                      where (RecordType.Name = 'S&M Event Retail Campaign' or RecordType.Name = 'S&M Media Retail Campaign') and (Driven__c = 'Joint' or Driven__c = 'Dealer Driven') and 
                                      Plan_Start_Date__c >= :startDate and  Apply_Status__c = 'Approved' and Feedback_Status__c != 'Approved']) {
             if(rt.Dealer_Name__c != null) {
                 DealerIdDealerName.put(rt.Dealer_Name__c,  rt.Dealer_Name__r.Name);
-                if(!String.isBlank(rt.Dealer_Name__r.Branch_name_CHS__c)) {
-                    DealerIdDealerName.put(rt.Dealer_Name__c,  rt.Dealer_Name__r.Name + ' - ' + rt.Dealer_Name__r.Branch_name_CHS__c);
+                if(!String.isBlank(rt.Dealer_Name__r.Branch_name__c)) {
+                    DealerIdDealerName.put(rt.Dealer_Name__c,  rt.Dealer_Name__r.Name + ' - ' + rt.Dealer_Name__r.Branch_name__c);
                 }
                 
                 if(rt.Plan_Expense__c > 0) {
@@ -128,11 +128,11 @@ public with sharing class YearlyTAAchieTracingController {
         YearlyMarketTarget b;
         YearlyMarketTarget c;
         YearlyMarketTarget d;
-        for(Retail_Campaign__c rt : [select Id, Y_Region__c, Y_Sub_Region__c, Y_City__c, Y_Dealer_Name__c, Y_Dealer_Name__r.Name, Y_Dealer_Name__r.Branch_name_CHS__c, Y_MB_Joint_Marketing_Budget__c, Y_MB_Dealer_Driven_Marketing_Budget__c, Y_MB_Marketing_Budget__c, Y_MB_Joint_Marketing_Expense__c, Y_MB_Dealer_Driven_Marketing_Expense__c from Retail_Campaign__c where Y_MB_Marketing_Budget__c > 0 and Y_Year__c = :currentYear]) {
+        for(Retail_Campaign__c rt : [select Id, Y_Region__c, Y_Sub_Region__c, Y_City__c, Y_Dealer_Name__c, Y_Dealer_Name__r.Name, Y_Dealer_Name__r.Branch_name__c, Y_MB_Joint_Marketing_Budget__c, Y_MB_Dealer_Driven_Marketing_Budget__c, Y_MB_Marketing_Budget__c, Y_MB_Joint_Marketing_Expense__c, Y_MB_Dealer_Driven_Marketing_Expense__c from Retail_Campaign__c where Y_MB_Marketing_Budget__c > 0 and Y_Year__c = :currentYear]) {
             DealerIdYearlyTA.put(rt.Y_Dealer_Name__c, rt.Y_MB_Marketing_Budget__c);
             DealerIdDealerName.put(rt.Y_Dealer_Name__c,  rt.Y_Dealer_Name__r.Name);
-            if(!String.isBlank(rt.Y_Dealer_Name__r.Branch_name_CHS__c)) {
-                DealerIdDealerName.put(rt.Y_Dealer_Name__c,  rt.Y_Dealer_Name__r.Name + ' - ' + rt.Y_Dealer_Name__r.Branch_name_CHS__c);
+            if(!String.isBlank(rt.Y_Dealer_Name__r.Branch_name__c)) {
+                DealerIdDealerName.put(rt.Y_Dealer_Name__c,  rt.Y_Dealer_Name__r.Name + ' - ' + rt.Y_Dealer_Name__r.Branch_name__c);
             }
             YearlyTAIds.add(rt.Id);
             b = new YearlyMarketTarget();
@@ -140,8 +140,8 @@ public with sharing class YearlyTAAchieTracingController {
             b.subregion = rt.Y_Sub_Region__c;
             b.city = rt.Y_City__c;
             b.dealerName = rt.Y_Dealer_Name__r.Name;
-            if(!String.isBlank(rt.Y_Dealer_Name__r.Branch_name_CHS__c)) {
-                b.dealerName += '-' + rt.Y_Dealer_Name__r.Branch_name_CHS__c;
+            if(!String.isBlank(rt.Y_Dealer_Name__r.Branch_name__c)) {
+                b.dealerName += '-' + rt.Y_Dealer_Name__r.Branch_name__c;
             }
             b.TotalExpense = rt.Y_MB_Marketing_Budget__c;
             b.onlinePart = 0;
@@ -164,8 +164,8 @@ public with sharing class YearlyTAAchieTracingController {
             c.subregion = rt.Y_Sub_Region__c;
             c.city = rt.Y_City__c;
             c.dealerName = rt.Y_Dealer_Name__r.Name;
-            if(!String.isBlank(rt.Y_Dealer_Name__r.Branch_name_CHS__c)) {
-                c.dealerName += '-' + rt.Y_Dealer_Name__r.Branch_name_CHS__c;
+            if(!String.isBlank(rt.Y_Dealer_Name__r.Branch_name__c)) {
+                c.dealerName += '-' + rt.Y_Dealer_Name__r.Branch_name__c;
             }
             c.TotalExpense = rt.Y_MB_Joint_Marketing_Budget__c;
             if(DealerIdMediaJointExpense.containsKey(rt.Y_Dealer_Name__c)) {
@@ -189,8 +189,8 @@ public with sharing class YearlyTAAchieTracingController {
             d.subregion = rt.Y_Sub_Region__c;
             d.city = rt.Y_City__c;
             d.dealerName = rt.Y_Dealer_Name__r.Name;
-            if(!String.isBlank(rt.Y_Dealer_Name__r.Branch_name_CHS__c)) {
-                d.dealerName += '-' + rt.Y_Dealer_Name__r.Branch_name_CHS__c;
+            if(!String.isBlank(rt.Y_Dealer_Name__r.Branch_name__c)) {
+                d.dealerName += '-' + rt.Y_Dealer_Name__r.Branch_name__c;
             }
             d.TotalExpense = rt.Y_MB_Dealer_Driven_Marketing_Budget__c;
             if(DealerIdMediaDrivenExpense.containsKey(rt.Y_Dealer_Name__c) && DealerIdMediaDrivenExpense.get(rt.Y_Dealer_Name__c) >= 0) {
@@ -284,14 +284,14 @@ public with sharing class YearlyTAAchieTracingController {
         
         Map<Id, List<Retail_Campaign__c>> dealerIdMonthlyTAs = new Map<Id, List<Retail_Campaign__c>>();
         Set<String> asd = new Set<String>();
-        for(Retail_Campaign__c  rt : [select Id, Apply_Status__c, Feedback_Status__c, Actual_Start_Date__c, Plan_Start_Date__c, RecordType.Name, Driven__c, Dealer_Name__c, Dealer_Name__r.Name, Dealer_Name__r.Branch_name_CHS__c, Plan_Expense__c, Actual_Expense__c from Retail_Campaign__c where  Dealer_Name__c != null and (Brand__c = 'MB' OR Brand__c = 'StarElite') and (RecordType.Name = 'S&M Event Retail Campaign' or RecordType.Name = 'S&M Media Retail Campaign') and (Driven__c = 'Joint' or Driven__c = 'Dealer Driven') and ((Plan_Start_Date__c >= :startDate and Plan_Start_Date__c <= :endDate and  Apply_Status__c = 'Approved' and  Feedback_Status__c != 'Approved') or (Actual_Start_Date__c >= :startDate and Actual_Start_Date__c <= :endDate and  Feedback_Status__c = 'Approved')) ]) {
+        for(Retail_Campaign__c  rt : [select Id, Apply_Status__c, Feedback_Status__c, Actual_Start_Date__c, Plan_Start_Date__c, RecordType.Name, Driven__c, Dealer_Name__c, Dealer_Name__r.Name, Dealer_Name__r.Branch_name__c, Plan_Expense__c, Actual_Expense__c from Retail_Campaign__c where  Dealer_Name__c != null and (Brand__c = 'MB' OR Brand__c = 'StarElite') and (RecordType.Name = 'S&M Event Retail Campaign' or RecordType.Name = 'S&M Media Retail Campaign') and (Driven__c = 'Joint' or Driven__c = 'Dealer Driven') and ((Plan_Start_Date__c >= :startDate and Plan_Start_Date__c <= :endDate and  Apply_Status__c = 'Approved' and  Feedback_Status__c != 'Approved') or (Actual_Start_Date__c >= :startDate and Actual_Start_Date__c <= :endDate and  Feedback_Status__c = 'Approved')) ]) {
             if(!dealerIdMonthlyTAs.containsKey(rt.Dealer_Name__c)) {
                 dealerIdMonthlyTAs.put(rt.Dealer_Name__c, new List<Retail_Campaign__c>());
             }
             dealerIdMonthlyTAs.get(rt.Dealer_Name__c).add(rt);
         }
         
-        Map<Id, Account> dealerIdInfos = new Map<Id, Account>([select Id, Name, Branch_name_CHS__c, Dealer_Region__c, Dealer_MB_Sub_Region__c, Dealer_City_EN__c from Account where Id in :dealerIdMonthlyTAs.keySet()]);
+        Map<Id, Account> dealerIdInfos = new Map<Id, Account>([select Id, Name, Branch_name__c, Dealer_Region__c, Dealer_MB_Sub_Region__c, Dealer_City_EN__c from Account where Id in :dealerIdMonthlyTAs.keySet()]);
         
         marketTarget temp1;
         marketTarget temp2;
@@ -776,8 +776,8 @@ public with sharing class YearlyTAAchieTracingController {
         public marketTarget(String region, Account a) {
             this.region = region;
             this.dealerName = a.Name;
-            if(!String.isBlank(a.Branch_name_CHS__c)) {
-                this.dealerName += '-' + a.Branch_name_CHS__c;
+            if(!String.isBlank(a.Branch_name__c)) {
+                this.dealerName += '-' + a.Branch_name__c;
             }
             this.monthlyMarketExpense = 0;
             this.onlinePart = 0;
@@ -790,8 +790,8 @@ public with sharing class YearlyTAAchieTracingController {
             this.subregion = !String.isBlank(a.Dealer_MB_Sub_Region__c) ? a.Dealer_MB_Sub_Region__c : '';
             this.city = !String.isBlank(a.Dealer_City_EN__c) ? a.Dealer_City_EN__c : '';
             this.dealerName = a.Name;
-            if(!String.isBlank(a.Branch_name_CHS__c)) {
-                this.dealerName += '-' + a.Branch_name_CHS__c;
+            if(!String.isBlank(a.Branch_name__c)) {
+                this.dealerName += '-' + a.Branch_name__c;
             }
             this.monthlyMarketExpense = 0;
             this.onlinePart = 0;
