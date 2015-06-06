@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PermissionSet xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
+        <application>Central_CRM</application>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Central_Dealer_Portal</application>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
         <application>Central_Lead_Management</application>
+        <visible>false</visible>
+    </applicationVisibilities>
+    <applicationVisibilities>
+        <application>Central_Marketing</application>
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -21,19 +33,7 @@
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
-        <application>MBAuP_CRM_Customer</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>MBAuP_Dealer_Portal</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
         <application>MBAuP_MBFS_Dealer</application>
-        <visible>false</visible>
-    </applicationVisibilities>
-    <applicationVisibilities>
-        <application>MBAuP_Marketing</application>
         <visible>false</visible>
     </applicationVisibilities>
     <applicationVisibilities>
@@ -105,6 +105,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountConatctcontrollerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -129,6 +133,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountOptinandOptoutControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -145,7 +153,15 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AddressHelperTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>Addresscontroller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AddresscontrollerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -373,6 +389,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DBUtil</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DMControllerExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -593,6 +613,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ReportUserController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ReservationMessageTemplate</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -630,6 +654,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RetailCampaignTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RetailTaskHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1121,6 +1149,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerVehicleTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UserHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1353,6 +1385,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>lead_AddresscontrollerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>superSort</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1400,6 +1436,16 @@ Star Elite Account Owner</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Alliance_Offered_Service__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Allmakes_Offered_Service__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Allow_Data_Sharing__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1435,6 +1481,11 @@ Star Elite Account Owner</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Base_Flex__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Batch_No__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1451,6 +1502,16 @@ Star Elite Account Owner</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Branch_name_ENG__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Bus_Offered_Service__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Business_Unit__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1685,12 +1746,27 @@ Star Elite Account Owner</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Dealer_Anti_bribery_Confirmation__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Dealer_BSB__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Dealer_BTLInfo__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Dealer_Bank_Account_No__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Dealer_Bank__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2815,12 +2891,52 @@ Star Elite Account Owner</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Preferred_Email_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Preferred_Email_2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Preferred_Home_Phone_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Preferred_Home_Phone_2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Preferred_Language__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Account.Preferred_Mobile_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Preferred_Mobile_2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Account.Preferred_Phone__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Preferred_Work_Phone_1__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.Preferred_Work_Phone_2__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3540,6 +3656,11 @@ Star Elite Account Owner</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Address__c.Delivery_Point_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Address__c.District__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3575,11 +3696,6 @@ Star Elite Account Owner</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Address__c.ZipCode__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Address__c.Preferred__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3593,19 +3709,9 @@ Star Elite Account Owner</description>
         <field>Address__c.Source_System__c</field>
         <readable>false</readable>
     </fieldPermissions>
-       <fieldPermissions>
-        <editable>false</editable>
-        <field>Address__c.Province__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Address__c.Status__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Address__c.District__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8065,6 +8171,11 @@ Star Elite Account Owner</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Lead__c.CAC_SourceId__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Lead__c.Car_License__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -8136,6 +8247,11 @@ Star Elite Account Owner</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.CurrentMileage__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Current_Vehicle__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8266,6 +8382,11 @@ Star Elite Account Owner</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Feedback_To_MB_Call_Center__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Finance_Amount2__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9126,6 +9247,11 @@ Star Elite Account Owner</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Vehicle_Make_Current__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Vehicle_Make_Interest__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12590,6 +12716,11 @@ Star Elite Account Owner</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>SurveyQuestionResponse__c.Related_Vehicle__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>SurveyQuestionResponse__c.Response__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -13710,6 +13841,11 @@ Star Elite Account Owner</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Vehicle_Relationship__c.Add_User__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Vehicle_Relationship__c.Additional_Offer_Others__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -14585,6 +14721,10 @@ Star Elite Account Owner</description>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Account_Address</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>ActivityReportUserBased</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
