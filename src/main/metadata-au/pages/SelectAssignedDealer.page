@@ -46,7 +46,7 @@
                     <apex:pageblockSectionItem >
                     </apex:pageblockSectionItem>
                  <!--   <apex:inputField value="{!dealer.Suburb__c}" /> -->
-                    <apex:inputField value="{!dealer.ZipCode__c}" />
+                    <apex:inputField value="{!dealer.ZipCode__c}" Label="Post Code"/>
                    <!-- <apex:inputField value="{!dealer.Business_Unit__c}" /> -->
                     <apex:pageblockSectionItem >
                         <apex:outputLabel value="Offered Service" />
