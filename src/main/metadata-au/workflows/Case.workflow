@@ -124,7 +124,7 @@
     <fieldUpdates>
         <fullName>Update_Case_Origin_To_CAC</fullName>
         <field>Origin</field>
-        <literalValue>From CAC</literalValue>
+        <literalValue>Web</literalValue>
         <name>Update Case Origin To CAC</name>
         <notifyAssignee>false</notifyAssignee>
         <operation>Literal</operation>

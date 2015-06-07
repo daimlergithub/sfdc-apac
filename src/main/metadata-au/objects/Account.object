@@ -168,37 +168,57 @@
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Dealer_Sales_Type__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
-            <field>Dealer_Region__c</field>
-            <isFieldManaged>false</isFieldManaged>
-            <isRequired>false</isRequired>
-        </displayedFields>
-        <displayedFields>
             <field>Province__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>City__c</field>
+            <field>ZipCode__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Dealer_Address_CN__c</field>
+            <field>Cars_Offered_Service__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Phone</field>
+            <field>Bus_Offered_Service__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
         <displayedFields>
-            <field>Dealer_GC_Code__c</field>
+            <field>Smarts_Offered_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Trucks_Offered_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Fuso_Offered_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Unimog_Offered_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>SelecTrucks_Offered_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Vans_Offered_Service__c</field>
+            <isFieldManaged>false</isFieldManaged>
+            <isRequired>false</isRequired>
+        </displayedFields>
+        <displayedFields>
+            <field>Business_Unit__c</field>
             <isFieldManaged>false</isFieldManaged>
             <isRequired>false</isRequired>
         </displayedFields>
@@ -5491,251 +5511,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
         <fullName>Industry</fullName>
         <picklist>
             <picklistValues>
-                <fullName>General equipment manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Communications equipment, computers and other electronic equipment manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Instrumentation and culture , office machinery manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Crafts and other manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Waste Resources and Materials Recycling and Processing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Electricity , heat production and supply industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Gas Production and Supply</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Water production and supply industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Housing and civil engineering construction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Building Decoration Industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other construction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Railway transportation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Road transport</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Urban public transport sector</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Air transport</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pipeline transportation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Handling and other transport services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Warehousing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Postal Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Computer services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Software Industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wholesale Trade</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Retail</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accommodation Industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Catering</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Banking</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Securities Industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other financial activities</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Real Estate</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Business Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Research and Experimental Development</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Professional Technical Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Technology exchange and promotion services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Geological Prospecting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Water Management Industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Environmental management industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Public Facilities Management</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Resident Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Education</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Health</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Social Security Industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Social Welfare</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>News Publishing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Radio, television , film and audiovisual industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Culture and Arts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Physical education</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Entertainment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chinese Communist Party organ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>State institutions</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CPPCC and the democratic parties</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mass organizations , community groups and religious organizations</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Grassroots autonomous organizations</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>International Organizations</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5743,135 +5519,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Forestry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Livestock</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fisheries</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Agriculture, forestry , animal husbandry and fishery service</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Agriculture</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Coal mining and washing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Oil and gas industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ferrous metal mining industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Nonferrous Metals</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Nonmetal mining industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other mining industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Agro-food processing industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Food Manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Beverage Manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tobacco industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Textile industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Textiles and clothing , footwear, headgear manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Leather , fur, feathers ( down) and its products industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Wood processing and wood, bamboo , rattan , brown grass products industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Furniture manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Paper and paper products industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Printing, Reproduction of recorded media</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sporting Goods Manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Petroleum processing, coking and nuclear fuel processing industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Pharmaceutical Manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rubber</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Plastic products industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-metallic mineral products industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Non-ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fabricated Metal</fullName>
+                <fullName>Accommodation, Cafes and Restaurants</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -5879,123 +5527,19 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Advertising / Marketing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Army</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Bank</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car rental</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Building</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Driving</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Electronic</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Embassy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Credit</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Express delivery</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Guesthouse</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Law</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Property</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Footwear</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Utilities ( gas / electric )</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Accommodation, Cafes and Restaurants</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Agriculture, Forestry &amp; Fishing, Farming</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Architecture / Design</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Banking / Finance / Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business / Management / Consulting</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6003,15 +5547,23 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Construction/Engineering</fullName>
+                <fullName>Communication / Media / Entertainment</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Construction / Engineering</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cultural and Recreational Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Education</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Electricity, Gas and Water Supply</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Banking/Finance/Insurance</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6024,58 +5576,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Health and Community Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Manufacturing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mining</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Personal and Other Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Property Development/Real Estate</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cultural and Recreational Services</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Retail Trade</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Transport and Storage</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Marine</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Architecture/Design</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Banking/ Finance/ Insurance</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Business / Management / Consulting</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Communication / Media / Entertainment</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Construction / Engineering</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6099,6 +5599,34 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marine</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mining</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Personal and Other Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Property Development/Real Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Publishing</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Retail Trade</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Retailing</fullName>
                 <default>false</default>
             </picklistValues>
@@ -6115,7 +5643,15 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Trade / Services</fullName>
+                <fullName>Trades / Services</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transport and Storage</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wholesale Trade</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -12232,10 +11768,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Accommodation Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Accommodation%2C Cafes and Restaurants</fullName>
                 <default>false</default>
             </values>
@@ -12244,103 +11776,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Advertising %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Agriculture</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Agriculture%2C Forestry %26 Fishing%2C Farming</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agriculture%2C forestry %2C animal husbandry and fishery service</fullName>
+                <fullName>Architecture %2F Design</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agro-food processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Air transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Architecture%2FDesign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Army</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bank</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2F Finance%2F Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2FFinance%2FInsurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beverage Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building Decoration Industry</fullName>
+                <fullName>Banking %2F Finance %2F Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Business %2F Management %2F Consulting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPPCC and the democratic parties</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car rental</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chinese Communist Party organ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12352,39 +11800,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Communications equipment%2C computers and other electronic equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer services</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Construction %2F Engineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction%2FEngineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crafts and other manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Credit</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12392,27 +11808,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Culture and Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Driving</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electricity %2C heat production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12420,95 +11816,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electronic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Embassy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Entertainment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Environmental management industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Express delivery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fabricated Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fisheries</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fishing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Food Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Footwear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Forestry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Furniture manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gas Production and Supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Geological Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Government %2F Administration and Defence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grassroots autonomous organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guesthouse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Handling and other transport services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12524,10 +11836,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Housing and civil engineering construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Human Resources</fullName>
                 <default>false</default>
             </values>
@@ -12536,35 +11844,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Instrumentation and culture %2C office machinery manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International Organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather %2C fur%2C feathers %28 down%29 and its products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Legal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Livestock</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12576,39 +11856,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mass organizations %2C community groups and religious organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>News Publishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-metallic mineral products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonferrous Metals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonmetal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oil and gas industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12616,67 +11864,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other financial activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and paper products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Personal and Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Petroleum processing%2C coking and nuclear fuel processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pharmaceutical Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Physical education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pipeline transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastic products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Printing%2C Reproduction of recorded media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Professional Technical Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Property</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12684,31 +11872,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Facilities Management</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio%2C television %2C film and audiovisual industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Railway transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Real Estate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Research and Experimental Development</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Resident Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Retail</fullName>
+                <fullName>Publishing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12724,51 +11888,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sales %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Securities Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Security Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Welfare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Software Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sporting Goods Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Technology exchange and promotion services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12776,31 +11896,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textile industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles and clothing %2C footwear%2C headgear manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade %2F Services</fullName>
+                <fullName>Trades %2F Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12808,55 +11904,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Urban public transport sector</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Utilities %28 gas %2F electric %29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Warehousing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waste Resources and Materials Recycling and Processing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Management Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water production and supply industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Wholesale Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wood processing and wood%2C bamboo %2C rattan %2C brown grass products industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16496,10 +15548,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Accommodation Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Accommodation%2C Cafes and Restaurants</fullName>
                 <default>false</default>
             </values>
@@ -16508,103 +15556,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Advertising %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Agriculture</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Agriculture%2C Forestry %26 Fishing%2C Farming</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agriculture%2C forestry %2C animal husbandry and fishery service</fullName>
+                <fullName>Architecture %2F Design</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agro-food processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Air transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Architecture%2FDesign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Army</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bank</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2F Finance%2F Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2FFinance%2FInsurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beverage Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building Decoration Industry</fullName>
+                <fullName>Banking %2F Finance %2F Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Business %2F Management %2F Consulting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPPCC and the democratic parties</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car rental</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chinese Communist Party organ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16616,39 +15580,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Communications equipment%2C computers and other electronic equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer services</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Construction %2F Engineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction%2FEngineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crafts and other manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Credit</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16656,27 +15588,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Culture and Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Driving</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electricity %2C heat production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16684,95 +15596,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electronic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Embassy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Entertainment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Environmental management industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Express delivery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fabricated Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fisheries</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fishing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Food Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Footwear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Forestry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Furniture manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gas Production and Supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Geological Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Government %2F Administration and Defence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grassroots autonomous organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guesthouse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Handling and other transport services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16788,10 +15616,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Housing and civil engineering construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Human Resources</fullName>
                 <default>false</default>
             </values>
@@ -16800,35 +15624,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Instrumentation and culture %2C office machinery manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International Organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather %2C fur%2C feathers %28 down%29 and its products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Legal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Livestock</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16840,39 +15636,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mass organizations %2C community groups and religious organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>News Publishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-metallic mineral products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonferrous Metals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonmetal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oil and gas industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16880,67 +15644,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other financial activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and paper products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Personal and Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Petroleum processing%2C coking and nuclear fuel processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pharmaceutical Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Physical education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pipeline transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastic products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Printing%2C Reproduction of recorded media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Professional Technical Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Property</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16948,31 +15652,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Facilities Management</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio%2C television %2C film and audiovisual industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Railway transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Real Estate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Research and Experimental Development</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Resident Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Retail</fullName>
+                <fullName>Publishing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16988,51 +15668,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sales %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Securities Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Security Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Welfare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Software Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sporting Goods Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Technology exchange and promotion services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17040,31 +15676,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textile industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles and clothing %2C footwear%2C headgear manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade %2F Services</fullName>
+                <fullName>Trades %2F Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -17072,55 +15684,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Urban public transport sector</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Utilities %28 gas %2F electric %29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Warehousing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waste Resources and Materials Recycling and Processing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Management Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water production and supply industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Wholesale Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wood processing and wood%2C bamboo %2C rattan %2C brown grass products industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -20164,10 +18732,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Accommodation Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Accommodation%2C Cafes and Restaurants</fullName>
                 <default>false</default>
             </values>
@@ -20176,103 +18740,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Advertising %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Agriculture</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Agriculture%2C Forestry %26 Fishing%2C Farming</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agriculture%2C forestry %2C animal husbandry and fishery service</fullName>
+                <fullName>Architecture %2F Design</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agro-food processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Air transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Architecture%2FDesign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Army</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bank</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2F Finance%2F Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2FFinance%2FInsurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beverage Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building Decoration Industry</fullName>
+                <fullName>Banking %2F Finance %2F Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Business %2F Management %2F Consulting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPPCC and the democratic parties</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car rental</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chinese Communist Party organ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20284,39 +18764,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Communications equipment%2C computers and other electronic equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer services</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Construction %2F Engineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction%2FEngineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crafts and other manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Credit</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20324,27 +18772,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Culture and Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Driving</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electricity %2C heat production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20352,95 +18780,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electronic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Embassy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Entertainment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Environmental management industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Express delivery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fabricated Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fisheries</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fishing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Food Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Footwear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Forestry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Furniture manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gas Production and Supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Geological Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Government %2F Administration and Defence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grassroots autonomous organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guesthouse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Handling and other transport services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20456,10 +18800,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Housing and civil engineering construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Human Resources</fullName>
                 <default>false</default>
             </values>
@@ -20468,35 +18808,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Instrumentation and culture %2C office machinery manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International Organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather %2C fur%2C feathers %28 down%29 and its products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Legal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Livestock</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20508,39 +18820,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mass organizations %2C community groups and religious organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>News Publishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-metallic mineral products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonferrous Metals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonmetal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oil and gas industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20548,67 +18828,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other financial activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and paper products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Personal and Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Petroleum processing%2C coking and nuclear fuel processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pharmaceutical Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Physical education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pipeline transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastic products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Printing%2C Reproduction of recorded media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Professional Technical Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Property</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20616,31 +18836,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Facilities Management</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio%2C television %2C film and audiovisual industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Railway transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Real Estate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Research and Experimental Development</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Resident Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Retail</fullName>
+                <fullName>Publishing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20656,51 +18852,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sales %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Securities Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Security Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Welfare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Software Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sporting Goods Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Technology exchange and promotion services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20708,31 +18860,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textile industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles and clothing %2C footwear%2C headgear manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade %2F Services</fullName>
+                <fullName>Trades %2F Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20740,55 +18868,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Urban public transport sector</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Utilities %28 gas %2F electric %29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Warehousing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waste Resources and Materials Recycling and Processing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Management Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water production and supply industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Wholesale Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wood processing and wood%2C bamboo %2C rattan %2C brown grass products industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -24463,10 +22547,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Accommodation Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Accommodation%2C Cafes and Restaurants</fullName>
                 <default>false</default>
             </values>
@@ -24475,103 +22555,19 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Advertising %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Agriculture</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Agriculture%2C Forestry %26 Fishing%2C Farming</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agriculture%2C forestry %2C animal husbandry and fishery service</fullName>
+                <fullName>Architecture %2F Design</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agro-food processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Air transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Architecture%2FDesign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Army</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bank</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2F Finance%2F Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2FFinance%2FInsurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beverage Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building Decoration Industry</fullName>
+                <fullName>Banking %2F Finance %2F Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Business %2F Management %2F Consulting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPPCC and the democratic parties</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car rental</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chinese Communist Party organ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24583,39 +22579,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Communications equipment%2C computers and other electronic equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer services</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Construction %2F Engineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction%2FEngineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crafts and other manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Credit</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24623,27 +22587,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Culture and Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Driving</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electricity %2C heat production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24651,95 +22595,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electronic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Embassy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Entertainment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Environmental management industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Express delivery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fabricated Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fisheries</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fishing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Food Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Footwear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Forestry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Furniture manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gas Production and Supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Geological Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Government %2F Administration and Defence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grassroots autonomous organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guesthouse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Handling and other transport services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24755,10 +22615,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Housing and civil engineering construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Human Resources</fullName>
                 <default>false</default>
             </values>
@@ -24767,35 +22623,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Instrumentation and culture %2C office machinery manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International Organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather %2C fur%2C feathers %28 down%29 and its products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Legal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Livestock</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24807,39 +22635,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mass organizations %2C community groups and religious organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>News Publishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-metallic mineral products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonferrous Metals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonmetal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oil and gas industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24847,67 +22643,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other financial activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and paper products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Personal and Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Petroleum processing%2C coking and nuclear fuel processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pharmaceutical Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Physical education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pipeline transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastic products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Printing%2C Reproduction of recorded media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Professional Technical Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Property</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24915,31 +22651,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Facilities Management</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio%2C television %2C film and audiovisual industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Railway transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Real Estate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Research and Experimental Development</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Resident Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Retail</fullName>
+                <fullName>Publishing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24955,51 +22667,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sales %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Securities Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Security Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Welfare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Software Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sporting Goods Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Technology exchange and promotion services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25007,31 +22675,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textile industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles and clothing %2C footwear%2C headgear manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade %2F Services</fullName>
+                <fullName>Trades %2F Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25039,55 +22683,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Urban public transport sector</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Utilities %28 gas %2F electric %29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Warehousing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waste Resources and Materials Recycling and Processing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Management Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water production and supply industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Wholesale Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wood processing and wood%2C bamboo %2C rattan %2C brown grass products industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

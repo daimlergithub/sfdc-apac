@@ -396,7 +396,8 @@ public class QCHelper {
         
         return (SSIFilledQuestions(qc) > 0 && (SSIPassedQuestions2(qc) / SSIFilledQuestions(qc) - 0.1 * failedFatalQuestionsForSSI2) > 0) ? (SSIPassedQuestions2(qc) / SSIFilledQuestions(qc) - 0.1 * failedFatalQuestionsForSSI2) * 100 : 0;
     }
-
+	
+	@TestVisible
     private static Decimal SSIPassedQuestions(QC__c qc) {
         passedQuestions = 0;
         
@@ -460,7 +461,8 @@ public class QCHelper {
         }
         return passedQuestions;
     }
-    
+	
+    @TestVisible
     private static Decimal SSIPassedQuestions2(QC__c qc) {
         passedQuestions = 0;
         

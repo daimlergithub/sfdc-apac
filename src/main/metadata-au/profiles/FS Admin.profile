@@ -146,6 +146,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountLinkHelperTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountLinkSharingTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -347,6 +351,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ChatterAnswersEscalationTriggerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ChatterAnswersTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -646,6 +654,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ReservationMessageTemplateTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>RetailCampaignCalendarController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -659,6 +671,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RetailCampaignMemberHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RetailCampaignMemberHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -886,6 +902,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ShareCampaignByCollaborationTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ShareDataToNewUserBatch</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1030,6 +1050,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TrialCustomerPortalHomePageTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerAccountHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1043,6 +1067,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerBatchJobTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerCampaignCityTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1415,6 +1443,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>superSort</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>superSortTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <custom>true</custom>
@@ -3676,6 +3708,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Address__c.Created_By_EP_Transaction__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Address__c.Delivery_Point_ID__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12829,6 +12866,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>SurveyQuestionResponse__c.Related_Vehicle__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>SurveyQuestionResponse__c.Response__c</field>
         <readable>false</readable>
@@ -15753,15 +15795,6 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>false</modifyAllRecords>
         <object>ServiceContract</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>SocialPersona</object>
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
