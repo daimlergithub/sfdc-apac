@@ -76,6 +76,18 @@
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
+        <fullName>Related_Vehicle__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Related Vehicle</label>
+        <referenceTo>Vehicle__c</referenceTo>
+        <relationshipLabel>Survey Question Responses</relationshipLabel>
+        <relationshipName>Survey_Question_Responses</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Response__c</fullName>
         <externalId>false</externalId>
         <label>Response</label>
