@@ -87,13 +87,13 @@ public class LeadHelperTest {
         dealer.RecordTypeId = DealerRecordtypeid;
         dealer.Star_Elite_Account_Owner__c = SmartDM.Id;
         dealer.Smart_Account_Owner__c = SmartDM.Id;
-        dealer.Dealer_LMS__c = 'No';
+        dealer.Dealer_Lead_System__c = 'Salesforce';
         dealer.Dealer_Lead_Gate_Keeper__c = user1.id;
         dealer.Allow_Data_Sharing__c = 'Yes';
         dealer.Province__c = 'jiangsu';
         dealer.City__c = 'nanjing';
         dealer.Preferred_Language__c = 'English';
-        dealer.Dealer_LMS__c = 'No';
+        dealer.Dealer_Lead_System__c = 'Salesforce';
         dealer.Gender__c = '0=Male';
         dealer.ZipCode__c = '200235';
         dealer.Type = '0=Company';
@@ -163,7 +163,7 @@ public class LeadHelperTest {
             a2.Province__c = 'Shanghai';
             a2.City__c = 'Anqing city';
             a2.Preferred_Language__c = 'English';
-            a2.Dealer_LMS__c = 'No';
+            a2.Dealer_Lead_System__c = 'Salesforce';
             a2.Allow_Data_Sharing__c = 'Yes';
             insert a2;
             Lead__c le1 = new Lead__c();
@@ -244,7 +244,7 @@ public class LeadHelperTest {
             a2.Province__c = 'Shanghai';
             a2.City__c = 'Anqing city';
             a2.Preferred_Language__c = 'English';
-            a2.Dealer_LMS__c = 'No';
+            a2.Dealer_Lead_System__c = 'Salesforce';
             a2.Allow_Data_Sharing__c = 'Yes';
             a2.Smart_Account_Owner__c = user2.id;
             insert a2;
@@ -293,7 +293,7 @@ public class LeadHelperTest {
         customer.Province__c = 'jiangsu'; 
         customer.City__c = 'nanjing';
         customer.Preferred_Language__c = 'English';
-        customer.Dealer_LMS__c = 'No';
+        customer.Dealer_Lead_System__c = 'Salesforce';
         customer.LastName = 'Customer';
         customer.Gender__c = '0=Male';
         customer.ZipCode__c = '200235';
@@ -343,7 +343,7 @@ public class LeadHelperTest {
         customer.Province__c = 'jiangsu'; 
         customer.City__c = 'nanjing';
         customer.Preferred_Language__c = 'English';
-        customer.Dealer_LMS__c = 'No';
+        customer.Dealer_Lead_System__c = 'Salesforce';
         customer.LastName = 'Customer';
         customer.Gender__c = '0=Male';
         customer.ZipCode__c = '200235';
@@ -394,13 +394,13 @@ public class LeadHelperTest {
         dealer.RecordTypeId = DealerRecordtypeid;
         dealer.Star_Elite_Account_Owner__c = SmartDM.Id;
         dealer.Smart_Account_Owner__c = SmartDM.Id;
-        dealer.Dealer_LMS__c = 'No';
+        dealer.Dealer_Lead_System__c = 'Salesforce';
         dealer.Dealer_Lead_Gate_Keeper__c = user1.id;
         dealer.Allow_Data_Sharing__c = 'Yes';
         dealer.Province__c = 'jiangsu';
         dealer.City__c = 'nanjing';
         dealer.Preferred_Language__c = 'English';
-        dealer.Dealer_LMS__c = 'No';
+        dealer.Dealer_Lead_System__c = 'Salesforce';
         dealer.Gender__c = '0=Male';
         dealer.ZipCode__c = '200235';
         dealer.Type = '0=Company';

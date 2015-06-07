@@ -1268,7 +1268,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Alive__c</field>
+        <field>Account.Deceased__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1318,7 +1318,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Branch_name_CHS__c</field>
+        <field>Account.Branch_name__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -1788,7 +1788,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Dealer_LMS__c</field>
+        <field>Account.Dealer_Lead_System__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>

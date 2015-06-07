@@ -36,7 +36,7 @@ private class AccountHelperTest {
                                     ZipCode__c='000000',
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
-                                    Dealer_LMS__c = 'No',
+                                    Dealer_Lead_System__c = 'Salesforce',
                                     RecordTypeId=accPerson_RecordTypeId); 
 
     static Account customer2 = new Account(Dealer_Default_Flag__c=true,

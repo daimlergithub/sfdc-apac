@@ -57,7 +57,7 @@ private class TriggerLeadTest {
         customer.Province__c = 'jiangsu'; 
         customer.City__c = 'nanjing';
         customer.Preferred_Language__c = 'English';
-        customer.Dealer_LMS__c = 'No';
+        customer.Dealer_Lead_System__c = 'Salesforce';
         customer.LastName = 'Customer';
         customer.Gender__c = '0=Male';
         customer.ZipCode__c = '200235';

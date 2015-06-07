@@ -2083,7 +2083,7 @@
     <fields>
         <fullName>Showroom__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( RecordType.DeveloperName == 'Sales_Marketing' || RecordType.DeveloperName == 'Aftersales' ,  Y_Dealer_Name__r.Branch_name_CHS__c , Dealer_Name__r.Branch_name_CHS__c)</formula>
+        <formula>IF( RecordType.DeveloperName == 'Sales_Marketing' || RecordType.DeveloperName == 'Aftersales' ,  Y_Dealer_Name__r.Branch_name__c , Dealer_Name__r.Branch_name__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Showroom</label>
         <required>false</required>
@@ -2686,7 +2686,7 @@
     <fields>
         <fullName>Yearly_TA_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(YEAR(TODAY())) +  Y_Dealer_Name__r.Branch_name_CHS__c</formula>
+        <formula>TEXT(YEAR(TODAY())) +  Y_Dealer_Name__r.Branch_name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Yearly TA Name</label>
         <required>false</required>

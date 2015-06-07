@@ -10,7 +10,7 @@ public class GenericCSVLoaderControllerTest {
                                     Area_code__c = '010',
                                     LastName = 'galaxy2',
                                     ZipCode__c='000000',
-                                    Branch_name_CHS__c = '2014/06/05',
+                                    Branch_name__c = '2014/06/05',
                                     File_Name__pc = 'C://User/folder',
                                     RecordTypeId=acc3rdPartyRecordTypeId);
                                     

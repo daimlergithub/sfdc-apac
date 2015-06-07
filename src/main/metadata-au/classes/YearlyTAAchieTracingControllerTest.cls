@@ -13,7 +13,7 @@
 public class YearlyTAAchieTracingControllerTest {
     public static testMethod void testMedia01(){
         String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
+        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name__c = 'test chs dealer');
         insert dealer;
         
         String RT = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Media Retail Campaign').getRecordTypeId();
@@ -32,7 +32,7 @@ public class YearlyTAAchieTracingControllerTest {
     
     public static testMethod void testMedia02(){
         String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
+        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name__c = 'test chs dealer');
         insert dealer;
         
         String RT = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Media Retail Campaign').getRecordTypeId();
@@ -51,7 +51,7 @@ public class YearlyTAAchieTracingControllerTest {
     
     public static testMethod void testEvent01(){
         String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
+        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name__c = 'test chs dealer');
         insert dealer;
         
         String RT = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Event Retail Campaign').getRecordTypeId();
@@ -71,7 +71,7 @@ public class YearlyTAAchieTracingControllerTest {
     
     public static testMethod void testEvent02(){
         String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
+        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name__c = 'test chs dealer');
         insert dealer;
         
         String RT = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Event Retail Campaign').getRecordTypeId();
@@ -91,7 +91,7 @@ public class YearlyTAAchieTracingControllerTest {
     
         public static testMethod void testMediaJoint01(){
         String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
+        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name__c = 'test chs dealer');
         insert dealer;
         
         String cpnRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media Central Campaign').getRecordTypeId();
@@ -114,7 +114,7 @@ public class YearlyTAAchieTracingControllerTest {
     
     public static testMethod void testMediaJoint02(){
         String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
+        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name__c = 'test chs dealer');
         insert dealer;
         
         String cpnRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Media Central Campaign').getRecordTypeId();
@@ -137,7 +137,7 @@ public class YearlyTAAchieTracingControllerTest {
     
     public static testMethod void testEventJoint01(){
         String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
+        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name__c = 'test chs dealer');
         insert dealer;
         
         String cpnRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId();
@@ -162,7 +162,7 @@ public class YearlyTAAchieTracingControllerTest {
     
     public static testMethod void testEventJoint02(){
         String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
+        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name__c = 'test chs dealer');
         insert dealer;
         
         String cpnRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId();
@@ -187,7 +187,7 @@ public class YearlyTAAchieTracingControllerTest {
     
     public static testMethod void testYearlyTarget01(){
         String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name_CHS__c = 'test chs dealer');
+        Account dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name__c = 'test chs dealer');
         insert dealer;
         
         String RT = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Sales & Marketing Yearly TA').getRecordTypeId();
