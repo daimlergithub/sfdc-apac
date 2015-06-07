@@ -443,6 +443,7 @@ public class LeadHelper
     /**
      * Private classes
      */
+	@TestVisible 
     private static Lead__Share newLeadShare(String leadId, String userOrGroupId)
     {
         Lead__Share tempShare = new Lead__Share();
@@ -453,6 +454,7 @@ public class LeadHelper
         return tempShare;
     }
     
+	@TestVisible
     private static AccountShare newAccountShare(String accountId, String userOrGroupId)
     {
         AccountShare tempShare = new AccountShare();
@@ -462,7 +464,8 @@ public class LeadHelper
         tempShare.OpportunityAccessLevel = 'Read';
         return tempShare;
     }
-    
+	
+    @TestVisible
     private static Task createdNewSMSTaskForInstructor(Lead__c tempLead, User  tempIntegrationUser, User tempInstructor, Account tempAccount, Account tempDealer)
     {
         Task newTask = new Task(RecordTypeId = SMSTaskRecordTypeId, Subject = 'SMS', Status = 'Closed', Activity_Status__c = 'Sent');
@@ -476,7 +479,8 @@ public class LeadHelper
         newTask.WhatId = tempLead.Id;
         return newTask;
     }
-    
+	
+    @TestVisible
     private static Task createdNewSMSTaskForCustomer(Lead__c tempLead, User  tempIntegrationUser, Account tempCustomer, Account tempDealer, String tempTitle)
     {
         Task newTask = new Task(RecordTypeId = SMSTaskRecordTypeId, Subject = 'SMS', Status = 'Closed', Activity_Status__c = 'Sent');
@@ -497,7 +501,8 @@ public class LeadHelper
         result = ReservationMessageTemplate.getSMSContent(tempLead, tempCustomer, tempInstructor, tempDealer, tempTitle);
         return result;
     }
-    
+	
+    @TestVisible
     private static User getEPIntegrationUser()
     {
         User epUser;
@@ -1112,6 +1117,7 @@ public class LeadHelper
         }
     }
     
+	@TestVisible
     private static Contact MonkCotact(String mailAdd){
     
         String monkName = 'monkContact' + Math.round(Math.random() * (1000 - 1)) + 1;

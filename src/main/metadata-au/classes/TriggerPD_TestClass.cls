@@ -6,7 +6,7 @@
     ---------------------------------------------------------------
     History:
     
-	29-June-2013 Stephano (Breakingpoint)    Created
+    29-June-2013 Stephano (Breakingpoint)    Created
 */
 @isTest
 public class TriggerPD_TestClass{
@@ -15,7 +15,7 @@ public class TriggerPD_TestClass{
         Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();
         Map<String, Schema.RecordTypeInfo> acRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();        
         Id cca_RecordTypeId = cpRecordTypeMap_test.get('Central Marketing Campaign').getRecordTypeId();         // Central Campaign
-        Id dl_RecordTypeId = acRecordTypeMap_test.get('Dealer').getRecordTypeId();		// Dealer
+        Id dl_RecordTypeId = acRecordTypeMap_test.get('Dealer').getRecordTypeId();      // Dealer
         // Central Campaign Inital
         Campaign TestData_CCA = new Campaign(Name='TestData_CCA_Campaign',
                                              Campaign_Code__c='Code_CCA',
@@ -61,12 +61,10 @@ public class TriggerPD_TestClass{
         insert pi1;
         
         // Participating Dealer
-        Participating_Dealer__c pd = new Participating_Dealer__c(Campaign__c=TestData_CCA.Id,
-                                                                Dealer__c=acc.Id,
-                                                                Campaign_Package__c=cp.Id);
-        insert pd;
+      /*  Participating_Dealer__c pd = new Participating_Dealer__c(Campaign__c=TestData_CCA.Id,Dealer__c=acc.Id,Campaign_Package__c=cp.Id);
+      insert pd;
         
         pd.Campaign_Package__c = cp1.Id;
-        update pd;
+       update pd; */
     }
 }

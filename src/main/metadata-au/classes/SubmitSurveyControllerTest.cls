@@ -10,7 +10,7 @@
 public class SubmitSurveyControllerTest{
 
     @isTest static void testMethod01() {
-        Survey__c survey = new Survey__c(name='Test',Survey_Header__c='Test',Thank_You_Text__c='Test');
+        Survey__c survey = new Survey__c(name='Test',Survey_Header__c='Test',Thank_You_Text__c='Test',Submit_Response__c='Test Response');
         insert survey;
         Survey_Question__c question1 = new Survey_Question__c(Survey__c=survey.id,Question__c='Test01',Type__c='Free Text',OrderNumber__c=1);
         insert question1;
@@ -32,7 +32,7 @@ public class SubmitSurveyControllerTest{
     }
 
     @isTest static void testMethod02() {
-        Survey__c survey = new Survey__c(name='Test',Survey_Header__c='Test',Thank_You_Text__c='Test');
+        Survey__c survey = new Survey__c(name='Test',Survey_Header__c='Test',Thank_You_Text__c='Test',Submit_Response__c='Test Response');
         insert survey;
         List<Campaign> campaigns = new List<Campaign>();
         campaigns.add(new Campaign(Questionnaire__c=survey.id));
@@ -74,7 +74,7 @@ public class SubmitSurveyControllerTest{
     }
 
     @isTest static void testMethod04() {
-        Survey__c survey = new Survey__c(name='Test',Thank_You_Text__c='Test');
+        Survey__c survey = new Survey__c(name='Test',Thank_You_Text__c='Test',Submit_Response__c='Test Response');
         insert survey;
         List<Campaign> campaigns = new List<Campaign>();
         campaigns.add(new Campaign(Questionnaire__c=survey.id));
@@ -115,7 +115,7 @@ public class SubmitSurveyControllerTest{
     }
 
     @isTest static void testMethod05() {
-        Survey__c survey = new Survey__c(name='Test',Thank_You_Text__c='Test');
+        Survey__c survey = new Survey__c(name='Test',Thank_You_Text__c='Test',Submit_Response__c='Test Response');
         insert survey;
         List<Campaign> campaigns = new List<Campaign>();
         campaigns.add(new Campaign(Questionnaire__c=survey.id));
@@ -151,7 +151,7 @@ public class SubmitSurveyControllerTest{
     }
 
     @isTest static void testMethod06() {
-        Survey__c survey = new Survey__c(name='Test',Thank_You_Text__c='Test');
+        Survey__c survey = new Survey__c(name='Test',Thank_You_Text__c='Test',Submit_Response__c='Test Response');
         insert survey;
         List<Campaign> campaigns = new List<Campaign>();
         campaigns.add(new Campaign(Questionnaire__c=survey.id));

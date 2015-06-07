@@ -21,15 +21,16 @@
  */
 @isTest
 public class BatchAssignTasksTest {
-	
-	private static list<user> lstUsers= new list<user>();
-	static
-	{
-		User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
-		System.runAs(thisUser)
-		{
-            String[] csrProfiles = new String[]{
-                    'CAC IB CSR', 'CAC IB TL', 'CAC IB QC', 'CAC OB CSR', 'CAC OB TL', 'CAC OB QC', 'CAC SSI CSR', 'CAC SSI TL', 'CAC SSI SV', 'CAC SSI QC', 'CAC SSI Trainer'};
+    
+    private static list<user> lstUsers= new list<user>();
+    static
+    {
+        User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
+        System.runAs(thisUser)
+        {
+           // String[] csrProfiles = new String[]{
+                //    'CAC IB CSR', 'CAC IB TL', 'CAC IB QC', 'CAC OB CSR', 'CAC OB TL', 'CAC OB QC', 'CAC SSI CSR', 'CAC SSI TL', 'CAC SSI SV', 'CAC SSI QC', 'CAC SSI Trainer'};
+                String[] csrProfiles = new String[]{'System Administrator', 'CAC IB TL'};
             List<Profile> profileIds = [Select Id From Profile Where Name In :csrProfiles];
             for(Profile p : profileIds)
             {
@@ -46,18 +47,18 @@ public class BatchAssignTasksTest {
                 lstUsers.add(usr);
             }
             insert lstUsers;
-		}
-	}
+        }
+    }
 
     public static testMethod void testBatchAssignTasks()
     {
-    	Test.startTest();
-		String csrIds = lstUsers[9].Id + ';' + lstUsers[10].Id;
-		List<String> ids = csrIds.split(';');
-   		for(Integer i=0;i<ids.size();i++)
-   		{
-	        ids[i] = ids[i].trim();
-	    }
+        Test.startTest();
+       String csrIds = lstUsers[0].Id + ';' + lstUsers[1].Id;
+        List<String> ids = csrIds.split(';');
+        for(Integer i=0;i<ids.size();i++)
+        {
+            ids[i] = ids[i].trim();
+        }
         List<User> users = [Select Id From User Where Id In :ids];
         Id SMSRTID = Schema.SObjectType.Task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
         List<Task> tasks = new List<Task>();
@@ -69,7 +70,7 @@ public class BatchAssignTasksTest {
         );        
         insert ssi ;
         for(integer i = 0; i < 10; i++) 
-        {       	
+        {           
             tasks.add(new Task(RecordTypeId = SMSRTID,WhatId = ssi.Id));
         }
         Insert tasks;
@@ -82,7 +83,7 @@ public class BatchAssignTasksTest {
                 queryIds += ',';
             }
             queryIds = queryIds.subString(0, queryIds.length()-1);
-    		
+            
             String queryStr = 'Select Id, OwnerId From Task Where Id In (' + queryIds + ') ';
             
             BatchAssignTasks batcher = new BatchAssignTasks(queryStr, users);
