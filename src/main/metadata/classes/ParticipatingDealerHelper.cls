@@ -45,8 +45,8 @@ public with sharing class ParticipatingDealerHelper {
         String pSetSmRetail = 'S_M_Retail_Campaign';
         String pSetBp = 'Best_Practise';
         
-        Id pIdDealerAdmin = UtilProfile.getProfileId('System Administrator');
-        Id pIdDealerUser = UtilProfile.getProfileId('System Administrator');
+        Id pIdDealerAdmin = UtilProfile.getProfileId('Dealer Delegate Admin');
+        Id pIdDealerUser = UtilProfile.getProfileId('Dealer Community User');
         
         // The values for sharing records
         List<CampaignShare> cpnShares = new List<CampaignShare>();

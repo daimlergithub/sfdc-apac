@@ -32,19 +32,18 @@ Long start = system.currentTimeMillis();
  trial.sortField1= 'createdbyid';
  trial.sortField2= 'createdbyid';
  trial.sortField4= 'createdbyid';
-  trial.sortField5= 'createdbyid';
-  trial.sortField6= 'createdbyid';
+ trial.sortField5= 'createdbyid';
+ trial.sortField6= 'createdbyid';
  
  
-  trial.previousSortField1= 'createdbyid';
-  trial.previousSortField2= 'createdbyid';
-  trial.previousSortField4= 'createdbyid';
-   trial.previousSortField5= 'createdbyid';
-   trial.previousSortField6= 'createdbyid';
- 
+ trial.previousSortField1= 'createdbyid';
+ trial.previousSortField2= 'createdbyid';
+ trial.previousSortField4= 'createdbyid';
+ trial.previousSortField5= 'createdbyid';
+ trial.previousSortField6= 'createdbyid';
  
   trial.SortSolutions();
-     Test.stopTest();
+  Test.stopTest();
     
  }
 }

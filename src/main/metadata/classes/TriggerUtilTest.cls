@@ -293,7 +293,6 @@ public class TriggerUtilTest
         // verify
         System.assert(triggerHandlerCalled); // default trigger handler is TestTriggerHandler
     }
-    
    
     public static testMethod void testHandleTrigger_NonExistingHandler()
     {

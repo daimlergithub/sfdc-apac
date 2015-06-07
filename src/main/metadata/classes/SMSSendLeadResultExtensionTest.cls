@@ -170,7 +170,7 @@ public class SMSSendLeadResultExtensionTest {
         insert lead;
     }
     
-    static void createTemplate()
+        static void createTemplate()
     {
     	tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
                                                Message_Detail__c = '{DEALER_name}', Name = 'lai');
