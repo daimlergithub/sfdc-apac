@@ -1979,10 +1979,6 @@
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Accommodation Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Accommodation%2C Cafes and Restaurants</fullName>
                 <default>false</default>
             </values>
@@ -1991,103 +1987,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Advertising %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Agriculture</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Agriculture%2C Forestry %26 Fishing%2C Farming</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agriculture%2C forestry %2C animal husbandry and fishery service</fullName>
+                <fullName>Architecture %2F Design</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agro-food processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Air transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Architecture%2FDesign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Army</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bank</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2F Finance%2F Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2FFinance%2FInsurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beverage Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building Decoration Industry</fullName>
+                <fullName>Banking %2F Finance %2F Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Business %2F Management %2F Consulting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPPCC and the democratic parties</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car rental</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chinese Communist Party organ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2099,39 +2011,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Communications equipment%2C computers and other electronic equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer services</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Construction %2F Engineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction%2FEngineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crafts and other manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Credit</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2139,27 +2019,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Culture and Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Driving</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electricity %2C heat production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2167,95 +2027,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electronic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Embassy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Entertainment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Environmental management industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Express delivery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fabricated Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fisheries</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fishing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Food Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Footwear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Forestry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Furniture manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gas Production and Supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Geological Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Government %2F Administration and Defence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grassroots autonomous organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guesthouse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Handling and other transport services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2271,10 +2047,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Housing and civil engineering construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Human Resources</fullName>
                 <default>false</default>
             </values>
@@ -2283,35 +2055,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Instrumentation and culture %2C office machinery manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International Organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather %2C fur%2C feathers %28 down%29 and its products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Legal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Livestock</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2323,39 +2067,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mass organizations %2C community groups and religious organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>News Publishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-metallic mineral products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonferrous Metals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonmetal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oil and gas industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2363,67 +2075,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other financial activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and paper products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Personal and Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Petroleum processing%2C coking and nuclear fuel processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pharmaceutical Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Physical education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pipeline transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastic products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Printing%2C Reproduction of recorded media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Professional Technical Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Property</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2431,31 +2083,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Facilities Management</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio%2C television %2C film and audiovisual industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Railway transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Real Estate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Research and Experimental Development</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Resident Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Retail</fullName>
+                <fullName>Publishing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2471,51 +2099,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sales %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Securities Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Security Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Welfare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Software Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sporting Goods Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Technology exchange and promotion services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2523,31 +2107,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textile industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles and clothing %2C footwear%2C headgear manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade %2F Services</fullName>
+                <fullName>Trades %2F Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2555,55 +2115,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Urban public transport sector</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Utilities %28 gas %2F electric %29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Warehousing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waste Resources and Materials Recycling and Processing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Management Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water production and supply industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Wholesale Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wood processing and wood%2C bamboo %2C rattan %2C brown grass products industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6318,10 +5834,6 @@
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Accommodation Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Accommodation%2C Cafes and Restaurants</fullName>
                 <default>false</default>
             </values>
@@ -6330,103 +5842,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Advertising %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Agriculture</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Agriculture%2C Forestry %26 Fishing%2C Farming</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agriculture%2C forestry %2C animal husbandry and fishery service</fullName>
+                <fullName>Architecture %2F Design</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agro-food processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Air transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Architecture%2FDesign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Army</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bank</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2F Finance%2F Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2FFinance%2FInsurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beverage Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building Decoration Industry</fullName>
+                <fullName>Banking %2F Finance %2F Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Business %2F Management %2F Consulting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPPCC and the democratic parties</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car rental</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chinese Communist Party organ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6438,39 +5866,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Communications equipment%2C computers and other electronic equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer services</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Construction %2F Engineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction%2FEngineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crafts and other manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Credit</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6478,27 +5874,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Culture and Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Driving</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electricity %2C heat production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6506,95 +5882,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electronic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Embassy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Entertainment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Environmental management industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Express delivery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fabricated Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fisheries</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fishing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Food Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Footwear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Forestry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Furniture manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gas Production and Supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Geological Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Government %2F Administration and Defence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grassroots autonomous organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guesthouse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Handling and other transport services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6610,10 +5902,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Housing and civil engineering construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Human Resources</fullName>
                 <default>false</default>
             </values>
@@ -6622,35 +5910,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Instrumentation and culture %2C office machinery manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International Organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather %2C fur%2C feathers %28 down%29 and its products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Legal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Livestock</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6662,39 +5922,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mass organizations %2C community groups and religious organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>News Publishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-metallic mineral products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonferrous Metals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonmetal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oil and gas industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6702,67 +5930,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other financial activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and paper products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Personal and Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Petroleum processing%2C coking and nuclear fuel processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pharmaceutical Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Physical education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pipeline transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastic products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Printing%2C Reproduction of recorded media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Professional Technical Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Property</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6770,31 +5938,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Facilities Management</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio%2C television %2C film and audiovisual industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Railway transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Real Estate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Research and Experimental Development</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Resident Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Retail</fullName>
+                <fullName>Publishing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6810,51 +5954,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sales %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Securities Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Security Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Welfare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Software Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sporting Goods Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Technology exchange and promotion services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6862,31 +5962,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textile industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles and clothing %2C footwear%2C headgear manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade %2F Services</fullName>
+                <fullName>Trades %2F Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6894,55 +5970,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Urban public transport sector</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Utilities %28 gas %2F electric %29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Warehousing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waste Resources and Materials Recycling and Processing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Management Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water production and supply industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Wholesale Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wood processing and wood%2C bamboo %2C rattan %2C brown grass products industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10724,10 +9756,6 @@
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Accommodation Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Accommodation%2C Cafes and Restaurants</fullName>
                 <default>false</default>
             </values>
@@ -10736,103 +9764,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Advertising %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Agriculture</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Agriculture%2C Forestry %26 Fishing%2C Farming</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agriculture%2C forestry %2C animal husbandry and fishery service</fullName>
+                <fullName>Architecture %2F Design</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agro-food processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Air transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Architecture%2FDesign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Army</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bank</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2F Finance%2F Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2FFinance%2FInsurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beverage Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building Decoration Industry</fullName>
+                <fullName>Banking %2F Finance %2F Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Business %2F Management %2F Consulting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPPCC and the democratic parties</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car rental</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chinese Communist Party organ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10844,39 +9788,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Communications equipment%2C computers and other electronic equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer services</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Construction %2F Engineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction%2FEngineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crafts and other manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Credit</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10884,27 +9796,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Culture and Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Driving</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electricity %2C heat production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -10912,95 +9804,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electronic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Embassy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Entertainment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Environmental management industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Express delivery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fabricated Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fisheries</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fishing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Food Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Footwear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Forestry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Furniture manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gas Production and Supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Geological Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Government %2F Administration and Defence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grassroots autonomous organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guesthouse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Handling and other transport services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11016,10 +9824,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Housing and civil engineering construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Human Resources</fullName>
                 <default>false</default>
             </values>
@@ -11028,35 +9832,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Instrumentation and culture %2C office machinery manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International Organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather %2C fur%2C feathers %28 down%29 and its products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Legal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Livestock</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11068,39 +9844,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mass organizations %2C community groups and religious organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>News Publishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-metallic mineral products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonferrous Metals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonmetal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oil and gas industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11108,67 +9852,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other financial activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and paper products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Personal and Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Petroleum processing%2C coking and nuclear fuel processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pharmaceutical Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Physical education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pipeline transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastic products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Printing%2C Reproduction of recorded media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Professional Technical Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Property</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11176,31 +9860,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Facilities Management</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio%2C television %2C film and audiovisual industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Railway transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Real Estate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Research and Experimental Development</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Resident Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Retail</fullName>
+                <fullName>Publishing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11216,51 +9876,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sales %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Securities Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Security Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Welfare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Software Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sporting Goods Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Technology exchange and promotion services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11268,31 +9884,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textile industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles and clothing %2C footwear%2C headgear manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade %2F Services</fullName>
+                <fullName>Trades %2F Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11300,55 +9892,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Urban public transport sector</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Utilities %28 gas %2F electric %29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Warehousing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waste Resources and Materials Recycling and Processing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Management Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water production and supply industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Wholesale Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wood processing and wood%2C bamboo %2C rattan %2C brown grass products industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15026,10 +13574,6 @@
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
-                <fullName>Accommodation Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Accommodation%2C Cafes and Restaurants</fullName>
                 <default>false</default>
             </values>
@@ -15038,103 +13582,19 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Advertising %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Agriculture</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Agriculture%2C Forestry %26 Fishing%2C Farming</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agriculture%2C forestry %2C animal husbandry and fishery service</fullName>
+                <fullName>Architecture %2F Design</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agro-food processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Air transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Architecture%2FDesign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Army</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Bank</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2F Finance%2F Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Banking%2FFinance%2FInsurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Beverage Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building Decoration Industry</fullName>
+                <fullName>Banking %2F Finance %2F Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Business %2F Management %2F Consulting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPPCC and the democratic parties</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car rental</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Catering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chinese Communist Party organ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coal mining and washing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15146,39 +13606,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Communications equipment%2C computers and other electronic equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer services</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Construction %2F Engineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction%2FEngineering</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crafts and other manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Credit</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15186,27 +13614,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Culture and Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Driving</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Electricity %2C heat production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15214,95 +13622,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electronic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Embassy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Entertainment</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Environmental management industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Express delivery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fabricated Metal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fisheries</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Fishing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Food Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Footwear</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Forestry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Furniture manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gas Production and Supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Geological Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Government %2F Administration and Defence</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grassroots autonomous organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Guesthouse</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Handling and other transport services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Health</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15318,10 +13642,6 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Housing and civil engineering construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Human Resources</fullName>
                 <default>false</default>
             </values>
@@ -15330,35 +13650,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Instrumentation and culture %2C office machinery manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International Organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Law</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather %2C fur%2C feathers %28 down%29 and its products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Legal</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Livestock</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15370,39 +13662,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mass organizations %2C community groups and religious organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Mining</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>News Publishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-metallic mineral products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonferrous Metals</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Nonmetal mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oil and gas industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15410,67 +13670,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other financial activities</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other mining industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Paper and paper products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Personal and Other Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Petroleum processing%2C coking and nuclear fuel processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pharmaceutical Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Physical education</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Pipeline transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Plastic products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Printing%2C Reproduction of recorded media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Professional Technical Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Property</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15478,31 +13678,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Public Facilities Management</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio%2C television %2C film and audiovisual industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Railway transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Real Estate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Research and Experimental Development</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Resident Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Retail</fullName>
+                <fullName>Publishing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15518,51 +13694,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Road transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Sales %2F Marketing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Securities Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Security Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Welfare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Software Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sporting Goods Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Technology exchange and promotion services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15570,31 +13702,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textile industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles and clothing %2C footwear%2C headgear manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade %2F Services</fullName>
+                <fullName>Trades %2F Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15602,55 +13710,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Urban public transport sector</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Utilities %28 gas %2F electric %29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle Maintenance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Warehousing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waste Resources and Materials Recycling and Processing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Management Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water production and supply industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Wholesale Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wood processing and wood%2C bamboo %2C rattan %2C brown grass products industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19467,111 +17531,43 @@
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
+                <fullName>Accommodation%2C Cafes and Restaurants</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Accounting</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Advertising %2F Marketing</fullName>
+                <fullName>Agriculture%2C Forestry %26 Fishing%2C Farming</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agriculture</fullName>
+                <fullName>Architecture %2F Design</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agriculture%2C forestry %2C animal husbandry and fishery service</fullName>
+                <fullName>Banking %2F Finance %2F Insurance</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Agro-food processing industry</fullName>
+                <fullName>Business %2F Management %2F Consulting</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Air transport</fullName>
+                <fullName>Communication %2F Media %2F Entertainment</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Army</fullName>
+                <fullName>Communication Services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Banking</fullName>
+                <fullName>Construction %2F Engineering</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Beverage Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Building Decoration Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Business Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CPPCC and the democratic parties</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car rental</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical fiber manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chemical materials and chemical products manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Chinese Communist Party organ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coal mining and washing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Communications equipment%2C computers and other electronic equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Computer services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Construction and installation industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Consumer Goods</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Crafts and other manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Credit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Culture and Arts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Distribution</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Driving</fullName>
+                <fullName>Cultural and Recreational Services</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19579,131 +17575,51 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electrical machinery and equipment manufacturing</fullName>
+                <fullName>Electricity%2C Gas and Water Supply</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electricity %2C heat production and supply industry</fullName>
+                <fullName>Fishing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Electronic</fullName>
+                <fullName>Government %2F Administration and Defence</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Embassy</fullName>
+                <fullName>Health and Community Services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Entertainment</fullName>
+                <fullName>Home Duties</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Environmental management industry</fullName>
+                <fullName>Hospitality %2F Tourism %2F Travel</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Express delivery</fullName>
+                <fullName>Human Resources</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Fabricated Metal</fullName>
+                <fullName>IT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ferrous metal mining industry</fullName>
+                <fullName>Legal</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ferrous metal smelting and rolling processing industry</fullName>
+                <fullName>Manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Fisheries</fullName>
+                <fullName>Marine</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Food Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Forestry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Franchising</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Furniture manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Gas Production and Supply</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>General equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Geological Prospecting</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Grassroots autonomous organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Health</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Housing and civil engineering construction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Instrumentation and culture %2C office machinery manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Insurance</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International Organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leasing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Leather %2C fur%2C feathers %28 down%29 and its products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mass organizations %2C community groups and religious organizations</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>News Publishing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-ferrous metal smelting and rolling processing industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Non-metallic mineral products industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Oil and gas industry</fullName>
+                <fullName>Mining</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19711,155 +17627,43 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other Services</fullName>
+                <fullName>Personal and Other Services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other construction</fullName>
+                <fullName>Property Development%2FReal Estate</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other financial activities</fullName>
+                <fullName>Publishing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other mining industry</fullName>
+                <fullName>Retail Trade</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Paper and paper products industry</fullName>
+                <fullName>Retailing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Petroleum processing%2C coking and nuclear fuel processing industry</fullName>
+                <fullName>Retired</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pharmaceutical Manufacturing</fullName>
+                <fullName>Sales %2F Marketing</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Pipeline transportation</fullName>
+                <fullName>Telecommunications</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Plastic products industry</fullName>
+                <fullName>Trades %2F Services</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Postal Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Printing%2C Reproduction of recorded media</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Professional Technical Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Property</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Public Facilities Management</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Radio%2C television %2C film and audiovisual industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Railway transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Real Estate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Research and Experimental Development</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Resident Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Retail</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Road transport</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rubber</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Securities Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Security Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Social Welfare</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Software Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Special equipment manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sporting Goods Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>State institutions</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telecommunications and Other Information Transmission Services</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textile industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Textiles and clothing %2C footwear%2C headgear manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco and alcohol</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tobacco industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transportation Equipment Manufacturing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Travel</fullName>
+                <fullName>Transport and Storage</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -19867,35 +17671,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Urban public transport sector</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Warehousing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Waste Resources and Materials Recycling and Processing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Management Industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water Transportation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Water production and supply industry</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Wholesale Trade</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Wood processing and wood%2C bamboo %2C rattan %2C brown grass products industry</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
