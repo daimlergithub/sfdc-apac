@@ -276,7 +276,7 @@ public class AccountHelper {
                     temp = new AccountContactRole();
                     temp.AccountId = item.Company__c;
                     temp.ContactId = personAccountIdcontactId.get(item.Id);
-                    temp.Role = item.Job_Title__c;
+                    temp.Role = item.Job__c;
                     AccountContactRoles.add(temp);
                 }
             }

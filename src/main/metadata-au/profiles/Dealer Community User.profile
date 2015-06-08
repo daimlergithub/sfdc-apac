@@ -1373,11 +1373,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Cars_in_Household__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.City_CN__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -1860,11 +1855,6 @@
         <editable>false</editable>
         <field>Account.Dealer_Portal_Modules__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Dealer_Portal_User__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -2372,11 +2362,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Job_Title__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Job__c</field>
         <readable>true</readable>
@@ -2434,11 +2419,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Latest_Service_Dealer__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Life_Survey_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
