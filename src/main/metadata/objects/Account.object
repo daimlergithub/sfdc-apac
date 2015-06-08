@@ -6470,21 +6470,6 @@ Modify Reason:
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>Job_Title__c</fullName>
-        <externalId>false</externalId>
-        <label>Job Title</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Job Title</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Job__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -12583,13 +12568,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Job__c</picklist>
             <values>
                 <fullName>Department manager</fullName>
@@ -16008,13 +15986,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
