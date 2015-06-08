@@ -443,7 +443,7 @@ public class LeadHelper
     /**
      * Private classes
      */
-	@TestVisible 
+  @TestVisible 
     private static Lead__Share newLeadShare(String leadId, String userOrGroupId)
     {
         Lead__Share tempShare = new Lead__Share();
@@ -454,7 +454,7 @@ public class LeadHelper
         return tempShare;
     }
     
-	@TestVisible
+  @TestVisible
     private static AccountShare newAccountShare(String accountId, String userOrGroupId)
     {
         AccountShare tempShare = new AccountShare();
@@ -464,7 +464,7 @@ public class LeadHelper
         tempShare.OpportunityAccessLevel = 'Read';
         return tempShare;
     }
-	
+  
     @TestVisible
     private static Task createdNewSMSTaskForInstructor(Lead__c tempLead, User  tempIntegrationUser, User tempInstructor, Account tempAccount, Account tempDealer)
     {
@@ -479,7 +479,7 @@ public class LeadHelper
         newTask.WhatId = tempLead.Id;
         return newTask;
     }
-	
+  
     @TestVisible
     private static Task createdNewSMSTaskForCustomer(Lead__c tempLead, User  tempIntegrationUser, Account tempCustomer, Account tempDealer, String tempTitle)
     {
@@ -501,7 +501,7 @@ public class LeadHelper
         result = ReservationMessageTemplate.getSMSContent(tempLead, tempCustomer, tempInstructor, tempDealer, tempTitle);
         return result;
     }
-	
+  
     @TestVisible
     private static User getEPIntegrationUser()
     {
@@ -1117,7 +1117,7 @@ public class LeadHelper
         }
     }
     
-	@TestVisible
+  @TestVisible
     private static Contact MonkCotact(String mailAdd){
     
         String monkName = 'monkContact' + Math.round(Math.random() * (1000 - 1)) + 1;
@@ -1270,6 +1270,58 @@ public class LeadHelper
                     Id contrctId = ldContrctMap.get(lead.Id);
                     Id dealerId = contrctIdMap.get(contrctId).Related_Dealer__c;
                     Lead.Assigned_Dealer__c = dealerId;
+                }
+            }
+        }
+    }
+    
+    public static void auBeforeUpdateGenericVehicleRecordOnVehicleRelationship(List<Lead__c> newLeads,map<id,Lead__c> mapLeadOldmap,map<id,Lead__c> mapLeadNewmap)
+    {
+        map<id,id> mapAccountIdtoCurrentVehicleid=new map<id,id>();
+        
+        for(Lead__c objLead:newLeads)
+        {
+            if(objLead.Current_Vehicle__c!=null && mapLeadOldmap.get(objLead.Id).Current_Vehicle__c!=mapLeadNewmap.get(objLead.Id).Current_Vehicle__c && objLead.Contact__c!=null)
+            {
+                if(!mapAccountIdtoCurrentVehicleid.containsKey(objLead.Contact__c))
+                    mapAccountIdtoCurrentVehicleid.put(objLead.Contact__c,objLead.Current_Vehicle__c);
+            }
+        }
+        
+        if(mapAccountIdtoCurrentVehicleid!=null && !mapAccountIdtoCurrentVehicleid.isEmpty())
+        {
+            List<Vehicle_Relationship__c> lstVR=[select id,Vehicle_ID__c,Contact__c,Car_Relation__c from Vehicle_Relationship__c where Contact__c=:mapAccountIdtoCurrentVehicleid.keyset()];
+            
+            if(lstVR!=null && !lstVR.isEmpty())
+            {
+                for(Vehicle_Relationship__c objVR:lstVR)
+                {
+                    objVR.Car_Relation__c='Current Vehicle';
+                    if(mapAccountIdtoCurrentVehicleid.get(objVR.Contact__c)!=null)
+                        objVR.Vehicle_ID__c=mapAccountIdtoCurrentVehicleid.get(objVR.Contact__c);
+                }
+                
+                update lstVR;
+            }           
+            else
+            {
+                List<Vehicle_Relationship__c> insertNewVR= new List<Vehicle_Relationship__c>();
+                
+                for(Lead__c objLead:newLeads)
+                {
+                    Vehicle_Relationship__c objNew= new Vehicle_Relationship__c();
+                    objNew.Car_Relation__c='Current Vehicle';
+                    if(mapAccountIdtoCurrentVehicleid.get(objLead.Contact__c)!=null)
+                    {
+                        objNew.Vehicle_ID__c=mapAccountIdtoCurrentVehicleid.get(objLead.Contact__c);
+                        objNew.Contact__c=objLead.Contact__c;
+                    }
+                    insertNewVR.add(objNew);
+                }
+                
+                if(insertNewVR!=null && !insertNewVR.isEmpty())
+                {
+                    insert insertNewVR;
                 }
             }
         }

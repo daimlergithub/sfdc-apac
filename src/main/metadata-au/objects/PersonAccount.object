@@ -1506,17 +1506,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Dealer_Reason_for_Inactivation__c</picklist>
             <values>
                 <fullName>The franchise agreement was not renewed when it expired%2E</fullName>
@@ -2490,13 +2479,6 @@
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5471,17 +5453,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Dealer_Reason_for_Inactivation__c</picklist>
             <values>
                 <fullName>The franchise agreement was not renewed when it expired%2E</fullName>
@@ -6493,13 +6464,6 @@
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9565,17 +9529,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Dealer_Reason_for_Inactivation__c</picklist>
             <values>
                 <fullName>The franchise agreement was not renewed when it expired%2E</fullName>
@@ -10559,13 +10512,6 @@
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13507,17 +13453,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Dealer_Reason_for_Inactivation__c</picklist>
             <values>
                 <fullName>The franchise agreement was not renewed when it expired%2E</fullName>
@@ -14529,13 +14464,6 @@
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17596,17 +17524,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Dealer_Reason_for_Inactivation__c</picklist>
             <values>
                 <fullName>The franchise agreement was not renewed when it expired%2E</fullName>
@@ -18634,13 +18551,6 @@
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

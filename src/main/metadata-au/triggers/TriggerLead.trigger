@@ -61,5 +61,6 @@ trigger TriggerLead on Lead__c(before insert, before update, after update,after 
         /*UtilLead.beforeInsert_updateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
         LeadHelper.beforeInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);*/
         LeadHelper.auBefore_Insert_Update_Events(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.auBeforeUpdateGenericVehicleRecordOnVehicleRelationship(trigger.new,trigger.OldMap,trigger.newmap);
     }
 }

@@ -593,12 +593,7 @@
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
         <label>Dealer Portal Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Portal_User__c</field>
-            </layoutItems>
-        </layoutColumns>
+        <layoutColumns/>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -733,7 +728,7 @@
         <fields>NAME</fields>
         <fields>Service_Date__c</fields>
         <fields>Type__c</fields>
-		<fields>Related_Dealer__c</fields>
+        <fields>Related_Dealer__c</fields>
         <fields>Service_Mileage__c</fields>
         <fields>RECORDTYPE</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>

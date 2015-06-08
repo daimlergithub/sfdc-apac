@@ -28,10 +28,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Job_Title__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Corporate_Program__c</field>
             </layoutItems>
             <layoutItems>
@@ -349,7 +345,7 @@
         <fields>NAME</fields>
         <fields>Service_Date__c</fields>
         <fields>Type__c</fields>
-		<fields>Related_Dealer__c</fields>
+        <fields>Related_Dealer__c</fields>
         <fields>Service_Mileage__c</fields>
         <fields>RECORDTYPE</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>

@@ -3511,7 +3511,7 @@ Modify Reason:
     <fields>
         <fullName>Dealer_Lead_System__c</fullName>
         <externalId>false</externalId>
-        <label>Dealer LMS</label>
+        <label>Dealer Lead System</label>
         <picklist>
             <picklistValues>
                 <fullName>LMS</fullName>
@@ -3727,25 +3727,6 @@ Feb-18-2012: Added by Rob and Falk</description>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_Portal_User__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Portal User</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Dealer_Presales_Email__c</fullName>
@@ -5992,21 +5973,6 @@ Modify Reason:
         <fullName>Jigsaw</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Job_Title__c</fullName>
-        <externalId>false</externalId>
-        <label>Job Title</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Job Title</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Job__c</fullName>
@@ -11118,17 +11084,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Dealer_Reason_for_Inactivation__c</picklist>
             <values>
                 <fullName>The franchise agreement was not renewed when it expired%2E</fullName>
@@ -12126,13 +12081,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14902,17 +14850,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Dealer_Reason_for_Inactivation__c</picklist>
             <values>
                 <fullName>The franchise agreement was not renewed when it expired%2E</fullName>
@@ -15910,13 +15847,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18090,17 +18020,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Dealer_Reason_for_Inactivation__c</picklist>
             <values>
                 <fullName>The franchise agreement was not renewed when it expired%2E</fullName>
@@ -19090,13 +19009,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -21905,17 +21817,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Dealer_Reason_for_Inactivation__c</picklist>
             <values>
                 <fullName>The franchise agreement was not renewed when it expired%2E</fullName>
@@ -22917,13 +22818,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
