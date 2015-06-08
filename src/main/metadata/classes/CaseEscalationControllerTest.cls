@@ -29,7 +29,7 @@ public class CaseEscalationControllerTest {
         dealer.Province__c = 'jiangsu';
         dealer.City__c = 'nanjing';
         dealer.Preferred_Language__c = 'English';
-        dealer.Dealer_LMS__c = 'No';
+        dealer.Dealer_Lead_System__c = 'Salesforce';
         dealer.Name='shrek';
         dealer.Gender__c = '0=Male';
         dealer.ZipCode__c = '200235';

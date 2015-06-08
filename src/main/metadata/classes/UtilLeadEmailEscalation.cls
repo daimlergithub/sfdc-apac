@@ -427,8 +427,8 @@ public class UtilLeadEmailEscalation {
             dealerNDCode = acc.Dealer_ND_Code__c;
         }
         String dealerLMS = '';
-        if (acc.Dealer_LMS__c != null) {
-            dealerLMS = acc.Dealer_LMS__c;
+        if (acc.Dealer_Lead_System__c!= null) {
+            dealerLMS = acc.Dealer_Lead_System__c;
         }
         String dealerRegion = '';
         if (acc.Dealer_MB_Sub_Region__c != null) {

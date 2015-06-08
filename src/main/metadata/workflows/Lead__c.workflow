@@ -374,7 +374,7 @@ Proxy_Date_Time__c
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), Dealer_LMS__c = 'No', RecordType.Name = 'Sales Leads', OR( ISCHANGED(Interested_Vehicle_Brand__c),  ISCHANGED(Interested_Vehicle_Class__c),  ISCHANGED(Interested_Vehicle_Model__c) ) )</formula>
+        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), Dealer_LMS__c = 'Salesforce', RecordType.Name = 'Sales Leads', OR( ISCHANGED(Interested_Vehicle_Brand__c),  ISCHANGED(Interested_Vehicle_Class__c),  ISCHANGED(Interested_Vehicle_Model__c) ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -414,7 +414,7 @@ Proxy_Date_Time__c
             <type>Alert</type>
         </actions>
         <active>true</active>
-        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c), RecordType.Name = 'Sales Leads', Dealer_LMS__c = 'No' )</formula>
+        <formula>AND( NOT(ISBLANK(Assigned_Date_Time__c)), ISCHANGED(Purchase_Time__c), RecordType.Name = 'Sales Leads', Dealer_LMS__c = 'Salesforce' )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -659,7 +659,7 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-        <formula>AND( RecordTypeId == "01290000000rXmP",  Need_Assign_To_Dealer__c == "Need",  Assigned_Dealer__c &lt;&gt; NULL,  Dealer_LMS__c == "Yes",  ISPICKVAL(CAC_Lead_Status__c,"Qualified") )</formula>
+        <formula>AND( RecordTypeId == "01290000000rXmP",  Need_Assign_To_Dealer__c == "Need",  Assigned_Dealer__c &lt;&gt; NULL,  Dealer_LMS__c == "LMS",  ISPICKVAL(CAC_Lead_Status__c,"Qualified") )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -688,7 +688,7 @@ Modify Reason:
         <description>Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-14) 
 Function: update assigned date, recieved data and accepted date to now, and status to Accepted when Dealer LMS is No, Is Qualified is Qualified and Prefer Dealer is not null</description>
-        <formula>OR(  AND(RecordTypeId == "01290000000rXmP", Need_Assign_To_Dealer__c == "Need", Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == "No", ISPICKVAL(CAC_Lead_Status__c,"Qualified") ),  AND(RecordTypeId == "01290000000rXmO", Assigned_Dealer__c &lt;&gt; NULL,ISPICKVAL(CAC_Lead_Status__c,"Qualified") )  )</formula>
+        <formula>OR(  AND(RecordTypeId == "01290000000rXmP", Need_Assign_To_Dealer__c == "Need", Assigned_Dealer__c &lt;&gt; NULL, Dealer_LMS__c == "Salesforce", ISPICKVAL(CAC_Lead_Status__c,"Qualified") ),  AND(RecordTypeId == "01290000000rXmO", Assigned_Dealer__c &lt;&gt; NULL,ISPICKVAL(CAC_Lead_Status__c,"Qualified") )  )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>

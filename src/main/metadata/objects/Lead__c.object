@@ -2748,7 +2748,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
     <fields>
         <fullName>Dealer_LMS__c</fullName>
         <externalId>false</externalId>
-        <formula>TEXT(Assigned_Dealer__r.Dealer_LMS__c)</formula>
+        <formula>TEXT(Assigned_Dealer__r.Dealer_Lead_System__c)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dealer LMS</label>
         <required>false</required>
@@ -2983,7 +2983,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <externalId>false</externalId>
         <formula>IF( 
 AND(
-ISPICKVAL(Assigned_Dealer__r.Dealer_LMS__c,'No'),
+ISPICKVAL(Assigned_Dealer__r.Dealer_Lead_System__c,'Salesforce'),
 Dealer_Untouched_In_72H__c = False,
 OR(
 ISPICKVAL(Dealer_Lead_Status__c,'First Contact Customer'),
@@ -2997,7 +2997,7 @@ ISPICKVAL(Dealer_Lead_Status__c,'Lost(Dealer)')
 True,
 IF(
 AND(
-ISPICKVAL(Assigned_Dealer__r.Dealer_LMS__c,'Yes'),
+ISPICKVAL(Assigned_Dealer__r.Dealer_Lead_System__c,'LMS'),
 Dealer_Untouched_In_72H__c = False,
 NOT(
 OR(
@@ -3039,7 +3039,7 @@ Modify Reason:
 */</description>
         <externalId>false</externalId>
         <formula>IF(
-ISPICKVAL(Assigned_Dealer__r.Dealer_LMS__c,'No'), 
+ISPICKVAL(Assigned_Dealer__r.Dealer_Lead_System__c,'Salesforce'), 
 AND (
     NOW() - 3 &gt; Accepted_Date_Time__c,
 

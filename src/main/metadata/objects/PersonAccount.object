@@ -1302,15 +1302,19 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_MB_Sub_Region__c</picklist>
@@ -1342,17 +1346,6 @@
             </values>
             <values>
                 <fullName>Lead %28Sales%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5403,15 +5396,19 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_MB_Sub_Region__c</picklist>
@@ -5443,17 +5440,6 @@
             </values>
             <values>
                 <fullName>Lead %28Sales%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9495,17 +9481,20 @@
                 <fullName>Zhongsheng</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+        </picklistValues>        <picklistValues>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_MB_Sub_Region__c</picklist>
@@ -9537,17 +9526,6 @@
             </values>
             <values>
                 <fullName>Lead %28Sales%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13477,17 +13455,21 @@
                 <fullName>Zhongsheng</fullName>
                 <default>false</default>
             </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+        </picklistValues>        
+		<picklistValues>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_MB_Sub_Region__c</picklist>
@@ -13519,17 +13501,6 @@
             </values>
             <values>
                 <fullName>Lead %28Sales%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17452,15 +17423,19 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>			
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_MB_Sub_Region__c</picklist>
@@ -17524,17 +17499,6 @@
             </values>
             <values>
                 <fullName>Lead %28Sales%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
