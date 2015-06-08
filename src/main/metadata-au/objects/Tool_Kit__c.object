@@ -966,7 +966,7 @@
         <fullName>Showroom__c</fullName>
         <description>Showroom of the tool kit</description>
         <externalId>false</externalId>
-        <formula>Dealer_Name__r.Branch_name_CHS__c</formula>
+        <formula>Dealer_Name__r.Branch_name__c</formula>
         <label>Showroom</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

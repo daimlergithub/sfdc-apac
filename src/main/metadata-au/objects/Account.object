@@ -512,26 +512,6 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Alive__c</fullName>
-        <defaultValue>true</defaultValue>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Flag to identify if contact is still alive 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_Deceased"</description>
-        <externalId>false</externalId>
-        <label>Alive</label>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Alliance_Offered_Service__c</fullName>
         <externalId>false</externalId>
         <label>Alliance Offered Service</label>
@@ -778,9 +758,9 @@ LEN( Phone ) &lt;&gt; 0
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>Branch_name_CHS__c</fullName>
+        <fullName>Branch_name_ENG__c</fullName>
         <externalId>false</externalId>
-        <label>Branch name (CHS)</label>
+        <label>Branch name (ENG)</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -789,9 +769,9 @@ LEN( Phone ) &lt;&gt; 0
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Branch_name_ENG__c</fullName>
+        <fullName>Branch_name__c</fullName>
         <externalId>false</externalId>
-        <label>Branch name (ENG)</label>
+        <label>Branch name (CHS)</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1091,18 +1071,6 @@ Service Only - does have at least one After Sales Record</description>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Cars_in_Household__c</fullName>
-        <externalId>false</externalId>
-        <label>Cars in Household</label>
-        <precision>3</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>City_CN__c</fullName>
@@ -3476,25 +3444,6 @@ Textbox field with : Name (Chinese + English), Phone and Email</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Dealer_LMS__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer LMS</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Dealer_Lead_Gate_Keeper_Name__c</fullName>
         <description>/* 
 Created by: Mouse Liu 
@@ -3558,6 +3507,29 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Lead_System__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer LMS</label>
+        <picklist>
+            <picklistValues>
+                <fullName>LMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Salesforce</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Dealer_Legal_Entity__c</fullName>
@@ -4378,6 +4350,26 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubSmart"</descripti
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Deceased__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>/* 
+Created by: Tony Li 
+Used by: Tony Li 
+Function: Flag to identify if contact is still alive 
+Used in: Page Layouts, Reports 
+
+Modify History 
+Modify By: 
+Modify Reason: 
+*/
+Attribute in Data Dictionary object Contact is "Contact_Deceased"</description>
+        <externalId>false</externalId>
+        <label>Alive</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Description</fullName>
@@ -6195,15 +6187,6 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Life_Survey_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Life Survey Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>MBFS_Activation_Date__c</fullName>
@@ -9467,7 +9450,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <columns>ACCOUNT.NAME</columns>
         <columns>Dealer_ND_Code__c</columns>
         <columns>Dealer_Default_Flag__c</columns>
-        <columns>Dealer_LMS__c</columns>
+        <columns>Dealer_Lead_System__c</columns>
         <columns>Dealer_DMS_CRM_Code__c</columns>
         <columns>Dealer_DMS_SR_Code__c</columns>
         <columns>Dealer_DMS_AS_Code__c</columns>
@@ -11055,13 +11038,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14835,13 +14822,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18019,13 +18010,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -21830,13 +21825,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

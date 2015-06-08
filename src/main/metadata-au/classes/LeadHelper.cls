@@ -109,12 +109,12 @@ public class LeadHelper
             {
                 if(dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
                 {
-                    if((lead.Dealer_LMS__c == 'No' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                    if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
                     {
                         lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
                     }
                 }
-                else  if((lead.Dealer_LMS__c == 'No' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                else  if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
                 {
                     if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
                     lead.OwnerId = LeadGateKeeperQ[0].QueueId; 
@@ -139,17 +139,17 @@ public class LeadHelper
         for(Lead__c lead : leadsForUpdate) {
             if(lead.Assigned_Dealer__c != null && dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
             {
-                if((lead.Dealer_LMS__c == 'No' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
                 {
                     lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
                     leadForUpdate.add(lead);
                 }
-                if(lead.Dealer_LMS__c == 'Yes' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId)
+                if(lead.Dealer_LMS__c == 'LMS' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId)
                 {
                     leadForUpdate.add(lead);
                 }
             }
-            else  if((lead.Dealer_LMS__c == 'No' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+            else  if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
             {
                 if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
                 lead.OwnerId = LeadGateKeeperQ[0].QueueId;
@@ -178,11 +178,11 @@ public class LeadHelper
         {
             if(dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
             {
-                if((lead.Dealer_LMS__c == 'No' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
                 {
                     SharesToInsert.add(newAccountShare(lead.Contact__c, dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c)));
                 }/*
-                else if(lead.Dealer_LMS__c == 'Yes' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) {
+                else if(lead.Dealer_LMS__c == 'LMS' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) {
                 }
                 else {
                     SharesToInsert.add(newAccountShare(lead.Contact__c,  LeadGateKeeperQ.QueueId));

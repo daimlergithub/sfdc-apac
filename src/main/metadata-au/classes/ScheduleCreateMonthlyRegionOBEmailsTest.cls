@@ -37,7 +37,7 @@ public class ScheduleCreateMonthlyRegionOBEmailsTest{
                 Dealer_General_Manager_Email__c, Dealer_Marketing_Manager_Email__c, 
                 Dealer_Sales_Manager_Email__c, Owner.Email, 
                 OwnerId, Owner.UserRole.ParentRoleId, Dealer_MB_Sub_Region__c,
-                Dealer_ND_Code__c, Dealer_LMS__c,
+                Dealer_ND_Code__c, Dealer_Lead_System__c,
                 (SELECT Id, Dealer_Untouched_In_72H__c, Dealer_Audit__c,
                     Dealer_Audit_Result__c, Dealer_Lead_Status__c, CAC_Lead_Status__c,
                     Dealer_Successful_Contacted__c

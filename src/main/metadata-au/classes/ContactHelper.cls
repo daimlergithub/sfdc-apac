@@ -351,7 +351,7 @@ public class ContactHelper {
         for(Lead__c lead : [select Assigned_Dealer__c, OwnerId 
                             from Lead__c 
                             where Assigned_Dealer__c in :dealerIds
-                            and (Dealer_LMS__c = 'No' or (Dealer_LMS__c = 'Yes' and RecordType.Name = 'Aftersales Leads'))]){
+                            and (Dealer_LMS__c = 'Salesforce' or (Dealer_LMS__c = 'LMS' and RecordType.Name = 'Aftersales Leads'))]){
             if(String.valueOf(lead.OwnerId).startsWith('00G')){
                 if(userMap.keySet().contains(lead.Assigned_Dealer__c)){
                     lead.OwnerId = userMap.get(lead.Assigned_Dealer__c).Id;
