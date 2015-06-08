@@ -15,21 +15,21 @@ public with sharing class GenericCSVLoaderController {
         Integer Index;
         String thirdPartyRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('3rd Party').getRecordTypeId();
         for(Account acc : records) {
-            if(!String.isBlank(acc.Branch_name_CHS__c)) {
-                system.debug('---------' + acc.Branch_name_CHS__c);
-                if(acc.Branch_name_CHS__c.split('/').size() == 3) {
-                    Byear = Integer.valueOf(acc.Branch_name_CHS__c.split('/')[0]);
-                    Bmonth = Integer.valueOf(acc.Branch_name_CHS__c.split('/')[1]);
-                    Bday = Integer.valueOf(acc.Branch_name_CHS__c.split('/')[2]);
+            if(!String.isBlank(acc.Branch_name__c)) {
+                system.debug('---------' + acc.Branch_name__c);
+                if(acc.Branch_name__c.split('/').size() == 3) {
+                    Byear = Integer.valueOf(acc.Branch_name__c.split('/')[0]);
+                    Bmonth = Integer.valueOf(acc.Branch_name__c.split('/')[1]);
+                    Bday = Integer.valueOf(acc.Branch_name__c.split('/')[2]);
                     acc.PersonBirthDate = date.newinstance(Byear, Bmonth, Bday);
-                    acc.Branch_name_CHS__c = '';
+                    acc.Branch_name__c = '';
                 }
-                else if(acc.Branch_name_CHS__c.split('-').size() == 3) {
-                    Byear = Integer.valueOf(acc.Branch_name_CHS__c.split('-')[0]);
-                    Bmonth = Integer.valueOf(acc.Branch_name_CHS__c.split('-')[1]);
-                    Bday = Integer.valueOf(acc.Branch_name_CHS__c.split('-')[2]);
+                else if(acc.Branch_name__c.split('-').size() == 3) {
+                    Byear = Integer.valueOf(acc.Branch_name__c.split('-')[0]);
+                    Bmonth = Integer.valueOf(acc.Branch_name__c.split('-')[1]);
+                    Bday = Integer.valueOf(acc.Branch_name__c.split('-')[2]);
                     acc.PersonBirthDate = date.newinstance(Byear, Bmonth, Bday);
-                    acc.Branch_name_CHS__c = '';
+                    acc.Branch_name__c = '';
                 }
             }
             filename = acc.File_Name__pc;
