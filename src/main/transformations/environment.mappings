@@ -20,4 +20,5 @@ dev_sb_kernel_dev8=gerhard.henning.ntt@kernel.daimler-apac.com.dev8
 dev_sb_au_dev1=falk.lehmann.ntt@au.daimler-apac.com.dev1
 dev_sb_au_dev2=sukumar.rajashekaran.ntt@au.daimler-apac.com.dev2
 dev_sb_au_dev3=raghuprasad.halakere.ntt@au.daimler-apac.com.dev3
-au_test_1=nazeer.ahamed.ntt@au.daimler-apac.com.test
+test_sb_au_test=nazeer.ahamed.ntt@au.daimler-apac.com.test
+uat_int_hf_sb_au_full=nazeer.ahamed.ntt@au.daimler-apac.com.full
