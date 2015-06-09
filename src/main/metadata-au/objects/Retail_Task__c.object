@@ -6783,7 +6783,14 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>CMS_Contract_Link__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>StartDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>EndDate__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Duration__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
         <fullName>Contract_Share__c</fullName>
