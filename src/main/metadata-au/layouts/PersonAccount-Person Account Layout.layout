@@ -381,7 +381,7 @@
     </relatedLists>
     <relatedLists>
         <customButtons>New_Vehicle_Lead</customButtons>
-        <customButtons>New_Finance_Lead_onContract</customButtons>
+        <customButtons>New_Finance_Lead</customButtons>
         <customButtons>New_Insurance_Lead</customButtons>
         <customButtons>New_Service_Parts_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
