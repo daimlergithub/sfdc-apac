@@ -24134,6 +24134,20 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>The filed 'MBFS Reason for Inactivation' could not be null, please input.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Minimum_Characters_For_First_Name</fullName>
+        <active>true</active>
+        <description>Minimum allowable characters for first name is 2.</description>
+        <errorConditionFormula>AND (LEN(FirstName) &lt; 2 ,RecordType.DeveloperName == 'PersonAccount',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>Please enter at least 2 characters for "First Name".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Minimum_Characters_For_Last_Name</fullName>
+        <active>true</active>
+        <description>Minimum allowable characters for last name is 2.</description>
+        <errorConditionFormula>AND (LEN(LastName) &lt; 2 ,RecordType.DeveloperName == 'PersonAccount',$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>Please enter at least 2 characters for "Last Name".</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Reason_For_Inactivation_Mandatory</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
