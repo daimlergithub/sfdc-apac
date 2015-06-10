@@ -65,6 +65,60 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Alliance_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Allmakes_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Allow_Data_Sharing__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -92,6 +146,96 @@
             <values>
                 <fullName>Yes</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Bus_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Unit__c</picklist>
+            <values>
+                <fullName>Alliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Allmakes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freightliner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SelecTrucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unimog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western Star</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -1302,13 +1446,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1342,17 +1490,6 @@
             </values>
             <values>
                 <fullName>Lead %28Sales%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2726,13 +2863,6 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Job_Title__pc</picklist>
             <values>
                 <fullName>Bodywork - Paint Specialist</fullName>
@@ -4084,6 +4214,60 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Alliance_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Allmakes_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Allow_Data_Sharing__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -4110,6 +4294,96 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Bus_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Unit__c</picklist>
+            <values>
+                <fullName>Alliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Allmakes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freightliner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SelecTrucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unimog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western Star</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5403,13 +5677,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5443,17 +5721,6 @@
             </values>
             <values>
                 <fullName>Lead %28Sales%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6725,13 +6992,6 @@
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8178,6 +8438,60 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Alliance_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Allmakes_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Allow_Data_Sharing__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -8205,6 +8519,96 @@
             <values>
                 <fullName>Yes</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Bus_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Unit__c</picklist>
+            <values>
+                <fullName>Alliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Allmakes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freightliner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SelecTrucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unimog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western Star</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -9497,13 +9901,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9537,17 +9945,6 @@
             </values>
             <values>
                 <fullName>Lead %28Sales%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10791,13 +11188,6 @@
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12244,6 +12634,60 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Alliance_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Allmakes_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Allow_Data_Sharing__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -12270,6 +12714,96 @@
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Bus_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Unit__c</picklist>
+            <values>
+                <fullName>Alliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Allmakes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freightliner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SelecTrucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unimog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western Star</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13479,13 +14013,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13519,17 +14057,6 @@
             </values>
             <values>
                 <fullName>Lead %28Sales%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14717,13 +15244,6 @@
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16177,6 +16697,60 @@
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Alliance_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Allmakes_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Allow_Data_Sharing__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -16204,6 +16778,96 @@
             <values>
                 <fullName>Yes</fullName>
                 <default>true</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Bus_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Unit__c</picklist>
+            <values>
+                <fullName>Alliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Allmakes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freightliner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SelecTrucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unimog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western Star</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -17452,13 +18116,17 @@
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17524,17 +18192,6 @@
             </values>
             <values>
                 <fullName>Lead %28Sales%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18958,13 +19615,6 @@
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -156,6 +156,10 @@ public class QCHelperTest {
         qc.Approved__c = 'Yes';
         update qc;
         QCHelper.SSIPassedQuestions2(qc);
+        QCHelper.newQCHistory(qc.id,'label','newValue','oldValue');
+        List<QC__c> QcList = new List<QC__c>();
+        QcList.add(qc);
+        QCHelper.ShareQCtoCSR(QcList);
     }
    
     @isTest(seeAllData=true) 
@@ -233,7 +237,7 @@ public class QCHelperTest {
         update qc;
           QCHelper.IBCallTotalScore(qc);
         List<QC__Share> shares = [select Id from QC__Share where ParentID = :qc.Id and UserOrGroupId = :IBCSRUser.Id];
-        system.assert(shares.size() == 1);
+      system.assert(shares.size() == 1);
               
         List<QC_Result_Tracking__c> trackings = [select Id from QC_Result_Tracking__c where QC__c = :qc.Id];
         system.debug([select Total_Score__c from QC__c where Id = :qc.Id].Total_Score__c == 100.00); 

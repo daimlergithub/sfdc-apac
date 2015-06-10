@@ -24,7 +24,7 @@ public class TriggerUtil
     
     public static void handleTrigger(String aTriggerName)
     {
-        Trigger__c triggerInfo = getTriggerInfo(aTriggerName);
+		Trigger__c triggerInfo = getTriggerInfo(aTriggerName);
         
         if (isTriggerEnabled(triggerInfo)) {
             TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);

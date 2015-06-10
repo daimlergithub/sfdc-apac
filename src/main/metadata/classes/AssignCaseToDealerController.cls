@@ -42,7 +42,7 @@ public class AssignCaseToDealerController {
         Id caseId = ApexPages.currentPage().getParameters().get('caseId');
         
         try {
-            assignCase = [SELECT Id, OwnerId FROM Case WHERE Id = :caseId];
+            assignCase = [SELECT Id, OwnerId,Case_Dealer__c FROM Case WHERE Id = :caseId];
             system.debug('######################=assignCase0'+assignCase);
         }
         catch (QueryException e) {
@@ -60,16 +60,16 @@ public class AssignCaseToDealerController {
         Set<Id> accountIds = new Set<Id>();
         Map<id, String> accountIdAccountBranchName = new Map<id, String>();
             
-        String queryDealerSOQL = 'select Id, Branch_name_CHS__c from Account where RecordType.Name = :ACCOUNT_RT_DEALER ';
+        String queryDealerSOQL = 'select Id, Branch_name__c from Account where RecordType.Name = :ACCOUNT_RT_DEALER ';
         if(!String.isBlank(dealerName)) {
             queryDealerSOQL += 'AND (Name LIKE \'%' + dealerName + '%\'';
-            queryDealerSOQL += ' or Branch_name_CHS__c LIKE \'%' + dealerName + '%\')';
+            queryDealerSOQL += ' or Branch_name__c LIKE \'%' + dealerName + '%\')';
         }
             System.debug(queryDealerSOQL);
         for(Account acc : Database.query(queryDealerSOQL)) {
             
             accountIds.add(acc.Id);
-            accountIdAccountBranchName.put(acc.Id, acc.Branch_name_CHS__c);
+            accountIdAccountBranchName.put(acc.Id, acc.Branch_name__c);
         }
         String Dealer='Dealer Delegate Admin';
         String querySOQL = 'Select Id, Name, FirstName, LastName, UserRole.Name, Profile.Name, AccountId ' +

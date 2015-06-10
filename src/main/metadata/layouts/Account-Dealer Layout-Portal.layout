@@ -409,7 +409,7 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Dealer_LMS__c</field>
+                <field>Dealer_Lead_System__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>

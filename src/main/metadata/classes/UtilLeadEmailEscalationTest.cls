@@ -16,7 +16,7 @@ Account customer1 = new Account(Dealer_Default_Flag__c=false,
                                     ZipCode__c='000000',
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
-                                    Dealer_LMS__c = 'No'); 
+                                    Dealer_Lead_System__c = 'Salesforce'); 
                                     insert customer1;
 
                      List<Account> listacc = new List<Account>();

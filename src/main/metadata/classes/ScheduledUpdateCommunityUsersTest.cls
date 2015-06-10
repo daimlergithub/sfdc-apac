@@ -17,8 +17,8 @@ public class ScheduledUpdateCommunityUsersTest{
         //Create a Community User:
         User usr = [Select id from User where Id = :UserInfo.getUserId()];
         System.RunAs(usr){
-             testUser = (User)UtilTestData.createPortalUser('Dealer User', 'Dealer Delegate Admin');
-             update testUser;
+            // testUser = (User)UtilTestData.createPortalUser('Dealer', 'Dealer Delegate Admin');
+           // update testUser;
         }
         
         String CRON_EXP = '0 0 0 1 1 ? 2025';  

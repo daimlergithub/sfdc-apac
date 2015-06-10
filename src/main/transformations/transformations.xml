@@ -418,16 +418,17 @@
             </layoutItems></element>
 	</addelement>
 	
+
 	<!-- remove as long as we don't have community licenses -->
 	<!-- Adding the below profiles into deployment process as we have community licenses now-->
-	<!--<skipfile retrieve="false">
+	<!-- remove as long as we don't have community licenses 
+	<skipfile retrieve="false">
 		<filename>profiles\Dealer Delegate Admin.profile</filename>
 	</skipfile>
 	<skipfile retrieve="false">
 		<filename>profiles\Dealer Community User.profile</filename>
 	</skipfile>
 	-->
-	
 	<defaultpermissions>
 		<permissions>
 		ActivateContract,ActivateOrder,ApiEnabled,ApproveContract,AssignPermissionSets,AssignTopics,AuthorApex,BulkApiHardDelete,CanInsertFeedSystemFields,
