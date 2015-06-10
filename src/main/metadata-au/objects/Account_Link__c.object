@@ -239,10 +239,18 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Guarantor</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
+            <picklistValues>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -594,7 +602,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
