@@ -102,12 +102,12 @@ public class LeadHelper
             {
                 if(dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
                 {
-                    if((lead.Dealer_LMS__c == 'No' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                    if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
                     {
                         lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
                     }
                 }
-                else  if((lead.Dealer_LMS__c == 'No' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                else  if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
                 {
                     if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
                     lead.OwnerId = LeadGateKeeperQ[0].QueueId; 
@@ -132,17 +132,17 @@ public class LeadHelper
         for(Lead__c lead : leadsForUpdate) {
             if(lead.Assigned_Dealer__c != null && dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
             {
-                if((lead.Dealer_LMS__c == 'No' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
                 {
                     lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
                     leadForUpdate.add(lead);
                 }
-                if(lead.Dealer_LMS__c == 'Yes' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId)
-				{
+                if(lead.Dealer_LMS__c == 'LMS' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId)
+                {
                     leadForUpdate.add(lead);
                 }
             }
-            else  if((lead.Dealer_LMS__c == 'No' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+            else  if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
             {
                 if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
                 lead.OwnerId = LeadGateKeeperQ[0].QueueId;
@@ -171,11 +171,11 @@ public class LeadHelper
         {
             if(dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
             {
-                if((lead.Dealer_LMS__c == 'No' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
                 {
                     SharesToInsert.add(newAccountShare(lead.Contact__c, dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c)));
                 }/*
-                else if(lead.Dealer_LMS__c == 'Yes' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) {
+                else if(lead.Dealer_LMS__c == 'LMS' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) {
                 }
                 else {
                     SharesToInsert.add(newAccountShare(lead.Contact__c,  LeadGateKeeperQ.QueueId));
@@ -251,186 +251,186 @@ public class LeadHelper
     
     public static void beforeInsert_UpdateEvents(list<Lead__c> leadsnew,map<id,Lead__c> leadOldMap,boolean isInsert, boolean isUpdate)
     {
-    	// Get all dealer ids of update leads
-	    Set<Id> dealerIds = new Set<Id>();
-	    // Get all dealers of update leads
-	    List<Lead__c> leadsForUpdate = new List<Lead__c>();
-	    Map<Id, Lead__c> ownerIdleads = new Map<Id, Lead__c>();
-	    Set<Id> noPortalUserDealerIds = new Set<Id>();
-	    Set<Id> existDealerIds = new Set<Id>();
-	    
-	    for(Lead__c lead : leadsnew)
-	    {
-	        existDealerIds.add(lead.ownerId);
-	        if(isInsert && lead.Assigned_Dealer__c != null)
-	        {
-	            dealerIds.add(lead.Assigned_Dealer__c);
-	            leadsForUpdate.add(lead);
-	        }
-	    }
-	    
-	    if(existDealerIds!=null && !existDealerIds.IsEmpty())
-	    {
-	        for(User u : [select id, profileId from User where id in :existDealerIds and Profile.Name !=: UtilConstant.DEALER_DELEGATE_ADMIN and Profile.Name !=: UtilConstant.DEALER_COMMUNITY_USER])
-	        {
-	            noPortalUserDealerIds.add(u.Id);
-	        }
-	    }
-	    
-	    for(Lead__c lead : leadsnew)
-	    {
-	        if(isUpdate)
-	        {
-	            if(lead.Assigned_Dealer__c != null && noPortalUserDealerIds.contains(lead.OwnerId))
-	            {
-	                dealerIds.add(lead.Assigned_Dealer__c);
-	                leadsForUpdate.add(lead);
-	            } 
-	        }
-	    }
-	    
-	    // Update lead's owner and share contact to lead's owner
-	    if(leadsForUpdate!=null && !leadsForUpdate.IsEmpty())
-	    {
-	        UpdateLeadOwner(dealerIds, leadsForUpdate);
-	    }
-	
-	    // Update CAC Lead Status to new for integrationAPI
-	    // Sinow active this part code, Dec 18,2013, because EP will forward leads to Dealer with status qualified.
-	    List<Profile> pList = [Select Name From Profile Where Id = :UserInfo.getProfileId() Limit 1];
-	    if(!pList.isEmpty())
-	    {
-	        if(isInsert && pList[0].Name == UtilConstant.Ingretion_Profile)
-	        {
-	            for(Lead__c ld : leadsnew)
-	            {
-	                if(ld.Assigned_to_Dealer_Directly__c)
-	                {
-	                    ld.CAC_Lead_Status__c = 'Qualified';
-	                }
-	                else
-	                {
-	                    ld.CAC_Lead_Status__c = 'New';
-	                }
-	            }        
-	        }
-	    }
+        // Get all dealer ids of update leads
+        Set<Id> dealerIds = new Set<Id>();
+        // Get all dealers of update leads
+        List<Lead__c> leadsForUpdate = new List<Lead__c>();
+        Map<Id, Lead__c> ownerIdleads = new Map<Id, Lead__c>();
+        Set<Id> noPortalUserDealerIds = new Set<Id>();
+        Set<Id> existDealerIds = new Set<Id>();
+        
+        for(Lead__c lead : leadsnew)
+        {
+            existDealerIds.add(lead.ownerId);
+            if(isInsert && lead.Assigned_Dealer__c != null)
+            {
+                dealerIds.add(lead.Assigned_Dealer__c);
+                leadsForUpdate.add(lead);
+            }
+        }
+        
+        if(existDealerIds!=null && !existDealerIds.IsEmpty())
+        {
+            for(User u : [select id, profileId from User where id in :existDealerIds and Profile.Name !=: UtilConstant.DEALER_DELEGATE_ADMIN and Profile.Name !=: UtilConstant.DEALER_COMMUNITY_USER])
+            {
+                noPortalUserDealerIds.add(u.Id);
+            }
+        }
+        
+        for(Lead__c lead : leadsnew)
+        {
+            if(isUpdate)
+            {
+                if(lead.Assigned_Dealer__c != null && noPortalUserDealerIds.contains(lead.OwnerId))
+                {
+                    dealerIds.add(lead.Assigned_Dealer__c);
+                    leadsForUpdate.add(lead);
+                } 
+            }
+        }
+        
+        // Update lead's owner and share contact to lead's owner
+        if(leadsForUpdate!=null && !leadsForUpdate.IsEmpty())
+        {
+            UpdateLeadOwner(dealerIds, leadsForUpdate);
+        }
+    
+        // Update CAC Lead Status to new for integrationAPI
+        // Sinow active this part code, Dec 18,2013, because EP will forward leads to Dealer with status qualified.
+        List<Profile> pList = [Select Name From Profile Where Id = :UserInfo.getProfileId() Limit 1];
+        if(!pList.isEmpty())
+        {
+            if(isInsert && pList[0].Name == UtilConstant.Ingretion_Profile)
+            {
+                for(Lead__c ld : leadsnew)
+                {
+                    if(ld.Assigned_to_Dealer_Directly__c)
+                    {
+                        ld.CAC_Lead_Status__c = 'Qualified';
+                    }
+                    else
+                    {
+                        ld.CAC_Lead_Status__c = 'New';
+                    }
+                }        
+            }
+        }
     }
     
     public static void afterInsert_UpdateEvents(list<Lead__c> leadsnew,map<id,Lead__c> leadOldMap,boolean isInsert, boolean isUpdate)
     {
-    	// Map all lead ids and case Ids US-IB-001
-	    Map<Id, Id> NewCaseLeadIds = new Map<Id, Id>();
-	    // Map all lead ids and dealer Ids for use car
-	    Map<Id, Id> UsedCarLeadDealerId = new Map<Id, Id>();
-	    // Map all lead ids and dealer Ids for new car
-	    Map<Id, Id> NewCarLeadDealerId = new Map<Id, Id>();
-	    // Get all dealer ids of update leads for share to contact
-	    Set<Id> dealerIds = new Set<Id>();
-	    //------------------Added by bing---------------------
-	    // Assigned dealer list 
-	    List<String> assignedDealers = new List<String>();
-	    //------------------Added by bing---------------------    
-	    // Get all dealers of update leads for share to contact
-	    List<Lead__c> leadsForUpdate = new List<Lead__c>();
-	    // Share the lead to assigned dealer if "Need Assign To Dealer" field is "Need"
-	    Set<String> oldDealerIds = new Set<String>();
-	    Set<String> leadIdsForSharingToDealerOwner = new Set<String>();
-	    for(Lead__c lead : leadsnew)
-	    {
-	        if(isInsert)
-	        {
-	            // By Justin, assgin account sharings to lead owner
-	            if(lead.Need_Assign_To_Dealer__c == 'Need' && lead.OwnerId != null)
-	            {
-	                dealerIds.add(lead.Assigned_Dealer__c);
-	                leadsForUpdate.add(lead);
-	            }
-	            
-	            if(lead.Assigned_Dealer__c != null && lead.Need_Assign_To_Dealer__c == 'Need')
-	            {
-	                leadIdsForSharingToDealerOwner.add(lead.Id);
-	            }
-	        }
-	        
-	        if(isUpdate)
-	        {
-	            if(lead.Lead_Type__c == 'Used Car' && lead.Assigned_Dealer__c != null && lead.Need_Assign_To_Dealer__c == 'Need' && lead.Assigned_Dealer__c != leadOldMap.get(lead.Id).Assigned_Dealer__c)
-	            {
-	                UsedCarLeadDealerId.put(lead.Id, lead.Assigned_Dealer__c);
-	            }
-	            if(lead.Lead_Type__c == 'New Car' && lead.Assigned_Dealer__c != null && lead.Interested_Vehicle_Brand__c == 'Smart' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.Assigned_Dealer__c != leadOldMap.get(lead.Id).Assigned_Dealer__c)
-	            {
-	                NewCarLeadDealerId.put(lead.Id, lead.Assigned_Dealer__c);
-	            }
-	            
-	            // By Justin, assgin account sharings to lead owner
-	            if(lead.OwnerId != null && lead.OwnerId != leadOldMap.get(lead.Id).OwnerId)
-	            {
-	                dealerIds.add(lead.Assigned_Dealer__c);
-	                leadsForUpdate.add(lead);
-	            }
-	            
-	            if(lead.Assigned_Dealer__c != null && lead.Need_Assign_To_Dealer__c == 'Need' && (lead.Need_Assign_To_Dealer__c != leadOldMap.get(lead.Id).Need_Assign_To_Dealer__c || lead.Assigned_Dealer__c != leadOldMap.get(lead.Id).Assigned_Dealer__c))
-	            {
-	                oldDealerIds.add(leadOldMap.get(lead.Id).Assigned_Dealer__c);
-	                leadIdsForSharingToDealerOwner.add(lead.Id);
-	            }
-	        }
-	    
-	        //US-IB-001
-	        if(isInsert && lead.Case__c != null)
-	        {
-	            NewCaseLeadIds.put(lead.Case__c, lead.Id);
-	        }
-	        
-	    }
-	
-	        
-	    if(UsedCarLeadDealerId.keySet().size() > 0 || NewCarLeadDealerId.keySet().size() > 0) {
-	        LeadHelper.insertLeadSharing(UsedCarLeadDealerId, NewCarLeadDealerId);
-	    }
-	    
-	    // Share contact to lead's owner
-	    if(leadsForUpdate!=null && !leadsForUpdate.IsEmpty())
-	    {
-	        ShareToGateKeeper(dealerIds, leadsForUpdate);
-	    }
-	    
-	    if(NewCaseLeadIds!=null && !NewCaseLeadIds.IsEmpty())
-	    {
-	        UpdateCasesWithLeadId(NewCaseLeadIds);
-	    }
-	    
-	    if(leadIdsForSharingToDealerOwner!=null && !leadIdsForSharingToDealerOwner.IsEmpty())
-	    {
-	        oldDealerIds.remove(null);
-	        shareToAssignedDealer(oldDealerIds, leadIdsForSharingToDealerOwner);
-	    }
+        // Map all lead ids and case Ids US-IB-001
+        Map<Id, Id> NewCaseLeadIds = new Map<Id, Id>();
+        // Map all lead ids and dealer Ids for use car
+        Map<Id, Id> UsedCarLeadDealerId = new Map<Id, Id>();
+        // Map all lead ids and dealer Ids for new car
+        Map<Id, Id> NewCarLeadDealerId = new Map<Id, Id>();
+        // Get all dealer ids of update leads for share to contact
+        Set<Id> dealerIds = new Set<Id>();
+        //------------------Added by bing---------------------
+        // Assigned dealer list 
+        List<String> assignedDealers = new List<String>();
+        //------------------Added by bing---------------------    
+        // Get all dealers of update leads for share to contact
+        List<Lead__c> leadsForUpdate = new List<Lead__c>();
+        // Share the lead to assigned dealer if "Need Assign To Dealer" field is "Need"
+        Set<String> oldDealerIds = new Set<String>();
+        Set<String> leadIdsForSharingToDealerOwner = new Set<String>();
+        for(Lead__c lead : leadsnew)
+        {
+            if(isInsert)
+            {
+                // By Justin, assgin account sharings to lead owner
+                if(lead.Need_Assign_To_Dealer__c == 'Need' && lead.OwnerId != null)
+                {
+                    dealerIds.add(lead.Assigned_Dealer__c);
+                    leadsForUpdate.add(lead);
+                }
+                
+                if(lead.Assigned_Dealer__c != null && lead.Need_Assign_To_Dealer__c == 'Need')
+                {
+                    leadIdsForSharingToDealerOwner.add(lead.Id);
+                }
+            }
+            
+            if(isUpdate)
+            {
+                if(lead.Lead_Type__c == 'Used Car' && lead.Assigned_Dealer__c != null && lead.Need_Assign_To_Dealer__c == 'Need' && lead.Assigned_Dealer__c != leadOldMap.get(lead.Id).Assigned_Dealer__c)
+                {
+                    UsedCarLeadDealerId.put(lead.Id, lead.Assigned_Dealer__c);
+                }
+                if(lead.Lead_Type__c == 'New Car' && lead.Assigned_Dealer__c != null && lead.Interested_Vehicle_Brand__c == 'Smart' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.Assigned_Dealer__c != leadOldMap.get(lead.Id).Assigned_Dealer__c)
+                {
+                    NewCarLeadDealerId.put(lead.Id, lead.Assigned_Dealer__c);
+                }
+                
+                // By Justin, assgin account sharings to lead owner
+                if(lead.OwnerId != null && lead.OwnerId != leadOldMap.get(lead.Id).OwnerId)
+                {
+                    dealerIds.add(lead.Assigned_Dealer__c);
+                    leadsForUpdate.add(lead);
+                }
+                
+                if(lead.Assigned_Dealer__c != null && lead.Need_Assign_To_Dealer__c == 'Need' && (lead.Need_Assign_To_Dealer__c != leadOldMap.get(lead.Id).Need_Assign_To_Dealer__c || lead.Assigned_Dealer__c != leadOldMap.get(lead.Id).Assigned_Dealer__c))
+                {
+                    oldDealerIds.add(leadOldMap.get(lead.Id).Assigned_Dealer__c);
+                    leadIdsForSharingToDealerOwner.add(lead.Id);
+                }
+            }
+        
+            //US-IB-001
+            if(isInsert && lead.Case__c != null)
+            {
+                NewCaseLeadIds.put(lead.Case__c, lead.Id);
+            }
+            
+        }
+    
+            
+        if(UsedCarLeadDealerId.keySet().size() > 0 || NewCarLeadDealerId.keySet().size() > 0) {
+            LeadHelper.insertLeadSharing(UsedCarLeadDealerId, NewCarLeadDealerId);
+        }
+        
+        // Share contact to lead's owner
+        if(leadsForUpdate!=null && !leadsForUpdate.IsEmpty())
+        {
+            ShareToGateKeeper(dealerIds, leadsForUpdate);
+        }
+        
+        if(NewCaseLeadIds!=null && !NewCaseLeadIds.IsEmpty())
+        {
+            UpdateCasesWithLeadId(NewCaseLeadIds);
+        }
+        
+        if(leadIdsForSharingToDealerOwner!=null && !leadIdsForSharingToDealerOwner.IsEmpty())
+        {
+            oldDealerIds.remove(null);
+            shareToAssignedDealer(oldDealerIds, leadIdsForSharingToDealerOwner);
+        }
     }
     
     public static void ShareLeadsToCampaignUser(list<Lead__c> leadsnew,map<id,Lead__c> leadOldMap,map<id,Lead__c> leadNewMap,boolean isInsert, boolean isUpdate)
     {
-    	if(isInsert)
-    	{
-	        LeadSharingWrapService wrapService = new LeadSharingWrapService();
-	        SharingService.shareLeads(wrapService.wrapLeads(leadsnew));
-	    } 
-	    else if(isUpdate)
-	    {
-	        List<Lead__c> dealerChangedLeads = new List<Lead__c>();
-	        for(Id leadId : leadNewMap.keySet())
-	        {
-	            if(leadOldMap.get(leadId).Assigned_Dealer__c != leadNewMap.get(leadId).Assigned_Dealer__c)
-	            {
-	                dealerChangedLeads.add(leadNewMap.get(leadId));    
-	            }
-	        }
-	        delete [select Id from Lead__Share where parentId in :dealerChangedLeads and RowCause = :Schema.Lead__Share.RowCause.Dealer_Campaign_Share__c];
-	        
-	        LeadSharingWrapService wrapService = new LeadSharingWrapService();
-	        SharingService.shareLeads(wrapService.wrapLeads(dealerChangedLeads));
-	    }
+        if(isInsert)
+        {
+            LeadSharingWrapService wrapService = new LeadSharingWrapService();
+            SharingService.shareLeads(wrapService.wrapLeads(leadsnew));
+        } 
+        else if(isUpdate)
+        {
+            List<Lead__c> dealerChangedLeads = new List<Lead__c>();
+            for(Id leadId : leadNewMap.keySet())
+            {
+                if(leadOldMap.get(leadId).Assigned_Dealer__c != leadNewMap.get(leadId).Assigned_Dealer__c)
+                {
+                    dealerChangedLeads.add(leadNewMap.get(leadId));    
+                }
+            }
+            delete [select Id from Lead__Share where parentId in :dealerChangedLeads and RowCause = :Schema.Lead__Share.RowCause.Dealer_Campaign_Share__c];
+            
+            LeadSharingWrapService wrapService = new LeadSharingWrapService();
+            SharingService.shareLeads(wrapService.wrapLeads(dealerChangedLeads));
+        }
     }
     
     /**
@@ -456,7 +456,7 @@ public class LeadHelper
         return tempShare;
     }
     
-    private static Task createdNewSMSTaskForInstructor(Lead__c tempLead, User  tempIntegrationUser, User tempInstructor, Account tempAccount, Account tempDealer)
+    @TestVisible private static Task createdNewSMSTaskForInstructor(Lead__c tempLead, User  tempIntegrationUser, User tempInstructor, Account tempAccount, Account tempDealer)
     {
         Task newTask = new Task(RecordTypeId = SMSTaskRecordTypeId, Subject = 'SMS', Status = 'Closed', Activity_Status__c = 'Sent');
         newTask.SMS_Content__c = getSMSContentByTitle(tempLead, tempAccount, tempInstructor, tempDealer, 'Lead_Follow_Up_To_Instructor'); //Interested_Vehicle_Class__c
@@ -470,7 +470,7 @@ public class LeadHelper
         return newTask;
     }
     
-    private static Task createdNewSMSTaskForCustomer(Lead__c tempLead, User  tempIntegrationUser, Account tempCustomer, Account tempDealer, String tempTitle)
+    @TestVisible private static Task createdNewSMSTaskForCustomer(Lead__c tempLead, User  tempIntegrationUser, Account tempCustomer, Account tempDealer, String tempTitle)
     {
         Task newTask = new Task(RecordTypeId = SMSTaskRecordTypeId, Subject = 'SMS', Status = 'Closed', Activity_Status__c = 'Sent');
         newTask.SMS_Content__c = getSMSContentByTitle(tempLead, tempCustomer, tempIntegrationUser, tempDealer, tempTitle); //Interested_Vehicle_Class__c
@@ -491,7 +491,7 @@ public class LeadHelper
         return result;
     }
     
-    private static User getEPIntegrationUser()
+    @TestVisible private static User getEPIntegrationUser()
     {
         User epUser;
         List<User> epUsers = [select Id, Name from User where Name = 'ep.user1' and Profile.Name = 'IntegrationAPI' and IsActive = true limit 1];

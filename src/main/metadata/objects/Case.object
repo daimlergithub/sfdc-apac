@@ -9207,7 +9207,7 @@ Modify Reason:
     <fields>
         <fullName>Dealer_Branch_CHS__c</fullName>
         <externalId>false</externalId>
-        <formula>Case_Dealer__r.Branch_name_CHS__c</formula>
+        <formula>Case_Dealer__r.Branch_name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Dealer Branch (CHS)</label>
         <required>false</required>
@@ -11918,7 +11918,7 @@ Modify Reason:
     <fields>
         <fullName>Primary_Case_Dealer_Branch_name__c</fullName>
         <externalId>false</externalId>
-        <formula>Case_Dealer__r.Branch_name_CHS__c</formula>
+        <formula>Case_Dealer__r.Branch_name__c</formula>
         <label>Primary Case Dealer – Branch name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -13406,7 +13406,7 @@ Modify Reason:
     <fields>
         <fullName>Support_Dealer_1_Branch_name__c</fullName>
         <externalId>false</externalId>
-        <formula>Support_Dealer_1__r.Branch_name_CHS__c</formula>
+        <formula>Support_Dealer_1__r.Branch_name__c</formula>
         <label>Support Dealer 1 – Branch name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -13440,7 +13440,7 @@ Modify Reason:
     <fields>
         <fullName>Support_Dealer_2_Branch_name__c</fullName>
         <externalId>false</externalId>
-        <formula>Support_Dealer_2__r.Branch_name_CHS__c</formula>
+        <formula>Support_Dealer_2__r.Branch_name__c</formula>
         <label>Support Dealer 2 – Branch name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -13474,7 +13474,7 @@ Modify Reason:
     <fields>
         <fullName>Support_Dealer_3_Branch_name__c</fullName>
         <externalId>false</externalId>
-        <formula>Support_Dealer_3__r.Branch_name_CHS__c</formula>
+        <formula>Support_Dealer_3__r.Branch_name__c</formula>
         <label>Support Dealer 3 – Branch name</label>
         <required>false</required>
         <trackHistory>false</trackHistory>

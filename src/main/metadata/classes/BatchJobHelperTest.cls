@@ -36,8 +36,8 @@ public class BatchJobHelperTest
         objBatch1.Recipient_Eamil__c='test@email.com';
         objBatch1.Status__c='Pending';
         insert objBatch1;
-        
-         Test.stopTest();
+        BatchJobHelper.afterInsertEvents();
+        Test.stopTest();
         //UtilCampaignTaskGenerationByAccountTest.testUtilCampaignTaskGenerationByAccount();
     }
 }

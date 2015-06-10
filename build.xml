@@ -231,15 +231,7 @@
 	<target name="deploy30">
 		<deploy>			
 			<sf:typeset name="applications"/>			
-			<sf:typeset name="classes">	
-			<sf:include name="TriggerParticipatingDealerTriggerHandler"/>
-			<sf:include name="ParticipatingDealerHelper"/> 
-			<sf:include name="ParticipatingDealerHelperTest"/>
-			<sf:include name="TriggerUtil"/>
-			<sf:include name="TriggerHandlerIf"/>
-			<sf:include name="TriggerUtilTest"/>			
-			</sf:typeset>				
-			<!--
+			<sf:typeset name="classes"/>
 			<sf:typeset name="components"/>
 			<sf:typeset name="pages"/>
 			<sf:typeset name="tabs">
@@ -265,8 +257,7 @@
 			<sf:typeset name="profiles"/>
 			<sf:typeset name="approvalProcesses"/>
 			<sf:typeset name="email"/>
-			<sf:typeset name="workflows"/>		
-		-->			
+			<sf:typeset name="workflows"/>
 		</deploy>					
     </target>
 	

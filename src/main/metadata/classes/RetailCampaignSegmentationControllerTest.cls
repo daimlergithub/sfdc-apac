@@ -17,7 +17,7 @@ public class RetailCampaignSegmentationControllerTest {
         
        Contact con = new Contact();
         con.Title = 'Title';
-        con.Id = u.ContactId;
+        //con.Id = u.ContactId;
         con.LastName = 'LastName';
         insert con;
         //Contact con = [select Id, SegmentationFilters__c from Contact where Id = :u.ContactId];
@@ -43,7 +43,7 @@ public class RetailCampaignSegmentationControllerTest {
                                         Age_Range__c = '26-35',
                                         LastName = 'galaxy2',
                                         ZipCode__c='000000',
-                                        Branch_name_CHS__c = '2014/06/05',
+                                        Branch_name__c = '2014/06/05',
                                         File_Name__pc = 'C://User/folder',
                                         RecordTypeId=acc3rdPartyRTId);
             insert customer;

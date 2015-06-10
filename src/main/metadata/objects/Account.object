@@ -494,24 +494,76 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Alive__c</fullName>
-        <defaultValue>true</defaultValue>
-        <description>/* 
-Created by: Tony Li 
-Used by: Tony Li 
-Function: Flag to identify if contact is still alive 
-Used in: Page Layouts, Reports 
-
-Modify History 
-Modify By: 
-Modify Reason: 
-*/
-Attribute in Data Dictionary object Contact is "Contact_Deceased"</description>
+        <fullName>Alliance_Offered_Service__c</fullName>
         <externalId>false</externalId>
-        <label>Alive</label>
+        <label>Alliance Offered Service</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance &amp; Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Checkbox</type>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Allmakes_Offered_Service__c</fullName>
+        <externalId>false</externalId>
+        <label>Allmakes Offered Service</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance &amp; Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Allow_Data_Sharing__c</fullName>
@@ -662,6 +714,17 @@ LEN( Phone ) &lt;&gt; 0
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Base_Flex__c</fullName>
+        <externalId>false</externalId>
+        <label>Base Flex</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Percent</type>
+    </fields>
+    <fields>
         <fullName>Batch_No__c</fullName>
         <externalId>false</externalId>
         <label>Batch No.</label>
@@ -677,7 +740,18 @@ LEN( Phone ) &lt;&gt; 0
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
-        <fullName>Branch_name_CHS__c</fullName>
+        <fullName>Branch_name_ENG__c</fullName>
+        <externalId>false</externalId>
+        <label>Branch name (ENG)</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Branch_name__c</fullName>
         <externalId>false</externalId>
         <label>Branch name (CHS)</label>
         <length>255</length>
@@ -688,15 +762,112 @@ LEN( Phone ) &lt;&gt; 0
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Branch_name_ENG__c</fullName>
+        <fullName>Bus_Offered_Service__c</fullName>
         <externalId>false</externalId>
-        <label>Branch name (ENG)</label>
-        <length>255</length>
-        <required>false</required>
+        <label>Bus Offered Service</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Sales</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Finance &amp; Insurance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Business_Unit__c</fullName>
+        <externalId>false</externalId>
+        <label>Business Unit</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Alliance</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Allmakes</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Freightliner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fuso</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Bus</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBFS Cars</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBFS Trucks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Trucks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Vans</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SelecTrucks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Special Vehicles</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unimog</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western Star</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Buy_Cycle__c</fullName>
@@ -882,18 +1053,6 @@ Service Only - does have at least one After Sales Record</description>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Cars_in_Household__c</fullName>
-        <externalId>false</externalId>
-        <label>Cars in Household</label>
-        <precision>3</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
     </fields>
     <fields>
         <fullName>City_CN__c</fullName>
@@ -1990,24 +2149,22 @@ Attribute in Data Dictionary object Contact is "Contact_DataSubSource"</descript
         <fullName>Dealer_ABN__c</fullName>
         <externalId>false</externalId>
         <label>ABN</label>
-        <precision>18</precision>
+        <length>18</length>
         <required>false</required>
-        <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
         <fullName>Dealer_ACN__c</fullName>
         <externalId>false</externalId>
         <label>ACN</label>
-        <precision>18</precision>
+        <length>18</length>
         <required>false</required>
-        <scale>0</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Number</type>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -2200,6 +2357,26 @@ Allows up to 240 characters</inlineHelpText>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Dealer_Anti_bribery_Confirmation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Anti Bribery Confirmation</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_BSB__c</fullName>
+        <externalId>false</externalId>
+        <label>BSB</label>
+        <length>7</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Dealer_BTLInfo__c</fullName>
         <description>Will be used for a query like this one:
 select ID from account where BTLInfo &lt;&gt; "123456789"</description>
@@ -2222,6 +2399,17 @@ select ID from account where BTLInfo &lt;&gt; "123456789"</description>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dealer_Bank__c</fullName>
+        <externalId>false</externalId>
+        <label>Bank</label>
+        <length>100</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -3234,25 +3422,6 @@ Textbox field with : Name (Chinese + English), Phone and Email</description>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Dealer_LMS__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer LMS</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>true</trackHistory>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Dealer_Lead_Gate_Keeper_Name__c</fullName>
         <description>/* 
 Created by: Mouse Liu 
@@ -3316,6 +3485,29 @@ Modify Reason:
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_Lead_System__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Lead System</label>
+        <picklist>
+            <picklistValues>
+                <fullName>LMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Salesforce</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Dealer_Legal_Entity__c</fullName>
@@ -3513,25 +3705,6 @@ Feb-18-2012: Added by Rob and Falk</description>
         <trackHistory>false</trackHistory>
         <type>MultiselectPicklist</type>
         <visibleLines>4</visibleLines>
-    </fields>
-    <fields>
-        <fullName>Dealer_Portal_User__c</fullName>
-        <externalId>false</externalId>
-        <label>Dealer Portal User</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Yes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>No</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Dealer_Presales_Email__c</fullName>
@@ -4140,6 +4313,26 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubSmart"</descripti
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Deceased__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>/* 
+Created by: Tony Li 
+Used by: Tony Li 
+Function: Flag to identify if contact is still alive 
+Used in: Page Layouts, Reports 
+
+Modify History 
+Modify By: 
+Modify Reason: 
+*/
+Attribute in Data Dictionary object Contact is "Contact_Deceased"</description>
+        <externalId>false</externalId>
+        <label>Alive</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Description</fullName>
@@ -6248,6 +6441,11 @@ Modify Reason:
         <fullName>IsCustomerPortal</fullName>
     </fields>
     <fields>
+        <fullName>IsPartner</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>Is_Blacklist__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -6270,21 +6468,6 @@ Modify Reason:
         <fullName>Jigsaw</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-    </fields>
-    <fields>
-        <fullName>Job_Title__c</fullName>
-        <externalId>false</externalId>
-        <label>Job Title</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Job Title</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Job__c</fullName>
@@ -6497,15 +6680,6 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Life_Survey_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Life Survey Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>DateTime</type>
     </fields>
     <fields>
         <fullName>MBFS_Activation_Date__c</fullName>
@@ -7624,6 +7798,42 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredContactTime"</d
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Preferred_Email_1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Preferred Email 1</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Email_2__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Preferred Email 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Home_Phone_1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Preferred Home Phone 1</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Home_Phone_2__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Preferred Home Phone 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Preferred_Language__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -7658,6 +7868,24 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Preferred_Mobile_1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Preferred Mobile 1</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Mobile_2__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Preferred Mobile 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
         <fullName>Preferred_Phone__c</fullName>
         <externalId>false</externalId>
         <label>Preferred Phone</label>
@@ -7683,6 +7911,24 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Work_Phone_1__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Preferred Work Phone 1</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Preferred_Work_Phone_2__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Preferred Work Phone 2</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Primary_Address_Validity__c</fullName>
@@ -8583,7 +8829,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
     </fields>
     <fields>
         <fullName>Southpac_Dealer_Code__c</fullName>
-        <externalId>true</externalId>
+        <externalId>false</externalId>
         <label>Southpac Dealer Code</label>
         <length>7</length>
         <required>false</required>
@@ -9565,7 +9811,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <columns>ACCOUNT.NAME</columns>
         <columns>Dealer_ND_Code__c</columns>
         <columns>Dealer_Default_Flag__c</columns>
-        <columns>Dealer_LMS__c</columns>
+        <columns>Dealer_Lead_System__c</columns>
         <columns>Dealer_DMS_CRM_Code__c</columns>
         <columns>Dealer_DMS_SR_Code__c</columns>
         <columns>Dealer_DMS_AS_Code__c</columns>
@@ -9753,6 +9999,60 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Alliance_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Allmakes_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Allow_Data_Sharing__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -9779,6 +10079,96 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Bus_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Unit__c</picklist>
+            <values>
+                <fullName>Alliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Allmakes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freightliner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SelecTrucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unimog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western Star</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10989,13 +11379,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11061,17 +11455,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Lead %28Sales%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12181,13 +12564,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13365,6 +13741,60 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Alliance_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Allmakes_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Allow_Data_Sharing__c</picklist>
             <values>
                 <fullName>No</fullName>
@@ -13391,6 +13821,96 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Yes</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Bus_Offered_Service__c</picklist>
+            <values>
+                <fullName>Auto Body Repairer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Finance %26 Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pre-Owned</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Business_Unit__c</picklist>
+            <values>
+                <fullName>Alliance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Allmakes</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Freightliner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fuso</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Vans</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Cars</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MBFS Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SelecTrucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Special Vehicles</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unimog</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western Star</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14417,13 +14937,17 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Dealer_LMS__c</picklist>
+            <picklist>Dealer_Lead_System__c</picklist>
             <values>
-                <fullName>No</fullName>
+                <fullName>LMS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes</fullName>
+                <fullName>MBC POS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Salesforce</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14489,17 +15013,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Lead %28Sales%29</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Dealer_Portal_User__c</picklist>
-            <values>
-                <fullName>No</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15473,13 +15986,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>smart official website</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Job_Title__c</picklist>
-            <values>
-                <fullName>Job Title</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
