@@ -32,54 +32,6 @@
                 <behavior>Readonly</behavior>
                 <field>VAN_Status__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Anti_bribery_Confirmation__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Bank__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_BSB__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Base_Flex__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Mobile_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Mobile_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Home_Phone_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Home_Phone_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Work_Phone_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Work_Phone_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Email_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Email_2__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -199,27 +151,11 @@
         <label>Opt-in / Opt-out</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
-                <page>AccountOptinandOptout</page>
+                <height>300</height>
+                <page>AccountContactInformation</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Business_Unit__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Alliance_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Allmakes_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Bus_Offered_Service__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>

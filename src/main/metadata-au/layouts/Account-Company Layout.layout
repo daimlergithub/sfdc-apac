@@ -32,54 +32,6 @@
                 <behavior>Edit</behavior>
                 <field>Fleet__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Anti_bribery_Confirmation__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Bank__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_BSB__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Base_Flex__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Mobile_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Mobile_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Home_Phone_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Home_Phone_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Work_Phone_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Work_Phone_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Email_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Email_2__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -159,27 +111,11 @@
         <label>Contact Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>250</height>
+                <height>300</height>
                 <page>AccountContactInformation</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Business_Unit__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Alliance_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Allmakes_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Bus_Offered_Service__c</field>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -202,11 +138,19 @@
                 <behavior>Readonly</behavior>
                 <field>CreatedById</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Add_User__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>LastModifiedById</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Add_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
@@ -225,22 +169,6 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
-        <label>Address Information</label>
-        <layoutColumns>
-            <layoutItems>
-                <height>160</height>
-                <page>Account_Address</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>100%</width>
-            </layoutItems>
-        </layoutColumns>
-        <style>OneColumn</style>
-    </layoutSections>
-    <layoutSections>
-        <customLabel>true</customLabel>
-        <detailHeading>true</detailHeading>
-        <editHeading>false</editHeading>
         <label>Opt-In/Opt-Out Information</label>
         <layoutColumns>
             <layoutItems>
@@ -253,6 +181,19 @@
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Address_Type__c</fields>
+        <fields>Address_Line_1__c</fields>
+        <fields>District__c</fields>
+        <fields>ZipCode__c</fields>
+        <fields>Province__c</fields>
+        <fields>Opt_In_Hardcopy__c</fields>
+        <fields>FS_Opt_In_Hardcopy__c</fields>
+        <fields>Status__c</fields>
+        <fields>Preferred__c</fields>
+        <relatedList>Address__c.Customer__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>System__c</fields>
@@ -315,7 +256,7 @@
         <fields>NAME</fields>
         <fields>Service_Date__c</fields>
         <fields>Type__c</fields>
-		<fields>Related_Dealer__c</fields>
+        <fields>Related_Dealer__c</fields>
         <fields>Service_Mileage__c</fields>
         <fields>RECORDTYPE</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
