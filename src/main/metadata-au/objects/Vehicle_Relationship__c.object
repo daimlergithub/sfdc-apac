@@ -196,7 +196,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
         <label>Car Relation</label>
         <picklist>
             <picklistValues>
-                <fullName>Owner</fullName>
+                <fullName>Current Vehicle</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -208,11 +208,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Considered Vehicle 1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Considered Vehicle 2</fullName>
+                <fullName>Owner</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -220,10 +216,18 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Second Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Third Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>TradeIn Vehicle</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
+            <sorted>true</sorted>
         </picklist>
         <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
@@ -3893,11 +3897,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
-                <fullName>Considered Vehicle 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Considered Vehicle 2</fullName>
+                <fullName>Current Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3910,6 +3910,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Third Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6405,11 +6413,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
-                <fullName>Considered Vehicle 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Considered Vehicle 2</fullName>
+                <fullName>Current Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6422,6 +6426,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Third Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8917,11 +8929,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
-                <fullName>Considered Vehicle 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Considered Vehicle 2</fullName>
+                <fullName>Current Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -8938,6 +8946,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Third Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11394,11 +11410,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
-                <fullName>Considered Vehicle 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Considered Vehicle 2</fullName>
+                <fullName>Current Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11415,6 +11427,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Third Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11706,11 +11726,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
-                <fullName>Considered Vehicle 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Considered Vehicle 2</fullName>
+                <fullName>Current Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11727,6 +11743,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Third Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12019,11 +12043,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
-                <fullName>Considered Vehicle 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Considered Vehicle 2</fullName>
+                <fullName>Current Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12040,6 +12060,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Previous Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Second Vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Third Vehicle</fullName>
                 <default>false</default>
             </values>
             <values>
