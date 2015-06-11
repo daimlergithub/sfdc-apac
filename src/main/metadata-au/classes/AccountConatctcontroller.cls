@@ -31,7 +31,9 @@ public date FSLastModifieddate{get;set;}
                             Home_Phone_Last_Modified_By__c,Home_Phone_Last_Modified_Date__c,Home_Phone_Last_Modified_By2__c,
                             Home_Phone_Last_Modified_Date2__c,Work_Phone_Last_Modified_By__c,Work_Phone_Last_Modified_Date__c,
                             Work_Phone_Last_Modified_By2__c,Work_Phone_Last_Modified_Date2__c,Email_Last_Modified_By__c,
-                            Email_Last_Modified_Date__c,Email_Last_Modified_By2__c,Email_Last_Modified_Date2__c,LastModifiedById,LastModifiedDate  
+                            Email_Last_Modified_Date__c,Email_Last_Modified_By2__c,Email_Last_Modified_Date2__c,LastModifiedById,LastModifiedDate,
+                            Preferred_Email_1__c,Preferred_Email_2__c,Preferred_Mobile_1__c,Preferred_Mobile_2__c,Preferred_Home_Phone_1__c,Preferred_Home_Phone_2__c,
+                            Preferred_Work_Phone_1__c,Preferred_Work_Phone_2__c  
                             from Account Where Id=:ApexPages.currentPage().getParameters().get('id') Limit 1]; 
                                             
           }
