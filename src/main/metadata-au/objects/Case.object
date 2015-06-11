@@ -30854,7 +30854,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <active>true</active>
         <businessProcess>Inquiry Process</businessProcess>
         <description>Customer Inquiry Case</description>
-        <label>Inquiry</label>
+        <label>Enquiry</label>
         <picklistValues>
             <picklist>CLB_Used__c</picklist>
             <values>

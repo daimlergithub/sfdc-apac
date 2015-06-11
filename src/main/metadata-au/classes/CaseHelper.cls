@@ -12,7 +12,7 @@
     1. Bing Bai Created on 2013-05-17
     2. Chaos Edit on 2014-2-21  AS-Complaint_002(2014Release1.1)
 */
-public class CaseHelper{
+public class CaseHelper{ 
     // MB complaint tracking fields
     public static final List<String> COLS_MB_TRACKING = new List<String>{'Case_Type__c', 
                                         'Case_SubType__c',
@@ -144,7 +144,7 @@ public class CaseHelper{
     /**
      *  Inquiry record type id
      */    
-    public static Id C_INQUIRY_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.INQUIRY).getRecordTypeId();
+    public static Id C_INQUIRY_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.Enquiry).getRecordTypeId();
     
     // MB complaint record type id
     //public static EmailTemplate E_MAIL_TEMP = [select id,body from EmailTemplate where Name='Change Complaint Assignment To Dealer GateKeeper Notification'];                                  
