@@ -2747,9 +2747,134 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </sharedTo>
     </listViews>
     <listViews>
-        <fullName>MyActivities</fullName>
+        <fullName>Assigned_Annual_Call_Tasks</fullName>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>Activity_Date__c</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>HomeMobilePhone__c</columns>
+        <columns>OfficePhone__c</columns>
+        <columns>PersonHomePhone__c</columns>
+        <columns>TASK.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
         <filterScope>Mine</filterScope>
+        <filters>
+            <field>TASK.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Task.Annual_Call</value>
+        </filters>
+        <filters>
+            <field>TASK.STATUS</field>
+            <operation>equals</operation>
+            <value>Not Started</value>
+        </filters>
+        <label>Assigned Annual Call Tasks</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Assigned_EOC_Call_Tasks</fullName>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>Activity_Date__c</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>HomeMobilePhone__c</columns>
+        <columns>OfficePhone__c</columns>
+        <columns>PersonHomePhone__c</columns>
+        <columns>TASK.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>TASK.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Task.EOC_Call</value>
+        </filters>
+        <filters>
+            <field>TASK.STATUS</field>
+            <operation>equals</operation>
+            <value>Not Started</value>
+        </filters>
+        <label>Assigned EOC Call Tasks</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>Assigned_Welcome_Call_Tasks</fullName>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>Activity_Date__c</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>HomeMobilePhone__c</columns>
+        <columns>OfficePhone__c</columns>
+        <columns>PersonHomePhone__c</columns>
+        <columns>TASK.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>TASK.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Task.Welcome_Call</value>
+        </filters>
+        <filters>
+            <field>TASK.STATUS</field>
+            <operation>equals</operation>
+            <value>Not Started</value>
+        </filters>
+        <label>Assigned Welcome Call Tasks</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
+    </listViews>
+    <listViews>
+        <fullName>MyActivities</fullName>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>Activity_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>HomeMobilePhone__c</columns>
+        <columns>OfficePhone__c</columns>
+        <columns>PersonHomePhone__c</columns>
+        <columns>Priority__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Mine</filterScope>
+        <filters>
+            <field>TASK.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Task.Welcome_Call,Task.Annual_Call,Task.EOC_Call</value>
+        </filters>
+        <filters>
+            <field>TASK.STATUS</field>
+            <operation>equals</operation>
+            <value>Not Started</value>
+        </filters>
         <label>My Activities</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>MyDelegatedActivities</fullName>
@@ -2758,8 +2883,36 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
     </listViews>
     <listViews>
         <fullName>MyTeamsActivities</fullName>
+        <booleanFilter>1 AND 2</booleanFilter>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>Activity_Date__c</columns>
+        <columns>Status__c</columns>
+        <columns>HomeMobilePhone__c</columns>
+        <columns>OfficePhone__c</columns>
+        <columns>PersonHomePhone__c</columns>
+        <columns>Priority__c</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
         <filterScope>Team</filterScope>
+        <filters>
+            <field>TASK.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Task.Annual_Call,Task.EOC_Call,Task.Welcome_Call</value>
+        </filters>
+        <filters>
+            <field>TASK.STATUS</field>
+            <operation>equals</operation>
+            <value>Not Started</value>
+        </filters>
         <label>My Team's Activities</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>My_Call_Being_QC</fullName>
@@ -3103,6 +3256,44 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
             <value>TOMORROW</value>
         </filters>
         <label>Today's Tasks</label>
+    </listViews>
+    <listViews>
+        <fullName>Unassigned_Tasks</fullName>
+        <booleanFilter>1 AND 2 AND 3</booleanFilter>
+        <columns>TASK.SUBJECT</columns>
+        <columns>TASK.WHO_NAME</columns>
+        <columns>TASK.WHAT_NAME</columns>
+        <columns>TASK.DUE_DATE</columns>
+        <columns>Activity_Date__c</columns>
+        <columns>TASK.STATUS</columns>
+        <columns>HomeMobilePhone__c</columns>
+        <columns>OfficePhone__c</columns>
+        <columns>PersonHomePhone__c</columns>
+        <columns>TASK.PRIORITY</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>TASK.LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER.ALIAS</columns>
+        <filterScope>Team</filterScope>
+        <filters>
+            <field>TASK.RECORDTYPE</field>
+            <operation>equals</operation>
+            <value>Task.Annual_Call,Task.EOC_Call,Task.Welcome_Call</value>
+        </filters>
+        <filters>
+            <field>OWNER_ROLE</field>
+            <operation>equals</operation>
+            <value>CROM</value>
+        </filters>
+        <filters>
+            <field>TASK.STATUS</field>
+            <operation>equals</operation>
+            <value>Not Started</value>
+        </filters>
+        <label>Unassigned Tasks</label>
+        <language>en_US</language>
+        <sharedTo>
+            <allInternalUsers/>
+        </sharedTo>
     </listViews>
     <listViews>
         <fullName>UpcomingEvents</fullName>
