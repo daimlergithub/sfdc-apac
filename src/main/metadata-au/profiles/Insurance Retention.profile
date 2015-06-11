@@ -127,7 +127,7 @@
     </applicationVisibilities>
     <classAccesses>
         <apexClass>AccountConatctcontroller</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AccountConatctcontrollerTest</apexClass>
@@ -159,7 +159,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AccountOptinandOptoutController</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AccountOptinandOptoutControllerTest</apexClass>
@@ -187,7 +187,7 @@
     </classAccesses>
     <classAccesses>
         <apexClass>Addresscontroller</apexClass>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AddresscontrollerTest</apexClass>
@@ -15823,15 +15823,15 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>AccountContactInformation</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>AccountOptinandOptout</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>Account_Address</apexPage>
-        <enabled>false</enabled>
+        <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>ActivityReportUserBased</apexPage>

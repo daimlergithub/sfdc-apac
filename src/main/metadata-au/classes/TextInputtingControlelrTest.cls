@@ -11,7 +11,7 @@
 public class TextInputtingControlelrTest {
   
   @isTest static void testTextInputtingControlelr(){
-    Case newCase = (Case)UtilTestData.createSobject(new Case(), 'Inquiry');
+    Case newCase = (Case)UtilTestData.createSobject(new Case(), UtilConstant.Enquiry);
     PageReference page = new PageReference('/apex/textinputting?cid=' + newCase.Id + '&field=mpc');
     Test.setCurrentPage(page);
     TextInputtingControlelr controller = new TextInputtingControlelr();

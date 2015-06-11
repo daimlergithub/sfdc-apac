@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -246,7 +247,7 @@
         <label>Contact Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <height>300</height>
                 <page>AccountContactInformation</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>

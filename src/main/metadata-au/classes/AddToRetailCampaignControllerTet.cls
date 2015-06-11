@@ -4,8 +4,8 @@ public class AddToRetailCampaignControllerTet
     final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
     final static String CHRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Chrysler Complaint').getRecordTypeId();
-    final static String INQUIRYRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
-    static Account acc = new Account(LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid);
+    final static String INQUIRYRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.Enquiry).getRecordTypeId();
+    static Account acc = new Account(LastName='acme', Phone='11111222', Area_Code__c = '010' ,Salutation='Brother',FirstName='Test',RecordTypeId = personRecordtypeid);
     final static String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     final static String RTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Event Retail Campaign').getRecordTypeId();
     static Vehicle__c ve1 = new Vehicle__c(Baumuster__c='forTest',Class__c='class-B',Brand__c='BENZ',Model__c='B200', EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));
@@ -28,10 +28,10 @@ public class AddToRetailCampaignControllerTet
         insert dealer;   
         Retail_Campaign__c rc = new Retail_Campaign__c(RecordTypeId = RTId, Dealer_Name__c = dealer.Id, Apply_Status__c = 'Approved',Total_CAC_Source_Campaign_Member__c=1);     
         insert rc;        
-        User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
+        User user1 = UtilTestData.createPortalUser('Dealer User','System Administrator');
         system.debug('!!!!! user1 Records'+user1);
-        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
-        //User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and isActive = true limit 1];
+       // User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
+        User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and isActive = true limit 1];
 
         Case c1 = new Case(Vehicle_Relationship__c = vrData1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
                           Case_SubType__c='Dealer-after sales service attitude', Case_Dealer__c = portalUser1.AccountId,Retail_Campaign__c=rc.Id,Case_Status__c = 'Accepted');
