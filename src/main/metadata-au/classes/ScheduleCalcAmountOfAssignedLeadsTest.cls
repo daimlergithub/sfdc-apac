@@ -15,9 +15,7 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_DEALER);
 
-        Lead__c lead = new Lead__c(
-            Assigned_Dealer__c = dealer.Id
-        );
+       Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Assigned_Dealer__c = dealer.Id);
 
         lead = (Lead__c)UtilTestData.createSobject(lead, 
             UtilTestData.LEAD_RT_SALES_LEADS);
@@ -90,9 +88,7 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_DEALER);
 
-        Lead__c lead = new Lead__c(
-            Assigned_Dealer__c = dealer.Id
-        );
+        Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Assigned_Dealer__c = dealer.Id);
 
         lead = (Lead__c)UtilTestData.createSobject(lead, 
             UtilTestData.LEAD_RT_SALES_LEADS);
