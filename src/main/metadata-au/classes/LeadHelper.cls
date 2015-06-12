@@ -514,7 +514,8 @@ public class LeadHelper
         return epUser;
     }
     //Existing AU Functionality Starts Here
-    public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<id,Lead__c> leadNewMap,map<Id,Lead__c> leadOldMap,boolean isInsert,boolean isUpdate)
+    
+public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<id,Lead__c> leadNewMap,map<Id,Lead__c> leadOldMap,boolean isInsert,boolean isUpdate)
     {
         system.debug('>>>>'+listNewLeads);
         List<Lead__c> preparedLeads = new List<Lead__c>();
@@ -830,7 +831,6 @@ public class LeadHelper
                 //modified by Shuang Li Defect0345 Start
                 if(contact.AccountId == lead.Assigned_Dealer__c && contact.Business_Unit__c.contains(lead.Business_Unit__c) && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c))) {
                 //modified by Shuang Li Defect0345 End
-                system.debug(contact.Lead_Escalation_Recipient_Type__c + '   contact.Lead_Escalation_Recipient_Type__c *$*$*$*$*  contact.Email   ' + contact.Email);
                     if(contact.Lead_Escalation_Recipient_Type__c.contains(EmailType) && contact.Email != null) {
                         TOemails.add(contact.Email);
                     }
@@ -851,7 +851,6 @@ public class LeadHelper
             }*/
             if(!TOemails.isEmpty()) {
                 leadContactToEmails.put(lead, TOemails);
-                system.debug('    *$*$*$*$*  leadContactToEmails   ' + leadContactToEmails);
             }
             if(!CCemails.isEmpty()) {
                 leadContactCCEmails.put(lead, CCemails);
@@ -1147,7 +1146,7 @@ public class LeadHelper
         }
         //get dealer contact info
         Map<id,Account> contactMap = new Map<id,Account>(
-                                     [Select Id , (Select Email, EOC_Recipient_Type__c From Contacts where Email != null) 
+                                     [Select Id , (Select Email, EOC_Recipient_Type__c From Contacts where Email != null and Inactive__c = false) 
         
                                    From Account where Id in :dealerId]);
         //TODO  
