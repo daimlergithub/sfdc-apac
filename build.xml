@@ -42,8 +42,9 @@
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" />
 	</target>
 	
-	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25, deploy30, deploy35, deploy40, postDestructiveChanges">
-		<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
+	<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges, deploy01, deploy05, deploy07, deploy09, deploy10, deploy12, deploy15, deploy20, deploy21, deploy25,deploy29,deploy30,deploy31, deploy32, deploy33,deploy34,deploy35, deploy36, deploy37, deploy38, deploy39, deploy40, deploy41, deploy42, deploy43,deploy44, deploy45,deploy46, deploy47,deploy48, postDestructiveChanges">
+<!--<target name="deploy" depends="gitVersion, retrieveChecksums, preDestructiveChanges,deploy30,postDestructiveChanges">	-->
+	<sf:deployChecksums sfdcName="${sfdc.checksums}" dryRun="${dryrun}" gitVersion="${git.version}"
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" checksums="${file.checksums.local}"/>
 		<fail if:set="failed.deploy.step" message="Deployment failed in step ${failed.deploy.step}."/>
@@ -228,12 +229,478 @@
 		</deploy>
     </target>
 	
+	<target name="deploy29">
+		<deploy transformations="transformations29.xml">
+		<sf:typeset name="profiles" suppressChecksumUpdate="true"/>			
+		</deploy>
+	</target>
+	
 	<target name="deploy30">
-		<deploy>			
-			<sf:typeset name="applications"/>			
-			<sf:typeset name="classes"/>
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="TriggerHandlerIf"/>
+			<sf:include name="TriggerUtil"/>
+			<sf:include name="TriggerUtilTest"/>
+			<sf:include name="IllegalArgumentException"/>
+		</sf:typeset>
+		<sf:typeset name="triggers">
+			<sf:include name="TriggerUtilTestTrigger"/>
+		</sf:typeset>		
+		</deploy>		
+    </target>
+	
+	<target name="deploy31">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="QCHelperTest"/>
+			<sf:include name="UtilSobject"/>
+			<sf:include name="QCHelper"/>
+			<sf:include name="MisunderstoodTaskGeneration"/>
+			<sf:include name="MisunderstoodTaskGenerationTest"/>
+			<sf:include name="BatchJobHelper"/>
+			<sf:include name="BatchJobHelperTest"/>
+			<sf:include name="UtilCampaignTaskGenerationByAccount"/>
+			<sf:include name="UtilCampaignTaskGenerationByAccountTest"/>
+			<sf:include name="UtilCampaignTaskGenerationByVehicle"/>
+			<sf:include name="UtilCampaignTaskGenerationByVehicleTest"/>
+			<sf:include name="UtilCampaignTaskGenerationByCase"/>
+			<sf:include name="UtilCampaignTaskGenerationByCaseTest"/>
+			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
+			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
+			<sf:include name="UtilTestData"/>
+		</sf:typeset>
+		<sf:typeset name="triggers">
+			<sf:include name="TriggerBatchJob"/>
+			<sf:include name="TriggerQC"/>
+		</sf:typeset>				
+		</deploy>					
+    </target>
+	
+	<target name="deploy32">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="CMapTest"/>
+			<sf:include name="CMap"/>
+			<sf:include name="CampaignOfferingHelper"/>
+			<sf:include name="CampaignOfferingHelperTest"/>
+			<sf:include name="campaignHistoryLogGeneration"/>
+			<sf:include name="UtilRecordTypeTest"/>
+			<sf:include name="UtilRecordType"/>
+			<sf:include name="CSRLookupController"/>
+			<sf:include name="CSRLookupControllerTest"/>
+			<sf:include name="DealerSearchController"/>
+			<sf:include name="DealerSearchControllerTest"/>
+			<sf:include name="DMControllerExtension"/>
+			<sf:include name="DMControllerExtensionTest"/>
+			<sf:include name="DMRequestTriggerHandler"/>
+			<sf:include name="DMRequestTriggerHandlerTest"/>		
+			<sf:include name="GenericCSVLoaderController"/>
+			<sf:include name="GenericCSVLoaderControllerTest"/>
+			<sf:include name="TriggerDMRequestTriggerHandler"/>
+		</sf:typeset>
+		<sf:typeset name="triggers">
+			<sf:include name="TriggerDMRequest"/>
+		</sf:typeset>	
+		<sf:typeset name="pages"> 
+				<sf:include name="ComplaintDescriptionViewAll"/>
+		</sf:typeset>		
+		</deploy>					
+    </target>
+	
+	<target name="deploy33">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="NewVehicleRelationshipController"/>
+			<sf:include name="NewVehicleRelationshipControllerTest"/>
+			<sf:include name="RetailCampaignCalendarController"/>
+			<sf:include name="RetailCampaignCalendarControllerTest"/>
+			<sf:include name="ScheduleCalcAmountOfAssignedLeads"/>
+			<sf:include name="ScheduleCalcAmountOfAssignedLeadsTest"/>
+			<sf:include name="BatchCalcAmountOfAssignedLeads"/>
+			<sf:include name="ScheduleCreateConversionRateOBEmails"/>
+			<sf:include name="ScheduleCreateConversionRateOBEmailsTest"/>
+			<sf:include name="UtilLeadEmailEscalation"/>
+			<sf:include name="BatchCreateDealerOBEmails"/>
+			<sf:include name="ScheduleCreateMonthlyDealerOBEmails"/>
+			<sf:include name="ScheduleCreateMonthlyDealerOBEmailsTest"/>
+			<sf:include name="ScheduleCreateMonthlyRegionOBEmails"/>
+			<sf:include name="ScheduleCreateMonthlyRegionOBEmailsTest"/>		
+			<sf:include name="ScheduleCreateWeeklyDealerOBEmails"/>
+			<sf:include name="ScheduleCreateWeeklyDealerOBEmailsTest"/>
+		</sf:typeset>
+		<sf:typeset name="tabs">
+			<sf:include name="Retail_Campaigns"/>
+		</sf:typeset>	
+		<sf:typeset name="pages"> 
+				<sf:include name="NewVehicleRelationship"/>
+				<sf:include name="Retail_Campaigns"/>
+		</sf:typeset>		
+		</deploy>					
+    </target>
+	
+	<target name="deploy34">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="ScheduledCreationTaskToDealers"/>
+			<sf:include name="ScheduledCreationTaskToDealersTest"/>
+			<sf:include name="ScheduledDeleteTaskToDealers"/>
+			<sf:include name="ScheduledDeleteTaskToDealersTest"/>
+			<sf:include name="ScheduledUpdateCommunityUsers"/>
+			<sf:include name="ScheduledUpdateCommunityUsersTest"/>
+			<sf:include name="SelectAssignedDealerController"/>
+			<sf:include name="SelectAssignedDealerControllerTest"/>
+			<sf:include name="UtilCustomSettings"/>
+			<sf:include name="ContactHelper"/>
+			<sf:include name="ContactHelperTest"/>
+			<sf:include name="ContactTriggerHandler"/>
+			<sf:include name="TestTriggerHandler"/>
+		</sf:typeset>
+		<sf:typeset name="triggers">
+			<sf:include name="ContactTrigger"/>
+		</sf:typeset>	
+		<sf:typeset name="pages"> 
+				<sf:include name="SelectAssignedDealer"/>
+		</sf:typeset>		
+		</deploy>					
+    </target>
+	
+	<target name="deploy35">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="TaskHelper"/>
+			<sf:include name="TaskHelperTest"/>
+			<sf:include name="TaskTriggerHandler"/>
+			<sf:include name="TaskTriggerHandlerTest"/>
+			<sf:include name="AvatoHelper"/>
+			<sf:include name="NiceWebServices"/>
+			<sf:include name="UtilTask"/>
+			<sf:include name="UtilConstant"/>
+			<sf:include name="AccountSharingDataHandler"/>
+			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
+			<sf:include name="SharingService"/>
+			<sf:include name="AccountLinkSharingWrapService"/>
+			<sf:include name="SharingWrapper"/>
+			<sf:include name="VehicleSharingWrapService"/>
+			<sf:include name="UserService"/>
+			<sf:include name="AccountLinkHelper"/>
+			<sf:include name="AccountLinkHelperTest"/>
+			<sf:include name="SharingWrapperService"/>
+			<sf:include name="AccountLinkSharingTest"/>			
+		</sf:typeset>
+		<sf:typeset name="triggers">
+			<sf:include name="ShareAccountLinksToDealer"/>
+			<sf:include name="TaskTrigger"/>
+		</sf:typeset>	
+		</deploy>				
+    </target>
+	
+	<target name="deploy36">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="ComplaintDesHelper"/>
+			<sf:include name="ComplaintDesHelperTest"/>
+			<sf:include name="TriggerCampaignOfferingTriggerHandler"/>
+			<sf:include name="TriggerCampaignLeadTriggerHandler"/>
+			<sf:include name="TriggerComplaintDescriptionHandler"/>
+			<sf:include name="UtilCampaignLead"/>
+			<sf:include name="TriggerCampaignCityTest"/>
+			<sf:include name="TriggerCampaignLeadTest"/>
+			<sf:include name="TriggerCampaignCityTriggerHandler"/>
+			<sf:include name="UtilCampaignCity"/>		
+		</sf:typeset>
+		<sf:typeset name="triggers">
+			<sf:include name="TriggerCampaignCity"/>
+			<sf:include name="TriggerCampaignLead"/>
+			<sf:include name="TriggerComplaintDescription"/>
+			<sf:include name="TriggerCampaignOffering"/>			
+		</sf:typeset>	
+		</deploy>					
+    </target>
+	
+	<target name="deploy37">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="LeadHelper"/>
+			<sf:include name="LeadHelperTest"/>
+			<sf:include name="ReservationMessageTemplate"/>
+			<sf:include name="ReservationMessageTemplateTest"/>
+			<sf:include name="LeadSharingWrapService"/>
+			<sf:include name="TriggerLeadTriggerHandler"/>
+			<sf:include name="UtilLead"/>
+			<sf:include name="TriggerCampaignLeadTest"/>
+			<sf:include name="TriggerRecallTriggerHandler"/>
+			<sf:include name="RecallHelper"/>	
+			<sf:include name="RecallHelperTest"/>
+			<sf:include name="RecallAfterInsertUpdateTriggerHandler"/>
+			<sf:include name="SettlementHelper"/>
+			<sf:include name="SettlementHelperTest"/>
+			<sf:include name="TriggerSettlementManagementHandler"/>				
+		</sf:typeset>
+		<sf:typeset name="triggers">
+			<sf:include name="TriggerLead"/>
+			<sf:include name="TriggerRecall"/>
+			<sf:include name="RecallAfterInsertUpdate"/>
+			<sf:include name="TriggerSettlementManagement"/>			
+		</sf:typeset>	
+		</deploy>					
+    </target>
+	
+	<target name="deploy38">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="AccountHelper"/>
+			<sf:include name="AccountHelperTest"/>
+			<sf:include name="UtilAccount"/>
+			<sf:include name="TriggerAccountTest"/>
+			<sf:include name="TriggerAccountTriggerHandler"/>
+			<sf:include name="RetailCampaignMemberHelperTest"/>
+			<sf:include name="RetailCampaignMemberHelper"/>
+			<sf:include name="VehicleRelLookingController"/>
+			<sf:include name="VehicleRelLookingControllerTest"/>
+			<sf:include name="SharingService"/>
+			<sf:include name="VehicleSharingWrapService"/>
+			<sf:include name="VehicleRelationshipSharingWrapService"/>
+			<sf:include name="TriggerVehicleRelationshipTriggerHandler"/>
+			<sf:include name="TriggerVehicleRelationshipTest"/>
+			<sf:include name="UtilVehicleRelationship"/>
+			<sf:include name="VehicleRelationshipHelper"/>		
+		</sf:typeset>
+		<sf:typeset name="triggers">
+			<sf:include name="TriggerAccount"/>
+			<sf:include name="TriggerVehicleRelationship"/>
+		</sf:typeset>	
+		<sf:typeset name="pages"> 
+				<sf:include name="VehicleRelLooking"/>
+		</sf:typeset>
+		</deploy>					
+    </target>
+	
+	<target name="deploy39">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="YearlyTAAchieTracingController"/>
+			<sf:include name="YearlyTAAchieTracingControllerTest"/>
+			<sf:include name="YearlyTAReportController"/>
+			<sf:include name="YearlyTAReportControllerTest"/>
+			<sf:include name="YearlyTargetController"/>
+			<sf:include name="YearlyTargetControllerTest"/>
+			<sf:include name="Paginator"/>
+			<sf:include name="UtilLeadEmailEscalationTest"/>
+			<sf:include name="UtilDealerOffering"/>
+			<sf:include name="TriggerPackageItemTriggerHandler"/>
+			<sf:include name="TriggerPackageItem_TestClass"/>	
+		</sf:typeset>
+		<sf:typeset name="triggers">
+			<sf:include name="TriggerPackageItem"/>
+		</sf:typeset>	
+		<sf:typeset name="pages"> 
+				<sf:include name="YearlyTAAchievementTracingReport"/>
+				<sf:include name="Yearly_TA_Report"/>
+		</sf:typeset>
+		</deploy>					
+    </target>
+	
+	<target name="deploy40">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="VehicleDataSharingHandler"/>
+			<sf:include name="VehicleRelationshipHelperTest"/>
+			<sf:include name="VehicleRelationshipSharingTest"/>
+			<sf:include name="VehicleSharingTest"/>
+			<sf:include name="ViewTaskController"/>
+			<sf:include name="ViewTaskControllerTest"/>
+			<sf:include name="ViewVoiceRecordingController"/>
+			<sf:include name="ViewVoiceRecordingControllerTest"/>
+			<sf:include name="VinMatchController"/>
+			<sf:include name="VinMatchControllerTest"/>
+			<sf:include name="SharingDataHandlerBase"/>
+			<sf:include name="SharingDataHandlerBaseTest"/>
+			<sf:include name="SSIBatchVinMatch"/>
+			<sf:include name="SSIDataClean"/>
+			<sf:include name="SSIDataCleanTest"/>
+			<sf:include name="SSIBatchDealerCheck"/>
+			<sf:include name="SSIBatchRestRuleCheck"/>
+			<sf:include name="SSIBatchCalculateResult"/>
+			<sf:include name="SSIDataCleansingSnapshot"/>
+			<sf:include name="SSIBatchGenerateWelcomeCall"/>
+			<sf:include name="SSIBatchGenerateWelcomeCallTest"/>
+			<sf:include name="SSINewComplaintController"/>	
+			<sf:include name="SSINewComplaintControllerTest"/>
+			<sf:include name="SSIScheduleWelcomeCallEscalation"/>
+			<sf:include name="SSITriggerHandler"/>
+			<sf:include name="SSITriggerHandlerTest"/>
+			<sf:include name="SSIVINMatchProcess"/>		
+		</sf:typeset>
+		</deploy>					
+    </target>
+	
+	<target name="deploy41">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="TaskDeletingControllerTest"/>
+			<sf:include name="TaskFailBlacklistTrigger_TestClass"/>
+			<sf:include name="TaskMassChangeOwner"/>
+			<sf:include name="TaskMassChangeOwnerTest"/>
+			<sf:include name="TaskSMSControllerExtensionTest"/>
+			<sf:include name="TextInputtingControlelr"/>
+			<sf:include name="TextInputtingControlelrTest"/>
+			<sf:include name="TookKitSharingTest"/>
+			<sf:include name="TookKitSharingWrapService"/>
+			<sf:include name="ToolKitSelectContentController"/>
+			<sf:include name="ToolKitSelectContentControllerTest"/>	
+			<sf:include name="ToolKitTriggerHandler"/>
+			<sf:include name="ToolKitTriggerHelper"/>
+			<sf:include name="TaskSMSControllerExtension"/>	
+		</sf:typeset>
+		</deploy>					
+    </target>
+	
+	<target name="deploy42">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="RetailCampaignHelper"/>
+			<sf:include name="RetailCampaignSharingTest"/>
+			<sf:include name="RetailCampaignSharingWrapService"/>
+			<sf:include name="RetailCampaignTriggerHandler"/>
+			<sf:include name="RetailTaskSharingTest"/>
+			<sf:include name="RetailTaskSharingWrapService"/>
+			<sf:include name="RuishiWebService"/>
+			<sf:include name="TriggerRetailCampaignMemberHandler"/>
+			<sf:include name="TriggerRetailCampaignTest"/>
+			<sf:include name="TriggerRetailTaskTriggerHandler"/>
+			<sf:include name="TriggerTaskTest"/>	
+			<sf:include name="AttachmentAfterTriggerHandler"/>
+			<sf:include name="BatchAssignTasks"/>
+			<sf:include name="BatchAssignTasksTest"/>
+			<sf:include name="CampaignHelperTest"/>
+			<sf:include name="CampaignHelper"/>
+			<sf:include name="CampaignPackageHelper"/>
+			<sf:include name="CampaignPackageHelperTest"/>
+			<sf:include name="ChatterAnswersEscalationTriggerHandler"/>
+			<sf:include name="ComplaintDescriptionControllerTest"/>	
+			<sf:include name="HistoryRespondController"/>
+			<sf:include name="HistoryRespondControllerTest"/>
+			<sf:include name="TriggerCampaignTriggerHandler"/>			
+		</sf:typeset>
+		<sf:typeset name="triggers">
+			<sf:include name="RetailCampaignTrigger"/>
+			<sf:include name="TriggerRetailCampaignMember"/>
+			<sf:include name="AttachmentAfter"/>
+			<sf:include name="TriggerCampaign"/>
+		</sf:typeset>
+		</deploy>					
+    </target>
+	
+	<target name="deploy43">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="LeadConvertingController"/>
+			<sf:include name="LeadConvertingControllerTest"/>
+			<sf:include name="LeadSharingTest"/>
+			<sf:include name="TriggerLeadTest"/>
+			<sf:include name="TriggerCampaignMembers_TestClass"/>
+			<sf:include name="CampaignMemberAfterTriggerHandler"/>
+			<sf:include name="TriggerCampaignTriggerHandler"/>
+			<sf:include name="CaseEscalationController"/>
+			<sf:include name="CaseEscalationControllerTest"/>
+			<sf:include name="SlickCtiController"/>
+			<sf:include name="SlickCtiObjectHelper"/>	
+			<sf:include name="SubmitSurveyController"/>
+			<sf:include name="SubmitSurveyControllerTest"/>
+			<sf:include name="MassApproveRetailCampaignController"/>
+			<sf:include name="MassApproveRetailCampaignControllerTest"/>
+			<sf:include name="MassApproveToolKitController"/>
+			<sf:include name="MassApproveToolKitControllerTest"/>
+			<sf:include name="MassAssignRecallTasksControllerExtension"/>
+			<sf:include name="MassAssignRecallTasksTest"/>
+			<sf:include name="MonthlyMarketAmountReportController"/>	
+			<sf:include name="MonthlyMarketAmountReportControllerTest"/>
+			<sf:include name="MyProcess"/>
+			<sf:include name="MyProcessTest"/>			
+		</sf:typeset>	
+		<sf:typeset name="pages"> 
+				<sf:include name="CaseEscalation"/>
+				<sf:include name="MassApproveRetailCampaign"/>
+				<sf:include name="MonthlyMarketAmountReport"/>
+				<sf:include name="MonthlyMarketAmountReportPage"/>
+				<sf:include name="MassApproveToolKit"/>
+		</sf:typeset>
+		<sf:typeset name="approvalProcesses"/>
+		<sf:typeset name="email"/>
+		<sf:typeset name="workflows"/>		
+		</deploy>					
+    </target>
+	
+	<target name="deploy44">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="UserLookupResultController"/>
+			<sf:include name="UserLookupResultControllerTest"/>
+			<sf:include name="SMSControllerExtension"/>
+			<sf:include name="SMSControllerExtensionTest"/>
+			<sf:include name="SMSSendLeadResultExtension"/>
+			<sf:include name="SMSSendLeadResultExtensionTest"/>
+			<sf:include name="UserTriggerCallout"/>
+			<sf:include name="UserTriggerCalloutTest"/>
+			<sf:include name="TriggerParticipatingDealerTriggerHandler"/>
+			<sf:include name="ParticipatingDealerHelper"/>
+			<sf:include name="ParticipatingDealerHelperTest"/>	
+			<sf:include name="UtilProfile"/>
+			<sf:include name="UtilCase"/>
+			<sf:include name="ShareDataToNewUserBatch"/>
+			<sf:include name="TriggerCampaignPackageTriggerHandler"/>
+			<sf:include name="TriggerPD_TestClass"/>
+			<sf:include name="UserHelper"/>
+			<sf:include name="UserHelperTest"/>
+			<sf:include name="UserTriggerHandler"/>
+			<sf:include name="TriggerComplaintDescriptionHandler"/>	
+		</sf:typeset>	
+		<sf:typeset name="triggers">
+			<sf:include name="TriggerParticipatingDealer"/>
+			<sf:include name="UserTrigger"/>
+		</sf:typeset>		
+		</deploy>					
+    </target>	
+	
+	<target name="deploy45">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="AddToRetailCampaignController"/>
+			<sf:include name="AddToRetailCampaignControllerTet"/>
+			<sf:include name="AssignCaseToDealerController"/>
+			<sf:include name="AssignCaseToDealerControllerTest"/>
+			<sf:include name="CaseHelper"/>
+			<sf:include name="CaseHelperTest"/>
+			<sf:include name="CaseTriggerHandler"/>
+			<sf:include name="RetailCampaignSegmentationController"/>
+			<sf:include name="RetailCampaignSegmentationControllerTest"/>
+			<sf:include name="SMSReplyHistoryHelper"/>
+			<sf:include name="SMSReplyHistoryHelperTest"/>	
+			<sf:include name="TriggerCaseTest"/>
+			<sf:include name="TriggerCaseTriggerHandler"/>
+			<sf:include name="TriggerSMSReplyHistoryTriggerHandler"/>
+			<sf:include name="UserHelperTest"/>
+			<sf:include name="TriggerCampaignMembersTriggerHandler"/>
+			<sf:include name="ChatterAnswersEscalationTriggerTest"/>
+		</sf:typeset>	
+		<sf:typeset name="triggers">
+			<sf:include name="CaseTrigger "/>
+		</sf:typeset>
+		<sf:typeset name="pages"> 
+				<sf:include name="AssignCaseToDealer"/>
+				<sf:include name="RetailCampaignSegmentation"/>
+		</sf:typeset>		
+		</deploy>					
+    </target>	
+	
+	<target name="deploy46">
+		<deploy>	
+			<sf:typeset name="applications"/>
+			<sf:typeset name="pages"> 
+				<sf:exclude name="TrialCustomerPortalHomePage"/>
+			</sf:typeset>	
+			<sf:typeset name="triggers"/>	
 			<sf:typeset name="components"/>
-			<sf:typeset name="pages"/>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
 				<sf:include name="Tasks"/>
@@ -252,16 +719,12 @@
 				<sf:include name="PersonAccount.*"/>
 				<sf:include name="Lead__c.*"/>
 				<sf:include name="Account.*"/>
-			</sf:typeset>			
-			<sf:typeset name="triggers"/>
-			<sf:typeset name="profiles"/>
-			<sf:typeset name="approvalProcesses"/>
-			<sf:typeset name="email"/>
-			<sf:typeset name="workflows"/>
-		</deploy>					
-    </target>
+			</sf:typeset>
+			<sf:typeset name="profiles" force="true"/><!-- force="true"/> -->
+		</deploy>
+	</target>
 	
-	<target name="deploy35">
+	<target name="deploy47">
 		<deploy>
 			<sf:typeset name="settings"/>
 			<sf:typeset name="permissionsets"/>			
@@ -274,7 +737,7 @@
 		</deploy>
 	</target>
 	
-	<target name="deploy40">
+	<target name="deploy48">
 		<deploy>
 			<sf:typeset name="accountSharingRules"/>
 			<sf:typeset name="campaignSharingRules"/>
