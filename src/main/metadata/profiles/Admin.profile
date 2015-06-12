@@ -922,10 +922,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerCampaignCity_TestClass</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerCampaignLeadTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -17300,10 +17296,12 @@
         <enabled>true</enabled>
         <name>ManageSolutions</name>
     </userPermissions>
+	<!--
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageTranslation</name>
     </userPermissions>
+	-->
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageUnlistedGroups</name>
