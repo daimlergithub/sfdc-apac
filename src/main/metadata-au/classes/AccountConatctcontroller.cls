@@ -61,7 +61,6 @@ public date FSLastModifieddate{get;set;}
     public void showPopup() { 
         userInfo();              
         displayPopup = true; 
-        system.debug('FSLastModifiedby>>>>'+FSLastModifiedby);  
     } 
     public void userInfo(){
       for(User usr:[Select id,Name,title from User])
