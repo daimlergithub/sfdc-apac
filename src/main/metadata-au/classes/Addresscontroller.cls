@@ -8,7 +8,7 @@ public static boolean Preferred{get;set;}
         Preferred=true;
          if(ApexPages.currentPage().getParameters().get('id')!=Null)
           {
-              addresslist=[select id,Name,Customer__c,Preferred__c,Address_Type__c,Address_Line_1__c,Address_Line_2__c,Country__c,ZipCode__c,Province__c,Status__c,District__c 
+              addresslist=[select id,Name,Customer__c,Company_Name__c,Preferred__c,Address_Type__c,Address_Line_1__c,Address_Line_2__c,Country__c,ZipCode__c,Province__c,Status__c,District__c 
                           from Address__c Where Customer__c=:ApexPages.currentPage().getParameters().get('id') AND Preferred__c=:true Limit 1]; 
              if(addresslist!=Null && !addresslist.isEmpty()){             
                  Preferred=false; }                               

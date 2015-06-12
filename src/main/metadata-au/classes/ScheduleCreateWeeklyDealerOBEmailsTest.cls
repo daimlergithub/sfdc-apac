@@ -16,11 +16,11 @@ public class ScheduleCreateWeeklyDealerOBEmailsTest{
         
         //Create Account Record:
         Account testAccount = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-        
+               
         //Create Lead Record:
         Date lastWeek = System.today().addDays(-7);
-        Lead__c testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(), UtilTestData.LEAD_RT_SALES_LEADS);
-        
+        Lead__c testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(CAC_Lead_Status__c='New Enquiry'), UtilTestData.LEAD_RT_SALES_LEADS);
+       
         testLead.Received_Date_Time__c = lastWeek;
         testLead.Assigned_Dealer__c = testAccount.Id;
         update testLead;

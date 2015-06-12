@@ -22,7 +22,7 @@ public class ScheduleCreateConversionRateOBEmailsTest{
         //Create Lead Records:
         Date lastDay = System.today().toStartOfMonth().addMonths(-12);
         Date firstDay = lastDay.addMonths(-2);
-        Lead__c testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(), UtilTestData.LEAD_RT_SALES_LEADS);
+        Lead__c testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(CAC_Lead_Status__c='New Enquiry'), UtilTestData.LEAD_RT_SALES_LEADS);
         
         testLead.Assigned_Date_Time__c = lastDay;
         testLead.Assigned_Dealer__c = testAccount.Id;
