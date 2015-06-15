@@ -341,6 +341,36 @@
 	<target name="deploy34">
 		<deploy>
 		<sf:typeset name="classes">
+			<sf:include name="TaskHelper"/>
+			<sf:include name="TaskHelperTest"/>
+			<sf:include name="TaskTriggerHandler"/>
+			<sf:include name="TaskTriggerHandlerTest"/>
+			<sf:include name="AvatoHelper"/>
+			<sf:include name="NiceWebServices"/>
+			<sf:include name="UtilTask"/>
+			<sf:include name="UtilConstant"/>
+			<sf:include name="AccountSharingDataHandler"/>
+			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
+			<sf:include name="SharingService"/>
+			<sf:include name="AccountLinkSharingWrapService"/>
+			<sf:include name="SharingWrapper"/>
+			<sf:include name="VehicleSharingWrapService"/>
+			<sf:include name="UserService"/>
+			<sf:include name="AccountLinkHelper"/>
+			<sf:include name="AccountLinkHelperTest"/>
+			<sf:include name="SharingWrapperService"/>
+			<sf:include name="AccountLinkSharingTest"/>			
+		</sf:typeset>
+		<sf:typeset name="triggers">
+			<sf:include name="ShareAccountLinksToDealer"/>
+			<sf:include name="TaskTrigger"/>
+		</sf:typeset>	
+		</deploy>				
+    </target>
+	
+	<target name="deploy35">
+		<deploy>
+		<sf:typeset name="classes">
 			<sf:include name="ScheduledCreationTaskToDealers"/>
 			<sf:include name="ScheduledCreationTaskToDealersTest"/>
 			<sf:include name="ScheduledDeleteTaskToDealers"/>
@@ -364,7 +394,7 @@
 		</deploy>					
     </target>
 	
-	<target name="deploy35">
+	<target name="deploy34">
 		<deploy>
 		<sf:typeset name="classes">
 			<sf:include name="TaskHelper"/>
