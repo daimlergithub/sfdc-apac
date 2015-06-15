@@ -222,14 +222,17 @@ public with sharing class FleerCorverList{
         return getUrlParam(key)=='true'?true:false;
     }
     
-    private String getfieldStr(String str){
+     @TestVisible private String getfieldStr(String str){
         system.debug(str);
+        
         return str==null?'':str;
     }
 
-    public static String currency(String i) {
+     @TestVisible public static String currency(String i) {
         String s = ( Decimal.valueOf(i==null||i.trim()==''?'0':i).setScale(2) + 0.001 ).format();
+        
         return s.substring(0,s.length()-1);
+         
     }
 
     public List<SelectOption> items;
