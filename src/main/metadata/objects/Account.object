@@ -37,15 +37,7 @@
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
-        <actionName>MapHighlightAction</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
-    </actionOverrides>
-    <actionOverrides>
-        <actionName>NewsHighlightAction</actionName>
         <type>Default</type>
     </actionOverrides>
     <actionOverrides>
@@ -4329,7 +4321,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Contact is "Contact_Deceased"</description>
         <externalId>false</externalId>
-        <label>Alive</label>
+        <label>Deceased</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>

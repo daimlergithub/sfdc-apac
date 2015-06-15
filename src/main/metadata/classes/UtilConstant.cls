@@ -36,6 +36,7 @@ Global with sharing class UtilConstant {
     public final static String VALID = 'Valid';
     public final static string SSI='ssi__c';
     public final static string CLOSED='Closed';
+    public final static string COMMUNITY_LICENSE_SWITCH='Community Enabled';
     
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {

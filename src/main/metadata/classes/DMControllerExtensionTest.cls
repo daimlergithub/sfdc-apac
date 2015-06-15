@@ -47,8 +47,14 @@ public class DMControllerExtensionTest {
             extension.send();
             Task t = [Select t.WhoId, t.WhatId, t.Subject, t.Status, t.Activity_Status__c, OwnerId From Task t Where WhatId=:extension.dm.Id Order by Id Desc Limit 1];
             
-            //Test click eDM button from Case
+            //Test click eDM button from Case 
+            Account dealer = new Account(Phone = '1234567',
+                                         Last_Successful_Call_Office_Phone__c = System.today() - 10,
+                                         DMS_Address__c = 'dmsaddress1');
+            dealer = (Account)UtilTestData.createSobject(dealer, UtilTestData.ACCOUNT_RT_DEALER);                             
             Case case1 = new Case(AccountId=customer.Id, Subject='Case-'+Datetime.now().formatLong());
+        	case1.Case_Dealer__c = dealer.Id;
+
             insert case1;
             ApexPages.standardController controller2 = new ApexPages.standardController(new DM_Request__c());
             ApexPages.currentPage().getParameters().put('caseId',case1.Id);
