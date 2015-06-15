@@ -1829,11 +1829,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Dealer_LMS__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Dealer_Lead_Gate_Keeper_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
