@@ -699,7 +699,7 @@
 			<sf:typeset name="pages"> 
 				<sf:exclude name="TrialCustomerPortalHomePage"/>
 			</sf:typeset>	
-			<sf:typeset name="triggers"/>	
+			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
@@ -732,10 +732,11 @@
 	<target name="deploy48">
 		<deploy>
 			<sf:typeset name="settings"/>
-			<sf:typeset name="permissionsets"/>			
+			<sf:typeset name="permissionsets"/>	
 			<sf:typeset name="weblinks"/>
 			<sf:typeset name="homePageComponents"/>
-			<sf:typeset name="homePageLayouts"/>					
+			<sf:typeset name="homePageLayouts"/>	
+			<!-- TODO commented the AppSwitcher appMenu, it is a known salesforce issue and it is failing during deployment -->			
 			<sf:typeset name="appMenus">
 				<sf:exclude name="AppSwitcher"/>
 			</sf:typeset>

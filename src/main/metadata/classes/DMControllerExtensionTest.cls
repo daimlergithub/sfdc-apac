@@ -54,7 +54,6 @@ public class DMControllerExtensionTest {
             dealer = (Account)UtilTestData.createSobject(dealer, UtilTestData.ACCOUNT_RT_DEALER);                             
             Case case1 = new Case(AccountId=customer.Id, Subject='Case-'+Datetime.now().formatLong());
         	case1.Case_Dealer__c = dealer.Id;
-
             insert case1;
             ApexPages.standardController controller2 = new ApexPages.standardController(new DM_Request__c());
             ApexPages.currentPage().getParameters().put('caseId',case1.Id);
