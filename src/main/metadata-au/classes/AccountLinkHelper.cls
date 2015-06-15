@@ -59,7 +59,7 @@ public class AccountLinkHelper
     /**
      *  Finds all existent customer dealer relationships according to the new relationships, Maps with customer ID and Dealer ID.
      */
-    private static Map<String, Account_Link__c> getAllExistentRelationships(List<Account_Link__c> relationships){
+  @testvisible  private static Map<String, Account_Link__c> getAllExistentRelationships(List<Account_Link__c> relationships){
         Set<String> customerIds = new Set<String>();
         Set<String> dealerIds = new Set<String>();
         
@@ -82,12 +82,12 @@ public class AccountLinkHelper
         return resultMap;
     }
     
-    private static String getIndex(Account_Link__c relationship){
+ @testvisible    private static String getIndex(Account_Link__c relationship){
         String cid = relationship.toRole__c, did = relationship.fromRole__c;
         return cid.substring(0, 15) + ';' + did.substring(0, 15);
     }
     
-    private static Boolean isHigherPriority(String one, String two){
+  @testvisible   private static Boolean isHigherPriority(String one, String two){
         if(two == CUSTOMER_TYPE){
             return false;
         }
