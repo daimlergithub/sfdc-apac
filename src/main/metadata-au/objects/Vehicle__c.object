@@ -255,55 +255,35 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
         <label>Brand</label>
         <picklist>
             <picklistValues>
+                <fullName>WESTERN STAR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>AC</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ACURA</fullName>
+                <fullName>Alfa Romeo</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ALFA ROMEO</fullName>
+                <fullName>Asia</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ASIA</fullName>
+                <fullName>Aston Martin</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ASTON MARTIN</fullName>
+                <fullName>Audi</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Atkinson</fullName>
+                <fullName>Austral</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>AUDI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AUSTIN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AUSTRAL DENNING</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Barker</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BCI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>BENTLEY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Blue Bogie</fullName>
+                <fullName>Bentley</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -311,59 +291,27 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Borcat</fullName>
+                <fullName>Caterham</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BUGATTI</fullName>
+                <fullName>Caterpillar</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BUICK</fullName>
+                <fullName>Chery</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Bulk</fullName>
+                <fullName>Chrysler</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>CADILLAC</fullName>
+                <fullName>Citroen</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>CATERHAM</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CATERPILLAR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CHERY</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CHEVROLET</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CHRYSLER</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CIMC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CITROEN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CORSA SPECIALIZED VEHICLE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>DAEWOO</fullName>
+                <fullName>Daewoo</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -371,63 +319,31 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DAIHATSU</fullName>
+                <fullName>Daihatsu</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DAIMLER</fullName>
+                <fullName>Dennis</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Datsun</fullName>
+                <fullName>Dodge</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DENNIS EAGLE</fullName>
+                <fullName>Ferrari</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Diamond Reo</fullName>
+                <fullName>Fiat</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>DODGE</fullName>
+                <fullName>Ford</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Elphinstone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Eunos</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Evt</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FERRARI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FIAT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FISKER</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FORD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FOTON</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Freighter</fullName>
+                <fullName>Foton</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -435,199 +351,91 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Freightmaster</fullName>
+                <fullName>FSM</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Fruehauf</fullName>
+                <fullName>Great</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Fuso</fullName>
+                <fullName>Hino</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Gitsham</fullName>
+                <fullName>Holden</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>GMC</fullName>
+                <fullName>Honda</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Gorski</fullName>
+                <fullName>Hummer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>GREAT WALL</fullName>
+                <fullName>Hyundai</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>GTE</fullName>
+                <fullName>Infiniti</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Hamelex</fullName>
+                <fullName>International</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Hammar</fullName>
+                <fullName>Isuzu</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Haulmark</fullName>
+                <fullName>Iveco</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Hercules</fullName>
+                <fullName>Jaguar</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Higer</fullName>
+                <fullName>Jeep</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HILLMAN</fullName>
+                <fullName>Kenworth</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HINO</fullName>
+                <fullName>Kia</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Hockney Alcan</fullName>
+                <fullName>Lada</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HOLDEN</fullName>
+                <fullName>Lamborghini</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Holmwood</fullName>
+                <fullName>Land</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HONDA</fullName>
+                <fullName>Lexus</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HSV</fullName>
+                <fullName>Leyland</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HUMMER</fullName>
+                <fullName>Lotus</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HYUNDAI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>INFINITI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>INTERNATIONAL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>International/Iveco</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IRISBUS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Iseki</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ISUZU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ISUZU UTE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>IVECO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JAGUAR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Jamieson</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>JEEP</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KENWORTH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KIA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>KIT CAR</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Krueger</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LADA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LAMBORGHINI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LAND ROVER</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LEXUS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LEYLAND</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LINCOLN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Loadmaster</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LOTUS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lucar</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Lusty EMS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>M &amp; S Tri-axle</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MACK</fullName>
+                <fullName>Mack</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -635,47 +443,23 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MASERATI</fullName>
+                <fullName>Maserati</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Max Built</fullName>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Maxi</fullName>
+                <fullName>Mazda</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Maxicube</fullName>
+                <fullName>McLaren</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Maxitrans</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Max Marmon</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MAZDA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MCLAREN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MERCEDES-BENZ</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MERCURY</fullName>
+                <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -687,211 +471,87 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MITSUBISHI</fullName>
+                <fullName>Mitsubishi</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MITSUBISHI FUSO</fullName>
+                <fullName>Morgan</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MORGAN</fullName>
+                <fullName>Nissan</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MORRIS</fullName>
+                <fullName>Opel</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>National</fullName>
+                <fullName>Peugeot</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>NIKI</fullName>
+                <fullName>Porsche</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>NISSAN</fullName>
+                <fullName>Proton</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>O'Phee</fullName>
+                <fullName>Renault</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>OKA</fullName>
+                <fullName>ROLLS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>OLDSMOBILE</fullName>
+                <fullName>Rolls-Royce</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>OPEL</fullName>
+                <fullName>Rover</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Other</fullName>
+                <fullName>Saab</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Peki</fullName>
+                <fullName>Scania</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>PEUGEOT</fullName>
+                <fullName>Seat</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>PLYMOUTH</fullName>
+                <fullName>Skoda</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>PONTIAC</fullName>
+                <fullName>Smart</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>PORSCHE</fullName>
+                <fullName>Ssangyong</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>PROTON</fullName>
+                <fullName>Sterling</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Ram</fullName>
+                <fullName>Subaru</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Reitnouer</fullName>
+                <fullName>Suzuki</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>RENAULT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Rfw</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Roadmaster</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Roadwest</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ROLLS-ROYCE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ROVER</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SAAB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SATURN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SCANIA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SCION</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SEAT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SKODA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Sloanebuilt</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smith Bros</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Southern Cross</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SSANGYONG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Stanley</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Steelbro</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>STERLING</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Stoodley</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>STUDEBAKER</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SUBARU</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SUZUKI</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tefco</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TESLA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tieman</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Topstart</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TOYOTA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Transport</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Transport Connection</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TRIUMPH</fullName>
+                <fullName>Toyota</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -899,31 +559,163 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Volkswagen</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Volvo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Western</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Austin</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chevrolet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cadillac</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corsa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daimler</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hsv</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eunos</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GMC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mitsubishi </fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nissan </fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Porsche </fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saab </fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Smart </fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Suzuki </fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tata </fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Toyota </fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>TVR </fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vauxhall</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Volkswagen </fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Volvo </fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aston</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CAT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>FUSO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MAN35.540</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>UD</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>UD Nissan Diesel</fullName>
+                <fullName>Trailer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Unknown</fullName>
+                <fullName>FORKLIFT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>VAUXHALL</fullName>
+                <fullName>MAX</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>VOLKSWAGEN</fullName>
+                <fullName>Contruction</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>VOLVO</fullName>
+                <fullName>WHITE</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>WESTERN STAR</fullName>
+                <fullName>HX</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Canter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fighter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Heavy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UNIMOG</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -20761,43 +20553,35 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ACURA</fullName>
+                <fullName>AT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ALFA ROMEO</fullName>
+                <fullName>Alfa Romeo</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ASIA</fullName>
+                <fullName>Asia</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ASTON MARTIN</fullName>
+                <fullName>Aston</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AUDI</fullName>
+                <fullName>Aston Martin</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AUSTIN</fullName>
+                <fullName>Audi</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AUSTRAL DENNING</fullName>
+                <fullName>Austin</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Atkinson</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BCI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BENTLEY</fullName>
+                <fullName>Austral</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20805,67 +20589,51 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BUGATTI</fullName>
+                <fullName>Bentley</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BUICK</fullName>
+                <fullName>CAT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Barker</fullName>
+                <fullName>Cadillac</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Blue Bogie</fullName>
+                <fullName>Canter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Borcat</fullName>
+                <fullName>Caterham</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bulk</fullName>
+                <fullName>Caterpillar</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CADILLAC</fullName>
+                <fullName>Chery</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CATERHAM</fullName>
+                <fullName>Chevrolet</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CATERPILLAR</fullName>
+                <fullName>Chrysler</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CHERY</fullName>
+                <fullName>Citroen</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CHEVROLET</fullName>
+                <fullName>Contruction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CHRYSLER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CIMC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CITROEN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CORSA SPECIALIZED VEHICLE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DAEWOO</fullName>
+                <fullName>Corsa</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20873,31 +20641,23 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DAIHATSU</fullName>
+                <fullName>Daewoo</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DAIMLER</fullName>
+                <fullName>Daihatsu</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DENNIS EAGLE</fullName>
+                <fullName>Daimler</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DODGE</fullName>
+                <fullName>Dennis</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Datsun</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diamond Reo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Elphinstone</fullName>
+                <fullName>Dodge</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20905,31 +20665,35 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Evt</fullName>
+                <fullName>FORKLIFT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FERRARI</fullName>
+                <fullName>FSM</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FIAT</fullName>
+                <fullName>FUSO</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FISKER</fullName>
+                <fullName>Ferrari</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FORD</fullName>
+                <fullName>Fiat</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FOTON</fullName>
+                <fullName>Fighter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Freighter</fullName>
+                <fullName>Ford</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foton</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20937,199 +20701,103 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Freightmaster</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fruehauf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fuso</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>GMC</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GREAT WALL</fullName>
+                <fullName>Great</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GTE</fullName>
+                <fullName>HX</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gitsham</fullName>
+                <fullName>Heavy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gorski</fullName>
+                <fullName>Hino</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HILLMAN</fullName>
+                <fullName>Holden</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HINO</fullName>
+                <fullName>Honda</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HOLDEN</fullName>
+                <fullName>Hsv</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HONDA</fullName>
+                <fullName>Hummer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HSV</fullName>
+                <fullName>Hyundai</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HUMMER</fullName>
+                <fullName>Infiniti</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HYUNDAI</fullName>
+                <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hamelex</fullName>
+                <fullName>Isuzu</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hammar</fullName>
+                <fullName>Iveco</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Haulmark</fullName>
+                <fullName>Jaguar</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hercules</fullName>
+                <fullName>Jeep</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Higer</fullName>
+                <fullName>Kenworth</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hockney Alcan</fullName>
+                <fullName>Kia</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Holmwood</fullName>
+                <fullName>LT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>INFINITI</fullName>
+                <fullName>Lada</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>INTERNATIONAL</fullName>
+                <fullName>Lamborghini</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>IRISBUS</fullName>
+                <fullName>Land</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ISUZU</fullName>
+                <fullName>Lexus</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ISUZU UTE</fullName>
+                <fullName>Leyland</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>IVECO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International%2FIveco</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iseki</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JAGUAR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JEEP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Jamieson</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KENWORTH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KIA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KIT CAR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Krueger</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LADA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LAMBORGHINI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LAND ROVER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LEXUS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LEYLAND</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LINCOLN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LOTUS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Loadmaster</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lucar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lusty EMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>M %26 S Tri-axle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MACK</fullName>
+                <fullName>Lotus</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21137,27 +20805,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MASERATI</fullName>
+                <fullName>MAN35%2E540</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MAZDA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MCLAREN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MERCEDES-BENZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MERCURY</fullName>
+                <fullName>MAX</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21169,207 +20821,131 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MITSUBISHI</fullName>
+                <fullName>Mack</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MITSUBISHI FUSO</fullName>
+                <fullName>Maserati</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MORGAN</fullName>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MORRIS</fullName>
+                <fullName>Mazda</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Max Built</fullName>
+                <fullName>McLaren</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Max Marmon</fullName>
+                <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maxi</fullName>
+                <fullName>Mitsubishi</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maxicube</fullName>
+                <fullName>Mitsubishi%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maxitrans</fullName>
+                <fullName>Morgan</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NIKI</fullName>
+                <fullName>Nissan</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NISSAN</fullName>
+                <fullName>Nissan%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>National</fullName>
+                <fullName>Opel</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>O%27Phee</fullName>
+                <fullName>Peugeot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OKA</fullName>
+                <fullName>Porsche</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OLDSMOBILE</fullName>
+                <fullName>Porsche%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OPEL</fullName>
+                <fullName>Proton</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
+                <fullName>ROLLS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PEUGEOT</fullName>
+                <fullName>Renault</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PLYMOUTH</fullName>
+                <fullName>Rolls-Royce</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PONTIAC</fullName>
+                <fullName>Rover</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PORSCHE</fullName>
+                <fullName>Saab</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PROTON</fullName>
+                <fullName>Saab%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Peki</fullName>
+                <fullName>Scania</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RENAULT</fullName>
+                <fullName>Seat</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ROLLS-ROYCE</fullName>
+                <fullName>Skoda</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ROVER</fullName>
+                <fullName>Smart</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ram</fullName>
+                <fullName>Smart%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reitnouer</fullName>
+                <fullName>Ssangyong</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rfw</fullName>
+                <fullName>Sterling</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Roadmaster</fullName>
+                <fullName>Subaru</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Roadwest</fullName>
+                <fullName>Suzuki</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>SAAB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SATURN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SCANIA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SCION</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SEAT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SKODA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SSANGYONG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>STERLING</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>STUDEBAKER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SUBARU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SUZUKI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sloanebuilt</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Smith Bros</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Southern Cross</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stanley</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Steelbro</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stoodley</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TESLA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TOYOTA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TRIUMPH</fullName>
+                <fullName>Suzuki%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21377,23 +20953,23 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tefco</fullName>
+                <fullName>TVR%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tieman</fullName>
+                <fullName>Tata%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Topstart</fullName>
+                <fullName>Toyota</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transport</fullName>
+                <fullName>Toyota%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transport Connection</fullName>
+                <fullName>Trailer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21401,23 +20977,27 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>UD Nissan Diesel</fullName>
+                <fullName>UNIMOG</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Vauxhall</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>VAUXHALL</fullName>
+                <fullName>Volkswagen</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>VOLKSWAGEN</fullName>
+                <fullName>Volkswagen%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>VOLVO</fullName>
+                <fullName>Volvo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Volvo%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21425,7 +21005,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>smart</fullName>
+                <fullName>WHITE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -23342,43 +22926,35 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ACURA</fullName>
+                <fullName>AT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ALFA ROMEO</fullName>
+                <fullName>Alfa Romeo</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ASIA</fullName>
+                <fullName>Asia</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ASTON MARTIN</fullName>
+                <fullName>Aston</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AUDI</fullName>
+                <fullName>Aston Martin</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AUSTIN</fullName>
+                <fullName>Audi</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AUSTRAL DENNING</fullName>
+                <fullName>Austin</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Atkinson</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BCI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BENTLEY</fullName>
+                <fullName>Austral</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23386,67 +22962,51 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BUGATTI</fullName>
+                <fullName>Bentley</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BUICK</fullName>
+                <fullName>CAT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Barker</fullName>
+                <fullName>Cadillac</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Blue Bogie</fullName>
+                <fullName>Canter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Borcat</fullName>
+                <fullName>Caterham</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bulk</fullName>
+                <fullName>Caterpillar</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CADILLAC</fullName>
+                <fullName>Chery</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CATERHAM</fullName>
+                <fullName>Chevrolet</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CATERPILLAR</fullName>
+                <fullName>Chrysler</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CHERY</fullName>
+                <fullName>Citroen</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CHEVROLET</fullName>
+                <fullName>Contruction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CHRYSLER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CIMC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CITROEN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CORSA SPECIALIZED VEHICLE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DAEWOO</fullName>
+                <fullName>Corsa</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23454,31 +23014,23 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DAIHATSU</fullName>
+                <fullName>Daewoo</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DAIMLER</fullName>
+                <fullName>Daihatsu</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DENNIS EAGLE</fullName>
+                <fullName>Daimler</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DODGE</fullName>
+                <fullName>Dennis</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Datsun</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diamond Reo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Elphinstone</fullName>
+                <fullName>Dodge</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23486,31 +23038,35 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Evt</fullName>
+                <fullName>FORKLIFT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FERRARI</fullName>
+                <fullName>FSM</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FIAT</fullName>
+                <fullName>FUSO</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FISKER</fullName>
+                <fullName>Ferrari</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FORD</fullName>
+                <fullName>Fiat</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FOTON</fullName>
+                <fullName>Fighter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Freighter</fullName>
+                <fullName>Ford</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foton</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23518,199 +23074,103 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Freightmaster</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fruehauf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fuso</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>GMC</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GREAT WALL</fullName>
+                <fullName>Great</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GTE</fullName>
+                <fullName>HX</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gitsham</fullName>
+                <fullName>Heavy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gorski</fullName>
+                <fullName>Hino</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HILLMAN</fullName>
+                <fullName>Holden</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HINO</fullName>
+                <fullName>Honda</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HOLDEN</fullName>
+                <fullName>Hsv</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HONDA</fullName>
+                <fullName>Hummer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HSV</fullName>
+                <fullName>Hyundai</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HUMMER</fullName>
+                <fullName>Infiniti</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HYUNDAI</fullName>
+                <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hamelex</fullName>
+                <fullName>Isuzu</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hammar</fullName>
+                <fullName>Iveco</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Haulmark</fullName>
+                <fullName>Jaguar</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hercules</fullName>
+                <fullName>Jeep</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Higer</fullName>
+                <fullName>Kenworth</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hockney Alcan</fullName>
+                <fullName>Kia</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Holmwood</fullName>
+                <fullName>LT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>INFINITI</fullName>
+                <fullName>Lada</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>INTERNATIONAL</fullName>
+                <fullName>Lamborghini</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>IRISBUS</fullName>
+                <fullName>Land</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ISUZU</fullName>
+                <fullName>Lexus</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ISUZU UTE</fullName>
+                <fullName>Leyland</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>IVECO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International%2FIveco</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iseki</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JAGUAR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JEEP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Jamieson</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KENWORTH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KIA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KIT CAR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Krueger</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LADA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LAMBORGHINI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LAND ROVER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LEXUS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LEYLAND</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LINCOLN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LOTUS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Loadmaster</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lucar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lusty EMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>M %26 S Tri-axle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MACK</fullName>
+                <fullName>Lotus</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23718,27 +23178,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MASERATI</fullName>
+                <fullName>MAN35%2E540</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MAZDA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MCLAREN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MERCEDES-BENZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MERCURY</fullName>
+                <fullName>MAX</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23750,207 +23194,131 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MITSUBISHI</fullName>
+                <fullName>Mack</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MITSUBISHI FUSO</fullName>
+                <fullName>Maserati</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MORGAN</fullName>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MORRIS</fullName>
+                <fullName>Mazda</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Max Built</fullName>
+                <fullName>McLaren</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Max Marmon</fullName>
+                <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maxi</fullName>
+                <fullName>Mitsubishi</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maxicube</fullName>
+                <fullName>Mitsubishi%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maxitrans</fullName>
+                <fullName>Morgan</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NIKI</fullName>
+                <fullName>Nissan</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NISSAN</fullName>
+                <fullName>Nissan%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>National</fullName>
+                <fullName>Opel</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>O%27Phee</fullName>
+                <fullName>Peugeot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OKA</fullName>
+                <fullName>Porsche</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OLDSMOBILE</fullName>
+                <fullName>Porsche%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OPEL</fullName>
+                <fullName>Proton</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
+                <fullName>ROLLS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PEUGEOT</fullName>
+                <fullName>Renault</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PLYMOUTH</fullName>
+                <fullName>Rolls-Royce</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PONTIAC</fullName>
+                <fullName>Rover</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PORSCHE</fullName>
+                <fullName>Saab</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PROTON</fullName>
+                <fullName>Saab%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Peki</fullName>
+                <fullName>Scania</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RENAULT</fullName>
+                <fullName>Seat</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ROLLS-ROYCE</fullName>
+                <fullName>Skoda</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ROVER</fullName>
+                <fullName>Smart</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ram</fullName>
+                <fullName>Smart%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reitnouer</fullName>
+                <fullName>Ssangyong</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rfw</fullName>
+                <fullName>Sterling</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Roadmaster</fullName>
+                <fullName>Subaru</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Roadwest</fullName>
+                <fullName>Suzuki</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>SAAB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SATURN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SCANIA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SCION</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SEAT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SKODA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SSANGYONG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>STERLING</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>STUDEBAKER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SUBARU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SUZUKI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sloanebuilt</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Smith Bros</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Southern Cross</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stanley</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Steelbro</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stoodley</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TESLA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TOYOTA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TRIUMPH</fullName>
+                <fullName>Suzuki%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23958,23 +23326,23 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tefco</fullName>
+                <fullName>TVR%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tieman</fullName>
+                <fullName>Tata%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Topstart</fullName>
+                <fullName>Toyota</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transport</fullName>
+                <fullName>Toyota%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transport Connection</fullName>
+                <fullName>Trailer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -23982,23 +23350,27 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>UD Nissan Diesel</fullName>
+                <fullName>UNIMOG</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Vauxhall</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>VAUXHALL</fullName>
+                <fullName>Volkswagen</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>VOLKSWAGEN</fullName>
+                <fullName>Volkswagen%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>VOLVO</fullName>
+                <fullName>Volvo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Volvo%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24006,7 +23378,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>smart</fullName>
+                <fullName>WHITE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -28083,43 +27459,35 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ACURA</fullName>
+                <fullName>AT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ALFA ROMEO</fullName>
+                <fullName>Alfa Romeo</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ASIA</fullName>
+                <fullName>Asia</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ASTON MARTIN</fullName>
+                <fullName>Aston</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AUDI</fullName>
+                <fullName>Aston Martin</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AUSTIN</fullName>
+                <fullName>Audi</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AUSTRAL DENNING</fullName>
+                <fullName>Austin</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Atkinson</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BCI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>BENTLEY</fullName>
+                <fullName>Austral</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28127,67 +27495,51 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BUGATTI</fullName>
+                <fullName>Bentley</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>BUICK</fullName>
+                <fullName>CAT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Barker</fullName>
+                <fullName>Cadillac</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Blue Bogie</fullName>
+                <fullName>Canter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Borcat</fullName>
+                <fullName>Caterham</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Bulk</fullName>
+                <fullName>Caterpillar</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CADILLAC</fullName>
+                <fullName>Chery</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CATERHAM</fullName>
+                <fullName>Chevrolet</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CATERPILLAR</fullName>
+                <fullName>Chrysler</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CHERY</fullName>
+                <fullName>Citroen</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CHEVROLET</fullName>
+                <fullName>Contruction</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>CHRYSLER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CIMC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CITROEN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>CORSA SPECIALIZED VEHICLE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>DAEWOO</fullName>
+                <fullName>Corsa</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28195,31 +27547,23 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DAIHATSU</fullName>
+                <fullName>Daewoo</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DAIMLER</fullName>
+                <fullName>Daihatsu</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DENNIS EAGLE</fullName>
+                <fullName>Daimler</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>DODGE</fullName>
+                <fullName>Dennis</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Datsun</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Diamond Reo</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Elphinstone</fullName>
+                <fullName>Dodge</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28227,31 +27571,35 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Evt</fullName>
+                <fullName>FORKLIFT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FERRARI</fullName>
+                <fullName>FSM</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FIAT</fullName>
+                <fullName>FUSO</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FISKER</fullName>
+                <fullName>Ferrari</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FORD</fullName>
+                <fullName>Fiat</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FOTON</fullName>
+                <fullName>Fighter</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Freighter</fullName>
+                <fullName>Ford</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Foton</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28259,199 +27607,103 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Freightmaster</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fruehauf</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fuso</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>GMC</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GREAT WALL</fullName>
+                <fullName>Great</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>GTE</fullName>
+                <fullName>HX</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gitsham</fullName>
+                <fullName>Heavy</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Gorski</fullName>
+                <fullName>Hino</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HILLMAN</fullName>
+                <fullName>Holden</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HINO</fullName>
+                <fullName>Honda</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HOLDEN</fullName>
+                <fullName>Hsv</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HONDA</fullName>
+                <fullName>Hummer</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HSV</fullName>
+                <fullName>Hyundai</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HUMMER</fullName>
+                <fullName>Infiniti</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>HYUNDAI</fullName>
+                <fullName>International</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hamelex</fullName>
+                <fullName>Isuzu</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hammar</fullName>
+                <fullName>Iveco</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Haulmark</fullName>
+                <fullName>Jaguar</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hercules</fullName>
+                <fullName>Jeep</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Higer</fullName>
+                <fullName>Kenworth</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hockney Alcan</fullName>
+                <fullName>Kia</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Holmwood</fullName>
+                <fullName>LT</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>INFINITI</fullName>
+                <fullName>Lada</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>INTERNATIONAL</fullName>
+                <fullName>Lamborghini</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>IRISBUS</fullName>
+                <fullName>Land</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ISUZU</fullName>
+                <fullName>Lexus</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ISUZU UTE</fullName>
+                <fullName>Leyland</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>IVECO</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>International%2FIveco</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Iseki</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JAGUAR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>JEEP</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Jamieson</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KENWORTH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KIA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>KIT CAR</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Krueger</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LADA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LAMBORGHINI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LAND ROVER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LEXUS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LEYLAND</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LINCOLN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>LOTUS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Loadmaster</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lucar</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lusty EMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>M %26 S Tri-axle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MACK</fullName>
+                <fullName>Lotus</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28459,27 +27711,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MASERATI</fullName>
+                <fullName>MAN35%2E540</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MAZDA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MCLAREN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MERCEDES-BENZ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MERCURY</fullName>
+                <fullName>MAX</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28491,207 +27727,131 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MITSUBISHI</fullName>
+                <fullName>Mack</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MITSUBISHI FUSO</fullName>
+                <fullName>Maserati</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MORGAN</fullName>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MORRIS</fullName>
+                <fullName>Mazda</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Max Built</fullName>
+                <fullName>McLaren</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Max Marmon</fullName>
+                <fullName>Mercedes-Benz</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maxi</fullName>
+                <fullName>Mitsubishi</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maxicube</fullName>
+                <fullName>Mitsubishi%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Maxitrans</fullName>
+                <fullName>Morgan</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NIKI</fullName>
+                <fullName>Nissan</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NISSAN</fullName>
+                <fullName>Nissan%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>National</fullName>
+                <fullName>Opel</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>O%27Phee</fullName>
+                <fullName>Peugeot</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OKA</fullName>
+                <fullName>Porsche</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OLDSMOBILE</fullName>
+                <fullName>Porsche%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>OPEL</fullName>
+                <fullName>Proton</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Other</fullName>
+                <fullName>ROLLS</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PEUGEOT</fullName>
+                <fullName>Renault</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PLYMOUTH</fullName>
+                <fullName>Rolls-Royce</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PONTIAC</fullName>
+                <fullName>Rover</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PORSCHE</fullName>
+                <fullName>Saab</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>PROTON</fullName>
+                <fullName>Saab%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Peki</fullName>
+                <fullName>Scania</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RENAULT</fullName>
+                <fullName>Seat</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ROLLS-ROYCE</fullName>
+                <fullName>Skoda</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ROVER</fullName>
+                <fullName>Smart</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Ram</fullName>
+                <fullName>Smart%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Reitnouer</fullName>
+                <fullName>Ssangyong</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Rfw</fullName>
+                <fullName>Sterling</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Roadmaster</fullName>
+                <fullName>Subaru</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Roadwest</fullName>
+                <fullName>Suzuki</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>SAAB</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SATURN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SCANIA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SCION</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SEAT</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SKODA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SSANGYONG</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>STERLING</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>STUDEBAKER</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SUBARU</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SUZUKI</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sloanebuilt</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Smith Bros</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Southern Cross</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stanley</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Steelbro</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Stoodley</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TESLA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TOYOTA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>TRIUMPH</fullName>
+                <fullName>Suzuki%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28699,23 +27859,23 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tefco</fullName>
+                <fullName>TVR%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Tieman</fullName>
+                <fullName>Tata%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Topstart</fullName>
+                <fullName>Toyota</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transport</fullName>
+                <fullName>Toyota%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Transport Connection</fullName>
+                <fullName>Trailer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28723,23 +27883,27 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>UD Nissan Diesel</fullName>
+                <fullName>UNIMOG</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Vauxhall</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>VAUXHALL</fullName>
+                <fullName>Volkswagen</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>VOLKSWAGEN</fullName>
+                <fullName>Volkswagen%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>VOLVO</fullName>
+                <fullName>Volvo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Volvo%C2%A0</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -28747,7 +27911,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>smart</fullName>
+                <fullName>WHITE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Western</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

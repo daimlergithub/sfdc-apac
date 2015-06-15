@@ -142,6 +142,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountHelperTestRf</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountLinkHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -467,6 +471,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>FleerCorverList</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>FleerCorverListTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -971,6 +979,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TaskHelperTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TaskHelperTestRf</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -12817,6 +12829,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>SocialPersona.SourceApp</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Solution.IsPublished</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -14879,18 +14896,18 @@
         <layout>Attribute__c-Car Attribute Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Audit_Trail__c-Audit Trail Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Audit_Trail__c-Audit Trail Layout</layout>
+        <layout>Audit_Trail__c-Account History Layout</layout>
         <recordType>Audit_Trail__c.Account</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Audit_Trail__c-Audit Trail Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Audit_Trail__c-Campaign History Layout</layout>
         <recordType>Audit_Trail__c.Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Audit_Trail__c-Audit Trail Layout</layout>
+        <layout>Audit_Trail__c-Campaign Member History Layout</layout>
         <recordType>Audit_Trail__c.CampaignMember</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -17280,6 +17297,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>PreOrder__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Rejected_Duplicate_Log__c</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
@@ -17443,6 +17464,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>CanUseNewDashboardBuilder</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>ChatterEditOwnPost</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
@@ -17787,6 +17812,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SolutionImport</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SubmitMacrosAllowed</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

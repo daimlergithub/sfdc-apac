@@ -64,7 +64,8 @@ public class AccountHelper {
 
     
     //US-DP-022, US-DP-023, when Allow Data Sharing changed to yes, update lead's owner.
-    public static void updateLeads(Set<Id> contactIds) {
+    public static void updateLeads
+        (Set<Id> contactIds) {
         List<Lead__c> leads = [select Id, Dealer_LMS__c, RecordTypeId, Need_Assign_To_Dealer__c, Assigned_Dealer__c from Lead__c where Contact__c in :contactIds and Need_Assign_To_Dealer__c = 'Need' and Assigned_Dealer__c != null];
         Set<Id> dealerIds = new Set<Id>();
         for(Lead__c lead : leads) {
