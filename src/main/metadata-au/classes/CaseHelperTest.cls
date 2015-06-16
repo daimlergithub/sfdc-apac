@@ -10,7 +10,7 @@
 */
 @isTest(seeAllData=true)
 public class CaseHelperTest {
-       public static Id C_INQUIRY_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.INQUIRY).getRecordTypeId();
+       public static Id C_INQUIRY_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.Enquiry).getRecordTypeId();
      public static Id C_MBDA_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.MBDA_COMPLAINT).getRecordTypeId();
     public static Map<String, Schema.SObjectField> FLDOBJ_MAP = schema.SObjectType.Case.fields.getMap();
     public static Id RETAIL_CAMPAIGN_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Retail Campaign').getRecordTypeId();
@@ -18,7 +18,7 @@ public class CaseHelperTest {
     final static String dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
     final static String CHRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Chrysler Complaint').getRecordTypeId();
-    final static String INQUIRYRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
+    final static String INQUIRYRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.Enquiry).getRecordTypeId();
     static Account acc = new Account(LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid);
     static Account acc1 = new Account(Name='acme',RecordTypeId = dealerRecordtypeid);
      static Account acc2 = new Account(Name='acme23',RecordTypeId = dealerRecordtypeid);
