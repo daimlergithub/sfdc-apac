@@ -28,18 +28,23 @@ public with sharing class RetailCampaignSegmentationController {
     private Set<String> vehicleRelFields;
     private final integer listLimit;
     
-    public RetailCampaignSegmentationController(){
-        listLimit = 100;
-        thirdParty = Schema.SObjectType.Account.getRecordTypeInfosByName().get('3rd Party').getRecordTypeId();
-        retailCampaignId = ApexPages.currentPage().getParameters().get('id');
-        attendedCampaign = '';
-        hasReferralRecord = noComplaint = false;
-        setFieldType();
-        
-        User user = [select ContactId from User where Id = :UserInfo.getUserId()];
-        if(user.ContactId != null){
-            contact = [select Id, AccountId, SegmentationFilters__c from Contact where Id = :user.ContactId];
-        }
+    public RetailCampaignSegmentationController()
+    {
+    	//Added community license switching mechanism
+       if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+       {
+	        listLimit = 100;
+	        thirdParty = Schema.SObjectType.Account.getRecordTypeInfosByName().get('3rd Party').getRecordTypeId();
+	        retailCampaignId = ApexPages.currentPage().getParameters().get('id');
+	        attendedCampaign = '';
+	        hasReferralRecord = noComplaint = false;
+	        setFieldType();
+	        
+	        User user = [select ContactId from User where Id = :UserInfo.getUserId()];
+	        if(user.ContactId != null){
+	            contact = [select Id, AccountId, SegmentationFilters__c from Contact where Id = :user.ContactId];
+	        }
+       }
     }
     
     /**
@@ -179,164 +184,169 @@ public with sharing class RetailCampaignSegmentationController {
         }
     }
     
-    public PageReference searchAccount(){
-        setSoql();
-        accounts = new List<Account>();
-        addAccountIds = new Set<Id>();
-        accountIds = new Set<String>();
-        
-        try{
-            // Has Attended Campaign filter
-            if(attendedCampaign != ''){
-                for(CampaignMember member : [select Contact.AccountId from CampaignMember where Campaign.Name = :attendedCampaign.trim()]){
-                    accountIds.add(member.Contact.AccountId);
-                }
-            }
-            
-            if(!vehicleRelSoql.endsWith('where ')) {
-                vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c', 'Last_Service_Dealer__r.Name').replace('Selling_Dealer__c', 'Selling_Dealer__r.Name');
-                if(accountSoql.endsWith('and ')){
-                    accountSoql += 'Id in ' + vehicleRelSoql + ')';
-                }
-                else{
-                    accountSoql += ' and Id in' + vehicleRelSoql + ')';
-                }
-            }
-            if(!leadSoql.endsWith('where ')) {
-                leadSoql = leadSoql.replace('Retail_Campaign_Name__c', 'Retail_Campaign_Name__r.Name');
-                if(accountSoql.endsWith('and ')){
-                    accountSoql += 'Id in ' + leadSoql + ')';
-                }
-                else{
-                    accountSoql += ' and Id in' + leadSoql + ')';
-                }
-            }
-            
-            /*
-            // Vehicle filter
-            if(!vehicleRelSoql.endsWith('where ')){
-                if(!accountIds.isEmpty()) {
-                    vehicleRelSoql += 'and Contact__c in :accountIds '; 
-                }
-                List<Vehicle_Relationship__c> vehicleRels = Database.query(vehicleRelSoql + ' limit 50000');
-                if (Limits.getQueries() +  vehicleRels.size() >= 50000 ) {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, '50001 Error. Please add more filters.'));
-                    return null;
-                }
-                accountIds.clear();
-                for(Vehicle_Relationship__c vr : vehicleRels){
-                    accountIds.add(vr.Contact__c);
-                }
-            }
-
-            // Interest Filter
-            if(!leadSoql.endsWith('where ')){
-                if(!accountIds.isEmpty()) {
-                    leadSoql += 'and Contact__c in :accountIds '; 
-                }
-                List<Lead__c> leads = Database.query(leadSoql + ' limit 50000');
-                if (Limits.getQueries() +  leads.size() >= 50000 ) {
-                    ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, '50001 Error. Please add more filters.'));
-                    return null;
-                }
-                accountIds.clear();
-                for(Lead__c lead : leads){
-                    accountIds.add(lead.Contact__c);
-                }
-            }
-            */
-            // Searchs the accounts according to the Customer Filter 
-            if(!accountIds.isEmpty() || attendedCampaign != ''){
-                if(accountSoql.endsWith('and ')){
-                    accountSoql += 'Id in :accountIds ';
-                }
-                else{
-                    accountSoql += ' and Id in :accountIds ';
-                }
-            }
-            system.debug('----------' + accountSoql);
-            Map<String, Account> accountMap = new Map<String, Account>();
-            Set<String> indexs = new Set<String>();   // Removes the multiple accounts.
-            List<Account> tempAccounts = Database.query(accountSoql + ' limit 50000');
-            if (Limits.getQueries() +  tempAccounts.size() >= 50000 ) {
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, Label.LimitQueries));
-                return null;
-            }
-            for(Account acc : tempAccounts) {
-                String phone = acc.PersonHomePhone == null ? '' : acc.PersonHomePhone
-                             + acc.PersonMobilePhone == null ? '' : acc.PersonMobilePhone
-                             + acc.Phone == null ? '' : acc.Phone;
-                if(!indexs.contains(acc.name + phone)){
-                    accountMap.put(acc.Id, acc);
-                    indexs.add(acc.name + phone);
-                }
-            }
-            
-            // Has Referral Record filter
-            if(accountMap.isEmpty()){ return null; }
-            
-            if(hasReferralRecord){
-                Map<String, Account> clonedAccountMap = accountMap.clone();
-                accountMap.clear();
-                for(Lead__c lead : [select Referal_Referee_Name__r.AccountId from Lead__c 
-                                    where Referal_Referee_Name__r.AccountId in :clonedAccountMap.keySet()]){
-                    accountMap.put(lead.Referal_Referee_Name__r.AccountId, clonedAccountMap.get(lead.Referal_Referee_Name__r.AccountId));
-                }
-            }
-            
-            // No Complaint filter
-            if(accountMap.isEmpty()){ return null; }
-            
-            if(noComplaint){
-                for(Case c : [select AccountId from Case where AccountId in :accountMap.keySet()]){
-                    accountMap.remove(c.AccountId);
-                }
-            }
-            
-            if(accountMap.values().size() > 10000){
-                accounts = new list<Account>();
-                limitAccounts = new list<Account>();
-                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'sorry the target customers are more than 10,000 please modify your segmentation filters and check again.'));
-                return null;
-            }
-            
-            // Total Amount Spend On Car Service filter
-            if(accountMap.isEmpty() || Contact == null){ 
-            for(String id : accountMap.keyset()) {
-                addAccountIds.add(id);
-            }
-            accounts = accountMap.values(); 
-            return null; }
-            
-            if(carServiceAmount != null){
-            
-                Map<String, Decimal> totalAmountMap = new Map<String, Decimal>();
-                for(Retail_Task__c rt : [select Service_Amount__c, Related_Contact__c from Retail_Task__c 
-                                        where Related_Contact__c in :accountMap.keySet() and Service_Dealer__c = :contact.AccountId]){
-                    Decimal amount = totalAmountMap.get(rt.Related_Contact__c);
-                    amount = amount == null ? 0 : amount;
-                    totalAmountMap.put(rt.Related_Contact__c, rt.Service_Amount__c + amount);
-                }
-                for(String accId : totalAmountMap.keySet()){
-                    if(totalAmountMap.get(accId) < carServiceAmount){
-                        accountMap.remove(accId);
-                    }
-                }
-            }
-            accounts = accountMap.values();
-            for(String id : accountMap.keyset()) {
-                addAccountIds.add(id);
-            }
-        }
-        catch(Exception ex){
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Logic Error!'));
-        }
-        
+    public PageReference searchAccount()
+    {
+    	//Added community license switching mechanism
+       if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+       {
+	        setSoql();
+	        accounts = new List<Account>();
+	        addAccountIds = new Set<Id>();
+	        accountIds = new Set<String>();
+	        
+	        try{
+	            // Has Attended Campaign filter
+	            if(attendedCampaign != ''){
+	                for(CampaignMember member : [select Contact.AccountId from CampaignMember where Campaign.Name = :attendedCampaign.trim()]){
+	                    accountIds.add(member.Contact.AccountId);
+	                }
+	            }
+	            
+	            if(!vehicleRelSoql.endsWith('where ')) {
+	                vehicleRelSoql = vehicleRelSoql.replace('Last_Service_Dealer__c', 'Last_Service_Dealer__r.Name').replace('Selling_Dealer__c', 'Selling_Dealer__r.Name');
+	                if(accountSoql.endsWith('and ')){
+	                    accountSoql += 'Id in ' + vehicleRelSoql + ')';
+	                }
+	                else{
+	                    accountSoql += ' and Id in' + vehicleRelSoql + ')';
+	                }
+	            }
+	            if(!leadSoql.endsWith('where ')) {
+	                leadSoql = leadSoql.replace('Retail_Campaign_Name__c', 'Retail_Campaign_Name__r.Name');
+	                if(accountSoql.endsWith('and ')){
+	                    accountSoql += 'Id in ' + leadSoql + ')';
+	                }
+	                else{
+	                    accountSoql += ' and Id in' + leadSoql + ')';
+	                }
+	            }
+	            
+	            /*
+	            // Vehicle filter
+	            if(!vehicleRelSoql.endsWith('where ')){
+	                if(!accountIds.isEmpty()) {
+	                    vehicleRelSoql += 'and Contact__c in :accountIds '; 
+	                }
+	                List<Vehicle_Relationship__c> vehicleRels = Database.query(vehicleRelSoql + ' limit 50000');
+	                if (Limits.getQueries() +  vehicleRels.size() >= 50000 ) {
+	                    ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, '50001 Error. Please add more filters.'));
+	                    return null;
+	                }
+	                accountIds.clear();
+	                for(Vehicle_Relationship__c vr : vehicleRels){
+	                    accountIds.add(vr.Contact__c);
+	                }
+	            }
+	
+	            // Interest Filter
+	            if(!leadSoql.endsWith('where ')){
+	                if(!accountIds.isEmpty()) {
+	                    leadSoql += 'and Contact__c in :accountIds '; 
+	                }
+	                List<Lead__c> leads = Database.query(leadSoql + ' limit 50000');
+	                if (Limits.getQueries() +  leads.size() >= 50000 ) {
+	                    ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, '50001 Error. Please add more filters.'));
+	                    return null;
+	                }
+	                accountIds.clear();
+	                for(Lead__c lead : leads){
+	                    accountIds.add(lead.Contact__c);
+	                }
+	            }
+	            */
+	            // Searchs the accounts according to the Customer Filter 
+	            if(!accountIds.isEmpty() || attendedCampaign != ''){
+	                if(accountSoql.endsWith('and ')){
+	                    accountSoql += 'Id in :accountIds ';
+	                }
+	                else{
+	                    accountSoql += ' and Id in :accountIds ';
+	                }
+	            }
+	            system.debug('----------' + accountSoql);
+	            Map<String, Account> accountMap = new Map<String, Account>();
+	            Set<String> indexs = new Set<String>();   // Removes the multiple accounts.
+	            List<Account> tempAccounts = Database.query(accountSoql + ' limit 50000');
+	            if (Limits.getQueries() +  tempAccounts.size() >= 50000 ) {
+	                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, Label.LimitQueries));
+	                return null;
+	            }
+	            for(Account acc : tempAccounts) {
+	                String phone = acc.PersonHomePhone == null ? '' : acc.PersonHomePhone
+	                             + acc.PersonMobilePhone == null ? '' : acc.PersonMobilePhone
+	                             + acc.Phone == null ? '' : acc.Phone;
+	                if(!indexs.contains(acc.name + phone)){
+	                    accountMap.put(acc.Id, acc);
+	                    indexs.add(acc.name + phone);
+	                }
+	            }
+	            
+	            // Has Referral Record filter
+	            if(accountMap.isEmpty()){ return null; }
+	            
+	            if(hasReferralRecord){
+	                Map<String, Account> clonedAccountMap = accountMap.clone();
+	                accountMap.clear();
+	                for(Lead__c lead : [select Referal_Referee_Name__r.AccountId from Lead__c 
+	                                    where Referal_Referee_Name__r.AccountId in :clonedAccountMap.keySet()]){
+	                    accountMap.put(lead.Referal_Referee_Name__r.AccountId, clonedAccountMap.get(lead.Referal_Referee_Name__r.AccountId));
+	                }
+	            }
+	            
+	            // No Complaint filter
+	            if(accountMap.isEmpty()){ return null; }
+	            
+	            if(noComplaint){
+	                for(Case c : [select AccountId from Case where AccountId in :accountMap.keySet()]){
+	                    accountMap.remove(c.AccountId);
+	                }
+	            }
+	            
+	            if(accountMap.values().size() > 10000){
+	                accounts = new list<Account>();
+	                limitAccounts = new list<Account>();
+	                ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'sorry the target customers are more than 10,000 please modify your segmentation filters and check again.'));
+	                return null;
+	            }
+	            
+	            // Total Amount Spend On Car Service filter
+	            if(accountMap.isEmpty() || Contact == null){ 
+	            for(String id : accountMap.keyset()) {
+	                addAccountIds.add(id);
+	            }
+	            accounts = accountMap.values(); 
+	            return null; }
+	            
+	            if(carServiceAmount != null){
+	            
+	                Map<String, Decimal> totalAmountMap = new Map<String, Decimal>();
+	                for(Retail_Task__c rt : [select Service_Amount__c, Related_Contact__c from Retail_Task__c 
+	                                        where Related_Contact__c in :accountMap.keySet() and Service_Dealer__c = :contact.AccountId]){
+	                    Decimal amount = totalAmountMap.get(rt.Related_Contact__c);
+	                    amount = amount == null ? 0 : amount;
+	                    totalAmountMap.put(rt.Related_Contact__c, rt.Service_Amount__c + amount);
+	                }
+	                for(String accId : totalAmountMap.keySet()){
+	                    if(totalAmountMap.get(accId) < carServiceAmount){
+	                        accountMap.remove(accId);
+	                    }
+	                }
+	            }
+	            accounts = accountMap.values();
+	            for(String id : accountMap.keyset()) {
+	                addAccountIds.add(id);
+	            }
+	        }
+	        catch(Exception ex){
+	            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Logic Error!'));
+	        }
+       }
         return null;
     }
     
     public Account[] getlimitAccounts()
     {
+    	
         integer counter = 0;
         integer loopCount = 0;
         limitAccounts = new list<Account>();
@@ -381,97 +391,107 @@ public with sharing class RetailCampaignSegmentationController {
         return new PageReference('/' + retailCampaignId);
     }
     
-    private void setSoql(){
-        /*
-        accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
-            + 'where (RecordTypeId = \'01290000000fpFD\' or ' 
-            + 'RecordTypeId = \'01290000000rXmS\' or ' 
-            + 'RecordTypeId = \'' + thirdParty + '\') and ';
-        leadSoql = 'select Id, Contact__c from Lead__c where ';
-        vehicleRelSoql = 'select Id, Contact__c from Vehicle_Relationship__c where ';
-        
-        + '(Select Id, Contact__c From Vehicle_Relationships2__r VEHICLEFILTER ), '
-        + '(select Id, Contact__c from Lead_Contact__r LEADFILTER)'
-        */
-        
-        string personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-        string personAccntRetailRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Retail').getRecordTypeId();
-        accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
-            + 'where (RecordTypeId =\'' + personAccntRecTypId + '\' or ' 
-            + 'RecordTypeId = \'' + personAccntRetailRecTypId + '\' or '
-            + 'RecordTypeId = \'' + thirdParty + '\') and ';
-        leadSoql = '(Select Contact__c from Lead__c where ';
-        vehicleRelSoql = '(Select Contact__c From Vehicle_Relationship__c where ';
-        
-        Map<String, Object> filterMap = (Map<String, Object>)JSON.deserializeUntyped(jsonFilter);
-        Map<String, Object> contentMap = (Map<String, Object>)(filterMap.get('content'));
-        List<Object> customerFilterItems = (List<Object>)contentMap.get('Customer');
-        List<Object> leadFilterItems = (List<Object>)contentMap.get('Interest');
-        List<Object> vehicleFilterItems = (List<Object>)contentMap.get('Vehicle');
-        
-        setSubSoql(customerFilterItems, 'account');
-        setSubSoql(leadFilterItems, 'lead');
-        setSubSoql(vehicleFilterItems, 'vehicle');
+    private void setSoql()
+    {
+    	//Added community license switching mechanism
+       if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+       {
+	        /*
+	        accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
+	            + 'where (RecordTypeId = \'01290000000fpFD\' or ' 
+	            + 'RecordTypeId = \'01290000000rXmS\' or ' 
+	            + 'RecordTypeId = \'' + thirdParty + '\') and ';
+	        leadSoql = 'select Id, Contact__c from Lead__c where ';
+	        vehicleRelSoql = 'select Id, Contact__c from Vehicle_Relationship__c where ';
+	        
+	        + '(Select Id, Contact__c From Vehicle_Relationships2__r VEHICLEFILTER ), '
+	        + '(select Id, Contact__c from Lead_Contact__r LEADFILTER)'
+	        */
+	        
+	        string personAccntRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+	        string personAccntRetailRecTypId=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account Retail').getRecordTypeId();
+	        accountSoql = 'select Id, Name, PersonHomePhone, PersonMobilePhone, Phone, PersonEmail, City__c from Account '
+	            + 'where (RecordTypeId =\'' + personAccntRecTypId + '\' or ' 
+	            + 'RecordTypeId = \'' + personAccntRetailRecTypId + '\' or '
+	            + 'RecordTypeId = \'' + thirdParty + '\') and ';
+	        leadSoql = '(Select Contact__c from Lead__c where ';
+	        vehicleRelSoql = '(Select Contact__c From Vehicle_Relationship__c where ';
+	        
+	        Map<String, Object> filterMap = (Map<String, Object>)JSON.deserializeUntyped(jsonFilter);
+	        Map<String, Object> contentMap = (Map<String, Object>)(filterMap.get('content'));
+	        List<Object> customerFilterItems = (List<Object>)contentMap.get('Customer');
+	        List<Object> leadFilterItems = (List<Object>)contentMap.get('Interest');
+	        List<Object> vehicleFilterItems = (List<Object>)contentMap.get('Vehicle');
+	        
+	        setSubSoql(customerFilterItems, 'account');
+	        setSubSoql(leadFilterItems, 'lead');
+	        setSubSoql(vehicleFilterItems, 'vehicle');
+       }
     }
     
-    private void setSubSoql(List<Object> filterItems, String cluster){
-        Integer bracketCount = 0;
-        if(filterItems != null){
-            for(Object filterItem : filterItems){
-                Map<String, Object> filterItemMap = (Map<String, Object>)filterItem;
-                String field = (String)filterItemMap.get('field');
-                String operation = getOperation((String)filterItemMap.get('operation'));
-                String criteria = getCriteria(field, (String)filterItemMap.get('criteria'));
-                String logic = (String)filterItemMap.get('logic');
-                Boolean bracket = (Boolean)filterItemMap.get('bracket');
-                String subSoql = '';
-                
-                if(vehicleFields.contains(field)){
-                    field = 'Vehicle_ID__r.' + field;
-                }
-                
-                if(field == 'PersonBirthdate' && String.valueOf(filterItemMap.get('criteria')).startswith('3000')) {
-                    subSoql += 'CALENDAR_MONTH(PersonBirthdate) = ' + String.valueOf(filterItemMap.get('criteria')).split('-')[1] + ' and DAY_IN_MONTH(PersonBirthdate) = ' + String.valueOf(filterItemMap.get('criteria')).split('-')[2];
-                }
-                else if(field == 'Primary_Address__c'){
-                    subSoql += 'Primary_Address__c LIKE \'%' + (String)filterItemMap.get('criteria') + '%\' '; 
-                }else if(field == 'Registration_City__c'){
-                    subSoql += 'Registration_City__c LIKE \'%' + (String)filterItemMap.get('criteria') + '%\' '; 
-                }else if(field == 'ZipCode__c'){
-                    subSoql += 'ZipCode__c LIKE \'%' + (String)filterItemMap.get('criteria') + '%\' '; 
-                }else{
-                    subSoql += field + operation + criteria + ' '; 
-                }
-                
-                if(bracket){
-                    subSoql = subSoql.removeEnd(' ');
-                    subSoql += (++bracketCount > 1 ? ') ' : ' ') + logic + ' (';
-                }
-                else{
-                    subSoql += logic + ' ';
-                }
-                
-                if(cluster == 'account'){
-                    accountSoql += subSoql;
-                }
-                else if(cluster == 'lead'){
-                    leadSoql += subSoql;
-                }
-                else if(cluster == 'vehicle'){
-                    vehicleRelSoql += subSoql;
-                }
-            }
-            
-            if(cluster == 'account'){
-                accountSoql += (bracketCount > 0 ? ') ' : '');
-            }
-            else if(cluster == 'lead'){
-                leadSoql += (bracketCount > 0 ? ') ' : '');
-            }
-            else if(cluster == 'vehicle'){
-                vehicleRelSoql += (bracketCount > 0 ? ') ' : '');
-            }
-        }
+    private void setSubSoql(List<Object> filterItems, String cluster)
+    {
+    	//Added community license switching mechanism
+       if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+       {
+	        Integer bracketCount = 0;
+	        if(filterItems != null){
+	            for(Object filterItem : filterItems){
+	                Map<String, Object> filterItemMap = (Map<String, Object>)filterItem;
+	                String field = (String)filterItemMap.get('field');
+	                String operation = getOperation((String)filterItemMap.get('operation'));
+	                String criteria = getCriteria(field, (String)filterItemMap.get('criteria'));
+	                String logic = (String)filterItemMap.get('logic');
+	                Boolean bracket = (Boolean)filterItemMap.get('bracket');
+	                String subSoql = '';
+	                
+	                if(vehicleFields.contains(field)){
+	                    field = 'Vehicle_ID__r.' + field;
+	                }
+	                
+	                if(field == 'PersonBirthdate' && String.valueOf(filterItemMap.get('criteria')).startswith('3000')) {
+	                    subSoql += 'CALENDAR_MONTH(PersonBirthdate) = ' + String.valueOf(filterItemMap.get('criteria')).split('-')[1] + ' and DAY_IN_MONTH(PersonBirthdate) = ' + String.valueOf(filterItemMap.get('criteria')).split('-')[2];
+	                }
+	                else if(field == 'Primary_Address__c'){
+	                    subSoql += 'Primary_Address__c LIKE \'%' + (String)filterItemMap.get('criteria') + '%\' '; 
+	                }else if(field == 'Registration_City__c'){
+	                    subSoql += 'Registration_City__c LIKE \'%' + (String)filterItemMap.get('criteria') + '%\' '; 
+	                }else if(field == 'ZipCode__c'){
+	                    subSoql += 'ZipCode__c LIKE \'%' + (String)filterItemMap.get('criteria') + '%\' '; 
+	                }else{
+	                    subSoql += field + operation + criteria + ' '; 
+	                }
+	                
+	                if(bracket){
+	                    subSoql = subSoql.removeEnd(' ');
+	                    subSoql += (++bracketCount > 1 ? ') ' : ' ') + logic + ' (';
+	                }
+	                else{
+	                    subSoql += logic + ' ';
+	                }
+	                
+	                if(cluster == 'account'){
+	                    accountSoql += subSoql;
+	                }
+	                else if(cluster == 'lead'){
+	                    leadSoql += subSoql;
+	                }
+	                else if(cluster == 'vehicle'){
+	                    vehicleRelSoql += subSoql;
+	                }
+	            }
+	            
+	            if(cluster == 'account'){
+	                accountSoql += (bracketCount > 0 ? ') ' : '');
+	            }
+	            else if(cluster == 'lead'){
+	                leadSoql += (bracketCount > 0 ? ') ' : '');
+	            }
+	            else if(cluster == 'vehicle'){
+	                vehicleRelSoql += (bracketCount > 0 ? ') ' : '');
+	            }
+	        }
+       }
     }
     
     private String getOperation(String operation){
