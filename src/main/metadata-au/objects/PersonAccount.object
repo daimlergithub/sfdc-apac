@@ -3852,14 +3852,14 @@
             <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Work_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -7928,14 +7928,14 @@
             <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Work_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -11976,14 +11976,14 @@
             <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Work_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -15908,14 +15908,14 @@
             <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Work_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -20015,14 +20015,14 @@
             <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Work_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
