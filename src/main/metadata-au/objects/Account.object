@@ -9305,7 +9305,7 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
         <picklist>
             <picklistValues>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -9321,7 +9321,7 @@ Attribute in Data Dictionary object Contact is "Contact_VehicleAmount"</descript
         <picklist>
             <picklistValues>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -13256,14 +13256,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Work_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -16662,14 +16662,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Work_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -20180,14 +20180,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Work_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -23993,14 +23993,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Work_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Work_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>

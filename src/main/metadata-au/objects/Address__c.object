@@ -497,7 +497,7 @@
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
@@ -749,7 +749,7 @@
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
     </recordTypes>
