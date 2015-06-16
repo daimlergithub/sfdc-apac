@@ -4,8 +4,8 @@ Global with sharing class UtilConstant {
     public final static String Ingretion_Profile = 'IntegrationAPI';
     public final static String DEALER_DELEGATE_ADMIN = 'Dealer Delegate Admin';
     public final static String DEALER_COMMUNITY_USER = 'Dealer Community User';
-    public final static String SALES_LEADS = 'Vehicle Lead';
-    public final static String AFTER_SALES_LEADS = 'Service/Parts Lead';
+    public final static String SALES_LEADS = 'Sales Leads';
+    public final static String AFTER_SALES_LEADS = 'Aftersales Leads';
     public final static String RETAIL_SALES_LEADS = 'Retail Sales Leads';
     public final static String AS_RETAIL_CAMPAIGN = 'AS Retail Campaign';
     public final static String DEALER_LEAD_GATE_KEEPER_QUEUE = 'Dealer Lead Gate Keeper Queue';
@@ -26,7 +26,7 @@ Global with sharing class UtilConstant {
     public final static String CHRYSLER_COMPLAINT = 'Chrysler Complaint';
     public final static String MBDA_COMPLAINT = 'MBDA Complaint';
     public final static String RETAIL_CAMPAIGN = 'Retail Campaign';
-    public final static String Enquiry = 'Enquiry';
+    public final static String INQUIRY = 'Inquiry';
     public final static String CAC_IB_TL = 'CAC IB TL';
     public final static String SSI_TASK = 'SSI Task';
     public final static String WELCOME_CALL = 'Welcome Call';
@@ -36,6 +36,7 @@ Global with sharing class UtilConstant {
     public final static String VALID = 'Valid';
     public final static string SSI='ssi__c';
     public final static string CLOSED='Closed';
+    public final static string COMMUNITY_LICENSE_SWITCH='Community Enabled';
     
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {
