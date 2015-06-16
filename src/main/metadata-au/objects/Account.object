@@ -4571,7 +4571,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <picklist>
             <picklistValues>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -4587,7 +4587,7 @@ Attribute in Data Dictionary object Contact is "Contact_Education"</description>
         <picklist>
             <picklistValues>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -5356,7 +5356,7 @@ Attribute in Data Dictinary "Pref_Details" of object "Preference"</description>
         <picklist>
             <picklistValues>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -5463,7 +5463,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
         <picklist>
             <picklistValues>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -6429,7 +6429,7 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <picklist>
             <picklistValues>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -8182,7 +8182,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <picklist>
             <picklistValues>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
@@ -11382,14 +11382,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Email_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -11678,7 +11678,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Home_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -11704,7 +11704,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Individual_Home_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -12203,7 +12203,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -12698,7 +12698,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -15148,14 +15148,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Email_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -15444,7 +15444,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Home_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -15470,7 +15470,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Individual_Home_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -15969,7 +15969,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -16300,7 +16300,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -18318,14 +18318,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Email_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -18614,7 +18614,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Home_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -18640,7 +18640,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Individual_Home_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -19131,7 +19131,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -19622,7 +19622,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -22115,14 +22115,14 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Email_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
             <picklist>Email_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -22415,7 +22415,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Home_Phone_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -22441,7 +22441,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Individual_Home_Phone_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -22940,7 +22940,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>Mobile_Status__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -23435,7 +23435,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             <picklist>SMS_MMS_IM_Status_2__c</picklist>
             <values>
                 <fullName>Invalid</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -24037,7 +24037,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <lookupPhoneDialogsAdditionalFields>PC_PHONE6</lookupPhoneDialogsAdditionalFields>
         <searchFilterFields>Business_Unit__c</searchFilterFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
-		<searchResultsAdditionalFields>Business_Unit__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Business_Unit__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Province__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>City__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ZipCode__c</searchResultsAdditionalFields>
