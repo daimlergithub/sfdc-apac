@@ -138,7 +138,7 @@
         
         <tr>        
         <th>Work Phone 2</th>        
-            <td><apex:inputField value="{!accountList_details.Work_Phone__c}"/></td> 
+            <td><apex:inputField value="{!accountList_details.Phone}"/></td> 
             <td><apex:inputField value="{!accountList_details.Work_Phone_Status_2__c}"/></td>   
             <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone2__c}"/></td>   
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>            
