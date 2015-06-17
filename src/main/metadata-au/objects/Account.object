@@ -901,7 +901,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <externalId>false</externalId>
-        <label>Buy Cycle</label>
+        <label>PC No. Brand Purchases</label>
         <precision>10</precision>
         <required>false</required>
         <scale>0</scale>
