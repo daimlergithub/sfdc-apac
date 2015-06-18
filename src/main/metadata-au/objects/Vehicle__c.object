@@ -259,7 +259,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
         <label>Brand</label>
         <picklist>
             <picklistValues>
-                <fullName>WESTERN STAR</fullName>
+                <fullName>Western Star</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -568,10 +568,6 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Volvo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Western</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -21009,15 +21005,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>WESTERN STAR</fullName>
+                <fullName>Western Star</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>WHITE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Western</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -23386,15 +23378,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>WESTERN STAR</fullName>
+                <fullName>Western Star</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>WHITE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Western</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27923,15 +27911,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>WESTERN STAR</fullName>
+                <fullName>Western Star</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>WHITE</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Western</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
