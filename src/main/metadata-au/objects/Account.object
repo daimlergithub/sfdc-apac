@@ -24038,14 +24038,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <searchFilterFields>Business_Unit__c</searchFilterFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Business_Unit__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Province__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>City__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ZipCode__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>PC_PHONE3</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>PC_PHONE4</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>PC_EMAIL</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
