@@ -14,6 +14,13 @@ private class RetailTaskSharingTest {
 
         vehicle = new Vehicle__c();
         insert vehicle;
+        RecordType serviceType = [select Id from RecordType where SObjectType = 'Retail_Task__c' and DeveloperName = 'Service' limit 1];
+        Retail_Task__c service = new Retail_Task__c(RecordTypeId = serviceType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle.Id);
+        RecordType retailTaskType = [select Id from RecordType where SObjectType = 'Retail_Task__c' and DeveloperName = 'Retail_Activity' limit 1];
+        Retail_Task__c retailActivity = new Retail_Task__c(RecordTypeId = retailTaskType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle.Id);
+        RecordType contractType = [select Id from RecordType where SObjectType = 'Retail_Task__c' and DeveloperName = 'contract' limit 1];
+        Retail_Task__c contract = new Retail_Task__c(RecordTypeId = contractType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle.Id);
+        insert new List<Retail_Task__c>{service, retailActivity, contract};
     }
     
     @isTest 
@@ -23,8 +30,9 @@ private class RetailTaskSharingTest {
         Retail_Task__c contract = new Retail_Task__c(RecordTypeId = contractType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle.Id);
         insert contract;
         RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();
-        wrapService.wrapContracts(new List<Retail_Task__c>{contract});
+        List<SharingWrapper> wrapContracts=wrapService.wrapContracts(new List<Retail_Task__c>{contract});
         Test.stopTest();
+        System.assertNotEquals(null,wrapContracts);
     }
     
     @isTest 
@@ -32,9 +40,11 @@ private class RetailTaskSharingTest {
         Test.startTest();
         RecordType retailTaskType = [select Id from RecordType where SObjectType = 'Retail_Task__c' and DeveloperName = 'Retail_Activity' limit 1];
         Retail_Task__c retailActivity = new Retail_Task__c(RecordTypeId = retailTaskType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle.Id);
-        RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();
-        wrapService.wrapRetailActivities(new List<Retail_Task__c>{retailActivity});
+        RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();        
+        List<SharingWrapper> wrapRetailTasks=wrapService.wrapRetailActivities(new List<Retail_Task__c>{retailActivity});
         Test.stopTest();
+        System.assertNotEquals(null,wrapRetailTasks);
+
     }
     
     @isTest 
@@ -43,8 +53,9 @@ private class RetailTaskSharingTest {
         RecordType serviceType = [select Id from RecordType where SObjectType = 'Retail_Task__c' and DeveloperName = 'Service' limit 1];
         Retail_Task__c service = new Retail_Task__c(RecordTypeId = serviceType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle.Id);
         RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();
-        wrapService.wrapServices(new List<Retail_Task__c>{service});
+        List<SharingWrapper> wrapServices=wrapService.wrapServices(new List<Retail_Task__c>{service});
         Test.stopTest();
+        System.assertNotEquals(null,wrapServices);
     }
 
     @isTest
@@ -58,21 +69,10 @@ private class RetailTaskSharingTest {
         insert new List<Retail_Task__c>{service, retailActivity, contract};
 
         Test.startTest();
-        RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();
-        wrapService.wrapRetailTasks(new List<Retail_Task__c>{service, retailActivity, contract});
+        RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();        
+        List<SharingWrapper> wrapRetailTasks=wrapService.wrapRetailTasks(new List<Retail_Task__c>{service, retailActivity, contract});
         Test.stopTest();
+        System.assertNotEquals(null,wrapRetailTasks);
     }
     
-    @isTest
-    static void testRetailTaskTrigger() {
-    	Test.startTest();
-    	RecordType serviceType = [select Id from RecordType where SObjectType = 'Retail_Task__c' and DeveloperName = 'Service' limit 1];
-        Retail_Task__c service = new Retail_Task__c(RecordTypeId = serviceType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle.Id);
-        RecordType retailTaskType = [select Id from RecordType where SObjectType = 'Retail_Task__c' and DeveloperName = 'Retail_Activity' limit 1];
-        Retail_Task__c retailActivity = new Retail_Task__c(RecordTypeId = retailTaskType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle.Id);
-        RecordType contractType = [select Id from RecordType where SObjectType = 'Retail_Task__c' and DeveloperName = 'contract' limit 1];
-        Retail_Task__c contract = new Retail_Task__c(RecordTypeId = contractType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle.Id);
-        insert new List<Retail_Task__c>{service, retailActivity, contract};
-        Test.stopTest();
-    }
 }
