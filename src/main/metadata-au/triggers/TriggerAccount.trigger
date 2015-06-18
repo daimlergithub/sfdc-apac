@@ -37,6 +37,5 @@ trigger TriggerAccount on Account (before insert,before update,after insert, aft
     if(trigger.isBefore && trigger.isUpdate)
     {
         AccountHelper.auBefore_Insert_Update_Events(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-        AccountHelper.updateAddressOnAccount(trigger.new);
     }
 }
