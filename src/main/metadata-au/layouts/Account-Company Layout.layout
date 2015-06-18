@@ -124,7 +124,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
-        <label>Addess Information</label>
+        <label>Address Information</label>
         <layoutColumns>
             <layoutItems>
                 <height>200</height>
