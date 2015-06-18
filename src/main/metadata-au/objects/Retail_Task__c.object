@@ -2195,7 +2195,7 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
-    <label>Retail Task</label>
+    <label>Contracts & Aftersales</label>
     <listViews>
         <fullName>All</fullName>
         <columns>NAME</columns>
