@@ -39930,7 +39930,43 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Actros</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Argosy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Atego</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Axor</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>C 63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class Coupé</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CL-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39938,7 +39974,127 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>CLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLC-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLK-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLK-Class Coupé</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS Shooting Brake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLS-Class Coupé</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Canter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Century Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Century Class S%2FT 112</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Charter Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Citan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>City Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Columbia</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Columbia 112</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Columbia 112 Concrete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coronado</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coronado 112</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coronado 114</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coronado SD</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coronado SD 114</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>E 63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Cabriolet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Coupé</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Econic</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fighter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>G-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -39950,6 +40106,14 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>Heavy</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mercedes-AMG GT</fullName>
                 <default>false</default>
             </values>
@@ -39958,11 +40122,99 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <default>false</default>
             </values>
             <values>
+                <fullName>R-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rosa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SLS AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>School Bus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sprinter Cab Chassis</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sprinter Dual Chassis</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Sprinter Minibus</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Sprinter Panel Van</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sprinter Transfer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sprinter Van</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unimog</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>V-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valente</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Viano</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vito Crew Cab</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vito Panel Van</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vito Shuttle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vito Van</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vito Wagon</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Zetros</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
