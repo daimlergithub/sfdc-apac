@@ -373,38 +373,5 @@ public class AccountHelper {
                 from Account
                 where Id in :ids]);
     }
-    public static void updateAddressOnAccount(list<Account> listNewAccounts){
-    	Set<Id> AccIdSet = new Set<Id>();
-    	for(Account acc : listNewAccounts){
-    		AccIdSet.add(acc.Id);
-    	}
-    	
-    	if(AccIdSet!=null && !AccIdSet.isEmpty()){
-    		List<Address__c> addrList = [select id,name,Customer__c,Address_Line_1__c,Address_Line_2__c,District__c,Province__c,ZipCode__c,Country__c,Preferred__c from Address__c 
-    									where Customer__c in : AccIdSet and Preferred__c=true];
-    		if(addrList!=null && !addrList.isEmpty()){
-    			for(Account acc : listNewAccounts){
-    				for(Address__c addr : addrList){
-    					if(acc.Id==addr.Customer__c){
-    						if(addr.Address_Line_1__c!=null && addr.Address_Line_1__c!='')
-    							acc.Primary_Address__c = addr.Address_Line_1__c;
-    						if(addr.Address_Line_2__c!=null && addr.Address_Line_2__c!='')	
-    							acc.Primary_Address__c +=' '+ addr.Address_Line_1__c;
-    						if(addr.District__c!=null && addr.District__c!='')
-    							acc.Primary_Address__c +=' '+ addr.District__c;
-    						if(addr.Province__c!=null && addr.Province__c!='')
-    							acc.Primary_Address__c +=' '+ addr.Province__c;
-    						if(addr.Country__c!=null && addr.Country__c!='')
-    							acc.Primary_Address__c +=' '+ addr.Country__c;
-    						if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
-    							acc.Primary_Address__c +=' '+ addr.ZipCode__c;
-    					}
-    				}
-    			}
-    		}
-    	}
-    	
-    	
-    }
     //Existing AU related functionality ends here   
 }
