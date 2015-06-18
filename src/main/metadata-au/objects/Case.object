@@ -16363,6 +16363,46 @@ Modify Reason:
                 <fullName>Rosa</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>A 45 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C 63 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLA Shooting Brake</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E 63 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-Maybach S-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>V-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sprinter Minibus</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -39882,7 +39922,47 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <picklistValues>
             <picklist>Vehicle_you_are_most_interested_in__c</picklist>
             <values>
+                <fullName>A 45 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>A-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C 63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA Shooting Brake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E 63 AMG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-Maybach S-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sprinter Minibus</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V-Class</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
