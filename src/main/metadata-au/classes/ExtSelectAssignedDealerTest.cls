@@ -1,108 +1,175 @@
 /*
-    Type:       Test class for class: ExtSelectAssignedDealer
-    Purpose:    Test codes
+    Type:       Extension class for Visualforce Page:
+                SelectAssignedDealerController
+    Purpose:    1) Display the proper dealer information according
+                to the filters setup by the operating user
+                2) Auto assigned the lead to the selected dealer
     User Story: US AU-Lead-007
-    Used By:    
+    Used By:    SelectAssignedDealer.page
     ---------------------------------------------------------------
     History:
 
-    1. Polaris Yu (BreakingPoint) Created on 2013-8-28
+    1. Polaris Yu (BreakingPoint) Created on 2013-8-22
 */
-@isTest
-public class ExtSelectAssignedDealerTest {
-	
-	private static Id personAccRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-	private static Id dealerRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-	private static Id finLdRTId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
-	private static Account personAcc;
-	private static Account dealer;
-	private static Lead__c finLead;
-	
-    public static testMethod void testSelectAssignedDealer()
-    {
-        createAccount();
-        createPersonAccount();
-		createLead();
-		test.starttest();
-        // Select a dealer for this lead by click the button 'Select Assigned Dealer'
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + finLead.Id);
-        Test.setCurrentPage(pr);        
-        Lead__c objFinLead=[select id from Lead__c where id=:finLead.Id];
-        ExtSelectAssignedDealer selectDealer = new ExtSelectAssignedDealer(new ApexPages.StandardController(objFinLead));
-        test.stoptest();
-        //verify
+public with sharing class ExtSelectAssignedDealer {
+    public Lead__c lead                  {get; set;}
+    public String name                           {get; set;}
+    public Account dealer                        {get; set;}
+    public Boolean hasQueryResult                {get; set;}
+    public List<Account> dealers                 {get; set;}
+    public Id choosenDealerId                    {get; set;}
+    public Boolean hasMessage                    {get; set;}
+
+    // Query return limit and Dealer's Record Type Name
+    private final Integer QUERY_LIMIT = 200;
+    private Id dealerRecordTypeId = null;
+    public string suburb                    {get; set;}
+    public ExtSelectAssignedDealer(ApexPages.StandardController controller) {
+        lead = [SELECT RecordType.Name, Name, Assigned_Dealer__c, Postcode__c
+                FROM Lead__c WHERE Id =: controller.getId()];
+        
+        // Initiate dealer
+        RecordType dealerRecordType = [SELECT Id FROM RecordType
+                                       WHERE Name = 'Dealer'
+                                       AND SObjectType = 'Account'];
+        dealerRecordTypeId = dealerRecordType.Id;
+        dealer = new Account(RecordTypeId = dealerRecordTypeId
+                             , ZipCode__c = lead.Postcode__c);
+        query();
     }
     
-    public static testMethod void testSelectAssignedDealer_query()
-    {
-        createAccount();
-        createPersonAccount();
-		createLead();
-		test.starttest();
-        // Select a dealer for this lead by click the button 'Select Assigned Dealer'
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + finLead.Id);
-        Test.setCurrentPage(pr);        
-        Lead__c objFinLead=[select id from Lead__c where id=:finLead.Id];
-        ExtSelectAssignedDealer selectDealer = new ExtSelectAssignedDealer(new ApexPages.StandardController(objFinLead));
-        selectDealer.name = 'Beijing';
-        selectDealer.dealer.ZipCode__c = '001010';
-        selectDealer.dealer.Cars_Offered_Service__c = 'Sales; Service';
-        selectDealer.query();
-        test.stoptest();
-        //verify
+    // Get the SOQL Expr of DealerSearchColumns FieldSet fields
+    private String getColumns() {
+        String columns = '';
+        for (Schema.FieldSetMember member : this.getFieldSetMembers()) {
+            columns += member.getFieldPath() + ', ';
+        }
+        
+        return columns;
     }
     
-    public static testMethod void testSelectAssignedDealer_choose()
-    {
-        createAccount();
-        createPersonAccount();
-		createLead();
-		test.starttest();
-        // Select a dealer for this lead by click the button 'Select Assigned Dealer'
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + finLead.Id);
-        Test.setCurrentPage(pr);        
-        Lead__c objFinLead=[select id from Lead__c where id=:finLead.Id];
-        ExtSelectAssignedDealer selectDealer = new ExtSelectAssignedDealer(new ApexPages.StandardController(objFinLead));
-        selectDealer.choosenDealerId = dealer.Id;
-        selectDealer.lead.Id = null;
-        selectDealer.choose();
-        selectDealer.lead.Id = finLead.Id;
-        selectDealer.choose();
-        test.stoptest();
-        //verify
+    // Get the FieldSet Members of Account FieldSet(AssignedDealerColumns)
+    private List<Schema.FieldSetMember> getFieldSetMembers() {
+        return SObjectType.Account.FieldSets.AssignedDealerColumns.getFields();
+    }
+
+    public void query() {
+        // We must inculde the IsPsersonAccount in the SOQL, otherwise, 
+        // we will get exception in debug log but not display on the page
+        String querySOQL = 'SELECT ' + this.getColumns() + 
+            'IsPersonAccount, Id FROM Account WHERE ' + 
+            'Dealer_Active__c = true and RecordTypeId =: dealerRecordTypeId ';
+
+        // Filter Part
+        // Filtered by 'Dealer Name'
+        if (name != null && name != '') {
+            querySOQL += 'AND Name Like \'%' + name + '%\' ';
+        }
+        
+        if((suburb != null && suburb != ''))
+        {
+            querySOQL += 'AND Id IN (SELECT Customer__c FROM Address__c WHERE District__c =: suburb )';
+        }
+        
+        if ((dealer.ZipCode__c != null && dealer.ZipCode__c != '')
+            || (dealer.Cars_Offered_Service__c != null
+            && dealer.Cars_Offered_Service__c != ''))
+            {
+            querySOQL += ' AND Id IN (SELECT Dealer_Name__c FROM Dealer_Locator__c WHERE ';
+
+            // Filtered by 'Suburb'
+            /*if (suburb != null && suburb != '') {
+                querySOQL += 'Suburb__c =: suburb AND ';
+            }*/
+
+            // Filtered by 'Post Code'
+            if(dealer.ZipCode__c != null && dealer.ZipCode__c != ''){
+                String postCode = dealer.ZipCode__c;
+                querySOQL += 'Post_Code__c =: postCode AND ';
+            }
+            //TODO
+            // Filtered by 'Business Unit'
+            if(dealer.Business_Unit__c != null && dealer.Business_Unit__c != ''){
+                List<String> businessUnit = dealer.Business_Unit__c.split(';', -1);
+                String buQuery = '';
+                for(integer i = 0; i < businessUnit.size(); i ++){
+                    if(i < (businessUnit.size()-1)){
+                        buQuery += 'Business_Unit__c = \'' + businessUnit[i] + '\' OR ';
+                    }
+                    else if(i == (businessUnit.size()-1)){
+                        buQuery += 'Business_Unit__c = \'' + businessUnit[i] + '\'';
+                    }
+                }
+                if(businessUnit.size() > 1){
+                    querySOQL += '(' + buQuery + ') AND ';
+                }
+                else{
+                    querySOQL += buQuery + ' AND ';
+                }
+            }
+
+            // Filtered by 'Offered Service'; 8 kinds of Offered Service
+            if(dealer.Cars_Offered_Service__c != null && dealer.Cars_Offered_Service__c != ''){
+                List<String> offeredService = dealer.Cars_Offered_Service__c.split(';', -1);
+                String osQuery = '';
+                for(integer i = 0; i < offeredService.size(); i ++ ){
+                    if(i < (offeredService.size()-1)){
+                        osQuery += 'Offered_Service__c = \'' + offeredService[i] + '\' OR ';
+                    }
+                    else if(i == (offeredService.size()-1)){
+                        osQuery += 'Offered_Service__c = \'' + offeredService[i] + '\'';
+                    }
+                }
+                if(offeredService.size() > 1){
+                    querySOQL += '(' + osQuery + ') AND ';
+                }
+                else{
+                    querySOQL += osQuery + ' AND ';
+                }
+            }
+            querySOQL = querySOQL.subString(0, querySOQL.length() - 4) + ')';
+        }
+        
+        // Query Dealers               
+        //todo :' ORDER BY Suburb__c DESC NULLS LAST LIMIT ' +
+        //querySOQL += ' DESC NULLS LAST LIMIT ' +this.QUERY_LIMIT;
+        System.debug('Debug Output ======> {' + querySOQL + '}');
+        System.debug('Debug Output ======> {recordType:'
+            + dealerRecordTypeId + '}');
+        
+        dealers = Database.query(querySOQL); 
+        
+        // If no query result, system alert no search result.
+        hasQueryResult = (dealers.size() > 0);
+        if (!hasQueryResult) {
+            this.addInfoMessage('No Search Result');
+        }
     }
     
-    static void createAccount()
-    {
-    	dealer = new Account(Status__c = 'Customer'
-                                     , Name = 'TestDealer' + date.Today()
-                                     , RecordTypeId = dealerRTId
-                                     , Phone ='0186770993');
-        insert dealer;                             
+    public PageReference choose() {
+        // Populate assigned dealer
+        hasMessage = false;
+        lead.Assigned_Dealer__c = choosenDealerId;
+
+        try {
+            update lead;
+        }
+        catch (DMLException e) {
+            this.addErrorMessage(e.getDMLMessage(0));
+            hasMessage = true;
+            System.debug('Debug Output ======> {' + hasMessage + '}');
+        }
+
+        return new PageReference('/' + lead.Id);
     }
-    
-    static void createPersonAccount()
-    {
-    	personAcc = new Account(Status__c = 'Customer'
-                                        , LastName = 'LastName'
-                                        , Salutation = 'Mr'
-                                        , Title__c = 'Title'
-                                        , FirstName = 'FirstName'
-                                        , Suffix__c = 'suffix'
-                                        , PersonEmail ='test@test.com'
-                                        , RecordTypeId = personAccRTId
-                                        , PersonMobilePhone ='1800999999');
-    	insert personAcc;
+
+    private void addInfoMessage(String msg) {
+        ApexPages.addMessage(new ApexPages.Message(
+            ApexPages.severity.INFO, msg));
     }
-    
-    static void createLead()
-    {
-    	 finLead = new Lead__c(Contact__c = personAcc.Id,RecordtypeId=finLdRTId
-                                      , Lead_Source__c = 'Web Form'
-                                      , Nature_of_Request__c = 'General Enquiry'
-                                      , Business_Unit__c = 'Cars'
-                                      , Sub_BusinessUnit__c = 'Sales'
-                                      , CAC_Lead_Status__c = 'New Enquiry');
-        insert finLead;
+
+    private void addErrorMessage(String msg) {
+        ApexPages.addMessage(new ApexPages.Message(
+            ApexPages.severity.ERROR, msg));
     }
 }
