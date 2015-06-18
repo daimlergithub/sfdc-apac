@@ -170,6 +170,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountSharingDataHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AddToRetailCampaignController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -470,6 +474,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>FleerCorverListTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ForgotPasswordController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -511,6 +519,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LeadHelperTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadHelperTestRf</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1242,6 +1254,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilAccountTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilCampaignCity</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1318,6 +1334,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilLeadTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilProfile</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1343,6 +1363,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilVehicleRelationship</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilVehicleRelationshipTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -2981,9 +3005,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Account.Primary_Address__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -12816,6 +12840,11 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>true</editable>
+        <field>SocialPersona.SourceApp</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>false</editable>
         <field>Solution.IsPublished</field>
         <readable>false</readable>
@@ -16633,6 +16662,18 @@
     <tabVisibilities>
         <tab>Getting_Started</tab>
         <visibility>DefaultOff</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>PreOrder__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>SurveyTaker__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Survey__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
         <tab>standard-Campaign</tab>
