@@ -1476,135 +1476,19 @@
         <label>Series</label>
         <picklist>
             <picklistValues>
-                <fullName>A-CLASS</fullName>
+                <fullName>A-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>B-CLASS</fullName>
+                <fullName>All New A-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C-CLASS</fullName>
+                <fullName>AMG</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C ESTATE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>New C Sport</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CL-CLASS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLK-CLASS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CLS-CLASS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-CLASS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E Coupe Sport</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E-Class Cabriolet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G-CLASS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GL-CLASS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GLK-CLASS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ML-CLASS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>R-CLASS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>S-CLASS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SL-CLASS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLK-CLASS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Concept Car</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB100 (not current series)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SPRINTER</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VIANO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VITO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VARIO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MARCO POLO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MAYBACH</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>smart</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G65 AMG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>G63 AMG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>E63 AMG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SLK55 AMG</fullName>
+                <fullName>B-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1612,7 +1496,67 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Canter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C Estate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLA-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLC-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CL-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLK-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>CLS63 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLS-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLS Shooting Brake</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Concept Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E63 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fighter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>F Series</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1620,7 +1564,71 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>G63 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>G65 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>G-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GL-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Marco Polo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maybach</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB 100</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB 140</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>M-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>ML63 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>ML-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MPV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>New C Sport</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>R-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rosa</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1628,7 +1636,23 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>S-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>SL63 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SL-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLK55 AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLK-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1636,14 +1660,58 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>TRUCKS</fullName>
+                <fullName>SLS-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MPV</fullName>
+                <fullName>smart</fullName>
                 <default>false</default>
             </picklistValues>
-            <sorted>false</sorted>
+            <picklistValues>
+                <fullName>smart Forfour</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart Fortwo cabrio</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart Fortwo coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart Roadster</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sprinter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trucks</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Valente</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vario</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Viano</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vito</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
