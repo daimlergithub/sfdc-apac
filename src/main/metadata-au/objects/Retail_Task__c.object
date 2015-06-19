@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>Accept</actionName>
@@ -2198,105 +2198,14 @@
     <label>Contracts &amp; Aftersales</label>
     <listViews>
         <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>ContractNumber__c</columns>
-        <columns>Created_By_EP_Transaction__c</columns>
-        <columns>Description__c</columns>
-        <columns>Purchase_Month__c</columns>
-        <columns>Purchase_Year__c</columns>
-        <columns>Retail_Employee_Activity__c</columns>
-        <columns>Retail_LastModifiedDate__c</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>Selling_Dealer__c</columns>
-        <columns>Updated_By_EP_Transactions__c</columns>
-        <columns>VIN__c</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>OWNER.LAST_NAME</columns>
-        <columns>Related_Contact__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>RetailActivity</fullName>
-        <columns>NAME</columns>
-        <columns>Related_Dealer__c</columns>
-        <columns>ContractNumber__c</columns>
-        <columns>Created_By_EP_Transaction__c</columns>
-        <columns>Updated_By_EP_Transactions__c</columns>
-        <columns>Description__c</columns>
-        <columns>Purchase_Month__c</columns>
-        <columns>Purchase_Year__c</columns>
-        <columns>Retail_Employee_Activity__c</columns>
-        <columns>Retail_LastModifiedDate__c</columns>
-        <columns>CREATEDBY_USER</columns>
-        <columns>Selling_Dealer__c</columns>
-        <columns>Related_Contact__c</columns>
-        <columns>Retail_Id__c</columns>
-        <columns>Group__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Retail_Task__c.Retail_Activity</value>
-        </filters>
-        <label>RetailActivity</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Service</fullName>
-        <columns>Service_Number__c</columns>
-        <columns>Service_Code__c</columns>
-        <columns>Related_Contact__c</columns>
-        <columns>Related_Vehicle__c</columns>
-        <columns>Related_Dealer__c</columns>
-        <columns>Service_Position__c</columns>
-        <columns>NAME</columns>
-        <columns>Service_Invoice_Number__c</columns>
-        <columns>Retail_LastModifiedDate__c</columns>
-        <columns>Follow_Up_Type__c</columns>
-        <columns>Group__c</columns>
-        <columns>Retail_Id__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Retail_Task__c.Service</value>
-        </filters>
-        <label>Service</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>contract</fullName>
-        <columns>NAME</columns>
-        <columns>ContractNumber__c</columns>
-        <columns>Created_By_EP_Transaction__c</columns>
-        <columns>Description__c</columns>
-        <columns>Purchase_Month__c</columns>
-        <columns>Purchase_Year__c</columns>
-        <columns>Retail_Employee_Activity__c</columns>
-        <columns>Retail_LastModifiedDate__c</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>Selling_Dealer__c</columns>
-        <columns>Updated_By_EP_Transactions__c</columns>
-        <columns>VIN__c</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>OWNER.LAST_NAME</columns>
-        <columns>Related_Contact__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Retail_Task__c.Contract</value>
-        </filters>
-        <label>Contract</label>
-        <language>en_US</language>
     </listViews>
     <nameField>
         <label>Name</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Retail Tasks</pluralLabel>
+    <pluralLabel>Contracts &amp; Aftersales</pluralLabel>
     <recordTypes>
         <fullName>Contract</fullName>
         <active>true</active>
