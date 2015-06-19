@@ -4334,7 +4334,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubSmart"</descripti
     </fields>
     <fields>
         <fullName>Deceased__c</fullName>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
