@@ -142,10 +142,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AccountHelperTestRf</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AccountLinkHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -171,6 +167,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountSharingDataHandlerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -658,6 +658,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ReportUserControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ReservationMessageTemplate</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -675,6 +679,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RetailCampaignHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RetailCampaignHelperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -982,10 +990,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TaskHelperTestRf</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TaskMassChangeActivateDeactive</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1270,6 +1274,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilCampaignShareByCollaborationTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilCampaignTaskGenerationByAccount</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1334,6 +1342,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilLeadTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilProfile</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1359,6 +1371,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilVehicleRelationship</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilVehicleRelationshipTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -7062,9 +7078,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>Contract_Relation__c.Lead__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -17414,7 +17430,6 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
