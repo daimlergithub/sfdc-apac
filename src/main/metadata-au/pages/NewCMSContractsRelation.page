@@ -24,7 +24,7 @@
             <apex:pageBlockSection title="CMS Contracts Relation Edit" columns="2" collapsible="false">
                 <apex:inputField value="{!CMSContractsRelationInfo.Name}"/>
                 <apex:outputField value="{!CMSContractsRelationInfo.OwnerId}"/>
-                <apex:inputField value="{!CMSContractsRelationInfo.Lead__c}"/>
+               <!-- <apex:inputField value="{!CMSContractsRelationInfo.Lead__c}"/> -->
             </apex:pageBlockSection>
         </apex:pageBlock>
     </apex:form>  
