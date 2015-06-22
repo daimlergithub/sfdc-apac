@@ -6,7 +6,7 @@
     1. zhongyang.si Created on 2015-01-09
 
 */
-@isTest(SeeAllData=true)
+@isTest
 public class SubmitSurveyControllerTest{
 
 Private static Survey__c survey;
@@ -27,6 +27,8 @@ Private static String taskid='taskid';
 Private static String campaignid='campaignid';
 Private static String contactid='contactid';
 Private static String submit='submit';
+Private static String preview='preview';
+Private static String surveyID='surveyID'; 
 
 
         public static void preparedTestDate()
@@ -69,8 +71,8 @@ Private static String submit='submit';
     @isTest static void testgetNextQuestion() {
         preparedTestDate();
         Test.startTest();
-        ApexPages.currentPage().getParameters().put(type, 'preview');
-        ApexPages.currentPage().getParameters().put('surveyID', survey.id);
+        ApexPages.currentPage().getParameters().put(type, preview);
+        ApexPages.currentPage().getParameters().put(surveyID, survey.id);
         SubmitSurveyController con = new SubmitSurveyController();
         con.getNextQuestion();
         con.getPreviousQuestion();
@@ -83,8 +85,8 @@ Private static String submit='submit';
     @isTest static void testsubmitSurvey() {
         preparedTestDate();
         Test.startTest();
-         ApexPages.currentPage().getParameters().put(type, 'preview');
-        ApexPages.currentPage().getParameters().put('surveyID', survey.id);
+         ApexPages.currentPage().getParameters().put(type, preview);
+        ApexPages.currentPage().getParameters().put(surveyID, survey.id);
         Apexpages.currentPage().getParameters().put(taskid, task.id);
         Apexpages.currentPage().getParameters().put(campaignid,campaign.id);
         Apexpages.currentPage().getParameters().put(contactid,contact.id);
@@ -100,8 +102,8 @@ Private static String submit='submit';
     @isTest static void testMethod03() {
         preparedTestDate();
         Test.startTest();
-        ApexPages.currentPage().getParameters().put(type, 'preview');
-        ApexPages.currentPage().getParameters().put('surveyID', 'invalid id');
+        ApexPages.currentPage().getParameters().put(type, preview);
+        ApexPages.currentPage().getParameters().put(surveyID, 'invalid id');
         Apexpages.currentPage().getParameters().put(contactid,contact.id);
         SubmitSurveyController con = new SubmitSurveyController();
         Test.stopTest();
@@ -111,8 +113,8 @@ Private static String submit='submit';
     @isTest static void testbreakSurvey() {
         preparedTestDate();
         Test.startTest();
-         ApexPages.currentPage().getParameters().put(type, 'preview');
-        ApexPages.currentPage().getParameters().put('surveyID', survey.id);
+         ApexPages.currentPage().getParameters().put(type, preview);
+        ApexPages.currentPage().getParameters().put(surveyID, survey.id);
         Apexpages.currentPage().getParameters().put(taskid, task.id);
         Apexpages.currentPage().getParameters().put(contactid,contact.id);
         Apexpages.currentPage().getParameters().put(campaignid,campaign.id);
@@ -122,14 +124,14 @@ Private static String submit='submit';
         con.submitSurvey();
         con.breakSurvey();
         Test.stopTest();
-        System.assertEquals(con.operationType,'preview');
+        System.assertEquals(con.operationType,preview);
     }
 
     @isTest static void testgetPreviousQuestion() {
         preparedTestDate();
         Test.startTest();
-         ApexPages.currentPage().getParameters().put(type, 'preview');
-        ApexPages.currentPage().getParameters().put('surveyID', survey.id);
+         ApexPages.currentPage().getParameters().put(type, preview);
+        ApexPages.currentPage().getParameters().put(surveyID, survey.id);
         Apexpages.currentPage().getParameters().put(campaignid,campaign.id);
         Apexpages.currentPage().getParameters().put(taskid, task.id);
         Apexpages.currentPage().getParameters().put(contactid,contact.id);
