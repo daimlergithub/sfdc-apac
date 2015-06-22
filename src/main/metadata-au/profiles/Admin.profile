@@ -1254,6 +1254,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilAccountTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilCampaignCity</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -7163,11 +7167,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.CAC_SourceId__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Campaign__c</field>
         <readable>true</readable>
@@ -8311,11 +8310,6 @@
         <editable>true</editable>
         <field>Lead__c.CAC_Lost_Reason__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.CAC_SourceId__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -15547,11 +15541,11 @@
         <recordType>Vehicle_Relationship__c.Individual</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-Competitor Vehicle Layout-CAC</layout>
-        <recordType>Vehicle__c.Competitor</recordType>
+        <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
+        <recordType>Vehicle__c.Competitor</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
@@ -17420,6 +17414,7 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
+    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
