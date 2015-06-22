@@ -1,8 +1,8 @@
 @isTest
 private class RetailCampaignSharingTest {
-    
     private static Account dealer;
-    
+    private static Retail_Campaign__c retailCampaign;
+    //prepare test data
     static {
         RecordType dealerType = [select Id from RecordType where SObjectType = 'Account' and DeveloperName = 'Dealer' limit 1];
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer');
@@ -38,15 +38,22 @@ private class RetailCampaignSharingTest {
     @isTest 
     static void testWrapRetailCampaigns() {
         List<Retail_Campaign__c> retailCampaigns = new List<Retail_Campaign__c>();
-        for(RecordType retailCampaignType : [select Id, DeveloperName from RecordType where SObjectType = 'Retail_Campaign__c']) {
-            Retail_Campaign__c retailCampaign = new Retail_Campaign__c(Dealer_Name__c = dealer.Id, Y_Dealer_Name__c = dealer.Id, RecordTypeId = retailCampaignType.Id, Brand__c = 'MB');
+        List<RecordType> retailCampaignTypeList = new List<RecordType>([select Id, DeveloperName from RecordType where SObjectType = 'Retail_Campaign__c']);
+        for(RecordType retailCampaignType : retailCampaignTypeList) {
+             retailCampaign = new Retail_Campaign__c(Dealer_Name__c = dealer.Id, Y_Dealer_Name__c = dealer.Id, RecordTypeId = retailCampaignType.Id, Brand__c = 'MB');
             retailCampaigns.add(retailCampaign);
         }
         insert retailCampaigns;
-        
+        //start test
         Test.startTest();
         RetailCampaignSharingWrapService wrapService = new RetailCampaignSharingWrapService();
         wrapService.wrapRetailCampaigns(retailCampaigns);
-        Test.stopTest();    
+        Test.stopTest();  
+        
+        //verify
+        Retail_Campaign__c retailCampaignCheck = [select Dealer_Name__c,Y_Dealer_Name__c,Brand__c from Retail_Campaign__c where id IN:retailCampaigns limit 1];
+        system.assertEquals(retailCampaignCheck.Dealer_Name__c, retailCampaign.Dealer_Name__c);
+        
     }
+
 }

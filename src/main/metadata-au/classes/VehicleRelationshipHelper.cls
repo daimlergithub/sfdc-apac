@@ -161,6 +161,8 @@ public with sharing class VehicleRelationshipHelper {
         };
           //update PC CV VAN tenure
      private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords){
+         system.debug('vehicleGroup======================='+vehicleGroup);
+         system.debug('preRecords======================='+preRecords);
         if(!String.isblank(vehicleGroup)){
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
             List<String> cols = colsMap.get(vehicleGroup);
@@ -221,6 +223,7 @@ public with sharing class VehicleRelationshipHelper {
 	    
 	    for(Vehicle_Relationship__c cvr : listVRNew) {
 	        if(isInsert){
+                
 	            // Make sure the vehicle id not null
 	            if (null == cvr.Vehicle_ID__c){
 	                cvr.addError('Please select the vehicle Id !');

@@ -45,7 +45,7 @@ public class FleerCorverListTest {
                                       Is_Finance_Send_Email_Before_60_Days__c = true);
                                       
         insert lead1;
-		
+        
          //start test
         Test.startTest();
         PageReference Fleetsettlementchecklist = Page.Fleet_settlement_checklist;

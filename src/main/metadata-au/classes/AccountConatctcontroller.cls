@@ -15,7 +15,7 @@ public date FSLastModifieddate{get;set;}
           accountList_details= new Account();     
          if(ApexPages.currentPage().getParameters().get('id')!=Null)
           {
-              contactList=[select id,Mobile__c,Mobile_Status__c,Mobile2__c,SMS_MMS_IM_Status_2__c,PersonHomePhone,Individual_Home_Phone__c,Individual_Home_Phone_Status__c,Home_Phone_Status_2__c,
+              contactList=[select id,Mobile__c,Mobile_Status__c,Mobile2__c,SMS_MMS_IM_Status_2__c,PersonHomePhone,Individual_Home_Phone__c,Individual_Home_Phone_Status__c,Home_Phone_Status_2__c,Home_Phone_2__c,
                             Work_Phone__c,Work_Phone_Status__c,Work_Phone_Status_2__c,Email__c,Email2__c,Email_Status__c,Email_Status_2__c,Opt_In_SMS__c,Opt_In_SMS2__c,Opt_In_Home_Phone__c,Opt_In_Home_Phone2__c,
                             Opt_In_Work_Phone__c,Opt_In_Work_Phone2__c,Opt_In_Email__c,Opt_In_Email2__c,FS_Opt_In_SMS__c,FS_Opt_In_SMS2__c,FS_Opt_In_Home_Phone__c,FS_Opt_In_Home_Phone2__c,FS_Opt_In_Work_Phone__c,
                             FS_Opt_In_Work_Phone2__c,FS_Opt_In_Email__c,FS_Opt_In_Email2__c,                                                         
@@ -33,7 +33,7 @@ public date FSLastModifieddate{get;set;}
                             Work_Phone_Last_Modified_By2__c,Work_Phone_Last_Modified_Date2__c,Email_Last_Modified_By__c,
                             Email_Last_Modified_Date__c,Email_Last_Modified_By2__c,Email_Last_Modified_Date2__c,LastModifiedById,LastModifiedDate,
                             Preferred_Email_1__c,Preferred_Email_2__c,Preferred_Mobile_1__c,Preferred_Mobile_2__c,Preferred_Home_Phone_1__c,Preferred_Home_Phone_2__c,
-                            Preferred_Work_Phone_1__c,Preferred_Work_Phone_2__c,Phone,Name,Home_Phone_2__c  
+                            Preferred_Work_Phone_1__c,Preferred_Work_Phone_2__c,Phone,Name  
                             from Account Where Id=:ApexPages.currentPage().getParameters().get('id') Limit 1]; 
                                             
           }

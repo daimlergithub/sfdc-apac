@@ -160,7 +160,7 @@ public class TaskSMSControllerExtensionTest{
         lead = new Lead__c();
         lead.Assigned_Dealer__c = dealer.Id;
         lead.Contact__c = customer.Id;
-        lead.CAC_Lead_Status__c = 'Qualified';
+        lead.CAC_Lead_Status__c = 'New Enquiry';
         lead.Lead_Type__c = 'Used Car';
         lead.Relation_With_The_Leads__c = 'test';
         lead.Lead_Desired_Service__c = 'Trade-In';

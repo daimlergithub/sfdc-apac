@@ -217,7 +217,7 @@ public class AccountHelperTest
           insert testContact;
        
        usr = new User(
-            Username = System.now().millisecond() + 'test12345@test.com',
+            Username = System.now().millisecond() +math.random()+ '987654321test12345@test.com',
             FirstName = 'firstname',
             ProfileId = userProfile.Id,            
             Alias = 'test123',
