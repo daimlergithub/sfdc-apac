@@ -55,6 +55,10 @@
                 <behavior>Edit</behavior>
                 <field>Preferred__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Delivery_Point_ID__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
@@ -69,12 +73,12 @@
                 <field>Opt_In_Hardcopy__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Hardcopy_Last_Modified_By__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>FS_Hardcopy_Last_Modified_By__c</field>
+                <behavior>Readonly</behavior>
+                <field>Hardcopy_Last_Modified_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -83,11 +87,11 @@
                 <field>FS_Opt_In_Hardcopy__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Hardcopy_Last_Modified_Date__c</field>
+                <behavior>Readonly</behavior>
+                <field>FS_Hardcopy_Last_Modified_By__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>FS_Hardcopy_Last_Modified_Date__c</field>
             </layoutItems>
         </layoutColumns>
@@ -128,7 +132,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000000JkoZ</masterLabel>
+        <masterLabel>00h17000000Jm5M</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

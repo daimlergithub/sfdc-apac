@@ -23,7 +23,7 @@ public with sharing class ExtSelectAssignedDealer {
     // Query return limit and Dealer's Record Type Name
     private final Integer QUERY_LIMIT = 200;
     private Id dealerRecordTypeId = null;
-    
+    public string suburb                    {get; set;}
     public ExtSelectAssignedDealer(ApexPages.StandardController controller) {
         lead = [SELECT RecordType.Name, Name, Assigned_Dealer__c, Postcode__c
                 FROM Lead__c WHERE Id =: controller.getId()];
@@ -35,7 +35,6 @@ public with sharing class ExtSelectAssignedDealer {
         dealerRecordTypeId = dealerRecordType.Id;
         dealer = new Account(RecordTypeId = dealerRecordTypeId
                              , ZipCode__c = lead.Postcode__c);
-
         query();
     }
     
@@ -66,18 +65,22 @@ public with sharing class ExtSelectAssignedDealer {
         if (name != null && name != '') {
             querySOQL += 'AND Name Like \'%' + name + '%\' ';
         }
-
+        
+        if((suburb != null && suburb != ''))
+        {
+            querySOQL += 'AND Id IN (SELECT Customer__c FROM Address__c WHERE District__c =: suburb )';
+        }
+        
         if ((dealer.ZipCode__c != null && dealer.ZipCode__c != '')
             || (dealer.Cars_Offered_Service__c != null
-            && dealer.Cars_Offered_Service__c != '')){
-            querySOQL += 'AND Id IN (SELECT Dealer_Name__c FROM Dealer_Locator__c WHERE ';
+            && dealer.Cars_Offered_Service__c != ''))
+            {
+            querySOQL += ' AND Id IN (SELECT Dealer_Name__c FROM Dealer_Locator__c WHERE ';
 
             // Filtered by 'Suburb'
-            //TODO
-            //if (dealer.District__c != null && dealer.District__c != '') {
-                //String suburb = dealer.District__c;
-                //querySOQL += 'Suburb__c =: suburb AND ';
-            //}
+            /*if (suburb != null && suburb != '') {
+                querySOQL += 'Suburb__c =: suburb AND ';
+            }*/
 
             // Filtered by 'Post Code'
             if(dealer.ZipCode__c != null && dealer.ZipCode__c != ''){
@@ -86,7 +89,7 @@ public with sharing class ExtSelectAssignedDealer {
             }
             //TODO
             // Filtered by 'Business Unit'
-            /*if(dealer.Business_Unit__c != null && dealer.Business_Unit__c != ''){
+            if(dealer.Business_Unit__c != null && dealer.Business_Unit__c != ''){
                 List<String> businessUnit = dealer.Business_Unit__c.split(';', -1);
                 String buQuery = '';
                 for(integer i = 0; i < businessUnit.size(); i ++){
@@ -103,7 +106,7 @@ public with sharing class ExtSelectAssignedDealer {
                 else{
                     querySOQL += buQuery + ' AND ';
                 }
-            }*/
+            }
 
             // Filtered by 'Offered Service'; 8 kinds of Offered Service
             if(dealer.Cars_Offered_Service__c != null && dealer.Cars_Offered_Service__c != ''){

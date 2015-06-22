@@ -164,6 +164,10 @@
                 <fullName>Free Text</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackTrending>false</trackTrending>

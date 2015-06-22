@@ -716,7 +716,23 @@
         <picklistValues>
             <picklist>Sector__c</picklist>
             <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service %26 Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -28,4 +28,14 @@ public class UtilCustomSettings {
         }
     }
     
+    public static string getOrgWideDefaultAddress(String orgWideDefaultAddressName)
+    {	
+	    if (orgWideDefaultAddressName != null && App_Setting__c.getAll().get(orgWideDefaultAddressName) != null) {
+            return App_Setting__c.getAll().get(orgWideDefaultAddressName).Value__c;         
+		}
+		else {
+		    return UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT;
+        }
+    }
+    
 }
