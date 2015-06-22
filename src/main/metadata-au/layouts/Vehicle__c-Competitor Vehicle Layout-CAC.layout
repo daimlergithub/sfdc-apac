@@ -52,6 +52,12 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>System__c</fields>
+        <fields>RECORDTYPE</fields>
+        <relatedList>Account_Link__c.Vehicle__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Validity__c</fields>
