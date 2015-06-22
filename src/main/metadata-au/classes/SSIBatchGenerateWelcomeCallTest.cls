@@ -31,6 +31,8 @@ public class SSIBatchGenerateWelcomeCallTest {
             Phone = '1234567', 
             Area_Code__c = '010',
             ZipCode__c = '123456',
+            firstname='test acme',
+            Salutation='Brother',
             Recordtypeid = paid
         );
         insert dms1;
@@ -40,6 +42,8 @@ public class SSIBatchGenerateWelcomeCallTest {
             Phone = '1234567', 
             Area_Code__c = '010',
             ZipCode__c = '123456',
+            firstname='test acme',
+            Salutation='Brother',
             Recordtypeid = paid 
         );
         
@@ -71,6 +75,8 @@ public class SSIBatchGenerateWelcomeCallTest {
             Phone = '1234567', 
             Area_Code__c = '010',
             ZipCode__c = '123456',
+            firstname='test acme',
+            Salutation='Brother',
             Recordtypeid = paid 
         );
         insert dms3;

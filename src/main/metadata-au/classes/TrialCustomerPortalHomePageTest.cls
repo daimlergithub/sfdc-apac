@@ -5,7 +5,7 @@ Public class TrialCustomerPortalHomePageTest
  {
  Id Owner;
 List<Account> accs = new List<Account>();
-Owner = [SELECT id FROM User LIMIT 1].id;
+Owner = [SELECT id FROM User  where isactive=true LIMIT 1].id;
 
 for(integer i = 0; i<1000; i++) {
 Account a = new Account();
@@ -32,15 +32,9 @@ Long start = system.currentTimeMillis();
  trial.sortField1= 'createdbyid';
  trial.sortField2= 'createdbyid';
  trial.sortField4= 'createdbyid';
- //trial.sortField5= 'createdbyid';
- //trial.sortField6= 'createdbyid';
- 
- 
  trial.previousSortField1= 'createdbyid';
  trial.previousSortField2= 'createdbyid';
  trial.previousSortField4= 'createdbyid';
- //trial.previousSortField5= 'createdbyid';
- //trial.previousSortField6= 'createdbyid';
  
   trial.SortSolutions();
   Test.stopTest();

@@ -31,7 +31,7 @@ public with sharing class AccountSharingDataHandlerTest
         AccountSharingDataHandler accSdh = new AccountSharingDataHandler('processFlg');
         Sobject Shareobj =  accSdh.createShareObject(personAcc.id, usr.id);
         accSdh.shareDealerByCrmCode(newData, oldData, false);
-        accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, true);
+        accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, false);
         test.stopTest();
         system.assertNotEquals(null, Shareobj);
     }

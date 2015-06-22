@@ -161,7 +161,9 @@ private class SelectAssignedDealerControllerTest
 
         personAccount = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-
+personAccount.Email__c='test@mbau.com';
+                    personAccount.Email2__c = 'testemail2@test.com';
+                    personAccount.Home_Phone_2__c = '98765413';  
         // One Lead which has a reference to this person account
         lead = new Lead__c(Contact__c = personAccount.Id);
         lead = (Lead__c)UtilTestData.createSobject(lead,

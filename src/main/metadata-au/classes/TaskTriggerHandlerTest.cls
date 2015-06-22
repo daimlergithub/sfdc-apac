@@ -19,7 +19,7 @@ private class TaskTriggerHandlerTest {
                 PersonOtherPhone = '1302222222', 
                 Phone = '1234567', 
                 PersonHomePhone = '1234568', 
-                PersonAssistantPhone = '1234569'
+                PersonAssistantPhone = '1234569',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413'
             );
     
             customer = (Account)UtilTestData.createSobject(customer, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT); 

@@ -17,6 +17,9 @@ public class ScheduleCreateConversionRateOBEmailsTest{
         testAccount = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
         testAccount.Dealer_Region__c = 'NORTH';
         testAccount.Dealer_MB_Sub_Region__c = 'NORTH1';
+        testAccount.Email__c='test@mbau.com';
+                    testAccount.Email2__c = 'testemail2@test.com';
+                    testAccount.Home_Phone_2__c = '98765413'; 
         update testAccount;
          
         //Create Lead Records:
