@@ -22,6 +22,7 @@ public class NewCMSContractsRelationController {
         }
         else {
             isCase = false;
+            CMSContractsRelationInfo.Lead__c = id;
         }
     }
     
@@ -46,6 +47,24 @@ public class NewCMSContractsRelationController {
         catch(exception ex) {
             return null;
         }
+        return new PageReference('/' + CMSContractsRelationInfo.Lead__c);
+    }
+    
+    public pageReference saveCMSforLeadAndNew() {
+        try {
+            insert CMSContractsRelationInfo;
+        }
+        catch(exception ex) {
+            return null;
+        }
+        
+        Contract_Relation__c CMSContractsRelationInfo2 = [select Lead__c, Lead__r.Name from Contract_Relation__c where Id = :CMSContractsRelationInfo.Id];
+        CMSContractsRelationInfo = new Contract_Relation__c();
+        CMSContractsRelationInfo.Lead__c = CMSContractsRelationInfo2.Lead__c;
         return null;
+    }
+    
+    public pageReference cancelforLead() {
+        return new PageReference('/' + CMSContractsRelationInfo.Lead__c);
     }
 }
