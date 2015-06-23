@@ -61,10 +61,10 @@ private class ReservationMessageTemplateTest {
                                     lastName = 'Beijing XING Services Limited - Alpha Review',
                                     ZipCode__c='100101',
                                     Salutation='Brother',
-                                    FirstName='Test',
+                                    FirstName='Test',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413',
                                     RecordTypeId=accPerson_RecordTypeIdp);
                                     insert account2;
-        dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer',ID_Number__c='123456');
+        dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer',ID_Number__c='123456',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
         insert dealer;
 
         con = new Contact(AccountId = dealer.Id,firstName='Test', LastName = 'lastname',Salutation='Mr',Title='test', Phone = '123', email = 's@s.s');

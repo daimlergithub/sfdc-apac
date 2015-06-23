@@ -21,10 +21,14 @@ public class UtilCampaignTaskGenerationByVehicleTest {
                                     lastName = 'Beijing XING Services Limited - Alpha Review',
                                     ZipCode__c='100101',
                                     Salutation='Brother',
-                                    FirstName='TestName',
+                                    FirstName='TestName',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413',
                                     RecordTypeId=accPerson_RecordTypeIdp);
                                     insert account2;  
          Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+        dealer.Email__c='test@mbau.com';
+                    dealer.Email2__c = 'testemail2@test.com';
+                    dealer.Home_Phone_2__c = '98765413';
+        update dealer;
          contact = new Contact(
             AccountId = dealer.Id, 
             LastName = 'ba', 
@@ -135,7 +139,7 @@ public class UtilCampaignTaskGenerationByVehicleTest {
             StartDate = System.today(), 
             EndDate = System.today(),
             Execution_Type__c ='OB Call',
-            Task_De_dup_Range__c='By Campaign Execution',
+           
             RecordTypeId = topCampRecordTypeId
         );
         insert top;
@@ -202,7 +206,7 @@ public class UtilCampaignTaskGenerationByVehicleTest {
             EndDate = System.today(),
             DM_Material__c=objDM.id,
             Execution_Type__c ='DM',
-            Task_De_dup_Range__c='By Campaign Execution',
+           
             RecordTypeId = topCampRecordTypeId
         );
         insert top;
@@ -269,7 +273,7 @@ public class UtilCampaignTaskGenerationByVehicleTest {
             EndDate = System.today(),
             Template__c=temp.id,
             Execution_Type__c ='eDM',
-            Task_De_dup_Range__c='By Campaign Execution',
+           
             RecordTypeId = topCampRecordTypeId
         );
         insert top;
@@ -336,7 +340,7 @@ public class UtilCampaignTaskGenerationByVehicleTest {
             EndDate = System.today(),
             Template__c=temp.id,
             Execution_Type__c ='SMS',
-            Task_De_dup_Range__c='By Campaign Execution',
+           
             RecordTypeId = topCampRecordTypeId
         );
         insert top;
@@ -403,7 +407,7 @@ public class UtilCampaignTaskGenerationByVehicleTest {
             EndDate = System.today(),
             Template__c=temp.id,
             Execution_Type__c ='MMS',
-            Task_De_dup_Range__c='By Campaign Execution',
+           
             RecordTypeId = topCampRecordTypeId
         );
         insert top;

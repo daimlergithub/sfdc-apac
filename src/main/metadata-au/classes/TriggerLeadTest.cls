@@ -89,6 +89,9 @@ private class TriggerLeadTest {
         customer.Gender__c = '0=Male';
         customer.ZipCode__c = '200235';
         customer.Type = '0=Company';
+         customer.Email__c='test011@test.com';
+        customer.Email2__c='test012@test.com';
+        customer.Home_Phone_2__c='9958745898';
         customer.Phone = '12332111'; 
         customer.Status__c = '0=Customer';
         customer.RecordTypeId = personRecordTypeId;

@@ -14,9 +14,7 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
     public static testMethod void testHasAssignedDealer() {
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_DEALER);
-dealer.Email__c='test@mbau.com';
-                    dealer.Email2__c = 'testemail2@test.com';
-                    dealer.Home_Phone_2__c = '98765413'; 
+
        Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Assigned_Dealer__c = dealer.Id);
 
         lead = (Lead__c)UtilTestData.createSobject(lead, 

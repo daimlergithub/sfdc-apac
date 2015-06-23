@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<CaseSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>Case_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Australia</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>CaseNumber</field>
+            <operation>notEqual</operation>
+            <value>null</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <name>Case Sharing Rule</name>
+    </criteriaBasedRules>
+</CaseSharingRules>

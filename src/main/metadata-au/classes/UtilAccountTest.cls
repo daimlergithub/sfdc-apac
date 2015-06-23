@@ -47,7 +47,7 @@ public with sharing class UtilAccountTest
                                     ZipCode__c='0000001',
                                     Allow_Data_Sharing__c='yes',
                                     Preferred_Language__c = 'English',
-                                    Dealer_Lead_System__c = 'Salesforce',
+                                    Dealer_Lead_System__c = 'Salesforce',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413',
                                     
                                     RecordTypeId=accPerson_RecordTypeId);
        
@@ -67,7 +67,7 @@ public with sharing class UtilAccountTest
                                     ZipCode__c='1000000',
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
-                                    Dealer_Lead_System__c = 'Salesforce',
+                                    Dealer_Lead_System__c = 'Salesforce',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413',
                                     
                                     RecordTypeId=accPerson_RecordTypeId);
        

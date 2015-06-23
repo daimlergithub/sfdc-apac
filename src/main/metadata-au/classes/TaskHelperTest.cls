@@ -66,7 +66,7 @@ private class TaskHelperTest {
         String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
         Test.startTest();
         //Inserts test data
-        Account acc = new Account(LastName = 'Acme',FirstName = 'Firstname',Salutation = 'Unknown', Area_Code__c = '010',Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
+        Account acc = new Account(LastName = 'Acme',FirstName = 'Firstname',Salutation = 'Unknown', Area_Code__c = '010',Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(),Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
         insert acc;
         Task task = new Task(Subject = 'acme', RecordTypeId = IBTaskRecordTypeId, WhatId = acc.Id);
         insert task;
@@ -100,7 +100,7 @@ private class TaskHelperTest {
         String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
         Test.startTest();
         //Inserts test data
-        Account acc = new Account(LastName = 'Acme',FirstName = 'Firstname',Salutation = 'Unknown', Area_Code__c = '010',Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
+        Account acc = new Account(LastName = 'Acme',FirstName = 'Firstname',Salutation = 'Unknown', Area_Code__c = '010',Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(),Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
         insert acc;
         Campaign cam1 = new Campaign(Name = 'acmeCam1');
         insert cam1;
@@ -142,8 +142,8 @@ private class TaskHelperTest {
         String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
         String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
         Test.startTest();
-        Account acc = new Account(LastName = 'Acme',FirstName = 'Firstname',Salutation = 'Unknown', Area_Code__c = '010', Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
-        Account acccase = new Account(LastName = 'Acme',FirstName = 'Firstname',Salutation = 'Unknown', Area_Code__c = '010',Phone = '1391382', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
+        Account acc = new Account(LastName = 'Acme',FirstName = 'Firstname',Salutation = 'Unknown', Area_Code__c = '010', Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
+        Account acccase = new Account(LastName = 'Acme',FirstName = 'Firstname',Salutation = 'Unknown', Area_Code__c = '010',Phone = '1391382', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
         insert acc;
         insert acccase;
         
@@ -319,7 +319,7 @@ private class TaskHelperTest {
                                       ZipCode__c='123456',
                                       PersonMobilePhone = '1301111111',
                                       PersonOtherPhone = '1301111122',
-                                      RecordTypeId=accPerson_RecordTypeId
+                                      RecordTypeId=accPerson_RecordTypeId,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413'
                                      ); 
         personAccount.Is_Blacklist__c = false;
         insert(personAccount);        

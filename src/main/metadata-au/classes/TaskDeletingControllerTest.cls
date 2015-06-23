@@ -2,19 +2,26 @@
 public class TaskDeletingControllerTest 
 {
 private static Task t;
-  static testMethod void testTaskDeletingController()
-  {
-   
-    List<Profile> userProfile = new List<Profile>([SELECT Id FROM profile WHERE name='Central CRM Manager' OR Name='Central AS Marketing Manager' OR  Name='Central AS Marketing Staff' OR Name='CAC IT Manager']);
-       
-    //data for user object
-       User usr = new User(alias = 'standt', email = 'test@9876test.com', 
+private static User usr;
+   private static User user;
+    
+    private static void createUser(List<Profile> userProfile){
+          usr = new User(alias = 'standt', email = 'test@9876test.com', 
                                       emailencodingkey = 'UTF-8', lastname = 'TestLasName', languagelocalekey = 'en_US', 
                                       localesidkey = 'en_US', profileid = userProfile.get(0).id ,
                                       timezonesidkey = 'America/Los_Angeles',  username = 'testUniqudeName@test.com');
                                       insert usr;
                                          
-              User user = [select Profile.Name from User where profileid =:userProfile.get(0).id];
+               user = [select Profile.Name from User where profileid =:userProfile.get(0).id];
+        
+    }
+  static testMethod void testTaskDeletingController()
+  {
+   
+    List<Profile> userProfile = new List<Profile>([SELECT Id FROM profile WHERE name='Central CRM Manager' OR Name='Central AS Marketing Manager' OR  Name='Central AS Marketing Staff' OR Name='CAC IT Manager']);
+       createUser(userProfile);
+    //data for user object
+      
               system.runas(user)
                {
                Test.startTest();
@@ -33,14 +40,10 @@ private static Task t;
   static testMethod void TestRemoveTask_ElseConditon()
   {
     
-   List<Profile> userProfile = new List<Profile>([SELECT Id FROM profile WHERE name='CAC Data Manager' ]);       
+   List<Profile> userProfile = new List<Profile>([SELECT Id FROM profile WHERE name='CAC Data Manager' ]);   
+      createUser(userProfile);
        //data for user object
-       User usr = new User(alias = 'standt', email = 'test@9876test.com', 
-                                      emailencodingkey = 'UTF-8', lastname = 'TestLasName', languagelocalekey = 'en_US', 
-                                      localesidkey = 'en_US', profileid = userProfile.get(0).id ,
-                                      timezonesidkey = 'America/Los_Angeles',  username = 'testUniqudeName@test.com');
-                                      insert usr;     
-               User user = [select Profile.Name from User where profileid =:userProfile.get(0).id] ;
+       
                system.runas(user)
                {               
                Test.startTest();
