@@ -17,7 +17,7 @@
        Set<String> topCampaignIds = new Set<String>();
        List<Campaign> listcampaigns=new list<Campaign>();
        Campaign top = new Campaign(
-            IsActive = true, 
+          
             Name = 'top', 
             Status = 'Started', 
             StartDate = System.today(), 
@@ -29,7 +29,7 @@
        for(integer i=0;i<1;i++)
        {
        Campaign cac= new Campaign(
-            IsActive = true, 
+           
             Name = 'top', 
             Status = 'Started', 
             StartDate = System.today(), 
@@ -68,6 +68,7 @@
     }
      @isTest static void testupdateCampaignMemberStatusToRelatedCampaig()
      {
+          List<Campaign> listcampaigns=new list<Campaign>();
              String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
         String centralCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
 
@@ -81,7 +82,7 @@
         insert contact;
         List<CampaignMember> Listcampmember= new List<CampaignMember>();
         Campaign top = new Campaign(
-            IsActive = true, 
+           
             Name = 'top', 
             Status = 'Started', 
             StartDate = System.today(), 
@@ -113,13 +114,25 @@
             EndDate = System.today(),
             RecordTypeId = centralCampaignId
         );
-        
+
         insert objcampaign;
-        
+        listcampaigns.add(objcampaign);
+        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c from Campaign where id IN:listcampaigns];
+         list<Campaign> oldList = new  list<Campaign>();
+         oldList.add(listCampaign);
+        map<id,Campaign> oldMap = new map<id,Campaign>();
+         oldMap.put(listCampaign.id, listCampaign);
+         
         objcampaign.Status='Published';
         update objcampaign;
-        
+      
      CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
+           listcampaigns.add(objcampaign);
+         CampaignHelper.afterInsertUpdateEvents(listcampaigns,oldMap,true);
+         CampaignHelper.beforeUpdateEvents(listcampaigns,oldMap);
+         CampaignHelper.afterInsertEvents(listcampaigns);
+        // CampaignHelper.afterUpdateEvents(listcampaigns,oldList);
+        CampaignHelper.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
      }
      @isTest static void testbeforeUpdateEvents()
      {
@@ -129,7 +142,7 @@
      String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
             List<Campaign> campaignNew=new list<Campaign>();
 Campaign top = new Campaign(
-            IsActive = true, 
+           
             Name = 'top', 
             Status = 'Started', 
             StartDate = System.today(), 
@@ -139,7 +152,7 @@ Campaign top = new Campaign(
      for(integer i=0;i<1;i++)
        {
        Campaign cac= new Campaign(
-            IsActive = true, 
+           
             Name = 'top', 
             Status = 'Started', 
             StartDate = System.today(), 
@@ -173,7 +186,7 @@ Campaign top = new Campaign(
           String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
       List<Campaign> campaignNew=new list<Campaign>();
 Campaign top = new Campaign(
-            IsActive = true, 
+           
             Name = 'top', 
             Status = 'Started', 
             StartDate = System.today(), 
@@ -193,7 +206,7 @@ Campaign top = new Campaign(
      for(integer i=0;i<1;i++)
        {
        Campaign cac= new Campaign(
-            IsActive = true, 
+            
             Name = 'top', 
             Status = 'Started', 
             StartDate = System.today(), 
@@ -289,7 +302,7 @@ Campaign top = new Campaign(
         update objcampaign;
             
      }
-	 
+     
     // Test method to test au specific code
    @isTest(SeeAllData=true)  public static void testau_Before_Insert_Update_Events() 
     {

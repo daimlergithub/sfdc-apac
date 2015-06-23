@@ -1,6 +1,6 @@
 /*
     Type:       Trigger on Account
-    Purpose:    1. If customer has no vehicle relationship, Status must not be �Customer� 
+    Purpose:    1. If customer has no vehicle relationship, Status must not be ?Customer? 
                 2. Update dealer record in salesforce manually check
                 3. When city change , update look up
     User Story: US-DS-001, US-Lead-009

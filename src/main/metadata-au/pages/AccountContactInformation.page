@@ -67,7 +67,7 @@
          
         <tr>        
         <th>Home Phone 1</th>        
-            <td><apex:inputField value="{!accountList_details.PersonHomePhone}"/></td> 
+            <td><apex:inputField value="{!accountList_details.Individual_Home_Phone__c}"/></td> 
             <td><apex:inputField value="{!accountList_details.Individual_Home_Phone_Status__c}"/></td>   
             <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone__c}"/></td>    
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone__c}"/></td>     
@@ -90,7 +90,7 @@
         
         <tr>        
         <th>Home Phone 2</th>        
-            <td><apex:inputField value="{!accountList_details.Individual_Home_Phone__c}"/></td> 
+            <td><apex:inputField value="{!accountList_details.Home_Phone_2__c}"/></td> 
             <td><apex:inputField value="{!accountList_details.Home_Phone_Status_2__c}"/></td>   
             <td><apex:inputField value="{!accountList_details.Opt_In_Home_Phone2__c}"/></td>   
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>            
@@ -138,7 +138,7 @@
         
         <tr>        
         <th>Work Phone 2</th>        
-            <td><apex:inputField value="{!accountList_details.Work_Phone__c}"/></td> 
+            <td><apex:inputField value="{!accountList_details.Phone}"/></td> 
             <td><apex:inputField value="{!accountList_details.Work_Phone_Status_2__c}"/></td>   
             <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone2__c}"/></td>   
             <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>            
