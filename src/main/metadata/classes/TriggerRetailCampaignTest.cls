@@ -2,10 +2,7 @@
     Type:       Test class of TriggerRetailCampaign
     Purpose:    Test class of TriggerRetailCampaign
     
-    User Story: 
-    Used By: 
-    ---------------------------------------------------------------
-    History:
+  
     
     1. Shuang Li Created on 2014-05-13
 */
@@ -62,6 +59,10 @@ public class TriggerRetailCampaignTest {
                     RecordTypeId = ASRecordTypeId);
         insert cp3;
         test.stopTest();
+         list<Retail_Campaign__c> listRetailCampaign = new list<Retail_Campaign__c>();
+        listRetailCampaign.add(cp3);
+        Retail_Campaign__c retailCampaignCheck = [select Dealer_Name__c,Y_Dealer_Name__c,Brand__c from Retail_Campaign__c where id IN: listRetailCampaign];
+        system.assertEquals(retailCampaignCheck.Dealer_Name__c, cp3.Dealer_Name__c);
     }
     @isTest
     public static  void testTriggerRetailCampaign2() {
@@ -93,6 +94,10 @@ public class TriggerRetailCampaignTest {
         update cp4;
 
         test.stopTest();
+         list<Retail_Campaign__c> listRetailCampaign = new list<Retail_Campaign__c>();
+        listRetailCampaign.add(cp4);
+        Retail_Campaign__c retailCampaignCheck = [select Dealer_Name__c,Y_Dealer_Name__c,Brand__c from Retail_Campaign__c where id IN: listRetailCampaign];
+        system.assertEquals(retailCampaignCheck.Dealer_Name__c, cp4.Dealer_Name__c);
     }
     @isTest
     public static  void testTriggerRetailCampaign3() {
@@ -123,5 +128,9 @@ public class TriggerRetailCampaignTest {
         update cp5;
 
         test.stopTest();
+        list<Retail_Campaign__c> listRetailCampaign = new list<Retail_Campaign__c>();
+        listRetailCampaign.add(cp5);
+        Retail_Campaign__c retailCampaignCheck = [select Dealer_Name__c,Y_Dealer_Name__c,Brand__c from Retail_Campaign__c where id IN: listRetailCampaign];
+        system.assertEquals(retailCampaignCheck.Dealer_Name__c, cp5.Dealer_Name__c);
     }
 }

@@ -1,5 +1,5 @@
 @isTest
-public class UserHelperTest
+public With Sharing class UserHelperTest
 {
     final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Vehicle__c vehicle; 
@@ -29,6 +29,7 @@ public class UserHelperTest
     public static Vehicle_Relationship__c vehicleRs;
     public static String Read = 'Read';
     public static String Edit = 'Edit';
+    public static UserHelper ush;
     public Static String ErrorMessageFirstPart = 'You have reached the max no. of license ';
     static ID VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId(); 
     public static Id C_MB_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.MB_COMPLAINT).getRecordTypeId();
@@ -271,10 +272,6 @@ public class UserHelperTest
         con = new Contact(AccountId = dealer.Id,Permission_Set_Settings__c='Leads_Management', LastName = 'b', Phone = '123', email = 's@s.s');
         insert con;
         
-        // profiles
-        
-        
-        
         //create user  
         
         usr = new User(
@@ -472,7 +469,7 @@ public class UserHelperTest
         lstProfiles.add(CACSSICSR);
         lstProfiles.add(CACSSIQC);        
         usersList.add(usr);         
-        UserHelper ush = new userHelper();     
+        ush = new userHelper();     
         System.assertEquals(UserHelper.ErrorMessageFirstPart,ErrorMessageFirstPart);
     }
     

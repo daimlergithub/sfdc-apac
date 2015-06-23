@@ -1,126 +1,143 @@
 /*
     Type:       Test Class
     Purpose:    Test On AssignCaseToDealerController
-    ---------------------------------------------------------------
-    History:
-    
     1. Chaos Created on 2014-02-24
 
 */
-@isTest(seeAllData=true) 
-public class AssignCaseToDealerControllerTest {
+@isTest 
+public With Sharing class AssignCaseToDealerControllerTest {
     
     final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().
                                                 get('MB Complaint').getRecordTypeId();
- 
+    private static user user1;
+    private static user user2;
+    private static User Usr;
+    private static User portalUser;
+    private static user selectedUser ;
+   
+    public static void preparedTestData()
+    {
+    user1=UtilTestData.createPortalUser('Dealer User','Dealer Community User');
+          user2=UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin'); 
+        
+    }
+    
     public static testMethod void testquery() 
     {
-    	system.debug('>>'+UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH));
+    Community_License_Switch__c cls=new Community_License_Switch__c();
+        cls.Enable__c=true;
+        cls.name='Community Enabled';
+        insert cls;
         //Added community license switching mechanism
-    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-    	{
-	        User user1=UtilTestData.createPortalUser('Dealer User','Dealer Community User');
-	        User user2=UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');     
-	        User Usr=[select id from user where id=:UserInfo.getuserId()];
-	        System.runAs(usr) {
-	            Test.startTest();         
-	           User portalUser = [select accountId,email from user where contact.Dealer_Complaint_Gate_Keeper__c = true and id =:user1.Id and isActive = true limit 1];  
-	 
-	            User selectedUser = [select accountId,email from user where id =:user2.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];                               
-	
-	            Case c = new Case(Subject='For Controller test',
-	                              RecordTypeId = MBRecordtypeid, 
-	                              Ref_No_Central__c = 'test',
-	                              Case_Dealer__c = portalUser.AccountId,
-	                              Dealer_Contact__c = 'YES');
-	            insert c; 
-	           
-	            Test.setCurrentPage(Page.AssignCaseToDealer);
-	            ApexPages.currentPage().getParameters().put('caseId', c.Id);
-	            AssignCaseToDealerController con = new AssignCaseToDealerController();
-	            con.query();          
-	            Test.stopTest();
-	            system.assert(user1!=null);
-	            System.assertEquals(portalUser.AccountId,c.Case_Dealer__c); 
-	         }
-    	}
-    	//Added community license switching mechanism
-    	else
-    	{
-    		Test.startTest();
-    		Test.setCurrentPage(Page.AssignCaseToDealer);
+        if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+        {
+          preparedTestData();
+            Usr=[select id from user where id=:UserInfo.getuserId()];
+            System.runAs(usr) {
+                Test.startTest();         
+                portalUser = [select accountId,email from user where contact.Dealer_Complaint_Gate_Keeper__c = true and id =:user1.Id and isActive = true limit 1];  
+     
+                 selectedUser = [select accountId,email from user where id =:user2.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];                               
+    
+                Case c = new Case(Subject='For Controller test',
+                                  RecordTypeId = MBRecordtypeid, 
+                                  Ref_No_Central__c = 'test',
+                                  Case_Dealer__c = portalUser.AccountId,
+                                  Dealer_Contact__c = 'YES');
+                insert c; 
+               
+                Test.setCurrentPage(Page.AssignCaseToDealer);
+                ApexPages.currentPage().getParameters().put('caseId', c.Id);
+                AssignCaseToDealerController con = new AssignCaseToDealerController();
+                con.query();          
+                Test.stopTest();
+                system.assert(user1!=null);
+                System.assertEquals(portalUser.AccountId,c.Case_Dealer__c); 
+             }
+        }
+        //Added community license switching mechanism
+        else
+        {
+            Test.startTest();
+            Test.setCurrentPage(Page.AssignCaseToDealer);
             AssignCaseToDealerController con = new AssignCaseToDealerController();
             con.query();
             con.clear(); 
             con.assign();
-    		Test.stopTest();
-    	} 
+            Test.stopTest();
+        } 
     }
     public static testMethod void testclear() 
     {
+     Community_License_Switch__c cls=new Community_License_Switch__c();
+        cls.Enable__c=true;
+        cls.name='Community Enabled';
+        insert cls;
         //Added community license switching mechanism
-    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-    	{
-	        User user1=UtilTestData.createPortalUser('Dealer User','Dealer Community User');
-	        User user2=UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');     
-	        User Usr=[select id from user where id=:UserInfo.getuserId()];
-	        System.runAs(usr) {
-	            Test.startTest();         
-	            User portalUser = [select accountId,email from user where contact.Dealer_Complaint_Gate_Keeper__c = true and id =:user1.Id and isActive = true limit 1]; 
-	  
-	           User selectedUser = [select accountId,email from user where id =:user2.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];                               
-	
-	            Case c = new Case(Subject='For Controller test',
-	                              RecordTypeId = MBRecordtypeid, 
-	                              Ref_No_Central__c = 'test',
-	                              Case_Dealer__c = portalUser.AccountId,
-	                              Dealer_Contact__c = 'YES');
-	            insert c; 
-	           
-	            Test.setCurrentPage(Page.AssignCaseToDealer);
-	            ApexPages.currentPage().getParameters().put('caseId', c.Id);
-	            AssignCaseToDealerController con = new AssignCaseToDealerController();    
-	            con.clear();         
-	            Test.stopTest();
-	            system.assert(user1!=null);
-	            system.assertEquals(portalUser.AccountId,c.Case_Dealer__c);
-	            system.assertEquals(con.hasQueryResult,false); 
-	            
-	         }
-    	}
+        if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+        {     
+        preparedTestData();
+            Usr=[select id from user where id=:UserInfo.getuserId()];
+            System.runAs(usr) {
+                Test.startTest();         
+                 portalUser = [select accountId,email from user where contact.Dealer_Complaint_Gate_Keeper__c = true and id =:user1.Id and isActive = true limit 1]; 
+      
+               selectedUser = [select accountId,email from user where id =:user2.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];                               
+    
+                Case c = new Case(Subject='For Controller test',
+                                  RecordTypeId = MBRecordtypeid, 
+                                  Ref_No_Central__c = 'test ref',
+                                  Case_Dealer__c = portalUser.AccountId,
+                                  Dealer_Contact__c = 'YES');
+                insert c; 
+               
+                Test.setCurrentPage(Page.AssignCaseToDealer);
+                ApexPages.currentPage().getParameters().put('caseId', c.Id);
+                AssignCaseToDealerController con = new AssignCaseToDealerController();    
+                con.clear();         
+                Test.stopTest();
+                system.assert(user1!=null);
+                system.assertEquals(portalUser.AccountId,c.Case_Dealer__c);
+                system.assertEquals(con.hasQueryResult,false); 
+                
+             }
+        }
     }
     public static testMethod void testassign() 
     {
+    Community_License_Switch__c cls=new Community_License_Switch__c();
+        cls.Enable__c=true;
+        cls.name='Community Enabled';
+        insert cls;
         //Added community license switching mechanism
-    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
-    	{
-	        User user1=UtilTestData.createPortalUser('Dealer User','Dealer Community User');
-	        User user2=UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');     
-	        User Usr=[select id from user where id=:UserInfo.getuserId()];
-	        System.runAs(usr) {
-	            Test.startTest();         
-	           User portalUser = [select accountId,email from user where contact.Dealer_Complaint_Gate_Keeper__c = true and id =:user1.Id and isActive = true limit 1];   
-	
-	            User selectedUser = [select accountId,email from user where id =:user2.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];                               
-	
-	            Case c = new Case(Subject='For Controller test',
-	                              RecordTypeId = MBRecordtypeid, 
-	                              Ref_No_Central__c = 'test',
-	                              Case_Dealer__c = portalUser.AccountId,
-	                              Dealer_Contact__c = 'YES');
-	            insert c; 
-	           
-	            Test.setCurrentPage(Page.AssignCaseToDealer);
-	            ApexPages.currentPage().getParameters().put('caseId', c.Id);
-	            AssignCaseToDealerController con = new AssignCaseToDealerController();       
-	            con.selectedUserId = selectedUser.Id;
-	            con.assign();
-	            Test.stopTest();
-	            system.assert(user1!=null);
-	            system.assertEquals(portalUser.AccountId,c.Case_Dealer__c);
-	            system.assertEquals(selectedUser.Id,con.assignCase.ownerId);
-	            system.assertEquals(c.SendEmailToGateKeeper__c,false);    
-	         }
-    	}
+        if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+        {
+        preparedTestData();
+            Usr=[select id from user where id=:UserInfo.getuserId()];
+            System.runAs(usr) {
+                Test.startTest();         
+                 portalUser = [select accountId,email from user where contact.Dealer_Complaint_Gate_Keeper__c = true and id =:user1.Id and isActive = true limit 1];   
+    
+                 selectedUser = [select accountId,email from user where id =:user2.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];                               
+    
+                Case c = new Case(Subject='For Controller test',
+                                  RecordTypeId = MBRecordtypeid, 
+                                  Ref_No_Central__c = 'test ref no',
+                                  Case_Dealer__c = portalUser.AccountId,
+                                  Dealer_Contact__c = 'YES');
+                insert c; 
+               
+                Test.setCurrentPage(Page.AssignCaseToDealer);
+                ApexPages.currentPage().getParameters().put('caseId', c.Id);
+                AssignCaseToDealerController con = new AssignCaseToDealerController();       
+                con.selectedUserId = selectedUser.Id;
+                con.assign();
+                Test.stopTest();
+                system.assert(user1!=null);
+                system.assertEquals(portalUser.AccountId,c.Case_Dealer__c);
+                system.assertEquals(selectedUser.Id,con.assignCase.ownerId);
+                system.assertEquals(c.SendEmailToGateKeeper__c,false);    
+             }
+        }
     }
 }
