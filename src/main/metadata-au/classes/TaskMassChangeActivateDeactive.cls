@@ -39,8 +39,11 @@ public with sharing class TaskMassChangeActivateDeactive {
         List<User> users = new List<User>();
         List<User> RTLusers = new List<User>();
         tasks = [select id, ownerId from Task where ownerId = :user[0].id and status != 'Complete'];
+        System.debug('!!!! tasks '+tasks);
         users = [select id, name from User where Active__c = true and profile.name = 'Customer Retention' and UserRole.name like '%Customer Retention Office%'];
+        System.debug('!!!! users '+users );
         RTLusers = [select id, name from User where UserRole.name = 'Central Sales & Marketing'];
+        System.debug('!!!! RTLusers '+RTLusers );
         Integer usersNum = users.size();
         Integer RTLusersNum = RTLusers.size();
         Integer i = 0;

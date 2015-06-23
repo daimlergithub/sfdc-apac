@@ -100,6 +100,8 @@ private class SSIDataCleanTest {
             Phone = '1234567', 
             ZipCode__c = '123456',
             Area_Code__c = '101',
+            firstname='test acme',
+            Salutation='Brother',
             Recordtypeid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()
         );
         insert dms;
@@ -608,6 +610,8 @@ private class SSIDataCleanTest {
            PersonMobilePhone = '1301111111',
            PersonOtherPhone = '1301111122', 
             ZipCode__c = '123456',
+            firstname='test acme',
+            Salutation='Brother',
             Recordtypeid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()
         );
         insert dms2;

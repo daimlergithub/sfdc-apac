@@ -32,7 +32,7 @@ private class RecallHelperTest {
                                                                     
     static Account account = new Account(Recall__c = FALSE, Phone = '1234567',
                                         Area_Code__c ='010',
-                                         RecordTypeId = accPerson_RecordTypeId,
+                                         RecordTypeId = accPerson_RecordTypeId,firstname='test acme',Salutation='Brother',
                                          LastName = 'lai'); 
                                          
     static Recall__c custom = new Recall__c(VIN__c = '12345678901011000');

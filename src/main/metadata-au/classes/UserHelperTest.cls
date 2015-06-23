@@ -1,10 +1,10 @@
-@isTest(seeAllData=true)
+@isTest
 public class UserHelperTest
 {
     final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Vehicle__c vehicle; 
-    public static String externalLinkType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('ExternalLink').getRecordTypeId();
-    public static String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
+    public static String externalLinkType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Customer External Link').getRecordTypeId();
+    public static String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId();
     public static String retailSalesleadRecordTypeID = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId();
     public static Set<Id> existUserIds = new Set<Id>();
     public static List<Profile> lstProfiles = new List<profile>();
@@ -12,10 +12,10 @@ public class UserHelperTest
     public static Contact con ;
     public static Account dealer;
     public static user usr;
-    public static Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'];
+    public static Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'System Administrator'];
     public static Profile CACSSICSR = [select Id from Profile where Name = 'CAC SSI CSR'];
     public static Profile CACSSIQC = [select Id from Profile where Name = 'CAC SSI QC'];
-    public static Profile portalUserProf = [select Id from Profile where Name = 'Dealer Delegate Admin'];
+    public static Profile portalUserProf = [select Id from Profile where Name = 'System Administrator'];
     
     
     public static testmethod void ValidateUser_test()
