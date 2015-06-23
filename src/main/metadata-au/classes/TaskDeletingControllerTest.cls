@@ -48,7 +48,10 @@ private static Task t;
                ApexPages.StandardController sc = new ApexPages.StandardController(t);
                TaskDeletingController  td=new TaskDeletingController(sc);
                td.removeTask();
+               //Assert un deleted Task:
+               List<Task> deletedTask = [Select Id, isDeleted From Task Where Subject = 'test'];
                Test.stopTest();
+               system.assertEquals(1,deletedTask.size());
                }
   }
   

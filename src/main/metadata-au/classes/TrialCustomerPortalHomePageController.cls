@@ -27,7 +27,7 @@ public class TrialCustomerPortalHomePageController {
                          where ContactId = :loggedInUser.ContactId 
                          order by LastModifiedDate desc limit 3];
         
-        TopSolutions = [select id,SolutionName,TimesUsed,LastModifiedDate 
+        TopSolutions = [select id,SolutionName,TimesUsed,LastModifiedDate,CreatedById
                         from Solution 
                         order by TimesUsed desc limit 3];
                               

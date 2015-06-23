@@ -8,16 +8,15 @@ private class ComplaintDesHelperTest {
     static case c1;  
     static Case cas;   
     static Complaint_Description__c sm; 
-    
-    //main test  
+       //main test  
     static testMethod void sendMailToCaseMember() {
         User user1 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
         User user2 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
-      //upsert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionTriggerHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         system.runAs(user1){
             Test.startTest();
-           // Account acc = new Account(LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid);
-           // insert acc;
+                    upsert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+            Account acc = new Account(LastName='acme', Salutation='Brother',FirstName='Test',Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid,Home_Phone_2__c='5879874587', Email__c='test011@test.com',Email2__c='test012@test.com');
+            insert acc;
            // system.debug('Person account >>>>>>>>>>'+acc);  
             Account dealer = new Account(Name = 'dealer', RecordTypeId = dealerRecordtypeid);
             insert dealer;
@@ -31,8 +30,8 @@ private class ComplaintDesHelperTest {
             CaseTeamMember member2 = new CaseTeamMember(ParentId=c1.id,MemberId = user2.id,TeamRoleId=memberRole.id);
             insert member1;
             insert member2;            
-           // Complaint_Description__c cdc= new Complaint_Description__c(Case__c=c1.id);           
-           // insert cdc;            
+            Complaint_Description__c cdc= new Complaint_Description__c(Case__c=c1.id);           
+            insert cdc;            
             Attachment at= new Attachment(ParentId = c1.id , Name='testFile' , body=Blob.valueOf('Unit Test Attachment Body'));
             insert at;       
             Test.stopTest();           
@@ -40,7 +39,7 @@ private class ComplaintDesHelperTest {
     }
   
     public static void init(){
-        upsert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        insert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         cas = (Case)UtilTestData.createSobject(new Case(), UtilTestData.CASE_RT_MB_COMPLAINT);
         cas.Workflow_Order__c=true;
         update cas;   

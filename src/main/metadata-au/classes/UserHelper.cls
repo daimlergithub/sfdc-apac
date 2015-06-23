@@ -1,4 +1,4 @@
-/**
+/*
     Type:       Utility for UserBeforeInsertUpdate    
     Purpose:    1. Update Contact Portal user to True
                 2. If 'Dealer Lead Gate Keeper' is checked, the profile selected must be 'Dealer-Lead Manager' or 'Dealer-Lead+Complaint Manager' or 'Dealer-Delegated Admin' 
@@ -12,6 +12,7 @@
     08-May-2014   Cyril Huang (NttData)  Modified
     06-11-2014    zhongyang.si(NttData)  Modified
 */
+
 public with sharing class UserHelper {
     public Static final String ErrorMessageFirstPart = 'You have reached the max no. of license ';
     public Static final String ErrorMessageSecondPart = ', cannot enabled any new contact as dealer portal user';
@@ -244,8 +245,8 @@ public with sharing class UserHelper {
    
     public static void ShareLeadsToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
-        recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId());
-        recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId());
+        recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId());
         
         List<Lead__Share> shares = new List<Lead__Share>();
         for(Lead__c lead : [Select Id from Lead__c Where Id in (select ParentId from Lead__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
@@ -593,7 +594,7 @@ public with sharing class UserHelper {
     		{
     			if(obj.name=='Dealer Community User')
     				DealerComplaintUserId=obj.Id;
-    			if(obj.name=='Dealer Delegate Admin')
+    			if(obj.name=='System Administrator') // TODO prof name changed to "sys admin" since community license is not available for AU 
     				DealerDelegatedAdminId=obj.Id;
     			if(obj.name=='CAC SSI CSR')
     				CACSSICSRId=obj.Id;
