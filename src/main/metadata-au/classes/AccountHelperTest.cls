@@ -153,7 +153,8 @@ public class AccountHelperTest
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
                                     Dealer_Lead_System__c = 'Salesforce',
-                                    
+                                     Email__c='test011@test.com',
+                                    Email2__c='test012@test.com',
                                     RecordTypeId=accPerson_RecordTypeId);
        
        insert personAcc;
@@ -173,7 +174,8 @@ public class AccountHelperTest
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
                                     Dealer_Lead_System__c = 'Salesforce',
-                                    
+                                     Email__c='test011@test.com',
+                                    Email2__c='test012@test.com',
                                     RecordTypeId=accPerson_RecordTypeId);
        
        insert personAcc2;
