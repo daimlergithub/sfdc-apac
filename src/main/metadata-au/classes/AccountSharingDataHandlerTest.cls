@@ -86,7 +86,9 @@ public with sharing class AccountSharingDataHandlerTest
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
                                     Dealer_Lead_System__c = 'Salesforce',
-                                    
+                                     Email__c='test011@test.com',
+                                    Email2__c='test012@test.com',
+                                    Home_Phone_2__c='5879458745',
                                     RecordTypeId=accPerson_RecordTypeId);
        
        insert personAcc;

@@ -53,7 +53,7 @@ private class MassAssignRecallTasksTest {
             Area_Code__c = '010',                         
             ZipCode__c = '123456',
             firstname='test acme',
-           Salutation='Brother',           
+           Salutation='Brother', Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413',          
             Recordtypeid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()        
         );        
         insert acc;

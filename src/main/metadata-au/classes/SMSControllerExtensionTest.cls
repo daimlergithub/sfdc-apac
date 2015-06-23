@@ -32,16 +32,16 @@ public class SMSControllerExtensionTest {
     static List<Template__c> listTemplate=new List<Template__c>();
     //Created Record
     private static void init(){
-          customer = new Account(Area_Code__c = '010',firstname='test acme',Salutation='Brother',LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId);
+          customer = new Account(Area_Code__c = '010',firstname='test acme',Salutation='Brother',LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
           accountList.add(customer);    
           
-          customer_PersonMobilePhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer',firstname='test acme',Salutation='Brother', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111');
+          customer_PersonMobilePhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer',firstname='test acme',Salutation='Brother', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
           accountList.add(customer_PersonMobilePhone);
           
-          customer_PersonOtherPhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer',firstname='test acme',Salutation='Brother', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,PersonOtherPhone = '1301111111');
+          customer_PersonOtherPhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer',firstname='test acme',Salutation='Brother', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,PersonOtherPhone = '1301111111',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
           accountList.add(customer_PersonOtherPhone);   
           
-          dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
+          dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
           accountList.add(dealer);
           
           insert accountList;

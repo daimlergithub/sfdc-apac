@@ -1,5 +1,5 @@
 @isTest
-private class VehicleRelationshipSharingTest {
+private with sharing class VehicleRelationshipSharingTest {
 	
     private static Account dealer;
     Private static Account acc; 
@@ -31,9 +31,9 @@ private class VehicleRelationshipSharingTest {
         //start test
         Test.startTest();
         VehicleRelationshipSharingWrapService wrapService = new VehicleRelationshipSharingWrapService();
-        wrapService.wrapRetailVehicleRelationships(new List<Vehicle_Relationship__c>{retailVehicleRelationship});
+        list<SharingWrapper> wrapRetailVehicleRelationships = wrapService.wrapRetailVehicleRelationships(new List<Vehicle_Relationship__c>{retailVehicleRelationship});
         Test.stopTest();
-        
+        system.assertNotEquals(null, wrapRetailVehicleRelationships);
        
     }
 

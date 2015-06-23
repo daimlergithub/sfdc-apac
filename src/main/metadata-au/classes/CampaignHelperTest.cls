@@ -64,7 +64,7 @@
        CampaignHelper.copyTopCampaignStatusValueToSavedCampaign(campaignIds);
        system.debug('@@@@@@@@@ campaignIds '+campaignIds);
         Test.stopTest();
-     
+     system.assertNotEquals(null, listcampaigns[0].parentId);
     }
      @isTest static void testupdateCampaignMemberStatusToRelatedCampaig()
      {
@@ -133,6 +133,8 @@
          CampaignHelper.afterInsertEvents(listcampaigns);
         // CampaignHelper.afterUpdateEvents(listcampaigns,oldList);
         CampaignHelper.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
+         
+         system.assertNotEquals(null, listcampaigns[0].StartDate);
      }
      @isTest static void testbeforeUpdateEvents()
      {
@@ -178,6 +180,7 @@ Campaign top = new Campaign(
            updatecampain.add(cam); 
       }
       update updatecampain;
+        system.assertNotEquals(null, updatecampain[0].StartDate); 
      
 }
 
@@ -216,8 +219,14 @@ Campaign top = new Campaign(
             ParentId = top.Id
         );
         campaignNew.add(cac);
+           
+           
      }
    insert campaignNew;
+         
+         system.assertEquals(false, campaignNew[0].SMS_Task_Verified__c);
+         
+         
      }
      @isTest static void testafterInsertEvents_CampaignShare()
      {
@@ -300,7 +309,8 @@ Campaign top = new Campaign(
         
         objcampaign.Status='Published';
         update objcampaign;
-            
+        CampaignShare TestShareAs = [select id from CampaignShare where CampaignId =:cac.id limit 1];   
+         system.assertNotEquals(null, TestShareAs);
      }
      
     // Test method to test au specific code

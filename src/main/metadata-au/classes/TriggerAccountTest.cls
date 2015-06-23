@@ -19,6 +19,9 @@ private class TriggerAccountTest {
         dealer.City__c = 'Dongcheng District';
         dealer.Province__c = 'Beijing';
         update dealer;
+        dealer = [select City__c,Province__c from Account where id =:dealer.id];
+        system.assert(dealer.City__c =='Dongcheng District');
+        system.assert(dealer.Province__c == 'Beijing');
     }
 
     public testMethod static void testUpdateLeadDataSharing() {
