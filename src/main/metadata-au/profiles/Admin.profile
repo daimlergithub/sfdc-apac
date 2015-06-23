@@ -526,10 +526,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadHelperTestRf</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>LeadMassChangeDealerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
