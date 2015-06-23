@@ -11,8 +11,8 @@
 */
 public class UtilLead
 {
-    public static final String aftersalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
-    public static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
+    public static final String aftersalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads Soft Deleted').getRecordTypeId();
+    public static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId();
     // US-Lead-009
     public static void updateLeadForDataSharing(List<Lead__c> leads)
     {

@@ -14,6 +14,14 @@
                 <field>Name</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Class__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>ModelYear__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>Competitor_Brand__c</field>
             </layoutItems>
@@ -44,6 +52,12 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>System__c</fields>
+        <fields>RECORDTYPE</fields>
+        <relatedList>Account_Link__c.Vehicle__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
         <fields>Validity__c</fields>
@@ -76,7 +90,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hO0000000GoiG</masterLabel>
+        <masterLabel>00h17000000Jm6V</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

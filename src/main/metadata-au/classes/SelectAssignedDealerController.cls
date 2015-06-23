@@ -135,7 +135,8 @@ public with sharing class SelectAssignedDealerController {
                      WHERE Campaign__c = :centralMKTCampaignId]; 
 
                 // Populate participatingDealerIds
-                for (Participating_Dealer__c parDealer : parDealers) {
+                for (Participating_Dealer__c parDealer : parDealers) 
+                {
                     if (parDealer.Dealer__c != null) {
                         participatingDealerIds.add(parDealer.Dealer__c);
                     }
