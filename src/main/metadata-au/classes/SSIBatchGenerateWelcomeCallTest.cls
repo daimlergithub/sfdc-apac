@@ -31,7 +31,9 @@ public class SSIBatchGenerateWelcomeCallTest {
             Phone = '1234567', 
             Area_Code__c = '010',
             ZipCode__c = '123456',
-            Recordtypeid = paid
+            firstname='test acme',
+            Salutation='Brother',
+            Recordtypeid = paid,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413'
         );
         insert dms1;
 
@@ -40,7 +42,9 @@ public class SSIBatchGenerateWelcomeCallTest {
             Phone = '1234567', 
             Area_Code__c = '010',
             ZipCode__c = '123456',
-            Recordtypeid = paid 
+            firstname='test acme',
+            Salutation='Brother',
+            Recordtypeid = paid,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413'
         );
         
         insert dms2;
@@ -71,7 +75,9 @@ public class SSIBatchGenerateWelcomeCallTest {
             Phone = '1234567', 
             Area_Code__c = '010',
             ZipCode__c = '123456',
-            Recordtypeid = paid 
+            firstname='test acme',
+            Salutation='Brother',
+            Recordtypeid = paid,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413' 
         );
         insert dms3;
         dms3 = [Select Id, PersonContactId From Account Where Id =: dms3.Id];

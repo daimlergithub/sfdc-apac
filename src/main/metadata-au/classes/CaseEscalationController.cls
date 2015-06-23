@@ -19,8 +19,8 @@ public class CaseEscalationController {
     private final static String ERROR_MSG = 'In case of escalation, all fields for Complaint Details section are mandatory.';
     private final static String ERROR_MSGChinese = 'Upgrade complaints, all complaints for more information fields are required.';
     private final static String ERROR_DupEscalate = 'Complaints have been upgraded, there is no need to upgrade again.';
-    private QueueSobject CentralPLWLQ = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name = 'Central Office PL / WL Queue' limit 1];
-    
+    private QueueSobject CentralPLWLQ = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'QC__c' and Queue.Name = 'Central Office PL / WL Queue' limit 1];
+    // Changed the SobjectType from Case to QC  since queues are not used in AU 
     //CR No.: CR-AS-Complaint-008 START
     //added by baib 2014/02/13 
     private Map<String, Id> centralQs= new Map<String, Id>();
@@ -33,8 +33,8 @@ public class CaseEscalationController {
     };
     //CR No.: CR-AS-Complaint-008 END
     
-    private Profile DealerCommunityUser = [select Id from Profile where Name = 'Dealer Community User'];
-    private Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin'];
+    private Profile DealerCommunityUser = [select Id from Profile where Name = 'System Administrator']; // Changed the profile from Dealer Delegated Admin since 
+    private Profile DealerDelegatedAdmin = [select Id from Profile where Name = 'System Administrator'];// there is no community license
     private Set<Id> profileIds = new Set<Id>();
 
     List<String> MandatoryFields = new List<String>{
@@ -105,7 +105,7 @@ public class CaseEscalationController {
                                    US_VIN__c,
                                    Vehicle_In_Workshop__c,
                                    Car_Type__c,
-                   Handling_Level__c,
+                                   Handling_Level__c,
                                    Owner.ProfileId
                                    from Case where Id = :caseId];
             profileIds.add(DealerCommunityUser.Id);
@@ -121,12 +121,12 @@ public class CaseEscalationController {
     private void initalQueueMap(){
         //get central Q name and id
         for (QueueSobject qo : 
-        [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like 'Central Office-%']){
+        [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'QC__c' and Queue.Name like 'Central Office-%']){
             centralQs.put(qo.Queue.Name,qo.QueueId);
         }
         //initial reginal name and id
         for (QueueSobject qo : 
-        [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like 'Regional Office %']){
+        [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'QC__c' and Queue.Name like 'Regional Office %']){
             if(qo.Queue.Name.contains('East')){
               regionalQs.put('EAST',qo.QueueId);
             }

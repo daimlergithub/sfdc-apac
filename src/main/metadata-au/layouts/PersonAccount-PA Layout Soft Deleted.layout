@@ -392,11 +392,12 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Service_Date__c</fields>
+        <fields>RECORDTYPE</fields>
         <fields>Type__c</fields>
         <fields>Related_Dealer__c</fields>
-        <fields>Service_Mileage__c</fields>
-        <fields>RECORDTYPE</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>Status__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -422,10 +423,13 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>System__c</fields>
+        <fields>RECORDTYPE</fields>
         <fields>Start_Date__c</fields>
         <fields>End_Date__c</fields>
         <fields>fromRole__c</fields>
-        <fields>Primary__c</fields>
+        <fields>Sector__c</fields>
+        <fields>Role__c</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>

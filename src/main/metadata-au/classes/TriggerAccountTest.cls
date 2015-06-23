@@ -19,13 +19,19 @@ private class TriggerAccountTest {
         dealer.City__c = 'Dongcheng District';
         dealer.Province__c = 'Beijing';
         update dealer;
+        dealer = [select City__c,Province__c from Account where id =:dealer.id];
+        system.assert(dealer.City__c =='Dongcheng District');
+        system.assert(dealer.Province__c == 'Beijing');
     }
 
     public testMethod static void testUpdateLeadDataSharing() {
         Account personAccount = new Account();
         UtilTestData.createSobject(personAccount, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-
-        Lead__c lead = new Lead__c(Contact__c = personAccount.Id);
+                    personAccount.Email__c='test@mbau.com';
+                    personAccount.Email2__c = 'testemail2@test.com';
+                    personAccount.Home_Phone_2__c = '98765413';
+        
+        Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Contact__c = personAccount.Id);
         UtilTestData.createSobject(lead, UtilTestData.LEAD_RT_SALES_LEADS);
 
         personAccount.Allow_Data_Sharing__c = 'Yes';

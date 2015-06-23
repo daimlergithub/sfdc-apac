@@ -23,6 +23,9 @@ public class ScheduledSendNotificationEmailTest{
         account.Suffix__c = 'suffix';
         account.PersonEmail='bing.bai@nttdata.com';
         account.PersonMobilePhone ='1800999999';
+        account.Email__c='test@mbau.com';
+        account.Email2__c = 'testemail2@test.com';
+        account.Home_Phone_2__c = '98765413';
         insert account;
         
         Vehicle__c vehicle = new Vehicle__c(Class__c = 'C-Class Sedan');

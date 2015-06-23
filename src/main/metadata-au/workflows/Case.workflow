@@ -50,7 +50,7 @@
     </alerts>
     <alerts>
         <fullName>Email_reminder_for_FOS_to_Angelo</fullName>
-        <ccEmails>alan.touma@daimler.com</ccEmails>
+        <ccEmails>complaints@daimler.com</ccEmails>
         <description>Email reminder for FOS to Angelo</description>
         <protected>false</protected>
         <recipients>
