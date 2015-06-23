@@ -32,7 +32,8 @@ public class TriggerCampaignMembers_TestClass{
                                       City__c='Baoshan district',
                                       ZipCode__c='123456',
                                       PersonMobilePhone='1235678910',
-                                      RecordTypeId=accPerson_RecordTypeId
+                                      RecordTypeId=accPerson_RecordTypeId,
+                                      Salutation='Brother',FirstName='Test',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413'
                                      );        
         insert(testPerAcc);
                                          

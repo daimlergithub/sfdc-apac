@@ -158,7 +158,7 @@ public class NewCMSContractsRelationControllerTest {
     
     static Retail_Task__c createRetailTask()
     {
-    	Retail_Task__c contr = new Retail_Task__c();
+        Retail_Task__c contr = new Retail_Task__c();
         contr.ContractNumber__c = 'acme1234';
         contr.Account__c = customer.Id;
         return contr;
@@ -166,7 +166,7 @@ public class NewCMSContractsRelationControllerTest {
     
     static case createcase()
     {
-    	Case c = new Case();
+        Case c = new Case();
         c.RecordTypeId = FOSId;
         c.Subject = 'acme';
         return c;
@@ -174,7 +174,7 @@ public class NewCMSContractsRelationControllerTest {
     
     static Lead__c createLead()
     {
-    	Lead__c finld = new Lead__c(RecordTypeId = leadFinanceRT
+        Lead__c finld = new Lead__c(RecordTypeId = leadFinanceRT
                                    , Contact__c = customer.Id
                                    , Lead_Source__c = 'Web Form'
                                    , Sub_Source__c = 'Contact Us'

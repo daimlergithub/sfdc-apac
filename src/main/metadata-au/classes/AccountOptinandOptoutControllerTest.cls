@@ -60,7 +60,10 @@ public class AccountOptinandOptoutControllerTest
       objAccount.Province__c='Province1';
       objAccount.City__c='Test';
       objAccount.Email__c='test@mbau.com';
+       objAccount.Email__c='test011@test.com';
+      objAccount.Email2__c='test012@test.com';
       objAccount.PersonMobilePhone='8884545243';
+      objAccount.Home_Phone_2__c='5487987458';
       insert objAccount;
     }
     
