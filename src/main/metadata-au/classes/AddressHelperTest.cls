@@ -86,7 +86,7 @@ public class AddressHelperTest {
     
     @isTest static void testtrackUpdatHistoryForFsInfo()
     {
-    	Account a1 = testData.standardPersonAccount;
+        Account a1 = testData.standardPersonAccount;
         insert a1;
         
         Address__c add1 = testData.standardAddress;

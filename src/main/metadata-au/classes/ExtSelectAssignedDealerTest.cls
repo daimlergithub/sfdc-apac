@@ -10,20 +10,20 @@
 */
 @isTest
 public class ExtSelectAssignedDealerTest {
-	
-	private static Id personAccRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-	private static Id dealerRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-	private static Id finLdRTId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
-	private static Account personAcc;
-	private static Account dealer;
-	private static Lead__c finLead;
-	
+    
+    private static Id personAccRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    private static Id dealerRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    private static Id finLdRTId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
+    private static Account personAcc;
+    private static Account dealer;
+    private static Lead__c finLead;
+    
     public static testMethod void testSelectAssignedDealer()
     {
         createAccount();
         createPersonAccount();
-		createLead();
-		test.starttest();
+        createLead();
+        test.starttest();
         // Select a dealer for this lead by click the button 'Select Assigned Dealer'
         PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + finLead.Id);
         Test.setCurrentPage(pr);        
@@ -37,8 +37,8 @@ public class ExtSelectAssignedDealerTest {
     {
         createAccount();
         createPersonAccount();
-		createLead();
-		test.starttest();
+        createLead();
+        test.starttest();
         // Select a dealer for this lead by click the button 'Select Assigned Dealer'
         PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + finLead.Id);
         Test.setCurrentPage(pr);        
@@ -56,8 +56,8 @@ public class ExtSelectAssignedDealerTest {
     {
         createAccount();
         createPersonAccount();
-		createLead();
-		test.starttest();
+        createLead();
+        test.starttest();
         // Select a dealer for this lead by click the button 'Select Assigned Dealer'
         PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + finLead.Id);
         Test.setCurrentPage(pr);        
@@ -74,7 +74,7 @@ public class ExtSelectAssignedDealerTest {
     
     static void createAccount()
     {
-    	dealer = new Account(Status__c = 'Customer'
+        dealer = new Account(Status__c = 'Customer'
                                      , Name = 'TestDealer' + date.Today()
                                      , RecordTypeId = dealerRTId
                                      , Phone ='0186770993');
@@ -83,7 +83,7 @@ public class ExtSelectAssignedDealerTest {
     
     static void createPersonAccount()
     {
-    	personAcc = new Account(Status__c = 'Customer'
+        personAcc = new Account(Status__c = 'Customer'
                                         , LastName = 'LastName'
                                         , Salutation = 'Mr'
                                         , Title__c = 'Title'
@@ -91,13 +91,16 @@ public class ExtSelectAssignedDealerTest {
                                         , Suffix__c = 'suffix'
                                         , PersonEmail ='test@test.com'
                                         , RecordTypeId = personAccRTId
+                                         , Home_Phone_2__c='5879874587'
+                                         , Email__c='test011@test.com'
+                                         ,Email2__c='test012@test.com'
                                         , PersonMobilePhone ='1800999999');
-    	insert personAcc;
+        insert personAcc;
     }
     
     static void createLead()
     {
-    	 finLead = new Lead__c(Contact__c = personAcc.Id,RecordtypeId=finLdRTId
+         finLead = new Lead__c(Contact__c = personAcc.Id,RecordtypeId=finLdRTId
                                       , Lead_Source__c = 'Web Form'
                                       , Nature_of_Request__c = 'General Enquiry'
                                       , Business_Unit__c = 'Cars'

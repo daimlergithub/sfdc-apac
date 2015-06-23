@@ -82,6 +82,11 @@ private static String ssiPrefix = Schema.getGlobalDescribe().get('SSI__c').getDe
             acct.LastName= 'zhang';
             acct.FirstName = 'patrick' + i; 
             acct.RecordtypeId = dlrrtid;
+            acct.PersonTitle='Mr';
+            acct.Email2__c = 'test@mbau.com';
+                acct.Email__c= 'testemail2@test.com';
+                acct.Home_Phone_2__c = '987654321';
+            acct.Salutation='Brother';
             if (i < 10) {
                 acct.Phone = '186584250' + i ;
             }else{

@@ -3,7 +3,9 @@ public with sharing class GenericCSVLoaderController {
     @RemoteAction
     public static List<Database.SaveResult> uploadObjects(List<sObject> records) {
         Database.SaveResult[] result = Database.update(records, false);
+        
         return result;
+       
     }
     
     @RemoteAction
@@ -38,6 +40,7 @@ public with sharing class GenericCSVLoaderController {
             acc.File_Name__pc = acc.File_Name__pc.Substring(Index + 1);
         }
         Database.SaveResult[] result = Database.insert(records, false);
+       
         return result;
     }
 }

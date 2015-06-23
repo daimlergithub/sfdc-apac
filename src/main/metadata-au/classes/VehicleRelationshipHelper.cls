@@ -160,12 +160,12 @@ public with sharing class VehicleRelationshipHelper {
          'VAN'=> new List<String>{'VAN_Status__c','VAN_No_Brand_Purchases__c','VAN_Tenure__c'}
         };
           //update PC CV VAN tenure
-     private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords){
+     private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer){
         if(!String.isblank(vehicleGroup)){
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
             List<String> cols = colsMap.get(vehicleGroup);
-            
-            userInfo.put(cols[0], 'customer');
+            if(isCustomer)
+            	userInfo.put(cols[0], 'customer');
             integer numberofP = 1;
             if(userInfo.get(cols[1])!=null){
                 numberofP = integer.valueOf(userInfo.get(cols[1]))+1;
@@ -183,7 +183,6 @@ public with sharing class VehicleRelationshipHelper {
     
     //When PA gets a Vehicle-Relationship
     public static void updataWhenCreateCVR(Set<Id> vehicleIds, Set<Id> customerIds, List<Vehicle_Relationship__c> cvrs) {
-    	system.debug('cvrs>>>'+cvrs);
         Map<id,Account> accounts = new Map<id,Account>();
         Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
         //get pc first date records
@@ -192,13 +191,18 @@ public with sharing class VehicleRelationshipHelper {
         Map<String,Date>  preRecordsCv = getExsitedInfos(customerIds,'CV');
         //get cv first date records 
         Map<String,Date>  preRecordsVAN = getExsitedInfos(customerIds,'VAN');
-        system.debug(customerIds);
-        system.debug(preRecordsPc);    
         exsisedRecord.put('PC', preRecordsPc);
         exsisedRecord.put('CV', preRecordsCv);
         exsisedRecord.put('VAN', preRecordsVAN);
         
         Map<id,Account> accs = AccountHelper.getCustomerInfos(customerIds);
+        list<Address__c> lstAddress=[select Customer__c from Address__c where Customer__c In:customerIds];
+        set<id> setAccId= new set<Id>();
+        if(lstAddress!=null && !lstAddress.isEmpty())
+        {
+        	for(Address__c objAdd:lstAddress)
+        		setAccId.add(objAdd.Customer__c);
+        }
         Map<id,Vehicle__c> vehichles = getVehichles(vehicleIds);
         for(Vehicle_Relationship__c curCvr : cvrs){
             Account acc = new Account();
@@ -207,7 +211,7 @@ public with sharing class VehicleRelationshipHelper {
             }else{
                 acc = accs.get(curCvr.Contact__c);
             }
-            acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord);
+            acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)));
             accounts.put(acc.id,acc);
         }
           UtilDB.updateSobjects(accounts.values());
@@ -221,6 +225,7 @@ public with sharing class VehicleRelationshipHelper {
 	    
 	    for(Vehicle_Relationship__c cvr : listVRNew) {
 	        if(isInsert){
+                
 	            // Make sure the vehicle id not null
 	            if (null == cvr.Vehicle_ID__c){
 	                cvr.addError('Please select the vehicle Id !');
@@ -238,8 +243,6 @@ public with sharing class VehicleRelationshipHelper {
 	            insertCvrs.add(cvr);
 	        }
 	    }
-	    system.debug('>>>customerIds'+customerIds);
-	    system.debug('>>>vehicleIds'+vehicleIds);
 	    //US_AU-CD-001 & 002 & 001.1 & 002.1
 	    if(customerIds!=null && !customerIds.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()){
 	        updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs);
