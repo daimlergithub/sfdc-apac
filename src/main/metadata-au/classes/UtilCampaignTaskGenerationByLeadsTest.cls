@@ -33,7 +33,6 @@ public class UtilCampaignTaskGenerationByLeadsTest {
            String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
 
             Campaign top = new Campaign(
-      IsActive = true, 
       Name = 'top', 
       Status = 'Started', 
       StartDate = System.today(), 
@@ -42,7 +41,7 @@ public class UtilCampaignTaskGenerationByLeadsTest {
     );
     insert top;
     
-        string retailLeadType =Schema.SObjectType.lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
+        string retailLeadType =Schema.SObjectType.lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId();
     string accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();     // Dealer.
 
     
@@ -61,6 +60,8 @@ Account account2 = new Account(Dealer_Default_Flag__c=true,
                                     Area_Code__c = '010',            
                                     lastName = 'Beijing XING Services Limited - Alpha Review',
                                     ZipCode__c='100101',
+                                    Salutation='Brother',
+                                    FirstName='Test',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413',
                                     RecordTypeId=accPerson_RecordTypeIdp);
                                     insert account2;
     
@@ -102,6 +103,8 @@ Account account2 = new Account(Dealer_Default_Flag__c=true,
         lead.Trade_In_Other_Vehicle_Model__c = 'test';
         lead.Interested_Vehicle_Brand__c = 'Smart';
         lead.RecordTypeId=retailLeadType;
+        lead.Contact__c=account2.id;
+      // lead.Company_Account__c=dealer.Id;
         insert lead;
                      
                      

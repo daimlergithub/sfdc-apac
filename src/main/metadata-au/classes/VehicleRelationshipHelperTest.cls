@@ -1,31 +1,15 @@
-/**
- * This class contains unit tests for validating the behavior of Apex classes
- * and triggers.
- *
- * Unit tests are class methods that verify whether a particular piece
- * of code is working properly. Unit test methods take no arguments,
- * commit no data to the database, and are flagged with the testMethod
- * keyword in the method definition.
- *
- * All test methods in an organization are executed whenever Apex code is deployed
- * to a production organization to confirm correctness, ensure code
- * coverage, and prevent regressions. All Apex classes are
- * required to have at least 75% code coverage in order to be deployed
- * to a production organization. In addition, all triggers must have some code coverage.
- * 
- * The @isTest class annotation indicates this class only contains test
- * methods. Classes defined with the @isTest annotation do not count against
- * the organization size limit for all Apex scripts.
- *
- * See the Apex Language Reference for more information about Testing and Code Coverage.
- */
-
 @isTest
 private class VehicleRelationshipHelperTest {
-
+     private static String RecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
+    private static String vehicleRecordTypeId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
     static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();     // Dealer.
     static Id accPerson_RecordTypeIdp = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();     // Person Account.
     static ID VRRecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId();    //VehicleRelationship
+    
+     
+        
+    
+     
                                             
     static Vehicle__c vehicles = new Vehicle__c(Recall__c = FALSE,
                                                 EuroVIN__c = '12345678901111111',
@@ -41,6 +25,9 @@ private class VehicleRelationshipHelperTest {
                                     City__c='Beijing',
                                     Phone = '80801010',
                                     Area_Code__c = '010',
+                                    PersonTitle='Mr',
+                                    Salutation='Brother',
+                                    FirstName='Test',
                                     LastName = 'Beijing XING Services Limited - Alpha Review',
                                     ZipCode__c='100101',
                                     RecordTypeId=accPerson_RecordTypeIdp);
@@ -57,7 +44,17 @@ private class VehicleRelationshipHelperTest {
                                                                     
                                                                                                                                    
     static testMethod void myUnitTest() {
-       
+        UserRole role = [SELECT Id, Name FROM UserRole where  Name = 'Australia'];
+        
+        Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
+        User user2 = new User(ProfileId = profile.Id,UserRoleId=role.id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
+                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
+        insert user2;
+        set<id> users= new set<id> ();
+        users.add(user2.id);
+       system.runAs( user2 ) {
         insert vehicles;
         insert account1;
         insert account2;
@@ -65,14 +62,74 @@ private class VehicleRelationshipHelperTest {
         VR.Vehicle_ID__c = vehicles.id;
         VR.Owner_Dealer__c = account2.id;
         insert VR;
+        list<Vehicle_Relationship__c> listVR = new  list<Vehicle_Relationship__c>();
+        listVR.add(VR);
+        VehicleRelationshipHelper.shareVR(listVR);
         VR1.Contact__c = account1.id;
         VR1.Vehicle_ID__c = vehicles.id;
         VR1.Owner_Dealer__c = account2.id;
         insert VR1;
-        
-        //test Vehicle_Relationship__Share is auto inserted When Vehicle Relationship created
-        //system.assertEquals([SELECT id FROM Vehicle_Relationship__Share WHERE ParentId = :VR.id AND AccessLevel = 'Read'].size(), 3);
-
+        VehicleRelationshipHelper.getRoleSubordinateUsers(user2.id);
+      
+      
+       }
+       system.assertEquals(users, VehicleRelationshipHelper.getRoleSubordinateUsers(user2.id));
     }
+    public static testMethod void testAUTriggerVehicleRelationship() {
+        
+        
+        
+        //create test data
+       Car_Model__c car= new Car_Model__c();
+        car.Name='A-Class';
+        car.Vehicle_Group__c='PC';
+        insert car;
+        // Create Dealer
+        Account dealer = (Account)UtilTestData.createSobject(new Account(), 
+            UtilTestData.ACCOUNT_RT_DEALER);
+        
+        // Create Person Account
+        Account personAccount = (Account)UtilTestData.createSobject(new Account(), 
+            UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+        
+        // Create Vehicle
+        Vehicle__c vehicle = new Vehicle__c();
+        vehicle.RecordTypeId=vehicleRecordTypeId;
+       vehicle.Car_Model__c=car.Id;
+        vehicle.Class__c='A-Class';
+       
+        vehicle=(Vehicle__c)UtilTestData.createSobject(vehicle, null);
+        
+        // Create Vehicle Relationship
+        Vehicle_Relationship__c relationship = new Vehicle_Relationship__c();
+        relationship.RecordTypeId=RecordTypeId;
+        relationship.Vehicle_ID__c = vehicle.Id;
+        relationship.Contact__c = personAccount.Id;
+        relationship.Selling_Dealer__c = dealer.Id;
+        
+        
+        // Create Vehicle Relationship
+        Vehicle_Relationship__c relationship2 = new Vehicle_Relationship__c();
+        relationship.RecordTypeId=RecordTypeId;
+        relationship2.Vehicle_ID__c = vehicle.Id;
+        relationship2.Contact__c = personAccount.Id;
+        relationship2.Selling_Dealer__c = dealer.Id;
+       
+        
+        // Start Test
+        Test.startTest();
+        relationship = (Vehicle_Relationship__c)UtilTestData.createSobject(relationship, null);
+        relationship2 = (Vehicle_Relationship__c)UtilTestData.createSobject(relationship2, null);          
+        Test.stopTest();
+        list<Vehicle_Relationship__c> vrId=new list<Vehicle_Relationship__c>();
+        vrId.add(relationship);
+        
+        //verify 
+        
+       Vehicle_Relationship__c  vrList = [select Vehicle_ID__c from Vehicle_Relationship__c where id IN:vrId ];
+        system.assertEquals(vrList.Vehicle_ID__c, relationship.Vehicle_ID__c);
+        system.assertEquals(vrList.Vehicle_ID__c, relationship2.Vehicle_ID__c);
+    }
+  
                                                                                                                                                                                       
 }

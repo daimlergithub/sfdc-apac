@@ -35,7 +35,7 @@ public class TestDataUtil {
                     Suffix__c = 'suffix',
                     PersonEmail = 'test@test.com',
                     RecordTypeId = person_RecordTypeId,
-                    PersonMobilePhone = '1800999999'
+                    PersonMobilePhone = '1800999999',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413'
                 );
             }
             return standardPersonAccount;
@@ -49,7 +49,7 @@ public class TestDataUtil {
                 standardCompanyAccount = new Account(
                     Status__c='Customer',
                     Name = 'Company',
-                    Suffix__c = 'Mr.',
+                    Suffix__c = 'Mr.',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413',
                     //Email__c='test@test.com',
                     RecordTypeId=company_RecordTypeId
                 );

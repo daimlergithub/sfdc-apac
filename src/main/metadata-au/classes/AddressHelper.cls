@@ -271,5 +271,41 @@ public class AddressHelper
             updateAddress.Hardcopy_Last_Modified_By__c = UserInfo.getName();
             updateAddress.Hardcopy_Last_Modified_Date__c = System.now();
         }
+    }
+    
+    public static void updateAddressOnAccount(list<Address__c> listNewAddress){
+    	Set<Id> AccIdSet = new Set<Id>();
+    	for(Address__c addr : listNewAddress){
+    		if(addr.preferred__c)
+    			AccIdSet.add(addr.Customer__c);
+    	}
+    	
+    	if(AccIdSet!=null && !AccIdSet.isEmpty()){
+    		List<Account> accList = [select id,Primary_Address__c from Account where id in : AccIdSet];
+    		
+    		if(accList!=null && !accList.isEmpty()){
+    			for(Account acc : accList){
+    				for(Address__c addr : listNewAddress){
+    					if(acc.Id==addr.Customer__c){
+    						if(addr.Address_Line_1__c!=null && addr.Address_Line_1__c!='')
+    							acc.Primary_Address__c = addr.Address_Line_1__c;
+    						if(addr.Address_Line_2__c!=null && addr.Address_Line_2__c!='')	
+    							acc.Primary_Address__c +=' '+ addr.Address_Line_1__c;
+    						if(addr.District__c!=null && addr.District__c!='')
+    							acc.Primary_Address__c +=' '+ addr.District__c;
+    						if(addr.Province__c!=null && addr.Province__c!='')
+    							acc.Primary_Address__c +=' '+ addr.Province__c;
+    						if(addr.Country__c!=null && addr.Country__c!='')
+    							acc.Primary_Address__c +=' '+ addr.Country__c;
+    						if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
+    							acc.Primary_Address__c +=' '+ addr.ZipCode__c;
+    					}
+    				}
+    			}
+    			update accList;
+    		}
+    	}
+    	
+    	
     } 
 }

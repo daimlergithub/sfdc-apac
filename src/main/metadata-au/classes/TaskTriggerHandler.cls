@@ -236,8 +236,8 @@ public class TaskTriggerHandler
                doGenerateWC(tk);    
         }
     }
-    
-    private static void doGenerateWC(Task tk){
+ 
+    @TestVisible private static void doGenerateWC(Task tk){
         Account acc = [
             Select Id, Name, PersonOtherPhone, Phone, PersonMobilePhone, PersonHomePhone, PersonAssistantPhone 
             From Account 

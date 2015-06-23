@@ -8,7 +8,7 @@
     
     1. Sinow Created on 2014-06-05
 */
-public class RetailCampaignHelper
+public class RetailCampaignHelper 
 {
 
     public static void updateParentCampaignStatus(Set<Id> campaignIds)
