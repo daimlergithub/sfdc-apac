@@ -365,7 +365,7 @@ public class AccountHelper {
                        CV_Status__c,
                        PC_Tenure__c,
                        CV_Tenure__c,
-                       //PC_No_Brand_Purchases__c,
+                       Buy_Cycle__c,
                        CV_No_Brand_Purchases__c,
                        VAN_Status__c,
                        VAN_Tenure__c,

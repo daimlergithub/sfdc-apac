@@ -19,9 +19,11 @@ trigger TriggerAddress on Address__c (before insert, before update,after insert,
     if(trigger.isBefore && trigger.isInsert)
     {
         AddressHelper.auBeforeInsert_update_Events(trigger.new,trigger.OldMap,trigger.isInsert,trigger.isUpdate);
+        AddressHelper.updateAddressOnAccount(trigger.new);
     }
     if(trigger.isBefore && trigger.isUpdate)
     {
         AddressHelper.auBeforeInsert_update_Events(trigger.new,trigger.OldMap,trigger.isInsert,trigger.isUpdate);
+        AddressHelper.updateAddressOnAccount(trigger.new);
     }
 }

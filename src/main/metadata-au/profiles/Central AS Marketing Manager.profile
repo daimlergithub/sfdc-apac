@@ -174,6 +174,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountSharingDataHandlerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AddToRetailCampaignController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -658,6 +662,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ReportUserControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ReservationMessageTemplate</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -675,6 +683,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RetailCampaignHelper</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RetailCampaignHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -982,10 +994,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TaskHelperTestRf</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TaskMassChangeActivateDeactive</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1254,6 +1262,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilAccountTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilCampaignCity</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1263,6 +1275,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilCampaignShareByCollaboration</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilCampaignShareByCollaborationTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1330,6 +1346,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilLeadTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilProfile</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1355,6 +1375,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilVehicleRelationship</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilVehicleRelationshipTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -7163,11 +7187,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.CAC_SourceId__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Campaign__c</field>
         <readable>true</readable>
@@ -8311,11 +8330,6 @@
         <editable>true</editable>
         <field>Lead__c.CAC_Lost_Reason__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.CAC_SourceId__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -14837,19 +14851,19 @@
         <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Dealer Layout-CAC</layout>
+        <layout>Account-Dealer Group Pagelayout</layout>
+        <recordType>Account.Dealer_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account-Dealer Layout-CAC</layout>
-        <recordType>Account.Company_Soft_Deleted</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-Dealer Layout-CAC</layout>
+        <layout>Account-Dealer Layout-Admin</layout>
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-Dealer Layout-CAC</layout>
-        <recordType>Account.Dealer_Group</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account-MBAuP BA Layout Soft Deleted</layout>
+        <recordType>Account.Company_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
@@ -14882,11 +14896,11 @@
         <recordType>Address__c.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Address__c-Address Layout</layout>
+        <layout>Address__c-Dealer Address Layout</layout>
         <recordType>Address__c.Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Address__c-Address Layout</layout>
+        <layout>Address__c-individual Address Layout</layout>
         <recordType>Address__c.Individual</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -14945,15 +14959,15 @@
         <recordType>Campaign.Central_Marketing_Campaign</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Central Campaign Layout</layout>
+        <layout>Campaign-Creative Brief layout</layout>
         <recordType>Campaign.Creative_Brief</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Central Campaign Layout</layout>
+        <layout>Campaign-Data Brief layout</layout>
         <recordType>Campaign.Data_Brief</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Campaign-Central Campaign Layout</layout>
+        <layout>Campaign-Internal Campaign Brief layout</layout>
         <recordType>Campaign.Internal_Campaign_Brief</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -15016,18 +15030,18 @@
         <recordType>Case.Chrysler_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-Inquiry Layout - CAC%28IB%2FOB%29</layout>
+        <layout>Case-FOS Complaint Layout</layout>
+        <recordType>Case.FOS_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Inquiry Layout - CAC%28IB%2FOB%29</layout>
-        <recordType>Case.FOS_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Case-Inquiry Layout - CAC%28IB%2FOB%29</layout>
         <recordType>Case.Inquiry</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Case-MB Complaint Layout - RO%2FCO</layout>
+        <layout>Case-MB Complaint Layout - CAC</layout>
         <recordType>Case.MB_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -15036,6 +15050,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>CaseClose-Case Close Master Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>CaseClose-Case Close Master Layout</layout>
+        <recordType>Case.FOS_Complaint</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>CaseInteraction-Case Feed Layout</layout>
@@ -15123,7 +15141,7 @@
         <layout>Entitlement-Entitlement Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Event-Event Master Layout</layout>
+        <layout>Event-Event Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>FAQ__kav-How To Layout</layout>
@@ -15145,27 +15163,19 @@
         <layout>Lead-Lead Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
-        <recordType>Lead__c.Aftersales_Leads</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
+        <layout>Lead__c-Finance Lead Layout</layout>
         <recordType>Lead__c.Finance_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
+        <layout>Lead__c-Fleet Lead Layout</layout>
         <recordType>Lead__c.Fleet_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Lead__c-Lead Layout</layout>
+        <layout>Lead__c-Insurance Lead Layout</layout>
         <recordType>Lead__c.Insurance_Lead</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
-        <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Lead__c-Lead Layout</layout>
@@ -15174,6 +15184,14 @@
     <layoutAssignments>
         <layout>Lead__c-Sales Leads Layout %28Dealer%29</layout>
         <recordType>Lead__c.Retail_Sales_Leads</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Service%2FParts Lead Layout</layout>
+        <recordType>Lead__c.Aftersales_Leads</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Lead__c-Vehicle Lead Layout</layout>
+        <recordType>Lead__c.Sales_Leads</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Macro-Macro Layout</layout>
@@ -15204,23 +15222,23 @@
         <recordType>PersonAccount.ThirdParty</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-PA Layout-Dealer Portal</layout>
-        <recordType>PersonAccount.Person_Account_Retail</recordType>
+        <layout>PersonAccount-MBAuP PA Layout Soft Deleted</layout>
+        <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-PA Layout-Other User</layout>
-        <recordType>PersonAccount.PersonAccount</recordType>
+        <layout>PersonAccount-PA Layout-Dealer Portal</layout>
+        <recordType>PersonAccount.Person_Account_Retail</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>PersonAccount-PA Layout-Other User</layout>
         <recordType>PersonAccount.Person_Account_Manual_Merge</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PersonAccount-PA Layout-Soft Deleted</layout>
-        <recordType>PersonAccount.Person_Account_Soft_Deleted</recordType>
+        <layout>PersonAccount-Person Account Layout</layout>
+        <recordType>PersonAccount.PersonAccount</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>PreOrder__c-Pre Order Layout</layout>
+        <layout>PreOrder__c-Pre-Order Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Pricebook2-Price Book Layout</layout>
@@ -15415,6 +15433,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-OB Call</layout>
+        <recordType>Task.General_Task</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-OB Call</layout>
         <recordType>Task.OB_Call</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -15438,10 +15460,6 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
-        <recordType>Task.Annual_Call</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-Task Master Layout</layout>
         <recordType>Task.EMC_Task</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -15450,15 +15468,15 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
-        <recordType>Task.General_Task</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Task-Task Master Layout</layout>
         <recordType>Task.MBDA_Survey</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Task Master Layout</layout>
         <recordType>Task.MMS</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Task-Welcome Call Task</layout>
+        <recordType>Task.Annual_Call</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Task-Welcome Call Task</layout>
@@ -16923,6 +16941,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Retail_Campaigns</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Retail_Task__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
