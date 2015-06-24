@@ -1,16 +1,13 @@
 /*
     Type:       Test Class
     Purpose:    Test On Campaign Trigger Coding
-    ---------------------------------------------------------------
-    History:
-
-    4-June-2013 Stephano Shi (Breakingpoint)    Created
+     4-June-2013 Stephano Shi (Breakingpoint)    Created
     Patrick Zhang(Breakingpoint) updated on 2013-10-12
 
 */
-@isTest(SeeAllData=true)
-public class CpCallControllerClass_Test{
-	//
+@isTest
+public with sharing class CpCallControllerClass_Test{
+    private static string blank='';
     static testMethod void runCpCallControllerClass_Test(){
         Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName();
        
@@ -25,7 +22,7 @@ public class CpCallControllerClass_Test{
                                             Campaign_Objectives__c='OB',
                                             StartDate=date.newinstance(2013, 5, 17),
                                             EndDate=date.newinstance(2013, 10, 17),
-                                            Description = '' 
+                                            Description = blank 
                                             );
         
         // CAC Campaign
@@ -57,15 +54,15 @@ public class CpCallControllerClass_Test{
         
         // CAC CRM Campaign
         Campaign cacCrmCamp1 = new Campaign(Name='CAC CRM Campaign 1',
-                                         	Campaign_Code__c='CAC CRM Campaign 1',
-                                         	CAC_Campaign_Type__c='Others',
-                                        	CAC_Frequency_Category__c='Ad Hoc',
-                                       	    Campaign_Objectives__c='objective',
-                                       	    Description='123',
-                                       		StartDate=date.newinstance(2013, 5, 17),
-                                       		EndDate=date.newinstance(2013, 10, 17),   
+                                            Campaign_Code__c='CAC CRM Campaign 1',
+                                            CAC_Campaign_Type__c='Others',
+                                            CAC_Frequency_Category__c='Ad Hoc',
+                                            Campaign_Objectives__c='objective',
+                                            Description='123',
+                                            StartDate=date.newinstance(2013, 5, 17),
+                                            EndDate=date.newinstance(2013, 10, 17),   
                                             RecordTypeId=cpRecordTypeMap.get('CAC CRM Campaign').getRecordTypeId()
-                                         	); 
+                                            ); 
         
         // CAS Campaign
         Campaign casCamp1 = new Campaign(Name='CAS Campaign 1',
@@ -73,24 +70,26 @@ public class CpCallControllerClass_Test{
                                             Type='other',
                                             Campaign_Objectives__c='dsfda',
                                             Description='123',
-											Status='Planned',
-                                         	StartDate=date.newinstance(2013, 5, 17),
-                                        	EndDate=date.newinstance(2013, 10, 17),   
-                                        	RecordTypeId=cpRecordTypeMap.get('CAS Marketing Campaign').getRecordTypeId()
+                                            Status='Planned',
+                                            StartDate=date.newinstance(2013, 5, 17),
+                                            EndDate=date.newinstance(2013, 10, 17),   
+                                            RecordTypeId=cpRecordTypeMap.get('CAS Marketing Campaign').getRecordTypeId()
                                             );
        
-		Test.startTest();
+        Test.startTest();
         insert(centralCamp1);
         insert(cacCamp1);
         insert(cacCamp2);
         insert(exeCamp1);
         insert(cacCrmCamp1);
         insert(casCamp1);
+        list<Campaign> listCamp =new list<Campaign> ();
+        listCamp.add(casCamp1);
+       Campaign casCamp = [select Name,Campaign_Code__c,Description from Campaign where id IN: listCamp];
        
-        cpCalController cpCalCon = new cpCalController();
-        cpCalController.queAllCamps('','','','','','');
+        cpCalController.queAllCamps(blank,blank,blank,blank,blank,blank);
         cpCalController.queAllCamps('2012','2014', String.valueOf(centralCamp1.Id),'Regular-Continuous','CRM Acquisition Program','Auto Show');
         Test.stopTest();
-        
+        system.assertEquals(casCamp1.Name, casCamp.Name);
     }
 }
