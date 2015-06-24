@@ -1,5 +1,5 @@
 @istest
-public class AccountHelperTest
+public with sharing class AccountHelperTest
 {
    public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
    public static String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId(); 
@@ -18,7 +18,8 @@ public class AccountHelperTest
    
    public static testmethod void test_updateLeads()
    {
-       createTestData();
+       createDealer();
+        createAccount();
        test.startTest();
        Set<Id> contactIds = new set<id>();
        contactIds.add(personAcc.id);
@@ -27,13 +28,16 @@ public class AccountHelperTest
        AccountHelper.updateLeads(contactIds);
        
        test.stopTest();
-       //system.assertNotEquals(null, testLead.OwnerId); commented as Community license is not there for AU
+       system.assertNotEquals(null, testLead.Assigned_to_Dealer_Directly__c);
+       //commented as Community license is not there for AU
+       //system.assertNotEquals(null, testLead.OwnerId); 
        
    }
     
     public static testmethod void test_AccountHelper()
    {
-       createTestData();
+       createDealer();
+        createAccount();
        test.startTest();
        Set<String> companyIds = new Set<String>();
        Set<Id> dealerIds = new set<Id>();
@@ -47,8 +51,7 @@ public class AccountHelperTest
        AccountHelper.cancelPrimaryContact(dealerIds2, companyIds);
        personAcc.Partner_Surname__c = 'galaxy2';
        update personAcc;
-       Account TestAcc = AccountHelper.updateDisplayName(personAcc);
-       //system.assertNotEquals(TestAcc.Display_Name__c, 'Unknown First Name galaxy1');
+       
        personAcc.Partner_Surname__c = 'galaxy1';
        update personAcc;
        
@@ -66,7 +69,8 @@ public class AccountHelperTest
     
     public static testmethod void test_getDealerCountInfo()
    {
-       createTestData();
+       createDealer();
+        createAccount();
        test.startTest();
        List<String> dealerCodes =new List<String>();
        List<id> ids = new List<id>();
@@ -90,7 +94,8 @@ public class AccountHelperTest
     
     public static testmethod void test_trackUpdatHistoryForFsInfo()
    {
-       createTestData();
+       createDealer();
+       createAccount();
        test.startTest();
        
        personAcc.FS_Opt_In_Email__c = true;
@@ -110,7 +115,7 @@ public class AccountHelperTest
        
    }
     
-    static void createTestData()
+    static void createDealer()
    {
        
        Dealer = new Account(Dealer_Default_Flag__c=true,
@@ -137,6 +142,9 @@ public class AccountHelperTest
                                     ZipCode__c='00000',
                                     RecordTypeId=DealerRecordtypeid);
        insert Dealer2;
+   }
+    static void createAccount(){
+         createDealer();
        
        personAcc = new Account(Dealer_Default_Flag__c=false,
                                     Dealer_DMS_SR_Code__c='test code 2',

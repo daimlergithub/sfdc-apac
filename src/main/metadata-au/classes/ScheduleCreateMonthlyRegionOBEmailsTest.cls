@@ -1,14 +1,10 @@
 /*
     Type:       Test Class
-    Purpose:    Test the ScheduleCreateMonthlyRegionOBEmails  class
-    User Story: 
-    ---------------------------------------------------------------
-    History:
-
-    1. venky created on 2015-03-13
+    Purpose:    Test the ScheduleCreateMonthlyRegionOBEmails  class1.
+    venky created on 2015-03-13
 */
-@isTest(seeAllData=true)
-public class ScheduleCreateMonthlyRegionOBEmailsTest{
+@isTest
+public with sharing class ScheduleCreateMonthlyRegionOBEmailsTest{
     
     static testMethod void testScheduleCreateMonthlyRegionOBEmails(){
 
@@ -25,8 +21,8 @@ public class ScheduleCreateMonthlyRegionOBEmailsTest{
         update testLead;
         
         String CRON_EXP = '0 0 0 1 1 ? 2025';  
-        String jobId = System.schedule('ScheduleCreateMonthlyRegionOBEmailsTest', CRON_EXP, new ScheduleCreateMonthlyRegionOBEmails() );
-        CronTrigger ct = [select id, CronExpression, TimesTriggered, NextFireTime from CronTrigger where id = :jobId];
+        System.schedule('ScheduleCreateMonthlyRegionOBEmailsTest', CRON_EXP, new ScheduleCreateMonthlyRegionOBEmails() );
+        
         
         system.assert(testAccount != Null);
         Test.stopTest();

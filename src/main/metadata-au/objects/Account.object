@@ -24009,9 +24009,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <customTabListAdditionalFields>PC_PHONE4</customTabListAdditionalFields>
         <customTabListAdditionalFields>ACCOUNT.PHONE1</customTabListAdditionalFields>
         <customTabListAdditionalFields>PC_PHONE3</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Province__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>City__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ZipCode__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Address__c</customTabListAdditionalFields>
         <listViewButtons>Load_3rd_Party_Data</listViewButtons>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
@@ -24045,23 +24042,20 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>At_least_one_phone_number</fullName>
         <active>true</active>
         <description>the record needs to have at least one phone number field filled (Home Phone, Office Phone or Mobile) OR an email address.</description>
-        <errorConditionFormula>OR(
-AND(
+        <errorConditionFormula>AND(
 ISBLANK(Individual_Home_Phone__c),
-ISBLANK(Phone ),
-ISBLANK(PersonMobilePhone ),
-isblank( Email__c ),
+ISBLANK(Phone),
+ISBLANK(Mobile__c),
+ISBLANK(Home_Phone_2__c),
+ISBLANK(Work_Phone__c),
+ISBLANK(Mobile2__c),
+ISBLANK(Email__c),
+ISBLANK(Email2__c),
+OR(
 RecordType.Name == 'Person Account',
-$Profile.Name != 'IntegrationAPI'
+RecordType.Name == 'Company'
 ),
-AND(
-ISBLANK(Individual_Home_Phone__c),
-ISBLANK(Phone ),
-ISBLANK(Mobile__c ),
-isblank( Email__c ),
-RecordType.Name == 'Company',
 $Profile.Name != 'IntegrationAPI'
-)
 )</errorConditionFormula>
         <errorMessage>The record needs to have at least one phone number field filled (Home Phone, Work Phone or Mobile) OR an email address. .</errorMessage>
     </validationRules>
