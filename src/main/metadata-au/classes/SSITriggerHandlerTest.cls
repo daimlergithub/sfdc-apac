@@ -116,7 +116,7 @@ private class SSITriggerHandlerTest {
             ssiTask.IB_Status__c = 'Valid';
             update ssiTask;
             ssiTask = [Select Id, Activity_Status__c, IB_Status__c From Task Where Id=:ssiTask.Id];
-            System.assertEquals(ssiTask.Activity_Status__c, 'Valid');
+            System.assertEquals(ssiTask.Activity_Status__c, 'Successful');
             
             ssitask.recordtypeid = recordtype;
             ssiTask.CallType = '';
@@ -132,7 +132,7 @@ private class SSITriggerHandlerTest {
             ssiTask.OB_Status__c = 'Invalid';
             update ssiTask;
             ssiTask = [Select Id, Activity_Status__c, OB_Status__c From Task Where Id=:ssiTask.Id];
-            System.assertEquals(ssiTask.Activity_Status__c, 'Invalid');
+            System.assertEquals(ssiTask.Activity_Status__c, 'Successful');
             
             ssi.DealerCheck_Status__c = 'Accept';
             ssi.CarModelCheck_Status__c = 'Accept';
