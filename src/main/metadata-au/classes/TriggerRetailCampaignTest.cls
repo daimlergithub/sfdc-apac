@@ -2,11 +2,7 @@
     Type:       Test class of TriggerRetailCampaign
     Purpose:    Test class of TriggerRetailCampaign
     
-    User Story: 
-    Used By: 
-    ---------------------------------------------------------------
-    History:
-    
+   
     1. Shuang Li Created on 2014-05-13
 */
 @isTest
@@ -27,6 +23,7 @@ public class TriggerRetailCampaignTest {
     private static User dealerUser;
     @isTest
     public static  void testTriggerRetailCampaign1() {
+        //create test data
         MonthlyRule__c mr = new MonthlyRule__c(
                             KPI_Type__c = 'Marketing Budget',
                             Brand__c= 'MB + StarElite',
@@ -44,6 +41,8 @@ public class TriggerRetailCampaignTest {
         Profile portalProfile = [SELECT Id FROM Profile WHERE Name = 'System Administrator' Limit 1];
         dealerUser = new User(Username = 'test12345test@test.com', ProfileId = portalProfile.Id, Alias = 'test123', Email = 'test12345@test.com', EmailEncodingKey = 'UTF-8', LastName = 'Kumar', CommunityNickname = 'test12345', TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US');
         insert dealerUser;
+        
+        //start test
         test.startTest();
         Retail_Campaign__c cp1 = new Retail_Campaign__c(
         Y_Dealer_Name__c = dealer.id,
@@ -62,10 +61,15 @@ public class TriggerRetailCampaignTest {
                     RecordTypeId = ASRecordTypeId);
         insert cp3;
         test.stopTest();
+        //verify
+        list<Retail_Campaign__c> listRetailCampaign = new list<Retail_Campaign__c>();
+        listRetailCampaign.add(cp3);
+        Retail_Campaign__c retailCampaignCheck = [select Dealer_Name__c,Y_Dealer_Name__c,Brand__c from Retail_Campaign__c where id IN: listRetailCampaign];
+        system.assertEquals(retailCampaignCheck.Dealer_Name__c, cp3.Dealer_Name__c);
     }
     @isTest
     public static  void testTriggerRetailCampaign2() {
-
+         //create test data
         RecordType dealerType = [select Id from RecordType where SObjectType = 'Account' and DeveloperName = 'Dealer' limit 1];
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer');
         insert dealer;
@@ -75,7 +79,7 @@ public class TriggerRetailCampaignTest {
                                      Region_Best_Number__c = 2,
                                      RecordTypeId=CBRecordTypeId);
         insert TestData_MBBestPractice;
-
+         //start test
         test.startTest();
         Retail_Campaign__c cp4 = new Retail_Campaign__c(
                     Y_Dealer_Name__c = dealer.id,
@@ -93,10 +97,15 @@ public class TriggerRetailCampaignTest {
         update cp4;
 
         test.stopTest();
+         //verify
+        list<Retail_Campaign__c> listRetailCampaign = new list<Retail_Campaign__c>();
+        listRetailCampaign.add(cp4);
+        Retail_Campaign__c retailCampaignCheck = [select Dealer_Name__c,Y_Dealer_Name__c,Brand__c from Retail_Campaign__c where id IN: listRetailCampaign];
+        system.assertEquals(retailCampaignCheck.Dealer_Name__c, cp4.Dealer_Name__c);
     }
     @isTest
     public static  void testTriggerRetailCampaign3() {
-
+         //create test data
         RecordType dealerType = [select Id from RecordType where SObjectType = 'Account' and DeveloperName = 'Dealer' limit 1];
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer');
         insert dealer;
@@ -106,7 +115,7 @@ public class TriggerRetailCampaignTest {
                                      Region_Best_Number__c = 2,
                                      RecordTypeId=CBRecordTypeId);
         insert TestData_MBBestPractice;
-
+        //start test
         test.startTest();
         Retail_Campaign__c cp5 = new Retail_Campaign__c(
                     Y_Dealer_Name__c = dealer.id,
@@ -123,5 +132,11 @@ public class TriggerRetailCampaignTest {
         update cp5;
 
         test.stopTest();
+        
+         //verify
+        list<Retail_Campaign__c> listRetailCampaign = new list<Retail_Campaign__c>();
+        listRetailCampaign.add(cp5);
+        Retail_Campaign__c retailCampaignCheck = [select Dealer_Name__c,Y_Dealer_Name__c,Brand__c from Retail_Campaign__c where id IN: listRetailCampaign];
+        system.assertEquals(retailCampaignCheck.Dealer_Name__c, cp5.Dealer_Name__c);
     }
 }

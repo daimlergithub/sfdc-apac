@@ -32,6 +32,10 @@
                 <behavior>Required</behavior>
                 <field>Nature_of_Request__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>Title__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -78,6 +82,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Financial_Product2__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Finance_Amount2__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -203,7 +211,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000000JkqZ</masterLabel>
+        <masterLabel>00h17000000Jm8q</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

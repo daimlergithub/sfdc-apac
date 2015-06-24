@@ -14,7 +14,10 @@ private class TriggerCaseTest {
         // Create Test Account
         Account acc = new Account();
         UtilTestData.createSobject(acc, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-
+acc.Email__c='test@mbau.com';
+                    acc.Email2__c = 'testemail2@test.com';
+                    acc.Home_Phone_2__c = '98765413';  
+        
         // Create MB Complaint Case
         Case mbComplaintCase = new Case(AccountId = acc.Id);
         UtilTestData.createSobject(mbComplaintCase, UtilTestData.CASE_RT_MB_COMPLAINT);
@@ -32,7 +35,10 @@ private class TriggerCaseTest {
         // Create Test Account
         Account acc = new Account();
         UtilTestData.createSobject(acc, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-
+acc.Email__c='test@mbau.com';
+                    acc.Email2__c = 'testemail2@test.com';
+                    acc.Home_Phone_2__c = '98765413';  
+        
         // Create MB Complaint Case
         Case mbComplaintCase = new Case(AccountId = acc.Id);
         UtilTestData.createSobject(mbComplaintCase, UtilTestData.CASE_RT_MB_COMPLAINT);
@@ -49,7 +55,11 @@ private class TriggerCaseTest {
         // Create Test Account
         Account acc = new Account();
         UtilTestData.createSobject(acc, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-
+acc.Email__c='test@mbau.com';
+                    acc.Email2__c = 'testemail2@test.com';
+                    acc.Home_Phone_2__c = '98765413';  
+        
+        
         // Create MB Complaint Case
         Case mbComplaintCase = new Case(AccountId = acc.Id);
         UtilTestData.createSobject(mbComplaintCase, UtilTestData.CASE_RT_MB_COMPLAINT);

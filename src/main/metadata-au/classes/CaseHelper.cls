@@ -1542,7 +1542,7 @@ public class CaseHelper{
 	    }
 	
 	    //create SMS tasks
-	    if(smsIds.size() > 0) {
+	    if(smsIds.size() > 0) { 
 	        createSmsTasks(smsIds, account_Ids);
 	    }
 	    

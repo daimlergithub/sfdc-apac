@@ -123,7 +123,8 @@ public class AccountSharingDataHandler {
         system.debug('parm1====================users' + users);        
         for (String key : cmsAndDealer.KeySet()) {
             for(String id: cmsAndDealer.get(key)) {
-                if(users.get(id)!=null && users.get(id).size()>=1 ){
+                if(users
+                   .get(id)!=null && users.get(id).size()>=1 ){
                     userOrGroupIds.addAll(key, users.get(id));
                 }
             }   
