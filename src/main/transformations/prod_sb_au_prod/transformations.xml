@@ -13,4 +13,4 @@
 		<filename>appMenus\AppSwitcher.appMenu</filename>
 		<xpath>/AppMenu/appMenuItems[name/text()='NttDataEpa__EPA_Administration']</xpath>
 	</removeelement>
-</transformations>
+</transformations> 
