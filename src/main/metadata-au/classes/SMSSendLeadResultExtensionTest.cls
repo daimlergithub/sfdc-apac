@@ -2,12 +2,7 @@
     Type:       test class
     Purpose:    SMSSendLeadResultExtension test class
     User Story: US-Lead-023 - Send SMS content to customer
-
-    Used By:    SMSSendLeadResultExtension
-    ---------------------------------------------------------------
-    History:
-
-    20-May-2013 Sinow zhang (Nttdata)    Created
+   20-May-2013 Sinow zhang (Nttdata)    Created
 */
 @isTest
 public class SMSSendLeadResultExtensionTest {
@@ -20,6 +15,8 @@ public class SMSSendLeadResultExtensionTest {
     private static Lead__c lead;
     private static Template__c tem1;
     private static Template__c tem2;
+    private static string LEAD_ID='leadid';
+    private static string RET_URL='retURL';
     private static List<Template__c> tems = new List<Template__c>();
     static user userObj;
     static{
@@ -30,8 +27,7 @@ public class SMSSendLeadResultExtensionTest {
                                   EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
         insert userObj;
     }
-    private static string LEAD_ID='leadid';
-    private static string RET_URL='retURL';
+    
     public static testMethod void testSMSSendLeadResultExtension()
     {
         System.runAs(userObj) {
@@ -40,9 +36,10 @@ public class SMSSendLeadResultExtensionTest {
             ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
             ApexPages.currentPage().getParameters().put(LEAD_ID,lead.Id);
             ApexPages.currentPage().getParameters().put(RET_URL,lead.Id);
-            // Test click SMS button from Lead
+            // Test click SMS button from Lead//
             // Instantiate a new controller extension with all parameters in the page
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
+            Test.stopTest();
             system.assertequals(extension.leadInfo.Id,lead.Id);
         }
     }
@@ -56,6 +53,7 @@ public class SMSSendLeadResultExtensionTest {
             // Test click SMS button from Lead
             // Instantiate a new controller extension with all parameters in the page
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
+            Test.stopTest(); 
             system.assertequals(extension.leadInfo,null);
         }
     }
@@ -76,6 +74,7 @@ public class SMSSendLeadResultExtensionTest {
                 options.add(new SelectOption(obj.Id, obj.Name));
             List<SelectOption> temp=extension.getTemplates();
             Test.stopTest();
+            
             system.assertequals(temp,options);
         }
     }

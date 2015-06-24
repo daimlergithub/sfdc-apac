@@ -10,6 +10,7 @@
 */
 @isTest(seeAllData=true)
 public class CaseHelperTest {
+	//variables
        public static Id C_INQUIRY_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.Enquiry).getRecordTypeId();
      public static Id C_MBDA_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.MBDA_COMPLAINT).getRecordTypeId();
     public static Map<String, Schema.SObjectField> FLDOBJ_MAP = schema.SObjectType.Case.fields.getMap();

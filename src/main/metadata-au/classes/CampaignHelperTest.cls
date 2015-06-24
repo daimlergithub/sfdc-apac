@@ -6,40 +6,47 @@
     2014-2-18 Created by Justin Yu
 */
 @isTest public class CampaignHelperTest {
+	//variables
  static Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName(); 
+    public static string topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+    public static String centralCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
+    public static string top = 'top';
+    public static string Started = 'Started';
+    public static string OB_Call = 'OB Call';
+    public static string Published = 'Published';
     @isTest static void testCopyTopCampaignStatusValueToSavedCampaign(){
-        String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
-        String cacCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
-        String obCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Simple').getRecordTypeId();
-        String centralCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
+        
+        
+        
+        
         
         Test.startTest();
        Set<String> topCampaignIds = new Set<String>();
        List<Campaign> listcampaigns=new list<Campaign>();
-       Campaign top = new Campaign(
+       Campaign top1 = new Campaign(
           
-            Name = 'top', 
-            Status = 'Started', 
+            Name = top, 
+            Status = Started, 
             StartDate = System.today(), 
             EndDate = System.today(),
             RecordTypeId = topCampRecordTypeId
         );
         
-        insert top;
-       for(integer i=0;i<1;i++)
-       {
+        insert top1;
+       
+       
        Campaign cac= new Campaign(
            
-            Name = 'top', 
-            Status = 'Started', 
+            Name = top, 
+            Status = Started, 
             StartDate = System.today(), 
             EndDate = System.today(),
-            Execution_Type__c ='OB Call',
+            Execution_Type__c =OB_Call,
             RecordTypeId = topCampRecordTypeId,
-            ParentId = top.Id
+            ParentId = top1.Id
         );
         listcampaigns.add(cac);
-       }
+       
        insert listcampaigns;
               system.debug('@@@@@@@@@ listcampaigns'+listcampaigns);
 
@@ -55,7 +62,7 @@
        system.debug('@@@@@@@@@ topCampaignIds'+topCampaignIds);
        Set<String> campaignIds = new Set<String>();
         for(Campaign campaign : campaigns){
-            if(campaign.Execution_Type__c == 'OB Call')
+            if(campaign.Execution_Type__c == OB_Call)
             {
                 campaignIds.add(campaign.Id);
             }
@@ -69,8 +76,8 @@
      @isTest static void testupdateCampaignMemberStatusToRelatedCampaig()
      {
           List<Campaign> listcampaigns=new list<Campaign>();
-             String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
-        String centralCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
+             
+        
 
      Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
         Contact contact = new Contact(
@@ -81,36 +88,35 @@
         );
         insert contact;
         List<CampaignMember> Listcampmember= new List<CampaignMember>();
-        Campaign top = new Campaign(
+        Campaign top2 = new Campaign(
            
-            Name = 'top', 
-            Status = 'Started', 
+            Name = top, 
+            Status = Started, 
             StartDate = System.today(), 
             EndDate = System.today(),
-            Execution_Type__c ='OB Call',
+            Execution_Type__c =OB_Call,
             RecordTypeId = topCampRecordTypeId
         );
         
-        insert top;
-        for(integer i=0;i<1;i++)
-        {
+        insert top2;
+        
          CampaignMember topMember = new CampaignMember(
-            CampaignId = top.Id,
+            CampaignId = top2.Id,
             ContactId = contact.Id,           
             Status = 'Send'
         );
         Listcampmember.add(topmember);
-        }
+        
         insert Listcampmember;
         
       
         
         Campaign objcampaign = new Campaign(
             IsActive = true, 
-            Name = 'top', 
-            Status = 'Started', 
+            Name = top, 
+            Status = Started, 
             StartDate = System.today(), 
-            Execution_Type__c ='OB Call',
+            Execution_Type__c =OB_Call,
             EndDate = System.today(),
             RecordTypeId = centralCampaignId
         );
@@ -123,7 +129,7 @@
         map<id,Campaign> oldMap = new map<id,Campaign>();
          oldMap.put(listCampaign.id, listCampaign);
          
-        objcampaign.Status='Published';
+        objcampaign.Status=Published;
         update objcampaign;
       
      CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
@@ -138,33 +144,33 @@
      }
      @isTest static void testbeforeUpdateEvents()
      {
-     Id cmpExeReTpIdS = cpRecordTypeMap.get('Campaign Execution - Simple').getRecordTypeId();
-        Id cmpExeReTpIdC = cpRecordTypeMap.get('Campaign Execution - Complex').getRecordTypeId();
+     
         
-     String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+        
+     
             List<Campaign> campaignNew=new list<Campaign>();
-Campaign top = new Campaign(
+Campaign top3 = new Campaign(
            
-            Name = 'top', 
-            Status = 'Started', 
+            Name = top, 
+            Status = Started, 
             StartDate = System.today(), 
             EndDate = System.today(),
             RecordTypeId = topCampRecordTypeId
         );
-     for(integer i=0;i<1;i++)
-       {
+         insert top3;
+     
        Campaign cac= new Campaign(
            
-            Name = 'top', 
-            Status = 'Started', 
+            Name = top, 
+            Status = Started, 
             StartDate = System.today(), 
             EndDate = System.today(),
-            Execution_Type__c ='OB Call',
+            Execution_Type__c =OB_Call,
             RecordTypeId = topCampRecordTypeId,
-            ParentId = top.Id
+            ParentId = top3.Id
         );
         campaignNew.add(cac);
-     }
+     
      insert campaignNew;
      List<Campaign> Listcampain=new list<Campaign>();
      List<Campaign> updatecampain=new list<Campaign>();
@@ -172,10 +178,10 @@ Campaign top = new Campaign(
       for(Campaign cam:Listcampain)
       {
             cam.Name ='Test campain';
-            cam.Status ='Started';
+            cam.Status =Started;
             cam.StartDate =System.today()+1;
             cam.EndDate =System.today()+2;
-            cam.Execution_Type__c ='OB Call';
+            cam.Execution_Type__c =OB_Call;
             cam.RecordTypeId = topCampRecordTypeId;
            updatecampain.add(cam); 
       }
@@ -186,17 +192,17 @@ Campaign top = new Campaign(
 
  @isTest static void testafterUpdateEvents()
      {
-          String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+          
       List<Campaign> campaignNew=new list<Campaign>();
-Campaign top = new Campaign(
+Campaign top4 = new Campaign(
            
-            Name = 'top', 
-            Status = 'Started', 
+            Name = top, 
+            Status = Started, 
             StartDate = System.today(), 
             EndDate = System.today(),
             RecordTypeId = topCampRecordTypeId
         );
-        
+      insert top4;  
         Template__c temp=new Template__c();
         temp.Active__c=true;
         temp.AnalyzeRequired__c=true;
@@ -206,22 +212,21 @@ Campaign top = new Campaign(
         temp.Type__c='Price List';
         temp.ValidTimeHrs__c=2;
         insert temp;
-     for(integer i=0;i<1;i++)
-       {
+     
        Campaign cac= new Campaign(
             
-            Name = 'top', 
-            Status = 'Started', 
+            Name = top, 
+            Status = Started, 
             StartDate = System.today(), 
             EndDate = System.today(),
-            Execution_Type__c ='OB Call',
+            Execution_Type__c =OB_Call,
             RecordTypeId = topCampRecordTypeId,
-            ParentId = top.Id
+            ParentId = top4.Id
         );
         campaignNew.add(cac);
            
            
-     }
+     
    insert campaignNew;
          
          system.assertEquals(false, campaignNew[0].SMS_Task_Verified__c);
@@ -230,24 +235,25 @@ Campaign top = new Campaign(
      }
      @isTest static void testafterInsertEvents_CampaignShare()
      {
-     String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('MB Best Practice').getRecordTypeId();
-      String centralCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
+     String mbBestPracticeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('MB Best Practice').getRecordTypeId();
+      
        
       List<Campaign> campaignNew=new list<Campaign>();
-Campaign top = new Campaign(
-            IsActive = true, 
-            Name = 'top', 
-            Status = 'Published', 
+Campaign top5 = new Campaign(
+            //IsActive = true, 
+            Name = top, 
+            Status = Published, 
             StartDate = System.today(), 
             EndDate = System.today(),
             RecordTypeId = topCampRecordTypeId
         );
+         insert top5;
      for(integer i=0;i<1;i++)
        {
        Campaign cac= new Campaign(
             IsActive = true, 
-            Name = 'top', 
-            Status = 'Published', 
+            Name = top, 
+            Status = Published, 
             StartDate = System.today(), 
             BP_Start_Date__c= System.today(),
             BP_End_Date__c= System.today(),
@@ -257,9 +263,9 @@ Campaign top = new Campaign(
             Region_Best_Number__c=21,
             Region_Recommend_Number__c=12,
             EndDate = System.today(),
-            Execution_Type__c ='OB Call',
-            RecordTypeId = topCampRecordTypeId,
-            ParentId = top.Id
+            Execution_Type__c =OB_Call,
+            RecordTypeId = mbBestPracticeId,
+            ParentId = top5.Id
         );
         campaignNew.add(cac);
      }
@@ -268,12 +274,12 @@ Campaign top = new Campaign(
             
   Campaign cac= new Campaign(
             IsActive = true, 
-            Name = 'top', 
-            Status = 'Published', 
+            Name = top, 
+            Status = Published, 
             EndDate = System.today(),
-            Execution_Type__c ='OB Call',
-            RecordTypeId = topCampRecordTypeId,
-            ParentId = top.Id,
+            Execution_Type__c =OB_Call,
+            RecordTypeId = mbBestPracticeId,
+            ParentId = top5.Id,
             StartDate = System.today(), 
             BP_Start_Date__c= System.today(),
             BP_End_Date__c= System.today(),
@@ -287,19 +293,19 @@ Campaign top = new Campaign(
         
         
         cac.IsActive = true;
-            cac.Name = 'top';
-            cac.Status = 'Started';
+            cac.Name = top;
+            cac.Status = Started;
             cac.StartDate = System.today();
             cac.EndDate = System.today();
-            cac.Execution_Type__c ='OB Call';
-            cac.RecordTypeId = topCampRecordTypeId;
-            cac.ParentId = top.Id;
+            cac.Execution_Type__c =OB_Call;
+            cac.RecordTypeId = mbBestPracticeId;
+            cac.ParentId = top5.Id;
             update cac;
             
              Campaign objcampaign = new Campaign(
             IsActive = true, 
-            Name = 'top', 
-            Status = 'Started', 
+            Name = top, 
+            Status = Started, 
             StartDate = System.today(), 
             EndDate = System.today(),
             RecordTypeId = centralCampaignId
@@ -307,7 +313,7 @@ Campaign top = new Campaign(
         
         insert objcampaign;
         
-        objcampaign.Status='Published';
+        objcampaign.Status=Published;
         update objcampaign;
         CampaignShare TestShareAs = [select id from CampaignShare where CampaignId =:cac.id limit 1];   
          system.assertNotEquals(null, TestShareAs);
@@ -325,7 +331,7 @@ Campaign top = new Campaign(
         System.runAs(u1){
 
         Campaign cmp = new Campaign(
-            Status = 'Started',
+            Status = Started,
             Name = 'cmp', 
             StartDate = System.today(), 
             EndDate = System.today()
@@ -333,7 +339,7 @@ Campaign top = new Campaign(
         insert cmp;
         
         Campaign cmp2 = new Campaign(
-            Status = 'Started',
+            Status = Started,
             Name = 'cmp2', 
             StartDate = System.today(), 
             EndDate = System.today()

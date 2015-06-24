@@ -20,12 +20,15 @@ public class GenericCSVLoaderControllerTest {
     static testMethod void myUnitTest1() {
         List<Account> accs = new List<Account>();
         accs.add(customer);
-        GenericCSVLoaderController.uploadObjects(accs);
+        List<Database.SaveResult> result=  GenericCSVLoaderController.uploadObjects(accs);
+        system.assertNotEquals(null, result);
     }
     
     static testMethod void myUnitTest2() {
         List<Account> accs = new List<Account>();
         accs.add(customer);
-        GenericCSVLoaderController.uploadAccounts(accs);
+      List<Database.SaveResult> result =  GenericCSVLoaderController.uploadAccounts(accs);
+      //assert
+        system.assertNotEquals(null, result);
     }
 }
