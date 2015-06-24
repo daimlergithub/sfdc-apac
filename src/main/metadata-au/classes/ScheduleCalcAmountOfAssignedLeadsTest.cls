@@ -28,7 +28,7 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
         String cron = '0 0 13 ' + next10thDay.day() + ' '
                                 + next10thDay.month() + ' ? ' 
                                 + next10thDay.year();
-        System.debug('Debug Output ======> {' + cron + '}');
+       
         
         String jobName = 'Calc Assigned Leads' + Math.rint(Math.random() * 1000000);
         
@@ -41,7 +41,7 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
             
         BatchCalcAmountOfAssignedLeads calcAssignedLeads = new BatchCalcAmountOfAssignedLeads(query);
 
-        Id batchId = Database.executeBatch(calcAssignedLeads, 200);
+        Database.executeBatch(calcAssignedLeads, 200);
         
         Test.stopTest();
         
@@ -57,16 +57,9 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
             UtilTestData.ACCOUNT_RT_DEALER);
 
         Test.startTest();
-        ScheduleCalcAmountOfAssignedLeads schClass = new ScheduleCalcAmountOfAssignedLeads();
-        Date next10thDay = System.today().addDays(10);
-        String cron = '0 0 13 ' + next10thDay.day() + ' '
-                                + next10thDay.month() + ' ? ' 
-                                + next10thDay.year();
-        String jobName = 'Calc Assigned Leads' + Math.rint(Math.random() * 1000000);
-        
-        
-        //System.schedule(jobName, cron, schClass);
-        
+       
+     
+              
         //Call the batch apex
         String query = 'SELECT Id, Name, Assigned_Lead_Amount_of_Everyday__c, ' + 
             '(SELECT OwnerId, Id FROM Lead_Assigned_Dealer__r WHERE CreatedDate = TODAY) ' + 
@@ -74,7 +67,7 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
             
         BatchCalcAmountOfAssignedLeads calcAssignedLeads = new BatchCalcAmountOfAssignedLeads(query);
 
-        Id batchId = Database.executeBatch(calcAssignedLeads, 200);
+        Database.executeBatch(calcAssignedLeads, 200);
         
         Test.stopTest();
         
@@ -102,7 +95,7 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
         BatchCalcAmountOfAssignedLeads calcAssignedLeads = 
             new BatchCalcAmountOfAssignedLeads(query);
 
-        Id batchId = Database.executeBatch(calcAssignedLeads, 200);
+        Database.executeBatch(calcAssignedLeads, 200);
 
         Test.stopTest();
 

@@ -2,14 +2,10 @@
     Type:       Test Class for TriggerAccount
     Purpose:    Link Dealer to Dealer City by City and Province 
     User Story: US-DS-001
-    Used By:    
-    ---------------------------------------------------------------
-    History:
-    
     1. Mouse Created on 2013-03-28
 */
 @isTest
-private class TriggerAccountTest {
+private with sharing class TriggerAccountTest {
     public static testMethod void testLinkDealerCity() {
         // Create Dealer
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
@@ -38,6 +34,7 @@ private class TriggerAccountTest {
         update personAccount;
 
         lead = [SELECT Allow_Data_Sharing__c FROM Lead__c WHERE Id = :lead.Id];
-        System.assert(lead.Allow_Data_Sharing__c == true);
+        system.assertEquals(lead.Allow_Data_Sharing__c , true);
+        //System.assert(lead.Allow_Data_Sharing__c == true);
     }
 }

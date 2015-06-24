@@ -2,9 +2,6 @@
     Type:       Test class for SelectAssignedDealerController
     Purpose:    Test logic in SelectAssignedDealerController.cls
     User Story: US-Lead-003
-    Used By:    
-    ---------------------------------------------------------------
-    History:
     
     1. Mouse Created on 2013-05-03
 */
@@ -22,16 +19,19 @@ private class SelectAssignedDealerControllerTest
     private static Campaign cacCampaign;
     private static Campaign campaignExecution;
     private static Campaign_Lead__c camLead;
+    private static string utilTest='UtilTestData.LEAD_RT_SALES_LEADS';
+    private static string pageRef = '/apex/SelectAssignedDealer?Id=';
+    private static string provinceValue = 'Anhui';
     
     public static testMethod void testSelectAssignedDealerController()
     {
         Test.startTest();
-        prepareTestdata('UtilTestData.LEAD_RT_SALES_LEADS');
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        prepareTestdata(utilTest);
+        PageReference pr = new PageReference(pageRef + lead.Id);
         Test.setCurrentPage(pr);
         SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
         // Test Dealer Province is Beijing, so has query result
-        selectDealer.dealer.Province__c = 'Anhui';
+        selectDealer.dealer.Province__c = provinceValue;
         selectDealer.dealer.City__c = 'Anyang';
         selectDealer.query();
         Test.stopTest();
@@ -41,11 +41,11 @@ private class SelectAssignedDealerControllerTest
     public static testMethod void testgetCityOptions()
     {
         Test.startTest();
-        prepareTestdata('UtilTestData.LEAD_RT_SALES_LEADS');
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        prepareTestdata(utilTest);
+        PageReference pr = new PageReference(pageRef + lead.Id);
         Test.setCurrentPage(pr);
         SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
-        selectDealer.dealer.Province__c = 'Anhui';
+        selectDealer.dealer.Province__c = provinceValue;
         List<SelectOption> options = new List<SelectOption>();
         options.add(new SelectOption('', '--None--'));
         options.add(new SelectOption(dealer.City__c,dealer.City__c));
@@ -57,8 +57,8 @@ private class SelectAssignedDealerControllerTest
     public static testMethod void testrefreshPage()
     {
         Test.startTest();
-        prepareTestdata('UtilTestData.LEAD_RT_SALES_LEADS');
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        prepareTestdata(utilTest);
+        PageReference pr = new PageReference(pageRef + lead.Id);
         Test.setCurrentPage(pr);
         SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
         selectDealer.refreshPage();
@@ -69,8 +69,8 @@ private class SelectAssignedDealerControllerTest
     public static testMethod void testchoose()
     {
         Test.startTest();
-        prepareTestdata('UtilTestData.LEAD_RT_SALES_LEADS');
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        prepareTestdata(utilTest);
+        PageReference pr = new PageReference(pageRef + lead.Id);
         Test.setCurrentPage(pr);
         SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
         selectDealer.choosenDealerId=dealer.Id;
@@ -84,8 +84,8 @@ private class SelectAssignedDealerControllerTest
     public static testMethod void testcampaignOptions()
     {
         Test.startTest();
-        prepareTestdata('UtilTestData.LEAD_RT_SALES_LEADS');
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        prepareTestdata(utilTest);
+        PageReference pr = new PageReference(pageRef+ lead.Id);
         Test.setCurrentPage(pr);
         SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
         List<SelectOption> campaignOptions = new List<SelectOption>();
@@ -100,11 +100,11 @@ private class SelectAssignedDealerControllerTest
     {
         Test.startTest();
         prepareTestdata('UtilTestData.LEAD_RT_AFTER_SALES_LEADS');
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        PageReference pr = new PageReference(pageRef + lead.Id);
         Test.setCurrentPage(pr);
         SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
         // Test Dealer Province is Beijing, so has query result
-        selectDealer.dealer.Province__c = 'Anhui';
+        selectDealer.dealer.Province__c = provinceValue;
         selectDealer.dealer.City__c = 'Anyang';
         selectDealer.lead= new Lead__c();
         selectDealer.query();
@@ -117,7 +117,7 @@ private class SelectAssignedDealerControllerTest
     {
         Test.startTest();
         prepareTestdata('UtilTestData.LEAD_RT_AFTER_SALES_LEADS');
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        PageReference pr = new PageReference(pageRef + lead.Id);
         Test.setCurrentPage(pr);
         SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
         // Test Dealer Province is Beijing, so has query result
@@ -133,8 +133,8 @@ private class SelectAssignedDealerControllerTest
     public static testMethod void testchooseelseCondition()
     {
         Test.startTest();
-        prepareTestdata('UtilTestData.LEAD_RT_SALES_LEADS');
-        PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + lead.Id);
+        prepareTestdata(utilTest);
+        PageReference pr = new PageReference(pageRef + lead.Id);
         Test.setCurrentPage(pr);
         SelectAssignedDealerController selectDealer = new SelectAssignedDealerController(new ApexPages.StandardController(lead));
         selectDealer.choosenDealerId=personAccount.Id;
@@ -151,7 +151,7 @@ private class SelectAssignedDealerControllerTest
         dealer = (Account)UtilTestData.createSobject(
             new Account(
                 Dealer_Sales_Type__c ='MB',
-                Province__c = 'Anhui',
+                Province__c = provinceValue,
                 City__c = 'anyang',
                 Dealer_Active__c = true,
                 Dealer_Service_Codes__c = 'Sales',
@@ -185,8 +185,8 @@ personAccount.Email__c='test@mbau.com';
         offering = (Campaign_Offering__c)UtilTestData.createSobject(
             new Campaign_Offering__c(Campaign__c = centralMKTCampaign.Id), null);
 
-        // Create packageItem under camPackage and offering
-        packageItem = (Package_Item__c)UtilTestData.createSobject(
+       
+        packageItem= (Package_Item__c)UtilTestData.createSobject(
             new Package_Item__c(
                 Offering__c = offering.Id,
                 Package_Name__c = camPackage.Id), null);
@@ -196,8 +196,7 @@ personAccount.Email__c='test@mbau.com';
             Campaign__c = centralMKTCampaign.Id,
             Dealer__c = dealer.Id,
             Campaign_Package__c = camPackage.Id);
-        //partDealer = (Participating_Dealer__c)UtilTestData.createSobject(partDealer, null);
-
+        
         cacCampaign = new Campaign(
             ParentId = centralMKTCampaign.Id);
         cacCampaign = (Campaign)UtilTestData.createSobject(
@@ -208,8 +207,7 @@ personAccount.Email__c='test@mbau.com';
         campaignExecution = (Campaign)UtilTestData.createSobject(
             campaignExecution, UtilTestData.CAMPAIGN_RT_CAMPAIGN_EXECUTION);
 
-        // One related Campaign Lead which has a reference to Campaign Execution
-        // and has a reference to Lead
+      
         camLead = new Campaign_Lead__c(
             Lead__c = lead.Id,
             Campaign__c = campaignExecution.Id);

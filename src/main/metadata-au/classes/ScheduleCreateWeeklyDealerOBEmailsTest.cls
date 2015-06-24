@@ -1,14 +1,10 @@
 /*
     Type:       Test Class
     Purpose:    Test the ScheduleCreateWeeklyDealerOBEmails class
-    User Story: 
-    ---------------------------------------------------------------
-    History:
-
     1. venky created on 2015-03-13
 */
-@isTest(seeAllData=true)
-public class ScheduleCreateWeeklyDealerOBEmailsTest{
+@isTest
+public with sharing class ScheduleCreateWeeklyDealerOBEmailsTest{
     
     static testMethod void testScheduleCreateWeeklyDealerOBEmails(){
 
@@ -27,9 +23,8 @@ public class ScheduleCreateWeeklyDealerOBEmailsTest{
         
         
         String CRON_EXP = '0 0 0 1 1 ? 2025';  
-        String jobId = System.schedule('ScheduleCreateWeeklyDealerOBEmailsTest', CRON_EXP, new ScheduleCreateWeeklyDealerOBEmails() );
-        CronTrigger ct = [select id, CronExpression, TimesTriggered, NextFireTime from CronTrigger where id = :jobId];
-        Test.stopTest();
+        System.schedule('ScheduleCreateWeeklyDealerOBEmailsTest', CRON_EXP, new ScheduleCreateWeeklyDealerOBEmails() );
+              Test.stopTest();
         
         //Assert Weekly Email Body for the Account Name:
         String weeklyEmailBody = UtilLeadEmailEscalation.getWeeklyEmailBodyByDealer(testAccount);

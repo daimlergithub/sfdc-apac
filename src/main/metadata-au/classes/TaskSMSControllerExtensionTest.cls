@@ -2,11 +2,6 @@
     Type:       test class
     Purpose:    TaskSMSControllerExtension test class
     User Story: Central Interactive SMS Workbook
-
-    Used By:    TaskSMSControllerExtension
-    ---------------------------------------------------------------
-    History:
-
     27-Nov-2013 Chaos Huang (Nttdata)    Created
 */
 @isTest
@@ -24,6 +19,8 @@ public class TaskSMSControllerExtensionTest{
   private static Template__c tem1;
   private static Template__c tem2;
   private static Lead__c lead;
+  private static string acc_ID='taskId'; 
+  private static string TASK_ID='taskId';
   private static List<Template__c> tems = new List<Template__c>();
   static user userObj;
   static{
@@ -35,9 +32,7 @@ public class TaskSMSControllerExtensionTest{
         insert userObj;
   }
  
- private static string acc_ID='taskId';
- private static string RET_URL='retURL';
- private static string TASK_ID='taskId';
+ 
      public static testMethod void testTaskSMSControllerExtension()
     {
         System.runAs(userObj)
@@ -46,9 +41,9 @@ public class TaskSMSControllerExtensionTest{
             prepareTestData();
             ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
             ApexPages.currentPage().getParameters().put(acc_ID,dealer.Id);
-            ApexPages.currentPage().getParameters().put('taskid',tas.Id);
+            ApexPages.currentPage().getParameters().put(acc_ID,tas.Id);
 
-            // Test click SMS button from Lead
+            // Test click SMS button from Lead//
             // Instantiate a new controller extension with all parameters in the page
             TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
             Test.stopTest();
@@ -82,7 +77,7 @@ public class TaskSMSControllerExtensionTest{
             Test.startTest();
             prepareTestData();
             ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
-            ApexPages.currentPage().getParameters().put('taskid',tas.Id);
+            ApexPages.currentPage().getParameters().put(acc_ID,tas.Id);
             TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
             extension.sms.Dealer__c = dealer.Id;
             extension.templateId=tem1.Id;
@@ -100,7 +95,7 @@ public class TaskSMSControllerExtensionTest{
             Test.startTest();
             prepareTestData_elsecondition();
             ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
-            ApexPages.currentPage().getParameters().put('taskid',tas.Id);
+            ApexPages.currentPage().getParameters().put(acc_ID,tas.Id);
             TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
             extension.templateId=null;
             extension.send();
@@ -109,6 +104,9 @@ public class TaskSMSControllerExtensionTest{
             extension1.templateMessage='test message';
             extension1.send();
             Test.stopTest();
+            system.assertequals(extension1.templateId,tem1.id);
+            system.assertequals(extension1.templateMessage,'test message');
+            
         }
     }
     
@@ -119,12 +117,13 @@ public class TaskSMSControllerExtensionTest{
             prepareTestData();
             ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
             ApexPages.currentPage().getParameters().put('CLead',camlead.Id);
-            ApexPages.currentPage().getParameters().put('taskid',tas.Id);
+            ApexPages.currentPage().getParameters().put(acc_ID,tas.Id);
             TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
             extension.templateId=tem1.Id;
             extension.getTemplates();
             extension.parseTemplateMessage();
             Test.stopTest();
+            system.assertequals(extension.templateId,tem1.id);
         }
     }
 

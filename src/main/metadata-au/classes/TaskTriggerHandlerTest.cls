@@ -1,5 +1,5 @@
 @isTest
-private class TaskTriggerHandlerTest {
+private with sharing class TaskTriggerHandlerTest {
 
     private static list<Task> listTask1 =new list<Task>();
     private static map<id,Task> taskMap1 = new map<id,Task>();
@@ -11,7 +11,7 @@ private class TaskTriggerHandlerTest {
         private static Id ibrtid = rtMap.get(UtilConstant.IB_CALL).getRecordTypeId();
         private static Id obrtid = rtMap.get(UtilConstant.OB_CALL).getRecordTypeId();
         private static Id obtrtid = rtMap.get(UtilConstant.OB_TASK).getRecordTypeId();
-        private static Id eDMrtid = rtMap.get('eDM').getRecordTypeId();
+        //private static Id eDMrtid = rtMap.get('eDM').getRecordTypeId();
     private static void createAccount()
     {
           customer = new Account(
@@ -51,7 +51,7 @@ private class TaskTriggerHandlerTest {
             Task obTask = new Task(RecordTypeId = obrtid, WhatId = customer.Id, End_call_time__c = endCallTime);
             insert obTask;
             
-            obTask.Called__c = '13011111111';
+            obTask.Called__c = '1301111111';
             obTask.OB_Status__c = 'busy';
             update obTask;
            

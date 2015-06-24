@@ -10,7 +10,7 @@
     3. Justin Yu Updated on 2014-03-21
 */
 public class SMSReplyHistoryHelper{
-    
+    //variables
     static String obTaskTypeId = Schema.SobjectType.Task.getRecordTypeInfosByName().get(UtilConstant.OB_TASK).getRecordTypeId();
     static String smsRecordTypeId = Schema.SobjectType.Task.getRecordTypeInfosByName().get(UtilConstant.SMS).getRecordTypeId();
     static String mmsRecordTypeId = Schema.SobjectType.Task.getRecordTypeInfosByName().get(UtilConstant.MMS).getRecordTypeId();
@@ -264,7 +264,7 @@ public class SMSReplyHistoryHelper{
         return newTask;
     }
     
-    private static Task createSMSTask(Task task, String smsContent){
+   @testvisible private static Task createSMSTask(Task task, String smsContent){
         Task newTask = task.clone();
         newTask.Subject = 'SMS';
         newTask.RecordTypeId = smsRecordTypeId;
@@ -274,7 +274,7 @@ public class SMSReplyHistoryHelper{
         return newTask;
     }
     
-    private static Task createMMSTask(Task task, Template__c template){
+  @testvisible private static Task createMMSTask(Task task, Template__c template){
     	Task newTask = task.clone();
     	newTask.Subject = 'MMS';
     	newTask.RecordTypeId = mmsRecordTypeId;
@@ -285,7 +285,7 @@ public class SMSReplyHistoryHelper{
         return newTask;
     }
     
-    private static Task createOBTask(Task task, SMSReplyHistory__c reply, SMS_Code__c smsCode){
+   @testvisible private static Task createOBTask(Task task, SMSReplyHistory__c reply, SMS_Code__c smsCode){
         Task obTask = new Task(RecordTypeId = obTaskTypeId);
         obTask.Subject = smsCode.OBTaskSubject__c;
         obTask.Related_Task_Id__c = task.Id;

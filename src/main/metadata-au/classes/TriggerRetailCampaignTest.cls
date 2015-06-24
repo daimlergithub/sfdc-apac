@@ -23,7 +23,7 @@ public class TriggerRetailCampaignTest {
     private static User dealerUser;
     @isTest
     public static  void testTriggerRetailCampaign1() {
-        //create test data
+        //create test data//
         MonthlyRule__c mr = new MonthlyRule__c(
                             KPI_Type__c = 'Marketing Budget',
                             Brand__c= 'MB + StarElite',
