@@ -20,4 +20,4 @@
 		<filename>profiles\*.profile</filename>
 		<xpath>/Profile/layoutAssignments</xpath>
 	</removeelement>	
-</transformations>
+</transformations> 
