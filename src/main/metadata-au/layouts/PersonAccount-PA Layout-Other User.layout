@@ -841,11 +841,12 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Service_Date__c</fields>
+        <fields>RECORDTYPE</fields>
         <fields>Type__c</fields>
         <fields>Related_Dealer__c</fields>
-        <fields>Service_Mileage__c</fields>
-        <fields>RECORDTYPE</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>Status__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -916,17 +917,12 @@
     </relatedLists>
     <relatedLists>
         <fields>CAMPAIGN.NAME</fields>
-        <fields>Campaign_Code__c</fields>
-        <fields>CAMPAIGN.RECORDTYPE</fields>
         <fields>CAMPAIGN.START_DATE</fields>
-        <fields>CAMPAIGN.END_DATE</fields>
         <fields>CAMPAIGN.CAMPAIGN_TYPE</fields>
         <fields>CM.STATUS</fields>
         <fields>CM.RESPONDED</fields>
         <fields>CM.LAST_UPDATE</fields>
         <relatedList>RelatedCampaignList</relatedList>
-        <sortField>CM.LAST_UPDATE</sortField>
-        <sortOrder>Desc</sortOrder>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

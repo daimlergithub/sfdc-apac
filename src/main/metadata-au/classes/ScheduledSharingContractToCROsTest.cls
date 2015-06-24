@@ -51,7 +51,8 @@ public class ScheduledSharingContractToCROsTest{
             Phone = '1234567',
             Individual_Home_Phone__c = '1234567',
             PersonAssistantPhone = '1234567',
-            RecordTypeId = personAccountRT);
+            RecordTypeId = personAccountRT,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
+        
         insert account1;
         
         Account account2 = new Account(
@@ -61,7 +62,7 @@ public class ScheduledSharingContractToCROsTest{
             Email__c = 'xiaomusyz@sohu.com',
             PersonAssistantPhone = '1234567',
             PersonMobilePhone ='1800999999',
-            RecordTypeId = personAccountRT);
+            RecordTypeId = personAccountRT,Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
         insert account2;
         
         Retail_Task__c contract1 = new Retail_Task__c (Account__c= account1.id,

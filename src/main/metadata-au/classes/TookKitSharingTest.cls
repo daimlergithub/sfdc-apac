@@ -23,9 +23,10 @@ private class TookKitSharingTest {
         Tool_Kit__c toolKit = new Tool_Kit__c(Dealer_Name__c = dealer.Id, Vendor_Employee__c = thirdPartyUser.Id);
         insert toolKit;
         TookKitSharingWrapService wrapService = new TookKitSharingWrapService();
-        wrapService.wrapToolKits(new List<Tool_Kit__c>{toolKit});
+        List<SharingWrapper> wrapToolKits =wrapService.wrapToolKits(new List<Tool_Kit__c>{toolKit});
         wrapService.wrapToolKitsFor3rdPartyUsers(new List<Tool_Kit__c>{toolKit});
         Test.stopTest();
+        system.assertNotEquals(null, wrapToolKits);
     }
     
 }

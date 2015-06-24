@@ -26,7 +26,47 @@ public class TriggerLeadTriggerHandler
         Map<Id,Lead__c> oldmap = (Map<Id,Lead__c>)trigger.oldmap;
         Map<Id,Lead__c> newmap = (Map<Id,Lead__c>)trigger.newmap;
         
-        if(trigger.isAfter && trigger.isInsert)
+    if(trigger.isAfter && trigger.isInsert)
+    {
+        //TODO-Commented kernel functionality need to add switching mechanism
+        /*AccountSharingDataHandler handler = new AccountSharingDataHandler('Lead__c');
+        handler.shareAccountByCRMCode(newmap, oldmap, Trigger.isInsert);
+        LeadHelper.afterInsert_UpdateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.ShareLeadsToCampaignUser(trigger.new,oldmap,trigger.NewMap,trigger.isinsert,trigger.isUpdate);*/
+        LeadHelper.auAfter_Insert_Update_Events(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
+       // AuLeadHelper.auAfter_Insert_Update_Events(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
+    }
+    if(trigger.isAfter && trigger.isUpdate)
+    {
+        //TODO-Commented kernel functionality need to add switching mechanism
+        /*LeadHelper.afterInsert_UpdateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.ShareLeadsToCampaignUser(trigger.new,oldmap,newmap,trigger.isinsert,trigger.isUpdate);*/
+        LeadHelper.auAfter_Insert_Update_Events(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
+        //AuLeadHelper.auAfter_Insert_Update_Events(trigger.new,newmap,oldmap,trigger.isinsert,trigger.isUpdate);
+    }
+    if(trigger.isBefore && trigger.isInsert)
+    {
+        //TODO-Commented kernel functionality need to add switching mechanism
+        /*// US-Lead-009
+        UtilLead.updateLeadForDataSharing(trigger.new);
+        UtilLead.beforeInsert_updateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.beforeInsert_UpdateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);*/
+        LeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+        //AuLeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+    }
+    if(trigger.isBefore && trigger.isUpdate)
+    {
+        //TODO-Commented kernel functionality need to add switching mechanism
+        /*UtilLead.beforeInsert_updateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.beforeInsert_UpdateEvents(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);*/
+        LeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+        LeadHelper.auBeforeUpdateGenericVehicleRecordOnVehicleRelationship(trigger.new,oldmap,newmap);
+        
+       // AuLeadHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+       // AuLeadHelper.auBeforeUpdateGenericVehicleRecordOnVehicleRelationship(trigger.new,oldmap,newmap);
+    }
+        
+       /* if(trigger.isAfter && trigger.isInsert)
         {
             AccountSharingDataHandler handler = new AccountSharingDataHandler('Lead__c');
             handler.shareAccountByCRMCode(newMap, oldMap, Trigger.isInsert);
@@ -49,7 +89,7 @@ public class TriggerLeadTriggerHandler
         {
             UtilLead.beforeInsert_updateEvents(trigger.new,oldMap,trigger.isinsert,trigger.isUpdate);
             LeadHelper.beforeInsert_UpdateEvents(trigger.new,oldMap,trigger.isinsert,trigger.isUpdate);
-        }
+        }*/
     }
 
 }

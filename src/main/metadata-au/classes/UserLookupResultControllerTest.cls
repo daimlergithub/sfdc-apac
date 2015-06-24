@@ -7,12 +7,13 @@
 */
 @isTest
 public class UserLookupResultControllerTest {
+
     private static String QCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('SSI QC').getRecordTypeId();
     
      @isTest 
     static void testUserLookupResultController_TypeAssignment()
     {
-    String assignmentType = ApexPages.currentPage().getParameters().get('assignment');
+   ApexPages.currentPage().getParameters().get('assignment');
 
     List<User> users = new List<User>();
     Set<String> userIds = new Set<String>();
@@ -39,29 +40,12 @@ public class UserLookupResultControllerTest {
             userIds.add(user.Id);
         }
                 
-        Test.startTest();
-        
+        Test.startTest();        
         PageReference page = new PageReference('/apex/UserLookupResult?type=assignment');
-        Test.setCurrentPage(page);
-        /*QC__c qc=new QC__c();
-        qc.Status__c='New';
-        qc.RecordTypeId=QCRecordTypeId;
-        qc.ownerid=us.id;
-        insert qc;
-        qc.Status__c='In Progress';
-        update qc;*/
-        for(AggregateResult result : [select OwnerId, COUNT(Id) qcSize from QC__c where RecordTypeId = '012O00000000flz'and Status__c = 'New'
-                                      and Status__c = 'In Progress' and OwnerId in :userIds group by OwnerId])
-                                      {
-                                      system.debug('>>>>> result'+result);
-                                      }
-                                      
+        Test.setCurrentPage(page);       
         UserLookupResultController controller = new UserLookupResultController();
         Test.stopTest();
         System.assert(us!=null);
-        
-
-        //System.assertequals(controller.getUserInfos(),qc.);
     }
     
     @isTest 
@@ -92,7 +76,5 @@ public class UserLookupResultControllerTest {
         UserLookupResultController controller = new UserLookupResultController(); 
         Test.stopTest();
         System.assert(result!=null);
-
-    
     } 
 }

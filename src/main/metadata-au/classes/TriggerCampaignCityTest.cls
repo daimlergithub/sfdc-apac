@@ -6,7 +6,7 @@ public class TriggerCampaignCityTest {
  Test.startTest();
         
         Campaign top = new Campaign(
-            IsActive = true, 
+            
             Name = 'top', 
             Status = 'Started', 
             StartDate = System.today(), 
@@ -17,6 +17,7 @@ public class TriggerCampaignCityTest {
         insert top;
         
         Campaign cac = new Campaign(
+        IsActive = true, 
             Name = 'cac', 
             Status = 'Started', 
             StartDate = System.today(), 
