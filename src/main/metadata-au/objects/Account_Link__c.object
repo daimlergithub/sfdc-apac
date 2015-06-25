@@ -978,7 +978,14 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+		<searchResultsAdditionalFields>System__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sector__c</searchResultsAdditionalFields>
+		<searchResultsAdditionalFields>Role__c</searchResultsAdditionalFields>
+		<searchResultsAdditionalFields>toRole__c</searchResultsAdditionalFields>
+		<searchResultsAdditionalFields>fromRole__c</searchResultsAdditionalFields>
+	</searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
         <fullName>Contact_Sector_Share__c</fullName>

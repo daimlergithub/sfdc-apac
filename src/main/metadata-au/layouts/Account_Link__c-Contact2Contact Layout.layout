@@ -14,6 +14,10 @@
                 <behavior>Readonly</behavior>
                 <field>System__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Readonly</behavior>
+                <field>fromRole__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>toRole__c</field>
