@@ -141,6 +141,7 @@
 			</sf:typeset>
 			<sf:typeset name="classes">
 				<sf:include name="FleerCorverList"/>
+				<sf:include name="FleerCorverListTest"/>
 			</sf:typeset>
 			<sf:typeset name="objects">
 				<sf:include name="Lead__c"/>
@@ -214,6 +215,7 @@
 			</sf:typeset>
 			<sf:typeset name="classes">
 				<sf:include name="TaskDeletingController"/>
+				<sf:include name="TaskDeletingControllerTest"/>
 			</sf:typeset>
 			<sf:typeset name="pages">
 				<sf:include name="TaskDeleting"/>
@@ -534,8 +536,7 @@
 	
 	<target name="deploy41">
 		<deploy>
-		<sf:typeset name="classes">
-			<sf:include name="TaskDeletingControllerTest"/>
+		<sf:typeset name="classes">			
 			<sf:include name="TaskFailBlacklistTrigger_TestClass"/>
 			<sf:include name="TaskMassChangeOwner"/>
 			<sf:include name="TaskMassChangeOwnerTest"/>
@@ -758,8 +759,6 @@
 			<sf:include name="EmailServiceStatusUpdateTest"/>
 			<sf:include name="ExtSelectAssignedDealer"/>
 			<sf:include name="ExtSelectAssignedDealerTest"/>
-			<sf:include name="FleerCorverList"/>
-			<sf:include name="FleerCorverListTest"/>
 			<sf:include name="MakeUpdateLinkControl"/>
 			<sf:include name="MakeUpdateLinkControlTest"/>
 			<sf:include name="NewCMSContractsRelationController"/>
