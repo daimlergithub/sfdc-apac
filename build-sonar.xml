@@ -26,7 +26,7 @@
 	
     <!-- location properties -->
 	<property name="sonar.sourceEncoding" value="UTF-8"/>
-    <property name="sonar.sources" value="src/main/metadata" />
+    <property name="sonar.sources" value="src/main/metadata-au" />
     
     <!-- define if not already defined properties -->
     <property name="sonar.language" value="sf" />
