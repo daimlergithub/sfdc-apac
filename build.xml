@@ -213,8 +213,7 @@
 				<sf:include name="Tasks"/>
 			</sf:typeset>
 			<sf:typeset name="classes">
-				<sf:include name="TaskDeletingController"/>
-				<sf:include name="TaskDeletingControllerTest"/>
+				<sf:include name="TaskDeletingController"/>				
 			</sf:typeset>
 			<sf:typeset name="pages">
 				<sf:include name="TaskDeleting"/>
