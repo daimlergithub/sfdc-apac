@@ -142,6 +142,7 @@
 			<sf:typeset name="classes">
 				<sf:include name="FleerCorverList"/>
 				<sf:include name="FleerCorverListTest"/>
+				<sf:include name="TestDataUtil"/>
 			</sf:typeset>
 			<sf:typeset name="objects">
 				<sf:include name="Lead__c"/>
@@ -706,7 +707,6 @@
 			<sf:include name="AddressHelper"/>
 			<sf:include name="AddressHelperTest"/>
 			<sf:include name="DBUtil"/>
-			<sf:include name="TestDataUtil"/>	
 			<sf:include name="UtilAccountTest"/>
 			<sf:include name="UtilDB"/>
 			<sf:include name="TriggerAccountHandler"/>
