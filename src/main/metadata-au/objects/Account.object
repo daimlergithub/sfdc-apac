@@ -24006,9 +24006,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
-        <customTabListAdditionalFields>PC_PHONE4</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ACCOUNT.PHONE1</customTabListAdditionalFields>
-        <customTabListAdditionalFields>PC_PHONE3</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Individual_Home_Phone__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Work_Phone__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Mobile__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Address__c</customTabListAdditionalFields>
         <listViewButtons>Load_3rd_Party_Data</listViewButtons>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
