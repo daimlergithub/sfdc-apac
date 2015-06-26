@@ -13,7 +13,7 @@ public class ScheduledDeleteTaskToDealersTest{
     static testMethod void testScheduledDeleteTaskToDealers(){
         Test.startTest();
         
-        Task testTask = (Task)UtilTestData.createSobject(new Task(), 'Task');
+        Task testTask = (Task)UtilTestData.createSobject(new Task(), 'General Task');
         system.debug('General Task Id :' +testTask);
         String CRON_EXP = '0 0 0 1 1 ? 2025';
         String jobId = System.schedule('ScheduledDeleteTaskToDealersTest', CRON_EXP, new ScheduledDeleteTaskToDealers() );
