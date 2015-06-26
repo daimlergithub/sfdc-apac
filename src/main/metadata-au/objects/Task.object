@@ -6862,7 +6862,7 @@
     <recordTypes>
         <fullName>General_Task</fullName>
         <active>true</active>
-        <label>Task</label>
+        <label>General Task</label>
         <picklistValues>
             <picklist>Activity_CommChannel__c</picklist>
             <values>
