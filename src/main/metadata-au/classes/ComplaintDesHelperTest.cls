@@ -65,7 +65,7 @@ private class ComplaintDesHelperTest {
            update cas;                
         Test.stopTest();   
         Case caseLst=[Select id,Description_Changed__c from case where Id=:cas.Id];   
-        system.assertEquals(caseLst.Description_Changed__c,false);      
+        system.assertEquals(caseLst.Description_Changed__c,true);      
        }    
      public static testMethod void test_before_AfterInsertEvents_Delete() {
         Test.startTest();
