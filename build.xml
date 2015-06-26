@@ -265,9 +265,11 @@
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>	 	
 			<sf:include name="UtilCampaignShareByCollaboration"/>
-			<sf:include name="UtilCampaignShareByCollaborationTest"/>
+<!--			<sf:include name="UtilCampaignShareByCollaborationTest"/> -->
 			<sf:include name="UtilTestData"/>
-			<sf:include name="DBUtil"/>
+			<sf:include name="DBUtil"/>  
+			<sf:include name="TriggerQCTriggerHandler"/>
+			<sf:include name="TriggerBatchJobTriggerHandler"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
