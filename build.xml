@@ -267,6 +267,7 @@
 			<sf:include name="UtilCampaignShareByCollaboration"/>
 			<sf:include name="UtilCampaignShareByCollaborationTest"/>
 			<sf:include name="UtilTestData"/>
+			<sf:include name="DBUtil"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
@@ -382,7 +383,6 @@
 			<sf:include name="ContactHelper"/>
 			<sf:include name="ContactHelperTest"/>
 			<sf:include name="ContactTriggerHandler"/>
-			<sf:include name="TestTriggerHandler"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ContactTrigger"/>
@@ -703,8 +703,7 @@
 			<sf:include name="Addresscontroller"/>
 			<sf:include name="AddresscontrollerTest"/>
 			<sf:include name="AddressHelper"/>
-			<sf:include name="AddressHelperTest"/>
-			<sf:include name="DBUtil"/>
+			<sf:include name="AddressHelperTest"/>			
 			<sf:include name="UtilAccountTest"/>
 			<sf:include name="UtilDB"/>
 			<sf:include name="TriggerAccountHandler"/>
