@@ -238,6 +238,7 @@
 			<sf:include name="TriggerUtil"/>
 			<sf:include name="TriggerUtilTest"/>
 			<sf:include name="IllegalArgumentException"/>
+			<sf:include name="TestTriggerHandler"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerUtilTestTrigger"/>
