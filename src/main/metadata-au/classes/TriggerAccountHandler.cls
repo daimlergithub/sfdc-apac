@@ -18,12 +18,35 @@ public class TriggerAccountHandler
 {
     public void handleTrigger()
     {
-        if (Trigger.isBefore) {
-            UtilAccount.beforeAccDealerInfo(Trigger.new,(Map<Id,Account>)Trigger.oldMap,Trigger.isInsert,Trigger.isUpdate);
-        }
-    
-        if (trigger.isAfter && trigger.isUpdate) {
-            UtilAccount.accountSetForUpdateLead(trigger.new,(Map<Id,Account>)Trigger.oldMap);
-        }
+    	Map<Id,Account> oldmap = (Map<Id,Account>)trigger.oldmap;
+        Map<Id,Account> newmap = (Map<Id,Account>)trigger.newmap;
+        
+        if(trigger.isAfter && trigger.isInsert)
+	    {
+	        AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
+	    }
+	    if(trigger.isAfter && trigger.isUpdate)
+	    {
+	        AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
+	        AccountHelper.auAfter_Update_UpdatePc_Status_Values(trigger.new);
+	        //Kernel code
+	        //UtilAccount.accountSetForUpdateLead(trigger.new,oldmap);
+	    }
+	    if(trigger.isAfter && trigger.isDelete)
+	    {
+	        AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
+	    }
+	    if(trigger.isBefore && trigger.isInsert)
+	    {
+	        AccountHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+	        //Kernel code
+	        //UtilAccount.beforeAccDealerInfo(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate);
+	    }
+	    if(trigger.isBefore && trigger.isUpdate)
+	    {
+	        AccountHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+	        //Kernel code
+	        //UtilAccount.beforeAccDealerInfo(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate);
+	    }
     }
 }

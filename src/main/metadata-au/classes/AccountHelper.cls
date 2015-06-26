@@ -373,5 +373,130 @@ public class AccountHelper {
                 from Account
                 where Id in :ids]);
     }
+    
+    //Method to update PC Status,CV Status,VAN Status to customer when address record and vehicle relation is associated to customer
+    public static void auAfter_Update_UpdatePc_Status_Values(list<Account> listNewAccounts)
+    {
+    	Set<Id> vehicleIds = new Set<Id>();
+    	Set<Id> vehicleRelationIds = new Set<Id>();
+	    Set<Id> customerIds = new Set<Id>();
+	    set<id> setAccId= new set<Id>();
+	    List<Vehicle_Relationship__c> insertCvrs = new List<Vehicle_Relationship__c>(); 
+	    for(Account objAcc : listNewAccounts)
+	    {  
+	    	if(!UtilConstant.Recursivefire)
+	    		customerIds.add(objAcc.Id);
+	    }
+	    if(customerIds!=null && !customerIds.isEmpty())
+	    {
+	    	list<Account> lstCustomers=[select id,(select id,Customer__c from Addresses__r),(Select id,Vehicle_ID__c,Contact__c,Vehicle_ID__r.Vehicle_Group__c from Vehicle_Relationships2__r) from Account where id In:customerIds];
+	    	if(lstCustomers!=null && !lstCustomers.isEmpty())
+	    	{
+	    		for(Account objAcc:lstCustomers)
+	    		{
+	    			if(objAcc.Vehicle_Relationships2__r!=null && !objAcc.Vehicle_Relationships2__r.isEmpty())
+	    			{
+	    				for(Vehicle_Relationship__c objVR:objAcc.Vehicle_Relationships2__r)
+	    				{
+	    					if(objAcc.id==objVR.Contact__c){
+		    					vehicleRelationIds.add(objVR.Id);
+		    					vehicleIds.add(objVR.Vehicle_ID__c);
+		    					insertCvrs.add(objVR);
+	    					}
+	    				}
+	    			}
+	    			if(objAcc.Addresses__r!=null && !objAcc.Addresses__r.isEmpty())
+	    			{
+	    				for(Address__c objAddr:objAcc.Addresses__r)
+	    				{
+    						setAccId.add(objAddr.Customer__c);
+	    				}
+	    			}
+	    		}
+	    		
+	    		if(insertCvrs!=null && !insertCvrs.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()){
+	    			updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,setAccId);
+	    		}
+	    	}
+	    }
+    }
+    
+    //When PA gets a Vehicle-Relationship
+    public static void updataWhenCreateCVR(Set<Id> vehicleIds, Set<Id> customerIds, list<Vehicle_Relationship__c> cvrs,set<id> setAccId) {
+        Map<id,Account> accounts = new Map<id,Account>();
+        Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
+        //get pc first date records
+        Map<String,Date>  preRecordsPc = getExsitedInfos(customerIds,'PC');
+        //get cv first date records 
+        Map<String,Date>  preRecordsCv = getExsitedInfos(customerIds,'CV');
+        //get cv first date records 
+        Map<String,Date>  preRecordsVAN = getExsitedInfos(customerIds,'VAN');
+        exsisedRecord.put('PC', preRecordsPc);
+        exsisedRecord.put('CV', preRecordsCv);
+        exsisedRecord.put('VAN', preRecordsVAN);
+        
+        Map<id,Account> accs = getCustomerInfos(customerIds);
+        Map<id,Vehicle__c> vehichles = getVehichles(vehicleIds);
+        for(Vehicle_Relationship__c curCvr : cvrs){
+            Account acc = new Account();
+            if(accounts.containsKey(curCvr.Contact__c)){
+                acc = accounts.get(curCvr.Contact__c);
+            }else{
+                acc = accs.get(curCvr.Contact__c);
+            }
+            acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)));
+            accounts.put(acc.id,acc);
+        }
+          if(accounts.values()!=null && !accounts.values().isEmpty())	
+          { 
+          	UtilConstant.Recursivefire=true;
+          	UtilDB.updateSobjects(accounts.values());
+          }
+    }
+    
+    //Get vehiches Vehicle_Group__c by vehicle id
+    public static Map<id,Vehicle__c> getVehichles(set<Id> ids){
+        return new Map<id,Vehicle__c>(
+        [select id,
+               Vehicle_Group__c
+        from Vehicle__c 
+        where Id in :ids]);
+       
+    }
+   //get the lastest record
+    public static Map<String,Date> getExsitedInfos(Set<Id> customerIds , String vehicleGroup){
+        Map<String,Date>  recordsInfo = new Map <String,Date>();
+        for (sObject obj:[select Contact__c, min(Purchase_Date__c) Purchase_Date__c from Vehicle_Relationship__c where Vehicle_ID__r.Vehicle_Group__c = :vehicleGroup and Contact__c in :customerIds group by Contact__c]){
+            recordsInfo.put(String.valueOf(obj.get('Contact__c')),Date.valueOf(obj.get('Purchase_Date__c')));
+        }
+        
+        return  recordsInfo;
+    }
+    private static Map<String, List<String>> colsMap = new Map<String,List<String>>
+        {'PC'=> new List<String>{'PC_Status__c','Buy_Cycle__c','PC_Tenure__c'},
+         'CV'=> new List<String>{'CV_Status__c','CV_No_Brand_Purchases__c','CV_Tenure__c'},
+         'VAN'=> new List<String>{'VAN_Status__c','VAN_No_Brand_Purchases__c','VAN_Tenure__c'}
+        };
+          //update PC CV VAN tenure
+     private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer){
+        if(!String.isblank(vehicleGroup)){
+            Map<String,Date> preRecord = preRecords.get(vehicleGroup);
+            List<String> cols = colsMap.get(vehicleGroup);
+            if(isCustomer)
+            	userInfo.put(cols[0], 'customer');
+            integer numberofP = 1;
+            if(userInfo.get(cols[1])!=null){
+                numberofP = integer.valueOf(userInfo.get(cols[1]))+1;
+            }
+            userInfo.put(cols[1], Decimal.valueOf(numberofP));
+            integer tenure = 0;
+            if(preRecord.get(userInfo.id) != null){
+                tenure = preRecord.get(userInfo.id).monthsBetween(Date.today())/12;
+            }
+            
+            userInfo.put(cols[2] , Decimal.valueOf(tenure));
+        }
+        return userInfo;        
+    }   
     //Existing AU related functionality ends here   
 }
