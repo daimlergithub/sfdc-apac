@@ -39,6 +39,7 @@ Global with sharing class UtilConstant {
 	public final static string COMMUNITY_LICENSE_SWITCH='Community Enabled';
 	public final static string ORGWIDE_EMAIL_ADDRESS='DailyAssignedLeadsReport eMail Address';
 	public final static string ORGWIDE_EMAIL_ADDRESS_DEFAULT='customer_care@daimler.com';
+    public static boolean Recursivefire=false;
     
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {
