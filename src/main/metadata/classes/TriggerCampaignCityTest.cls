@@ -1,5 +1,5 @@
 @isTest 
-public class TriggerCampaignCityTest {
+public with sharing class TriggerCampaignCityTest {
  @isTest static void testCampaignHelper(){
  String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
         String cacCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
@@ -32,6 +32,8 @@ public class TriggerCampaignCityTest {
         insert campcity;
         delete campcity;
         Test.stopTest();
+      
+       system.assertEquals([select Campaign__c,Start_Date__c,End_Date__c from Campaign_City__c where id=:campcity.id].IsEmpty(),true);
  }
  
 }

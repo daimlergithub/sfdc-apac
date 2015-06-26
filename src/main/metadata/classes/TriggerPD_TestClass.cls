@@ -2,14 +2,10 @@
     Type:       Test Class
     Purpose:    TriggerParticipatingDealer
     User Story: 
-    Used By:    
-    ---------------------------------------------------------------
-    History:
-    
     29-June-2013 Stephano (Breakingpoint)    Created
 */
 @isTest
-public class TriggerPD_TestClass{
+public with sharing class TriggerPD_TestClass{
     static testmethod void runTriggerParticipatingDealer(){
         // Campaign Record Type Id Search
         Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();
@@ -61,10 +57,15 @@ public class TriggerPD_TestClass{
         insert pi1;
         
         // Participating Dealer
-      /*  Participating_Dealer__c pd = new Participating_Dealer__c(Campaign__c=TestData_CCA.Id,Dealer__c=acc.Id,Campaign_Package__c=cp.Id);
+       Participating_Dealer__c pd = new Participating_Dealer__c(Campaign__c=TestData_CCA.Id,Dealer__c=acc.Id,Campaign_Package__c=cp.Id);
       insert pd;
         
         pd.Campaign_Package__c = cp1.Id;
-       update pd; */
+       update pd; 
+        
+        Participating_Dealer__c pdtest=[select Campaign__c, Dealer__c,Campaign_Package__c from Participating_Dealer__c where id=:pd.id];
+        system.assertEquals(pdtest.Campaign_Package__c,pd.Campaign_Package__c);
+        
+        
     }
 }
