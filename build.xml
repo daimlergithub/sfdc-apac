@@ -387,6 +387,8 @@
 			<sf:include name="ContactHelper"/>
 			<sf:include name="ContactHelperTest"/>
 			<sf:include name="ContactTriggerHandler"/>
+			<sf:include name="ExtSelectAssignedDealer"/>
+			<sf:include name="ExtSelectAssignedDealerTest"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ContactTrigger"/>
@@ -758,8 +760,6 @@
 		<sf:typeset name="classes">
 			<sf:include name="EmailServiceStatusUpdate"/>
 			<sf:include name="EmailServiceStatusUpdateTest"/>
-			<sf:include name="ExtSelectAssignedDealer"/>
-			<sf:include name="ExtSelectAssignedDealerTest"/>
 			<sf:include name="MakeUpdateLinkControl"/>
 			<sf:include name="MakeUpdateLinkControlTest"/>
 			<sf:include name="NewCMSContractsRelationController"/>
