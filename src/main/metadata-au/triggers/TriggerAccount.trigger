@@ -15,27 +15,5 @@
 */
 trigger TriggerAccount on Account (before insert,before update,after insert, after update, after delete) 
 {
-    if (!TriggerUtil.isTriggerEnabled('TriggerAccount')) {
-        return;
-    }
-    if(trigger.isAfter && trigger.isInsert)
-    {
-        AccountHelper.auAfter_Insert_Update_Delete_Events(trigger.NewMap,trigger.OldMap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
-    }
-    if(trigger.isAfter && trigger.isUpdate)
-    {
-        AccountHelper.auAfter_Insert_Update_Delete_Events(trigger.NewMap,trigger.OldMap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
-    }
-    if(trigger.isAfter && trigger.isDelete)
-    {
-        AccountHelper.auAfter_Insert_Update_Delete_Events(trigger.NewMap,trigger.OldMap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
-    }
-    if(trigger.isBefore && trigger.isInsert)
-    {
-        AccountHelper.auBefore_Insert_Update_Events(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-    }
-    if(trigger.isBefore && trigger.isUpdate)
-    {
-        AccountHelper.auBefore_Insert_Update_Events(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-    }
+	TriggerUtil.handleTrigger('TriggerAccount');
 }
