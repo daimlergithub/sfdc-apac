@@ -129,6 +129,14 @@
         <fields>Fleet__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
+	<relatedLists>
+		<excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>System__c</fields>
+        <fields>CREATEDBY_USER</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <relatedList>Account_Link__c.fromRole__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
