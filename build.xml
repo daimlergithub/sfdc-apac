@@ -331,6 +331,7 @@
 			<sf:include name="ScheduleCreateMonthlyRegionOBEmailsTest"/>		
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmails"/>
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmailsTest"/>
+			<sf:include name="UtilConstant"/>
 		</sf:typeset>
 		<sf:typeset name="tabs">
 			<sf:include name="Retail_Campaigns"/>
@@ -351,8 +352,7 @@
 			<sf:include name="TaskTriggerHandlerTest"/>
 			<sf:include name="AvatoHelper"/>
 			<sf:include name="NiceWebServices"/>
-			<sf:include name="UtilTask"/>
-			<sf:include name="UtilConstant"/>
+			<sf:include name="UtilTask"/>			
 			<sf:include name="AccountSharingDataHandler"/>
 			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
 			<sf:include name="SharingService"/>
