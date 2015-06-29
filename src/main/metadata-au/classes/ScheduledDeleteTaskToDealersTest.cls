@@ -22,7 +22,7 @@ public class ScheduledDeleteTaskToDealersTest{
           Test.stopTest();
          //Assert for the Task Delete:
           Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.task.getRecordTypeInfosByName();
-          List<Task> taskList = [Select Id, IsDeleted  From Task Where RecordTypeId = :cpRecordTypeMap.get('Task').getRecordTypeId() And ActivityDate < :System.today()];
+          List<Task> taskList = [Select Id, IsDeleted  From Task Where RecordTypeId = :cpRecordTypeMap.get('General Task').getRecordTypeId() And ActivityDate < :System.today()];
           system.debug('Deleted Tasks Size:' +taskList.size());
           system.assertEquals(0, taskList.size());
           System.assertEquals(CRON_EXP, ct.CronExpression); 
