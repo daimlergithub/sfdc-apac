@@ -95,6 +95,10 @@
                 <behavior>Edit</behavior>
                 <field>Communication_Method__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Activity_Purpose__c</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsLeftToRight</style>
     </layoutSections>
