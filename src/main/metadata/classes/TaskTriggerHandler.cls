@@ -226,7 +226,7 @@ public class TaskTriggerHandler
         }
     }
     
-    private static void doGenerateWC(Task tk){
+    @TestVisible private static void doGenerateWC(Task tk){
         Account acc = [
             Select Id, Name, PersonOtherPhone, Phone, PersonMobilePhone, PersonHomePhone, PersonAssistantPhone 
             From Account 
@@ -299,7 +299,7 @@ public class TaskTriggerHandler
                 if(tk.SSI_Status__c == null) {
                     tk.Activity_Status__c = tk.OB_Status__c;
                 }else {
-                	tk.Activity_Status__c = tk.SSI_Status__c;
+                    tk.Activity_Status__c = tk.SSI_Status__c;
                 }                
                 tk.Phone__c = tk.Called__c;
             }
@@ -390,7 +390,7 @@ public class TaskTriggerHandler
                             }
                         } 
                     } catch (Exception ex) {
-                    	System.debug('errormessage>>' + ex.getmessage());}
+                        System.debug('errormessage>>' + ex.getmessage());}
                     if (isMatched) {
                         ctiTasks.put(tk.CallObject, ctk);
                     }
@@ -456,7 +456,7 @@ public class TaskTriggerHandler
                     try{
                         update t;
                     }catch(DMLException ex){
-						System.debug('errormessage>>' + ex.getmessage());
+                        System.debug('errormessage>>' + ex.getmessage());
                     } 
                 }           
             }
@@ -575,7 +575,7 @@ public class TaskTriggerHandler
             try{
                 update ssi;   
             }catch(Exception ex){
-            	System.debug('errormessage>>' + ex.getmessage());}
+                System.debug('errormessage>>' + ex.getmessage());}
         }
     }
 
