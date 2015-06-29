@@ -14,7 +14,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
+        <content>AUAssignVFPageToRecordType</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>EmailHighlightAction</actionName>
@@ -38,7 +40,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <content>AUAssignVFPageToRecordType</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>RequestUpdate</actionName>
@@ -24042,21 +24046,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>At_least_one_phone_number</fullName>
         <active>true</active>
         <description>the record needs to have at least one phone number field filled (Home Phone, Office Phone or Mobile) OR an email address.</description>
-        <errorConditionFormula>AND(
-ISBLANK(Individual_Home_Phone__c),
-ISBLANK(Phone),
-ISBLANK(Mobile__c),
-ISBLANK(Home_Phone_2__c),
-ISBLANK(Work_Phone__c),
-ISBLANK(Mobile2__c),
-ISBLANK(Email__c),
-ISBLANK(Email2__c),
-OR(
-RecordType.Name == 'Person Account',
-RecordType.Name == 'Company'
-),
-$Profile.Name != 'IntegrationAPI'
-)</errorConditionFormula>
+        <errorConditionFormula>AND(ISBLANK(Individual_Home_Phone__c),ISBLANK(Phone),ISBLANK(Mobile__c),ISBLANK(Home_Phone_2__c),ISBLANK(Work_Phone__c),ISBLANK(Mobile2__c),ISBLANK(Email__c),ISBLANK(Email2__c),OR(RecordType.Name == 'Person Account',RecordType.Name == 'Company'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>The record needs to have at least one phone number field filled (Home Phone, Work Phone or Mobile) OR an email address. .</errorMessage>
     </validationRules>
     <validationRules>
