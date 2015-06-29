@@ -444,7 +444,10 @@ public class AccountHelper {
             }else{
                 acc = accs.get(curCvr.Contact__c);
             }
-            acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)));
+            if(vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c!=null)
+            	acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)));
+            else
+            	acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)));	
             accounts.put(acc.id,acc);
         }
           if(accounts.values()!=null && !accounts.values().isEmpty())	
@@ -458,7 +461,7 @@ public class AccountHelper {
     public static Map<id,Vehicle__c> getVehichles(set<Id> ids){
         return new Map<id,Vehicle__c>(
         [select id,
-               Vehicle_Group__c
+               Vehicle_Group__c,Car_Model__c,Car_Model__r.Vehicle_Group__c
         from Vehicle__c 
         where Id in :ids]);
        
