@@ -11,7 +11,7 @@
 
 public class LeadMassChangeDealerController {
 
-    private String [] arrObjIds;
+    @testvisible private String [] arrObjIds;
     private final String ACCOUNT_RT_DEALER = 'Dealer';
        
     public List<Account> dealers { get; set; }
@@ -113,7 +113,7 @@ public class LeadMassChangeDealerController {
         }
     }
     
-    private void addInfoMessage(String msg) {
+   @testvisible private void addInfoMessage(String msg) {
         ApexPages.addMessage(new ApexPages.Message(
             ApexPages.severity.INFO, msg));
     }
