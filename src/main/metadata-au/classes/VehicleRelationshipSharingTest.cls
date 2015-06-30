@@ -23,7 +23,7 @@ private with sharing class VehicleRelationshipSharingTest {
     
     @isTest 
     static void testWrapRetailVehicleRelationships() {
-        //prepare test data//
+        //prepare test data
         RecordType retailType = [select Id from RecordType where SObjectType = 'Vehicle_Relationship__c' and DeveloperName = 'Vehicle_Relationship_Retail' limit 1];
         Vehicle_Relationship__c retailVehicleRelationship = new Vehicle_Relationship__c(Contact__c=acc.id,RecordTypeId = retailType.Id, Owner_Dealer__c = dealer.Id, Vehicle_ID__c = vehicle.Id);
         insert retailVehicleRelationship;

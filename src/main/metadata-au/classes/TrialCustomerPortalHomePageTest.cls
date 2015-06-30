@@ -1,6 +1,7 @@
-@isTest(seealldata=true)
+@isTest
 Public class TrialCustomerPortalHomePageTest
 {
+    private static string sortField3Value ='createdbyid';
  public static testMethod void TestTrialCustomerHomePageController()
  {
  Id Owner;
@@ -25,19 +26,22 @@ accs.add(a);
                            
                   
 Test.startTest();
-Long start = system.currentTimeMillis();
+//Long start = system.currentTimeMillis();
 
  TrialCustomerPortalHomePageController trial=new TrialCustomerPortalHomePageController();
- trial.sortField3 = 'createdbyid';
- trial.sortField1= 'createdbyid';
- trial.sortField2= 'createdbyid';
- trial.sortField4= 'createdbyid';
- trial.previousSortField1= 'createdbyid';
- trial.previousSortField2= 'createdbyid';
- trial.previousSortField4= 'createdbyid';
+ trial.sortField3 = sortField3Value;
+ trial.sortField1= sortField3Value;
+ trial.sortField2= sortField3Value;
+ trial.sortField4= sortField3Value;
+ trial.previousSortField1= sortField3Value;
+ trial.previousSortField2= sortField3Value;
+ trial.previousSortField4= sortField3Value;
  
   trial.SortSolutions();
+     
+
   Test.stopTest();
     
+     system.assert(!listsol.isEmpty());
  }
 }

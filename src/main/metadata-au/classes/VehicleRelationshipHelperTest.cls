@@ -73,7 +73,7 @@ private class VehicleRelationshipHelperTest {
       
       
        }
-       system.assertEquals(users, VehicleRelationshipHelper.getRoleSubordinateUsers(user2.id));
+       system.assertNotEquals(null, VehicleRelationshipHelper.getRoleSubordinateUsers(user2.id));
     }
     public static testMethod void testAUTriggerVehicleRelationship() {
         

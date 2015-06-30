@@ -1,26 +1,6 @@
-/**
- * This class contains unit tests for validating the behavior of Apex classes
- * and triggers.
- *
- * Unit tests are class methods that verify whether a particular piece
- * of code is working properly. Unit test methods take no arguments,
- * commit no data to the database, and are flagged with the testMethod
- * keyword in the method definition.
- *
- * All test methods in an organization are executed whenever Apex code is deployed
- * to a production organization to confirm correctness, ensure code
- * coverage, and prevent regressions. All Apex classes are
- * required to have at least 75% code coverage in order to be deployed
- * to a production organization. In addition, all triggers must have some code coverage.
- * 
- * The @isTest class annotation indicates this class only contains test
- * methods. Classes defined with the @isTest annotation do not count against
- * the organization size limit for all Apex scripts.
- *
- * See the Apex Language Reference for more information about Testing and Code Coverage.
- */
 @isTest
 public class SSIBatchGenerateWelcomeCallTest {
+    private static id recordTypeID = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
 
     public static testMethod void testMyController() {
         
@@ -51,7 +31,7 @@ public class SSIBatchGenerateWelcomeCallTest {
         dms2= [Select Id, PersonContactId From Account Where Id =: dms2.Id];
 
         Task t1 = new Task(
-            recordtypeid =  Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId(),
+            recordtypeid =  recordTypeID,
             Subject = 'Welcome Call',
             WhatId = dms2.Id,
             WhoId = dms2.PersonContactId,
@@ -83,7 +63,7 @@ public class SSIBatchGenerateWelcomeCallTest {
         dms3 = [Select Id, PersonContactId From Account Where Id =: dms3.Id];
         
         Task t2 = new Task(
-            recordtypeid =  Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId(),
+            recordtypeid =  recordTypeID,
             Subject = 'Welcome Call',
             WhatId = dms3.Id,
             WhoId = dms3.PersonContactId,
@@ -101,8 +81,13 @@ public class SSIBatchGenerateWelcomeCallTest {
                                 + nextMonth.year();
         String jobName = 'Create Generate Welcome Call Weekly Schedule ' + 
             Math.rint(Math.random() * 1000000);
-        System.schedule(jobName, cron, schClass);
+        string  jobId= System.schedule(jobName, cron, schClass);
         Test.stopTest();
+        CronTrigger listCronTrigger = [select Id, CronExpression, EndTime, NextFireTime, OwnerId, PreviousFireTime, StartTime, State, TimesTriggered, TimeZoneSidKey 
+           from CronTrigger where Id =:jobId ];
+         system.debug('listCronTriggertest'+listCronTrigger);
+        system.assertEquals(listCronTrigger.state, 'WAITING');
+
        
     }
 }
