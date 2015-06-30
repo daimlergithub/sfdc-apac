@@ -90,7 +90,7 @@ public class LeadMassChangeDealerControllerTest
     @isTest
     static void testLeadMassChangeDealerController_saveClick_assignedDealerName()
     {
-    	//prepare test data
+    	//prepare test data//
         init();
         Lead__c testLead = createLead();
         insert testLead;

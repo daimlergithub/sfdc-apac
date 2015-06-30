@@ -113,7 +113,7 @@ public class LeadMassChangeDealerController {
         }
     }
     
-    private void addInfoMessage(String msg) {
+   @testvisible private void addInfoMessage(String msg) {
         ApexPages.addMessage(new ApexPages.Message(
             ApexPages.severity.INFO, msg));
     }
