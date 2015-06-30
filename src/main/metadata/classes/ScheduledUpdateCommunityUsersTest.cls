@@ -4,7 +4,7 @@
     1. Shuang Li created on 2014-05-13
 */
 @isTest
-public With Sharing class ScheduledUpdateCommunityUsersTest{
+public Without Sharing class ScheduledUpdateCommunityUsersTest{
     
     static testMethod void testScheduledUpdateCommunityUsers()
     {

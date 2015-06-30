@@ -1,5 +1,5 @@
 @isTest
-private with sharing class RetailCampaignSharingTest {
+private without sharing class RetailCampaignSharingTest {
     
     private static Account dealer;
     private static String en_US='en_US';

@@ -6,7 +6,7 @@
     7-Jul-2014 Sinow    Created
 */
 @isTest 
-public With Sharing class RetailCampaignSegmentationControllerTest 
+public Without Sharing class RetailCampaignSegmentationControllerTest 
 {
 Private Static List<String> filterOptions ;
  Private Static List<SelectOption> hobbyOptions ;
@@ -39,24 +39,9 @@ Private Static Retail_Campaign__c rc;
                 String acc3rdPartyRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('3rd Party').getRecordTypeId();
                 String segmentationRTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Segmentation Only').getRecordTypeId();
                 
-                Account customer = new Account(Dealer_DMS_SR_Code__c='',
-                                            Status__c='xCustomer',
-                                            City__c='Beijing',
-                                             phone = '1344444',
-                                             PersonOtherPhone='0231456987',
-                                             PersonHomePhone='0231456989',
-                                             PersonMobilePhone='0231456439',
-                                             Retail_Fax__c='0237456989',
-                                             Retail_Home_Phone__c='0281456989',
-                                             Retail_Mobile__c='0231456949',
-                                             Retail_Work_Phone__c='0231056989',
-                                            Area_code__c = '010',
-                                            Age_Range__c = '26-35',
-                                            LastName = 'galaxy2',
-                                            ZipCode__c='000000',
-                                            Branch_name__c = '2014/06/05',
-                                            File_Name__pc = 'C://User/folder',
-                                            RecordTypeId=acc3rdPartyRTId);
+                Account customer = new Account(Dealer_DMS_SR_Code__c='',Status__c='xCustomer',City__c='Beijing',phone = '1344444', PersonOtherPhone='0231456987',PersonHomePhone='0231456989',PersonMobilePhone='0231456439',
+                                             Retail_Fax__c='0237456989',Retail_Home_Phone__c='0281456989', Retail_Mobile__c='0231456949', Retail_Work_Phone__c='0231056989',Area_code__c = '010',Age_Range__c = '26-35',
+                                            LastName = 'galaxy2', ZipCode__c='000000',Branch_name__c = '2014/06/05', File_Name__pc = 'C://User/folder',RecordTypeId=acc3rdPartyRTId);
                 insert customer;
                  rc = new Retail_Campaign__c(Name = 'testCampaign',RecordTypeId=segmentationRTId);
                 insert rc;
