@@ -43,7 +43,7 @@ public class TaskSMSControllerExtensionTest{
             ApexPages.currentPage().getParameters().put(acc_ID,dealer.Id);
             ApexPages.currentPage().getParameters().put(acc_ID,tas.Id);
 
-            // Test click SMS button from Lead//
+            // Test click SMS button from Lead
             // Instantiate a new controller extension with all parameters in the page
             TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
             Test.stopTest();

@@ -1,5 +1,59 @@
 @isTest
-public class UtilCampaignTaskGenerationByLeadsTest {
+public with sharing class UtilCampaignTaskGenerationByLeadsTest {
+    private static string retailLeadType =Schema.SObjectType.lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId();    
+    private static String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+    private static String  accPerson_RecordTypeIdp = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    private static Lead__c lead;
+    private static Account dealer;
+    private static Account account2;
+    private static Contact contact;
+    static{
+       dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);  
+   
+       account2 = new Account(Dealer_Default_Flag__c=true,
+                                    Dealer_DMS_SR_Code__c='Test_SR_Code2',
+                                    //Status__c='Other',
+                                    City__c='Beijing',
+                                    Phone = '80801011',
+                                    Area_Code__c = '010',            
+                                    lastName = 'Beijing XING Services Limited - Alpha Review',
+                                    ZipCode__c='100101',
+                                    Salutation='Brother',
+                                    FirstName='Test',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413',
+                                    RecordTypeId=accPerson_RecordTypeIdp);
+                                    insert account2;
+    
+      contact = new Contact(
+          AccountId = dealer.Id, 
+          LastName = 'b', 
+          Phone = '1212313', 
+          MobilePhone='1236547890',
+          email = 's@s.s',
+          DUP_Number__c='test dup'
+        );
+        insert contact;
+  
+        lead = new Lead__c();
+       lead.Assigned_Dealer__c = dealer.Id;
+       lead.CAC_Lead_Status__c = 'Qualified';
+        lead.Lead_Type__c = 'New Car';
+        lead.Allow_Data_Sharing__c=true;
+        lead.Relation_With_The_Leads__c = 'test1';
+        lead.Lead_Desired_Service__c = 'Trade-In';
+        lead.Purchase_Time__c = '0 - 3 months';
+        lead.Interested_Vehicle_Brand__c = 'test2';
+        lead.Trade_In_MB_Vehicle_Model__c = 'benz';
+        lead.Trade_In_Vehicle_Brand__c = 'c230';
+        lead.Trade_In_Vehicle_Class__c = 'C-CLASS';
+        lead.Trade_In_Other_Vehicle_Model__c = 'test5';
+        lead.Interested_Vehicle_Brand__c = 'Smart';
+        lead.RecordTypeId=retailLeadType;
+        lead.Contact__c=account2.id;
+      // lead.Company_Account__c=dealer.Id;
+        insert lead;
+                     
+        
+    }
 
     public static testMethod void testUtilCampaignTaskGenerationByLeads() {
      List<User> newUsers = new List<User>();
@@ -14,12 +68,12 @@ public class UtilCampaignTaskGenerationByLeadsTest {
             
             for(Profile p : profileIds){
                 User usr = new User();
-                usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
+                usr.UserName = 'test3' + Math.rint(Math.random() * 100000) + '@daimler.com';
                 usr.ProfileId = p.Id;
                  
                 usr.LastName = 'Test User';
                 usr.Email = 'test001@daimler.com.full';
-                usr.Alias = 'test';
+                usr.Alias = 'test7';
                 usr.TimeZoneSidKey = 'Asia/Shanghai';
                 usr.EmailEncodingKey = 'UTF-8';
                 usr.LanguageLocaleKey = 'en_US';
@@ -30,7 +84,7 @@ public class UtilCampaignTaskGenerationByLeadsTest {
             insert newUsers;
         }
     
-           String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+          
 
             Campaign top = new Campaign(
       Name = 'top', 
@@ -41,72 +95,9 @@ public class UtilCampaignTaskGenerationByLeadsTest {
     );
     insert top;
     
-        string retailLeadType =Schema.SObjectType.lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId();
-    string accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();     // Dealer.
 
     
-    Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-    /*account a=new account();
-    a.name='test';
-    a.Allow_Data_Sharing__c='no';
-    a.RecordTypeId=accPerson_RecordTypeId;
-    insert a; */
-      String  accPerson_RecordTypeIdp = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();     // Person Account.
-Account account2 = new Account(Dealer_Default_Flag__c=true,
-                                    Dealer_DMS_SR_Code__c='Test_SR_Code2',
-                                    //Status__c='Other',
-                                    City__c='Beijing',
-                                    Phone = '80801011',
-                                    Area_Code__c = '010',            
-                                    lastName = 'Beijing XING Services Limited - Alpha Review',
-                                    ZipCode__c='100101',
-                                    Salutation='Brother',
-                                    FirstName='Test',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413',
-                                    RecordTypeId=accPerson_RecordTypeIdp);
-                                    insert account2;
-    
-     Contact contact = new Contact(
-          AccountId = dealer.Id, 
-          LastName = 'b', 
-          Phone = '1212313', 
-          MobilePhone='1236547890',
-          email = 's@s.s',
-          DUP_Number__c='test dup'
-        );
-        insert contact;
-  
-      /* Lead__c lead = new Lead__c(Assigned_Dealer__c = dealer.Id, 
-                lead.CAC_Lead_Status__c = 'Qualified',
-        lead.Lead_Type__c = 'New Car',
-        lead.Relation_With_The_Leads__c = 'test',
-        lead.Lead_Desired_Service__c = 'Trade-In',
-        lead.Purchase_Time__c = '0 - 3 months',
-        lead.Interested_Vehicle_Brand__c = 'test',
-        lead.Trade_In_MB_Vehicle_Model__c = 'benz',
-        lead.Trade_In_Vehicle_Brand__c = 'c230',
-        lead.Trade_In_Vehicle_Class__c = 'C-CLASS',
-        lead.Trade_In_Other_Vehicle_Model__c = 'test',
-        lead.Interested_Vehicle_Brand__c = 'Smart');
-       insert lead;*/
-       Lead__c lead = new Lead__c();
-       lead.Assigned_Dealer__c = dealer.Id;
-       lead.CAC_Lead_Status__c = 'Qualified';
-        lead.Lead_Type__c = 'New Car';
-        lead.Allow_Data_Sharing__c=true;
-        lead.Relation_With_The_Leads__c = 'test';
-        lead.Lead_Desired_Service__c = 'Trade-In';
-        lead.Purchase_Time__c = '0 - 3 months';
-        lead.Interested_Vehicle_Brand__c = 'test';
-        lead.Trade_In_MB_Vehicle_Model__c = 'benz';
-        lead.Trade_In_Vehicle_Brand__c = 'c230';
-        lead.Trade_In_Vehicle_Class__c = 'C-CLASS';
-        lead.Trade_In_Other_Vehicle_Model__c = 'test';
-        lead.Interested_Vehicle_Brand__c = 'Smart';
-        lead.RecordTypeId=retailLeadType;
-        lead.Contact__c=account2.id;
-      // lead.Company_Account__c=dealer.Id;
-        insert lead;
-                     
+
                      
                      List<Campaign> ml = new List<Campaign>();
        for (Integer i=0;i<10;i++) {
@@ -128,10 +119,14 @@ Account account2 = new Account(Dealer_Default_Flag__c=true,
           UtilCampaignTaskGenerationByLeads  batcher= new UtilCampaignTaskGenerationByLeads(ml,jobId);
           Database.executeBatch(batcher);
           //Database.QueryLocator ql = batcher.start(null);
-batcher.execute(null,listcamplead);
+          batcher.execute(null,listcamplead);
 
           test.stopTest();
+        system.assertNotEquals(null, ml);
 
           //     ID batchprocessid = Database.executeBatch(batcher);
         }
+    
+    
+    
        }

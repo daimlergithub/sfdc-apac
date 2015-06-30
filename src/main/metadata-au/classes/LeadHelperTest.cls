@@ -1,6 +1,7 @@
 /*
     Type:       Test Class for LeadHelper
-    Purpose:    Create a custom sharing to share the lead record with Smart Account Owner or the Star Elite Account Owner (from dealer record) with Read Only access.)
+    Purpose:    Create a custom sharing to share the lead record with 
+    Smart Account Owner or the Star Elite Account Owner (from dealer record) with Read Only access.)
     User Story: US-QC-022, US-QC-023, US-DP-022, US-DP-023, US-IB-001
     1. Sinow Created on 2013-04-25
     2. Justin
@@ -24,7 +25,10 @@ public class LeadHelperTest {
     //add in 11/27
     private static string BusinessUnitValue = 'Alliance';
     private static string EOCRecipientTypeValue = '60 days primary';
+    private static string LeadEscalationRecipientTypeValue ='Immediate Notice';
+     private static string SubBusinessUnitValue = 'Finance';
     private static User user;
+    private static Vehicle__c vehicles;
     private static void createUser(Profile profile){        
        
          user = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao7',
@@ -37,6 +41,10 @@ public class LeadHelperTest {
     private static void createDealer(){
          dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58396243', Name = 'testdealer',Active__c='yes',Dealer_Allocation__c='MBAuP',Activation_Date__c=system.today());
             insert dealer;
+         vehicles = new Vehicle__c(Recall__c = FALSE,
+                                                EuroVIN__c = '12345678901111111',
+                                                UsVIN__c = '12345678902222222');
+        insert vehicles;
         
     }    
    
@@ -82,7 +90,7 @@ public class LeadHelperTest {
                                          LastName = 'sichao11',
                                          Email = 'sichao11.lai@nttdata.com',
                                          EOC_Recipient_Type__c = EOCRecipientTypeValue,
-                                         Lead_Escalation_Recipient_Type__c='Immediate Notice',Dealer_Lead_Gate_Keeper__c=false);
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
             insert contact1;
            
             Lead__c le1 = new Lead__c();
@@ -103,6 +111,12 @@ public class LeadHelperTest {
             le2[0].Interested_Vehicle_Brand__c = 'MB';
             le2[0].Lead_Desired_Service__c = 'Test Drive';
             update le2[0];
+            
+            //verify
+            //
+             lead = [select CAC_Lead_Status__c,Assigned_Dealer__c from Lead__c where id =:le1.id ];
+            system.assertEquals(lead.CAC_Lead_Status__c, le1.CAC_Lead_Status__c);
+            system.assert(lead.Assigned_Dealer__c == le1.Assigned_Dealer__c );
         }
     }
 
@@ -121,12 +135,12 @@ public class LeadHelperTest {
                                                
                                          Inactive__c=false,
                                          Business_Unit__c=BusinessUnitValue,
-                                         Sub_BusinessUnit__c='Finance',
+                                         Sub_BusinessUnit__c=SubBusinessUnitValue,
                                          FirstName = 'lai3',
                                          LastName = 'sichao3',
                                          Email = 'sichao3.lai@nttdata.com',
                                          EOC_Recipient_Type__c = EOCRecipientTypeValue,
-                                         Lead_Escalation_Recipient_Type__c='Immediate Notice',Dealer_Lead_Gate_Keeper__c=false);
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
                    insert contact1;
                
               Lead__c lead1=createLead2(user);
@@ -134,7 +148,19 @@ public class LeadHelperTest {
                lead1.Business_Unit__c=BusinessUnitValue;
                lead1.Sub_BusinessUnit__c='Finance & Insurance';
                update lead1;
+               map<id,id> NewCaseLeadIds = new  map<id,id>();
+               NewCaseLeadIds.put(lead1.id, lead1.id);
+               
+               LeadHelper.UpdateCasesWithLeadId(NewCaseLeadIds);
+               LeadHelper.insertLeadSharing(NewCaseLeadIds,NewCaseLeadIds);
+               
+               Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead1.id ];
+               system.assertEquals(leadList.Assigned_Dealer__c, lead1.Assigned_Dealer__c);
+               system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
+               
            }
+        
+        
     }
      @istest(seealldata = true)
     public static void LeadHelperTest5() {
@@ -153,7 +179,7 @@ public class LeadHelperTest {
                                                
                                                Inactive__c=false,
                                                Business_Unit__c=BusinessUnitValue,
-                                               Sub_BusinessUnit__c='Finance',
+                                               Sub_BusinessUnit__c=SubBusinessUnitValue,
                                                FirstName = 'lai1',
                                                LastName = 'sichao2',
                                                Email = 'sichao2.lai@nttdata.com',
@@ -169,6 +195,27 @@ public class LeadHelperTest {
                lead.X72H_Untouched__c=true;
                lead.Is_Finance_Send_Email_Before_60_Days__c=true;
                update lead1;
+               
+               string accountId=string.valueOf(dealer.id);
+               string leadId =String.valueOf(lead1.id);
+               string userId =String.valueOf(user.id);
+               string tempTitle='teststring';
+               
+               set<string> oldDealerIds =new set<string>();
+               oldDealerIds.add(accountId);
+               set<string> leadIds =new set<string>();
+               leadIds.add(leadId);
+               LeadHelper.getEPIntegrationUser();
+               LeadHelper.newLeadShare(leadId,userId);
+               LeadHelper.newAccountShare(accountId,userId);
+               LeadHelper.createdNewSMSTaskForInstructor(lead,user,user,dealer,dealer);
+               LeadHelper.createdNewSMSTaskForCustomer(lead,user,dealer,dealer,tempTitle);
+               LeadHelper.shareToAssignedDealer(oldDealerIds,leadIds);
+                               
+               Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead1.id ];
+               system.assertEquals(leadList.Assigned_Dealer__c, lead1.Assigned_Dealer__c);
+               system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
+               
            }
     }
       @istest(seealldata = true)
@@ -188,24 +235,77 @@ public class LeadHelperTest {
                                                
                                          Inactive__c=false,
                                          Business_Unit__c=BusinessUnitValue,
-                                         Sub_BusinessUnit__c='Finance',
+                                         Sub_BusinessUnit__c=SubBusinessUnitValue,
                                          Finance_Lead_Type__c='Key 2 Key',
                                          FirstName = 'lai5',
                                          LastName = 'sichao1',
                                          Email = 'sichao1.lai@nttdata.com',
                                          EOC_Recipient_Type__c = EOCRecipientTypeValue,
-                                         Lead_Escalation_Recipient_Type__c='Immediate Notice',Dealer_Lead_Gate_Keeper__c=false);
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
             insert contact1;
                Lead__c lead1=createLead(user);
                update lead1;
+               
+           Map<id,Lead__c> oldMap = new  Map<id,Lead__c>();
+               oldMap.put(lead1.id, lead1);
            list<Lead__c> listLead = new list<Lead__c>();  
                listLead.add(lead1);
            set<id> dealerId = new set<id>();
              dealerId.add(dealer.id); 
                
-           LeadHelper.UpdateLeadOwner(dealerId,listLead);
+               LeadHelper.UpdateLeadOwnerFromContact(dealerId,listLead);
+               LeadHelper.UpdateLeadOwner(dealerId,listLead);
+               LeadHelper.ShareToGateKeeper(dealerId,listLead);
+               LeadHelper.beforeInsert_UpdateEvents(listLead,oldMap,false,true);
+               LeadHelper.afterInsert_UpdateEvents(listLead,oldMap,false,true);
+               LeadHelper.afterInsert_UpdateEvents(listLead,oldMap,true,false);
+               LeadHelper.ShareLeadsToCampaignUser(listLead,oldMap,oldMap,false,true);
+                LeadHelper.ShareLeadsToCampaignUser(listLead,oldMap,oldMap,true,false);
+              
+               Lead__c leadList = [select Nature_of_Request__c,Business_Unit__c from Lead__c where id =:lead1.id ];
+               system.assertEquals(leadList.Nature_of_Request__c, lead1.Nature_of_Request__c);
+               system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
            }
     }
+     @istest(seealldata = true)
+    public static void LeadHelperTest6() {
+       
+        Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
+        createUser(profile);
+
+       
+       
+           system.runAs( user) {
+          
+            
+            getLead(user);
+                createDealer();
+                 
+               Contact contact1 = new Contact ( AccountId = dealer.id,
+                                               
+                                         Inactive__c=false,
+                                         Business_Unit__c=BusinessUnitValue,
+                                         Sub_BusinessUnit__c=SubBusinessUnitValue,
+                                         Finance_Lead_Type__c='Key 2 Key',
+                                         FirstName = 'lai5',
+                                         LastName = 'sichao1',
+                                         Email = 'sichao1.lai@nttdata.com',
+                                         EOC_Recipient_Type__c = EOCRecipientTypeValue,
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
+            insert contact1;
+               Lead__c lead1=createLead(user);
+                lead1.Current_Vehicle__c=vehicles.id;
+               update lead1;              
+          
+
+               Lead__c leadList = [select Nature_of_Request__c,Business_Unit__c from Lead__c where id =:lead1.id ];
+               system.assertEquals(leadList.Nature_of_Request__c, lead1.Nature_of_Request__c);
+               system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
+           }
+    }
+     
+
+    
      
 
     
@@ -234,7 +334,12 @@ public class LeadHelperTest {
       
     }
     static Lead__c createLead(User usr){
+        
+         Vehicle__c vehicles1 = new Vehicle__c(EuroVIN__c = '12345678901111111',UsVIN__c = '12345678902222222');
+        insert vehicles1;
+        
         lead = new Lead__c();
+        lead.Current_Vehicle__c=vehicles1.id;
         lead.Contact__c = personaccount1.Id;
         lead.recordTypeId = leadFinanceRT;
         lead.Lead_Type__c = 'New Car';
@@ -256,6 +361,7 @@ public class LeadHelperTest {
         
         
         lead = new Lead__c();
+        
         lead.Contact__c = personaccount1.Id;
         lead.recordTypeId = leadVehicleRt;
         lead.Lead_Type__c = 'New Car';
