@@ -17,10 +17,12 @@ public class LeadMassChangeDealerControllerTest
 	private static final Id dealerRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
 	private static Account dealer1= new Account();
 	private static Account dealer2= new Account();
-	private static Account personAccount= new Account();
+	public static String TestDealer ='TestDealer';
 	private static Retail_Task__c retailTask= new Retail_Task__c();
 	private static Lead__c lead1= new Lead__c();
 	private static Lead__c lead2= new Lead__c();
+    public static PageReference leadMassChangeDealer = Page.LeadMassChangeDealer;
+    
 	static Account personaccount1 = TestDataUtil.getInstance().standardPersonAccount;
 	
     @isTest
@@ -31,13 +33,14 @@ public class LeadMassChangeDealerControllerTest
         
         //process
         Test.startTest();
-        PageReference leadMassChangeDealer = Page.LeadMassChangeDealer;
-        leadMassChangeDealer.getParameters().put('objIds',lead1.id + ',' + lead2.id);
+        
+        
         Test.setCurrentPage(leadMassChangeDealer);
         LeadMassChangeDealerController controller = new LeadMassChangeDealerController();
-        Test.stopTest();
         
-        //verify
+        Test.stopTest();
+        system.assertNotEquals(null, controller);
+
         
     }
     
@@ -46,17 +49,21 @@ public class LeadMassChangeDealerControllerTest
     {
     	//prepare test data
         init();
-        
+         Lead__c testLead = createLead();
+        insert testLead;
         //process
         Test.startTest();
-        PageReference leadMassChangeDealer = Page.LeadMassChangeDealer;
-        leadMassChangeDealer.getParameters().put('objIds',lead1.id + ',' + lead2.id);
+        
         Test.setCurrentPage(leadMassChangeDealer);
         LeadMassChangeDealerController controller = new LeadMassChangeDealerController();
+        controller.arrObjIds.add(testLead.id);
         controller.assignedDealer = dealer2.id;
         controller.emailRequired = true;
         controller.saveClick();
         Test.stopTest(); 
+        Lead__c testLead2 = [select id,Assigned_Dealer__c from Lead__c where id =:testLead.id ];
+        system.assertEquals(dealer2.id,testLead2.Assigned_Dealer__c);
+        
     }
     
     @isTest
@@ -64,17 +71,20 @@ public class LeadMassChangeDealerControllerTest
     {
     	//prepare test data
         init();
-        
+       Lead__c testLead = createLead();
+        insert testLead;
         //process
         Test.startTest();
-        PageReference leadMassChangeDealer = Page.LeadMassChangeDealer;
-        leadMassChangeDealer.getParameters().put('objIds',lead1.id + ',' + lead2.id);
+        
         Test.setCurrentPage(leadMassChangeDealer);
         LeadMassChangeDealerController controller = new LeadMassChangeDealerController();
+        controller.arrObjIds.add(testLead.id);
         controller.assignedDealer = '';
         controller.emailRequired = true;
         controller.saveClick();
-        Test.stopTest(); 
+        Test.stopTest();
+        Lead__c testLead2 = [select id,Assigned_Dealer__c from Lead__c where id =:testLead.id ];
+        system.assertEquals(null, testLead2.Assigned_Dealer__c);
     }
     
     @isTest
@@ -82,18 +92,21 @@ public class LeadMassChangeDealerControllerTest
     {
     	//prepare test data
         init();
-        
+        Lead__c testLead = createLead();
+        insert testLead;
         //process
         Test.startTest();
-        PageReference leadMassChangeDealer = Page.LeadMassChangeDealer;
-        leadMassChangeDealer.getParameters().put('objIds',lead1.id + ',' + lead2.id);
+        
         Test.setCurrentPage(leadMassChangeDealer);
         LeadMassChangeDealerController controller = new LeadMassChangeDealerController();
         controller.assignedDealer = '';
-        controller.assignedDealerName = 'TestDealer';
+        controller.assignedDealerName = TestDealer;
         controller.emailRequired = true;
         controller.saveClick();
-        Test.stopTest(); 
+        Test.stopTest();
+        
+        Lead__c testLead2 = [select id,Assigned_Dealer__c from Lead__c where id =:testLead.id ];
+        system.assertEquals(null, testLead2.Assigned_Dealer__c);
     }
     
     @isTest
@@ -104,12 +117,12 @@ public class LeadMassChangeDealerControllerTest
         
         //process
         Test.startTest();
-        PageReference leadMassChangeDealer = Page.LeadMassChangeDealer;
-        leadMassChangeDealer.getParameters().put('objIds',lead1.id + ',' + lead2.id);
+        
         Test.setCurrentPage(leadMassChangeDealer);
         LeadMassChangeDealerController controller = new LeadMassChangeDealerController();
         controller.choose();
         Test.stopTest(); 
+        system.assertNotEquals(null, controller);
     }
     
     @isTest
@@ -120,12 +133,15 @@ public class LeadMassChangeDealerControllerTest
         
         //process
         Test.startTest();
-        PageReference leadMassChangeDealer = Page.LeadMassChangeDealer;
-        leadMassChangeDealer.getParameters().put('objIds',lead1.id + ',' + lead2.id);
+        
         Test.setCurrentPage(leadMassChangeDealer);
         LeadMassChangeDealerController controller = new LeadMassChangeDealerController();
+        controller.assignedDealer = dealer2.id;
+        controller.name = TestDealer;
+        controller.emailRequired = true;
         controller.query();
-        Test.stopTest(); 
+        Test.stopTest();
+        system.assertEquals(true, controller.hasQueryResult);
     }
     
     @isTest
@@ -136,19 +152,20 @@ public class LeadMassChangeDealerControllerTest
         
         //process
         Test.startTest();
-        PageReference leadMassChangeDealer = Page.LeadMassChangeDealer;
-        leadMassChangeDealer.getParameters().put('objIds',lead1.id + ',' + lead2.id);
+        
         Test.setCurrentPage(leadMassChangeDealer);
         LeadMassChangeDealerController controller = new LeadMassChangeDealerController();
-        controller.name='TestDealer';
+        controller.name=TestDealer;
+        controller.addInfoMessage('msg');
         controller.query();
         Test.stopTest(); 
+        system.assertEquals(true, controller.hasQueryResult);
     }
     
     static Account createAccount()
     {
     	Account accDealer = new Account(Status__c = 'Customer'
-                                     , Name = 'TestDealer' + date.Today()
+                                     , Name = TestDealer + date.Today()
                                      , RecordTypeId = dealerRTId
                                      , Phone ='(01) 8677 0993'
                                      , Dealer_Active__c = true
@@ -157,14 +174,7 @@ public class LeadMassChangeDealerControllerTest
         return accDealer;                             
     }
     
-    static Retail_Task__c createRetailTask()
-    {
-    	Retail_Task__c objRT = new Retail_Task__c ( Account__c = personaccount1.Id,
-                                            StartDate__c = Date.Today(),
-                                            Duration__c = 2,
-                                            Status__c = 'Draft');
-        return objRT;                                    
-    }
+    
     
     static Lead__c createLead()
     {
@@ -182,20 +192,22 @@ public class LeadMassChangeDealerControllerTest
     
     static void init()
     {
+        leadMassChangeDealer.getParameters().put('objIds',lead1.id + ',' + lead2.id);
     	dealer1=createAccount();
         dealer2=createAccount();
         insert dealer1;
         insert dealer2;
         insert personaccount1;
-        retailTask = createRetailTask();
-        insert retailTask;
+        
         lead1 = createLead();
         lead1.Assigned_Dealer__c = dealer1.id;
         lead1.Existing_Contract__c = retailTask.id;
+        lead1.Contact__c = personaccount1.id;
         insert lead1;
         lead2 = createLead();
         lead2.Assigned_Dealer__c = dealer1.id;
         lead2.Existing_Contract__c = retailTask.id;
+        lead2.Contact__c = personaccount1.id;
         insert lead2;
     }
 }
