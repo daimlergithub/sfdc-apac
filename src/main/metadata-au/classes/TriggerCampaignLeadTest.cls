@@ -7,12 +7,23 @@
 */
 @isTest
 Public with sharing class TriggerCampaignLeadTest {
+    
+    private static Account personAccount;
+    private static  Account dealer;
+    private static Campaign centralMKTCampaign;
+    static{
+        // Create one person account
+           personAccount = (Account)UtilTestData.createSobject(new Account(), 
+           UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+        // Two Account: one Dealer and one Person Account
+          dealer = (Account)UtilTestData.createSobject(new Account(), 
+            UtilTestData.ACCOUNT_RT_DEALER);
+        
+          centralMKTCampaign = (Campaign)UtilTestData.createSobject(new Campaign(), UtilTestData.CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN);
+        
+    }
     // US-Lead-001
     public static testMethod void testTriggerCampaignLead_PopulateContact() {
-        // Create one person account
-        Account personAccount = (Account)UtilTestData.createSobject(new Account(), 
-           UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-
         
         // One Lead which has a reference to this person account
         Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Contact__c = personAccount.Id);
@@ -34,37 +45,26 @@ Public with sharing class TriggerCampaignLeadTest {
     }
 
     public static testMethod void testTriggerCampaignLead_InsertAction() {
-        // Two Account: one Dealer and one Person Account
-        Account dealer = (Account)UtilTestData.createSobject(new Account(), 
-            UtilTestData.ACCOUNT_RT_DEALER);
-
-        Account personAccount = (Account)UtilTestData.createSobject(new Account(), 
-            UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-
+        
+       
         // One Lead which has a reference to this person account
         Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Contact__c = personAccount.Id);
         lead = (Lead__c)UtilTestData.createSobject(lead,UtilTestData.LEAD_RT_SALES_LEADS);
-
-        // One Campaign Execution, one CAC Campaign and one Central Marketing Campaign
-        // and one Participating Dealer of Central Marketing Campaign
-        Campaign centralMKTCampaign = (Campaign)UtilTestData.createSobject(new Campaign(), UtilTestData.CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN);
+      
 
         // Create Campaign Package for Central MKT Campaign
-        Campaign_Package__c camPackage = new Campaign_Package__c(
+        Campaign_Package__c camPackage = new Campaign_Package__c(            
             Campaign__c = centralMKTCampaign.Id);
-        camPackage = (Campaign_Package__c)UtilTestData.createSobject(camPackage, null);
+        camPackage = (Campaign_Package__c)UtilTestData.createSobject(camPackage, null);       
+      
 
         // Create Package Item for this Central MKT Campaign
         // Because Campaign Offer is the Master Object of Package Item, 
-       
-       
-
-        // Create Participating_Dealer__c for centralMKTCampaign
+         // Create Participating_Dealer__c for centralMKTCampaign
         Participating_Dealer__c partDealer = new Participating_Dealer__c(
             Campaign__c = centralMKTCampaign.Id,
             Dealer__c = dealer.Id,
-            Campaign_Package__c = camPackage.Id);
-      //  partDealer = (Participating_Dealer__c)UtilTestData.createSobject(partDealer, null);
+            Campaign_Package__c = camPackage.Id);       
 
         Campaign cacCampaign = new Campaign(
             ParentId = centralMKTCampaign.Id);
@@ -96,48 +96,31 @@ Public with sharing class TriggerCampaignLeadTest {
         camLead = (Campaign_Lead__c)UtilTestData.createSobject(camLead, null);
 
         // Insert Part Assert
-        camLead = [SELECT Campaign_Title__c, Campaign_Notes__c 
+        camLead = [SELECT Lead__c, Campaign_Notes__c 
                    FROM Campaign_Lead__c WHERE Id = :camLead.Id];
-       
-        //System.assert(camLead.Campaign_Title__c.contains(camPackage.Name));
-        //System.assert(camLead.Campaign_Title__c.contains(camPackage.Package_Description__c));
-
-        //System.assert(camLead.Campaign_Notes__c.contains(dealer.Name));
-       
-        //System.assert(camLead.Campaign_Notes__c.contains(member.Registration_Notes__c));
+        
+       system.assertEquals(camLead.Lead__c, lead.id);      
+      
 
         // Stop Test
-        Test.stopTest();
+        Test.stopTest( );
     }
 
     public static testMethod void testTriggerCampaignLead_UpdateAction() {
-        Account dealer = (Account)UtilTestData.createSobject(new Account(), 
-            UtilTestData.ACCOUNT_RT_DEALER);
-dealer.Email__c='test@mbau.com';
-                    dealer.Email2__c = 'testemail2@test.com';
-                    dealer.Home_Phone_2__c = '98765413';
-        Account personAccount = (Account)UtilTestData.createSobject(new Account(), 
-            UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
-personAccount.Email__c='test@mbau.com';
-                    personAccount.Email2__c = 'testemail2@test.com';
-                    personAccount.Home_Phone_2__c = '98765413';
+       
+                 
         // One Lead which has a reference to this person account
         Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Contact__c = personAccount.Id);
         lead = (Lead__c)UtilTestData.createSobject(lead,
             UtilTestData.LEAD_RT_SALES_LEADS);
 
-        // One Campaign Execution, one CAC Campaign and one Central Marketing Campaign
-        // and one Participating Dealer of Central Marketing Campaign
-        Campaign centralMKTCampaign = (Campaign)UtilTestData.createSobject(
-            new Campaign(), UtilTestData.CAMPAIGN_RT_CENTRAL_MKT_CAMPAIGN);
-
+       
         // Create Campaign Package for Central MKT Campaign
         Campaign_Package__c camPackage = new Campaign_Package__c(
             Campaign__c = centralMKTCampaign.Id);
         camPackage = (Campaign_Package__c)UtilTestData.createSobject(camPackage, null);
 
-        // Create Package Item for this Central MKT Campaign
-        // Because Campaign Offer is the Master Object of Package Item, 
+        
         
         // Start Test
         Test.startTest();
@@ -145,7 +128,7 @@ personAccount.Email__c='test@mbau.com';
         Participating_Dealer__c partDealer = new Participating_Dealer__c(
             Campaign__c = centralMKTCampaign.Id,
             Campaign_Package__c = camPackage.Id);
-       // partDealer = (Participating_Dealer__c)UtilTestData.createSobject(partDealer, null);
+     
 
         // Create Updated Campaign Package for Central MKT Campaign
         Campaign_Package__c camPackage2 = new Campaign_Package__c(
@@ -157,7 +140,7 @@ personAccount.Email__c='test@mbau.com';
             Campaign__c = centralMKTCampaign.Id,
             Dealer__c = dealer.Id,
             Campaign_Package__c = camPackage.Id);
-        //partDealer2 = (Participating_Dealer__c)UtilTestData.createSobject(partDealer2, null);
+       
 
 
         Campaign cacCampaign = new Campaign(
@@ -202,15 +185,13 @@ personAccount.Email__c='test@mbau.com';
         //camLead.Campaign__c = campaignExecution2.Id;
         //update camLead;
 
-        // Assert Updated Result
-        camLead = [SELECT Campaign_Title__c, Campaign_Notes__c 
+        
+        camLead = [SELECT Lead__c, Campaign_Notes__c 
                    FROM Campaign_Lead__c WHERE Id = :camLead.Id];
         
-       // System.assert(camLead.Campaign_Title__c.contains(camPackage2.Name));
-        //System.assert(camLead.Campaign_Title__c.contains(camPackage2.Package_Description__c));
-        //System.assert(camLead.Campaign_Notes__c.contains(dealer.Name));
-        //System.assert(camLead.Campaign_Notes__c.contains(member2.Registration_Notes__c));
-
+       system.assertEquals(camLead.Lead__c, lead.id);      
+         
+      
         // Stop Test
         Test.stopTest();
     }

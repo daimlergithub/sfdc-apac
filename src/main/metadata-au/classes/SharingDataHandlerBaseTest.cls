@@ -5,11 +5,11 @@ public class SharingDataHandlerBaseTest {
 public static testMethod void testSharingDataHandlerBase() 
 {
    String AccessLevel = 'Read';
-    String shareObjName = 'parentId';
-    Schema.SObjectType  shareType;
+    //String shareObjName = 'parentId';
+   // Schema.SObjectType  shareType;
     String  originalTypeName='led';
-    String id='parentId';
-    String UserOrGroupId ='UserOrGroupId';
+    //String id='parentId';
+    //String UserOrGroupId ='UserOrGroupId';
     //String CMap='pIds';
     //String uogIds ='uogIds';
     
@@ -20,5 +20,7 @@ public static testMethod void testSharingDataHandlerBase()
     sh.executeProcessByCRMCode(crmCodeList);
    // sh.createShareObject(id,UserOrGroupId );
    // sh.makeInserRecords(CMap,uogIds);
+   system.assertNotEquals(null, sh);
+
 }
 }

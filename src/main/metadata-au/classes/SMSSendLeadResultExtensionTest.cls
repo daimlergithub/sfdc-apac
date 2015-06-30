@@ -36,7 +36,7 @@ public class SMSSendLeadResultExtensionTest {
             ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
             ApexPages.currentPage().getParameters().put(LEAD_ID,lead.Id);
             ApexPages.currentPage().getParameters().put(RET_URL,lead.Id);
-            // Test click SMS button from Lead//
+            // Test click SMS button from Lead
             // Instantiate a new controller extension with all parameters in the page
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
             Test.stopTest();

@@ -1,6 +1,5 @@
 @isTest
 private class VehicleSharingTest {
-	//variables
     Private static Account acc; 
     
     private static Account dealer;
