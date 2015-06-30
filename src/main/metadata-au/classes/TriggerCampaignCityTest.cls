@@ -31,8 +31,11 @@ public class TriggerCampaignCityTest {
         campcity.Start_Date__c=system.today();
         campcity.End_Date__c=system.today()+1;
         insert campcity;
+        Campaign_City__c campcity1 =[select Campaign__c,Start_Date__c from Campaign_City__c where id=:campcity.id];
         delete campcity;
         Test.stopTest();
+     system.assertEquals(campcity1.Campaign__c, campcity.Campaign__c);
+     system.assertEquals(campcity1.Start_Date__c, campcity.Start_Date__c);
  }
  
 }

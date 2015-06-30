@@ -1,14 +1,10 @@
 /*
     Type:       Test Class
     Purpose:    Test the TaskMassChangeActivateDeactive class
-    User Story: 
-    ---------------------------------------------------------------
-    History:
-
-    1. Barney lai created on 2014-3-4
+   1. Barney lai created on 2014-3-4
 */
 //TODO Active_Inactive_Flag__c commented as part of SFDCAU-57 for now.
-@isTest(seeAllData=true)
+@isTest
 public class TaskMassChangeActivateDeactiveTest {
 
     static testMethod void testTaskMassChangeActivateDeactive1(){
@@ -34,7 +30,7 @@ public class TaskMassChangeActivateDeactiveTest {
         );
         insert task1;
        
-        //User usr = [select id, Active_Inactive_Flag__c from User where isActive = true limit 1];
+       
         User usr = [select id from User where isActive = true limit 1];
         
         task1.ownerId = usr.id;
@@ -90,5 +86,7 @@ public class TaskMassChangeActivateDeactiveTest {
         controller.Activate();
         controller.Deactivate(); 
         Test.stopTest();
+         usr = [select id, Active__c from User where id = :usr.id];
+        System.assertEquals(usr.Active__c, false); 
     }
 }

@@ -1,11 +1,7 @@
 /*
     Type:       Test Class
     Purpose:    TriggerCampaignMembers 
-    User Story:     
-    Used By:    
-    ---------------------------------------------------------------
-    History:
-    
+    User Story:  
     10-July-2013 Stephano Shi (Breakingpoint)    Created
 */
 @isTest
@@ -45,6 +41,10 @@ public class TriggerCampaignMembers_TestClass{
                                                 ContactId = testPerAcc.PersonContactId
                                                 );  
         insert cm1;
+         CampaignMember cm=[select CampaignId,Status from CampaignMember where id =:cm1.id ];
+    system.assertEquals(cm.CampaignId, cm1.CampaignId);
+    system.assertEquals(cm.Status, cm1.Status);
     }
+   
         
 }
