@@ -2,10 +2,7 @@
     Type:       AddressHelper Test
     Purpose:    Test the class
     User Story: US_AU-CD-003
-    ---------------------------------------------------------------
-    History:
-
-    1. Barney Lai created on 2013-08-12
+   1. Barney Lai created on 2013-08-12
 
 */
 @isTest
@@ -51,7 +48,7 @@ public class AddressHelperTest {
         Address__c add3_3 = add3_2.clone();
         add3_3.ZipCode__c = '';
         add3_3.RecordTypeId = companyRTID;
-        
+         
         List<Address__c> addlist = new List<Address__c>();
         addlist.add(add1);
         addlist.add(add2_1);
@@ -61,7 +58,10 @@ public class AddressHelperTest {
         addlist.add(add3_3);
         insert addlist;
         
+        list<Address__c> addr=[select id from Address__c where id IN:addlist ];
         delete addlist;
+       
+        system.assertNotEquals(addr, null);
     }
     
     @isTest static void testAutoFillPostCode() 
@@ -82,6 +82,8 @@ public class AddressHelperTest {
         //Test the update event for Address
         add.District__c = updateSuburb;
         update add;
+        Address__c addr=[select District__c from Address__c where id=:add.id ];
+        system.assertEquals(addr.District__c, add.District__c);
     }
     
     @isTest static void testtrackUpdatHistoryForFsInfo()
@@ -100,5 +102,8 @@ public class AddressHelperTest {
         add1.FS_Opt_In_Hardcopy__c=true;
         add1.Opt_In_Hardcopy__c=true;
         update add1;
+         Address__c addr=[select FS_Opt_In_Hardcopy__c from Address__c where id=:add1.id ];
+         system.assertEquals(addr.FS_Opt_In_Hardcopy__c, add1.FS_Opt_In_Hardcopy__c);
+        
     }
 }

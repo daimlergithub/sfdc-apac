@@ -24,13 +24,16 @@ public class ExtSelectAssignedDealerTest {
         createPersonAccount();
         createLead();
         test.starttest();
+        finLead.Assigned_Dealer__c =dealer.id; 
+        update finLead;
         // Select a dealer for this lead by click the button 'Select Assigned Dealer'
         PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + finLead.Id);
         Test.setCurrentPage(pr);        
-        Lead__c objFinLead=[select id from Lead__c where id=:finLead.Id];
+        Lead__c objFinLead=[select id,Assigned_Dealer__c from Lead__c where id=:finLead.Id];
         ExtSelectAssignedDealer selectDealer = new ExtSelectAssignedDealer(new ApexPages.StandardController(objFinLead));
         test.stoptest();
-        //verify
+      
+        system.assertNotEquals(null, finLead.Assigned_Dealer__c);
     }
     
     public static testMethod void testSelectAssignedDealer_query()
@@ -43,13 +46,15 @@ public class ExtSelectAssignedDealerTest {
         PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + finLead.Id);
         Test.setCurrentPage(pr);        
         Lead__c objFinLead=[select id from Lead__c where id=:finLead.Id];
+        finLead.Assigned_Dealer__c =dealer.id; 
+        update finLead;
         ExtSelectAssignedDealer selectDealer = new ExtSelectAssignedDealer(new ApexPages.StandardController(objFinLead));
         selectDealer.name = 'Beijing';
         selectDealer.dealer.ZipCode__c = '001010';
         selectDealer.dealer.Cars_Offered_Service__c = 'Sales; Service';
         selectDealer.query();
         test.stoptest();
-        //verify
+       system.assertNotEquals(null, finLead.Assigned_Dealer__c);
     }
     
     public static testMethod void testSelectAssignedDealer_choose()
@@ -69,7 +74,7 @@ public class ExtSelectAssignedDealerTest {
         selectDealer.lead.Id = finLead.Id;
         selectDealer.choose();
         test.stoptest();
-        //verify
+       system.assertEquals(personAcc.id, finLead.Contact__c);
     }
     
     static void createAccount()
@@ -107,5 +112,6 @@ public class ExtSelectAssignedDealerTest {
                                       , Sub_BusinessUnit__c = 'Sales'
                                       , CAC_Lead_Status__c = 'New Enquiry');
         insert finLead;
+        
     }
 }
