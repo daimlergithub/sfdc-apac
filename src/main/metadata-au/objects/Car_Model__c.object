@@ -62,7 +62,7 @@
         <label>Brand</label>
         <picklist>
             <picklistValues>
-                <fullName>Unknown</fullName>
+                <fullName>Abarth</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -78,7 +78,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Aston</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Aston Martin</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -86,7 +94,19 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Austral</fullName>
+                <fullName>Austin</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Austral Denning</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Barker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>BCI</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -95,6 +115,26 @@
             </picklistValues>
             <picklistValues>
                 <fullName>BMW</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Borcat</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bulk</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cadillac</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Canter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CAT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -110,11 +150,23 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Chevrolet</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Chrysler</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Citroen</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Contruction</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Corsa</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -130,11 +182,23 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Daimler</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Dennis</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Dodge</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Elphinstone</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Eunos</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -146,7 +210,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Fighter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Ford</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Forklift</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -154,7 +226,19 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Freighter</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Freightliner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Freightmaster</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fruehauf</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -162,7 +246,51 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Fuso</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GMC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gorski</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Great</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Great Wall</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GTE</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hamelex</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hammar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Haulmark</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Heavy</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hercules</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Higer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -174,11 +302,27 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Holden Special Vehicle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Holmwood</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Honda</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>HSV</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Hummer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>HX</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -194,15 +338,23 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Iseki</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Isuzu</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Iveco</fullName>
+                <fullName>IVECO</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Jaguar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Jamieson</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -218,6 +370,14 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Komatsu</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Krueger</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Lada</fullName>
                 <default>false</default>
             </picklistValues>
@@ -227,6 +387,14 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Land</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Land Rover</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>LDV</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -242,7 +410,27 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>LT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lucar</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Lusty EMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>M &amp; S Tri-Axle</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Mack</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mahindra</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -250,7 +438,31 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Man35.540</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Maserati</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Max</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Max Built</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maxi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maxicube</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maxitrans</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -274,7 +486,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MINI</fullName>
+                <fullName>Mini</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -282,7 +494,19 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Mitsubishi Fuso</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Moore</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Morgan</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Muscat</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -290,7 +514,19 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>OKA</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Opel</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Packard</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Peki</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -306,11 +542,23 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Range Rover</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Renault</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ROLLS</fullName>
+                <fullName>Roadmaster</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Roadwest</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rolls</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -338,7 +586,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Sloanebuilt</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Southern Cross</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -346,7 +602,19 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Stanley</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Steelbro</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Sterling</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Stoodley</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -358,11 +626,43 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Tata</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tefco</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tieman</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Toyota</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Trailer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>TVR</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UD</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>UNIMOG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vauxhall</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Vawdrey</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -378,154 +678,10 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Austin</fullName>
+                <fullName>White</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Chevrolet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Cadillac</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Corsa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Daimler</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Hsv</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Eunos</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GMC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mitsubishi </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Nissan </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Porsche </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Saab </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Smart </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Suzuki </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Tata </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Toyota </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TVR </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Vauxhall</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Volkswagen </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Volvo </fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Aston</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CAT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FUSO</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MAN35.540</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>UD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Trailer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>FORKLIFT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MAX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Contruction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WHITE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>AT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>LT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Canter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fighter</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Heavy</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>UNIMOG</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
+            <sorted>true</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
