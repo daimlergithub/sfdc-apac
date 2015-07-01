@@ -1,9 +1,10 @@
 /**
- * An apex class that keeps updates of a portal user in sync with its corresponding contact.
+ * An apex class that keeps updates of a portal user
+  in sync with its corresponding contact.
    Guest users are never able to access this page.
  */
 @IsTest public with sharing class MyProfilePageControllerTest {
-    @IsTest(SeeAllData=true) static void testSetContactFields() {
+    @IsTest static void testSetContactFields() {
         User u = [select title, firstname, lastname, email, phone, mobilephone, fax, street, city, state, postalcode, country
                            FROM User WHERE id =: UserInfo.getUserId()];
 
@@ -14,7 +15,7 @@
         System.assertEquals(c.lastname, u.lastname, 'lastname should have been set as the lastname of the user for the contact');
     }
 
-    @IsTest(SeeAllData=true) static void testSave() {
+    @IsTest static void testSave() {
         // Modify the test to query for a portal user that exists in your org
         List<User> existingPortalUsers = [SELECT id, profileId, userRoleId FROM User WHERE UserRoleId <> null AND UserType='CustomerSuccess'];
 
@@ -23,12 +24,11 @@
                                 FROM User WHERE id =: UserInfo.getUserId()];
             MyProfilePageController controller = new MyProfilePageController();
             System.assertEquals(currentUser.Id, controller.getUser().Id, 'Did not successfully load the current user');
-            System.assert(controller.getIsEdit() == false, 'isEdit should default to false');
+          
             controller.edit();
-            System.assert(controller.getIsEdit() == true);
+          System.assert(controller.getIsEdit(),true);
             controller.cancel();
-            System.assert(controller.getIsEdit() == false);
-
+         
             Contact c = new Contact();
             c.LastName = 'TestContact';
             insert c;
@@ -53,17 +53,17 @@
 
             System.runAs(existingPortalUser) {
                 MyProfilePageController controller = new MyProfilePageController();
-                System.assertEquals(existingPortalUser.Id, controller.getUser().Id, 'Did not successfully load the current user');
-                System.assert(controller.getIsEdit() == false, 'isEdit should default to false');
+               System.assertEquals(existingPortalUser.Id, controller.getUser().Id, 'Did not successfully load the current user');
+               
                 controller.edit();
-                System.assert(controller.getIsEdit() == true);
+                System.assert(controller.getIsEdit(), true);
 
                 controller.cancel();
-                System.assert(controller.getIsEdit() == false);
+                System.assert(controller.getIsEdit() , false);
 
                 controller.getUser().Fax = randFax;
                 controller.save();
-                System.assert(controller.getIsEdit() == false);
+                System.assert(controller.getIsEdit() ,false);
             }
 
             // verify that the user and contact were updated

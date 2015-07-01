@@ -2,15 +2,12 @@
     Type:       test class
     Purpose:    SMSSendLeadResultExtension test class
     User Story: US-Lead-023 - Send SMS content to customer
-
     Used By:    SMSSendLeadResultExtension
-    ---------------------------------------------------------------
     History:
-
     20-May-2013 Sinow zhang (Nttdata)    Created
 */
 @isTest
-public class SMSSendLeadResultExtensionTest {
+public with sharing class SMSSendLeadResultExtensionTest {
 
     private static String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     private static String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -22,6 +19,8 @@ public class SMSSendLeadResultExtensionTest {
     private static Template__c tem2;
     private static List<Template__c> tems = new List<Template__c>();
     private static List<SelectOption> options;
+    private static string LEAD_ID='leadid';
+    private static string RET_URL='retURL';
     static user userObj;
     static{
         Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
@@ -31,8 +30,7 @@ public class SMSSendLeadResultExtensionTest {
                                   EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
         insert userObj;
     }
-    private static string LEAD_ID='leadid';
-    private static string RET_URL='retURL';
+    
     public static testMethod void testSMSSendLeadResultExtension()
     {
         System.runAs(userObj) {
@@ -44,6 +42,7 @@ public class SMSSendLeadResultExtensionTest {
             // Test click SMS button from Lead
             // Instantiate a new controller extension with all parameters in the page
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
+            Test.stopTest();
             system.assertequals(extension.leadInfo.Id,lead.Id);
         }
     }
@@ -57,6 +56,7 @@ public class SMSSendLeadResultExtensionTest {
             // Test click SMS button from Lead
             // Instantiate a new controller extension with all parameters in the page
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
+            Test.stopTest();
             system.assertequals(extension.leadInfo,null);
         }
     }

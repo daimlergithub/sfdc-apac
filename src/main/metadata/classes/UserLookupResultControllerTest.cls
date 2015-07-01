@@ -63,11 +63,11 @@ public with sharing class UserLookupResultControllerTest {
                                       
           }
                                       
-         controller = new UserLookupResultController();
+      controller = new UserLookupResultController();
         Test.stopTest();
         System.assert(us!=null);     
         System.assert(userIds!=null);  
-        //System.assertequals(controller.getUserInfos(),qc.);
+        System.assertNOtEquals(null,controller);
     }
     
     @isTest 
@@ -93,9 +93,10 @@ public with sharing class UserLookupResultControllerTest {
         Test.startTest();                                    
         PageReference page = new PageReference('/apex/UserLookupResult?type=recall');
         Test.setCurrentPage(page);        
-         controller = new UserLookupResultController(); 
+       controller = new UserLookupResultController(); 
         Test.stopTest();
         System.assert(result!=null);
+        System.assertNOtEquals(null,controller);
 
     
     } 

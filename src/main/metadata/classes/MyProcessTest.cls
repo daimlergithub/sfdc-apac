@@ -1,14 +1,13 @@
 /*
     Type:       Test Class
-    Purpose:    Test On MyProcess Class
-    ---------------------------------------------------------------
-    History:
-    
+    Purpose:    Test On MyProcess Class 
+    History: 
     1. Cyril Created on 2014-10-24
 
 */
-@isTest(seeAllData=false)
-public class MyProcessTest {
+@isTest 
+public with sharing class MyProcessTest {
+Private Static String Planned='Planned';
     static testMethod void myEnUnitTest() {
         Id id = UserInfo.getUserId();
         User u = [Select Id, LanguageLocaleKey from user where id =:id][0];
@@ -32,8 +31,8 @@ public class MyProcessTest {
             Event_Type__c = 'Road Show',
             Plan_Start_Date__c = System.today(),
             Plan_End_Date__c = System.today() + 20,
-            Apply_Status__c = 'Planned',
-            Feedback_Status__c = 'Planned'
+            Apply_Status__c = Planned,
+            Feedback_Status__c = Planned
             );
         insert rc;
         
@@ -82,9 +81,10 @@ public class MyProcessTest {
             Event_Type__c = 'Road Show',
             Plan_Start_Date__c = System.today(),
             Plan_End_Date__c = System.today() + 20,
-            Apply_Status__c = 'Planned',
-            Feedback_Status__c = 'Planned'
+            Apply_Status__c = Planned,
+            Feedback_Status__c = Planned
         );
+        Test.startTest();
         insert rc;
         
         Approval.ProcessSubmitRequest req1 = new Approval.ProcessSubmitRequest();
@@ -105,12 +105,15 @@ public class MyProcessTest {
         System.assert(!newWorkItemIds.isEmpty());
         
         MyProcess p = new MyProcess(rc.id);
+        Test.stopTest();
         System.assert(p.approve('test comment', newWorkItemIds.get(0)));
     }
     
     static testMethod void newContentTest() {
+    Test.startTest();
         List<ContentVersion> lc = new List<ContentVersion> {new ContentVersion(title = 'title', ContentUrl = 'www.baidu.com')};
         Database.SaveResult[] results = Database.insert(lc, true);
+        Test.stopTest();
         System.assert(results[0].isSuccess(), true);
     }
 }
