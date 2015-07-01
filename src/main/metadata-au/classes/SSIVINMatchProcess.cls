@@ -90,8 +90,6 @@ public with sharing class SSIVINMatchProcess {
     }
     */
     
-    public static testmethod void testAll() {
-    	runProcess();
-    }
+    
         
 }

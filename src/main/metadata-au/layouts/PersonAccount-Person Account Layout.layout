@@ -307,7 +307,7 @@
         <fields>NAME</fields>
         <fields>Survey__c</fields>
         <fields>Last_Answered_Question__c</fields>
-        <relatedList>SurveyTaker__c.Contact__c</relatedList>
+        <relatedList>SurveyTaker__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>CAMPAIGN.NAME</fields>

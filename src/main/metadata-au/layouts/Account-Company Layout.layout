@@ -249,6 +249,12 @@
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Survey__c</fields>
+        <fields>Last_Answered_Question__c</fields>
+        <relatedList>SurveyTaker__c.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <customButtons>New_Vehicle_Lead</customButtons>
         <customButtons>New_Fleet_Lead</customButtons>
         <customButtons>New_Finance_Lead</customButtons>
