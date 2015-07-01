@@ -20,49 +20,44 @@ private class AccountLinkSharingTest {
     @isTest 
     static void testWrapContact2Contact() {
         Test.startTest();  
-        Account_Link__c contact2Contact = new Account_Link__c(RecordTypeId = accountLinkType, Name = 'DealerCode', Vehicle__c = vehicle.Id);
+        Account_Link__c contact2Contact = new Account_Link__c(RecordTypeId = accountLinkType, Name = 'contact2Contact', Vehicle__c = vehicle.Id);
         AccountLinkSharingWrapService wrapService = new AccountLinkSharingWrapService();
-        wrapService.wrapContact2Contact(new List<Account_Link__c>{contact2Contact});
+        List<SharingWrapper> testSharingWrapC2C = wrapService.wrapContact2Contact(new List<Account_Link__c>{contact2Contact});
         Test.stopTest();
+        system.assertNotEquals(null, testSharingWrapC2C);
     }
     
     @isTest 
     static void testWrapExternalLink() {
         Test.startTest();
-        Account_Link__c externalLink = new Account_Link__c(RecordTypeId = externalLinkType, Name = 'DealerCode', Vehicle__c = vehicle.Id);
+        Account_Link__c externalLink = new Account_Link__c(RecordTypeId = externalLinkType, Name = 'externalLink', Vehicle__c = vehicle.Id);
         AccountLinkSharingWrapService wrapService = new AccountLinkSharingWrapService();
-        wrapService.wrapExternalLink(new List<Account_Link__c>{externalLink});
+        List<SharingWrapper> testSharingWrapEl =    wrapService.wrapExternalLink(new List<Account_Link__c>{externalLink});
         Test.stopTest();
+        system.assertNotEquals(null, testSharingWrapEl);
     }
     
     @isTest 
     static void testWrapContactSector() {
         Test.startTest();
-        Account_Link__c contactSector = new Account_Link__c(RecordTypeId = contact2ContactType, Name = 'DealerCode', Vehicle__c = vehicle.Id);
+        Account_Link__c contactSector = new Account_Link__c(RecordTypeId = contact2ContactType, Name = 'contactSector', Vehicle__c = vehicle.Id);
         AccountLinkSharingWrapService wrapService = new AccountLinkSharingWrapService();
-        wrapService.wrapContactSector(new List<Account_Link__c>{contactSector});
+        List<SharingWrapper> testSharingWrapCs = wrapService.wrapContactSector(new List<Account_Link__c>{contactSector});
         Test.stopTest();
+        system.assertNotEquals(null, testSharingWrapCs);
     }
 
     @isTest
     static void testWrapAccountLinks() {
         Test.startTest();
-        Account_Link__c contactSector = new Account_Link__c(RecordTypeId = accountLinkType, Name = 'DealerCode', Vehicle__c = vehicle.Id);
-        Account_Link__c externalLink = new Account_Link__c(RecordTypeId = externalLinkType, Name = 'DealerCode', Vehicle__c = vehicle.Id);
-        Account_Link__c contact2Contact = new Account_Link__c(RecordTypeId = contact2ContactType, Name = 'DealerCode', Vehicle__c = vehicle.Id);
+        Account_Link__c contactSector = new Account_Link__c(RecordTypeId = accountLinkType, Name = 'contactSector', Vehicle__c = vehicle.Id);
+        Account_Link__c externalLink = new Account_Link__c(RecordTypeId = externalLinkType, Name = 'externalLink', Vehicle__c = vehicle.Id);
+        Account_Link__c contact2Contact = new Account_Link__c(RecordTypeId = contact2ContactType, Name = 'contact2Contact', Vehicle__c = vehicle.Id);
         AccountLinkSharingWrapService wrapService = new AccountLinkSharingWrapService();
-        wrapService.wrapAccountLinksByRecordTypes(new List<Account_Link__c>{contactSector, externalLink, contact2Contact});
+        List<SharingWrapper> testSharingWrapAlrt = wrapService.wrapAccountLinksByRecordTypes(new List<Account_Link__c>{contactSector, externalLink, contact2Contact});
         Test.stopTest();
+        system.assertNotEquals(null, testSharingWrapAlrt);
     }
     
-    @isTest
-    static void testAccountLinkTrigger() {
-    	Test.startTest();
-        SharingWrapper service = new SharingWrapper();    
-        Account_Link__c contactSector = new Account_Link__c(RecordTypeId = accountLinkType, Name = 'DealerCode', Vehicle__c = vehicle.Id); 
-        Account_Link__c externalLink = new Account_Link__c(RecordTypeId = externalLinkType, Name = 'DealerCode', Vehicle__c = vehicle.Id);
-        Account_Link__c contact2Contact = new Account_Link__c(RecordTypeId = contact2ContactType, Name = 'DealerCode', Vehicle__c = vehicle.Id);
-        insert new List<Account_Link__c>{contactSector, externalLink, contact2Contact};
-        Test.stopTest();
-    }
+
 }

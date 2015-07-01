@@ -1,7 +1,16 @@
 @isTest
 private class AccountLinkHelperTest {
- private static testmethod void testAccountLinkHelper()
-    {
-    AccountLinkHelper.nameParsing('testDMS-');
-    }
+
+  public static testMethod void test_nameParsing()
+  {
+      string crmcode ;
+      string name =  'nameDMS-';
+      test.startTest();
+      String testStr = AccountLinkHelper.nameParsing('nameDMS-');
+      test.stopTest();
+      name = name.substring(name.indexOf('DMS-'));
+      crmCode = name.substring(name.lastIndexOf('-') - 2, name.lastIndexOf('-'));
+      system.assertEquals(crmCode, testStr);
+  }
+
 }

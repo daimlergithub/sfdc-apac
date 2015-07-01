@@ -1,35 +1,18 @@
-/**
- * This class contains unit tests for validating the behavior of Apex classes
- * and triggers.
- *
- * Unit tests are class methods that verify whether a particular piece
- * of code is working properly. Unit test methods take no arguments,
- * commit no data to the database, and are flagged with the testMethod
- * keyword in the method definition.
- *
- * All test methods in an organization are executed whenever Apex code is deployed
- * to a production organization to confirm correctness, ensure code
- * coverage, and prevent regressions. All Apex classes are
- * required to have at least 75% code coverage in order to be deployed
- * to a production organization. In addition, all triggers must have some code coverage.
- * 
- * The @isTest class annotation indicates this class only contains test
- * methods. Classes defined with the @isTest annotation do not count against
- * the organization size limit for all Apex scripts.
- *
- * See the Apex Language Reference for more information about Testing and Code Coverage.
- */
 @isTest
-private class DMRequestTriggerHandlerTest {
+private with sharing class DMRequestTriggerHandlerTest {
     
     public static testMethod void testMyController() {
        
         User user1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
         System.runAs ( user1 ) {
+<<<<<<< HEAD
             //Prepare new DM Materials
             //DM Material1 openning stock is 10
             //DM Material2 openning stock is 20
             //DM Material3 openning stock is 30
+=======
+           
+>>>>>>> kernel
             Test.startTest();
             // DM Material
             DM_Material__c dm1 = new DM_Material__c(Name='TEST-DM-1'+DateTime.now().formatLong(),Active__c=true);
@@ -53,13 +36,7 @@ private class DMRequestTriggerHandlerTest {
             dm2 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm2.Id];
             dm3 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm3.Id];
             
-            //DM Request Test Scenarios:
-            //1. Status not equals 'Sent'
-            //2. Status equals 'Sent' but not changed
-            //3. Status changed to 'Sent' (DM Material1=M1, DM Material2=M2, DM Material3=M3)
-            //3.1 M1=value1, M2=value2, M3=value3
-            //3.2 M1=M2=M3=value1
-            
+                         
             Account customer = new Account(
                                      Phone = '1234567',
                                      Last_Successful_Call_Office_Phone__c = System.today() - 10,
@@ -72,8 +49,7 @@ private class DMRequestTriggerHandlerTest {
             // Scenario 1:
             DM_Request__c dmr1 = new DM_Request__c(Actual_DM_Material1__c=dm1.Id, Status__c='Open', Customer_Name__c=customer.Id );
             insert dmr1;
-            //dm1 = [Select Id,Name,Stock__c From DM_Material__c Where Id=:dm1.Id];
-            // Scenario 3.1
+            
             dmr1.Actual_DM_Material1__c = dm1.Id;
             dmr1.Actual_DM_Material2__c = dm2.Id;
             dmr1.Actual_DM_Material3__c = dm3.Id;
@@ -104,14 +80,15 @@ private class DMRequestTriggerHandlerTest {
             extension3.send();
             DM_Request__c taskDMR = [Select Id, Status__c From DM_Request__c Where Id=:extension3.dm.Id Order by Id Desc Limit 1];
             System.assertEquals(taskDMR.Status__c,'Open');
-            Task t = [Select t.Activity_Status__c From Task t Where WhatId=:taskDMR.Id Order by Id Desc Limit 1];
+            
             taskDMR.Status__c = 'Sent';
             update taskDMR;
-            t = [Select t.Activity_Status__c From Task t Where WhatId=:taskDMR.Id Order by Id Desc Limit 1];
+            
             Test.stopTest();
             System.assertEquals(dmr1.Actual_DM_Material1__c, dm1.Id);
             System.assertEquals(dmr1.Actual_DM_Material2__c, dm2.Id);
             System.assertEquals(dmr1.Actual_DM_Material3__c, dm3.Id);  
+<<<<<<< HEAD
             System.assertEquals(dm1.Stock__c, 9);
             System.assertEquals(dm2.Stock__c, 16);
             System.assertEquals(dm3.Stock__c, 29);         
@@ -126,4 +103,11 @@ private class DMRequestTriggerHandlerTest {
             DMControllerExtensionTest.testMyController();
         }
         }
+=======
+          
+    }
+    }
+    
+    
+>>>>>>> kernel
 }

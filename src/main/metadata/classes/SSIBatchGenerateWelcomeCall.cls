@@ -79,7 +79,7 @@ global class SSIBatchGenerateWelcomeCall implements Database.Batchable<SObject>,
     
     private Id WCRTID = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
     
-    private Task createWelcomeCallTask(Account acc){
+   @TestVisible private Task createWelcomeCallTask(Account acc){
         Task t = new Task();
         t.RecordTypeId = WCRTID;
         t.Subject = 'Welcome Call';

@@ -374,7 +374,7 @@ public without sharing class SubmitSurveyController{
     /** private function invoked by other public function
       * insert the survey response result and survey taken information
       */
-    private Boolean upsertSurveyData(Question q){
+   @TestVisible private Boolean upsertSurveyData(Question q){
         Boolean result = true;
         Savepoint sp = Database.setSavepoint();
         //insert the survey response information

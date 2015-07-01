@@ -1,6 +1,6 @@
 @isTest
 private class VehicleRelationshipSharingTest {
-	
+    
     private static Account dealer;
     private static Vehicle__c vehicle;
     
@@ -23,9 +23,10 @@ private class VehicleRelationshipSharingTest {
         insert retailVehicleRelationship;
         
         Test.startTest();
-        VehicleRelationshipSharingWrapService wrapService = new VehicleRelationshipSharingWrapService();
-        wrapService.wrapRetailVehicleRelationships(new List<Vehicle_Relationship__c>{retailVehicleRelationship});
+        VehicleRelationshipSharingWrapService wrapService = new VehicleRelationshipSharingWrapService();        
+        List<SharingWrapper> wrapRetailVehicleRelationships=wrapService.wrapRetailVehicleRelationships(new List<Vehicle_Relationship__c>{retailVehicleRelationship});
         Test.stopTest();
+        system.assertNotEquals(null, wrapRetailVehicleRelationships);
     }
 
     @isTest 
@@ -35,5 +36,7 @@ private class VehicleRelationshipSharingTest {
         Vehicle_Relationship__c retailVehicleRelationship = new Vehicle_Relationship__c(RecordTypeId = retailType.Id, Owner_Dealer__c = dealer.Id, Vehicle_ID__c = vehicle.Id);
         insert retailVehicleRelationship;
         Test.stopTest();
+        system.assertNotEquals(null, retailVehicleRelationship);
+        system.assertNotEquals(null, retailVehicleRelationship.Owner_Dealer__c);
     }
 }

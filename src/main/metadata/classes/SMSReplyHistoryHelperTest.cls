@@ -11,7 +11,6 @@
 @isTest public class SMSReplyHistoryHelperTest{
     
     private static SMSReplyHistory__c objSrh;
-    private static list<SMSReplyHistory__c> lstSrh=new list<SMSReplyHistory__c>();
     private static Task objTask;
     private static id SMS_REC_ID=Schema.SObjectType.Task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
     private static id ERROR_REC_ID=Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('Children SMS Template').getRecordTypeId();
@@ -22,151 +21,126 @@
     private static Template__c objTempError;
     private static SMS_Code__c objSC;
     private static Template__c objTempErrorMMS;
-    /*@isTest public static void testTriggerSMSReplyHistoryBeforeInsert(){
-        Template__c template = getTemplate();
-        
-        Template__c errorTemplate = template.clone();
-        errorTemplate.RecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('Children SMS Template').getRecordTypeId();
-        errorTemplate.Message_Detail__c = 'Error template';
-        insert errorTemplate;
-        
-        Template__c ibCSRTemplate = template.clone();
-        ibCSRTemplate.Name = 'IB SMS IVR';
-        ibCSRTemplate.ErrorSMS__c = errorTemplate.Id;
-        insert ibCSRTemplate;
-        
-        createSMSCode(ibCSRTemplate, errorTemplate);
-        
-        Task task = getSMSTask();
-        task.SMSTemplateID__c = ibcSRTemplate.Id;
-        insert task;
-        
-        Test.startTest();
-        SMSReplyHistory__c reply = new SMSReplyHistory__c(
-            RespondTime__c = System.now(),
-            IsValid__c = true,
-            ResponseContent__c = '1',
-            SMSSentTime__c = System.now(),
-            TaskID__c = task.Id,
-            Template__c = ibCSRTemplate.Id
-        );
-        insert reply;
-        Test.stopTest();
-        system.assertEquals(task.SMSTemplateID__c,ibcSRTemplate.Id);
-        system.assertEquals(reply.Template__c,ibCSRTemplate.Id);
-        system.assertEquals(ibCSRTemplate.ErrorSMS__c,errorTemplate.Id);      
-        system.assertEquals(errorTemplate.RecordTypeId,Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('Children SMS Template').getRecordTypeId());        
-        system.assert(task!=Null);
-        system.assert(getSMSTask()!=Null);
-        system.assert(getTemplate()!=Null);
-      
-    }
-    
-    private static Template__c getTemplate()
-    {
-        Template__c template = new Template__c(
-            Active__c = true,
-            AnalyzeRequired__c = true,
-            Closure_SMS__c = 'a1S',
-            Message_Detail__c = 'standard template',
-            Subject__c = 'Standard',
-            Type__c = 'Upstream & Downstream',
-            ValidTimeHrs__c = 24
-        );
-        return template;
-    }
-    
-    private static Task getSMSTask()
-    {
-        Task task = new Task(
-            RecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get('SMS').getRecordTypeId(),
-            Subject = 'SMS',
-            Status = 'Closed',
-            Activity_Status__c = 'Sent',
-            Priority__c = 'General',
-            Phone__c = '12100001111'
-        );
-        return task;
-    }
-    
-    private static void createSMSCode(Template__c template, Template__c nextTemplate)
-    {
-        String smsRecordTypeId = Schema.SObjectType.SMS_Code__c.getRecordTypeInfosByName().get('Generate Downstream SMS').getRecordTypeId();
-        String obTaskRecordTypeId = Schema.SObjectType.SMS_Code__c.getRecordTypeInfosByName().get('Generate OB Task').getRecordTypeId();
-        String campaignRecordTypeId = Schema.SObjectType.SMS_Code__c.getRecordTypeInfosByName().get('Register Campaign').getRecordTypeId();
-        
-        SMS_Code__c smsCode = new SMS_Code__c(Template__c = template.Id, RecordTypeId = smsRecordTypeId);
-        SMS_Code__c smsCode1 = smsCode.clone();
-        smsCode1.SMSCode__c = '1';
-        smsCode1.Description__c = '1.Satisfaction';
-        smsCode1.SendClosureSMS__c = true;
-        insert smsCode1;
-        SMS_Code__c smsCode2 = smsCode.clone();
-        smsCode2.SMSCode__c = '2';
-        smsCode2.Description__c = '2.Not satisfied';
-        smsCode1.SendClosureSMS__c = false;
-        smsCode2.NextSMSTemplate__c = nextTemplate == null ? null : nextTemplate.Id;
-        insert smsCode2;
-    }*/
-    
+    private static String smsContent='Test Content';
+    private static String standardtemplate='standard template';
+    private static String standard='standard';
+    private static String UpstreamDownstream='Upstream & Downstream';
+   
     public static testMethod void testTriggerSMSReplyHistoryBeforeInsert()
-    {
-    	Test.startTest();
-    	createTemplate_Closure_SMS();
-    	createTemplate_Error_SMS();
-    	createTemplate(objTempError.Id);
-    	createTask();
-    	SMSReplyHistory__c obj=createSMSReplyHistory();
-    	obj.ResponseContent__c='MS';
-    	insert obj;
-    	Test.stopTest();
+    {      
+        createTemplate_Closure_SMS();
+        createTemplate_Error_SMS();
+        createTemplate(objTempError.Id);
+        createTask();
+        Test.startTest();
+        SMSReplyHistory__c obj=createSMSReplyHistory();
+        obj.ResponseContent__c='MS';
+        insert obj;
+        Test.stopTest();
+        System.assertEquals(obj.ResponseContent__c,'MS');
     }
     
     public static testMethod void testTriggerSMSReplyHistoryBeforeInsert_ResponseContent_NULL()
     {
-    	Test.startTest();
-    	createTemplate_Closure_SMS();
-    	createTemplate_Error_SMS();
-    	createTemplate(objTempError.Id);
-    	createSMSCode();
-    	createTask();
-    	SMSReplyHistory__c obj=createSMSReplyHistory();
-    	obj.Template__c=null;
-    	insert obj;
-    	Test.stopTest();
+       
+        createTemplate_Closure_SMS();
+        createTemplate_Error_SMS();
+        createTemplate(objTempError.Id);
+        createSMSCode();
+        createTask();
+        Test.startTest();
+        SMSReplyHistory__c obj=createSMSReplyHistory();
+        obj.Template__c=null;
+        insert obj;
+        Test.stopTest();
+        System.assertNotEquals(null,objTempError.Id);
+        System.assertNotEquals(null,objSrh);
     }
     
     public static testMethod void testTriggerSMSReplyHistoryBeforeInsert_ResponseContent_NULL1()
     {
-    	Test.startTest();
-    	createTemplate_Closure_SMS();
-    	createTemplate_Error_SMS();
-    	createTemplate(objTempError.Id);
-    	createSMSCode();
-    	createTask();
-    	SMSReplyHistory__c obj=createSMSReplyHistory();
-    	obj.TaskID__c='testtstt';
-    	insert obj;
-    	Test.stopTest();
+        
+        createTemplate_Closure_SMS();
+        createTemplate_Error_SMS();
+        createTemplate(objTempError.Id);
+        createSMSCode();
+        createTask();
+        Test.startTest();
+        SMSReplyHistory__c obj=createSMSReplyHistory();
+        obj.TaskID__c='testtstt';
+        insert obj;
+        Test.stopTest();
+        System.assertNotEquals(null,obj.Id);
     }
     
     public static testMethod void testTriggerSMSReplyHistoryBeforeInsert_ResponseContent_NULL2()
     {
-    	Test.startTest();
-    	createTemplate_Closure_SMS();
-    	createTemplate_Error_MMS();
-    	createTemplate(objTempErrorMMS.Id);
-    	createSMSCode();
-    	createTask();
-    	SMSReplyHistory__c obj=createSMSReplyHistory();
-    	obj.TaskID__c='testtstt';
-    	insert obj;
-    	Test.stopTest();
+        
+        createTemplate_Closure_SMS();
+        createTemplate_Error_MMS();
+        createTemplate(objTempErrorMMS.Id);
+        createSMSCode();
+        createTask();
+        Test.startTest();
+        SMSReplyHistory__c obj=createSMSReplyHistory();
+        obj.ResponseContent__c=null;
+        obj.IsValid__c = false;
+        insert obj;
+        Test.stopTest();
+        System.assertNotEquals(null,objTempErrorMMS.Id);
+        System.assertEquals(obj.IsValid__c,false);
+    }
+    
+    
+     public static testMethod void testcreateSMSTask()
+    {
+     createTemplate_Closure_SMS();
+        createTemplate_Error_MMS();
+        createTemplate(objTempErrorMMS.Id);
+        createSMSCode();
+        createTask();
+        Test.startTest();        
+        SMSReplyHistoryHelper.createSMSTask(objTask,smsContent);
+        Test.stopTest();
+        System.assert(objTask!=null);
+    }
+    
+    
+     public static testMethod void testcreateMMSTask()
+    {
+       createTemplate_Closure_SMS();
+        createTemplate_Error_MMS();
+        createTemplate(objTempErrorMMS.Id);
+        createTask();
+        createSMSCode();
+        Test.startTest();        
+        SMSReplyHistoryHelper.createMMSTask(objTask,objTemp);
+        Test.stopTest();
+         System.assertNotEquals(null,objTask);
+         System.assertNotEquals(null,objTemp);
+         system.assertEquals(objTask.Subject, 'MMS');
+    }
+    
+    public static testMethod void testcreateOBTask()
+    { 
+        createTemplate_Closure_SMS();
+        createTemplate_Error_MMS();
+        createTemplate(objTempErrorMMS.Id);
+        createSMSCode();
+        createTask();
+        Test.startTest();  
+        SMSReplyHistory__c obj=createSMSReplyHistory();
+        obj.Template__c=null;
+        insert obj;      
+        SMSReplyHistoryHelper.createOBTask(objTask,objSrh,objSC);
+        Test.stopTest();
+        System.assertEquals(objSrh.IsFirstValid__c,true);
+        system.assertEquals(objTask.Priority__c ,'High');
     }
     
     static SMSReplyHistory__c createSMSReplyHistory()
     {
-    	objSrh = new SMSReplyHistory__c();
+        objSrh = new SMSReplyHistory__c();
         objSrh.RespondTime__c = System.now();
         objSrh.IsValid__c = true;
         objSrh.IsFirstValid__c=true;
@@ -180,12 +154,12 @@
     
     static void createTask()
     {
-    	objTask = new Task();
+        objTask = new Task();
         objTask.RecordTypeId = SMS_REC_ID;
-        objTask.Subject = 'SMS';
+        objTask.Subject = 'MMS';
         objTask.Status = 'Closed';
         objTask.Activity_Status__c = 'Sent';
-        objTask.Priority__c = 'General';
+        objTask.Priority__c = 'High';
         objTask.Phone__c = '12100001111';
         objTask.SMS_Content__c='test';
         insert objTask;
@@ -197,9 +171,9 @@
         objTemp.Active__c = true;
         objTemp.AnalyzeRequired__c = true;
         objTemp.Closure_SMS__c = objTempSMS.Id;
-        objTemp.Message_Detail__c = 'standard template';
-        objTemp.Subject__c = 'Standard';
-        objTemp.Type__c = 'Upstream & Downstream';
+        objTemp.Message_Detail__c =standardtemplate;
+        objTemp.Subject__c = standard;
+        objTemp.Type__c = UpstreamDownstream;
         objTemp.ValidTimeHrs__c = 24;
         objTemp.ErrorSMS__c=tempid;
         insert objTemp;
@@ -211,9 +185,9 @@
         objTempSMS.Active__c = true;
         objTempSMS.AnalyzeRequired__c = true;
         objTempSMS.Closure_SMS__c = 'a1S';
-        objTempSMS.Message_Detail__c = 'standard template';
-        objTempSMS.Subject__c = 'Standard';
-        objTempSMS.Type__c = 'Upstream & Downstream';
+        objTempSMS.Message_Detail__c = standardtemplate;
+        objTempSMS.Subject__c = standard;
+        objTempSMS.Type__c = UpstreamDownstream;
         objTempSMS.ValidTimeHrs__c = 24;
         insert objTempSMS;
     }
@@ -224,9 +198,9 @@
         objTempError.Active__c = true;
         objTempError.AnalyzeRequired__c = true;
         objTempError.Closure_SMS__c = 'a1S';
-        objTempError.Message_Detail__c = 'standard template';
-        objTempError.Subject__c = 'Standard';
-        objTempError.Type__c = 'Upstream & Downstream';
+        objTempError.Message_Detail__c = standardtemplate;
+        objTempError.Subject__c = standard;
+        objTempError.Type__c = UpstreamDownstream;
         objTempError.ValidTimeHrs__c = 24;
         objTempError.RecordTypeId=ERROR_REC_ID;
         insert objTempError;
@@ -237,9 +211,9 @@
         objTempErrorMMS.Active__c = true;
         objTempErrorMMS.AnalyzeRequired__c = true;
         objTempErrorMMS.Closure_SMS__c = 'a1S';
-        objTempErrorMMS.Message_Detail__c = 'standard template';
-        objTempErrorMMS.Subject__c = 'Standard';
-        objTempErrorMMS.Type__c = 'Upstream & Downstream';
+        objTempErrorMMS.Message_Detail__c =standardtemplate;
+        objTempErrorMMS.Subject__c = standard;
+        objTempErrorMMS.Type__c = UpstreamDownstream;
         objTempErrorMMS.ValidTimeHrs__c = 24;
         objTempErrorMMS.RecordTypeId=ERROR_REC_ID_MMS;
         insert objTempErrorMMS;
@@ -247,7 +221,7 @@
     
     static void createSMSCode()
     {
-    	objSC = new SMS_Code__c(Template__c = objTemp.Id, RecordTypeId = smsRecordTypeId,SMSCode__c='MS',SendClosureSMS__c=true);
-    	insert objSC;
+        objSC = new SMS_Code__c(Template__c = objTemp.Id, RecordTypeId = smsRecordTypeId,SMSCode__c='MS',SendClosureSMS__c=true);
+        insert objSC;
     }
 }
