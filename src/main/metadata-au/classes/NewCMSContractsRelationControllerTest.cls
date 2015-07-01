@@ -52,6 +52,7 @@ public class NewCMSContractsRelationControllerTest {
         Test.setCurrentPage(pr2);
         NewCMSContractsRelationController newCMS = new NewCMSContractsRelationController();
         test.stoptest();
+        system.assertequals(objLead.Id,ApexPages.currentPage().getParameters().get('id'));
     }
     
     public static testMethod void testNewCMSContractsRelationController_saveCMS()

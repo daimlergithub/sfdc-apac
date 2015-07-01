@@ -17,5 +17,6 @@ public class HistoryRespondControllerTest {
         ApexPages.standardController controller = new ApexPages.standardController(t1);
         HistoryRespondController c1= new HistoryRespondController(controller);
         c1.getTheResults();
+        system.assertNotEquals(null, c1.getTheResults());
     }
 }

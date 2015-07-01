@@ -4,7 +4,7 @@ public class UtilCampaignShareByCollaborationTest
     
     private static Collaboration_Team__c cbt;
     private static Campaign cmp;
-    
+    public static user u1;
     public static testMethod void test_au_After_Insert_Update_Delete_Eventsinsert()
     {
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
@@ -39,14 +39,14 @@ public class UtilCampaignShareByCollaborationTest
         createTestdata();
         delete cbt;
         test.stopTest();
-        
+       system.assertEquals(cbt.Member_Name__c, u1.id);
         }
     }
     
     static void createTestdata()
     {
         
-        User u1 = UtilTestData.createUser('IT Manager', 'CAC Data Manager');
+        u1 = UtilTestData.createUser('IT Manager', 'CAC Data Manager');
         
             cmp  = new Campaign(
             Name = 'cac', 
