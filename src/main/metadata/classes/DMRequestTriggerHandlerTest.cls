@@ -5,14 +5,7 @@ private with sharing class DMRequestTriggerHandlerTest {
        
         User user1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
         System.runAs ( user1 ) {
-<<<<<<< HEAD
-            //Prepare new DM Materials
-            //DM Material1 openning stock is 10
-            //DM Material2 openning stock is 20
-            //DM Material3 openning stock is 30
-=======
            
->>>>>>> kernel
             Test.startTest();
             // DM Material
             DM_Material__c dm1 = new DM_Material__c(Name='TEST-DM-1'+DateTime.now().formatLong(),Active__c=true);
@@ -88,26 +81,9 @@ private with sharing class DMRequestTriggerHandlerTest {
             System.assertEquals(dmr1.Actual_DM_Material1__c, dm1.Id);
             System.assertEquals(dmr1.Actual_DM_Material2__c, dm2.Id);
             System.assertEquals(dmr1.Actual_DM_Material3__c, dm3.Id);  
-<<<<<<< HEAD
-            System.assertEquals(dm1.Stock__c, 9);
-            System.assertEquals(dm2.Stock__c, 16);
-            System.assertEquals(dm3.Stock__c, 29);         
-            System.assertEquals(t.Activity_Status__c,'Sent');
-        }
-    }
-    
-     public static testMethod void testDMControllerExtension() {
-       
-        User user1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
-        System.runAs ( user1 ) {
-            DMControllerExtensionTest.testMyController();
-        }
-        }
-=======
           
     }
     }
     
     
->>>>>>> kernel
 }
