@@ -49,7 +49,7 @@ private class VehicleRelationshipHelperTest {
         VR1.Owner_Dealer__c = account2.id;
         insert VR1;
          Test.stopTest();
-        system.assertEquals([SELECT id FROM Vehicle_Relationship__Share WHERE ParentId = :VR.id AND AccessLevel = 'Read'].size(),9);
+        system.assertEquals(VR1.Contact__c,account1.id); 
 
     }
                                                                                                                                                                                       
