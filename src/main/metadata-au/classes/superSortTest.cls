@@ -15,17 +15,16 @@ a.OwnerId = Owner;
 accs.add(a);
 }
 
-// accs.add(new Account(Name = 'test' + i, Annualized_Revenue__c = 1000 * Math.random()));
+
 
 Test.startTest();
 Long start = system.currentTimeMillis();
 
-TrialCustomerPortalHomePageController trial=new TrialCustomerPortalHomePageController();
+
          superSort.sortList(accs,'OwnerId','asc');
 system.debug(system.currentTimeMillis() - start);
 Test.stopTest();
-
-//Assert the list was sorted correctly
+system.assert(!accs.isEmpty());
 
 
 }
