@@ -60,6 +60,10 @@
                 <behavior>Edit</behavior>
                 <field>Account_Name__c</field>
             </layoutItems>
+			<layoutItems>
+                <behavior>Edit</behavior>
+                <field>Source_ID__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Other_Activity__c</field>
