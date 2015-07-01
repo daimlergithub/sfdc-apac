@@ -36,7 +36,7 @@
     <fields>
         <fullName>Account_Name__c</fullName>
         <externalId>false</externalId>
-        <label>Account Name</label>
+        <label>Dealer ID</label>
         <length>255</length>
         <required>false</required>
         <type>Text</type>
