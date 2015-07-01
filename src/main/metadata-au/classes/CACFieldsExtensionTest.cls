@@ -21,5 +21,6 @@ public class CACFieldsExtensionTest {
        
         extension.cancel();
         extension.save();
+        system.assertEquals(null,  extension.edit());
     }
 }

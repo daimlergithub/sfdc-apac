@@ -20,10 +20,10 @@ public class UserTriggerHandler
     implements TriggerHandlerIf
 {
     public void handleTrigger()
-    {
+    {/*
         Map<Id,User> oldmap = (Map<Id,User>)trigger.oldmap;
         Map<Id,User> newmap = (Map<Id,User>)trigger.newmap;
-        
+       
         if (trigger.isAfter && trigger.isInsert) {
         	//TODO : commented kernel functionality
             //UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);      
@@ -39,6 +39,6 @@ public class UserTriggerHandler
         if (trigger.isBefore && trigger.isUpdate) {
         	//TODO : commented kernel functionality
             //UserHelper.ValidateUser(Trigger.new);   
-        }
+        }*/
     }
 }
