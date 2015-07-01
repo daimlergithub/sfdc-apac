@@ -20,5 +20,6 @@ private class CMapTest {
         cmap2.add('k1','v1');
         cmap2.cleanLessThanTwoList();
         Test.stopTest();
+        system.assertNotEquals(null,  cmap.get('k1'));
     }
 }

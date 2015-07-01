@@ -542,7 +542,8 @@
 			<sf:include name="SSIScheduleWelcomeCallEscalation"/>
 			<sf:include name="SSITriggerHandler"/>
 			<sf:include name="SSITriggerHandlerTest"/>
-			<sf:include name="SSIVINMatchProcess"/>		
+			<sf:include name="SSIVINMatchProcess"/>	
+			<sf:include name="SSIVINMatchProcessTest"/>  			
 		</sf:typeset>
 		</deploy>					
     </target>

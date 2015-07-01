@@ -45,6 +45,7 @@ public class TriggerAccountHandler
 	    if(trigger.isBefore && trigger.isUpdate)
 	    {
 	        AccountHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+	        AccountHelper.auBeforeUpdateCheckRequiredPhoneFields(trigger.new);
 	        //Kernel code
 	        //UtilAccount.beforeAccDealerInfo(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate);
 	    }

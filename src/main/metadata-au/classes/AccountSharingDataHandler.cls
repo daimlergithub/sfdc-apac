@@ -429,7 +429,7 @@ public class AccountSharingDataHandler {
     /**
      *  delete old share account, when update
      */
-    private void deleteOldShare(Map<id,Account> oldData, String recordType) {
+    @testVisible private void deleteOldShare(Map<id,Account> oldData, String recordType) {
         
         String recordtypeId = UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,recordType); 
         
