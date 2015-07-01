@@ -45,5 +45,6 @@ UtilLeadEmailEscalation.checkFollowupRate(customer1);
     UtilLeadEmailEscalation.getConversionRateRowValue(listacc);
    UtilLeadEmailEscalation.getDealerToAddresses(customer1);
         UtilLeadEmailEscalation.getDealerCcAddresses(customer1);
+    system.assertNotEquals(null, UtilLeadEmailEscalation.getSeparateAccountsBySubRegion(listacc));
 }
 }

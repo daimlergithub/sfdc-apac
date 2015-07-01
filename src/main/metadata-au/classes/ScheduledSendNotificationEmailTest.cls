@@ -1,10 +1,6 @@
 /*
     Type:       Test Class
     Purpose:    Test the ScheduledSendNotificationEmail class
-    User Story: 
-    ---------------------------------------------------------------
-    History:
-
     1. Justin Yu created on 2013-10-23
 */
 @isTest
@@ -81,7 +77,10 @@ public class ScheduledSendNotificationEmailTest{
         insert fleetLeadWith60Days;
         
         Test.startTest();
-        System.schedule('ScheduledSendNotificationEmailTest', '0 0 13 * * ?', new ScheduledSendNotificationEmail());
+         String jobId =System.schedule('ScheduledSendNotificationEmailTest', '0 0 13 * * ?', new ScheduledSendNotificationEmail());
         Test.stopTest();
+         CronTrigger ct = [select id, CronExpression,State, TimesTriggered, NextFireTime from CronTrigger where id = :jobId];
+        system.assertEquals('WAITING', ct.State);
+        
     }
 }

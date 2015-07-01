@@ -129,6 +129,12 @@
         <fields>Fleet__c</fields>
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>Survey__c</fields>
+        <fields>Last_Answered_Question__c</fields>
+        <relatedList>SurveyTaker__c.Account__c</relatedList>
+    </relatedLists>
 	<relatedLists>
 		<excludeButtons>New</excludeButtons>
         <fields>NAME</fields>

@@ -2,10 +2,6 @@
     Type:       Test Class
     Purpose:    TriggerPackgeItem_TestClass
     User Story: US--005
-    Used By:    
-    ---------------------------------------------------------------
-    History:
-    
     29-June-2013 Stephano (Breakingpoint)    Created
 */
 @isTest
@@ -49,17 +45,16 @@ public class TriggerPackageItem_TestClass{
         Package_Item__c pi = new Package_Item__c(Package_Name__c=cp.Id,
                                                 Offering__c=co.Id);
         insert pi;
-                
-        // Participating Dealer
-      //  Participating_Dealer__c pd = new Participating_Dealer__c(Campaign__c=TestData_CCA.Id,Dealer__c=acc.Id, Campaign_Package__c=cp.Id);
-      //  insert pd;
+     
                 
         delete pi;
         
         // Package Item
         Package_Item__c pi1 = new Package_Item__c(Package_Name__c=cp.Id,
                                                 Offering__c=co.Id);
-        insert pi1;        
+        insert pi1;  
+         Package_Item__c piTest = [select Package_Name__c,Offering__c from Package_Item__c where id=:pi1.id];
+        system.assertEquals(piTest.Package_Name__c, pi1.Package_Name__c);
   
     }
 }

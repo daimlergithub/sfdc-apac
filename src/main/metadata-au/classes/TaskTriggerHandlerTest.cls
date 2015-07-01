@@ -4,6 +4,8 @@ private with sharing class TaskTriggerHandlerTest {
     private static list<Task> listTask1 =new list<Task>();
     private static map<id,Task> taskMap1 = new map<id,Task>();
     private static Account customer; 
+    private static string OBStatusValue ='Successful';
+    private static string CalledValue = '13011111111';
     private static id recAnnualId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Annual Call').getRecordTypeId();
     private static Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
     
@@ -57,8 +59,8 @@ private with sharing class TaskTriggerHandlerTest {
            
             endCallTime = DateTime.now();
             obTask.End_call_time__c = endCallTime;
-            obTask.Called__c = '13011111111';
-            obTask.OB_Status__c = 'successful';
+            obTask.Called__c = CalledValue;
+            obTask.OB_Status__c = OBStatusValue;
             update obTask;
             
             endCallTime = DateTime.now().addMinutes(10);
@@ -120,7 +122,7 @@ private with sharing class TaskTriggerHandlerTest {
             
             obTask.End_call_time__c = endCallTime;
             obTask.Called__c = '1234568';
-            obTask.OB_Status__c = 'successful';
+            obTask.OB_Status__c = OBStatusValue;
             update obTask;
             customer = [
                 Select Last_Successful_Call__c, Last_Successful_Call_Second_Mobile__c, Last_Successful_Call_Office_Phone__c, Last_Successful_Call_Mobile__c, Last_Successful_Call_Home_Phone__c 
@@ -141,7 +143,7 @@ private with sharing class TaskTriggerHandlerTest {
             Task intask = new Task(recordtypeid = ibrtid, CallType = 'Inbound', WhatId = customer.Id, Caller__c = '13020130906');
             insert intask;
             
-            intask.Activity_Status__c = 'Successful';
+            intask.Activity_Status__c = OBStatusValue;
             intask.IB_Status__c = 'Valid';
             update intask;
             intask = [Select Id, Activity_Status__c, IB_Status__c, Phone__c From Task Where Id=:intask.Id];
@@ -149,16 +151,16 @@ private with sharing class TaskTriggerHandlerTest {
             
             intask.recordtypeid = ssirtid;
             intask.CallType = '';
-            intask.Activity_Status__c = 'Successful';
+            intask.Activity_Status__c = OBStatusValue;
             intask.OB_Status__c = 'Invalid';
             update intask;
             intask = [Select Id, Activity_Status__c, OB_Status__c From Task Where Id=:intask.Id];
-            System.assertEquals(intask.Activity_Status__c, 'Successful');
+            System.assertEquals(intask.Activity_Status__c, OBStatusValue);
             
             
             intask.recordtypeid = obrtid;
             intask.CallType = 'Outbound';
-            intask.Activity_Status__c = 'Successful';
+            intask.Activity_Status__c = OBStatusValue;
             intask.OB_Status__c = 'Invalid';
             intask.Called__c = '13120130906';
             update intask;
@@ -367,9 +369,9 @@ private with sharing class TaskTriggerHandlerTest {
         
         cl2 = [Select Successful_Call_Number__c From Campaign_Lead__c Where Id =: cl2.Id Limit 1];
       
-        Contact cont = [Select Id From Contact Where AccountId = :customer.Id];
+       
           
-        Task obTask = new Task(OB_Status__c = UtilConstant.SUCCESSFUL,RecordTypeId = obrtid, WhatId = customer.Id,CallType = 'Inbound',Called__c = '13011111111');
+        Task obTask = new Task(OB_Status__c = UtilConstant.SUCCESSFUL,RecordTypeId = obrtid, WhatId = customer.Id,CallType = 'Inbound',Called__c = CalledValue);
         insert obTask;
         
         
@@ -392,6 +394,9 @@ private with sharing class TaskTriggerHandlerTest {
            
             
         Test.stopTest();
+        Task objTask =[select OB_Status__c from Task where id=:obTask.id];
+        system.assertEquals(objTask.OB_Status__c, obTask.OB_Status__c);
+        
       
     }
     static testMethod void testTaskFieldsUpdate() 
@@ -406,9 +411,9 @@ private with sharing class TaskTriggerHandlerTest {
         Test.startTest();  
            
       
-        Contact cont = [Select Id From Contact Where AccountId = :customer.Id];
+        
           
-        Task obTask = new Task(OB_Status__c = UtilConstant.SUCCESSFUL,RecordTypeId = ibrtid, WhatId = customer.Id,Called__c = '13011111111');
+        Task obTask = new Task(IB_Status__c = UtilConstant.SUCCESSFUL,RecordTypeId = ibrtid, WhatId = customer.Id,Called__c = CalledValue);
         insert obTask;
         
         
@@ -420,8 +425,8 @@ private with sharing class TaskTriggerHandlerTest {
         //obTask.WhoId = customer.Id;
         obTask.WhatId = customer.Id;
         obTask.CallType = 'Inbound';
-        obTask.CallObject = 'test';
-        obTask.UCID__c = 'test';
+        obTask.CallObject = 'test1';
+        obTask.UCID__c = 'test2';
         obTask.Activity_Status__c = UtilConstant.SUCCESSFUL;
         update obTask;
         
@@ -430,10 +435,14 @@ private with sharing class TaskTriggerHandlerTest {
         
        TaskTriggerHandler.taskFieldsUpdate(listNewTask1, tasOldkMap1);
        
+        
            
            
             
         Test.stopTest();
+        
+        Task objTaskTest =[select Activity_Status__c from Task where id=:obTask.id];
+        system.assertEquals('Successful', objTaskTest.Activity_Status__c);
       
     }
     static testMethod void testTaskFieldsUpdate1() 
@@ -448,9 +457,9 @@ private with sharing class TaskTriggerHandlerTest {
         Test.startTest();  
            
       
-        Contact cont = [Select Id From Contact Where AccountId = :customer.Id];
+        
           
-        Task obTask = new Task(OB_Status__c = UtilConstant.SUCCESSFUL,RecordTypeId = obrtid, Called__c = '13011111111');
+        Task obTask = new Task(OB_Status__c = UtilConstant.SUCCESSFUL,RecordTypeId = obrtid, Called__c = CalledValue);
         insert obTask;
         
         
@@ -462,20 +471,23 @@ private with sharing class TaskTriggerHandlerTest {
         //obTask.WhoId = customer.Id;
         //obTask.WhatId = customer.Id;
         obTask.CallType = 'Outbound';
-        obTask.CallObject = 'test';
+        obTask.CallObject = 'test1';
         //obTask.UCID__c = 'test';
         obTask.Activity_Status__c = UtilConstant.SUCCESSFUL;
         update obTask;
         
         listNewTask1.add(obTask);          
         taskNewMap1.put(obTask.id, obTask);
-        
+        TaskTriggerHandler.autoUpdateAccountOBTaskMessage(listNewTask1);
        TaskTriggerHandler.taskFieldsUpdate(listNewTask1, tasOldkMap1);
        TaskTriggerHandler.generateWelcomeCall(obTask,obTask);
+        
            
            
             
         Test.stopTest();
+          Task objTaskTest =[select Activity_Status__c from Task where id=:obTask.id];
+        system.assertEquals(OBStatusValue, objTaskTest.Activity_Status__c);
       
     }
     static testMethod void testGenerateWelcomeCall() 
@@ -486,9 +498,9 @@ private with sharing class TaskTriggerHandlerTest {
         Test.startTest();  
            
       
-        Contact cont = [Select Id From Contact Where AccountId = :customer.Id];
+        
           
-        Task obTask = new Task(OB_Status__c = UtilConstant.SUCCESSFUL,RecordTypeId = ssirtid, Called__c = '13011111111');
+        Task obTask = new Task(OB_Status__c = UtilConstant.SUCCESSFUL,RecordTypeId = ssirtid, Called__c = CalledValue);
         insert obTask;    
             
         
@@ -508,6 +520,8 @@ private with sharing class TaskTriggerHandlerTest {
            
             
         Test.stopTest();
+        Task objTaskTest =[select Activity_Status__c from Task where id=:obTask.id];
+        system.assertEquals(OBStatusValue, objTaskTest.Activity_Status__c);
       
     }
    

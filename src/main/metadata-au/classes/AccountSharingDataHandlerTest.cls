@@ -8,6 +8,7 @@ public with sharing class AccountSharingDataHandlerTest
   public static Vehicle_Relationship__c vRel;
   public static Vehicle__c vehicles;
   public static user usr;
+  private static Case objCase;
   private static Account_Link__c AccLink;
   public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
   public static String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -19,6 +20,7 @@ public with sharing class AccountSharingDataHandlerTest
     public static testmethod void test_createShareObject()
     {
         createTestData();
+        
         Map<id,Account> newData = new Map<id,Account>();
         newData.put(Dealer.id, Dealer);
         Map<id,Account> oldData = new Map<id,Account>();
@@ -32,6 +34,7 @@ public with sharing class AccountSharingDataHandlerTest
         Sobject Shareobj =  accSdh.createShareObject(personAcc.id, usr.id);
         accSdh.shareDealerByCrmCode(newData, oldData, false);
         accSdh.shareAccountByAccountLink(newDataAl, oldDataAl, false);
+        accSdh.deleteOldShare(oldData,'Dealer');
         test.stopTest();
         system.assertNotEquals(null, Shareobj);
     }
@@ -40,6 +43,12 @@ public with sharing class AccountSharingDataHandlerTest
     public static testmethod void test_shareAccountByCRMCode()
     {
         createTestData();
+        
+        Map<id,Case> newDataC = new Map<id,Case>();
+        newDataC.put(objCase.id, objCase);
+        Map<id,Case> oldDataC = new Map<id,Case>();
+        oldDataC.put(objCase.id, objCase);
+        
         Map<id,Lead__c> newData = new Map<id,Lead__c>();
         newData.put(testLead.id, testLead);
         Map<id,Lead__c> oldData = new Map<id,Lead__c>();
@@ -50,10 +59,13 @@ public with sharing class AccountSharingDataHandlerTest
         oldDataVr.put(vRel.id, vRel);
         test.startTest();
         AccountSharingDataHandler accSdh = new AccountSharingDataHandler('processFlg');
+        Sobject Shareobj =  accSdh.createShareObject(personAcc.id, usr.id);
         accSdh.shareAccountByCRMCode(newData, oldData, false);
         accSdh.shareAccountByRetailVR(newDataVr, oldDataVr, true);
+        accSdh.shareAccountByComplaint(newDataC, oldDataC, true);
+       
         test.stopTest();
-        //system.assertNotEquals(null, Shareobj);
+        system.assertNotEquals(null, Shareobj);
     }
     static void createTestData()
   {
@@ -92,6 +104,13 @@ public with sharing class AccountSharingDataHandlerTest
                                     RecordTypeId=accPerson_RecordTypeId);
        
        insert personAcc;
+
+
+        objCase = new Case(AccountId = personAcc.Id);
+        UtilTestData.createSobject(objCase, UtilTestData.CASE_RT_CHRYSLER_COMPLAINT);
+
+
+
       
       testLead = new Lead__c();
         //testLead.Need_Assign_To_Dealer__c = 'Need';
@@ -134,6 +153,8 @@ public with sharing class AccountSharingDataHandlerTest
       AccLink = new Account_Link__c();
       AccLink.fromRole__c = personAcc.Id;
       AccLink.toRole__c =  Dealer.Id;
+      
+      
       
   }
 
