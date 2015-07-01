@@ -486,7 +486,7 @@ public class AccountHelper {
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
             List<String> cols = colsMap.get(vehicleGroup);
             if(isCustomer)
-            	userInfo.put(cols[0], 'customer');
+            	userInfo.put(cols[0], 'Customer');
             integer numberofP = 1;
             if(userInfo.get(cols[1])!=null){
                 numberofP = integer.valueOf(userInfo.get(cols[1]))+1;
@@ -500,6 +500,41 @@ public class AccountHelper {
             userInfo.put(cols[2] , Decimal.valueOf(tenure));
         }
         return userInfo;        
-    }   
+    }  
+    
+    public static void auBeforeUpdateCheckRequiredPhoneFields(List<Account> lstNewAccouts)
+    {
+    	set<Id> setAAcId= new set<Id>();
+    	List<Address__c> lstAddress = new List<Address__c>();
+    	for(Account objAcc:lstNewAccouts)
+    	{
+    		setAAcId.add(objAcc.id);
+    	}
+    	
+    	Id profileId=userinfo.getProfileId();
+		String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
+    	
+    	if(setAAcId!=null && !setAAcId.isempty() &&  profileName != 'IntegrationAPI')
+    	{
+    		lstAddress=[Select id, Customer__c from Address__c where Customer__c In:setAAcId];
+    		if(lstAddress!=null && !lstAddress.isEmpty())
+    		{
+	    		for(Account objAcc:lstNewAccouts)
+	    		{
+	    			for(Address__c objAddr:lstAddress)
+	    			{
+		    			if(objAcc.Individual_Home_Phone__c==null && objAcc.Phone == null && objAcc.Mobile__c==null && objAcc.Home_Phone_2__c==null
+		    			&& objAcc.Work_Phone__c==null && objAcc.Mobile2__c==null && objAcc.Email__c==null && objAcc.Email2__c==null && 
+		    			(RECORD_TYPE_SET.contains(objAcc.RecordTypeId)) && objAcc.id==objAddr.Customer__c &&
+		    			objAcc.PC_Status__c!=null && objAcc.PC_Status__c.equalsIgnoreCase('Customer') && objAcc.CV_Status__c!=null && objAcc.CV_Status__c.equalsIgnoreCase('Customer') &&
+		    			objAcc.VAN_Status__c!=null && objAcc.VAN_Status__c.equalsIgnoreCase('Customer'))
+		    			{
+		    				objAcc.addError('The record needs to have at least one phone number field filled (Home Phone, Work Phone or Mobile) OR an email address.');
+		    			}
+	    			}
+	    		}
+    		}
+    	}
+    }
     //Existing AU related functionality ends here   
 }
