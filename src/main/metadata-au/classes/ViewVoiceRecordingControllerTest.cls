@@ -17,6 +17,6 @@ public class ViewVoiceRecordingControllerTest {
         insert t1;
         ApexPages.standardController controller = new ApexPages.standardController(t1);
         ViewVoiceRecordingController extension = new ViewVoiceRecordingController(controller);
-        
+        system.assertNotEquals(null, extension);
     }
 }
