@@ -124,7 +124,7 @@ Public class UtilTestData {
         con.Portal_User__c = true;
         con.CanAllowPortalSelfReg = true;
         insert con;
-        
+
         System.assert(con.LastName=='portalTestUser'); 
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
         System.assertEquals(UserInfo.getUserId(),thisUser.id);
