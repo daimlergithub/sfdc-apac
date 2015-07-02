@@ -367,6 +367,7 @@
 			<sf:include name="AccountLinkSharingWrapService"/>
 			<sf:include name="SharingWrapper"/>
 			<sf:include name="VehicleSharingWrapService"/>
+			<sf:include name="VehicleSharingTest"/>
 			<sf:include name="UserService"/>
 			<sf:include name="AccountLinkHelper"/>
 			<sf:include name="AccountLinkHelperTest"/>
@@ -518,8 +519,7 @@
 		<sf:typeset name="classes">
 			<sf:include name="VehicleDataSharingHandler"/>
 			<sf:include name="VehicleRelationshipHelperTest"/>
-			<sf:include name="VehicleRelationshipSharingTest"/>
-			<sf:include name="VehicleSharingTest"/>
+			<sf:include name="VehicleRelationshipSharingTest"/>			
 			<sf:include name="ViewTaskController"/>
 			<sf:include name="ViewTaskControllerTest"/>
 			<sf:include name="ViewVoiceRecordingController"/>

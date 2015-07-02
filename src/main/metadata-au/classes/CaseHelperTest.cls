@@ -20,13 +20,13 @@ public class CaseHelperTest {
     final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
     final static String CHRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Chrysler Complaint').getRecordTypeId();
     final static String INQUIRYRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.Enquiry).getRecordTypeId();
-    static Account acc = new Account(LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid);
+    static Account acc = new Account(LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid,firstname='test acme',Salutation='Brother');
     static Account acc1 = new Account(Name='acme',RecordTypeId = dealerRecordtypeid);
      static Account acc2 = new Account(Name='acme23',RecordTypeId = dealerRecordtypeid);
     static Vehicle__c ve1 = new Vehicle__c(Baumuster__c='forTest',Class__c='class-B',Brand__c='BENZ',Model__c='B200', EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx1',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));
     static Vehicle__c ve2 = new Vehicle__c(Baumuster__c='forTest',Class__c='C-Class Coupe',Brand__c='BENZ',Model__c='B220', EuroVIN__c='11111222222111122', UsVIN__c='11111222222111122',Latest_Sales_Person__c='xxx2',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));
-    public static String dealer_delegate_admin = 'dealer delegate admin';
-	Public Static String dealer_user = 'dealer user';
+    public static String dealer_delegate_admin = 'Dealer Delegate Admin';
+	Public Static String dealer_user = 'Dealer User';
 	public static String Dealer_after_sales_service_attitude = 'Dealer-after sales service attitude';
 	
     public static final List<String> COLS_MB_TRACKING = new List<String>{'Case_Type__c', 
