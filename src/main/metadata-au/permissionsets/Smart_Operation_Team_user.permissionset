@@ -797,6 +797,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SSIVINMatchProcessTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ScheduleCalcAmountOfAssignedLeads</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1074,10 +1078,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerCampaignCityTriggerHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerCampaignCity_TestClass</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -15092,10 +15092,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>TrialCustomerPortalHomePage</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>Trial_Tour</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -15180,6 +15176,10 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
+        <recordType>Account_Link__c.CompanyExternalLink</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
         <recordType>Account_Link__c.Contact2Contact</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -15188,7 +15188,7 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Account_Link__c.ExternalLink</recordType>
+        <recordType>Account_Link__c.IndividualExternalLink</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

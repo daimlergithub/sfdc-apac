@@ -221,7 +221,8 @@
 				<sf:include name="Tasks"/>
 			</sf:typeset>
 			<sf:typeset name="classes">
-				<sf:include name="TaskDeletingController"/>				
+				<sf:include name="TaskDeletingController"/>
+				<sf:include name="TaskDeletingControllerTest"/>				
 			</sf:typeset>
 			<sf:typeset name="pages">
 				<sf:include name="TaskDeleting"/>
@@ -273,7 +274,7 @@
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>	 	
 			<sf:include name="UtilCampaignShareByCollaboration"/>
-<!--			<sf:include name="UtilCampaignShareByCollaborationTest"/> -->
+			<sf:include name="UtilCampaignShareByCollaborationTest"/>
 			<sf:include name="UtilTestData"/>
 			<sf:include name="DBUtil"/>  
 			<sf:include name="TriggerQCTriggerHandler"/>
@@ -477,7 +478,8 @@
 			<sf:include name="TriggerVehicleRelationshipTriggerHandler"/>
 			<sf:include name="TriggerVehicleRelationshipTest"/>
 			<sf:include name="UtilVehicleRelationship"/>
-			<sf:include name="VehicleRelationshipHelper"/>		
+			<sf:include name="VehicleRelationshipHelper"/>
+			<sf:include name="UtilDB"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerAccount"/>
@@ -591,7 +593,7 @@
 			<sf:include name="CampaignPackageHelper"/>
 			<sf:include name="CampaignPackageHelperTest"/>
 			<sf:include name="ChatterAnswersEscalationTriggerHandler"/>
-			
+			<sf:include name="RetailTaskHelper"/>
 			<sf:include name="HistoryRespondController"/>
 			<sf:include name="HistoryRespondControllerTest"/>
 			<sf:include name="TriggerCampaignTriggerHandler"/>			
@@ -630,14 +632,22 @@
 			<sf:include name="MonthlyMarketAmountReportController"/>	
 			<sf:include name="MonthlyMarketAmountReportControllerTest"/>
 			<sf:include name="MyProcess"/>
-			<sf:include name="MyProcessTest"/>			
+			<sf:include name="MyProcessTest"/>		 	
+			<sf:include name="BatchUpdateRecords"/>
+			<sf:include name="BatchUpdateRecordsTest"/>
+			<sf:include name="MakeUpdateLinkControl"/>
+			<sf:include name="MakeUpdateLinkControlTest"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
+				<sf:include name="LeadConverting"/>
 				<sf:include name="CaseEscalation"/>
 				<sf:include name="MassApproveRetailCampaign"/>
 				<sf:include name="MonthlyMarketAmountReport"/>
 				<sf:include name="MonthlyMarketAmountReportPage"/>
 				<sf:include name="MassApproveToolKit"/>
+		</sf:typeset>
+		<sf:typeset name="components">
+				<sf:include name="eoc_links"/>
 		</sf:typeset>
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
@@ -719,8 +729,7 @@
 			<sf:include name="AddresscontrollerTest"/>
 			<sf:include name="AddressHelper"/>
 			<sf:include name="AddressHelperTest"/>			
-			<sf:include name="UtilAccountTest"/>
-			<sf:include name="UtilDB"/>
+			<sf:include name="UtilAccountTest"/>			
 			<sf:include name="TriggerAccountHandler"/>
 		</sf:typeset>	
 		<sf:typeset name="triggers">
@@ -769,13 +778,10 @@
 		<sf:typeset name="classes">
 			<sf:include name="EmailServiceStatusUpdate"/>
 			<sf:include name="EmailServiceStatusUpdateTest"/>
-			<sf:include name="MakeUpdateLinkControl"/>
-			<sf:include name="MakeUpdateLinkControlTest"/>
 			<sf:include name="NewCMSContractsRelationController"/>
 			<sf:include name="NewCMSContractsRelationControllerTest"/>
 			<sf:include name="ReportUserController"/>	
-			<sf:include name="ReportUserControllerTest"/>
-			<sf:include name="RetailTaskHelper"/>
+			<sf:include name="ReportUserControllerTest"/>			
 			<sf:include name="ScheduledSendNotificationEmail"/>
 			<sf:include name="ScheduledSendNotificationEmailTest"/>	
 			<sf:include name="ScheduledSharingContractToCROs"/>
@@ -794,6 +800,38 @@
 	
 	<target name="deploy49">
 		<deploy>	
+			<sf:typeset name="classes">
+				<sf:include name="SiteLoginController"/>
+				<sf:include name="SiteLoginControllerTest"/>
+				<sf:include name="SiteRegisterController"/>
+				<sf:include name="SiteRegisterControllerTest"/>
+				<sf:include name="CACFieldsExtension"/>
+				<sf:include name="CACFieldsExtensionTest"/>
+				<sf:include name="CPCalController"/>
+				<sf:include name="CpCallControllerClass_Test"/>
+				<sf:include name="ChangePasswordController"/>
+				<sf:include name="ChangePasswordControllerTest"/>
+				<sf:include name="CommunitiesLandingController"/>
+				<sf:include name="CommunitiesLandingControllerTest"/>
+				<sf:include name="CommunitiesLoginController"/>
+				<sf:include name="CommunitiesLoginControllerTest"/>
+				<sf:include name="CommunitiesSelfRegController"/>	
+				<sf:include name="CommunitiesSelfRegControllerTest"/>
+				<sf:include name="CommunitiesSelfRegConfirmController"/>
+				<sf:include name="CommunitiesSelfRegConfirmControllerTest"/>
+				<sf:include name="ForgotPasswordController"/>
+				<sf:include name="ForgotPasswordControllerTest"/>
+				<sf:include name="MyProfilePageController"/> 
+				<sf:include name="MyProfilePageControllerTest"/>   
+				<sf:include name="ChatterAnswers"/>
+				<sf:include name="ChatterAnswersTest"/>
+				<sf:include name="superSort"/> 
+				<sf:include name="superSortTest"/>				
+				<sf:include name="ShareCampaignByCollabTriggerHandler"/>
+				<sf:include name="ShareCampaignByCollaborationTest"/>
+				<sf:include name="TrialCustomerPortalHomePageController"/>
+				<sf:include name="TrialCustomerPortalHomePageTest"/>
+			</sf:typeset>
 			<sf:typeset name="applications"/>
 			<sf:typeset name="pages"> 
 				<sf:exclude name="TrialCustomerPortalHomePage"/>

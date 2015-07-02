@@ -822,6 +822,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SSIVINMatchProcessTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ScheduleCalcAmountOfAssignedLeads</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1099,10 +1103,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerCampaignCityTriggerHandler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerCampaignCity_TestClass</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -14878,6 +14878,14 @@
         <layout>Account_Link__c-Account Link Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Account_Link__c-Account Link Layout</layout>
+        <recordType>Account_Link__c.CompanyExternalLink</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Link__c-Account Link Layout</layout>
+        <recordType>Account_Link__c.IndividualExternalLink</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Account_Link__c-Co-Borrower%2FGuarantor Layout</layout>
         <recordType>Account_Link__c.Co_Borrower_Guarantor</recordType>
     </layoutAssignments>
@@ -14888,10 +14896,6 @@
     <layoutAssignments>
         <layout>Account_Link__c-Customer Dealer Relationship Layout</layout>
         <recordType>Account_Link__c.ContactSector</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account_Link__c-Customer External Key Layout</layout>
-        <recordType>Account_Link__c.ExternalLink</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Vehicle External Key Layout</layout>
@@ -16609,10 +16613,6 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>TrialCustomerPortalHomePage</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>Trial_Tour</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -16703,7 +16703,12 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
+        <recordType>Account_Link__c.CompanyExternalLink</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Account_Link__c.Contact2Contact</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -16713,8 +16718,8 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
-        <recordType>Account_Link__c.ExternalLink</recordType>
+        <default>true</default>
+        <recordType>Account_Link__c.IndividualExternalLink</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -17843,10 +17848,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SolutionImport</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>SubmitMacrosAllowed</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

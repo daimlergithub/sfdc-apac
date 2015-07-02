@@ -822,6 +822,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>SSIVINMatchProcessTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ScheduleCalcAmountOfAssignedLeads</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1099,10 +1103,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerCampaignCityTriggerHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerCampaignCity_TestClass</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -14887,11 +14887,15 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Customer Dealer Relationship Layout</layout>
+        <recordType>Account_Link__c.CompanyExternalLink</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Link__c-Customer Dealer Relationship Layout</layout>
         <recordType>Account_Link__c.ContactSector</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Account_Link__c-Customer External Key Layout</layout>
-        <recordType>Account_Link__c.ExternalLink</recordType>
+        <layout>Account_Link__c-Customer Dealer Relationship Layout</layout>
+        <recordType>Account_Link__c.IndividualExternalLink</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Vehicle External Key Layout</layout>
@@ -16186,10 +16190,6 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>TrialCustomerPortalHomePage</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>Trial_Tour</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -16281,6 +16281,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Account_Link__c.CompanyExternalLink</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Account_Link__c.Contact2Contact</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
@@ -16291,7 +16296,7 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
-        <recordType>Account_Link__c.ExternalLink</recordType>
+        <recordType>Account_Link__c.IndividualExternalLink</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
