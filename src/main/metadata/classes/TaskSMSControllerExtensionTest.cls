@@ -2,15 +2,11 @@
     Type:       test class
     Purpose:    TaskSMSControllerExtension test class
     User Story: Central Interactive SMS Workbook
-
     Used By:    TaskSMSControllerExtension
-    ---------------------------------------------------------------
-    History:
-
-    27-Nov-2013 Chaos Huang (Nttdata)    Created
+    History:27-Nov-2013 Chaos Huang (Nttdata)    Created
 */
 @isTest
-public class TaskSMSControllerExtensionTest{
+public with sharing class TaskSMSControllerExtensionTest{
 
   private static String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
   private static String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -25,6 +21,8 @@ public class TaskSMSControllerExtensionTest{
   private static Template__c tem2;
   private static Lead__c lead;
   private static SMS__c sms;
+  private static string acc_ID='taskId';
+  private static string TASK_ID='taskId';
   private static List<Template__c> tems = new List<Template__c>();
   static user userObj;
   static{
@@ -36,8 +34,7 @@ public class TaskSMSControllerExtensionTest{
         insert userObj;
   }
  
- private static string acc_ID='taskId';
- private static string TASK_ID='taskId';
+
      public static testMethod void testTaskSMSControllerExtension()
     {
         System.runAs(userObj)

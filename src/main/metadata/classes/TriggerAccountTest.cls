@@ -7,6 +7,7 @@
 @isTest
 private with sharing class TriggerAccountTest {
     public static testMethod void testLinkDealerCity() {
+    Test.startTest();
         // Create Dealer
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_DEALER);
@@ -16,11 +17,13 @@ private with sharing class TriggerAccountTest {
         dealer.Province__c = 'Beijing';
         update dealer;
         dealer = [select City__c,Province__c from Account where id =:dealer.id];
+         Test.stopTest();
         system.assert(dealer.City__c =='Dongcheng District');
         system.assert(dealer.Province__c == 'Beijing');
     }
 
     public testMethod static void testUpdateLeadDataSharing() {
+     Test.startTest();
         Account personAccount = new Account();
         UtilTestData.createSobject(personAccount, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
                     personAccount.Email__c='test@mbau.com';
@@ -34,6 +37,7 @@ private with sharing class TriggerAccountTest {
         update personAccount;
 
         lead = [SELECT Allow_Data_Sharing__c FROM Lead__c WHERE Id = :lead.Id];
+         Test.stopTest();
         system.assertEquals(lead.Allow_Data_Sharing__c , true);
     }
 }

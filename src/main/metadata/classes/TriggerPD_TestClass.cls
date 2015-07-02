@@ -12,6 +12,8 @@ public with sharing class TriggerPD_TestClass{
         Map<String, Schema.RecordTypeInfo> acRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();        
         Id cca_RecordTypeId = cpRecordTypeMap_test.get('Central Marketing Campaign').getRecordTypeId();         // Central Campaign
         Id dl_RecordTypeId = acRecordTypeMap_test.get('Dealer').getRecordTypeId();      // Dealer
+        
+        Test.startTest();
         // Central Campaign Inital
         Campaign TestData_CCA = new Campaign(Name='TestData_CCA_Campaign',
                                              Campaign_Code__c='Code_CCA',
@@ -64,6 +66,7 @@ public with sharing class TriggerPD_TestClass{
        update pd; 
         
         Participating_Dealer__c pdtest=[select Campaign__c, Dealer__c,Campaign_Package__c from Participating_Dealer__c where id=:pd.id];
+        Test.stopTest();
         system.assertEquals(pdtest.Campaign_Package__c,pd.Campaign_Package__c);
         
         

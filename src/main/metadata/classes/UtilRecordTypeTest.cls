@@ -3,9 +3,7 @@
     Purpose:    Get Record Type Name By Id or Id by Name
     User Story: US-DD-002
     Used By:    
-    ---------------------------------------------------------------
-    History:
-    
+    History:   
     1. Mouse Created on 2013-4-10.
 
 */
@@ -15,11 +13,12 @@ private class UtilRecordTypeTest {
         // Test getRecordTypeIdByName method
         Id dealerRecordTypeId = 
             UtilRecordType.getRecordTypeIdByName('Account', 'Dealer');
+            Test.startTest();
         RecordType dealerRT = [SELECT Id FROM RecordType WHERE SobjectType = 'Account' AND Name = 'Dealer'];
         System.assert(dealerRT.Id == dealerRecordTypeId);
-
         // Test getRecordTypeNameById method
         String recordTypeName = UtilRecordType.getRecordTypeNameById('Account', dealerRecordTypeId);
+        Test.stopTest();
         System.assert(recordTypeName == 'Dealer');
     }
 }

@@ -12,6 +12,8 @@ private static Task accobTask;
 private static Task obTask;
 private static DateTime endCallTime;
 private static User ssi_csr;
+private static User ssi_csruser;
+private static User User_ssi_csr;
 private static SSI__c ssi;
 private static Task ssiTask;
 private static Contact cont;
@@ -20,6 +22,12 @@ private static Campaign cam;
 private static Campaign_Lead__c cl2;
 private static String successful='successful';
 
+
+  public static void preparedUserProfile()
+  {
+   ssi_csr = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
+  }
+    
 public static void preparedTestData()
 {
  customer = new Account(
@@ -51,8 +59,8 @@ public static void preparedTestData()
     static testMethod void TestaskTriggerHandler()
     {
        
-    
-       ssi_csr = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
+   
+      preparedUserProfile();
 
         System.runAs ( ssi_csr ) 
         {
@@ -114,9 +122,9 @@ public static void preparedTestData()
     
       static testMethod void myUnitTest1() {
     
-        ssi_csr = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
+    ssi_csruser= UtilTestData.createUser('SSI CSR','CAC SSI CSR');
 
-       System.runAs ( ssi_csr )
+       System.runAs ( ssi_csruser )
         {
          preparedTestData();             
             Test.startTest();                      
@@ -172,8 +180,8 @@ public static void preparedTestData()
     
      static testMethod void myUnitTest2() 
     {
-        ssi_csr = UtilTestData.createUser('SSI CSR','CAC OB TL');        
-        System.runAs ( ssi_csr )
+        User_ssi_csr = UtilTestData.createUser('SSI CSR','CAC OB TL');        
+        System.runAs ( User_ssi_csr )
          {  
             preparedTestData();             
             Test.startTest();
@@ -193,9 +201,9 @@ public static void preparedTestData()
         }    
     }
     
-     static testMethod void doGenerateWC()
+   static testMethod void doGenerateWC()
     {
-       ssi_csr = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
+       preparedUserProfile();
         
        System.runAs ( ssi_csr )
        {
@@ -232,7 +240,6 @@ public static void preparedTestData()
             System.assertEquals(ssiTask.WhatId,ssi.Id);
        }
     }
-    
     
     static testMethod void testLeadAndCampaignLeadUpdate() 
     {          
