@@ -18,20 +18,22 @@ public class TriggerCampaignTriggerHandler
     {
         Map<Id,Campaign> oldmap = (Map<Id,Campaign>)trigger.oldmap;
         Map<Id,Campaign> newmap = (Map<Id,Campaign>)trigger.newmap;
-        
+     /*   
         if(trigger.isAfter && trigger.isInsert)
         {
         	//TODO-commented-- need to add trigger switching mechanism
             /*CampaignHelper.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate);
-            CampaignHelper.afterInsertEvents(Trigger.new);*/      
-        }
+            CampaignHelper.afterInsertEvents(Trigger.new);      
+        } */
+        /*
         if(trigger.isAfter && trigger.isUpdate)
         {
             //TODO-commented--need to add trigger switching mechanism
             /*CampaignHelper.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate);
             CampaignHelper.afterUpdateEvents(Trigger.new,Trigger.old);
-            CampaignHelper.afterInsertEvents_CampaignShare(Trigger.new,oldmap);*/ 
+            CampaignHelper.afterInsertEvents_CampaignShare(Trigger.new,oldmap);
         }
+        */
         if(trigger.isBefore && trigger.isUpdate)
         {
             //TODO-commented--need to add trigger switching mechanism

@@ -27,10 +27,10 @@ public class TaskTriggerHandler
     
     public void handleTrigger()
     {
-        if(trigger.isAfter && trigger.isInsert)
+       /* if(trigger.isAfter && trigger.isInsert)
         {
         	//todo commented: need to add trigger wsitching mechanism
-            /*if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
+            if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
                 TaskHelper.TaskFailBlacklist(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
             }
             
@@ -41,12 +41,12 @@ public class TaskTriggerHandler
             TaskTriggerHandler.updateAccountCallMessage((Map<Id,Task>)Trigger.newMap, (Map<Id,Task>)Trigger.oldMap);
             TaskTriggerHandler.autoUpdateTaskAfterLogInserted((Task)Trigger.new[0]);
             TaskTriggerHandler.autoUpdateAccountOBTaskMessage(Trigger.new);
-            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);*/     
-        }
-        if(trigger.isAfter && trigger.isUpdate)
+            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);     
+        }*/
+        /* if(trigger.isAfter && trigger.isUpdate)
         {
         	//todo commented: need to add trigger wsitching mechanism
-            /*
+           
             if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
                 TaskHelper.TaskFailBlacklist(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
             }
@@ -59,8 +59,8 @@ public class TaskTriggerHandler
             TaskTriggerHandler.autoUpdateTaskAfterLogInserted((Task)Trigger.new[0]);
             TaskTriggerHandler.autoUpdateSSISurveyStatus((Task)Trigger.new[0], (Task)Trigger.old[0]);
             TaskTriggerHandler.generateWelcomeCall((Task)Trigger.new[0], (Task)Trigger.old[0]);
-            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);*/
-        }
+            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+        }*/
         if(trigger.isBefore && trigger.isInsert)
         {
         	//todo commented: need to add trigger wsitching mechanism
