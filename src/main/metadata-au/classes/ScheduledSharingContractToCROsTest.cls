@@ -93,12 +93,12 @@ public class ScheduledSharingContractToCROsTest{
 
     static testMethod void testScheduledSharingContractToCROs(){
 
-        String userRoleId = [select id, name from UserRole where name = 'Customer Retention Office 1'].id;
+        String userRoleId1 = [select id, name from UserRole where name = 'Central Sales & Marketing'].id;        
         String profileId = [select id, name from Profile where name = 'Customer Retention'].id;
         
         User usr = new User();
         usr.UserName = 'test1' + Math.rint(Math.random() * 100000) + '@daimler.com';
-        usr.UserRoleId = userRoleId;
+        usr.UserRoleId = userRoleId1;
         usr.ProfileId = profileId;
         usr.LastName = 'Test User';
         usr.Email = 'test001@daimler.com.full';
