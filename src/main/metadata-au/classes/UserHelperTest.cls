@@ -3,7 +3,7 @@ public class UserHelperTest
 {
     final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Vehicle__c vehicle; 
-    public static String externalLinkType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
+    public static String externalLinkType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Customer External Link').getRecordTypeId();
     public static String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId();
     public static String retailSalesleadRecordTypeID = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId();
     public static Set<Id> existUserIds = new Set<Id>();
@@ -285,6 +285,8 @@ public class UserHelperTest
         // create a Contact
         
         con = new Contact(AccountId = dealer.Id,Permission_Set_Settings__c='Leads_Management', LastName = 'b', Phone = '123', email = 's@s.s');
+        con.Portal_User__c = true;
+        con.CanAllowPortalSelfReg = true;
         insert con;
         
         // profiles
@@ -306,7 +308,7 @@ public class UserHelperTest
             LocaleSidKey = 'en_US',
             LanguageLocaleKey = 'en_US'
         );
-        
+        usr.ContactId = con.id;
         insert usr;
         //  Insert person Account 
         
@@ -318,6 +320,10 @@ public class UserHelperTest
             PersonEmail = 'test@test.com',
             Salutation = 'Unknown'
         );
+        person.Home_Phone_2__c ='1243';
+        person.Email__c = 'hs@gsad.com';
+        person.Email2__c = 'ywfhedw@gsc.com';
+        person.Phone ='476';
         insert person;
         
         // Insert a Case 
