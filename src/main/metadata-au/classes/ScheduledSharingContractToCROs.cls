@@ -93,13 +93,14 @@ global class ScheduledSharingContractToCROs implements Schedulable{
             }
         }
         
-        for(Account acc : [select id, PersonContactId, Individual_Home_Phone__c, Phone, PersonMobilePhone from Account where Id in :accountIds and RecordTypeId = :personAccountRT]) {
+        for(Account acc : [select id, PersonContactId, Individual_Home_Phone__c, Work_Phone__c, Mobile__c from Account where Id in :accountIds and RecordTypeId = :personAccountRT]) {
             accountIdContactId.put(acc.id, acc.PersonContactId);
             List<String> phone = new List<String>();
             phone.add(acc.Individual_Home_Phone__c);
-            phone.add(acc.Phone);
-            phone.add(acc.PersonMobilePhone);
+            phone.add(acc.Work_Phone__c);
+            phone.add(acc.Mobile__c);
             accountIdPhone.put(acc.id, phone);
+            
         }
         
         users = [select id, name from User where Active_Permission_Set__c= true and profile.name = 'Customer Retention' and UserRole.name like '%Customer Retention Office%'];
@@ -132,6 +133,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
                     i = 0;
                 }
             }
+           
         }
         //Annual Call
         i = 0;
