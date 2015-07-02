@@ -1106,10 +1106,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerCampaignCity_TestClass</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerCampaignLeadTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -16614,10 +16610,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ToolKitSelectContent</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>TrialCustomerPortalHomePage</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>

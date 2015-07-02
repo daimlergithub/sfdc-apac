@@ -121,6 +121,8 @@ Public class UtilTestData {
         insert acc;      
         System.assert(acc.Name=='dummtyTestAcc');
         Contact con = new Contact ( AccountId = acc.id, LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true, Permission_Set_Settings__c = 'S_M_Retail_Campaign');
+		 con.Portal_User__c = true;
+        con.CanAllowPortalSelfReg = true;
         insert con;      
         System.assert(con.LastName=='portalTestUser'); 
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
@@ -138,7 +140,7 @@ Public class UtilTestData {
                 usr.LanguageLocaleKey = 'en_US';
                 usr.localesidkey='en_US';
                 usr.isActive = true;
-               //usr.ContactId =con.Id;
+               usr.ContactId =con.Id;
                 insert usr; 
             }     
         return usr;    
