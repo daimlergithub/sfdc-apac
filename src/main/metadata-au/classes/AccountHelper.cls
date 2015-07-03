@@ -444,9 +444,9 @@ public class AccountHelper {
             }else{
                 acc = accs.get(curCvr.Contact__c);
             }
-            if(vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c!=null)
+            if(acc!=null &&  vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c!=null)
             	acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)));
-            else
+            else if(acc!=null && vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__c!=null && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c!=null)
             	acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)));	
             accounts.put(acc.id,acc);
         }
@@ -485,19 +485,20 @@ public class AccountHelper {
         if(!String.isblank(vehicleGroup)){
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
             List<String> cols = colsMap.get(vehicleGroup);
-            if(isCustomer)
+            if(isCustomer && userInfo.get(cols[0])!=null)
             	userInfo.put(cols[0], 'Customer');
             integer numberofP = 1;
             if(userInfo.get(cols[1])!=null){
                 numberofP = integer.valueOf(userInfo.get(cols[1]))+1;
             }
-            userInfo.put(cols[1], Decimal.valueOf(numberofP));
+            if(userInfo.get(cols[1])!=null)
+            	userInfo.put(cols[1], Decimal.valueOf(numberofP));
             integer tenure = 0;
             if(preRecord.get(userInfo.id) != null){
                 tenure = preRecord.get(userInfo.id).monthsBetween(Date.today())/12;
             }
-            
-            userInfo.put(cols[2] , Decimal.valueOf(tenure));
+            if(userInfo.get(cols[2])!=null)
+            	userInfo.put(cols[2] , Decimal.valueOf(tenure));
         }
         return userInfo;        
     }  
