@@ -1,36 +1,19 @@
-/**
- * This class contains unit tests for validating the behavior of Apex classes
- * and triggers.
- *
- * Unit tests are class methods that verify whether a particular piece
- * of code is working properly. Unit test methods take no arguments,
- * commit no data to the database, and are flagged with the testMethod
- * keyword in the method definition.
- *
- * All test methods in an organization are executed whenever Apex code is deployed
- * to a production organization to confirm correctness, ensure code
- * coverage, and prevent regressions. All Apex classes are
- * required to have at least 75% code coverage in order to be deployed
- * to a production organization. In addition, all triggers must have some code coverage.
- * 
- * The @isTest class annotation indicates this class only contains test
- * methods. Classes defined with the @isTest annotation do not count against
- * the organization size limit for all Apex scripts.
- *
- * See the Apex Language Reference for more information about Testing and Code Coverage.
- */
 @isTest
 private class MassAssignRecallTasksTest {
 
-    static testMethod void myUnitTest() {
-        
-        Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
-        Id SSIRTID = rtMap.get('SSI Task').getRecordTypeId();
-        Id OBTRTID = rtMap.get('OB Task').getRecordTypeId();
-        
-        List<User> newUsers = new List<User>();
-        User user1  = new User();
-        User user2 = new User();
+private static Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
+private static Id SSIRTID = rtMap.get('SSI Task').getRecordTypeId();
+private static Id OBTRTID = rtMap.get('OB Task').getRecordTypeId();
+private static List<User> newUsers;
+private static User user1;
+private static Campaign pg;
+private static Account acc;
+private static string OBTask='OB Task';
+
+Public static void preparedTestData()
+{
+newUsers = new List<User>();
+         user1  = new User();
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
         System.runAs ( thisUser ) {
         
@@ -61,14 +44,13 @@ private class MassAssignRecallTasksTest {
             insert newUsers;
             
             user1 = UtilTestData.createUser('SSI TL','CAC SSI TL');
-            user2 = UtilTestData.createUser('OB TL','CAC OB TL');
 
         }
          
-        Campaign pg = new Campaign(Name='Test');
+         pg = new Campaign(Name='Test');
         insert pg;
         
-        Account acc = new Account(            
+          acc = new Account(            
             LastName = 'Test-Customer',          
             Phone = '1234567',
             Area_Code__c = '010',                         
@@ -80,7 +62,7 @@ private class MassAssignRecallTasksTest {
 
         SSI__c ssi = new SSI__c(        
             Status__c = 'Matched',    
-            DealerName__c = 'Test Dealer',
+            DealerName__c = 'Test Dealerss',
             CustomerName__c = 'Test-Customer',          
             OfficePhone__c = '1234567'
         );        
@@ -89,13 +71,9 @@ private class MassAssignRecallTasksTest {
         List<Task> ssiTasks = new List<Task>();
         for(Integer i=0; i<15; i++){
             Task t = new Task(
-                RecordTypeId = SSIRTID,
-                OwnerId = user1.Id,
-                WhatId = ssi.Id,
-                WhoId = acc.PersonContactId,
-                Subject = 'OB Task',
-                Dealer_Name__c = 'Test Dealer',
-                DUP_Number__c = ''
+                RecordTypeId = SSIRTID,OwnerId = user1.Id,
+                WhatId = ssi.Id,WhoId = acc.PersonContactId,Subject = OBTask,
+                Dealer_Name__c = 'Test Dealers',DUP_Number__c = ''
             );
             ssiTasks.add(t);
         }
@@ -108,8 +86,8 @@ private class MassAssignRecallTasksTest {
                 OwnerId = user1.Id,
                 WhatId = pg.Id,
                 WhoId = acc.PersonContactId,
-                Subject = 'OB Task',
-                Dealer_Name__c = 'Test Dealer',
+                Subject = OBTask,
+                Dealer_Name__c = 'Tests Dealer',
                 DUP_Number__c = ''
             );
             nonDupTasks.add(t);
@@ -119,28 +97,27 @@ private class MassAssignRecallTasksTest {
         List<Task> dupTasks = new List<Task>();
         for(Integer i=0; i<200; i++){
             Task t = new Task(
-                RecordTypeId = OBTRTID,
-                OwnerId = user1.Id,
-                WhatId = pg.Id,
-                Subject = 'OB Task',
-                Dealer_Name__c = 'Test Dealer',
-                DUP_Number__c = '123'
+                RecordTypeId = OBTRTID,OwnerId = user1.Id,
+                WhatId = pg.Id,Subject = OBTask,
+                Dealer_Name__c = 'TestDealer',DUP_Number__c = '123'
             );
             dupTasks.add(t);
         }
         insert dupTasks;
         
-        Test.startTest();
+}
+
+    static testMethod void myUnitTest() {        
+        preparedTestData();
         
+        Test.startTest();        
         ApexPages.standardController controller = new ApexPages.standardController(new OB_Task_Handing__c());
         ApexPages.currentPage().getParameters().put('dealername',EncodingUtil.urlEncode('Test Dealer', 'UTF-8'));
         MassAssignRecallTasksControllerExtension maCon = new MassAssignRecallTasksControllerExtension(controller);
-        //maCon.getcampaignItems();
         maCon.getassignmentItems();
         maCon.displayByNum();
         System.assertEquals(maCon.th.Dealer_Name__c, 'Test Dealer');
-        maCon.th.Subject__c = 'OB Task';
-        //maCon.th.Campaign__c = pg.Id;       
+        maCon.th.Subject__c = OBTask;     
         maCon.th.From__c = Date.today();
         maCon.th.To__c = Date.today();      
         maCon.th.Suspect_Dup__c = 'Non-Dup';
@@ -159,9 +136,6 @@ private class MassAssignRecallTasksTest {
         maCon.isSSITask = false;
         maCon.th.Call_Times__c = 0;      
         maCon.applyFilters();
-        //System.assertEquals(maCon.th.Tasks_Found__c, 15);  
-        
-        
         maCon.th.Suspect_Dup__c = 'Dup';
         maCon.applyFilters();
         System.assertEquals(maCon.th.Tasks_Found__c, 200);

@@ -10,7 +10,8 @@ public with sharing class SlickCtiObjectHelperTest
         Test.StopTest();
         // I should assert that it returns Contact but 
         //I don't want that to get in the way of the installation if it doesn't so commented it out
-        System.assertEquals(returnedObjectType, 'Contact');       
+        System.assertEquals(returnedObjectType, 'Contact');     
+        system.assertNotEquals(null,soh);  
     }    
     
 

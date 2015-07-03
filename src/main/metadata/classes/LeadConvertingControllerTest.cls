@@ -2,15 +2,11 @@
     Type:       test class
     Purpose:    LeadConvertingController test class
     User Story: Release 1.2
-
     Used By:    LeadConvertingController
-    ---------------------------------------------------------------
-    History:
-
-    9-Jun-2014 Sinow    Created
+    History:9-Jun-2014 Sinow    Created
 */
-@isTest(SeeAllData=true)
-public class LeadConvertingControllerTest
+@isTest 
+public with sharing class LeadConvertingControllerTest
 {
   static Account thirdParty;
   static Account dealer;
@@ -23,7 +19,8 @@ public class LeadConvertingControllerTest
   static String dealerType = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();  
   static String RTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Event Retail Campaign').getRecordTypeId();
   static String ASRTId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('AS Retail Campaign').getRecordTypeId();
-
+  Private static String segmentation='Segmentation Only';
+  Private static String ids='id';
   static{
     Profile p = [select id from profile where name='System Administrator' limit 1];
     currentUser = new User(alias = 'usrTest', email='usrTesting@testingorg.com',
@@ -36,7 +33,7 @@ public class LeadConvertingControllerTest
 
   private static void init() {
        List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c = 'TriggerRetailCampaignMember'];
-       if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.size() == 0) {
+       if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.isEmpty()) {
            upsert new Trigger__c(Name = 'TriggerRetailCampaignMember', Trigger_Name__c = 'TriggerRetailCampaignMember', Trigger_Handler__c = 'TriggerRetailCampaignMemberHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
        }
        thirdParty = new Account(LastName = 'Test Amit', RecordTypeId =thirdPartyRTID, Phone ='12345678921',PersonOtherPhone='0231456987',PersonHomePhone='0231456989',PersonMobilePhone='0231456439',Retail_Fax__c='0237456989',Retail_Home_Phone__c='0281456989',Retail_Mobile__c='0231456949',Retail_Work_Phone__c='0231056989');
@@ -51,7 +48,7 @@ public class LeadConvertingControllerTest
    private static void set_Lead_ASRETAILCAMPAIGN() {
        init();    
        leadConverting = Page.LeadConverting;
-       leadConverting.getParameters().put('id',rc.id);
+       leadConverting.getParameters().put(ids,rc.id);
        leadConverting.getParameters().put('rt',UtilConstant.AS_RETAIL_CAMPAIGN); 
        Test.setCurrentPage(leadConverting);
        extension = new LeadConvertingController();  
@@ -59,15 +56,15 @@ public class LeadConvertingControllerTest
    private static void LeadRT_Segmentation() {
        init();           
        leadConverting = Page.LeadConverting;
-       leadConverting.getParameters().put('id',rc.id);
-       leadConverting.getParameters().put('rt','Segmentation Only'); 
+       leadConverting.getParameters().put(ids,rc.id);
+       leadConverting.getParameters().put('rt',segmentation); 
        Test.setCurrentPage(leadConverting);
        extension = new LeadConvertingController();  
    }
    private static void LeadRT_notSegmentation() {
        init();           
        leadConverting = Page.LeadConverting;
-       leadConverting.getParameters().put('id',rc.id);
+       leadConverting.getParameters().put(ids,rc.id);
        leadConverting.getParameters().put('rt','Not Segmentation Only'); 
        Test.setCurrentPage(leadConverting);
        extension = new LeadConvertingController();  
@@ -151,7 +148,7 @@ public class LeadConvertingControllerTest
         extension.retailCampaignMemberInfos[0].isConverted =true;    
         extension.converttolead(); 
         Test.stopTest(); 
-        system.assertequals(ApexPages.currentPage().getParameters().get('rt'),'Segmentation Only');
+        system.assertequals(ApexPages.currentPage().getParameters().get('rt'),segmentation);
         system.assertequals(extension.retailCampaignMemberInfos[0].lead.Assigned_Date_Time__c,date.today());
         system.assert(extension.retailCampaignMemberInfos[0].dealerNameId!=Null);  
         system.assertequals(extension.retailCampaignMemberInfos[0].lead.Contact__c,extension.retailCampaignMemberInfos[0].retailCampaignMember.Contact__c);  
@@ -170,7 +167,7 @@ public class LeadConvertingControllerTest
             extension.retailCampaignMemberInfos[0].lead.Lead_Desired_Service__c='';   
             extension.converttolead(); 
             Test.stopTest(); 
-            system.assert(ApexPages.currentPage().getParameters().get('rt')!='Segmentation Only');
+            system.assert(ApexPages.currentPage().getParameters().get('rt')!=segmentation);
             system.assertequals(true,extension.retailCampaignMemberInfos[0].isConverted); 
             system.assertequals('',extension.retailCampaignMemberInfos[0].lead.Lead_Desired_Service__c);           
          }        

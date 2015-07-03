@@ -25,5 +25,6 @@ Private static App_Setting__c app;
         Test.stopTest();
         system.assertNotEquals(null,t1);
         system.assertEquals(app.name,'Voice Recording Location');
+        system.assertNotEquals(null,extension);
     }
 }
