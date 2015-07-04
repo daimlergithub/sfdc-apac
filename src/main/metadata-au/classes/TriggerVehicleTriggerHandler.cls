@@ -28,7 +28,8 @@ public class TriggerVehicleTriggerHandler
             {
                 String stringClass = newCar.Class__c;
                 stringClass = stringClass.toUpperCase();
-                newCar.Vehicle_Group__c = vehicleGroupMappings.get(stringClass);
+               // To Do commented as per JIRA Ticket SFDCAU-275
+               // newCar.Vehicle_Group__c = vehicleGroupMappings.get(stringClass);  
             }
         }
     }
