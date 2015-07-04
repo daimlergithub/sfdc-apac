@@ -3,7 +3,7 @@ public class UserHelperTest
 {
     final static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     public static Vehicle__c vehicle; 
-    public static String externalLinkType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Customer External Link').getRecordTypeId();
+    public static String externalLinkType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId();
     public static String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId();
     public static String retailSalesleadRecordTypeID = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId();
     public static Set<Id> existUserIds = new Set<Id>();
