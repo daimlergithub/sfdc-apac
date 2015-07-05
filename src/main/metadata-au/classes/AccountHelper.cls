@@ -416,6 +416,7 @@ public class AccountHelper {
 	    		
 	    		if(insertCvrs!=null && !insertCvrs.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()){
 	    			updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,setAccId);
+                   
 	    		}
 	    	}
 	    }
@@ -485,6 +486,8 @@ public class AccountHelper {
         if(!String.isblank(vehicleGroup)){
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
             List<String> cols = colsMap.get(vehicleGroup);
+            if(userInfo!=null && !cols.isEmpty())
+            {
             if(isCustomer && userInfo.get(cols[0])!=null)
             	userInfo.put(cols[0], 'Customer');
             integer numberofP = 1;
@@ -499,6 +502,7 @@ public class AccountHelper {
             }
             if(userInfo.get(cols[2])!=null)
             	userInfo.put(cols[2] , Decimal.valueOf(tenure));
+            }
         }
         return userInfo;        
     }  
