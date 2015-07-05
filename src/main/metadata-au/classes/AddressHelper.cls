@@ -116,6 +116,8 @@ public class AddressHelper
         List<Address__c> preferredAddresses = new List<Address__c>();
         List<Address__c> originalPreferredAddresses = new List<Address__c>();
         List<Address__c> updatedAddresses = new List<Address__c>();
+        Id profileId=userinfo.getProfileId();
+        String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
         
         Map<String, Account> idAccount = new Map<String, Account>();
         //TODO
@@ -149,7 +151,7 @@ public class AddressHelper
             }*/
             
             // Sort address as the hierarchy of Type.
-            if(addressList != null && !addressList.isEmpty()){
+            if((addressList != null && !addressList.isEmpty())&& (profileName!= 'IntegrationAPI')){
                 addressList.sort();
                 
                 // Flag the preferred address.
