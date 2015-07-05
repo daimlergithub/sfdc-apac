@@ -181,6 +181,9 @@ public class AccountHelper {
     
     // US_AU-CD-001.6 Track the updating history for FS fields
     public static void trackUpdatHistoryForFsInfo(Account updateAcc, Account oldAcc){
+        Id profileId=userinfo.getProfileId();
+        String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
+        if(profileName!= 'IntegrationAPI'){
         if(updateAcc.FS_Opt_In_Email__c != oldAcc.FS_Opt_In_Email__c){
             updateAcc.FS_Email_Last_Modified_By__c = UserInfo.getName();
             updateAcc.FS_Email_Last_Modified_Date__c = System.now();
@@ -218,6 +221,7 @@ public class AccountHelper {
             updateAcc.SMS_Last_Modified_By__c = UserInfo.getName();
             updateAcc.SMS_Last_Modified_Date__c = System.now();
         }
+      }
     }
     
     // US_AU-CD-004: cancel the primary contact.
@@ -483,8 +487,9 @@ public class AccountHelper {
         };
           //update PC CV VAN tenure
      private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer){
-        if(!String.isblank(vehicleGroup)){
+        if(vehicleGroup != null || vehicleGroup != '' ){
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
+            
             List<String> cols = colsMap.get(vehicleGroup);
             if(userInfo!=null && !cols.isEmpty())
             {
