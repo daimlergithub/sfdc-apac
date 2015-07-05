@@ -490,8 +490,11 @@ public class AccountHelper {
         if(vehicleGroup != null || vehicleGroup != '' ){
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
             
-            List<String> cols = new List<String>(); 
+            List<String> cols = new List<String>();
+            if(colsMap.get(vehicleGroup) != null)
+            { 
             cols.addall(colsMap.get(vehicleGroup));
+            }
             if(userInfo!=null && !cols.isEmpty())
             {
             if(isCustomer && userInfo.get(cols[0])!=null)
