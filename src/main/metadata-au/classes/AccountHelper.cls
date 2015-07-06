@@ -184,6 +184,7 @@ public class AccountHelper {
         Id profileId=userinfo.getProfileId();
         String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
         if(profileName!= 'IntegrationAPI'){
+
         if(updateAcc.FS_Opt_In_Email__c != oldAcc.FS_Opt_In_Email__c){
             updateAcc.FS_Email_Last_Modified_By__c = UserInfo.getName();
             updateAcc.FS_Email_Last_Modified_Date__c = System.now();
@@ -221,7 +222,7 @@ public class AccountHelper {
             updateAcc.SMS_Last_Modified_By__c = UserInfo.getName();
             updateAcc.SMS_Last_Modified_Date__c = System.now();
         }
-      }
+	  }
     }
     
     // US_AU-CD-004: cancel the primary contact.
@@ -420,7 +421,7 @@ public class AccountHelper {
 	    		
 	    		if(insertCvrs!=null && !insertCvrs.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()){
 	    			updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,setAccId);
-                   
+
 	    		}
 	    	}
 	    }
@@ -487,16 +488,13 @@ public class AccountHelper {
         };
           //update PC CV VAN tenure
      private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer){
-        if(vehicleGroup != null || vehicleGroup != '' ){
+
+        if(!String.isblank(vehicleGroup)){
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
-            
-            List<String> cols = new List<String>();
-            if(colsMap.get(vehicleGroup) != null)
-            { 
-            cols.addall(colsMap.get(vehicleGroup));
-            }
-            if(userInfo!=null && !cols.isEmpty())
-            {
+
+            List<String> cols = colsMap.get(vehicleGroup);
+            if(userInfo!=null && cols != null && !cols.isEmpty()){
+
             if(isCustomer && userInfo.get(cols[0])!=null)
             	userInfo.put(cols[0], 'Customer');
             integer numberofP = 1;
