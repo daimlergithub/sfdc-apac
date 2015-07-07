@@ -2,30 +2,30 @@
 <apex:form >  
     <apex:pageBlock >  
         <apex:pageBlockSection columns="2" rendered="{!!Preferred}"> 
-             <apex:outputField value="{!lead_List.Home_Phone__c}"/> 
+             <apex:outputText label="Home Phone" value="{!homePhone}"/> 
              <apex:outputField value="{!addressList_details.Address_Line_1__c}"/>
-             <apex:outputField value="{!lead_List.Work_Phone__c}"/>
+             <apex:outputText label="Work Phone" value="{!workPhone}" />
              <apex:outputField value="{!addressList_details.Address_Line_2__c}"/>
-             <apex:outputField value="{!lead_List.Email__c}"/>
+             <apex:outputText label="Email" value="{!email}"/>
              <apex:outputField value="{!addressList_details.District__c}"/>
-              <apex:outputField value="{!lead_List.Mobile__c}"/>
+             <apex:outputText label="Mobile" value="{!mobileNum}"/>
              <apex:outputField value="{!addressList_details.Province__c}"/>
              <apex:outputText value=""/> 
              <apex:outputField value="{!addressList_details.ZipCode__c}"/>            
         </apex:pageBlockSection>    
          <apex:pageBlockSection columns="2" rendered="{!Preferred}"> 
-             <apex:outputText label="Home Phone"/>
+             <apex:outputText label="Home Phone" value="{!homePhone}"/>
              <apex:outputText label="Address Line 1"/>
-             <apex:outputText label="Work Phone"/>
+             <apex:outputText label="Work Phone" value="{!workPhone}" />
              <apex:outputText label="Address Line 2"/>
-             <apex:outputText label="Email"/>
+             <apex:outputText label="Email" value="{!email}"/>
              <apex:outputText label="Suburb"/>
-             <apex:outputText label="Mobile"/>
+             <apex:outputText label="Mobile" value="{!mobileNum}"/>
              <apex:outputText label="State"/>
              <apex:outputText label=""/>
              <apex:outputText label="Post Code"/>            
         </apex:pageBlockSection>   
-      <apex:pageMessage strength="3" summary="No Preferred Address Found" severity="warning" rendered="{!Preferred}"/>      
+      <!--<apex:pageMessage strength="3" summary="No Preferred Address Found" severity="warning" rendered="{!Preferred}"/>-->   
    </apex:pageBlock>
  </apex:form>
  <style>
