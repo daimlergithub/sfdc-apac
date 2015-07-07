@@ -608,6 +608,7 @@
 			<sf:include name="TriggerVehicleRelationshipTest"/>
 			<sf:include name="UtilVehicleRelationship"/>			
 			<sf:include name="UtilDB"/>	
+			<sf:include name="UtilDBTest"/>
 			<sf:include name="TriggerAccountHandler"/>	
 			<sf:include name="RuishiWebService"/>
 			<sf:include name="RuishiWebServiceTest"/>				
