@@ -15358,26 +15358,23 @@
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Contracts %26 Aftersales Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Retail_Task__c-Contracts %26 Aftersales Layout</layout>
+        <layout>Retail_Task__c-Retail Task Layout%28Contract%29</layout>
         <recordType>Retail_Task__c.Contract</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Contracts %26 Aftersales Layout</layout>
+        <layout>Retail_Task__c-Insurance Layout</layout>
         <recordType>Retail_Task__c.Insurance</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Contracts %26 Aftersales Layout</layout>
+        <layout>Retail_Task__cRetail Task Layout%28Contract%29</layout>
         <recordType>Retail_Task__c.Retail_Activity</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Contracts %26 Aftersales Layout</layout>
+        <layout>Retail_Task__c-Roadside Assistant Layout</layout>
         <recordType>Retail_Task__c.Roadside_Assistant</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Contracts %26 Aftersales Layout</layout>
+        <layout>Retail_Task__c-Retail Task Layout%28Contract%29</layout>
         <recordType>Retail_Task__c.Service</recordType>
     </layoutAssignments>
     <layoutAssignments>
