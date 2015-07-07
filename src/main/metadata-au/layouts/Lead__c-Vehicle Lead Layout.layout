@@ -243,14 +243,14 @@
         <style>CustomLinks</style>
     </layoutSections>
     <miniLayout>
+        <fields>Contact__c</fields>
+        <fields>Company_Account__c</fields>
         <fields>Lead_Source__c</fields>
         <fields>Sub_Source__c</fields>
         <fields>Nature_of_Request__c</fields>
         <fields>Business_Unit__c</fields>
         <fields>Sub_BusinessUnit__c</fields>
         <fields>CAC_Lead_Status__c</fields>
-        <fields>Contact__c</fields>
-        <fields>Company_Account__c</fields>
     </miniLayout>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
