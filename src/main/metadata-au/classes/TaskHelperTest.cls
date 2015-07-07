@@ -50,7 +50,20 @@ private class TaskHelperTest {
         
         
         Test.stopTest();
+        list<Task> listTask =new list<Task>();
+        listTask.add(task);
         
+       string caseid =string.valueof(aCase.id);
+        set<string> caseIdSet = new set<string>();
+        caseIdSet.add(caseid); 
+        map<id,string> mapCase =new  map<id,string>();
+        mapCase.put(aCase.id,string.valueof(aCase.id));
+        map<id,string> taskMap =new  map<id,string>();
+        taskMap.put(task.id,string.valueof(task.id));
+        
+        TaskHelper.copyIBCallTypeFromCase(caseIdSet,listTask);
+        TaskHelper.UpdateCaseVoiceRecordlink(mapCase);
+        TaskHelper.updateInteractionIds(taskMap);
         system.assertEquals(task.WhatId,personAccount.id);
         system.assertEquals(task.QC_Quantity__c,3);
     }
@@ -124,6 +137,7 @@ private class TaskHelperTest {
         TaskMap.put(taskcam2.id, taskcam2);
         
         taskHelper.FillintheCampaignNameBasedontheRelatedtoObject(tasks, taskMap, true, false);
+        //TaskHelper.Reply_TD_unsubscribeForeachSMScontent(tasks, taskMap, true, false);
         taskHelper.GenerateMultipleQCs(tasks);
         
         
@@ -243,6 +257,9 @@ private class TaskHelperTest {
             
 	        TaskHelper.recordTypeUpdate_Generaltask(lstTask);	
 	        Test.stopTest();
+            set<id> userID =new set<id>();
+            userID.add(userobj.id);
+            TaskHelper.autoUpdateSSITask(userID);
             system.assertEquals(dealer.id, conComplaint.AccountId);
         } 
     }
@@ -262,16 +279,24 @@ private class TaskHelperTest {
         Test.startTest();
         createTestData();
         list<task> lstTask= new List<task>();
+        Task testSMSTask;
         for(integer i=0;i<5;i++)
         {
-	        Task testSMSTask = new Task(RecordTypeid=tkSMS_recordTypeId,Subject='MBDA Survey Task Temp',
+	          testSMSTask = new Task(RecordTypeid=tkSMS_recordTypeId,Subject='MBDA Survey Task Temp',
 	                                    WhoId=testPersonAccount.PersonContactId,
-	                                    Activity_Status__c='Sent',SMSTemplateID__c=temp1.id
+	                                    Activity_Status__c = 'Sent',SMSTemplateID__c=temp1.id
 	                                    );
-	        lstTask.add(testSMSTask);                             
+	             insert testSMSTask;                        
         }
-        insert lstTask;
-        TaskHelper.createSMSTaskAfterIBCall(lstTask);        
+        
+      lstTask.add(testSMSTask);
+        map<id,Task> mapTask = new map<id,Task>();
+        mapTask.put(testSMSTask.id, testSMSTask);
+        
+        TaskHelper.createSMSTaskAfterIBCall(lstTask);   
+        TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(lstTask,mapTask,true,false);
+        TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(lstTask,mapTask,false,true);
+        TaskHelper.updateCampaignMemberStatus(lstTask,mapTask,false,true);
         Test.stopTest();
         system.assertNotEquals(null, lstTask);
     }

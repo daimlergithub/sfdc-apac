@@ -36,6 +36,10 @@ private class VehicleSharingTest {
         Test.startTest();            
         VehicleSharingWrapService wrapService = new VehicleSharingWrapService();
          List<SharingWrapper> testSharingWrapC2C = wrapService.wrapVehicleFromAccountLinks(new List<Account_Link__c>{accountLink});
+        SharingService.shareCampaigns(testSharingWrapC2C);
+         SharingService.shareVehicleRelationships(testSharingWrapC2C);
+         SharingService.shareRetailTasks(testSharingWrapC2C);
+        
         Test.stopTest();
         system.assertNotEquals(null, testSharingWrapC2C);
 

@@ -2,6 +2,7 @@
   <apex:form >
    <apex:actionFunction name="callHidepopUp" action="{!closePopup}" rerender="tstpopup" immediate="true"/>
    <apex:pageBlock id="myTable">
+   <apex:pageMessages id="msgs" escape="false"/>
       <table style="width:100%" rules="rows">               
         <tr>        
             <td></td> 
@@ -141,7 +142,7 @@
             <td><apex:inputField value="{!accountList_details.Phone}"/></td> 
             <td><apex:inputField value="{!accountList_details.Work_Phone_Status_2__c}"/></td>   
             <td><apex:inputField value="{!accountList_details.Opt_In_Work_Phone2__c}"/></td>   
-            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Home_Phone2__c}"/></td>            
+            <td><apex:inputField value="{!accountList_details.FS_Opt_In_Work_Phone2__c}"/></td>            
             <td><apex:inputField value="{!accountList_details.Preferred_Work_Phone_2__c}"/></td>
             <td><apex:outputLink onmouseover="callShowpopUp('{!accountList_details.Work_Phone_Last_Modified_By2__c}');" onmouseout="callHidepopUp();" onclick="UserRedirect(); return false;">
                 {!accountList_details.Work_Phone_Last_Modified_By2__c}</apex:outputLink>
@@ -209,7 +210,7 @@
         </tr>  
      </table>  
      <apex:pageBlockButtons location="bottom">
-              <apex:commandLink value="Update" action="{!updateAccount}" target="_parent" styleClass="btn" style="text-decoration:none;padding:4px;" />
+              <apex:commandLink value="Update" action="{!updateAccount}"  target="_parent" styleClass="btn" style="text-decoration:none;padding:4px;" />
      </apex:pageBlockButtons>
     </apex:pageBlock>  
    <apex:outputPanel id="tstpopup">  
