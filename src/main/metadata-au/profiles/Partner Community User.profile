@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+﻿<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Profile xmlns="http://soap.sforce.com/2006/04/metadata">
     <applicationVisibilities>
         <application>Central_CRM</application>
@@ -15366,7 +15366,7 @@
         <recordType>Retail_Task__c.Insurance</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__cRetail Task Layout%28Contract%29</layout>
+        <layout>Retail_Task__c-Retail Task Layout%28Contract%29</layout>
         <recordType>Retail_Task__c.Retail_Activity</recordType>
     </layoutAssignments>
     <layoutAssignments>
