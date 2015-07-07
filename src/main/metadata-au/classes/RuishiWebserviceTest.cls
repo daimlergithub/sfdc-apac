@@ -1,6 +1,6 @@
 @isTest
 public class RuishiWebserviceTest{
-    static testmethod void testMethod1(){                          
+    static testmethod void testMethod(){                          
         Test.setMock(WebServiceMock.class, new WebserviceMockImpl());      
         RuishiWebService.CreateUser_element cu = new RuishiWebService.CreateUser_element();
         RuishiWebService.CreateUserResponse_element cresp = new RuishiWebService.CreateUserResponse_element();
