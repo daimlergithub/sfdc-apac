@@ -487,7 +487,7 @@ public class AccountHelper {
          'VAN'=> new List<String>{'VAN_Status__c','VAN_No_Brand_Purchases__c','VAN_Tenure__c'}
         };
           //update PC CV VAN tenure
-    @testVisible private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer){
+     private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer){
 
         if(!String.isblank(vehicleGroup)){
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
@@ -547,6 +547,45 @@ public class AccountHelper {
 	    		}
     		}
     	}
+    }
+    //SFDCAU-267
+    public static void auBeforeInsertUpdateTrimPhoneFileds(List<Account> lstNewAccouts)
+    {
+    	for(Account objAcc:lstNewAccouts)
+    	{
+    		//Mobile
+    		if(string.valueof(objAcc.Mobile__c)!=null && string.valueof(objAcc.Mobile__c)!='')
+    			objAcc.Mobile__c=trimPhoneNumbersUtil(objAcc.Mobile__c);
+    		//mobile2
+    		if(string.valueof(objAcc.Mobile2__c)!=null && string.valueof(objAcc.Mobile2__c)!='')
+    			objAcc.Mobile2__c=trimPhoneNumbersUtil(objAcc.Mobile2__c);
+    		//home hone1	
+    		if(string.valueof(objAcc.Individual_Home_Phone__c)!=null && string.valueof(objAcc.Individual_Home_Phone__c)!='')
+    			objAcc.Individual_Home_Phone__c=trimPhoneNumbersUtil(objAcc.Individual_Home_Phone__c);
+    		//home phone2		
+    		if(string.valueof(objAcc.Home_Phone_2__c)!=null && string.valueof(objAcc.Home_Phone_2__c)!='')
+    			objAcc.Home_Phone_2__c=trimPhoneNumbersUtil(objAcc.Home_Phone_2__c);
+    		//work phone1	
+    		if(string.valueof(objAcc.Work_Phone__c)!=null && string.valueof(objAcc.Work_Phone__c)!='')
+    			objAcc.Work_Phone__c=trimPhoneNumbersUtil(objAcc.Work_Phone__c);
+    		//workphone2	
+    		if(string.valueof(objAcc.Phone)!=null && string.valueof(objAcc.Phone)!='')
+    			objAcc.Phone=trimPhoneNumbersUtil(objAcc.Phone);
+    	}
+    }
+    
+    private static string trimPhoneNumbersUtil(string fieldAPiName)
+    {
+    	//Mobile & Landline
+		if(string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '').length()==12)
+			fieldAPiName='0'+string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '').substring(3,12);
+		//1800 number or 1300 number
+		if(string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '').length()==10)
+			fieldAPiName=string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '');
+		//13 number
+		if(string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '').length()==6)
+			fieldAPiName=string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '');
+		return fieldAPiName;	
     }
     //Existing AU related functionality ends here   
 }
