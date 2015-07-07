@@ -15290,10 +15290,6 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Account_Link__c.ExternalLink</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <recordType>Account_Link__c.IndividualExternalLink</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
