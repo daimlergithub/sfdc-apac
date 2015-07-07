@@ -5,7 +5,7 @@
     
     2014-2-18 Created by Justin Yu
 */
-@isTest public class CampaignHelperTest {
+@isTest(SeeAllData=true) public class CampaignHelperTest {
 	//variables
  static Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName(); 
     public static string topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
@@ -137,7 +137,7 @@
          CampaignHelper.afterInsertUpdateEvents(listcampaigns,oldMap,true);
          CampaignHelper.beforeUpdateEvents(listcampaigns,oldMap);
          CampaignHelper.afterInsertEvents(listcampaigns);
-        // CampaignHelper.afterUpdateEvents(listcampaigns,oldList);
+        CampaignHelper.afterUpdateEvents(listcampaigns,listcampaigns);
         CampaignHelper.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
          
          system.assertNotEquals(null, listcampaigns[0].StartDate);

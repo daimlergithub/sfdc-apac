@@ -9912,7 +9912,7 @@ Modify Reason:
     <fields>
         <fullName>Estimated_Cost__c</fullName>
         <externalId>false</externalId>
-        <label>Estimated Cost</label>
+        <label>Final Cost</label>
         <precision>18</precision>
         <required>false</required>
         <scale>2</scale>

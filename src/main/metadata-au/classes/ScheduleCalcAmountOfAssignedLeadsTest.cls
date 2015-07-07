@@ -11,6 +11,10 @@
  */
 @isTest(seeAllData = true)
 public class ScheduleCalcAmountOfAssignedLeadsTest {
+	static{
+		upsert new Trigger__c(Name = 'TriggerAccount'+string.valueOf(System.Now()), Trigger_Name__c = 'TriggerAccount', Trigger_Handler__c = 'TriggerAccountHandler', 
+		enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);	
+	}
     public static testMethod void testHasAssignedDealer() {
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_DEALER);

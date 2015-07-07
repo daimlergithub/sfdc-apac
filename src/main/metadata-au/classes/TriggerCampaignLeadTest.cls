@@ -12,7 +12,9 @@ Public with sharing class TriggerCampaignLeadTest {
     private static  Account dealer;
     private static Campaign centralMKTCampaign;
     static{
-        // Create one person account
+		upsert new Trigger__c(Name = 'TriggerAccount'+string.valueOf(System.Now()), Trigger_Name__c = 'TriggerAccount', Trigger_Handler__c = 'TriggerAccountHandler', 
+		enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);	
+        // Create one person account        // Create one person account
            personAccount = (Account)UtilTestData.createSobject(new Account(), 
            UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
         // Two Account: one Dealer and one Person Account
