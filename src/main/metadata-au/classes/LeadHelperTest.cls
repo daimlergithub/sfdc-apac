@@ -37,6 +37,7 @@ public class LeadHelperTest {
                                   EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = localeSideKeyValue);
         insert user;
         
+        
     }
     private static void createDealer(){
          dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58396243', Name = 'testdealer',Active__c='yes',Dealer_Allocation__c='MBAuP',Activation_Date__c=system.today());

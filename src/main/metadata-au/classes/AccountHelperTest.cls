@@ -1,5 +1,5 @@
 @istest
-public with sharing class AccountHelperTest
+public class AccountHelperTest
 {
    public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
    public static String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId(); 
@@ -18,8 +18,7 @@ public with sharing class AccountHelperTest
    
    public static testmethod void test_updateLeads()
    {
-       createDealer();
-        createAccount();
+       createTestData();
        test.startTest();
        Set<Id> contactIds = new set<id>();
        contactIds.add(personAcc.id);
@@ -28,16 +27,13 @@ public with sharing class AccountHelperTest
        AccountHelper.updateLeads(contactIds);
        
        test.stopTest();
-       system.assertNotEquals(null, testLead.Assigned_to_Dealer_Directly__c);
-       //commented as Community license is not there for AU
-       //system.assertNotEquals(null, testLead.OwnerId); 
+       //system.assertNotEquals(null, testLead.OwnerId); //commented as Community license is not there for AU
        
    }
     
     public static testmethod void test_AccountHelper()
    {
-       createDealer();
-        createAccount();
+       createTestData();
        test.startTest();
        Set<String> companyIds = new Set<String>();
        Set<Id> dealerIds = new set<Id>();
@@ -51,7 +47,8 @@ public with sharing class AccountHelperTest
        AccountHelper.cancelPrimaryContact(dealerIds2, companyIds);
        personAcc.Partner_Surname__c = 'galaxy2';
        update personAcc;
-       
+       Account TestAcc = AccountHelper.updateDisplayName(personAcc);
+       //system.assertNotEquals(TestAcc.Display_Name__c, 'Unknown First Name galaxy1');
        personAcc.Partner_Surname__c = 'galaxy1';
        update personAcc;
        
@@ -69,8 +66,7 @@ public with sharing class AccountHelperTest
     
     public static testmethod void test_getDealerCountInfo()
    {
-       createDealer();
-        createAccount();
+       createTestData();
        test.startTest();
        List<String> dealerCodes =new List<String>();
        List<id> ids = new List<id>();
@@ -83,6 +79,16 @@ public with sharing class AccountHelperTest
        Map<String, boolean> testMapDealer = AccountHelper.getDealerCountInfo(dealerCodes);
        Set<Id> cp016Map = AccountHelper.getVSCountInfo(ids);
        
+        Set<Id> customerIds = new Set<Id>();
+       customerIds.add(Dealer.id);
+       
+        Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
+        Map<String,Date>  preRecordsVAN = AccountHelper.getExsitedInfos(customerIds,'VAN');
+       exsisedRecord.put('VAN', preRecordsVAN);
+       
+       
+       AccountHelper.updatePCCVField(Dealer,'VAN',exsisedRecord,true);
+       
        test.stopTest();
        system.assertNotEquals(null,testMapDealer);
        system.assertNotEquals(null,cp016Map);
@@ -94,8 +100,7 @@ public with sharing class AccountHelperTest
     
     public static testmethod void test_trackUpdatHistoryForFsInfo()
    {
-       createDealer();
-       createAccount();
+       createTestData();
        test.startTest();
        
        personAcc.FS_Opt_In_Email__c = true;
@@ -115,7 +120,7 @@ public with sharing class AccountHelperTest
        
    }
     
-    static void createDealer()
+    static void createTestData()
    {
        
        Dealer = new Account(Dealer_Default_Flag__c=true,
@@ -142,9 +147,6 @@ public with sharing class AccountHelperTest
                                     ZipCode__c='00000',
                                     RecordTypeId=DealerRecordtypeid);
        insert Dealer2;
-   }
-    static void createAccount(){
-         createDealer();
        
        personAcc = new Account(Dealer_Default_Flag__c=false,
                                     Dealer_DMS_SR_Code__c='test code 2',
@@ -161,8 +163,7 @@ public with sharing class AccountHelperTest
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
                                     Dealer_Lead_System__c = 'Salesforce',
-                                     Email__c='test011@test.com',
-                                    Email2__c='test012@test.com',
+                                    
                                     RecordTypeId=accPerson_RecordTypeId);
        
        insert personAcc;
@@ -182,8 +183,7 @@ public with sharing class AccountHelperTest
                                     Allow_Data_Sharing__c='no',
                                     Preferred_Language__c = 'English',
                                     Dealer_Lead_System__c = 'Salesforce',
-                                     Email__c='test011@test.com',
-                                    Email2__c='test012@test.com',
+                                    
                                     RecordTypeId=accPerson_RecordTypeId);
        
        insert personAcc2;
@@ -239,7 +239,7 @@ public with sharing class AccountHelperTest
             LocaleSidKey = 'en_US',
             LanguageLocaleKey = 'en_US'
         );
-      //  usr.ContactId = testContact.id;   //Community license not available.
+       //usr.ContactId = testContact.id;   //Community license not available.
         insert usr;
    }
 
