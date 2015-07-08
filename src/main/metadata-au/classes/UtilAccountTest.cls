@@ -33,8 +33,8 @@ public with sharing class UtilAccountTest
     
 	static void CreateTestData()
 	{
-		personAcc = new Account(Dealer_Default_Flag__c=false,
-                                    Dealer_DMS_SR_Code__c='test code 2',
+		personAcc = new Account(Dealer_Default_Flag__c=true,
+                                   // Dealer_DMS_SR_Code__c='test code 2',
                                     Status__c='NoCustomer',
                                     City__c='Beijing',
                                     Gender__c = 'Male',
