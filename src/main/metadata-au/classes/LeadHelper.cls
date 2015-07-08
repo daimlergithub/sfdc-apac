@@ -536,12 +536,13 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         
         //CR-000141 Send Immediate Notice and 24H and 72H Email for Service/Parts Lead.
         List<Lead__c> serviceLeadsForImmediateNotice = new List<Lead__c>();
+        List<Lead__c> VehicleLeadsForImmediateNotice = new List<Lead__c>();
         List<Lead__c> serviceLeadsFor24H = new List<Lead__c>();
         List<Lead__c> serviceLeadsFor72H = new List<Lead__c>();
         Set<Id> serviceDealerIdsForImmediateNotice = new Set<Id>();
         Set<Id> serviceDealerIdsFor24H = new Set<Id>();
         Set<Id> serviceDealerIdsFor72H = new Set<Id>();
-        
+        set<id> vehicleDealerIdsForImmediateNotice = new Set<Id>();
         //CR-000141 Send Immediate Notice and 24H and 72H Email for Finance Lead.
         List<Lead__c> financeLeads = new List<Lead__c>();
         Set<Id> financeDealerIds = new Set<Id>();
@@ -557,7 +558,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
               //)
               ) 
               {  
-                if(lead.RecordTypeId == leadSPRt || lead.RecordTypeId == leadVehicleRt) 
+                if(lead.RecordTypeId == leadSPRt) 
                 { 
                     serviceLeadsForImmediateNotice.add(lead);
                     serviceDealerIdsForImmediateNotice.add(lead.Assigned_Dealer__c);
@@ -567,6 +568,16 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     financeLeads.add(lead);
                     financeDealerIds.add(lead.Assigned_Dealer__c);
                 }
+                  else if(lead.RecordTypeId == leadVehicleRt)
+                  {
+                      if((isInsert && lead.CAC_Lead_Status__c == 'Qualified') || ((isUpdate && lead.CAC_Lead_Status__c != leadOldMap.get(lead.Id).CAC_Lead_Status__c) && lead.CAC_Lead_Status__c =='qualified' ))
+                      {
+                          VehicleLeadsForImmediateNotice.add(lead);
+                          vehicleDealerIdsForImmediateNotice.add(lead.Assigned_Dealer__c);
+                          
+                      }
+                  }  
+                  
             }
             If(lead.Assigned_Dealer__c != null && lead.Business_Unit__c != null && lead.Sub_BusinessUnit__c != null && 
               isUpdate && lead.X24H_Untouched__c && lead.X24H_Untouched__c != leadOldMap.get(lead.Id).X24H_Untouched__c) {
@@ -602,6 +613,9 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         }
         if(!financeLeads.isEmpty()) {
             sendFinanceEmail(financeLeads, financeDealerIds);
+        }
+        if(!VehicleLeadsForImmediateNotice.isEmpty()){
+            sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
         }
     }
     

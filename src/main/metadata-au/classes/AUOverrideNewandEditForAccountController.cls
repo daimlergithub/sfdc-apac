@@ -117,7 +117,7 @@ public with sharing class AUOverrideNewandEditForAccountController
         return PageRef;
   }
   
-  private Account getAccountDeatails(id recordId)
+  @TestVisible private Account getAccountDeatails(id recordId)
   {
     Account objAcc=[Select id,Recordtypeid,Name,City__c,isPersonAccount,Website,Fax,Fleet__c,
             ParentId,Company_Name__c,Fleet_Category__c,Add_User__c,Add_Date__c,Work_Phone__c,Individual_Home_Phone__c,Opt_In_Work_Phone__c,Opt_In_Home_Phone__c,
@@ -126,7 +126,7 @@ public with sharing class AUOverrideNewandEditForAccountController
     return   objAcc;
   }
   
-  private Account getPersonAccountDeatails(id recordId)
+  @TestVisible private Account getPersonAccountDeatails(id recordId)
   {
     Account objAcc=[Select id,Fax,Recordtypeid,Salutation,isPersonAccount,FirstName,Deceased__c,LastName,Gender__c,Suffix__c,Marital_Status__c,Company__c,PersonBirthdate,Education__c,
             Industry,Age_Range__c,Occupation__c,Partner_Title__c,Corporate_Program__c,Partner_First_Name__c,Partner_Surname__c,Partner_DOB__c,

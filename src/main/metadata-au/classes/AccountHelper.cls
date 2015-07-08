@@ -553,24 +553,25 @@ public class AccountHelper {
     {
     	for(Account objAcc:lstNewAccouts)
     	{
+    		objAcc.Batch_No__c='';
     		//Mobile
     		if(string.valueof(objAcc.Mobile__c)!=null && string.valueof(objAcc.Mobile__c)!='')
-    			objAcc.Mobile__c=trimPhoneNumbersUtil(objAcc.Mobile__c);
+    			objAcc.Batch_No__c=trimPhoneNumbersUtil(objAcc.Mobile__c);
     		//mobile2
     		if(string.valueof(objAcc.Mobile2__c)!=null && string.valueof(objAcc.Mobile2__c)!='')
-    			objAcc.Mobile2__c=trimPhoneNumbersUtil(objAcc.Mobile2__c);
+    			objAcc.Batch_No__c+=' '+trimPhoneNumbersUtil(objAcc.Mobile2__c);
     		//home hone1	
     		if(string.valueof(objAcc.Individual_Home_Phone__c)!=null && string.valueof(objAcc.Individual_Home_Phone__c)!='')
-    			objAcc.Individual_Home_Phone__c=trimPhoneNumbersUtil(objAcc.Individual_Home_Phone__c);
+    			objAcc.Batch_No__c+=' '+trimPhoneNumbersUtil(objAcc.Individual_Home_Phone__c);
     		//home phone2		
     		if(string.valueof(objAcc.Home_Phone_2__c)!=null && string.valueof(objAcc.Home_Phone_2__c)!='')
-    			objAcc.Home_Phone_2__c=trimPhoneNumbersUtil(objAcc.Home_Phone_2__c);
+    			objAcc.Batch_No__c+=' '+trimPhoneNumbersUtil(objAcc.Home_Phone_2__c);
     		//work phone1	
     		if(string.valueof(objAcc.Work_Phone__c)!=null && string.valueof(objAcc.Work_Phone__c)!='')
-    			objAcc.Work_Phone__c=trimPhoneNumbersUtil(objAcc.Work_Phone__c);
+    			objAcc.Batch_No__c+=' '+trimPhoneNumbersUtil(objAcc.Work_Phone__c);
     		//workphone2	
     		if(string.valueof(objAcc.Phone)!=null && string.valueof(objAcc.Phone)!='')
-    			objAcc.Phone=trimPhoneNumbersUtil(objAcc.Phone);
+    			objAcc.Batch_No__c+=' '+trimPhoneNumbersUtil(objAcc.Phone);
     	}
     }
     
