@@ -135,7 +135,9 @@
 			</sf:typeset>
 			<sf:typeset name="classes">
 				<sf:include name="AUAssignVFPageToRecordTypeController"/>
+				<sf:include name="AUAssignVFPageToRecordTypeControllerTest"/>
 				<sf:include name="AUOverrideNewandEditForAccountController"/>
+				<sf:include name="AUOverrideNewandEditAccountTest"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -342,6 +344,7 @@
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmails"/>
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmailsTest"/>
 			<sf:include name="UtilConstant"/>
+			<sf:include name="UtilConstantTest"/>
 			<sf:include name="AvatoHelper"/>
 			<sf:include name="NiceWebServices"/>
 		</sf:typeset>
@@ -569,6 +572,7 @@
 		<deploy>
 		<sf:typeset name="classes">
 			<sf:include name="VehicleDataSharingHandler"/>
+			<sf:include name="VehicleDataSharingHandlerTest"/>
 			<sf:include name="VehicleRelationshipHelperTest"/>
 			<sf:include name="VehicleRelationshipHelper"/>
 			<sf:include name="VehicleRelationshipSharingTest"/>			

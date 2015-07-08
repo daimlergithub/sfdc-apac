@@ -141,7 +141,7 @@ public with sharing class AccountSharingDataHandlerTest
             Alias = 'test123',
             Email = 'test12345@test.com',
             EmailEncodingKey = 'UTF-8',
-            LastName = 'McTesty',
+            LastName = 'McTesty1',
             CommunityNickname = System.now().millisecond() + 'test12345',
             TimeZoneSidKey = 'America/Los_Angeles',
             LocaleSidKey = 'en_US',
