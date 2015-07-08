@@ -1,5 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>AddContact</actionName>
+        <type>Default</type>
+    </actionOverrides>
     <actionOverrides>
         <actionName>AddToCampaign</actionName>
         <type>Default</type>
@@ -1089,6 +1093,7 @@ Adds an active member/membership status/update activity generated sales leads--t
     <recordTypes>
         <fullName>DealerStaff</fullName>
         <active>true</active>
+        <description>Staff that work at the Dealership ie: Sales Manager etc</description>
         <label>DealerStaff</label>
         <picklistValues>
             <picklist>Business_Unit__c</picklist>
@@ -1754,6 +1759,7 @@ Adds an active member/membership status/update activity generated sales leads--t
     <recordTypes>
         <fullName>Directors_Shareholders</fullName>
         <active>true</active>
+        <description>Directors and Shareholders of the Dealership</description>
         <label>Directors &amp; Shareholders</label>
         <picklistValues>
             <picklist>Business_Unit__c</picklist>
@@ -2419,7 +2425,8 @@ Adds an active member/membership status/update activity generated sales leads--t
     <recordTypes>
         <fullName>MBAuP_Contacts</fullName>
         <active>true</active>
-        <label>MBAuP Contacts</label>
+        <description>Head Office staff that work with the Dealership ie: BDM, DRM etc.</description>
+        <label>MBAuP &amp; MBFS Contacts</label>
         <picklistValues>
             <picklist>Business_Unit__c</picklist>
             <values>
@@ -3177,25 +3184,25 @@ Adds an active member/membership status/update activity generated sales leads--t
         <masterLabel>Active Permission Set</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/soap/ajax/15.0/connection.js")} 
-{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
+        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/connection.js&quot;)} 
+{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
 
 var newRecords = [];
-var userInfo = sforce.connection.query("select Id from User where ContactId = '"+'{!Contact.Id}'+"'");
+var userInfo = sforce.connection.query(&quot;select Id from User where ContactId = &apos;&quot;+&apos;{!Contact.Id}&apos;+&quot;&apos;&quot;);
 
 if(userInfo.records != null) { 
-  var c = new sforce.SObject("User"); 
+  var c = new sforce.SObject(&quot;User&quot;); 
   c.id =userInfo.records.Id;
   c.Active_Permission_Set__c = true;
   newRecords.push(c); 
   result = sforce.connection.update(newRecords);
-  if(result[0].getBoolean("success")){
+  if(result[0].getBoolean(&quot;success&quot;)){
       window.location.reload();
   } else {
       alert(result[0].errors.message);
   }
 }else if(userInfo.records == null) {
-  alert("Users who are not associated with the current contact is created!");
+  alert(&quot;Users who are not associated with the current contact is created!&quot;);
 }</url>
     </webLinks>
     <webLinks>
