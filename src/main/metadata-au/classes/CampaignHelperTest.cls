@@ -6,7 +6,7 @@
     2014-2-18 Created by Justin Yu
 */
 @isTest(SeeAllData=true) public class CampaignHelperTest {
-	//variables
+    //variables
  static Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName(); 
     public static string topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
     public static String centralCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
