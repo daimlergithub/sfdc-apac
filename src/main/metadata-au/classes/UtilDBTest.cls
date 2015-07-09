@@ -35,6 +35,7 @@ public class UtilDBTest {
         
      
         UtilDB.updateSobjects(lst);
+        DBUtil.updateSobjects(lst);
          
        // UtilDB.deleteSobjects(lst);
         
@@ -49,6 +50,7 @@ public class UtilDBTest {
      
        
           UtilDB.insertSobjects(lst);
+        DBUtil.insertSobjects(lst);
        // UtilDB.deleteSobjects(lst);
         
         
@@ -64,7 +66,7 @@ public class UtilDBTest {
        // UtilDB.updateSobjects(lst);
          
        UtilDB.deleteSobjects(lst);
-        
+        DBUtil.deleteSobjects(lst);
         
     }
 
