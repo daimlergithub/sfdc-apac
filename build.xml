@@ -372,6 +372,7 @@
 			<sf:include name="SharingService"/>
 			<sf:include name="AccountLinkSharingWrapService"/>
 			<sf:include name="SharingWrapper"/>
+			<sf:include name="SharingWrapperTest"/>
 			<sf:include name="VehicleSharingWrapService"/>
 			<sf:include name="VehicleSharingTest"/>
 			<sf:include name="UserService"/>
@@ -447,6 +448,7 @@
 			<sf:include name="SelectAssignedDealerController"/>
 			<sf:include name="SelectAssignedDealerControllerTest"/>
 			<sf:include name="UtilCustomSettings"/>
+			<sf:include name="UtilCustomSettingsTest"/>
 			<sf:include name="ContactHelper"/>
 			<sf:include name="ContactHelperTest"/>
 			<sf:include name="ContactTriggerHandler"/>
@@ -581,6 +583,7 @@
 			<sf:include name="SharingDataHandlerBase"/>
 			<sf:include name="SharingDataHandlerBaseTest"/>
 			<sf:include name="SSIBatchVinMatch"/>
+			<sf:include name="SSIBatchVinMatchTest"/>
 			<sf:include name="SSIDataClean"/>
 			<sf:include name="SSIDataCleanTest"/>
 			<sf:include name="SSIBatchDealerCheck"/>
