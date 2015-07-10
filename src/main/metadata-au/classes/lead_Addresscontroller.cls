@@ -21,9 +21,11 @@ public string email;
                         from Lead__c where id=:ApexPages.currentPage().getParameters().get('id')];  
               if(leadList!=Null){
                 for(Lead__c led:leadList){
-                      if(led.Company_Account__c!=Null)
-                        AccountId=led.Company_Account__c;
-                    
+                      if(led.contact__c!=Null)
+                        AccountId=led.contact__c;
+                      else
+					    AccountId=led.Company_Account__c;
+						
                      if(led.contact__r.Mobile__c != Null)
                    mobileNum = led.contact__r.Mobile__c;
                 else if (led.contact__r.Mobile2__c != null)
