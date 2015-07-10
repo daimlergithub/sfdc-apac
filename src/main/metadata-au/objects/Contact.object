@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
         <actionName>AddContact</actionName>
@@ -1251,15 +1251,11 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management - Director</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Management - General Sales Manager</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Management - Dealer Principal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management - Director</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1272,6 +1268,10 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Management - General Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management - General Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1303,7 +1303,7 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts – Interpreter</fullName>
+                <fullName>Parts - Interpreter</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1917,15 +1917,11 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management - Director</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Management - General Sales Manager</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Management - Dealer Principal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management - Director</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1938,6 +1934,10 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Management - General Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management - General Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1969,7 +1969,7 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts – Interpreter</fullName>
+                <fullName>Parts - Interpreter</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2635,15 +2635,11 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management - Director</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Management - General Sales Manager</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Management - Dealer Principal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management - Director</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2656,6 +2652,10 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Management - General Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management - General Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2687,7 +2687,7 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts – Interpreter</fullName>
+                <fullName>Parts - Interpreter</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3184,25 +3184,25 @@ Adds an active member/membership status/update activity generated sales leads--t
         <masterLabel>Active Permission Set</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/connection.js&quot;)} 
-{!REQUIRESCRIPT(&quot;/soap/ajax/15.0/apex.js&quot;)}
+        <url>{!REQUIRESCRIPT("/soap/ajax/15.0/connection.js")} 
+{!REQUIRESCRIPT("/soap/ajax/15.0/apex.js")}
 
 var newRecords = [];
-var userInfo = sforce.connection.query(&quot;select Id from User where ContactId = &apos;&quot;+&apos;{!Contact.Id}&apos;+&quot;&apos;&quot;);
+var userInfo = sforce.connection.query("select Id from User where ContactId = '"+'{!Contact.Id}'+"'");
 
 if(userInfo.records != null) { 
-  var c = new sforce.SObject(&quot;User&quot;); 
+  var c = new sforce.SObject("User"); 
   c.id =userInfo.records.Id;
   c.Active_Permission_Set__c = true;
   newRecords.push(c); 
   result = sforce.connection.update(newRecords);
-  if(result[0].getBoolean(&quot;success&quot;)){
+  if(result[0].getBoolean("success")){
       window.location.reload();
   } else {
       alert(result[0].errors.message);
   }
 }else if(userInfo.records == null) {
-  alert(&quot;Users who are not associated with the current contact is created!&quot;);
+  alert("Users who are not associated with the current contact is created!");
 }</url>
     </webLinks>
     <webLinks>
