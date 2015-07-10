@@ -263,6 +263,7 @@
 		<sf:typeset name="classes">
 			<sf:include name="QCHelperTest"/>
 			<sf:include name="UtilSobject"/>
+			<sf:include name="UtilSobjectTest"/>
 			<sf:include name="QCHelper"/>
 			<sf:include name="MisunderstoodTaskGeneration"/>
 			<sf:include name="MisunderstoodTaskGenerationTest"/>
@@ -661,6 +662,7 @@
 			<sf:include name="CampaignPackageHelperTest"/>
 			<sf:include name="ChatterAnswersEscalationTriggerHandler"/>
 			<sf:include name="RetailTaskHelper"/>
+			<sf:include name="RetailTaskHelperTest"/>
 			<sf:include name="HistoryRespondController"/>
 			<sf:include name="HistoryRespondControllerTest"/>
 			<sf:include name="TriggerCampaignTriggerHandler"/>			
@@ -737,6 +739,7 @@
 			<sf:include name="UtilProfile"/>
 			<sf:include name="UtilCase"/>
 			<sf:include name="ShareDataToNewUserBatch"/>
+			<sf:include name="ShareDataToNewUserBatchTest"/>
 			<sf:include name="TriggerCampaignPackageTriggerHandler"/>
 			<sf:include name="TriggerPD_TestClass"/>
 			<sf:include name="UserHelper"/>
