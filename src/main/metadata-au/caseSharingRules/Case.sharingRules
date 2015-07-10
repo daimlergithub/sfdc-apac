@@ -13,4 +13,18 @@
         <caseAccessLevel>Edit</caseAccessLevel>
         <name>Case Sharing Rule</name>
     </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Case_Sharing_Rule_FOS</fullName>
+        <sharedTo>
+            <group>System_Admin_IntegratioApi_and_CAC_FOS</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>FOS Complaint</value>
+        </criteriaItems>
+        <caseAccessLevel>Edit</caseAccessLevel>
+        <description>For SFDCAU-289</description>
+        <name>Case Sharing Rule FOS</name>
+    </criteriaBasedRules>
 </CaseSharingRules>
