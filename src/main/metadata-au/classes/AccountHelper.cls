@@ -459,7 +459,7 @@ public class AccountHelper {
         }
         if(customerIds!=null && !customerIds.isEmpty())
         {
-            list<Account> lstCustomers=[select id,(select id,Customer__c from Addresses__r),(Select id,Vehicle_ID__c,Contact__c,Vehicle_ID__r.Vehicle_Group__c from Vehicle_Relationships2__r) from Account where id In:customerIds];
+            list<Account> lstCustomers=[select id,(select id,Customer__c from Addresses__r),(Select id,Vehicle_ID__c,Car_Relation__c,Contact__c,Vehicle_ID__r.Vehicle_Group__c from Vehicle_Relationships2__r) from Account where id In:customerIds];
             if(lstCustomers!=null && !lstCustomers.isEmpty())
             {
                 for(Account objAcc:lstCustomers)
@@ -468,7 +468,7 @@ public class AccountHelper {
                     {
                         for(Vehicle_Relationship__c objVR:objAcc.Vehicle_Relationships2__r)
                         {
-                            if(objAcc.id==objVR.Contact__c){
+                            if(objAcc.id==objVR.Contact__c && objVR.Car_Relation__c =='Owner'){
                                 vehicleRelationIds.add(objVR.Id);
                                 vehicleIds.add(objVR.Vehicle_ID__c);
                                 insertCvrs.add(objVR);
@@ -665,7 +665,7 @@ public class AccountHelper {
             if (string.valueof(objAcc.Mobile__c) != null && string.valueof(objAcc.Mobile__c)!='')
             {
                 if(!(string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+614') || string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+615')  ||string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('04') || string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('05')))
-                { objAcc.Mobile__c.addError('Mobile number should begin with “+614”, “04”, “+615”, “05” ');}
+                { objAcc.Mobile__c.addError('Mobile number should begin with ?+614?, ?04?, ?+615?, ?05? ');}
                
                   String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Mobile__c));                         
                        if(errorMsg != null)
@@ -675,7 +675,7 @@ public class AccountHelper {
             if (string.valueof(objAcc.Mobile2__c) != null && string.valueof(objAcc.Mobile2__c)!='')
             {
                 if(!(string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('+614') || string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('+615')  ||string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('04') || string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('05')))
-                {    objAcc.addError('Mobile number should begin with “+614”, “04”, “+615”, “05” ');}
+                {    objAcc.addError('Mobile number should begin with ?+614?, ?04?, ?+615?, ?05? ');}
                 
                   String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Mobile2__c));                         
                        if(errorMsg != null)
