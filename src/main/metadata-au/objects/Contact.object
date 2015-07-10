@@ -1239,23 +1239,23 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Accounts Manager</fullName>
+                <fullName>Management - Accounts Manager</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Chairman</fullName>
+                <fullName>Management - Chairman</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Corporate Sales Manager</fullName>
+                <fullName>Management - Corporate Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Director</fullName>
+                <fullName>Management - Director</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 General Sales Manager</fullName>
+                <fullName>Management - General Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1299,11 +1299,11 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts %E2%80%93 Apprentice</fullName>
+                <fullName>Parts - Apprentice</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts %E2%80%93 Interpreter</fullName>
+                <fullName>Parts – Interpreter</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1905,23 +1905,23 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Accounts Manager</fullName>
+                <fullName>Management - Accounts Manager</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Chairman</fullName>
+                <fullName>Management - Chairman</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Corporate Sales Manager</fullName>
+                <fullName>Management - Corporate Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Director</fullName>
+                <fullName>Management - Director</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 General Sales Manager</fullName>
+                <fullName>Management - General Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1965,11 +1965,11 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts %E2%80%93 Apprentice</fullName>
+                <fullName>Parts - Apprentice</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts %E2%80%93 Interpreter</fullName>
+                <fullName>Parts – Interpreter</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2623,23 +2623,23 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Accounts Manager</fullName>
+                <fullName>Management - Accounts Manager</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Chairman</fullName>
+                <fullName>Management - Chairman</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Corporate Sales Manager</fullName>
+                <fullName>Management - Corporate Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Director</fullName>
+                <fullName>Management - Director</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 General Sales Manager</fullName>
+                <fullName>Management - General Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2683,11 +2683,11 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts %E2%80%93 Apprentice</fullName>
+                <fullName>Parts - Apprentice</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts %E2%80%93 Interpreter</fullName>
+                <fullName>Parts – Interpreter</fullName>
                 <default>false</default>
             </values>
             <values>
