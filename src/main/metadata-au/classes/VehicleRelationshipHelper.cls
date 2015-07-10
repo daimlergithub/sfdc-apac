@@ -165,7 +165,7 @@ public with sharing class VehicleRelationshipHelper {
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
             List<String> cols = colsMap.get(vehicleGroup);
             if(isCustomer)
-            	userInfo.put(cols[0], 'customer');
+                userInfo.put(cols[0], 'customer');
             integer numberofP = 1;
             if(userInfo.get(cols[1])!=null){
                 numberofP = integer.valueOf(userInfo.get(cols[1]))+1;
@@ -200,8 +200,8 @@ public with sharing class VehicleRelationshipHelper {
         set<id> setAccId= new set<Id>();
         if(lstAddress!=null && !lstAddress.isEmpty())
         {
-        	for(Address__c objAdd:lstAddress)
-        		setAccId.add(objAdd.Customer__c);
+            for(Address__c objAdd:lstAddress)
+                setAccId.add(objAdd.Customer__c);
         }
         Map<id,Vehicle__c> vehichles = getVehichles(vehicleIds);
         for(Vehicle_Relationship__c curCvr : cvrs){
@@ -219,34 +219,36 @@ public with sharing class VehicleRelationshipHelper {
     
     public static void auAfter_Insert_Update_Events(list<Vehicle_Relationship__c> listVRNew,boolean isInsert)
     {
-    	Set<Id> vehicleIds = new Set<Id>();
-	    Set<Id> customerIds = new Set<Id>();
-	    List<Vehicle_Relationship__c> insertCvrs = new List<Vehicle_Relationship__c>();
-	    
-	    for(Vehicle_Relationship__c cvr : listVRNew) {
-	        if(isInsert){
+        Set<Id> vehicleIds = new Set<Id>();
+        Set<Id> customerIds = new Set<Id>();
+        List<Vehicle_Relationship__c> insertCvrs = new List<Vehicle_Relationship__c>();
+        
+        for(Vehicle_Relationship__c cvr : listVRNew) {
+            if(isInsert){
                 
-	            // Make sure the vehicle id not null
-	            if (null == cvr.Vehicle_ID__c){
-	                cvr.addError('Please select the vehicle Id !');
-	                return;
-	            }
-	            
-	            if (!customerIds.contains(cvr.Contact__c)){
-	                customerIds.add(cvr.Contact__c);
-	            }
-	                        
-	            if (!vehicleIds.contains(cvr.Vehicle_ID__c)){
-	                vehicleIds.add(cvr.Vehicle_ID__c);
-	            }
-	            
-	            insertCvrs.add(cvr);
-	        }
-	    }
-	    //US_AU-CD-001 & 002 & 001.1 & 002.1
-	    if(customerIds!=null && !customerIds.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()){
-	        updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs);
-	    }
+                // Make sure the vehicle id not null
+                if (null == cvr.Vehicle_ID__c){
+                    cvr.addError('Please select the vehicle Id !');
+                    return;
+                }
+                
+                if (!customerIds.contains(cvr.Contact__c)){
+                    customerIds.add(cvr.Contact__c);
+                }
+                            
+                if (!vehicleIds.contains(cvr.Vehicle_ID__c)){
+                    vehicleIds.add(cvr.Vehicle_ID__c);
+                }
+                if(cvr.Car_Relation__c =='Owner')
+                {
+                insertCvrs.add(cvr);
+                }
+            }
+        }
+        //US_AU-CD-001 & 002 & 001.1 & 002.1
+        if(customerIds!=null && !customerIds.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty() && insertCvrs!=null && !insertCvrs.isEmpty() ){
+            updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs);
+        }
     }
     //Existing Au functionality ends here    
 }
