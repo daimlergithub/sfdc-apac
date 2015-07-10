@@ -40,6 +40,7 @@ public class TriggerAccountHandler
 	    {
 	        AccountHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
 	        AccountHelper.auBeforeInsertUpdateTrimPhoneFileds(trigger.new);
+            AccountHelper.auBeforeInsert_Update_Phonenum_validation(trigger.new);
 	        //Kernel code
 	        //UtilAccount.beforeAccDealerInfo(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate);
 	    }
@@ -48,6 +49,7 @@ public class TriggerAccountHandler
 	        AccountHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
 	        AccountHelper.auBeforeUpdateCheckRequiredPhoneFields(trigger.new);
 	        AccountHelper.auBeforeInsertUpdateTrimPhoneFileds(trigger.new);
+            AccountHelper.auBeforeInsert_Update_Phonenum_validation(trigger.new);
 	        //Kernel code
 	        //UtilAccount.beforeAccDealerInfo(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate);
 	    }

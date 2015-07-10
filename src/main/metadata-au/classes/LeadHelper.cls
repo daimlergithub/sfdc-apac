@@ -549,6 +549,22 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     
         
         for(Lead__c lead : listNewLeads) {
+            
+            if(lead.Assigned_Dealer__c != null && lead.Business_Unit__c != null && lead.Sub_BusinessUnit__c != null && (isInsert || isUpdate))
+               {
+                   if(lead.RecordTypeId == leadVehicleRt)
+                   {
+                      if((isInsert && lead.CAC_Lead_Status__c == 'Qualified') || ((isUpdate && lead.CAC_Lead_Status__c != leadOldMap.get(lead.Id).CAC_Lead_Status__c) && lead.CAC_Lead_Status__c =='Qualified' ))
+
+                      {
+                          
+                          VehicleLeadsForImmediateNotice.add(lead);
+                          vehicleDealerIdsForImmediateNotice.add(lead.Assigned_Dealer__c);
+                          
+                      }
+                  }  
+                   
+               }
             //TODO--commented LDCL_Lead_Id__c is not using
             If(lead.Assigned_Dealer__c != null && lead.Business_Unit__c != null && lead.Sub_BusinessUnit__c != null && 
               (isInsert || (isUpdate && lead.Assigned_Dealer__c != leadOldMap.get(lead.Id).Assigned_Dealer__c)) 
@@ -568,15 +584,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     financeLeads.add(lead);
                     financeDealerIds.add(lead.Assigned_Dealer__c);
                 }
-                  else if(lead.RecordTypeId == leadVehicleRt)
-                  {
-                      if((isInsert && lead.CAC_Lead_Status__c == 'Qualified') || ((isUpdate && lead.CAC_Lead_Status__c != leadOldMap.get(lead.Id).CAC_Lead_Status__c) && lead.CAC_Lead_Status__c =='qualified' ))
-                      {
-                          VehicleLeadsForImmediateNotice.add(lead);
-                          vehicleDealerIdsForImmediateNotice.add(lead.Assigned_Dealer__c);
-                          
-                      }
-                  }  
+                  
                   
             }
             If(lead.Assigned_Dealer__c != null && lead.Business_Unit__c != null && lead.Sub_BusinessUnit__c != null && 
@@ -615,6 +623,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             sendFinanceEmail(financeLeads, financeDealerIds);
         }
         if(!VehicleLeadsForImmediateNotice.isEmpty()){
+             system.debug('++++++++++++++calls method here++++++++' +VehicleLeadsForImmediateNotice[0].id);
             sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
         }
     }
@@ -843,10 +852,12 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             
             for(Contact contact : listContact) {
                 //modified by Shuang Li Defect0345 Start
-                if(contact.AccountId == lead.Assigned_Dealer__c && contact.Business_Unit__c.contains(lead.Business_Unit__c) && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c))) {
+                if(contact.AccountId == lead.Assigned_Dealer__c && contact.Business_Unit__c.contains(lead.Business_Unit__c) && contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c)) {
                 //modified by Shuang Li Defect0345 End
                     if(contact.Lead_Escalation_Recipient_Type__c.contains(EmailType) && contact.Email != null) {
                         TOemails.add(contact.Email);
+                        system.debug('to email @@@@@@@@@@@@@@@@@@@'+TOemails.size());
+                        system.debug('to email @@@@@@@@@@@@@@@@@@@'+TOemails[0]);
                     }
                     else if(contact.AccountId == lead.Assigned_Dealer__c && contact.Lead_Escalation_Recipient_Type__c.contains('CC Lead Escalation Recipient')) {
                         CCemails.add(contact.Email);
