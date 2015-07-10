@@ -472,15 +472,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Management – Accounts Manager</fullName>
+                <fullName>Management - Accounts Manager</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Management – Chairman</fullName>
+                <fullName>Management - Chairman</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Management – Corporate Sales Manager</fullName>
+                <fullName>Management - Corporate Sales Manager</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -488,7 +488,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Management – Director</fullName>
+                <fullName>Management - Director</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -504,7 +504,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Management – General Sales Manager</fullName>
+                <fullName>Management - General Sales Manager</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -536,11 +536,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Parts – Apprentice</fullName>
+                <fullName>Parts - Apprentice</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Parts – Interpreter</fullName>
+                <fullName>Parts - Interpreter</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
