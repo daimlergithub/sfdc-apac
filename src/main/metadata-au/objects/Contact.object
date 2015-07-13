@@ -3169,6 +3169,13 @@ Adds an active member/membership status/update activity generated sales leads--t
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
+        <fullName>FirstName_should_not_be_Blank</fullName>
+        <active>true</active>
+        <description>First Name should'nt be blank for DealerStaff, Directors_Shareholders, or MBAuP_Contacts record Types</description>
+        <errorConditionFormula>IF( ISBLANK( FirstName ), true, false)</errorConditionFormula>
+        <errorMessage>FirstName and LastName should not be Blank.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Moblie_should_be_numeric</fullName>
         <active>true</active>
         <errorConditionFormula>!ISNUMBER(MobilePhone)
