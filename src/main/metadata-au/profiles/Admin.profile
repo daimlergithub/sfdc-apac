@@ -222,10 +222,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AsyncEntityUpdateNotificationWS</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AttachmentAfterTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -463,10 +459,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>DMRequestTriggerHandlerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>DealerLocatorHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -759,10 +751,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RuishiWebService</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RuishiWebserviceTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1190,10 +1178,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerDealerLocatorHandler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerHandlerIf</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1443,10 +1427,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilVehicleRelationshipTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UtilWebService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
