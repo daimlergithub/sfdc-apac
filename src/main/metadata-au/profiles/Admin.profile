@@ -461,7 +461,6 @@
         <apexClass>DMRequestTriggerHandlerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-   
     <classAccesses>
         <apexClass>DealerSearchController</apexClass>
         <enabled>true</enabled>
@@ -1174,7 +1173,6 @@
         <apexClass>TriggerDMRequestTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    
     <classAccesses>
         <apexClass>TriggerHandlerIf</apexClass>
         <enabled>true</enabled>
@@ -1427,7 +1425,6 @@
         <apexClass>UtilVehicleRelationshipTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    
     <classAccesses>
         <apexClass>VehicleDataSharingHandler</apexClass>
         <enabled>true</enabled>
@@ -14924,16 +14921,16 @@
         <recordType>Account.Company</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Account-Dealer Group Pagelayout</layout>
+        <recordType>Account.Dealer_Group</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Account-Dealer Layout-Admin</layout>
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account-MBAuP BA Layout Soft Deleted</layout>
         <recordType>Account.Company_Soft_Deleted</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Account-MBAuP BA Layout Soft Deleted</layout>
-        <recordType>Account.Dealer_Group</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
