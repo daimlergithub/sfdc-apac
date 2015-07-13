@@ -704,13 +704,13 @@
     </relatedLists>
     <relatedLists>
         <fields>FULL_NAME</fields>
+        <fields>CONTACT.RECORDTYPE</fields>
         <fields>CONTACT.SALUTATION</fields>
         <fields>CONTACT.FIRST_NAME</fields>
         <fields>CONTACT.LAST_NAME</fields>
         <fields>CONTACT.EMAIL</fields>
         <fields>CONTACT.PHONE1</fields>
         <fields>CONTACT.PHONE3</fields>
-        <fields>CORE.USERS.ALIAS</fields>
         <fields>Job_Title__c</fields>
         <fields>Inactive__c</fields>
         <relatedList>RelatedContactList</relatedList>
