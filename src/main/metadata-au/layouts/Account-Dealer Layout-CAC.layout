@@ -562,7 +562,7 @@
             <quickActionName>FeedItem.PollPost</quickActionName>
         </quickActionListItems>
     </quickActionList>
-	<relatedLists>
+    <relatedLists>
         <fields>NAME</fields>
         <fields>System__c</fields>
         <fields>CREATEDBY_USER</fields>
