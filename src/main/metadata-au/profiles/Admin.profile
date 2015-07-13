@@ -221,6 +221,7 @@
         <apexClass>AssignCaseToDealerControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    
     <classAccesses>
         <apexClass>AttachmentAfterTriggerHandler</apexClass>
         <enabled>true</enabled>
@@ -461,6 +462,7 @@
         <apexClass>DMRequestTriggerHandlerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    
     <classAccesses>
         <apexClass>DealerSearchController</apexClass>
         <enabled>true</enabled>
@@ -477,6 +479,7 @@
         <apexClass>EmailServiceStatusUpdateTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+   
     <classAccesses>
         <apexClass>ExtSelectAssignedDealer</apexClass>
         <enabled>true</enabled>
@@ -734,6 +737,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>RetailTaskHelperTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>RetailTaskSharingTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -745,6 +752,7 @@
         <apexClass>RuishiWebService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+   
     <classAccesses>
         <apexClass>SMSControllerExtension</apexClass>
         <enabled>true</enabled>
@@ -791,6 +799,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SSIBatchVinMatch</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SSIBatchVinMatchTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -946,6 +958,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>ShareDataToNewUserBatchTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>SharingDataHandlerBase</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -963,6 +979,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SharingWrapperService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SharingWrapperTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1157,6 +1177,7 @@
         <apexClass>TriggerDMRequestTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+   
     <classAccesses>
         <apexClass>TriggerHandlerIf</apexClass>
         <enabled>true</enabled>
@@ -1334,7 +1355,15 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilConstantTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilCustomSettings</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilCustomSettingsTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1382,6 +1411,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilSobjectTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilTask</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1397,8 +1430,13 @@
         <apexClass>UtilVehicleRelationshipTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+   
     <classAccesses>
         <apexClass>VehicleDataSharingHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>VehicleDataSharingHandlerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -8242,6 +8280,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead.PartnerAccountId</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Phone</field>
         <readable>true</readable>
@@ -9730,6 +9773,11 @@
         <editable>true</editable>
         <field>Opportunity.OrderNumber__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Opportunity.PartnerAccountId</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
