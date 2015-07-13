@@ -221,7 +221,6 @@
         <apexClass>AssignCaseToDealerControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    
     <classAccesses>
         <apexClass>AttachmentAfterTriggerHandler</apexClass>
         <enabled>false</enabled>
@@ -478,7 +477,6 @@
         <apexClass>EmailServiceStatusUpdateTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-   
     <classAccesses>
         <apexClass>ExtSelectAssignedDealer</apexClass>
         <enabled>true</enabled>
@@ -751,7 +749,10 @@
         <apexClass>RuishiWebService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    
+    <classAccesses>
+        <apexClass>RuishiWebserviceTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>SMSControllerExtension</apexClass>
         <enabled>false</enabled>
@@ -1176,7 +1177,6 @@
         <apexClass>TriggerDMRequestTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-
     <classAccesses>
         <apexClass>TriggerHandlerIf</apexClass>
         <enabled>false</enabled>
@@ -1429,7 +1429,6 @@
         <apexClass>UtilVehicleRelationshipTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-   
     <classAccesses>
         <apexClass>VehicleDataSharingHandler</apexClass>
         <enabled>false</enabled>
@@ -9049,9 +9048,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Purchase_Time__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -15961,7 +15960,7 @@
         <viewAllRecords>false</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
-        <allowCreate>false</allowCreate>
+        <allowCreate>true</allowCreate>
         <allowDelete>false</allowDelete>
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
@@ -16947,14 +16946,15 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Vehicle__c.Competitor</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>true</default>
+        <default>false</default>
         <recordType>Vehicle__c.MB</recordType>
-        <visible>true</visible>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -17077,7 +17077,6 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
