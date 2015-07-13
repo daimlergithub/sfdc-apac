@@ -749,10 +749,7 @@
         <apexClass>RuishiWebService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>RuishiWebserviceTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+   
     <classAccesses>
         <apexClass>SMSControllerExtension</apexClass>
         <enabled>false</enabled>
