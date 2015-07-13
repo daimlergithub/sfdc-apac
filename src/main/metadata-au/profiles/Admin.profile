@@ -479,10 +479,7 @@
         <apexClass>EmailServiceStatusUpdateTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>EntityUpdateNotificationWS</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+   
     <classAccesses>
         <apexClass>ExtSelectAssignedDealer</apexClass>
         <enabled>true</enabled>
