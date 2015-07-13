@@ -221,7 +221,6 @@
         <apexClass>AssignCaseToDealerControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    
     <classAccesses>
         <apexClass>AttachmentAfterTriggerHandler</apexClass>
         <enabled>true</enabled>
@@ -462,7 +461,7 @@
         <apexClass>DMRequestTriggerHandlerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    
+   
     <classAccesses>
         <apexClass>DealerSearchController</apexClass>
         <enabled>true</enabled>
@@ -479,7 +478,6 @@
         <apexClass>EmailServiceStatusUpdateTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-   
     <classAccesses>
         <apexClass>ExtSelectAssignedDealer</apexClass>
         <enabled>true</enabled>
@@ -752,7 +750,6 @@
         <apexClass>RuishiWebService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-   
     <classAccesses>
         <apexClass>SMSControllerExtension</apexClass>
         <enabled>true</enabled>
@@ -1177,7 +1174,7 @@
         <apexClass>TriggerDMRequestTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-   
+    
     <classAccesses>
         <apexClass>TriggerHandlerIf</apexClass>
         <enabled>true</enabled>
@@ -1430,7 +1427,7 @@
         <apexClass>UtilVehicleRelationshipTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-   
+    
     <classAccesses>
         <apexClass>VehicleDataSharingHandler</apexClass>
         <enabled>true</enabled>
