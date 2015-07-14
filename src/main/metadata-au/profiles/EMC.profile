@@ -1174,10 +1174,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerDealerLocatorHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerHandlerIf</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1427,10 +1423,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilVehicleRelationshipTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UtilWebService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
