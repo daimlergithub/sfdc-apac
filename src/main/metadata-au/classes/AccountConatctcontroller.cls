@@ -47,7 +47,9 @@ public class AccountConatctcontroller{
     }
     // public Account getaccountList_details (){ return null;}  
     public pagereference updateAccount(){ 
-        if(accountList_details!=null)
+        Id profileId = userinfo.getProfileId();
+        String profileName = [Select Id,Name from Profile where Id=:profileId].Name;
+        if(accountList_details!=null && profileName != 'IntegrationAPI')
         {
             
             if(string.valueOf(accountList_details.Mobile__c) != null && string.valueOf(accountList_details.Mobile__c) != '')
@@ -186,10 +188,4 @@ return pr;*/
         else 
             return null; 
     }
-    
-    
-    
-    
-    
-    
 }
