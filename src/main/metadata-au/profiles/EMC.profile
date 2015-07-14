@@ -478,10 +478,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>EntityUpdateNotificationWS</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>ExtSelectAssignedDealer</apexClass>
         <enabled>true</enabled>
     </classAccesses>
