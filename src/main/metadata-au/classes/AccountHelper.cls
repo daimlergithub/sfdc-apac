@@ -16,7 +16,7 @@ public class AccountHelper {
     //Existing Au specific variables
     private static Set<String> newCompanyIds = new Set<String>();
     private static Set<String> personIds = new Set<String>();
-    private static final String ONE_SPACE = ' ';
+    private static final String ONE_SPACE = ' ';    
     public static final Set<Id> RECORD_TYPE_SET = new Set<Id>{
         Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(),
         Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId()
@@ -181,8 +181,8 @@ public class AccountHelper {
     
     // US_AU-CD-001.6 Track the updating history for FS fields
     public static void trackUpdatHistoryForFsInfo(Account updateAcc, Account oldAcc){
-        Id profileId=userinfo.getProfileId();
-        String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
+    Id profileId = userinfo.getProfileId();
+    String profileName = [Select Id,Name from Profile where Id=:profileId].Name;        
         if(profileName!= 'IntegrationAPI'){
 
         if(updateAcc.FS_Opt_In_Email__c != oldAcc.FS_Opt_In_Email__c){
@@ -659,68 +659,77 @@ public class AccountHelper {
     
     public static void auBeforeInsert_Update_Phonenum_validation(List<Account> lstNewAccouts)
     {
-        
+        Id profileId = userinfo.getProfileId();
+        String profileName = [Select Id,Name from Profile where Id=:profileId].Name; 
         for(Account objAcc:lstNewAccouts)
         {
-            if (string.valueof(objAcc.Mobile__c) != null && string.valueof(objAcc.Mobile__c)!='')
+            if(profileName != 'IntegrationAPI')
             {
-                if(!(string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+614') || string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+615')  ||string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('04') || string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('05')))
-                { objAcc.Mobile__c.addError('Mobile number should begin with ?+614?, ?04?, ?+615?, ?05? ');}
-               
-                  String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Mobile__c));                         
-                       if(errorMsg != null)
-                           objAcc.addError(errorMsg);
-            }
-            
-            if (string.valueof(objAcc.Mobile2__c) != null && string.valueof(objAcc.Mobile2__c)!='')
-            {
-                if(!(string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('+614') || string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('+615')  ||string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('04') || string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('05')))
-                {    objAcc.addError('Mobile number should begin with ?+614?, ?04?, ?+615?, ?05? ');}
+                if (string.valueof(objAcc.Mobile__c) != null && string.valueof(objAcc.Mobile__c)!='')
+                {
+                    if(!(string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+614') || string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+615')  ||string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('04') || string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('05')))
+                    { objAcc.Mobile__c.addError('Mobile number should begin with ?+614?, ?04?, ?+615?, ?05? ');}
+                   
+                      String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Mobile__c));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
                 
-                  String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Mobile2__c));                         
-                       if(errorMsg != null)
-                           objAcc.addError(errorMsg);
-            }
-             if (string.valueof(objAcc.Individual_Home_Phone__c) != null && string.valueof(objAcc.Individual_Home_Phone__c)!='')
-            {
-                  String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Individual_Home_Phone__c));                         
-                       if(errorMsg != null)
-                           objAcc.addError(errorMsg);
-            }
-            if (string.valueof(objAcc.Home_Phone_2__c) != null && string.valueof(objAcc.Home_Phone_2__c)!='')
-            {
-                  String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Home_Phone_2__c));                         
-                       if(errorMsg != null)
-                           objAcc.addError(errorMsg);
-            }
-            if (string.valueof(objAcc.Work_Phone__c) != null && string.valueof(objAcc.Work_Phone__c)!='')
-            {
-                  String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Work_Phone__c));                         
-                       if(errorMsg != null)
-                           objAcc.addError(errorMsg);
-            }
-            if (string.valueof(objAcc.Phone) != null && string.valueof(objAcc.Phone)!='')
-            {
-                  String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Phone));                         
-                       if(errorMsg != null)
-                           objAcc.addError(errorMsg);
-            }
+                if (string.valueof(objAcc.Mobile2__c) != null && string.valueof(objAcc.Mobile2__c)!='')
+                {
+                    if(!(string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('+614') || string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('+615')  ||string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('04') || string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('05')))
+                    {    objAcc.addError('Mobile number should begin with ?+614?, ?04?, ?+615?, ?05? ');}
+                    
+                      String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Mobile2__c));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
+                 if (string.valueof(objAcc.Individual_Home_Phone__c) != null && string.valueof(objAcc.Individual_Home_Phone__c)!='')
+                {
+                      String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Individual_Home_Phone__c));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
+                if (string.valueof(objAcc.Home_Phone_2__c) != null && string.valueof(objAcc.Home_Phone_2__c)!='')
+                {
+                      String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Home_Phone_2__c));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
+                if (string.valueof(objAcc.Work_Phone__c) != null && string.valueof(objAcc.Work_Phone__c)!='')
+                {
+                      String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Work_Phone__c));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
+                if (string.valueof(objAcc.Phone) != null && string.valueof(objAcc.Phone)!='')
+                {
+                      String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Phone));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
+            }    
         }
-        
-        
-        
     }
     
     public static String ValidatePhoneNumberFields(String PhoneNum)
     {
         if((string.valueof(PhoneNum).startsWith('0') && (string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() > 10 || string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() < 8 ) ))
-         return 'Number of digits in Phone Number should be more than 8 or less than 10';
+        {
+            return 'Number of digits in Phone Number should be more than 8 or less than 10';
+        }
        else if(string.valueof(PhoneNum).startsWith('+61') && string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() != 12)
-        return 'The phone Number record needs to have only 12 digits';
+       {
+            return 'The phone Number record needs to have only 12 digits';
+       }
        else if((string.valueof(PhoneNum).startsWith('1300') || string.valueof(PhoneNum).startsWith('1600')) && string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() != 10 )
-        return 'The The phone Number record needs to have only 10 digits';
+       {
+            return 'The The phone Number record needs to have only 10 digits';
+       }
        else if((string.valueof(PhoneNum).startsWith('13') && !string.valueof(PhoneNum).startsWith('1300')) && string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() != 6)
-        return 'The Phone Number record needs to have only 6 digits';
+       {
+            return 'The Phone Number record needs to have only 6 digits';
+       }
        else 
         return null; 
     }
