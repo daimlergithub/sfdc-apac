@@ -222,10 +222,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AsyncEntityUpdateNotificationWS</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AttachmentAfterTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
