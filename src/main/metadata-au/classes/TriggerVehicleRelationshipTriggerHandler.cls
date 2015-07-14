@@ -34,29 +34,29 @@ public class TriggerVehicleRelationshipTriggerHandler
             SharingService.shareVehicleRelationships(retailWrapService.wrapRetailVehicleRelationships(Trigger.new));
             
             AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
-            handler.shareAccountByRetailVR(newMap, oldMap, Trigger.isInsert);
+            handler.shareAccountByRetailVR(newMap, oldMap, Trigger.isInsert); */
             
             //ISSUE-0757
-            VehicleRelationshipHelper.shareVR(Trigger.new);*/
+         
             //Existing au functionality
-            VehicleRelationshipHelper.auAfter_Insert_Update_Events(Trigger.new,trigger.isinsert,trigger.isupdate,trigger.isdelete);
+            VehicleRelationshipHelper.auAfter_Insert_Update_Events(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate,trigger.isdelete);
         }
-        if(trigger.isbefore  && trigger.isInsert)
-        {
-            VehicleRelationshipHelper.auBefore_Insert_Update_Events(Trigger.new);
-        }
+       // if(trigger.isbefore  && trigger.isInsert)
+       // {
+      //      VehicleRelationshipHelper.auBefore_Insert_Update_Events(Trigger.new);
+       // }
+       
         if(trigger.isbefore  && trigger.isUpdate)
         {
             /*AccountSharingDataHandler handler = new AccountSharingDataHandler('Retail Vehicle RelationShip');
             handler.shareAccountByRetailVR(newMap, oldMap, Trigger.isInsert);
             UtilVehicleRelationship.updateVehicle(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);*/
             //Existing au functionality
-            VehicleRelationshipHelper.auBefore_Insert_Update_Events(Trigger.new);
-            VehicleRelationshipHelper.auAfter_Insert_Update_Events(Trigger.new,trigger.isinsert,trigger.isupdate,trigger.isdelete);
+            VehicleRelationshipHelper.auAfter_Insert_Update_Events(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate,trigger.isdelete);
         }
         if(trigger.isAfter && trigger.isdelete)
         {
-            VehicleRelationshipHelper.auAfter_Insert_Update_Events(Trigger.old,trigger.isinsert,trigger.isupdate,trigger.isdelete);
+            VehicleRelationshipHelper.auAfter_Insert_Update_Events(Trigger.old,oldmap,trigger.isinsert,trigger.isupdate,trigger.isdelete);
         }
     }
 }

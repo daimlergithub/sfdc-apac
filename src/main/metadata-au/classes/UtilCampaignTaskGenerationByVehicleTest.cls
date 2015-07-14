@@ -30,8 +30,10 @@ public class UtilCampaignTaskGenerationByVehicleTest {
                     dealer.Home_Phone_2__c = '98765413';
         update dealer;
          contact = new Contact(
-            AccountId = dealer.Id, 
-            LastName = 'ba', 
+            AccountId = dealer.Id,
+             Salutation='Attorney',
+             FirstName='testFirstname',
+            LastName = 'testLastname', 
             Phone = '1212313', 
             email = 's@s.s'
         );

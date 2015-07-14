@@ -28,7 +28,9 @@ Private Static Retail_Campaign__c rc;
            Contact con = new Contact();
             con.Title = 'Title';
             //con.Id = u.ContactId;
-            con.LastName = 'LastName';
+            con.Salutation='Attorney';
+             con.FirstName='testFirstname';
+            con.LastName = 'testLastname';
             insert con;
             //Contact con = 
             //[select Id, SegmentationFilters__c from Contact where Id = :u.ContactId];

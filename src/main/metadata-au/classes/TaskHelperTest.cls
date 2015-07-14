@@ -237,7 +237,7 @@ private class TaskHelperTest {
 	        // Person Contact                
 	        Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);    
 	        
-	        Contact conComplaint = new Contact(AccountId = dealer.Id, LastName = 'b', Phone = '1212313', email = 's@s.s', Dealer_Complaint_Gate_Keeper__c = true, Dealer_Presales__c = true);
+	        Contact conComplaint = new Contact(AccountId = dealer.Id, Salutation='Attorney',FirstName='testFirstname',LastName = 'testLastname', Phone = '1212313', email = 's@s.s', Dealer_Complaint_Gate_Keeper__c = true, Dealer_Presales__c = true);
         	insert conComplaint;
             Template__c tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
                                                Message_Detail__c = '{DEALER_name}', Name = 'lai');

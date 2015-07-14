@@ -192,7 +192,9 @@ public class UtilCampaignTaskGenerationByCaseTest
     	dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
         contact = new Contact(
           AccountId = dealer.Id, 
-          LastName = 'b', 
+          Salutation='Attorney',
+             FirstName='testFirstname',
+            LastName = 'testLastname',  
           Phone = '1212313', 
           MobilePhone='1236547890',
           email = 's@s.s',
