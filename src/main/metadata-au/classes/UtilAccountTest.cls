@@ -2,6 +2,7 @@
 public with sharing class UtilAccountTest 
 {
 	public static Id accPerson_RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    public static List<Account> acc1 = Database.query('select id from Account where Id =:accPerson_RecordTypeId');
 	public static Account personAcc;
     public static Account personAcc2;
 	public static Lead__c testLead;
@@ -12,6 +13,7 @@ public with sharing class UtilAccountTest
         CreateTestData();
         test.startTest();
         Set<Id> accIds = new set<Id>();
+        accIds = (new Map<Id,SObject>(acc1)).keyset();
         List<Account> accList = new List<Account>();
         Map<id,Account> accMap = new Map<id,Account>();
         accList.add(personAcc);
@@ -19,7 +21,7 @@ public with sharing class UtilAccountTest
         UtilAccount.beforeAccDealerInfo(accList, accMap, true, false);
         UtilAccount.beforeAccDealerInfo(accList, accMap, false, true);
         UtilAccount.accountSetForUpdateLead(accList, accMap);
-        accIds.add(personAcc.id);
+       // accIds.add(personAcc.id);
         //accIds.add(personAcc2.id);
         UtilAccount.updateLeadForDataSharing(accIds);
         
