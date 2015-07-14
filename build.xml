@@ -538,6 +538,7 @@
 			<sf:include name="Paginator"/>
 			<sf:include name="UtilLeadEmailEscalationTest"/>
 			<sf:include name="UtilDealerOffering"/>
+			<sf:include name="UtilDealerOffferingTest"/>
 			<sf:include name="TriggerPackageItemTriggerHandler"/>
 			<sf:include name="TriggerPackageItem_TestClass"/>	
 		</sf:typeset>

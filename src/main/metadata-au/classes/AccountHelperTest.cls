@@ -110,10 +110,26 @@ public class AccountHelperTest
        personAcc.Opt_In_Email__c = true;
        personAcc2.Opt_In_Email__c = false;
        personAcc.Opt_In_SMS__c  = true;
+       personAcc.FS_Opt_In_SMS2__c=true;
        personAcc2.Opt_In_SMS__c  = false;
+       personAcc.FS_Opt_In_Home_Phone__c=true;
+       personAcc.FS_Opt_In_Home_Phone2__c=true;
+        personAcc.FS_Opt_In_Work_Phone__c=true;
+        personAcc.FS_Opt_In_Work_Phone2__c=true;
+       personAcc.FS_Opt_In_Email2__c=true;
+        personAcc.Opt_In_SMS2__c=true;
+       personAcc.Opt_In_Home_Phone__c=true;
+         personAcc.Opt_In_Home_Phone2__c=true;
+         personAcc.Opt_In_Work_Phone__c=true;
+        personAcc.Opt_In_Work_Phone2__c=true;
+       personAcc.Opt_In_Email2__c=true;
        update personAcc2;
        update personAcc;
+       
+       list<Account> lstPACC =new list<Account>();
+       lstPACC.add(personAcc);
        AccountHelper.trackUpdatHistoryForFsInfo(personAcc, personAcc2);
+       AccountHelper.auAfter_Update_UpdatePc_Status_Values(lstPACC);
       
        test.stopTest();
        system.assertEquals(UserInfo.getName(), personAcc.SMS_Last_Modified_By__c);
@@ -168,6 +184,15 @@ public class AccountHelperTest
        
        insert personAcc;
        
+       Address__c objAddress = new Address__c();
+       objAddress.Customer__c=personAcc.id;
+       objAddress.Address_Line_1__c='testAddres';
+       objAddress.District__c='TestDist';
+       objAddress.Country__c='Australia';
+       objAddress.Province__c='ACT';
+       
+       insert objAddress;
+       
        personAcc2 = new Account(Dealer_Default_Flag__c=false,
                                     Dealer_DMS_SR_Code__c='test code 1',
                                     Status__c='NoCustomer',
@@ -209,6 +234,7 @@ public class AccountHelperTest
         vRel = new Vehicle_Relationship__c(Recall__c = FALSE, Car_Relation__c = 'User', RecordTypeId = VRRecordTypeId);
         vRel.Contact__c = personAcc.id;
        vRel.Vehicle_ID__c = vehicles.id;
+       vRel.Car_Relation__c='Owner';
         insert vRel;
        
        

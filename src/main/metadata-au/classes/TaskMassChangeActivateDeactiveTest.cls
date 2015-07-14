@@ -11,8 +11,10 @@ public class TaskMassChangeActivateDeactiveTest {
 
         Id welcomeCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
         Id paid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();        
-      
-         
+        User usr1 = UtilTestData.createUser('Customer Retention Office 1','Customer Retention');
+        usr1.Active__c=true;
+        update usr1;      
+        system.runAs(usr1){
         Account personAccount1 = new Account(
             LastName = 'Test-Customer1',
             Phone = '1234567', 
@@ -32,7 +34,6 @@ public class TaskMassChangeActivateDeactiveTest {
        
        
         User usr = [select id from User where isActive = true limit 1];
-        
         task1.ownerId = usr.id;
         update task1;
         
@@ -43,19 +44,21 @@ public class TaskMassChangeActivateDeactiveTest {
         TaskMassChangeActivateDeactive controller = new TaskMassChangeActivateDeactive();
         controller.task = task1;
         controller.Activate();
-        usr = [select id, Active__c from User where id = :usr.id];
-        System.assertEquals(usr.Active__c, true);
-       // controller.Deactivate();
-        usr = [select id, Active__c from User where id = :usr.id];
-        System.assertEquals(usr.Active__c, true); 
+        controller.Deactivate();
+        usr = [select id, Active__c from User where id = :usr1.id];
+        System.assertEquals(usr.Active__c, true);        
         Test.stopTest();
+        }
     }
     
     static testMethod void testTaskMassChangeActivateDeactive2(){
 
         Id welcomeCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
         Id paid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();        
-        
+        User usr1 = UtilTestData.createUser('Central Sales & Marketing','Customer Retention');
+        usr1.Active__c=true;
+        update usr1;      
+        system.runAs(usr1){
         Account personAccount1 = new Account(
             LastName = 'Test-Customer1',
             Phone = '1234567', 
@@ -74,7 +77,7 @@ public class TaskMassChangeActivateDeactiveTest {
         insert task1;
         
         User usr = [select id, Active__c from User where isActive = true limit 1];
-        
+        system.debug('>>>> usr >>>'+usr);
         task1.ownerId = usr.id;
         update task1;
         
@@ -84,9 +87,11 @@ public class TaskMassChangeActivateDeactiveTest {
         Test.setCurrentPage(taskMassChangeActivateDeactive);
         TaskMassChangeActivateDeactive controller = new TaskMassChangeActivateDeactive();
         controller.Activate();
+        controller.task = task1;
         controller.Deactivate(); 
         Test.stopTest();
-         usr = [select id, Active__c from User where id = :usr.id];
-        System.assertEquals(usr.Active__c, false); 
+        usr = [select id, Active__c from User where id = :usr1.id];
+        System.assertEquals(usr.Active__c, true); 
+        }
     }
 }
