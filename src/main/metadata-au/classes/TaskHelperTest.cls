@@ -77,7 +77,7 @@ private class TaskHelperTest {
         String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
         Test.startTest();
         //Inserts test data
-        Account acc = new Account(LastName = acme,FirstName = 'Firstname1',Salutation = Unknown, Area_Code__c = '0101',Phone = '1391381', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Home_Phone_2__c = '987654131');
+        Account acc = new Account(LastName = acme,FirstName = 'Firstname1',Salutation = Unknown, Area_Code__c = '0101',Phone = '139138', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau1.com',Email2__c = 'testemail2@test1.com',Home_Phone_2__c = '987654131');
         insert acc;
         Task task = new Task(Subject = acme, RecordTypeId = IBTaskRecordTypeId, WhatId = acc.Id);
         insert task;
@@ -111,7 +111,7 @@ private class TaskHelperTest {
         
         Test.startTest();
         //Inserts test data
-        Account acc = new Account(LastName = acme,FirstName = 'Firstname2',Salutation = Unknown, Area_Code__c = '0102',Phone = '1391381', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau2.com',Email2__c = 'testemail2@test2.com',Home_Phone_2__c = '987654132');
+        Account acc = new Account(LastName = acme,FirstName = 'Firstname2',Salutation = Unknown, Area_Code__c = '0102',Phone = '139138', RecordTypeId = accPerson_RecordTypeId,Email__c='test@mbau2.com',Email2__c = 'testemail2@test2.com',Home_Phone_2__c = '987654132');
         insert acc;
         Campaign cam1 = new Campaign(Name = 'acmeCam1');
         insert cam1;
@@ -154,8 +154,8 @@ private class TaskHelperTest {
        
         String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
         Test.startTest();
-        Account acc = new Account(LastName = acme,FirstName = 'Firstname3',Salutation = Unknown, Area_Code__c = '0103', Phone = '1391381', RecordTypeId = accPerson_RecordTypeId, PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122',Email__c='test@mbau3.com',Email2__c = 'testemail2@test3.com',Home_Phone_2__c = '987654134');
-        Account acccase = new Account(LastName = acme,FirstName = 'Firstname4',Salutation = Unknown, Area_Code__c = '0104',Phone = '1391382', RecordTypeId = accPerson_RecordTypeId, PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122',Email__c='test@mbau3.com',Email2__c = 'testemail2@test3.com',Home_Phone_2__c = '987654135');
+        Account acc = new Account(LastName = acme,FirstName = 'Firstname3',Salutation = Unknown, Area_Code__c = '0103', Phone = '139138', RecordTypeId = accPerson_RecordTypeId, PersonMobilePhone = '130111',PersonOtherPhone = '130112',Email__c='test@mbau3.com',Email2__c = 'testemail2@test3.com',Home_Phone_2__c = '987654134');
+        Account acccase = new Account(LastName = acme,FirstName = 'Firstname4',Salutation = Unknown, Area_Code__c = '0104',Phone = '139138', RecordTypeId = accPerson_RecordTypeId, PersonMobilePhone = '130112',PersonOtherPhone = '130113',Email__c='test@mbau3.com',Email2__c = 'testemail2@test3.com',Home_Phone_2__c = '987654135');
         insert acc;
         insert acccase;
         
