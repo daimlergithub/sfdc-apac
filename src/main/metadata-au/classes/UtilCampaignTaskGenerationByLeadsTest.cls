@@ -34,7 +34,9 @@ public with sharing class UtilCampaignTaskGenerationByLeadsTest {
         update dealer;
          contact = new Contact(
             AccountId = dealer.Id, 
-            LastName = 'ba', 
+            Salutation='Attorney',
+             FirstName='testFirstname',
+            LastName = 'testLastname', 
             Phone = '1212313', 
             email = 's@s.s'
         );

@@ -102,7 +102,7 @@ Public class UtilTestData {
     private static User createUser(Id userRoleId, Id profileId) {
         User usr = new User();
         usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
-       // usr.UserRoleId = userRoleId;
+        usr.UserRoleId = userRoleId;
         usr.ProfileId = profileId;
         usr.LastName = 'Test User';
         usr.Email = 'test001@daimler.com.full';
@@ -120,11 +120,13 @@ Public class UtilTestData {
         Account acc = new Account ( Name = 'dummtyTestAcc');  
         insert acc;      
         System.assert(acc.Name=='dummtyTestAcc');
-        Contact con = new Contact ( AccountId = acc.id, LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true, Permission_Set_Settings__c = 'S_M_Retail_Campaign');
+        Contact con = new Contact ( AccountId = acc.id,Salutation = 'Unknown',FirstName='first name', LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true, Permission_Set_Settings__c = 'S_M_Retail_Campaign');
         con.Portal_User__c = true;
         con.CanAllowPortalSelfReg = true;
-        insert con;
-
+        insert con; 
+		con.FirstName ='Test first name';
+        update con;
+        
         System.assert(con.LastName=='portalTestUser'); 
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
         System.assertEquals(UserInfo.getUserId(),thisUser.id);

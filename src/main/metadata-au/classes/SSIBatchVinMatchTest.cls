@@ -4,6 +4,7 @@ public with sharing class SSIBatchVinMatchTest
 	private static id recordTypeID = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
     public static Profile userProfile = [select Id from Profile where Name = 'CAC SSI SV' limit 1];
     public static user usr;
+    public static Task tsk;
    
     public static testMethod void testcontroller()
     {
@@ -20,6 +21,7 @@ public with sharing class SSIBatchVinMatchTest
         ssi1.CustomerName__c='Cust1';
         ssi1.VehicleUSvin__c = 'abc';
         ssi1.HomeMobilePhone__c ='74389594303';
+        ssi1.Status__c = 'Matched';
         insert ssi1;
         
         Account acc1 = new Account();
@@ -32,6 +34,7 @@ public with sharing class SSIBatchVinMatchTest
         acc1.Salutation ='Brother';
         insert acc1;	
         
+        acc1 =[Select Id, PersonContactId From Account Where Id =: acc1.Id];
         usr = new User(
             Username = System.now().millisecond() +math.random()+ '987654321test12345@test.com',
             FirstName = 'firstname',
@@ -46,11 +49,21 @@ public with sharing class SSIBatchVinMatchTest
             LanguageLocaleKey = 'en_US'
         );
         insert usr;
+     
+        tsk = new Task(recordtypeid = recordTypeID,
+            Subject = 'SSI Task',
+            WhatId = acc1.Id,
+            WhoId = acc1.PersonContactId,
+            Status = 'Open'
+        );
+        insert tsk;
         
         string ssi = 'Select Id,CustomerName__c,VehicleUSvin__c,HomeMobilePhone__c from SSI__c';
         test.startTest();
         SSIBatchVinMatch ssiclass = new SSIBatchVinMatch(ssi);
         Database.executeBatch(ssiclass); 
         test.stopTest();
+        system.assertEquals(vehc1.UsVIN__c, ssi1.VehicleUSvin__c);
+        system.assertEquals(vehc1.UsVIN__c, ssi1.VehicleUSvin__c, tsk);
     }
 }
