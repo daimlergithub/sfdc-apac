@@ -826,7 +826,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2279,7 +2279,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3433,7 +3433,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4598,7 +4598,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -6051,7 +6051,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -7504,7 +7504,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8946,7 +8946,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -10107,7 +10107,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11528,7 +11528,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -12950,7 +12950,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14148,7 +14148,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15342,7 +15342,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -16520,7 +16520,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17785,7 +17785,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18938,7 +18938,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -20135,7 +20135,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Unknown</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -20668,31 +20668,6 @@
         </picklistValues>
     </recordTypes>
     <sharingModel>ControlledByParent</sharingModel>
-    <validationRules>
-        <fullName>Activity_Status_is_Required</fullName>
-        <active>true</active>
-        <description>Activity Status is equired when Status equals to 'Closed'.</description>
-        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI', 
-RecordType.DeveloperName = 'SSI_Task', 
-ISPICKVAL(Status, 'Closed'), 
-ISPICKVAL( Activity_Status__c, '' ) 
-)</errorConditionFormula>
-        <errorMessage>This value cannot be null.</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>QC_Fields_editing_limitations</fullName>
-        <active>true</active>
-        <description>During QC execution, QC user should only able to edit fields"Generate QC" &amp; "QC Quantity".</description>
-        <errorConditionFormula>(( $Profile.Name = "CAC IB QC") || ($Profile.Name = "CAC OB QC"))&amp;&amp; NOT(ISCHANGED( Generate_QC__c )) &amp;&amp; NOT((ISCHANGED( QC_Quantity__c )))</errorConditionFormula>
-        <errorMessage>QC User can only edit "QC Quantity" and "Generate QC" field on this record</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>Template_ID_is_required</fullName>
-        <active>true</active>
-        <description>For "SMS Response Required" task,Template ID is required</description>
-        <errorConditionFormula>AND(SMS_Response_Required__c=TRUE, ISBLANK(SMSTemplateID__c) )</errorConditionFormula>
-        <errorMessage>Sorry, for "SMS Response Required" task,Template ID is required</errorMessage>
-    </validationRules>
     <webLinks>
         <fullName>Activate_Deactivate_CROs</fullName>
         <availability>online</availability>
@@ -21023,7 +20998,6 @@ else {
     window.open('/{!Task.Who}', "", "width = 800,height = 600"); 
    }
   }// records.length &gt; 0 end
-
 
  }//no account check end</url>
     </webLinks>
