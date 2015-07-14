@@ -37,7 +37,7 @@ public class AccountConatctcontroller{
                          Work_Phone_Last_Modified_By2__c,Work_Phone_Last_Modified_Date2__c,Email_Last_Modified_By__c,
                          Email_Last_Modified_Date__c,Email_Last_Modified_By2__c,Email_Last_Modified_Date2__c,LastModifiedById,LastModifiedDate,
                          Preferred_Email_1__c,Preferred_Email_2__c,Preferred_Mobile_1__c,Preferred_Mobile_2__c,Preferred_Home_Phone_1__c,Preferred_Home_Phone_2__c,
-                         Preferred_Work_Phone_1__c,Preferred_Work_Phone_2__c,Phone,Name 
+                         Preferred_Work_Phone_1__c,Preferred_Work_Phone_2__c,Phone 
                          from Account Where Id=:ApexPages.currentPage().getParameters().get('id') Limit 1]; 
             
         }
@@ -57,7 +57,7 @@ public class AccountConatctcontroller{
                 if(!(string.valueof(accountList_details.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+614') || string.valueof(accountList_details.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+615')  ||string.valueof(accountList_details.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('04') || string.valueof(accountList_details.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('05')))
                 {
                     
-                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Mobile number should begin with “+614”, “04”, “+615”, “05”'));
+                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Mobile number should begin with ï¿½+614ï¿½, ï¿½04ï¿½, ï¿½+615ï¿½, ï¿½05ï¿½'));
                     return null;
                 }
                 
@@ -74,7 +74,7 @@ public class AccountConatctcontroller{
                 if(!(string.valueof(accountList_details.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('+614') || string.valueof(accountList_details.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('+615')  ||string.valueof(accountList_details.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('04') || string.valueof(accountList_details.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('05')))
                 {
                     
-                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Mobile number should begin with “+614”, “04”, “+615”, “05”'));
+                    ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'Mobile number should begin with ï¿½+614ï¿½, ï¿½04ï¿½, ï¿½+615ï¿½, ï¿½05ï¿½'));
                     return null;
                 }
                 String errorMsg = validatePhoneNumberFields(string.valueof(accountList_details.Mobile2__c));                         
