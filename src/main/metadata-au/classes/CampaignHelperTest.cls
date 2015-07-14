@@ -82,7 +82,9 @@
      Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
         Contact contact = new Contact(
             AccountId = dealer.Id, 
-            LastName = 'b', 
+            Salutation='Attorney',
+             FirstName='testFirstname',
+            LastName = 'testLastname',  
             Phone = '1212313', 
             email = 's@s.s'
         );

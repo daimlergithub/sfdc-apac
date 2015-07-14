@@ -284,7 +284,7 @@ public class UserHelperTest
         
         // create a Contact
         
-        con = new Contact(AccountId = dealer.Id,Permission_Set_Settings__c='Leads_Management', LastName = 'b', Phone = '123', email = 's@s.s');
+        con = new Contact(AccountId = dealer.Id,Permission_Set_Settings__c='Leads_Management', Salutation='Attorney',FirstName='testFirstname',LastName = 'testLastname', Phone = '123', email = 's@s.s');
         con.Portal_User__c = true;
         con.CanAllowPortalSelfReg = true;
         insert con;
@@ -296,13 +296,13 @@ public class UserHelperTest
         //create user  
         
         usr = new User(
-            Username = System.now().millisecond() + 'test12345@test.com',
+            Username = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
             Email = 'test12345@test.com',
             EmailEncodingKey = 'UTF-8',
-            LastName = 'McTesty',
+            LastName = 'McTesty3',
             CommunityNickname = System.now().millisecond() + 'test12345',
             TimeZoneSidKey = 'America/Los_Angeles',
             LocaleSidKey = 'en_US',
