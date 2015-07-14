@@ -2,6 +2,7 @@
   <apex:form id="form1">
       <apex:pageMessages id="showmsg"></apex:pageMessages>
    <apex:actionFunction name="callHidepopUp" action="{!closePopup}" rerender="tstpopup" immediate="true"/>
+      <apex:outputPanel layout="block" style="overflow:auto;height:275px" >
    <apex:pageBlock id="myTable">
    
       <table style="width:100%" rules="rows">               
@@ -227,7 +228,7 @@
                  {!selectedUserName} -->
          </apex:outputPanel>     
     </apex:outputPanel>
-   
+   </apex:outputPanel>
 </apex:form>
   <script  type="text/javascript">
     function UserRedirect() {               
