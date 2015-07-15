@@ -38,4 +38,14 @@ public class UtilCustomSettings {
         }
     }
     
+    public static string getEndPointURL(String endPointName)
+    {	
+	    if (endPointName != null && EP_Integration_URLS__c.getAll().get(endPointName) != null) {
+            return EP_Integration_URLS__c.getAll().get(endPointName).EP_WebService_1__c;         
+		}
+		else {
+		    return null;
+        }
+    }
+    
 }

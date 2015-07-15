@@ -40,6 +40,7 @@ Global with sharing class UtilConstant {
 	public final static string ORGWIDE_EMAIL_ADDRESS='DailyAssignedLeadsReport eMail Address';
 	public final static string ORGWIDE_EMAIL_ADDRESS_DEFAULT='customer_care@daimler.com';
     public static boolean Recursivefire=false;
+    public final static string ENTITY_UPDATE_NOTIFICATION='Entity Update Notification';
     
    // Initiate roleMap
     private static Map<String, Id> getUserRoleMapInstance() {
