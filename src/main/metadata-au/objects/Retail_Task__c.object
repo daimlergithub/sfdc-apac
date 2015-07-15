@@ -60,7 +60,7 @@
         <externalId>false</externalId>
         <label>Account Name</label>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>Retail Tasks (Account Name)</relationshipLabel>
+        <relationshipLabel>Contracts &amp; Aftersales</relationshipLabel>
         <relationshipName>Retail_Tasks5</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
