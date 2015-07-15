@@ -2847,6 +2847,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
             <picklistValues>
                 <fullName>&lt;1980</fullName>
                 <default>false</default>
+            </picklistValues>			
+            <picklistValues>
+                <fullName>1980</fullName>
+                <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>1981</fullName>
@@ -8109,6 +8113,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>1980</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>1981</fullName>
                 <default>false</default>
             </values>
@@ -11227,6 +11235,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             <picklist>ModelYear__c</picklist>
             <values>
                 <fullName>%3C1980</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1980</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16008,6 +16020,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             <picklist>ModelYear__c</picklist>
             <values>
                 <fullName>%3C1980</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>1980</fullName>
                 <default>false</default>
             </values>
             <values>
