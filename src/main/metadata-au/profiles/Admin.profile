@@ -222,6 +222,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AsyncEntityUpdateNotificationWS</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AttachmentAfterTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -462,6 +466,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DealerLocatorHelper</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DealerSearchController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -475,6 +483,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>EmailServiceStatusUpdateTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>EntityUpdateNotificationWS</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -1174,6 +1186,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerDealerLocatorHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerHandlerIf</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1374,6 +1390,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilDealerOffferingTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilLead</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1423,6 +1443,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilVehicleRelationshipTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilWebService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -7237,6 +7261,11 @@
         <editable>false</editable>
         <field>DM_Request__c.Address__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.CAC_SourceId__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
