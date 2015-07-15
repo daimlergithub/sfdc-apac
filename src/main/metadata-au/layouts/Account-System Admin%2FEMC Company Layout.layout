@@ -300,6 +300,7 @@
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>System__c</fields>
+        <fields>fromRole__c</fields>
         <fields>Position__c</fields>
         <fields>CREATEDBY_USER</fields>
         <fields>UPDATEDBY_USER</fields>

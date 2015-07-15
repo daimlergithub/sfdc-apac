@@ -270,7 +270,7 @@ public class AccountConatctcontrollerTest
       test.stopTest();
         
       //verify
-      system.assertequals(objAccountConatctcontroller.accountList_details.name,objAccount.Name);
+      system.assertequals(objAccountConatctcontroller.accountList_details.id,objAccount.id);
   }
   static void createAccount()
   {
