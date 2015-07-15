@@ -1832,10 +1832,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Spl MB Ins(Prime)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Super Prime</fullName>
                 <default>false</default>
             </picklistValues>
@@ -3077,10 +3073,6 @@
             </values>
             <values>
                 <fullName>Spl MB Ins %28Std%29 CL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Spl MB Ins%28Prime%29</fullName>
                 <default>false</default>
             </values>
             <values>
