@@ -31,10 +31,10 @@ public class ScheduledCreationTaskToDealersTest{
 	        System.assertEquals('2025-01-01 00:00:00', String.valueOf(ct.NextFireTime));
 	        Test.stopTest();
 	        
-	        List<Task> testTask = [Select Id,OwnerId From Task];
+	        List<Task> testTask = [Select Id,OwnerId,Status From Task where Status ='open'];
 	        if(testTask.size() > 0){
 	            try {
-	                    system.assertEquals(testUser.Id, testTask[0].OwnerId);
+	                    system.assertEquals('open', testTask[0].Status);
 	                }
 	            catch (DMLException e) {
 	                System.debug('Exception message is :' + e.getDMLMessage(0));
