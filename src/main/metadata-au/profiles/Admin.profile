@@ -220,11 +220,7 @@
     <classAccesses>
         <apexClass>AssignCaseToDealerControllerTest</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AsyncEntityUpdateNotificationWS</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    </classAccesses>-
     <classAccesses>
         <apexClass>AttachmentAfterTriggerHandler</apexClass>
         <enabled>true</enabled>
