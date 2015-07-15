@@ -415,30 +415,6 @@ Proxy_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-    <outboundMessages>
-        <fullName>Link_Social_Media_Leads</fullName>
-        <apiVersion>28.0</apiVersion>
-        <endpointUrl>https://benz.social360.com.cn/LinkLead.asmx</endpointUrl>
-        <fields>Contact__c</fields>
-        <fields>Id</fields>
-        <fields>RecordTypeId</fields>
-        <includeSessionId>false</includeSessionId>
-        <integrationUser>WORKFLOW_INTEGRATION_USER</integrationUser>
-        <name>Link Social Media Leads</name>
-        <protected>false</protected>
-        <useDeadLetterQueue>false</useDeadLetterQueue>
-    </outboundMessages>
-    <outboundMessages>
-        <fullName>Send_Assigned_Dealer_to_EP</fullName>
-        <apiVersion>27.0</apiVersion>
-        <endpointUrl>https://crm.mercedes-benz.com.cn/webservices/LmsExportNotification</endpointUrl>
-        <fields>Id</fields>
-        <includeSessionId>true</includeSessionId>
-        <integrationUser>WORKFLOW_INTEGRATION_USER</integrationUser>
-        <name>Send Assigned Dealer to EP</name>
-        <protected>false</protected>
-        <useDeadLetterQueue>false</useDeadLetterQueue>
-    </outboundMessages>
     <rules>
         <fullName>Email notification when customer doesn%27t allow dealer contact</fullName>
         <actions>
@@ -703,25 +679,6 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
-        <fullName>Social Media Leads Binding</fullName>
-        <actions>
-            <name>Link_Social_Media_Leads</name>
-            <type>OutboundMessage</type>
-        </actions>
-        <active>false</active>
-        <criteriaItems>
-            <field>Lead__c.Lead_DataSource__c</field>
-            <operation>equals</operation>
-            <value>Web/Mobile Phone</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Lead__c.Lead_DataSubSource__c</field>
-            <operation>equals</operation>
-            <value>Weibo,WeChat</value>
-        </criteriaItems>
-        <triggerType>onCreateOnly</triggerType>
-    </rules>
-    <rules>
         <fullName>Update Close Date With Status Category Closed Won</fullName>
         <actions>
             <name>Close_Date_Update</name>
@@ -878,11 +835,6 @@ Modify Reason:
             <name>Update_Lead_Assigned_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-        <actions>
-            <name>Send_Assigned_Dealer_to_EP</name>
-            <type>OutboundMessage</type>
-        </actions>
-        <active>false</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-15) 
