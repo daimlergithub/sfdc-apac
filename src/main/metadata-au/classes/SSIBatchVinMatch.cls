@@ -36,7 +36,7 @@ global class SSIBatchVinMatch implements Database.Batchable<SObject>, Database.S
     global void execute(Database.BatchableContext bc, List<sObject> scope){
 
         if(SSISV == null){
-            List<Profile> ps = [Select Id From Profile Where Name = 'CAC SSI SV' Limit 1];
+            List<Profile> ps = [Select Id From Profile Where Name = 'CAC SSI TL' Limit 1];
             if(ps != null && ps.size() > 0){
                 List<User> SSISVList = [Select Id From User Where ProfileId = :ps[0].Id And IsActive = true Limit 1];
                 System.assertEquals(SSISVList.size(), 1);
