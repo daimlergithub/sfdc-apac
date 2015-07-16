@@ -8,7 +8,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Company Soft Deleted,Dealer,Company,Person Account,Dealer Group,Person Account Soft Deleted</value>
+            <value>Dealer,Company,Dealer Group,Person Account</value>
         </criteriaItems>
         <accountAccessLevel>Edit</accountAccessLevel>
         <caseAccessLevel>None</caseAccessLevel>
