@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
@@ -19,6 +19,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Company_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Phone</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -656,6 +660,7 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>System__c</fields>
+        <fields>Position__c</fields>
         <fields>CREATEDBY_USER</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
