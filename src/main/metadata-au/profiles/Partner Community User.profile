@@ -750,10 +750,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>RuishiWebserviceTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>SMSControllerExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -15408,9 +15404,6 @@
     <layoutAssignments>
         <layout>Retail_Campaign__c-Record Layout</layout>
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
-    </layoutAssignments>
-    <layoutAssignments>
-        <layout>Retail_Task__c-Contracts %26 Aftersales Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Insurance Layout</layout>
