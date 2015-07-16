@@ -222,6 +222,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AsyncEntityUpdateNotificationWS</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AttachmentAfterTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -479,6 +483,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>EmailServiceStatusUpdateTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>EntityUpdateNotificationWS</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -751,6 +759,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>RuishiWebService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>RuishiWebserviceTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1178,6 +1190,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerDealerLocatorHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerHandlerIf</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1431,6 +1447,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilVehicleRelationshipTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilWebService</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
