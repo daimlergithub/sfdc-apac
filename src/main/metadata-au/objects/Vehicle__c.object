@@ -18017,4 +18017,4 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <fullName>Retail_Vehicle_Relationship_Share__c</fullName>
         <label>Retail Vehicle Relationship Share</label>
     </sharingReasons>
-    </CustomObject>
+</CustomObject>
