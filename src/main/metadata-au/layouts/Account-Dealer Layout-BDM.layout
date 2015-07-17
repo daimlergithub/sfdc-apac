@@ -20,7 +20,7 @@
                 <field>Dealer_Alternate_Name__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Phone</field>
             </layoutItems>
             <layoutItems>
@@ -68,7 +68,7 @@
                 <field>Dealer_BSB__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>Base_Flex__c</field>
             </layoutItems>
         </layoutColumns>
