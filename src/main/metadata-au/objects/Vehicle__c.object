@@ -18017,18 +18017,4 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <fullName>Retail_Vehicle_Relationship_Share__c</fullName>
         <label>Retail Vehicle Relationship Share</label>
     </sharingReasons>
-    <validationRules>
-        <fullName>Competitor_record_creation_Validation</fullName>
-        <active>true</active>
-        <description>Only 'EMC', 'System Administrator' and 'Integration User' profiles can edit/create vehicles with Competitor record type</description>
-        <errorConditionFormula>IF(( RecordType.DeveloperName  = 'Competitor') &amp;&amp; ($Profile.Name &lt;&gt;'System Administrator' &amp;&amp; $Profile.Name &lt;&gt;'IntegrationAPI' &amp;&amp; $Profile.Name &lt;&gt;'EMC') , true, false)</errorConditionFormula>
-        <errorMessage>Only 'EMC', 'System Administrator' and 'Integration User' profiles can edit/create vehicles with Competitor record type</errorMessage>
-    </validationRules>
-    <validationRules>
-        <fullName>MB_record_Type_creation_Validation</fullName>
-        <active>true</active>
-        <description>Only 'System Administrator' and 'Integration User' profiles can edit/create vehicles with MB record type</description>
-        <errorConditionFormula>IF(($Profile.Name != 'System Administrator' &amp;&amp; $Profile.Name != 'IntegrationAPI') &amp;&amp; RecordType.DeveloperName = 'MB', true, false)</errorConditionFormula>
-        <errorMessage>Only 'System Administrator' and 'Integration User' profiles can edit/create vehicles with MB record type</errorMessage>
-    </validationRules>
-</CustomObject>
+    </CustomObject>
