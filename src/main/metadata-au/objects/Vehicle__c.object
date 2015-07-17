@@ -283,10 +283,6 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>AT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Audi</fullName>
                 <default>false</default>
             </picklistValues>
@@ -360,10 +356,6 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Contruction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Corsa</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -519,10 +511,6 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Hyundai</fullName>
                 <default>false</default>
             </picklistValues>
@@ -607,10 +595,6 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>LT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Lucar</fullName>
                 <default>false</default>
             </picklistValues>
@@ -632,10 +616,6 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>MAN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MAN35.540</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2847,7 +2827,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
             <picklistValues>
                 <fullName>&lt;1980</fullName>
                 <default>false</default>
-            </picklistValues>			
+            </picklistValues>
             <picklistValues>
                 <fullName>1980</fullName>
                 <default>false</default>
@@ -6553,10 +6533,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AT</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Abarth</fullName>
                 <default>false</default>
             </values>
@@ -6650,10 +6626,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Contruction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Corsa</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6754,10 +6726,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Great Wall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HX</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6869,10 +6837,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LT</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Lada</fullName>
                 <default>false</default>
             </values>
@@ -6914,10 +6878,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>MAN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MAN35%2E540</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9178,10 +9138,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AT</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Abarth</fullName>
                 <default>false</default>
             </values>
@@ -9275,10 +9231,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Contruction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Corsa</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9379,10 +9331,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Great Wall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HX</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9494,10 +9442,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LT</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Lada</fullName>
                 <default>false</default>
             </values>
@@ -9539,10 +9483,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>MAN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MAN35%2E540</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13963,10 +13903,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>AT</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Abarth</fullName>
                 <default>false</default>
             </values>
@@ -14060,10 +13996,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Contruction</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Corsa</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14164,10 +14096,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Great Wall</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>HX</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14279,10 +14207,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>LT</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Lada</fullName>
                 <default>false</default>
             </values>
@@ -14324,10 +14248,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>MAN</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MAN35%2E540</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18097,4 +18017,4 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <fullName>Retail_Vehicle_Relationship_Share__c</fullName>
         <label>Retail Vehicle Relationship Share</label>
     </sharingReasons>
-</CustomObject>
+    </CustomObject>
