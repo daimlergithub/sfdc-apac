@@ -16,7 +16,9 @@ public class AccountHelper {
     //Existing Au specific variables
     private static Set<String> newCompanyIds = new Set<String>();
     private static Set<String> personIds = new Set<String>();
-    private static final String ONE_SPACE = ' ';    
+    private static final String ONE_SPACE = ' ';  
+    public static Id profileId = userinfo.getProfileId();
+    public static String profileName = [Select Id,Name from Profile where Id=:profileId].Name;   
     public static final Set<Id> RECORD_TYPE_SET = new Set<Id>{
         Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(),
         Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId()
@@ -181,8 +183,8 @@ public class AccountHelper {
     
     // US_AU-CD-001.6 Track the updating history for FS fields
     public static void trackUpdatHistoryForFsInfo(Account updateAcc, Account oldAcc){
-    Id profileId = userinfo.getProfileId();
-    String profileName = [Select Id,Name from Profile where Id=:profileId].Name;        
+    //Id profileId = userinfo.getProfileId();
+    //String profileName = [Select Id,Name from Profile where Id=:profileId].Name;
         if(profileName!= 'IntegrationAPI'){
 
         if(updateAcc.FS_Opt_In_Email__c != oldAcc.FS_Opt_In_Email__c){
@@ -591,8 +593,8 @@ public class AccountHelper {
             setAAcId.add(objAcc.id);
         }
         
-        Id profileId=userinfo.getProfileId();
-        String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
+        //Id profileId=userinfo.getProfileId();
+        //String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
         
         if(setAAcId!=null && !setAAcId.isempty() &&  profileName != 'IntegrationAPI')
         {
@@ -659,8 +661,8 @@ public class AccountHelper {
     
     public static void auBeforeInsert_Update_Phonenum_validation(List<Account> lstNewAccouts)
     {
-        Id profileId = userinfo.getProfileId();
-        String profileName = [Select Id,Name from Profile where Id=:profileId].Name; 
+        //Id profileId = userinfo.getProfileId();
+        //String profileName = [Select Id,Name from Profile where Id=:profileId].Name; 
         for(Account objAcc:lstNewAccouts)
         {
             if(profileName != 'IntegrationAPI')
