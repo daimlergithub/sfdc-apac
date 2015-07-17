@@ -3172,7 +3172,7 @@ Adds an active member/membership status/update activity generated sales leads--t
         <fullName>FirstName_should_not_be_Blank</fullName>
         <active>true</active>
         <description>First Name should'nt be blank for DealerStaff, Directors_Shareholders, or MBAuP_Contacts record Types</description>
-        <errorConditionFormula>IF( ISBLANK( FirstName ), true, false)</errorConditionFormula>
+        <errorConditionFormula>IF( ISBLANK( FirstName ) &amp;&amp;   RecordType.DeveloperName  &lt;&gt; 'Directors_Shareholders' , true, false)</errorConditionFormula>
         <errorMessage>FirstName and LastName should not be Blank.</errorMessage>
     </validationRules>
     <validationRules>
