@@ -17286,7 +17286,7 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>EditPublicTemplates</name>
-    </userPermissions
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>EditReports</name>
