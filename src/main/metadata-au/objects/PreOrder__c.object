@@ -145,7 +145,7 @@
     <nameField>
         <displayFormat>{0000000}</displayFormat>
         <label>Pre Order</label>
-        <trackHistory>false</trackHistory>
+        <trackHistory>true</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Pre Orders</pluralLabel>
