@@ -86,10 +86,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>AT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Audi</fullName>
                 <default>false</default>
             </picklistValues>
@@ -163,10 +159,6 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Contruction</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Corsa</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -322,10 +314,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Hyundai</fullName>
                 <default>false</default>
             </picklistValues>
@@ -410,10 +398,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>LT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Lucar</fullName>
                 <default>false</default>
             </picklistValues>
@@ -435,10 +419,6 @@
             </picklistValues>
             <picklistValues>
                 <fullName>MAN</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MAN35.540</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
