@@ -1,8 +1,8 @@
 @isTest
 public class VehicleDataSharingHandlerTest {
-     private static String vehicleRecordTypeId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
+    private static String vehicleRecordTypeId = Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
     private static String RecordTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship').getRecordTypeId();
-private static  Vehicle_Relationship__c relationship2;
+	private static  Vehicle_Relationship__c relationship2;
     private static  Account dealer;
     
     
@@ -21,14 +21,14 @@ private static  Vehicle_Relationship__c relationship2;
             UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
         
          Vehicle__c vehicle = new Vehicle__c();
-        vehicle.RecordTypeId=vehicleRecordTypeId;
-       vehicle.Car_Model__c=car.Id;
-        vehicle.Class__c='A-Class';
+         vehicle.RecordTypeId=vehicleRecordTypeId;
+         vehicle.Car_Model__c=car.Id;
+         vehicle.Class__c='A-Class';
        
         vehicle=(Vehicle__c)UtilTestData.createSobject(vehicle, null);
         
         
-          relationship2 = new Vehicle_Relationship__c();
+        relationship2 = new Vehicle_Relationship__c();
         relationship2.RecordTypeId=RecordTypeId;
         relationship2.Vehicle_ID__c = vehicle.Id;
         relationship2.Contact__c = personAccount.Id;
@@ -36,7 +36,6 @@ private static  Vehicle_Relationship__c relationship2;
        
         relationship2 = (Vehicle_Relationship__c)UtilTestData.createSobject(relationship2, null); 
         system.debug('relationship2'+relationship2);
-        
         
     }
     
@@ -49,6 +48,7 @@ private static  Vehicle_Relationship__c relationship2;
         
         VehicleDataSharingHandler vr =new VehicleDataSharingHandler();
            vr.executeProcessByCRMCode(lstVH);
+        system.assertNotEquals(null, vr);
         
     }
 

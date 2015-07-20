@@ -5,7 +5,7 @@ public class SharingWrapperTest{
        
 
         SharingWrapper sw =new SharingWrapper();     
-       
+       system.assertNotEquals(null, sw);
         
     }
 
