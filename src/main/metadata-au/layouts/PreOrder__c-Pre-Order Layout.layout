@@ -28,7 +28,7 @@
                 <field>ClosedReason__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Edit</behavior>
+                <behavior>Readonly</behavior>
                 <field>ClosedDate__c</field>
             </layoutItems>
         </layoutColumns>
