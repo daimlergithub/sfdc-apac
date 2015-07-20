@@ -471,7 +471,7 @@ public class AccountHelper {
         {   
            pcvrcount=new Map<ID,Vehicle_Relationship__c>([select id,Car_Relation__c,Vehicle_ID__r.Vehicle_Group__c,Contact__c from Vehicle_Relationship__c where Car_Relation__c='Owner' and Contact__c=:customerIds and Vehicle_ID__r.Vehicle_Group__c = 'PC']); 
             cvvrcount =new Map<ID,Vehicle_Relationship__c>([select id,Car_Relation__c,Vehicle_ID__r.Vehicle_Group__c,Contact__c from Vehicle_Relationship__c where Car_Relation__c='Owner' and Contact__c=:customerIds and Vehicle_ID__r.Vehicle_Group__c = 'CV']); 
-            vanvrcount=new Map<ID,Vehicle_Relationship__c>([select id,Car_Relation__c,Vehicle_ID__r.Vehicle_Group__c,Contact__c from Vehicle_Relationship__c where Car_Relation__c='Owner' and Contact__c=:customerIds and Vehicle_ID__r.Vehicle_Group__c = 'VAN']);      
+            vanvrcount=new Map<ID,Vehicle_Relationship__c>([select id,Car_Relation__c,Vehicle_ID__r.Vehicle_Group__c,Contact__c from Vehicle_Relationship__c where Car_Relation__c='Owner' and Contact__c=:customerIds and Vehicle_ID__r.Vehicle_Group__c = 'Van']);      
             vehiclecount = new Map<ID,Map<String,Integer>>();            
             tempcount = new Map<String,Integer>();
            
@@ -502,7 +502,7 @@ public class AccountHelper {
                               
                                 }
                                 
-                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'VAN'){
+                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'Van'){
                                   tempcount.put('VAN_No_Brand_Purchases__c',vanvrcount.size());
                                  
                                 }
@@ -543,10 +543,10 @@ public class AccountHelper {
         //get cv first date records 
         Map<String,Date>  preRecordsCv = getExsitedInfos(customerIds,'CV');
         //get cv first date records 
-        Map<String,Date>  preRecordsVAN = getExsitedInfos(customerIds,'VAN');
+        Map<String,Date>  preRecordsVAN = getExsitedInfos(customerIds,'Van');
         exsisedRecord.put('PC', preRecordsPc);
         exsisedRecord.put('CV', preRecordsCv);
-        exsisedRecord.put('VAN', preRecordsVAN);
+        exsisedRecord.put('Van', preRecordsVAN);
         
         Map<id,Account> accs = getCustomerInfos(customerIds);
         Map<id,Vehicle__c> vehichles = getVehichles(vehicleIds);
@@ -591,7 +591,7 @@ public class AccountHelper {
     private static Map<String, List<String>> colsMap = new Map<String,List<String>>
         {'PC'=> new List<String>{'PC_Status__c','Buy_Cycle__c','PC_Tenure__c'},
          'CV'=> new List<String>{'CV_Status__c','CV_No_Brand_Purchases__c','CV_Tenure__c'},
-         'VAN'=> new List<String>{'VAN_Status__c','VAN_No_Brand_Purchases__c','VAN_Tenure__c'}
+         'Van'=> new List<String>{'VAN_Status__c','VAN_No_Brand_Purchases__c','VAN_Tenure__c'}
         };
       
           //update PC CV VAN tenure
