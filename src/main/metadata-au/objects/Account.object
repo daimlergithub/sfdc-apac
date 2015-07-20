@@ -24058,8 +24058,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Birthday</fullName>
         <active>true</active>
         <description>Birthdate is not allowed to be later than today or earlier than 150 years.</description>
-        <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-AND(
+        <errorConditionFormula>AND(
 OR(YEAR( TODAY() ) -YEAR( PersonBirthdate) &gt;150,PersonBirthdate &gt; TODAY()),
 $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>PersonBirthdate</errorDisplayField>
