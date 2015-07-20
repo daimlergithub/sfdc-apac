@@ -15,8 +15,11 @@ public class AccountHelper {
     Private static Id dealerRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     //Existing Au specific variables
     private static Set<String> newCompanyIds = new Set<String>();
+    
     private static Set<String> personIds = new Set<String>();
-    private static final String ONE_SPACE = ' ';    
+    private static final String ONE_SPACE = ' ';  
+    public static Id profileId = userinfo.getProfileId();
+    public static String profileName = [Select Id,Name from Profile where Id=:profileId].Name;   
     public static final Set<Id> RECORD_TYPE_SET = new Set<Id>{
         Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(),
         Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId()
@@ -181,8 +184,8 @@ public class AccountHelper {
     
     // US_AU-CD-001.6 Track the updating history for FS fields
     public static void trackUpdatHistoryForFsInfo(Account updateAcc, Account oldAcc){
-    Id profileId = userinfo.getProfileId();
-    String profileName = [Select Id,Name from Profile where Id=:profileId].Name;        
+    //Id profileId = userinfo.getProfileId();
+    //String profileName = [Select Id,Name from Profile where Id=:profileId].Name;
         if(profileName!= 'IntegrationAPI'){
 
         if(updateAcc.FS_Opt_In_Email__c != oldAcc.FS_Opt_In_Email__c){
@@ -443,7 +446,10 @@ public class AccountHelper {
                 from Account
                 where Id in :ids]);
     }
-    
+    Public Static Map<ID,Map<String,Integer>> vehiclecount {get;set;}    
+    Public Static Map<ID,Vehicle_Relationship__c> vanvrcount {get;set;} 
+    Public Static Map<ID,Vehicle_Relationship__c> pcvrcount {get;set;} 
+    Public Static Map<ID,Vehicle_Relationship__c> cvvrcount {get;set;} 
     //Method to update PC Status,CV Status,VAN Status to customer when address record and vehicle relation is associated to customer
     public static void auAfter_Update_UpdatePc_Status_Values(list<Account> listNewAccounts)
     {
@@ -451,29 +457,64 @@ public class AccountHelper {
         Set<Id> vehicleRelationIds = new Set<Id>();
         Set<Id> customerIds = new Set<Id>();
         set<id> setAccId= new set<Id>();
+        Map<String,Integer> tempcount ;
+        Map<String,Integer> tempcunt ;
+        
         List<Vehicle_Relationship__c> insertCvrs = new List<Vehicle_Relationship__c>(); 
         for(Account objAcc : listNewAccounts)
         {  
             if(!UtilConstant.Recursivefire)
                 customerIds.add(objAcc.Id);
         }
+        
         if(customerIds!=null && !customerIds.isEmpty())
-        {
+        {   
+           pcvrcount=new Map<ID,Vehicle_Relationship__c>([select id,Car_Relation__c,Vehicle_ID__r.Vehicle_Group__c,Contact__c from Vehicle_Relationship__c where Car_Relation__c='Owner' and Contact__c=:customerIds and Vehicle_ID__r.Vehicle_Group__c = 'PC']); 
+            cvvrcount =new Map<ID,Vehicle_Relationship__c>([select id,Car_Relation__c,Vehicle_ID__r.Vehicle_Group__c,Contact__c from Vehicle_Relationship__c where Car_Relation__c='Owner' and Contact__c=:customerIds and Vehicle_ID__r.Vehicle_Group__c = 'CV']); 
+            vanvrcount=new Map<ID,Vehicle_Relationship__c>([select id,Car_Relation__c,Vehicle_ID__r.Vehicle_Group__c,Contact__c from Vehicle_Relationship__c where Car_Relation__c='Owner' and Contact__c=:customerIds and Vehicle_ID__r.Vehicle_Group__c = 'VAN']);      
+            vehiclecount = new Map<ID,Map<String,Integer>>();            
+            tempcount = new Map<String,Integer>();
+           
             list<Account> lstCustomers=[select id,(select id,Customer__c from Addresses__r),(Select id,Vehicle_ID__c,Car_Relation__c,Contact__c,Vehicle_ID__r.Vehicle_Group__c from Vehicle_Relationships2__r) from Account where id In:customerIds];
+           
             if(lstCustomers!=null && !lstCustomers.isEmpty())
             {
                 for(Account objAcc:lstCustomers)
-                {
+                {   
+                    Integer i=0;Integer j=0;Integer k=0;
                     if(objAcc.Vehicle_Relationships2__r!=null && !objAcc.Vehicle_Relationships2__r.isEmpty())
-                    {
+                    {   
+                        
+                        system.debug('objAcc.Vehicle_Relationships2__'+objAcc.Vehicle_Relationships2__r);
                         for(Vehicle_Relationship__c objVR:objAcc.Vehicle_Relationships2__r)
                         {
                             if(objAcc.id==objVR.Contact__c && objVR.Car_Relation__c =='Owner'){
+                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'PC'){
+                                if(pcvrcount.size()>0)
+                                {
+                                 tempcount.put('Buy_Cycle__c',pcvrcount.size());
+                                  }
+                                  
+                              
+                                }
+                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'CV'){
+                                  tempcount.put('CV_No_Brand_Purchases__c',cvvrcount.size());                                                          
+                              
+                                }
+                                
+                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'VAN'){
+                                  tempcount.put('VAN_No_Brand_Purchases__c',vanvrcount.size());
+                                 
+                                }
+                                                           
                                 vehicleRelationIds.add(objVR.Id);
                                 vehicleIds.add(objVR.Vehicle_ID__c);
                                 insertCvrs.add(objVR);
+                               vehiclecount.put(objAcc.id,tempcount);
+                       
                             }
                         }
+                       
                     }
                     if(objAcc.Addresses__r!=null && !objAcc.Addresses__r.isEmpty())
                     {
@@ -482,6 +523,7 @@ public class AccountHelper {
                             setAccId.add(objAddr.Customer__c);
                         }
                     }
+                 
                 }
                 
                 if(insertCvrs!=null && !insertCvrs.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()){
@@ -551,9 +593,11 @@ public class AccountHelper {
          'CV'=> new List<String>{'CV_Status__c','CV_No_Brand_Purchases__c','CV_Tenure__c'},
          'VAN'=> new List<String>{'VAN_Status__c','VAN_No_Brand_Purchases__c','VAN_Tenure__c'}
         };
+      
           //update PC CV VAN tenure
     @testvisible private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer){
-
+    
+      
         if(!String.isblank(vehicleGroup)){
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
 
@@ -562,21 +606,17 @@ public class AccountHelper {
 
             if(isCustomer && userInfo.get(cols[0])!=null)
                 userInfo.put(cols[0], 'Customer');
-            integer numberofP = 1;
+           Integer numberofP =0;
             
-            /*if(userInfo.get(cols[1])!=null){
-               numberofP = integer.valueOf(userInfo.get(cols[1]))+1;
-            }
-          
            if(userInfo.get(cols[1])!=null)
-             userInfo.put(cols[1], Decimal.valueOf(numberofP));
-               
+             userInfo.put(cols[1], Decimal.valueOf(vehiclecount.get(userInfo.id).get(cols[1])));
+                          
             integer tenure = 0;
             if(preRecord.get(userInfo.id) != null){
                 tenure = preRecord.get(userInfo.id).monthsBetween(Date.today())/12;
             }
             if(userInfo.get(cols[2])!=null)
-                userInfo.put(cols[2] , Decimal.valueOf(tenure));*/  
+                userInfo.put(cols[2] , Decimal.valueOf(tenure)); 
             }
         }
         return userInfo;        
@@ -591,8 +631,8 @@ public class AccountHelper {
             setAAcId.add(objAcc.id);
         }
         
-        Id profileId=userinfo.getProfileId();
-        String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
+        //Id profileId=userinfo.getProfileId();
+        //String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
         
         if(setAAcId!=null && !setAAcId.isempty() &&  profileName != 'IntegrationAPI')
         {
@@ -659,8 +699,8 @@ public class AccountHelper {
     
     public static void auBeforeInsert_Update_Phonenum_validation(List<Account> lstNewAccouts)
     {
-        Id profileId = userinfo.getProfileId();
-        String profileName = [Select Id,Name from Profile where Id=:profileId].Name; 
+        //Id profileId = userinfo.getProfileId();
+        //String profileName = [Select Id,Name from Profile where Id=:profileId].Name; 
         for(Account objAcc:lstNewAccouts)
         {
             if(profileName != 'IntegrationAPI')
