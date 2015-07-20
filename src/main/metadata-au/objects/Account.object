@@ -5955,6 +5955,11 @@ Modify Reason:
         <fullName>IsCustomerPortal</fullName>
     </fields>
     <fields>
+        <fullName>IsPartner</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>Is_Blacklist__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
