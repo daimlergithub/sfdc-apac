@@ -9,7 +9,7 @@ public class UtilDBTest {
                                     Status__c='NoCustomer',
                                     City__c='Beijing',
                                     Gender__c = 'Male',
-                                    Phone = '801801010',
+                                    Phone = '8524578458',
                                     Area_code__c = '0101',
                                     LastName = 'galaxy1',
                                     FirstName = 'First Name',
@@ -32,13 +32,14 @@ public class UtilDBTest {
         createTestData();
         lst = new  list<Account>();
         lst.add(personAcc);
-        
+      
      
         UtilDB.updateSobjects(lst);
         DBUtil.updateSobjects(lst);
-         
-       // UtilDB.deleteSobjects(lst);
         
+       
+       // UtilDB.deleteSobjects(lst);
+        system.assertEquals(null, personAcc.id);
         
     }
     private static testmethod void testInsertSobjects(){
@@ -52,22 +53,24 @@ public class UtilDBTest {
           UtilDB.insertSobjects(lst);
         DBUtil.insertSobjects(lst);
        // UtilDB.deleteSobjects(lst);
-        
-        
+         Account person=[select id from Account where Id =:personAcc.Id];
+        system.assertEquals(personAcc.id, person.id);
     }
      private static testmethod void testDeleteSobjects(){
         createTestData();
           insert personAcc;
+           Account person=[select id from Account where Id =:personAcc.Id];
          delete personAcc;
         lst = new  list<Account>();
         lst.add(personAcc);
         
-     
+     	 
        // UtilDB.updateSobjects(lst);
-         
-       UtilDB.deleteSobjects(lst);
+          
+      	UtilDB.deleteSobjects(lst);
         DBUtil.deleteSobjects(lst);
-        
+       
+          system.assertEquals(personAcc.id, person.id);
     }
 
 }
