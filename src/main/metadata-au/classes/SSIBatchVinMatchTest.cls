@@ -2,7 +2,7 @@
 public with sharing class SSIBatchVinMatchTest 
 {
 	private static id recordTypeID = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
-    public static Profile userProfile = [select Id from Profile where Name = 'CAC SSI SV' limit 1];
+    public static Profile userProfile = [select Id from Profile where Name = 'CAC SSI TL' limit 1];
     public static user usr;
     public static Task tsk;
    
@@ -13,13 +13,13 @@ public with sharing class SSIBatchVinMatchTest
         
         Vehicle__c vehc1 = new Vehicle__c();
         vehc1.Vehicle_Name__c ='Test1';
-        vehc1.UsVIN__c ='abc';
+        vehc1.UsVIN__c ='abchgdtrsghtredfr';
         vehc1.RecordTypeId = vechID;
         insert vehc1;
         
         SSI__c ssi1 = new SSI__c();
         ssi1.CustomerName__c='Cust1';
-        ssi1.VehicleUSvin__c = 'abc';
+        ssi1.VehicleUSvin__c = 'abchgdtrsghtredfr';
         ssi1.HomeMobilePhone__c ='74389594303';
         ssi1.Status__c = 'Matched';
         insert ssi1;

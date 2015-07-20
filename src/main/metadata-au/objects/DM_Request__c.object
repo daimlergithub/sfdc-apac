@@ -139,7 +139,7 @@
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;Related vehicles&apos; in Data Dictionary.
+Function: Mapping 'Related vehicles' in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -243,7 +243,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;Planned delivery date&apos; in Data Dictionary.
+Function: Mapping 'Planned delivery date' in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -322,7 +322,7 @@ Modify Reason:
         <fullName>Gender__c</fullName>
         <description>This field is used for display account gender field in DM request.</description>
         <externalId>false</externalId>
-        <formula>CASE(Customer_Name__r.Gender__c, &quot;Male&quot;, &quot;Male&quot;, &quot;Female&quot;, &quot;Female&quot;,&quot;&quot;)</formula>
+        <formula>CASE(Customer_Name__r.Gender__c, "Male", "Male", "Female", "Female","")</formula>
         <label>Gender</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -415,7 +415,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;Delivery details&apos; in Data Dictionary.
+Function: Mapping 'Delivery details' in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -478,7 +478,7 @@ Modify Reason:
         <description>/*
 Created by:  Chris.Huang
 Used by:  CAC User
-Function: Mapping &apos;The referrer name&apos; in Data Dictionary.
+Function: Mapping 'The referrer name' in Data Dictionary.
 Used in: Integration
 
 Modify History
@@ -629,8 +629,8 @@ Modify Reason:
         <fullName>Insufficient_Stock</fullName>
         <active>true</active>
         <description>US-DM-003:
-7. If Expected DM material&apos;s stock reaches Stock alert level, Data loader will report an error message &quot;&quot;Insufficient Stock&quot;&quot;. And this record will not be uploaded successfully.&quot;</description>
-        <errorConditionFormula>ISPICKVAL(Status__c , &apos;Sent&apos;) &amp;&amp; 
+7. If Expected DM material's stock reaches Stock alert level, Data loader will report an error message ""Insufficient Stock"". And this record will not be uploaded successfully."</description>
+        <errorConditionFormula>ISPICKVAL(Status__c , 'Sent') &amp;&amp; 
 (
  Actual_DM_Material1__r.Threshold__c &gt;  Actual_DM_Material1__r.Stock__c 
 ||

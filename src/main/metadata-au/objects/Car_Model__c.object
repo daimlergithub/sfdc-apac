@@ -86,10 +86,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>AT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Audi</fullName>
                 <default>false</default>
             </picklistValues>
@@ -166,10 +162,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Corsa</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Daewoo</fullName>
                 <default>false</default>
             </picklistValues>
@@ -218,7 +210,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Forklift</fullName>
+                <fullName>FORKLIFT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -246,7 +238,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Fuso</fullName>
+                <fullName>FUSO</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -314,15 +306,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>HSV</fullName>
+                <fullName>Hsv</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Hummer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>HX</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -346,7 +334,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>IVECO</fullName>
+                <fullName>Iveco</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -410,10 +398,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>LT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Lucar</fullName>
                 <default>false</default>
             </picklistValues>
@@ -438,15 +422,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Man35.540</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Maserati</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Max</fullName>
+                <fullName>MAX</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -486,7 +466,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mini</fullName>
+                <fullName>MINI</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -558,7 +538,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Rolls</fullName>
+                <fullName>ROLLS</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -678,7 +658,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>White</fullName>
+                <fullName>WHITE</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>true</sorted>

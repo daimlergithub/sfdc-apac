@@ -6,6 +6,7 @@ public with sharing class UtilCampaignTaskGenerationByLeadsTest {
     private static String  accPerson_RecordTypeIdp = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     private static String topTemplateTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('MMS').getRecordTypeId();
      private static String topSMSTemplateTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
+    private static String topEDMTemplateTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('eDM').getRecordTypeId();
     
     private static Template__c temp;
     private static Account dealer;
@@ -122,6 +123,19 @@ public with sharing class UtilCampaignTaskGenerationByLeadsTest {
         temp.ValidTimeHrs__c=2;
         insert temp;
     }
+    private static void createTemplate2(){
+         
+        temp=new Template__c();
+        temp.RecordTypeId=topEDMTemplateTypeId;
+        temp.Active__c=true;
+        temp.AnalyzeRequired__c=true;
+        temp.Closure_SMS__c='test2';
+        temp.Subject__c='Helloo';
+        temp.Template_ID__c='test1234';
+        temp.Type__c='Price List';
+        temp.ValidTimeHrs__c=2;
+        insert temp;
+    }
     
 
     
@@ -129,9 +143,12 @@ public with sharing class UtilCampaignTaskGenerationByLeadsTest {
            createUser();         
            createAccount();    
            createLead();
+         createTemplate2();
+         
            top = new Campaign(           
             Name = 'top', 
             Status = 'Started', 
+           Template__c=temp.id,
             StartDate = System.today(), 
             EndDate = System.today(),
             Execution_Type__c ='eDM',           
