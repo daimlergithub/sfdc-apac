@@ -708,7 +708,7 @@ public class AccountHelper {
                 if (string.valueof(objAcc.Mobile__c) != null && string.valueof(objAcc.Mobile__c)!='')
                 {
                     if(!(string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+614') || string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+615')  ||string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('04') || string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('05')))
-                    { objAcc.Mobile__c.addError('Mobile number should begin with ?+614?, ?04?, ?+615?, ?05? ');}
+                    { objAcc.Mobile__c.addError('Mobile number should begin with any one of these values +614, 04, +615, 05');}
                    
                       String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Mobile__c));                         
                            if(errorMsg != null)
@@ -718,7 +718,7 @@ public class AccountHelper {
                 if (string.valueof(objAcc.Mobile2__c) != null && string.valueof(objAcc.Mobile2__c)!='')
                 {
                     if(!(string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('+614') || string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('+615')  ||string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('04') || string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('05')))
-                    {    objAcc.addError('Mobile number should begin with ?+614?, ?04?, ?+615?, ?05? ');}
+                    {    objAcc.addError('Mobile number should begin with any one of these values +614, 04, +615, 05');}
                     
                       String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Mobile2__c));                         
                            if(errorMsg != null)
@@ -756,19 +756,19 @@ public class AccountHelper {
     {
         if((string.valueof(PhoneNum).startsWith('0') && (string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() > 10 || string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() < 8 ) ))
         {
-            return 'Number of digits in Phone Number should be more than 8 or less than 10';
+            return 'Number of digits in Phone Number should be more than 8 or less than 10 if it starts with 0';
         }
        else if(string.valueof(PhoneNum).startsWith('+61') && string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() != 12)
        {
-            return 'The phone Number record needs to have only 12 digits';
+            return 'The phone Number record needs to have only 12 digits if it starts with +61';
        }
-       else if((string.valueof(PhoneNum).startsWith('1300') || string.valueof(PhoneNum).startsWith('1600')) && string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() != 10 )
+       else if((string.valueof(PhoneNum).startsWith('1300') || string.valueof(PhoneNum).startsWith('1800')) && string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() != 10 )
        {
-            return 'The The phone Number record needs to have only 10 digits';
+            return 'The The phone Number record needs to have only 10 digits if it starts with 1800 or 1300';
        }
        else if((string.valueof(PhoneNum).startsWith('13') && !string.valueof(PhoneNum).startsWith('1300')) && string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() != 6)
        {
-            return 'The Phone Number record needs to have only 6 digits';
+            return 'The Phone Number record needs to have only 6 digits if it starts with 13';
        }
        else 
         return null; 
