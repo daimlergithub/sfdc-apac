@@ -246,7 +246,7 @@
     <fields>
         <fullName>Current_Model__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Related_Vehicle__r.Model__c)</formula>
+        <formula>Text(Related_Vehicle_r.Car_Model_r.Name)</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Current Model</label>
         <required>false</required>
