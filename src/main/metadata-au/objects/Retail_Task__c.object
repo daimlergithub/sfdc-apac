@@ -2194,8 +2194,18 @@
     <label>Contracts &amp; Aftersales</label>
     <listViews>
         <fullName>All</fullName>
+        <columns>CMS_Contract_Link__c</columns>
+        <columns>Account__c</columns>
+        <columns>StartDate__c</columns>
+        <columns>EndDate__c</columns>
+        <columns>Finance_Product_Type__c</columns>
+        <columns>Related_Dealer__c</columns>
+        <columns>VIN_Link__c</columns>
+        <columns>Vehicle_Registration_No__c</columns>
+        <columns>Duration__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
+        <language>en_US</language>
     </listViews>
     <nameField>
         <label>Name</label>
