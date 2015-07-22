@@ -178,15 +178,7 @@
         <searchFilterFields>Session_Start_Date__c</searchFilterFields>
         <searchFilterFields>Session_End_Date__c</searchFilterFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
-    <validationRules>
-        <fullName>Campaign_Package_cannot_be_empty</fullName>
-        <active>true</active>
-        <description>To prevent adding Campaign Package without any Package Items</description>
-        <errorConditionFormula>Campaign_Package__r.Package_Items__c =0</errorConditionFormula>
-        <errorDisplayField>Campaign_Package__c</errorDisplayField>
-        <errorMessage>You can&apos;t add a Campaign Package without any Package Items.</errorMessage>
-    </validationRules>
+    <sharingModel>ControlledByParent</sharingModel>   
     <validationRules>
         <fullName>Session_Start_Date_is_less_than_End_Date</fullName>
         <active>true</active>
