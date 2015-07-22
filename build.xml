@@ -622,10 +622,17 @@
 			<sf:include name="RuishiWebService"/>
 			<sf:include name="RuishiWebServiceTest"/>				
 			<sf:include name="WebserviceMockImpl"/>
+			<sf:include name="AsyncEntityUpdateNotificationWS"/>
+			<sf:include name="EntityUpdateNotificationWS"/>
+			<sf:include name="DealerLocatorHelper"/>
+			<sf:include name="UtilWebService"/>
+			<sf:include name="TriggerDealerLocatorHandler"/>
+			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerAccount"/>
 			<sf:include name="TriggerVehicleRelationship"/>
+			<sf:include name="TriggerDealerLocator"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="VehicleRelLooking"/>
