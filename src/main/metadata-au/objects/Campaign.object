@@ -2700,6 +2700,14 @@
     </listViews>
     <listViews>
         <fullName>AllActiveCampaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>Brand__c</columns>
         <filterScope>Everything</filterScope>
         <filters>
             <field>CAMPAIGN.ACTIVE</field>
@@ -2707,6 +2715,7 @@
             <value>1</value>
         </filters>
         <label>All Active Campaigns</label>
+        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>AllActiveCentralCampaigns</fullName>
@@ -2879,6 +2888,14 @@
     </listViews>
     <listViews>
         <fullName>MyActiveCampaigns</fullName>
+        <columns>CAMPAIGN.NAME</columns>
+        <columns>CAMPAIGN.START_DATE</columns>
+        <columns>CAMPAIGN.END_DATE</columns>
+        <columns>CAMPAIGN.BUDGETED_COST</columns>
+        <columns>CAMPAIGN.ACTUAL_COST</columns>
+        <columns>CAMPAIGN.CAMPAIGN_TYPE</columns>
+        <columns>CAMPAIGN.STATUS</columns>
+        <columns>Brand__c</columns>
         <filterScope>Mine</filterScope>
         <filters>
             <field>CAMPAIGN.ACTIVE</field>
@@ -2886,6 +2903,7 @@
             <value>1</value>
         </filters>
         <label>My Active Campaigns</label>
+        <language>en_US</language>
     </listViews>
     <listViews>
         <fullName>smart_Best_Practice</fullName>
