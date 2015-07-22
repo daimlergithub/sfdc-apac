@@ -7,12 +7,16 @@ public class UserHelperTest
     public static String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId();
     public static String retailSalesleadRecordTypeID = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId();
     public static Set<Id> existUserIds = new Set<Id>();
+    public static map<id,User> userOldMap = new map<id,User>();
     public static List<Profile> lstProfiles = new List<profile>();
     public static List<user> usersList = new List<user>();
     public static Contact con ;
     public static Account dealer;
     public static user usr;
+    public static boolean isInsert = true;
+    public static boolean isUpdate = false;
     public static profile DealerDelegatedAdmin;
+    public static profile DealerCommunityUser;
     public static Profile CACSSICSR = [select Id from Profile where Name = 'CAC SSI CSR'];
     public static Profile CACSSIQC = [select Id from Profile where Name = 'CAC SSI QC'];
    
@@ -46,7 +50,7 @@ public class UserHelperTest
       {   
         
        test.startTest();
-       createTestData();
+       createTestData();  
        userHelper.ShareVehicleRelationToNewUser(usr.id, existUserIds);
        Vehicle_Relationship__Share vrShare =  [select AccessLevel from Vehicle_Relationship__Share where ParentId =:vehicleRs.id and UserOrGroupId =:usr.id limit 1];       userHelper.ShareVehicleToNewUser(usr.id, existUserIds);
        test.stopTest();
@@ -274,6 +278,19 @@ public class UserHelperTest
     }   
     
     }
+    
+    public static testmethod void AfterInsert_UpdateMethod()
+    {
+         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+         {
+             test.startTest();
+       		 createTestData();
+             userOldMap.putAll(usersList);             
+             userHelper.AfterInsert_UpdateMethod(usersList, userOldMap, isInsert, isUpdate);
+             
+         }                 
+        
+    }    
   
     
     public Static  void createTestData()
@@ -281,14 +298,14 @@ public class UserHelperTest
          DealerDelegatedAdmin = [select Id from Profile where Name = 'Dealer Delegate Admin' limit 1];
         // create a Dealer
          dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
-        
+      
         // create a Contact
         
         con = new Contact(AccountId = dealer.Id,Permission_Set_Settings__c='Leads_Management', Salutation='Attorney',FirstName='testFirstname',LastName = 'testLastname', Phone = '123', email = 's@s.s');
         con.Portal_User__c = true;
         con.CanAllowPortalSelfReg = true;
         insert con;
-        
+ 
         // profiles
         
         
@@ -310,8 +327,8 @@ public class UserHelperTest
         );
         usr.ContactId = con.id;
         insert usr;
-        //  Insert person Account 
-        
+       
+          //  Insert person Account 
         Account person = new Account(
             RecordTypeId = personRecordtypeid,
             PersonMobilePhone = '1861001001',
@@ -494,7 +511,7 @@ public class UserHelperTest
         lstProfiles.add(DealerDelegatedAdmin);
         lstProfiles.add(CACSSICSR);
         lstProfiles.add(CACSSIQC);        
-        usersList.add(usr);         
+		usersList.add(usr);        
         UserHelper ush = new userHelper();
      
     }
