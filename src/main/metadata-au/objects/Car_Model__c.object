@@ -1652,6 +1652,10 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>CLA-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>CLC-Class</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1712,11 +1716,23 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>GLA - Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>GL-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>G-Wagon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>M / GLE-Class Coupe</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1737,6 +1753,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>M-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1836,7 +1856,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Vaneo-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Vario</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>V-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
