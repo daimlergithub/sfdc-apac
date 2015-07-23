@@ -12811,11 +12811,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Survey_Question__c.Total_Responses__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Survey_Question__c.Type__c</field>
         <readable>false</readable>
     </fieldPermissions>
