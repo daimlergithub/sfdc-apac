@@ -341,32 +341,6 @@
 	<target name="deploy34">
 		<deploy>
 		<sf:typeset name="classes">
-			<sf:include name="ScheduledCreationTaskToDealers"/>
-			<sf:include name="ScheduledCreationTaskToDealersTest"/>
-			<sf:include name="ScheduledDeleteTaskToDealers"/>
-			<sf:include name="ScheduledDeleteTaskToDealersTest"/>
-			<sf:include name="ScheduledUpdateCommunityUsers"/>
-			<sf:include name="ScheduledUpdateCommunityUsersTest"/>
-			<sf:include name="SelectAssignedDealerController"/>
-			<sf:include name="SelectAssignedDealerControllerTest"/>
-			<sf:include name="UtilCustomSettings"/>
-			<sf:include name="ContactHelper"/>
-			<sf:include name="ContactHelperTest"/>
-			<sf:include name="ContactTriggerHandler"/>
-			<sf:include name="TestTriggerHandler"/>
-		</sf:typeset>
-		<sf:typeset name="triggers">
-			<sf:include name="ContactTrigger"/>
-		</sf:typeset>	
-		<sf:typeset name="pages"> 
-				<sf:include name="SelectAssignedDealer"/>
-		</sf:typeset>		
-		</deploy>					
-    </target>
-	
-	<target name="deploy35">
-		<deploy>
-		<sf:typeset name="classes">
 			<sf:include name="TaskHelper"/>
 			<sf:include name="TaskHelperTest"/>
 			<sf:include name="TaskTriggerHandler"/>
@@ -392,6 +366,32 @@
 			<sf:include name="TaskTrigger"/>
 		</sf:typeset>	
 		</deploy>				
+    </target>
+	
+	<target name="deploy35">
+		<deploy>
+		<sf:typeset name="classes">
+			<sf:include name="ScheduledCreationTaskToDealers"/>
+			<sf:include name="ScheduledCreationTaskToDealersTest"/>
+			<sf:include name="ScheduledDeleteTaskToDealers"/>
+			<sf:include name="ScheduledDeleteTaskToDealersTest"/>
+			<sf:include name="ScheduledUpdateCommunityUsers"/>
+			<sf:include name="ScheduledUpdateCommunityUsersTest"/>
+			<sf:include name="SelectAssignedDealerController"/>
+			<sf:include name="SelectAssignedDealerControllerTest"/>
+			<sf:include name="UtilCustomSettings"/>
+			<sf:include name="ContactHelper"/>
+			<sf:include name="ContactHelperTest"/>
+			<sf:include name="ContactTriggerHandler"/>
+			<sf:include name="TestTriggerHandler"/>
+		</sf:typeset>
+		<sf:typeset name="triggers">
+			<sf:include name="ContactTrigger"/>
+		</sf:typeset>	
+		<sf:typeset name="pages"> 
+				<sf:include name="SelectAssignedDealer"/>
+		</sf:typeset>		
+		</deploy>					
     </target>
 	
 	<target name="deploy36">
@@ -682,6 +682,9 @@
 			<sf:include name="UserHelperTest"/>
 			<sf:include name="TriggerCampaignMembersTriggerHandler"/>
 			<sf:include name="ChatterAnswersEscalationTriggerTest"/>
+			<sf:include name="SSIVINMatchProcessTest"/>
+			<sf:include name="SlickCtiObjectHelperTest"/>
+			<sf:include name="SlickCtiControllerTest"/>
 		</sf:typeset>	
 		<sf:typeset name="triggers">
 			<sf:include name="CaseTrigger "/>

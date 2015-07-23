@@ -36,8 +36,10 @@ public class BatchJobHelperTest
         objBatch1.Recipient_Eamil__c='test@email.com';
         objBatch1.Status__c='Pending';
         insert objBatch1;
+        // We have below line of code since Batchjobs 
+        //in production org weren't getting kicked off.
         BatchJobHelper.afterInsertEvents();
-        Test.stopTest();
-        //UtilCampaignTaskGenerationByAccountTest.testUtilCampaignTaskGenerationByAccount();
+         Test.stopTest();
+         System.assertEquals(objBatch1.Status__c,'Pending');
     }
 }

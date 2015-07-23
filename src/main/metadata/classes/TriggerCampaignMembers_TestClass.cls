@@ -2,14 +2,11 @@
     Type:       Test Class
     Purpose:    TriggerCampaignMembers 
     User Story:     
-    Used By:    
-    ---------------------------------------------------------------
-    History:
     
     10-July-2013 Stephano Shi (Breakingpoint)    Created
 */
 @isTest
-public class TriggerCampaignMembers_TestClass{
+public with sharing class TriggerCampaignMembers_TestClass{
     static testmethod void runTriggerCampaignMembers(){
         Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();
         Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
@@ -44,6 +41,9 @@ public class TriggerCampaignMembers_TestClass{
                                                 ContactId = testPerAcc.PersonContactId
                                                 );  
         insert cm1;
+        
+         CampaignMember cmtest=[select CampaignId,Status,ContactId from CampaignMember where id=:cm1.id];
+           system.assertEquals(cmtest.Status,cm1.Status);
     }
         
 }

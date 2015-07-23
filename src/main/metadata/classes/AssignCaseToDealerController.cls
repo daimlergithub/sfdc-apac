@@ -38,84 +38,94 @@ public class AssignCaseToDealerController {
         'Dealer_Service_Codes__c'
     };
     
-    public AssignCaseToDealerController() {
-        Id caseId = ApexPages.currentPage().getParameters().get('caseId');
-        
-        try {
-            assignCase = [SELECT Id, OwnerId,Case_Dealer__c FROM Case WHERE Id = :caseId];
-            system.debug('######################=assignCase0'+assignCase);
-        }
-        catch (QueryException e) {
-            // If user open this from home page, it means, 
-            // we don't need to pass province and city
-            System.debug('User may open this page in the Home Page Custom Link.');
-        }
-
-        query();
+    public AssignCaseToDealerController()
+    {
+    	//Added community license switching mechanism
+    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+    	{
+	        Id caseId = ApexPages.currentPage().getParameters().get('caseId');
+	        
+	        try {
+	            assignCase = [SELECT Id, OwnerId,Case_Dealer__c FROM Case WHERE Id = :caseId];
+	            system.debug('######################=assignCase0'+assignCase);
+	        }
+	        catch (QueryException e) {
+	            // If user open this from home page, it means, 
+	            // we don't need to pass province and city
+	            System.debug('User may open this page in the Home Page Custom Link.');
+	        }
+	
+	        query();
+    	}
     }
     
-    public void query() {
+    public void query() 
+    {
         
         users = new List<UserWithAccountInfo>();
-        Set<Id> accountIds = new Set<Id>();
-        Map<id, String> accountIdAccountBranchName = new Map<id, String>();
-            
-        String queryDealerSOQL = 'select Id, Branch_name__c from Account where RecordType.Name = :ACCOUNT_RT_DEALER ';
-        if(!String.isBlank(dealerName)) {
-            queryDealerSOQL += 'AND (Name LIKE \'%' + dealerName + '%\'';
-            queryDealerSOQL += ' or Branch_name__c LIKE \'%' + dealerName + '%\')';
-        }
-            System.debug(queryDealerSOQL);
-        for(Account acc : Database.query(queryDealerSOQL)) {
-            
-            accountIds.add(acc.Id);
-            accountIdAccountBranchName.put(acc.Id, acc.Branch_name__c);
-        }
-        String Dealer='Dealer Delegate Admin';
-        String querySOQL = 'Select Id, Name, FirstName, LastName, UserRole.Name, Profile.Name, AccountId ' +
-                            'FROM User ' +
-                           'WHERE IsActive = true ';// AND ' +
-                         //  '(Profile.Name like \%'+Dealer+'%\)';
-        String DEALER_DELEGATE_ADMIN=UtilConstant.DEALER_DELEGATE_ADMIN;
-        if(!String.isBlank(DEALER_DELEGATE_ADMIN)) {
-            querySOQL += ' AND Profile.Name LIKE \'%' + DEALER_DELEGATE_ADMIN + '%\'';
-        }                  
-        // If userName filter is not null, add it into SOQL
-        if(!String.isBlank(userName)) {
-            querySOQL += ' AND Name LIKE \'%' + userName + '%\'';
-        }
-        //if (accountIds.size() > 0) {
-            querySOQL += ' AND AccountId in :accountIds ';
-        //}
-
-        querySOQL = querySOQL + 
-            ' ORDER BY UserRole.Name DESC LIMIT ' + this.QUERY_LIMIT;
-        System.debug(querySOQL);
-        List<User> oblist=new List<User>();
-        if(querySOQL!=Null){
-            oblist = Database.query(querySOQL);
-        }
-        // If no query result, system alert no search result.
-        hasQueryResult = (oblist.size() > 0);
-        if (!hasQueryResult) {
-            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO, ERROR_MSG_1));
-        }else{
-            UserWithAccountInfo uai = null;
-            if(oblist!=Null && !oblist.isEmpty()){
-            for (User ob : oblist) {
-                uai = new UserWithAccountInfo();
-                uai.userId = ob.Id;
-                //uai.userName = ob.FirstName + ' ' + ob.LastName;
-                uai.userName = ob.Name;
-                uai.userRoleName = ob.UserRole.Name;
-                if(accountIdAccountBranchName.containsKey(ob.AccountId)) {
-                    uai.branchName = accountIdAccountBranchName.get(ob.AccountId);
-                }
-                uai.profileName = ob.Profile.Name;
-                users.add(uai);
-            }
-          }
-        }
+        //Added community license switching mechanism
+    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+    	{
+	        Set<Id> accountIds = new Set<Id>();
+	        Map<id, String> accountIdAccountBranchName = new Map<id, String>();
+	            
+	        String queryDealerSOQL = 'select Id, Branch_name__c from Account where RecordType.Name = :ACCOUNT_RT_DEALER ';
+	        if(!String.isBlank(dealerName)) {
+	            queryDealerSOQL += 'AND (Name LIKE \'%' + dealerName + '%\'';
+	            queryDealerSOQL += ' or Branch_name__c LIKE \'%' + dealerName + '%\')';
+	        }
+	            System.debug(queryDealerSOQL);
+	        for(Account acc : Database.query(queryDealerSOQL)) {
+	            
+	            accountIds.add(acc.Id);
+	            accountIdAccountBranchName.put(acc.Id, acc.Branch_name__c);
+	        }
+	        String Dealer='Dealer Delegate Admin';
+	        String querySOQL = 'Select Id, Name, FirstName, LastName, UserRole.Name, Profile.Name, AccountId ' +
+	                            'FROM User ' +
+	                           'WHERE IsActive = true ';// AND ' +
+	                         //  '(Profile.Name like \%'+Dealer+'%\)';
+	        String DEALER_DELEGATE_ADMIN=UtilConstant.DEALER_DELEGATE_ADMIN;
+	        if(!String.isBlank(DEALER_DELEGATE_ADMIN)) {
+	            querySOQL += ' AND Profile.Name LIKE \'%' + DEALER_DELEGATE_ADMIN + '%\'';
+	        }                  
+	        // If userName filter is not null, add it into SOQL
+	        if(!String.isBlank(userName)) {
+	            querySOQL += ' AND Name LIKE \'%' + userName + '%\'';
+	        }
+	        //if (accountIds.size() > 0) {
+	            querySOQL += ' AND AccountId in :accountIds ';
+	        //}
+	
+	        querySOQL = querySOQL + 
+	            ' ORDER BY UserRole.Name DESC LIMIT ' + this.QUERY_LIMIT;
+	        System.debug(querySOQL);
+	        List<User> oblist=new List<User>();
+	        if(querySOQL!=Null){
+	            oblist = Database.query(querySOQL);
+	        }
+	        // If no query result, system alert no search result.
+	        hasQueryResult = (oblist.size() > 0);
+	        if (!hasQueryResult) {
+	            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO, ERROR_MSG_1));
+	        }else{
+	            UserWithAccountInfo uai = null;
+	            if(oblist!=Null && !oblist.isEmpty()){
+	            for (User ob : oblist) {
+	                uai = new UserWithAccountInfo();
+	                uai.userId = ob.Id;
+	                //uai.userName = ob.FirstName + ' ' + ob.LastName;
+	                uai.userName = ob.Name;
+	                uai.userRoleName = ob.UserRole.Name;
+	                if(accountIdAccountBranchName.containsKey(ob.AccountId)) {
+	                    uai.branchName = accountIdAccountBranchName.get(ob.AccountId);
+	                }
+	                uai.profileName = ob.Profile.Name;
+	                users.add(uai);
+	            }
+	          }
+	        }
+    	}
     }
     // Inner Class
     public class UserWithAccountInfo{
@@ -128,19 +138,29 @@ public class AssignCaseToDealerController {
         public UserWithAccountInfo() {}
     }
     
-    public void clear() {
-        users = new List<UserWithAccountInfo>();
-        hasQueryResult = false;
-        ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO, ERROR_MSG_1));
+    public void clear() 
+    {
+    	//Added community license switching mechanism
+    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+    	{
+	        users = new List<UserWithAccountInfo>();
+	        hasQueryResult = false;
+	        ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO, ERROR_MSG_1));
+    	}
     }
     
-    public void assign() {
-        // Set Case owner filed to the selected dealer user
-        if (assignCase.OwnerId != selectedUserId) {
-            assignCase.OwnerId = selectedUserId;
-            assignCase.Case_Dealer__c = [select AccountId from User where id = :selectedUserId].AccountId;
-            assignCase.SendEmailToGateKeeper__c = true;
-            update assignCase;
-        }
+    public void assign() 
+    {
+    	//Added community license switching mechanism
+    	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
+    	{
+	        // Set Case owner filed to the selected dealer user
+	        if (assignCase.OwnerId != selectedUserId) {
+	            assignCase.OwnerId = selectedUserId;
+	            assignCase.Case_Dealer__c = [select AccountId from User where id = :selectedUserId].AccountId;
+	            assignCase.SendEmailToGateKeeper__c = true;
+	            update assignCase;
+	        }
+    	}
     }
 }

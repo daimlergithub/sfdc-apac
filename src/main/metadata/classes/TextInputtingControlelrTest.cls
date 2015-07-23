@@ -1,11 +1,7 @@
 /*
     Type:       Test Class
     Purpose:    To test the Class TextInputtingController
-    User Story: 
-    ---------------------------------------------------------------
-    History:
-
-    1. Justin Created on 2013-10-12
+        1. Justin Created on 2013-10-12
 */
 @isTest
 public class TextInputtingControlelrTest {
@@ -25,5 +21,10 @@ public class TextInputtingControlelrTest {
     TextInputtingControlelr controller2 = new TextInputtingControlelr();
     controller2.textValue = 'OK';
     controller2.save();
+      
+      case case1 =[select MPC_Internal_Notes__c from case where id=:newCase.id ]; 
+  system.assertEquals(case1.MPC_Internal_Notes__c, '????:' + Datetime.now().format()+ '\r\n???:' + UserInfo.getName() + '\r\n' + 'OK');
+
+
   }
 }

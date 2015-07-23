@@ -7,7 +7,7 @@
 ** Date: 2014-6-18
 **/
 public class LeadSharingWrapService {
-    private static Set<String> campaignProfileNames = new Set<String>{'Dealer Community Delegate Admin'};
+    private static Set<String> campaignProfileNames = new Set<String>{'Dealer Delegate Admin'};
     private static String leadRetailType = 'Retail_Sales_Leads';
 
     public LeadSharingWrapService() {

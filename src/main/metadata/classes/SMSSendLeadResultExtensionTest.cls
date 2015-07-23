@@ -12,32 +12,33 @@
 @isTest
 public class SMSSendLeadResultExtensionTest {
 
-	private static String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-	private static String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-	private static String templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
-	private static Account customer;
-	private static Account dealer;
-	private static Lead__c lead;
-	private static Template__c tem1;
-	private static Template__c tem2;
-	private static List<Template__c> tems = new List<Template__c>();
-	static user userObj;
-	static{
-		Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
+    private static String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    private static String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    private static String templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
+    private static Account customer;
+    private static Account dealer;
+    private static Lead__c lead;
+    private static Template__c tem1;
+    private static Template__c tem2;
+    private static List<Template__c> tems = new List<Template__c>();
+    private static List<SelectOption> options;
+    static user userObj;
+    static{
+        Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
         userObj = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
                                   Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
                                   TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
                                   EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
         insert userObj;
-	}
-	private static string LEAD_ID='leadid';
-	private static string RET_URL='retURL';
+    }
+    private static string LEAD_ID='leadid';
+    private static string RET_URL='retURL';
     public static testMethod void testSMSSendLeadResultExtension()
     {
         System.runAs(userObj) {
-			Test.startTest();
-			prepareTestData();
-			ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+            Test.startTest();
+            prepareTestData();
+            ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
             ApexPages.currentPage().getParameters().put(LEAD_ID,lead.Id);
             ApexPages.currentPage().getParameters().put(RET_URL,lead.Id);
             // Test click SMS button from Lead
@@ -50,9 +51,9 @@ public class SMSSendLeadResultExtensionTest {
     public static testMethod void testSMSSendLeadResultExtension_elsecondition()
     {
         System.runAs(userObj) {
-			Test.startTest();
-			prepareTestData();
-			ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+            Test.startTest();
+            prepareTestData();
+            ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
             // Test click SMS button from Lead
             // Instantiate a new controller extension with all parameters in the page
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
@@ -63,16 +64,16 @@ public class SMSSendLeadResultExtensionTest {
     public static testMethod void testgetTemplates()
     {
         System.runAs(userObj) {
-			Test.startTest();
-			prepareTestData();
-			ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+            Test.startTest();
+            prepareTestData();
+            ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
             ApexPages.currentPage().getParameters().put(LEAD_ID,lead.Id);
             ApexPages.currentPage().getParameters().put(RET_URL,lead.Id);
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
-            List<SelectOption> options = new List<SelectOption>();
+            options = new List<SelectOption>();
             options.add(new SelectOption('None','--None--'));
             for(Template__c obj:tems)
-            	options.add(new SelectOption(obj.Id, obj.Name));
+                options.add(new SelectOption(obj.Id, obj.Name));
             List<SelectOption> temp=extension.getTemplates();
             Test.stopTest();
             system.assertequals(temp,options);
@@ -82,9 +83,9 @@ public class SMSSendLeadResultExtensionTest {
     public static testMethod void testsend()
     {
         System.runAs(userObj) {
-			Test.startTest();
-			prepareTestData();
-			ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+            Test.startTest();
+            prepareTestData();
+            ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
             ApexPages.currentPage().getParameters().put(LEAD_ID,lead.Id);
             ApexPages.currentPage().getParameters().put(RET_URL,lead.Id);
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
@@ -100,9 +101,9 @@ public class SMSSendLeadResultExtensionTest {
     public static testMethod void testsend_elsecondition()
     {
         System.runAs(userObj) {
-			Test.startTest();
-			prepareTestData_elsecondition();
-			ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+            Test.startTest();
+            prepareTestData_elsecondition();
+            ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
             ApexPages.currentPage().getParameters().put(LEAD_ID,lead.Id);
             ApexPages.currentPage().getParameters().put(RET_URL,lead.Id);
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
@@ -113,15 +114,16 @@ public class SMSSendLeadResultExtensionTest {
             extension1.templateMessage='test message';
             extension1.send();
             Test.stopTest();
+            system.assertequals( extension1.templateMessage,'test message');
         }
     }
     
     public static testMethod void testparseTemplateMessage()
     {
         System.runAs(userObj) {
-			Test.startTest();
-			prepareTestData();
-			ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
+            Test.startTest();
+            prepareTestData();
+            ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
             ApexPages.currentPage().getParameters().put(LEAD_ID,lead.Id);
             ApexPages.currentPage().getParameters().put(RET_URL,lead.Id);
             SMSSendLeadResultExtension extension = new SMSSendLeadResultExtension(controller);
@@ -129,12 +131,13 @@ public class SMSSendLeadResultExtensionTest {
             extension.getTemplates();
             extension.parseTemplateMessage();
             Test.stopTest();
+            system.assertequals(extension.templateId,tem1.id);
         }
     }
     
     static void prepareTestData()
     {
-    	customer = new Account(LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId, PersonMobilePhone = '12345678901');
+        customer = new Account(LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId, PersonMobilePhone = '12345678901');
         insert customer;
         dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
         insert dealer;
@@ -144,7 +147,7 @@ public class SMSSendLeadResultExtensionTest {
     
     static void prepareTestData_elsecondition()
     {
-    	customer = new Account(LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId);
+        customer = new Account(LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId);
         insert customer;
         dealer = new Account(Name = 'Acme Dealer', Phone = '8888887', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
         insert dealer;
@@ -154,7 +157,7 @@ public class SMSSendLeadResultExtensionTest {
     
     static void createLead()
     {
-    	lead = new Lead__c();
+        lead = new Lead__c();
         lead.Assigned_Dealer__c = dealer.Id;
         lead.Contact__c = customer.Id;
         lead.CAC_Lead_Status__c = 'Qualified';
@@ -172,7 +175,7 @@ public class SMSSendLeadResultExtensionTest {
     
         static void createTemplate()
     {
-    	tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
+        tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
                                                Message_Detail__c = '{DEALER_name}', Name = 'lai');
         tem2 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
                                                Message_Detail__c = '{DEALER}', Name = 'lais');

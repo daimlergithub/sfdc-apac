@@ -24,6 +24,7 @@ public class TaskSMSControllerExtensionTest{
   private static Template__c tem1;
   private static Template__c tem2;
   private static Lead__c lead;
+  private static SMS__c sms;
   private static List<Template__c> tems = new List<Template__c>();
   static user userObj;
   static{
@@ -36,7 +37,6 @@ public class TaskSMSControllerExtensionTest{
   }
  
  private static string acc_ID='taskId';
- private static string RET_URL='retURL';
  private static string TASK_ID='taskId';
      public static testMethod void testTaskSMSControllerExtension()
     {
@@ -46,7 +46,7 @@ public class TaskSMSControllerExtensionTest{
             prepareTestData();
             ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
             ApexPages.currentPage().getParameters().put(acc_ID,dealer.Id);
-            ApexPages.currentPage().getParameters().put('taskid',tas.Id);
+            ApexPages.currentPage().getParameters().put(TASK_ID,tas.Id);
 
             // Test click SMS button from Lead
             // Instantiate a new controller extension with all parameters in the page
@@ -82,7 +82,7 @@ public class TaskSMSControllerExtensionTest{
             Test.startTest();
             prepareTestData();
             ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
-            ApexPages.currentPage().getParameters().put('taskid',tas.Id);
+            ApexPages.currentPage().getParameters().put(TASK_ID,tas.Id);
             TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
             extension.sms.Dealer__c = dealer.Id;
             extension.templateId=tem1.Id;
@@ -91,16 +91,17 @@ public class TaskSMSControllerExtensionTest{
             Test.stopTest();
             List<task> lsttask=[select whatid from task where whatid=:camlead.Id];
             system.assertequals(true,!lsttask.isEmpty());
+            system.assertequals(customer.Gender__c,'Male');
         }
     }
     
-    public static testMethod void testsend_elsecondition()
+    public static testMethod void testsendElseCondition()
     {
         System.runAs(userObj) {
             Test.startTest();
-            prepareTestData_elsecondition();
+            prepareTestDataElseCondition();
             ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
-            ApexPages.currentPage().getParameters().put('taskid',tas.Id);
+            ApexPages.currentPage().getParameters().put(TASK_ID,tas.Id);
             TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
             extension.templateId=null;
             extension.send();
@@ -109,6 +110,9 @@ public class TaskSMSControllerExtensionTest{
             extension1.templateMessage='test message';
             extension1.send();
             Test.stopTest();
+            system.assertequals(extension1.templateId,tem1.id);
+            system.assertequals(extension1.templateMessage,'test message');
+            system.assertequals(customer.Gender__c,'Female');
         }
     }
     
@@ -119,30 +123,33 @@ public class TaskSMSControllerExtensionTest{
             prepareTestData();
             ApexPages.standardController controller = new ApexPages.standardController(new SMS__c());
             ApexPages.currentPage().getParameters().put('CLead',camlead.Id);
-            ApexPages.currentPage().getParameters().put('taskid',tas.Id);
+            ApexPages.currentPage().getParameters().put(TASK_ID,tas.Id);
             TaskSMSControllerExtension extension = new TaskSMSControllerExtension(controller);
             extension.templateId=tem1.Id;
             extension.getTemplates();
             extension.parseTemplateMessage();
             Test.stopTest();
+            system.assertequals(extension.templateId,tem1.id);
         }
     }
 
 
     static void prepareTestData()
     {
-      customer = new Account(LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId, PersonMobilePhone = '12345678901');
+      customer = new Account(LastName = 'Acme Customer', Phone = '8888888',PersonOtherPhone='99999999', RecordTypeId = personAccountRecordTypeId, PersonMobilePhone = '12345678901',Gender__c ='Male');
         insert customer;
-        dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
+        dealer = new Account(Name = 'Acme Dealer', Phone = '8888888',RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
         insert dealer;
+        sms=new SMS__c(CustomerName__c='Acme Dealer',Secondary_Mobile__c=true);
+        insert sms;
         campaignPreparation();
        
        
     }
     
-    static void prepareTestData_elsecondition()
+    static void prepareTestDataElseCondition()
     {
-      customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId);
+      customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,Gender__c ='Female');
         insert customer;
         customer = [Select Customer_Number__c, PersonContactId From Account Where Id=:customer.Id];
         dealer = new Account(Name = 'Acme Dealer', Phone = '8888887', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
@@ -198,7 +205,7 @@ public class TaskSMSControllerExtensionTest{
         insert camlead;
           
 
-    customer = [Select Customer_Number__c, PersonContactId From Account Where Id=:customer.Id];
+    customer = [Select Customer_Number__c, PersonContactId,Gender__c  From Account Where Id=:customer.Id];
     
     tas = new Task(
                 RecordTypeId = obTaskRecordTypeId,
@@ -214,7 +221,7 @@ public class TaskSMSControllerExtensionTest{
             
             insert tas;
            
-             ApexPages.currentPage().getParameters().put('taskId', tas.Id);
+             ApexPages.currentPage().getParameters().put(TASK_ID, tas.Id);
              
              
           tem2 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,Name = 'lai', Message_Detail__c = '{DEALER_NAME}');

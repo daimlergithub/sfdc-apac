@@ -19,13 +19,13 @@ private class TriggerCaseTest {
         Case mbComplaintCase = new Case(AccountId = acc.Id);
         UtilTestData.createSobject(mbComplaintCase, UtilTestData.CASE_RT_MB_COMPLAINT);
         acc = [SELECT Complaint_Amount__c FROM Account WHERE Id = :acc.Id];
-        //System.assert(acc.Complaint_Amount__c == 1);
+        System.assert(acc.Complaint_Amount__c == 1);
 
         // Create Chrysler Complaint Case
         Case chryslerComplaintCase = new Case(AccountId = acc.Id);
         UtilTestData.createSobject(chryslerComplaintCase, UtilTestData.CASE_RT_CHRYSLER_COMPLAINT);
         acc = [SELECT Complaint_Amount__c FROM Account WHERE Id = :acc.Id];
-        //System.assert(acc.Complaint_Amount__c == 2);
+        System.assert(acc.Complaint_Amount__c == 2);
     }
 
     public static testMethod void testRollupComplaintCaseAmount_DeleteCase() {
@@ -37,12 +37,12 @@ private class TriggerCaseTest {
         Case mbComplaintCase = new Case(AccountId = acc.Id);
         UtilTestData.createSobject(mbComplaintCase, UtilTestData.CASE_RT_MB_COMPLAINT);
         acc = [SELECT Complaint_Amount__c FROM Account WHERE Id = :acc.Id];
-        //System.assert(acc.Complaint_Amount__c == 1);
+        System.assert(acc.Complaint_Amount__c == 1);
 
         // Delete MB Complaint Case
         delete mbComplaintCase;
         acc = [SELECT Complaint_Amount__c FROM Account WHERE Id = :acc.Id];
-        //System.assert(acc.Complaint_Amount__c == 0);
+        System.assert(acc.Complaint_Amount__c == 0);
     }
 
     public static testMethod void testRollupComplaintCaseAmount_UndeleteCase() {
@@ -54,16 +54,16 @@ private class TriggerCaseTest {
         Case mbComplaintCase = new Case(AccountId = acc.Id);
         UtilTestData.createSobject(mbComplaintCase, UtilTestData.CASE_RT_MB_COMPLAINT);
         acc = [SELECT Complaint_Amount__c FROM Account WHERE Id = :acc.Id];
-        //System.assert(acc.Complaint_Amount__c == 1);
+        System.assert(acc.Complaint_Amount__c == 1);
 
         // Delete MB Complaint Case
         delete mbComplaintCase;
         acc = [SELECT Complaint_Amount__c FROM Account WHERE Id = :acc.Id];
-        //System.assert(acc.Complaint_Amount__c == 0);
+        System.assert(acc.Complaint_Amount__c == 0);
 
         // Undelete MB Complaint Case
         undelete mbComplaintCase;
         acc = [SELECT Complaint_Amount__c FROM Account WHERE Id = :acc.Id];
-        //System.assert(acc.Complaint_Amount__c == 1);
+        System.assert(acc.Complaint_Amount__c == 1);
     }
 }

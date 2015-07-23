@@ -16,4 +16,16 @@ public class UtilCustomSettings {
 		    return null;
         }
     }
+    
+    
+    public static boolean getIsEnableCommunity(String communityLicenseSwitchName)
+    {	
+	    if (communityLicenseSwitchName != null && Community_License_Switch__c.getAll().get(communityLicenseSwitchName) != null) {
+            return boolean.valueof(Community_License_Switch__c.getAll().get(communityLicenseSwitchName).Enable__c);         
+		}
+		else {
+		    return false;
+        }
+    }
+    
 }

@@ -13,36 +13,72 @@
 */
 @isTest
 private class TaskHelperTest {
-	
-	private static Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
+    
+    private static Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
     private static Map<String, Schema.RecordTypeInfo> tkRecordTypeMap_test = Schema.SObjectType.Task.getRecordTypeInfosByName();
     private static Id accPerson_RecordTypeId = accRecordTypeMap_test.get('Person Account').getRecordTypeId();      // Person Account.
     private static Id tkSMS_recordTypeId = tkRecordTypeMap_test.get('SMS').getRecordTypeId();
     private static Id templateRecordTypeId = Schema.SObjectType.Template__c.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
-	private static Account personAccount;
-	private static Account testPersonAccount;
-	private static Task taskObj;
+    private static Account personAccount;
+    private static Account testPersonAccount;
+    private static Task taskObj;
+    private static String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
+    private static String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
+    private static String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
+    private static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
+    private static Account acc;
+    private static Account acccase;
+    private static Template__c temp1;
+    private static Template__c temp2;
+    private static Template__c temp3;
+    private static Task task;
+    private static List<QC__c> qcs;
+    private static List<Task> tasks1;
+    private static List<Task> tasks2;
+    private static String Acme='Acme';
+    private static String dealer_name='{dealer_name}';
+    private static Task testSMSTask;
+    private static String sent='sent';
+    
+    
+    Public static void preparedTestData()
+    {
+    acc = new Account(LastName = Acme, Area_Code__c = '010', Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
+        acccase = new Account(LastName = Acme, Area_Code__c = '010',Phone = '1391382', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
+        insert acc;
+        insert acccase;
+        
+        
+                    
+        temp1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
+                                           Message_Detail__c = dealer_name, Name = 'IB SMS IVR');
+        insert temp1;
+        temp2 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
+                                           Message_Detail__c = dealer_name, Name = 'IB SMS IVR Smart');
+        insert temp2;
+        temp3 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
+                                           Message_Detail__c = dealer_name, Name = 'IB SMS IVR MB');
+        insert temp3;
+    }
+    
     private static testMethod void testGenerateMultipleQCs()
     {
-        //Gets Task record type ids
-        String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
-        String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
+        preparedTestData();
         Test.startTest();
         //Inserts test data
-        Account acc = new Account(LastName = 'Acme', Area_Code__c = '010',Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
-        insert acc;
-        Task task = new Task(Subject = 'acme', RecordTypeId = IBTaskRecordTypeId, WhatId = acc.Id, QC_Quantity__c = 0);
+        
+        task = new Task(Subject = Acme, RecordTypeId = IBTaskRecordTypeId, WhatId = acc.Id, QC_Quantity__c = 0);
         insert task;
         
         //Generate 2 QC records
         task.QC_Quantity__c = 2;
         update task;
         
-        List<QC__c> qcs = [select Id from QC__c where task_ID__c = :task.Id];
+        qcs = [select Id from QC__c where task_ID__c = :task.Id];
         //system.assert(qcs.size() == 2);
         
         //Inserts test data
-        task = new Task(Subject = 'acme', RecordTypeId = OBTaskRecordTypeId, WhatId = acc.Id);
+        task = new Task(Subject = Acme, RecordTypeId = OBTaskRecordTypeId, WhatId = acc.Id);
         insert task;
         
         //Generate 3 QC records
@@ -51,29 +87,27 @@ private class TaskHelperTest {
         
         qcs = [select Id from QC__c where task_ID__c = :task.Id];
         Test.stopTest();
-        system.assertEquals(acc.LastName,'Acme');
+        system.assertEquals(acc.LastName,Acme);
         system.assertEquals(task.WhatId,acc.id);
         system.assertEquals(task.QC_Quantity__c,3);
+        system.assert(qcs!=null);
     }
     
-    @isTest(seeAllData=true)
+    @isTest
     public static void testGenerateQCs()
     {
-        //Gets Task record type ids
-        String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
-        String OBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('OB Call').getRecordTypeId();
-        String SSITaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SSI Task').getRecordTypeId();
+    
+       preparedTestData();
         Test.startTest();
         //Inserts test data
-        Account acc = new Account(LastName = 'Acme', Area_Code__c = '010',Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
-        insert acc;
-        Task task = new Task(Subject = 'acme', RecordTypeId = IBTaskRecordTypeId, WhatId = acc.Id);
+       
+        task = new Task(Subject = Acme, RecordTypeId = IBTaskRecordTypeId, WhatId = acc.Id);
         insert task;
         task.Generate_QC__c = true;
         update task;
         
         //Inserts test data
-        task = new Task(Subject = 'acme', RecordTypeId = OBTaskRecordTypeId, WhatId = acc.Id);
+        task = new Task(Subject = Acme, RecordTypeId = OBTaskRecordTypeId, WhatId = acc.Id);
         insert task;
         task.Generate_QC__c = true;
         update task;
@@ -86,25 +120,24 @@ private class TaskHelperTest {
         task.Activity_Status__c = 'Successful';
         update task;
         Test.stopTest();
-        system.assertEquals(acc.LastName,'Acme');
+        system.assertEquals(acc.LastName,Acme);
         system.assert(ssi.id!=null);
         system.assertEquals(task.WhatId,ssi.id);
         system.assertEquals(task.Activity_Status__c,'Successful');
     }
     
-    @isTest(seeAllData=true)
+    @isTest
     public static void testCopyCampaignName() {
-        //Gets Task record type ids
-        String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
+    
+    preparedTestData();
         Test.startTest();
         //Inserts test data
-        Account acc = new Account(LastName = 'Acme', Area_Code__c = '010',Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId());
-        insert acc;
+        
         Campaign cam1 = new Campaign(Name = 'acmeCam1');
         insert cam1;
         Campaign cam2 = new Campaign(Name = 'acmeCam2');
         insert cam2;
-        Task task = new Task(Subject = 'acme', RecordTypeId = IBTaskRecordTypeId, WhatId = cam1.Id);
+        task = new Task(Subject = Acme, RecordTypeId = IBTaskRecordTypeId, WhatId = cam1.Id);
         insert task;
         
         Task assertTask = [select Id, Campaign_Name__c from Task where Id = :task.Id];
@@ -113,26 +146,20 @@ private class TaskHelperTest {
         task.WhatId = cam2.Id;
         update task;
         
-         Task taskcam2 = new Task(Subject = 'acme', RecordTypeId = IBTaskRecordTypeId, WhatId = cam2.Id);
+         Task taskcam2 = new Task(Subject = Acme, RecordTypeId = IBTaskRecordTypeId, WhatId = cam2.Id);
         insert taskcam2;
         
         Task assertTaskcam2= [select Id, Campaign_Name__c from Task where Id = :taskcam2.Id];
         Test.stopTest();
-        system.assertEquals(acc.LastName,'Acme');
+        system.assertEquals(acc.LastName,Acme);
         system.assert(cam1.id!=null);
         system.assert(assertTaskcam2.Campaign_Name__c == 'acmeCam2');
     }
     
-    @isTest(seeAllData=true)
+    @isTest
     public static void testCreatSMSTask() {
-        //Gets Task record type ids
-        String IBTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('IB Call').getRecordTypeId();
-        String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
+       preparedTestData();
         Test.startTest();
-        Account acc = new Account(LastName = 'Acme', Area_Code__c = '010', Phone = '1391381', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
-        Account acccase = new Account(LastName = 'Acme', Area_Code__c = '010',Phone = '1391382', RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(), PersonMobilePhone = '1301111111',PersonOtherPhone = '1301111122');
-        insert acc;
-        insert acccase;
         
         String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         
@@ -154,23 +181,25 @@ private class TaskHelperTest {
         task2.InteractionIds__c=c1.id;
         task2.Status = 'Closed';
         update task2;
-        List<Task> tasks1 = [SELECT id FROM Task WHERE Subject = 'SMS' AND 
+        tasks1 = [SELECT id FROM Task WHERE Subject = 'SMS' AND 
             IB_Status__c = 'You are satisfied with the services overall performance evaluation: 1. Very satisfied; 2. Satisfaction 3., 4. not satisfied; 5. very dissatisfied. Thank you for your participation! Mercedes-Benz Service Center 4008181188' 
             AND Phone__c = '13701270000'];
-        List<Task> tasks2 = [SELECT id FROM Task WHERE Subject = 'SMS' AND 
+        tasks2 = [SELECT id FROM Task WHERE Subject = 'SMS' AND 
             IB_Status__c = 'You are satisfied with the services overall performance evaluation: 1. Very satisfied; 2. Satisfaction 3., 4. not satisfied; 5. very dissatisfied. Thank you for your participation! Mercedes-Benz Service Center 4008181188' 
             AND Phone__c = '13701270001'];
         Test.stopTest();   
         system.assertEquals(dealer.RecordTypeId,DealerRecordtypeid);
         system.assertEquals(task1.WhatId,acc.id);
         system.assert(tasks1!=null);
+        system.assert(tasks2!=null);
     }
     
     static testmethod void testTaskFailBlacklistTrigger_Insert()
     {
-		createPersonAcount();
-		taskObj=createTask('Fail-Blacklist');
-		Test.startTest();                                    
+        createPersonAcount();
+        preparedTestData();
+        taskObj=createTask('Fail-Blacklist');
+        Test.startTest();                                    
         insert taskObj;
         Test.stopTest();
         list<Account> lst=[SELECT Is_Blacklist__c FROM Account WHERE PersonContactId=:taskObj.WhoId limit 1];
@@ -180,8 +209,9 @@ private class TaskHelperTest {
     static testmethod void testTaskFailBlacklistTrigger_Update()
     {
         createPersonAcount();
-		taskObj=createTask('Sent');
-		Test.startTest();                                    
+        preparedTestData();
+        taskObj=createTask(sent);
+        Test.startTest();                                    
         insert taskObj;
         taskObj.Activity_Status__c='Fail-Blacklist';
         update taskObj;
@@ -192,66 +222,62 @@ private class TaskHelperTest {
     
     static testmethod void testrecordTypeUpdate_Generaltask()
     {
-    	User userobj = UtilTestData.createUser('SSI Supervisor','CAC SSI SV');
-    	
-    	System.runAs(userobj) 
-    	{
-	        Test.startTest();
-	        // Person Contact                
-	        Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);    
-	        
-	        Contact conComplaint = new Contact(AccountId = dealer.Id, LastName = 'b', Phone = '1212313', email = 's@s.s', Dealer_Complaint_Gate_Keeper__c = true, Dealer_Presales__c = true);
-        	insert conComplaint;
+        User userobj = UtilTestData.createUser('SSI Supervisor','CAC SSI SV');
+       
+        System.runAs(userobj) 
+        {
+            Test.startTest();
+            // Person Contact                
+            Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);    
+            
+            Contact conComplaint = new Contact(AccountId = dealer.Id, LastName = 'b', Phone = '1212313', email = 's@s.s', Dealer_Complaint_Gate_Keeper__c = true, Dealer_Presales__c = true);
+            insert conComplaint;
             Template__c tem1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
-                                               Message_Detail__c = '{DEALER_name}', Name = 'lai');
+                                               Message_Detail__c = dealer_name, Name = 'lai');
             insert tem1;
              
-	        list<task> lstTask= new List<task>();
-	        for(integer i=0;i<5;i++)
-	        {
-		        Task testSMSTask = new Task(RecordTypeid=tkSMS_recordTypeId,Subject='MBDA Survey Task Temp',
-		                                    WhoId=conComplaint.id,
-		                                    Activity_Status__c='Sent',SMSTemplateID__c=tem1.id,SMS_Content__c='Thank you for your call,your feedback from the Mercedes-Benz customer service hotline has received, officials will continue to investigate the situation,get in touch with you ASAP.['+'Mercedes-Benz Service Center 4008181188'+']'
-		                                    );
-		        lstTask.add(testSMSTask);                             
-	        }
-	        insert lstTask;
-	        TaskHelper.recordTypeUpdate_Generaltask(lstTask);	
-	        Test.stopTest();
+            list<task> lstTask= new List<task>();
+            for(integer i=0;i<5;i++)
+            {
+                testSMSTask = new Task(RecordTypeid=tkSMS_recordTypeId,Subject='MBDA Survey Task Temp',
+                                            WhoId=conComplaint.id,
+                                            Activity_Status__c=sent,SMSTemplateID__c=tem1.id,SMS_Content__c='Thank you for your call,your feedback from the Mercedes-Benz customer service hotline has received, officials will continue to investigate the situation,get in touch with you ASAP.['+'Mercedes-Benz Service Center 4008181188'+']'
+                                            );
+                lstTask.add(testSMSTask);                             
+            }
+            insert lstTask;
+            TaskHelper.recordTypeUpdate_Generaltask(lstTask);   
+            Test.stopTest();
+            system.assert(lstTask!=null);
+            system.assertEquals(testSMSTask.Activity_Status__c,sent);   
         } 
     }
     
     static testmethod void testcreateSMSTaskAfterIBCall()
     {
-                    
-        Template__c temp1 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
-                                           Message_Detail__c = '{DEALER_name}', Name = 'IB SMS IVR');
-        insert temp1;
-        Template__c temp2 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
-                                           Message_Detail__c = '{DEALER_name}', Name = 'IB SMS IVR Smart');
-        insert temp2;
-        Template__c temp3 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
-                                           Message_Detail__c = '{DEALER_name}', Name = 'IB SMS IVR MB');
-        insert temp3;
-        Test.startTest();
+        preparedTestData();
         createPersonAcount();
+        Test.startTest();
+        
         list<task> lstTask= new List<task>();
         for(integer i=0;i<5;i++)
         {
-	        Task testSMSTask = new Task(RecordTypeid=tkSMS_recordTypeId,Subject='MBDA Survey Task Temp',
-	                                    WhoId=testPersonAccount.PersonContactId,
-	                                    Activity_Status__c='Sent',SMSTemplateID__c=temp1.id
-	                                    );
-	        lstTask.add(testSMSTask);                             
+            testSMSTask = new Task(RecordTypeid=tkSMS_recordTypeId,Subject='MBDA Survey Task Temp',
+                                        WhoId=testPersonAccount.PersonContactId,
+                                        Activity_Status__c=sent,SMSTemplateID__c=temp1.id
+                                        );
+            lstTask.add(testSMSTask);                             
         }
         insert lstTask;
         TaskHelper.createSMSTaskAfterIBCall(lstTask);        
         Test.stopTest();
+         system.assert(lstTask!=null);
+         system.assertEquals(testSMSTask.Subject,'MBDA Survey Task Temp');
     }
     
     static void createPersonAcount()
     {
-    	// Person Contact                
+        // Person Contact                
         personAccount = new Account(LastName='TEST ACC',
                                       Type='Company',
                                       Status__c='VIP',
@@ -267,9 +293,9 @@ private class TaskHelperTest {
     }
     static Task createTask(String activityStatus)
     {
-    	Task testSMSTask = new Task(Subject='SMS TEST',
+        testSMSTask = new Task(Subject='SMS TEST',
                                     WhoId=testPersonAccount.PersonContactId,
-                                    Activity_Status__c=activityStatus	
+                                    Activity_Status__c=activityStatus   
                                     );
        return testSMSTask;                             
     }
