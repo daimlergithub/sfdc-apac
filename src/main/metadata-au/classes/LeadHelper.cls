@@ -1144,11 +1144,12 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
   @TestVisible
     private static Contact MonkCotact(String mailAdd){
     
-        String monkName = 'monkContact' + Math.round(Math.random() * (1000 - 1)) + 1;
+        String monkLastName = 'Contact' + Math.round(Math.random() * (1000 - 1)) + 1;
+        String monkFirstName = 'monk';
         while(true){
             list<Contact> inDatabaseC = [select id from Contact where lastName=:monkName];
             if (inDatabaseC.size()<1) {
-                Contact monkc = new Contact(lastName=monkName,Email=mailAdd);
+                Contact monkc = new Contact(FirstName=monkFirstName,lastName=monkLastName,Email=mailAdd);
                 insert monkc;
                 return monkc;
             }
