@@ -1153,7 +1153,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 insert monkc;
                 return monkc;
             }
-            monkName = 'monkContact' + Math.round(Math.random() * (1000 - 1)) + 1;
+            monkLastName = 'monkContact' + Math.round(Math.random() * (1000 - 1)) + 1;
         }
         
         return null;
