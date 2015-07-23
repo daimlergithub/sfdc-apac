@@ -1147,7 +1147,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         String monkLastName = 'Contact' + Math.round(Math.random() * (1000 - 1)) + 1;
         String monkFirstName = 'monk';
         while(true){
-            list<Contact> inDatabaseC = [select id from Contact where lastName=:monkName];
+            list<Contact> inDatabaseC = [select id from Contact where lastName=:monkLastName];
             if (inDatabaseC.size()<1) {
                 Contact monkc = new Contact(FirstName=monkFirstName,lastName=monkLastName,Email=mailAdd);
                 insert monkc;
