@@ -767,7 +767,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Smart</fullName>
+                <fullName>smart</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -977,6 +977,10 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>CLA-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>CLC-Class</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1037,11 +1041,23 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>GLA - Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>GL-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>G-Wagon</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>M / GLE-Class Coupe</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1062,6 +1078,10 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>M-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mercedes-AMG GT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1161,7 +1181,15 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Vaneo-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Vario</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>V-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7037,10 +7065,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Smart</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Southern Cross</fullName>
                 <default>false</default>
             </values>
@@ -7128,6 +7152,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <fullName>WHITE</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CBU_CKD__c</picklist>
@@ -7183,6 +7211,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>CLA-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>CLC-Class</fullName>
                 <default>false</default>
             </values>
@@ -7231,6 +7263,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>G-Wagon</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>G55 AMG</fullName>
                 <default>false</default>
             </values>
@@ -7247,7 +7283,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLA - Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M %2F GLE-Class Coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7280,6 +7324,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Maybach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7343,7 +7391,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>V-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Valente</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vaneo-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9642,10 +9698,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Smart</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Southern Cross</fullName>
                 <default>false</default>
             </values>
@@ -9733,6 +9785,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <fullName>WHITE</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CBU_CKD__c</picklist>
@@ -9788,6 +9844,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>CLA-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>CLC-Class</fullName>
                 <default>false</default>
             </values>
@@ -9836,6 +9896,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>G-Wagon</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>G55 AMG</fullName>
                 <default>false</default>
             </values>
@@ -9852,7 +9916,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLA - Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M %2F GLE-Class Coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9885,6 +9957,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Maybach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9948,7 +10024,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>V-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Valente</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vaneo-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14407,10 +14491,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Smart</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Southern Cross</fullName>
                 <default>false</default>
             </values>
@@ -14498,6 +14578,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <fullName>WHITE</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>smart</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>CBU_CKD__c</picklist>
@@ -14553,6 +14637,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>CLA-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>CLC-Class</fullName>
                 <default>false</default>
             </values>
@@ -14601,6 +14689,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>G-Wagon</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>G55 AMG</fullName>
                 <default>false</default>
             </values>
@@ -14617,7 +14709,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLA - Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>M %2F GLE-Class Coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14650,6 +14750,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Maybach</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mercedes-AMG GT</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14713,7 +14817,15 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>V-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Valente</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vaneo-Class</fullName>
                 <default>false</default>
             </values>
             <values>
