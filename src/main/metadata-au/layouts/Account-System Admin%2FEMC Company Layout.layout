@@ -253,7 +253,6 @@
         <fields>ClosedReason__c</fields>
         <fields>ClosedDate__c</fields>
         <fields>OWNER.ALIAS</fields>
-        <fields>CREATEDBY_USER</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>PreOrder__c.Customer__c</relatedList>
     </relatedLists>
