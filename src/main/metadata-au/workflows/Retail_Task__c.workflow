@@ -141,7 +141,20 @@ Created By Polaris Yu 2013-8-22
 Function: Auto check the &apos;150 Days Before EOC&apos; field on Contract at 150 days before the end date of the contract
 Used By:
 */</description>
-        <formula>NOT(X150_Days_Before_EOC__c)</formula>
+        <formula>OR(AND( 
+NOT(X150_Days_Before_EOC__c), 
+!ISPICKVAL(Status__c, &apos;Default-External Agent&apos;), 
+!ISPICKVAL(Status__c, &apos;Early Payout&apos;), 
+!ISPICKVAL(Status__c, &apos;Early Payout-Cheque Under Clearance&apos;), 
+!ISPICKVAL(Status__c, &apos;Early Payout-Sale and Finance&apos;), 
+!ISPICKVAL(Status__c, &apos;Early Payout-Sale of Asset&apos;), 
+!ISPICKVAL(Status__c, &apos;Payout&apos;), 
+!ISPICKVAL(Status__c, &apos;Remarketing&apos;), 
+!ISPICKVAL(Status__c, &apos;Repossessed&apos;), 
+!ISPICKVAL(Status__c, &apos;Repossessed-Voluntary Surrender&apos;), 
+!ISPICKVAL(Status__c, &apos;Restructuring&apos;), 
+!ISPICKVAL( Finance_Product_Type__c , &apos;Consumer Loan&apos;)),
+AND(NOT(X150_Days_Before_EOC__c),GFV__c = TRUE, ISPICKVAL( Finance_Product_Type__c , &apos;Operating Lease&apos; )))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
