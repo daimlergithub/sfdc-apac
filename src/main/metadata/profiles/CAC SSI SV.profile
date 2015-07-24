@@ -1042,6 +1042,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerSurveyQuestionResponseHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerSurveyQuestionResponseTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerTaskTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1183,6 +1191,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilSobject</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilSurveyQuestionResponse</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -12807,6 +12819,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Survey_Question__c.Single_FreeText_Next_Question_No__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Survey_Question__c.Total_Responses__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
