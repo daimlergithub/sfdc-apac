@@ -685,15 +685,19 @@
 			<sf:include name="SSIVINMatchProcessTest"/>
 			<sf:include name="SlickCtiObjectHelperTest"/>
 			<sf:include name="SlickCtiControllerTest"/>
+			<sf:include name="TriggerSurveyQuestionResponseHandler"/>
+			<sf:include name="TriggerSurveyQuestionResponseTest"/>
+			<sf:include name="UtilSurveyQuestionResponse"/>			
 		</sf:typeset>	
 		<sf:typeset name="triggers">
-			<sf:include name="CaseTrigger "/>
+			<sf:include name="CaseTrigger"/>
+			<sf:include name="TriggerSurveyQuestionResponse"/>
 		</sf:typeset>
 		<sf:typeset name="pages"> 
 				<sf:include name="AssignCaseToDealer"/>
 				<sf:include name="RetailCampaignSegmentation"/>
 		</sf:typeset>		
-		</deploy>					
+		</deploy>				
     </target>	
 	
 	<target name="deploy46">
