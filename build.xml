@@ -616,7 +616,10 @@
 			<sf:include name="MonthlyMarketAmountReportController"/>	
 			<sf:include name="MonthlyMarketAmountReportControllerTest"/>
 			<sf:include name="MyProcess"/>
-			<sf:include name="MyProcessTest"/>			
+			<sf:include name="MyProcessTest"/>	
+			<sf:include name="TriggerSurveyQuestionResponseHandler"/>
+			<sf:include name="TriggerSurveyQuestionResponseTest"/>
+			<sf:include name="UtilSurveyQuestionResponse"/>						
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="CaseEscalation"/>
@@ -625,6 +628,9 @@
 				<sf:include name="MonthlyMarketAmountReportPage"/>
 				<sf:include name="MassApproveToolKit"/>
 		</sf:typeset>
+		<sf:typeset name="triggers">
+				<sf:include name="TriggerSurveyQuestionResponse"/>
+		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
 		<sf:typeset name="workflows"/>		
@@ -684,14 +690,10 @@
 			<sf:include name="ChatterAnswersEscalationTriggerTest"/>
 			<sf:include name="SSIVINMatchProcessTest"/>
 			<sf:include name="SlickCtiObjectHelperTest"/>
-			<sf:include name="SlickCtiControllerTest"/>
-			<sf:include name="TriggerSurveyQuestionResponseHandler"/>
-			<sf:include name="TriggerSurveyQuestionResponseTest"/>
-			<sf:include name="UtilSurveyQuestionResponse"/>			
+			<sf:include name="SlickCtiControllerTest"/>		
 		</sf:typeset>	
 		<sf:typeset name="triggers">
-			<sf:include name="CaseTrigger"/>
-			<sf:include name="TriggerSurveyQuestionResponse"/>
+			<sf:include name="CaseTrigger"/>			
 		</sf:typeset>
 		<sf:typeset name="pages"> 
 				<sf:include name="AssignCaseToDealer"/>
