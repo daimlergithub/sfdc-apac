@@ -627,7 +627,7 @@
 			<sf:include name="DealerLocatorHelper"/>
 			<sf:include name="UtilWebService"/>
 			<sf:include name="UtilWebServiceTest"/>
-			<sf:include name="DealerLocatorHttpResponseGeneratorTest"/>
+			<sf:include name="DealerLocatorHttpResponseGenerator"/>
 			<sf:include name="TriggerDealerLocatorHandler"/>
 			
 		</sf:typeset>
