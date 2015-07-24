@@ -15982,7 +15982,7 @@ $Profile.Name != 'IntegrationAPI'
     </validationRules>
     <validationRules>
         <fullName>Only_Started_Campaign_can_be_activated</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>When Status = Planned, Confirmed, Approved, Closed, Cancelled, Active can not be true.
 Record Type = CAC CRM, Central Campaign, CAS Campaign</description>
         <errorConditionFormula>NOT(ISPICKVAL( Status , 'Started')) 
