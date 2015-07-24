@@ -626,6 +626,8 @@
 			<sf:include name="EntityUpdateNotificationWS"/>
 			<sf:include name="DealerLocatorHelper"/>
 			<sf:include name="UtilWebService"/>
+			<sf:include name="UtilWebServiceTest"/>
+			<sf:include name="DealerLocatorHttpResponseGenerator"/>
 			<sf:include name="TriggerDealerLocatorHandler"/>
 			
 		</sf:typeset>
