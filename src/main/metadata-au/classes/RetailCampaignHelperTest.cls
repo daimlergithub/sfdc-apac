@@ -3,6 +3,7 @@ public class RetailCampaignHelperTest {
     private static Account dealer;
     private static  User smUser;
     private static Retail_Campaign__c retailCampaign;
+    private static string text='Text';
     //prepare test data
     static {
         RecordType dealerType = [select Id from RecordType where SObjectType = 'Account' and DeveloperName = 'Dealer' limit 1];
@@ -61,14 +62,21 @@ public class RetailCampaignHelperTest {
      static void testGenerateTask() {
         List<Retail_Campaign__c> retailCampaigns = new List<Retail_Campaign__c>();
         List<RecordType> retailCampaignTypeList = new List<RecordType>([select Id, DeveloperName from RecordType where SObjectType = 'Retail_Campaign__c']);
+         map<id,Retail_Campaign__c> newmap =new  map<id,Retail_Campaign__c>();
         for(RecordType retailCampaignType : retailCampaignTypeList) {
-             retailCampaign = new Retail_Campaign__c(Dealer_Name__c = dealer.Id, Y_Dealer_Name__c = dealer.Id, RecordTypeId = retailCampaignType.Id, Brand__c = 'MB');
+             retailCampaign = new Retail_Campaign__c(Dealer_Name__c = dealer.Id, Y_Dealer_Name__c = dealer.Id, RecordTypeId = retailCampaignType.Id, Brand__c = 'MB',Y_Apply_Deadline__c=system.today());
+            newmap.put(retailCampaign.id, retailCampaign);
             retailCampaigns.add(retailCampaign);
         }
         insert retailCampaigns;
+         
+        
         //start test
         Test.startTest();
-        // RetailCampaignHelper.generateTask(smUser,retailCampaign,'testString');
+        RetailCampaignHelper.generateTask(smUser,retailCampaign,'testString');
+         RetailCampaignHelper.generateHighPrioTask(smUser,retailCampaign,'testString');
+         RetailCampaignHelper.ShareRecordToDealer_AfterUpdate(retailCampaigns,newmap,newmap,true);
+        
         Test.stopTest();  
         
         //verify

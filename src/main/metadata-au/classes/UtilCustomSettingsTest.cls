@@ -8,6 +8,7 @@ public class UtilCustomSettingsTest {
         UtilCustomSettings.getOrgWideDefaultAddress('test');       
         UtilCustomSettings.getProfileId('System Administrator');
         UtilCustomSettings.getIsEnableCommunity('Community Enabled');
+        UtilCustomSettings.getEndPointURL('test');
         system.assertEquals(true, UtilCustomSettings.getIsEnableCommunity('Community Enabled'));
         
     }
