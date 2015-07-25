@@ -905,7 +905,7 @@
 	</target>
 	
 	<target name="deploy50">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="profiles" force="true"/>		
 		</deploy>
 	</target>		

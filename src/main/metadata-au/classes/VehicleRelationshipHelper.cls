@@ -165,7 +165,7 @@ public with sharing class VehicleRelationshipHelper {
             if(!String.isblank(vehicleGroup)){
                 Map<String,Date> preRecord = preRecords.get(vehicleGroup);
                 List<String> cols = colsMap.get(vehicleGroup);
-                if(isCustomer)
+                 if(isCustomer && !cols.isEmpty())
                     userInfo.put(cols[0], 'customer');   
                                  
                 integer numberofP =1;           
