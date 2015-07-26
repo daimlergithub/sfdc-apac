@@ -806,10 +806,14 @@
 			<sf:include name="AddresscontrollerTest"/>
 			<sf:include name="AddressHelper"/>
 			<sf:include name="AddressHelperTest"/>			
-			<sf:include name="UtilAccountTest"/>						
-		</sf:typeset>	
+			<sf:include name="UtilAccountTest"/>
+			<sf:include name="TriggerSurveyQuestionResponseHandler"/>
+			<sf:include name="TriggerSurveyQuestionResponseTest"/>
+			<sf:include name="UtilSurveyQuestionResponse"/>				
+		</sf:typeset>		
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerAddress"/>
+			<sf:include name="TriggerSurveyQuestionResponse"/>
 		</sf:typeset>
 		<sf:typeset name="pages"> 
 				<sf:include name="Account_Address"/>
