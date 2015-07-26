@@ -157,12 +157,12 @@ public with sharing class VehicleRelationshipHelper {
     private static Map<String, List<String>> colsMap = new Map<String,List<String>>
     {'PC'=> new List<String>{'PC_Status__c','Buy_Cycle__c','PC_Tenure__c'},
         'CV'=> new List<String>{'CV_Status__c','CV_No_Brand_Purchases__c','CV_Tenure__c'},
-            'VAN'=> new List<String>{'VAN_Status__c','VAN_No_Brand_Purchases__c','VAN_Tenure__c'}
+            'Van'=> new List<String>{'VAN_Status__c','VAN_No_Brand_Purchases__c','VAN_Tenure__c'}
     };
         //update PC CV VAN tenure
         private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer,boolean isinsert,boolean isupdate,boolean isdelete){
             
-            if(!String.isblank(vehicleGroup)){
+            if(!String.isblank(vehicleGroup) && colsMap != null && preRecords!= null && preRecords.get(vehicleGroup) != null){
                 Map<String,Date> preRecord = preRecords.get(vehicleGroup);
                 List<String> cols = colsMap.get(vehicleGroup);
                  if(isCustomer && !cols.isEmpty())
@@ -209,10 +209,10 @@ public with sharing class VehicleRelationshipHelper {
         //get cv first date records 
         Map<String,Date>  preRecordsCv = getExsitedInfos(customerIds,'CV');
         //get cv first date records 
-        Map<String,Date>  preRecordsVAN = getExsitedInfos(customerIds,'VAN');
+        Map<String,Date>  preRecordsVAN = getExsitedInfos(customerIds,'Van');
         exsisedRecord.put('PC', preRecordsPc);
         exsisedRecord.put('CV', preRecordsCv);
-        exsisedRecord.put('VAN', preRecordsVAN);
+        exsisedRecord.put('Van', preRecordsVAN);
         
         Map<id,Account> accs = AccountHelper.getCustomerInfos(customerIds);
         list<Address__c> lstAddress=[select Customer__c from Address__c where Customer__c In:customerIds];
