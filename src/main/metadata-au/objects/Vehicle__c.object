@@ -49,7 +49,7 @@
     <description>Contact Portfolio: To record all Vehicle which is linked to a Vehicle Relationship for a customer</description>
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
-    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableEnhancedLookup>true</enableEnhancedLookup>
     <enableFeeds>false</enableFeeds>
     <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
@@ -18106,13 +18106,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <customTabListAdditionalFields>BodyType__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Colour__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>CommissionNumber__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Brand__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Car_Model__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Class__c</lookupDialogsAdditionalFields>
         <lookupDialogsAdditionalFields>BodyType__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>Colour__c</lookupDialogsAdditionalFields>
-        <lookupDialogsAdditionalFields>CommissionNumber__c</lookupDialogsAdditionalFields>
-        <searchFilterFields>NAME</searchFilterFields>
-        <searchFilterFields>BodyType__c</searchFilterFields>
-        <searchFilterFields>Colour__c</searchFilterFields>
-        <searchFilterFields>CommissionNumber__c</searchFilterFields>
+        <lookupDialogsAdditionalFields>ModelYear__c</lookupDialogsAdditionalFields>
+        <lookupFilterFields>NAME</lookupFilterFields>
+        <lookupFilterFields>Brand__c</lookupFilterFields>
+        <lookupFilterFields>Car_Model__c</lookupFilterFields>
+        <lookupFilterFields>Class__c</lookupFilterFields>
+        <lookupFilterFields>BodyType__c</lookupFilterFields>
+        <lookupFilterFields>ModelYear__c</lookupFilterFields>
         <searchResultsAdditionalFields>Brand__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Class__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Model__c</searchResultsAdditionalFields>
