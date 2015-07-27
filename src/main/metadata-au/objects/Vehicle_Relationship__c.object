@@ -382,6 +382,34 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
                 <fullName>ROSA</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>V-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLA Shooting Brake</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AMG GT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE-Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AMG C 63</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -3936,6 +3964,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>AMG C 63</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AMG GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>All New A-Class</fullName>
                 <default>false</default>
             </values>
@@ -3957,6 +3993,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>CL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA Shooting Brake</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3997,6 +4037,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>GL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE-Class Coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4041,6 +4093,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Sprinter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6452,6 +6508,14 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>AMG C 63</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AMG GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>All New A-Class</fullName>
                 <default>false</default>
             </values>
@@ -6473,6 +6537,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>CL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA Shooting Brake</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6513,6 +6581,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>GL-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE-Class Coupe</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6557,6 +6637,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Sprinter</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V-Class</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -11448,6 +11532,34 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <fullName>A-Class</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>AMG C 63</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AMG GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA Shooting Brake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V-Class</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Considered_Make_1__c</picklist>
@@ -12079,6 +12191,34 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             <picklist>Class_Summary__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AMG C 63</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AMG GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA Shooting Brake</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLE-Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>V-Class</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
