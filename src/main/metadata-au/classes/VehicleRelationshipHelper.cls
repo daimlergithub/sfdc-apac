@@ -162,7 +162,7 @@ public with sharing class VehicleRelationshipHelper {
         //update PC CV VAN tenure
         private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer,boolean isinsert,boolean isupdate,boolean isdelete){
             
-            if(!String.isblank(vehicleGroup) && colsMap != null && preRecords!= null && preRecords.get(vehicleGroup) != null){
+            if(!String.isblank(vehicleGroup) && colsMap != null && colsMap.get(vehicleGroup) != null && preRecords!= null && preRecords.get(vehicleGroup) != null){
                 Map<String,Date> preRecord = preRecords.get(vehicleGroup);
                 List<String> cols = colsMap.get(vehicleGroup);
                  if(isCustomer && !cols.isEmpty())
