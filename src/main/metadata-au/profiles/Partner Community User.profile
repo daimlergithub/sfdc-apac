@@ -470,6 +470,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DealerLocatorHttpResponseGenerator</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DealerSearchController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1250,6 +1254,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerSurveyQuestionResponseHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerSurveyQuestionResponseTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerTaskTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1434,6 +1446,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilSurveyQuestionResponse</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilTask</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1451,6 +1467,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilWebService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilWebServiceTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -15433,6 +15453,9 @@
     <layoutAssignments>
         <layout>Retail_Campaign__c-Record Layout</layout>
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Retail_Task__c-Contracts %26 Aftersales Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Retail_Task__c-Insurance Layout</layout>

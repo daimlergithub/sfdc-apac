@@ -470,6 +470,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>DealerLocatorHttpResponseGenerator</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DealerSearchController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1250,6 +1254,14 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerSurveyQuestionResponseHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerSurveyQuestionResponseTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerTaskTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1434,6 +1446,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>UtilSurveyQuestionResponse</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>UtilTask</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1451,6 +1467,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilWebService</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>UtilWebServiceTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -17356,7 +17376,7 @@
         <name>ViewHelpLink</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ViewSetup</name>
     </userPermissions>
 </Profile>
