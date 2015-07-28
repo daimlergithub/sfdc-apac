@@ -17189,7 +17189,7 @@
         <name>EditPublicReports</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>EditPublicTemplates</name>
     </userPermissions>
     <userPermissions>
@@ -17225,7 +17225,7 @@
         <name>ImportLeads</name>
     </userPermissions>
     <userPermissions>
-        <enabled>true</enabled>
+        <enabled>false</enabled>
         <name>ManageCategories</name>
     </userPermissions>
     <userPermissions>
