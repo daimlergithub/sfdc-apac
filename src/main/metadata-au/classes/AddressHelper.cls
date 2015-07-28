@@ -310,4 +310,15 @@ public class AddressHelper
     	
     	
     } 
+    
+    @Future(callout=true)
+    public static void entityNotifyUpdate(string updateType,string serlializedObject)
+    {
+        string orgId=UserInfo.getOrganizationId();
+        Schema.DescribeSObjectResult r = Address__c.sObjectType.getDescribe();
+        String sfdcId = r.getKeyPrefix();
+        string sfdcTypeName='Address__c';
+        if(!test.isrunningtest())
+            UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,updateType,serlializedObject);
+    } 
 }

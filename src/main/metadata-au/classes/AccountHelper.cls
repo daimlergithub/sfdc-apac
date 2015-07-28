@@ -774,6 +774,15 @@ public class AccountHelper {
         return null; 
     }
     
-    
+    @Future(callout=true)
+    public static void entityNotifyUpdate(string updateType,string serlializedObject)
+    {
+    	string orgId=UserInfo.getOrganizationId();
+    	Schema.DescribeSObjectResult r = Account.sObjectType.getDescribe();
+		String sfdcId = r.getKeyPrefix();
+		string sfdcTypeName='Account';
+		if(!test.isrunningtest())
+			UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,updateType,serlializedObject);
+    }
     //Existing AU related functionality ends here   
 }

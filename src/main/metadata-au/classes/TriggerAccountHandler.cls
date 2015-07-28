@@ -1,6 +1,6 @@
 /*
     Type:       Trigger on Account
-    Purpose:    1. If customer has no vehicle relationship, Status must not be ‘Customer’ 
+    Purpose:    1. If customer has no vehicle relationship, Status must not be �Customer� 
                 2. Update dealer record in salesforce manually check
                 3. When city change , update look up
     User Story: US-DS-001, US-Lead-009
@@ -20,21 +20,33 @@ public class TriggerAccountHandler
     {
     	Map<Id,Account> oldmap = (Map<Id,Account>)trigger.oldmap;
         Map<Id,Account> newmap = (Map<Id,Account>)trigger.newmap;
-        
+        list<Account> oldDL = (list<Account>)trigger.old;
+        list<Account> newDL = (list<Account>)trigger.new;
+        string serializedObject;
+        user obj=[select id,profileid,profile.Name from user where id=:userinfo.getuserid()];
         if(trigger.isAfter && trigger.isInsert)
 	    {
 	        AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
+	        serializedObject=json.serialize(newDL);
+	        if(obj.profile.Name!='IntegrationAPI')
+            	AccountHelper.entityNotifyUpdate('INSERT',serializedObject);
 	    }
 	    if(trigger.isAfter && trigger.isUpdate)
 	    {
 	        AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
 	        AccountHelper.auAfter_Update_UpdatePc_Status_Values(trigger.new);
+	        serializedObject=json.serialize(newDL);
+        	if(obj.profile.Name!='IntegrationAPI')
+        		AccountHelper.entityNotifyUpdate('UPDATE',serializedObject);
 	        //Kernel code
 	        //UtilAccount.accountSetForUpdateLead(trigger.new,oldmap);
 	    }
 	    if(trigger.isAfter && trigger.isDelete)
 	    {
 	        AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
+	        serializedObject=json.serialize(oldDL);
+	        if(obj.profile.Name!='IntegrationAPI')
+            	AccountHelper.entityNotifyUpdate('DELETE',serializedObject);
 	    }
 	    if(trigger.isBefore && trigger.isInsert)
 	    {
