@@ -2,11 +2,6 @@ public class UtilWebService
 {
     public static void entityUpdateNotification(String organizationId,String sfdcId,String sfdcTypeName,String updateType,String serlializedObject)
     {
-    	/*EntityUpdateNotificationWS.EntityUpdateNotification stub= new EntityUpdateNotificationWS.EntityUpdateNotification();
-    	stub.endpoint_x=UtilCustomSettings.getEndPointURL(UtilConstant.ENTITY_UPDATE_NOTIFICATION);
-    	stub.timeout_x=120000;
-    	//invoking callout
-    	stub.notifyEntityUpdate(organizationId,sfdcId,sfdcTypeName,updateType,serlializedObject);*/
     	//Soap over http
     	String requestXML='<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ep="http://ep.apac.crm.daimler.com">';
     	requestXML+='<soapenv:Header/>';

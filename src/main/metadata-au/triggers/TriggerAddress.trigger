@@ -3,18 +3,29 @@ trigger TriggerAddress on Address__c (before insert, before update,after insert,
 	if (!TriggerUtil.isTriggerEnabled('TriggerAddress')) {
         return;
     }
+    string serializedObject;
+    user obj=[select id,profileid,profile.Name from user where id=:userinfo.getuserid()];
     
     if(trigger.isAfter && trigger.isInsert)
     {
         AddressHelper.auAfter_Insert_Update_Delete_Events(trigger.New,trigger.Old,trigger.oldMap,trigger.isUpdate,trigger.isDelete);
+        serializedObject=json.serialize(trigger.New);
+        if(obj.profile.Name!='IntegrationAPI')
+        	AddressHelper.entityNotifyUpdate('INSERT',serializedObject);
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
         AddressHelper.auAfter_Insert_Update_Delete_Events(trigger.New,trigger.Old,trigger.oldMap,trigger.isUpdate,trigger.isDelete);
+        serializedObject=json.serialize(trigger.New);
+        if(obj.profile.Name!='IntegrationAPI')
+        	AddressHelper.entityNotifyUpdate('UPDATE',serializedObject);
     }
     if(trigger.isAfter && trigger.isDelete)
     {
         AddressHelper.auAfter_Insert_Update_Delete_Events(trigger.New,trigger.Old,trigger.oldMap,trigger.isUpdate,trigger.isDelete);
+        serializedObject=json.serialize(trigger.Old);
+        if(obj.profile.Name!='IntegrationAPI')
+        	AddressHelper.entityNotifyUpdate('DELETE',serializedObject);
     }
     if(trigger.isBefore && trigger.isInsert)
     {
