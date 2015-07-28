@@ -63,7 +63,7 @@
         <label>Campaign Package</label>
         <lookupFilter>
             <active>false</active>
-            <errorMessage>The campaign package does not belong to the participanting dealer&apos;s campaign.</errorMessage>
+            <errorMessage>The campaign package does not belong to the participanting dealer's campaign.</errorMessage>
             <filterItems>
                 <field>Campaign_Package__c.Campaign__c</field>
                 <operation>equals</operation>
@@ -86,7 +86,7 @@
         <relationshipLabel>Participating Dealers</relationshipLabel>
         <relationshipName>Participating_Dealers</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>true</writeRequiresMasterRead>
@@ -108,7 +108,7 @@
         <relationshipLabel>Participating Campaigns</relationshipLabel>
         <relationshipName>Participating_Dealers</relationshipName>
         <relationshipOrder>1</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>true</writeRequiresMasterRead>
@@ -178,7 +178,7 @@
         <searchFilterFields>Session_Start_Date__c</searchFilterFields>
         <searchFilterFields>Session_End_Date__c</searchFilterFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>   
+    <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>Session_Start_Date_is_less_than_End_Date</fullName>
         <active>true</active>

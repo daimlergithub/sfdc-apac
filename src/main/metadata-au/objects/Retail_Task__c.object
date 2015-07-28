@@ -2208,7 +2208,7 @@
         <language>en_US</language>
     </listViews>
     <nameField>
-        <label>Name</label>
+        <label>Name / ID</label>
         <type>Text</type>
     </nameField>
     <pluralLabel>Contracts &amp; Aftersales</pluralLabel>

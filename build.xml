@@ -626,6 +626,8 @@
 			<sf:include name="EntityUpdateNotificationWS"/>
 			<sf:include name="DealerLocatorHelper"/>
 			<sf:include name="UtilWebService"/>
+			<sf:include name="UtilWebServiceTest"/>
+			<sf:include name="DealerLocatorHttpResponseGenerator"/>
 			<sf:include name="TriggerDealerLocatorHandler"/>
 			
 		</sf:typeset>
@@ -700,6 +702,9 @@
 			<sf:include name="SlickCtiObjectHelper"/>	
 			<sf:include name="SubmitSurveyController"/>
 			<sf:include name="SubmitSurveyControllerTest"/>
+			<sf:include name="TriggerSurveyQuestionResponseHandler"/>
+			<sf:include name="TriggerSurveyQuestionResponseTest"/>
+			<sf:include name="UtilSurveyQuestionResponse"/>		
 			<sf:include name="MassApproveRetailCampaignController"/>
 			<sf:include name="MassApproveRetailCampaignControllerTest"/>
 			<sf:include name="MassApproveToolKitController"/>
@@ -711,8 +716,11 @@
 			<sf:include name="MyProcess"/>
 			<sf:include name="MyProcessTest"/>		 	
 			<sf:include name="BatchUpdateRecords"/>
-			<sf:include name="BatchUpdateRecordsTest"/>
+			<sf:include name="BatchUpdateRecordsTest"/>			
 		</sf:typeset>	
+		<sf:typeset name="triggers">			
+            <sf:include name="TriggerSurveyQuestionResponse"/>			
+		</sf:typeset>
 		<sf:typeset name="pages"> 
 				<sf:include name="LeadConverting"/>
 				<sf:include name="CaseEscalation"/>
@@ -804,10 +812,10 @@
 			<sf:include name="AddresscontrollerTest"/>
 			<sf:include name="AddressHelper"/>
 			<sf:include name="AddressHelperTest"/>			
-			<sf:include name="UtilAccountTest"/>						
-		</sf:typeset>	
+			<sf:include name="UtilAccountTest"/>					
+		</sf:typeset>		
 		<sf:typeset name="triggers">
-			<sf:include name="TriggerAddress"/>
+			<sf:include name="TriggerAddress"/>	            		
 		</sf:typeset>
 		<sf:typeset name="pages"> 
 				<sf:include name="Account_Address"/>
@@ -903,7 +911,7 @@
 	</target>
 	
 	<target name="deploy50">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="profiles" force="true"/>		
 		</deploy>
 	</target>		
