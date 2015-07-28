@@ -12,18 +12,18 @@
     1. Polaris Yu (BreakingPoint) Created on 2013-8-22
 */
 public with sharing class ExtSelectAssignedDealer {
-    public Lead__c lead                  {get; set;}
-    public String name                           {get; set;}
-    public Account dealer                        {get; set;}
-    public Boolean hasQueryResult                {get; set;}
-    public List<Account> dealers                 {get; set;}
-    public Id choosenDealerId                    {get; set;}
-    public Boolean hasMessage                    {get; set;}
+    transient public Lead__c lead                  {get; set;}
+    transient public String name                           {get; set;}
+    transient public Account dealer                        {get; set;}
+    transient public Boolean hasQueryResult                {get; set;}
+    transient public List<Account> dealers                 {get; set;}
+    transient public Id choosenDealerId                    {get; set;}
+    transient public Boolean hasMessage                    {get; set;}
 
     // Query return limit and Dealer's Record Type Name
     private final Integer QUERY_LIMIT = 200;
     private Id dealerRecordTypeId = null;
-    public string suburb                    {get; set;}
+    transient public string suburb                    {get; set;}
     public ExtSelectAssignedDealer(ApexPages.StandardController controller) {
         lead = [SELECT RecordType.Name, Name, Assigned_Dealer__c, Postcode__c
                 FROM Lead__c WHERE Id =: controller.getId()];
