@@ -36,7 +36,7 @@ public class TriggerAccountHandler
 	        AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
 	        AccountHelper.auAfter_Update_UpdatePc_Status_Values(trigger.new);
 	        serializedObject=json.serialize(newDL);
-        	if(obj.profile.Name!='IntegrationAPI')
+        	if(obj.profile.Name!='IntegrationAPI' && !test.isrunningtest())
         		AccountHelper.entityNotifyUpdate('UPDATE',serializedObject);
 	        //Kernel code
 	        //UtilAccount.accountSetForUpdateLead(trigger.new,oldmap);
