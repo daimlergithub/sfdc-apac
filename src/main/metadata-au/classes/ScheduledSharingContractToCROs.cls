@@ -108,33 +108,37 @@ global class ScheduledSharingContractToCROs implements Schedulable{
         if(users.size() == 0) {
             users = RTLusers;
         }
-        Integer usersNum = users.size();
-        Integer RTLusersNum = RTLusers.size();
-        Integer i = 0;
-        Integer j = 0;
-        //Welcome Call
-        for(Retail_Task__c con : Welcontracts) {
-            Id contactid = null;
-            contactid = accountIdContactId.get(con.Account__c);
-            List<String> phone = new List<String>();
-            phone = accountIdPhone.get(con.Account__c);
-            if(phone[0] == null && phone[1] == null && phone[2] == null) {
-                Task t = createTask(con, RTLusers[j], 'Welcome Call', contactid, phone, WelcomeCallRT);
-                preTask.add(t);
-                j++;
-                if(j >= RTLusersNum) {
-                    j = 0;
-                }
-            } else {
-                Task t = createTask(con, users[i], 'Welcome Call', contactid, phone, WelcomeCallRT);
-                preTask.add(t);
-                i++;
-                if(i >= usersNum) {
-                    i = 0;
-                }
-            }
-           
-        }
+        else if(users.size() > 0 && RTLusers.size() > 0)
+        {
+	        Integer usersNum = users.size();
+	        Integer RTLusersNum = RTLusers.size();
+	        Integer i = 0;
+	        Integer j = 0;
+	        //Welcome Call
+	        for(Retail_Task__c con : Welcontracts) {
+	            Id contactid = null;
+	            if(accountIdContactId.get(con.Account__c) != null)
+	            contactid = accountIdContactId.get(con.Account__c);
+	            List<String> phone = new List<String>();
+	            phone = accountIdPhone.get(con.Account__c);
+	            if(phone[0] == null && phone[1] == null && phone[2] == null) {
+	                Task t = createTask(con, RTLusers[j], 'Welcome Call', contactid, phone, WelcomeCallRT);
+	                preTask.add(t);
+	                j++;
+	                if(j >= RTLusersNum) {
+	                    j = 0;
+	                }
+	            } else {
+	                Task t = createTask(con, users[i], 'Welcome Call', contactid, phone, WelcomeCallRT);
+	                preTask.add(t);
+	                i++;
+	                if(i >= usersNum) {
+	                    i = 0;
+	                }
+	            }
+	           
+	        }
+    	
         //Annual Call
         i = 0;
         for(Retail_Task__c con : Ann1contracts) {
@@ -265,7 +269,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
                 }
             }
         }
-        
+        }
         try {
             if(preTask.size() > 0) {
                 insert preTask;
