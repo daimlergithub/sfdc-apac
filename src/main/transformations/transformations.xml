@@ -689,7 +689,7 @@
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Insurance_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_FIELD_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_ID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
@@ -704,7 +704,7 @@
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_FIELD_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_ID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
@@ -719,7 +719,7 @@
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Service_Parts_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_FIELD_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_ID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
@@ -734,6 +734,6 @@
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Vehicle_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_FIELD_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_COMPANY_ACCOUNT_ID</token>
 	</changetext>
 </transformations>
