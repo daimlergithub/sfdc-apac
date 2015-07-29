@@ -136,6 +136,9 @@
 				<sf:include name="AUOverrideNewandEditForAccount"/>
 				<sf:include name="AUAssignVFPageToRecordType"/>
 			</sf:typeset>
+			<sf:typeset name="components">
+				<sf:include name="datepickerextend"/>
+			</sf:typeset>
 			<sf:typeset name="classes">
 				<sf:include name="AUAssignVFPageToRecordTypeController"/>
 				<sf:include name="AUAssignVFPageToRecordTypeControllerTest"/>
