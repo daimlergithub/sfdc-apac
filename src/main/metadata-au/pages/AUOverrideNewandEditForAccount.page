@@ -1,4 +1,5 @@
 <apex:page standardcontroller="Account" extensions="AUOverrideNewandEditForAccountController" id="pageId">
+<c:DatePickerExtend startYear="1900" endYear="2050"/>
   <apex:sectionHeader title="{!strHeaderTitle}" subtitle="New Account" id="shId"/>
   <apex:form id="formId">
     <apex:pageblock id="pbId">
