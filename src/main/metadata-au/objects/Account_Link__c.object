@@ -347,6 +347,10 @@
                 <fullName>Last Financing</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Deleted</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -839,6 +843,10 @@
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Campaign%2FProject Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deleted</fullName>
                 <default>false</default>
             </values>
             <values>
