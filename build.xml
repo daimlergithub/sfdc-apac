@@ -129,6 +129,9 @@
 				<sf:exclude name="Survey_Question__c"/>
 				<sf:exclude name="Contract_Relation__c"/>
 			</sf:typeset>
+			<sf:typeset name="components">
+				<sf:include name="datepickerextend"/>
+			</sf:typeset>
 			<sf:typeset name="pages">
 				<sf:include name="AUOverrideNewandEditForAccount"/>
 				<sf:include name="AUAssignVFPageToRecordType"/>
