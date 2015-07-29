@@ -88,7 +88,7 @@
 	
 	<target name="deploy05">
 		<deploy>			
-			<sf:typeset name="documents"/>
+			<sf:typeset name="documents" force="true"/>
 			<sf:typeset name="callCenters"/>
 		</deploy>
     </target>
@@ -100,6 +100,9 @@
 				<sf:include name="Integration_Picklist__c"/>
 				<sf:include name="External_Picklist__c"/>
 				<sf:include name="Car_Model__c"/>
+			</sf:typeset>
+			<sf:typeset name="components">
+				<sf:include name="datepickerextend"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -132,6 +135,9 @@
 			<sf:typeset name="pages">
 				<sf:include name="AUOverrideNewandEditForAccount"/>
 				<sf:include name="AUAssignVFPageToRecordType"/>
+			</sf:typeset>
+			<sf:typeset name="components">
+				<sf:include name="datepickerextend"/>
 			</sf:typeset>
 			<sf:typeset name="classes">
 				<sf:include name="AUAssignVFPageToRecordTypeController"/>
