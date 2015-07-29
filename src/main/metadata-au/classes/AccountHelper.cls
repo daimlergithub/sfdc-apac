@@ -266,7 +266,7 @@ public class AccountHelper {
         
         if(updateAcc.Opt_In_Email2__c != oldAcc.Opt_In_Email2__c){
             updateAcc.Email_Last_Modified_By2__c = UserInfo.getName();
-            updateAcc.Email_Last_Modified_Date2__c = System.now();
+           updateAcc.Email_Last_Modified_Date2__c = System.now();
         }
         /************* SHRINIVAS **************/
         
@@ -775,14 +775,12 @@ public class AccountHelper {
     }
     
     @Future(callout=true)
-    public static void entityNotifyUpdate(string updateType,string serlializedObject)
+    public static void entityNotifyUpdate(string updateType,String sfdcId,string serlializedObject)
     {
-    	string orgId=UserInfo.getOrganizationId();
-    	Schema.DescribeSObjectResult r = Account.sObjectType.getDescribe();
-		String sfdcId = r.getKeyPrefix();
-		string sfdcTypeName='Account';
-		if(!test.isrunningtest())
-			UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,updateType,serlializedObject);
+    string orgId=UserInfo.getOrganizationId();
+          string sfdcTypeName='Account';
+          if(!test.isrunningtest())
+               UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,updateType,serlializedObject);
     }
     //Existing AU related functionality ends here   
 }
