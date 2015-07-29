@@ -88,7 +88,7 @@
 	
 	<target name="deploy05">
 		<deploy>			
-			<sf:typeset name="documents"/>
+			<sf:typeset name="documents" force="true"/>
 			<sf:typeset name="callCenters"/>
 		</deploy>
     </target>
@@ -135,6 +135,9 @@
 			<sf:typeset name="pages">
 				<sf:include name="AUOverrideNewandEditForAccount"/>
 				<sf:include name="AUAssignVFPageToRecordType"/>
+			</sf:typeset>
+			<sf:typeset name="components">
+				<sf:include name="datepickerextend"/>
 			</sf:typeset>
 			<sf:typeset name="classes">
 				<sf:include name="AUAssignVFPageToRecordTypeController"/>
