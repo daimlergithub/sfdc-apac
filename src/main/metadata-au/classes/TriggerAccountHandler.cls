@@ -18,52 +18,52 @@ public class TriggerAccountHandler
 {
     public void handleTrigger()
     {
-    	Map<Id,Account> oldmap = (Map<Id,Account>)trigger.oldmap;
+    Map<Id,Account> oldmap = (Map<Id,Account>)trigger.oldmap;
         Map<Id,Account> newmap = (Map<Id,Account>)trigger.newmap;
         list<Account> oldDL = (list<Account>)trigger.old;
         list<Account> newDL = (list<Account>)trigger.new;
         string serializedObject;
         user obj=[select id,profileid,profile.Name from user where id=:userinfo.getuserid()];
         if(trigger.isAfter && trigger.isInsert)
-	    {
-	        AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
-	        serializedObject=json.serialize(newDL);
-	        if(obj.profile.Name!='IntegrationAPI')
-            	AccountHelper.entityNotifyUpdate('INSERT',serializedObject);
-	    }
-	    if(trigger.isAfter && trigger.isUpdate)
-	    {
-	        AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
-	        AccountHelper.auAfter_Update_UpdatePc_Status_Values(trigger.new);
-	        serializedObject=json.serialize(newDL);
-        	if(obj.profile.Name!='IntegrationAPI' && !test.isrunningtest())
-        		AccountHelper.entityNotifyUpdate('UPDATE',serializedObject);
-	        //Kernel code
-	        //UtilAccount.accountSetForUpdateLead(trigger.new,oldmap);
-	    }
-	    if(trigger.isAfter && trigger.isDelete)
-	    {
-	        AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
-	        serializedObject=json.serialize(oldDL);
-	        if(obj.profile.Name!='IntegrationAPI')
-            	AccountHelper.entityNotifyUpdate('DELETE',serializedObject);
-	    }
-	    if(trigger.isBefore && trigger.isInsert)
-	    {
-	        AccountHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
-	        AccountHelper.auBeforeInsertUpdateTrimPhoneFileds(trigger.new);
+         {
+             AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
+             serializedObject=json.serialize(newDL);
+             if(obj.profile.Name!='IntegrationAPI')
+                 AccountHelper.entityNotifyUpdate('INSERT',newDL[0].Id,serializedObject);
+         }
+         if(trigger.isAfter && trigger.isUpdate)
+         {
+             AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
+             AccountHelper.auAfter_Update_UpdatePc_Status_Values(trigger.new);
+             serializedObject=json.serialize(newDL);
+          if(obj.profile.Name!='IntegrationAPI' && !test.isrunningtest())
+               AccountHelper.entityNotifyUpdate('UPDATE',newDL[0].Id,serializedObject);
+             //Kernel code
+             //UtilAccount.accountSetForUpdateLead(trigger.new,oldmap);
+         }
+         if(trigger.isAfter && trigger.isDelete)
+         {
+             AccountHelper.auAfter_Insert_Update_Delete_Events(newmap,oldmap,trigger.new,trigger.old,trigger.isinsert,trigger.isDelete,trigger.isUpdate);
+             serializedObject=json.serialize(oldDL);
+             if(obj.profile.Name!='IntegrationAPI')
+                 AccountHelper.entityNotifyUpdate('DELETE',oldDL[0].Id,serializedObject);
+         }
+         if(trigger.isBefore && trigger.isInsert)
+         {
+             AccountHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+             AccountHelper.auBeforeInsertUpdateTrimPhoneFileds(trigger.new);
             AccountHelper.auBeforeInsert_Update_Phonenum_validation(trigger.new);
-	        //Kernel code
-	        //UtilAccount.beforeAccDealerInfo(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate);
-	    }
-	    if(trigger.isBefore && trigger.isUpdate)
-	    {
-	        AccountHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
-	        AccountHelper.auBeforeUpdateCheckRequiredPhoneFields(trigger.new);
-	        AccountHelper.auBeforeInsertUpdateTrimPhoneFileds(trigger.new);
+             //Kernel code
+             //UtilAccount.beforeAccDealerInfo(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate);
+         }
+         if(trigger.isBefore && trigger.isUpdate)
+         {
+             AccountHelper.auBefore_Insert_Update_Events(trigger.new,oldmap,trigger.isinsert,trigger.isUpdate);
+             AccountHelper.auBeforeUpdateCheckRequiredPhoneFields(trigger.new);
+             AccountHelper.auBeforeInsertUpdateTrimPhoneFileds(trigger.new);
             AccountHelper.auBeforeInsert_Update_Phonenum_validation(trigger.new);
-	        //Kernel code
-	        //UtilAccount.beforeAccDealerInfo(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate);
-	    }
+             //Kernel code
+             //UtilAccount.beforeAccDealerInfo(Trigger.new,oldmap,Trigger.isInsert,Trigger.isUpdate);
+         }
     }
 }

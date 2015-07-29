@@ -1,6 +1,6 @@
 trigger TriggerAddress on Address__c (before insert, before update,after insert, after update, after delete) {
-	
-	if (!TriggerUtil.isTriggerEnabled('TriggerAddress')) {
+     
+     if (!TriggerUtil.isTriggerEnabled('TriggerAddress')) {
         return;
     }
     string serializedObject;
@@ -11,21 +11,21 @@ trigger TriggerAddress on Address__c (before insert, before update,after insert,
         AddressHelper.auAfter_Insert_Update_Delete_Events(trigger.New,trigger.Old,trigger.oldMap,trigger.isUpdate,trigger.isDelete);
         serializedObject=json.serialize(trigger.New);
         if(obj.profile.Name!='IntegrationAPI')
-        	AddressHelper.entityNotifyUpdate('INSERT',serializedObject);
+             AddressHelper.entityNotifyUpdate('INSERT',trigger.New[0].Id,serializedObject);
     }
     if(trigger.isAfter && trigger.isUpdate)
     {
         AddressHelper.auAfter_Insert_Update_Delete_Events(trigger.New,trigger.Old,trigger.oldMap,trigger.isUpdate,trigger.isDelete);
         serializedObject=json.serialize(trigger.New);
         if(obj.profile.Name!='IntegrationAPI')
-        	AddressHelper.entityNotifyUpdate('UPDATE',serializedObject);
+             AddressHelper.entityNotifyUpdate('UPDATE',trigger.New[0].Id,serializedObject);
     }
     if(trigger.isAfter && trigger.isDelete)
     {
         AddressHelper.auAfter_Insert_Update_Delete_Events(trigger.New,trigger.Old,trigger.oldMap,trigger.isUpdate,trigger.isDelete);
         serializedObject=json.serialize(trigger.Old);
         if(obj.profile.Name!='IntegrationAPI')
-        	AddressHelper.entityNotifyUpdate('DELETE',serializedObject);
+             AddressHelper.entityNotifyUpdate('DELETE',trigger.Old[0].Id,serializedObject);
     }
     if(trigger.isBefore && trigger.isInsert)
     {
