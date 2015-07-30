@@ -5,11 +5,13 @@
 */
 @isTest
 public class ScheduledSendNotificationEmailTest{
-    
+   
     static testMethod void testScheduledSendNotificationEmail(){
         String personRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         String leadFinanceRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
         String leadFleetRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Fleet Lead').getRecordTypeId();
+        User usr1 = UtilTestData.createUser('Australia','Fleet');
+        system.runAs(usr1){
         
         Account account = new Account(RecordTypeId = personRecordTypeId);
         account.Status__c='Customer';
@@ -81,6 +83,7 @@ public class ScheduledSendNotificationEmailTest{
         Test.stopTest();
          CronTrigger ct = [select id, CronExpression,State, TimesTriggered, NextFireTime from CronTrigger where id = :jobId];
         system.assertEquals('WAITING', ct.State);
+        }
         
     }
 }
