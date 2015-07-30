@@ -11,9 +11,13 @@ public class UtilSurveyQuestionResponse {
         
         if(!sqrSet.isEmpty())
         {
-            map<id,Survey_Question__c> mapid= new map<id,Survey_Question__c>([Select id,name,Total_Responses__c,
-                                                                              (Select id,name,Survey_Question__c from Survey_Question_Answers__r) 
-                                                                              from Survey_Question__c where Id IN :sqrSet]); 
+            map<id,Survey_Question__c> mapid= new map<id,Survey_Question__c>(); 
+            
+            mapid.clear();
+            for(Survey_Question__c objSQ: [Select id,name,Total_Responses__c,(Select id,name,Survey_Question__c from Survey_Question_Answers__r)from Survey_Question__c where Id IN :sqrSet])
+            {
+                mapid.put(objSQ.id,objSQ);
+            }
             if(mapid!=null && !mapid.isempty())
             {
                 for(id obj:mapid.keySet())
