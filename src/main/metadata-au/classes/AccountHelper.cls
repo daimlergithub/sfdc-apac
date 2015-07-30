@@ -464,7 +464,7 @@ public class AccountHelper {
         
         if(customerIds!=null && !customerIds.isEmpty())
         {   
-            list<Account> lstCustomers=[select id,(select id,Customer__c from Addresses__r),(Select id,Vehicle_ID__c,Car_Relation__c,Contact__c,Vehicle_ID__r.Vehicle_Group__c from Vehicle_Relationships2__r) from Account where id In:customerIds];
+            list<Account> lstCustomers=[select id,(select id,Customer__c from Addresses__r),(Select id,Vehicle_ID__c,Car_Relation__c,Contact__c,Vehicle_ID__r.Car_Model__r.Vehicle_Group__c,Vehicle_ID__r.Vehicle_Group__c from Vehicle_Relationships2__r) from Account where id In:customerIds];
             
             if(lstCustomers!=null && !lstCustomers.isEmpty())
             {   Integer PcCount=0;Integer CvCount=0;Integer VanCount=0;
@@ -475,14 +475,14 @@ public class AccountHelper {
                         for(Vehicle_Relationship__c objVR:objAcc.Vehicle_Relationships2__r)
                         {
                             if(objAcc.id==objVR.Contact__c && objVR.Car_Relation__c =='Owner'){
-                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'PC'){
+                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'PC' || objVR.Vehicle_ID__r.Car_Model__r.Vehicle_Group__c == 'PC'){
                                     PcCount++;
                                 }
-                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'CV'){
+                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'CV' || objVR.Vehicle_ID__r.Car_Model__r.Vehicle_Group__c == 'CV'){
                                     CvCount++;
                                 }
                                 
-                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'Van'){
+                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'Van' || objVR.Vehicle_ID__r.Car_Model__r.Vehicle_Group__c == 'Van'){
                                     VanCount++;
                                 }
                                 vehicleRelationIds.add(objVR.Id);
