@@ -47,6 +47,6 @@ public class TriggerSurveyQuestionResponseTest {
         delete sqr;
         test.stopTest();        
         Survey_Question__c sq1=[select id,Total_Responses__c from Survey_Question__c where id=:sq.Id];        
-        system.assertEquals(0, sq1.Total_Responses__c);
+        system.assertEquals(null, sq1.Total_Responses__c);
     }    
 }
