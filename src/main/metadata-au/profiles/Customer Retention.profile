@@ -16421,7 +16421,7 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
         <recordType>Account_Link__c.Co_Borrower_Guarantor</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
