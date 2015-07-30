@@ -708,6 +708,7 @@
 			<sf:include name="SlickCtiObjectHelper"/>	
 			<sf:include name="SubmitSurveyController"/>
 			<sf:include name="SubmitSurveyControllerTest"/>
+			<sf:include name="BatchSurveyQuestionResponse"/>
 			<sf:include name="TriggerSurveyQuestionResponseHandler"/>
 			<sf:include name="TriggerSurveyQuestionResponseTest"/>
 			<sf:include name="UtilSurveyQuestionResponse"/>		
