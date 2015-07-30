@@ -665,7 +665,7 @@ public class TaskTriggerHandler
 	        Schema.DescribeSobjectResult r= Retail_Task__c.sObjectType.getDescribe();
 	        string keyPrefix=r.getKeyPrefix();
 	        for(Task task : listTaskNew) {
-	            if(RECORD_TYPE_SET.contains(task.RecordTypeId) && String.valueOf(task.WhatId).startswith(keyPrefix))  {
+	            if(RECORD_TYPE_SET.contains(task.RecordTypeId) && task.whatId != null && String.valueOf(task.WhatId).startswith(keyPrefix))  {
 	                contractIds.add(task.WhatId);
 	            }
 	        }
