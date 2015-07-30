@@ -71,7 +71,7 @@ public with sharing class ExtSelectAssignedDealer {
             querySOQL += 'AND Id IN (SELECT Customer__c FROM Address__c WHERE District__c =: suburb )';
         }
         
-        if ((dealer.ZipCode__c != null && dealer.ZipCode__c != '')
+        if (dealer!= null && (dealer.ZipCode__c != null && dealer.ZipCode__c != '')
             || (dealer.Cars_Offered_Service__c != null
             && dealer.Cars_Offered_Service__c != ''))
             {
@@ -83,13 +83,13 @@ public with sharing class ExtSelectAssignedDealer {
             }*/
 
             // Filtered by 'Post Code'
-            if(dealer.ZipCode__c != null && dealer.ZipCode__c != ''){
+            if(dealer!= null && dealer.ZipCode__c != null && dealer.ZipCode__c != ''){
                 String postCode = dealer.ZipCode__c;
                 querySOQL += 'Post_Code__c =: postCode AND ';
             }
             //TODO
             // Filtered by 'Business Unit'
-            if(dealer.Business_Unit__c != null && dealer.Business_Unit__c != ''){
+            if(dealer!= null && dealer.Business_Unit__c != null && dealer.Business_Unit__c != ''){
                 List<String> businessUnit = dealer.Business_Unit__c.split(';', -1);
                 String buQuery = '';
                 for(integer i = 0; i < businessUnit.size(); i ++){
@@ -109,7 +109,7 @@ public with sharing class ExtSelectAssignedDealer {
             }
 
             // Filtered by 'Offered Service'; 8 kinds of Offered Service
-            if(dealer.Cars_Offered_Service__c != null && dealer.Cars_Offered_Service__c != ''){
+            if(dealer!= null && dealer.Cars_Offered_Service__c != null && dealer.Cars_Offered_Service__c != ''){
                 List<String> offeredService = dealer.Cars_Offered_Service__c.split(';', -1);
                 String osQuery = '';
                 for(integer i = 0; i < offeredService.size(); i ++ ){
