@@ -204,6 +204,7 @@ public with sharing class VehicleRelationshipHelper {
     //When PA gets a Vehicle-Relationship
     public static void updataWhenCreateCVR(Set<Id> vehicleIds, Set<Id> customerIds, List<Vehicle_Relationship__c> cvrs,boolean isInsert,boolean isupdate,boolean isdelete) {
         Map<id,Account> accounts = new Map<id,Account>();
+         Map<id,Vehicle__c> vehichles = new  Map<id,Vehicle__c>();
         Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
         //get pc first date records
         Map<String,Date>  preRecordsPc = getExsitedInfos(customerIds,'PC');
@@ -218,23 +219,43 @@ public with sharing class VehicleRelationshipHelper {
         Map<id,Account> accs = AccountHelper.getCustomerInfos(customerIds);
         list<Address__c> lstAddress=[select Customer__c from Address__c where Customer__c In:customerIds];
         set<id> setAccId= new set<Id>();
+        Account acc = new Account();
         if(lstAddress!=null && !lstAddress.isEmpty())
         {
             for(Address__c objAdd:lstAddress)
                 setAccId.add(objAdd.Customer__c);
         }
-        Map<id,Vehicle__c> vehichles = getVehichles(vehicleIds);
-        for(Vehicle_Relationship__c curCvr : cvrs){
-            Account acc = new Account();
-            if(accounts.containsKey(curCvr.Contact__c)){
-                acc = accounts.get(curCvr.Contact__c);
-            }else{
-                acc = accs.get(curCvr.Contact__c);
+        if(getVehichles(vehicleIds) != null)
+        vehichles = getVehichles(vehicleIds);
+        
+        if(cvrs != null && !cvrs.isEmpty())
+        {
+            for(Vehicle_Relationship__c curCvr : cvrs)
+            { 
+                if(accounts != null && !accounts.isEmpty() && curCvr.Contact__c != null && curCvr.Contact__c != '')
+                {           
+                    if(accounts.containsKey(curCvr.Contact__c))
+                    {
+                        acc = accounts.get(curCvr.Contact__c);
+                    }
+                    else
+                    {
+                        acc = accs.get(curCvr.Contact__c);
+                    }
+                }
+                if(curCvr != null && curCvr.Vehicle_ID__c != null && vehichles != null) 
+                {
+                    if(vehichles.get(curCvr.Vehicle_ID__c) != null && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c != null)
+                    acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),isinsert,isupdate,isdelete);
+                    if(acc != null)
+                    accounts.put(acc.id,acc);
+                }
             }
-            acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),isinsert,isupdate,isdelete);
-            accounts.put(acc.id,acc);
         }
-        UtilDB.updateSobjects(accounts.values());
+        if(accounts != null && !accounts.containsKey(null) && accounts.values() != null)
+        {
+            UtilDB.updateSobjects(accounts.values());
+        }
     }     
     
     public static void auAfter_Insert_Update_Events(list<Vehicle_Relationship__c> listVRNew,map<id,Vehicle_Relationship__c> oldMap,boolean isInsert,boolean isupdate,boolean isdelete)
