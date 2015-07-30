@@ -27,7 +27,7 @@ public class AccountHelperTest
        AccountHelper.updateLeads(contactIds);
        
        test.stopTest();
-       //system.assertNotEquals(null, testLead.OwnerId); //commented as Community license is not there for AU
+       system.assertEquals(true, testLead.Assigned_to_Dealer_Directly__c); 
        
    }
     
@@ -81,13 +81,15 @@ public class AccountHelperTest
        
         Set<Id> customerIds = new Set<Id>();
        customerIds.add(Dealer.id);
-       
+       Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;
         Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
         Map<String,Date>  preRecordsVAN = AccountHelper.getExsitedInfos(customerIds,'VAN');
        exsisedRecord.put('VAN', preRecordsVAN);
-       
-       
-       AccountHelper.updatePCCVField(Dealer,'VAN',exsisedRecord,true);
+       Map<String,Integer> tempcount=new Map<String,Integer>();
+               tempcount.put('PC',PcCount);
+                tempcount.put('CV',CvCount);
+                tempcount.put('Van',VanCount);
+       AccountHelper.updatePCCVField(Dealer,'VAN',exsisedRecord,true,tempcount);
        
        test.stopTest();
        system.assertNotEquals(null,testMapDealer);
@@ -135,6 +137,76 @@ public class AccountHelperTest
        system.assertEquals(UserInfo.getName(), personAcc.SMS_Last_Modified_By__c);
        
    }
+    
+     public static testMethod void testupdatePCCVFieldUnknownVehicleGroup()
+    {
+        Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
+        preRecords.put('blabla', new Map<String, Date>());
+               Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;
+               Map<String,Integer> tempcount=new Map<String,Integer>();
+               tempcount.put('PC',PcCount);
+               tempcount.put('CV',CvCount);
+               tempcount.put('Van',VanCount);
+        Test.startTest();
+        AccountHelper.updatePCCVField(Dealer, 'blabla', preRecords, true,tempcount);
+        Test.stopTest();
+    }
+    
+    public static testMethod void testupdatePCCVField()
+    {
+        Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
+        preRecords.put('PC', new Map<String, Date>());
+              Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;
+               Map<String,Integer> tempcount=new Map<String,Integer>();
+               tempcount.put('PC',PcCount);
+               tempcount.put('CV',CvCount);
+               tempcount.put('Van',VanCount);
+        Test.startTest();
+        AccountHelper.updatePCCVField(Dealer, 'PC', preRecords, true,tempcount);
+        Test.stopTest();
+    }
+    
+    public static testMethod void testupdatePCCVFieldDifferentVehicleGroup()
+    {
+        Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
+        preRecords.put('bloob', new Map<String, Date>());
+        Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;
+               Map<String,Integer> tempcount=new Map<String,Integer>();
+               tempcount.put('PC',PcCount);
+               tempcount.put('CV',CvCount);
+               tempcount.put('Van',VanCount);
+        Test.startTest();
+        AccountHelper.updatePCCVField(Dealer, 'blabla', preRecords, true,tempcount);
+        Test.stopTest();
+    }
+    
+    public static testMethod void testupdatePCCVFieldEmptyVehicleGroup()
+    {
+        Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
+        preRecords.put('blabla', new Map<String, Date>());
+        Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;
+               Map<String,Integer> tempcount=new Map<String,Integer>();
+               tempcount.put('PC',PcCount);
+               tempcount.put('CV',CvCount);
+               tempcount.put('Van',VanCount);
+        Test.startTest();
+        AccountHelper.updatePCCVField(Dealer, '', preRecords, true,tempcount);
+        Test.stopTest();
+    }
+    
+    public static testMethod void testupdatePCCVFieldNullVehicleGroup()
+    {
+        Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
+        preRecords.put('blabla', new Map<String, Date>());
+        Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;
+               Map<String,Integer> tempcount=new Map<String,Integer>();
+               tempcount.put('PC',PcCount);
+               tempcount.put('CV',CvCount);
+               tempcount.put('Van',VanCount);
+        Test.startTest();
+        AccountHelper.updatePCCVField(Dealer, null, preRecords, true,tempcount);
+        Test.stopTest();
+    }
     
     static void createTestData()
    {
