@@ -1,4 +1,4 @@
-<messaging:emailTemplate subject="{!relatedTo.Nature_of_Request__c} Lead:{!if(isblank(relatedTo.Company_Account__c), relatedTo.Contact__r.Name,relatedTo.Company_Account__r.Name)}" recipientType="Contact" relatedToType="Lead__c">
+<messaging:emailTemplate subject="{!relatedTo.Nature_of_Request__c} Lead: {!if(isblank(relatedTo.Company_Account__c), relatedTo.Contact__r.Name,relatedTo.Company_Account__r.Name)}" recipientType="Contact" relatedToType="Lead__c">
 <messaging:htmlEmailBody >
 
 The following {!relatedTo.Nature_of_Request__c} lead has been referred to you for follow up.

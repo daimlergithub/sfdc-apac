@@ -10,7 +10,7 @@
             <operation>notEqual</operation>
             <value>null</value>
         </criteriaItems>
-        <accessLevel>Read</accessLevel>
+        <accessLevel>Edit</accessLevel>
         <description>share all RetailTask records (Contracts &amp; Aftersales) to all users (Roles and Subordinates in Australia)</description>
         <name>RetailTask records sharing rule</name>
     </criteriaBasedRules>

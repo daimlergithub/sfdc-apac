@@ -71,63 +71,66 @@ public with sharing class ExtSelectAssignedDealer {
             querySOQL += 'AND Id IN (SELECT Customer__c FROM Address__c WHERE District__c =: suburb )';
         }
         
-        if (dealer!= null && (dealer.ZipCode__c != null && dealer.ZipCode__c != '')
-            || (dealer.Cars_Offered_Service__c != null
-            && dealer.Cars_Offered_Service__c != ''))
-            {
-            querySOQL += ' AND Id IN (SELECT Dealer_Name__c FROM Dealer_Locator__c WHERE ';
-
-            // Filtered by 'Suburb'
-            /*if (suburb != null && suburb != '') {
-                querySOQL += 'Suburb__c =: suburb AND ';
-            }*/
-
-            // Filtered by 'Post Code'
-            if(dealer!= null && dealer.ZipCode__c != null && dealer.ZipCode__c != ''){
-                String postCode = dealer.ZipCode__c;
-                querySOQL += 'Post_Code__c =: postCode AND ';
+        if (dealer!= null)
+        {
+            if((dealer.ZipCode__c != null && dealer.ZipCode__c != '')
+                || (dealer.Cars_Offered_Service__c != null
+                && dealer.Cars_Offered_Service__c != ''))
+                {
+                querySOQL += ' AND Id IN (SELECT Dealer_Name__c FROM Dealer_Locator__c WHERE ';
+    
+                // Filtered by 'Suburb'
+                /*if (suburb != null && suburb != '') {
+                    querySOQL += 'Suburb__c =: suburb AND ';
+                }*/
+    
+                // Filtered by 'Post Code'
+                if(dealer.ZipCode__c != null && dealer.ZipCode__c != ''){
+                    String postCode = dealer.ZipCode__c;
+                    querySOQL += 'Post_Code__c =: postCode AND ';
+                }
+                //TODO
+                // Filtered by 'Business Unit'
+                if(dealer.Business_Unit__c != null && dealer.Business_Unit__c != ''){
+                    List<String> businessUnit = dealer.Business_Unit__c.split(';', -1);
+                    String buQuery = '';
+                    for(integer i = 0; i < businessUnit.size(); i ++){
+                        if(i < (businessUnit.size()-1)){
+                            buQuery += 'Business_Unit__c = \'' + businessUnit[i] + '\' OR ';
+                        }
+                        else if(i == (businessUnit.size()-1)){
+                            buQuery += 'Business_Unit__c = \'' + businessUnit[i] + '\'';
+                        }
+                    }
+                    if(businessUnit.size() > 1){
+                        querySOQL += '(' + buQuery + ') AND ';
+                    }
+                    else{
+                        querySOQL += buQuery + ' AND ';
+                    }
+                }
+    
+                // Filtered by 'Offered Service'; 8 kinds of Offered Service
+                if(dealer.Cars_Offered_Service__c != null && dealer.Cars_Offered_Service__c != ''){
+                    List<String> offeredService = dealer.Cars_Offered_Service__c.split(';', -1);
+                    String osQuery = '';
+                    for(integer i = 0; i < offeredService.size(); i ++ ){
+                        if(i < (offeredService.size()-1)){
+                            osQuery += 'Offered_Service__c = \'' + offeredService[i] + '\' OR ';
+                        }
+                        else if(i == (offeredService.size()-1)){
+                            osQuery += 'Offered_Service__c = \'' + offeredService[i] + '\'';
+                        }
+                    }
+                    if(offeredService.size() > 1){
+                        querySOQL += '(' + osQuery + ') AND ';
+                    }
+                    else{
+                        querySOQL += osQuery + ' AND ';
+                    }
+                }
+                querySOQL = querySOQL.subString(0, querySOQL.length() - 4) + ')';
             }
-            //TODO
-            // Filtered by 'Business Unit'
-            if(dealer!= null && dealer.Business_Unit__c != null && dealer.Business_Unit__c != ''){
-                List<String> businessUnit = dealer.Business_Unit__c.split(';', -1);
-                String buQuery = '';
-                for(integer i = 0; i < businessUnit.size(); i ++){
-                    if(i < (businessUnit.size()-1)){
-                        buQuery += 'Business_Unit__c = \'' + businessUnit[i] + '\' OR ';
-                    }
-                    else if(i == (businessUnit.size()-1)){
-                        buQuery += 'Business_Unit__c = \'' + businessUnit[i] + '\'';
-                    }
-                }
-                if(businessUnit.size() > 1){
-                    querySOQL += '(' + buQuery + ') AND ';
-                }
-                else{
-                    querySOQL += buQuery + ' AND ';
-                }
-            }
-
-            // Filtered by 'Offered Service'; 8 kinds of Offered Service
-            if(dealer!= null && dealer.Cars_Offered_Service__c != null && dealer.Cars_Offered_Service__c != ''){
-                List<String> offeredService = dealer.Cars_Offered_Service__c.split(';', -1);
-                String osQuery = '';
-                for(integer i = 0; i < offeredService.size(); i ++ ){
-                    if(i < (offeredService.size()-1)){
-                        osQuery += 'Offered_Service__c = \'' + offeredService[i] + '\' OR ';
-                    }
-                    else if(i == (offeredService.size()-1)){
-                        osQuery += 'Offered_Service__c = \'' + offeredService[i] + '\'';
-                    }
-                }
-                if(offeredService.size() > 1){
-                    querySOQL += '(' + osQuery + ') AND ';
-                }
-                else{
-                    querySOQL += osQuery + ' AND ';
-                }
-            }
-            querySOQL = querySOQL.subString(0, querySOQL.length() - 4) + ')';
         }
         
         // Query Dealers               
