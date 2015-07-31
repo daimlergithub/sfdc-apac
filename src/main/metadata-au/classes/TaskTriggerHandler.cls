@@ -155,7 +155,7 @@ public class TaskTriggerHandler
         
     }
 
-    private static void updateLeadAndCampaignLead(Map<Id, Account> accounts) {
+    @testVisible private static void updateLeadAndCampaignLead(Map<Id, Account> accounts) {
         List<Lead__c> leads = [
             Select Successful_Call_Number__c, CreatedDate, Contact__c, Lead_DataSource__c, Last_Successful_Call__c, Lost_CAC_Date_Time__c, Purchased_CAC_Date_Time__c, CAC_Lead_Status__c
             From Lead__c 
@@ -577,7 +577,7 @@ public class TaskTriggerHandler
         }
     }
     
-    private static void updateSSISurveyStatus(Id ssiId, String subject){
+    @testVisible private static void updateSSISurveyStatus(Id ssiId, String subject){
         if(ssiId!=null && ssiId.getSObjectType() == SSI__c.getSObjectType()){
             SSI__c ssi = [Select Id, Survey_Finished__c From SSI__c Where Id = :ssiId];
             ssi.Survey_Finished__c = subject == X2NDSURVEY?'2nd Survey':'1st Survey';
