@@ -60,7 +60,7 @@
             <apex:outputPanel Id="query">
                 <apex:pageBlockTable value="{!dealers}" var="dea" rendered="{!hasQueryResult}">                    
                     <apex:column headerValue="Dealer Name">
-                        <apex:commandLink action="{!choose}" value="{!dea.Name}" oncomplete="closeTab();">
+                        <apex:commandLink action="{!choose}" value="{!dea.Name}" >
                             <apex:param assignTo="{!choosenDealerId}" value="{!dea.Id}" name="choosenDealerId"/>
                         </apex:commandLink>
                     </apex:column>
