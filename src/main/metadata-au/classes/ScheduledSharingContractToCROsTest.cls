@@ -95,6 +95,7 @@ public class ScheduledSharingContractToCROsTest{
 
         String userRoleId1 = [select id, name from UserRole where name = 'Central Sales & Marketing'].id;        
         String profileId = [select id, name from Profile where name = 'Customer Retention'].id;
+        String userRoleId2 = [select id, name from UserRole where name = 'Customer Retention Office 1'].id;
         
         User usr = new User();
         usr.UserName = 'test1' + Math.rint(Math.random() * 100000) + '@daimler.com';
@@ -111,6 +112,21 @@ public class ScheduledSharingContractToCROsTest{
         usr.Active_Permission_Set__c= true;
         insert usr;   
         
+        User usr2 = new User();
+        usr2.UserName = 'test123' + Math.rint(Math.random() * 100000) + '@daimler.com';
+        usr2.UserRoleId = userRoleId2;
+        usr2.ProfileId = profileId;
+        usr2.LastName = 'Test User 1';
+        usr2.Email = 'test001@daimler.com.full2';
+        usr2.Alias = 'test23';
+        usr2.TimeZoneSidKey = 'Asia/Shanghai';
+        usr2.EmailEncodingKey = 'UTF-8';
+        usr2.LanguageLocaleKey = 'en_US';
+        usr2.localesidkey='en_US';
+        usr2.isActive = true;
+        usr2.Active_Permission_Set__c= true;
+        insert usr2;
+        
         system.runAs(usr){
             Test.startTest();
             testMain1();
@@ -123,7 +139,7 @@ public class ScheduledSharingContractToCROsTest{
         }
        
     }
-    
+     
     @future
     private static void testMain1() {
     createAccount();

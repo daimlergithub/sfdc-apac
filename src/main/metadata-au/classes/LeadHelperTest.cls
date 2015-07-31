@@ -29,6 +29,10 @@ public class LeadHelperTest {
     private static string LeadEscalationRecipientTypeValue ='Immediate Notice';
      private static string SubBusinessUnitValue = 'Finance';
     private static string SubBusinessUnitValue1 = 'Finance & Insurance';
+    private static string LeadTypeValue1 = 'New Car';
+     private static string FinanceLeadType = 'Key 2 Key';
+     private static string CACLeadStatusValue1='New Enquiry';
+    private static string LeadSourceValue = 'Campaign';
     private static User user;
     private static Vehicle__c vehicles;
     private static void createUser(Profile profile){        
@@ -107,7 +111,7 @@ public class LeadHelperTest {
             le2.add(getLead1(user));
             
             le2[0].Contact__c = a1.id;
-            le2[0].Lead_Type__c = 'New Car';
+            le2[0].Lead_Type__c = LeadTypeValue1;
             le2[0].Relation_With_The_Leads__c = 'I owner';
             le2[0].CAC_Lead_Status__c = 'Assigned';
             le2[0].Purchase_Time__c = '0 - 3 months';
@@ -149,7 +153,7 @@ public class LeadHelperTest {
               Lead__c lead1=createLead2(user);
                lead1.Assigned_Dealer__c=dealer.id;
                lead1.Business_Unit__c=BusinessUnitValue;
-               lead1.Sub_BusinessUnit__c='Finance & Insurance';
+               lead1.Sub_BusinessUnit__c=SubBusinessUnitValue1;
                update lead1;
                map<id,id> NewCaseLeadIds = new  map<id,id>();
                NewCaseLeadIds.put(lead1.id, lead1.id);
@@ -193,7 +197,7 @@ public class LeadHelperTest {
               Lead__c lead1=createLead1(user);
                lead1.Assigned_Dealer__c=dealer.id;
                lead1.Business_Unit__c=BusinessUnitValue;
-               lead1.Sub_BusinessUnit__c='Finance & Insurance';
+               lead1.Sub_BusinessUnit__c=SubBusinessUnitValue1;
                lead.X24H_Untouched__c=true;
                lead.X72H_Untouched__c=true;
                lead.Is_Finance_Send_Email_Before_60_Days__c=true;
@@ -249,7 +253,7 @@ public class LeadHelperTest {
               Lead__c lead1=createLead(user);
                lead1.Assigned_Dealer__c=dealer.id;
                lead1.Business_Unit__c=BusinessUnitValue;
-               lead1.Sub_BusinessUnit__c='Finance & Insurance';
+               lead1.Sub_BusinessUnit__c=SubBusinessUnitValue1;
                lead.X24H_Untouched__c=true;
                lead.X72H_Untouched__c=true;
                lead.Is_Finance_Send_Email_Before_60_Days__c=true;
@@ -295,7 +299,7 @@ public class LeadHelperTest {
                                          Inactive__c=false,
                                          Business_Unit__c=BusinessUnitValue,
                                          Sub_BusinessUnit__c=SubBusinessUnitValue,
-                                         Finance_Lead_Type__c='Key 2 Key',
+                                         Finance_Lead_Type__c=FinanceLeadType,
                                          FirstName = 'lai5',
                                          LastName = 'sichao1',
                                          Email = 'sichao1.lai@nttdata.com',
@@ -345,7 +349,7 @@ public class LeadHelperTest {
                                          Inactive__c=false,
                                          Business_Unit__c=BusinessUnitValue,
                                          Sub_BusinessUnit__c=SubBusinessUnitValue,
-                                         Finance_Lead_Type__c='Key 2 Key',
+                                         Finance_Lead_Type__c=FinanceLeadType,
                                          FirstName = 'lai5',
                                          LastName = 'sichao1',
                                          Email = 'sichao1.lai@nttdata.com',
@@ -401,12 +405,12 @@ public class LeadHelperTest {
         lead.Current_Vehicle__c=vehicles1.id;
         lead.Contact__c = personaccount1.Id;
         lead.recordTypeId = leadFinanceRT;
-        lead.Lead_Type__c = 'New Car';
-        lead.CAC_Lead_Status__c = 'New Enquiry';
-        lead.Lead_Source__c = 'Campaign';
-        lead.Nature_of_Request__c='Key 2 Key';
+        lead.Lead_Type__c = LeadTypeValue1;
+        lead.CAC_Lead_Status__c = CACLeadStatusValue1;
+        lead.Lead_Source__c = LeadSourceValue;
+        lead.Nature_of_Request__c=FinanceLeadType;
         lead.Business_Unit__c= BusinessUnitValue;
-        lead.Sub_BusinessUnit__c='Finance & Insurance';
+        lead.Sub_BusinessUnit__c=SubBusinessUnitValue1;
         lead.X24H_Untouched__c=false;
         lead.X72H_Untouched__c=false;
         insert lead;
@@ -425,12 +429,12 @@ public class LeadHelperTest {
         lead.Current_Vehicle__c=vehicles1.id;
         lead.Contact__c = personaccount1.Id;
         lead.recordTypeId = leadSPRt;
-        lead.Lead_Type__c = 'New Car';
-        lead.CAC_Lead_Status__c = 'New Enquiry';
-        lead.Lead_Source__c = 'Campaign';
-        lead.Nature_of_Request__c='Key 2 Key';
+        lead.Lead_Type__c = LeadTypeValue1;
+        lead.CAC_Lead_Status__c = CACLeadStatusValue1;
+        lead.Lead_Source__c = LeadSourceValue;
+        lead.Nature_of_Request__c=FinanceLeadType;
         lead.Business_Unit__c= BusinessUnitValue;
-        lead.Sub_BusinessUnit__c='Finance & Insurance';
+        lead.Sub_BusinessUnit__c=SubBusinessUnitValue1;
         lead.X24H_Untouched__c=false;
         lead.X72H_Untouched__c=false;
         insert lead;
@@ -447,9 +451,9 @@ public class LeadHelperTest {
         
         lead.Contact__c = personaccount1.Id;
         lead.recordTypeId = leadVehicleRt;
-        lead.Lead_Type__c = 'New Car';
-        lead.CAC_Lead_Status__c = 'New Enquiry';
-        lead.Lead_Source__c = 'Campaign';
+        lead.Lead_Type__c = LeadTypeValue1;
+        lead.CAC_Lead_Status__c = CACLeadStatusValue1;
+        lead.Lead_Source__c = LeadSourceValue;
         lead.Nature_of_Request__c='Brochure Request';
         lead.Business_Unit__c= BusinessUnitValue;
         lead.Sub_BusinessUnit__c='Parts';
@@ -503,11 +507,11 @@ public class LeadHelperTest {
         lead.CAC_Lead_Status__c = 'Qualified';
        
          lead.Assigned_Dealer__c = account.Id;
-         lead.Lead_Source__c = 'Campaign';
+         lead.Lead_Source__c = LeadSourceValue;
          lead.Nature_of_Request__c='Brochure Request';
          lead.Business_Unit__c= BusinessUnitValue;
          lead.Sub_BusinessUnit__c='Parts';
-         lead.CAC_Lead_Status__c = 'New Enquiry';
+         lead.CAC_Lead_Status__c = CACLeadStatusValue1;
 
         insert lead;
         return lead;
