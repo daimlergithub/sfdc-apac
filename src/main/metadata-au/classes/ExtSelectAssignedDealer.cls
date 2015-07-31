@@ -161,6 +161,7 @@ public with sharing class ExtSelectAssignedDealer {
             this.addErrorMessage(e.getDMLMessage(0));
             hasMessage = true;
             System.debug('Debug Output ======> {' + hasMessage + '}');
+			return null;
         }
 
         return new PageReference('/' + lead.Id);

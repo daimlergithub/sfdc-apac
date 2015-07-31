@@ -8,7 +8,7 @@
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Competitor</value>
+            <value>Generic Vehicle</value>
         </criteriaItems>
         <accessLevel>Edit</accessLevel>
         <name>Vehicle Read/Write for Admin, IntegrationAPI &amp; EMC Profiles</name>
