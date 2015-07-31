@@ -85,11 +85,20 @@ public class AccountHelperTest
         Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
         Map<String,Date>  preRecordsVAN = AccountHelper.getExsitedInfos(customerIds,'VAN');
        exsisedRecord.put('VAN', preRecordsVAN);
-       Map<String,Integer> tempcount=new Map<String,Integer>();
+       Map<Id, Map<String,Integer>> Vehiclecount=new Map<Id, Map<String,Integer>>();
+       Map<Id, Map<String,Integer>> Vehicletenure=new  Map<Id, Map<String,Integer>>();
+               Map<String,Integer> tempcount=new Map<String,Integer>();
                tempcount.put('PC',PcCount);
                 tempcount.put('CV',CvCount);
                 tempcount.put('Van',VanCount);
-       AccountHelper.updatePCCVField(Dealer,'VAN',exsisedRecord,true,tempcount);
+                Vehiclecount.put(Dealer.id,tempcount);
+                Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                Map<String,Integer> counttenure = new Map<String,Integer>();  
+                counttenure.put('PC',PcTenure);
+                counttenure.put('CV',CvTenure);
+                counttenure.put('Van',VanTenure);
+                Vehicletenure.put(Dealer.id,counttenure);
+       AccountHelper.updatePCCVField(Dealer,'VAN',exsisedRecord,true,Vehiclecount,Vehicletenure);
        
        test.stopTest();
        system.assertNotEquals(null,testMapDealer);
@@ -142,13 +151,25 @@ public class AccountHelperTest
     {
         Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
         preRecords.put('blabla', new Map<String, Date>());
-               Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;
+               createTestData();
+               Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;        
+               Map<Id, Map<String,Integer>> Vehiclecount=new Map<Id, Map<String,Integer>>();
+               Map<Id, Map<String,Integer>> Vehicletenure=new  Map<Id, Map<String,Integer>>();
                Map<String,Integer> tempcount=new Map<String,Integer>();
                tempcount.put('PC',PcCount);
-               tempcount.put('CV',CvCount);
-               tempcount.put('Van',VanCount);
+                tempcount.put('CV',CvCount);
+                tempcount.put('Van',VanCount);
+                Vehiclecount.put(Dealer.id,tempcount);
+                Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                Map<String,Integer> counttenure = new Map<String,Integer>();  
+                counttenure.put('PC',PcTenure);
+                counttenure.put('CV',CvTenure);
+                counttenure.put('Van',VanTenure);
+                Vehicletenure.put(Dealer.id,counttenure);
+      
+       
         Test.startTest();
-        AccountHelper.updatePCCVField(Dealer, 'blabla', preRecords, true,tempcount);
+         AccountHelper.updatePCCVField(Dealer,'blabla',preRecords,true,Vehiclecount,Vehicletenure);
         Test.stopTest();
     }
     
@@ -156,13 +177,24 @@ public class AccountHelperTest
     {
         Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
         preRecords.put('PC', new Map<String, Date>());
-              Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;
+        createTestData();
+              Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;        
+               Map<Id, Map<String,Integer>> Vehiclecount=new Map<Id, Map<String,Integer>>();
+               Map<Id, Map<String,Integer>> Vehicletenure=new  Map<Id, Map<String,Integer>>();
                Map<String,Integer> tempcount=new Map<String,Integer>();
                tempcount.put('PC',PcCount);
-               tempcount.put('CV',CvCount);
-               tempcount.put('Van',VanCount);
+                tempcount.put('CV',CvCount);
+                tempcount.put('Van',VanCount);
+                Vehiclecount.put(Dealer.id,tempcount);
+                Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                Map<String,Integer> counttenure = new Map<String,Integer>();  
+                counttenure.put('PC',PcTenure);
+                counttenure.put('CV',CvTenure);
+                counttenure.put('Van',VanTenure);
+                Vehicletenure.put(Dealer.id,counttenure);
+      
         Test.startTest();
-        AccountHelper.updatePCCVField(Dealer, 'PC', preRecords, true,tempcount);
+        AccountHelper.updatePCCVField(Dealer,'PC',preRecords,true,Vehiclecount,Vehicletenure);
         Test.stopTest();
     }
     
@@ -170,13 +202,25 @@ public class AccountHelperTest
     {
         Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
         preRecords.put('bloob', new Map<String, Date>());
-        Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;
+        createTestData();
+        Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;        
+               Map<Id, Map<String,Integer>> Vehiclecount=new Map<Id, Map<String,Integer>>();
+               Map<Id, Map<String,Integer>> Vehicletenure=new  Map<Id, Map<String,Integer>>();
                Map<String,Integer> tempcount=new Map<String,Integer>();
                tempcount.put('PC',PcCount);
-               tempcount.put('CV',CvCount);
-               tempcount.put('Van',VanCount);
+                tempcount.put('CV',CvCount);
+                tempcount.put('Van',VanCount);
+                Vehiclecount.put(Dealer.id,tempcount);
+                Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                Map<String,Integer> counttenure = new Map<String,Integer>();  
+                counttenure.put('PC',PcTenure);
+                counttenure.put('CV',CvTenure);
+                counttenure.put('Van',VanTenure);
+                Vehicletenure.put(Dealer.id,counttenure);
+      
         Test.startTest();
-        AccountHelper.updatePCCVField(Dealer, 'blabla', preRecords, true,tempcount);
+        AccountHelper.updatePCCVField(Dealer, 'blabla', preRecords, true,Vehiclecount,Vehicletenure);
+        
         Test.stopTest();
     }
     
@@ -184,13 +228,23 @@ public class AccountHelperTest
     {
         Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
         preRecords.put('blabla', new Map<String, Date>());
-        Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;
+         createTestData();
+        Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;        
+               Map<Id, Map<String,Integer>> Vehiclecount=new Map<Id, Map<String,Integer>>();
+               Map<Id, Map<String,Integer>> Vehicletenure=new  Map<Id, Map<String,Integer>>();
                Map<String,Integer> tempcount=new Map<String,Integer>();
                tempcount.put('PC',PcCount);
-               tempcount.put('CV',CvCount);
-               tempcount.put('Van',VanCount);
+                tempcount.put('CV',CvCount);
+                tempcount.put('Van',VanCount);
+                Vehiclecount.put(Dealer.id,tempcount);
+                Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                Map<String,Integer> counttenure = new Map<String,Integer>();  
+                counttenure.put('PC',PcTenure);
+                counttenure.put('CV',CvTenure);
+                counttenure.put('Van',VanTenure);
+                Vehicletenure.put(Dealer.id,counttenure);
         Test.startTest();
-        AccountHelper.updatePCCVField(Dealer, '', preRecords, true,tempcount);
+        AccountHelper.updatePCCVField(Dealer, '', preRecords, true,Vehiclecount,Vehicletenure);
         Test.stopTest();
     }
     
@@ -198,13 +252,23 @@ public class AccountHelperTest
     {
         Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
         preRecords.put('blabla', new Map<String, Date>());
-        Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;
+         createTestData();
+        Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;        
+               Map<Id, Map<String,Integer>> Vehiclecount=new Map<Id, Map<String,Integer>>();
+               Map<Id, Map<String,Integer>> Vehicletenure=new  Map<Id, Map<String,Integer>>();
                Map<String,Integer> tempcount=new Map<String,Integer>();
                tempcount.put('PC',PcCount);
-               tempcount.put('CV',CvCount);
-               tempcount.put('Van',VanCount);
+                tempcount.put('CV',CvCount);
+                tempcount.put('Van',VanCount);
+                Vehiclecount.put(Dealer.id,tempcount);
+                Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                Map<String,Integer> counttenure = new Map<String,Integer>();  
+                counttenure.put('PC',PcTenure);
+                counttenure.put('CV',CvTenure);
+                counttenure.put('Van',VanTenure);
+                Vehicletenure.put(Dealer.id,counttenure);
         Test.startTest();
-        AccountHelper.updatePCCVField(Dealer, null, preRecords, true,tempcount);
+        AccountHelper.updatePCCVField(Dealer, null, preRecords, true,Vehiclecount,Vehicletenure);
         Test.stopTest();
     }
     
