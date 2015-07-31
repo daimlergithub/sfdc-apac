@@ -446,7 +446,8 @@ public class AccountHelper {
                 from Account
                 where Id in :ids]);
     }
-	
+    Public Static Map<Id, Map<String,Integer>> Vehiclecount {get;set;} 
+    Public Static Map<Id, Map<String,Integer>> Vehicletenure {get;set;} 
    //Method to update PC Status,CV Status,VAN Status to customer when address record and vehicle relation is associated to customer
     public static void auAfter_Update_UpdatePc_Status_Values(list<Account> listNewAccounts)
     {
@@ -454,7 +455,8 @@ public class AccountHelper {
         Set<Id> vehicleRelationIds = new Set<Id>();
         Set<Id> customerIds = new Set<Id>();
         set<id> setAccId= new set<Id>();
-        Map<String,Integer> tempcount = new Map<String,Integer>();       
+        Map<String,Integer> tempcount = new Map<String,Integer>();
+        Map<String,Integer> counttenure = new Map<String,Integer>();       
         List<Vehicle_Relationship__c> insertCvrs = new List<Vehicle_Relationship__c>(); 
         for(Account objAcc : listNewAccounts)
         {  
@@ -464,12 +466,17 @@ public class AccountHelper {
         
         if(customerIds!=null && !customerIds.isEmpty())
         {   
-            list<Account> lstCustomers=[select id,(select id,Customer__c from Addresses__r),(Select id,Vehicle_ID__c,Car_Relation__c,Contact__c,Vehicle_ID__r.Car_Model__r.Vehicle_Group__c,Vehicle_ID__r.Vehicle_Group__c from Vehicle_Relationships2__r) from Account where id In:customerIds];
+        Vehiclecount=new Map<Id, Map<String,Integer>>();
+        Vehicletenure =new Map<Id, Map<String,Integer>>();
+            list<Account> lstCustomers=[select id,(select id,Customer__c from Addresses__r),(Select id,Vehicle_ID__c,Car_Relation__c, Purchase_Date__c,Contact__c,Vehicle_ID__r.Car_Model__r.Vehicle_Group__c,Vehicle_ID__r.Vehicle_Group__c from Vehicle_Relationships2__r) from Account where id In:customerIds];
             
             if(lstCustomers!=null && !lstCustomers.isEmpty())
-            {   Integer PcCount=0;Integer CvCount=0;Integer VanCount=0;
+            {   
                 for(Account objAcc:lstCustomers)
                 {   
+                    Integer PcCount=0;Integer CvCount=0;Integer VanCount=0;
+                    Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                    Integer PcTenure2=0;Integer CvTenure2=0;Integer VanTenure2=0;
                     if(objAcc.Vehicle_Relationships2__r!=null && !objAcc.Vehicle_Relationships2__r.isEmpty())
                     {   
                         for(Vehicle_Relationship__c objVR:objAcc.Vehicle_Relationships2__r)
@@ -477,14 +484,28 @@ public class AccountHelper {
                             if(objAcc.id==objVR.Contact__c && objVR.Car_Relation__c =='Owner'){
                                 if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'PC' || (objVR.Vehicle_ID__r.Vehicle_Group__c ==null && objVR.Vehicle_ID__r.Car_Model__r.Vehicle_Group__c == 'PC')){
                                     PcCount++;
+                                    if(objVR.Purchase_Date__c !=null){
+                                    PcTenure2 = objVR.Purchase_Date__c.monthsBetween(Date.today())/12;
+                                    PcTenure = PcTenure2+PcTenure;
+                                    }
+                                   
                                 }
                                 if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'CV' || (objVR.Vehicle_ID__r.Vehicle_Group__c ==null && objVR.Vehicle_ID__r.Car_Model__r.Vehicle_Group__c == 'CV')){
                                     CvCount++;
+                                    if(objVR.Purchase_Date__c !=null){
+                                    CvTenure2= objVR.Purchase_Date__c.monthsBetween(Date.today())/12;
+                                     CvTenure=CvTenure2+CvTenure;
+                                    }
                                 }
                                 
                                 if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'Van' || (objVR.Vehicle_ID__r.Vehicle_Group__c ==null && objVR.Vehicle_ID__r.Car_Model__r.Vehicle_Group__c == 'Van')){
                                     VanCount++;
+                                    if(objVR.Purchase_Date__c !=null){                                    
+                                    VanTenure2= objVR.Purchase_Date__c.monthsBetween(Date.today())/12+0;
+                                          VanTenure=VanTenure2+VanTenure;                            
+                                    }
                                 }
+                                                                
                                 vehicleRelationIds.add(objVR.Id);
                                 vehicleIds.add(objVR.Vehicle_ID__c);
                                 insertCvrs.add(objVR);
@@ -498,13 +519,19 @@ public class AccountHelper {
                             setAccId.add(objAddr.Customer__c);
                         }
                     }
-                    
+                  tempcount.put('PC',PcCount);
+                  tempcount.put('CV',CvCount);
+                  tempcount.put('Van',VanCount);
+                  counttenure.put('PC',PcTenure);
+                  counttenure.put('CV',CvTenure);
+                  counttenure.put('Van',VanTenure);
+                  Vehiclecount.put(objAcc.id,tempcount);
+                   Vehicletenure.put(objAcc.id,counttenure);
+                   
                 }
-                tempcount.put('PC',PcCount);
-                tempcount.put('CV',CvCount);
-                tempcount.put('Van',VanCount);
+                
                 if(insertCvrs!=null && !insertCvrs.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()){
-                    updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,setAccId,tempcount);
+                    updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,setAccId,Vehiclecount,Vehicletenure);
                     
                 }
             }
@@ -513,7 +540,7 @@ public class AccountHelper {
     
     
     //When PA gets a Vehicle-Relationship
-    public static void updataWhenCreateCVR(Set<Id> vehicleIds, Set<Id> customerIds, list<Vehicle_Relationship__c> cvrs,set<id> setAccId,Map<String,Integer> tempcount) {
+    public static void updataWhenCreateCVR(Set<Id> vehicleIds, Set<Id> customerIds, list<Vehicle_Relationship__c> cvrs,set<id> setAccId,Map<Id, Map<String,Integer>> tempcount,Map<Id, Map<String,Integer>> tenure) {
         Map<id,Account> accounts = new Map<id,Account>();
         Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
         //get pc first date records
@@ -536,9 +563,9 @@ public class AccountHelper {
                 acc = accs.get(curCvr.Contact__c);
             }
             if(acc!=null &&  vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c!=null)
-                acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount);
+                acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount,tenure);
             else if(acc!=null && vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__c!=null && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c!=null)
-                acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount); 
+                acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount,tenure); 
             accounts.put(acc.id,acc);
         }
           if(accounts.values()!=null && !accounts.values().isEmpty())   
@@ -573,8 +600,7 @@ public class AccountHelper {
         };
       
           //update PC CV VAN tenure
-    @testvisible private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer,Map<String,Integer> tempcount){
-    
+    @testvisible private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer,Map<Id, Map<String,Integer>> tempcount,Map<Id, Map<String,Integer>> tenureVehicle){    
       
          if(!String.isblank(vehicleGroup) && colsMap != null && colsMap.get(vehicleGroup) != null && preRecords!= null && preRecords.get(vehicleGroup) != null){
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
@@ -587,16 +613,24 @@ public class AccountHelper {
            
            if((cols[1])!=null)
                     {
-                        userInfo.put('Buy_Cycle__c',tempcount.get('PC'));
-                        userInfo.put('CV_No_Brand_Purchases__c',tempcount.get('CV'));
-                        userInfo.put('VAN_No_Brand_Purchases__c',tempcount.get('Van'));
-                    }               
-            integer tenure = 0;
+                        userInfo.put('Buy_Cycle__c',tempcount.get(userInfo.id).get('PC'));
+                        userInfo.put('CV_No_Brand_Purchases__c',tempcount.get(userInfo.id).get('CV'));
+                        userInfo.put('VAN_No_Brand_Purchases__c',tempcount.get(userInfo.id).get('Van'));
+                    } 
+                    
+                    if((cols[2])!=null)
+                    {
+                        userInfo.put('PC_Tenure__c',tenureVehicle.get(userInfo.id).get('PC'));
+                        userInfo.put('CV_Tenure__c',tenureVehicle.get(userInfo.id).get('CV'));
+                        userInfo.put('VAN_Tenure__c',tenureVehicle.get(userInfo.id).get('Van'));
+                    }           
+                    
+           /* integer tenure = 0;
             if(preRecord.get(userInfo.id) != null){
                 tenure = preRecord.get(userInfo.id).monthsBetween(Date.today())/12;
             }
             if(userInfo.get(cols[2])!=null)
-                userInfo.put(cols[2] , Decimal.valueOf(tenure)); 
+                userInfo.put(cols[2] , Decimal.valueOf(tenure)); */
             }
         }
         return userInfo;        
