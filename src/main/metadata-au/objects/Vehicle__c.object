@@ -6459,7 +6459,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <fullName>Competitor</fullName>
         <active>true</active>
         <description>Competitor Vehicle</description>
-        <label>Competitor</label>
+        <label>Generic Vehicle</label>
         <picklistValues>
             <picklist>BaumusterEx__c</picklist>
             <values>
