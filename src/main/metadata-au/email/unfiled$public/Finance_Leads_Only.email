@@ -13,7 +13,7 @@ Nature of Request:  {!relatedTo.Nature_of_Request__c}<br/>
 Assigned Dealer: {!relatedTo.Assigned_Dealer__r.Name}<br/>
 <br/>
 <b>Contact Details</b><br/>
-Contact Name:{!relatedTo.Contact__r.FirstName}{!relatedTo.Contact__r.LastName}<br/>
+Contact Name:{!relatedTo.Contact__r.FirstName} {!relatedTo.Contact__r.LastName}<br/>
 Work Phone: {!relatedTo.Work_Phone__c}<br/>
 Home Phone: {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.PersonHomePhone,relatedTo.Company_Account__r.Phone)}<br/>
 Mobile: {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.Mobile__c,relatedTo.Company_Account__r.Mobile__c)}<br/>
