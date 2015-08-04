@@ -22,7 +22,7 @@
                 }
             </script>
             <apex:stylesheet value="{!$Resource.Timeline_CSS}" />
-            <apex:includeScript value="{!$Resource.Timeline_JS}" />
+            <apex:includeScript value="{!$Resource.AU_Timeline_JS}" />
             <script src="/js/functions.js">
             </script>
             <script type="text/javascript">
