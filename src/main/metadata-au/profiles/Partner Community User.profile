@@ -15454,9 +15454,6 @@
         <recordType>Retail_Campaign__c.Segmentation_Only</recordType>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Retail_Task__c-Contracts %26 Aftersales Layout</layout>
-    </layoutAssignments>
-    <layoutAssignments>
         <layout>Retail_Task__c-Insurance Layout</layout>
         <recordType>Retail_Task__c.Insurance</recordType>
     </layoutAssignments>
