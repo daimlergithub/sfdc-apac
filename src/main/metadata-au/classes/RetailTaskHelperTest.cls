@@ -14,8 +14,7 @@ public class RetailTaskHelperTest {
      private static String companyAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId();
      private static String  contactRecordTypeId = Schema.SObjectType.Contact.getRecordTypeInfosByName().get('DealerStaff').getRecordTypeId();
     private static String personAccRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-    static {
-        
+    private static void createData(){
          
          objAccount1= new Account();
 	  objAccount1.RecordtypeId=personAccRecordTypeId;
@@ -61,19 +60,21 @@ public class RetailTaskHelperTest {
         insert vehicle1;
          vehicle2 = new Vehicle__c(Vehicle_Group__c='Van');
         insert vehicle2;
+        
        
     }
     
     private static void createRetailTask(){
         RecordType contractType = [select Id from RecordType where SObjectType = 'Retail_Task__c' and DeveloperName = 'contract' limit 1];
          contract = new Retail_Task__c(RecordTypeId = contractType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle1.Id,Account__c=objAccount.id);
-          contract1 = new Retail_Task__c(RecordTypeId = contractType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle.Id,Account__c=objAccount.id);
+         
          contract2 = new Retail_Task__c(RecordTypeId = contractType.Id, Related_Dealer__c = dealer.Id, Related_Vehicle__c = vehicle2.Id,Account__c=objAccount.id);
         
         
     }
     
     private static testmethod void testAuAfter_Insert_Update_Events(){
+        createData();
         createRetailTask();
         insert contract;
         
@@ -91,22 +92,47 @@ public class RetailTaskHelperTest {
     }
     
     private static testmethod void testAuAfter_Insert_Update_Events1(){
-        createRetailTask();
+         User usr1 = UtilTestData.createUser('Australia','Fleet');
+        system.runAs(usr1){
+        
+              Account objAcc= new Account();
+	  objAcc.RecordtypeId=companyAccRecordTypeId;
+	  objAcc.Name='Test Person 1st';        
+	  objAcc.Type='Personal';
+	  objAcc.Status__c='Active';
+	  objAcc.Province__c='Province1';
+	  objAcc.City__c='Test';
+	  objAcc.Email__c='test@mbau.com';
+	  objAcc.Mobile__c ='8884545243';
+	  insert objAcc;
+        
+         RecordType dealerType = [select Id from RecordType where SObjectType = 'Account' and DeveloperName = 'Dealer' limit 1];
+       Account dealer1 =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer');
+        insert dealer1;
+        
+         Contact  contact1 = new Contact(RecordTypeId=contactRecordTypeId,FirstName = 'Test', Lastname = 'Amit',Salutation='Brother',Email='test@test2.com');
+        contact1.Account=dealer1;
+        insert contact1;
+        
+         RecordType contractType = [select Id from RecordType where SObjectType = 'Retail_Task__c' and DeveloperName = 'contract' limit 1];
+        contract1 = new Retail_Task__c(RecordTypeId = contractType.Id, Related_Dealer__c = dealer1.Id,Account__c=objAcc.id);
         insert contract1;
         
-        contract1.Related_Vehicle__c=vehicle.Id;
-        contract1.Account__c=objAccount.id;
-        contract1.Signer__c=dealer.id;
-        //contract.X150_Days_Before_EOC__c=true;
+        
+        
+        contract1.Account__c=objAcc.id;
+        contract1.Signer__c=dealer1.id;
+        contract1.X150_Days_Before_EOC__c=true;
         contract1.StartDate__c=system.today();
        contract1.EndDate__c=system.today()+1;
-        contract1.Fleet__c=false;
+        contract1.Fleet__c=true;
         
         update contract1;
-          system.assertEquals(contract.Fleet__c, false);
-        
+          system.assertEquals(contract1.Fleet__c, true);
+        }
     }
     private static testmethod void testAuAfter_Insert_Update_Events2(){
+        createData();
         createRetailTask();
         insert contract2;
         

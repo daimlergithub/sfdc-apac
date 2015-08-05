@@ -3,6 +3,7 @@ private with sharing class TaskTriggerHandlerTest {
 
     private static list<Task> listTask1 =new list<Task>();
     private static map<id,Task> taskMap1 = new map<id,Task>();
+    private static Map<Id, Account> accountmap = new Map<Id, Account>() ;
     private static Account customer; 
     private static string OBStatusValue ='Successful';
     private static string CalledValue = '13011111111';
@@ -80,7 +81,7 @@ private with sharing class TaskTriggerHandlerTest {
             listTask1.add(obTask);          
             taskMap1.put(obTask.id, obTask);
             //TaskTriggerHandler.updateAccountCallMessage(taskMap1, taskMap1);
-            TaskTriggerHandler.autoUpdateTaskAfterLogInserted(listTask1[0]);
+           // TaskTriggerHandler.autoUpdateTaskAfterLogInserted(listTask1[0]);
             TaskTriggerHandler.autoUpdateSSISurveyStatus(listTask1[0], listTask1[0]);
             TaskTriggerHandler.generateWelcomeCall(listTask1[0],listTask1[0]);
             TaskTriggerHandler.taskFieldsUpdate(listTask1, taskMap1);
@@ -174,7 +175,7 @@ private with sharing class TaskTriggerHandlerTest {
             taskMap1.put(intask.id, intask);
         
              //TaskTriggerHandler.updateAccountCallMessage(taskMap1, taskMap1);
-            TaskTriggerHandler.autoUpdateTaskAfterLogInserted(listTask1[0]);
+           // TaskTriggerHandler.autoUpdateTaskAfterLogInserted(listTask1[0]);
             TaskTriggerHandler.autoUpdateSSISurveyStatus(listTask1[0], listTask1[0]);
             TaskTriggerHandler.generateWelcomeCall(listTask1[0],listTask1[0]);
             TaskTriggerHandler.taskFieldsUpdate(listTask1, taskMap1);
@@ -229,12 +230,9 @@ private with sharing class TaskTriggerHandlerTest {
             update logTask;
             ssiTask = [Select OB_Call_Times__c, Last_OB_Call__c,WhatId From Task Where Id = :ssiTask.Id ];
             
-            Task cobTask = new Task(RecordTypeId = obrtid,WhoId = cont.Id, WhatId = ssi.Id, Subject = 'Campagin Task');
+            Task cobTask = new Task(RecordTypeId = obrtid,WhoId = cont.Id, WhatId = ssi.Id, Subject = 'Campagin Task',Related_Task_Id__c='1aaZ457437932792');
             insert cobTask;
-        
-           
-           
-        
+               
             customer.Newly_Task_Id__c = cobTask.Id;
             update customer;
         
@@ -359,7 +357,7 @@ private with sharing class TaskTriggerHandlerTest {
             EndDate = date.today().addDays(20));
         insert cam;   
         
-        Lead__c lead1 = new Lead__c(Contact__c = customer.Id, CAC_Lead_Status__c = 'New');
+        Lead__c lead1 = new Lead__c(Contact__c = customer.Id, CAC_Lead_Status__c = 'New',Lead_DataSource__c ='Social media'	);
         insert lead1;
         
         lead1 = [Select Successful_Call_Number__c From Lead__c Where Id =: lead1.Id Limit 1];
@@ -377,6 +375,8 @@ private with sharing class TaskTriggerHandlerTest {
         
         listOldTask1.add(obTask);          
         tasOldkMap1.put(obTask.id, obTask);
+        accountmap.put(customer.Id,customer) ;
+        TaskTriggerHandler.updateLeadAndCampaignLead(accountmap);
         TaskTriggerHandler.updateAccountCallMessage(taskNewMap1, tasOldkMap1);
         
         obTask.ActivityDate = system.today();
@@ -469,7 +469,7 @@ private with sharing class TaskTriggerHandlerTest {
         
         obTask.ActivityDate = system.today();
         //obTask.WhoId = customer.Id;
-        //obTask.WhatId = customer.Id;
+        obTask.WhatId = customer.Id;
         obTask.CallType = 'Outbound';
         obTask.CallObject = 'test1';
         //obTask.UCID__c = 'test';

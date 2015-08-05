@@ -711,6 +711,14 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Plymouth</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pontiac</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Porsche</fullName>
                 <default>false</default>
             </picklistValues>
@@ -7009,6 +7017,14 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Plymouth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pontiac</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Porsche</fullName>
                 <default>false</default>
             </values>
@@ -9639,6 +9655,14 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Peugeot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plymouth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pontiac</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14432,6 +14456,14 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Peugeot</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Plymouth</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pontiac</fullName>
                 <default>false</default>
             </values>
             <values>

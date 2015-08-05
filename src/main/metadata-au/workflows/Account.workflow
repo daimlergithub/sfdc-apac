@@ -97,21 +97,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(
-AND(
-ISPICKVAL( Dealer_Allocation__c , &apos;MBAuP&apos;),
-Activation_Date__c &lt;= TODAY()
-),
-AND(
-ISPICKVAL( Dealer_Allocation__c , &apos;MBFS&apos;),
-MBFS_Activation_Date__c &lt;= TODAY()
-),
-AND(
-ISPICKVAL( Dealer_Allocation__c , &apos;Both&apos;),
-Activation_Date__c &lt;= TODAY(),
-MBFS_Activation_Date__c &lt;= TODAY()
-)
-)</formula>
+        <formula>OR( AND( ISPICKVAL( Dealer_Allocation__c , &apos;MBAuP&apos;), Activation_Date__c &lt;= TODAY() ), AND( ISPICKVAL( Dealer_Allocation__c , &apos;MBFS&apos;), MBFS_Activation_Date__c &lt;= TODAY() ), AND( ISPICKVAL( Dealer_Allocation__c , &apos;Both&apos;), Activation_Date__c &lt;= TODAY(), MBFS_Activation_Date__c &lt;= TODAY() ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -253,7 +239,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 OR 2</booleanFilter>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
         <criteriaItems>
             <field>Account.Credit_License__c</field>
             <operation>equals</operation>
@@ -262,6 +248,11 @@ Modify Reason:
         <criteriaItems>
             <field>Account.Credit_License__c</field>
             <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

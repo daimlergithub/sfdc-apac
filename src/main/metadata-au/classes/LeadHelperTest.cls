@@ -99,7 +99,7 @@ public class LeadHelperTest {
                                          EOC_Recipient_Type__c = EOCRecipientTypeValue,
                                          Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
             insert contact1;
-           
+           Test.startTest();
             Lead__c le1 = new Lead__c();
             //le1.Need_Assign_To_Dealer__c = 'Need';
             le1.Assigned_Dealer__c = dealer.id;
@@ -119,6 +119,7 @@ public class LeadHelperTest {
             le2[0].Lead_Desired_Service__c = 'Test Drive';
             update le2[0];
             
+            Test.stopTest();
             //verify
             //
              lead = [select CAC_Lead_Status__c,Assigned_Dealer__c from Lead__c where id =:le1.id ];
@@ -149,7 +150,7 @@ public class LeadHelperTest {
                                          EOC_Recipient_Type__c = EOCRecipientTypeValue,
                                          Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
                    insert contact1;
-               
+                Test.startTest();
               Lead__c lead1=createLead2(user);
                lead1.Assigned_Dealer__c=dealer.id;
                lead1.Business_Unit__c=BusinessUnitValue;
@@ -160,6 +161,7 @@ public class LeadHelperTest {
                
                LeadHelper.UpdateCasesWithLeadId(NewCaseLeadIds);
                LeadHelper.insertLeadSharing(NewCaseLeadIds,NewCaseLeadIds);
+                  Test.stopTest();
                
                Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead1.id ];
                system.assertEquals(leadList.Assigned_Dealer__c, lead1.Assigned_Dealer__c);
@@ -193,7 +195,7 @@ public class LeadHelperTest {
                                                EOC_Recipient_Type__c = EOCRecipientTypeValue,
                                                Lead_Escalation_Recipient_Type__c='Immediate Notice',Dealer_Lead_Gate_Keeper__c=false);
                                insert contact1;
-               
+              Test.startTest();
               Lead__c lead1=createLead1(user);
                lead1.Assigned_Dealer__c=dealer.id;
                lead1.Business_Unit__c=BusinessUnitValue;
@@ -218,7 +220,7 @@ public class LeadHelperTest {
                LeadHelper.createdNewSMSTaskForInstructor(lead,user,user,dealer,dealer);
                LeadHelper.createdNewSMSTaskForCustomer(lead,user,dealer,dealer,tempTitle);
                LeadHelper.shareToAssignedDealer(oldDealerIds,leadIds);
-                               
+                          Test.stopTest();         
                Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead1.id ];
                system.assertEquals(leadList.Assigned_Dealer__c, lead1.Assigned_Dealer__c);
                system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
@@ -249,7 +251,7 @@ public class LeadHelperTest {
                                                EOC_Recipient_Type__c = EOCRecipientTypeValue,
                                                Lead_Escalation_Recipient_Type__c='CC Lead Escalation Recipient',Dealer_Lead_Gate_Keeper__c=false);
                                insert contact1;
-               
+              Test.startTest();  
               Lead__c lead1=createLead(user);
                lead1.Assigned_Dealer__c=dealer.id;
                lead1.Business_Unit__c=BusinessUnitValue;
@@ -274,7 +276,7 @@ public class LeadHelperTest {
                LeadHelper.createdNewSMSTaskForInstructor(lead,user,user,dealer,dealer);
                LeadHelper.createdNewSMSTaskForCustomer(lead,user,dealer,dealer,tempTitle);
                LeadHelper.shareToAssignedDealer(oldDealerIds,leadIds);
-                               
+                 Test.stopTest();                
                Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead1.id ];
                system.assertEquals(leadList.Assigned_Dealer__c, lead1.Assigned_Dealer__c);
                system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
@@ -315,7 +317,7 @@ public class LeadHelperTest {
                listLead.add(lead1);
            set<id> dealerId = new set<id>();
              dealerId.add(dealer.id); 
-               
+                Test.startTest();
                LeadHelper.UpdateLeadOwnerFromContact(dealerId,listLead);
                LeadHelper.UpdateLeadOwner(dealerId,listLead);
                LeadHelper.ShareToGateKeeper(dealerId,listLead);
@@ -324,7 +326,7 @@ public class LeadHelperTest {
                LeadHelper.afterInsert_UpdateEvents(listLead,oldMap,true,false);
                LeadHelper.ShareLeadsToCampaignUser(listLead,oldMap,oldMap,false,true);
                 LeadHelper.ShareLeadsToCampaignUser(listLead,oldMap,oldMap,true,false);
-              
+               Test.stopTest();
                Lead__c leadList = [select Nature_of_Request__c,Business_Unit__c from Lead__c where id =:lead1.id ];
                system.assertEquals(leadList.Nature_of_Request__c, lead1.Nature_of_Request__c);
                system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
@@ -356,11 +358,12 @@ public class LeadHelperTest {
                                          EOC_Recipient_Type__c = EOCRecipientTypeValue,
                                          Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
             insert contact1;
+                Test.startTest();
                Lead__c lead1=createLead(user);
                 lead1.Current_Vehicle__c=vehicles.id;
                update lead1;              
           
-
+               Test.stopTest();
                Lead__c leadList = [select Nature_of_Request__c,Business_Unit__c from Lead__c where id =:lead1.id ];
                system.assertEquals(leadList.Nature_of_Request__c, lead1.Nature_of_Request__c);
                system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);

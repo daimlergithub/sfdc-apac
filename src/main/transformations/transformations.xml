@@ -679,12 +679,12 @@
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Insurance_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_OBJECT_KEYPREFIX</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_LEAD_TAB_ID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Insurance_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_CONTACT_FIELD_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_CONTACT_ID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
@@ -694,7 +694,7 @@
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Fleet_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_OBJECT_KEYPREFIX</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_LEAD_TAB_ID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
@@ -709,12 +709,12 @@
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Service_Parts_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_OBJECT_KEYPREFIX</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_LEAD_TAB_ID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Service_Parts_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_CONTACT_FIELD_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_CONTACT_ID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
@@ -724,12 +724,12 @@
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Vehicle_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_OBJECT_KEYPREFIX</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_LEAD_TAB_ID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='New_Vehicle_Lead']/url/text()</xpath>
-		<token tokenonly="true">OBJECT_LEAD_WEBLINK_CONTACT_FIELD_ID</token>
+		<token tokenonly="true">OBJECT_LEAD_WEBLINK_CONTACT_ID</token>
 	</changetext>	
 	<changetext>
 		<filename>objects\Lead__c.object</filename>
