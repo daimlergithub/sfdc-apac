@@ -19,12 +19,12 @@ public class RetailTaskHelperTest {
          objAccount1= new Account();
 	  objAccount1.RecordtypeId=personAccRecordTypeId;
 	  objAccount1.LastName='Test Person 1st';
-        objAccount1.FirstName = 'Test';
+        objAccount1.FirstName = 'Testfirst';
             objAccount1.Salutation='Brother';
 	  objAccount1.Type='Personal';
 	  objAccount1.Status__c='Active';
 	  objAccount1.Province__c='Province1';
-	  objAccount1.City__c='Test';
+	  objAccount1.City__c='Testcity2';
 	  objAccount1.Email__c='test@mbau.com';
 	  objAccount1.Mobile__c ='8884545243';
 	  insert objAccount1;
@@ -36,7 +36,7 @@ public class RetailTaskHelperTest {
 	  objAccount.Type='Personal';
 	  objAccount.Status__c='Active';
 	  objAccount.Province__c='Province1';
-	  objAccount.City__c='Test';
+	  objAccount.City__c='Testcity1';
 	  objAccount.Email__c='test@mbau.com';
 	  objAccount.Mobile__c ='8884545243';
 	  insert objAccount;
@@ -47,12 +47,11 @@ public class RetailTaskHelperTest {
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer');
         insert dealer;
         
-          contact = new Contact(RecordTypeId=contactRecordTypeId,FirstName = 'Test', Lastname = 'Amit',Salutation='Brother',Email='test@test2.com');
+          contact = new Contact(RecordTypeId=contactRecordTypeId,FirstName = 'Testfirstname', Lastname = 'Amit',Salutation='Brother',Email='test@test2.com');
         contact.Account=dealer;
         insert contact;
 
-        //Contact dealerContact = new Contact(FirstName = 'Test', Lastname = 'Amit', AccountId = objAccount.Id, Email = 'test@test.com');
-       // insert dealerContact;
+       
 
         vehicle = new Vehicle__c(Vehicle_Group__c='CV');
         insert vehicle;
@@ -77,7 +76,7 @@ public class RetailTaskHelperTest {
         createData();
         createRetailTask();
         insert contract;
-        
+        test.startTest();
         contract.Related_Vehicle__c=vehicle1.Id;
         contract.Account__c=objAccount1.id;
         contract.Signer__c=dealer.id;
@@ -87,12 +86,15 @@ public class RetailTaskHelperTest {
         //contract.Fleet__c=true;
         
         update contract;
-        system.assertEquals(contract.Fleet__c, false);
+         test.stopTest();
+        
+         system.assertEquals(contract.Fleet__c, false);
         
     }
     
     private static testmethod void testAuAfter_Insert_Update_Events1(){
-         User usr1 = UtilTestData.createUser('Australia','Fleet');
+        test.startTest();
+         User usr1 = UtilTestData.createUser('Australia','IntegrationAPI');
         system.runAs(usr1){
         
               Account objAcc= new Account();
@@ -101,7 +103,7 @@ public class RetailTaskHelperTest {
 	  objAcc.Type='Personal';
 	  objAcc.Status__c='Active';
 	  objAcc.Province__c='Province1';
-	  objAcc.City__c='Test';
+	  objAcc.City__c='Testcity';
 	  objAcc.Email__c='test@mbau.com';
 	  objAcc.Mobile__c ='8884545243';
 	  insert objAcc;
@@ -110,7 +112,7 @@ public class RetailTaskHelperTest {
        Account dealer1 =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer');
         insert dealer1;
         
-         Contact  contact1 = new Contact(RecordTypeId=contactRecordTypeId,FirstName = 'Test', Lastname = 'Amit',Salutation='Brother',Email='test@test2.com');
+         Contact  contact1 = new Contact(RecordTypeId=contactRecordTypeId,FirstName = 'Testname', Lastname = 'Amit',Salutation='Brother',Email='test@test2.com');
         contact1.Account=dealer1;
         insert contact1;
         
@@ -128,6 +130,8 @@ public class RetailTaskHelperTest {
         contract1.Fleet__c=true;
         
         update contract1;
+             test.stopTest();
+            
           system.assertEquals(contract1.Fleet__c, true);
         }
     }
@@ -135,7 +139,7 @@ public class RetailTaskHelperTest {
         createData();
         createRetailTask();
         insert contract2;
-        
+        test.startTest();
         contract2.Related_Vehicle__c=vehicle2.Id;
         contract2.Account__c=objAccount.id;
         contract2.Signer__c=dealer.id;
@@ -145,6 +149,7 @@ public class RetailTaskHelperTest {
         contract2.Fleet__c=false;
         
         update contract2;
+        test.stopTest();
           system.assertEquals(contract.Fleet__c, false);
         
     }
