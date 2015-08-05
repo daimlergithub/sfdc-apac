@@ -6722,6 +6722,18 @@
         <errorMessage>End Date must be bigger than Start Date</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Restrict_Contract_Record_Edit</fullName>
+        <active>true</active>
+        <description>This validation is to restrict users from editing and saving the Contract records</description>
+        <errorConditionFormula>AND
+(
+$Profile.Name != 'IntegrationAPI',
+RecordType.DeveloperName = 'Contract',
+$Profile.Name != 'System Administrator'
+)</errorConditionFormula>
+        <errorMessage>You do not have the permission to perform this task</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Service_No_Read_Only</fullName>
         <active>true</active>
         <description>It's not allowed to change service number.</description>

@@ -514,6 +514,14 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Plymouth</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Pontiac</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Porsche</fullName>
                 <default>false</default>
             </picklistValues>
