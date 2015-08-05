@@ -15684,7 +15684,7 @@
         <layout>Vehicle__c-Vehicle Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
-        <layout>Vehicle__c-Vehicle Layout</layout>
+        <layout>Vehicle__c-Competitor Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.Competitor</recordType>
     </layoutAssignments>
     <layoutAssignments>

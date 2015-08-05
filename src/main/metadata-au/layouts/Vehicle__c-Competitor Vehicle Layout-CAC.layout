@@ -27,7 +27,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Competitor_Model__c</field>
+                <field>Car_Model__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
