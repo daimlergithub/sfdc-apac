@@ -9,7 +9,7 @@
 
 
 @isTest
-public class LeadHelperTest {
+public with sharing class LeadHelperTest {
     private static Account customer;
 	private static Account dealer;
     private static Account account;
@@ -150,22 +150,41 @@ public class LeadHelperTest {
                                          EOC_Recipient_Type__c = EOCRecipientTypeValue,
                                          Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
                    insert contact1;
-                Test.startTest();
-              Lead__c lead1=createLead2(user);
-               lead1.Assigned_Dealer__c=dealer.id;
-               lead1.Business_Unit__c=BusinessUnitValue;
-               lead1.Sub_BusinessUnit__c=SubBusinessUnitValue1;
-               update lead1;
+                Test.startTest();             
+                 
+         lead = new Lead__c();
+        
+        lead.Contact__c = personaccount1.Id;
+        lead.recordTypeId = leadVehicleRt;
+        lead.Lead_Type__c = LeadTypeValue1;
+        lead.CAC_Lead_Status__c = CACLeadStatusValue1;
+        lead.Lead_Source__c = LeadSourceValue;
+        lead.Nature_of_Request__c='Brochure Request';
+        lead.Business_Unit__c= BusinessUnitValue;
+        lead.Sub_BusinessUnit__c='Parts';
+        lead.X24H_Untouched__c=false;
+        lead.X72H_Untouched__c=false;
+        insert lead;
+       
+         lead.X24H_Untouched__c=true;
+         lead.X72H_Untouched__c=true;
+         lead.Is_Finance_Send_Email_Before_20_Days__c=true;
+         update lead;
+               
+               lead.Assigned_Dealer__c=dealer.id;
+               lead.Business_Unit__c=BusinessUnitValue;
+               lead.Sub_BusinessUnit__c=SubBusinessUnitValue1;
+               update lead;
                map<id,id> NewCaseLeadIds = new  map<id,id>();
-               NewCaseLeadIds.put(lead1.id, lead1.id);
+               NewCaseLeadIds.put(lead.id, lead.id);
                
                LeadHelper.UpdateCasesWithLeadId(NewCaseLeadIds);
                LeadHelper.insertLeadSharing(NewCaseLeadIds,NewCaseLeadIds);
                   Test.stopTest();
                
-               Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead1.id ];
-               system.assertEquals(leadList.Assigned_Dealer__c, lead1.Assigned_Dealer__c);
-               system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
+               Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead.id ];
+               system.assertEquals(leadList.Assigned_Dealer__c, lead.Assigned_Dealer__c);
+               system.assertEquals(leadList.Business_Unit__c, lead.Business_Unit__c);
                
            }
         
@@ -196,17 +215,38 @@ public class LeadHelperTest {
                                                Lead_Escalation_Recipient_Type__c='Immediate Notice',Dealer_Lead_Gate_Keeper__c=false);
                                insert contact1;
               Test.startTest();
-              Lead__c lead1=createLead1(user);
-               lead1.Assigned_Dealer__c=dealer.id;
-               lead1.Business_Unit__c=BusinessUnitValue;
-               lead1.Sub_BusinessUnit__c=SubBusinessUnitValue1;
+             
+               
+               Vehicle__c vehicles1 = new Vehicle__c(EuroVIN__c = '12345678901111111',UsVIN__c = '12345678902222222');
+        insert vehicles1;
+        
+          lead = new Lead__c();
+        lead.Current_Vehicle__c=vehicles1.id;
+        lead.Contact__c = personaccount1.Id;
+        lead.recordTypeId = leadSPRt;
+        lead.Lead_Type__c = LeadTypeValue1;
+        lead.CAC_Lead_Status__c = CACLeadStatusValue1;
+        lead.Lead_Source__c = LeadSourceValue;
+        lead.Nature_of_Request__c=FinanceLeadType;
+        lead.Business_Unit__c= BusinessUnitValue;
+        lead.Sub_BusinessUnit__c=SubBusinessUnitValue1;
+        lead.X24H_Untouched__c=false;
+        lead.X72H_Untouched__c=false;
+        insert lead;
+        
+        
+              
+               
+               lead.Assigned_Dealer__c=dealer.id;
+               lead.Business_Unit__c=BusinessUnitValue;
+               lead.Sub_BusinessUnit__c=SubBusinessUnitValue1;
                lead.X24H_Untouched__c=true;
                lead.X72H_Untouched__c=true;
                lead.Is_Finance_Send_Email_Before_60_Days__c=true;
-               update lead1;
+               update lead;
                
                string accountId=string.valueOf(dealer.id);
-               string leadId =String.valueOf(lead1.id);
+               string leadId =String.valueOf(lead.id);
                string userId =String.valueOf(user.id);
                string tempTitle='teststring';
                
@@ -221,9 +261,9 @@ public class LeadHelperTest {
                LeadHelper.createdNewSMSTaskForCustomer(lead,user,dealer,dealer,tempTitle);
                LeadHelper.shareToAssignedDealer(oldDealerIds,leadIds);
                           Test.stopTest();         
-               Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead1.id ];
-               system.assertEquals(leadList.Assigned_Dealer__c, lead1.Assigned_Dealer__c);
-               system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
+               Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead.id ];
+               system.assertEquals(leadList.Assigned_Dealer__c, lead.Assigned_Dealer__c);
+               system.assertEquals(leadList.Business_Unit__c, lead.Business_Unit__c);
                
            }
     }
@@ -422,56 +462,8 @@ public class LeadHelperTest {
         
         return lead;
         
-    }
-    static Lead__c createLead1(User usr){
-        
-         Vehicle__c vehicles1 = new Vehicle__c(EuroVIN__c = '12345678901111111',UsVIN__c = '12345678902222222');
-        insert vehicles1;
-        
-        lead = new Lead__c();
-        lead.Current_Vehicle__c=vehicles1.id;
-        lead.Contact__c = personaccount1.Id;
-        lead.recordTypeId = leadSPRt;
-        lead.Lead_Type__c = LeadTypeValue1;
-        lead.CAC_Lead_Status__c = CACLeadStatusValue1;
-        lead.Lead_Source__c = LeadSourceValue;
-        lead.Nature_of_Request__c=FinanceLeadType;
-        lead.Business_Unit__c= BusinessUnitValue;
-        lead.Sub_BusinessUnit__c=SubBusinessUnitValue1;
-        lead.X24H_Untouched__c=false;
-        lead.X72H_Untouched__c=false;
-        insert lead;
-         //lead.CAC_Lead_Status__c = 'Qualified';
-        
-        
-        return lead;
-        
-    }
-    static Lead__c createLead2(User usr){
-        
-        
-        lead = new Lead__c();
-        
-        lead.Contact__c = personaccount1.Id;
-        lead.recordTypeId = leadVehicleRt;
-        lead.Lead_Type__c = LeadTypeValue1;
-        lead.CAC_Lead_Status__c = CACLeadStatusValue1;
-        lead.Lead_Source__c = LeadSourceValue;
-        lead.Nature_of_Request__c='Brochure Request';
-        lead.Business_Unit__c= BusinessUnitValue;
-        lead.Sub_BusinessUnit__c='Parts';
-        lead.X24H_Untouched__c=false;
-        lead.X72H_Untouched__c=false;
-        insert lead;
-       
-         lead.X24H_Untouched__c=true;
-         lead.X72H_Untouched__c=true;
-         lead.Is_Finance_Send_Email_Before_20_Days__c=true;
-         update lead;
-        
-         return lead;
-        
-    }
+    }  
+ 
     static Lead__c getLead1(User usr){
         //User usr = UtilTestData.createUser('IB CSR','CAC IB CSR');
         account = new Account();
