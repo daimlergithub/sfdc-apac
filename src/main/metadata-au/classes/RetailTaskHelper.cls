@@ -141,12 +141,13 @@ public with sharing class RetailTaskHelper {
 
         List<Lead__c> newLeadList = new List<Lead__c>();
         // Create finance leads based on the non-fleet contracts
-        if(finCntrctList.size() > 0){
+        if(finCntrctList.size() > 0 && !finCntrctList.isEmpty()){
             // Get the finance lead record type information
             RecordType financeLdRT = [SELECT Id, Name FROM RecordType
                                       WHERE Name = 'Finance Lead'];
             if(financeLdRT != null){
-                for(Retail_Task__c curCntrct : finCntrctList){
+                for(Retail_Task__c curCntrct : [select Id,Account__c, OwnerId, Related_Dealer__c, Account__r.RecordType.Name
+                                 from Retail_Task__c where Id in :finCntrctList]){
                     Lead__c newLead = new Lead__c();
                     newLead.RecordTypeId = financeLdRT.Id;
                     newLead.Existing_Contract__c = curCntrct.Id;
