@@ -33,6 +33,7 @@ public with sharing class RetailTaskHelper {
         if(isUpdate){
             // Auto create leads for contracts at 150 days before the
             //    end date
+       
             autoCreateLeads(rtNewMap, rtOldMap);
         }
     }
@@ -121,8 +122,10 @@ public with sharing class RetailTaskHelper {
         List<Retail_Task__c> finCntrctList = new List<Retail_Task__c>();
         List<Retail_Task__c> fltCntrctList = new List<Retail_Task__c>();
         Date today = Date.Today();
+            
         for(Id curCntrctId : newMap.keySet()){
             system.debug('>>>>'+oldMap.get(curCntrctId).X150_Days_Before_EOC__c);
+            system.debug('>>>>1'+newMap.get(curCntrctId).X150_Days_Before_EOC__c);
             if((oldMap.get(curCntrctId).X150_Days_Before_EOC__c
                 != newMap.get(curCntrctId).X150_Days_Before_EOC__c)
                 && newMap.get(curCntrctId).X150_Days_Before_EOC__c == TRUE && newMap.get(curCntrctId).EndDate__c > today){
@@ -130,7 +133,8 @@ public with sharing class RetailTaskHelper {
                     fltCntrctList.add(newMap.get(curCntrctId));
                 }
                 else{
-                    finCntrctList.add(newMap.get(curCntrctId));
+                    
+                    finCntrctList.add(newMap.get(curCntrctId));                    
                 }
             }
         }
@@ -150,7 +154,14 @@ public with sharing class RetailTaskHelper {
                     newLead.OwnerId = curCntrct.OwnerId;
                     newLead.CAC_Lead_Status__c = 'New Enquiry';
                     newLead.Lead_Source__c = 'End of Contract';
+                    if(curCntrct.Account__r.RecordType.Name == 'Person Account')
+                    {
                     newLead.Contact__c = curCntrct.Account__c;
+                    }
+                    else if(curCntrct.Account__r.RecordType.Name == 'Company')
+                    {
+                    newLead.Company_Account__c = curCntrct.Account__c; 
+                    }
                     newLead.Assigned_Dealer__c = curCntrct.Related_Dealer__c;
                     newLead.Is_Finance_Send_Email_Before_150_Days__c = true;
                     newLead.Business_Unit__c = 'MBFS Cars';
@@ -195,12 +206,14 @@ public with sharing class RetailTaskHelper {
         // Insert the new leads into the system
         if(newLeadList.size() > 0){
             try{
+               
                 insert newLeadList;
-                
+               
                 // Send email notifications to corresponding recipients
                 //US_AU_CR-000171 Modified by Bing Start
                 //LeadHelper.sendEOCEmailNotifications(newLeadList);
                 LeadHelper.send171Email(newLeadList);
+               
                 //US_AU_CR-000171 Modified by Bing End
             }
             catch(DMLException e){

@@ -29,10 +29,6 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Total_Responses__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
                 <field>Choices__c</field>
             </layoutItems>
             <layoutItems>
@@ -76,7 +72,6 @@
         <fields>NAME</fields>
         <fields>Response__c</fields>
         <fields>Related_Vehicle__c</fields>
-        <fields>SurveyTaker__c.Account__c</fields>
         <relatedList>SurveyQuestionResponse__c.Survey_Question__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
