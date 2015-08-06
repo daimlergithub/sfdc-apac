@@ -1254,14 +1254,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerSurveyQuestionResponseHandler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerSurveyQuestionResponseTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerTaskTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1443,10 +1435,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilSobjectTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>UtilSurveyQuestionResponse</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
