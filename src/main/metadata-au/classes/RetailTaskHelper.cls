@@ -160,7 +160,7 @@ public with sharing class RetailTaskHelper {
                     }
                     else if(curCntrct.Account__r.RecordType.Name == 'Company')
                     {
-                    newLead.Contact__c = curCntrct.Account__c; 
+                    newLead.Company_Account__c = curCntrct.Account__c; 
                     }
                     newLead.Assigned_Dealer__c = curCntrct.Related_Dealer__c;
                     newLead.Is_Finance_Send_Email_Before_150_Days__c = true;
