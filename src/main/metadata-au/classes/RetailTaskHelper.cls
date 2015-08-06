@@ -154,7 +154,7 @@ public with sharing class RetailTaskHelper {
                     newLead.OwnerId = curCntrct.OwnerId;
                     newLead.CAC_Lead_Status__c = 'New Enquiry';
                     newLead.Lead_Source__c = 'End of Contract';
-                    if(curCntrct.Account__r.RecordType)if(curCntrct.Account__r.RecordType.Name == 'Person Account')
+                    if(curCntrct.Account__r.RecordType.Name == 'Person Account')
                     {
                     newLead.Contact__c = curCntrct.Account__c;
                     }
