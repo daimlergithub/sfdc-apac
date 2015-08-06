@@ -258,10 +258,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>BatchSurveyQuestionResponse</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>BatchUpdateRecords</apexClass>
         <enabled>true</enabled>
     </classAccesses>
