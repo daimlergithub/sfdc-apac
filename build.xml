@@ -708,9 +708,6 @@
 			<sf:include name="SlickCtiObjectHelper"/>	
 			<sf:include name="SubmitSurveyController"/>
 			<sf:include name="SubmitSurveyControllerTest"/>
-			<sf:include name="BatchSurveyQuestionResponse"/>
-			<sf:include name="TriggerSurveyQuestionResponseHandler"/>
-			<sf:include name="TriggerSurveyQuestionResponseTest"/>
 			<sf:include name="UtilSurveyQuestionResponse"/>		
 			<sf:include name="MassApproveRetailCampaignController"/>
 			<sf:include name="MassApproveRetailCampaignControllerTest"/>
@@ -724,9 +721,6 @@
 			<sf:include name="MyProcessTest"/>		 	
 			<sf:include name="BatchUpdateRecords"/>
 			<sf:include name="BatchUpdateRecordsTest"/>			
-		</sf:typeset>	
-		<sf:typeset name="triggers">			
-            <sf:include name="TriggerSurveyQuestionResponse"/>			
 		</sf:typeset>
 		<sf:typeset name="pages"> 
 				<sf:include name="LeadConverting"/>
