@@ -44,6 +44,10 @@
                 <behavior>Edit</behavior>
                 <field>Preferred_Contact_Time__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contact_Timing__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
