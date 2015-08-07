@@ -21,9 +21,9 @@ Email:  {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.Email__c
 <br/>
 <b>Qualification Information</b><br/>
 Existing Contract: {!relatedTo.Existing_Contract__r.ContractNumber__c}<br/>
-Vehicle Make - Current: {!relatedTo.Vehicle_Make_Current__c}<br/>
-Vehicle Model - Current: {!relatedTo.Vehicle_Model_Current__c}<br/>
-Vehicle Year - Current: {!relatedTo.Vehicle_Year_Current__c}<br/>
+Vehicle Make - Current: {!relatedTo.Existing_Contract__r.Current_Make__c}<br/>
+Vehicle Model - Current: {!relatedTo.Existing_Contract__r.Current_Model__c}<br/>
+Vehicle Year - Current: {!relatedTo.Existing_Contract__r.Current_Year__c}<br/>
 Registration No.: {!relatedTo.Existing_Contract__r.Vehicle_Registration_No__c}<br/>
 Finance Product: {!relatedTo.Existing_Contract__r.Finance_Product_Type__c}<br/>
 Product Variation: {!relatedTo.Existing_Contract__r.Product_Variation__c}<br/>
