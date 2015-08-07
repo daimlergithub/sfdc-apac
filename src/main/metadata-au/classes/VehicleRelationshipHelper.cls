@@ -232,7 +232,7 @@ public with sharing class VehicleRelationshipHelper {
         {
             for(Vehicle_Relationship__c curCvr : cvrs)
             { 
-                if(accounts != null && !accounts.isEmpty() && curCvr.Contact__c != null && curCvr.Contact__c != '')
+                if(accounts != null && !accounts.isEmpty() && curCvr.Contact__c != null)
                 {           
                     if(accounts.containsKey(curCvr.Contact__c))
                     {
