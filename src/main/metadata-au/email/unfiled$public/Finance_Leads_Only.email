@@ -21,9 +21,9 @@ Email:  {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.Email__c
 <br/>
 <b>Qualification Information</b><br/>
 Existing Contract: {!relatedTo.Existing_Contract__r.ContractNumber__c}<br/>
-Vehicle Make - Current: {!relatedTo.Vehicle_Make_Current__c}<br/>
-Vehicle Model - Current: {!relatedTo.Vehicle_Model_Current__c}<br/>
-Vehicle Year - Current: {!relatedTo.Vehicle_Year_Current__c}<br/>
+Vehicle Make - Current: {!relatedTo.Existing_Contract__r.Current_Make__c}<br/>
+Vehicle Model - Current: {!relatedTo.Existing_Contract__r.Current_Model__c}<br/>
+Vehicle Year - Current: {!relatedTo.Existing_Contract__r.Current_Year__c}<br/>
 Registration No.: {!relatedTo.Existing_Contract__r.Vehicle_Registration_No__c}<br/>
 Finance Product: {!relatedTo.Existing_Contract__r.Finance_Product_Type__c}<br/>
 Product Variation: {!relatedTo.Existing_Contract__r.Product_Variation__c}<br/>
@@ -34,7 +34,7 @@ Monthly Payment: $<apex:outputText value="{0, number, ###,###,###,##0.00}"><apex
 <apex:outputText value="{0, number, ###,###,###,##0}"><apex:param value="{! IF((relatedTo.Financial_Product__c <> 'Operating Lease'), relatedTo.Existing_Contract__r.Residual__c, relatedTo.Monthly_Payment__c)}"/></apex:outputText>{!relatedTo.Payment__c}
 <br/>
 Contract End Date: {!CASE(MONTH(relatedTo.Existing_Contract__r.EndDate__c),1,'Jan',2,'Feb',3,'Mar',4,'Apr',5,'May',6,'Jun',7,'Jul',8,'Aug',9,'Sep',10,'Oct',11,'Nov',12,'Dec',null)} {!DAY(relatedTo.Existing_Contract__r.EndDate__c)} {!YEAR(relatedTo.Existing_Contract__r.EndDate__c)}<br/>
-Interest Rate: {!relatedTo.Interest_Rate__c }<br/>
+Interest Rate: {!relatedTo.Interest_Rate__c } %<br/>
 <br/>
 Interested Vehicle Category: {!relatedTo.Interested_Vehicle_Category__c}<br/>
 Vehicle Make Interest: {!relatedTo.Interested_Vehicle_Brand__c}<br/>

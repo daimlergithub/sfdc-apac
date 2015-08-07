@@ -442,7 +442,7 @@ public class LeadHelper
     
     /**
      * Private classes
-     */
+     */ 
   @TestVisible 
     private static Lead__Share newLeadShare(String leadId, String userOrGroupId)
     {
@@ -1088,10 +1088,10 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     
     //modified by Bing CR-000171 Start
     public static void send171Email(List<Lead__c> leads){
-        
+       system.debug('send email'+leads); 
         //get mail template
         Map<String,id> templateIds = new Map<String,id>(); 
-        for (EmailTemplate m : [select id ,developername from EmailTemplate where developername in ( 'Retail_EOC_Template','Fleet_EOC_Template')]){
+        for (EmailTemplate m : [select id ,developername from EmailTemplate where developername in ( 'Finance_Leads_Only','Fleet_EOC_Template')]){
             templateIds.put(m.developername, m.id);
         }
         
@@ -1117,7 +1117,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     temlateId = templateIds.get('Fleet_EOC_Template');
                 }
                 if(lead.RecordTypeId == leadFinanceRT){
-                    temlateId = templateIds.get('Retail_EOC_Template');
+                    temlateId = templateIds.get('Finance_Leads_Only');
                 }
 
                 Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
@@ -1193,7 +1193,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 }
             }
         }
-        //system.debug('initialEmail'+initialEmail);
+       system.debug('initialEmail>>>>>>>>>>'+initialEmail);
         return initialEmail;
         
     }
