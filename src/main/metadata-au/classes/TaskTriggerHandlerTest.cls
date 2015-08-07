@@ -5,6 +5,8 @@ private with sharing class TaskTriggerHandlerTest {
     private static map<id,Task> taskMap1 = new map<id,Task>();
     private static Map<Id, Account> accountmap = new Map<Id, Account>() ;
     private static Account customer; 
+    private static Id ssid;
+    private static string Subject = '1st Survey';
     private static string OBStatusValue ='Successful';
     private static string CalledValue = '13011111111';
     private static id recAnnualId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Annual Call').getRecordTypeId();
@@ -201,7 +203,7 @@ private with sharing class TaskTriggerHandlerTest {
        // {
          createAccount();    
         Test.startTest();
-            
+            set<task> settask = new set<task>();
             Task obTask = new Task(RecordTypeId = obrtid, WhatId = customer.Id);
             insert obTask;
             SSI__c ssi = new SSI__c(Status__c = 'Matched');
@@ -235,9 +237,10 @@ private with sharing class TaskTriggerHandlerTest {
                
             customer.Newly_Task_Id__c = cobTask.Id;
             update customer;
-        
+        	settask.add(cobTask);
         listTask1.add(cobTask);          
             taskMap1.put(cobTask.id, cobTask);
+        	ssid = ssi.Id ;
            // TaskTriggerHandler.updateAccountCallMessage(taskMap1, taskMap1);
             TaskTriggerHandler.autoUpdateTaskAfterLogInserted(listTask1[0]);
             TaskTriggerHandler.autoUpdateSSISurveyStatus(listTask1[0], listTask1[0]);
@@ -246,7 +249,8 @@ private with sharing class TaskTriggerHandlerTest {
             TaskHelper.TaskFailBlacklist(listTask1,taskMap1,true,true);
             TaskHelper.updateCampaignMemberStatus(listTask1,taskMap1,true,true);
             TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(listTask1,taskMap1,true,true);
-            
+            Tasktriggerhandler.autoUpdateSSITask(settask);
+        	Tasktriggerhandler.updateSSISurveyStatus(ssid,Subject);
             TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(listTask1,taskMap1,true,true); 
         
             Test.stopTest();
@@ -459,7 +463,7 @@ private with sharing class TaskTriggerHandlerTest {
       
         
           
-        Task obTask = new Task(OB_Status__c = UtilConstant.SUCCESSFUL,RecordTypeId = obrtid, Called__c = CalledValue);
+        Task obTask = new Task(OB_Status__c = UtilConstant.SUCCESSFUL,RecordTypeId = obrtid, Called__c = CalledValue, WhatId = customer.Id);
         insert obTask;
         
         
@@ -469,7 +473,6 @@ private with sharing class TaskTriggerHandlerTest {
         
         obTask.ActivityDate = system.today();
         //obTask.WhoId = customer.Id;
-        obTask.WhatId = customer.Id;
         obTask.CallType = 'Outbound';
         obTask.CallObject = 'test1';
         //obTask.UCID__c = 'test';

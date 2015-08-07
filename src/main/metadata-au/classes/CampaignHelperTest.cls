@@ -10,10 +10,14 @@
  static Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName(); 
     public static string topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
     public static String centralCampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
+    public static string CampaignExecutionId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Campaign Execution - Complex').getRecordTypeId();
+    public static string caccampaignId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
     public static string top = 'top';
     public static string Started = 'Started';
     public static string OB_Call = 'OB Call';
     public static string Published = 'Published';
+    public static User usr;
+    public static Profile userprofile = [select Id from Profile where Name = 'Dealer Delegate Admin' limit 1];
     @isTest static void testCopyTopCampaignStatusValueToSavedCampaign(){
         
         
@@ -23,6 +27,7 @@
         Test.startTest();
        Set<String> topCampaignIds = new Set<String>();
        List<Campaign> listcampaigns=new list<Campaign>();
+        
        Campaign top1 = new Campaign(
           
             Name = top, 
@@ -48,18 +53,18 @@
         listcampaigns.add(cac);
        
        insert listcampaigns;
-              system.debug('@@@@@@@@@ listcampaigns'+listcampaigns);
+           
 
        List<Campaign> campaigns = [select ParentId, Parent.ParentId,Execution_Type__c from Campaign where Id in: listcampaigns];
-       system.debug('@@@@@@@@@ campaigns '+campaigns);
+      
        for(Campaign cam : campaigns){
        if(cam.ParentId != null){
-       system.debug('@@@@@@@@@ cam'+cam);
+      
                 topCampaignIds.add(cam.Parent.ParentId);
                 
             }
        }
-       system.debug('@@@@@@@@@ topCampaignIds'+topCampaignIds);
+       
        Set<String> campaignIds = new Set<String>();
         for(Campaign campaign : campaigns){
             if(campaign.Execution_Type__c == OB_Call)
@@ -69,26 +74,53 @@
         }
         if(campaignIds!=null && !campaignIds.isEmpty())
        CampaignHelper.copyTopCampaignStatusValueToSavedCampaign(campaignIds);
-       system.debug('@@@@@@@@@ campaignIds '+campaignIds);
+      
         Test.stopTest();
      system.assertNotEquals(null, listcampaigns[0].parentId);
     }
+    
+       
      @isTest static void testupdateCampaignMemberStatusToRelatedCampaig()
      {
           List<Campaign> listcampaigns=new list<Campaign>();
-             
-        
-
+          List<Campaign> testlistcampaigns=new list<Campaign>();   
+              
      Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+         dealer = [select Id from Account where ID =:dealer.Id];
+         system.debug('$$$$'+dealer);
         Contact contact = new Contact(
             AccountId = dealer.Id, 
             Salutation='Attorney',
              FirstName='testFirstname',
             LastName = 'testLastname',  
             Phone = '1212313', 
+            Permission_Set_Settings__c = 'AS_Retail_Campaign',
             email = 's@s.s'
         );
         insert contact;
+         contact = [select Id from Contact where ID =:contact.Id];
+         system.debug('^^^^^'+contact);
+         User testuser = new User();
+         usr = [Select id from User where Id = :UserInfo.getUserId()];
+	        System.RunAs(usr){
+	      		testuser.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';            
+                testuser.ProfileId= userprofile.Id ;
+                //usr.UserRoleId=userRoleId;
+                testuser.LastName = 'Test User';
+                testuser.Email = 'test001@daimler.com.full';
+                testuser.Alias = 'test';
+                testuser.TimeZoneSidKey = 'Asia/Shanghai';
+                testuser.EmailEncodingKey = 'UTF-8';
+                testuser.LanguageLocaleKey = 'en_US';
+                testuser.localesidkey='en_US';
+                testuser.isActive = true;
+                testuser.ContactId =contact.Id;
+                insert testuser; 
+            } 
+         testUser = [select AccountId,ContactId from user where ID =:testUser.Id];
+         system.debug('******'+testUser);
+         dealer.Retail_MB_Owner__c = testUser.Id ;
+         update dealer ;
         List<CampaignMember> Listcampmember= new List<CampaignMember>();
         Campaign top2 = new Campaign(
            
@@ -120,12 +152,13 @@
             StartDate = System.today(), 
             Execution_Type__c =OB_Call,
             EndDate = System.today(),
-            RecordTypeId = centralCampaignId
+            Create_Task__c = false ,
+            RecordTypeId = centralCampaignId            
         );
 
         insert objcampaign;
         listcampaigns.add(objcampaign);
-        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c from Campaign where id IN:listcampaigns];
+        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,Create_Task__c from Campaign where id IN:listcampaigns];
          list<Campaign> oldList = new  list<Campaign>();
          oldList.add(listCampaign);
         map<id,Campaign> oldMap = new map<id,Campaign>();
@@ -133,16 +166,117 @@
          
         objcampaign.Status=Published;
         update objcampaign;
-      
+         listcampaigns.add(objcampaign);
+          Campaign testcampaign = new Campaign(
+            IsActive = false, 
+            Name = top, 
+            Status = Started, 
+            StartDate = System.today(), 
+            Execution_Type__c =OB_Call,
+            EndDate = System.today(),
+            Create_Task__c = false ,
+            RecordTypeId = caccampaignId
+        );
+         insert testcampaign;
+         testlistcampaigns.add(testcampaign);
+         Campaign testlistCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,Create_Task__c,Task_Created_By__c from Campaign where id IN:testlistcampaigns];    
+          map<id,Campaign> testoldMap = new map<id,Campaign>();   
+          testoldMap.put(testlistCampaign.Id, testlistCampaign);
+        // testcampaign.Create_Task__c = true;
+         testcampaign.IsActive = true;
+         update testcampaign;
+         testlistcampaigns.add(testcampaign);
+         
+         Participating_Dealer__c opd = new Participating_Dealer__c(Campaign__c=objcampaign.Id, 
+                                                                 Dealer__c=dealer.Id ,Session_Start_Date__c = date.newinstance(2013, 8, 3));
+         insert opd;
+         opd = [select Dealer__c from Participating_Dealer__c where ID=:opd.Id];
+         system.debug('$%$%$%$%'+opd);
      CampaignHelper.updateCampaignMemberStatusToRelatedCampaign(Listcampmember);
-           listcampaigns.add(objcampaign);
-         CampaignHelper.afterInsertUpdateEvents(listcampaigns,oldMap,true);
+         CampaignHelper.afterInsertUpdateEvents(testlistcampaigns,testoldMap,true);
          CampaignHelper.beforeUpdateEvents(listcampaigns,oldMap);
          CampaignHelper.afterInsertEvents(listcampaigns);
         CampaignHelper.afterUpdateEvents(listcampaigns,listcampaigns);
         CampaignHelper.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
          
          system.assertNotEquals(null, listcampaigns[0].StartDate);
+     }
+    @isTest static void afterInsertEvents_CampaignSharetest()
+    {
+     String mbBestPracticeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('MB Best Practice').getRecordTypeId();    
+    List<Campaign> listcampaigns=new list<Campaign>();
+                  
+     Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+         dealer = [select Id from Account where ID =:dealer.Id];
+         system.debug('$$$$'+dealer);
+        Contact contact = new Contact(
+            AccountId = dealer.Id, 
+            Salutation='Attorney',
+             FirstName='testFirstname',
+            LastName = 'testLastname',  
+            Phone = '1212313', 
+            Permission_Set_Settings__c = 'AS_Retail_Campaign',
+            email = 's@s.s'
+        );
+        insert contact;
+         contact = [select Id from Contact where ID =:contact.Id];
+         system.debug('^^^^^'+contact);
+         User testuser = new User();
+         usr = [Select id from User where Id = :UserInfo.getUserId()];
+	        System.RunAs(usr){
+	      		testuser.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';            
+                testuser.ProfileId= userprofile.Id ;
+                //usr.UserRoleId=userRoleId;
+                testuser.LastName = 'Test User';
+                testuser.Email = 'test001@daimler.com.full';
+                testuser.Alias = 'test';
+                testuser.TimeZoneSidKey = 'Asia/Shanghai';
+                testuser.EmailEncodingKey = 'UTF-8';
+                testuser.LanguageLocaleKey = 'en_US';
+                testuser.localesidkey='en_US';
+                testuser.isActive = true;
+                testuser.ContactId =contact.Id;
+                insert testuser; 
+            } 
+         testUser = [select AccountId,ContactId from user where ID =:testUser.Id];
+         system.debug('******'+testUser);
+         dealer.Retail_MB_Owner__c = testUser.Id ;
+         update dealer ;
+       
+        Campaign objcampaign = new Campaign(
+            IsActive = true, 
+            Name = top, 
+            Status = Started,  
+            Execution_Type__c =OB_Call,
+            Create_Task__c = false ,
+            RecordTypeId = mbBestPracticeId,
+			BP_Start_Date__c = system.today(),
+            BP_End_Date__c = date.newInstance(2015, 11, 3),
+            Region_Due_Date__c = date.newInstance(2015, 11, 21),
+            Retail_Start_Date__c =date.newInstance(2015, 8, 11),
+            Retail_Due_Date__c  = date.newInstance(2015, 8, 25),
+            Region_Recommend_Number__c 	=67,
+            Region_Best_Number__c =76
+        );
+
+        insert objcampaign;
+        listcampaigns.add(objcampaign);
+        Campaign listCampaign =[select IsActive,Name,Status,StartDate,Execution_Type__c,SMS_Task_Verified__c,Create_Task__c from Campaign where id IN:listcampaigns];
+         list<Campaign> oldList = new  list<Campaign>();
+         oldList.add(listCampaign);
+        map<id,Campaign> oldMap = new map<id,Campaign>();
+         oldMap.put(listCampaign.id, listCampaign);
+         
+        objcampaign.Status=Published;
+        update objcampaign;
+         listcampaigns.add(objcampaign);
+        
+         Participating_Dealer__c opd = new Participating_Dealer__c(Campaign__c=objcampaign.Id, 
+                                                                 Dealer__c=dealer.Id ,Session_Start_Date__c = date.newinstance(2013, 8, 3));
+         insert opd;
+        CampaignHelper.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
+         
+         //system.assertNotEquals(null, listcampaigns[0].StartDate);
      }
      @isTest static void testbeforeUpdateEvents()
      {
@@ -317,6 +451,10 @@ Campaign top5 = new Campaign(
         
         objcampaign.Status=Published;
         update objcampaign;
+         
+         
+         
+         
         CampaignShare TestShareAs = [select id from CampaignShare where CampaignId =:cac.id limit 1];   
          system.assertNotEquals(null, TestShareAs);
      }
