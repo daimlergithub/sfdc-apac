@@ -150,6 +150,13 @@
                 <field>Current_Vehicle__c</field>
             </layoutItems>
             <layoutItems>
+                <height>20</height>
+                <page>InlineVFPageToShowGenericVehicleDetails</page>
+                <showLabel>true</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vehicle_Need__c</field>
             </layoutItems>
