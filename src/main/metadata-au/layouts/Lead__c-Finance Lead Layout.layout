@@ -143,8 +143,11 @@
                 <field>Vehicle_Year__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Vehicle_Model__c</field>
+                <height>20</height>
+                <page>InlineVFPageToShowGenericVehicleDetails</page>
+                <showLabel>true</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
