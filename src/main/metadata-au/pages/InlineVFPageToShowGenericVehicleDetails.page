@@ -1,0 +1,6 @@
+<apex:page standardController="Lead__c" extensions="InlineVFToShowVehicleDetailController" showHeader="false" showChat="false" sidebar="false" id="pg">
+<apex:form id="frm">
+<!--<apex:outputLabel value="Generic Vehicle Details" id="outLbl" style="font-weight: bold;"/> &nbsp;&nbsp;&nbsp;-->
+<apex:outputText value="{!GenericVehicleDetails}" id="outTxt"/>
+</apex:form>
+</apex:page>

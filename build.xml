@@ -320,12 +320,14 @@
 			<sf:include name="TriggerDMRequestTriggerHandler"/>
 			<sf:include name="ComplaintDescriptionController"/>	
 			<sf:include name="ComplaintDescriptionControllerTest"/>	
+			<sf:include name="InlineVFToShowVehicleDetailController"/>	
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="ComplaintDescriptionViewAll"/>
+				<sf:include name="InlineVFPageToShowGenericVehicleDetails"/>
 		</sf:typeset>		
 		</deploy>					
     </target>
