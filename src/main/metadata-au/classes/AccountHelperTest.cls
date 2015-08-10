@@ -169,8 +169,9 @@ public class AccountHelperTest
       
        
         Test.startTest();
-         AccountHelper.updatePCCVField(Dealer,'blabla',preRecords,true,Vehiclecount,Vehicletenure);
+         Account ac=AccountHelper.updatePCCVField(Dealer,'blabla',preRecords,true,Vehiclecount,Vehicletenure);
         Test.stopTest();
+        system.assertNotEquals(ac,NULL);
     }
     
     public static testMethod void testupdatePCCVField()
@@ -194,8 +195,9 @@ public class AccountHelperTest
                 Vehicletenure.put(Dealer.id,counttenure);
       
         Test.startTest();
-        AccountHelper.updatePCCVField(Dealer,'PC',preRecords,true,Vehiclecount,Vehicletenure);
+        Account ac=AccountHelper.updatePCCVField(Dealer,'PC',preRecords,true,Vehiclecount,Vehicletenure);
         Test.stopTest();
+         system.assertNotEquals(ac,NULL);
     }
     
     public static testMethod void testupdatePCCVFieldDifferentVehicleGroup()
@@ -219,9 +221,10 @@ public class AccountHelperTest
                 Vehicletenure.put(Dealer.id,counttenure);
       
         Test.startTest();
-        AccountHelper.updatePCCVField(Dealer, 'blabla', preRecords, true,Vehiclecount,Vehicletenure);
+        Account ac=AccountHelper.updatePCCVField(Dealer, 'blabla', preRecords, true,Vehiclecount,Vehicletenure);
         
         Test.stopTest();
+         system.assertNotEquals(ac,NULL);
     }
     
     public static testMethod void testupdatePCCVFieldEmptyVehicleGroup()
@@ -244,8 +247,10 @@ public class AccountHelperTest
                 counttenure.put('Van',VanTenure);
                 Vehicletenure.put(Dealer.id,counttenure);
         Test.startTest();
-        AccountHelper.updatePCCVField(Dealer, '', preRecords, true,Vehiclecount,Vehicletenure);
+        Account ac=AccountHelper.updatePCCVField(Dealer, '', preRecords, true,Vehiclecount,Vehicletenure);
         Test.stopTest();
+        system.assertNotEquals(ac,NULL);
+       
     }
     
     public static testMethod void testupdatePCCVFieldNullVehicleGroup()
@@ -268,8 +273,9 @@ public class AccountHelperTest
                 counttenure.put('Van',VanTenure);
                 Vehicletenure.put(Dealer.id,counttenure);
         Test.startTest();
-        AccountHelper.updatePCCVField(Dealer, null, preRecords, true,Vehiclecount,Vehicletenure);
+        Account ac=AccountHelper.updatePCCVField(Dealer, null, preRecords, true,Vehiclecount,Vehicletenure);
         Test.stopTest();
+        system.assertNotEquals(ac,NULL);
     }
     
     static void createTestData()
