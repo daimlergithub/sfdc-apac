@@ -102,7 +102,7 @@
         <label>SurveyTaker</label>
         <referenceTo>SurveyTaker__c</referenceTo>
         <relationshipName>Survey_Question_Answers</relationshipName>
-        <relationshipOrder>1</relationshipOrder>
+        <relationshipOrder>0</relationshipOrder>
         <reparentableMasterDetail>false</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
@@ -110,15 +110,14 @@
     </fields>
     <fields>
         <fullName>Survey_Question__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Survey Question</label>
         <referenceTo>Survey_Question__c</referenceTo>
         <relationshipName>Survey_Question_Answers</relationshipName>
-        <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <required>false</required>
         <trackTrending>false</trackTrending>
-        <type>MasterDetail</type>
-        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>

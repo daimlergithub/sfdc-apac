@@ -73,9 +73,7 @@ public class AccountLinkHelper
                                                     from Account_Link__c
                                                     where toRole__c in :customerIds and fromRole__c in :dealerIds]){
             String index = getIndex(item);
-            if(resultMap.containskey(index)){
-            }
-            else{
+            if(!resultMap.containskey(index)){           
                 resultMap.put(index, item);
             }
         }

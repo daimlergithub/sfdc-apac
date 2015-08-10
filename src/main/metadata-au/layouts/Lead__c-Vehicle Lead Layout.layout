@@ -150,6 +150,10 @@
                 <field>Current_Vehicle__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Vehicle_Year_Current__c</field>
+            </layoutItems>
+            <layoutItems>
                 <height>20</height>
                 <page>InlineVFPageToShowGenericVehicleDetails</page>
                 <showLabel>true</showLabel>

@@ -130,6 +130,8 @@ private class MassAssignRecallTasksTest {
         maCon.th.Customer_Name__c = 'Test-Customer';
         maCon.th.Customer_Number__c = acc.Customer_Number__c;
         maCon.th.Phone_Number__c = '1234567';
+        maCon.th.Network_Registration_Date_From__c = date.newInstance(2015, 8, 3);
+        maCon.th.Network_Registration_Date_To__c = date.newInstance(2015, 12, 9);
         maCon.taskOwnerIds = user1.Id;
         
         maCon.th.Call_Times__c = 1; 

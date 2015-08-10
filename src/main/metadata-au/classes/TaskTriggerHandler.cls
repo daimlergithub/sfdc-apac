@@ -447,7 +447,7 @@ public class TaskTriggerHandler
                 Where Id = :tk.Related_Task_Id__c And ( RecordTypeId = :OBTRTID Or RecordTypeId =: WCRTID Or RecordTypeId =: SSIRTID)
             ];
             // By Shuang Li US-smart_SSI-008---- end
-
+			
             if(tasks != null && tasks.size() > 0){
                 Task t = tasks[0];
                 if((tk.Start_call_time__c != null && t.Last_OB_Call__c != tk.Start_call_time__c) || t.SSI_Status__c != tk.SSI_Status__c){
@@ -547,7 +547,7 @@ public class TaskTriggerHandler
 
     }
     
-    private static void autoUpdateSSITask(Set<Task> tasks){
+    @TestVisible private static void autoUpdateSSITask(Set<Task> tasks){
         Set<Id> ssiIds = new Set<Id>();
 
         for (Task tk : tasks ) {
@@ -591,7 +591,8 @@ public class TaskTriggerHandler
     public static void autoUpdateAccountOBTaskMessage(List<Task> tList){
         getRecordTypeId();
         Map<Id, Task> updateMap = new Map<Id, Task>();
-        for(Task tk : tList){
+        for(Task tk : tList)
+        {
             if(tk.RecordTypeId == OBTRTID && tk.WhatId != null 
                     && tk.WhatId.getSObjectType().getDescribe().getName() == 'Account'){
                 if(!updateMap.containsKey(tk.WhatId)){

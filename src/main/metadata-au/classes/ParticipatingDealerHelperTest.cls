@@ -2,7 +2,8 @@
 public class ParticipatingDealerHelperTest
 {	
     public static Id centCampaignRT = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId();
-    public static user testUser;
+    public static user usr;
+    public static Profile userprofile = [select Id from Profile where Name = 'Dealer Delegate Admin' limit 1];
     
     static testmethod void testGenerateCampaignParticipatingDealerHistoryLOG(){
          Community_License_Switch__c cls=new Community_License_Switch__c();
@@ -15,12 +16,12 @@ public class ParticipatingDealerHelperTest
 	     
 	        Test.startTest();
 	        //Create a Community User:
-	        User usr = [Select id from User where Id = :UserInfo.getUserId()];
+	      /*  User usr = [Select id from User where Id = :UserInfo.getUserId()];
 	        System.RunAs(usr){
 	        testUser = (User)UtilTestData.createPortalUser('Dealer User', 'Dealer Delegate Admin');
 	        update testUser;
             system.debug('@@@###$%%'+testUser);
-            }
+            }*/
        
        
         Campaign TestData_CCA = new Campaign(Name='TestData_CCA_Campaign',
@@ -34,16 +35,45 @@ public class ParticipatingDealerHelperTest
                                              RecordTypeId=centCampaignRT);  
         insert TestData_CCA;
         
-         usr = [Select id from User where Id = :UserInfo.getUserId()];
+       /*  usr = [Select id from User where Id = :UserInfo.getUserId()];
 	        System.RunAs(usr){
 	        testUser = (User)UtilTestData.createPortalUser('Dealer User', 'Dealer Delegate Admin');
 	        update testUser;
-            }
+            }*/
  
         Map<String, Schema.RecordTypeInfo> accRecordTypeMap = Schema.SObjectType.Account.getRecordTypeInfosByName();  
         Id accDealerRT = accRecordTypeMap.get('Dealer').getRecordTypeId();        
-        Account dealer = new Account(Name='TEST Dealer999', ZipCode__c='123456', Phone='123456789', RecordTypeId=accDealerRT,OwnerId = testUser.Id);
+        Account dealer = new Account(Name='TEST Dealer999', ZipCode__c='123456', Phone='123456789', RecordTypeId=accDealerRT);
         insert dealer;
+        Contact contact = new Contact(
+            AccountId = dealer.Id, 
+            Salutation='Attorney',
+             FirstName='testFirstname',
+            LastName = 'testLastname',  
+            Phone = '1212313', 
+            Permission_Set_Settings__c = 'AS_Retail_Campaign',
+            email = 's@s.s'
+        );
+        insert contact;
+        
+        
+        User testuser = new User();
+         usr = [Select id from User where Id = :UserInfo.getUserId()];
+	        System.RunAs(usr){
+	      		testuser.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';            
+                testuser.ProfileId= userprofile.Id ;
+                //usr.UserRoleId=userRoleId;
+                testuser.LastName = 'Test User';
+                testuser.Email = 'test001@daimler.com.full';
+                testuser.Alias = 'test';
+                testuser.TimeZoneSidKey = 'Asia/Shanghai';
+                testuser.EmailEncodingKey = 'UTF-8';
+                testuser.LanguageLocaleKey = 'en_US';
+                testuser.localesidkey='en_US';
+                testuser.isActive = true;
+                testuser.ContactId =contact.Id;
+                insert testuser; 
+            } 
       
        Campaign_Package__c campckg = new Campaign_Package__c(Campaign__c =TestData_CCA.Id, Name = 'Test package');
        insert campckg;

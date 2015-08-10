@@ -13,7 +13,9 @@ public class ChatterAnswersEscalationTriggerHandler
                     Case newCase = new Case(Origin='Chatter Answers', OwnerId=q.CreatedById, QuestionId=q.Id, CommunityId=q.CommunityId, Subject=q.Title, Description=q.Body, AccountId=q.CreatedBy.AccountId, ContactId=q.CreatedBy.ContactId);
                     insert newCase;
                 }
-            } catch (Exception e) {}
+            } catch (Exception e) {
+                system.debug('Exception'+e);
+            }
             
         }
     }
