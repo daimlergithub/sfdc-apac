@@ -79,10 +79,9 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Survey_Question__c.Question__c</fields>
+        <fields>Survey_Question__c</fields>
         <fields>Response__c</fields>
         <fields>Related_Vehicle__c</fields>
-        <fields>Survey_Question__c.Choices__c</fields>
         <relatedList>SurveyQuestionResponse__c.SurveyTaker__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
