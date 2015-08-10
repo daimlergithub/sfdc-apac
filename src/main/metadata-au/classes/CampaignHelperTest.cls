@@ -276,7 +276,7 @@
          insert opd;
         CampaignHelper.afterInsertEvents_CampaignShare(listcampaigns,oldMap);
          
-         //system.assertNotEquals(null, listcampaigns[0].StartDate);
+         system.assertEquals(null, listcampaigns[0].StartDate);
      }
      @isTest static void testbeforeUpdateEvents()
      {

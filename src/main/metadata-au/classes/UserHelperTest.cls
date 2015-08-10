@@ -278,7 +278,7 @@ public class UserHelperTest
     }   
     
     }
-    
+   
     public static testmethod void AfterInsert_UpdateMethod()
     {
          if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
@@ -287,10 +287,12 @@ public class UserHelperTest
        		 createTestData();
              userOldMap.putAll(usersList);             
              userHelper.AfterInsert_UpdateMethod(usersList, userOldMap, isInsert, isUpdate);
-             
+             test.stopTest();
+             List<Contact> cons =  [select Id,Portal_user__c from Contact where Id = :con.id ];
+       		 system.assertEquals(true,cons[0].Portal_user__c) ;
          }                 
         
-    }    
+    }   
   
     
     public Static  void createTestData()

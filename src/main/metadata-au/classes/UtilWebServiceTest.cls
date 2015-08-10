@@ -10,6 +10,7 @@ public class UtilWebServiceTest
         prepareTestdata();
         Test.starttest();
         Test.stoptest();
+        system.assertNotEquals(null, objDl);
     }
     
     public static testMethod void testEntityUpdateNotificationWS()
@@ -32,6 +33,7 @@ public class UtilWebServiceTest
         string sfdcTypeName='Dealer_Locator__c';
         UtilWebService.entityUpdateNotification(UserInfo.getOrganizationId(),sfdcId,sfdcTypeName,'INSERT',json.serialize(objDl1));
         Test.stoptest();
+        system.assertNotEquals(Null, sfdcId);
     }
     
     static void prepareTestdata()
