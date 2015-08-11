@@ -146,7 +146,6 @@ public with sharing class RetailTaskHelper {
             // Get the finance lead record type information
             RecordType financeLdRT = [SELECT Id, Name FROM RecordType
                                       WHERE Name = 'Finance Lead'];
-                                      system.debug(customerIds + '   *$*$*$*$*$*   ' + vehicleIds);
             vehRelList = [Select Id, Name from Vehicle_Relationship__c 
                          where Contact__c in : customerIds and 
                          Vehicle_ID__c in : vehicleIds and Car_Relation__c = 'Owner' order by createdDate desc limit 1];
@@ -168,7 +167,6 @@ public with sharing class RetailTaskHelper {
                     {
                         newLead.Company_Account__c = curCntrct.Account__c; 
                     }
-                    system.debug(vehRelList.size() +'   *$*$*$*$*$*$*   ' + vehRelList);
                     if(vehRelList != null && !vehRelList.isEmpty())
                     {
                         newLead.VehicleRel_No__c = vehRelList[0].Id;
