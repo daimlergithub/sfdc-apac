@@ -924,14 +924,14 @@
         <searchFilterFields>Suburb__c</searchFilterFields>
         <searchFilterFields>State__c</searchFilterFields>
         <searchResultsAdditionalFields>Business_Unit__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Category__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Metro_Rural__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Offered_Service__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PMA__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Post_Code__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Region__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>State__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Suburb__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Dealer_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Inactive__c</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
     <validationRules>
