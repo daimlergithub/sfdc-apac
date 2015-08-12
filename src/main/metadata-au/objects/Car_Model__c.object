@@ -306,10 +306,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Hsv</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Hummer</fullName>
                 <default>false</default>
             </picklistValues>

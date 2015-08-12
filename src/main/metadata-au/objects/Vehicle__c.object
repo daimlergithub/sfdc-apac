@@ -503,10 +503,6 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Hsv</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Hummer</fullName>
                 <default>false</default>
             </picklistValues>
@@ -6809,10 +6805,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Hsv</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Hummer</fullName>
                 <default>false</default>
             </values>
@@ -9447,10 +9439,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Honda</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hsv</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14248,10 +14236,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Honda</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hsv</fullName>
                 <default>false</default>
             </values>
             <values>
