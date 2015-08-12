@@ -5,6 +5,7 @@ public class UtilCampaignShareByCollaborationTest
     private static Collaboration_Team__c cbt;
     private static Campaign cmp;
     public static user u1;
+    public static List<CampaignShare> csList;
     public static testMethod void test_au_After_Insert_Update_Delete_Eventsinsert()
     {
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
@@ -12,8 +13,13 @@ public class UtilCampaignShareByCollaborationTest
         test.startTest();
         createTestdata();
         test.stopTest();
-        CampaignShare cs = [select CampaignAccessLevel from CampaignShare where CampaignId =: cmp.id and UserOrGroupId =: cbt.Member_Name__c]; 
+        CampaignShare cs = new CampaignShare();
+        csList= [select CampaignAccessLevel from CampaignShare where CampaignId =: cmp.id and UserOrGroupId =: cbt.Member_Name__c]; 
+        if(!csList.isEmpty())
+        {
+        cs =  csList[0];   
         system.assertEquals('Edit', cs.CampaignAccessLevel);
+        }
         }
     }
     
@@ -26,8 +32,13 @@ public class UtilCampaignShareByCollaborationTest
         cbt.Access_Type__c = 'Read Only';   
         update cbt;
         test.stopTest();
-        CampaignShare cs = [select CampaignAccessLevel from CampaignShare where CampaignId =: cmp.id and UserOrGroupId =: cbt.Member_Name__c] ;
+        CampaignShare cs = new CampaignShare();
+        csList= [select CampaignAccessLevel from CampaignShare where CampaignId =: cmp.id and UserOrGroupId =: cbt.Member_Name__c]; 
+        if(!csList.isEmpty())
+        {
+        cs =  csList[0];   
         system.assertEquals('Read', cs.CampaignAccessLevel);
+        }
         }
     }
     
