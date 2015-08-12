@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
     <actionOverrides>
+        <actionName>AddContact</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
         <actionName>AddToCampaign</actionName>
         <type>Default</type>
     </actionOverrides>
@@ -468,15 +472,15 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Management – Accounts Manager</fullName>
+                <fullName>Management - Accounts Manager</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Management – Chairman</fullName>
+                <fullName>Management - Chairman</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Management – Corporate Sales Manager</fullName>
+                <fullName>Management - Corporate Sales Manager</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -484,7 +488,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Management – Director</fullName>
+                <fullName>Management - Director</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -500,7 +504,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Management – General Sales Manager</fullName>
+                <fullName>Management - General Sales Manager</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -532,11 +536,11 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Parts – Apprentice</fullName>
+                <fullName>Parts - Apprentice</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Parts – Interpreter</fullName>
+                <fullName>Parts - Interpreter</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1089,6 +1093,7 @@ Adds an active member/membership status/update activity generated sales leads--t
     <recordTypes>
         <fullName>DealerStaff</fullName>
         <active>true</active>
+        <description>Staff that work at the Dealership ie: Sales Manager etc</description>
         <label>DealerStaff</label>
         <picklistValues>
             <picklist>Business_Unit__c</picklist>
@@ -1234,27 +1239,23 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Accounts Manager</fullName>
+                <fullName>Management - Accounts Manager</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Chairman</fullName>
+                <fullName>Management - Chairman</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Corporate Sales Manager</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Management %E2%80%93 Director</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Management %E2%80%93 General Sales Manager</fullName>
+                <fullName>Management - Corporate Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Management - Dealer Principal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management - Director</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1267,6 +1268,10 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Management - General Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management - General Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1294,11 +1299,11 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts %E2%80%93 Apprentice</fullName>
+                <fullName>Parts - Apprentice</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts %E2%80%93 Interpreter</fullName>
+                <fullName>Parts - Interpreter</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1754,6 +1759,7 @@ Adds an active member/membership status/update activity generated sales leads--t
     <recordTypes>
         <fullName>Directors_Shareholders</fullName>
         <active>true</active>
+        <description>Directors and Shareholders of the Dealership</description>
         <label>Directors &amp; Shareholders</label>
         <picklistValues>
             <picklist>Business_Unit__c</picklist>
@@ -1899,27 +1905,23 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Accounts Manager</fullName>
+                <fullName>Management - Accounts Manager</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Chairman</fullName>
+                <fullName>Management - Chairman</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Corporate Sales Manager</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Management %E2%80%93 Director</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Management %E2%80%93 General Sales Manager</fullName>
+                <fullName>Management - Corporate Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Management - Dealer Principal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management - Director</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1932,6 +1934,10 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Management - General Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management - General Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1959,11 +1965,11 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts %E2%80%93 Apprentice</fullName>
+                <fullName>Parts - Apprentice</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts %E2%80%93 Interpreter</fullName>
+                <fullName>Parts - Interpreter</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2419,7 +2425,8 @@ Adds an active member/membership status/update activity generated sales leads--t
     <recordTypes>
         <fullName>MBAuP_Contacts</fullName>
         <active>true</active>
-        <label>MBAuP Contacts</label>
+        <description>Head Office staff that work with the Dealership ie: BDM, DRM etc.</description>
+        <label>MBAuP &amp; MBFS Contacts</label>
         <picklistValues>
             <picklist>Business_Unit__c</picklist>
             <values>
@@ -2616,27 +2623,23 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Accounts Manager</fullName>
+                <fullName>Management - Accounts Manager</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Chairman</fullName>
+                <fullName>Management - Chairman</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Management %E2%80%93 Corporate Sales Manager</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Management %E2%80%93 Director</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Management %E2%80%93 General Sales Manager</fullName>
+                <fullName>Management - Corporate Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Management - Dealer Principal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management - Director</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2649,6 +2652,10 @@ Adds an active member/membership status/update activity generated sales leads--t
             </values>
             <values>
                 <fullName>Management - General Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Management - General Sales Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2676,11 +2683,11 @@ Adds an active member/membership status/update activity generated sales leads--t
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts %E2%80%93 Apprentice</fullName>
+                <fullName>Parts - Apprentice</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Parts %E2%80%93 Interpreter</fullName>
+                <fullName>Parts - Interpreter</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3161,6 +3168,13 @@ Adds an active member/membership status/update activity generated sales leads--t
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>FirstName_should_not_be_Blank</fullName>
+        <active>true</active>
+        <description>First Name should'nt be blank for DealerStaff, Directors_Shareholders, or MBAuP_Contacts record Types</description>
+        <errorConditionFormula>IF( ISBLANK( FirstName ) &amp;&amp;   RecordType.DeveloperName  &lt;&gt; 'Directors_Shareholders' , true, false)</errorConditionFormula>
+        <errorMessage>FirstName and LastName should not be Blank.</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Moblie_should_be_numeric</fullName>
         <active>true</active>

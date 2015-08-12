@@ -134,7 +134,7 @@
         <label>Contact Information Status</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <height>300</height>
                 <page>AccountContactInformation</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
@@ -231,6 +231,12 @@
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Survey__c</fields>
+        <fields>Last_Answered_Question__c</fields>
+        <relatedList>SurveyTaker__c.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>FULL_NAME</fields>
         <fields>CONTACT.SALUTATION</fields>
         <fields>CONTACT.FIRST_NAME</fields>
@@ -277,6 +283,13 @@
     </relatedLists>
     <relatedLists>
         <relatedList>RelatedEntityHistoryList</relatedList>
+    </relatedLists>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>System__c</fields>
+        <fields>CREATEDBY_USER</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>

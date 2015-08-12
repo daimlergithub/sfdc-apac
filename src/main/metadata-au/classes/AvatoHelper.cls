@@ -11,6 +11,10 @@
 public class AvatoHelper {
     
     public static String VoiceWebService(String ucid, DateTime timestamp) {
+        NiceWebServices.Exception_x exp= new NiceWebServices.Exception_x();  
+        NiceWebServices.Throwable_element th = new NiceWebServices.Throwable_element();
+        NiceWebServices.GetInteractionIDsByCallIDResponse_element gicr = new NiceWebServices.GetInteractionIDsByCallIDResponse_element();
+        
         NiceWebServices.NiceServiceHttpSoap11Endpoint niceSoap = new NiceWebServices.NiceServiceHttpSoap11Endpoint();
         try {
             niceSoap.timeout_x = 60000;

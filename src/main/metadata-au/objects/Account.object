@@ -14,7 +14,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>Edit</actionName>
-        <type>Default</type>
+        <content>AUAssignVFPageToRecordType</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>EmailHighlightAction</actionName>
@@ -38,7 +40,9 @@
     </actionOverrides>
     <actionOverrides>
         <actionName>New</actionName>
-        <type>Default</type>
+        <content>AUAssignVFPageToRecordType</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
     </actionOverrides>
     <actionOverrides>
         <actionName>RequestUpdate</actionName>
@@ -901,7 +905,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Contact is "Contact_BuyCycle"</description>
         <externalId>false</externalId>
-        <label>Buy Cycle</label>
+        <label>PC No. Brand Purchases</label>
         <precision>10</precision>
         <required>false</required>
         <scale>0</scale>
@@ -4334,7 +4338,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_RegionSubSmart"</descripti
     </fields>
     <fields>
         <fullName>Deceased__c</fullName>
-        <defaultValue>true</defaultValue>
+        <defaultValue>false</defaultValue>
         <description>/* 
 Created by: Tony Li 
 Used by: Tony Li 
@@ -4347,7 +4351,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Contact is "Contact_Deceased"</description>
         <externalId>false</externalId>
-        <label>Alive</label>
+        <label>Deceased</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -5949,6 +5953,11 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>IsCustomerPortal</fullName>
+    </fields>
+    <fields>
+        <fullName>IsPartner</fullName>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
     </fields>
     <fields>
         <fullName>Is_Blacklist__c</fullName>
@@ -24006,12 +24015,9 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
     </recordTypes>
     <searchLayouts>
         <customTabListAdditionalFields>ACCOUNT.NAME</customTabListAdditionalFields>
-        <customTabListAdditionalFields>PC_PHONE4</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ACCOUNT.PHONE1</customTabListAdditionalFields>
-        <customTabListAdditionalFields>PC_PHONE3</customTabListAdditionalFields>
-        <customTabListAdditionalFields>Province__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>City__c</customTabListAdditionalFields>
-        <customTabListAdditionalFields>ZipCode__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Individual_Home_Phone__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Work_Phone__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Mobile__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Primary_Address__c</customTabListAdditionalFields>
         <listViewButtons>Load_3rd_Party_Data</listViewButtons>
         <lookupDialogsAdditionalFields>ACCOUNT.NAME</lookupDialogsAdditionalFields>
@@ -24038,46 +24044,21 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <searchFilterFields>Business_Unit__c</searchFilterFields>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Business_Unit__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>Province__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>City__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ZipCode__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address__c</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>PC_PHONE3</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>PC_PHONE4</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>PC_EMAIL</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
         <fullName>At_least_one_phone_number</fullName>
         <active>true</active>
         <description>the record needs to have at least one phone number field filled (Home Phone, Office Phone or Mobile) OR an email address.</description>
-        <errorConditionFormula>OR(
-AND(
-ISBLANK(Individual_Home_Phone__c),
-ISBLANK(Phone ),
-ISBLANK(PersonMobilePhone ),
-isblank( Email__c ),
-RecordType.Name == 'Person Account',
-$Profile.Name != 'IntegrationAPI'
-),
-AND(
-ISBLANK(Individual_Home_Phone__c),
-ISBLANK(Phone ),
-ISBLANK(Mobile__c ),
-isblank( Email__c ),
-RecordType.Name == 'Company',
-$Profile.Name != 'IntegrationAPI'
-)
-)</errorConditionFormula>
+        <errorConditionFormula>AND(ISBLANK(Individual_Home_Phone__c),ISBLANK(Phone),ISBLANK(Mobile__c),ISBLANK(Home_Phone_2__c),ISBLANK(Work_Phone__c),ISBLANK(Mobile2__c),ISBLANK(Email__c),ISBLANK(Email2__c),OR(RecordType.Name == 'Person Account',RecordType.Name == 'Company'),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>The record needs to have at least one phone number field filled (Home Phone, Work Phone or Mobile) OR an email address. .</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Birthday</fullName>
         <active>true</active>
         <description>Birthdate is not allowed to be later than today or earlier than 150 years.</description>
-        <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-AND(
+        <errorConditionFormula>AND(
 OR(YEAR( TODAY() ) -YEAR( PersonBirthdate) &gt;150,PersonBirthdate &gt; TODAY()),
 $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>PersonBirthdate</errorDisplayField>

@@ -36,7 +36,7 @@
     <fields>
         <fullName>Account_Name__c</fullName>
         <externalId>false</externalId>
-        <label>Account Name</label>
+        <label>Dealer ID</label>
         <length>255</length>
         <required>false</required>
         <type>Text</type>
@@ -870,10 +870,6 @@
         <label>Activity Type</label>
         <picklist>
             <picklistValues>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Appointment</fullName>
                 <default>false</default>
             </picklistValues>
@@ -911,6 +907,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>Motor Show</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -3347,5 +3347,5 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         <searchResultsAdditionalFields>TASK.DUE_DATE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
-    <sharingModel>ControlledByParent</sharingModel>
+    <sharingModel>Private</sharingModel>
 </CustomObject>

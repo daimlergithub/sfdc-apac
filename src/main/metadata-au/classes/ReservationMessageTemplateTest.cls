@@ -50,8 +50,21 @@ private class ReservationMessageTemplateTest {
     }
     public static void prepareTestData(){
         String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
-        dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer',ID_Number__c='123456');
+        String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId();
+        String  accPerson_RecordTypeIdp = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();     // Person Account.
+     Account account2 = new Account(Dealer_Default_Flag__c=true,
+                                    Dealer_DMS_SR_Code__c='Test_SR_Code2',
+                                    //Status__c='Other',
+                                    City__c='Beijing',
+                                    Phone = '80801011',
+                                    Area_Code__c = '010',            
+                                    lastName = 'Beijing XING Services Limited - Alpha Review',
+                                    ZipCode__c='100101',
+                                    Salutation='Brother',
+                                    FirstName='Test',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413',
+                                    RecordTypeId=accPerson_RecordTypeIdp);
+                                    insert account2;
+        dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer',ID_Number__c='123456',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
         insert dealer;
 
         con = new Contact(AccountId = dealer.Id,firstName='Test', LastName = 'lastname',Salutation='Mr',Title='test', Phone = '123', email = 's@s.s');
@@ -82,7 +95,7 @@ private class ReservationMessageTemplateTest {
           Alias = 'test123',
           Email = 'test12345@test.com',
           EmailEncodingKey = 'UTF-8',
-          LastName = 'McTesty',
+          LastName = 'McTesty2',
           CommunityNickname = System.now().millisecond() + 'test12345',
           TimeZoneSidKey = 'America/Los_Angeles',
           LocaleSidKey = 'en_US',
@@ -94,6 +107,8 @@ private class ReservationMessageTemplateTest {
         le = new Lead__c();
         le.Assigned_Dealer__c = dealer.id;
         le.RecordTypeId = afterSalesRecordTypeId;
+        le.Company_Account__c=dealer.id;
+        le.Contact__c=account2.id;
         insert le;
             
         evnt = new Event( Whoid=con.id,Subject='Test subject',StartDateTime=system.today(),ActivityDate=system.today()+1,EndDateTime=system.today()+2);

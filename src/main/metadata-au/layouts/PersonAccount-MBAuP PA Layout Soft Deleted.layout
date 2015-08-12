@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
-    <excludeButtons>DataDotComClean</excludeButtons>
+    <excludeButtons>DataDotComAccountInsights</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>DisablePartnerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
@@ -40,58 +40,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Fleet_Category__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Email__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Anti_bribery_Confirmation__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_Bank__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_BSB__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Base_Flex__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Mobile_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Mobile_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Home_Phone_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Home_Phone_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Work_Phone_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Work_Phone_2__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Email_1__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Preferred_Email_2__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -221,22 +169,6 @@
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Business_Unit__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Alliance_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Allmakes_Offered_Service__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Bus_Offered_Service__c</field>
-            </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
     </layoutSections>
@@ -332,11 +264,12 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Service_Date__c</fields>
+        <fields>RECORDTYPE</fields>
         <fields>Type__c</fields>
         <fields>Related_Dealer__c</fields>
-        <fields>Service_Mileage__c</fields>
-        <fields>RECORDTYPE</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>Status__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -351,6 +284,12 @@
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Survey__c</fields>
+        <fields>Last_Answered_Question__c</fields>
+        <relatedList>SurveyTaker__c.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>CASES.CASE_NUMBER</fields>
         <fields>NAME</fields>
         <fields>CASES.SUBJECT</fields>
@@ -361,7 +300,13 @@
         <relatedList>RelatedCaseList</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>VehicleInterested__c</fields>
         <fields>NAME</fields>
+        <fields>Status__c</fields>
+        <fields>ClosedReason__c</fields>
+        <fields>ClosedDate__c</fields>
+        <fields>OWNER.ALIAS</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>PreOrder__c.Customer__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -370,10 +315,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Vehicle_Inspection__c.Customer_Name__c</relatedList>
-    </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Vehicle_Inspection__c.Inspection_Dealership__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

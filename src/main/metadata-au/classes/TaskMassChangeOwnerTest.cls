@@ -1,31 +1,8 @@
-/**
- * This class contains unit tests for validating the behavior of Apex classes
- * and triggers.
- *
- * Unit tests are class methods that verify whether a particular piece
- * of code is working properly. Unit test methods take no arguments,
- * commit no data to the database, and are flagged with the testMethod
- * keyword in the method definition.
- *
- * All test methods in an organization are executed whenever Apex code is deployed
- * to a production organization to confirm correctness, ensure code
- * coverage, and prevent regressions. All Apex classes are
- * required to have at least 75% code coverage in order to be deployed
- * to a production organization. In addition, all triggers must have some code coverage.
- * 
- * The @isTest class annotation indicates this class only contains test
- * methods. Classes defined with the @isTest annotation do not count against
- * the organization size limit for all Apex scripts.
- *
- * See the Apex Language Reference for more information about Testing and Code Coverage.
- */
 @isTest
 private class TaskMassChangeOwnerTest {
 
-    static testMethod void myUnitTest1() {
-        
-        User ob_sv = UtilTestData.createUser('OB TL','CAC OB TL');
-        
+    static testMethod void myUnitTest1() {        
+        User ob_sv = UtilTestData.createUser('OB TL','CAC OB TL');        
         User ob_csr = UtilTestData.createUser('OB CSR','CAC OB CSR');
         
        System.runAs ( ob_sv ) {
@@ -45,15 +22,10 @@ private class TaskMassChangeOwnerTest {
             TaskMassChangeOwner controller = new TaskMassChangeOwner();
             controller.assignToOwnerClick();
             controller.task.OwnerId = ob_csr.Id;
-           // controller.assignToOwnerClick();
-            task1 = [Select OwnerId From Task Where Id = :task1.id];
-            task2 = [Select OwnerId From Task Where Id = :task2.id];
-            ssi = [Select OwnerId From SSI__c Where Id = :ssi.Id];
+            controller.assignToOwnerClick();
             // Test Stop
             Test.stopTest();
-           // System.assertEquals(task1.OwnerId, ob_csr.Id);
-            //System.assertEquals(task2.OwnerId, ob_csr.Id);
-            //System.assertEquals(ssi.OwnerId, ob_csr.Id);
+            System.assertEquals(controller.task.OwnerId, ob_csr.Id);
        }
     }
 }

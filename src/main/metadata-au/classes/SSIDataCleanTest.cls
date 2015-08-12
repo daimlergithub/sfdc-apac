@@ -100,7 +100,9 @@ private class SSIDataCleanTest {
             Phone = '1234567', 
             ZipCode__c = '123456',
             Area_Code__c = '101',
-            Recordtypeid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()
+            firstname='test acme',
+            Salutation='Brother',
+            Recordtypeid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(),Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413'
         );
         insert dms;
         Vehicle__c veh = new Vehicle__c(UsVIN__c = 'NUNFO004324942821', EuroVIN__c = 'ASFOTI09842713RFDS');
@@ -608,7 +610,9 @@ private class SSIDataCleanTest {
            PersonMobilePhone = '1301111111',
            PersonOtherPhone = '1301111122', 
             ZipCode__c = '123456',
-            Recordtypeid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()
+            firstname='test acme',
+            Salutation='Brother',
+            Recordtypeid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(),Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413'
         );
         insert dms2;
         Vehicle__c veh2 = new Vehicle__c(UsVIN__c = 'NUNF1888899996666', EuroVIN__c = 'ASFOTI09842713RFDS');

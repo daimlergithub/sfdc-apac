@@ -113,10 +113,11 @@ public class CaseEscalationControllerTest {
             Test.startTest();
             test_EscalateCase_Dealer_Region_East();                     
             Test.stopTest();                       
-            system.assert(controller.escalate()!=Null);  
+            
             system.assertequals(Date.today(),controller.EscalateCase.Escalate_Date_to_CO__c);               
             system.assertequals('Awaiting MB',controller.EscalateCase.Status);  
-            system.assertequals('Central Office',controller.EscalateCase.Handling_Level__c);             
+            system.assertequals('Central Office',controller.EscalateCase.Handling_Level__c); 
+             
          }        
      }       
      public static testMethod void test_escalate_Dealer_Region(){      

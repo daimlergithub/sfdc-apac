@@ -25,7 +25,7 @@ public class LeadHelper
     private static final String leadSPRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId();
     private static final String leadVehicleRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId(); 
     private static final Map<Id, User> IntegrationUsers = new Map<Id, User>([select Id from User where Profile.Name = 'IntegrationAPI']);
-    private static final String OrgWideEmailAddressId= [Select id from OrgWideEmailAddress where Address = 'sukumar.rajashekaran@nttdata.com'].Id;
+    private static final String OrgWideEmailAddressId= [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS)].Id;
    
     // Insert the corresponding lead sharing records
     public static void insertLeadSharing(Map<Id, Id> UsedCarLeadDealerId, Map<Id, Id> newCarLeadDealerId)
@@ -442,7 +442,7 @@ public class LeadHelper
     
     /**
      * Private classes
-     */
+     */ 
   @TestVisible 
     private static Lead__Share newLeadShare(String leadId, String userOrGroupId)
     {
@@ -536,18 +536,35 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         
         //CR-000141 Send Immediate Notice and 24H and 72H Email for Service/Parts Lead.
         List<Lead__c> serviceLeadsForImmediateNotice = new List<Lead__c>();
+        List<Lead__c> VehicleLeadsForImmediateNotice = new List<Lead__c>();
         List<Lead__c> serviceLeadsFor24H = new List<Lead__c>();
         List<Lead__c> serviceLeadsFor72H = new List<Lead__c>();
         Set<Id> serviceDealerIdsForImmediateNotice = new Set<Id>();
         Set<Id> serviceDealerIdsFor24H = new Set<Id>();
         Set<Id> serviceDealerIdsFor72H = new Set<Id>();
-        
+        set<id> vehicleDealerIdsForImmediateNotice = new Set<Id>();
         //CR-000141 Send Immediate Notice and 24H and 72H Email for Finance Lead.
         List<Lead__c> financeLeads = new List<Lead__c>();
         Set<Id> financeDealerIds = new Set<Id>();
     
         
         for(Lead__c lead : listNewLeads) {
+            
+            if(lead.Assigned_Dealer__c != null && lead.Business_Unit__c != null && lead.Sub_BusinessUnit__c != null && (isInsert || isUpdate))
+               {
+                   if(lead.RecordTypeId == leadVehicleRt)
+                   {
+                      if((isInsert && lead.CAC_Lead_Status__c == 'Qualified') || ((isUpdate && lead.CAC_Lead_Status__c != leadOldMap.get(lead.Id).CAC_Lead_Status__c) && lead.CAC_Lead_Status__c =='Qualified' ))
+
+                      {
+                          
+                          VehicleLeadsForImmediateNotice.add(lead);
+                          vehicleDealerIdsForImmediateNotice.add(lead.Assigned_Dealer__c);
+                          
+                      }
+                  }  
+                   
+               }
             //TODO--commented LDCL_Lead_Id__c is not using
             If(lead.Assigned_Dealer__c != null && lead.Business_Unit__c != null && lead.Sub_BusinessUnit__c != null && 
               (isInsert || (isUpdate && lead.Assigned_Dealer__c != leadOldMap.get(lead.Id).Assigned_Dealer__c)) 
@@ -557,7 +574,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
               //)
               ) 
               {  
-                if(lead.RecordTypeId == leadSPRt || lead.RecordTypeId == leadVehicleRt) 
+                if(lead.RecordTypeId == leadSPRt) 
                 { 
                     serviceLeadsForImmediateNotice.add(lead);
                     serviceDealerIdsForImmediateNotice.add(lead.Assigned_Dealer__c);
@@ -567,6 +584,8 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     financeLeads.add(lead);
                     financeDealerIds.add(lead.Assigned_Dealer__c);
                 }
+                  
+                  
             }
             If(lead.Assigned_Dealer__c != null && lead.Business_Unit__c != null && lead.Sub_BusinessUnit__c != null && 
               isUpdate && lead.X24H_Untouched__c && lead.X24H_Untouched__c != leadOldMap.get(lead.Id).X24H_Untouched__c) {
@@ -602,6 +621,10 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         }
         if(!financeLeads.isEmpty()) {
             sendFinanceEmail(financeLeads, financeDealerIds);
+        }
+        if(!VehicleLeadsForImmediateNotice.isEmpty()){
+             system.debug('++++++++++++++calls method here++++++++' +VehicleLeadsForImmediateNotice[0].id);
+            sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
         }
     }
     
@@ -829,10 +852,12 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             
             for(Contact contact : listContact) {
                 //modified by Shuang Li Defect0345 Start
-                if(contact.AccountId == lead.Assigned_Dealer__c && contact.Business_Unit__c.contains(lead.Business_Unit__c) && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c))) {
+                if(contact.AccountId == lead.Assigned_Dealer__c && contact.Business_Unit__c.contains(lead.Business_Unit__c) && contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c)) {
                 //modified by Shuang Li Defect0345 End
                     if(contact.Lead_Escalation_Recipient_Type__c.contains(EmailType) && contact.Email != null) {
                         TOemails.add(contact.Email);
+                        system.debug('to email @@@@@@@@@@@@@@@@@@@'+TOemails.size());
+                        system.debug('to email @@@@@@@@@@@@@@@@@@@'+TOemails[0]);
                     }
                     else if(contact.AccountId == lead.Assigned_Dealer__c && contact.Lead_Escalation_Recipient_Type__c.contains('CC Lead Escalation Recipient')) {
                         CCemails.add(contact.Email);
@@ -1063,10 +1088,10 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
     
     //modified by Bing CR-000171 Start
     public static void send171Email(List<Lead__c> leads){
-        
+       system.debug('send email'+leads); 
         //get mail template
         Map<String,id> templateIds = new Map<String,id>(); 
-        for (EmailTemplate m : [select id ,developername from EmailTemplate where developername in ( 'Retail_EOC_Template','Fleet_EOC_Template')]){
+        for (EmailTemplate m : [select id ,developername from EmailTemplate where developername in ( 'Finance_Leads_Only','Fleet_EOC_Template')]){
             templateIds.put(m.developername, m.id);
         }
         
@@ -1092,7 +1117,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                     temlateId = templateIds.get('Fleet_EOC_Template');
                 }
                 if(lead.RecordTypeId == leadFinanceRT){
-                    temlateId = templateIds.get('Retail_EOC_Template');
+                    temlateId = templateIds.get('Finance_Leads_Only');
                 }
 
                 Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
@@ -1119,15 +1144,16 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
   @TestVisible
     private static Contact MonkCotact(String mailAdd){
     
-        String monkName = 'monkContact' + Math.round(Math.random() * (1000 - 1)) + 1;
+        String monkLastName = 'Contact' + Math.round(Math.random() * (1000 - 1)) + 1;
+        String monkFirstName = 'monk';
         while(true){
-            list<Contact> inDatabaseC = [select id from Contact where lastName=:monkName];
+            list<Contact> inDatabaseC = [select id from Contact where lastName=:monkLastName];
             if (inDatabaseC.size()<1) {
-                Contact monkc = new Contact(lastName=monkName,Email=mailAdd);
+                Contact monkc = new Contact(FirstName=monkFirstName,lastName=monkLastName,Email=mailAdd);
                 insert monkc;
                 return monkc;
             }
-            monkName = 'monkContact' + Math.round(Math.random() * (1000 - 1)) + 1;
+            monkLastName = 'monkContact' + Math.round(Math.random() * (1000 - 1)) + 1;
         }
         
         return null;
@@ -1167,7 +1193,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 }
             }
         }
-        //system.debug('initialEmail'+initialEmail);
+       system.debug('initialEmail>>>>>>>>>>'+initialEmail);
         return initialEmail;
         
     }

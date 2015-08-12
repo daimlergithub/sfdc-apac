@@ -919,9 +919,29 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Dealer Locators</pluralLabel>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchFilterFields>Post_Code__c</searchFilterFields>
+        <searchFilterFields>Suburb__c</searchFilterFields>
+        <searchFilterFields>State__c</searchFilterFields>
+        <searchResultsAdditionalFields>Business_Unit__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Offered_Service__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PMA__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Post_Code__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Region__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>State__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Suburb__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Dealer_Name__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Inactive__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ReadWrite</sharingModel>
-	  <webLinks>
+    <validationRules>
+        <fullName>Dealer_locator_Mandatory_Fields</fullName>
+        <active>true</active>
+        <description>Post Code, Business Unit, Offered Service, PMA, Suburb, and State should be mandatory.</description>
+        <errorConditionFormula>AND( OR(ISBLANK( Post_Code__c ) ,  ISBLANK( TEXT(Business_Unit__c)) ,  ISBLANK( TEXT( Offered_Service__c )  ), ISBLANK( TEXT(  PMA__c  )  ) , ISBLANK(  Suburb__c  ) , ISBLANK( TEXT(   State__c   )  )),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorMessage>Post Code, Business Unit, Offered Service, PMA, Suburb, and State are mandatory.</errorMessage>
+    </validationRules>
+    <webLinks>
         <fullName>New_Dealer_Locator</fullName>
         <availability>online</availability>
         <displayType>massActionButton</displayType>
@@ -930,12 +950,12 @@
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
         <requireRowSelection>false</requireRowSelection>
-        <url>{!REQUIRESCRIPT(&quot;/soap/ajax/29.0/connection.js&quot;)} 
-		var qr = sforce.connection.query(&quot;SELECT COUNT() From Lead__c where Assigned_Dealer__c =&apos;{!Account.Id}&apos; &quot;) ; 
+        <url>{!REQUIRESCRIPT("/soap/ajax/29.0/connection.js")} 
+		var qr = sforce.connection.query("SELECT COUNT() From Lead__c where Assigned_Dealer__c ='{!Account.Id}' ") ; 
 		if(qr.size != 0) { 
-		window.parent.navigateToUrl(&quot;/a06/e?OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_ID={!Account.Name}&amp;OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_LKID={!Account.Id}&amp;retURL=%2F{!Account.Id}&quot;);
+		window.parent.navigateToUrl("/a06/e?OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_ID={!Account.Name}&amp;OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}");
 		}
-		else {		window.parent.navigateToUrl(&quot;/a06/e?OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_ID={!Account.Name}&amp;OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_LKID={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;{!IF(ISBLANK(Address__c.ZipCode__c ), &apos;&apos;, &apos;OBJECT_DEALER_LOCATOR_WEBLINK_POST_CODE_ID&apos;)}={!Address__c.ZipCode__c }&quot;);
+		else {		window.parent.navigateToUrl("/a06/e?OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_ID={!Account.Name}&amp;OBJECT_DEALER_LOCATOR_WEBLINK_DEALER_NAME_ID_lkid={!Account.Id}&amp;retURL=%2F{!Account.Id}&amp;{!IF(ISBLANK(Address__c.ZipCode__c ), '', 'OBJECT_DEALER_LOCATOR_WEBLINK_POST_CODE_ID')}={!Address__c.ZipCode__c }");
 		}</url>
     </webLinks>
 </CustomObject>

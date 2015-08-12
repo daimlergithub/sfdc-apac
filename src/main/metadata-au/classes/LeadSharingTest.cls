@@ -1,5 +1,5 @@
 @isTest
-private class LeadSharingTest {
+private with sharing class LeadSharingTest {
 	
 	private static Account dealer;
     private static Account contact;
@@ -25,8 +25,9 @@ private class LeadSharingTest {
     static void testWrapLeads() {
         Test.startTest();
         LeadSharingWrapService wrapService = new LeadSharingWrapService();
-        wrapService.wrapLeads(new List<Lead__c>{lead});
+        List<SharingWrapper> wrapLeads= wrapService.wrapLeads(new List<Lead__c>{lead});
         Test.stopTest();
+        system.assertNotEquals(null, wrapLeads);
     }
 	
 }

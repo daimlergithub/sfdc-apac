@@ -14,7 +14,7 @@ private class VehicleSharingTest {
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer');
         insert dealer;
         
-        acc = new Account(Salutation='Brother',FirstName='test',LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personAccountRecordTypeId);
+        acc = new Account(Salutation='Brother',FirstName='test',LastName='acme', Phone='11111222', Area_Code__c = '010' ,Email__c='test011@test.com',Email2__c='test012@test.com',Home_Phone_2__c = '98765413', RecordTypeId = personAccountRecordTypeId);
         
         insert acc;
        
@@ -35,8 +35,14 @@ private class VehicleSharingTest {
     	 //start test
         Test.startTest();            
         VehicleSharingWrapService wrapService = new VehicleSharingWrapService();
-        wrapService.wrapVehicleFromAccountLinks(new List<Account_Link__c>{accountLink});
+         List<SharingWrapper> testSharingWrapC2C = wrapService.wrapVehicleFromAccountLinks(new List<Account_Link__c>{accountLink});
+        SharingService.shareCampaigns(testSharingWrapC2C);
+         SharingService.shareVehicleRelationships(testSharingWrapC2C);
+         SharingService.shareRetailTasks(testSharingWrapC2C);
+        
         Test.stopTest();
+        system.assertNotEquals(null, testSharingWrapC2C);
+
     }
     
     @isTest 
@@ -48,8 +54,9 @@ private class VehicleSharingTest {
          //start test
         Test.startTest();
         VehicleSharingWrapService wrapService = new VehicleSharingWrapService();
-        wrapService.wrapVehicleFromRetailRelationships(new List<Vehicle_Relationship__c>{retailVehicleRelationship});
+      List<SharingWrapper> wrapVehicleFromRetailRelationships=wrapService.wrapVehicleFromRetailRelationships(new List<Vehicle_Relationship__c>{retailVehicleRelationship});
         Test.stopTest();
+        system.assertNotEquals(null, wrapVehicleFromRetailRelationships);
     }
 
     @isTest

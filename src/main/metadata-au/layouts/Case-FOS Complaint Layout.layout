@@ -103,6 +103,10 @@
                 <field>Number_of_Contracts__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Contract_Number_or_Policy_Number__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>CMS_Contract_No__c</field>
             </layoutItems>

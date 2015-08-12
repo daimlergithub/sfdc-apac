@@ -8,9 +8,9 @@
     Patrick Zhang(Breakingpoint) updated on 2013-10-12
 
 */
-@isTest(SeeAllData=true)
+@isTest
 public class CpCallControllerClass_Test{
-	//
+	private static string blank='';
     static testMethod void runCpCallControllerClass_Test(){
         Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName();
        
@@ -25,7 +25,7 @@ public class CpCallControllerClass_Test{
                                             Campaign_Objectives__c='OB',
                                             StartDate=date.newinstance(2013, 5, 17),
                                             EndDate=date.newinstance(2013, 10, 17),
-                                            Description = '' 
+                                            Description = blank 
                                             );
         
         // CAC Campaign
@@ -86,11 +86,13 @@ public class CpCallControllerClass_Test{
         insert(exeCamp1);
         insert(cacCrmCamp1);
         insert(casCamp1);
+        list<Campaign> listCamp =new list<Campaign> ();
+        listCamp.add(casCamp1);
+       Campaign casCamp = [select Name,Campaign_Code__c,Description from Campaign where id IN: listCamp];
        
-        cpCalController cpCalCon = new cpCalController();
-        cpCalController.queAllCamps('','','','','','');
+        cpCalController.queAllCamps(blank,blank,blank,blank,blank,blank);
         cpCalController.queAllCamps('2012','2014', String.valueOf(centralCamp1.Id),'Regular-Continuous','CRM Acquisition Program','Auto Show');
         Test.stopTest();
-        
+        system.assertEquals(casCamp1.Name, casCamp.Name);
     }
 }

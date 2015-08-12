@@ -1,7 +1,8 @@
 @isTest
 private class ComplaintDesHelperTest {
 
-    //MB Complaint record type
+
+    //MB Complaint record type//
     static String MB_COMPLAINT_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
     static String personRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
     static String dealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -11,15 +12,15 @@ private class ComplaintDesHelperTest {
     
     //main test  
     static testMethod void sendMailToCaseMember() {
+        system.debug('anothermethod1');
         User user1 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
         User user2 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
-      //upsert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionTriggerHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+     
         system.runAs(user1){
             Test.startTest();
-           // Account acc = new Account(LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid);
-           // insert acc;
-           // system.debug('Person account >>>>>>>>>>'+acc);  
-            Account dealer = new Account(Name = 'dealer', RecordTypeId = dealerRecordtypeid);
+           Account acc = new Account(LastName='acme',FirstName = 'firstname',Salutation = 'Unknown', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
+           insert acc;           
+            Account dealer = new Account(Name = 'dealer', RecordTypeId = dealerRecordtypeid,Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413');
             insert dealer;
             c1 = new Case( AccountId = dealer.Id, RecordTypeId = MB_COMPLAINT_RECORD_TYPE,
                                Case_SubType__c='Dealer-after sales service attitude',
@@ -30,50 +31,58 @@ private class ComplaintDesHelperTest {
             CaseTeamMember member1 = new CaseTeamMember(ParentId=c1.id,MemberId = user1.id,TeamRoleId=memberRole.id);
             CaseTeamMember member2 = new CaseTeamMember(ParentId=c1.id,MemberId = user2.id,TeamRoleId=memberRole.id);
             insert member1;
-            insert member2;            
-           // Complaint_Description__c cdc= new Complaint_Description__c(Case__c=c1.id);           
-           // insert cdc;            
+            insert member2;       
             Attachment at= new Attachment(ParentId = c1.id , Name='testFile' , body=Blob.valueOf('Unit Test Attachment Body'));
             insert at;       
-            Test.stopTest();           
+            Test.stopTest();      
+            System.assert(c1!=null);     
         }
     }
+    public static testMethod void testUpdate() {
+       
+           init();                            
+         test.startTest();
+         sm.Description__c = 'ddd';
+          update sm; 
+       
+       
+          cas.Description_Changed__c=true;
+          update cas;   
+         test.stopTest();
+             
+        system.assertEquals(cas.Description_Changed__c,true);      
+       }    
   
     public static void init(){
         upsert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
-        cas = (Case)UtilTestData.createSobject(new Case(), UtilTestData.CASE_RT_MB_COMPLAINT);
+        cas = (Case)UtilTestData.createSobject(new Case(Email__c='test545@test.com'), UtilTestData.CASE_RT_MB_COMPLAINT);
         cas.Workflow_Order__c=true;
         update cas;   
         sm = new Complaint_Description__c ();
         sm.Case__c = cas.id;
         sm.Description__c='aaa';
-        insert sm;          
+        insert sm;     
+        
     }
 
     public static testMethod void test_before_AfterInsertEvents_Insert() {
+        system.debug('anothermethod2');
          Test.startTest();
-     //   cas = (Case)UtilTestData.createSobject(new Case(), UtilTestData.CASE_RT_MB_COMPLAINT);
+     
              init();                        
-        Test.stopTest();                      
+        Test.stopTest();       
+        system.assert(sm!=null);  
+          
        }      
-    public static testMethod void test_before_AfterInsertEvents_Update() {
-        Test.startTest();
-           init();                            
-           sm.Description__c = 'ddd';
-           update sm; 
-           cas.Description_Changed__c=true;
-           update cas; 
-       // system.debug('cas.Description_Changed__c>>>>>>>>>>'+cas.Description_Changed__c);               
-        Test.stopTest();   
-        Case caseLst=[Select id,Description_Changed__c from case where Id=:cas.Id];         
-       }    
+    
      public static testMethod void test_before_AfterInsertEvents_Delete() {
+          system.debug('method3');
         Test.startTest();
         cas = (Case)UtilTestData.createSobject(new Case(), UtilTestData.CASE_RT_MB_COMPLAINT);
              init();     
             delete sm;        
         Test.stopTest();  
-        Case caseLst=[Select id,Description_Changed__c from case where Id=:cas.Id];   
-      //  system.debug('caseLst>>>>>>>>>>'+caseLst);            
+        Case caseLst=[Select id,Workflow_Order__c,Description_Changed__c from case where Id=:cas.Id];  
+        system.assert(caseLst!=null);   
        }     
 }

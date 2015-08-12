@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
     <criteriaBasedRules>
-        <fullName>Share_Account_Link_to_Call_Center</fullName>
+        <fullName>Share_Account_Link_to_Australia</fullName>
         <sharedTo>
-            <roleAndSubordinatesInternal>CAC_QC_SV_TM</roleAndSubordinatesInternal>
+            <roleAndSubordinatesInternal>Australia</roleAndSubordinatesInternal>
         </sharedTo>
         <criteriaItems>
             <field>RecordTypeId</field>
             <operation>equals</operation>
-            <value>Contact2Contact,ContactSector,Customer External Link</value>
+            <value>Contact2Contact,Co-Borrower/Guarantor,Vehicle External Link,Individual Customer External Link,ContactSector,Company Customer External Link</value>
         </criteriaItems>
         <accessLevel>Read</accessLevel>
-        <description>Share Account_Link__c of all record types with Call Center user.</description>
-        <name>Share Account Link to Call Center</name>
+        <name>Share Account Link to Australia</name>
     </criteriaBasedRules>
 </CustomObjectSharingRules>

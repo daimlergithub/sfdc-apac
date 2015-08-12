@@ -47,6 +47,8 @@ public class UtilVehicleRelationship
     {
     	
     	Set<Id> vehicleIds = new Set<Id>();
+        system.debug('testtttttttttttttttttt'+vRelationshipOldMap);
+        system.debug('vRelationshipNew'+vRelationshipNew);
         for(Vehicle_Relationship__c relationship : vRelationshipNew)
         {
             if(vRelationshipOldMap.get(relationship.Id).Validity__c != relationship.Validity__c)

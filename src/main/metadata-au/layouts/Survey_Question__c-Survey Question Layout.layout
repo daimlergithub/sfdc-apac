@@ -35,10 +35,6 @@
                 <behavior>Required</behavior>
                 <field>Question__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>Total_Responses__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns/>
         <style>TwoColumnsTopToBottom</style>
@@ -74,6 +70,8 @@
     </layoutSections>
     <relatedLists>
         <fields>NAME</fields>
+        <fields>Response__c</fields>
+        <fields>Related_Vehicle__c</fields>
         <relatedList>SurveyQuestionResponse__c.Survey_Question__c</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
@@ -81,4 +79,10 @@
     <showInteractionLogPanel>false</showInteractionLogPanel>
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
+    <summaryLayout>
+        <masterLabel>00h1a000000d6b7</masterLabel>
+        <sizeX>4</sizeX>
+        <sizeY>0</sizeY>
+        <summaryLayoutStyle>Default</summaryLayoutStyle>
+    </summaryLayout>
 </Layout>

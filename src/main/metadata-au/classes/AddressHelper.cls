@@ -1,86 +1,86 @@
 public class AddressHelper
 {
-	private static final String personAccountRTID = Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Individual').getRecordTypeId();
+     private static final String personAccountRTID = Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Individual').getRecordTypeId();
     private static final String companyRTID =  Schema.SObjectType.Address__c.getRecordTypeInfosByName().get('Company').getRecordTypeId();
     
     public static void auBeforeInsert_update_Events(list<Address__c> listNewAddress,map<Id,Address__c> addressOldMap, boolean isInsert,boolean isUpdate)
     {
-	    Set<String> csIds = new Set<String>();
-	    Set<String> suburbs = new Set<String>();
-	  
-	    for(Address__c addre : listNewAddress) {
-	        if(!csIds.contains(addre.Customer__c)){
-	            csIds.add(addre.Customer__c);
-	        }
-	           
-	        //US_AU-CD-032 Make sure the letters of suburb is capital ones
-	        if(!String.isBlank(addre.District__c)){
-	            addre.District__c = addre.District__c.toUpperCase();
-	            suburbs.add(addre.District__c);
-	        }
-	        
-	        // US_AU-CD-001.6 Track the updating history for FS fields.
-	        if(isUpdate){
-	            trackUpdatHistoryForFsInfo(addre, addressOldMap.get(addre.Id));
-	        }
-	    }
-	    
-	    
-	    Map<String,String> suburbAndPostCodeMapping = getMappingBetweenSuburbAndZip(suburbs);
-	    
-	    for(Address__c addre : listNewAddress){
-	        //US_AU-CD-003, Auto-fill the post code if the suburb-postcode mapping is existed 
-	        if(String.isBlank(addre.ZipCode__c) 
-	            && !String.isBlank(addre.District__c) 
-	            && suburbAndPostCodeMapping.containsKey(addre.District__c)
-	            && (addre.RecordTypeId == personAccountRTID || addre.RecordTypeId == companyRTID)) {
-	                
-	            addre.ZipCode__c = suburbAndPostCodeMapping.get(addre.District__c);
-	        }
-	    }
-	    
-	    //US_AU-CD-003 No.4
-	    if(csIds.size()>0){
-	        Map<String,List<Address__c>> AddressInfoMap = getAllAddresses(csIds);
-	        for(Address__c addre : listNewAddress) {
-	            if(AddressInfoMap.get(addre.Customer__c) != null && (addre.RecordTypeId == personAccountRTID || addre.RecordTypeId == companyRTID)){
-	                for(Address__c oldInfo : AddressInfoMap.get(addre.Customer__c)){
-	                    if(addre.Address_Type__c != null && oldInfo.Address_Type__c == addre.Address_Type__c && (isInsert || (isUpdate && addressOldMap.get(addre.id).Address_Type__c != addre.Address_Type__c))){
-	                        addre.addError('Please use another address type, this one already exists for the customer!'); 
-	                    }
-	                }           
-	            }
-	        }
-	    }
+         Set<String> csIds = new Set<String>();
+         Set<String> suburbs = new Set<String>();
+       
+         for(Address__c addre : listNewAddress) {
+             if(!csIds.contains(addre.Customer__c)){
+                 csIds.add(addre.Customer__c);
+             }
+                
+             //US_AU-CD-032 Make sure the letters of suburb is capital ones
+             if(!String.isBlank(addre.District__c)){
+                 addre.District__c = addre.District__c.toUpperCase();
+                 suburbs.add(addre.District__c);
+             }
+             
+             // US_AU-CD-001.6 Track the updating history for FS fields.
+             if(isUpdate){
+                 trackUpdatHistoryForFsInfo(addre, addressOldMap.get(addre.Id));
+             }
+         }
+         
+         
+         Map<String,String> suburbAndPostCodeMapping = getMappingBetweenSuburbAndZip(suburbs);
+         
+         for(Address__c addre : listNewAddress){
+             //US_AU-CD-003, Auto-fill the post code if the suburb-postcode mapping is existed 
+             if(String.isBlank(addre.ZipCode__c) 
+                 && !String.isBlank(addre.District__c) 
+                 && suburbAndPostCodeMapping.containsKey(addre.District__c)
+                 && (addre.RecordTypeId == personAccountRTID || addre.RecordTypeId == companyRTID)) {
+                     
+                 addre.ZipCode__c = suburbAndPostCodeMapping.get(addre.District__c);
+             }
+         }
+         
+         //US_AU-CD-003 No.4
+         if(csIds.size()>0){
+             Map<String,List<Address__c>> AddressInfoMap = getAllAddresses(csIds);
+             for(Address__c addre : listNewAddress) {
+                 if(AddressInfoMap.get(addre.Customer__c) != null && (addre.RecordTypeId == personAccountRTID || addre.RecordTypeId == companyRTID)){
+                     for(Address__c oldInfo : AddressInfoMap.get(addre.Customer__c)){
+                         if(addre.Address_Type__c != null && oldInfo.Address_Type__c == addre.Address_Type__c && (isInsert || (isUpdate && addressOldMap.get(addre.id).Address_Type__c != addre.Address_Type__c))){
+                             addre.addError('Please use another address type, this one already exists for the customer!'); 
+                         }
+                     }           
+                 }
+             }
+         }
     }
     
     public static void auAfter_Insert_Update_Delete_Events(list<Address__c> listNewAddress,list<Address__c> listOldAddress,map<id,Address__c> oldAddressMap,boolean isUpdate,boolean isDelete)
     {
-	    // 1. Searches the related records
-	    Set<String> customerIds = new Set<String>();
-	    if(isDelete){
-	        for(Address__c item : listOldAddress){
-	            if(item.Preferred__c && (item.RecordTypeId == personAccountRTID || item.RecordTypeId == companyRTID)){
-	                customerIds.add(item.Customer__c);
-	            }
-	        }
-	        
-	    }
-	    else{
-	        for(Address__c address : listNewAddress) {
-	            if(isUpdate && oldAddressMap.get(address.Id).Preferred__c != address.Preferred__c){
-	                continue;
-	            }
-	            if(address.RecordTypeId == personAccountRTID || address.RecordTypeId == companyRTID){
-	                customerIds.add(address.Customer__c);
-	            }
-	        }
-	    }
-	    
-	    // 2. Business logics  -- preferred the address and populate the address info to its customer
-	    if(!customerIds.isEmpty()){
-	        flagPreferredAddressAndPopulateToCustomer(customerIds);
-	    }
+         // 1. Searches the related records
+         Set<String> customerIds = new Set<String>();
+         if(isDelete){
+             for(Address__c item : listOldAddress){
+                 if(item.Preferred__c && (item.RecordTypeId == personAccountRTID || item.RecordTypeId == companyRTID)){
+                     customerIds.add(item.Customer__c);
+                 }
+             }
+             
+         }
+         else{
+             for(Address__c address : listNewAddress) {
+                 if(isUpdate && oldAddressMap.get(address.Id).Preferred__c != address.Preferred__c){
+                     continue;
+                 }
+                 if(address.RecordTypeId == personAccountRTID || address.RecordTypeId == companyRTID){
+                     customerIds.add(address.Customer__c);
+                 }
+             }
+         }
+         
+         // 2. Business logics  -- preferred the address and populate the address info to its customer
+         if(!customerIds.isEmpty()){
+             flagPreferredAddressAndPopulateToCustomer(customerIds);
+         }
     }
     
      //US-CD-003, Auto-fill the post code by the suburb    
@@ -116,6 +116,8 @@ public class AddressHelper
         List<Address__c> preferredAddresses = new List<Address__c>();
         List<Address__c> originalPreferredAddresses = new List<Address__c>();
         List<Address__c> updatedAddresses = new List<Address__c>();
+        Id profileId=userinfo.getProfileId();
+        String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
         
         Map<String, Account> idAccount = new Map<String, Account>();
         //TODO
@@ -149,7 +151,7 @@ public class AddressHelper
             }*/
             
             // Sort address as the hierarchy of Type.
-            if(addressList != null && !addressList.isEmpty()){
+            if((addressList != null && !addressList.isEmpty())&& (profileName!= 'IntegrationAPI')){
                 addressList.sort();
                 
                 // Flag the preferred address.
@@ -271,5 +273,50 @@ public class AddressHelper
             updateAddress.Hardcopy_Last_Modified_By__c = UserInfo.getName();
             updateAddress.Hardcopy_Last_Modified_Date__c = System.now();
         }
+    }
+    
+    public static void updateAddressOnAccount(list<Address__c> listNewAddress){
+    Set<Id> AccIdSet = new Set<Id>();
+    for(Address__c addr : listNewAddress){
+          if(addr.preferred__c)
+              AccIdSet.add(addr.Customer__c);
+    }
+    
+     if(AccIdSet!=null && !AccIdSet.isEmpty()){
+          List<Account> accList = [select id,Primary_Address__c from Account where id in : AccIdSet];
+          
+          if(accList!=null && !accList.isEmpty()){
+              for(Account acc : accList){
+                   for(Address__c addr : listNewAddress){
+                        if(acc.Id==addr.Customer__c){
+                             if(addr.Address_Line_1__c!=null && addr.Address_Line_1__c!='')
+                                  acc.Primary_Address__c = addr.Address_Line_1__c;
+                             if(addr.Address_Line_2__c!=null && addr.Address_Line_2__c!='')  
+                                  acc.Primary_Address__c +=' '+ addr.Address_Line_1__c;
+                             if(addr.District__c!=null && addr.District__c!='')
+                                  acc.Primary_Address__c +=' '+ addr.District__c;
+                             if(addr.Province__c!=null && addr.Province__c!='')
+                                  acc.Primary_Address__c +=' '+ addr.Province__c;
+                             if(addr.Country__c!=null && addr.Country__c!='')
+                                  acc.Primary_Address__c +=' '+ addr.Country__c;
+                             if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
+                                  acc.Primary_Address__c +=' '+ addr.ZipCode__c;
+                        }
+                   }
+              }
+              update accList;
+          }
+    }
+    
+     
+    } 
+    
+    @Future(callout=true)
+    public static void entityNotifyUpdate(string updateType,String sfdcId,string serlializedObject)
+    {
+        string orgId=UserInfo.getOrganizationId();
+        string sfdcTypeName='Address__c';
+        if(!test.isrunningtest())
+            UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,updateType,serlializedObject);
     } 
 }

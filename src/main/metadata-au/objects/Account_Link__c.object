@@ -347,6 +347,10 @@
                 <fullName>Last Financing</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Deleted</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -511,6 +515,105 @@
             </values>
             <values>
                 <fullName>Vans</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>Campaign%2FProject Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Financing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Selling</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Last Servicing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Preferred</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Territory Dealer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>CompanyExternalLink</fullName>
+        <active>true</active>
+        <label>Company Customer External Link</label>
+        <picklistValues>
+            <picklist>Retail_Business_Type__c</picklist>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Contact_Method__c</picklist>
+            <values>
+                <fullName>Letters to home address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No correspondence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_CustomerType__c</picklist>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role__c</picklist>
+            <values>
+                <fullName>Co-Borrower</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Guarantor</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Passenger Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -716,7 +819,23 @@
         <picklistValues>
             <picklist>Sector__c</picklist>
             <values>
+                <fullName>Finance</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Service %26 Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Trucks</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Vans</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -724,6 +843,10 @@
             <picklist>Status__c</picklist>
             <values>
                 <fullName>Campaign%2FProject Dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Deleted</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -749,9 +872,9 @@
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>ExternalLink</fullName>
+        <fullName>IndividualExternalLink</fullName>
         <active>true</active>
-        <label>Customer External Link</label>
+        <label>Individual Customer External Link</label>
         <picklistValues>
             <picklist>Retail_Business_Type__c</picklist>
             <values>
@@ -962,7 +1085,14 @@
             </values>
         </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <searchResultsAdditionalFields>System__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>RECORDTYPE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Sector__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Role__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>toRole__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>fromRole__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>Private</sharingModel>
     <sharingReasons>
         <fullName>Contact_Sector_Share__c</fullName>

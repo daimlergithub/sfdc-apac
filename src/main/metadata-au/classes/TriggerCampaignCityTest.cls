@@ -4,9 +4,9 @@ public class TriggerCampaignCityTest {
  String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
         String cacCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
  Test.startTest();
-        
+        Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
         Campaign top = new Campaign(
-            IsActive = true, 
+            
             Name = 'top', 
             Status = 'Started', 
             StartDate = System.today(), 
@@ -17,6 +17,7 @@ public class TriggerCampaignCityTest {
         insert top;
         
         Campaign cac = new Campaign(
+        IsActive = true, 
             Name = 'cac', 
             Status = 'Started', 
             StartDate = System.today(), 
@@ -30,8 +31,64 @@ public class TriggerCampaignCityTest {
         campcity.Start_Date__c=system.today();
         campcity.End_Date__c=system.today()+1;
         insert campcity;
+     
+             
+        Campaign_City__c campcity1 =[select Campaign__c,Start_Date__c from Campaign_City__c where id=:campcity.id];
         delete campcity;
+     
+       
+   
         Test.stopTest();
+     system.assertEquals(campcity1.Campaign__c, campcity.Campaign__c);
+     system.assertEquals(campcity1.Start_Date__c, campcity.Start_Date__c);
  }
+    
+    @isTest static void testCampaignHelper1(){
+ String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
+        String cacCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
+ Test.startTest();
+        Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
+        Campaign top = new Campaign(
+            
+            Name = 'top', 
+            Status = 'Started', 
+            StartDate = System.today(), 
+            EndDate = System.today(),
+            RecordTypeId = topCampRecordTypeId
+        );
+        
+        insert top;
+        
+        Campaign cac = new Campaign(
+        IsActive = true, 
+            Name = 'cac', 
+            Status = 'Started', 
+            StartDate = System.today(), 
+            EndDate = System.today(),
+            RecordTypeId = cacCampRecordTypeId,
+            ParentId = top.Id
+        );
+        insert cac;
+        Campaign_City__c campcity=new Campaign_City__c();
+        campcity.Campaign__c=cac.id;
+        campcity.Start_Date__c=system.today();
+        campcity.End_Date__c=system.today()+1;
+        insert campcity;
+     
+        Participating_Dealer__c ppd = new Participating_Dealer__c();
+        ppd.Campaign__c=cac.id;
+        ppd.Dealer__c=dealer.id;
+        insert ppd;     
+       
+          Campaign_City__c campcity1 =[select Campaign__c,Start_Date__c from Campaign_City__c where id=:campcity.id];
+        delete campcity;
+     
+       
+     
+        Test.stopTest();
+     system.assertEquals(campcity.Campaign__c, ppd.Campaign__c);
+     
+ }
+ 
  
 }

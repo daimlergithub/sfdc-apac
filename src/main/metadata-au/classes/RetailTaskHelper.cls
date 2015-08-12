@@ -1,16 +1,16 @@
 public with sharing class RetailTaskHelper {
+    public static Set<ID> vehicleIds = new Set<ID>();
+    public static Set<ID> customerIds = new Set<ID>();
     
     public static void au_After_Insert_Update_Events(list<Retail_Task__c> lstRTNew,map<id,Retail_Task__c> rtNewMap,map<id,Retail_Task__c> rtOldMap,boolean isInsert,boolean isUpdate)
     {
-        Set<ID> vehicleIds = new Set<ID>();
-        Set<ID> customerIds = new Set<ID>();
         List<Retail_Task__c> insertCvrs = new List<Retail_Task__c>();
         
         // For US_AU-CD-019
         Set<String> contractIds = new Set<String>();
         
         for(Retail_Task__c cvr : lstRTNew) {
-            if(isInsert){
+            if(isInsert || isUpdate){
                 customerIds.add(cvr.Account__c);
                 vehicleIds.add(cvr.Related_Vehicle__c);
                 insertCvrs.add(cvr);
@@ -33,6 +33,7 @@ public with sharing class RetailTaskHelper {
         if(isUpdate){
             // Auto create leads for contracts at 150 days before the
             //    end date
+       
             autoCreateLeads(rtNewMap, rtOldMap);
         }
     }
@@ -49,13 +50,13 @@ public with sharing class RetailTaskHelper {
        
     //US-CD-001 No.11
     //When PA gets a Customer_Contract_Relationship__c
-    public static void updataWhenCreateCCR(Set<Id> vehicleIds ,Set<Id> customerIds, List<Retail_Task__c> cvrs){
+    public static void updataWhenCreateCCR(Set<Id> vehicleId ,Set<Id> customerId, List<Retail_Task__c> cvrs){
         // Modified by Polaris Yu 2013-10-22, changed 'List<Account>' to 'Set<Account>'
         List<Account> accounts = new List<Account>();
 
-        Map<id,Account> accs = AccountHelper.getCustomerInfos(customerIds);
+        Map<id,Account> accs = AccountHelper.getCustomerInfos(customerId);
         Map<id,Account> accountsForUpdate = new Map<id,Account>();
-        Map<id,Vehicle__c> vehichles = getVehichles(vehicleIds);
+        Map<id,Vehicle__c> vehichles = getVehichles(vehicleId);
         for(Retail_Task__c curCcr: cvrs){
             if(!String.isblank(curCcr.Account__c)){
                 Account acc = accs.get(curCcr.Account__c);
@@ -120,9 +121,12 @@ public with sharing class RetailTaskHelper {
         //    field of which are updated to TRUE
         List<Retail_Task__c> finCntrctList = new List<Retail_Task__c>();
         List<Retail_Task__c> fltCntrctList = new List<Retail_Task__c>();
+        List<Vehicle_Relationship__c> vehRelList = new List<Vehicle_Relationship__c>(); 
         Date today = Date.Today();
+            
         for(Id curCntrctId : newMap.keySet()){
             system.debug('>>>>'+oldMap.get(curCntrctId).X150_Days_Before_EOC__c);
+            system.debug('>>>>1'+newMap.get(curCntrctId).X150_Days_Before_EOC__c);
             if((oldMap.get(curCntrctId).X150_Days_Before_EOC__c
                 != newMap.get(curCntrctId).X150_Days_Before_EOC__c)
                 && newMap.get(curCntrctId).X150_Days_Before_EOC__c == TRUE && newMap.get(curCntrctId).EndDate__c > today){
@@ -130,19 +134,24 @@ public with sharing class RetailTaskHelper {
                     fltCntrctList.add(newMap.get(curCntrctId));
                 }
                 else{
-                    finCntrctList.add(newMap.get(curCntrctId));
+                    
+                    finCntrctList.add(newMap.get(curCntrctId));                    
                 }
             }
         }
 
         List<Lead__c> newLeadList = new List<Lead__c>();
         // Create finance leads based on the non-fleet contracts
-        if(finCntrctList.size() > 0){
+        if(finCntrctList.size() > 0 && !finCntrctList.isEmpty()){
             // Get the finance lead record type information
             RecordType financeLdRT = [SELECT Id, Name FROM RecordType
                                       WHERE Name = 'Finance Lead'];
+            vehRelList = [Select Id, Name from Vehicle_Relationship__c 
+                         where Contact__c in : customerIds and 
+                         Vehicle_ID__c in : vehicleIds and Car_Relation__c = 'Owner' order by createdDate desc limit 1];
             if(financeLdRT != null){
-                for(Retail_Task__c curCntrct : finCntrctList){
+                for(Retail_Task__c curCntrct : [select Id,Account__c, OwnerId, Related_Dealer__c, Account__r.RecordType.Name
+                                 from Retail_Task__c where Id in :finCntrctList]){
                     Lead__c newLead = new Lead__c();
                     newLead.RecordTypeId = financeLdRT.Id;
                     newLead.Existing_Contract__c = curCntrct.Id;
@@ -150,7 +159,18 @@ public with sharing class RetailTaskHelper {
                     newLead.OwnerId = curCntrct.OwnerId;
                     newLead.CAC_Lead_Status__c = 'New Enquiry';
                     newLead.Lead_Source__c = 'End of Contract';
-                    newLead.Contact__c = curCntrct.Account__c;
+                    if(curCntrct.Account__r.RecordType.Name == 'Person Account')
+                    {
+                        newLead.Contact__c = curCntrct.Account__c;
+                    }
+                    else if(curCntrct.Account__r.RecordType.Name == 'Company')
+                    {
+                        newLead.Company_Account__c = curCntrct.Account__c; 
+                    }
+                    if(vehRelList != null && !vehRelList.isEmpty())
+                    {
+                        newLead.VehicleRel_No__c = vehRelList[0].Id;
+                    }
                     newLead.Assigned_Dealer__c = curCntrct.Related_Dealer__c;
                     newLead.Is_Finance_Send_Email_Before_150_Days__c = true;
                     newLead.Business_Unit__c = 'MBFS Cars';
@@ -195,12 +215,14 @@ public with sharing class RetailTaskHelper {
         // Insert the new leads into the system
         if(newLeadList.size() > 0){
             try{
+               
                 insert newLeadList;
-                
+               
                 // Send email notifications to corresponding recipients
                 //US_AU_CR-000171 Modified by Bing Start
                 //LeadHelper.sendEOCEmailNotifications(newLeadList);
                 LeadHelper.send171Email(newLeadList);
+               
                 //US_AU_CR-000171 Modified by Bing End
             }
             catch(DMLException e){

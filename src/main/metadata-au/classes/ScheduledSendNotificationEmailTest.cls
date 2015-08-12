@@ -1,19 +1,17 @@
 /*
     Type:       Test Class
     Purpose:    Test the ScheduledSendNotificationEmail class
-    User Story: 
-    ---------------------------------------------------------------
-    History:
-
     1. Justin Yu created on 2013-10-23
 */
 @isTest
 public class ScheduledSendNotificationEmailTest{
-    
+   
     static testMethod void testScheduledSendNotificationEmail(){
         String personRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
         String leadFinanceRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
         String leadFleetRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Fleet Lead').getRecordTypeId();
+        User usr1 = UtilTestData.createUser('Australia','Fleet');
+        system.runAs(usr1){
         
         Account account = new Account(RecordTypeId = personRecordTypeId);
         account.Status__c='Customer';
@@ -23,6 +21,9 @@ public class ScheduledSendNotificationEmailTest{
         account.Suffix__c = 'suffix';
         account.PersonEmail='bing.bai@nttdata.com';
         account.PersonMobilePhone ='1800999999';
+        account.Email__c='test@mbau.com';
+        account.Email2__c = 'testemail2@test.com';
+        account.Home_Phone_2__c = '98765413';
         insert account;
         
         Vehicle__c vehicle = new Vehicle__c(Class__c = 'C-Class Sedan');
@@ -78,7 +79,11 @@ public class ScheduledSendNotificationEmailTest{
         insert fleetLeadWith60Days;
         
         Test.startTest();
-        System.schedule('ScheduledSendNotificationEmailTest', '0 0 13 * * ?', new ScheduledSendNotificationEmail());
+         String jobId =System.schedule('ScheduledSendNotificationEmailTest', '0 0 13 * * ?', new ScheduledSendNotificationEmail());
         Test.stopTest();
+         CronTrigger ct = [select id, CronExpression,State, TimesTriggered, NextFireTime from CronTrigger where id = :jobId];
+        system.assertEquals('WAITING', ct.State);
+        }
+        
     }
 }

@@ -34,7 +34,7 @@ Public class UtilTestData {
     public final static String ACCOUNT_RT_DEALER = 'Dealer';
     public final static String accountLink_Contact2Contact = 'Contact2Contact';
 
-    public final static String LEAD_RT_SALES_LEADS = 'Sales Leads';
+    public final static String LEAD_RT_SALES_LEADS = 'Vehicle Lead';
     
     public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
 
@@ -48,7 +48,7 @@ Public class UtilTestData {
     public final static String TASK_RT_EDM = 'eDM';
     public final static String TASK_RT_DM = 'DM';
     public final static String TASK_RT_OB = 'OB';
-    //public final static String GENERAL_TASK = 'General Task';
+    public final static String GNTASK = 'Task';
 
     public final static Integer BATCH_SIZE = 101;
     
@@ -120,8 +120,13 @@ Public class UtilTestData {
         Account acc = new Account ( Name = 'dummtyTestAcc');  
         insert acc;      
         System.assert(acc.Name=='dummtyTestAcc');
-        Contact con = new Contact ( AccountId = acc.id, LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true, Permission_Set_Settings__c = 'S_M_Retail_Campaign');
-        insert con;      
+        Contact con = new Contact ( AccountId = acc.id,Salutation = 'Unknown',FirstName='first name', LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true, Permission_Set_Settings__c = 'S_M_Retail_Campaign');
+        con.Portal_User__c = true;
+        con.CanAllowPortalSelfReg = true;
+        insert con; 
+		con.FirstName ='Test first name';
+        update con;
+        
         System.assert(con.LastName=='portalTestUser'); 
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
         System.assertEquals(UserInfo.getUserId(),thisUser.id);
@@ -129,7 +134,7 @@ Public class UtilTestData {
         System.runAs ( thisUser ) {               
                 usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';            
                 usr.ProfileId=profileId;
-                usr.UserRoleId=userRoleId;
+                //usr.UserRoleId=userRoleId;
                 usr.LastName = 'Test User';
                 usr.Email = 'test001@daimler.com.full';
                 usr.Alias = 'test';
@@ -297,7 +302,7 @@ Public class UtilTestData {
             else if (recordTypeName == TASK_RT_EDM) {
                 initiateEDMTask(so);
             }
-            else if (recordTypeName == 'General Task'){
+            else if (recordTypeName == 'Task'){
                 initiateGeneralTask(so);
             }
         }
@@ -317,6 +322,9 @@ Public class UtilTestData {
             getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + 'Account');
         acc.Dealer_Alternate_Name__c = 'Test Alternate';
         acc.Phone = '021-000000';
+         acc.Email__c='test011@test.com';
+        acc.Email2__c='test012@test.com';      
+        acc.Home_Phone_2__c='5879458745';
         acc.Dealer_GC_Code__c = 'gc code';
         acc.Dealer_GS_Code__c = 'gs code';
         acc.Name = acc.Name == null ? 'test dealer' : acc.Name;
@@ -335,6 +343,11 @@ Public class UtilTestData {
         acc.LastName = 'Customer';
         acc.Gender__c = '0=Male';
         acc.ZipCode__c = '200235';
+        acc.firstname='test acme';
+        acc.Salutation='Brother';
+        acc.Email__c='test011@test.com';
+        acc.Email2__c='test012@test.com';      
+        acc.Home_Phone_2__c='5879458745';
         acc.Type = acc.Type == null ? '0=Company' : acc.Type;
         acc.Phone = acc.Phone == null ? '1234567' : acc.Phone;
         acc.Area_Code__c = '010';
@@ -432,11 +445,11 @@ Public class UtilTestData {
     // Create Unsaved Lead which record type is Sales Leads
     private static void initiateSalesLead(Sobject so) {
         Lead__c lead = (Lead__c)so;
-
+        
         lead.Contact__c = lead.Contact__c == null ? 
            createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id : 
            lead.Contact__c;
-        
+                   
         lead.CAC_Lead_Status__c = lead.CAC_Lead_Status__c == null ? 
             'Qualified' : lead.CAC_Lead_Status__c;
 
@@ -766,7 +779,7 @@ Public class UtilTestData {
     //Create General Task
     private static void initiateGeneralTask(Sobject so) {
         Task task = (Task)so;
-        task.RecordTypeId = getRecordTypeMapInstance().get('General Task'+ 'Task');
+        task.RecordTypeId = getRecordTypeMapInstance().get('Task'+ 'Task');
         task.Subject = 'Test';
         task.WhatId = task.WhatId == null ?
             createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :

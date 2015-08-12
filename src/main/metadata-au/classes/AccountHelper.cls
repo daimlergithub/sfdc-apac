@@ -15,8 +15,11 @@ public class AccountHelper {
     Private static Id dealerRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     //Existing Au specific variables
     private static Set<String> newCompanyIds = new Set<String>();
+    
     private static Set<String> personIds = new Set<String>();
-    private static final String ONE_SPACE = ' ';
+    private static final String ONE_SPACE = ' ';  
+    public static Id profileId = userinfo.getProfileId();
+    public static String profileName = [Select Id,Name from Profile where Id=:profileId].Name;   
     public static final Set<Id> RECORD_TYPE_SET = new Set<Id>{
         Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId(),
         Schema.SObjectType.Account.getRecordTypeInfosByName().get('Company').getRecordTypeId()
@@ -143,27 +146,27 @@ public class AccountHelper {
             if (acc.LastName == acc.Partner_Surname__c){
                     string cTitle='';
                     if(!String.isblank(acc.Salutation) && acc.Salutation!='Unknown')
-                	   cTitle=acc.Salutation;
+                       cTitle=acc.Salutation;
                     string pTitle='';
                     if(!String.isblank(acc.Partner_Title__c) && acc.Partner_Title__c!='Unknown')
-                		pTitle=acc.Partner_Title__c;
-                	if(cTitle!='' && pTitle!='')		
-                		acc.Display_Name__c=acc.Salutation+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_Title__c+ONE_SPACE+acc.FirstName+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_First_Name__c+ONE_SPACE+acc.LastName;
+                        pTitle=acc.Partner_Title__c;
+                    if(cTitle!='' && pTitle!='')        
+                        acc.Display_Name__c=acc.Salutation+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_Title__c+ONE_SPACE+acc.FirstName+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_First_Name__c+ONE_SPACE+acc.LastName;
                     if(cTitle=='' && pTitle=='')
-                    	acc.Display_Name__c=acc.FirstName+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_First_Name__c+ONE_SPACE+acc.LastName;
+                        acc.Display_Name__c=acc.FirstName+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_First_Name__c+ONE_SPACE+acc.LastName;
                     if(cTitle!='' && pTitle=='')
-                    	acc.Display_Name__c=acc.Salutation+ONE_SPACE+acc.FirstName+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_First_Name__c+ONE_SPACE+acc.LastName;
+                        acc.Display_Name__c=acc.Salutation+ONE_SPACE+acc.FirstName+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_First_Name__c+ONE_SPACE+acc.LastName;
                     if(cTitle=='' && pTitle!='')
-                    	acc.Display_Name__c=acc.FirstName+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_Title__c+ONE_SPACE+acc.Partner_First_Name__c+ONE_SPACE+acc.LastName; 		
+                        acc.Display_Name__c=acc.FirstName+ONE_SPACE+'and'+ONE_SPACE+acc.Partner_Title__c+ONE_SPACE+acc.Partner_First_Name__c+ONE_SPACE+acc.LastName;        
                     
             }else{
                //If the surname is unequal the <Title Customer> <First Name Surname Customer> and <Title Partner> <First Name Surname Partner>
               acc.Display_Name__c =  (String.isblank(acc.Salutation)?'': (acc.Salutation=='Unknown'?'': acc.Salutation) + ONE_SPACE) +   
-              					     (String.isblank(acc.FirstName)?'': acc.FirstName + ONE_SPACE) +
-              					     (String.isblank(acc.LastName)?'': acc.LastName + ONE_SPACE+'and ') +
-              					     (String.isblank(acc.Partner_Title__c)?'': (acc.Partner_Title__c=='Unknown'?'': acc.Partner_Title__c) + ONE_SPACE)+
-              					     (String.isblank(acc.Partner_First_Name__c)?'': acc.Partner_First_Name__c + ONE_SPACE) +
-              					     (String.isblank(acc.Partner_Surname__c)?'': acc.Partner_Surname__c);
+                                     (String.isblank(acc.FirstName)?'': acc.FirstName + ONE_SPACE) +
+                                     (String.isblank(acc.LastName)?'': acc.LastName + ONE_SPACE+'and ') +
+                                     (String.isblank(acc.Partner_Title__c)?'': (acc.Partner_Title__c=='Unknown'?'': acc.Partner_Title__c) + ONE_SPACE)+
+                                     (String.isblank(acc.Partner_First_Name__c)?'': acc.Partner_First_Name__c + ONE_SPACE) +
+                                     (String.isblank(acc.Partner_Surname__c)?'': acc.Partner_Surname__c);
             }
         }
         return acc;
@@ -181,6 +184,10 @@ public class AccountHelper {
     
     // US_AU-CD-001.6 Track the updating history for FS fields
     public static void trackUpdatHistoryForFsInfo(Account updateAcc, Account oldAcc){
+    //Id profileId = userinfo.getProfileId();
+    //String profileName = [Select Id,Name from Profile where Id=:profileId].Name;
+        if(profileName!= 'IntegrationAPI'){
+
         if(updateAcc.FS_Opt_In_Email__c != oldAcc.FS_Opt_In_Email__c){
             updateAcc.FS_Email_Last_Modified_By__c = UserInfo.getName();
             updateAcc.FS_Email_Last_Modified_Date__c = System.now();
@@ -199,6 +206,71 @@ public class AccountHelper {
             updateAcc.FS_SMS_Last_Modified_By__c = UserInfo.getName();
             updateAcc.FS_SMS_Last_Modified_Date__c = System.now();
         }
+        
+        /************* SHRINIVAS **************/
+        
+        if(updateAcc.FS_Opt_In_SMS2__c != oldAcc.FS_Opt_In_SMS2__c){
+            updateAcc.FS_SMS_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.FS_SMS_Last_Modified_Date2__c = System.now();
+        }
+        
+        if(updateAcc.FS_Opt_In_Home_Phone__c != oldAcc.FS_Opt_In_Home_Phone__c){
+            updateAcc.FS_Home_Phone_Last_Modified_By__c = UserInfo.getName();
+            updateAcc.FS_Home_Phone_Last_Modified_Date__c = System.now();
+        }
+        
+        if(updateAcc.FS_Opt_In_Home_Phone2__c != oldAcc.FS_Opt_In_Home_Phone2__c){
+            updateAcc.FS_Home_Phone_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.FS_Home_Phone_Last_Modified_Date2__c = System.now();
+        }
+        
+        if(updateAcc.FS_Opt_In_Work_Phone__c != oldAcc.FS_Opt_In_Work_Phone__c){
+            updateAcc.FS_Work_Phone_Last_Modified_By__c = UserInfo.getName();
+            updateAcc.FS_Work_Phone_Last_Modified_Date__c = System.now();
+        }
+        
+        if(updateAcc.FS_Opt_In_Work_Phone2__c != oldAcc.FS_Opt_In_Work_Phone2__c){
+            updateAcc.FS_Work_Phone_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.FS_Work_Phone_Last_Modified_Date2__c = System.now();
+        }
+        
+        if(updateAcc.FS_Opt_In_Email2__c != oldAcc.FS_Opt_In_Email2__c){
+            updateAcc.FS_Email_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.FS_Email_Last_Modified_Date2__c = System.now();
+        }
+        
+        if(updateAcc.Opt_In_SMS2__c != oldAcc.Opt_In_SMS2__c){
+            updateAcc.SMS_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.SMS_Last_Modified_Date2__c = System.now();
+        }
+        
+        if(updateAcc.Opt_In_Home_Phone__c != oldAcc.Opt_In_Home_Phone__c){
+            updateAcc.Home_Phone_Last_Modified_By__c = UserInfo.getName();
+            updateAcc.Home_Phone_Last_Modified_Date__c = System.now();
+        }
+        
+        if(updateAcc.Opt_In_Home_Phone2__c != oldAcc.Opt_In_Home_Phone2__c){
+            updateAcc.Home_Phone_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.Home_Phone_Last_Modified_Date2__c = System.now();
+        }
+        
+        if(updateAcc.Opt_In_Work_Phone__c != oldAcc.Opt_In_Work_Phone__c){
+            updateAcc.Work_Phone_Last_Modified_By__c = UserInfo.getName();
+            updateAcc.Work_Phone_Last_Modified_Date__c = System.now();
+        }
+        
+        if(updateAcc.Opt_In_Work_Phone2__c != oldAcc.Opt_In_Work_Phone2__c){
+            updateAcc.Work_Phone_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.Work_Phone_Last_Modified_Date2__c = System.now();
+        }
+        
+        if(updateAcc.Opt_In_Email2__c != oldAcc.Opt_In_Email2__c){
+            updateAcc.Email_Last_Modified_By2__c = UserInfo.getName();
+           updateAcc.Email_Last_Modified_Date2__c = System.now();
+        }
+        /************* SHRINIVAS **************/
+        
+        
         if(updateAcc.Opt_In_Email__c != oldAcc.Opt_In_Email__c){
             updateAcc.Email_Last_Modified_By__c = UserInfo.getName();
             updateAcc.Email_Last_Modified_Date__c = System.now();
@@ -218,6 +290,7 @@ public class AccountHelper {
             updateAcc.SMS_Last_Modified_By__c = UserInfo.getName();
             updateAcc.SMS_Last_Modified_Date__c = System.now();
         }
+      }
     }
     
     // US_AU-CD-004: cancel the primary contact.
@@ -365,13 +438,363 @@ public class AccountHelper {
                        CV_Status__c,
                        PC_Tenure__c,
                        CV_Tenure__c,
-                       //PC_No_Brand_Purchases__c,
+                       Buy_Cycle__c,
                        CV_No_Brand_Purchases__c,
                        VAN_Status__c,
                        VAN_Tenure__c,
                        VAN_No_Brand_Purchases__c
                 from Account
                 where Id in :ids]);
+    }
+    Public Static Map<Id, Map<String,Integer>> Vehiclecount {get;set;} 
+    Public Static Map<Id, Map<String,Integer>> Vehicletenure {get;set;} 
+   //Method to update PC Status,CV Status,VAN Status to customer when address record and vehicle relation is associated to customer
+    public static void auAfter_Update_UpdatePc_Status_Values(list<Account> listNewAccounts)
+    {
+        Set<Id> vehicleIds = new Set<Id>();
+        Set<Id> vehicleRelationIds = new Set<Id>();
+        Set<Id> customerIds = new Set<Id>();
+        set<id> setAccId= new set<Id>();
+        Map<String,Integer> tempcount = new Map<String,Integer>();
+        Map<String,Integer> counttenure = new Map<String,Integer>();       
+        List<Vehicle_Relationship__c> insertCvrs = new List<Vehicle_Relationship__c>(); 
+        for(Account objAcc : listNewAccounts)
+        {  
+            if(!UtilConstant.Recursivefire)
+                customerIds.add(objAcc.Id);
+        }
+        
+        if(customerIds!=null && !customerIds.isEmpty())
+        {   
+        Vehiclecount=new Map<Id, Map<String,Integer>>();
+        Vehicletenure =new Map<Id, Map<String,Integer>>();
+            list<Account> lstCustomers=[select id,(select id,Customer__c from Addresses__r),(Select id,Vehicle_ID__c,Car_Relation__c, Purchase_Date__c,Contact__c,Vehicle_ID__r.Car_Model__r.Vehicle_Group__c,Vehicle_ID__r.Vehicle_Group__c from Vehicle_Relationships2__r) from Account where id In:customerIds];
+            
+            if(lstCustomers!=null && !lstCustomers.isEmpty())
+            {   
+                for(Account objAcc:lstCustomers)
+                {   
+                    Integer PcCount=0;Integer CvCount=0;Integer VanCount=0;
+                    Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                    Integer PcTenure2=0;Integer CvTenure2=0;Integer VanTenure2=0;
+                    if(objAcc.Vehicle_Relationships2__r!=null && !objAcc.Vehicle_Relationships2__r.isEmpty())
+                    {   
+                        for(Vehicle_Relationship__c objVR:objAcc.Vehicle_Relationships2__r)
+                        {
+                            if(objAcc.id==objVR.Contact__c && objVR.Car_Relation__c =='Owner'){
+                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'PC' || (objVR.Vehicle_ID__r.Vehicle_Group__c ==null && objVR.Vehicle_ID__r.Car_Model__r.Vehicle_Group__c == 'PC')){
+                                    PcCount++;
+                                    if(objVR.Purchase_Date__c !=null){
+                                    PcTenure2 = objVR.Purchase_Date__c.monthsBetween(Date.today())/12;
+                                    PcTenure = PcTenure2+PcTenure;
+                                    }
+                                   
+                                }
+                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'CV' || (objVR.Vehicle_ID__r.Vehicle_Group__c ==null && objVR.Vehicle_ID__r.Car_Model__r.Vehicle_Group__c == 'CV')){
+                                    CvCount++;
+                                    if(objVR.Purchase_Date__c !=null){
+                                    CvTenure2= objVR.Purchase_Date__c.monthsBetween(Date.today())/12;
+                                     CvTenure=CvTenure2+CvTenure;
+                                    }
+                                }
+                                
+                                if(objVR.Vehicle_ID__r.Vehicle_Group__c == 'Van' || (objVR.Vehicle_ID__r.Vehicle_Group__c ==null && objVR.Vehicle_ID__r.Car_Model__r.Vehicle_Group__c == 'Van')){
+                                    VanCount++;
+                                    if(objVR.Purchase_Date__c !=null){                                    
+                                    VanTenure2= objVR.Purchase_Date__c.monthsBetween(Date.today())/12+0;
+                                          VanTenure=VanTenure2+VanTenure;                            
+                                    }
+                                }
+                                                                
+                                vehicleRelationIds.add(objVR.Id);
+                                vehicleIds.add(objVR.Vehicle_ID__c);
+                                insertCvrs.add(objVR);
+                            }
+                        }
+                    }
+                    if(objAcc.Addresses__r!=null && !objAcc.Addresses__r.isEmpty())
+                    {
+                        for(Address__c objAddr:objAcc.Addresses__r)
+                        {
+                            setAccId.add(objAddr.Customer__c);
+                        }
+                    }
+                  tempcount.put('PC',PcCount);
+                  tempcount.put('CV',CvCount);
+                  tempcount.put('Van',VanCount);
+                  counttenure.put('PC',PcTenure);
+                  counttenure.put('CV',CvTenure);
+                  counttenure.put('Van',VanTenure);
+                  Vehiclecount.put(objAcc.id,tempcount);
+                   Vehicletenure.put(objAcc.id,counttenure);
+                   
+                }
+                
+                if(insertCvrs!=null && !insertCvrs.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()){
+                    updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,setAccId,Vehiclecount,Vehicletenure);
+                    
+                }
+            }
+        }
+    }
+    
+    
+    //When PA gets a Vehicle-Relationship
+    public static void updataWhenCreateCVR(Set<Id> vehicleIds, Set<Id> customerIds, list<Vehicle_Relationship__c> cvrs,set<id> setAccId,Map<Id, Map<String,Integer>> tempcount,Map<Id, Map<String,Integer>> tenure) {
+        Map<id,Account> accounts = new Map<id,Account>();
+        Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
+        //get pc first date records
+        Map<String,Date>  preRecordsPc = getExsitedInfos(customerIds,'PC');
+        //get cv first date records 
+        Map<String,Date>  preRecordsCv = getExsitedInfos(customerIds,'CV');
+        //get cv first date records 
+        Map<String,Date>  preRecordsVAN = getExsitedInfos(customerIds,'Van');
+        exsisedRecord.put('PC', preRecordsPc);
+        exsisedRecord.put('CV', preRecordsCv);
+        exsisedRecord.put('Van', preRecordsVAN);
+        
+        Map<id,Account> accs = getCustomerInfos(customerIds);
+        Map<id,Vehicle__c> vehichles = getVehichles(vehicleIds);
+        for(Vehicle_Relationship__c curCvr : cvrs){
+            Account acc = new Account();
+            if(accounts.containsKey(curCvr.Contact__c)){
+                acc = accounts.get(curCvr.Contact__c);
+            }else{
+                acc = accs.get(curCvr.Contact__c);
+            }
+            if(acc!=null &&  vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c!=null)
+                acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount,tenure);
+            else if(acc!=null && vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__c!=null && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c!=null)
+                acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount,tenure); 
+            accounts.put(acc.id,acc);
+        }
+          if(accounts.values()!=null && !accounts.values().isEmpty())   
+          { 
+            UtilConstant.Recursivefire=true;
+            UtilDB.updateSobjects(accounts.values());
+          }
+    }
+    
+    //Get vehiches Vehicle_Group__c by vehicle id
+    public static Map<id,Vehicle__c> getVehichles(set<Id> ids){
+        return new Map<id,Vehicle__c>(
+        [select id,
+               Vehicle_Group__c,Car_Model__c,Car_Model__r.Vehicle_Group__c
+        from Vehicle__c 
+        where Id in :ids]);
+       
+    }
+   //get the lastest record
+    public static Map<String,Date> getExsitedInfos(Set<Id> customerIds , String vehicleGroup){
+        Map<String,Date>  recordsInfo = new Map <String,Date>();
+        for (sObject obj:[select Contact__c, min(Purchase_Date__c) Purchase_Date__c from Vehicle_Relationship__c where Vehicle_ID__r.Vehicle_Group__c = :vehicleGroup and Contact__c in :customerIds group by Contact__c]){
+            recordsInfo.put(String.valueOf(obj.get('Contact__c')),Date.valueOf(obj.get('Purchase_Date__c')));
+        }
+        
+        return  recordsInfo;
+    }
+    private static Map<String, List<String>> colsMap = new Map<String,List<String>>
+        {'PC'=> new List<String>{'PC_Status__c','Buy_Cycle__c','PC_Tenure__c'},
+         'CV'=> new List<String>{'CV_Status__c','CV_No_Brand_Purchases__c','CV_Tenure__c'},
+         'Van'=> new List<String>{'VAN_Status__c','VAN_No_Brand_Purchases__c','VAN_Tenure__c'}
+        };
+      
+          //update PC CV VAN tenure
+    @testvisible private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer,Map<Id, Map<String,Integer>> tempcount,Map<Id, Map<String,Integer>> tenureVehicle){    
+      
+         if(!String.isblank(vehicleGroup) && colsMap != null && colsMap.get(vehicleGroup) != null && preRecords!= null && preRecords.get(vehicleGroup) != null){
+            Map<String,Date> preRecord = preRecords.get(vehicleGroup);
+
+            List<String> cols = colsMap.get(vehicleGroup);
+            if(userInfo!=null && cols != null && !cols.isEmpty()){
+
+            if(isCustomer && userInfo.get(cols[0])!=null)
+                userInfo.put(cols[0], 'Customer');
+           
+           if((cols[1])!=null)
+                    {
+                        userInfo.put('Buy_Cycle__c',tempcount.get(userInfo.id).get('PC'));
+                        userInfo.put('CV_No_Brand_Purchases__c',tempcount.get(userInfo.id).get('CV'));
+                        userInfo.put('VAN_No_Brand_Purchases__c',tempcount.get(userInfo.id).get('Van'));
+                    } 
+                    
+                    if((cols[2])!=null)
+                    {
+                        userInfo.put('PC_Tenure__c',tenureVehicle.get(userInfo.id).get('PC'));
+                        userInfo.put('CV_Tenure__c',tenureVehicle.get(userInfo.id).get('CV'));
+                        userInfo.put('VAN_Tenure__c',tenureVehicle.get(userInfo.id).get('Van'));
+                    }           
+                    
+           /* integer tenure = 0;
+            if(preRecord.get(userInfo.id) != null){
+                tenure = preRecord.get(userInfo.id).monthsBetween(Date.today())/12;
+            }
+            if(userInfo.get(cols[2])!=null)
+                userInfo.put(cols[2] , Decimal.valueOf(tenure)); */
+            }
+        }
+        return userInfo;        
+    }  
+    
+    public static void auBeforeUpdateCheckRequiredPhoneFields(List<Account> lstNewAccouts)
+    {
+        set<Id> setAAcId= new set<Id>();
+        List<Address__c> lstAddress = new List<Address__c>();
+        for(Account objAcc:lstNewAccouts)
+        {
+            setAAcId.add(objAcc.id);
+        }
+        
+        //Id profileId=userinfo.getProfileId();
+        //String profileName=[Select Id,Name from Profile where Id=:profileId].Name;
+        
+        if(setAAcId!=null && !setAAcId.isempty() &&  profileName != 'IntegrationAPI')
+        {
+            lstAddress=[Select id, Customer__c from Address__c where Customer__c In:setAAcId];
+            if(lstAddress!=null && !lstAddress.isEmpty())
+            {
+                for(Account objAcc:lstNewAccouts)
+                {
+                    for(Address__c objAddr:lstAddress)
+                    {
+                        if(objAcc.Individual_Home_Phone__c==null && objAcc.Phone == null && objAcc.Mobile__c==null && objAcc.Home_Phone_2__c==null
+                        && objAcc.Work_Phone__c==null && objAcc.Mobile2__c==null && objAcc.Email__c==null && objAcc.Email2__c==null && 
+                        (RECORD_TYPE_SET.contains(objAcc.RecordTypeId)) && objAcc.id==objAddr.Customer__c &&
+                        objAcc.PC_Status__c!=null && objAcc.PC_Status__c.equalsIgnoreCase('Customer') && objAcc.CV_Status__c!=null && objAcc.CV_Status__c.equalsIgnoreCase('Customer') &&
+                        objAcc.VAN_Status__c!=null && objAcc.VAN_Status__c.equalsIgnoreCase('Customer'))
+                        {
+                            objAcc.addError('The record needs to have at least one phone number field filled (Home Phone, Work Phone or Mobile) OR an email address.');
+                        }
+                    }
+                }
+            }
+        }
+    }
+    //SFDCAU-267
+    public static void auBeforeInsertUpdateTrimPhoneFileds(List<Account> lstNewAccouts)
+    {
+        for(Account objAcc:lstNewAccouts)
+        {
+            objAcc.Batch_No__c='';
+            //Mobile
+            if(string.valueof(objAcc.Mobile__c)!=null && string.valueof(objAcc.Mobile__c)!='')
+                objAcc.Batch_No__c=trimPhoneNumbersUtil(objAcc.Mobile__c);
+            //mobile2
+            if(string.valueof(objAcc.Mobile2__c)!=null && string.valueof(objAcc.Mobile2__c)!='')
+                objAcc.Batch_No__c+=' '+trimPhoneNumbersUtil(objAcc.Mobile2__c);
+            //home hone1    
+            if(string.valueof(objAcc.Individual_Home_Phone__c)!=null && string.valueof(objAcc.Individual_Home_Phone__c)!='')
+                objAcc.Batch_No__c+=' '+trimPhoneNumbersUtil(objAcc.Individual_Home_Phone__c);
+            //home phone2       
+            if(string.valueof(objAcc.Home_Phone_2__c)!=null && string.valueof(objAcc.Home_Phone_2__c)!='')
+                objAcc.Batch_No__c+=' '+trimPhoneNumbersUtil(objAcc.Home_Phone_2__c);
+            //work phone1   
+            if(string.valueof(objAcc.Work_Phone__c)!=null && string.valueof(objAcc.Work_Phone__c)!='')
+                objAcc.Batch_No__c+=' '+trimPhoneNumbersUtil(objAcc.Work_Phone__c);
+            //workphone2    
+            if(string.valueof(objAcc.Phone)!=null && string.valueof(objAcc.Phone)!='')
+                objAcc.Batch_No__c+=' '+trimPhoneNumbersUtil(objAcc.Phone);
+        }
+    }
+    
+    private static string trimPhoneNumbersUtil(string fieldAPiName)
+    {
+        //Mobile & Landline
+        if(string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '').length()==12)
+            fieldAPiName='0'+string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '').substring(3,12);
+        //1800 number or 1300 number
+        if(string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '').length()==10)
+            fieldAPiName=string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '');
+        //13 number
+        if(string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '').length()==6)
+            fieldAPiName=string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '');
+        return fieldAPiName;    
+    }
+    
+    public static void auBeforeInsert_Update_Phonenum_validation(List<Account> lstNewAccouts)
+    {
+        //Id profileId = userinfo.getProfileId();
+        //String profileName = [Select Id,Name from Profile where Id=:profileId].Name; 
+        for(Account objAcc:lstNewAccouts)
+        {
+            if(profileName != 'IntegrationAPI')
+            {
+                if (string.valueof(objAcc.Mobile__c) != null && string.valueof(objAcc.Mobile__c)!='')
+                {
+                    if(!(string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+614') || string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('+615')  ||string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('04') || string.valueof(objAcc.Mobile__c).trim().replaceAll('(\\s+)', '').startsWith('05')))
+                    { objAcc.Mobile__c.addError('Mobile number should begin with any one of these values +614, 04, +615, 05');}
+                   
+                      String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Mobile__c));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
+                
+                if (string.valueof(objAcc.Mobile2__c) != null && string.valueof(objAcc.Mobile2__c)!='')
+                {
+                    if(!(string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('+614') || string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('+615')  ||string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('04') || string.valueof(objAcc.Mobile2__c).trim().replaceAll('(\\s+)', '').startsWith('05')))
+                    {    objAcc.addError('Mobile number should begin with any one of these values +614, 04, +615, 05');}
+                    
+                      String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Mobile2__c));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
+                 if (string.valueof(objAcc.Individual_Home_Phone__c) != null && string.valueof(objAcc.Individual_Home_Phone__c)!='')
+                {
+                      String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Individual_Home_Phone__c));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
+                if (string.valueof(objAcc.Home_Phone_2__c) != null && string.valueof(objAcc.Home_Phone_2__c)!='')
+                {
+                      String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Home_Phone_2__c));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
+                if (string.valueof(objAcc.Work_Phone__c) != null && string.valueof(objAcc.Work_Phone__c)!='')
+                {
+                      String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Work_Phone__c));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
+                if (string.valueof(objAcc.Phone) != null && string.valueof(objAcc.Phone)!='')
+                {
+                      String errorMsg = validatePhoneNumberFields(string.valueof(objAcc.Phone));                         
+                           if(errorMsg != null)
+                               objAcc.addError(errorMsg);
+                }
+            }    
+        }
+    }
+    
+    public static String ValidatePhoneNumberFields(String PhoneNum)
+    {
+        if((string.valueof(PhoneNum).startsWith('0') && (string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() > 10 || string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() < 8 ) ))
+        {
+            return 'Number of digits in Phone Number should be more than 8 or less than 10 if it starts with 0';
+        }
+       else if(string.valueof(PhoneNum).startsWith('+61') && string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() != 12)
+       {
+            return 'The phone Number record needs to have only 12 digits if it starts with +61';
+       }
+       else if((string.valueof(PhoneNum).startsWith('1300') || string.valueof(PhoneNum).startsWith('1800')) && string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() != 10 )
+       {
+            return 'The The phone Number record needs to have only 10 digits if it starts with 1800 or 1300';
+       }
+       else if((string.valueof(PhoneNum).startsWith('13') && !string.valueof(PhoneNum).startsWith('1300')) && string.valueof(PhoneNum).trim().replaceAll('(\\s+)', '').length() != 6)
+       {
+            return 'The Phone Number record needs to have only 6 digits if it starts with 13';
+       }
+       else 
+        return null; 
+    }
+    
+    @Future(callout=true)
+    public static void entityNotifyUpdate(string updateType,String sfdcId,string serlializedObject)
+    {
+    string orgId=UserInfo.getOrganizationId();
+          string sfdcTypeName='Account';
+          if(!test.isrunningtest())
+               UtilWebService.entityUpdateNotification(orgId,sfdcId,sfdcTypeName,updateType,serlializedObject);
     }
     //Existing AU related functionality ends here   
 }

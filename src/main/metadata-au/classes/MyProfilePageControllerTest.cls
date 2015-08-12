@@ -30,6 +30,9 @@
             System.assert(controller.getIsEdit() == false);
 
             Contact c = new Contact();
+            c.Salutation='Attorney';
+             c.FirstName='testFirstname';
+            c.LastName = 'testLastname'; 
             c.LastName = 'TestContact';
             insert c;
 

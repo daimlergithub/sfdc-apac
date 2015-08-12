@@ -29,5 +29,22 @@ private class ChatterAnswersEscalationTriggerTest {
         System.assertEquals(questionBody, ca.Description);
         System.assertEquals('Chatter Answers', ca.Origin);
         System.assertEquals(communityId, ca.CommunityId);
+        
+        Question q1 = new Question();
+        q1.Title = questionTitle;
+        q1.Body = questionBody;
+        q1.CommunityId = communityId;     
+        insert(q1);
+        q1.Priority = 'high';
+        
+       /* User u = new User();
+        u.Username = 'userName';
+        u.Email = 'email';
+        u.FirstName = 'firstName';
+        u.LastName = 'lastName';
+        u.CommunityNickname = 'communityNickname';
+		u.ProfileId = 'profileId';
+        insert u;*/
+        update(q1); 
     }
 }

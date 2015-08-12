@@ -9,6 +9,9 @@ public class GenericCSVLoaderControllerTest {
                                     Phone = '80801010',
                                     Area_code__c = '010',
                                     LastName = 'galaxy2',
+                                    Email__c='test011@test.com',
+                                   Email2__c='test012@test.com',
+                                   Home_Phone_2__c='9958745898',
                                     ZipCode__c='000000',
                                     Branch_name__c = '2014/06/05',
                                     File_Name__pc = 'C://User/folder',
@@ -17,12 +20,15 @@ public class GenericCSVLoaderControllerTest {
     static testMethod void myUnitTest1() {
         List<Account> accs = new List<Account>();
         accs.add(customer);
-        GenericCSVLoaderController.uploadObjects(accs);
+        List<Database.SaveResult> result=  GenericCSVLoaderController.uploadObjects(accs);
+        system.assertNotEquals(null, result);
     }
     
     static testMethod void myUnitTest2() {
         List<Account> accs = new List<Account>();
         accs.add(customer);
-        GenericCSVLoaderController.uploadAccounts(accs);
+      List<Database.SaveResult> result =  GenericCSVLoaderController.uploadAccounts(accs);
+      //assert
+        system.assertNotEquals(null, result);
     }
 }

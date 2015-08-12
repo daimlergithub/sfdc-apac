@@ -50,7 +50,7 @@
     <enableActivities>true</enableActivities>
     <enableBulkApi>true</enableBulkApi>
     <enableFeeds>false</enableFeeds>
-    <enableHistory>false</enableHistory>
+    <enableHistory>true</enableHistory>
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
@@ -60,6 +60,7 @@
         <externalId>false</externalId>
         <label>Closed Date</label>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
@@ -86,10 +87,11 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
-	</fields>
-	<fields>
+    </fields>
+    <fields>
         <fullName>Customer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -98,6 +100,7 @@
         <relationshipLabel>Pre Orders</relationshipLabel>
         <relationshipName>PreOrders</relationshipName>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
@@ -116,10 +119,11 @@
             </picklistValues>
             <sorted>false</sorted>
         </picklist>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
     </fields>
-	<fields>
+    <fields>
         <fullName>VehicleInterested__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -128,16 +132,30 @@
         <relationshipLabel>Pre Orders</relationshipLabel>
         <relationshipName>PreOrders</relationshipName>
         <required>false</required>
+        <trackHistory>true</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
     </fields>
     <label>Pre Order</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>{0000000}</displayFormat>
         <label>Pre Order</label>
+        <trackHistory>true</trackHistory>
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Pre Orders</pluralLabel>
     <searchLayouts/>
     <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Closed_Reason_Validation</fullName>
+        <active>true</active>
+        <description>Closed Reason Cannot be Empty when the status is closed.</description>
+        <errorConditionFormula>IF(  ISPICKVAL( Status__c , 'Closed')   &amp;&amp; ISBLANK(  TEXT(ClosedReason__c)  )  , true, false)</errorConditionFormula>
+        <errorMessage>Closed Reason required</errorMessage>
+    </validationRules>
 </CustomObject>

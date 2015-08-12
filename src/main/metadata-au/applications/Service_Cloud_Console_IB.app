@@ -147,11 +147,15 @@
     <saveUserSessions>true</saveUserSessions>
     <tab>Tasks</tab>
     <tab>standard-Account</tab>
-    <tab>standard-Lead</tab>    
+    <tab>Lead__c</tab>
+    <tab>Retail_Task__c</tab>
     <tab>Vehicle__c</tab>
     <workspaceMappings>
         <mapping>
-            <tab>standard-Lead</tab>
+            <tab>Lead__c</tab>
+        </mapping>
+        <mapping>
+            <tab>Retail_Task__c</tab>
         </mapping>
         <mapping>
             <tab>Tasks</tab>

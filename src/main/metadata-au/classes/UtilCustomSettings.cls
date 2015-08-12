@@ -28,4 +28,24 @@ public class UtilCustomSettings {
         }
     }
     
+    public static string getOrgWideDefaultAddress(String orgWideDefaultAddressName)
+    {	
+	    if (orgWideDefaultAddressName != null && App_Setting__c.getAll().get(orgWideDefaultAddressName) != null) {
+            return App_Setting__c.getAll().get(orgWideDefaultAddressName).Value__c;         
+		}
+		else {
+		    return UtilConstant.ORGWIDE_EMAIL_ADDRESS_DEFAULT;
+        }
+    }
+    
+    public static string getEndPointURL(String endPointName)
+    {	
+	    if (endPointName != null && EP_Integration_URLS__c.getAll().get(endPointName) != null) {
+            return EP_Integration_URLS__c.getAll().get(endPointName).EP_WebService_1__c;         
+		}
+		else {
+		    return null;
+        }
+    }
+    
 }

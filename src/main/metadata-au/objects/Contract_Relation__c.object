@@ -54,7 +54,7 @@
     <enableReports>true</enableReports>
     <enableSharing>true</enableSharing>
     <enableStreamingApi>true</enableStreamingApi>
-    <externalSharingModel>ReadWrite</externalSharingModel>    
+    <externalSharingModel>ReadWrite</externalSharingModel>
     <fields>
         <fullName>Case_Key__c</fullName>
         <externalId>false</externalId>
@@ -106,7 +106,7 @@
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Lead</label>
-        <referenceTo>Lead</referenceTo>
+        <referenceTo>Lead__c</referenceTo>
         <relationshipLabel>Contract Relations</relationshipLabel>
         <relationshipName>Contract_Relations</relationshipName>
         <required>false</required>

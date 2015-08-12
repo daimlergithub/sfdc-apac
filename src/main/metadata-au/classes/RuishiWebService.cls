@@ -23,7 +23,7 @@ public class RuishiWebService {
         private String[] apex_schema_type_info = new String[]{'http://tempuri.org/','true','false'};
         private String[] field_order_type_info = new String[]{'CreateUserResult'};
     }
-    public class RuishiWebServerSoap {
+    public class RuishiWebServerSoap{
         public String endpoint_x = 'https://benz.social360.com.cn/RuishiWebServer.asmx';
         public Map<String,String> inputHttpHeaders_x;
         public Map<String,String> outputHttpHeaders_x;

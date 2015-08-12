@@ -51,5 +51,6 @@ public class CampaignMemberHistoryControllerTest {
         CampaignMemberHistoryController c1= new CampaignMemberHistoryController(controller);
         c1.getTheResults();
         Test.stopTest();
+        system.assertNotEquals(null,c1.getTheResults());
     }
 }

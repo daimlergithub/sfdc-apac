@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Layout xmlns="http://soap.sforce.com/2006/04/metadata">
     <customButtons>New_Contacts_Relation</customButtons>
-    <excludeButtons>DataDotComAccountInsights</excludeButtons>
+    <excludeButtons>DataDotComClean</excludeButtons>
     <excludeButtons>DisableCustomerPortalAccount</excludeButtons>
     <excludeButtons>IncludeOffline</excludeButtons>
     <excludeButtons>RequestUpdate</excludeButtons>
@@ -31,6 +31,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Fleet__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Company_Name__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -76,12 +80,12 @@
                 <field>PC_Tenure__c</field>
             </layoutItems>
             <layoutItems>
-                <behavior>Readonly</behavior>
-                <field>VAN_Tenure__c</field>
+                <behavior>Edit</behavior>
+                <field>CV_Tenure__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>VAN_No_Brand_Purchases__c</field>
+                <field>VAN_Tenure__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -91,11 +95,15 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>CV_Tenure__c</field>
+                <field>Buy_Cycle__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>CV_No_Brand_Purchases__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Readonly</behavior>
+                <field>VAN_No_Brand_Purchases__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -124,7 +132,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>false</editHeading>
-        <label>Addess Information</label>
+        <label>Address Information</label>
         <layoutColumns>
             <layoutItems>
                 <height>200</height>
@@ -199,6 +207,15 @@
         <fields>System__c</fields>
         <fields>CREATEDBY_USER</fields>
         <fields>UPDATEDBY_USER</fields>
+        <relatedList>Account_Link__c.fromRole__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>System__c</fields>
+        <fields>fromRole__c</fields>
+        <fields>Position__c</fields>
+        <fields>CREATEDBY_USER</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -238,6 +255,12 @@
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Survey__c</fields>
+        <fields>Last_Answered_Question__c</fields>
+        <relatedList>SurveyTaker__c.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <customButtons>New_Vehicle_Lead</customButtons>
         <customButtons>New_Fleet_Lead</customButtons>
         <customButtons>New_Finance_Lead</customButtons>
@@ -275,7 +298,6 @@
         <fields>ClosedReason__c</fields>
         <fields>ClosedDate__c</fields>
         <fields>OWNER.ALIAS</fields>
-        <fields>CREATEDBY_USER</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>PreOrder__c.Customer__c</relatedList>
     </relatedLists>
@@ -292,7 +314,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000000Jm80</masterLabel>
+        <masterLabel>00h55000000InOg</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

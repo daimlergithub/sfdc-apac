@@ -60,7 +60,7 @@
         <externalId>false</externalId>
         <label>Account Name</label>
         <referenceTo>Account</referenceTo>
-        <relationshipLabel>Retail Tasks (Account Name)</relationshipLabel>
+        <relationshipLabel>Contracts &amp; Aftersales</relationshipLabel>
         <relationshipName>Retail_Tasks5</relationshipName>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -176,7 +176,7 @@
     <fields>
         <fullName>CMS_Contract_Link__c</fullName>
         <externalId>false</externalId>
-        <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?isdtp=vw');}"+ " else {window.location.href='/" &amp; Id &amp; "?isdtp=vw'}", ContractNumber__c , "_self" )</formula>
+        <formula>HYPERLINK("javascript:if(typeof(srcUp)=='function') {srcUp('/" &amp; Id &amp; "?');}"+ " else {window.location.href='/" &amp; Id &amp; "?'}", ContractNumber__c , "_self" )</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>CMS Contract No.</label>
         <required>false</required>
@@ -246,7 +246,7 @@
     <fields>
         <fullName>Current_Model__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Related_Vehicle__r.Model__c)</formula>
+        <formula>Related_Vehicle__r.Car_Model__r.Name</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Current Model</label>
         <required>false</required>
@@ -1832,10 +1832,6 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Spl MB Ins(Prime)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Super Prime</fullName>
                 <default>false</default>
             </picklistValues>
@@ -2195,108 +2191,27 @@
         <type>Number</type>
         <unique>false</unique>
     </fields>
-    <label>Retail Task</label>
+    <label>Contracts &amp; Aftersales</label>
     <listViews>
         <fullName>All</fullName>
-        <columns>NAME</columns>
-        <columns>ContractNumber__c</columns>
-        <columns>Created_By_EP_Transaction__c</columns>
-        <columns>Description__c</columns>
-        <columns>Purchase_Month__c</columns>
-        <columns>Purchase_Year__c</columns>
-        <columns>Retail_Employee_Activity__c</columns>
-        <columns>Retail_LastModifiedDate__c</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>Selling_Dealer__c</columns>
-        <columns>Updated_By_EP_Transactions__c</columns>
-        <columns>VIN__c</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>OWNER.LAST_NAME</columns>
-        <columns>Related_Contact__c</columns>
+        <columns>CMS_Contract_Link__c</columns>
+        <columns>Account__c</columns>
+        <columns>StartDate__c</columns>
+        <columns>EndDate__c</columns>
+        <columns>Finance_Product_Type__c</columns>
+        <columns>Related_Dealer__c</columns>
+        <columns>VIN_Link__c</columns>
+        <columns>Vehicle_Registration_No__c</columns>
+        <columns>Duration__c</columns>
         <filterScope>Everything</filterScope>
         <label>All</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
-        <fullName>RetailActivity</fullName>
-        <columns>NAME</columns>
-        <columns>Related_Dealer__c</columns>
-        <columns>ContractNumber__c</columns>
-        <columns>Created_By_EP_Transaction__c</columns>
-        <columns>Updated_By_EP_Transactions__c</columns>
-        <columns>Description__c</columns>
-        <columns>Purchase_Month__c</columns>
-        <columns>Purchase_Year__c</columns>
-        <columns>Retail_Employee_Activity__c</columns>
-        <columns>Retail_LastModifiedDate__c</columns>
-        <columns>CREATEDBY_USER</columns>
-        <columns>Selling_Dealer__c</columns>
-        <columns>Related_Contact__c</columns>
-        <columns>Retail_Id__c</columns>
-        <columns>Group__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Retail_Task__c.Retail_Activity</value>
-        </filters>
-        <label>RetailActivity</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>Service</fullName>
-        <columns>Service_Number__c</columns>
-        <columns>Service_Code__c</columns>
-        <columns>Related_Contact__c</columns>
-        <columns>Related_Vehicle__c</columns>
-        <columns>Related_Dealer__c</columns>
-        <columns>Service_Position__c</columns>
-        <columns>NAME</columns>
-        <columns>Service_Invoice_Number__c</columns>
-        <columns>Retail_LastModifiedDate__c</columns>
-        <columns>Follow_Up_Type__c</columns>
-        <columns>Group__c</columns>
-        <columns>Retail_Id__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Retail_Task__c.Service</value>
-        </filters>
-        <label>Service</label>
-        <language>en_US</language>
-    </listViews>
-    <listViews>
-        <fullName>contract</fullName>
-        <columns>NAME</columns>
-        <columns>ContractNumber__c</columns>
-        <columns>Created_By_EP_Transaction__c</columns>
-        <columns>Description__c</columns>
-        <columns>Purchase_Month__c</columns>
-        <columns>Purchase_Year__c</columns>
-        <columns>Retail_Employee_Activity__c</columns>
-        <columns>Retail_LastModifiedDate__c</columns>
-        <columns>CREATED_DATE</columns>
-        <columns>Selling_Dealer__c</columns>
-        <columns>Updated_By_EP_Transactions__c</columns>
-        <columns>VIN__c</columns>
-        <columns>RECORDTYPE</columns>
-        <columns>OWNER.LAST_NAME</columns>
-        <columns>Related_Contact__c</columns>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>RECORDTYPE</field>
-            <operation>equals</operation>
-            <value>Retail_Task__c.Contract</value>
-        </filters>
-        <label>Contract</label>
-        <language>en_US</language>
-    </listViews>
     <nameField>
-        <label>Name</label>
+        <label>Name / ID</label>
         <type>Text</type>
     </nameField>
-    <pluralLabel>Retail Tasks</pluralLabel>
+    <pluralLabel>Contracts &amp; Aftersales</pluralLabel>
     <recordTypes>
         <fullName>Contract</fullName>
         <active>true</active>
@@ -3168,10 +3083,6 @@
             </values>
             <values>
                 <fullName>Spl MB Ins %28Std%29 CL</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Spl MB Ins%28Prime%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6809,6 +6720,18 @@
         <active>true</active>
         <errorConditionFormula>StartDate__c&gt;EndDate__c</errorConditionFormula>
         <errorMessage>End Date must be bigger than Start Date</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Restrict_Contract_Record_Edit</fullName>
+        <active>true</active>
+        <description>This validation is to restrict users from editing and saving the Contract records</description>
+        <errorConditionFormula>AND
+(
+$Profile.Name != 'IntegrationAPI',
+RecordType.DeveloperName = 'Contract',
+$Profile.Name != 'System Administrator'
+)</errorConditionFormula>
+        <errorMessage>You do not have the permission to perform this task</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Service_No_Read_Only</fullName>

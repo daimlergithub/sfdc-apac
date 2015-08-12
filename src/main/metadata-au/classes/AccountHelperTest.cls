@@ -27,7 +27,7 @@ public class AccountHelperTest
        AccountHelper.updateLeads(contactIds);
        
        test.stopTest();
-       //system.assertNotEquals(null, testLead.OwnerId); commented as Community license is not there for AU
+       system.assertEquals(true, testLead.Assigned_to_Dealer_Directly__c); 
        
    }
     
@@ -79,6 +79,27 @@ public class AccountHelperTest
        Map<String, boolean> testMapDealer = AccountHelper.getDealerCountInfo(dealerCodes);
        Set<Id> cp016Map = AccountHelper.getVSCountInfo(ids);
        
+        Set<Id> customerIds = new Set<Id>();
+       customerIds.add(Dealer.id);
+       Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;
+        Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
+        Map<String,Date>  preRecordsVAN = AccountHelper.getExsitedInfos(customerIds,'VAN');
+       exsisedRecord.put('VAN', preRecordsVAN);
+       Map<Id, Map<String,Integer>> Vehiclecount=new Map<Id, Map<String,Integer>>();
+       Map<Id, Map<String,Integer>> Vehicletenure=new  Map<Id, Map<String,Integer>>();
+               Map<String,Integer> tempcount=new Map<String,Integer>();
+               tempcount.put('PC',PcCount);
+                tempcount.put('CV',CvCount);
+                tempcount.put('Van',VanCount);
+                Vehiclecount.put(Dealer.id,tempcount);
+                Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                Map<String,Integer> counttenure = new Map<String,Integer>();  
+                counttenure.put('PC',PcTenure);
+                counttenure.put('CV',CvTenure);
+                counttenure.put('Van',VanTenure);
+                Vehicletenure.put(Dealer.id,counttenure);
+       AccountHelper.updatePCCVField(Dealer,'VAN',exsisedRecord,true,Vehiclecount,Vehicletenure);
+       
        test.stopTest();
        system.assertNotEquals(null,testMapDealer);
        system.assertNotEquals(null,cp016Map);
@@ -100,15 +121,162 @@ public class AccountHelperTest
        personAcc.Opt_In_Email__c = true;
        personAcc2.Opt_In_Email__c = false;
        personAcc.Opt_In_SMS__c  = true;
+       personAcc.FS_Opt_In_SMS2__c=true;
        personAcc2.Opt_In_SMS__c  = false;
+       personAcc.FS_Opt_In_Home_Phone__c=true;
+       personAcc.FS_Opt_In_Home_Phone2__c=true;
+        personAcc.FS_Opt_In_Work_Phone__c=true;
+        personAcc.FS_Opt_In_Work_Phone2__c=true;
+       personAcc.FS_Opt_In_Email2__c=true;
+        personAcc.Opt_In_SMS2__c=true;
+       personAcc.Opt_In_Home_Phone__c=true;
+         personAcc.Opt_In_Home_Phone2__c=true;
+         personAcc.Opt_In_Work_Phone__c=true;
+        personAcc.Opt_In_Work_Phone2__c=true;
+       personAcc.Opt_In_Email2__c=true;
        update personAcc2;
        update personAcc;
+       
+       list<Account> lstPACC =new list<Account>();
+       lstPACC.add(personAcc);
        AccountHelper.trackUpdatHistoryForFsInfo(personAcc, personAcc2);
+       AccountHelper.auAfter_Update_UpdatePc_Status_Values(lstPACC);
       
        test.stopTest();
        system.assertEquals(UserInfo.getName(), personAcc.SMS_Last_Modified_By__c);
        
    }
+    
+     public static testMethod void testupdatePCCVFieldUnknownVehicleGroup()
+    {
+        Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
+        preRecords.put('blabla', new Map<String, Date>());
+               createTestData();
+               Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;        
+               Map<Id, Map<String,Integer>> Vehiclecount=new Map<Id, Map<String,Integer>>();
+               Map<Id, Map<String,Integer>> Vehicletenure=new  Map<Id, Map<String,Integer>>();
+               Map<String,Integer> tempcount=new Map<String,Integer>();
+               tempcount.put('PC',PcCount);
+                tempcount.put('CV',CvCount);
+                tempcount.put('Van',VanCount);
+                Vehiclecount.put(Dealer.id,tempcount);
+                Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                Map<String,Integer> counttenure = new Map<String,Integer>();  
+                counttenure.put('PC',PcTenure);
+                counttenure.put('CV',CvTenure);
+                counttenure.put('Van',VanTenure);
+                Vehicletenure.put(Dealer.id,counttenure);
+      
+       
+        Test.startTest();
+         Account ac=AccountHelper.updatePCCVField(Dealer,'blabla',preRecords,true,Vehiclecount,Vehicletenure);
+        Test.stopTest();
+        system.assertNotEquals(ac,NULL);
+    }
+    
+    public static testMethod void testupdatePCCVField()
+    {
+        Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
+        preRecords.put('PC', new Map<String, Date>());
+        createTestData();
+              Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;        
+               Map<Id, Map<String,Integer>> Vehiclecount=new Map<Id, Map<String,Integer>>();
+               Map<Id, Map<String,Integer>> Vehicletenure=new  Map<Id, Map<String,Integer>>();
+               Map<String,Integer> tempcount=new Map<String,Integer>();
+               tempcount.put('PC',PcCount);
+                tempcount.put('CV',CvCount);
+                tempcount.put('Van',VanCount);
+                Vehiclecount.put(Dealer.id,tempcount);
+                Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                Map<String,Integer> counttenure = new Map<String,Integer>();  
+                counttenure.put('PC',PcTenure);
+                counttenure.put('CV',CvTenure);
+                counttenure.put('Van',VanTenure);
+                Vehicletenure.put(Dealer.id,counttenure);
+      
+        Test.startTest();
+        Account ac=AccountHelper.updatePCCVField(Dealer,'PC',preRecords,true,Vehiclecount,Vehicletenure);
+        Test.stopTest();
+         system.assertNotEquals(ac,NULL);
+    }
+    
+    public static testMethod void testupdatePCCVFieldDifferentVehicleGroup()
+    {
+        Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
+        preRecords.put('bloob', new Map<String, Date>());
+        createTestData();
+        Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;        
+               Map<Id, Map<String,Integer>> Vehiclecount=new Map<Id, Map<String,Integer>>();
+               Map<Id, Map<String,Integer>> Vehicletenure=new  Map<Id, Map<String,Integer>>();
+               Map<String,Integer> tempcount=new Map<String,Integer>();
+               tempcount.put('PC',PcCount);
+                tempcount.put('CV',CvCount);
+                tempcount.put('Van',VanCount);
+                Vehiclecount.put(Dealer.id,tempcount);
+                Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                Map<String,Integer> counttenure = new Map<String,Integer>();  
+                counttenure.put('PC',PcTenure);
+                counttenure.put('CV',CvTenure);
+                counttenure.put('Van',VanTenure);
+                Vehicletenure.put(Dealer.id,counttenure);
+      
+        Test.startTest();
+        Account ac=AccountHelper.updatePCCVField(Dealer, 'blabla', preRecords, true,Vehiclecount,Vehicletenure);
+        
+        Test.stopTest();
+         system.assertNotEquals(ac,NULL);
+    }
+    
+    public static testMethod void testupdatePCCVFieldEmptyVehicleGroup()
+    {
+        Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
+        preRecords.put('blabla', new Map<String, Date>());
+         createTestData();
+        Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;        
+               Map<Id, Map<String,Integer>> Vehiclecount=new Map<Id, Map<String,Integer>>();
+               Map<Id, Map<String,Integer>> Vehicletenure=new  Map<Id, Map<String,Integer>>();
+               Map<String,Integer> tempcount=new Map<String,Integer>();
+               tempcount.put('PC',PcCount);
+                tempcount.put('CV',CvCount);
+                tempcount.put('Van',VanCount);
+                Vehiclecount.put(Dealer.id,tempcount);
+                Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                Map<String,Integer> counttenure = new Map<String,Integer>();  
+                counttenure.put('PC',PcTenure);
+                counttenure.put('CV',CvTenure);
+                counttenure.put('Van',VanTenure);
+                Vehicletenure.put(Dealer.id,counttenure);
+        Test.startTest();
+        Account ac=AccountHelper.updatePCCVField(Dealer, '', preRecords, true,Vehiclecount,Vehicletenure);
+        Test.stopTest();
+        system.assertNotEquals(ac,NULL);
+       
+    }
+    
+    public static testMethod void testupdatePCCVFieldNullVehicleGroup()
+    {
+        Map<String,Map<String,Date>> preRecords = new Map<String,Map<String,Date>>();
+        preRecords.put('blabla', new Map<String, Date>());
+         createTestData();
+        Integer PcCount=1;Integer CvCount=2;Integer VanCount=3;        
+               Map<Id, Map<String,Integer>> Vehiclecount=new Map<Id, Map<String,Integer>>();
+               Map<Id, Map<String,Integer>> Vehicletenure=new  Map<Id, Map<String,Integer>>();
+               Map<String,Integer> tempcount=new Map<String,Integer>();
+               tempcount.put('PC',PcCount);
+                tempcount.put('CV',CvCount);
+                tempcount.put('Van',VanCount);
+                Vehiclecount.put(Dealer.id,tempcount);
+                Integer PcTenure=0;Integer CvTenure=0;Integer VanTenure=0;
+                Map<String,Integer> counttenure = new Map<String,Integer>();  
+                counttenure.put('PC',PcTenure);
+                counttenure.put('CV',CvTenure);
+                counttenure.put('Van',VanTenure);
+                Vehicletenure.put(Dealer.id,counttenure);
+        Test.startTest();
+        Account ac=AccountHelper.updatePCCVField(Dealer, null, preRecords, true,Vehiclecount,Vehicletenure);
+        Test.stopTest();
+        system.assertNotEquals(ac,NULL);
+    }
     
     static void createTestData()
    {
@@ -158,6 +326,15 @@ public class AccountHelperTest
        
        insert personAcc;
        
+       Address__c objAddress = new Address__c();
+       objAddress.Customer__c=personAcc.id;
+       objAddress.Address_Line_1__c='testAddres';
+       objAddress.District__c='TestDist';
+       objAddress.Country__c='Australia';
+       objAddress.Province__c='ACT';
+       
+       insert objAddress;
+       
        personAcc2 = new Account(Dealer_Default_Flag__c=false,
                                     Dealer_DMS_SR_Code__c='test code 1',
                                     Status__c='NoCustomer',
@@ -199,6 +376,7 @@ public class AccountHelperTest
         vRel = new Vehicle_Relationship__c(Recall__c = FALSE, Car_Relation__c = 'User', RecordTypeId = VRRecordTypeId);
         vRel.Contact__c = personAcc.id;
        vRel.Vehicle_ID__c = vehicles.id;
+       vRel.Car_Relation__c='Owner';
         insert vRel;
        
        
@@ -217,7 +395,7 @@ public class AccountHelperTest
           insert testContact;
        
        usr = new User(
-            Username = System.now().millisecond() + 'test12345@test.com',
+            Username = System.now().millisecond() +math.random()+ '987654321test12345@test.com',
             FirstName = 'firstname',
             ProfileId = userProfile.Id,            
             Alias = 'test123',
@@ -229,7 +407,7 @@ public class AccountHelperTest
             LocaleSidKey = 'en_US',
             LanguageLocaleKey = 'en_US'
         );
-      //  usr.ContactId = testContact.id;   //Community license not available.
+       //usr.ContactId = testContact.id;   //Community license not available.
         insert usr;
    }
 

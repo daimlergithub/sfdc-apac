@@ -117,7 +117,7 @@
         <label>Contact Informations</label>
         <layoutColumns>
             <layoutItems>
-                <height>200</height>
+                <height>300</height>
                 <page>AccountContactInformation</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
@@ -241,13 +241,18 @@
         <relatedList>Vehicle_Relationship__c.Contact__c</relatedList>
     </relatedLists>
     <relatedLists>
+        <fields>NAME</fields>
+        <fields>Survey__c</fields>
+        <fields>Last_Answered_Question__c</fields>
+        <relatedList>SurveyTaker__c.Account__c</relatedList>
+    </relatedLists>
+    <relatedLists>
         <fields>VehicleInterested__c</fields>
         <fields>NAME</fields>
         <fields>Status__c</fields>
         <fields>ClosedReason__c</fields>
         <fields>ClosedDate__c</fields>
         <fields>OWNER.ALIAS</fields>
-        <fields>CREATEDBY_USER</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>PreOrder__c.Customer__c</relatedList>
     </relatedLists>
@@ -286,6 +291,16 @@
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>System__c</fields>
+        <fields>CREATEDBY_USER</fields>
+        <fields>UPDATEDBY_USER</fields>
+        <relatedList>Account_Link__c.fromRole__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <excludeButtons>New</excludeButtons>
+        <fields>NAME</fields>
+        <fields>System__c</fields>
+        <fields>fromRole__c</fields>
+        <fields>Position__c</fields>
         <fields>CREATEDBY_USER</fields>
         <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>

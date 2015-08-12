@@ -27,10 +27,10 @@ public class TaskTriggerHandler
     
     public void handleTrigger()
     {
-        if(trigger.isAfter && trigger.isInsert)
+       /* if(trigger.isAfter && trigger.isInsert)
         {
         	//todo commented: need to add trigger wsitching mechanism
-            /*if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
+            if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
                 TaskHelper.TaskFailBlacklist(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
             }
             
@@ -41,12 +41,12 @@ public class TaskTriggerHandler
             TaskTriggerHandler.updateAccountCallMessage((Map<Id,Task>)Trigger.newMap, (Map<Id,Task>)Trigger.oldMap);
             TaskTriggerHandler.autoUpdateTaskAfterLogInserted((Task)Trigger.new[0]);
             TaskTriggerHandler.autoUpdateAccountOBTaskMessage(Trigger.new);
-            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);*/     
-        }
-        if(trigger.isAfter && trigger.isUpdate)
+            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);     
+        }*/
+        /* if(trigger.isAfter && trigger.isUpdate)
         {
         	//todo commented: need to add trigger wsitching mechanism
-            /*
+           
             if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
                 TaskHelper.TaskFailBlacklist(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
             }
@@ -59,8 +59,8 @@ public class TaskTriggerHandler
             TaskTriggerHandler.autoUpdateTaskAfterLogInserted((Task)Trigger.new[0]);
             TaskTriggerHandler.autoUpdateSSISurveyStatus((Task)Trigger.new[0], (Task)Trigger.old[0]);
             TaskTriggerHandler.generateWelcomeCall((Task)Trigger.new[0], (Task)Trigger.old[0]);
-            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);*/
-        }
+            TaskHelper.SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
+        }*/
         if(trigger.isBefore && trigger.isInsert)
         {
         	//todo commented: need to add trigger wsitching mechanism
@@ -155,7 +155,7 @@ public class TaskTriggerHandler
         
     }
 
-    private static void updateLeadAndCampaignLead(Map<Id, Account> accounts) {
+    @testVisible private static void updateLeadAndCampaignLead(Map<Id, Account> accounts) {
         List<Lead__c> leads = [
             Select Successful_Call_Number__c, CreatedDate, Contact__c, Lead_DataSource__c, Last_Successful_Call__c, Lost_CAC_Date_Time__c, Purchased_CAC_Date_Time__c, CAC_Lead_Status__c
             From Lead__c 
@@ -236,8 +236,8 @@ public class TaskTriggerHandler
                doGenerateWC(tk);    
         }
     }
-    
-    private static void doGenerateWC(Task tk){
+ 
+    @TestVisible private static void doGenerateWC(Task tk){
         Account acc = [
             Select Id, Name, PersonOtherPhone, Phone, PersonMobilePhone, PersonHomePhone, PersonAssistantPhone 
             From Account 
@@ -447,7 +447,7 @@ public class TaskTriggerHandler
                 Where Id = :tk.Related_Task_Id__c And ( RecordTypeId = :OBTRTID Or RecordTypeId =: WCRTID Or RecordTypeId =: SSIRTID)
             ];
             // By Shuang Li US-smart_SSI-008---- end
-
+			
             if(tasks != null && tasks.size() > 0){
                 Task t = tasks[0];
                 if((tk.Start_call_time__c != null && t.Last_OB_Call__c != tk.Start_call_time__c) || t.SSI_Status__c != tk.SSI_Status__c){
@@ -547,7 +547,7 @@ public class TaskTriggerHandler
 
     }
     
-    private static void autoUpdateSSITask(Set<Task> tasks){
+    @TestVisible private static void autoUpdateSSITask(Set<Task> tasks){
         Set<Id> ssiIds = new Set<Id>();
 
         for (Task tk : tasks ) {
@@ -577,7 +577,7 @@ public class TaskTriggerHandler
         }
     }
     
-    private static void updateSSISurveyStatus(Id ssiId, String subject){
+    @testVisible private static void updateSSISurveyStatus(Id ssiId, String subject){
         if(ssiId!=null && ssiId.getSObjectType() == SSI__c.getSObjectType()){
             SSI__c ssi = [Select Id, Survey_Finished__c From SSI__c Where Id = :ssiId];
             ssi.Survey_Finished__c = subject == X2NDSURVEY?'2nd Survey':'1st Survey';
@@ -591,7 +591,8 @@ public class TaskTriggerHandler
     public static void autoUpdateAccountOBTaskMessage(List<Task> tList){
         getRecordTypeId();
         Map<Id, Task> updateMap = new Map<Id, Task>();
-        for(Task tk : tList){
+        for(Task tk : tList)
+        {
             if(tk.RecordTypeId == OBTRTID && tk.WhatId != null 
                     && tk.WhatId.getSObjectType().getDescribe().getName() == 'Account'){
                 if(!updateMap.containsKey(tk.WhatId)){
@@ -665,7 +666,7 @@ public class TaskTriggerHandler
 	        Schema.DescribeSobjectResult r= Retail_Task__c.sObjectType.getDescribe();
 	        string keyPrefix=r.getKeyPrefix();
 	        for(Task task : listTaskNew) {
-	            if(RECORD_TYPE_SET.contains(task.RecordTypeId) && String.valueOf(task.WhatId).startswith(keyPrefix))  {
+	            if(RECORD_TYPE_SET.contains(task.RecordTypeId) && task.whatId != null && String.valueOf(task.WhatId).startswith(keyPrefix))  {
 	                contractIds.add(task.WhatId);
 	            }
 	        }

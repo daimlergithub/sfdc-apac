@@ -47,6 +47,12 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+	<relatedLists>
+        <fields>NAME</fields>
+        <fields>System__c</fields>
+        <fields>RECORDTYPE</fields>
+        <relatedList>Account_Link__c.Vehicle__c</relatedList>
+    </relatedLists>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>

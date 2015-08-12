@@ -1,333 +1,474 @@
 /*
     Type:       Test Class for LeadHelper
-    Purpose:    Create a custom sharing to share the lead record with Smart Account Owner or the Star Elite Account Owner (from dealer record) with Read Only access.)
+    Purpose:    Create a custom sharing to share the lead record with 
+    Smart Account Owner or the Star Elite Account Owner (from dealer record) with Read Only access.)
     User Story: US-QC-022, US-QC-023, US-DP-022, US-DP-023, US-IB-001
-    Used By:
-    ---------------------------------------------------------------
-    History:
-
     1. Sinow Created on 2013-04-25
     2. Justin
 */
+
+
 @isTest
-public class LeadHelperTest {
-
+public with sharing class LeadHelperTest {
+    private static Account customer;
+	private static Account dealer;
+    private static Account account;
+    private static Account personaccount1;
+	private static Lead__c lead;
+    
+	private static String dealerRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    private static final String leadFinanceRT = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
+    private static final String leadVehicleRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId(); 
+    private static String PersonRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+     private static final String leadSPRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId();
+    private static TestDataUtil testData = TestDataUtil.getInstance();
+    private static string localeSideKeyValue = 'en_US';
     //add in 11/27
-    private static Map<String, Id> roleMap;
-    private static Map<String, Id> profileMap;
-
-    // Initiate roleMap
-    private static Map<String, Id> getUserRoleMapInstance() {
-        if (roleMap == null) {
-            roleMap = new Map<String, Id>();
-            for (UserRole role : [SELECT Id, Name FROM UserRole LIMIT 1000]) {
-                roleMap.put(role.Name, role.Id);
-            }
-        }
-        return roleMap;
+    private static string BusinessUnitValue = 'Alliance';
+    private static string EOCRecipientTypeValue = '60 days primary';
+    private static string LeadEscalationRecipientTypeValue ='Immediate Notice';
+     private static string SubBusinessUnitValue = 'Finance';
+    private static string SubBusinessUnitValue1 = 'Finance & Insurance';
+    private static string LeadTypeValue1 = 'New Car';
+     private static string FinanceLeadType = 'Key 2 Key';
+     private static string CACLeadStatusValue1='New Enquiry';
+    private static string LeadSourceValue = 'Campaign';
+    private static User user;
+    private static Vehicle__c vehicles;
+    private static void createUser(Profile profile){        
+       
+         user = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao7',
+                                  Email = 'sichao7.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
+                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = localeSideKeyValue,
+                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = localeSideKeyValue);
+        insert user;
+        
+        
     }
-
-    // Initiate profileMap
-    private static Map<String, Id> getProfileMapInstance() {
-        if (profileMap == null) {
-            profileMap = new Map<String, Id>();
-            for (Profile prof : [SELECT Id, Name FROM Profile LIMIT 1000]) {
-                profileMap.put(prof.Name, prof.Id);
-            }
-        }
-        return profileMap;
-    }
-
-    // Get UserRoleId by Role Name
-    private static Id getUserRoleId(String roleName) {
-        return getUserRoleMapInstance().get(roleName);
-    }
-
-    // Get ProfileId by Profile Name
-    private static Id getProfileId(String profileName) {
-        return getProfileMapInstance().get(profileName);
-    }
-
-    private static User createUser(String userRolex, String profilex) {
-        User usr = new User();
-        usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
-        usr.UserRoleId = userRolex;
-        usr.ProfileId = profilex;
-        usr.LastName = 'Test User';
-        usr.Email = 'test001@daimler.com.full';
-        usr.Alias = 'test';
-        usr.TimeZoneSidKey = 'Asia/Shanghai';
-        usr.EmailEncodingKey = 'UTF-8';
-        usr.LanguageLocaleKey = 'en_US';
-        usr.localesidkey='en_US';
-        usr.isActive = true;
-        insert usr;
-        return usr;
-    }
-
-    // add in 11/27
-    public static testMethod void LeadHelperTest1() {
-        Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
-        Profile profileCAC = [select Id from Profile where Name = 'CAC IB CSR'];
-        userRole roleId1 = [select Id from userRole where Name = 'IB CSR'];
-        User user1 = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
-                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
-                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
-        insert user1;
-
-        User SmartDM = createUser(roleId1.Id,profileCAC.Id);
-        String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account dealer = new Account();
-        dealer.Dealer_Alternate_Name__c = 'Test Alternate';
-        dealer.Phone = '12332111';
-        dealer.Dealer_GC_Code__c = 'gc code';
-        dealer.Dealer_GS_Code__c = 'gs code';
-        dealer.Name = 'test dealer';
-        dealer.RecordTypeId = DealerRecordtypeid;
-        dealer.Star_Elite_Account_Owner__c = SmartDM.Id;
-        dealer.Smart_Account_Owner__c = SmartDM.Id;
-        dealer.Dealer_Lead_System__c = 'Salesforce';
-        dealer.Dealer_Lead_Gate_Keeper__c = user1.id;
-        dealer.Allow_Data_Sharing__c = 'Yes';
-        dealer.Province__c = 'jiangsu';
-        dealer.City__c = 'nanjing';
-        dealer.Preferred_Language__c = 'English';
-        dealer.Dealer_Lead_System__c = 'Salesforce';
-        dealer.Gender__c = '0=Male';
-        dealer.ZipCode__c = '200235';
-        dealer.Type = '0=Company';
-        dealer.Status__c = '0=contac1';
-        dealer.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
-        dealer.Dealer_Region__c = 'EAST';
-
-        system.runAs( user1 ) {
+    private static void createDealer(){
+         dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58396243', Name = 'testdealer',Active__c='yes',Dealer_Allocation__c='MBAuP',Activation_Date__c=system.today());
             insert dealer;
-            set<id> setDealerId = new set<id>();
-            setDealerId.add(dealer.id);
-            Lead__c lead = getLead(user1);
-            Contact c = new Contact(Dealer_Lead_Gate_Keeper__c = true,LastName='test',Federation_ID__c='test federation',Email='test001@daimler.com.full',Phone='12332111');
-            insert c;
-            user1.Contact = c;
-           // user1.AccountId = dealer.Id;
-            user1.Contact.Dealer_Lead_Gate_Keeper__c = true;
-            lead.Assigned_Dealer__c = user1.AccountId;
-            update lead;
-
-            lead.Assigned_Dealer__c = dealer.Id;
-            
-           
-         
-            update lead;
-            list<Lead__c> listLead = new list<Lead__c>();
-            listLead.add(lead);
-            map<id,id> caseLead = new map<id,id>();
-            caseLead.put(lead.id, lead.id);
-             string tempTitle = 'testTemplate';
-            LeadHelper.UpdateLeadOwnerFromContact(setDealerId,listLead);
-            LeadHelper.ShareToGateKeeper(setDealerId,listLead);
-            LeadHelper.UpdateCasesWithLeadId(caseLead);
-            LeadHelper.createdNewSMSTaskForInstructor(lead,user1,user1,dealer,dealer);
-            LeadHelper.createdNewSMSTaskForCustomer(lead,user1,dealer,dealer,tempTitle);
-            //User u =[select Id, AccountId from User where isActive = true and AccountId in :setDealerId and Contact.Dealer_Lead_Gate_Keeper__c = true];
-            //system.debug('test'+u);
-        }
-    }
+         vehicles = new Vehicle__c(Recall__c = FALSE,
+                                                EuroVIN__c = '12345678901111111',
+                                                UsVIN__c = '12345678902222222');
+        insert vehicles;
+        
+    }    
+   
+  
 
     @istest(seealldata = true)
     public static void LeadHelperTest2() {
-        String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        String PersonRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-        String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
-
+       
+      
+        String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Service/Parts Lead').getRecordTypeId();
+       
         Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
-        User user2 = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
-                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
-                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
-        insert user2;
+         createUser(profile);
+        
+      
 
-        system.runAs( user2 ) {
-            Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');
-            insert dealer;
-            Account dealer2 = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'dealer2');
+        system.runAs( user ) {
+            createDealer();
+            
+            Account dealer2 = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58399243', Name = 'dealer2');
             insert dealer2;
-            Account a1 = new Account(Allow_Data_Sharing__c = 'No', Phone = '58392243', RecordTypeId = PersonRecordtypeid, LastName = 'sichao');
+            Account a1 = new Account(Allow_Data_Sharing__c = 'No', Phone = '58396243', RecordTypeId = PersonRecordtypeid, LastName = 'sichao8');
             a1.Gender__c = 'Male';
             a1.Province__c = 'Shanghai';
             a1.City__c = 'Anqing city';
             a1.Preferred_Language__c = 'English';
+            //a1.Lead_Escalation_Recipient_Type__c='Immediate Notice';
+            //a1.Dealer_Lead_Gate_Keeper__c=false;
             insert a1;
-            Account a2 = new Account(Allow_Data_Sharing__c = 'No', Phone = '58392243', RecordTypeId = PersonRecordtypeid, LastName = 'sichao');
+             
+            
+            Account a2 = new Account(Allow_Data_Sharing__c = 'No', Phone = '56392243', RecordTypeId = PersonRecordtypeid, LastName = 'sichao9');
             a2.Gender__c = 'Male';
             a2.Province__c = 'Shanghai';
             a2.City__c = 'Anqing city';
             a2.Preferred_Language__c = 'English';
             a2.Dealer_Lead_System__c = 'Salesforce';
             a2.Allow_Data_Sharing__c = 'Yes';
+            
             insert a2;
+            Contact contact1 = new Contact ( AccountId = dealer.id,
+                                         FirstName = 'lai',
+                                         LastName = 'sichao11',
+                                         Email = 'sichao11.lai@nttdata.com',
+                                         EOC_Recipient_Type__c = EOCRecipientTypeValue,
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
+            insert contact1;
+           Test.startTest();
             Lead__c le1 = new Lead__c();
             //le1.Need_Assign_To_Dealer__c = 'Need';
             le1.Assigned_Dealer__c = dealer.id;
             le1.Contact__c = a1.id;
             le1.RecordTypeId = afterSalesRecordTypeId;
+            le1.CAC_Lead_Status__c = 'Qualified';
             insert le1;
             List<Lead__c> le2 = new List<Lead__c>();
-            le2.add(getLead(user2));
+            le2.add(getLead1(user));
             
             le2[0].Contact__c = a1.id;
-            le2[0].Lead_Type__c = 'New Car';
+            le2[0].Lead_Type__c = LeadTypeValue1;
             le2[0].Relation_With_The_Leads__c = 'I owner';
             le2[0].CAC_Lead_Status__c = 'Assigned';
             le2[0].Purchase_Time__c = '0 - 3 months';
             le2[0].Interested_Vehicle_Brand__c = 'MB';
             le2[0].Lead_Desired_Service__c = 'Test Drive';
             update le2[0];
+            
+            Test.stopTest();
+            //verify
+            //
+             lead = [select CAC_Lead_Status__c,Assigned_Dealer__c from Lead__c where id =:le1.id ];
+            system.assertEquals(lead.CAC_Lead_Status__c, le1.CAC_Lead_Status__c);
+            system.assert(lead.Assigned_Dealer__c == le1.Assigned_Dealer__c );
         }
     }
 
     @istest(seealldata = true)
     public static void LeadHelperTest3() {
-        String PersonRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-        Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
-        User user3 = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
-                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
-                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
-        insert user3;
+        
+        Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
+        createUser(profile);       
+       
+           system.runAs( user) {
+          
+            
+            getLead(user);
+                 createDealer();
+               Contact contact1 = new Contact ( AccountId = dealer.id,
+                                               
+                                         Inactive__c=false,
+                                         Business_Unit__c=BusinessUnitValue,
+                                         Sub_BusinessUnit__c=SubBusinessUnitValue,
+                                         FirstName = 'lai3',
+                                         LastName = 'sichao3',
+                                         Email = 'sichao3.lai@nttdata.com',
+                                         EOC_Recipient_Type__c = EOCRecipientTypeValue,
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
+                   insert contact1;
+                Test.startTest();             
+                 
+         lead = new Lead__c();
+        
+        lead.Contact__c = personaccount1.Id;
+        lead.recordTypeId = leadVehicleRt;
+        lead.Lead_Type__c = LeadTypeValue1;
+        lead.CAC_Lead_Status__c = CACLeadStatusValue1;
+        lead.Lead_Source__c = LeadSourceValue;
+        lead.Nature_of_Request__c='Brochure Request';
+        lead.Business_Unit__c= BusinessUnitValue;
+        lead.Sub_BusinessUnit__c='Parts';
+        lead.X24H_Untouched__c=false;
+        lead.X72H_Untouched__c=false;
+        insert lead;
+       
+         lead.X24H_Untouched__c=true;
+         lead.X72H_Untouched__c=true;
+         lead.Is_Finance_Send_Email_Before_20_Days__c=true;
+         update lead;
+               
+               lead.Assigned_Dealer__c=dealer.id;
+               lead.Business_Unit__c=BusinessUnitValue;
+               lead.Sub_BusinessUnit__c=SubBusinessUnitValue1;
+               update lead;
+               map<id,id> NewCaseLeadIds = new  map<id,id>();
+               NewCaseLeadIds.put(lead.id, lead.id);
+               
+               LeadHelper.UpdateCasesWithLeadId(NewCaseLeadIds);
+               LeadHelper.insertLeadSharing(NewCaseLeadIds,NewCaseLeadIds);
+                  Test.stopTest();
+               
+               Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead.id ];
+               system.assertEquals(leadList.Assigned_Dealer__c, lead.Assigned_Dealer__c);
+               system.assertEquals(leadList.Business_Unit__c, lead.Business_Unit__c);
+               
+           }
+        
+        
+    }
+     @istest(seealldata = true)
+    public static void LeadHelperTest5() {
+        
+        Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
+        createUser(profile);
 
-        system.runAs( user3 ) {
-            Account a1 = new Account(Allow_Data_Sharing__c = 'No', Phone = '58392243', RecordTypeId = PersonRecordtypeid, LastName = 'sichao');
-            a1.Gender__c = 'Male';
-            a1.Province__c = 'Shanghai';
-            a1.City__c = 'Anqing city';
-            a1.Preferred_Language__c = 'English';
-            insert a1;
-            Case c1 = new Case();
-            insert c1;
-            Lead__c le1 = new Lead__c();
-            le1.Case__c = c1.id;
-            le1.Contact__c = a1.id;
-            insert le1;
-        }
+       
+       
+           system.runAs( user) {
+          
+            
+            getLead(user);
+                createDealer();
+               Contact contact1 = new Contact ( AccountId = dealer.id,
+                                               
+                                               Inactive__c=false,
+                                               Business_Unit__c=BusinessUnitValue,
+                                               Sub_BusinessUnit__c=SubBusinessUnitValue1,
+                                               FirstName = 'lai1',
+                                               LastName = 'sichao2',
+                                               Email = 'sichao2.lai@nttdata.com',
+                                               EOC_Recipient_Type__c = EOCRecipientTypeValue,
+                                               Lead_Escalation_Recipient_Type__c='Immediate Notice',Dealer_Lead_Gate_Keeper__c=false);
+                               insert contact1;
+              Test.startTest();
+             
+               
+               Vehicle__c vehicles1 = new Vehicle__c(EuroVIN__c = '12345678901111111',UsVIN__c = '12345678902222222');
+        insert vehicles1;
+        
+          lead = new Lead__c();
+        lead.Current_Vehicle__c=vehicles1.id;
+        lead.Contact__c = personaccount1.Id;
+        lead.recordTypeId = leadSPRt;
+        lead.Lead_Type__c = LeadTypeValue1;
+        lead.CAC_Lead_Status__c = CACLeadStatusValue1;
+        lead.Lead_Source__c = LeadSourceValue;
+        lead.Nature_of_Request__c=FinanceLeadType;
+        lead.Business_Unit__c= BusinessUnitValue;
+        lead.Sub_BusinessUnit__c=SubBusinessUnitValue1;
+        lead.X24H_Untouched__c=false;
+        lead.X72H_Untouched__c=false;
+        insert lead;
+        
+        
+              
+               
+               lead.Assigned_Dealer__c=dealer.id;
+               lead.Business_Unit__c=BusinessUnitValue;
+               lead.Sub_BusinessUnit__c=SubBusinessUnitValue1;
+               lead.X24H_Untouched__c=true;
+               lead.X72H_Untouched__c=true;
+               lead.Is_Finance_Send_Email_Before_60_Days__c=true;
+               update lead;
+               
+               string accountId=string.valueOf(dealer.id);
+               string leadId =String.valueOf(lead.id);
+               string userId =String.valueOf(user.id);
+               string tempTitle='teststring';
+               
+               set<string> oldDealerIds =new set<string>();
+               oldDealerIds.add(accountId);
+               set<string> leadIds =new set<string>();
+               leadIds.add(leadId);
+               LeadHelper.getEPIntegrationUser();
+               LeadHelper.newLeadShare(leadId,userId);
+               LeadHelper.newAccountShare(accountId,userId);
+               LeadHelper.createdNewSMSTaskForInstructor(lead,user,user,dealer,dealer);
+               LeadHelper.createdNewSMSTaskForCustomer(lead,user,dealer,dealer,tempTitle);
+               LeadHelper.shareToAssignedDealer(oldDealerIds,leadIds);
+                          Test.stopTest();         
+               Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead.id ];
+               system.assertEquals(leadList.Assigned_Dealer__c, lead.Assigned_Dealer__c);
+               system.assertEquals(leadList.Business_Unit__c, lead.Business_Unit__c);
+               
+           }
+    }
+    @istest(seealldata = true)
+    public static void LeadHelperTest7() {
+        
+        Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
+        createUser(profile);
+
+       
+       
+           system.runAs( user) {
+          
+            
+            getLead(user);
+                createDealer();
+               Contact contact1 = new Contact ( AccountId = dealer.id,
+                                               
+                                               Inactive__c=false,
+                                               Business_Unit__c=BusinessUnitValue,
+                                               Sub_BusinessUnit__c=SubBusinessUnitValue,
+                                               FirstName = 'lai1',
+                                               LastName = 'sichao2',
+                                               Email = 'sichao2.lai@nttdata.com',
+                                               EOC_Recipient_Type__c = EOCRecipientTypeValue,
+                                               Lead_Escalation_Recipient_Type__c='CC Lead Escalation Recipient',Dealer_Lead_Gate_Keeper__c=false);
+                               insert contact1;
+              Test.startTest();  
+              Lead__c lead1=createLead(user);
+               lead1.Assigned_Dealer__c=dealer.id;
+               lead1.Business_Unit__c=BusinessUnitValue;
+               lead1.Sub_BusinessUnit__c=SubBusinessUnitValue1;
+               lead.X24H_Untouched__c=true;
+               lead.X72H_Untouched__c=true;
+               lead.Is_Finance_Send_Email_Before_60_Days__c=true;
+               update lead1;
+               
+               string accountId=string.valueOf(dealer.id);
+               string leadId =String.valueOf(lead1.id);
+               string userId =String.valueOf(user.id);
+               string tempTitle='teststring';
+               
+               set<string> oldDealerIds =new set<string>();
+               oldDealerIds.add(accountId);
+               set<string> leadIds =new set<string>();
+               leadIds.add(leadId);
+               LeadHelper.getEPIntegrationUser();
+               LeadHelper.newLeadShare(leadId,userId);
+               LeadHelper.newAccountShare(accountId,userId);
+               LeadHelper.createdNewSMSTaskForInstructor(lead,user,user,dealer,dealer);
+               LeadHelper.createdNewSMSTaskForCustomer(lead,user,dealer,dealer,tempTitle);
+               LeadHelper.shareToAssignedDealer(oldDealerIds,leadIds);
+                 Test.stopTest();                
+               Lead__c leadList = [select Assigned_Dealer__c,Business_Unit__c from Lead__c where id =:lead1.id ];
+               system.assertEquals(leadList.Assigned_Dealer__c, lead1.Assigned_Dealer__c);
+               system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
+               
+           }
+    }
+      @istest(seealldata = true)
+    public static void LeadHelperTest4() {
+       
+        Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
+        createUser(profile);
+
+       
+       
+           system.runAs( user) {
+          
+            
+            getLead(user);
+                createDealer();
+               Contact contact1 = new Contact ( AccountId = dealer.id,
+                                               
+                                         Inactive__c=false,
+                                         Business_Unit__c=BusinessUnitValue,
+                                         Sub_BusinessUnit__c=SubBusinessUnitValue,
+                                         Finance_Lead_Type__c=FinanceLeadType,
+                                         FirstName = 'lai5',
+                                         LastName = 'sichao1',
+                                         Email = 'sichao1.lai@nttdata.com',
+                                         EOC_Recipient_Type__c = EOCRecipientTypeValue,
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
+            insert contact1;
+               Lead__c lead1=createLead(user);
+               update lead1;
+               
+           Map<id,Lead__c> oldMap = new  Map<id,Lead__c>();
+               oldMap.put(lead1.id, lead1);
+           list<Lead__c> listLead = new list<Lead__c>();  
+               listLead.add(lead1);
+           set<id> dealerId = new set<id>();
+             dealerId.add(dealer.id); 
+                Test.startTest();
+               LeadHelper.UpdateLeadOwnerFromContact(dealerId,listLead);
+               LeadHelper.UpdateLeadOwner(dealerId,listLead);
+               LeadHelper.ShareToGateKeeper(dealerId,listLead);
+               LeadHelper.beforeInsert_UpdateEvents(listLead,oldMap,false,true);
+               LeadHelper.afterInsert_UpdateEvents(listLead,oldMap,false,true);
+               LeadHelper.afterInsert_UpdateEvents(listLead,oldMap,true,false);
+               LeadHelper.ShareLeadsToCampaignUser(listLead,oldMap,oldMap,false,true);
+                LeadHelper.ShareLeadsToCampaignUser(listLead,oldMap,oldMap,true,false);
+               Test.stopTest();
+               Lead__c leadList = [select Nature_of_Request__c,Business_Unit__c from Lead__c where id =:lead1.id ];
+               system.assertEquals(leadList.Nature_of_Request__c, lead1.Nature_of_Request__c);
+               system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
+           }
+    }
+     @istest(seealldata = true)
+    public static void LeadHelperTest6() {
+       
+        Profile profile = [select Id from Profile where Name = 'CAC IB CSR'];
+        createUser(profile);
+
+       
+       
+           system.runAs( user) {
+          
+            
+            getLead(user);
+                createDealer();
+                 
+               Contact contact1 = new Contact ( AccountId = dealer.id,
+                                               
+                                         Inactive__c=false,
+                                         Business_Unit__c=BusinessUnitValue,
+                                         Sub_BusinessUnit__c=SubBusinessUnitValue,
+                                         Finance_Lead_Type__c=FinanceLeadType,
+                                         FirstName = 'lai5',
+                                         LastName = 'sichao1',
+                                         Email = 'sichao1.lai@nttdata.com',
+                                         EOC_Recipient_Type__c = EOCRecipientTypeValue,
+                                         Lead_Escalation_Recipient_Type__c=LeadEscalationRecipientTypeValue,Dealer_Lead_Gate_Keeper__c=false);
+            insert contact1;
+                Test.startTest();
+               Lead__c lead1=createLead(user);
+                lead1.Current_Vehicle__c=vehicles.id;
+               update lead1;              
+          
+               Test.stopTest();
+               Lead__c leadList = [select Nature_of_Request__c,Business_Unit__c from Lead__c where id =:lead1.id ];
+               system.assertEquals(leadList.Nature_of_Request__c, lead1.Nature_of_Request__c);
+               system.assertEquals(leadList.Business_Unit__c, lead1.Business_Unit__c);
+           }
     }
      
 
-    @istest(seealldata = true)
-    public static void LeadHelperTest4() {
-        String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        String PersonRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-        String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
+    
+     
 
-        Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
-        UserRole userRole = [select Id from UserRole where Name = 'IB CSR'];
-        User user2 = new User(ProfileId = profile.Id, isActive = true, UserRoleId = userRole.Id, Username = 'lai1@nttdata.com', LastName = 'sichao',
-                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
-                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
-        insert user2;
-
-        system.runAs(user2) {
-            Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');
-            insert dealer;
-            Account dealer2 = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'dealer2');
-            insert dealer2;
-            Account a1 = new Account(Allow_Data_Sharing__c = 'No', Phone = '58392243', RecordTypeId = PersonRecordtypeid, LastName = 'sichao');
-            a1.Gender__c = 'Male';
-            a1.Province__c = 'Shanghai';
-            a1.City__c = 'Anqing city';
-            a1.Preferred_Language__c = 'English';
-            a1.Star_Elite_Account_Owner__c = user2.id;
-            insert a1;
-            Account a2 = new Account(Allow_Data_Sharing__c = 'No', Phone = '58392243', RecordTypeId = PersonRecordtypeid, LastName = 'sichao');
-            a2.Gender__c = 'Male';
-            a2.Province__c = 'Shanghai';
-            a2.City__c = 'Anqing city';
-            a2.Preferred_Language__c = 'English';
-            a2.Dealer_Lead_System__c = 'Salesforce';
-            a2.Allow_Data_Sharing__c = 'Yes';
-            a2.Smart_Account_Owner__c = user2.id;
-            insert a2;
-            Lead__c le1 = new Lead__c();
-            //le1.Need_Assign_To_Dealer__c = 'Need';
-            le1.Assigned_Dealer__c = dealer.id;
-            le1.Contact__c = a1.id;
-            le1.RecordTypeId = afterSalesRecordTypeId;
-            insert le1;
-            List<Lead__c> le2 = new List<Lead__c>();
-            
-            le2.add(getLead(user2));
-            system.debug('le2========================'+le2);
-            le2[0].Contact__c = a1.id;
-            le2[0].Lead_Type__c = 'New Car';
-            le2[0].Relation_With_The_Leads__c = 'I owner';
-            le2[0].CAC_Lead_Status__c = 'Assigned';
-            le2[0].Purchase_Time__c = '0 - 3 months';
-            le2[0].Interested_Vehicle_Brand__c = 'MB';
-            le2[0].Lead_Desired_Service__c = 'Test Drive';
-            update le2[0];
-
-            a1.Allow_Data_Sharing__c = 'Yes';
-            update a1;
-        }
-    }
     
     
-     static Lead__c getLead(User usr){
+     static void getLead(User usr){
         //User usr = UtilTestData.createUser('IB CSR','CAC IB CSR');
-        Account account = new Account();
-        account.Name = 'account name';
-        account.Phone = '10086';
-        account.Area_Code__c = '010';
-        account.Fax = '10086';
-        account.BillingCity = 'San Francisco';
-        account.BillingCountry = 'USA';
-        account.BillingPostalCode = '94105';
-        account.BillingState = 'CA';
-        account.BillingStreet = 'SnapBi 55 New Montgomery Street Suite 525';
-        account.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        insert account;
+         account = new Account();
+         account.Name = 'account name';
+         account.Phone = '10096';
+         account.Area_Code__c = '010';
+         account.Dealer_Allocation__c='MBAuP';
+         account.Activation_Date__c=system.today();
+         account.Fax = '10076';
+         account.BillingCity = 'San Francisco';
+         account.BillingCountry = 'USA';
+         account.BillingPostalCode = '94105';
+         account.BillingState = 'CA';
+         account.BillingStreet = 'SnapBi 55 New Montgomery Street Suite 525';
+         account.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+         insert account;
         
-        Account customer = new Account();
-        customer.Allow_Data_Sharing__c = 'Yes'; 
-        customer.Province__c = 'jiangsu'; 
-        customer.City__c = 'nanjing';
-        customer.Preferred_Language__c = 'English';
-        customer.Dealer_Lead_System__c = 'Salesforce';
-        customer.LastName = 'Customer';
-        customer.Gender__c = '0=Male';
-        customer.ZipCode__c = '200235';
-        customer.Type = '0=Company';
-        customer.Phone = '12332111'; 
-        customer.Status__c = '0=Customer';
-        customer.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-        customer.Dealer_Lead_Gate_Keeper__c = usr.id;
-        customer.Area_Code__c = '010';
-        insert customer;
+            personaccount1 = testData.standardPersonAccount;
+        insert personaccount1;
+         
         
-        Lead__c lead = new Lead__c();
-        lead.Contact__c = customer.Id;
-        lead.recordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
-        lead.CAC_Lead_Status__c = 'Qualified';
-        lead.Lead_Type__c = 'New Car';
-        lead.Relation_With_The_Leads__c = 'test';
-        lead.Lead_Desired_Service__c = 'Trade-In';
-        lead.Purchase_Time__c = '0 - 3 months';
-        lead.Interested_Vehicle_Brand__c = 'test';
-        lead.Trade_In_MB_Vehicle_Model__c = 'benz';
-        lead.Trade_In_Vehicle_Brand__c = 'c230';
-        lead.Trade_In_Vehicle_Class__c = 'C-CLASS';
-        lead.Trade_In_Other_Vehicle_Model__c = 'test';
-        lead.Interested_Vehicle_Brand__c = 'Smart';
-        lead.Assigned_Dealer__c = account.Id;
-        insert lead;
-        return lead;
+      
     }
+    static Lead__c createLead(User usr){
+        
+         Vehicle__c vehicles1 = new Vehicle__c(EuroVIN__c = '12345678901111111',UsVIN__c = '12345678902222222');
+        insert vehicles1;
+        
+        lead = new Lead__c();
+        lead.Current_Vehicle__c=vehicles1.id;
+        lead.Contact__c = personaccount1.Id;
+        lead.recordTypeId = leadFinanceRT;
+        lead.Lead_Type__c = LeadTypeValue1;
+        lead.CAC_Lead_Status__c = CACLeadStatusValue1;
+        lead.Lead_Source__c = LeadSourceValue;
+        lead.Nature_of_Request__c=FinanceLeadType;
+        lead.Business_Unit__c= BusinessUnitValue;
+        lead.Sub_BusinessUnit__c=SubBusinessUnitValue1;
+        lead.X24H_Untouched__c=false;
+        lead.X72H_Untouched__c=false;
+        insert lead;
+         //lead.CAC_Lead_Status__c = 'Qualified';
+        
+        
+        return lead;
+        
+    }  
+ 
     static Lead__c getLead1(User usr){
         //User usr = UtilTestData.createUser('IB CSR','CAC IB CSR');
-        Account account = new Account();
+        account = new Account();
         account.Name = 'account name';
-        account.Phone = '10086';
+        account.Phone = '10786';
         account.Area_Code__c = '010';
         account.Fax = '10086';
         account.BillingCity = 'San Francisco';
@@ -338,7 +479,7 @@ public class LeadHelperTest {
         account.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         insert account;
         
-        Account customer = new Account();
+        customer = new Account();
         customer.Allow_Data_Sharing__c = 'Yes'; 
         customer.Province__c = 'jiangsu'; 
         customer.City__c = 'nanjing';
@@ -350,90 +491,29 @@ public class LeadHelperTest {
         customer.Type = '0=Company';
         customer.Phone = '12332111'; 
         customer.Status__c = '0=Customer';
-        customer.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+        customer.RecordTypeId = PersonRecordtypeid;
         customer.Dealer_Lead_Gate_Keeper__c = usr.id;
         customer.Area_Code__c = '010';
         insert customer;
         
-        Lead__c lead = new Lead__c();
+        lead = new Lead__c();
         lead.Contact__c = customer.Id;
-        lead.recordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
+        lead.recordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId();
         lead.CAC_Lead_Status__c = 'Qualified';
-        lead.Lead_Type__c = 'Used Car';
-        lead.Relation_With_The_Leads__c = 'test';
-        lead.Lead_Desired_Service__c = 'Trade-In';
-        lead.Purchase_Time__c = '0 - 3 months';
-        lead.Interested_Vehicle_Brand__c = 'test';
-        lead.Trade_In_MB_Vehicle_Model__c = 'benz';
-        lead.Trade_In_Vehicle_Brand__c = 'c230';
-        lead.Trade_In_Vehicle_Class__c = 'C-CLASS';
-        lead.Trade_In_Other_Vehicle_Model__c = 'test';
-        lead.Interested_Vehicle_Brand__c = 'Smart';
-        lead.Assigned_Dealer__c = account.Id;
+       
+         lead.Assigned_Dealer__c = account.Id;
+         lead.Lead_Source__c = LeadSourceValue;
+         lead.Nature_of_Request__c='Brochure Request';
+         lead.Business_Unit__c= BusinessUnitValue;
+         lead.Sub_BusinessUnit__c='Parts';
+         lead.CAC_Lead_Status__c = CACLeadStatusValue1;
+
         insert lead;
         return lead;
+    
+    
+      
     }
-    public static testMethod void LeadHelperTest5() {
-        Profile profile = [select Id from Profile where Name = 'IntegrationAPI'];
-        Profile profileCAC = [select Id from Profile where Name = 'CAC IB CSR'];
-        userRole roleId1 = [select Id from userRole where Name = 'IB CSR'];
-        User user1 = new User(ProfileId = profile.Id, isActive = true, Username = 'lai1@nttdata.com', LastName = 'sichao',
-                                  Email = 'sichao.lai@nttdata.com', Alias = 'laisc', CommunityNickname = 'barney1',
-                                  TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US',
-                                  EmailEncodingKey = 'ISO-8859-1', LanguageLocaleKey = 'en_US');
-        insert user1;
-
-        User SmartDM = createUser(roleId1.Id,profileCAC.Id);
-        String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-        Account dealer = new Account();
-        dealer.Dealer_Alternate_Name__c = 'Test Alternate';
-        dealer.Phone = '12332111';
-        dealer.Dealer_GC_Code__c = 'gc code';
-        dealer.Dealer_GS_Code__c = 'gs code';
-        dealer.Name = 'test dealer';
-        dealer.RecordTypeId = DealerRecordtypeid;
-        dealer.Star_Elite_Account_Owner__c = SmartDM.Id;
-        dealer.Smart_Account_Owner__c = SmartDM.Id;
-        dealer.Dealer_Lead_System__c = 'Salesforce';
-        dealer.Dealer_Lead_Gate_Keeper__c = user1.id;
-        dealer.Allow_Data_Sharing__c = 'Yes';
-        dealer.Province__c = 'jiangsu';
-        dealer.City__c = 'nanjing';
-        dealer.Preferred_Language__c = 'English';
-        dealer.Dealer_Lead_System__c = 'Salesforce';
-        dealer.Gender__c = '0=Male';
-        dealer.ZipCode__c = '200235';
-        dealer.Type = '0=Company';
-        dealer.Status__c = '0=contac1';
-        dealer.No_of_Dealer_Portal_Licenses__c = Decimal.valueOf(20);
-        dealer.Dealer_Region__c = 'EAST';
-
-        system.runAs( user1 ) {
-            insert dealer;
-            set<id> setDealerId = new set<id>();
-            setDealerId.add(dealer.id);
-            Lead__c lead = getLead1(user1);
-            Contact c = new Contact(Dealer_Lead_Gate_Keeper__c = true,LastName='test',Federation_ID__c='test federation',Email='test001@daimler.com.full',Phone='12332111');
-            insert c;
-            user1.Contact = c;
-           // user1.AccountId = dealer.Id;
-            user1.Contact.Dealer_Lead_Gate_Keeper__c = true;
-            lead.Assigned_Dealer__c = user1.AccountId;
-            update lead;
-
-            lead.Assigned_Dealer__c = dealer.Id;
-            
-           
-         
-            update lead;
-            list<Lead__c> listLead = new list<Lead__c>();
-            listLead.add(lead);
-             
-           // LeadHelper.createdNewSMSTaskForInstructor(lead,user1,user1,dealer,dealer);
-            LeadHelper.ShareToGateKeeper(setDealerId,listLead);
-            LeadHelper.getEPIntegrationUser();
-            
-        }
-    }
+    
 
 }

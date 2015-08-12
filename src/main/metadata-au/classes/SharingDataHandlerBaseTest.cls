@@ -4,21 +4,32 @@ public class SharingDataHandlerBaseTest {
 
 public static testMethod void testSharingDataHandlerBase() 
 {
-   String AccessLevel = 'Read';
-    String shareObjName = 'parentId';
-    Schema.SObjectType  shareType;
-    String  originalTypeName='led';
-    String id='parentId';
-    String UserOrGroupId ='UserOrGroupId';
-    //String CMap='pIds';
-    //String uogIds ='uogIds';
-    
-    List<sObject> scope=new list<sObject>();
-    List<sObject> crmCodeList=new list<sObject>();
-    SharingDataHandlerBase sh=new SharingDataHandlerBase(originalTypeName,AccessLevel);
-    sh.filterDealer(scope);
-    sh.executeProcessByCRMCode(crmCodeList);
-   // sh.createShareObject(id,UserOrGroupId );
-   // sh.makeInserRecords(CMap,uogIds);
+    User thisUser = [SELECT Id FROM User WHERE Id = :UserInfo.getUserId()];
+    System.runAs(thisUser){
+
+        String AccessLevel = 'Read';
+        String  originalTypeName='Account';
+            
+        User usr = UtilTestData.createUser('Dealer User', 'System Administrator');
+        User usr2 = UtilTestData.createUser('Dealer User', 'System Administrator');
+        CMap parentIds = new CMap();
+        parentIds.add('usr1', usr.Id);
+            
+        CMap userOrGroupIds = new CMap();
+        userOrGroupIds.add('usr1', usr2.Id);
+            
+        Group theGroup = [select id from Group Limit 1];
+        
+        List<sObject> scope=new list<sObject>();
+        List<sObject> crmCodeList=new list<sObject>();
+        Test.startTest();
+        SharingDataHandlerBase sh=new SharingDataHandlerBase(originalTypeName,AccessLevel);
+        sh.filterDealer(scope);
+        sh.executeProcessByCRMCode(crmCodeList);
+        sh.makeInserRecords(parentIds,userOrGroupIds);
+        sh.createShareObject(usr.Id,usr.Id);
+        Test.stopTest();
+       system.assertNotEquals(null, sh);
+    }
 }
 }

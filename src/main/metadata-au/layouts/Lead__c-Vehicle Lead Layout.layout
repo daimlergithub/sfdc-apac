@@ -147,15 +147,18 @@
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Vehicle_Make_Current__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Vehicle_Model_Current__c</field>
+                <field>Current_Vehicle__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Vehicle_Year_Current__c</field>
+            </layoutItems>
+            <layoutItems>
+                <height>20</height>
+                <page>InlineVFPageToShowGenericVehicleDetails</page>
+                <showLabel>true</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -186,7 +189,7 @@
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
         <editHeading>true</editHeading>
-        <label>Lost Inormation</label>
+        <label>Lost Information</label>
         <layoutColumns>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -250,6 +253,16 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+    <miniLayout>
+        <fields>Contact__c</fields>
+        <fields>Company_Account__c</fields>
+        <fields>Lead_Source__c</fields>
+        <fields>Sub_Source__c</fields>
+        <fields>Nature_of_Request__c</fields>
+        <fields>Business_Unit__c</fields>
+        <fields>Sub_BusinessUnit__c</fields>
+        <fields>CAC_Lead_Status__c</fields>
+    </miniLayout>
     <relatedLists>
         <fields>TASK.SUBJECT</fields>
         <fields>TASK.WHO_NAME</fields>
@@ -289,7 +302,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000000Jkqg</masterLabel>
+        <masterLabel>00h55000000InPd</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

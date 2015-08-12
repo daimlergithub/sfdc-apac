@@ -10,54 +10,59 @@
 */
 @isTest
 public class ExtSelectAssignedDealerTest {
-	
-	private static Id personAccRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
-	private static Id dealerRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
-	private static Id finLdRTId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
-	private static Account personAcc;
-	private static Account dealer;
-	private static Lead__c finLead;
-	
+    
+    private static Id personAccRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+    private static Id dealerRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+    private static Id finLdRTId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Finance Lead').getRecordTypeId();
+    private static Account personAcc;
+    private static Account dealer;
+    private static Lead__c finLead;
+    
     public static testMethod void testSelectAssignedDealer()
     {
         createAccount();
         createPersonAccount();
-		createLead();
-		test.starttest();
+        createLead();
+        test.starttest();
+        finLead.Assigned_Dealer__c =dealer.id; 
+        update finLead;
         // Select a dealer for this lead by click the button 'Select Assigned Dealer'
         PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + finLead.Id);
         Test.setCurrentPage(pr);        
-        Lead__c objFinLead=[select id from Lead__c where id=:finLead.Id];
+        Lead__c objFinLead=[select id,Assigned_Dealer__c from Lead__c where id=:finLead.Id];
         ExtSelectAssignedDealer selectDealer = new ExtSelectAssignedDealer(new ApexPages.StandardController(objFinLead));
         test.stoptest();
-        //verify
+      
+        system.assertNotEquals(null, finLead.Assigned_Dealer__c);
     }
     
     public static testMethod void testSelectAssignedDealer_query()
     {
         createAccount();
         createPersonAccount();
-		createLead();
-		test.starttest();
+        createLead();
+        test.starttest();
         // Select a dealer for this lead by click the button 'Select Assigned Dealer'
         PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + finLead.Id);
         Test.setCurrentPage(pr);        
         Lead__c objFinLead=[select id from Lead__c where id=:finLead.Id];
+        finLead.Assigned_Dealer__c =dealer.id; 
+        update finLead;
         ExtSelectAssignedDealer selectDealer = new ExtSelectAssignedDealer(new ApexPages.StandardController(objFinLead));
         selectDealer.name = 'Beijing';
         selectDealer.dealer.ZipCode__c = '001010';
         selectDealer.dealer.Cars_Offered_Service__c = 'Sales; Service';
         selectDealer.query();
         test.stoptest();
-        //verify
+       system.assertNotEquals(null, finLead.Assigned_Dealer__c);
     }
     
     public static testMethod void testSelectAssignedDealer_choose()
     {
         createAccount();
         createPersonAccount();
-		createLead();
-		test.starttest();
+        createLead();
+        test.starttest();
         // Select a dealer for this lead by click the button 'Select Assigned Dealer'
         PageReference pr = new PageReference('/apex/SelectAssignedDealer?Id=' + finLead.Id);
         Test.setCurrentPage(pr);        
@@ -69,12 +74,12 @@ public class ExtSelectAssignedDealerTest {
         selectDealer.lead.Id = finLead.Id;
         selectDealer.choose();
         test.stoptest();
-        //verify
+       system.assertEquals(personAcc.id, finLead.Contact__c);
     }
     
     static void createAccount()
     {
-    	dealer = new Account(Status__c = 'Customer'
+        dealer = new Account(Status__c = 'Customer'
                                      , Name = 'TestDealer' + date.Today()
                                      , RecordTypeId = dealerRTId
                                      , Phone ='0186770993');
@@ -83,7 +88,7 @@ public class ExtSelectAssignedDealerTest {
     
     static void createPersonAccount()
     {
-    	personAcc = new Account(Status__c = 'Customer'
+        personAcc = new Account(Status__c = 'Customer'
                                         , LastName = 'LastName'
                                         , Salutation = 'Mr'
                                         , Title__c = 'Title'
@@ -91,18 +96,22 @@ public class ExtSelectAssignedDealerTest {
                                         , Suffix__c = 'suffix'
                                         , PersonEmail ='test@test.com'
                                         , RecordTypeId = personAccRTId
+                                         , Home_Phone_2__c='5879874587'
+                                         , Email__c='test011@test.com'
+                                         ,Email2__c='test012@test.com'
                                         , PersonMobilePhone ='1800999999');
-    	insert personAcc;
+        insert personAcc;
     }
     
     static void createLead()
     {
-    	 finLead = new Lead__c(Contact__c = personAcc.Id,RecordtypeId=finLdRTId
+         finLead = new Lead__c(Contact__c = personAcc.Id,RecordtypeId=finLdRTId
                                       , Lead_Source__c = 'Web Form'
                                       , Nature_of_Request__c = 'General Enquiry'
                                       , Business_Unit__c = 'Cars'
                                       , Sub_BusinessUnit__c = 'Sales'
                                       , CAC_Lead_Status__c = 'New Enquiry');
         insert finLead;
+        
     }
 }

@@ -3,6 +3,7 @@ private class TookKitSharingTest {
         
     private static Account dealer;
     private static User thirdPartyUser;
+     private static User thirdPartyUser1;
     
     static {
         RecordType dealerType = [select Id from RecordType where SObjectType = 'Account' and DeveloperName = 'Dealer' limit 1];
@@ -14,7 +15,10 @@ private class TookKitSharingTest {
 
         Profile venderProfile = [SELECT Id FROM Profile WHERE Name = 'External Marketing User' Limit 1];
         thirdPartyUser = new User(Username = 'test123456test@test.com', ProfileId = venderProfile.Id, Alias = 'test1234', Email = 'test123456@test.com', EmailEncodingKey = 'UTF-8', LastName = 'Kumarm', CommunityNickname = 'test123405', TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US');
-        insert thirdPartyUser;    
+        insert thirdPartyUser; 
+        
+        thirdPartyUser1 = new User(Username = 'test23456test@test.com', ProfileId = venderProfile.Id, Alias = 'test124', Email = 'test12456@test.com', EmailEncodingKey = 'UTF-8', LastName = 'Kumarm', CommunityNickname = 'test13405', TimeZoneSidKey = 'America/Los_Angeles', LocaleSidKey = 'en_US', LanguageLocaleKey = 'en_US');
+        insert thirdPartyUser1;   
     }
     
     @isTest 
@@ -23,9 +27,26 @@ private class TookKitSharingTest {
         Tool_Kit__c toolKit = new Tool_Kit__c(Dealer_Name__c = dealer.Id, Vendor_Employee__c = thirdPartyUser.Id);
         insert toolKit;
         TookKitSharingWrapService wrapService = new TookKitSharingWrapService();
-        wrapService.wrapToolKits(new List<Tool_Kit__c>{toolKit});
+        List<SharingWrapper> wrapToolKits =wrapService.wrapToolKits(new List<Tool_Kit__c>{toolKit});
         wrapService.wrapToolKitsFor3rdPartyUsers(new List<Tool_Kit__c>{toolKit});
         Test.stopTest();
+        system.assertNotEquals(null, wrapToolKits);
     }
+    
+    @isTest 
+    static void testWrapToolKits1() {
+        Test.startTest();
+         id recordTypeTK=Schema.SObjectType.Tool_Kit__c.getRecordTypeInfosByName().get('Media').getRecordTypeId();
+        Tool_Kit__c toolKit = new Tool_Kit__c(RecordTypeId =recordTypeTK, Dealer_Name__c = dealer.Id, Vendor_Employee__c = thirdPartyUser1.Id);
+        insert toolKit;
+        toolKit.Vendor_Employee__c=thirdPartyUser.id;
+        update toolKit;
+        TookKitSharingWrapService wrapService = new TookKitSharingWrapService();
+        List<SharingWrapper> wrapToolKits =wrapService.wrapToolKits(new List<Tool_Kit__c>{toolKit});
+        wrapService.wrapToolKitsFor3rdPartyUsers(new List<Tool_Kit__c>{toolKit});
+        Test.stopTest();
+        system.assertNotEquals(null, wrapToolKits);
+    }
+    
     
 }

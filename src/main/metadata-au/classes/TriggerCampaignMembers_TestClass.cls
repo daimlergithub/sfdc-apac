@@ -1,11 +1,7 @@
 /*
     Type:       Test Class
     Purpose:    TriggerCampaignMembers 
-    User Story:     
-    Used By:    
-    ---------------------------------------------------------------
-    History:
-    
+    User Story:  
     10-July-2013 Stephano Shi (Breakingpoint)    Created
 */
 @isTest
@@ -32,7 +28,8 @@ public class TriggerCampaignMembers_TestClass{
                                       City__c='Baoshan district',
                                       ZipCode__c='123456',
                                       PersonMobilePhone='1235678910',
-                                      RecordTypeId=accPerson_RecordTypeId
+                                      RecordTypeId=accPerson_RecordTypeId,
+                                      Salutation='Brother',FirstName='Test',Email__c='test@mbau.com',Email2__c = 'testemail2@test.com',Home_Phone_2__c = '98765413'
                                      );        
         insert(testPerAcc);
                                          
@@ -44,6 +41,10 @@ public class TriggerCampaignMembers_TestClass{
                                                 ContactId = testPerAcc.PersonContactId
                                                 );  
         insert cm1;
+         CampaignMember cm=[select CampaignId,Status from CampaignMember where id =:cm1.id ];
+    system.assertEquals(cm.CampaignId, cm1.CampaignId);
+    system.assertEquals(cm.Status, cm1.Status);
     }
+   
         
 }

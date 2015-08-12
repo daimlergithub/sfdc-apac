@@ -97,22 +97,8 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <criteriaItems>
-            <field>Account.RecordTypeId</field>
-            <operation>equals</operation>
-            <value>Dealer</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Dealer_Active__c</field>
-            <operation>equals</operation>
-            <value>False</value>
-        </criteriaItems>
-        <criteriaItems>
-            <field>Account.Activation_Date__c</field>
-            <operation>equals</operation>
-            <value>TODAY</value>
-        </criteriaItems>
-        <triggerType>onCreateOrTriggeringUpdate</triggerType>
+        <formula>OR( AND( ISPICKVAL( Dealer_Allocation__c , &apos;MBAuP&apos;), Activation_Date__c &lt;= TODAY() ), AND( ISPICKVAL( Dealer_Allocation__c , &apos;MBFS&apos;), MBFS_Activation_Date__c &lt;= TODAY() ), AND( ISPICKVAL( Dealer_Allocation__c , &apos;Both&apos;), Activation_Date__c &lt;= TODAY(), MBFS_Activation_Date__c &lt;= TODAY() ) )</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Activate Dealer With Time Trigger</fullName>
@@ -165,29 +151,7 @@
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <formula>OR(
-AND(
-(RecordType.Name = &apos;Dealer&apos;),
-(ISPICKVAL(Active__c , &apos;Yes&apos;) 
-),
-(Inactivation_Date__c &lt;= TODAY()),
- (NOT(ISBLANK(Inactivation_Date__c))),
-OR(
-( ISPICKVAL( Dealer_Allocation__c , &apos;MBAuP&apos;) ),
-( ISPICKVAL( Dealer_Allocation__c , &apos;MBFS&apos;))
-)
-), 
-
-AND(
-(RecordType.Name = &apos;Dealer&apos;),
-( ISPICKVAL( Active__c , &apos;Yes&apos;) ),
-( Inactivation_Date__c &lt;= TODAY()),
-( ISPICKVAL( Dealer_Allocation__c , &apos;Both&apos;) ),
-( MBFS_Inactivation_Date__c &lt;= TODAY() ),
-(NOT(ISBLANK( MBFS_Inactivation_Date__c ))),
-(NOT(ISBLANK(Inactivation_Date__c)))
-)
-)</formula>
+        <formula>OR( AND( (RecordType.Name = &apos;Dealer&apos;), (Dealer_Active__c = true), (Inactivation_Date__c &lt;= TODAY()), (NOT(ISBLANK(Inactivation_Date__c))), OR( ( ISPICKVAL( Dealer_Allocation__c , &apos;MBAuP&apos;) ), ( ISPICKVAL( Dealer_Allocation__c , &apos;MBFS&apos;)) ) ), AND( (RecordType.Name = &apos;Dealer&apos;), (Dealer_Active__c = true), ( Inactivation_Date__c &lt;= TODAY()), ( ISPICKVAL( Dealer_Allocation__c , &apos;Both&apos;) ), ( MBFS_Inactivation_Date__c &lt;= TODAY() ), (NOT(ISBLANK( MBFS_Inactivation_Date__c ))), (NOT(ISBLANK(Inactivation_Date__c))) ) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -275,7 +239,7 @@ Modify Reason:
             <type>FieldUpdate</type>
         </actions>
         <active>true</active>
-        <booleanFilter>1 OR 2</booleanFilter>
+        <booleanFilter>(1 OR 2) AND 3</booleanFilter>
         <criteriaItems>
             <field>Account.Credit_License__c</field>
             <operation>equals</operation>
@@ -284,6 +248,11 @@ Modify Reason:
         <criteriaItems>
             <field>Account.Credit_License__c</field>
             <operation>equals</operation>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dealer</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>

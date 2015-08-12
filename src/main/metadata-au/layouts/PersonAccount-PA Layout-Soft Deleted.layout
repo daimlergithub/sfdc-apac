@@ -666,11 +666,12 @@
     </relatedLists>
     <relatedLists>
         <fields>NAME</fields>
-        <fields>Service_Date__c</fields>
+        <fields>RECORDTYPE</fields>
         <fields>Type__c</fields>
         <fields>Related_Dealer__c</fields>
-        <fields>Service_Mileage__c</fields>
-        <fields>RECORDTYPE</fields>
+        <fields>StartDate__c</fields>
+        <fields>EndDate__c</fields>
+        <fields>Status__c</fields>
         <relatedList>Retail_Task__c.Account__c</relatedList>
     </relatedLists>
     <relatedLists>
@@ -707,6 +708,9 @@
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>Vehicle_Inspection__c.Inspection_Dealership__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <relatedList>RelatedEntityHistoryList</relatedList>
     </relatedLists>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>false</showHighlightsPanel>

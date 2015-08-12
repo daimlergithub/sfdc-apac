@@ -1,11 +1,12 @@
-@isTest(seealldata=true)
+@isTest
 Public class TrialCustomerPortalHomePageTest
 {
+    private static string sortField3Value ='createdbyid';
  public static testMethod void TestTrialCustomerHomePageController()
  {
  Id Owner;
 List<Account> accs = new List<Account>();
-Owner = [SELECT id FROM User LIMIT 1].id;
+Owner = [SELECT id FROM User  where isactive=true LIMIT 1].id;
 
 for(integer i = 0; i<1000; i++) {
 Account a = new Account();
@@ -25,25 +26,22 @@ accs.add(a);
                            
                   
 Test.startTest();
-Long start = system.currentTimeMillis();
+//Long start = system.currentTimeMillis();
 
  TrialCustomerPortalHomePageController trial=new TrialCustomerPortalHomePageController();
- trial.sortField3 = 'createdbyid';
- trial.sortField1= 'createdbyid';
- trial.sortField2= 'createdbyid';
- trial.sortField4= 'createdbyid';
- //trial.sortField5= 'createdbyid';
- //trial.sortField6= 'createdbyid';
- 
- 
- trial.previousSortField1= 'createdbyid';
- trial.previousSortField2= 'createdbyid';
- trial.previousSortField4= 'createdbyid';
- //trial.previousSortField5= 'createdbyid';
- //trial.previousSortField6= 'createdbyid';
+ trial.sortField3 = sortField3Value;
+ trial.sortField1= sortField3Value;
+ trial.sortField2= sortField3Value;
+ trial.sortField4= sortField3Value;
+ trial.previousSortField1= sortField3Value;
+ trial.previousSortField2= sortField3Value;
+ trial.previousSortField4= sortField3Value;
  
   trial.SortSolutions();
+     
+
   Test.stopTest();
     
+     system.assert(!listsol.isEmpty());
  }
 }

@@ -279,18 +279,26 @@
         <fields>System__c</fields>
         <fields>CREATEDBY_USER</fields>
         <fields>UPDATEDBY_USER</fields>
+        <relatedList>Account_Link__c.fromRole__c</relatedList>
+    </relatedLists>
+    <relatedLists>
+        <fields>NAME</fields>
+        <fields>System__c</fields>
+        <fields>CREATEDBY_USER</fields>
+        <fields>UPDATEDBY_USER</fields>
         <relatedList>Account_Link__c.toRole__c</relatedList>
     </relatedLists>
     <relatedLists>
         <excludeButtons>Merge</excludeButtons>
         <fields>FULL_NAME</fields>
+        <fields>CONTACT.RECORDTYPE</fields>
         <fields>CONTACT.SALUTATION</fields>
         <fields>CONTACT.FIRST_NAME</fields>
         <fields>CONTACT.LAST_NAME</fields>
         <fields>CONTACT.EMAIL</fields>
         <fields>CONTACT.PHONE1</fields>
         <fields>CONTACT.PHONE3</fields>
-        <fields>CONTACT.TITLE</fields>
+        <fields>Job_Title__c</fields>
         <fields>Inactive__c</fields>
         <relatedList>RelatedContactList</relatedList>
     </relatedLists>

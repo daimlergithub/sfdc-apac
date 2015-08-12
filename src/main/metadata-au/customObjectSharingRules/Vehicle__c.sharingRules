@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>Vehicle_Read_Write_for_Admin_IntegrationAPI_EMC_Profiles</fullName>
+        <sharedTo>
+            <group>Vehicle_Read_Write</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Generic Vehicle</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>Vehicle Read/Write for Admin, IntegrationAPI &amp; EMC Profiles</name>
+    </criteriaBasedRules>
+    <criteriaBasedRules>
+        <fullName>Vehicle_Sharing_Rule</fullName>
+        <sharedTo>
+            <roleAndSubordinatesInternal>Australia</roleAndSubordinatesInternal>
+        </sharedTo>
+        <criteriaItems>
+            <field>Name</field>
+            <operation>notEqual</operation>
+            <value>null</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>Vehicle Sharing Rule</name>
+    </criteriaBasedRules>
+</CustomObjectSharingRules>

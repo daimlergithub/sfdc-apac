@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectSharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <criteriaBasedRules>
+        <fullName>Sharing_Vehicle_Relationship_to_Australia</fullName>
+        <sharedTo>
+            <allInternalUsers></allInternalUsers>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Individual,Company</value>
+        </criteriaItems>
+        <accessLevel>Edit</accessLevel>
+        <name>Sharing Vehicle Relationship to Australia</name>
+    </criteriaBasedRules>
+</CustomObjectSharingRules>
