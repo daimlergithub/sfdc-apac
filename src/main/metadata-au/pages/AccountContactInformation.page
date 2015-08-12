@@ -1,4 +1,4 @@
-<apex:page standardController="Account" extensions="AccountConatctcontroller">
+<apex:page standardController="Account" extensions="AccountConatctcontroller" id="pageid" showHeader="false" sidebar="false" showChat="false">
   <apex:form id="form1">
       <apex:pageMessages id="showmsg"></apex:pageMessages>
    <apex:actionFunction name="callHidepopUp" action="{!closePopup}" rerender="tstpopup" immediate="true"/>
@@ -212,7 +212,7 @@
         </tr>  
      </table>  
      <apex:pageBlockButtons location="bottom">
-              <apex:commandbutton value="Update" action="{!updateAccount}" styleClass="btn" style="text-decoration:none;padding:4px;" rerender="showmsg"/>
+         <apex:commandbutton value="Update"  action="{!updateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rerender="pnlId,showmsg" onComplete="refreshParentPage();"/>                 
      </apex:pageBlockButtons>
     </apex:pageBlock>  
    <apex:outputPanel id="tstpopup">  
@@ -229,11 +229,27 @@
          </apex:outputPanel>     
     </apex:outputPanel>
    </apex:outputPanel>
+   
+      <apex:outputPanel id="pnlId">
+      		<script  type="text/javascript">
+      function refreshParentPage()
+    {
+        
+        var check="{!isnoerror}";
+        if(check=='true')
+        {
+        window.open("/{!accountid}","_parent");
+        }
+    }
+  </script>
+      </apex:outputPanel>
+      
 </apex:form>
   <script  type="text/javascript">
-    function UserRedirect() {               
-        window.open('');
-    }
+        function UserRedirect() {               
+            window.open('');
+        }
+    
   </script>
   <style>
         .bPageBlock.brandSecondaryBrd.apexDefaultPageBlock.secondaryPalette
