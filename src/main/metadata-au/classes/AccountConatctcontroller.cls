@@ -10,13 +10,17 @@ public class AccountConatctcontroller{
     public String LastModifieddate{get;set;} 
     public String FSLastModifiedby{get;set;}
     public date FSLastModifieddate{get;set;}  
-    public String redirectUrl {public get; private set;}
+    public String redirectUrl {public get; public set;}
     public Boolean shouldRedirect {public get; private set;}
+    public String accountid{get;set;}
+    public boolean isnoerror{get;set;}
     //Constructor Called to get the current account record id
     public AccountConatctcontroller(ApexPages.StandardController stdController) {    
         accountList_details= new Account();
-        this.stdController = stdController;         
-        shouldRedirect = false;   
+        this.stdController = stdController;
+        isnoerror=false;
+        shouldRedirect = false;
+        accountid=ApexPages.currentPage().getParameters().get('id');
         if(ApexPages.currentPage().getParameters().get('id')!=Null)
         {
             contactList=[select id,Mobile__c,Mobile_Status__c,Mobile2__c,SMS_MMS_IM_Status_2__c,PersonHomePhone,Individual_Home_Phone__c,Individual_Home_Phone_Status__c,Home_Phone_Status_2__c,Home_Phone_2__c,
@@ -58,12 +62,14 @@ public class AccountConatctcontroller{
                 {
                     
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,'Mobile number should begin with any one of these values +614, 04, +615, 05'));
+                    isnoerror=false;
                     return null;
                 }
                 
                 String errorMsg = validatePhoneNumberFields(string.valueof(accountList_details.Mobile__c));                         
                 if(errorMsg != null){
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,errorMsg));
+                    isnoerror=false;
                     return null;
                 }
                 
@@ -75,11 +81,13 @@ public class AccountConatctcontroller{
                 {
                     
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,'Mobile number should begin with any one of these values +614, 04, +615, 05'));
+                    isnoerror=false;
                     return null;
                 }
                 String errorMsg = validatePhoneNumberFields(string.valueof(accountList_details.Mobile2__c));                         
                 if(errorMsg != null){
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,errorMsg));
+                    isnoerror=false;
                     return null;
                 }
                 
@@ -93,7 +101,7 @@ public class AccountConatctcontroller{
                 if(errorMsg != null)
                 {
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,errorMsg));
-                    
+                    isnoerror=false;
                     return null;
                 }
                 
@@ -107,6 +115,7 @@ public class AccountConatctcontroller{
                 if(errorMsg != null)
                 {
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,errorMsg));
+                    isnoerror=false;
                     return null;
                 }
                 
@@ -119,6 +128,7 @@ public class AccountConatctcontroller{
                 if(errorMsg != null)
                 {
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,errorMsg));
+                    isnoerror=false;
                     return null;
                 }
                 
@@ -132,18 +142,21 @@ public class AccountConatctcontroller{
                 if(errorMsg != null)
                 {
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,errorMsg));
+                    isnoerror=false;
                     return null;
                 }
                 
             }
-            update accountList_details;
-            shouldRedirect = true;
-            redirectUrl = stdController.view().getUrl();  
-            
-            /*pageReference pr = new pagereference('/'+ApexPages.currentPage().getParameters().get('id'));       
-pr.setRedirect(true);     
-return pr;*/
-            
+            try
+            {
+             	update accountList_details;              	
+             	isnoerror=true;            	
+            }           
+            catch(DMLException de)
+            {
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,de.getDmlMessage(0)));
+                isnoerror=false;
+            }
             return null;
         }   
         return null;
@@ -188,4 +201,6 @@ return pr;*/
         else 
             return null; 
     }
+    
+   
 }
