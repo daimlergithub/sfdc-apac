@@ -89,7 +89,7 @@
 	
 	<target name="deploy05">
 		<deploy>			
-			<sf:typeset name="documents" force="true"/>
+			<sf:typeset name="documents"/>
 			<sf:typeset name="callCenters"/>
 		</deploy>
     </target>
