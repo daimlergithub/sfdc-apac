@@ -2374,7 +2374,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_NameEN"</description>
         <externalId>false</externalId>
         <inlineHelpText>Alternate Dealer Name is populated by the GSSN interface
 Allows up to 240 characters</inlineHelpText>
-        <label>Dealer Alternate Name</label>
+        <label>Company Name</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
