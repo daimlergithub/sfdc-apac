@@ -552,7 +552,7 @@ public class AccountHelper {
                    
                 }
                 
-                if(insertCvrs!=null && !insertCvrs.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()  && customerIds!=null && setAccId!=null){
+                if(insertCvrs!=null && !insertCvrs.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()  && customerIds!=null && !customerIds.isEmpty() && setAccId!=null && !setAccId.isEmpty()){
                     updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,setAccId,Vehiclecount,Vehicletenure);
                     
                 }
@@ -578,23 +578,29 @@ public class AccountHelper {
         
         Map<id,Account> accs = getCustomerInfos(customerIds);
         Map<id,Vehicle__c> vehichles = getVehichles(vehicleIds);
+        
         for(Vehicle_Relationship__c curCvr : cvrs){
-        system.debug('@@@@@@@@@@@  curCvr.Contact__c'+curCvr.Contact__c);
+       
             Account acc = new Account();
-            if(curCvr!=null)
-          {
-            if(accounts.containsKey(curCvr.Contact__c)){
-                acc = accounts.get(curCvr.Contact__c);
-            }else{
+              if(accounts != null && !accounts.isEmpty() && curCvr.Contact__c != null){
+                if(accounts.containsKey(curCvr.Contact__c)){
+                    acc = accounts.get(curCvr.Contact__c);
+                }
+            else{
                 acc = accs.get(curCvr.Contact__c);
             }
+            }
+            if(curCvr != null && curCvr.Vehicle_ID__c != null && vehichles != null) 
+                {
             if(acc!=null &&  vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c!=null)
                 acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount,tenure);
             else if(acc!=null && vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__c!=null && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c!=null)
                 acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount,tenure); 
-           system.debug('@@@@@@@@@@@@@@@@@@@@@@@@@@@acc'+acc);
-            accounts.put(acc.id,acc);
+          if(acc!=null)         
+            accounts.put(acc.id,acc);          
             }
+            
+            
         }
         
           if(accounts.values()!=null && !accounts.values().isEmpty())   
