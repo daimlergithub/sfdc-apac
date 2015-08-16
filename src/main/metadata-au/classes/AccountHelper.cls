@@ -642,7 +642,7 @@ public class AccountHelper {
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
 
             List<String> cols = colsMap.get(vehicleGroup);
-            if(userInfo!=null && cols != null && !cols.isEmpty()){
+            if(userInfo.id!=null && cols != null && !cols.isEmpty()){
 
             if(isCustomer && userInfo.get(cols[0])!=null)
                 userInfo.put(cols[0], 'Customer');
