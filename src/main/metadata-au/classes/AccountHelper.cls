@@ -547,12 +547,17 @@ public class AccountHelper {
                   counttenure.put('PC',PCmaxDate);
                   counttenure.put('CV',CVmaxDate);
                   counttenure.put('Van',vanmaxDate);
+                  if(tempcount !=null && !tempcount.isEmpty())
+                  {
                   Vehiclecount.put(objAcc.id,tempcount);
+                  }
+                  if(counttenure!=null && !counttenure.isEmpty())
+                  {
                    Vehicletenure.put(objAcc.id,counttenure);
-                   
+                   }
                 }
                 
-                if(insertCvrs!=null && !insertCvrs.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()  && customerIds!=null && !customerIds.isEmpty() && setAccId!=null && !setAccId.isEmpty()){
+                if(insertCvrs!=null && !insertCvrs.isEmpty() && vehicleIds!=null && !vehicleIds.isEmpty()  && customerIds!=null && !customerIds.isEmpty() && setAccId!=null && !setAccId.isEmpty() && Vehiclecount!=null && !Vehiclecount.isEmpty() && Vehicletenure!=null && !Vehicletenure.isEmpty()){
                     updataWhenCreateCVR(vehicleIds, customerIds, insertCvrs,setAccId,Vehiclecount,Vehicletenure);
                     
                 }
@@ -592,9 +597,9 @@ public class AccountHelper {
             }
             if(curCvr != null && curCvr.Vehicle_ID__c != null && vehichles != null) 
                 {
-            if(acc!=null &&  vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c!=null)
+            if(acc!=null &&  vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c!=null && tempcount !=null && !tempcount.isEmpty() && tenure!=null && !tenure.isEmpty())
                 acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount,tenure);
-            else if(acc!=null && vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__c!=null && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c!=null)
+            else if(acc!=null && vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__c!=null && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c!=null && tempcount !=null && !tempcount.isEmpty() && tenure!=null && !tenure.isEmpty())
                 acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount,tenure); 
           if(acc!=null)         
             accounts.put(acc.id,acc);          
@@ -642,23 +647,41 @@ public class AccountHelper {
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
 
             List<String> cols = colsMap.get(vehicleGroup);
-            if(userInfo!=null && cols != null && !cols.isEmpty()){
+            if(userInfo.id!=null && cols != null && !cols.isEmpty()){
 
             if(isCustomer && userInfo.get(cols[0])!=null)
                 userInfo.put(cols[0], 'Customer');
            
-           if((cols[1])!=null)
+           if((cols[1])!=null && tempcount!=null && !tempcount.isEmpty())
                     {
+                        if(tempcount.get(userInfo.id)!=null && tempcount.get(userInfo.id).get('PC')!=null )
+                        {
                         userInfo.put('Buy_Cycle__c',tempcount.get(userInfo.id).get('PC'));
+                        }
+                        if(tempcount.get(userInfo.id)!=null && tempcount.get(userInfo.id).get('CV')!=null )
+                        {
                         userInfo.put('CV_No_Brand_Purchases__c',tempcount.get(userInfo.id).get('CV'));
+                        }
+                        if(tempcount.get(userInfo.id)!=null && tempcount.get(userInfo.id).get('Van')!=null )
+                        {
                         userInfo.put('VAN_No_Brand_Purchases__c',tempcount.get(userInfo.id).get('Van'));
+                        }
                     } 
                     
-                    if((cols[2])!=null)
+                    if((cols[2])!=null && tenureVehicle!=null && !tenureVehicle.isEmpty())
                     {
+                        if(tenureVehicle.get(userInfo.id)!=null && tenureVehicle.get(userInfo.id).get('PC')!=null)
+                        {
                         userInfo.put('PC_Tenure__c',tenureVehicle.get(userInfo.id).get('PC'));
+                        }
+                        if(tenureVehicle.get(userInfo.id)!=null && tenureVehicle.get(userInfo.id).get('CV')!=null)
+                        {
                         userInfo.put('CV_Tenure__c',tenureVehicle.get(userInfo.id).get('CV'));
+                        }
+                        if(tenureVehicle.get(userInfo.id)!=null && tenureVehicle.get(userInfo.id).get('Van')!=null)
+                        {
                         userInfo.put('VAN_Tenure__c',tenureVehicle.get(userInfo.id).get('Van'));
+                        }
                     }           
                     
            /* integer tenure = 0;
