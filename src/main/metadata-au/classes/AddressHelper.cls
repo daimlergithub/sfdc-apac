@@ -277,6 +277,7 @@ public class AddressHelper
     
     public static void updateAddressOnAccount(list<Address__c> listNewAddress){
     Set<Id> AccIdSet = new Set<Id>();
+	List<Account> updateAccntList = new List<Account>();
     for(Address__c addr : listNewAddress){
           if(addr.preferred__c)
               AccIdSet.add(addr.Customer__c);
@@ -303,8 +304,9 @@ public class AddressHelper
                                   acc.Primary_Address__c +=' '+ addr.ZipCode__c;
                         }
                    }
+				    updateAccntList.add(acc);
               }
-              update accList;
+              update updateAccntList;
           }
     }
     
