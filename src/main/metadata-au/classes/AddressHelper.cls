@@ -277,18 +277,24 @@ public class AddressHelper
     
     public static void updateAddressOnAccount(list<Address__c> listNewAddress){
     Set<Id> AccIdSet = new Set<Id>();
+    map<Id,Account> updateAccntMap = new map<Id,Account>();
+    list<Account> updateAccntList = new list<Account>();
     for(Address__c addr : listNewAddress){
           if(addr.preferred__c)
               AccIdSet.add(addr.Customer__c);
     }
     
-     if(AccIdSet!=null && !AccIdSet.isEmpty()){
+     if(AccIdSet!=null && !AccIdSet.isEmpty())
+     {
           List<Account> accList = [select id,Primary_Address__c from Account where id in : AccIdSet];
-          
-          if(accList!=null && !accList.isEmpty()){
-              for(Account acc : accList){
-                   for(Address__c addr : listNewAddress){
-                        if(acc.Id==addr.Customer__c){
+          if(accList!=null && !accList.isEmpty())
+          {
+              for(Account acc : accList)
+              {  
+                   for(Address__c addr : listNewAddress)
+                   {
+                        if(acc.Id==addr.Customer__c)
+                        {
                              if(addr.Address_Line_1__c!=null && addr.Address_Line_1__c!='')
                                   acc.Primary_Address__c = addr.Address_Line_1__c;
                              if(addr.Address_Line_2__c!=null && addr.Address_Line_2__c!='')  
@@ -300,14 +306,22 @@ public class AddressHelper
                              if(addr.Country__c!=null && addr.Country__c!='')
                                   acc.Primary_Address__c +=' '+ addr.Country__c;
                              if(addr.ZipCode__c!=null && addr.ZipCode__c!='')
-                                  acc.Primary_Address__c +=' '+ addr.ZipCode__c;
+                                  acc.Primary_Address__c +=' '+ addr.ZipCode__c;   
+                            
+                           updateAccntMap.put(acc.Id, acc);
                         }
-                   }
-              }
-              update accList;
+                   } 
+                  if(updateAccntMap.containsKey(acc.Id) && acc.Id != null)
+                    {
+                        updateAccntList.add(updateAccntMap.get(acc.Id));
+                    }
+              } 				
           }
-    }
-    
+      }
+		if(updateAccntList != null && !updateAccntList.isEmpty())  
+    	{
+      		 update updateAccntList;
+   		}
      
     } 
     

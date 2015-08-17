@@ -407,7 +407,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>FORKLIFT</fullName>
+                <fullName>Forklift</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -435,7 +435,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>FUSO</fullName>
+                <fullName>Fuso</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -619,7 +619,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MAX</fullName>
+                <fullName>Max</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -659,7 +659,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MINI</fullName>
+                <fullName>Mini</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -739,7 +739,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ROLLS</fullName>
+                <fullName>Rolls</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -835,7 +835,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>UNIMOG</fullName>
+                <fullName>Unimog</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -855,11 +855,11 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_BodyType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>WESTERN STAR</fullName>
+                <fullName>Western Star</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>WHITE</fullName>
+                <fullName>White</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>true</sorted>
@@ -6693,7 +6693,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FORKLIFT</fullName>
+                <fullName>Forklift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6701,7 +6701,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FUSO</fullName>
+                <fullName>Fuso</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6909,7 +6909,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAX</fullName>
+                <fullName>Max</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -6917,7 +6917,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MINI</fullName>
+                <fullName>Mini</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7025,7 +7025,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ROLLS</fullName>
+                <fullName>Rolls</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7133,7 +7133,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>UNIMOG</fullName>
+                <fullName>Unimog</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7153,11 +7153,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>WESTERN STAR</fullName>
+                <fullName>Western Star</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>WHITE</fullName>
+                <fullName>White</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9330,7 +9330,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FORKLIFT</fullName>
+                <fullName>Forklift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9338,7 +9338,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FUSO</fullName>
+                <fullName>Fuso</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9546,7 +9546,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAX</fullName>
+                <fullName>Max</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9554,7 +9554,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MINI</fullName>
+                <fullName>Mini</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9662,7 +9662,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ROLLS</fullName>
+                <fullName>Rolls</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9770,7 +9770,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>UNIMOG</fullName>
+                <fullName>Unimog</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -9790,11 +9790,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>WESTERN STAR</fullName>
+                <fullName>Western Star</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>WHITE</fullName>
+                <fullName>White</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14127,7 +14127,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FORKLIFT</fullName>
+                <fullName>Forklift</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14135,7 +14135,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>FUSO</fullName>
+                <fullName>Fuso</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14343,7 +14343,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAX</fullName>
+                <fullName>Max</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14351,7 +14351,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MINI</fullName>
+                <fullName>Mini</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14459,7 +14459,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>ROLLS</fullName>
+                <fullName>Rolls</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14567,7 +14567,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>UNIMOG</fullName>
+                <fullName>Unimog</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14587,11 +14587,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>WESTERN STAR</fullName>
+                <fullName>Western Star</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>WHITE</fullName>
+                <fullName>White</fullName>
                 <default>false</default>
             </values>
             <values>
