@@ -303,6 +303,7 @@ public class AddressHelper
                                   acc.Primary_Address__c +=' '+ addr.ZipCode__c;
                         }
                    }
+				    accList.add(acc);
               }
               update accList;
           }
