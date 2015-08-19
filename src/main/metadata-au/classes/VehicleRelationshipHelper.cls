@@ -163,7 +163,7 @@ public with sharing class VehicleRelationshipHelper {
         @TestVisible
         private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer,boolean isinsert,boolean isupdate,boolean isdelete){
             
-            if(!String.isblank(vehicleGroup) && colsMap != null && colsMap.get(vehicleGroup) != null && preRecords!= null && preRecords.get(vehicleGroup) != null){
+            if(!String.isblank(vehicleGroup) && colsMap != null && colsMap.get(vehicleGroup) != null && preRecords!= null && preRecords.get(vehicleGroup) != null && userInfo.id!=null ){
                 Map<String,Date> preRecord = preRecords.get(vehicleGroup);
                 List<String> cols = colsMap.get(vehicleGroup);
                  if(isCustomer && !cols.isEmpty())
@@ -195,10 +195,11 @@ public with sharing class VehicleRelationshipHelper {
                 }
                 
                 userInfo.put(cols[2] , Decimal.valueOf(tenure));
+                 return userInfo;    
             }
             
-            
-            return userInfo;        
+            return null;
+               
         }
     
     //When PA gets a Vehicle-Relationship
@@ -232,9 +233,9 @@ public with sharing class VehicleRelationshipHelper {
         {
             for(Vehicle_Relationship__c curCvr : cvrs)
             { 
-                if(accounts != null && !accounts.isEmpty() && curCvr.Contact__c != null)
+                if(curCvr != null && curCvr.Contact__c != null)
                 {           
-                    if(accounts.containsKey(curCvr.Contact__c))
+                    if(accounts != null && !accounts.isEmpty() && accounts.containsKey(curCvr.Contact__c))
                     {
                         acc = accounts.get(curCvr.Contact__c);
                     }
@@ -243,12 +244,13 @@ public with sharing class VehicleRelationshipHelper {
                         acc = accs.get(curCvr.Contact__c);
                     }
                 }
-                if(curCvr != null && curCvr.Vehicle_ID__c != null && vehichles != null) 
+                if(curCvr != null && curCvr.Vehicle_ID__c != null && vehichles != null && acc!=null && acc.Id!=null) 
                 {
                     if(vehichles.get(curCvr.Vehicle_ID__c) != null && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c != null)
                     acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),isinsert,isupdate,isdelete);
-                    if(acc != null)
+                    if(acc != null && acc.id != null){
                     accounts.put(acc.id,acc);
+                    }
                 }
             }
         }
