@@ -584,27 +584,34 @@ public class AccountHelper {
         Map<id,Account> accs = getCustomerInfos(customerIds);
         Map<id,Vehicle__c> vehichles = getVehichles(vehicleIds);
         
-        for(Vehicle_Relationship__c curCvr : cvrs){
-       
-            Account acc = new Account();
-              if(accounts != null && !accounts.isEmpty() && curCvr.Contact__c != null){
-                if(accounts.containsKey(curCvr.Contact__c)){
+        for(Vehicle_Relationship__c curCvr : cvrs){       
+        Account acc = new Account();    
+              if(curCvr != null && curCvr.Contact__c != null)
+              {
+                if(accounts != null && !accounts.isEmpty() && accounts.containsKey(curCvr.Contact__c))
+                {
                     acc = accounts.get(curCvr.Contact__c);
                 }
-            else{
-                acc = accs.get(curCvr.Contact__c);
-            }
-            }
-            if(curCvr != null && curCvr.Vehicle_ID__c != null && vehichles != null) 
+                else
                 {
-            if(acc!=null &&  vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c!=null && tempcount !=null && !tempcount.isEmpty() && tenure!=null && !tenure.isEmpty())
-                acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount,tenure);
-            else if(acc!=null && vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__c!=null && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c!=null && tempcount !=null && !tempcount.isEmpty() && tenure!=null && !tenure.isEmpty())
-                acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount,tenure); 
-          if(acc!=null)         
-            accounts.put(acc.id,acc);          
+                    acc = accs.get(curCvr.Contact__c);
+                }
             }
-            
+            if(curCvr != null && curCvr.Vehicle_ID__c != null && vehichles != null  && acc!=null && acc.Id!=null) 
+            {
+            if(vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c!=null && tempcount !=null && !tempcount.isEmpty() && tenure!=null && !tenure.isEmpty())
+            {
+                acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount,tenure);
+            }
+            else if(vehichles!=null && !vehichles.isEmpty() && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__c!=null && vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c!=null && tempcount !=null && !tempcount.isEmpty() && tenure!=null && !tenure.isEmpty())
+            {
+                acc = updatePCCVField(acc, vehichles.get(curCvr.Vehicle_ID__c).Car_Model__r.Vehicle_Group__c, exsisedRecord,(setAccId!= null && !setAccId.isEmpty() && setAccId.contains(acc.id)),tempcount,tenure); 
+            } 
+            if(acc != null && acc.id != null)
+            {
+                accounts.put(acc.id,acc); 
+            }         
+            }           
             
         }
         
@@ -690,9 +697,11 @@ public class AccountHelper {
             }
             if(userInfo.get(cols[2])!=null)
                 userInfo.put(cols[2] , Decimal.valueOf(tenure)); */
+
+            return userInfo;    
             }
         }
-        return userInfo;        
+         return null;       
     }  
     
     public static void auBeforeUpdateCheckRequiredPhoneFields(List<Account> lstNewAccouts)
