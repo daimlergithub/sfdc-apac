@@ -196,7 +196,7 @@
         <relationshipLabel>Addresses</relationshipLabel>
         <relationshipName>Addresses</relationshipName>
         <relationshipOrder>0</relationshipOrder>
-        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
         <trackTrending>false</trackTrending>
         <type>MasterDetail</type>
         <writeRequiresMasterRead>false</writeRequiresMasterRead>
@@ -765,6 +765,14 @@ $Profile.Name != 'IntegrationAPI'
 )</errorConditionFormula>
         <errorDisplayField>Province__c</errorDisplayField>
         <errorMessage>State is a mandatory fields when your Country is Australia.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Reparenting_is_allowed_IntegrationAPI</fullName>
+        <active>true</active>
+        <description>Reparenting is not allowed for everybody except user with profile 'IntegrationAPI'.</description>
+        <errorConditionFormula>AND($Profile.Name !="IntegrationAPI", ISCHANGED(Customer__c ))</errorConditionFormula>
+        <errorDisplayField>Customer__c</errorDisplayField>
+        <errorMessage>Only IntegrationAPI Profile user have permission to re-parent address records.</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>New_Company_Address</fullName>
