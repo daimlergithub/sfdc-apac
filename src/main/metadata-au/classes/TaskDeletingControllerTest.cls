@@ -12,7 +12,7 @@ private static User usr;
                                       timezonesidkey = 'America/Los_Angeles',  username = 'testUniqudeName@test.com');
                                       insert usr;
                                          
-               user = [select Profile.Name from User where profileid =:userProfile.get(0).id];
+               user = [select Profile.Name from User where profileid =:userProfile.get(0).id Limit 1];
         
     }
   static testMethod void testTaskDeletingController()
