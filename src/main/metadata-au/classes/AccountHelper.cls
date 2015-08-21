@@ -542,11 +542,49 @@ public class AccountHelper {
                         }
                     }
                   tempcount.put('PC',PcCount);
-                  tempcount.put('CV',CvCount);
+                  if(CvCount !=null && (CvCount > 99 || CvCount < -99))
+                  {
+                  tempcount.put('CV',99);
+                  }
+                  else
+                  {
+                  tempcount.put('CV',CvCount); 
+                  }
+                  if(VanCount !=null && (VanCount > 99 || VanCount < -99))
+                  {
+                   tempcount.put('Van',99);
+                  }
+                  else
+                  { 
                   tempcount.put('Van',VanCount);
+                  }
+                 
+                 
+                 if(PCmaxDate !=null && (PCmaxDate > 99 || PCmaxDate < -99))
+                  {
+                  counttenure.put('PC',99);
+                  }
+                  else
+                  {
                   counttenure.put('PC',PCmaxDate);
+                  }
+                  if(CVmaxDate !=null && (CVmaxDate > 99 || CVmaxDate < -99))
+                  {
+                  counttenure.put('CV',99);
+                  }
+                  else
+                  {
                   counttenure.put('CV',CVmaxDate);
+                  }
+                  if(vanmaxDate !=null && (vanmaxDate > 99 || vanmaxDate < -99))
+                  {
+                  counttenure.put('Van',99);
+                  }
+                  else
+                  {
                   counttenure.put('Van',vanmaxDate);
+                  }
+                  
                   if(tempcount !=null && !tempcount.isEmpty())
                   {
                   Vehiclecount.put(objAcc.id,tempcount);
@@ -614,13 +652,20 @@ public class AccountHelper {
             }           
             
         }
-        
+         
           if(accounts.values()!=null && !accounts.values().isEmpty())   
           { 
             UtilConstant.Recursivefire=true;
-            UtilDB.updateSobjects(accounts.values());
+            //UtilDB.updateSobjects(accounts.values());
+            String JSONString = JSON.serialize(accounts.values());
           }
          
+    }
+    @future
+    public static void updateaccounts(String str)
+    {
+        List<Account> webList=(List<Account>)JSON.deserialize(str,List<Account>.class);
+        UtilDB.updateSobjects(webList);
     }
     
     //Get vehiches Vehicle_Group__c by vehicle id
