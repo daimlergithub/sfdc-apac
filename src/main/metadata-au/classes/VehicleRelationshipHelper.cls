@@ -146,10 +146,22 @@ public with sharing class VehicleRelationshipHelper {
         
     }
     //get the lastest record
-    public static Map<String,Date> getExsitedInfos(Set<Id> customerIds , String vehicleGroup){
-        Map<String,Date>  recordsInfo = new Map <String,Date>();
-        for (sObject obj:[select Contact__c, min(Purchase_Date__c) Purchase_Date__c from Vehicle_Relationship__c where Vehicle_ID__r.Vehicle_Group__c = :vehicleGroup and Contact__c in :customerIds group by Contact__c]){
-            recordsInfo.put(String.valueOf(obj.get('Contact__c')),Date.valueOf(obj.get('Purchase_Date__c')));
+    public static Map<String, Map<String,Date>> getExsitedInfos(Set<Id> customerIds , list<String> vehicleGroup){
+         Map<String, Map<String,Date>> recordsInfo = new Map<String, Map<String,Date>>();
+         Map<String,Date> Info = new  Map<String,Date>();
+        for (sObject obj:[select Contact__c, min(Purchase_Date__c) Purchase_Date__c,Vehicle_ID__r.Vehicle_Group__c Vehicle_Group__c from Vehicle_Relationship__c where Vehicle_ID__r.Vehicle_Group__c IN:vehicleGroup and Contact__c in :customerIds group by Contact__c, Vehicle_ID__r.Vehicle_Group__c]){
+            if(string.valueOf(obj.get('Vehicle_Group__c'))=='PC'){
+            Info.put(String.valueOf(obj.get('Contact__c')),Date.valueOf(obj.get('Purchase_Date__c')));
+            recordsInfo.put('PC',Info);
+            }
+           if(string.valueOf(obj.get('Vehicle_Group__c'))=='CV'){
+            Info.put(String.valueOf(obj.get('Contact__c')),Date.valueOf(obj.get('Purchase_Date__c')));
+            recordsInfo.put('CV',Info);
+            }
+           if(string.valueOf(obj.get('Vehicle_Group__c'))=='Van'){
+            Info.put(String.valueOf(obj.get('Contact__c')),Date.valueOf(obj.get('Purchase_Date__c')));
+            recordsInfo.put('Van',Info);
+            }
         }
         
         return  recordsInfo;
@@ -169,7 +181,8 @@ public with sharing class VehicleRelationshipHelper {
                  if(isCustomer && !cols.isEmpty())
                     userInfo.put(cols[0], 'customer');   
                                  
-                integer numberofP =1;           
+                integer numberofP =1;       
+                integer MaxnumberofP =99;    
                 if(userInfo.get(cols[1])!=null)
                 {            
                     if(isinsert)
@@ -187,14 +200,29 @@ public with sharing class VehicleRelationshipHelper {
                         numberofP = integer.valueOf(userInfo.get(cols[1]))-1;         
                     }
                 }
-                
+                if(numberofP !=null && (numberofP < -99 || numberofP > 99) && vehicleGroup !='PC')
+                {
+                userInfo.put(cols[1], MaxnumberofP);
+                }
+                else
+                {
                 userInfo.put(cols[1], Decimal.valueOf(numberofP));
+                }
+              
                 integer tenure = 0;
+                integer Maxtenure= 99;
                 if(preRecord.get(userInfo.id) != null){
                     tenure = preRecord.get(userInfo.id).monthsBetween(Date.today())/12;
                 }
                 
+                if((tenure > 99 || tenure < -99) && tenure !=null)
+                {
+                userInfo.put(cols[2] , Decimal.valueOf(Maxtenure));
+                }
+                else
+                {
                 userInfo.put(cols[2] , Decimal.valueOf(tenure));
+                }
                  return userInfo;    
             }
             
@@ -205,17 +233,19 @@ public with sharing class VehicleRelationshipHelper {
     //When PA gets a Vehicle-Relationship
     public static void updataWhenCreateCVR(Set<Id> vehicleIds, Set<Id> customerIds, List<Vehicle_Relationship__c> cvrs,boolean isInsert,boolean isupdate,boolean isdelete) {
         Map<id,Account> accounts = new Map<id,Account>();
-         Map<id,Vehicle__c> vehichles = new  Map<id,Vehicle__c>();
+         Map<id,Vehicle__c> vehichles = new  Map<id,Vehicle__c>();        
         Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
+        list<string> vehicleGroupString = new list<string>{'PC','CV','Van'};
         //get pc first date records
-        Map<String,Date>  preRecordsPc = getExsitedInfos(customerIds,'PC');
+       // Map<String,Date>  preRecordsPc = getExsitedInfos(customerIds,vehicleGroupString);
         //get cv first date records 
-        Map<String,Date>  preRecordsCv = getExsitedInfos(customerIds,'CV');
+       // Map<String,Date>  preRecordsCv = getExsitedInfos(customerIds,'CV');
         //get cv first date records 
-        Map<String,Date>  preRecordsVAN = getExsitedInfos(customerIds,'Van');
-        exsisedRecord.put('PC', preRecordsPc);
-        exsisedRecord.put('CV', preRecordsCv);
-        exsisedRecord.put('Van', preRecordsVAN);
+       // Map<String,Date>  preRecordsVAN = getExsitedInfos(customerIds,'Van');
+      exsisedRecord = getExsitedInfos(customerIds,vehicleGroupString);
+        //exsisedRecord.put('PC', preRecordsPc);
+        //exsisedRecord.put('CV', preRecordsCv);
+        //exsisedRecord.put('Van', preRecordsVAN);
         
         Map<id,Account> accs = AccountHelper.getCustomerInfos(customerIds);
         list<Address__c> lstAddress=[select Customer__c from Address__c where Customer__c In:customerIds];
@@ -226,7 +256,7 @@ public with sharing class VehicleRelationshipHelper {
             for(Address__c objAdd:lstAddress)
                 setAccId.add(objAdd.Customer__c);
         }
-        if(getVehichles(vehicleIds) != null)
+        //if(getVehichles(vehicleIds) != null)
         vehichles = getVehichles(vehicleIds);
         
         if(cvrs != null && !cvrs.isEmpty())
@@ -256,9 +286,16 @@ public with sharing class VehicleRelationshipHelper {
         }
         if(accounts != null && !accounts.containsKey(null) && accounts.values() != null)
         {
-            UtilDB.updateSobjects(accounts.values());
+            //UtilDB.updateSobjects(accounts.values());
+            String JSONString = JSON.serialize(accounts.values());
         }
-    }     
+    }    
+    @future
+    public static void updateaccounts(String str)
+    {
+        List<Account> webList=(List<Account>)JSON.deserialize(str,List<Account>.class);
+        UtilDB.updateSobjects(webList);
+    }
     
     public static void auAfter_Insert_Update_Events(list<Vehicle_Relationship__c> listVRNew,map<id,Vehicle_Relationship__c> oldMap,boolean isInsert,boolean isupdate,boolean isdelete)
     {
