@@ -17,7 +17,7 @@
         </actions>
         <active>true</active>
         <formula>AND(
-RecordType.DeveloperName = &apos;Compititor&apos;,
+RecordType.DeveloperName = &apos;Competitor&apos;,
 TEXT(Brand__c) != null,
 TEXT(Brand__c) != &apos;&apos;,
 Car_Model__c != null,
