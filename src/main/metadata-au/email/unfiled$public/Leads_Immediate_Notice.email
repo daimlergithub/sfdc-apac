@@ -6,13 +6,13 @@ recipientType="Contact" relatedToType="Lead__c">
     <br/><br/>
     Please review and action this lead. 
     <br/><br/>
-    Customer Name: {!relatedTo.Customer_Name__c}<br/>
+    Customer Name: {!if(isblank(relatedTo.Contact__c),relatedTo.Company_Account__r.Name,relatedTo.Contact__r.Name)} <br/>  
     Title: {!relatedTo.Title__c}<br/>
     Business Unit: {!relatedTo.Business_Unit__c}<br/>
     Nature of Request: {!relatedTo.Nature_of_Request__c}<br/>
-    Home Phone: {!relatedTo.Home_Phone__c}<br/>
+    Home Phone: {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.PersonHomePhone,relatedTo.Company_Account__r.Phone)}<br/>
     Work Phone: {!relatedTo.Work_Phone__c}<br/>
-    Mobile: {!relatedTo.Mobile__c}<br/>
+    Mobile: {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.Mobile__c,relatedTo.Company_Account__r.Mobile__c)}<br/>
     Email: {!relatedTo.Email__c}<br/>
     Preferred Test Drive Date: {!relatedTo.Test_Drive_Date__c}<br/>
     Preferred Test Drive Time: {!relatedTo.Test_Drive_Date__c}<br/>
@@ -22,10 +22,11 @@ recipientType="Contact" relatedToType="Lead__c">
     Description: {!relatedTo.Description__c}
 
     <br/><br/>
+    <!--- Commented with respect to JIRA Ticket-SFDCAU-459
     Link: <apex:outputLink value="{!LEFT($CurrentPage.URL, FIND('.com', $CurrentPage.URL)+4)+ relatedTo.Id}">
     {!LEFT($CurrentPage.URL, FIND('.com', $CurrentPage.URL)+4)+ relatedTo.Id}
     </apex:outputLink>
-    <br/><br/>
+    <br/><br/> --->
     Kind Regards,<br/>
     Enquiry Management Centre<br/>
     </messaging:HTMLEmailBody>
