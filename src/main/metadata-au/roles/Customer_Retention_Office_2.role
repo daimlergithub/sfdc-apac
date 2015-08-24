@@ -6,5 +6,5 @@
     <mayForecastManagerShare>false</mayForecastManagerShare>
     <name>Customer Retention Office 2</name>
     <opportunityAccessLevel>Edit</opportunityAccessLevel>
-    <parentRole>Central_Sales_Marketing</parentRole>
+    <parentRole>Australia</parentRole>
 </Role>
