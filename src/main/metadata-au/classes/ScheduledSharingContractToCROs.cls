@@ -105,7 +105,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
         }
         
         users = [select id, name from User where Active_Permission_Set__c= true and profile.name = 'Customer Retention' and UserRole.name like '%Customer Retention Office%'];
-        RTLusers = [select id, name from User where UserRole.name = 'Central Sales & Marketing'];
+        RTLusers = [select id, name from User where UserRole.name = 'Remarketing Team Lead'];
         if(users.size() == 0) {
             users = RTLusers;
         }
