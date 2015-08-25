@@ -93,7 +93,7 @@ public class ScheduledSharingContractToCROsTest{
 
     static testMethod void testScheduledSharingContractToCROs(){
 
-        String userRoleId1 = [select id, name from UserRole where name = 'Central Sales & Marketing'].id;        
+        String userRoleId1 = [select id, name from UserRole where name = 'Remarketing Team Lead '].id;        
         String profileId = [select id, name from Profile where name = 'Customer Retention'].id;
         String userRoleId2 = [select id, name from UserRole where name = 'Customer Retention Office 1'].id;
         
