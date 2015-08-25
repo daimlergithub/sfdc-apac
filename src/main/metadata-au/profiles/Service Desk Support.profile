@@ -258,6 +258,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>BatchSurveyQuestionResponse</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>BatchUpdateRecords</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -7280,6 +7284,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Address__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.CAC_SourceId__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15707,15 +15716,6 @@
         <endAddress>255.255.255.255</endAddress>
         <startAddress>0.0.0.0</startAddress>
     </loginIpRanges>
-    <objectPermissions>
-        <allowCreate>true</allowCreate>
-        <allowDelete>true</allowDelete>
-        <allowEdit>true</allowEdit>
-        <allowRead>true</allowRead>
-        <modifyAllRecords>false</modifyAllRecords>
-        <object>FAQ__kav</object>
-        <viewAllRecords>false</viewAllRecords>
-    </objectPermissions>
     <pageAccesses>
         <apexPage>AUAssignVFPageToRecordType</apexPage>
         <enabled>true</enabled>
@@ -16876,10 +16876,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>CreateTopics</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>CustomizeApplication</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
