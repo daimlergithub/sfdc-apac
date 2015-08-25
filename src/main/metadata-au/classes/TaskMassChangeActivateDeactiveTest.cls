@@ -55,7 +55,7 @@ public class TaskMassChangeActivateDeactiveTest {
 
         Id welcomeCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
         Id paid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();        
-        User usr1 = UtilTestData.createUser('Central Sales & Marketing','Customer Retention');
+        User usr1 = UtilTestData.createUser('Remarketing Team Lead','Customer Retention');
         usr1.Active__c=true;
         update usr1;      
         system.runAs(usr1){
