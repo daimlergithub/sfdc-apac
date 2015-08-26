@@ -620,10 +620,10 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         if(!serviceLeadsFor72H.isEmpty()) {
             sendServicePartsEmail(serviceLeadsFor72H, serviceDealerIdsFor72H, '72H Untouched Notice');
         }
-        //TODO commented as part of SFDCAU-467, will be reverted back once testing is completed and confirmed by Alan
-        /*if(!financeLeads.isEmpty()) {
+        if(!financeLeads.isEmpty()) 
+        {
             sendFinanceEmail(financeLeads, financeDealerIds);
-        }*/
+        }
         if(!VehicleLeadsForImmediateNotice.isEmpty()){
              system.debug('++++++++++++++calls method here++++++++' +VehicleLeadsForImmediateNotice[0].id);
             sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
