@@ -1022,9 +1022,9 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             
             for(Contact contact : listContact) {
                 //modified by Shuang Li Defect0345 Start
-                if(contact.AccountId == lead.Assigned_Dealer__c  && contact.Business_Unit__c != null && contact.Sub_BusinessUnit__c != null && contact.Email != null
-                        && contact.Finance_Lead_Type__c != null && contact.Business_Unit__c.contains(lead.Business_Unit__c)
-                        && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c)) && contact.Finance_Lead_Type__c.contains(lead.Nature_of_Request__c)) {
+                if(contact.AccountId == lead.Assigned_Dealer__c  && contact.Finance_Lead_Type__c != null && contact.Finance_Lead_Type__c.contains(lead.Nature_of_Request__c) &&
+                        contact.Email != null && (contact.Lead_Escalation_Recipient_Type__c.contains('Immediate Notice') || contact.Business_Unit__c != null && contact.Sub_BusinessUnit__c != null && contact.Business_Unit__c.contains(lead.Business_Unit__c) && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c)) && (contact.Lead_Escalation_Recipient_Type__c.contains('24 Untouched Notice') || contact.Lead_Escalation_Recipient_Type__c.contains('72 Untouched Notice'))))
+                {
                 //modified by Shuang Li Defect0345 End
                     TOemails.add(contact.Email);
                 }
