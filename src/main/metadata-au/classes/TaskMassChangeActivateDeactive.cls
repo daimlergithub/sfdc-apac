@@ -42,7 +42,7 @@ public with sharing class TaskMassChangeActivateDeactive {
         System.debug('!!!! tasks '+tasks);
         users = [select id, name from User where Active__c = true and profile.name = 'Customer Retention' and UserRole.name like '%Customer Retention Office%'];
         System.debug('!!!! users '+users );
-        RTLusers = [select id, name from User where UserRole.name = 'Central Sales & Marketing'];
+        RTLusers = [select id, name from User where UserRole.name = 'Remarketing Team Lead'];
         System.debug('!!!! RTLusers '+RTLusers );
         Integer usersNum = users.size();
         Integer RTLusersNum = RTLusers.size();
