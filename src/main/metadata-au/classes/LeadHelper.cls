@@ -26,6 +26,7 @@ public class LeadHelper
     private static final String leadVehicleRt = Schema.sObjectType.Lead__c.getRecordTypeInfosByName().get('Vehicle Lead').getRecordTypeId(); 
     private static final Map<Id, User> IntegrationUsers = new Map<Id, User>([select Id from User where Profile.Name = 'IntegrationAPI']);
     private static final String OrgWideEmailAddressId= [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS)].Id;
+    private static final String EmcOrgWideEmailAddressId = [Select id from OrgWideEmailAddress where Address =: UtilCustomSettings.getOrgWideDefaultAddress(UtilConstant.ORGWIDE_EMAIL_ADDRESS_EMC)].Id;
    
     // Insert the corresponding lead sharing records
     public static void insertLeadSharing(Map<Id, Id> UsedCarLeadDealerId, Map<Id, Id> newCarLeadDealerId)
@@ -619,9 +620,10 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         if(!serviceLeadsFor72H.isEmpty()) {
             sendServicePartsEmail(serviceLeadsFor72H, serviceDealerIdsFor72H, '72H Untouched Notice');
         }
-        if(!financeLeads.isEmpty()) {
+        //TODO commented as part of SFDCAU-467, will be reverted back once testing is completed and confirmed by Alan
+        /*if(!financeLeads.isEmpty()) {
             sendFinanceEmail(financeLeads, financeDealerIds);
-        }
+        }*/
         if(!VehicleLeadsForImmediateNotice.isEmpty()){
              system.debug('++++++++++++++calls method here++++++++' +VehicleLeadsForImmediateNotice[0].id);
             sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
@@ -988,7 +990,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             
             message.setHtmlBody(htmlBody);
             message.setsaveAsActivity(false);
-            message.setOrgWideEmailAddressId(OrgWideEmailAddressId);
+            message.setOrgWideEmailAddressId(EmcOrgWideEmailAddressId);
             messages.add(message);
         }
 
@@ -997,7 +999,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 Messaging.sendEmail(messages);
             }
             catch(DMLException e){
-                system.debug('Send ServiceParts Leads Immediate Notice/24H/72H Email Error ======> {Error: '+ e + '}');
+                system.debug('Send ServiceParts Leads Immediate Notice/24H/72H Email Error ======> {Error:  '+ e.getdmlMessage(0) + '}');
             }
         }
     }
@@ -1048,20 +1050,23 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             if(!TOemails.isEmpty()) {
                 leadContactToEmails.put(lead, TOemails);
             }
-            if(!CCemails.isEmpty()) {
+            if(!CCemails.isEmpty()) 
+            {
                 leadContactCCEmails.put(lead, CCemails);
             }
         }        
 
         List<Messaging.SingleEmailMessage> messages = new List<Messaging.SingleEmailMessage>();
         List<Contact> MonkContacts = new List<Contact>();
-        for(Lead__c lead : leadContactToEmails.keyset()) {
+        for(Lead__c lead : leadContactToEmails.keyset()) 
+        {
             Contact MonkContact = MonkCotact(leadContactToEmails.get(lead)[0]);
             MonkContacts.add(MonkContact);
             Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
             leadContactToEmails.get(lead).remove(0);
             message.setToAddresses(leadContactToEmails.get(lead));
-            if(leadContactCCEmails.containsKey(lead)) {
+            if(leadContactCCEmails.containsKey(lead)) 
+            {
                 message.setCCAddresses(leadContactCCEmails.get(lead));
             }
             message.setWhatId(lead.id);
@@ -1072,14 +1077,19 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             messages.add(message);
         }
 
-        if(!messages.isEmpty()){
-            try{
+        if(!messages.isEmpty())
+        {
+            try
+            {
                 Messaging.sendEmail(messages);
             }
             catch(DMLException e){
-                system.debug('Send Finance Leads Immediate Notice/24H/72H Email Error ======> {Error: '+ e + '}');
-            }finally {
-                if(!MonkContacts.isEmpty()){
+                system.debug('Send Finance Leads Immediate Notice/24H/72H Email Error ======> {Error:  '+ e.getdmlMessage(0) + '}');
+            }
+            finally 
+            {
+                if(!MonkContacts.isEmpty())
+                {
                     delete MonkContacts;
                 }
             }    
@@ -1132,9 +1142,11 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 mailList.add(message);
             }
             Messaging.sendEmail(mailList);
-        }catch(Exception e){
+        }catch(Exception e)
+        {
              system.debug('There is something wrong with send Email'+ e);
-        }finally{
+        }finally
+        {
             if(!MonkContacts.isEmpty()){
                 delete MonkContacts;
             }    
