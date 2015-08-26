@@ -415,30 +415,6 @@ Proxy_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <rules>
         <fullName>Email notification when customer doesn%27t allow dealer contact</fullName>
         <actions>
@@ -553,7 +529,7 @@ Proxy_Date_Time__c
             <name>Update_Finance_Send_Email_Before_60_Days</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(  RecordType.DeveloperName = 'Finance_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 60 ,  Is_Finance_Send_Email_Before_60_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -563,7 +539,7 @@ Proxy_Date_Time__c
             <name>Update_Fleet_Send_Email_Before_15_Days</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(  RecordType.DeveloperName = 'Fleet_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 15 ,  Is_Fleet_Send_Email_Before_15_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -573,7 +549,7 @@ Proxy_Date_Time__c
             <name>Update_Fleet_Send_Email_Before_20_Days</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <formula>AND(  RecordType.DeveloperName = 'Fleet_Lead',   Status_Category__c = 'Open',   ISPICKVAL(Lead_Source__c, 'End of Contract'), Existing_Contract__r.EndDate__c = TODAY() + 20 ,  Is_Fleet_Send_Email_Before_20_Days__c = FALSE )</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
@@ -703,25 +679,6 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <fullName>Update Close Date With Status Category Closed Won</fullName>
         <actions>
             <name>Close_Date_Update</name>
