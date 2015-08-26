@@ -29,7 +29,7 @@ public class TaskTriggerHandler
     {
        /* if(trigger.isAfter && trigger.isInsert)
         {
-        	//todo commented: need to add trigger wsitching mechanism
+            //todo commented: need to add trigger wsitching mechanism
             if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
                 TaskHelper.TaskFailBlacklist(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
             }
@@ -45,7 +45,7 @@ public class TaskTriggerHandler
         }*/
         /* if(trigger.isAfter && trigger.isUpdate)
         {
-        	//todo commented: need to add trigger wsitching mechanism
+            //todo commented: need to add trigger wsitching mechanism
            
             if (TriggerUtil.isTriggerEnabled('TaskFailBlacklistTrigger')) {
                 TaskHelper.TaskFailBlacklist(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
@@ -63,7 +63,7 @@ public class TaskTriggerHandler
         }*/
         if(trigger.isBefore && trigger.isInsert)
         {
-        	//todo commented: need to add trigger wsitching mechanism
+            //todo commented: need to add trigger wsitching mechanism
             /*
              // Update Activity Status after new records created
             TaskTriggerHandler.taskFieldsUpdate(Trigger.new, (Map<Id,Task>)Trigger.oldMap);
@@ -74,7 +74,7 @@ public class TaskTriggerHandler
         }
         if(trigger.isBefore && trigger.isUpdate)
         {
-        	//todo commented: need to add trigger wsitching mechanism
+            //todo commented: need to add trigger wsitching mechanism
             /*
             // Update Activity Status after new records created
             TaskTriggerHandler.taskFieldsUpdate(Trigger.new, (Map<Id,Task>)Trigger.oldMap);
@@ -308,7 +308,7 @@ public class TaskTriggerHandler
                 if(tk.SSI_Status__c == null) {
                     tk.Activity_Status__c = tk.OB_Status__c;
                 }else {
-                	tk.Activity_Status__c = tk.SSI_Status__c;
+                    tk.Activity_Status__c = tk.SSI_Status__c;
                 }                
                 tk.Phone__c = tk.Called__c;
             }
@@ -399,7 +399,7 @@ public class TaskTriggerHandler
                             }
                         } 
                     } catch (Exception ex) {
-                    	System.debug('errormessage>>' + ex.getmessage());}
+                        System.debug('errormessage>>' + ex.getmessage());}
                     if (isMatched) {
                         ctiTasks.put(tk.CallObject, ctk);
                     }
@@ -447,7 +447,7 @@ public class TaskTriggerHandler
                 Where Id = :tk.Related_Task_Id__c And ( RecordTypeId = :OBTRTID Or RecordTypeId =: WCRTID Or RecordTypeId =: SSIRTID)
             ];
             // By Shuang Li US-smart_SSI-008---- end
-			
+            
             if(tasks != null && tasks.size() > 0){
                 Task t = tasks[0];
                 if((tk.Start_call_time__c != null && t.Last_OB_Call__c != tk.Start_call_time__c) || t.SSI_Status__c != tk.SSI_Status__c){
@@ -465,7 +465,7 @@ public class TaskTriggerHandler
                     try{
                         update t;
                     }catch(DMLException ex){
-						System.debug('errormessage>>' + ex.getmessage());
+                        System.debug('errormessage>>' + ex.getmessage());
                     } 
                 }           
             }
@@ -584,7 +584,7 @@ public class TaskTriggerHandler
             try{
                 update ssi;   
             }catch(Exception ex){
-            	System.debug('errormessage>>' + ex.getmessage());}
+                System.debug('errormessage>>' + ex.getmessage());}
         }
     }
 
@@ -626,71 +626,75 @@ public class TaskTriggerHandler
     //Existing au functionality starts here
     public static void au_Before_Insert_Update_Events(list<task> listTaskNew,boolean isInsert,boolean isUpdate)
     {
-    	 if(isInsert || isUpdate){
-	        List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
-	        for(Task task : listTaskNew) {
-	            if(task.ActivityDate != null){
-	                task.Notification_Email_Time__c = datetime.newInstance(task.ActivityDate, Time.newInstance(9, 0, 0, 0));
-	            }
-	            if(task.Notification_Email_Flag__c){
-	                User us = [Select Id, FirstName, LastName, Email From User Where Id = :task.OwnerId];
-	                Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
-	                message.setSubject(task.Subject);
-	                message.setPlainTextBody('Due Task' +
-	                '\nTo:'+ us.FirstName + us.LastName + '\nPlease action this task!' + '\nSubject: ' + task.Subject + '\nPriority: ' + task.Priority + '\nFor more details, click the following link: \n' + 'https://c.ap1.visual.force.com/' + task.id);
-	                message.setToAddresses(new String[] {us.Email});
-	                message.setSaveAsActivity(false);
-	                task.Notification_Email_Flag__c = false;
-	                mails.add(message);
-	            }
-	        }
-	        if (mails.size() > 0) {
-	            try {
-	                Messaging.sendEmail(mails);
-	            }
-	            catch(Exception ex) {
-	                system.debug('Send Due Task Email Exception :' + ex.getMessage());
-	            }
-	        }
-	    }
-	    
-	    if(isInsert) {
-	        Set<Id> RECORD_TYPE_SET = new Set<Id>();
-	        id recAnnualId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Annual Call').getRecordTypeId();
-	        id recEOCId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('EOC Call').getRecordTypeId();
-	        id recWelcomeId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId(); 
-	        RECORD_TYPE_SET.add(recAnnualId);
-	        RECORD_TYPE_SET.add(recEOCId);
-	        RECORD_TYPE_SET.add(recWelcomeId);
-	        Set<Id> contractIds = new Set<Id>();
-	        Schema.DescribeSobjectResult r= Retail_Task__c.sObjectType.getDescribe();
-	        string keyPrefix=r.getKeyPrefix();
-	        for(Task task : listTaskNew) {
-	            if(RECORD_TYPE_SET.contains(task.RecordTypeId) && task.whatId != null && String.valueOf(task.WhatId).startswith(keyPrefix))  {
-	                contractIds.add(task.WhatId);
-	            }
-	        }
-	        
-	        Map<Id, Retail_Task__c> contracts = new Map<Id, Retail_Task__c>([select Id, Account__c,Account__r.Individual_Home_Phone__c,Account__r.Work_Phone__c,Account__r.Mobile__c,
-	        																StartDate__c,EndDate__c from Retail_Task__c where Id in :contractIds]);
-	        
-	        for(Task task : listTaskNew) {
-	            if(RECORD_TYPE_SET.contains(task.RecordTypeId) && contracts.containsKey(task.WhatId))  {
-	            	//TODO
-	            	system.debug('contractIds>>>>'+json.serializepretty(contracts));
-	            	if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Individual_Home_Phone__c!=null)
-	                	task.HomeMobilePhone__c=contracts.get(task.WhatId).Account__r.Individual_Home_Phone__c;
-	                if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Work_Phone__c!=null)	
-	                	task.OfficePhone__c=contracts.get(task.WhatId).Account__r.Work_Phone__c;
-	                if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Mobile__c!=null)	
-	                	task.PersonHomePhone__c=contracts.get(task.WhatId).Account__r.Mobile__c;
-	                if(task.RecordTypeId==recAnnualId || task.RecordTypeId==recWelcomeId && (contracts.get(task.WhatId).StartDate__c!=null))
-	                	task.Activity_Date__c=contracts.get(task.WhatId).StartDate__c;
-	                if(task.RecordTypeId==recEOCId && (contracts.get(task.WhatId).EndDate__c!=null))
-	                	task.Activity_Date__c=contracts.get(task.WhatId).EndDate__c;	
-	            }
-	        }
-	    }
+         if(isInsert || isUpdate){
+            List<Messaging.SingleEmailMessage> mails = new List<Messaging.SingleEmailMessage>();
+            for(Task task : listTaskNew) {
+                if(task.ActivityDate != null){
+                    task.Notification_Email_Time__c = datetime.newInstance(task.ActivityDate, Time.newInstance(9, 0, 0, 0));
+                }
+                if(task.Notification_Email_Flag__c){
+                    User us = [Select Id, FirstName, LastName, Email From User Where Id = :task.OwnerId];
+                    Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+                    message.setSubject(task.Subject);
+                    message.setPlainTextBody('Due Task' +
+                    '\nTo:'+ us.FirstName + us.LastName + '\nPlease action this task!' + '\nSubject: ' + task.Subject + '\nPriority: ' + task.Priority + '\nFor more details, click the following link: \n' + 'https://c.ap1.visual.force.com/' + task.id);
+                    message.setToAddresses(new String[] {us.Email});
+                    message.setSaveAsActivity(false);
+                    task.Notification_Email_Flag__c = false;
+                    mails.add(message);
+                }
+            }
+            if (mails.size() > 0) {
+                try {
+                    Messaging.sendEmail(mails);
+                }
+                catch(Exception ex) {
+                    system.debug('Send Due Task Email Exception :' + ex.getMessage());
+                }
+            }
+        }
+        
+        if(isInsert) {
+            Set<Id> RECORD_TYPE_SET = new Set<Id>();
+            id recAnnualId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Annual Call').getRecordTypeId();
+            id recEOCId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('EOC Call').getRecordTypeId();
+            id recWelcomeId=Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId(); 
+            RECORD_TYPE_SET.add(recAnnualId);
+            RECORD_TYPE_SET.add(recEOCId);
+            RECORD_TYPE_SET.add(recWelcomeId);
+            Set<Id> contractIds = new Set<Id>();
+            Schema.DescribeSobjectResult r= Retail_Task__c.sObjectType.getDescribe();
+            string keyPrefix=r.getKeyPrefix();
+            for(Task task : listTaskNew) {
+                if(RECORD_TYPE_SET.contains(task.RecordTypeId) && task.whatId != null && String.valueOf(task.WhatId).startswith(keyPrefix))  {
+                    contractIds.add(task.WhatId);
+                }
+            }
+              if(contractIds.isEmpty())
+              { 
+               return ; 
+              }
+            
+            Map<Id, Retail_Task__c> contracts = new Map<Id, Retail_Task__c>([select Id, Account__c,Account__r.Individual_Home_Phone__c,Account__r.Work_Phone__c,Account__r.Mobile__c,
+                                                                            StartDate__c,EndDate__c from Retail_Task__c where Id in :contractIds]);
+            
+            for(Task task : listTaskNew) {
+                if(RECORD_TYPE_SET.contains(task.RecordTypeId) && contracts.containsKey(task.WhatId))  {
+                    //TODO
+                    system.debug('contractIds>>>>'+json.serializepretty(contracts));
+                    if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Individual_Home_Phone__c!=null)
+                        task.HomeMobilePhone__c=contracts.get(task.WhatId).Account__r.Individual_Home_Phone__c;
+                    if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Work_Phone__c!=null)    
+                        task.OfficePhone__c=contracts.get(task.WhatId).Account__r.Work_Phone__c;
+                    if(contracts.get(task.WhatId).Account__c!=null && contracts.get(task.WhatId).Account__r.Mobile__c!=null)    
+                        task.PersonHomePhone__c=contracts.get(task.WhatId).Account__r.Mobile__c;
+                    if(task.RecordTypeId==recAnnualId || task.RecordTypeId==recWelcomeId && (contracts.get(task.WhatId).StartDate__c!=null))
+                        task.Activity_Date__c=contracts.get(task.WhatId).StartDate__c;
+                    if(task.RecordTypeId==recEOCId && (contracts.get(task.WhatId).EndDate__c!=null))
+                        task.Activity_Date__c=contracts.get(task.WhatId).EndDate__c;    
+                }
+            }
+        }
     }
     //existing au functionality ends here
 }
