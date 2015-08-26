@@ -620,10 +620,11 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         if(!serviceLeadsFor72H.isEmpty()) {
             sendServicePartsEmail(serviceLeadsFor72H, serviceDealerIdsFor72H, '72H Untouched Notice');
         }
-        if(!financeLeads.isEmpty()) 
+        //TODO Commented as part of SFDCAU-467, Once the testing is completed and confirmed by Alan this will be uncommented and pushed to PROD.
+        /*if(!financeLeads.isEmpty()) 
         {
             sendFinanceEmail(financeLeads, financeDealerIds);
-        }
+        }*/
         if(!VehicleLeadsForImmediateNotice.isEmpty()){
              system.debug('++++++++++++++calls method here++++++++' +VehicleLeadsForImmediateNotice[0].id);
             sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
@@ -990,7 +991,14 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             
             message.setHtmlBody(htmlBody);
             message.setsaveAsActivity(false);
-            message.setOrgWideEmailAddressId(EmcOrgWideEmailAddressId);
+            if(EmailType == 'Immediate Notice')
+            {
+                message.setOrgWideEmailAddressId(EmcOrgWideEmailAddressId);
+            }
+            else
+            {
+                message.setOrgWideEmailAddressId(OrgWideEmailAddressId);
+            }
             messages.add(message);
         }
 
