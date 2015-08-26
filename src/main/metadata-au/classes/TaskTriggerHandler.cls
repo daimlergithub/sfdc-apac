@@ -670,11 +670,9 @@ public class TaskTriggerHandler
                   contractIds.add(task.WhatId);
               }
           }
-             if(contractIds.isEmpty())
+             if(contractIds !=null && !contractIds.isEmpty())
               { 
-               return ; 
-              }
-          Map<Id, Retail_Task__c> contracts = new Map<Id, Retail_Task__c>([select Id, Account__c,Account__r.Individual_Home_Phone__c,Account__r.Work_Phone__c,Account__r.Mobile__c,
+              Map<Id, Retail_Task__c> contracts = new Map<Id, Retail_Task__c>([select Id, Account__c,Account__r.Individual_Home_Phone__c,Account__r.Work_Phone__c,Account__r.Mobile__c,
                                           StartDate__c,EndDate__c from Retail_Task__c where Id in :contractIds]);
           
           for(Task task : listTaskNew) {
@@ -693,6 +691,7 @@ public class TaskTriggerHandler
                     task.Activity_Date__c=contracts.get(task.WhatId).EndDate__c;  
               }
           }
+		  }
       }
     }
     //existing au functionality ends here
