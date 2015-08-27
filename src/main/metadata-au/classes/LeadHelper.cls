@@ -990,7 +990,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             
             message.setHtmlBody(htmlBody);
             message.setsaveAsActivity(false);
-            if(EmailType == 'Immediate Notice')
+             if(lead.RecordTypeId == leadVehicleRt)
             {
                 message.setOrgWideEmailAddressId(EmcOrgWideEmailAddressId);
             }
