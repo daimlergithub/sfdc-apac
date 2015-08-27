@@ -190,7 +190,7 @@
         <fields>FIRST_NAME</fields>
         <fields>LAST_NAME</fields>
         <fields>TITLE</fields>
-        <fields>COMPANY</fields>
+        <fields>Customer_Name__c</fields>
         <fields>MOBILE</fields>
         <relatedList>RelatedCampaignMemberList</relatedList>
     </relatedLists>
