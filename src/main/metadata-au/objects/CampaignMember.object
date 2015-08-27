@@ -104,7 +104,7 @@
     <fields>
         <fullName>Customer_Name__c</fullName>
         <externalId>false</externalId>
-        <formula>FirstName &amp; " " &amp;  LastName</formula>
+        <formula>Contact.Account.Display_Name__c</formula>
         <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
         <label>Customer Name</label>
         <required>false</required>
@@ -595,7 +595,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Don&apos;t Participated</fullName>
+                <fullName>Don't Participated</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -776,7 +776,7 @@
     <fields>
         <fullName>formula_num__c</fullName>
         <externalId>false</externalId>
-        <formula>IF( ISPICKVAL( Status , &quot;Sent&quot;) , 1, 0)</formula>
+        <formula>IF( ISPICKVAL( Status , "Sent") , 1, 0)</formula>
         <label>formula(num)</label>
         <precision>18</precision>
         <required>false</required>
