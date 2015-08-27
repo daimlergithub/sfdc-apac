@@ -620,10 +620,11 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         if(!serviceLeadsFor72H.isEmpty()) {
             sendServicePartsEmail(serviceLeadsFor72H, serviceDealerIdsFor72H, '72H Untouched Notice');
         }
-        if(!financeLeads.isEmpty()) 
+        //TODO commented this as part of SFDCAU-467, Once Alan validates and confirms it will be uncommented.
+        /*if(!financeLeads.isEmpty()) 
         {
             sendFinanceEmail(financeLeads, financeDealerIds);
-        }
+        }*/
         if(!VehicleLeadsForImmediateNotice.isEmpty()){
              system.debug('++++++++++++++calls method here++++++++' +VehicleLeadsForImmediateNotice[0].id);
             sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
@@ -990,7 +991,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             
             message.setHtmlBody(htmlBody);
             message.setsaveAsActivity(false);
-             if(lead.RecordTypeId == leadVehicleRt)
+            if(EmailType == 'Immediate Notice')
             {
                 message.setOrgWideEmailAddressId(EmcOrgWideEmailAddressId);
             }
@@ -1018,7 +1019,7 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         EmailTemplate financeTemplate = [select id ,developername from EmailTemplate where developername = 'Finance_Leads_Only'];
         
         List<Contact> listContact = [select id, EOC_Recipient_Type__c, Email, AccountId, Finance_Lead_Type__c, Lead_Escalation_Recipient_Type__c, Business_Unit__c, Sub_BusinessUnit__c 
-                                     from Contact where AccountId in :DealerIds and Lead_Escalation_Recipient_Type__c != null and contact.Inactive__c = false];
+                                     from Contact where AccountId in :DealerIds and Lead_Escalation_Recipient_Type__c != null and contact.Inactive__c = false and Lead_Escalation_Recipient_Type__c in ('24H Untouched Notice', '72H Untouched Notice', 'Immediate Notice')];
         
         //Added contact Inactive check in the above query 3/6/2015(SFDCAU-164)
         //TODO
@@ -1030,30 +1031,27 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             List<String> CCemails = new List<String>();
             
             for(Contact contact : listContact) {
-                //modified by Shuang Li Defect0345 Start
-                if(contact.AccountId == lead.Assigned_Dealer__c  && contact.Finance_Lead_Type__c != null && contact.Finance_Lead_Type__c.contains(lead.Nature_of_Request__c) &&
-                        contact.Email != null && (contact.Lead_Escalation_Recipient_Type__c.contains('Immediate Notice') || contact.Business_Unit__c != null && contact.Sub_BusinessUnit__c != null && contact.Business_Unit__c.contains(lead.Business_Unit__c) && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c)) && (contact.Lead_Escalation_Recipient_Type__c.contains('24 Untouched Notice') || contact.Lead_Escalation_Recipient_Type__c.contains('72 Untouched Notice'))))
+                //modified by SFDCAU-467 Defect Start
+                if((lead.X24H_Untouched__c == false && lead.X72H_Untouched__c == false) && (contact.AccountId == lead.Assigned_Dealer__c  && contact.Finance_Lead_Type__c != null && contact.Finance_Lead_Type__c.contains(lead.Nature_of_Request__c) &&
+                        contact.Email != null && (contact.Lead_Escalation_Recipient_Type__c.contains('Immediate Notice') && (contact.Business_Unit__c != null && contact.Sub_BusinessUnit__c != null && contact.Business_Unit__c.contains(lead.Business_Unit__c) && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c))))))
                 {
-                //modified by Shuang Li Defect0345 End
+                    TOemails.add(contact.Email);
+                }
+                else if((lead.X24H_Untouched__c == true && lead.X72H_Untouched__c == false) && (contact.AccountId == lead.Assigned_Dealer__c  && contact.Finance_Lead_Type__c != null && contact.Finance_Lead_Type__c.contains(lead.Nature_of_Request__c) &&
+                        contact.Email != null && (contact.Lead_Escalation_Recipient_Type__c.contains('24H Untouched Notice') && (contact.Business_Unit__c != null && contact.Sub_BusinessUnit__c != null && contact.Business_Unit__c.contains(lead.Business_Unit__c) && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c))))))
+                {
+                    TOemails.add(contact.Email);
+                }
+                else if(lead.X72H_Untouched__c == true && (contact.AccountId == lead.Assigned_Dealer__c  && contact.Finance_Lead_Type__c != null && contact.Finance_Lead_Type__c.contains(lead.Nature_of_Request__c) &&
+                        contact.Email != null && (contact.Lead_Escalation_Recipient_Type__c.contains('72H Untouched Notice') && (contact.Business_Unit__c != null && contact.Sub_BusinessUnit__c != null && contact.Business_Unit__c.contains(lead.Business_Unit__c) && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c))))))
+                {               
                     TOemails.add(contact.Email);
                 }
                 else if(contact.AccountId == lead.Assigned_Dealer__c && contact.Lead_Escalation_Recipient_Type__c.contains('CC Lead Escalation Recipient')) {
                     CCemails.add(contact.Email);
                 }
             }
-            //TODO
-            /*for(MBAuP_Contact__c contact : MBAuPContacts) {
-                if(contact.Dealer_Name__c == lead.Assigned_Dealer__c  && contact.Finance_Lead_Type__c != null && contact.Finance_Lead_Type__c.contains(lead.Nature_of_Request__c) && contact.Email_Address__c != null &&
-                   (contact.Lead_Escalation_Recipient_Type__c.contains('Immediate Notice') || 
-                   (contact.Business_Unit__c != null && contact.Sub_Business_Unit__c != null && contact.Business_Unit__c.contains(lead.Business_Unit__c) && contact.Sub_Business_Unit__c.contains(lead.Sub_BusinessUnit__c) && 
-                   (contact.Lead_Escalation_Recipient_Type__c.contains('24 Untouched Notice') || contact.Lead_Escalation_Recipient_Type__c.contains('72 Untouched Notice'))))) {
-                    TOemails.add(contact.Email_Address__c);
-                }
-                else if(contact.Dealer_Name__c == lead.Assigned_Dealer__c && contact.Lead_Escalation_Recipient_Type__c.contains('CC Lead Escalation Recipient')) {
-                    CCemails.add(contact.Email_Address__c);
-                }
-            }*/
-            
+             //modified by SFDCAU-467 Defect End
             if(!TOemails.isEmpty()) {
                 leadContactToEmails.put(lead, TOemails);
             }
