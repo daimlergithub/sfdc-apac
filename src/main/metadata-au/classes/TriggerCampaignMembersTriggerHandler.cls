@@ -38,38 +38,44 @@ public class TriggerCampaignMembersTriggerHandler
         
         //Existing au functionality starts here
         Id cId;
-	    Datetime DateofChange;
-	    Id us = Userinfo.getUserId();
-	    String action = '';
-	    
-	    for(CampaignMember campaignMember : listCMNew) {
-	        if(trigger.isInsert){
-	            cId = campaignMember.Id;
-	            DateofChange = campaignMember.LastModifiedDate;
-	            action = 'Created.';
-	        }else if(trigger.isUpdate){
-	            action = 'Changed ';
-	            if(oldmap.get(campaignMember.id).Lodgement_Date__c != campaignMember.Lodgement_Date__c){
-	                cId = campaignMember.Id;
-	                action = action + 'Lodgement Date to ' + datetime.newInstance(campaignMember.Lodgement_Date__c, time.newInstance(0,0,0,0)).format('yyyy/MM/dd') +'\n';
-	            }
-	            if (oldmap.get(campaignMember.id).Status != campaignMember.Status){
-	                cId = campaignMember.Id;
-	                action = action + 'Status to ' + campaignMember.Status;
-	            }
-	            DateofChange = campaignMember.LastModifiedDate;
-	        }
-	        
-	        // LOG Record
-	        Audit_Trail__c objAT = new Audit_Trail__c();
-	        objAT.CampaignMember__c = cId;    // CampaignMember id
-	        objAT.Action__c = action;     // What operation
-	        objAT.User__c = us;           // Who makes the operation
-	        objAT.Date_of_Change__c = DateofChange;           // Who makes the operation
-	        if(cId != null){
-	            insert objAT;
-	        }
-	    }
+        Datetime DateofChange;
+        Id us = Userinfo.getUserId();
+        String action = '';
+        List<Audit_Trail__c> audTrlList = new List<Audit_Trail__c>();
+        
+        for(CampaignMember campaignMember : listCMNew) {
+            if(trigger.isInsert){
+                cId = campaignMember.Id;
+                DateofChange = campaignMember.LastModifiedDate;
+                action = 'Created.';
+            }else if(trigger.isUpdate){
+                action = 'Changed ';
+                if(oldmap.get(campaignMember.id).Lodgement_Date__c != campaignMember.Lodgement_Date__c){
+                    cId = campaignMember.Id;
+                    action = action + 'Lodgement Date to ' + datetime.newInstance(campaignMember.Lodgement_Date__c, time.newInstance(0,0,0,0)).format('yyyy/MM/dd') +'\n';
+                }
+                if (oldmap.get(campaignMember.id).Status != campaignMember.Status){
+                    cId = campaignMember.Id;
+                    action = action + 'Status to ' + campaignMember.Status;
+                }
+                DateofChange = campaignMember.LastModifiedDate;
+            }
+            
+            // LOG Record            
+            Audit_Trail__c objAT = new Audit_Trail__c();
+            objAT.CampaignMember__c = cId;    // CampaignMember id
+            objAT.Action__c = action;     // What operation
+            objAT.User__c = us;           // Who makes the operation
+            objAT.Date_of_Change__c = DateofChange;           // Who makes the operation
+            if(cId != null)
+            {
+                audTrlList.add(objAT);
+            }            
+        }
+        if(audTrlList != null && !audTrlList.isEmpty())
+        {
+            insert audTrlList;
+        }
         //existing au functionality ends here
     }
 }
