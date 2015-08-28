@@ -14,10 +14,10 @@ recipientType="Contact" relatedToType="Lead__c">
     Work Phone: {!relatedTo.Work_Phone__c}<br/>
     Mobile: {!if(isblank(relatedTo.Company_Account__c),relatedTo.Contact__r.Mobile__c,relatedTo.Company_Account__r.Mobile__c)}<br/>
     Email: {!relatedTo.Email__c}<br/>
-    Preferred Test Drive Date: {!relatedTo.Test_Drive_Date__c}<br/>
-    Preferred Test Drive Time: {!relatedTo.Test_Drive_Date__c}<br/>
-    Purchase date intent: {!relatedTo.Purchase_Time__c} <br/>
-    Preferred method of communication: {!relatedTo.Preferred_Contact_Method__c}<br/>
+    Preferred Test Drive Date:<apex:outputText value="{0,date,E MMM d yyyy}" style=""><apex:param value="{!relatedTo.Test_Drive_Date__c}"/></apex:outputText> &nbsp;  <br/>
+    Preferred Test Drive Time: {!relatedTo.Preferred_Test_Drive_Time__c}<br/>
+    Purchase date intent: {!relatedTo.Purchase_Time__c}<br/>
+    Preferred method of communication: {!relatedTo.Preferred_Contact_Method__c} &nbsp;  <br/>
     MB Vehicle Interest (Make/Model): {!relatedTo.MB_Vehicle_Interest__c}<br/>
     Description: {!relatedTo.Description__c}
 
