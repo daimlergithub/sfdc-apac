@@ -136,6 +136,16 @@ Used By: Workflow Rule - Lead Auto Check '*72H Untouched'
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Collectioner_Notes</fullName>
+        <description>Updating Collectioner Notes field with the contact value.</description>
+        <field>Collectioner_Notes__c</field>
+        <formula>Contact__r.Display_Name__c</formula>
+        <name>Update Collectioner Notes</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Contact_Failed_Date_Time_to_Now</fullName>
         <field>Contact_Failed_For_3_Days_Date_Time__c</field>
         <formula>NOW()</formula>
@@ -415,6 +425,30 @@ Proxy_Date_Time__c
         <operation>Formula</operation>
         <protected>false</protected>
     </fieldUpdates>
+    <outboundMessages>
+        <fullName>Link_Social_Media_Leads</fullName>
+        <apiVersion>28.0</apiVersion>
+        <endpointUrl>https://benz.social360.com.cn/LinkLead.asmx</endpointUrl>
+        <fields>Contact__c</fields>
+        <fields>Id</fields>
+        <fields>RecordTypeId</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>WORKFLOW_INTEGRATION_USER</integrationUser>
+        <name>Link Social Media Leads</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <outboundMessages>
+        <fullName>Send_Assigned_Dealer_to_EP</fullName>
+        <apiVersion>27.0</apiVersion>
+        <endpointUrl>https://crm.mercedes-benz.com.cn/webservices/LmsExportNotification</endpointUrl>
+        <fields>Id</fields>
+        <includeSessionId>true</includeSessionId>
+        <integrationUser>WORKFLOW_INTEGRATION_USER</integrationUser>
+        <name>Send Assigned Dealer to EP</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
     <rules>
         <fullName>Email notification when customer doesn%27t allow dealer contact</fullName>
         <actions>
@@ -565,7 +599,7 @@ Proxy_Date_Time__c
     </rules>
     <rules>
         <fullName>Lead Auto Check %27*24%2F72H Untouched%27</fullName>
-        <active>false</active>
+        <active>true</active>
         <booleanFilter>(1 AND 2) OR (3 AND 4)</booleanFilter>
         <criteriaItems>
             <field>Lead__c.RecordTypeId</field>
@@ -679,6 +713,25 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <triggerType>onCreateOnly</triggerType>
     </rules>
     <rules>
+        <fullName>Social Media Leads Binding</fullName>
+        <actions>
+            <name>Link_Social_Media_Leads</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Lead__c.Lead_DataSource__c</field>
+            <operation>equals</operation>
+            <value>Web/Mobile Phone</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.Lead_DataSubSource__c</field>
+            <operation>equals</operation>
+            <value>Weibo,WeChat</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Close Date With Status Category Closed Won</fullName>
         <actions>
             <name>Close_Date_Update</name>
@@ -691,6 +744,17 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <value>Closed Won</value>
         </criteriaItems>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Collectioner Notes with contact name</fullName>
+        <actions>
+            <name>Update_Collectioner_Notes</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Created as per the Jira ticket  SFDCAU-485,making contact searchable as a global.</description>
+        <formula>Contact__c != null</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Contact Failed For 3 Days Date Time</fullName>
@@ -835,11 +899,11 @@ Modify Reason:
             <name>Update_Lead_Assigned_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-
-
-
-
-		<active>false</active>
+        <actions>
+            <name>Send_Assigned_Dealer_to_EP</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-15) 
