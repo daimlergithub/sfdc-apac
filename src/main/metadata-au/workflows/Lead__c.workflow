@@ -136,6 +136,16 @@ Used By: Workflow Rule - Lead Auto Check '*72H Untouched'
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Collectioner_Notes</fullName>
+        <description>Updating Collectioner Notes field with the contact value.</description>
+        <field>Collectioner_Notes__c</field>
+        <formula>Contact__r.Display_Name__c</formula>
+        <name>Update Collectioner Notes</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Formula</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Contact_Failed_Date_Time_to_Now</fullName>
         <field>Contact_Failed_For_3_Days_Date_Time__c</field>
         <formula>NOW()</formula>
@@ -693,6 +703,17 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>Update Collectioner Notes with contact name</fullName>
+        <actions>
+            <name>Update_Collectioner_Notes</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Created as per the Jira ticket  SFDCAU-485,making contact searchable as a global.</description>
+        <formula>Contact__c != null</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Contact Failed For 3 Days Date Time</fullName>
         <actions>
             <name>Update_Contact_Failed_Date_Time_to_Now</name>
@@ -835,11 +856,7 @@ Modify Reason:
             <name>Update_Lead_Assigned_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
         </actions>
-
-
-
-
-		<active>false</active>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu 
 Used by: Lead__c (US-Lead-15) 
