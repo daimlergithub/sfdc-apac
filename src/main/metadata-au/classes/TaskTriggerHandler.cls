@@ -27,6 +27,7 @@ public class TaskTriggerHandler
     
     public void handleTrigger()
     {
+	user obj=[select id,profileid,profile.Name from user where id=:userinfo.getuserid()];
        /* if(trigger.isAfter && trigger.isInsert)
         {
           //todo commented: need to add trigger wsitching mechanism
@@ -71,6 +72,8 @@ public class TaskTriggerHandler
             TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);*/
             //Existing AU functionality
             TaskTriggerHandler.au_Before_Insert_Update_Events(Trigger.new,trigger.isinsert,trigger.isupdate);
+			if(obj.profile.Name!='IntegrationAPI')
+            TaskHelper.au_Before_Insert_Update_Events_Task(Trigger.new,trigger.isinsert,trigger.isupdate);
         }
         if(trigger.isBefore && trigger.isUpdate)
         {
@@ -82,6 +85,8 @@ public class TaskTriggerHandler
             TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);*/
             //Existing AU functionality
             TaskTriggerHandler.au_Before_Insert_Update_Events(Trigger.new,trigger.isinsert,trigger.isupdate);
+			if(obj.profile.Name!='IntegrationAPI')
+            TaskHelper.au_Before_Insert_Update_Events_Task(Trigger.new,trigger.isinsert,trigger.isupdate);
         }
     }
     
