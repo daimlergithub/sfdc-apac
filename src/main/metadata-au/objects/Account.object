@@ -3785,6 +3785,10 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <fullName>The franchise agreement was terminated and the franchised business was acquired by the franchisor.</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>The franchise was transferred.</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Unknown</fullName>
                 <default>false</default>
