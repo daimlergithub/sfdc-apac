@@ -1,0 +1,47 @@
+<apex:page standardController="Lead__c" extensions="lead_Addresscontroller" id="pageid" showHeader="false" sidebar="false" showChat="false">
+<apex:form >  
+    <apex:pageMessages id="showmsg"></apex:pageMessages>
+    <apex:pageBlock >  
+        <apex:pageBlockSection columns="2" rendered="{!!Preferred}"> 
+             <apex:inputText label="Home Phone" value="{!HomePhone}"/> 
+             <apex:outputField value="{!addressList_details.Address_Line_1__c}"/>
+             <apex:inputText label="Work Phone" value="{!workPhone}"/>
+             <apex:outputField value="{!addressList_details.Address_Line_2__c}"/>
+             <apex:inputText label="Email" value="{!email}"/>
+             <apex:outputField value="{!addressList_details.District__c}"/>
+             <apex:inputText label="Mobile" value="{!mobileNum}"/>
+             <apex:outputField value="{!addressList_details.Province__c}"/>
+             <apex:outputText value=""/> 
+             <apex:outputField value="{!addressList_details.ZipCode__c}"/> 
+                      
+        </apex:pageBlockSection>    
+         <apex:pageBlockSection columns="2" rendered="{!Preferred}"> 
+             <apex:inputText label="Home Phone" value="{!HomePhone}"/>
+             <apex:outputText label="Address Line 1"/>
+             <apex:inputText label="Work Phone" value="{!workPhone}"/>
+             <apex:outputText label="Address Line 2"/>
+             <apex:inputText label="Email" value="{!email}"/>
+             <apex:outputText label="Suburb"/>
+             <apex:inputText label="Mobile" value="{!mobileNum}"/>
+             <apex:outputText label="State"/>
+             <apex:outputText label=""/>
+             <apex:outputText label="Post Code"/>    
+                    
+        </apex:pageBlockSection>   
+      <!--<apex:pageMessage strength="3" summary="No Preferred Address Found" severity="warning" rendered="{!Preferred}"/>-->   
+      <apex:pageBlockButtons location="bottom">
+      <apex:commandButton value="Save" action="{!Save}" styleClass="btn"/> 
+      </apex:pageblockButtons> 
+   </apex:pageBlock>
+ </apex:form>
+ <style>
+        .bPageBlock.brandSecondaryBrd.apexDefaultPageBlock.secondaryPalette
+        {
+            background-color: white;
+        }
+        .Custom20Tab .secondaryPalette, .individualPalette .Custom20Block .secondaryPalette {
+          background-color: white;
+          border-color: White;
+          }
+  </style> 
+</apex:page>
