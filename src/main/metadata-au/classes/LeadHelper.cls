@@ -611,6 +611,8 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
                 }
             }
         }
+		//TODO commented this as part of SFDCAU-467,SFDCAU-493 Once Alan validates and confirms it will be uncommented.
+        /*
         if(!serviceLeadsForImmediateNotice.isEmpty()) {
             sendServicePartsEmail(serviceLeadsForImmediateNotice, serviceDealerIdsForImmediateNotice, 'Immediate Notice');
         }
@@ -620,15 +622,14 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
         if(!serviceLeadsFor72H.isEmpty()) {
             sendServicePartsEmail(serviceLeadsFor72H, serviceDealerIdsFor72H, '72H Untouched Notice');
         }
-        //TODO commented this as part of SFDCAU-467, Once Alan validates and confirms it will be uncommented.
-        /*if(!financeLeads.isEmpty()) 
+        if(!financeLeads.isEmpty()) 
         {
             sendFinanceEmail(financeLeads, financeDealerIds);
-        }*/
+        }
         if(!VehicleLeadsForImmediateNotice.isEmpty()){
              system.debug('++++++++++++++calls method here++++++++' +VehicleLeadsForImmediateNotice[0].id);
             sendServicePartsEmail(VehicleLeadsForImmediateNotice, vehicleDealerIdsForImmediateNotice, 'Immediate Notice');
-        }
+        } */
     }
     
     public static void auBefore_Insert_Update_Events(list<Lead__c> listNewLeads,map<id,Lead__c> mapLeadOldmap,boolean isInsert,boolean isUpdate)
