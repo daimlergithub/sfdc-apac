@@ -735,4 +735,46 @@ public class TaskHelper {
        }
     }
  // By Shuang Li BRD-AS-CAC-007---- end
+ 
+  //Added as per Jira ticket SFDCAU-488
+  public static void au_Before_Insert_Update_Events_Task(list<task> listTaskNew,boolean isInsert,boolean isUpdate)
+    {
+          Set<Id> RECORD_TYPE_SET = new Set<Id>();
+          id emcTask=Schema.SObjectType.Task.getRecordTypeInfosByName().get('EMC Task').getRecordTypeId();
+          RECORD_TYPE_SET.add(emcTask);
+          id personAccount=Schema.SObjectType.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
+          set<Id> Leadid=new set<Id>();
+          Schema.DescribeSobjectResult r= Lead__c.sObjectType.getDescribe();
+          string keyPrefix=r.getKeyPrefix();
+          
+         for(Task task : listTaskNew)
+         {
+             if(RECORD_TYPE_SET.contains(task.RecordTypeId) && task.whatId != null && String.valueOf(task.WhatId).startswith(keyPrefix))
+              {
+                  Leadid.add(task.WhatId);
+              }
+         }
+         
+             if(Leadid !=null && !Leadid.isEmpty())
+              {
+              
+              Map<Id, Lead__c> leads= new Map<Id, Lead__c>([select id,Contact__c,Contact__r.PersonContactId from Lead__c where  contact__r.Recordtypeid=:personAccount and Id in :Leadid]);    
+               if(leads !=null && !leads.isEmpty() && listTaskNew !=null && !listTaskNew.isEmpty())  
+               {                             
+              for(Task task : listTaskNew)
+               {
+              
+              if(RECORD_TYPE_SET.contains(task.RecordTypeId) && leads.containsKey(task.WhatId)) 
+               {
+               
+               if(task.RecordTypeId==emcTask && (leads.get(task.WhatId).Contact__c!=null))
+               {              
+                    task.whoid=leads.get(task.WhatId).Contact__r.PersonContactId;
+                  
+                    }
+               }
+              }
+              }
+              }    
+    }
 }
