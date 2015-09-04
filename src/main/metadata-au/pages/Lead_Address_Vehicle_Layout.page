@@ -11,7 +11,7 @@
              <apex:outputField value="{!addressList_details.District__c}"/>
              <apex:inputText label="Mobile" value="{!mobileNum}"/>
              <apex:outputField value="{!addressList_details.Province__c}"/>
-             <apex:outputText value=""/> 
+             <apex:inputText label="Account Post Code" value="{!zipcode}"/> 
              <apex:outputField value="{!addressList_details.ZipCode__c}"/> 
                       
         </apex:pageBlockSection>    
@@ -24,7 +24,7 @@
              <apex:outputText label="Suburb"/>
              <apex:inputText label="Mobile" value="{!mobileNum}"/>
              <apex:outputText label="State"/>
-             <apex:outputText label=""/>
+             <apex:inputText label="Account Post Code" value="{!zipcode}"/>
              <apex:outputText label="Post Code"/>    
                     
         </apex:pageBlockSection>   

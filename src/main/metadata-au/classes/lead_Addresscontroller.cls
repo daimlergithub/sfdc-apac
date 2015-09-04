@@ -10,7 +10,8 @@ public static id ContactId;
 public string mobileNum{get; set;}
 public string homePhone{get ; set;}
 public string workPhone{get; set;}
-public string email{get; set;}  
+public string email{get; set;}
+public string zipcode{get; set;}  
 public static list<Account> updateAccountList = new list<Account>();   
 //Constructor Called to get the current account record id
    public lead_Addresscontroller(ApexPages.StandardController controller) {
@@ -140,6 +141,7 @@ public String getworkPhone(){
                          acc.Work_Phone__c = workPhone;
                          acc.Email__c = email;
                          acc.Mobile__c = mobileNum;
+                         acc.ZipCode__c = zipcode;
                          updateAccountList.add(acc);
                      }
                 }
