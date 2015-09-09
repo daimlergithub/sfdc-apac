@@ -442,7 +442,31 @@ Proxy_Date_Time__c
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
-    </fieldUpdates>   
+    </fieldUpdates>
+    <outboundMessages>
+        <fullName>Link_Social_Media_Leads</fullName>
+        <apiVersion>28.0</apiVersion>
+        <endpointUrl>https://benz.social360.com.cn/LinkLead.asmx</endpointUrl>
+        <fields>Contact__c</fields>
+        <fields>Id</fields>
+        <fields>RecordTypeId</fields>
+        <includeSessionId>false</includeSessionId>
+        <integrationUser>WORKFLOW_INTEGRATION_USER</integrationUser>
+        <name>Link Social Media Leads</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
+    <outboundMessages>
+        <fullName>Send_Assigned_Dealer_to_EP</fullName>
+        <apiVersion>27.0</apiVersion>
+        <endpointUrl>https://crm.mercedes-benz.com.cn/webservices/LmsExportNotification</endpointUrl>
+        <fields>Id</fields>
+        <includeSessionId>true</includeSessionId>
+        <integrationUser>WORKFLOW_INTEGRATION_USER</integrationUser>
+        <name>Send Assigned Dealer to EP</name>
+        <protected>false</protected>
+        <useDeadLetterQueue>false</useDeadLetterQueue>
+    </outboundMessages>
     <rules>
         <fullName>Email notification when customer doesn%27t allow dealer contact</fullName>
         <actions>
@@ -705,7 +729,26 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <value>OB Call,IB Call</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
-    </rules>  
+    </rules>
+    <rules>
+        <fullName>Social Media Leads Binding</fullName>
+        <actions>
+            <name>Link_Social_Media_Leads</name>
+            <type>OutboundMessage</type>
+        </actions>
+        <active>false</active>
+        <criteriaItems>
+            <field>Lead__c.Lead_DataSource__c</field>
+            <operation>equals</operation>
+            <value>Web/Mobile Phone</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>Lead__c.Lead_DataSubSource__c</field>
+            <operation>equals</operation>
+            <value>Weibo,WeChat</value>
+        </criteriaItems>
+        <triggerType>onCreateOnly</triggerType>
+    </rules>
     <rules>
         <fullName>Update Close Date With Status Category Closed Won</fullName>
         <actions>
@@ -746,6 +789,15 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
     </rules>
     <rules>
+        <fullName>Update Customer Type on Lead</fullName>
+        <active>false</active>
+        <description>Updates the Customer Type field with the values
+Existing Customer – IF any of PC/CV/Van Status fields are 'Customer'
+New Customer - IF all of PC/CV/Van Status fields are 'Prospect'</description>
+        <formula>IF(Contact__c  &lt;&gt; null ||  Company_Account__c  &lt;&gt; null, true, false)</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
         <fullName>Update Customer Type on Lead1</fullName>
         <actions>
             <name>Update_Customer_Type_to_New_Customer</name>
@@ -754,7 +806,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <active>true</active>
         <description>Updates the Customer Type field with the values
 New Customer - IF all of PC/CV/Van Status fields are 'Prospect'</description>
-        <formula>IF(ISPICKVAL( Contact__r.CV_Status__c , 'Prospect') &amp;&amp;   ISPICKVAL( Contact__r.PC_Status__c , 'Prospect')  &amp;&amp; ISPICKVAL( Contact__r.VAN_Status__c , 'Prospect'), true, false)</formula>
+        <formula>AND(IF(ISPICKVAL( Contact__r.CV_Status__c , 'Prospect') &amp;&amp; ISPICKVAL( Contact__r.PC_Status__c , 'Prospect') &amp;&amp; ISPICKVAL( Contact__r.VAN_Status__c , 'Prospect'), true, false), IF(RecordType.Name = 'Vehicle Lead', true, false))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -766,7 +818,7 @@ New Customer - IF all of PC/CV/Van Status fields are 'Prospect'</description>
         <active>true</active>
         <description>Updates the Customer Type field with the values 
 Existing Customer -- IF any of PC/CV/Van Status fields are 'Customer'</description>
-        <formula>IF(ISPICKVAL( Contact__r.CV_Status__c , 'Customer') ||ISPICKVAL( Contact__r.PC_Status__c , 'Customer') ||ISPICKVAL( Contact__r.VAN_Status__c , 'Customer'), true, false)</formula>
+        <formula>AND(IF(ISPICKVAL( Contact__r.CV_Status__c , 'Customer') ||ISPICKVAL( Contact__r.PC_Status__c , 'Customer') ||ISPICKVAL( Contact__r.VAN_Status__c , 'Customer'), true, false), IF(RecordType.Name = 'Vehicle Lead', true, false) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -897,7 +949,11 @@ Modify Reason:
         <actions>
             <name>Update_Lead_Assigned_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
-        </actions>        
+        </actions>
+        <actions>
+            <name>Send_Assigned_Dealer_to_EP</name>
+            <type>OutboundMessage</type>
+        </actions>
         <active>false</active>
         <description>/* 
 Created by: Mouse Liu 
