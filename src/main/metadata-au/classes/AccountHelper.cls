@@ -653,11 +653,12 @@ public class AccountHelper {
             
         }
          
-          if(accounts.values()!=null && !accounts.values().isEmpty())   
+          if(accounts.values()!=null && !accounts.values().isEmpty() && System.IsBatch() == false && System.isFuture() == false)   
           { 
             UtilConstant.Recursivefire=true;
             //UtilDB.updateSobjects(accounts.values());
             String JSONString = JSON.serialize(accounts.values());
+            updateaccounts(JSONString);
           }
          
     }

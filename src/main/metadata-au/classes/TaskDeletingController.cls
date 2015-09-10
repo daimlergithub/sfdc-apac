@@ -16,10 +16,8 @@ public class TaskDeletingController {
     public TaskDeletingController(ApexPages.StandardController controller) {
         task = (Task)controller.getRecord();
         isAllowedDelete = false;
-        profiles.add('Central CRM Manager');
-        profiles.add('Central AS Marketing Manager');
-        profiles.add('Central AS Marketing Staff');
-        profiles.add('CAC IT Manager');
+        profiles.add('EMC');
+        profiles.add('System Administrator');
     }
     
     public Boolean isAllowedDelete { get; set; }

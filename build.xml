@@ -849,7 +849,8 @@
 				<sf:include name="DeleteFleet"/>
 				<sf:include name="Fleet_checklist_output"/>
 				<sf:include name="Fleet_settlement_checklist"/>
-				<sf:include name="NewCMSContractsRelation"/>				
+				<sf:include name="NewCMSContractsRelation"/>
+				<sf:include name="Lead_Address_Vehicle_Layout"/>		
 		</sf:typeset>		
 		</deploy>					
     </target>

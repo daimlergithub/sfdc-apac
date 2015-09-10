@@ -155,6 +155,24 @@ Used By: Workflow Rule - Lead Auto Check '*72H Untouched'
         <protected>false</protected>
     </fieldUpdates>
     <fieldUpdates>
+        <fullName>Update_Customer_Type_to_Existing_Custome</fullName>
+        <field>Customer_Type__c</field>
+        <literalValue>Existing Customer</literalValue>
+        <name>Update Customer Type to Existing Custome</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
+        <fullName>Update_Customer_Type_to_New_Customer</fullName>
+        <field>Customer_Type__c</field>
+        <literalValue>New Customer</literalValue>
+        <name>Update Customer Type to New Customer</name>
+        <notifyAssignee>false</notifyAssignee>
+        <operation>Literal</operation>
+        <protected>false</protected>
+    </fieldUpdates>
+    <fieldUpdates>
         <fullName>Update_Dealer_Aftersales_Manager_Email</fullName>
         <field>Dealer_Aftersales_Manager_Email__c</field>
         <formula>Assigned_Dealer__r.Dealer_Aftersales_Manager_Email__c</formula>
@@ -726,6 +744,30 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <active>false</active>
         <formula>ISPICKVAL(Dealer_Lead_Status__c,"Contact Failed For 3 Days(Only Non BDC)")</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Customer Type on Lead1</fullName>
+        <actions>
+            <name>Update_Customer_Type_to_New_Customer</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the Customer Type field with the values
+New Customer - IF all of PC/CV/Van Status fields are 'Prospect'</description>
+        <formula>AND(IF(ISPICKVAL( Contact__r.CV_Status__c , 'Prospect') &amp;&amp; ISPICKVAL( Contact__r.PC_Status__c , 'Prospect') &amp;&amp; ISPICKVAL( Contact__r.VAN_Status__c , 'Prospect'), true, false), IF(RecordType.Name = 'Vehicle Lead', true, false))</formula>
+        <triggerType>onAllChanges</triggerType>
+    </rules>
+    <rules>
+        <fullName>Update Customer Type on Lead2</fullName>
+        <actions>
+            <name>Update_Customer_Type_to_Existing_Custome</name>
+            <type>FieldUpdate</type>
+        </actions>
+        <active>true</active>
+        <description>Updates the Customer Type field with the values 
+Existing Customer -- IF any of PC/CV/Van Status fields are 'Customer'</description>
+        <formula>AND(IF(ISPICKVAL( Contact__r.CV_Status__c , 'Customer') ||ISPICKVAL( Contact__r.PC_Status__c , 'Customer') ||ISPICKVAL( Contact__r.VAN_Status__c , 'Customer'), true, false), IF(RecordType.Name = 'Vehicle Lead', true, false) )</formula>
+        <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
         <fullName>Update Dealer Aftersales Manager and Dealer Owner Email Field</fullName>
