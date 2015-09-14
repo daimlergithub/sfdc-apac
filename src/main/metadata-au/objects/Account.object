@@ -3785,7 +3785,7 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
                 <fullName>The franchise agreement was terminated and the franchised business was acquired by the franchisor.</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>The franchise was transferred.</fullName>
                 <default>false</default>
             </picklistValues>
@@ -18051,15 +18051,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>The franchise was transferred%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>The franchised business ceased to operate%2E</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>The franchised business was bought back by the franchisor%2E</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>The franchise was transferred.</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -24053,6 +24053,12 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <searchResultsAdditionalFields>ACCOUNT.NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Business_Unit__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PC_EMAIL</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UPDATEDBY_USER.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>PC_LEAD_SOURCE</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.FIRST_NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>CORE.USERS.LAST_NAME</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
