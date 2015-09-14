@@ -9,7 +9,7 @@ private static User usr;
           usr = new User(alias = 'standt', email = 'test@9876test.com', 
                                       emailencodingkey = 'UTF-8', lastname = 'TestLasName', languagelocalekey = 'en_US', 
                                       localesidkey = 'en_US', profileid = userProfile.get(0).id ,
-                                      timezonesidkey = 'America/Los_Angeles',  username = 'testUniqudeName@test.com');
+                                      timezonesidkey = 'America/Los_Angeles',isactive=true,  username = 'testUniqudeName@test.com');
                                       insert usr;
                                          
                user = [select Profile.Name from User where profileid =:userProfile.get(0).id Limit 1];
@@ -18,11 +18,11 @@ private static User usr;
   static testMethod void testTaskDeletingController()
   {
    
-    List<Profile> userProfile = new List<Profile>([SELECT Id FROM profile WHERE name='Central CRM Manager' OR Name='Central AS Marketing Manager' OR  Name='Central AS Marketing Staff' OR Name='CAC IT Manager']);
+    List<Profile> userProfile = new List<Profile>([SELECT Id FROM profile WHERE Name='System Administrator' OR Name='EMC']);
        createUser(userProfile);
     //data for user object
       
-              system.runas(user)
+              system.runas(usr)
                {
                Test.startTest();
                prepareTestData();
