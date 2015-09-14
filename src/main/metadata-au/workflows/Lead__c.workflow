@@ -442,7 +442,7 @@ Proxy_Date_Time__c
         <notifyAssignee>false</notifyAssignee>
         <operation>Formula</operation>
         <protected>false</protected>
-    </fieldUpdates>
+    </fieldUpdates>    
     <rules>
         <fullName>Email notification when customer doesn%27t allow dealer contact</fullName>
         <actions>
@@ -705,7 +705,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
             <value>OB Call,IB Call</value>
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
-    </rules>
+    </rules>    
     <rules>
         <fullName>Update Close Date With Status Category Closed Won</fullName>
         <actions>
@@ -754,7 +754,7 @@ Modified By Polaris Yu 2013-8-29 Added '*72H Untouched'
         <active>true</active>
         <description>Updates the Customer Type field with the values
 New Customer - IF all of PC/CV/Van Status fields are 'Prospect'</description>
-        <formula>AND(IF(ISPICKVAL( Contact__r.CV_Status__c , 'Prospect') &amp;&amp; ISPICKVAL( Contact__r.PC_Status__c , 'Prospect') &amp;&amp; ISPICKVAL( Contact__r.VAN_Status__c , 'Prospect'), true, false), IF(RecordType.Name = 'Vehicle Lead', true, false))</formula>
+        <formula>IF(AND((Contact__c = null || Contact__c =''),RecordType.Name = 'Vehicle Lead'),   IF(  ISPICKVAL(Company_Account__r.CV_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL(Company_Account__r.PC_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL(Company_Account__r.VAN_Status__c , 'Prospect'),  true, false),    IF(  ISPICKVAL( Contact__r.CV_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL( Contact__r.PC_Status__c , 'Prospect') &amp;&amp;  ISPICKVAL( Contact__r.VAN_Status__c , 'Prospect'),  true, false))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -766,7 +766,7 @@ New Customer - IF all of PC/CV/Van Status fields are 'Prospect'</description>
         <active>true</active>
         <description>Updates the Customer Type field with the values 
 Existing Customer -- IF any of PC/CV/Van Status fields are 'Customer'</description>
-        <formula>AND(IF(ISPICKVAL( Contact__r.CV_Status__c , 'Customer') ||ISPICKVAL( Contact__r.PC_Status__c , 'Customer') ||ISPICKVAL( Contact__r.VAN_Status__c , 'Customer'), true, false), IF(RecordType.Name = 'Vehicle Lead', true, false) )</formula>
+        <formula>IF(AND((Contact__c = null || Contact__c =''),RecordType.Name = 'Vehicle Lead'),   IF(  ISPICKVAL(Company_Account__r.CV_Status__c , 'Customer') ||  ISPICKVAL(Company_Account__r.PC_Status__c , 'Customer') ||  ISPICKVAL(Company_Account__r.VAN_Status__c , 'Customer'),  true, false),    IF(  ISPICKVAL( Contact__r.CV_Status__c , 'Customer') ||  ISPICKVAL( Contact__r.PC_Status__c , 'Customer') ||  ISPICKVAL( Contact__r.VAN_Status__c , 'Customer'),  true, false))</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
     <rules>
@@ -897,7 +897,7 @@ Modify Reason:
         <actions>
             <name>Update_Lead_Assigned_Date_Time_to_Now</name>
             <type>FieldUpdate</type>
-        </actions>
+        </actions>        
         <active>false</active>
         <description>/* 
 Created by: Mouse Liu 
