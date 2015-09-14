@@ -76,7 +76,7 @@
 	</target>
 	
 	<target name="deploy01">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="labels"/>
 			<sf:typeset name="staticresources">
 				<!-- the Checksums resource is handled by separate tasks -->
@@ -88,14 +88,14 @@
     </target>
 	
 	<target name="deploy05">
-		<deploy>			
+		<deploy runAllTests="${sfdc.runAllTests}">			
 			<sf:typeset name="documents"/>
 			<sf:typeset name="callCenters"/>
 		</deploy>
     </target>
 	
 	<target name="deploy07">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="Picklist_Mapping__c"/>
 				<sf:include name="Integration_Picklist__c"/>
@@ -106,7 +106,7 @@
     </target>
 	
 	<target name="deploy09">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
 				<sf:include name="PersonAccount"/>
@@ -150,7 +150,7 @@
     </target>
 	
 	<target name="deploy15">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="pages">
 				<sf:include name="Fleet_settlement_checklist"/>
 				<sf:include name="Fleet_checklist_output"/>
@@ -178,7 +178,7 @@
     </target>
 	
 	<target name="deploy20">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">				
 				<sf:exclude name="Account"/>
 				<sf:exclude name="PersonAccount"/>
@@ -193,7 +193,7 @@
 		</deploy>
     </target>
 	<target name="deploy21">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
 				<sf:include name="Contract_Relation__c"/>
 			</sf:typeset>
@@ -223,7 +223,7 @@
     </target>
 	
 	<target name="deploy25">			
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="pages">
 				<sf:include name="Tasks"/>
 			</sf:typeset>
@@ -251,7 +251,7 @@
 	</target>
 	
 	<target name="deploy30">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="TriggerHandlerIf"/>
 			<sf:include name="TriggerUtil"/>
@@ -266,7 +266,7 @@
     </target>
 	
 	<target name="deploy31">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="QCHelperTest"/>
 			<sf:include name="UtilSobject"/>
@@ -299,7 +299,7 @@
     </target>
 	
 	<target name="deploy32">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="CMapTest"/>
 			<sf:include name="CMap"/>
@@ -335,7 +335,7 @@
     </target>
 	
 	<target name="deploy33">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="NewVehicleRelationshipController"/>
 			<sf:include name="NewVehicleRelationshipControllerTest"/>
@@ -370,7 +370,7 @@
     </target>
 	
 	<target name="deploy34">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="TaskHelper"/>
 			<sf:include name="TaskHelperTest"/>
@@ -448,7 +448,7 @@
     </target>
 	
 	<target name="deploy35">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="ScheduledCreationTaskToDealers"/>
 			<sf:include name="ScheduledCreationTaskToDealersTest"/>
@@ -476,7 +476,7 @@
     </target>
 	
 	<target name="deploy36">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="ComplaintDesHelper"/>
 			<sf:include name="ComplaintDesHelperTest"/>
@@ -499,7 +499,7 @@
     </target>
 	
 	<target name="deploy37">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="LeadHelper"/>
 			<sf:include name="LeadHelperTest"/>
@@ -537,7 +537,7 @@
     </target>
 	
 	<target name="deploy39">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="YearlyTAAchieTracingController"/>
 			<sf:include name="YearlyTAAchieTracingControllerTest"/>
@@ -563,7 +563,7 @@
     </target>
 	
 	<target name="deploy40">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">			
 			<sf:include name="TaskFailBlacklistTrigger_TestClass"/>
 			<sf:include name="TaskMassChangeOwner"/>
@@ -583,7 +583,7 @@
     </target>	
 	
 	<target name="deploy41">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="VehicleDataSharingHandler"/>
 			<sf:include name="VehicleDataSharingHandlerTest"/>
@@ -655,7 +655,7 @@
 
 	
 	<target name="deploy42">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="ViewTaskController"/>
 			<sf:include name="ViewTaskControllerTest"/>
@@ -697,7 +697,7 @@
     </target>
 	
 	<target name="deploy43">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="LeadConvertingController"/>
 			<sf:include name="LeadConvertingControllerTest"/>
@@ -744,7 +744,7 @@
     </target>
 	
 	<target name="deploy44">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="UserLookupResultController"/>
 			<sf:include name="UserLookupResultControllerTest"/>
@@ -776,7 +776,7 @@
     </target>	
 	
 	<target name="deploy45">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 		<sf:typeset name="classes">
 			<sf:include name="AddToRetailCampaignController"/>
 			<sf:include name="AddToRetailCampaignControllerTet"/>
@@ -849,13 +849,14 @@
 				<sf:include name="DeleteFleet"/>
 				<sf:include name="Fleet_checklist_output"/>
 				<sf:include name="Fleet_settlement_checklist"/>
-				<sf:include name="NewCMSContractsRelation"/>				
+				<sf:include name="NewCMSContractsRelation"/>
+				<sf:include name="Lead_Address_Vehicle_Layout"/>		
 		</sf:typeset>		
 		</deploy>					
     </target>
 	
 	<target name="deploy49">
-		<deploy>
+		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="applications"/>
 			<sf:typeset name="pages"> 
 				<sf:exclude name="TrialCustomerPortalHomePage"/>

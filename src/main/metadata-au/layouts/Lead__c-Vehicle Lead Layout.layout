@@ -36,6 +36,10 @@
                 <behavior>Readonly</behavior>
                 <field>Escalation_Flag__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Customer_Type__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -81,9 +85,9 @@
         <layoutColumns>
             <layoutItems>
                 <height>200</height>
-                <page>Lead_Address</page>
+                <page>Lead_Address_Vehicle_Layout</page>
                 <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
+                <showScrollbars>true</showScrollbars>
                 <width>100%</width>
             </layoutItems>
         </layoutColumns>
