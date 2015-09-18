@@ -130,7 +130,19 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountSearch</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AddMultipleAccountCLS</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AddMultipleAccountHelperCLS</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -262,6 +274,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CaseShareScheduler_class</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CaseTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -354,6 +370,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CreateVehicleRecordsController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DMControllerExtension</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -391,6 +411,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GenericCSVLoaderControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GlobalAccountSearch</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -515,6 +539,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>QCHelperTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>QueryCaseSharedUserDetails</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1294,7 +1322,39 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>accsearchcontroller</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>accsearchcontroller1</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>addAddress</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>addAddressDetails</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>campaignHistoryLogGeneration</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>generatePDF</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>leadownerassignment</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>myCustomExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>salesrep</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -3113,6 +3173,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account.Sales_Representattive__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account.SelecTrucks_Offered_Service__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -3519,6 +3584,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.toRole__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Address1__c.Home_Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -5329,6 +5399,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Case.Feedback_to_CAC__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Case.Final_Approver__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8203,6 +8278,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Competitor_Vehicle__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Contact_Failed_For_3_Days_Date_Time__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8234,6 +8314,16 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.CurrentMileage__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Current_Vehicle_1__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Current_Vehicle_2__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8479,6 +8569,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Interested_Vehicle_Tridion_Cell_Colour__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Interested_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8839,6 +8934,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Purchased_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Purchased_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9213,12 +9313,22 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Lead__c.Trade_in__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Lead__c.Updated_By_EP_Transactions__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.UsVIN__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Used_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11669,6 +11779,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Origin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Payment_Frequency__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -14698,6 +14813,9 @@
         <recordType>Account.Dealer</recordType>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>AccountContactRole-Account Contact Role Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -14711,6 +14829,9 @@
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
         <recordType>Account_Link__c.ExternalLink</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Address1__c-AddAddress Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Address__c-Address Layout</layout>
@@ -15347,6 +15468,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Account_Link__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Address1__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -16037,6 +16167,18 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>AddressDetails</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>AddressDetails1</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>AddressDetails_inline</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>AnswersHome</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -16129,6 +16271,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>CreateVehicleRecords</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>DMSendResult</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -16210,6 +16356,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>NewVehicleRelationship</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>PreferredDateTime</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -16325,6 +16475,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>Vehicle_Picker</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>ViewTask</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -16361,11 +16515,23 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>lead_owner_assignment</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>scc_tour_main</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
         <apexPage>scc_tour_style</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>search</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>searchbuttons</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <recordTypeVisibilities>
@@ -16850,6 +17016,14 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Address1__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Address__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Attribute__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -17220,6 +17394,10 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
+        <name>ManageTranslation</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
         <name>MassInlineEdit</name>
     </userPermissions>
     <userPermissions>
@@ -17245,6 +17423,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ScheduleReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SelectFilesFromSalesforce</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
