@@ -36,18 +36,22 @@ public class GenericCSVLoaderControllerTest {
     }                        
     static testMethod void TestuploadAccounts() {
     preparedTestdata();
+    Test.startTest();
         List<Account> accs = new List<Account>();
         accs.add(customer);
         GenericCSVLoaderController.uploadObjects(accs);
+        Test.stopTest();
        system.assert(accs!=null);
         system.assert(customer!=null);
     }
     
     static testMethod void TestuploadAccountsElseCondition() {
     preparedTestAccountdata();
+    Test.startTest();
         List<Account> accbranch = new List<Account>();
         accbranch .add(BranchName);
         GenericCSVLoaderController.uploadAccounts(accbranch );
+         Test.stopTest();
         system.assert(accbranch!=null);
         system.assert(BranchName!=null);
     }

@@ -1,5 +1,5 @@
 @istest
-public class superSortTest
+public with sharing class superSortTest
 {
 private static Account a= new Account();
 private static List<Account> accs;
@@ -23,5 +23,6 @@ trial=new TrialCustomerPortalHomePageController();
 superSort.sortList(accs,'OwnerId','asc');
 Test.stopTest();
 system.assert(!accs.isEmpty());
+system.assertNotEquals(null,trial);
 }
 }

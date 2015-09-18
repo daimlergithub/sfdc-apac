@@ -2,15 +2,13 @@
     Type:       test class
     Purpose:    VehicleRelLookingController test class
     User Story: Release 1.2 Report S&M R006
-
-    Used By:    VehicleRelLookingController
-    ---------------------------------------------------------------
-    History:
-
-    9-Jun-2014 Sinow    Created
+    Used By:    VehicleRelLookingController 
+     History:9-Jun-2014 Sinow    Created
 */
 @isTest
 public class VehicleRelLookingControllerTest {
+
+
     public static testMethod void testVehicleRelLookingController ()
     {
         
@@ -33,7 +31,6 @@ public class VehicleRelLookingControllerTest {
         PageReference vehicleRelLooking = Page.VehicleRelLooking;
         vehicleRelLooking.getParameters().put('id',conComplaint.id);
         Test.setCurrentPage(vehicleRelLooking); 
-        String num = ApexPages.currentPage().getParameters().put('id',conComplaint.id);
         Test.startTest();
         ApexPages.currentPage().getParameters().put('id',account1.Id);
         VehicleRelLookingController extension = new VehicleRelLookingController();

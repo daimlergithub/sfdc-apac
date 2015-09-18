@@ -18,7 +18,8 @@ public With Sharing class CaseHelperTest {
     static Account acc = new Account(LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid);
     static Account acc1 = new Account(Name='acme',RecordTypeId = dealerRecordtypeid);
     static Account acc2 = new Account(Name='acme23',RecordTypeId = dealerRecordtypeid);
-  
+    private static String DealerUser='Dealer User';
+   private static String DealerDelegateAdmin='Dealer Delegate Admin';
    static Vehicle__c ve1 = new Vehicle__c(Baumuster__c='forTest',Class__c='class-B',Brand__c='BENZ',Model__c='B200', EuroVIN__c='11111222221111122', UsVIN__c='11111222221111122',Latest_Sales_Person__c='xxx',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));
    static Vehicle__c ve2 = new Vehicle__c(Baumuster__c='forTest',Class__c='C-Class Coupe',Brand__c='BENZ',Model__c='B220', EuroVIN__c='11111222222111122', UsVIN__c='11111222222111122',Latest_Sales_Person__c='xxx2',Warranty_Start_Date__c=date.valueOf('2012-10-02'),FirstRegistrationDate__c=date.valueOf('2012-10-03'));   
   
@@ -127,7 +128,7 @@ public With Sharing class CaseHelperTest {
                                                   Contact__c = acc.Id,Registration_Number__c ='2');
             insert vrData1;
             insert vrData2;                
-            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
+            User user1 = UtilTestData.createPortalUser(DealerUser,DealerDelegateAdmin);
             User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
     
             Case c1 = new Case(Vehicle_Relationship__c = vrData1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
@@ -160,7 +161,7 @@ public With Sharing class CaseHelperTest {
             insert ve1;
             Vehicle_Relationship__c vrData = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, Contact__c = acc.Id,Registration_Number__c ='3');
             insert vrData;
-            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
+            User user1 = UtilTestData.createPortalUser(DealerUser,DealerDelegateAdmin);
             User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
     
             Case c1 = new Case(Vehicle_Relationship__c = vrData.Id, AccountId = acc.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt', Case_Dealer__c = portalUser1.AccountId);
@@ -187,7 +188,7 @@ public With Sharing class CaseHelperTest {
             insert ve1;
             Vehicle_Relationship__c vrData = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, Contact__c =acc.Id,Registration_Number__c ='4');
             insert vrData;
-            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
+            User user1 = UtilTestData.createPortalUser(DealerUser,DealerDelegateAdmin);
             User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
     
             Case c1 = new Case(Vehicle__c = ve1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
@@ -240,7 +241,7 @@ public With Sharing class CaseHelperTest {
             // lastName is a required field on user, but if it isn't specified, 
             //   the code uses the username
             Site.createPortalUser(u, accountId, '1qaz@WSX3e');
-            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
+            User user1 = UtilTestData.createPortalUser(DealerUser,DealerDelegateAdmin);
             User portalUser = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
     
             Test.startTest();        
@@ -265,7 +266,7 @@ public With Sharing class CaseHelperTest {
             Test.startTest();
             insert acc1;
             insert acc2;
-            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
+            User user1 = UtilTestData.createPortalUser(DealerUser,DealerDelegateAdmin);
             User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
     
             Case c1 = new Case( Customer_Care_Owner__c=user1.id,CheckFlag_48H__c=true,Notice_Others__c=true,Notice_SM__c=false,Notice_GM__c=true,RecordTypeId = MBRecordtypeid, Description = 'test des', Case_Dealer__c = portalUser1.AccountId, Status = 'Open',Handling_Level__c = 'Dealer',Notice_AS__c=true,Notice_CRM__c=true);
@@ -294,7 +295,7 @@ public With Sharing class CaseHelperTest {
             Test.startTest();
             insert acc1;
             insert acc2;
-            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
+            User user1 = UtilTestData.createPortalUser(DealerUser,DealerDelegateAdmin);
             User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
     
             Case c1 = new Case( Customer_Care_Owner__c=user1.id,CheckFlag_48H__c=true,Notice_Others__c=true,Notice_SM__c=false,Notice_GM__c=true,RecordTypeId = C_INQUIRY_RECORD_TYPE, Description = 'des test', Case_Dealer__c = portalUser1.AccountId, Status = 'Open',Handling_Level__c = 'Dealer',Notice_AS__c=true,Notice_CRM__c=true);
@@ -324,7 +325,7 @@ public With Sharing class CaseHelperTest {
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
             Test.startTest();
-            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
+            User user1 = UtilTestData.createPortalUser(DealerUser,DealerDelegateAdmin);
             User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
     
             Case c1 = new Case(RecordTypeId = C_MBDA_RECORD_TYPE, Description = 'test', Case_Dealer__c = portalUser1.AccountId);
@@ -349,7 +350,7 @@ public With Sharing class CaseHelperTest {
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
             Test.startTest();            
-            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');     
+            User user1 = UtilTestData.createPortalUser(DealerUser,DealerDelegateAdmin);     
             User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
     
            //User portalUser2 = [select accountId , email from user   
@@ -442,7 +443,7 @@ public With Sharing class CaseHelperTest {
                                                   Contact__c = acc.Id,Registration_Number__c ='1');
             insert vrData1;
             insert vrData2;                
-            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
+            User user1 = UtilTestData.createPortalUser(DealerUser,DealerDelegateAdmin);
             
             User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
                

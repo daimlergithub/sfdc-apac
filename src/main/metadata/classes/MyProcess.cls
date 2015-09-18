@@ -13,7 +13,7 @@
 public class MyProcess{
     public Id workItemId {get; set;}
     public Boolean hasMyStep {get; set;}
-    public static final Id ADMIN_ID = [Select Id from profile where Name = 'System Administrator' or Name = '系统管理员' limit 1].Id;
+    public static final Id ADMIN_ID = [Select Id from profile where Name = 'System Administrator' limit 1].Id;
     
     public MyProcess(Id targetId){
         List<ProcessInstance> processList = [

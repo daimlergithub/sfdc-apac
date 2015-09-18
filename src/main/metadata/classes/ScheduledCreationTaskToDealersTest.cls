@@ -32,7 +32,7 @@ public With Sharing class ScheduledCreationTaskToDealersTest{
             Test.stopTest();
             
             List<Task> testTask = [Select Id,OwnerId From Task];
-            if(testTask.size() > 0){
+            if(!testTask.isEmpty()){
                 try {
                         system.assertEquals(testUser.Id, testTask[0].OwnerId);
                     }

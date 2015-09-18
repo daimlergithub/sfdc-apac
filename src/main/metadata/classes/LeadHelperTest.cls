@@ -1,18 +1,13 @@
 /*
-    Type:       Test Class for LeadHelper
-    Purpose:    Create a custom sharing to share the lead record with Smart -
+    Type:Test Class for LeadHelper
+    Purpose: Create a custom sharing to share the lead record with Smart -
     Account Owner or the Star Elite Account Owner (from dealer record) 
     with Read Only access.)
     User Story: US-QC-022, US-QC-023, US-DP-022, US-DP-023, US-IB-001
-    Used By:
-    ---------------------------------------------------------------
-    History:
-
-    1. Sinow Created on 2013-04-25
-    2. Justin
+    Used By:1. Sinow Created on 2013-04-25,2. Justin
 */
 @isTest
-public class LeadHelperTest {
+public with sharing class LeadHelperTest {
 
     //add in 11/27
     private static String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();    
@@ -78,13 +73,13 @@ public class LeadHelperTest {
             map<id,id> caseLead = new map<id,id>();
             caseLead.put(lead.id, lead.id);
              string tempTitle = 'testTemplate';
+             Test.startTest();
             LeadHelper.UpdateLeadOwnerFromContact(setDealerId,listLead);
             LeadHelper.ShareToGateKeeper(setDealerId,listLead);
             LeadHelper.UpdateCasesWithLeadId(caseLead);
             LeadHelper.createdNewSMSTaskForInstructor(lead,user1,user1,dealer,dealer);
             LeadHelper.createdNewSMSTaskForCustomer(lead,user1,dealer,dealer,tempTitle);
-            //User u =[select Id, AccountId from User where isActive = true and AccountId in :setDealerId and Contact.Dealer_Lead_Gate_Keeper__c = true];
-            //system.debug('test'+u);
+            Test.stopTest();
             System.assertNotEquals(null,user1);
             System.assert(dealer!=null);
         }
@@ -93,6 +88,7 @@ public class LeadHelperTest {
     public static void TestLeadHelper() {
         createuserrecord();
         system.runAs(user1) {
+        Test.startTest();
             Account dealer1 = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');
             insert dealer1;
             Account dealer2 = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392244', Name = 'dealer2');
@@ -134,6 +130,7 @@ public class LeadHelperTest {
 
             a1.Allow_Data_Sharing__c = yes;
             update a1;
+            Test.stopTest();
             System.assertNotEquals(null,user1);
             System.assert(dealer1!=null);
         }
@@ -278,6 +275,7 @@ public class LeadHelperTest {
        
         system.runAs( user1 ) {
              preparedTestData();
+             Test.startTest();
             set<id> setDealerId = new set<id>();
             setDealerId.add(dealer.id);
             Lead__c lead = getLead1(user1);
@@ -300,6 +298,7 @@ public class LeadHelperTest {
            // LeadHelper.createdNewSMSTaskForInstructor(lead,user1,user1,dealer,dealer);
             LeadHelper.ShareToGateKeeper(setDealerId,listLead);
             LeadHelper.getEPIntegrationUser();
+            Test.stopTest();
             System.assertNotEquals(null,user1);
             System.assertEquals(lead.Assigned_Dealer__c,dealer.id);
             System.assert(dealer!=null);

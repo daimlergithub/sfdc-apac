@@ -212,5 +212,7 @@ personAccount.Email__c='test@mbau.com';
             Lead__c = lead.Id,
             Campaign__c = campaignExecution.Id);
         camLead = (Campaign_Lead__c)UtilTestData.createSobject(camLead, null);
+        system.assertNotEquals(null,packageItem);
+        system.assertNotEquals(null,partDealer);
     }
 }

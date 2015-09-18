@@ -1,9 +1,10 @@
 @isTest
-private class ChatterAnswersEscalationTriggerTest {
+private with sharing class ChatterAnswersEscalationTriggerTest {
     static testMethod void validateQuestionEscalation() {
         upsert new Trigger__c(Name = 'ChatterAnswersEscalation', Trigger_Name__c = 'chatter_answers_question_escalation_to_case_trigger', Trigger_Handler__c = 'ChatterAnswersEscalationTriggerHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         String questionTitle = 'questionTitle';
         String questionBody = 'questionBody';
+        Test.startTest();
         Community[] c = [SELECT Id from Community];
         // We cannot create a question without a community
         if (c.size() == 0) { return; }
@@ -15,7 +16,7 @@ private class ChatterAnswersEscalationTriggerTest {
         insert(q);
         q.Priority = 'high';
         update(q);
-        //Case ca = [SELECT Origin, CommunityId, Subject, Description from Case where QuestionId =: q.Id];
+        
         // Test that escaltion trigger correctly escalate the question to a case
         Case ca = new Case();
         ca.Origin='Chatter Answers';
@@ -24,7 +25,7 @@ private class ChatterAnswersEscalationTriggerTest {
         ca.Description = 'questionBody';
         ca.QuestionId=q.id;
         insert ca;
-        
+        Test.stopTest();
         System.assertEquals(questionTitle, ca.Subject);
         System.assertEquals(questionBody, ca.Description);
         System.assertEquals('Chatter Answers', ca.Origin);

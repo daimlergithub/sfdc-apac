@@ -1,13 +1,11 @@
 /*
     Type:       Test Class
     Purpose:    Test the ScheduleCreateWeeklyDealerOBEmails class
-    User Story: 
-    ---------------------------------------------------------------
-    History:
+    User Story:   History:
 
     1. venky created on 2015-03-13
 */
-@isTest(seeAllData=true)
+@isTest 
 public class ScheduleCreateWeeklyDealerOBEmailsTest{
     
     static testMethod void testScheduleCreateWeeklyDealerOBEmails(){
@@ -37,5 +35,8 @@ public class ScheduleCreateWeeklyDealerOBEmailsTest{
         Boolean contains = weeklyEmailBody.contains(testAccount.Name);
        
         System.assertEquals(contains, true);
+          System.assertEquals(CRON_EXP, ct.CronExpression); 
+        System.assertEquals(0, ct.TimesTriggered);
+        
     }
 }

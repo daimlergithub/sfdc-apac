@@ -1,17 +1,13 @@
 /*
     Type:       Test class of CaseEscalationController
     Purpose:    1. Escalate Case to Region Q
-                2. Escalate Case to Central Q
-    
+                2. Escalate Case to Central Q    
     User Story: US-DP-013, US-DP-015
-    Used By:    
-    ---------------------------------------------------------------
-    History:
-    
+    Used By:      
     30-May-2013 Sinow Zhang (NTTData)  Created
 */     
 @isTest
-public class CaseEscalationControllerTest { 
+public with sharing class CaseEscalationControllerTest { 
   
     static CaseEscalationController controller;
     static Case c;
@@ -48,36 +44,36 @@ public class CaseEscalationControllerTest {
         c.Subject = 'For Mail test';
         c.RecordTypeId = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
         c.Case_Dealer__c = dealer.id;
-        c.Case_Department__c = 'test';
-        c.Description = 'test';
-        c.Case_Type__c = 'test';
-        c.Case_SubType__c = 'test'; 
-        c.Case_Source__c = 'test';
+        c.Case_Department__c = 'testcase';
+        c.Description = 'testdes';
+        c.Case_Type__c = 'testcasetype';
+        c.Case_SubType__c = 'test case subtype'; 
+        c.Case_Source__c = 'test case source';
         c.Date_of_1st_Registration__c = Date.Today();
-        c.Selling_Dealer__c = 'test';
+        c.Selling_Dealer__c = 'test selling';
         c.Last_Known_Mileage__c = 1;
-        c.Defective_Item__c = 'test';
-        c.Defective_SubItem__c = 'test';
-        c.Customer_Requests_Transport__c = 'test';
-        c.Dealer_Provides_Transport__c = 'test';
-        c.Customer_Background_Info__c = 'test';
+        c.Defective_Item__c = 'test Defective';
+        c.Defective_SubItem__c = 'test Defectives';
+        c.Customer_Requests_Transport__c = 'test customer';
+        c.Dealer_Provides_Transport__c = 'test dealer';
+        c.Customer_Background_Info__c = 'test customerb';
         c.Region__c = 'North';
-        c.Government_Background__c = 'test'; 
-        c.Occupation__c = 'test';
-        c.Owner_Tele__c = 'test';
+        c.Government_Background__c = 'test Government'; 
+        c.Occupation__c = 'test Occupation';
+        c.Owner_Tele__c = 'test Owner';
         c.Owned_MB_Vehicle_PL__c = '1';
-        c.EU_VIN__c = 'test';
-        c.US_VIN__c = 'test';
+        c.EU_VIN__c = 'test EU';
+        c.US_VIN__c = 'test US';
         c.Order_No__c = '1';
-        c.Vehicle_Class__c = 'test';
-        c.CLB__c = 'test';
-        c.Registration_Number__c  = 'test'; 
-        c.Car_Type__c = 'test';
+        c.Vehicle_Class__c = 'test Vehicle';
+        c.CLB__c = 'test CLB';
+        c.Registration_Number__c  = 'test Registration'; 
+        c.Car_Type__c = 'test Car';
         if(isrequired)
             c.Dealer_Case_Type__c = 'test';
         else
             c.Dealer_Case_Type__c = null;   
-        c.Dealer_Case_SubType__c = 'test';
+        c.Dealer_Case_SubType__c = 'test Dealer Case';
         c.RO_CO_Case_Category__c = 'Aftersales';
         c.Vehicle_In_Workshop__c = 'Yes';
         c.Ref_No_Regional__c = 'SOUTH';

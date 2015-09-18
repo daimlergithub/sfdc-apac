@@ -13,8 +13,7 @@ private class ComplaintDesHelperTest {
     static testMethod void sendMailToCaseMember() {
         User user1 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
         User user2 = UtilTestData.createUser('Regional CRM Mgr (S)','Regional CRM Manager');
-     // upsert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionTriggerHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
-        system.runAs(user1){
+         system.runAs(user1){
             Test.startTest();
            Account acc = new Account(LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid);
            insert acc;           
@@ -50,8 +49,7 @@ private class ComplaintDesHelperTest {
 
     public static testMethod void test_before_AfterInsertEvents_Insert() {
          Test.startTest();
-     //   cas = (Case)UtilTestData.createSobject(new Case(), UtilTestData.CASE_RT_MB_COMPLAINT);
-             init();                        
+              init();                        
         Test.stopTest();       
         system.assert(sm!=null);               
        }      

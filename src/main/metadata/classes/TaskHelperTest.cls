@@ -1,15 +1,12 @@
 /*
     Type:       Test class of TaskHelper
-    Purpose:    1. Auto create multiple QC records when task.QC Quantity is updated with a number.
+    Purpose:    1. Auto create multiple QC records when task.
+                QC Quantity is updated with a number.
                 2. Auto create QC records when task.Generate QC is changed to true.
                 3. Auto update task's campaign name when this task related to an campaign
                 4. Auto create a SMS task record when a task insert.
     User Story: US-QC-015, US-QC-002, US-QC-001, US-SMSS-001
-    Used By:    
-    ---------------------------------------------------------------
-    History:
-    
-    1. Sinow Created on 2013-05-03
+    Used By:1. Sinow Created on 2013-05-03
 */
 @isTest
 private class TaskHelperTest {

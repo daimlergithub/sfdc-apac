@@ -12,7 +12,7 @@ public with sharing class TriggerCampaignMembers_TestClass{
         Map<String, Schema.RecordTypeInfo> accRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();
         Id caeSim_RecordTypeId = cpRecordTypeMap_test.get('Campaign Execution - Simple').getRecordTypeId();                       // CAC Campaign
         Id accPerson_RecordTypeId = accRecordTypeMap_test.get('Person Account').getRecordTypeId();      // Person Account.
-        
+         Test.startTest();
         // Execution Campaign Inital
         Campaign TestData_CAE_OBC = new Campaign(Name='TestData_CAE_OB_SIM_C',
                                                 Campaign_Code__c='code exe ob sim testc',
@@ -43,6 +43,7 @@ public with sharing class TriggerCampaignMembers_TestClass{
         insert cm1;
         
          CampaignMember cmtest=[select CampaignId,Status,ContactId from CampaignMember where id=:cm1.id];
+          Test.stopTest();
            system.assertEquals(cmtest.Status,cm1.Status);
     }
         
