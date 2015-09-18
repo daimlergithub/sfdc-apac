@@ -1260,6 +1260,14 @@
     <classAccesses>
         <apexClass>TriggerSettlementManagementHandler</apexClass>
         <enabled>false</enabled>
+    </classAccesses>	
+	<classAccesses>
+        <apexClass>TriggerSurveyQuestionResponseHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>TriggerSurveyQuestionResponseTest</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>TriggerTaskTest</apexClass>
@@ -1444,6 +1452,10 @@
     <classAccesses>
         <apexClass>UtilSobjectTest</apexClass>
         <enabled>false</enabled>
+    </classAccesses>	
+	<classAccesses>
+        <apexClass>UtilSurveyQuestionResponse</apexClass>
+        <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>UtilTask</apexClass>
@@ -7283,6 +7295,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.CAC_SourceId__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Campaign__c</field>
         <readable>true</readable>
@@ -8480,6 +8497,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Contact_Failed_For_3_Days_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Contact_Search__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11940,6 +11962,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Origin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Payment_Frequency__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16621,6 +16648,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>Lead_Address_Vehicle_Layout</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>LeadsConsoleRefresh</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -17812,6 +17843,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ScheduleReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SelectFilesFromSalesforce</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

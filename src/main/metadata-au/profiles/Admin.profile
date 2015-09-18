@@ -1261,6 +1261,14 @@
         <apexClass>TriggerSettlementManagementHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+	<classAccesses>
+        <apexClass>TriggerSurveyQuestionResponseHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+	<classAccesses>
+        <apexClass>TriggerSurveyQuestionResponseTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <classAccesses>
         <apexClass>TriggerTaskTest</apexClass>
         <enabled>true</enabled>
@@ -1443,6 +1451,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>UtilSobjectTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>	
+	<classAccesses>
+        <apexClass>UtilSurveyQuestionResponse</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -7284,6 +7296,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>DM_Request__c.CAC_SourceId__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>DM_Request__c.Campaign__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -8480,6 +8497,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Contact_Failed_For_3_Days_Date__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Contact_Search__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11940,6 +11962,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Origin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Payment_Frequency__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15703,6 +15730,10 @@
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
+    <loginIpRanges>
+        <endAddress>255.255.255.255</endAddress>
+        <startAddress>0.0.0.0</startAddress>
+    </loginIpRanges>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -16609,6 +16640,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Lead_Address</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Lead_Address_Vehicle_Layout</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -17571,7 +17606,6 @@
         <tab>standard-ServiceContract</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
-    
     <tabVisibilities>
         <tab>standard-Solution</tab>
         <visibility>DefaultOn</visibility>
@@ -17972,6 +18006,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ScheduleReports</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>SelectFilesFromSalesforce</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
