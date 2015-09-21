@@ -617,7 +617,7 @@
 			<sf:include name="MonthlyMarketAmountReportControllerTest"/>
 			<sf:include name="MyProcess"/>
 			<sf:include name="MyProcessTest"/>
-		</sf:typeset>		
+		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="CaseEscalation"/>
 				<sf:include name="MassApproveRetailCampaign"/>
