@@ -1260,7 +1260,7 @@
     <classAccesses>
         <apexClass>TriggerSettlementManagementHandler</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses>		
     <classAccesses>
         <apexClass>TriggerTaskTest</apexClass>
         <enabled>false</enabled>
@@ -1444,7 +1444,7 @@
     <classAccesses>
         <apexClass>UtilSobjectTest</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses>	
     <classAccesses>
         <apexClass>UtilTask</apexClass>
         <enabled>false</enabled>
@@ -7281,7 +7281,7 @@
         <editable>false</editable>
         <field>DM_Request__c.Address__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>   
     <fieldPermissions>
         <editable>true</editable>
         <field>DM_Request__c.Campaign__c</field>
@@ -8481,7 +8481,7 @@
         <editable>true</editable>
         <field>Lead__c.Contact_Failed_For_3_Days_Date__c</field>
         <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>    
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Contact_Timing__c</field>
@@ -11940,6 +11940,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Origin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Payment_Frequency__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16619,7 +16624,7 @@
     <pageAccesses>
         <apexPage>Lead_Address</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>
+    </pageAccesses>    
     <pageAccesses>
         <apexPage>LeadsConsoleRefresh</apexPage>
         <enabled>true</enabled>
@@ -17812,7 +17817,7 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ScheduleReports</name>
-    </userPermissions>
+    </userPermissions>    
     <userPermissions>
         <enabled>true</enabled>
         <name>SendSitRequests</name>

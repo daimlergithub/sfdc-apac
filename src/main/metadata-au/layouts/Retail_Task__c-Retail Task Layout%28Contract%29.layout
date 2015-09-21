@@ -123,6 +123,10 @@
                 <field>Duration__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Payment_Frequency__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Base_Interest_Rate__c</field>
             </layoutItems>
@@ -235,7 +239,7 @@
         <relatedList>Account_Link__c.ContractId__c</relatedList>
     </relatedLists>
     <relatedLists>
-        <customButtons>New_Finance_Lead_onContract</customButtons>
+        <customButtons>New_Finance_Lead</customButtons>
         <excludeButtons>New</excludeButtons>
         <fields>NAME</fields>
         <fields>Company_Account__c</fields>
@@ -294,7 +298,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00h17000000Jm60</masterLabel>
+        <masterLabel>00h1a000000d6e5</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
