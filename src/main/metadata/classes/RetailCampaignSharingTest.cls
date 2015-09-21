@@ -1,5 +1,5 @@
 @isTest
-private without sharing class RetailCampaignSharingTest {
+private class RetailCampaignSharingTest {
     
     private static Account dealer;
     private static String en_US='en_US';
@@ -53,5 +53,8 @@ private without sharing class RetailCampaignSharingTest {
         
         Test.stopTest();    
         system.assertNotEquals(null, wrapRetailCampaigns);
+         //verify        
+         Retail_Campaign__c retailCampaignCheck = [select Dealer_Name__c,Y_Dealer_Name__c,Brand__c from Retail_Campaign__c where id IN:retailCampaigns limit 1];  
+               system.assertEquals(retailCampaignCheck.Dealer_Name__c, retailCampaign.Dealer_Name__c);
     }
 }

@@ -274,8 +274,8 @@ Private Static YearlyTAReportController extension;
         YearlyTA.M_ATL_BTL__c =eventplan;
         YearlyTA.M_YearlyTA__c=rc.id;  
         Test.startTest();
-        insert YearlyTA;        
-        PageReference YearlyTAReport = Page.Yearly_TA_Report;
+        insert YearlyTA;    
+         PageReference YearlyTAReport = Page.Yearly_TA_Report;
         YearlyTAReport.getParameters().put(id,rc.id);
         Test.setCurrentPage(YearlyTAReport);        
         extension = new YearlyTAReportController();
@@ -313,7 +313,8 @@ Private Static YearlyTAReportController extension;
           System.assertEquals(rc.M_ATL_BTL__c ,mediaplan);
         System.assertEquals(YearlyTA.M_Brand__c,smart);
     }
-     public static testMethod void testYearlyTAsmartNewLead(){
+
+ public static testMethod void testYearlyTAsmartNewLead(){
       preparedTestData();
         Retail_Campaign__c YearlyTA= new Retail_Campaign__c();
         YearlyTA.RecordTypeId = RTId;
@@ -343,6 +344,8 @@ Private Static YearlyTAReportController extension;
         System.assertEquals(YearlyTA.M_Brand__c,smart);
     }
  
+
+
 public static testMethod void testYearlyTAsmartNewOrder(){
     preparedTestData();
         Retail_Campaign__c YearlyTA= new Retail_Campaign__c();
@@ -429,8 +432,11 @@ public static testMethod void testYearlyTAsmartNewOrder(){
         Test.stopTest();
         System.assertEquals(rc.M_ATL_BTL__c ,mediaplan);
         System.assertEquals(YearlyTA.Driven__c ,dealerdriven);
+        system.assertNotEquals(null,extension);
     }
    
+    
+
     public static void preparedTestData()
     {
      rc = new Retail_Campaign__c();

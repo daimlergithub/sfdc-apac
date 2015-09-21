@@ -36,7 +36,7 @@ Private static String surveyID='surveyID';
 							  enabled__c = true, before__c = true, after__c = true, insert__c = true,
                               update__c = true, delete__c = true);       
     } 
-        public static void preparedTestDate()
+    public static void preparedTestDate()
         {
         survey = new Survey__c(name='Test',Survey_Header__c='Test',Thank_You_Text__c='Test',Submit_Response__c='Test Response');
         insert survey;

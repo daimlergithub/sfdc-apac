@@ -2,14 +2,10 @@
     Type:       test class
     Purpose:    SMSControllerExtension test class
     User Story: US-SMS-001 - Send SMS content to customer
-
     Used By:    SMSControllerExtension
-    ---------------------------------------------------------------
-    History:
-
-    07-Mar-2013 Sinow zhang (Nttdata)    Created
+    History: 07-Mar-2013 Sinow zhang (Nttdata)    Created
 */
-@isTest(SeeAllData=true)
+@isTest
 public class SMSControllerExtensionTest {
     //RecordType Declaration
     static String personAccountRecordTypeId = Schema.SObjectType.account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();
@@ -30,18 +26,23 @@ public class SMSControllerExtensionTest {
     static Template__c tem3;
     static Template__c tem4;    
     static List<Template__c> listTemplate=new List<Template__c>();
+    static List<SelectOption> Templates_MMS;
+    static List<SelectOption> Templates_Not_DEALER;
+    static List<SelectOption> Templates_SMS;
+    static List<SelectOption> Templates1;
+    static List<SelectOption> Templates_ADDRESS ;
     //Created Record
     private static void init(){
           customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId);
           accountList.add(customer);    
           
-          customer_PersonMobilePhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111');
+          customer_PersonMobilePhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8889888', RecordTypeId = personAccountRecordTypeId,PersonMobilePhone = '1301111111');
           accountList.add(customer_PersonMobilePhone);
           
-          customer_PersonOtherPhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,PersonOtherPhone = '1301111111');
+          customer_PersonOtherPhone = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888818', RecordTypeId = personAccountRecordTypeId,PersonOtherPhone = '1301111111');
           accountList.add(customer_PersonOtherPhone);   
           
-          dealer = new Account(Name = 'Acme Dealer', Phone = '8888888', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
+          dealer = new Account(Name = 'Acme Dealer', Phone = '8888848', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
           accountList.add(dealer);
           
           insert accountList;
@@ -54,15 +55,15 @@ public class SMSControllerExtensionTest {
           listTemplate.add(tem1); 
                                           
           tem2 = new Template__c(RecordTypeId = templateRecordTypeId, Active__c = true,
-                                            Name = 'lai', Message_Detail__c = '{MMS_Tempate_DEALER_NAME}');
+                                            Name = 'lais', Message_Detail__c = '{MMS_Tempate_DEALER_NAME}');
           listTemplate.add(tem2); 
                     
           tem3= new Template__c(RecordTypeId =templateRecordTypeId_MMS, Active__c = true,
-                                           Name = 'lai', Message_Detail__c = '{DEALER_ADDRESS}');
+                                           Name = 'laia', Message_Detail__c = '{DEALER_ADDRESS}');
           listTemplate.add(tem3);
            
           tem4= new Template__c(RecordTypeId =templateRecordTypeId, Active__c = true,
-                                           Name = 'lai', Message_Detail__c = '{DEALER_ADDRESS}');
+                                           Name = 'laib', Message_Detail__c = '{DEALER_ADDRESS}');
           listTemplate.add(tem4); 
                               
           insert listTemplate;  
@@ -94,8 +95,9 @@ public class SMSControllerExtensionTest {
             for(Template__c temp:listTemplate){
                   set_tems.add(temp.Id);        
             }           
-            for(Template__c tem : [select Id, Name, Message_Detail__c from Template__c where RecordType.SObjectType='Template__c' 
-                                  and RecordTypeId = :templateRecordTypeId  AND Active__c = true AND Id IN:set_tems])
+            List<Template__c> templist=[select Id, Name, Message_Detail__c from Template__c where RecordType.SObjectType='Template__c' 
+                                  and RecordTypeId = :templateRecordTypeId  AND Active__c = true AND Id IN:set_tems];
+            for(Template__c tem :templist)
              {            
                   options.add(new SelectOption(tem.Id, tem.Name));
              }       
@@ -108,7 +110,7 @@ public class SMSControllerExtensionTest {
         Test.startTest();
             test_SMSControllerExtensionConstructor();        
             extension.templateId = tem3.id;
-            List<SelectOption> Templates_MMS = extension.getTemplates();      
+            Templates_MMS = extension.getTemplates();      
             extension.parseTemplateMessage();
         Test.stopTest();
           List<Apexpages.Message> msgs = ApexPages.getMessages();
@@ -126,7 +128,7 @@ public class SMSControllerExtensionTest {
           Test.startTest();   
             test_SMSControllerExtensionConstructor();  
             extension.templateId = tem2.id;
-            List<SelectOption> Templates_Not_DEALER = extension.getTemplates();      
+             Templates_Not_DEALER = extension.getTemplates();      
             extension.parseTemplateMessage();
           Test.stopTest();             
           system.assertEquals(tem2.Message_Detail__c,extension.templateMessage);
@@ -138,7 +140,7 @@ public class SMSControllerExtensionTest {
            Test.startTest(); 
             test_SMSControllerExtensionConstructor();
             extension.templateId = tem1.id;
-            List<SelectOption> Templates_SMS = extension.getTemplates(); 
+            Templates_SMS = extension.getTemplates(); 
             extension.sms.Dealer__c = null; 
             extension.parseTemplateMessage(); 
            Test.stopTest(); 
@@ -150,12 +152,12 @@ public class SMSControllerExtensionTest {
            system.assert(success);           
          }
        //if sms Dealer does not equals to Null    
-       public static testMethod void test_parseTemplateMessage_SMS_Dealer() 
+        public static testMethod void test_parseTemplateMessage_SMS_Dealer() 
          { 
            Test.startTest(); 
                test_SMSControllerExtensionConstructor(); 
                extension.templateId = tem1.Id;
-               List<SelectOption> Templates_SMS = extension.getTemplates();       
+               Templates_SMS = extension.getTemplates();       
                extension.sms.Dealer__c = dealer.Id; 
                extension.parseTemplateMessage(); 
            Test.stopTest(); 
@@ -164,7 +166,7 @@ public class SMSControllerExtensionTest {
            Integer mergeIndexStart = handledContent.indexOf('{');
            Integer mergeIndexEnd = handledContent.indexOf('}');
            String mergeObjectField = handledContent.subString(mergeIndexStart+1,mergeIndexEnd);
-            if(mergeObjectField.indexOf('_') != -1)
+           if(mergeObjectField.indexOf('_') != -1)
                 {
                     String mergeObject = mergeObjectField.subString(0, mergeObjectField.indexOf('_'));
                     String mergeField = mergeObjectField.subString(mergeObjectField.indexOf('_') + 1);
@@ -190,7 +192,7 @@ public class SMSControllerExtensionTest {
                test_SMSControllerExtensionConstructor();
                extension.templateId = tem4.id;
                extension.sms.Dealer__c = dealer.Id;   
-               List<SelectOption> Templates_ADDRESS = extension.getTemplates(); 
+              Templates_ADDRESS = extension.getTemplates(); 
                extension.parseTemplateMessage();
            Test.stopTest();  
            system.debug('extension.templateMessage>>>>'+extension.templateMessage); 
@@ -220,10 +222,10 @@ public class SMSControllerExtensionTest {
                             handledContent = handledContent.subString(0, mergeIndexStart) + dealerAddress + handledContent.subString(mergeIndexEnd + 1);
                         }           
                    }
-             }
-             system.assertEquals(handledContent,extension.templateMessage);  
+             }             system.assertEquals(handledContent,extension.templateMessage);  
              system.assertEquals(extension.sms.Dealer__c,cas.Case_Dealer__c); 
         }
+
       public static testMethod void test_sendmail() 
        { 
         Test.startTest();           
@@ -238,7 +240,7 @@ public class SMSControllerExtensionTest {
             test_SMSControllerExtensionConstructor();      
             extension.templateId = tem1.id;
             extension.sms.Dealer__c = dealer.Id;   
-            List<SelectOption> Templates1 = extension.getTemplates(); 
+            Templates1 = extension.getTemplates(); 
             extension.parseTemplateMessage();   
             extension.send();    
             system.assertEquals(extension.sms.Dealer__c,cas.Case_Dealer__c); 

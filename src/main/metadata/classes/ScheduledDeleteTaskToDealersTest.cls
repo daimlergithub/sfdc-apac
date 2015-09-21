@@ -1,13 +1,11 @@
 /*
     Type:       Test Class
     Purpose:    Test the ScheduledDeleteTaskToDealers class
-    User Story: 
-    ---------------------------------------------------------------
-    History:
-
+    User Story:  
+    History: 
     1. Shuang Li created on 2014-05-13
 */
-@isTest(seeAllData=true)
+@isTest 
 public class ScheduledDeleteTaskToDealersTest{
     
     static testMethod void testScheduledDeleteTaskToDealers(){
@@ -25,6 +23,7 @@ public class ScheduledDeleteTaskToDealersTest{
          List<Task> taskList = [Select Id, IsDeleted  From Task Where RecordTypeId = :cpRecordTypeMap.get('General Task').getRecordTypeId() And ActivityDate < :System.today()];
          system.debug('Deleted Tasks Size:' +taskList.size());
          system.assertEquals(0, taskList.size());
+         System.assertEquals(CRON_EXP, ct.CronExpression); 
          
     }
 }

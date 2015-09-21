@@ -96,5 +96,6 @@ public static void preparedTestData()
         Test.stopTest();
         System.assertEquals(hasNext,controller2.hasNext);
         System.assertEquals(hasPrev,controller2.hasPrev);
+        system.assertEquals(recordNumbering,controller2.recordNumbering);
     }
 }

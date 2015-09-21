@@ -7,6 +7,7 @@
 public class TextInputtingControlelrTest {
   
   @isTest static void testTextInputtingControlelr(){
+  Test.startTest();
     Case newCase = (Case)UtilTestData.createSobject(new Case(), 'Inquiry');
     PageReference page = new PageReference('/apex/textinputting?cid=' + newCase.Id + '&field=mpc');
     Test.setCurrentPage(page);
@@ -23,6 +24,7 @@ public class TextInputtingControlelrTest {
     controller2.save();
       
       case case1 =[select MPC_Internal_Notes__c from case where id=:newCase.id ]; 
+      Test.stopTest();
   system.assertEquals(case1.MPC_Internal_Notes__c, '????:' + Datetime.now().format()+ '\r\n???:' + UserInfo.getName() + '\r\n' + 'OK');
 
 

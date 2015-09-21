@@ -1,13 +1,11 @@
 /*
     Type:       Test Class
     Purpose:    Test the ScheduleCreateMonthlyRegionOBEmails  class
-    User Story: 
-    ---------------------------------------------------------------
-    History:
+    User Story:  History:
 
     1. venky created on 2015-03-13
 */
-@isTest(seeAllData=true)
+@isTest
 public class ScheduleCreateMonthlyRegionOBEmailsTest{
     
     static testMethod void testScheduleCreateMonthlyRegionOBEmails(){
@@ -30,6 +28,9 @@ public class ScheduleCreateMonthlyRegionOBEmailsTest{
         
         system.assert(testAccount != Null);
         Test.stopTest();
+          System.assertEquals(CRON_EXP, ct.CronExpression); 
+        System.assertEquals(0, ct.TimesTriggered);
+        
         
         //Asserting the Account
         List<Account> accs = 

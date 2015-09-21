@@ -6,7 +6,7 @@
     1. 12-April-2013 Sinow Zhang (NTTData)  Created
 */
 @isTest
-public class QCHelperTest {
+public with sharing class QCHelperTest {
     
     //Variables
        public static String IBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('IB QC').getRecordTypeId();
@@ -36,7 +36,7 @@ public class QCHelperTest {
         createTestData();
         
         createQC(IBQCRecordTypeId,IBCSRUser.Id);
-        
+        Test.startTest();
          
         qc = [select Id, Status__c, PACI__c, Q1_Comments__c, DA__c, Q2_Comments__c, FTOP__c, Q3_Comments__c, FQL__c, Q4_Comments__c, CITQ__c, Q5_Comments__c, FMSK__c, Q6_Comments__c, Responsibility__c, Q7_Comments__c, SO__c, Q8_Comments__c, PPIS__c, Q9_Comments__c, SPL__c, Q10_Comments__c, SSL__c, Q11_Comments__c, SC__c, Q13_Comments__c, CALA__c, Q12_Comments__c, CAI__c, Q15_Comments__c, CARR__c, Q14_Comments__c, PFOCF__c, Q16_Comments__c, PPD__c, Q17_Comments__c, PJ__c, Q18_Comments__c, PHU__c, Q19_Comments__c from QC__c where Id = :qc.Id];
         qc.Status__c = Complete;
@@ -165,6 +165,7 @@ public class QCHelperTest {
               Map<Id,QC__c> QcMap = new Map<Id,QC__c>();
         QcMap.put(qc.Id, qc);
         QCHelper.beforeInsertUpdateEvents(QcList, QcMap, true, true);
+        Test.stopTest();
     }
    
     @isTest
@@ -172,7 +173,7 @@ public class QCHelperTest {
         //Gets qc record type ids
         createTestData();
         createQC(IBQCRecordTypeId,IBCSRUser.Id);
-        
+        Test.startTest();
         qc = [select Id, Status__c, PACI__c, Q1_Comments__c, DA__c, Q2_Comments__c, FTOP__c, Q3_Comments__c, FQL__c, Q4_Comments__c, CITQ__c, Q5_Comments__c, FMSK__c, Q6_Comments__c, Responsibility__c, Q7_Comments__c, SO__c, Q8_Comments__c, PPIS__c, Q9_Comments__c, SPL__c, Q10_Comments__c, SSL__c, Q11_Comments__c, SC__c, Q13_Comments__c, CALA__c, Q12_Comments__c, CAI__c, Q15_Comments__c, CARR__c, Q14_Comments__c, PFOCF__c, Q16_Comments__c, PPD__c, Q17_Comments__c, PJ__c, Q18_Comments__c, PHU__c, Q19_Comments__c from QC__c where Id = :qc.Id];
         qc.Status__c = Complete;
         qc.CCCR__c = Fail;
@@ -303,7 +304,7 @@ public class QCHelperTest {
         // Test UpdateQCApproved
         qc.Approved__c = 'Yes';
         update qc;
-        
+        Test.stopTest();
         system.assertNotEquals(null, passedQuestions);
     }
     
@@ -324,11 +325,13 @@ public class QCHelperTest {
         qc.PACI__c=Medium;
         qc.CARR__c=Medium;
         qc.PS__c=Medium;
+        Test.startTest();
         update qc;
         QCHelper.SSITotalScore1(qc);
         QCHelper.SetQualified(qc);
-        Decimal test = QCHelper.SSITotalScore1(qc);
-        system.assertNotEquals(null, test);
+        Decimal tests = QCHelper.SSITotalScore1(qc);
+        Test.stopTest();
+        system.assertNotEquals(null, tests);
         
         }
     
@@ -356,10 +359,12 @@ public class QCHelperTest {
         qc.PPD__c = Low;
         qc.PJ__c = Low;
         qc.PHU__c = Low;
+        Test.startTest();
         update qc;
         
-        Decimal test = QCHelper.SSITotalScore1(qc);
-        system.assertNotEquals(null, test);
+        Decimal tests = QCHelper.SSITotalScore1(qc);
+        system.assertNotEquals(null, tests);
+        Test.stopTest();
         
         }
          @isTest
@@ -389,12 +394,14 @@ public class QCHelperTest {
         qc.PACI__c=Low;
         qc.CARR__c=Low;
         qc.PS__c=Low;
+        Test.startTest();
         update qc;
-         Decimal test = QCHelper.SSITotalScore2(qc);
+         Decimal tests = QCHelper.SSITotalScore2(qc);
         Set<String> taskIds=new set<String>();
         QCHelper.changeTask(taskIds);
         QCHelper.changeFailTask(taskIds);
-        system.assertNotEquals(null, test);
+        Test.stopTest();
+        system.assertNotEquals(null, tests);
         
         }
     static void createTestData()

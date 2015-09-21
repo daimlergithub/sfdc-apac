@@ -1,13 +1,10 @@
 /*
     Type:       Test Class
     Purpose:    Test the ScheduleCreateConversionRateOBEmails class
-    User Story: 
-    ---------------------------------------------------------------
-    History:
-
+    User Story:  History:
     1. venky created on 2015-03-13
 */
-@isTest(seeAllData=true)
+@isTest 
 public class ScheduleCreateConversionRateOBEmailsTest{
     
     public static Account testAccount;
@@ -33,6 +30,8 @@ public class ScheduleCreateConversionRateOBEmailsTest{
         CronTrigger ct = [select id, CronExpression, TimesTriggered, NextFireTime from CronTrigger where id = :jobId];
         system.assert(testAccount != Null);
         Test.stopTest();
+        System.assertEquals(CRON_EXP, ct.CronExpression); 
+        System.assertEquals(0, ct.TimesTriggered);
         
         //Asserting the inserted Account     
         List<Account> accsInPast12Months = 

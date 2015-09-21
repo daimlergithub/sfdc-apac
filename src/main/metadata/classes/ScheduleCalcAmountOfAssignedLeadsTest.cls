@@ -1,17 +1,24 @@
-/*
-  Name                 : ScheduleCreateMonthlyOutboundEmails
+/*  Name                 : ScheduleCreateMonthlyOutboundEmails
   Object               : Account(Dealer), Lead__c
-  Requirement          : Test Class for 
-                         1. BatchCalcAmountOfAssignedLeads
+  Requirement          : 1. BatchCalcAmountOfAssignedLeads
                          2. ScheduleCalcAmountOfAssignedLeads
-  Refer classes        : 
-  Author               : Mouse Liu
+   Author               : Mouse Liu
   Create Date          : 2013-06-14
-  Modify History       : 
- */
-@isTest(seeAllData = true)
-public class ScheduleCalcAmountOfAssignedLeadsTest {
-    public static testMethod void testHasAssignedDealer() {
+  */
+@isTest
+public with sharing class ScheduleCalcAmountOfAssignedLeadsTest {
+
+public static void preparedTestDataCustomsettings()
+{
+App_Setting__c ap=new App_Setting__c();
+ap.name='DailyAssignedLeadsReport eMail Address';
+ap.Value__c='raghuprasad.halakere@nttdata.com';
+insert ap;
+}
+    
+    @istest static  void testHasAssignedDealer() {
+    
+    
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_DEALER);
 
@@ -21,7 +28,7 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
 
         lead = (Lead__c)UtilTestData.createSobject(lead, 
             UtilTestData.LEAD_RT_SALES_LEADS);
-
+        preparedTestDataCustomsettings();
         Test.startTest();
         ScheduleCalcAmountOfAssignedLeads schClass = new ScheduleCalcAmountOfAssignedLeads();
         Date next10thDay = System.today().addDays(10);
@@ -51,13 +58,14 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
                   FROM Account WHERE Id = :dealer.Id];
                   
         system.assertEquals(1, dealer.Assigned_Lead_Amount_of_Everyday__c);
+        system.assertnotEquals(null,batchId);
     }
 
     public static testMethod void testNoAssignedDealer() {
         Account dealer = (Account)UtilTestData.createSobject(
             new Account(Assigned_Lead_Amount_of_Everyday__c = 1), 
             UtilTestData.ACCOUNT_RT_DEALER);
-
+         preparedTestDataCustomsettings();
         Test.startTest();
         ScheduleCalcAmountOfAssignedLeads schClass = new ScheduleCalcAmountOfAssignedLeads();
         Date next10thDay = System.today().addDays(10);
@@ -84,6 +92,10 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
                   FROM Account WHERE Id = :dealer.Id];
         
         system.assertEquals(0, dealer.Assigned_Lead_Amount_of_Everyday__c);
+        system.assertnotEquals(null,schClass);
+        system.assertnotEquals(null,cron); 
+        system.assertnotEquals(null,jobName);
+         system.assertnotEquals(null,batchId);
     }
     
     public static testMethod void testBatchCalcAssignedLeads() {
@@ -96,7 +108,7 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
 
         lead = (Lead__c)UtilTestData.createSobject(lead, 
             UtilTestData.LEAD_RT_SALES_LEADS);
-
+         preparedTestDataCustomsettings();
         Test.startTest();
 
         String query = 'SELECT Id, Name, Assigned_Lead_Amount_of_Everyday__c, ' + 
@@ -113,5 +125,6 @@ public class ScheduleCalcAmountOfAssignedLeadsTest {
         dealer = [SELECT Assigned_Lead_Amount_of_Everyday__c
                   FROM Account WHERE Id = :dealer.Id];
         System.assertEquals(dealer.Assigned_Lead_Amount_of_Everyday__c, 1);
+        system.assertnotEquals(null,batchId);
     }
 }

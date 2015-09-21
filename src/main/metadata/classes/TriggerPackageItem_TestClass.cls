@@ -11,7 +11,8 @@ public with sharing class TriggerPackageItem_TestClass{
         Map<String, Schema.RecordTypeInfo> cpRecordTypeMap_test = Schema.SObjectType.Campaign.getRecordTypeInfosByName();
         Map<String, Schema.RecordTypeInfo> acRecordTypeMap_test = Schema.SObjectType.Account.getRecordTypeInfosByName();        
         Id cca_RecordTypeId = cpRecordTypeMap_test.get('Central Marketing Campaign').getRecordTypeId();         // Central Campaign
-        Id dl_RecordTypeId = acRecordTypeMap_test.get('Dealer').getRecordTypeId();      // Dealer
+        Id dl_RecordTypeId = acRecordTypeMap_test.get('Dealer').getRecordTypeId();      // Dealer.
+        Test.startTest();
         // Central Campaign Inital
         Campaign TestData_CCA = new Campaign(Name='TestData_CCA_Campaign',
                                              Campaign_Code__c='Code_CCA',
@@ -58,6 +59,7 @@ public with sharing class TriggerPackageItem_TestClass{
         insert pi1;  
         
         Package_Item__c piTest = [select Package_Name__c,Offering__c from Package_Item__c where id=:pi1.id];
+        Test.stopTest();
         system.assertEquals(piTest.Package_Name__c, pi1.Package_Name__c);
   
     }

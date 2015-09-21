@@ -3,26 +3,24 @@
   Object               : Settlement_Management__c
   Requirement          : Test Class for US-DPCR-001
                          1. Calculate Total amount when settlement is changed
-  Refer classes        : 
   Author               : Barney Lai
   Create Date          : 2013-07-16
-  Modify History       : 
 */
 
-@isTest(seeAllData=true)
-public class SettlementHelperTest 
+@isTest 
+public with sharing class SettlementHelperTest 
 {
+Private static String TriggerSettlementManagement='TriggerSettlementManagement';
+Private static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
+Private static String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     public static testMethod void testupdateSettlementTotalAmount1() 
     {
         List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c = 'TriggerSettlementManagement'];
-        if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.size() == 0) {
-            upsert new Trigger__c(Name = 'TriggerSettlementManagement', Trigger_Name__c = 'TriggerSettlementManagement', Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.isEmpty()) {
+            upsert new Trigger__c(Name = TriggerSettlementManagement, Trigger_Name__c = TriggerSettlementManagement, Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         }
 
-        String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
-        String CHRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Chrysler Complaint').getRecordTypeId();
-        String INQUIRYRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
-        String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
+        
         Test.startTest();
         Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');
         insert dealer;
@@ -64,8 +62,8 @@ public class SettlementHelperTest
     
     public static testMethod void testTriggerSettlementAfterInsertUpdateDelete() 
     {
-        List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c = 'TriggerSettlementManagement'];
-        if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.size() == 0) {
+        List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c =:TriggerSettlementManagement];
+        if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.isEmpty()) {
             upsert new Trigger__c(Name = 'TriggerSettlementManagement', Trigger_Name__c = 'TriggerSettlementManagement', Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         }
 
@@ -75,22 +73,11 @@ public class SettlementHelperTest
             Settlement_Type__c = 'No Settlement Require',
             Case__c = cas.id
         );
-       // try {
-            insert sm;
-       // } catch (DMLException e) {
-        //    System.debug('new settlement error : ' + e.getDMLMessage(0));
-       // }
-        sm.Other_Settlement_Type__c = 'os';
-       // try {
-            update sm;
-       // } catch  (DMLException e) {
-       //     System.debug('update settlement error : ' + e.getDMLMessage(0));
-       // }
-        //try {
-            delete sm;
-       // } catch  (DMLException e) {
-       //     System.debug('delete settlement error : ' + e.getDMLMessage(0));
-       // }
+       
+            insert sm;      
+            sm.Other_Settlement_Type__c = 'os';       
+            update sm;     
+            delete sm;      
         Test.stopTest();
         system.assertequals(sm.Case__c,cas.id);
     }
