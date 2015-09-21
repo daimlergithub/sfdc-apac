@@ -912,7 +912,7 @@
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Half.Yearly</fullName>
+                <fullName>Half Yearly</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2128,7 +2128,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Half%2EYearly</fullName>
+                <fullName>Half Yearly</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2757,7 +2757,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Half%2EYearly</fullName>
+                <fullName>Half Yearly</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3386,7 +3386,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Half%2EYearly</fullName>
+                <fullName>Half Yearly</fullName>
                 <default>false</default>
             </values>
             <values>
