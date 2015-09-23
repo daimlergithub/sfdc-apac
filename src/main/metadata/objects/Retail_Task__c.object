@@ -919,6 +919,10 @@
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Quarterly</fullName>
                 <default>false</default>
@@ -2135,6 +2139,10 @@
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Quarterly</fullName>
                 <default>false</default>
@@ -2764,6 +2772,10 @@
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
+			<values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Quarterly</fullName>
                 <default>false</default>
@@ -3391,6 +3403,10 @@
             </values>
             <values>
                 <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+			<values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
             <values>
