@@ -16528,7 +16528,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <type>Email</type>
         <unique>false</unique>
     </fields>
-    <listViews>
+    <listViews>        
         <fullName>AllOpenCases</fullName>
         <filterScope>Everything</filterScope>
         <filters>
@@ -16537,7 +16537,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <value>0</value>
         </filters>
         <label>All Open Cases</label>
-        <language>en_US</language>
+        <language>en_US</language>    
     </listViews>
     <listViews>
         <fullName>All_Closed_FOS_Complaints</fullName>
@@ -16606,9 +16606,9 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <value>Open</value>
         </filters>
         <label>All Open MBFS Complaints</label>
-        <language>en_US</language>
+        <language>en_US</language>    
     </listViews>
-    <listViews>
+    <listViews>        
         <fullName>All_cases</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>NAME</columns>
@@ -16621,7 +16621,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <label>All Cases</label>
         <language>en_US</language>
     </listViews>
-    <listViews>
+    <listViews>        
         <fullName>Feedback_from_Dealer</fullName>
         <filterScope>Everything</filterScope>
         <filters>
@@ -16692,7 +16692,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <filterScope>Mine</filterScope>
         <label>My Cases</label>
     </listViews>
-    <listViews>
+    <listViews>       
         <fullName>My_Open_Complaint</fullName>
         <columns>CASES.CASE_NUMBER</columns>
         <columns>NAME</columns>
@@ -16709,7 +16709,7 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         </filters>
         <label>My Open Complaint</label>
         <language>en_US</language>
-    </listViews>
+    </listViews>    
     <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
     <recordTypeTrackHistory>true</recordTypeTrackHistory>
     <recordTypes>
@@ -77027,6 +77027,13 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
+    <validationRules>
+        <fullName>COCFOS_Recordtype_Validation</fullName>
+        <active>true</active>
+        <description>Restricted  edit access to CAC-FOS profile to the record types other than FOS_Complaint</description>
+        <errorConditionFormula>IF( AND( $Profile.Name ='CAC-FOS',   RecordType.DeveloperName  &lt;&gt; 'FOS_Complaint') , true, false)</errorConditionFormula>
+        <errorMessage>Do not have permission to edit the record</errorMessage>
+    </validationRules>
     <validationRules>
         <fullName>Case_Dealer_is_Required</fullName>
         <active>true</active>
