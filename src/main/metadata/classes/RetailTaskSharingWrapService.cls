@@ -1,4 +1,4 @@
-**
+/**
 ** Wrap service for retail tasks to share.
 ** 1. Shares "Contract" retail tasks to active users of active dealers, who have both read access to the related person account and vehicle.
 ** 2. Shares "Retail Activity" retail tasks to active users of the related dealer and the active dealers with the same CRM Code.
@@ -30,7 +30,7 @@ public with sharing class RetailTaskSharingWrapService {
                   retailActivities.add(retailTask);                
                  } 
              else { 
-                   services.add(retailTask);
+             	    services.add(retailTask);
                  }
               }          
                   
