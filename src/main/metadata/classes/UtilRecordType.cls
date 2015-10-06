@@ -2,62 +2,40 @@
     Type:       Utility for RecordType for replacing SOQL
     Purpose:    Get Record Type Name By Id or Id by Name
     User Story: US-DD-002
+    Modified By : Sneha Chail
+    Modified date : 10-Oct-2015
+    
 */
-global with sharing class UtilRecordType {
-	
-	public final static String Account_Object = 'Account';  
-	public final static String person_Account = 'Person Account';  
-	public final static String Dealer = 'Dealer';  
-	
-	public final static String Vehicle_Relationship ='Vehicle_Relationship__c';
-    public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
-    public final static String Contact2Contact ='Contact2Contact';
-    public final static String Account_Link='Account_Link__c';
-    
-  
-    private static Map<Id, Schema.RecordTypeInfo> recordTypeInfoByIdMap = 
-        new Map<Id, Schema.RecordTypeInfo>();
+global with sharing class UtilRecordType {   
+          
+     //added a private constructor to prevent Singleton. 
+     private UtilRecordType(){}
+     
+     // Gets the object record type name according to the recordTypeId.
+     public static String getRecordTypeNameById(String sObjectType,Id recordTypeId) {        
+        //Generate a map for all the Record Types for the desired object
+        Map<Id,Schema.RecordTypeInfo> recordTypeInfo = Schema.getGlobalDescribe().get(sObjectType).getDescribe().getRecordTypeInfosById();
+       //Retrieve the record type Name by Id
+        return recordTypeInfo.get(recordTypeId).getName();
+     }
+    // Gets the object record type id according to the recordType name. 
+     public static String getRecordTypeIdByName(String sObjectType, String recordTypeName)
+      {
+         system.debug('&&&recordTypeName '+recordTypeName);
+        //Generate a map for all the Record Types for the desired object
+         Map<String,Schema.RecordTypeInfo> recordTypeInfo = Schema.getGlobalDescribe().get(sObjectType).getDescribe().getRecordTypeInfosByName();
+        //Retrieve the record type by name
+        return recordTypeInfo.get(recordTypeName).getRecordTypeId();
+     }
 
-    private static Map<String, Schema.RecordTypeInfo> recordTypeInfoByNameMap = 
-        new Map<String, Schema.RecordTypeInfo>();
+    // Gets the object record type id according to the recordType name.   
+    public static String getRecordTypeNameByName(String sObjectType, String recordTypeName)
+      {
+         system.debug('&&&recordTypeName '+recordTypeName);
+        //Generate a map for all the Record Types for the desired object
+         Map<String,Schema.RecordTypeInfo> recordTypeInfo = Schema.getGlobalDescribe().get(sObjectType).getDescribe().getRecordTypeInfosByName();
+        //Retrieve the record type by name
+        return recordTypeInfo.get(recordTypeName).getName();
+     }
 
-    private static Set<String> sobjectsSet = new Set<String>();
-    
-    private static void populateRecordTypeMap(String sobjectName) {
-        // If sobjectSet doesn't contain sobjectName, we need to populate the 
-        // recordTypeByNameMap and recordTypeByIdMap of this sobject
-        if (sobjectsSet.contains(sobjectName)) {
-            return;
-        }
-        else {
-            sobjectsSet.add(sobjectName);
-        }
-
-        // Get SobjectType by sobjectName
-        Schema.SobjectType sobjectType = 
-            Schema.getGlobalDescribe().get(sobjectName);
-
-        // Populate the recordtypeInfoById and recordtypeInfoByName Map
-        recordTypeInfoByIdMap.putAll(
-            sobjectType.getDescribe().getRecordTypeInfosById());
-
-        recordTypeInfoByNameMap.putAll(
-            sobjectType.getDescribe().getRecordTypeInfosByName());
-    }
-
-    // Gets the object record type name according to the recordTypeId.
-    public static String getRecordTypeNameById(String sobjectName, 
-        Id recordTypeId) {
-
-        populateRecordTypeMap(sobjectName);
-        return recordTypeInfoByIdMap.get(recordTypeId).getName();
-    }
-    
-    // Gets the object record type id according to the recordType name.
-    public static String getRecordTypeIdByName(String sobjectName, 
-        String recordTypeName) {
-        
-        populateRecordTypeMap(sobjectName);   
-        return recordTypeInfoByNameMap.get(recordTypeName).getRecordTypeId();
-    }
 }
