@@ -14,8 +14,7 @@ public class TriggerCampaignOfferingTriggerHandler
 {
     public void handleTrigger()
     {
-        Map<Id,Campaign_Offering__c> oldmap = (Map<Id,Campaign_Offering__c>)trigger.oldmap;
-        Map<Id,Campaign_Offering__c> newmap = (Map<Id,Campaign_Offering__c>)trigger.newmap;
+        
         
         if(trigger.isAfter && trigger.isInsert)
         {
