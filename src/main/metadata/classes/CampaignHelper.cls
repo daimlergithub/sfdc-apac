@@ -362,7 +362,7 @@ public class CampaignHelper {
 	                if (cpnDealerMap.get(cpnId) != null && cpnDealerMap.get(cpnId).contains(u.AccountId) && (u.ProfileId == pIdDealerAdmin || (u.Contact.Permission_Set_Settings__c != null && u.Contact.Permission_Set_Settings__c.contains(cpnPermSetMap.get(cpnId)))))
 	                {
 	                    CampaignShare share = new CampaignShare();
-	                    share.CampaignAccessLevel = UtilConstant.READ;
+	                    share.CampaignAccessLevel = UtilConstant.read_Access;
 	                    share.CampaignId = cpnId;
 	                    share.UserOrGroupId = u.id;
 	                    cpnShares.add(share);
@@ -387,7 +387,7 @@ public class CampaignHelper {
 	                    if (dealerBrandOwnerIds.get(dealerId) != null)
 	                    {
 	                        CampaignShare share = new CampaignShare();
-	                        share.CampaignAccessLevel = UtilConstant.READ;
+	                        share.CampaignAccessLevel = UtilConstant.read_Access;
 	                        share.CampaignId = cpnId;
 	                        share.UserOrGroupId = dealerBrandOwnerIds.get(dealerId);
 	                        cpnShares.add(share);
