@@ -1,4 +1,4 @@
-public class VehicleRelLookingController {
+public with sharing class VehicleRelLookingController {
 
     public List<Vehicle_Relationship__c> VehilceRels { get; set; }
     public String elementNum  { get; set; }

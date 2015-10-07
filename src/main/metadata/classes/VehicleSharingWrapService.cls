@@ -43,7 +43,6 @@ public with sharing class VehicleSharingWrapService {
     ** Gets "Vehicle Relationship Retail" records and wraps related vehicles.
     **/
     public List<SharingWrapper> wrapVehicleFromRetailRelationships(List<Vehicle_Relationship__c> vehicleRelationships) {
-      //  Id retailTypeId = Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get('Vehicle Relationship Retail').getRecordTypeId();
         List<Vehicle_Relationship__c> retailRelationships = new List<Vehicle_Relationship__c>();
         if(vehicleRelationships!=Null){
 	        for(Vehicle_Relationship__c vehicleRelationship : vehicleRelationships) {
@@ -60,12 +59,13 @@ public with sharing class VehicleSharingWrapService {
     **/
     public List<SharingWrapper> wrapVehicleFromRelationships(List<Vehicle_Relationship__c> vehicleRelationships, String rowCause, String accessLevel) {
         // Gets crm codes and maps them to active users.
-        vehicleRelationships = [select Id, Vehicle_ID__c, Owner_Dealer__c, Owner_Dealer__r.Dealer_DMS_CRM_Code__c from Vehicle_Relationship__c where Id in :vehicleRelationships and Owner_Dealer__c != null and Owner_Dealer__r.Dealer_DMS_CRM_Code__c != null and Vehicle_ID__c != null];
+        List<Vehicle_Relationship__c> vehicleRelationshipRecords;
+        vehicleRelationshipRecords = [select Id, Vehicle_ID__c, Owner_Dealer__c, Owner_Dealer__r.Dealer_DMS_CRM_Code__c from Vehicle_Relationship__c where Id in :vehicleRelationships and Owner_Dealer__c != null and Owner_Dealer__r.Dealer_DMS_CRM_Code__c != null and Vehicle_ID__c != null];
         UserService userService = new UserService();
-        Map<String, Set<Id>> crmCode2Users = userService.mapCrmCode2Users(vehicleRelationships);
+        Map<String, Set<Id>> crmCode2Users = userService.mapCrmCode2Users(vehicleRelationshipRecords);
         Map<Id, Set<Id>> vehicle2Users = new Map<Id, Set<Id>>();
-        if(vehicleRelationships!=Null){
-        for(Vehicle_Relationship__c vehicleRelationship : vehicleRelationships) {
+        if(vehicleRelationshipRecords!=Null){
+        for(Vehicle_Relationship__c vehicleRelationship : vehicleRelationshipRecords) {
             if(vehicle2Users.get(vehicleRelationship.Vehicle_ID__c) == null) {
                 vehicle2Users.put(vehicleRelationship.Vehicle_ID__c, new Set<Id>{});
             }
@@ -74,6 +74,8 @@ public with sharing class VehicleSharingWrapService {
             }
           }
         }
+
+        System.debug('Wrap sharing Vehiclefrom Relationships...' +vehicle2Users);
         return SharingWrapperService.wrapSharings(vehicle2Users, rowCause, accessLevel);
     }
 }

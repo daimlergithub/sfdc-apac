@@ -64,14 +64,14 @@ public with sharing class VehicleRelationshipHelper {
 	                    if(userrole.containskey(account.get(shareid.get(share)))){
 	                        if(users.containskey(userrole.get(account.get(shareid.get(share))))){
 	                            for(ID fid : users.get(userrole.get(account.get(shareid.get(share))))){
-	                                vehicleRelationshipShareToInsert.add(new Vehicle_Relationship__Share(AccessLevel = 'Read', ParentId = share , UserOrGroupId = fid));
+	                                vehicleRelationshipShareToInsert.add(new Vehicle_Relationship__Share(AccessLevel = UtilConstant.READ, ParentId = share , UserOrGroupId = fid));
 	                                if(vrIdcontactId.containsKey(share))
 	                                {
-	                                    accountShareToInsert.add(new AccountShare(AccountAccessLevel = 'Read', AccountId = vrIdcontactId.get(share), OpportunityAccessLevel = 'Read', CaseAccessLevel = 'Read', UserOrGroupId = fid));
+	                                    accountShareToInsert.add(new AccountShare(AccountAccessLevel = UtilConstant.READ, AccountId = vrIdcontactId.get(share), OpportunityAccessLevel = UtilConstant.READ, CaseAccessLevel = UtilConstant.READ, UserOrGroupId = fid));
 	                                }
 	                                if(vrIdvehicleId.containsKey(share))
 	                                {
-	                                    vehicleShareToInsert.add(new Vehicle__Share(AccessLevel = 'Read', ParentId = vrIdvehicleId.get(share) , UserOrGroupId = fid));
+	                                    vehicleShareToInsert.add(new Vehicle__Share(AccessLevel = UtilConstant.READ, ParentId = vrIdvehicleId.get(share) , UserOrGroupId = fid));
 	                                }
 	                            }
 	                        }
