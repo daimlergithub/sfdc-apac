@@ -13,7 +13,7 @@ dev_sb_kernel_dev3=sukumar.rajashekaran.ntt@kernel.daimler-apac.com.dev3
 dev_sb_kernel_dev4=raghuprasad.halakere.ntt@kernel.daimler-apac.com.dev4
 dev_sb_kernel_dev5=shivashankar.nalluri.ntt@kernel.daimler-apac.com.dev5
 dev_sb_kernel_dev6=shrinivas.desai.ntt@kernel.daimler-apac.com.dev6
-dev_sb_kernel_dev7=ayyavari.venkateswarlu.ntt@kernel.daimler-apac.com.dev7
+dev_sb_kernel_dev7=ayyavari.venkateswarlu.ntt@kernel.daimler-apac.com.dev7,sriram.kalluri@kernel.daimler-apac.com.dev7
 dev_sb_kernel_dev8=gerhard.henning.ntt@kernel.daimler-apac.com.dev8
 
 kernel_prod_1=nazeer.ahamed.ntt@kernel.daimler-apac.com
