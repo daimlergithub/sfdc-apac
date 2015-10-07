@@ -37,10 +37,15 @@ Global with sharing class UtilConstant {
     public final static string SSI='ssi__c';
     public final static string CLOSED='Closed';
     public final static string COMMUNITY_LICENSE_SWITCH='Community Enabled';
-     public final static string read_Access='Read';
-	 public final static string Empty = '';
-    
-   // Initiate roleMap
+    public final static string read_Access='Read';   
+    public final static String Account_Object = 'Account'; 
+	public final static String person_Account = 'Person Account'; 		
+	public final static String Vehicle_Relationship ='Vehicle_Relationship__c';
+	public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
+	public final static String Contact2Contact ='Contact2Contact';
+	public final static String Account_Link='Account_Link__c';
+	public final static String Empty='';
+	    
     private static Map<String, Id> getUserRoleMapInstance() {
         if (roleMap == null) {
             roleMap = new Map<String, Id>();

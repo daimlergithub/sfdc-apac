@@ -1,4 +1,4 @@
-public class VehicleRelLookingController {
+public with sharing class VehicleRelLookingController {
 
     public List<Vehicle_Relationship__c> VehilceRels { get; set; }
     public String elementNum  { get; set; }
@@ -12,4 +12,4 @@ public class VehicleRelLookingController {
                            Vehicle_Brand__c, Vehicle_Class__c, Vehicle_Model__c from Vehicle_Relationship__c where Contact__c = :contactId];
         }
     }
-}
+}  
