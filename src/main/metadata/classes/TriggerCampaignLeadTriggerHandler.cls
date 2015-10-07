@@ -19,7 +19,7 @@ public class TriggerCampaignLeadTriggerHandler
     public void handleTrigger()
     {
         Map<Id,Campaign_Lead__c> oldmap = (Map<Id,Campaign_Lead__c>)trigger.oldmap;
-        Map<Id,Campaign_Lead__c> newmap = (Map<Id,Campaign_Lead__c>)trigger.newmap;
+        
         
         if(trigger.isAfter && trigger.isInsert)
         {       

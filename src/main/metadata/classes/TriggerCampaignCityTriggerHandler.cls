@@ -14,8 +14,7 @@ public class TriggerCampaignCityTriggerHandler
 {
     public void handleTrigger()
     {
-        Map<Id,Campaign_City__c> oldmap = (Map<Id,Campaign_City__c>)trigger.oldmap;
-        Map<Id,Campaign_City__c> newmap = (Map<Id,Campaign_City__c>)trigger.newmap;
+        
 
         // get all deleted records
         if (trigger.isDelete && trigger.isBefore)
