@@ -9,7 +9,7 @@
 **/
 public with sharing 
 class VehicleRelationshipSharingWrapService {
-    public VehicleRelationshipSharingWrapService() {
+    public VehicleRelationshipSharingWrapService() { 
     }
 
     /**
@@ -43,6 +43,6 @@ class VehicleRelationshipSharingWrapService {
             }
         }
         
-        return SharingWrapperService.wrapSharings(relationship2Users, Schema.Vehicle_Relationship__Share.RowCause.Retail_Vehicle_Relationship_Share__c, 'Read');
+        return SharingWrapperService.wrapSharings(relationship2Users, Schema.Vehicle_Relationship__Share.RowCause.Retail_Vehicle_Relationship_Share__c, UtilConstant.read_Access);
     }
 }

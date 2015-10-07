@@ -12,4 +12,4 @@ public with sharing class VehicleRelLookingController {
                            Vehicle_Brand__c, Vehicle_Class__c, Vehicle_Model__c from Vehicle_Relationship__c where Contact__c = :contactId];
         }
     }
-}
+}  

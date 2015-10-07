@@ -36,7 +36,7 @@ public with sharing class VehicleSharingWrapService {
 	            }
 	        }
         }
-        return SharingWrapperService.wrapSharings(vehicle2Users, Schema.Vehicle__Share.RowCause.Account_Link_Share__c, 'Read');
+        return SharingWrapperService.wrapSharings(vehicle2Users, Schema.Vehicle__Share.RowCause.Account_Link_Share__c,UtilConstant.read_Access);
     }
 
     /***
@@ -46,12 +46,12 @@ public with sharing class VehicleSharingWrapService {
         List<Vehicle_Relationship__c> retailRelationships = new List<Vehicle_Relationship__c>();
         if(vehicleRelationships!=Null){
 	        for(Vehicle_Relationship__c vehicleRelationship : vehicleRelationships) {
-	            if(vehicleRelationship.RecordTypeId == UtilRecordType.getRecordTypeIdByName(UtilRecordType.Vehicle_Relationship,UtilRecordType.Vehicle_Relationship_Retail)) {
+	            if(vehicleRelationship.RecordTypeId == UtilRecordType.getRecordTypeIdByName(UtilConstant.Vehicle_Relationship,UtilConstant.Vehicle_Relationship_Retail)) {
 	                retailRelationships.add(vehicleRelationship);
 	            }
 	        }
         }
-        return wrapVehicleFromRelationships(retailRelationships, Schema.Vehicle__Share.RowCause.Retail_Vehicle_Relationship_Share__c, 'Read');
+        return wrapVehicleFromRelationships(retailRelationships, Schema.Vehicle__Share.RowCause.Retail_Vehicle_Relationship_Share__c,UtilConstant.read_Access);
     }
 
     /***
