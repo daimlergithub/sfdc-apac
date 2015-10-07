@@ -517,10 +517,7 @@
         <apexClass>QCHelperTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>RecallAfterInsertUpdateTriggerHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+     
     <classAccesses>
         <apexClass>RecallHelper</apexClass>
         <enabled>false</enabled>
