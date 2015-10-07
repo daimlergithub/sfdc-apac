@@ -431,7 +431,6 @@
 			<sf:include name="TriggerRecallTriggerHandler"/>
 			<sf:include name="RecallHelper"/>	
 			<sf:include name="RecallHelperTest"/>
-			<sf:include name="RecallAfterInsertUpdateTriggerHandler"/>
 			<sf:include name="SettlementHelper"/>
 			<sf:include name="SettlementHelperTest"/>
 			<sf:include name="TriggerSettlementManagementHandler"/>				
