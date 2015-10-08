@@ -800,6 +800,7 @@
 			<sf:include name="AccountOptinandOptoutController"/>
 			<sf:include name="AccountOptinandOptoutControllerTest"/>			
 			<sf:include name="Addresscontroller"/>
+			<sf:include name="TriggerAddressTriggerHandler"/>
 			<sf:include name="AddresscontrollerTest"/>
 			<sf:include name="AddressHelper"/>
 			<sf:include name="AddressHelperTest"/>			
