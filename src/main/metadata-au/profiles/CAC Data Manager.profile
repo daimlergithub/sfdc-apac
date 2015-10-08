@@ -8553,7 +8553,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Dealer_Comments__c</field>
         <readable>true</readable>
     </fieldPermissions>
