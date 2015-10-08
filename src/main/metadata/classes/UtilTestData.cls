@@ -37,6 +37,9 @@ Public class UtilTestData {
     public final static String LEAD_RT_SALES_LEADS = 'Sales Leads';
     
     public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
+    public final static String VEHICLE_RELATIONSHIP = 'Vehicle Relationship';
+
+    public final static String VEHICLE_MB = 'MB';
 
     public final static String CAMPAIGN_RT_CAMPAIGN_EXECUTION = 'Campaign Execution - Simple';
     public final static String CAMPAIGN_RT_CAC_CAMPAIGN = 'CAC Campaign';
@@ -48,6 +51,7 @@ Public class UtilTestData {
     public final static String TASK_RT_EDM = 'eDM';
     public final static String TASK_RT_DM = 'DM';
     public final static String TASK_RT_OB = 'OB';
+    
     //public final static String GENERAL_TASK = 'General Task';
 
     public final static Integer BATCH_SIZE = 101;
@@ -119,7 +123,7 @@ Public class UtilTestData {
     private static User createPortalUser(Id userRoleId, Id profileId) {   
         Account acc = new Account ( Name = 'dummtyTestAcc');
         acc.RecordTypeId = 
-            getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + 'Account');		
+            getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + 'Account');     
         insert acc;      
         System.assert(acc.Name=='dummtyTestAcc');
         Contact con = new Contact ( AccountId = acc.id, LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true, Permission_Set_Settings__c = 'S_M_Retail_Campaign');
@@ -238,7 +242,7 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
             initiateVehicle(so);
         }
         else if (so instanceof Vehicle_Relationship__c) {
-            initiateVehicleRelationship(so);
+            initiateVehicleRelationship(so, recordTypeName);
         }
         else if (so instanceof Car_Model__c) {
             initiateCarModel(so);
@@ -362,7 +366,7 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
     // Create Unsaved Vehicle
     // UsVIN__c Length must be 17, 
     // EuroVIN__c length must be 17 or 18
-    private static void initiateVehicle(Sobject so) {
+    private static void initiateVehicle(Sobject so ) {
         Vehicle__c vehicle = (Vehicle__c)so;
 
         vehicle.UsVIN__c = 'usvin111111111111'; 
@@ -375,7 +379,7 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
     }
     
     // Create Unsaved Vehicle Relationship
-    private static void initiateVehicleRelationship(Sobject so) {
+    private static void initiateVehicleRelationship(Sobject so, String recordTypeName) {
         Vehicle_Relationship__c relationship = (Vehicle_Relationship__c)so;
 
         relationship.RegistrationProvince__c = 'Shanghai';
@@ -388,6 +392,7 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
         relationship.Validity__c = 'Unknown';
         relationship.Purchase_Date__c = System.today();
         relationship.Registration_Date__c = System.today();
+        relationship.recordTypeId = getRecordTypeMapInstance().get(recordTypeName + 'Vehicle_Relationship__c');
     }
 
     // Create Unsaved Sales
