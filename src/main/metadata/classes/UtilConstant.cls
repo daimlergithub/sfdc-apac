@@ -39,13 +39,20 @@ Global with sharing class UtilConstant {
     public final static string COMMUNITY_LICENSE_SWITCH='Community Enabled';
     public final static string read_Access='Read';   
     public final static String Account_Object = 'Account'; 
-	public final static String person_Account = 'Person Account'; 		
-	public final static String Vehicle_Relationship ='Vehicle_Relationship__c';
-	public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
-	public final static String Contact2Contact ='Contact2Contact';
-	public final static String Account_Link='Account_Link__c';
-	public final static String Empty='';
-	    
+    public final static String person_Account = 'Person Account';       
+    public final static String Vehicle_Relationship ='Vehicle_Relationship__c';
+    public final static String Vehicle_Relationship_Retail ='Vehicle Relationship Retail';
+    public final static String Contact2Contact ='Contact2Contact';
+    public final static String Account_Link='Account_Link__c';
+    //Varibale is being used in contactHelper class
+    public final static String Empty='';
+    public final static String leadOwnerStartWith='00G';
+    public final static String leadDealerLMS='LMS';
+    public final static String leadDealerLMS_Salesforce='Salesforce';
+    //Varibale is being used in contactHelper class
+    public final static String whiteSpace=' ';    
+    public final static String nullValue='Null';
+        
     private static Map<String, Id> getUserRoleMapInstance() {
         if (roleMap == null) {
             roleMap = new Map<String, Id>();
