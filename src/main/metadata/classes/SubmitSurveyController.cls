@@ -1,6 +1,7 @@
 public without sharing class SubmitSurveyController{
 
     public String surveyID;
+    private string nextString='Next';
     public String taskID;
     public String campaignId;
     public String contactID;
@@ -35,17 +36,21 @@ public without sharing class SubmitSurveyController{
                     surveyTaker = st;
                 }
                 if (surveyTaker != null) {
-                    if (surveyTaker.Survey_Taking_Status__c != 'Finish') {
-                        for (SurveyQuestionResponse__c sqr : [SELECT id, Response__c, Survey_Question__c, SurveyTaker__c, Note__c FROM SurveyQuestionResponse__c
+                    if (surveyTaker.Survey_Taking_Status__c == 'Finish') {
+                    	
+                    	 finishSurvey = true;
+                        showPreviousButton = false;
+                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, System.Label.VF_SubmitSurvey_FinishSurvey_Msg));
+                    	
+                        
+                    } else {
+                    	for (SurveyQuestionResponse__c sqr : [SELECT id, Response__c, Survey_Question__c, SurveyTaker__c, Note__c FROM SurveyQuestionResponse__c
                                                                WHERE SurveyTaker__c =: surveyTaker.id]) {
                             answeredQuestion.put(sqr.Survey_Question__c, sqr.Response__c == null ? '':sqr.Response__c);
                             reponseNotes.put(sqr.Survey_Question__c, sqr.Note__c == null ? '':sqr.Note__c);
                             QAIdMapping.put(sqr.Survey_Question__c, sqr.id);
-                        }
-                    } else {
-                        finishSurvey = true;
-                        showPreviousButton = false;
-                        ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.INFO, System.Label.VF_SubmitSurvey_FinishSurvey_Msg));
+                        }                    	
+                       
                     }
                 }
             }
@@ -72,17 +77,30 @@ public without sharing class SubmitSurveyController{
                     showQuestionOrder++;
                 }
                 allQuestions = customQuestionList;
-                if ( surveyTaker!=null && surveyTaker.Last_Answered_Question__c != null) {
-                    //Get the question which usered answered in previous operation
-                    OneQuestion = getQuestion(Integer.valueOf(surveyTaker.Last_Answered_Question__r.OrderNumber__c),true,'Next');
-                } else {
-                    if (survey.Survey_Header__c != null && survey.Survey_Header__c != '') {
-                        //Get the 0 question to show the welcome page
-                        OneQuestion = getQuestion(0,false,'Next');
+                if ( surveyTaker==null || surveyTaker.Last_Answered_Question__c == null) {
+                	
+                	 if (survey.Survey_Header__c == null || survey.Survey_Header__c == '') {
+                	 	
+                	 	 //as the survey header is blank, we will set one question.
+                        OneQuestion = getQuestion(1,false,nextString);
+                	 	
+                       
                     } else {
-                        //as the survey header is blank, we will set one question.
-                        OneQuestion = getQuestion(1,false,'Next');
+                    	
+                    	 //Get the 0 question to show the welcome page
+                        OneQuestion = getQuestion(0,false,nextString);
+                    	
+                       
                     }
+                	
+                	
+                    
+                } else {
+                	
+                	//Get the question which usered answered in previous operation
+                    OneQuestion = getQuestion(Integer.valueOf(surveyTaker.Last_Answered_Question__r.OrderNumber__c),true,nextString);                   
+                    
+                    
                 }
             }
         } else {
@@ -280,7 +298,7 @@ public without sharing class SubmitSurveyController{
                 }
             }
             //only click next buttion, set the previous question order value
-            if ('Next'.equalsIgnoreCase(direction)){
+            if (nextString.equalsIgnoreCase(direction)){
                 if (OneQuestion == null) {
                     q.previousQuestionOrder = null;
                     showPreviousButton = false;
@@ -305,12 +323,12 @@ public without sharing class SubmitSurveyController{
             //load the next question
             if ('Single Select--Vertical'.equalsIgnoreCase(OneQuestion.surveyQuestion.Type__c) || 'Single Select--Horizontal'.equalsIgnoreCase(OneQuestion.surveyQuestion.Type__c)) {
                 if (OneQuestion.selectedOption != null && OneQuestion.selectedOption != '' && OneQuestion.redirectQuestionNumber.size() > 0) {
-                    OneQuestion = getQuestion(OneQuestion.redirectQuestionNumber.get(Integer.valueOf(OneQuestion.selectedOption)),true,'Next');
+                    OneQuestion = getQuestion(OneQuestion.redirectQuestionNumber.get(Integer.valueOf(OneQuestion.selectedOption)),true,nextString);
                 } else {
-                    OneQuestion = getQuestion( Integer.valueOf(OneQuestion.showQuestionOrder) + 1,false,'Next');
+                    OneQuestion = getQuestion( Integer.valueOf(OneQuestion.showQuestionOrder) + 1,false,nextString);
                 }
             } else {
-                OneQuestion = getQuestion( Integer.valueOf(OneQuestion.showQuestionOrder) + 1,false,'Next');
+                OneQuestion = getQuestion( Integer.valueOf(OneQuestion.showQuestionOrder) + 1,false,nextString);
             }
         }
     }
@@ -350,7 +368,7 @@ public without sharing class SubmitSurveyController{
         }
         //update survey taken last answered question
         if (surveyTaker != null) {
-            surveyTaker.Last_Answered_Question__c = OneQuestion.surveyQuestion != null ? OneQuestion.surveyQuestion.id : null;
+            surveyTaker.Last_Answered_Question__c = OneQuestion.surveyQuestion == null ?  null:OneQuestion.surveyQuestion.id;
             update surveyTaker;
         }
     }
@@ -360,7 +378,7 @@ public without sharing class SubmitSurveyController{
       */
     public PageReference submitSurvey(){
         if (surveyTaker!=null) {
-            surveyTaker.Last_Answered_Question__c = OneQuestion.surveyQuestion != null ? OneQuestion.surveyQuestion.id : null;
+            surveyTaker.Last_Answered_Question__c = OneQuestion.surveyQuestion == null ?  null:OneQuestion.surveyQuestion.id;
             surveyTaker.Survey_Taking_Status__c = 'Finish';
             try {
                 update surveyTaker;
@@ -425,7 +443,7 @@ public without sharing class SubmitSurveyController{
             surveyTaker.Campaign__c = campaignId;
             surveyTaker.Task_ID__c = taskID;
             surveyTaker.Survey__c = surveyID;
-            surveyTaker.Last_Answered_Question__c = OneQuestion.surveyQuestion != null ? OneQuestion.surveyQuestion.id : null;
+            surveyTaker.Last_Answered_Question__c = OneQuestion.surveyQuestion == null ?  null:OneQuestion.surveyQuestion.id;
             try {
                 insert surveyTaker;
             } catch (exception ex) {
@@ -435,7 +453,7 @@ public without sharing class SubmitSurveyController{
                 return result;
             }
         } else {
-            surveyTaker.Last_Answered_Question__c = OneQuestion.surveyQuestion != null ? OneQuestion.surveyQuestion.id : null;
+            surveyTaker.Last_Answered_Question__c = OneQuestion.surveyQuestion == null ? null:OneQuestion.surveyQuestion.id;
             try {
                 update surveyTaker;
             } catch (exception ex) {
