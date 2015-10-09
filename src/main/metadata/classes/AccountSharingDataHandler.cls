@@ -19,7 +19,7 @@ public class AccountSharingDataHandler {
      }
 
     //person account record type
-    private Id personAccountRecordType = UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,UtilRecordType.person_Account);
+    private Id personAccountRecordType = UtilRecordType.getRecordTypeIdByName(UtilConstant.Account_Object,UtilConstant.person_Account);
     private String processFlg = '';
 
     
@@ -112,7 +112,7 @@ public class AccountSharingDataHandler {
         
         system.debug('parm0====================' + parent);
         system.debug('parm1====================cmsCodes' + cmsCodes);
-        String dealerRecordtype = UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,UtilRecordType.Dealer);
+        String dealerRecordtype = UtilRecordType.getRecordTypeIdByName(UtilConstant.Account_Object,UtilConstant.Dealer);
         //Query DMS CODE and dealer
         for(Account a: [select id , Dealer_DMS_CRM_Code__c from account where Dealer_DMS_CRM_Code__c in :parent.keyset() and Dealer_Active__c = true and RecordTypeId = :dealerRecordtype]){
             cmsAndDealer.add(a.Dealer_DMS_CRM_Code__c, a.id);
@@ -177,7 +177,7 @@ public class AccountSharingDataHandler {
         }
         system.debug('parm0====================' + parent);
         system.debug('parm1====================cmsCodes' + cmsCodes);
-        String dealerRecordtype = UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,UtilRecordType.Dealer);
+        String dealerRecordtype = UtilRecordType.getRecordTypeIdByName(UtilConstant.Account_Object,UtilConstant.Dealer);
         //Query DMS CODE and dealer
         if(parent.keyset().size() > 0) {
             for(Account a: [select id , Dealer_DMS_CRM_Code__c from account where Dealer_DMS_CRM_Code__c in :parent.keyset() and Dealer_Active__c = true and RecordTypeId = :dealerRecordtype]){
@@ -290,7 +290,7 @@ public class AccountSharingDataHandler {
         Set<String> cmsCodes = new Set<String>();
         Set<String> personAccounts = new Set<String>();
         Set<String> dealers = new Set<String>();
-        String retailRvId = UtilRecordType.getRecordTypeIdByName(UtilRecordType.Vehicle_Relationship,UtilRecordType.Vehicle_Relationship_Retail);    
+        String retailRvId = UtilRecordType.getRecordTypeIdByName(UtilConstant.Vehicle_Relationship,UtilConstant.Vehicle_Relationship_Retail);    
     
         if (!isNew) return;
         
@@ -331,7 +331,7 @@ public class AccountSharingDataHandler {
      */
     public void shareDealerByCrmCode(Map<id,Account> newData, Map<id,Account> oldData, boolean isNew){       
         CMap parent = new CMap();   
-        String dealerRecordtype =UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,UtilRecordType.Dealer);
+        String dealerRecordtype =UtilRecordType.getRecordTypeIdByName(UtilConstant.Account_Object,UtilConstant.Dealer);
         //Delete Old share records
                 
         for(Account a : newData.values()){
@@ -366,7 +366,7 @@ public class AccountSharingDataHandler {
     /*
     public void share3rdAccount(Map<id,Account> newData){
         Map<id, id> shareobjects = new Map<id,id>();        
-        String dealerRecordtype = UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,UtilRecordType.3rd_Party);     
+        String dealerRecordtype = UtilRecordType.getRecordTypeIdByName(UtilConstant.Account_Object,UtilConstant.3rd_Party);     
         
         for(Account a : newData.values()){
             if(a.RecordTypeId == dealerRecordtype){
@@ -415,7 +415,7 @@ public class AccountSharingDataHandler {
         */
         if(cmsCodes.size()<1) return userOrGroupIds;
         //Query DMS CODE and dealer
-        String dealerRecordtype = UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,UtilRecordType.Dealer);
+        String dealerRecordtype = UtilRecordType.getRecordTypeIdByName(UtilConstant.Account_Object,UtilConstant.Dealer);
         for(Account a: [select id , Dealer_DMS_CRM_Code__c from account where Dealer_DMS_CRM_Code__c in :cmsCodes and Dealer_Active__c = true and RecordTypeId = :dealerRecordtype]){
             cmsAndDealer.add(a.Dealer_DMS_CRM_Code__c, a.id);
         }
