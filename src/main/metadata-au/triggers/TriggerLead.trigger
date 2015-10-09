@@ -26,41 +26,6 @@
     16-06-2014 Bing(NDC) Modified
 */
 trigger TriggerLead on Lead__c(before insert, before update, after update,after insert) {
-    if (!TriggerUtil.isTriggerEnabled('TriggerLead')) {
-        return;
-    }
-
-    if(trigger.isAfter && trigger.isInsert)
-    {
-        //TODO-Commented kernel functionality need to add switching mechanism
-        /*AccountSharingDataHandler handler = new AccountSharingDataHandler('Lead__c');
-        handler.shareAccountByCRMCode(Trigger.newMap, Trigger.oldMap, Trigger.isInsert);
-        LeadHelper.afterInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-        LeadHelper.ShareLeadsToCampaignUser(trigger.new,trigger.OldMap,trigger.NewMap,trigger.isinsert,trigger.isUpdate);*/
-        LeadHelper.auAfter_Insert_Update_Events(trigger.new,trigger.NewMap,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-    }
-    if(trigger.isAfter && trigger.isUpdate)
-    {
-        //TODO-Commented kernel functionality need to add switching mechanism
-        /*LeadHelper.afterInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-        LeadHelper.ShareLeadsToCampaignUser(trigger.new,trigger.OldMap,trigger.NewMap,trigger.isinsert,trigger.isUpdate);*/
-        LeadHelper.auAfter_Insert_Update_Events(trigger.new,trigger.NewMap,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-    }
-    if(trigger.isBefore && trigger.isInsert)
-    {
-        //TODO-Commented kernel functionality need to add switching mechanism
-        /*// US-Lead-009
-        UtilLead.updateLeadForDataSharing(trigger.new);
-        UtilLead.beforeInsert_updateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-        LeadHelper.beforeInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);*/
-        LeadHelper.auBefore_Insert_Update_Events(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-    }
-    if(trigger.isBefore && trigger.isUpdate)
-    {
-        //TODO-Commented kernel functionality need to add switching mechanism
-        /*UtilLead.beforeInsert_updateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-        LeadHelper.beforeInsert_UpdateEvents(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);*/
-        LeadHelper.auBefore_Insert_Update_Events(trigger.new,trigger.OldMap,trigger.isinsert,trigger.isUpdate);
-        LeadHelper.auBeforeUpdateGenericVehicleRecordOnVehicleRelationship(trigger.new,trigger.OldMap,trigger.newmap);
-    }
+    
+	TriggerUtil.handleTrigger('TriggerLead'); 
 }
