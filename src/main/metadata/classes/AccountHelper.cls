@@ -8,7 +8,8 @@
     History:
     
     1. Bing Bai Created on 2013-06-05
-    2. Sinow Update on 2013-07-22 for US-DP-022, US-DP-023, when Allow Data Sharing changed to yes, update lead's owner.
+    2. Sinow Update on 2013-07-22 for US-DP-022, US-DP-023, 
+    when Allow Data Sharing changed to yes, update lead's owner.
 */
 public class AccountHelper {
 
@@ -25,7 +26,8 @@ public class AccountHelper {
     public static final String ERROR_MSG_CP_016 = Label.Account_Cann_t_be_Customer;
     
     /**
-       get record counts from accout which Dealer_Default_Flag__c = true and "Dealer DMS SR Code 1" has a value
+       get record counts from accout which 
+       Dealer_Default_Flag__c = true and "Dealer DMS SR Code 1" has a value
        return a Map Key is Dealer_DMS_SR_Code__c , 
        and value is boolean , if had records is false , if no is true
      */
@@ -55,7 +57,7 @@ public class AccountHelper {
     }
 
     
-    //US-DP-022, US-DP-023, when Allow Data Sharing changed to yes, update lead's owner.
+    //when Allow Data Sharing changed to yes, update lead's owner.
     public static void updateLeads(Set<Id> contactIds) {
         List<Lead__c> leads = [select Id, Dealer_LMS__c, RecordTypeId, Need_Assign_To_Dealer__c, Assigned_Dealer__c from Lead__c where Contact__c in :contactIds and Need_Assign_To_Dealer__c = 'Need' and Assigned_Dealer__c != null];
         Set<Id> dealerIds = new Set<Id>();

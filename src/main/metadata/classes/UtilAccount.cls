@@ -23,10 +23,10 @@ public class UtilAccount {
                     }            
                     // US-DP-022, US-DP-023
                     if((newAcc.Allow_Data_Sharing__c == 'Yes' && newAcc.Allow_Data_Sharing__c != oldAcc.get(newAcc.Id).Allow_Data_Sharing__c) ||  
-                       (newAcc.Gender__c != null && newAcc.Gender__c != '' && newAcc.Gender__c != oldAcc.get(newAcc.Id).Gender__c) ||
-                       (newAcc.Province__c != null && newAcc.Province__c != '' && newAcc.Province__c != oldAcc.get(newAcc.Id).Province__c) ||
-                       (newAcc.City_CN__c != null && newAcc.City_CN__c != '' && newAcc.City_CN__c != oldAcc.get(newAcc.Id).City_CN__c) ||
-                       (newAcc.Preferred_Language__c != null && newAcc.Preferred_Language__c != '' && newAcc.Preferred_Language__c != oldAcc.get(newAcc.Id).Preferred_Language__c) ) {
+                       (newAcc.Gender__c != null && !String.isBlank(newAcc.Gender__c) && newAcc.Gender__c != oldAcc.get(newAcc.Id).Gender__c) ||
+                       (newAcc.Province__c != null && !String.isBlank(newAcc.Province__c) && newAcc.Province__c != oldAcc.get(newAcc.Id).Province__c) ||
+                       (newAcc.City_CN__c != null && !String.isBlank(newAcc.City_CN__c) && newAcc.City_CN__c != oldAcc.get(newAcc.Id).City_CN__c) ||
+                       (newAcc.Preferred_Language__c != null && !String.isBlank(newAcc.Preferred_Language__c) && newAcc.Preferred_Language__c != oldAcc.get(newAcc.Id).Preferred_Language__c) ) {
                         accIdSetForUpdateLead.add(newAcc.Id);
                     }
                 }
@@ -68,10 +68,9 @@ public class UtilAccount {
     
    //dealerCodes Info for an Account
    public static void beforeAccDealerInfo(List<Account> triggerNew,Map<id,Account> oldAcc,boolean isInsert,boolean isUpdate){
-        Map<String, boolean> cp010Map = new Map<String, boolean>();
-        Set<Id> cp016Map = new Set<Id>();
-        Map<String, id> cp017Map = new Map<String, id>();
-        List<String> dealerCodes = new List<String>();
+      
+        
+                List<String> dealerCodes = new List<String>();
         List<id> ids = new List<id>();
         List<String> citys = new List<String>();        
         Profile integrationProfile = [select Id from Profile where Name = 'IntegrationAPI'];
@@ -107,27 +106,17 @@ public class UtilAccount {
             if (!String.isBlank(curAcc.City_CN__c)){
                 citys.add(curAcc.City_CN__c);
             }            
-         }
+         }         
+             
             
-     //get record counts from accout which Dealer_Default_Flag__c = true and "Dealer DMS SR Code 1" has a value
-      if(dealerCodes.size()>0){
-            cp010Map = AccountHelper.getDealerCountInfo(dealerCodes);
-        }
-        
-        //get record counts from Vehichle relationShip which Contact is current Acount.
-        if (ids.size()>0){
-            cp016Map = AccountHelper.getVSCountInfo(ids);
-        }      
-           
-       
-       /* Added by Justin Yu on 2014-3-4. Fill in the Zip Code automatically based on the City */
+       /*Fill in the Zip Code automatically based on the City*/
         
         for(Account account : triggerNew){   
           if(oldAcc!=Null && !oldAcc.isEmpty()){         
             if(!isUpdate || account.City_CN__c != oldAcc.get(account.Id).City_CN__c){
                 try{
                     City__c city = City__c.getInstance(account.City_CN__c);
-                    account.ZipCode__c = city != null ? city.Zip__c : null;
+                    account.ZipCode__c = city == null ? null:city.Zip__c;
                 }
                 catch (System.InvalidParameterValueException e){
                    	system.debug('DML Exception: ' + e.getMessage());

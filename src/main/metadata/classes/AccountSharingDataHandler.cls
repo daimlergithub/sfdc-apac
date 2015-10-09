@@ -86,15 +86,18 @@ public class AccountSharingDataHandler {
         Set<String> personAccounts = new Set<String>();
         
         for(id key: newData.keySet()){
-            if(!isNew){
-                Lead__c newLead = (Lead__c)newData.get(key);
+            if(isNew){
+            	dealers.add(newData.get(key).Assigned_Dealer__c);
+                personAccounts.add(newData.get(key).Contact__c); 
+            	
+            }else{
+            	Lead__c newLead = (Lead__c)newData.get(key);
                 if( newData.get(key).Assigned_Dealer__c != oldData.get(key).Assigned_Dealer__c) {
                     dealers.add(newLead.Assigned_Dealer__c);
                     personAccounts.add(newLead.Contact__c);                 
                 }
-            }else{
-                dealers.add(newData.get(key).Assigned_Dealer__c);
-                personAccounts.add(newData.get(key).Contact__c);                
+                
+                               
             }
         }
         
@@ -128,8 +131,8 @@ public class AccountSharingDataHandler {
                 }
             }   
         }
-        system.debug('setp1==================:'+ parent);
-        system.debug('setp2==================:'+ userOrGroupIds);
+        system.debug('setp1===================:'+ parent);
+        system.debug('setp2====================:'+ userOrGroupIds);
         if(userOrGroupIds.values2().size()<1) return;
           shareAccount(parent, userOrGroupIds);        
      }
@@ -148,15 +151,18 @@ public class AccountSharingDataHandler {
         Set<String> personAccounts = new Set<String>();
         
         for(id key: newData.keySet()){
-            if(!isNew){
-                Case newLead = (Case)newData.get(key);
+            if(isNew){
+            	dealers.add(newData.get(key).Case_Dealer__c);
+                personAccounts.add(newData.get(key).AccountId);  
+                
+               
+            }else{
+            	 Case newLead = (Case)newData.get(key);
                 if( newData.get(key).Case_Dealer__c != oldData.get(key).Case_Dealer__c) {
                     dealers.add(newLead.Case_Dealer__c);
                     personAccounts.add(newLead.AccountId);                  
                 }
-            }else{
-                dealers.add(newData.get(key).Case_Dealer__c);
-                personAccounts.add(newData.get(key).AccountId);             
+                           
             }
         }
         
@@ -196,32 +202,42 @@ public class AccountSharingDataHandler {
                 }
             }   
         }
-        system.debug('setp1==================:'+ parent);
-        system.debug('setp2==================:'+ userOrGroupIds);
+        system.debug('setp1====================:'+ parent);
+        system.debug('setp2======================:'+ userOrGroupIds);
 
         if(userOrGroupIds.values2().size()<1) return;
         shareAccount(parent, userOrGroupIds);
     }
 
-    /**
-     * share person account of Account link 
-     */
+    
+     //share person account of Account link 
+     
     public void shareAccountByAccountLink(Map<id,Account_Link__c> newData, Map<id,Account_Link__c> oldData, boolean isNew){
-        CMap cmsAndDealer = new CMap();
+       //CMap cmsAndDealer = new CMap();
         CMap parent = new CMap();
-        CMap users = new CMap();
+        //CMap users = new CMap();
         CMap userOrGroupIds = new CMap();
-        Set<String> cmsCodes = new Set<String>();
-        Set<String> personAccounts = new Set<String>();
-        Set<String> dealers = new Set<String>();
+        //Set<String> cmsCodes = new Set<String>();
+        //Set<String> personAccounts = new Set<String>();
+        //Set<String> dealers = new Set<String>();
                 
         for(id key: newData.keySet()){
                 
             String cmsCode = getCRMcodeFromName(newData.get(key).Name);
             if(String.isBlank(cmsCode)) continue;
             system.debug('shareAccountByAccountLink============'+cmsCode);
-            if(!isNew){
-                Account_Link__c alc = (Account_Link__c)newData.get(key);
+            if(isNew){
+            	if(newData.get(key).fromRole__c != null) {
+                    parent.add(cmsCode, newData.get(key).fromRole__c);
+                }
+                if(newData.get(key).toRole__c != null) {
+                    parent.add(cmsCode, newData.get(key).toRole__c);                    
+                }
+            	
+            	
+            }else{
+            	
+            	 Account_Link__c alc = (Account_Link__c)newData.get(key);
                 
                 if( newData.get(key).fromRole__c != oldData.get(key).fromRole__c &&  newData.get(key).fromRole__c != null) {
                     parent.add(cmsCode, alc.fromRole__c);
@@ -229,13 +245,7 @@ public class AccountSharingDataHandler {
                 if( newData.get(key).toRole__c != oldData.get(key).toRole__c &&  newData.get(key).toRole__c != null) {
                     parent.add(cmsCode, alc.toRole__c);                     
                 }
-            }else{
-                if(newData.get(key).fromRole__c != null) {
-                    parent.add(cmsCode, newData.get(key).fromRole__c);
-                }
-                if(newData.get(key).toRole__c != null) {
-                    parent.add(cmsCode, newData.get(key).toRole__c);                    
-                }
+                
             }
         }
         system.debug(newData);
@@ -243,8 +253,8 @@ public class AccountSharingDataHandler {
         if(parent.keySet().size()<1) return;
 
         userOrGroupIds = getSameCodeUser(parent.keySet());
-        system.debug('setp1==================:'+ parent);
-        system.debug('setp2==================:'+ userOrGroupIds);
+        system.debug('setp1======================:'+ parent);
+        system.debug('setp2=======================:'+ userOrGroupIds);
         
         if(userOrGroupIds.values2().size()<1) return;
         shareAccount(parent, userOrGroupIds);
@@ -321,26 +331,29 @@ public class AccountSharingDataHandler {
      */
     public void shareDealerByCrmCode(Map<id,Account> newData, Map<id,Account> oldData, boolean isNew){       
         CMap parent = new CMap();   
-      //  String dealerRecordtype = UtilRecordType.getRecordTypeIdByName('Account', 'Dealer');        
-         String dealerRecordtype =UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,UtilRecordType.Dealer);
+        String dealerRecordtype =UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,UtilRecordType.Dealer);
         //Delete Old share records
                 
         for(Account a : newData.values()){
             if(a.Dealer_DMS_CRM_Code__c != null && a.RecordTypeId == dealerRecordtype){
-                if(!isNew ){
-                    if( a.Dealer_DMS_CRM_Code__c != oldData.get(a.id).Dealer_DMS_CRM_Code__c ) {
+                if(isNew ){
+                	parent.add(a.Dealer_DMS_CRM_Code__c, a.id);
+                	
+                    
+                }else{
+                	
+                	if( a.Dealer_DMS_CRM_Code__c != oldData.get(a.id).Dealer_DMS_CRM_Code__c ) {
                         parent.add(a.Dealer_DMS_CRM_Code__c, a.id);
                     }
-                }else{
-                        parent.add(a.Dealer_DMS_CRM_Code__c, a.id);
+                        
                 }
             }
         }
         
         if(parent.values2().size()<1) return;       
         userOrGroupIds = getSameCodeUser(parent.keySet());
-        system.debug('setp1==================:'+ parent);
-        system.debug('setp2==================:'+ userOrGroupIds);
+        system.debug('setp1==========:'+ parent);
+        system.debug('setp2============:'+ userOrGroupIds);
 
         if(userOrGroupIds.values2().size()<1) return;
         shareAccount(parent, userOrGroupIds);
@@ -350,7 +363,6 @@ public class AccountSharingDataHandler {
 
     /**
      * share dealer to same code dealer
-     */
     /*
     public void share3rdAccount(Map<id,Account> newData){
         Map<id, id> shareobjects = new Map<id,id>();        
@@ -425,32 +437,5 @@ public class AccountSharingDataHandler {
         return userOrGroupIds;
     }
     
-    /**
-     *  delete old share account, when update
-     */
-    private void deleteOldShare(Map<id,Account> oldData, String recordType) {
-        
-        String recordtypeId = UtilRecordType.getRecordTypeIdByName(UtilRecordType.Account_Object,recordType); 
-        
-        Set<String> cmsCode = new Set<String>();
-        Set<String> AccountIds = new Set<String>();
-        for(Account a : oldData.values()){
-            if(a.recordTypeid == recordtypeId){
-                cmsCode.add(a.Dealer_DMS_CRM_Code__c);
-                AccountIds.add(a.id);
-            }
-        }
-        
-
-        CMap users = getSameCodeUser(cmsCode);
-        system.debug('delete part========================' + users);
-        if(AccountIds.size()>0 && users.values2().size()>0){
-            try{
-                database.delete([select id from AccountShare where AccountId in :AccountIds and userOrGroupId in :users.values2()],false);
-            }catch(DMLexception e){
-                system.debug('DML Exception: ' + e.getDmlMessage(0));
-            }
-        }
-    }
-    
+   
 }
