@@ -470,7 +470,7 @@ public With Sharing class CaseHelperTest {
             map<id,id> casesForShare= new  map<id,id>(); 
             casesForShare.put(c1.id, c1.id);
             
-            CaseHelper.getGateKeepers(sos);
+            UtilCaseShare.getGateKeepers(sos);
             CaseHelper.shareDealer(casesForShare);
             CaseHelper.shareCaseToRO(sos);
             CaseHelper.shareCaseToRO(casesForShare);

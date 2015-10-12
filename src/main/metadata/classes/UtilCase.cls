@@ -8,7 +8,10 @@
   Modify History       : 
  
  */
-public class UtilCase {
+public with sharing class UtilCase {
+    
+   
+    
     public static void rollupAccountComplaintAmount(List<Case> cases) {
         Set<Id> accIds = new Set<Id>();
         for (Case c : cases) {
@@ -39,4 +42,6 @@ public class UtilCase {
             System.debug('UtilCase.rollupAccountComplaintAmount Exception: ' + e);
         }
     }
+	
+	
 }

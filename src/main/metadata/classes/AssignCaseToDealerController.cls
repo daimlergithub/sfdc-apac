@@ -9,7 +9,7 @@
     1. Chaos Created on 2014-02-19
 
 */
-public class AssignCaseToDealerController {
+public with sharing class AssignCaseToDealerController {
     
     public String userName {get; set;}
     public String dealerName {get; set;}
@@ -22,21 +22,23 @@ public class AssignCaseToDealerController {
     // Query return limit and Dealer's Record Type Name
     private final Integer QUERY_LIMIT = 200;
     private final String ACCOUNT_RT_DEALER = 'Dealer';
-    private final String DEALER_USER = 'Dealer Community User';
-    private final String DEALER_DELEGATED_ADMIN = 'Dealer Delegate Admin';
+   // private final String DEALER_USER = 'Dealer Community User';
+   // private final String DEALER_DELEGATED_ADMIN = 'Dealer Delegate Admin';
     
-    // Account Address Fields Mapping with Dealer City
-    private final Map<String, String> ADDRESS_FIELD_MAPPING = new Map<String, String> {
+    /* Account Address Fields Mapping
+	with Dealer City
+    private final Map<String, String>
+	ADDRESS_FIELD_MAPPING = new Map<String, String> {
         'Dealer_Region__c' => 'Dealer_Region__c',
         'Province__c' => 'Province__c',
         'City__c' => 'City__c'
-    };
+    }; */
     
-    // Two Muti-Select Fields on Account
+    /* Two Muti-Select Fields on Account
     private final List<String> MUTI_SELECT_FIELDS = new List<String> {
         'Dealer_Sales_Type__c',
         'Dealer_Service_Codes__c'
-    };
+    };  */
     
     public AssignCaseToDealerController()
     {
@@ -80,7 +82,7 @@ public class AssignCaseToDealerController {
 	            accountIds.add(acc.Id);
 	            accountIdAccountBranchName.put(acc.Id, acc.Branch_name__c);
 	        }
-	        String Dealer='Dealer Delegate Admin';
+	     //   String Dealer='Dealer Delegate Admin';
 	        String querySOQL = 'Select Id, Name, FirstName, LastName, UserRole.Name, Profile.Name, AccountId ' +
 	                            'FROM User ' +
 	                           'WHERE IsActive = true ';// AND ' +
@@ -105,11 +107,11 @@ public class AssignCaseToDealerController {
 	            oblist = Database.query(querySOQL);
 	        }
 	        // If no query result, system alert no search result.
-	        hasQueryResult = (oblist.size() > 0);
+	       hasQueryResult = (oblist.size() > 0);
+            
 	        if (!hasQueryResult) {
-	            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO, ERROR_MSG_1));
-	        }else{
-	            UserWithAccountInfo uai = null;
+                
+                UserWithAccountInfo uai = null;
 	            if(oblist!=Null && !oblist.isEmpty()){
 	            for (User ob : oblist) {
 	                uai = new UserWithAccountInfo();
@@ -124,6 +126,9 @@ public class AssignCaseToDealerController {
 	                users.add(uai);
 	            }
 	          }
+	            
+	        }else{
+	            ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.INFO, ERROR_MSG_1));
 	        }
     	}
     }
