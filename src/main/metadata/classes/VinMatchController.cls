@@ -15,7 +15,7 @@
     4. Barney lai modified on 2014-2-17
 
 */
-public class VinMatchController{
+public with sharing class VinMatchController{ 
 
     public VinMatchController(){
         //2014-2-17 Barney lai start
