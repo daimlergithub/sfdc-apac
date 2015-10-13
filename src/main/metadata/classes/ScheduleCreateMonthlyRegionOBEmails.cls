@@ -7,7 +7,7 @@
   Create Date          : 2013-06-25
   Modify History       : 
  */
-global class ScheduleCreateMonthlyRegionOBEmails implements Schedulable {
+global with sharing class ScheduleCreateMonthlyRegionOBEmails implements Schedulable {
     global void execute(SchedulableContext sc) {
         Map<Id, UserRole> roleMap = new Map<Id, UserRole>(
             [SELECT Id, (SELECT Id, Email FROM Users) 
