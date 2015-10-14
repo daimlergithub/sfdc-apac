@@ -12,16 +12,11 @@
 public class DMRequestTriggerHandler { 
     
 
-    public static void updateDaterialSentTotal(List<DM_Request__c> newList, List<DM_Request__c> oldList){
+    public static void updateDaterialSentTotal(List<DM_Request__c> newList, map<Id, DM_Request__c> oldMap){
         
         System.debug('---------enter--------'); 
         
-        map<Id, DM_Request__c> oldMap = new map<Id, DM_Request__c>();
-        if(oldList!=null && oldList.size()>0){
-            for(DM_Request__c dmr : oldList){
-                oldMap.put(dmr.Id,dmr);
-            }
-        }
+        
         
         System.debug('---------newList.size()---------'+newList.size());
         
@@ -86,14 +81,9 @@ public class DMRequestTriggerHandler {
         }   
     }
     
-    public static void updateActivityStatus(List<DM_Request__c> newList){
+    public static void updateActivityStatus(map<Id, DM_Request__c> dmrMap){
 
-        map<Id, DM_Request__c> dmrMap = new map<Id, DM_Request__c>();
-        if(newList!=null && newList.size()>0){
-            for(DM_Request__c dmr : newList){
-                dmrMap.put(dmr.Id,dmr);
-            }
-        }
+        
         
         List<Task> taskList = [Select Id, WhatId From Task Where whatId=:dmrMap.keySet()];
         for(Task t : taskList){

@@ -14,15 +14,14 @@ public class TriggerDMRequestTriggerHandler
 {
     public void handleTrigger()
     {
-        Map<Id,DM_Request__c> oldmap = (Map<Id,DM_Request__c>)trigger.oldmap;
-        Map<Id,DM_Request__c> newmap = (Map<Id,DM_Request__c>)trigger.newmap;
+        
         
         // update sent total
-        DMRequestTriggerHandler.updateDaterialSentTotal(trigger.new, trigger.old);         
+        DMRequestTriggerHandler.updateDaterialSentTotal(trigger.new, (Map<Id,DM_Request__c>)trigger.oldmap);         
         
         // update activity status
         if(trigger.isUpdate){
-            DMRequestTriggerHandler.updateActivityStatus(trigger.new);            
+            DMRequestTriggerHandler.updateActivityStatus((Map<Id,DM_Request__c>)trigger.newmap);            
         }  
     }
 }
