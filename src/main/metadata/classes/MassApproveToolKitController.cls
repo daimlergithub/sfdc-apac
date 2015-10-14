@@ -137,7 +137,7 @@ public with sharing class MassApproveToolKitController {
     
     public List<SelectOption> getApplyStatusOptions(){
         List<SelectOption> options = new List<SelectOption>();
-        Set<String> recordTypes = new Set<String>();
+        
         options.add(new SelectOption('', Label.Select_Option_None));
         options.add(new SelectOption('Confirmed', Label.Status_Confirmed));
         options.add(new SelectOption('Cancel Application', Label.Status_Cancel_Application));
@@ -146,7 +146,7 @@ public with sharing class MassApproveToolKitController {
     
     public List<SelectOption> getFeedbackStatusOptions(){
         List<SelectOption> options = new List<SelectOption>();
-        Set<String> recordTypes = new Set<String>();
+        
         options.add(new SelectOption('', Label.Select_Option_None));
         options.add(new SelectOption('Confirmed', Label.Status_Confirmed));
         return options;
@@ -154,7 +154,7 @@ public with sharing class MassApproveToolKitController {
     
     public List<SelectOption> getRecordTypes(){
         List<SelectOption> options = new List<SelectOption>();
-        Set<String> recordTypes = new Set<String>();
+        
         options.add(new SelectOption('', Label.Select_Option_None));
         options.add(new SelectOption(RT_EVENT_TK, TK_EVENT));
         options.add(new SelectOption(RT_MEDIA_TK, TK_MEDIA));

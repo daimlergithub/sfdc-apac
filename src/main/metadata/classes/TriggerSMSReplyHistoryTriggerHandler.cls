@@ -14,8 +14,7 @@ public class TriggerSMSReplyHistoryTriggerHandler
 {
     public void handleTrigger()
     {
-        Map<Id,SMSReplyHistory__c> oldmap = (Map<Id,SMSReplyHistory__c>)trigger.oldmap;
-        Map<Id,SMSReplyHistory__c> newmap = (Map<Id,SMSReplyHistory__c>)trigger.newmap;
+       
         
         if(trigger.isBefore && trigger.isInsert)
         {

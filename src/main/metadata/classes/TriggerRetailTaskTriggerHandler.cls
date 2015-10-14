@@ -12,8 +12,7 @@ public class TriggerRetailTaskTriggerHandler
 {
     public void handleTrigger()
     {
-        Map<Id,Retail_Task__c> oldmap = (Map<Id,Retail_Task__c>)trigger.oldmap;
-        Map<Id,Retail_Task__c> newmap = (Map<Id,Retail_Task__c>)trigger.newmap;
+        
         
         if(Trigger.isInsert && Trigger.isAfter){
             RetailTaskSharingWrapService wrapService = new RetailTaskSharingWrapService();

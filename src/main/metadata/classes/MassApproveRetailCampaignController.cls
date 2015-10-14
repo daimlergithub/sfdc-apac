@@ -34,14 +34,14 @@ public with sharing class MassApproveRetailCampaignController {
     public MassApproveRetailCampaignController() {
         hasCpn = false;
         cpnsInfo = new List<RetailCampaignInfo>();
-        cpn = new Retail_Campaign__c(RecordTypeId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get(RT_SM_EVENT_RC).getRecordTypeId(), Driven__c = '', Approver__c = UserInfo.getUserId());
+        cpn = new Retail_Campaign__c(RecordTypeId = Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get(RT_SM_EVENT_RC).getRecordTypeId(), Driven__c = UtilConstant.Empty, Approver__c = UserInfo.getUserId());
     }
     
     public void query() {
         Set<String> rts = new Set<String>();
         String driven = cpn.Driven__c;
-        String cityStr = String.isEmpty(city) ? '' : city.trim();
-        cityStr = String.isEmpty(cityStr) ? '' : ('%' + cityStr + '%');
+        String cityStr = String.isEmpty(city) ? UtilConstant.Empty : city.trim();
+        cityStr = String.isEmpty(cityStr) ? UtilConstant.Empty : ('%' + cityStr + '%');
         Id dealer = cpn.Dealer_Name__c;
         Id approver = cpn.Approver__c;
         String brand = cpn.Brand__c;
@@ -66,10 +66,10 @@ public with sharing class MassApproveRetailCampaignController {
             rts.add(RT_SM_EVENT_RC);
         }
         
-        queryStr = queryStr + (String.isEmpty(driven) ? '' : ' Driven__c = :driven AND');
-        queryStr = queryStr + (String.isEmpty(cityStr) ? '' : ' City__c LIKE :cityStr AND');
-        queryStr = queryStr + (dealer == null ? '' : ' Dealer_Name__c = :dealer AND');
-        queryStr = queryStr + (approver == null ? '' : ' Approver__c = :approver AND');
+        queryStr = queryStr + (String.isEmpty(driven) ? UtilConstant.Empty : ' Driven__c = :driven AND');
+        queryStr = queryStr + (String.isEmpty(cityStr) ? UtilConstant.Empty : ' City__c LIKE :cityStr AND');
+        queryStr = queryStr + (dealer == null ? UtilConstant.Empty : ' Dealer_Name__c = :dealer AND');
+        queryStr = queryStr + (approver == null ? UtilConstant.Empty : ' Approver__c = :approver AND');
         if (String.isEmpty(applyStatus) && String.isEmpty(feedbackStatus)) {
             queryStr = queryStr + ' (Apply_Status__c IN :approveApplyStatus OR Feedback_Status__c = :approveFeedbackStatus) AND';
         } else if(String.isEmpty(applyStatus)) {
@@ -79,7 +79,7 @@ public with sharing class MassApproveRetailCampaignController {
         } else {
             queryStr = queryStr + ' Feedback_Status__c = :feedbackStatus AND Apply_Status__c = :applyStatus AND';
         }
-        queryStr = queryStr + (brand == null ? '' : ' Brand__c = :brand AND');
+        queryStr = queryStr + (brand == null ? UtilConstant.Empty : ' Brand__c = :brand AND');
         if (carModles != null) {
             queryStr = queryStr + ' Car_Model__c INCLUDES(';
             for (String cm : carModles) {
@@ -87,12 +87,12 @@ public with sharing class MassApproveRetailCampaignController {
             }
             queryStr = queryStr.removeEnd(', ') + ') AND';
         }
-        queryStr = queryStr + (minExp == -1 ? '' : ' Plan_Expense__c >= :minExp AND');
-        queryStr = queryStr + (maxExp == -1 ? '' : ' Plan_Expense__c <= :maxExp AND');
-        queryStr = queryStr + (planStartDate == null ? '' : ' Plan_Start_Date__c = :planStartDate AND');
-        queryStr = queryStr + (planEndDate == null ? '' : ' Plan_End_Date__c = :planEndDate AND');
-        queryStr = queryStr + (actualStartDate == null ? '' : ' Actual_Start_Date__c = :actualStartDate AND');
-        queryStr = queryStr + (actualEndDate == null ? '' : ' Actual_End_Date__c = :actualEndDate AND');
+        queryStr = queryStr + (minExp == -1 ? UtilConstant.Empty : ' Plan_Expense__c >= :minExp AND');
+        queryStr = queryStr + (maxExp == -1 ? UtilConstant.Empty : ' Plan_Expense__c <= :maxExp AND');
+        queryStr = queryStr + (planStartDate == null ? UtilConstant.Empty : ' Plan_Start_Date__c = :planStartDate AND');
+        queryStr = queryStr + (planEndDate == null ? UtilConstant.Empty : ' Plan_End_Date__c = :planEndDate AND');
+        queryStr = queryStr + (actualStartDate == null ? UtilConstant.Empty : ' Actual_Start_Date__c = :actualStartDate AND');
+        queryStr = queryStr + (actualEndDate == null ? UtilConstant.Empty : ' Actual_End_Date__c = :actualEndDate AND');
         queryStr = queryStr + ' RecordType.Name IN :rts ORDER BY Dealer_Name__c, Campaign_Code__c ASC LIMIT 1000';
         cpnList = Database.query(queryStr);
         
@@ -146,8 +146,8 @@ public with sharing class MassApproveRetailCampaignController {
     
     public List<SelectOption> getApplyStatusOptions(){
         List<SelectOption> options = new List<SelectOption>();
-        Set<String> recordTypes = new Set<String>();
-        options.add(new SelectOption('', Label.Select_Option_None));
+        
+        options.add(new SelectOption(UtilConstant.Empty, Label.Select_Option_None));
         options.add(new SelectOption('Confirmed', Label.Status_Confirmed));
         options.add(new SelectOption('Cancel Application', Label.Status_Cancel_Application));
         options.add(new SelectOption('Approved', Label.Status_Approved));
@@ -156,8 +156,8 @@ public with sharing class MassApproveRetailCampaignController {
     
     public List<SelectOption> getFeedbackStatusOptions(){
         List<SelectOption> options = new List<SelectOption>();
-        Set<String> recordTypes = new Set<String>();
-        options.add(new SelectOption('', Label.Select_Option_None));
+        
+        options.add(new SelectOption(UtilConstant.Empty, Label.Select_Option_None));
         options.add(new SelectOption('Confirmed', Label.Status_Confirmed));
         options.add(new SelectOption('Approved', Label.Status_Approved));
         return options;
@@ -165,15 +165,15 @@ public with sharing class MassApproveRetailCampaignController {
     
     public List<SelectOption> getRecordTypes(){
         List<SelectOption> options = new List<SelectOption>();
-        Set<String> recordTypes = new Set<String>();
-        options.add(new SelectOption('', Label.Select_Option_None));
+        
+        options.add(new SelectOption(UtilConstant.Empty, Label.Select_Option_None));
         options.add(new SelectOption(RT_SM_MEDIA_RC, CPN_MEIDA));
         options.add(new SelectOption(RT_SM_EVENT_RC, CPN_EVENT));
         return options;
     }
     
     private String getColumns() {
-        String columns = '';
+        String columns = UtilConstant.Empty;
         for (Schema.FieldSetMember member : this.getFieldSetMembers()) {
             columns += member.getFieldPath() + ', ';
         }

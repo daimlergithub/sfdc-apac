@@ -15,8 +15,7 @@ public class TriggerRetailCampaignMemberHandler
 {
     public void handleTrigger()
     {
-        Map<Id,Retail_Campaign_Member__c> oldmap = (Map<Id,Retail_Campaign_Member__c>)trigger.oldmap;
-        Map<Id,Retail_Campaign_Member__c> newmap = (Map<Id,Retail_Campaign_Member__c>)trigger.newmap;
+       
         
         if(trigger.isBefore && trigger.isInsert)
         {

@@ -255,7 +255,7 @@ public class LeadHelper
         Set<Id> dealerIds = new Set<Id>();
         // Get all dealers of update leads
         List<Lead__c> leadsForUpdate = new List<Lead__c>();
-        Map<Id, Lead__c> ownerIdleads = new Map<Id, Lead__c>();
+        
         Set<Id> noPortalUserDealerIds = new Set<Id>();
         Set<Id> existDealerIds = new Set<Id>();
         
@@ -327,9 +327,8 @@ public class LeadHelper
         Map<Id, Id> NewCarLeadDealerId = new Map<Id, Id>();
         // Get all dealer ids of update leads for share to contact
         Set<Id> dealerIds = new Set<Id>();
-        //------------------Added by bing---------------------
-        // Assigned dealer list 
-        List<String> assignedDealers = new List<String>();
+        
+        
         //------------------Added by bing---------------------    
         // Get all dealers of update leads for share to contact
         List<Lead__c> leadsForUpdate = new List<Lead__c>();
