@@ -22,20 +22,27 @@ public class MassAssignRecallTasksControllerExtension {
     // Please Select CSR and Assign Rules.(Please select CSR and distribution.)
     public static final String ERROR_MSG_3 = Label.Mass_Assign_Recall_Tasks_ErrorMsg3;
     Transient Set<String> whatIds; // For soql statement generated.
+    private Datetime fd;
+    private Datetime td;
+    //ADD CHAOS CR-000216 2013/12/9
+    private Date nrd;
+    private List<Account> accounts;
+    private List<SSI__c> ssis;
     
-    public Boolean isSSITask {get; set;}
-    
-    public Boolean isCACData {get; set;}
-    
-    public OB_Task_Handing__c th {get;set;}
-    
+    public Boolean isSSITask {get; set;}    
+    public Boolean isCACData {get; set;}    
+    public OB_Task_Handing__c th {get;set;}    
     private ApexPages.standardController controller {get;set;}
+    public string campaign {get;set;}    
+    public string assignment {get;set;}    
+    public Boolean hasQueryResult {get; set;}    
+    public string csrIds {get;set;}    
+    //ADD START CHAOS CR-000136 2013/12/5
+    public String taskOwnerIds{get; set;}
+    //ADD END CHAOS CR-000136 2013/12/5    
+    public Boolean canByNum {get; set;}
     
-    public string campaign {get;set;}
-    
-    public string assignment {get;set;}
-
-    public List<SelectOption> getassignmentItems() {
+        public List<SelectOption> getassignmentItems() {
         List<SelectOption> options = new List<SelectOption>();
         Schema.DescribeFieldResult fieldResult = OB_Task_Handing__c.Assign_Type__c.getDescribe();
         List<Schema.PicklistEntry> ple = fieldResult.getPicklistValues();       
@@ -45,15 +52,6 @@ public class MassAssignRecallTasksControllerExtension {
         return options;
     }
     
-    public Boolean hasQueryResult {get; set;}
-    
-    public string csrIds {get;set;}
-    
-    //ADD START CHAOS CR-000136 2013/12/5
-    public String taskOwnerIds{get; set;}
-    //ADD END CHAOS CR-000136 2013/12/5
-    
-    public Boolean canByNum {get; set;}
     
     public PageReference displayByNum(){
         if(th.Evenly_Location__c == true){
@@ -63,13 +61,7 @@ public class MassAssignRecallTasksControllerExtension {
         }
         return null;
     }
-    
-    private Datetime fd;
-    private Datetime td;
-    //ADD CHAOS CR-000216 2013/12/9
-    private Date nrd;
-    private List<Account> accounts;
-    private List<SSI__c> ssis;
+ 
     
     public MassAssignRecallTasksControllerExtension(Apexpages.StandardController stdController) {
         controller = stdController;               

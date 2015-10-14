@@ -8,12 +8,12 @@
 public class UserLookupResultController {
 	
 	private String assignmentType = ApexPages.currentPage().getParameters().get('type');
+	public List<UserInfo> userInfos { get; set; }
 	
 	public UserLookupResultController(){
 		setProperties();
 	}
 	
-	public List<UserInfo> userInfos { get; set; }
 	
 	private void setProperties(){
 		
