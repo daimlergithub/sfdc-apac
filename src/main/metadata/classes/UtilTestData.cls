@@ -30,6 +30,14 @@ Public class UtilTestData {
     private static Map<String, Id> roleMap;
     private static Map<String, Id> profileMap;
     
+    private static String testString='test';
+    private static String languageString='en_US';
+    private static String accountString='Account';
+    private static String classValue='A-Class';
+    private static String taskString='Task';
+    private static String openStatus='Open';
+    private static String generalPriority='General';
+
     public final static String ACCOUNT_RT_PERSON_ACCOUNT = 'Person Account';
     public final static String ACCOUNT_RT_DEALER = 'Dealer';
     public final static String accountLink_Contact2Contact = 'Contact2Contact';
@@ -105,16 +113,16 @@ Public class UtilTestData {
     // Create Test User
     private static User createUser(Id userRoleId, Id profileId) {
         User usr = new User();
-        usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
+        usr.UserName = testString + Math.rint(Math.random() * 100000) + '@daimler.com';
         usr.UserRoleId = userRoleId;
         usr.ProfileId = profileId;
         usr.LastName = 'Test User';
         usr.Email = 'test001@daimler.com.full';
-        usr.Alias = 'test';
+        usr.Alias = testString;
         usr.TimeZoneSidKey = 'Asia/Shanghai';
         usr.EmailEncodingKey = 'UTF-8';
-        usr.LanguageLocaleKey = 'en_US';
-        usr.localesidkey='en_US';
+        usr.LanguageLocaleKey = languageString;
+        usr.localesidkey=languageString;
         usr.isActive = true;
         insert usr;
         return usr;
@@ -123,7 +131,7 @@ Public class UtilTestData {
     private static User createPortalUser(Id userRoleId, Id profileId) {   
         Account acc = new Account ( Name = 'dummtyTestAcc');
         acc.RecordTypeId = 
-            getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + 'Account');     
+            getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + accountString);     
         insert acc;      
         System.assert(acc.Name=='dummtyTestAcc');
         Contact con = new Contact ( AccountId = acc.id, LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true, Permission_Set_Settings__c = 'S_M_Retail_Campaign');
@@ -138,16 +146,16 @@ Public class UtilTestData {
         System.assertEquals(UserInfo.getUserId(),thisUser.id);   
         User usr=new User();       
         System.runAs ( thisUser ) {               
-                usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';
+                usr.UserName = testString + Math.rint(Math.random() * 100000) + '@daimler.com';
                 usr.ProfileId=profileId;
                 //usr.UserRoleId=userRoleId;
                 usr.LastName = 'Test User';
                 usr.Email = 'test001@daimler.com.full';
-                usr.Alias = 'test';
+                usr.Alias = testString;
                 usr.TimeZoneSidKey = 'Asia/Shanghai';
                 usr.EmailEncodingKey = 'UTF-8';
-                usr.LanguageLocaleKey = 'en_US';
-                usr.localesidkey='en_US';
+                usr.LanguageLocaleKey = languageString;
+                usr.localesidkey=languageString;
                 usr.isActive = true;
                 usr.ContactId =con.Id;
                 Database.insert(usr); 
@@ -328,7 +336,7 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
         Account acc = (Account)so;
 
         acc.RecordTypeId = 
-            getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + 'Account');
+            getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + accountString);
         acc.Dealer_Alternate_Name__c = 'Test Alternate';
         acc.Phone = '021-000000';
         acc.Dealer_GC_Code__c = 'gc code';
@@ -344,8 +352,8 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
         Account acc = (Account)so;
 
         acc.RecordTypeId = 
-            getRecordTypeMapInstance().get(ACCOUNT_RT_PERSON_ACCOUNT + 'Account');
-        // acc.Name = 'Test';
+            getRecordTypeMapInstance().get(ACCOUNT_RT_PERSON_ACCOUNT + accountString);
+        // acc.Name = testString;
         acc.LastName = 'Customer';
         acc.Gender__c = '0=Male';
         acc.ZipCode__c = '200235';
@@ -371,8 +379,8 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
 
         vehicle.UsVIN__c = 'usvin111111111111'; 
         vehicle.EuroVIN__c = 'eurovin1234567890';
-        vehicle.Brand__c = 'MB';
-        vehicle.Class__c = 'A-Class';
+        vehicle.Brand__c = VEHICLE_MB;
+        vehicle.Class__c = classValue;
         vehicle.Model__c = '130i';
         vehicle.Colour__c = '40 ';
         vehicle.CommissionNumber__c = '123456';
@@ -412,9 +420,9 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
 
         carModel.Name = carModel.Name == null ? 'test Benz' : 
            carModel.Name;
-        carModel.Brand__c = 'MB';
+        carModel.Brand__c = VEHICLE_MB;
         carModel.Model__c = 'B200';
-        carModel.Series__c = 'A-Class';
+        carModel.Series__c = classValue;
         carModel.Description__c = 'Good Niubi Car';
     }
     
@@ -461,9 +469,9 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
 
         // Interested Vehicle Information
         lead.Interested_Vehicle_Brand__c = lead.Interested_Vehicle_Brand__c == null ? 
-           'MB' : lead.Interested_Vehicle_Brand__c;
+           VEHICLE_MB : lead.Interested_Vehicle_Brand__c;
         lead.Interested_Vehicle_Class__c = lead.Interested_Vehicle_Class__c == null ? 
-           'A-Class' : lead.Interested_Vehicle_Class__c;
+           classValue : lead.Interested_Vehicle_Class__c;
         lead.Interested_Vehicle_Model__c = lead.Interested_Vehicle_Model__c == null ? 
            'A160' : lead.Interested_Vehicle_Model__c;
 
@@ -477,8 +485,8 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
         lead.Trade_In_Other_Vehicle_Model__c = lead.Trade_In_Other_Vehicle_Model__c == null ? 
            'other model' : lead.Trade_In_Other_Vehicle_Model__c;
 
-        lead.Bought_Vehicle_Brand__c = 'MB';
-        lead.Bought_Vehicle_Class__c = 'A-Class';
+        lead.Bought_Vehicle_Brand__c = VEHICLE_MB;
+        lead.Bought_Vehicle_Class__c = classValue;
         lead.Bought_Vehicle_Model__c = 'A160';
     }
     
@@ -685,8 +693,8 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
 
         // att.ParentId is populated before
         att.Description = 'Description';
-        att.Name = 'Test';
-        att.Body = Blob.valueOf('Test');
+        att.Name = testString;
+        att.Body = Blob.valueOf(testString);
     }
 
     // Create Unsaved MB Complaint Case
@@ -721,68 +729,68 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
     // Create SMS Task
     private static void initiateSMSTask(Sobject so) {
         Task task = (Task)so;
-        task.RecordTypeId = getRecordTypeMapInstance().get(TASK_RT_SMS + 'Task');
-        task.Subject = 'Test';
+        task.RecordTypeId = getRecordTypeMapInstance().get(TASK_RT_SMS + taskString);
+        task.Subject = testString;
         task.WhatId = task.WhatId == null ?
             createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :
             task.WhatId;
 
         task.Activity_Status__c = task.Activity_Status__c == null ?
             'Need Verification' : task.Activity_Status__c;
-        task.Status = 'Open';
-        task.Priority__c = 'General';
+        task.Status = openStatus;
+        task.Priority__c = generalPriority;
     }
 
     // Create OB Task
     private static void initiateOBTask(Sobject so) {
         Task task = (Task)so;
-        task.RecordTypeId = getRecordTypeMapInstance().get(TASK_RT_OB + 'Task');
-        task.Subject = 'Test';
+        task.RecordTypeId = getRecordTypeMapInstance().get(TASK_RT_OB + taskString);
+        task.Subject = testString;
         task.WhatId = task.WhatId == null ?
             createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :
             task.WhatId;
 
         task.Activity_Status__c = task.Activity_Status__c == null ?
             'not started' : task.Activity_Status__c;
-        task.Status = 'Open';
-        task.Priority__c = 'General';
+        task.Status = openStatus;
+        task.Priority__c = generalPriority;
     }
 
     // Create DM Task
     private static void initiateDMTask(Sobject so) {
         Task task = (Task)so;
-        task.RecordTypeId = getRecordTypeMapInstance().get(TASK_RT_DM + 'Task');
-        task.Subject = 'Test';
+        task.RecordTypeId = getRecordTypeMapInstance().get(TASK_RT_DM + taskString);
+        task.Subject = testString;
         task.WhatId = task.WhatId == null ?
             createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :
             task.WhatId;
 
         task.Activity_Status__c = task.Activity_Status__c == null ?
-            'Open' : task.Activity_Status__c;
-        task.Status = 'Open';
-        task.Priority__c = 'General';
+            openStatus : task.Activity_Status__c;
+        task.Status = openStatus;
+        task.Priority__c = generalPriority;
     }
 
     // Create eDM Task
     private static void initiateEDMTask(Sobject so) {
         Task task = (Task)so;
-        task.RecordTypeId = getRecordTypeMapInstance().get(TASK_RT_EDM + 'Task');
-        task.Subject = 'Test';
+        task.RecordTypeId = getRecordTypeMapInstance().get(TASK_RT_EDM + taskString);
+        task.Subject = testString;
         task.WhatId = task.WhatId == null ?
             createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :
             task.WhatId;
 
         task.Activity_Status__c = task.Activity_Status__c == null ?
             'Pending' : task.Activity_Status__c;
-        task.Status = 'Open';
-        task.Priority__c = 'General';
+        task.Status = openStatus;
+        task.Priority__c = generalPriority;
     }
     
     //Create General Task
     private static void initiateGeneralTask(Sobject so) {
         Task task = (Task)so;
-        task.RecordTypeId = getRecordTypeMapInstance().get('General Task'+ 'Task');
-        task.Subject = 'Test';
+        task.RecordTypeId = getRecordTypeMapInstance().get('General Task'+ taskString);
+        task.Subject = testString;
         task.WhatId = task.WhatId == null ?
             createSobject(new Account(), ACCOUNT_RT_PERSON_ACCOUNT).Id :
             task.WhatId;
@@ -790,8 +798,8 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
         task.ActivityDate = System.today().addDays(-1);
         task.Activity_Status__c = task.Activity_Status__c == null ?
             'Pending' : task.Activity_Status__c;
-        task.Status = 'Open';
-        task.Priority__c = 'General';
+        task.Status = openStatus;
+        task.Priority__c = generalPriority;
     }
     
     public static Campaign dataPreparation(){
