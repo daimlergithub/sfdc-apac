@@ -301,7 +301,6 @@ public with sharing class QCHelperTest {
        Decimal passedQuestions = QCHelper.SSIPassedQuestions(qc);
              QCHelper.SetQualified(qc);
 
-        // Test UpdateQCApproved
         qc.Approved__c = 'Yes';
         update qc;
         Test.stopTest();

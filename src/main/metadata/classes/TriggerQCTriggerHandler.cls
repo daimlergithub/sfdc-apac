@@ -23,7 +23,7 @@ public class TriggerQCTriggerHandler
     public void handleTrigger()
     {
         Map<Id,QC__c> oldmap = (Map<Id,QC__c>)trigger.oldmap;
-        Map<Id,QC__c> newmap = (Map<Id,QC__c>)trigger.newmap;
+       // Map<Id,QC__c> newmap = (Map<Id,QC__c>)trigger.newmap;
         
         if(trigger.isAfter && trigger.isInsert)
         {
