@@ -332,7 +332,6 @@ public class TaskHelper {
    public static void SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
        List<Task> taskforGenerateQC = new List<Task>();
-       Set<String> taskForSMSIds = new Set<String>();
        Map<String, Task> taskMapForSMS = new Map<String, Task>();
        Map<Id, String> caseIdInteractionIds = new Map<Id,String>();
        

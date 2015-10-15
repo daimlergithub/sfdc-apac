@@ -20,14 +20,13 @@ public class TriggerComplaintDescriptionHandler
 {
     public void handleTrigger()
     {
-        Map<Id,Complaint_Description__c> oldmap = (Map<Id,Complaint_Description__c>)trigger.oldmap;
-        Map<Id,Complaint_Description__c> newmap = (Map<Id,Complaint_Description__c>)trigger.newmap;
+        
         
         if (trigger.isAfter && trigger.isInsert) {
             ComplaintDesHelper.before_AfterInsertEvents(Trigger.new);       
         }
         if (trigger.isAfter && trigger.isUpdate) {
-            ComplaintDesHelper.afterupdateEvents(Trigger.new,oldmap);   
+            ComplaintDesHelper.afterupdateEvents(Trigger.new,(Map<Id,Complaint_Description__c>)trigger.oldmap);   
         }
         if (trigger.isAfter && trigger.isdelete) {
             ComplaintDesHelper.afterDeleteEvents(Trigger.old);  

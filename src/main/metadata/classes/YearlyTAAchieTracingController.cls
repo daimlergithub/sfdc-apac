@@ -283,7 +283,6 @@ public with sharing class YearlyTAAchieTracingController {
         TotalTarget = new List<marketTarget>();
         
         Map<Id, List<Retail_Campaign__c>> dealerIdMonthlyTAs = new Map<Id, List<Retail_Campaign__c>>();
-        Set<String> asd = new Set<String>();
         for(Retail_Campaign__c  rt : [select Id, Apply_Status__c, Feedback_Status__c, Actual_Start_Date__c, Plan_Start_Date__c, RecordType.Name, Driven__c, Dealer_Name__c, Dealer_Name__r.Name, Dealer_Name__r.Branch_name__c, Plan_Expense__c, Actual_Expense__c from Retail_Campaign__c where  Dealer_Name__c != null and (Brand__c = 'MB' OR Brand__c = 'StarElite') and (RecordType.Name = 'S&M Event Retail Campaign' or RecordType.Name = 'S&M Media Retail Campaign') and (Driven__c = 'Joint' or Driven__c = 'Dealer Driven') and ((Plan_Start_Date__c >= :startDate and Plan_Start_Date__c <= :endDate and  Apply_Status__c = 'Approved' and  Feedback_Status__c != 'Approved') or (Actual_Start_Date__c >= :startDate and Actual_Start_Date__c <= :endDate and  Feedback_Status__c = 'Approved')) ]) {
             if(!dealerIdMonthlyTAs.containsKey(rt.Dealer_Name__c)) {
                 dealerIdMonthlyTAs.put(rt.Dealer_Name__c, new List<Retail_Campaign__c>());

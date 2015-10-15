@@ -16,23 +16,22 @@ public class TriggerCampaignTriggerHandler
 {
     public void handleTrigger()
     {
-        Map<Id,Campaign> oldmap = (Map<Id,Campaign>)trigger.oldmap;
-        Map<Id,Campaign> newmap = (Map<Id,Campaign>)trigger.newmap;
+        
         
         if(trigger.isAfter && trigger.isInsert)
         {
-            CampaignHelper.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate);
+            CampaignHelper.afterInsertUpdateEvents(Trigger.new,(Map<Id,Campaign>)trigger.oldmap,trigger.isupdate);
             CampaignHelper.afterInsertEvents(Trigger.new);      
         }
         if(trigger.isAfter && trigger.isUpdate)
         {
-            CampaignHelper.afterInsertUpdateEvents(Trigger.new,oldmap,trigger.isupdate);
+            CampaignHelper.afterInsertUpdateEvents(Trigger.new,(Map<Id,Campaign>)trigger.oldmap,trigger.isupdate);
             CampaignHelper.afterUpdateEvents(Trigger.new,Trigger.old);
-            CampaignHelper.afterInsertEvents_CampaignShare(Trigger.new,oldmap); 
+            CampaignHelper.afterInsertEvents_CampaignShare(Trigger.new,(Map<Id,Campaign>)trigger.oldmap); 
         }
         if(trigger.isBefore && trigger.isUpdate)
         {
-            CampaignHelper.beforeUpdateEvents(Trigger.new,oldmap);
+            CampaignHelper.beforeUpdateEvents(Trigger.new,(Map<Id,Campaign>)trigger.oldmap);
         }
     }
 }
