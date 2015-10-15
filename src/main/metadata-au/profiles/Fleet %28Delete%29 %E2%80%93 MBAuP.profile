@@ -680,11 +680,7 @@
     <classAccesses>
         <apexClass>QCHelperTest</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>RecallAfterInsertUpdateTriggerHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses> 
     <classAccesses>
         <apexClass>RecallHelper</apexClass>
         <enabled>false</enabled>
@@ -7281,7 +7277,7 @@
         <editable>false</editable>
         <field>DM_Request__c.Address__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>    
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Campaign__c</field>
@@ -8481,7 +8477,7 @@
         <editable>false</editable>
         <field>Lead__c.Contact_Failed_For_3_Days_Date__c</field>
         <readable>false</readable>
-    </fieldPermissions>
+    </fieldPermissions>    
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Contact_Timing__c</field>
@@ -8553,9 +8549,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Lead__c.Dealer_Comments__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -11938,10 +11934,15 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Retail_Task__c.Origin__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Retail_Task__c.Payment_Frequency__c</field>
+        <readable>false</readable>
+    </fieldPermissions>    
     <fieldPermissions>
         <editable>false</editable>
         <field>Retail_Task__c.Policy_Class__c</field>
@@ -16209,7 +16210,7 @@
     <pageAccesses>
         <apexPage>Lead_Address</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>
+    </pageAccesses>   
     <pageAccesses>
         <apexPage>LeadsConsoleRefresh</apexPage>
         <enabled>false</enabled>
@@ -16422,9 +16423,10 @@
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <default>false</default>
+        <default>true</default>
+        <personAccountDefault>true</personAccountDefault>
         <recordType>Account_Link__c.Contact2Contact</recordType>
-        <visible>false</visible>
+        <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
@@ -17194,7 +17196,7 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>RunReports</name>
-    </userPermissions>
+    </userPermissions>    
     <userPermissions>
         <enabled>true</enabled>
         <name>SendSitRequests</name>
