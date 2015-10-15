@@ -1,4 +1,11 @@
 public with sharing class YearlyTAAchieTracingController {
+
+    private static String total='Total';
+    private static String east='EAST';
+    private static String west='WEST';
+    private static String north='NORTH';
+    private static String south='SOUTH';
+    
     
     public List<expense> data { get; set; }
     public transient List<Retail_Campaign__c> campaigns { get; set; }
@@ -213,7 +220,7 @@ public with sharing class YearlyTAAchieTracingController {
         
         YearlyMarketTarget AllTotalTarget = new YearlyMarketTarget();
         for(YearlyMarketTarget mt : TotalYearlyMarketTarget) {
-            AllTotalTarget.region = 'TOTAL';
+            AllTotalTarget.region = total;
             AllTotalTarget.TotalExpense += mt.TotalExpense;
             AllTotalTarget.blance += mt.blance;
             AllTotalTarget.blancepersent = 100;
@@ -224,7 +231,7 @@ public with sharing class YearlyTAAchieTracingController {
         
         YearlyMarketTarget TotalJointTarget = new YearlyMarketTarget();
         for(YearlyMarketTarget mt : TotalYearlyJointMarketTarget) {
-            TotalJointTarget.region = 'TOTAL';
+            TotalJointTarget.region = total;
             TotalJointTarget.TotalExpense += mt.TotalExpense;
             TotalJointTarget.blance += mt.blance;
             TotalJointTarget.blancepersent += 100;
@@ -237,7 +244,7 @@ public with sharing class YearlyTAAchieTracingController {
         
         YearlyMarketTarget TotalDrivenTarget = new YearlyMarketTarget();
         for(YearlyMarketTarget mt : TotalYearlyDrivenMarketTarget) {
-            TotalDrivenTarget.region = 'TOTAL';
+            TotalDrivenTarget.region = total;
             TotalDrivenTarget.TotalExpense += mt.TotalExpense;
             TotalDrivenTarget.blance += mt.blance;
             TotalDrivenTarget.blancepersent += 100;
@@ -304,10 +311,10 @@ public with sharing class YearlyTAAchieTracingController {
         marketTarget temp10;
         marketTarget temp11;
         marketTarget temp12;
-        marketTarget tempEast = new marketTarget('EAST');
-        marketTarget tempWest = new marketTarget('WEST');
-        marketTarget tempNorth = new marketTarget('NORTH');
-        marketTarget tempSouth = new marketTarget('SOUTH');
+        marketTarget tempEast = new marketTarget(east);
+        marketTarget tempWest = new marketTarget(west);
+        marketTarget tempNorth = new marketTarget(north);
+        marketTarget tempSouth = new marketTarget(south);
         decimal marketExpense = 0;
         Date marketStartDate;
         
@@ -372,16 +379,16 @@ public with sharing class YearlyTAAchieTracingController {
                             temp12.monthlyMarketExpense += marketExpense;
                         }
                         
-                        if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'EAST') {
+                        if(dealerIdInfos.get(dealerId).Dealer_Region__c == east) {
                             tempEast.monthlyMarketExpense += marketExpense;
                         }
-                        else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'WEST') {
+                        else if(dealerIdInfos.get(dealerId).Dealer_Region__c == west) {
                             tempWest.monthlyMarketExpense += marketExpense;
                         }
-                        else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'NORTH') {
+                        else if(dealerIdInfos.get(dealerId).Dealer_Region__c == north) {
                             tempNorth.monthlyMarketExpense += marketExpense;
                         }
-                        else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'SOUTH') {
+                        else if(dealerIdInfos.get(dealerId).Dealer_Region__c == south) {
                             tempSouth.monthlyMarketExpense += marketExpense;
                         }
                             
@@ -423,16 +430,16 @@ public with sharing class YearlyTAAchieTracingController {
                                 temp12.onlinePart += marketExpense;
                             }
                             
-                            if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'EAST') {
+                            if(dealerIdInfos.get(dealerId).Dealer_Region__c == east) {
                                 tempEast.onlinePart += marketExpense;
                             }
-                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'WEST') {
+                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == west) {
                                 tempWest.onlinePart += marketExpense;
                             }
-                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'NORTH') {
+                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == north) {
                                 tempNorth.onlinePart += marketExpense;
                             }
-                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'SOUTH') {
+                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == south) {
                                 tempSouth.onlinePart += marketExpense;
                             }
                         }
@@ -474,16 +481,16 @@ public with sharing class YearlyTAAchieTracingController {
                                 temp12.offlinePart += marketExpense;
                             }
                             
-                            if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'EAST') {
+                            if(dealerIdInfos.get(dealerId).Dealer_Region__c == east) {
                                 tempEast.offlinePart += marketExpense;
                             }
-                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'WEST') {
+                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == west) {
                                 tempWest.offlinePart += marketExpense;
                             }
-                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'NORTH') {
+                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == north) {
                                 tempNorth.offlinePart += marketExpense;
                             }
-                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'SOUTH') {
+                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == south) {
                                 tempSouth.offlinePart += marketExpense;
                             }
                         }
@@ -526,16 +533,16 @@ public with sharing class YearlyTAAchieTracingController {
                                 temp12.monthlyDrivenMarketExpense += marketExpense;
                             }
                             
-                            if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'EAST') {
+                            if(dealerIdInfos.get(dealerId).Dealer_Region__c == east) {
                                 tempEast.monthlyDrivenMarketExpense += marketExpense;
                             }
-                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'WEST') {
+                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == west) {
                                 tempWest.monthlyDrivenMarketExpense += marketExpense;
                             }
-                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'NORTH') {
+                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == north) {
                                 tempNorth.monthlyDrivenMarketExpense += marketExpense;
                             }
-                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'SOUTH') {
+                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == south) {
                                 tempSouth.monthlyDrivenMarketExpense += marketExpense;
                             }
                         }
@@ -577,16 +584,16 @@ public with sharing class YearlyTAAchieTracingController {
                                 temp12.monthlyJointMarketExpense += marketExpense;
                             }
                             
-                            if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'EAST') {
+                            if(dealerIdInfos.get(dealerId).Dealer_Region__c == east) {
                                 tempEast.monthlyJointMarketExpense += marketExpense;
                             }
-                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'WEST') {
+                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == west) {
                                 tempWest.monthlyJointMarketExpense += marketExpense;
                             }
-                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'NORTH') {
+                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == north) {
                                 tempNorth.monthlyJointMarketExpense += marketExpense;
                             }
-                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == 'SOUTH') {
+                            else if(dealerIdInfos.get(dealerId).Dealer_Region__c == south) {
                                 tempSouth.monthlyJointMarketExpense += marketExpense;
                             }
                         }
@@ -621,7 +628,7 @@ public with sharing class YearlyTAAchieTracingController {
         marketTarget DecTotalTarget = new marketTarget();
 
         for(marketTarget mt : JanTarget) {
-            JanTotalTarget.region = 'TOTAL';
+            JanTotalTarget.region = total;
             JanTotalTarget.monthlyMarketExpense += mt.monthlyMarketExpense;
             JanTotalTarget.onlinePart  += mt.onlinePart;
             JanTotalTarget.offlinePart += mt.offlinePart;
@@ -630,7 +637,7 @@ public with sharing class YearlyTAAchieTracingController {
         }
         JanTarget.add(JanTotalTarget);
         for(marketTarget mt : FebTarget) {
-            FebTotalTarget.region = 'TOTAL';
+            FebTotalTarget.region = total;
             FebTotalTarget.monthlyMarketExpense += mt.monthlyMarketExpense;
             FebTotalTarget.onlinePart  += mt.onlinePart;
             FebTotalTarget.offlinePart += mt.offlinePart;
@@ -639,7 +646,7 @@ public with sharing class YearlyTAAchieTracingController {
         }
         FebTarget.add(FebTotalTarget);
         for(marketTarget mt : MarTarget) {
-            MarTotalTarget.region = 'TOTAL';
+            MarTotalTarget.region = total;
             MarTotalTarget.monthlyMarketExpense += mt.monthlyMarketExpense;
             MarTotalTarget.onlinePart  += mt.onlinePart;
             MarTotalTarget.offlinePart += mt.offlinePart;
@@ -648,7 +655,7 @@ public with sharing class YearlyTAAchieTracingController {
         }
         MarTarget.add(MarTotalTarget);
         for(marketTarget mt : AprTarget) {
-            AprTotalTarget.region = 'TOTAL';
+            AprTotalTarget.region = total;
             AprTotalTarget.monthlyMarketExpense += mt.monthlyMarketExpense;
             AprTotalTarget.onlinePart  += mt.onlinePart;
             AprTotalTarget.offlinePart += mt.offlinePart;
@@ -657,7 +664,7 @@ public with sharing class YearlyTAAchieTracingController {
         }
         AprTarget.add(AprTotalTarget);
         for(marketTarget mt : MayTarget) {
-            MayTotalTarget.region = 'TOTAL';
+            MayTotalTarget.region = total;
             MayTotalTarget.monthlyMarketExpense += mt.monthlyMarketExpense;
             MayTotalTarget.onlinePart  += mt.onlinePart;
             MayTotalTarget.offlinePart += mt.offlinePart;
@@ -666,7 +673,7 @@ public with sharing class YearlyTAAchieTracingController {
         }
         MayTarget.add(MayTotalTarget);
         for(marketTarget mt : JunTarget) {
-            JunTotalTarget.region = 'TOTAL';
+            JunTotalTarget.region = total;
             JunTotalTarget.monthlyMarketExpense += mt.monthlyMarketExpense;
             JunTotalTarget.onlinePart  += mt.onlinePart;
             JunTotalTarget.offlinePart += mt.offlinePart;
@@ -675,7 +682,7 @@ public with sharing class YearlyTAAchieTracingController {
         }
         JunTarget.add(JunTotalTarget);
         for(marketTarget mt : JulTarget) {
-            JulTotalTarget.region = 'TOTAL';
+            JulTotalTarget.region = total;
             JulTotalTarget.monthlyMarketExpense += mt.monthlyMarketExpense;
             JulTotalTarget.onlinePart  += mt.onlinePart;
             JulTotalTarget.offlinePart += mt.offlinePart;
@@ -684,7 +691,7 @@ public with sharing class YearlyTAAchieTracingController {
         }
         JulTarget.add(JulTotalTarget);
         for(marketTarget mt : AugTarget) {
-            AugTotalTarget.region = 'TOTAL';
+            AugTotalTarget.region = total;
             AugTotalTarget.monthlyMarketExpense += mt.monthlyMarketExpense;
             AugTotalTarget.onlinePart  += mt.onlinePart;
             AugTotalTarget.offlinePart += mt.offlinePart;
@@ -693,7 +700,7 @@ public with sharing class YearlyTAAchieTracingController {
         }
         AugTarget.add(AugTotalTarget);
         for(marketTarget mt : SepTarget) {
-            SepTotalTarget.region = 'TOTAL';
+            SepTotalTarget.region = total;
             SepTotalTarget.monthlyMarketExpense += mt.monthlyMarketExpense;
             SepTotalTarget.onlinePart  += mt.onlinePart;
             SepTotalTarget.offlinePart += mt.offlinePart;
@@ -702,7 +709,7 @@ public with sharing class YearlyTAAchieTracingController {
         }
         SepTarget.add(SepTotalTarget);
         for(marketTarget mt : OctTarget) {
-            OctTotalTarget.region = 'TOTAL';
+            OctTotalTarget.region = total;
             OctTotalTarget.monthlyMarketExpense += mt.monthlyMarketExpense;
             OctTotalTarget.onlinePart  += mt.onlinePart;
             OctTotalTarget.offlinePart += mt.offlinePart;
@@ -711,7 +718,7 @@ public with sharing class YearlyTAAchieTracingController {
         }
         OctTarget.add(OctTotalTarget);
         for(marketTarget mt : NovTarget) {
-            NovTotalTarget.region = 'TOTAL';
+            NovTotalTarget.region =total;
             NovTotalTarget.monthlyMarketExpense += mt.monthlyMarketExpense;
             NovTotalTarget.onlinePart  += mt.onlinePart;
             NovTotalTarget.offlinePart += mt.offlinePart;
@@ -720,7 +727,7 @@ public with sharing class YearlyTAAchieTracingController {
         }
         NovTarget.add(NovTotalTarget);
         for(marketTarget mt : DecTarget) {
-            DecTotalTarget.region = 'TOTAL';
+            DecTotalTarget.region = total;
             DecTotalTarget.monthlyMarketExpense += mt.monthlyMarketExpense;
             DecTotalTarget.onlinePart  += mt.onlinePart;
             DecTotalTarget.offlinePart += mt.offlinePart;
@@ -734,7 +741,7 @@ public with sharing class YearlyTAAchieTracingController {
         TotalTarget.add(tempNorth);
         TotalTarget.add(tempSouth);
        
-        marketTarget tempTotal = new marketTarget('Total');
+        marketTarget tempTotal = new marketTarget(total);
         tempTotal.monthlyMarketExpense = tempEast.monthlyMarketExpense + tempWest.monthlyMarketExpense + tempNorth.monthlyMarketExpense + tempSouth.monthlyMarketExpense;
         tempTotal.onlinePart = tempEast.onlinePart + tempWest.onlinePart + tempNorth.onlinePart + tempSouth.onlinePart;
         tempTotal.offlinePart = tempEast.offlinePart + tempWest.offlinePart + tempNorth.offlinePart + tempSouth.offlinePart;

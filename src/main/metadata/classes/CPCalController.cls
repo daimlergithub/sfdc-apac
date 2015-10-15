@@ -15,6 +15,16 @@ public class CPCalController {
     private static String whereString='Where';
     private static String andString='AND';
     private static String blank='';
+    private static String minusOne='-1';
+    private static String minusTwelve='-12';
+    private static String minusThirtyOne='-31';
+    private static String all='All';
+    private static String parentId='ParentId=:partId AND ';
+    private static String recordTypeString='RecordTypeId = :cmcpId';
+    
+    
+ 
+    
     /* Public Properties */
     String userLan;        // Current User Language
     List<Campaign> theCamps;      // Campaign
@@ -80,22 +90,22 @@ public class CPCalController {
         
         // where condition combination
         if (currYear != null && String.isNotBlank(currYear)){
-            cuDate = date.valueOf(currYear+'-1'+'-1');
+            cuDate = date.valueOf(currYear+minusOne+minusOne);
             whrCurD = 'StartDate != Null AND StartDate >= :cuDate AND ';
         }
         if (endYear != null && String.isNotBlank(endYear)){
-            enDate = date.valueOf(endYear+'-12'+'-31');
+            enDate = date.valueOf(endYear+minusTwelve+minusThirtyOne);
             whrEndD = 'EndDate != Null AND EndDate <= :enDate AND ';
         }
         if (partId != null && String.isNotBlank(partId)){
-            whrParId = 'ParentId=:partId AND ';
+            whrParId = parentId;
         }
         
-        if(String.isNotBlank(cat) && cat != 'All'){
+        if(String.isNotBlank(cat) && cat != all){
 
             whrCat = 'CAC_Frequency_Category__c=:cat AND ';
         }
-        if(String.isNotBlank(tp) && tp != 'All'){
+        if(String.isNotBlank(tp) && tp != all){
             whrTp = 'Type=:tp AND ';
         }        
         
@@ -133,17 +143,17 @@ public class CPCalController {
         
         // where condition combination
         if (currYear != null && String.isNotBlank(currYear)){
-            cuDate = date.valueOf(currYear+'-1'+'-1');
+            cuDate = date.valueOf(currYear+minusOne+minusOne);
             whrCurD = 'StartDate != Null AND StartDate >= :cuDate AND ';
         }
         if (endYear != null && String.isNotBlank(endYear)){
-            enDate = date.valueOf(endYear+'-12'+'-31');
+            enDate = date.valueOf(endYear+minusTwelve+minusThirtyOne);
             whrEndD = 'EndDate != Null AND EndDate <= :enDate AND ';
         }
         if (partId != null && String.isNotBlank(partId)){
-            whrParId = 'ParentId=:partId AND ';
+            whrParId = parentId;
         }
-        if(String.isNotBlank(tp) && tp != 'All'){
+        if(String.isNotBlank(tp) && tp != all){
             whrTp = 'Type=:tp AND ';
         } 
 
@@ -172,30 +182,30 @@ public class CPCalController {
         String whrEndD = blank;
         String whrParId = blank;
         String whrCCT = blank;
-        String whrRecTpId = 'RecordTypeId = :cmcpId';
+        String whrRecTpId = recordTypeString;
         
         // Campaign Collection
         List<Campaign> theCamps = new List<Campaign>();
         
         // where condition combination
         if (currYear != null && String.isNotBlank(currYear)){
-            cuDate = date.valueOf(currYear+'-1'+'-1');
+            cuDate = date.valueOf(currYear+minusOne+minusOne);
             whrCurD = 'StartDate != Null AND StartDate >= :cuDate AND ';
         }
         if (endYear != null && String.isNotBlank(endYear)){
-            enDate = date.valueOf(endYear+'-12'+'-31');
+            enDate = date.valueOf(endYear+minusTwelve+minusThirtyOne);
             whrEndD = 'EndDate != Null AND EndDate <= :enDate AND ';
         }
         if (partId != null && String.isNotBlank(partId)){
-            whrParId = 'ParentId=:partId AND ';
+            whrParId = parentId;
         }
         // Patrick begins here
-        if (cct != null && String.isNotBlank(cct) && cct != 'All'){
+        if (cct != null && String.isNotBlank(cct) && cct != all){
             whrCCT = 'CAC_Campaign_Type__c= :cct AND ';
         }
         // To here
 
-        whrRecTpId = 'RecordTypeId = :cmcpId';
+        whrRecTpId = recordTypeString;
         whrSTR = whrSTR + whrCurD + whrEndD + whrParId + whrCCT + whrRecTpId;
         system.debug(whrSTR);
         theCamps = Database.query(selSTR + whrSTR);
@@ -233,29 +243,29 @@ public class CPCalController {
         String whrEndD = blank;
         String whrParId = blank;
         String whrCat = blank;
-        String whrRecTpId = 'RecordTypeId = :cmcpId';
+        String whrRecTpId = recordTypeString;
         
         // Campaign Collection
         List<Campaign> theCamps = new List<Campaign>();
         
         // where condition combination
         if (currYear != null && String.isNotBlank(currYear)){
-            cuDate = date.valueOf(currYear+'-1'+'-1');
+            cuDate = date.valueOf(currYear+minusOne+minusOne);
             whrCurD = 'Repeat_From__c != Null AND Repeat_From__c >= :cuDate AND ';
         }
         if (endYear != null && String.isNotBlank(endYear)){
-            enDate = date.valueOf(endYear+'-12'+'-31');
+            enDate = date.valueOf(endYear+minusTwelve+minusThirtyOne);
             whrEndD = 'Repeat_End__c != Null AND Repeat_End__c <= :enDate AND ';
         }
         if (partId != null && String.isNotBlank(partId)){
-            whrParId = 'ParentId=:partId AND ';
+            whrParId = parentId;
         }
         
-        if (String.isNotBlank(cat) && cat != 'All'){
+        if (String.isNotBlank(cat) && cat != all){
             whrCat = 'CAC_Frequency_Category__c=:cat AND ';
         }
         
-        whrRecTpId = 'RecordTypeId = :cmcpId';
+        whrRecTpId = recordTypeString;
         whrSTR = whrSTR + whrCurD + whrEndD + whrParId + whrCat + whrRecTpId;
         system.debug(selSTR + whrSTR);
         theCamps = Database.query(selSTR + whrSTR);
@@ -421,7 +431,7 @@ public class CPCalController {
         String whrParId = blank;
         String whrId = blank;
         String whrRecTpId = 'RecordTypeId in :cmcpExeIds ';
-        String whrRecTpId_CAC = 'RecordTypeId = :cmcpId';
+        String whrRecTpId_CAC = recordTypeString;
         String whrSort = 'Order By Index__c DESC';
         
         // Campaign Collection
@@ -430,7 +440,7 @@ public class CPCalController {
         
         // campaign id for partner of exection & id of cac
         if (partId != null && String.isNotBlank(partId)){
-            whrParId = 'ParentId=:partId AND ';
+            whrParId = parentId;
             whrId = 'Id=:partId AND ';
         }
         
