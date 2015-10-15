@@ -13,6 +13,12 @@
     06-11-2014    zhongyang.si(NttData)  Modified
 */
 public with sharing class UserHelper {
+
+    private static String read='Read';
+    private static String edit='Edit';
+    private static String systemAdministrator='System Administrator';
+    
+
     public Static final String ErrorMessageFirstPart = 'You have reached the max no. of license ';
     public Static final String ErrorMessageSecondPart = ', cannot enabled any new contact as dealer portal user';
     public Static final String ErrorMessageGateKeeper = 'The user profile selected does not match with the contact role selected in the contact record.';
@@ -150,7 +156,7 @@ public with sharing class UserHelper {
         List<Vehicle__Share> shares = new List<Vehicle__Share>();
         for(Vehicle__c vehicle : [SELECT id FROM vehicle__c WHERE id in (select ParentId from Vehicle__Share where UserOrGroupId in :existUserIds)]) {
             Vehicle__Share share = new Vehicle__Share();
-            share.AccessLevel = 'Read';
+            share.AccessLevel = read;
             share.ParentID = vehicle.Id;
             //share.RowCause = Schema.Vehicle__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -168,7 +174,7 @@ public with sharing class UserHelper {
         List<Vehicle_Relationship__Share> shares = new List<Vehicle_Relationship__Share>();
         for(Vehicle_Relationship__c vehicleRs : [SELECT id FROM vehicle_relationship__c WHERE id in (select ParentId from Vehicle_Relationship__Share where UserOrGroupId in :existUserIds)]) {
             Vehicle_Relationship__Share share = new Vehicle_Relationship__Share();
-            share.AccessLevel = 'Read';
+            share.AccessLevel = read;
             share.ParentID = vehicleRs.Id;
             //share.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -187,7 +193,7 @@ public with sharing class UserHelper {
         List<Account_Link__Share> shares = new List<Account_Link__Share>();
         for(Account_Link__c accountLink : [SELECT id FROM Account_Link__c WHERE id in (SELECT ParentId FROM Account_Link__Share WHERE UserOrGroupId IN :existUserIds)]) {
             Account_Link__Share share = new Account_Link__Share();
-            share.AccessLevel = 'Read';
+            share.AccessLevel = read;
             share.ParentID = accountLink.Id;
             share.UserOrGroupId = newUserId;
             shares.add(share);
@@ -205,7 +211,7 @@ public with sharing class UserHelper {
         List<Retail_Task__Share> shares = new List<Retail_Task__Share>();
         for(Retail_Task__c retailTask : [SELECT id FROM Retail_Task__c WHERE id in (SELECT ParentId FROM Retail_Task__Share WHERE UserOrGroupId IN :existUserIds)]) {
             Retail_Task__Share share = new Retail_Task__Share();
-            share.AccessLevel = 'Read';
+            share.AccessLevel = read;
             share.ParentID = retailTask.Id;
             share.UserOrGroupId = newUserId;
             shares.add(share);
@@ -252,7 +258,7 @@ public with sharing class UserHelper {
         List<Lead__Share> shares = new List<Lead__Share>();
         for(Lead__c lead : [Select Id from Lead__c Where Id in (select ParentId from Lead__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Lead__Share share = new Lead__Share();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = lead.Id;
             //share.RowCause = Schema.Lead__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -273,7 +279,7 @@ public with sharing class UserHelper {
         List<Lead__Share> shares = new List<Lead__Share>();
         for(Lead__c lead : [Select Id from Lead__c Where Id in (select ParentId from Lead__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Lead__Share share = new Lead__Share();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = lead.Id;
             //share.RowCause = Schema.Lead__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -294,7 +300,7 @@ public with sharing class UserHelper {
         List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
         for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Retail_Campaign__Share share = new Retail_Campaign__Share ();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = record.Id;
             //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -316,7 +322,7 @@ public with sharing class UserHelper {
         List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
         for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Retail_Campaign__Share share = new Retail_Campaign__Share ();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = record.Id;
             //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -338,7 +344,7 @@ public with sharing class UserHelper {
         List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
         for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Retail_Campaign__Share share = new Retail_Campaign__Share();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = record.Id;
             //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -360,7 +366,7 @@ public with sharing class UserHelper {
         List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
         for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Retail_Campaign__Share share = new Retail_Campaign__Share();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = record.Id;
             //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -382,7 +388,7 @@ public with sharing class UserHelper {
         List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
         for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Retail_Campaign__Share share = new Retail_Campaign__Share();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = record.Id;
             //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -403,7 +409,7 @@ public with sharing class UserHelper {
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             CampaignShare share = new CampaignShare();
-            share.CampaignAccessLevel = 'Read';
+            share.CampaignAccessLevel = read;
             share.CampaignId = cpn.Id;
             share.UserOrGroupId = newUserId;
             shares.add(share);
@@ -424,7 +430,7 @@ public with sharing class UserHelper {
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             CampaignShare share = new CampaignShare();
-            share.CampaignAccessLevel = 'Read';
+            share.CampaignAccessLevel = read;
             share.CampaignId = cpn.Id;
             share.UserOrGroupId = newUserId;
             shares.add(share);
@@ -445,7 +451,7 @@ public with sharing class UserHelper {
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             CampaignShare share = new CampaignShare();
-            share.CampaignAccessLevel = 'Read';
+            share.CampaignAccessLevel = read;
             share.CampaignId = cpn.Id;
             share.UserOrGroupId = newUserId;
             shares.add(share);
@@ -462,7 +468,7 @@ public with sharing class UserHelper {
         List<Tool_Kit__Share> shares = new List<Tool_Kit__Share>();
         for(Tool_Kit__c tk : [Select Id from Tool_Kit__c Where Id in (select ParentId from Tool_Kit__Share where UserOrGroupId in :existUserIds)]) {
             Tool_Kit__Share share = new Tool_Kit__Share();
-            share.AccessLevel  = 'Edit';
+            share.AccessLevel  = edit;
             share.ParentId = tk.Id;
             share.UserOrGroupId = newUserId;
             //share.RowCause = Schema.Tool_Kit__Share.RowCause.Manual;
@@ -581,8 +587,8 @@ public with sharing class UserHelper {
     public static void getPofileId()
     {
         set<string> profleNames= new set<string>();
-        profleNames.add('System Administrator');
-        profleNames.add('System Administrator');
+        profleNames.add(systemAdministrator);
+        profleNames.add(systemAdministrator);
         profleNames.add('CAC SSI CSR');
         profleNames.add('CAC SSI QC');
         profleNames.add('CAC SSI SV');
@@ -593,9 +599,9 @@ public with sharing class UserHelper {
         {
             for(Profile obj:lstProfiles)
             {
-                if(obj.name=='System Administrator')
+                if(obj.name==systemAdministrator)
                     DealerComplaintUserId=obj.Id;
-                if(obj.name=='System Administrator')
+                if(obj.name==systemAdministrator)
                     DealerDelegatedAdminId=obj.Id;
                 if(obj.name=='CAC SSI CSR')
                     CACSSICSRId=obj.Id;
