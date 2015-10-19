@@ -96,11 +96,31 @@
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Additional_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>Additional Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Address__c</fullName>
         <description>Display requirement Changed to primary address by Fulfilment User(fu, Jiaming)</description>
         <externalId>false</externalId>
         <formula>Customer_Name__r.Primary_Address__c</formula>
         <label>Address</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Attention_c__c</fullName>
+        <externalId>false</externalId>
+        <label>Attention__c</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -181,10 +201,36 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>Channel__c</fullName>
+        <externalId>false</externalId>
+        <label>Channel</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>City__c</fullName>
         <externalId>false</externalId>
         <formula>Customer_Name__r.City__c</formula>
         <label>City</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Citytbd__c</fullName>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -268,6 +314,36 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Delivery_Type_c__c</fullName>
+        <externalId>false</externalId>
+        <label>Delivery_Type__c</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Delivery__c</fullName>
+        <externalId>false</externalId>
+        <label>Delivery Type</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Description__c</fullName>
@@ -355,6 +431,17 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>MD__c</fullName>
+        <externalId>false</externalId>
+        <label>MD</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Mobile__c</fullName>
         <externalId>false</externalId>
         <formula>Contact__r.MobilePhone</formula>
@@ -377,6 +464,17 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Prefecturetbd__c</fullName>
+        <externalId>false</externalId>
+        <label>Prefecture</label>
+        <length>100</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Primary_Address__c</fullName>
         <externalId>false</externalId>
         <formula>Customer_Name__r.Primary_Address__c</formula>
@@ -391,7 +489,7 @@ Modify Reason:
         <fullName>Province__c</fullName>
         <externalId>false</externalId>
         <formula>Text(Customer_Name__r.Province__c)</formula>
-        <label>Province</label>
+        <label>Prefecture</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -408,6 +506,28 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Sending_Address__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Address</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>$Source.Customer_Name__c</field>
+                <operation>equals</operation>
+                <valueField>Address__c.Customer__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>Address__c</referenceTo>
+        <relationshipLabel>DM Request</relationshipLabel>
+        <relationshipName>DM_Request</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>SentName__c</fullName>
@@ -442,6 +562,36 @@ Modify Reason:
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Status2_c__c</fullName>
+        <externalId>false</externalId>
+        <label>Status2__c</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status3_c__c</fullName>
+        <externalId>false</externalId>
+        <label>Status3__c</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
         <label>Status</label>
@@ -473,6 +623,21 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Staus__c</fullName>
+        <externalId>false</externalId>
+        <label>Status1__c</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>SuggestedName__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>/*
@@ -494,6 +659,17 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>TitleOfHonor_c__c</fullName>
+        <externalId>false</externalId>
+        <label>TitleOfHonor__c</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Zip_Code__c</fullName>
@@ -620,6 +796,7 @@ Modify Reason:
         <customTabListAdditionalFields>Actual_DM_Material2__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Actual_DM_Material3__c</customTabListAdditionalFields>
         <customTabListAdditionalFields>Status__c</customTabListAdditionalFields>
+        <listViewButtons>Download_Catalogue</listViewButtons>
         <searchFilterFields>NAME</searchFilterFields>
         <searchFilterFields>Campaign__c</searchFilterFields>
         <searchFilterFields>Customer_Name__c</searchFilterFields>
@@ -640,4 +817,41 @@ Modify Reason:
 )</errorConditionFormula>
         <errorMessage>Insufficient Stock</errorMessage>
     </validationRules>
+    <webLinks>
+        <fullName>Download_Catalogue</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <linkType>javascript</linkType>
+        <masterLabel>Download Catalogue</masterLabel>
+        <openType>onClickJavaScript</openType>
+        <protected>false</protected>
+        <requireRowSelection>true</requireRowSelection>
+        <url>{!REQUIRESCRIPT("/soap/ajax/32.0/connection.js")};
+{!REQUIRESCRIPT("/soap/ajax/32.0/apex.js")};
+{!REQUIRESCRIPT("/support/console/32.0/integration.js")};
+
+var proceed = true; 
+
+var idList  = {!GETRECORDIDS($ObjectType.DM_Request__c)};
+if(proceed &amp;&amp; idList.length &lt;= 0)
+{
+alert('Please select record(s).');
+proceed = false;
+}
+if (proceed &amp;&amp; (navigator.userAgent.indexOf('MSIE')) &gt;= 0) 
+{
+if(idList.length &gt; 100)
+{
+alert('Only maximum of 100 records can be selected.');
+proceed = false;
+}
+}
+if(proceed)
+{
+//var rdurl = sforce.apex.execute('dmRequestDownloadCatalogue','downloadCatalogue',{arg: idList});
+
+//window.location.href = "/apex/dmRequestDownloadCatalogue" ;
+window.open("https://cs5.salesforce.com/apex/exportCSV");
+}</url>
+    </webLinks>
 </CustomObject>
