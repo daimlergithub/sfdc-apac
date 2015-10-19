@@ -90,25 +90,10 @@
         <description>Inquiry Process</description>
         <isActive>true</isActive>
         <values>
-            <fullName>Closed</fullName>
+            <fullName>None</fullName>
             <default>false</default>
         </values>
-        <values>
-            <fullName>Open</fullName>
-            <default>true</default>
-        </values>
-        <values>
-            <fullName>対応中</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>最終承認依頼</fullName>
-            <default>false</default>
-        </values>
-        <values>
-            <fullName>最終承認済</fullName>
-            <default>false</default>
-        </values>
+        
     </businessProcesses>
     <businessProcesses>
         <fullName>MB Complaint Process</fullName>
@@ -7955,14 +7940,6 @@ Modify Reason:
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>新モデル/未導入モデル</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>販売店でのサービスについて</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
