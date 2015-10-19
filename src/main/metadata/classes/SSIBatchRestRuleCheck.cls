@@ -32,6 +32,8 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
     private final String Rule_8 = 'Same VIN and different contact name';  
     private final String Rule_9 = 'Same contact and same contact name';  
     private final String Rule_10 = 'Same contact and different contact name';  
+
+    private static String totalItemsString = 'totalItems';
     
     //Barney lai 2014-3-5 start
     private enum setType {
@@ -845,8 +847,8 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
             ];
 
             Integer totalCompleted = 0;
-            if (totalCompletedJob.size() > 0 && totalCompletedJob[0].get('totalItems') != null) {
-                totalCompleted = totalCompletedJob.size() > 0 ? ((Decimal)totalCompletedJob[0].get('totalItems')).intValue() : 0;
+            if (totalCompletedJob.size() > 0 && totalCompletedJob[0].get(totalItemsString) != null) {
+                totalCompleted = totalCompletedJob.size() > 0 ? ((Decimal)totalCompletedJob[0].get(totalItemsString)).intValue() : 0;
             }            
 
             AggregateResult[] totalFailedJob = [
@@ -856,8 +858,8 @@ global class SSIBatchRestRuleCheck implements Database.Batchable<SObject> { //, 
             ];
 
             Integer totalFailed = 0;
-            if (totalFailedJob.size() > 0 && totalFailedJob[0].get('totalItems') != null) {
-                totalFailed = totalFailedJob.size() > 0 ? ((Decimal)totalFailedJob[0].get('totalItems')).intValue() : 0;
+            if (totalFailedJob.size() > 0 && totalFailedJob[0].get(totalItemsString) != null) {
+                totalFailed = totalFailedJob.size() > 0 ? ((Decimal)totalFailedJob[0].get(totalItemsString)).intValue() : 0;
             }         
 
             User currentUser = [Select Email From User Where Id = :UserInfo.getUserId()];

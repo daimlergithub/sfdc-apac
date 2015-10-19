@@ -13,6 +13,7 @@
 public class SSITriggerHandler 
     implements TriggerHandlerIf
 { 
+    private static String valid ='Valid';
     public void handleTrigger()
     {
         if(trigger.isAfter && trigger.isUpdate)
@@ -36,23 +37,23 @@ public class SSITriggerHandler
         for(SSI__c ssi : newMap.values()){
             SSI__c old = oldMap.get(ssi.Id);
 
-            if(ssi.DealerCheck_Status__c == 'Valid'
+            if(ssi.DealerCheck_Status__c == valid
                 && (old.DealerCheck_Status__c == 'Pending' 
                     || old.DealerCheck_Status__c == 'Reject'
                     || old.DealerCheck_Status__c == 'Accept')){
                 ssi.addError('DealerCheck Status cannot be changed to Valid.');
             }
-            if(old.DealerCheck_Status__c == 'Valid' && ssi.DealerCheck_Status__c != 'Valid' ){
+            if(old.DealerCheck_Status__c == valid && ssi.DealerCheck_Status__c != valid ){
                 ssi.addError('DealerCheck Status cannot be changed.');
             }
 
-            if(ssi.CarModelCheck_Status__c == 'Valid' 
+            if(ssi.CarModelCheck_Status__c == valid 
                 && (old.CarModelCheck_Status__c == 'Pending' 
                     || old.CarModelCheck_Status__c == 'Reject'
                     || old.CarModelCheck_Status__c == 'Accept')){
                 ssi.addError('CarModelCheck Status cannot be changed to Valid.');
             }
-            if(old.CarModelCheck_Status__c == 'Valid' && ssi.CarModelCheck_Status__c != 'Valid' ){
+            if(old.CarModelCheck_Status__c == valid && ssi.CarModelCheck_Status__c != valid ){
                 ssi.addError('CarModelCheck Status cannot be changed.');
             }
         }

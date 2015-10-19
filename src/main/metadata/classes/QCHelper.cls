@@ -12,6 +12,8 @@
     1. 27-April-2013 Sinow Zhang (NTTData)  Created
 */
 public with sharing class QCHelper {
+
+
     // Variables for calculate total score  
     private static Decimal passedQuestions;
     private static Decimal filledQuestions;
@@ -20,10 +22,11 @@ public with sharing class QCHelper {
     private static String IBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('IB QC').getRecordTypeId();
     private static String OBQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('OB QC').getRecordTypeId();
     private static String SSIQCRecordTypeId = Schema.SObjectType.QC__c.getRecordTypeInfosByName().get('SSI QC').getRecordTypeId();
-	public  static string passString='Pass';
-	public  static string failString='Fail';
-	public  static string lowString='Low';
-	public  static string highString='High';
+    public  static string passString='Pass';
+    public  static string failString='Fail';
+    public  static string lowString='Low';
+    public  static string highString='High';
+    private static String mediumString='Medium';
     
     public static Decimal IBCallTotalScore(QC__c qc) {
         passedQuestions = 0;
@@ -326,19 +329,19 @@ public with sharing class QCHelper {
         failedFatalQuestions = 0;
 
         //summary failedFatalQuestions
-        if(qc.DA__c == 'Medium' || qc.DA__c == lowString) {
+        if(qc.DA__c == mediumString || qc.DA__c == lowString) {
             failedFatalQuestions += 1;
         }
-        if(qc.FTOP__c == 'Medium' || qc.FTOP__c == lowString) {
+        if(qc.FTOP__c == mediumString || qc.FTOP__c == lowString) {
             failedFatalQuestions += 1;
         }
-        if(qc.FQL__c == 'Medium' || qc.FQL__c == lowString) {
+        if(qc.FQL__c == mediumString || qc.FQL__c == lowString) {
             failedFatalQuestions += 1;
         }
-        if(qc.PFOCF__c == 'Medium' || qc.PFOCF__c == lowString) {
+        if(qc.PFOCF__c == mediumString || qc.PFOCF__c == lowString) {
             failedFatalQuestions += 1;
         }
-        if(qc.PPD__c == 'Medium' || qc.PPD__c == lowString) {
+        if(qc.PPD__c == mediumString || qc.PPD__c == lowString) {
             failedFatalQuestions += 1;
         }
         
@@ -469,61 +472,61 @@ public with sharing class QCHelper {
         passedQuestions = 0;
         
         //summary passedQuestions
-        if(qc.PACI__c == highString || qc.PACI__c == 'Medium') {
+        if(qc.PACI__c == highString || qc.PACI__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.DA__c == highString || qc.DA__c == 'Medium') {
+        if(qc.DA__c == highString || qc.DA__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.CITQ__c == highString || qc.CITQ__c == 'Medium') {
+        if(qc.CITQ__c == highString || qc.CITQ__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.FMSK__c == highString || qc.FMSK__c == 'Medium') {
+        if(qc.FMSK__c == highString || qc.FMSK__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.FTOP__c == highString || qc.FTOP__c == 'Medium') {
+        if(qc.FTOP__c == highString || qc.FTOP__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.FQL__c == highString || qc.FQL__c == 'Medium') {
+        if(qc.FQL__c == highString || qc.FQL__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.SO__c == highString || qc.SO__c == 'Medium') {
+        if(qc.SO__c == highString || qc.SO__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.PPIS__c == highString || qc.PPIS__c == 'Medium') {
+        if(qc.PPIS__c == highString || qc.PPIS__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.SPL__c == highString || qc.SPL__c == 'Medium') {
+        if(qc.SPL__c == highString || qc.SPL__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.SSL__c == highString || qc.SSL__c == 'Medium') {
+        if(qc.SSL__c == highString || qc.SSL__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.SC__c == highString || qc.SC__c == 'Medium') {
+        if(qc.SC__c == highString || qc.SC__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.CALA__c == highString || qc.CALA__c == 'Medium') {
+        if(qc.CALA__c == highString || qc.CALA__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.CAI__c == highString || qc.CAI__c == 'Medium') {
+        if(qc.CAI__c == highString || qc.CAI__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.CARR__c == highString || qc.CARR__c == 'Medium') {
+        if(qc.CARR__c == highString || qc.CARR__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.PFOCF__c == highString || qc.PFOCF__c == 'Medium') {
+        if(qc.PFOCF__c == highString || qc.PFOCF__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.PPD__c == highString || qc.PPD__c == 'Medium') {
+        if(qc.PPD__c == highString || qc.PPD__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.PJ__c == highString || qc.PJ__c == 'Medium') {
+        if(qc.PJ__c == highString || qc.PJ__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.PS__c == highString || qc.PS__c == 'Medium') {
+        if(qc.PS__c == highString || qc.PS__c == mediumString) {
             passedQuestions += 1;
         }
-        if(qc.PHU__c == highString || qc.PHU__c == 'Medium') {
+        if(qc.PHU__c == highString || qc.PHU__c == mediumString) {
             passedQuestions += 1;
         }
         return passedQuestions;
@@ -533,61 +536,61 @@ public with sharing class QCHelper {
         filledQuestions = 0;
         
         //summary filledQuestions
-        if(qc.PACI__c == highString || qc.PACI__c == 'Medium' || qc.PACI__c == lowString) {
+        if(qc.PACI__c == highString || qc.PACI__c == mediumString || qc.PACI__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.DA__c == highString || qc.DA__c == 'Medium' || qc.DA__c == lowString) {
+        if(qc.DA__c == highString || qc.DA__c == mediumString || qc.DA__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.CITQ__c == highString || qc.CITQ__c == 'Medium' || qc.CITQ__c == lowString) {
+        if(qc.CITQ__c == highString || qc.CITQ__c == mediumString || qc.CITQ__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.FMSK__c == highString || qc.FMSK__c == 'Medium' || qc.FMSK__c == lowString) {
+        if(qc.FMSK__c == highString || qc.FMSK__c == mediumString || qc.FMSK__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.FTOP__c == highString || qc.FTOP__c == 'Medium' || qc.FTOP__c == lowString) {
+        if(qc.FTOP__c == highString || qc.FTOP__c == mediumString || qc.FTOP__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.FQL__c == highString || qc.FQL__c == 'Medium' || qc.FQL__c == lowString) {
+        if(qc.FQL__c == highString || qc.FQL__c == mediumString || qc.FQL__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.SO__c == highString || qc.SO__c == 'Medium' || qc.SO__c == lowString) {
+        if(qc.SO__c == highString || qc.SO__c == mediumString || qc.SO__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.PPIS__c == highString || qc.PPIS__c == 'Medium' || qc.PPIS__c == lowString) {
+        if(qc.PPIS__c == highString || qc.PPIS__c == mediumString || qc.PPIS__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.SPL__c == highString || qc.SPL__c == 'Medium' || qc.SPL__c == lowString) {
+        if(qc.SPL__c == highString || qc.SPL__c == mediumString || qc.SPL__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.SSL__c == highString || qc.SSL__c == 'Medium' || qc.SSL__c == lowString) {
+        if(qc.SSL__c == highString || qc.SSL__c == mediumString || qc.SSL__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.SC__c == highString || qc.SC__c == 'Medium' || qc.SC__c == lowString) {
+        if(qc.SC__c == highString || qc.SC__c == mediumString || qc.SC__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.CALA__c == highString || qc.CALA__c == 'Medium' || qc.CALA__c == lowString) {
+        if(qc.CALA__c == highString || qc.CALA__c == mediumString || qc.CALA__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.CAI__c == highString || qc.CAI__c == 'Medium' || qc.CAI__c == lowString) {
+        if(qc.CAI__c == highString || qc.CAI__c == mediumString || qc.CAI__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.CARR__c == highString || qc.CARR__c == 'Medium' || qc.CARR__c == lowString) {
+        if(qc.CARR__c == highString || qc.CARR__c == mediumString || qc.CARR__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.PFOCF__c == highString || qc.PFOCF__c == 'Medium' || qc.PFOCF__c == lowString) {
+        if(qc.PFOCF__c == highString || qc.PFOCF__c == mediumString || qc.PFOCF__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.PPD__c == highString || qc.PPD__c == 'Medium' || qc.PPD__c == lowString) {
+        if(qc.PPD__c == highString || qc.PPD__c == mediumString || qc.PPD__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.PJ__c == highString || qc.PJ__c == 'Medium' || qc.PJ__c == lowString) {
+        if(qc.PJ__c == highString || qc.PJ__c == mediumString || qc.PJ__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.PS__c == highString || qc.PS__c == 'Medium' || qc.PS__c == lowString) {
+        if(qc.PS__c == highString || qc.PS__c == mediumString || qc.PS__c == lowString) {
             filledQuestions += 1;
         }
-        if(qc.PHU__c == highString || qc.PHU__c == 'Medium' || qc.PHU__c == lowString) {
+        if(qc.PHU__c == highString || qc.PHU__c == mediumString || qc.PHU__c == lowString) {
             filledQuestions += 1;
         }
         
@@ -640,26 +643,26 @@ public with sharing class QCHelper {
     
     public static String SetQualified(QC__c qc) {
 
-        if((qc.DA__c == 'Medium' || qc.DA__c == highString) && (qc.CITQ__c == 'Medium' || qc.CITQ__c == highString) && 
-           (qc.FMSK__c == 'Medium' || qc.FMSK__c == highString) && (qc.FTOP__c == 'Medium' || qc.FTOP__c == highString) && 
-           (qc.FQL__c == 'Medium' || qc.FQL__c == highString) && (qc.SO__c == 'Medium' || qc.SO__c == highString) &&
-           (qc.PPIS__c == 'Medium' || qc.PPIS__c == highString) && (qc.SPL__c == 'Medium' || qc.SPL__c == highString) &&
-           (qc.SSL__c == 'Medium' || qc.SSL__c == highString) && (qc.SC__c == 'Medium' || qc.SC__c == highString) &&
-           (qc.CALA__c == 'Medium' || qc.CALA__c == highString) && (qc.CAI__c == 'Medium' || qc.CAI__c == highString) &&
-           (qc.PFOCF__c == 'Medium' || qc.PFOCF__c == highString) && (qc.PPD__c == 'Medium' || qc.PPD__c == highString) &&
-           (qc.PJ__c == 'Medium' || qc.PJ__c == highString) && (qc.PHU__c == 'Medium' || qc.PHU__c == highString)) {
+        if((qc.DA__c == mediumString || qc.DA__c == highString) && (qc.CITQ__c == mediumString || qc.CITQ__c == highString) && 
+           (qc.FMSK__c == mediumString || qc.FMSK__c == highString) && (qc.FTOP__c == mediumString || qc.FTOP__c == highString) && 
+           (qc.FQL__c == mediumString || qc.FQL__c == highString) && (qc.SO__c == mediumString || qc.SO__c == highString) &&
+           (qc.PPIS__c == mediumString || qc.PPIS__c == highString) && (qc.SPL__c == mediumString || qc.SPL__c == highString) &&
+           (qc.SSL__c == mediumString || qc.SSL__c == highString) && (qc.SC__c == mediumString || qc.SC__c == highString) &&
+           (qc.CALA__c == mediumString || qc.CALA__c == highString) && (qc.CAI__c == mediumString || qc.CAI__c == highString) &&
+           (qc.PFOCF__c == mediumString || qc.PFOCF__c == highString) && (qc.PPD__c == mediumString || qc.PPD__c == highString) &&
+           (qc.PJ__c == mediumString || qc.PJ__c == highString) && (qc.PHU__c == mediumString || qc.PHU__c == highString)) {
             return passString;
         }
         return failString;
     }
     
     public static void changeTask(Set<String> taskIds){
-    	List<Task> changedTasks = new List<Task>();
-    	for(Task task : [select Status from Task where Id in :taskIds]){
-    		task.Activity_Status__c = 'QC Successful';
-    		changedTasks.add(task);
-    	}
-    	update changedTasks;
+        List<Task> changedTasks = new List<Task>();
+        for(Task task : [select Status from Task where Id in :taskIds]){
+            task.Activity_Status__c = 'QC Successful';
+            changedTasks.add(task);
+        }
+        update changedTasks;
     }
 
     public static void changeFailTask(Set<String> taskIds){
@@ -673,265 +676,265 @@ public with sharing class QCHelper {
     
     public static void beforeInsertUpdateEvents(list<QC__c> QCNew,map<id,QC__c> QCOldMap,boolean isInsert,boolean isUpdate)
     {
-    	for(QC__c qc : QCNew)
-    	{
-	        if(qc.RecordTypeId == IBQCRecordTypeId)
-	        {
-	
-	            if (qc.Status__c != 'Cancel')
-	            {
-	                qc.Total_Score__c = IBCallTotalScore(qc);
-	            }
-	            else
-	            {
-	                qc.Total_Score__c = 0;
-	            }
-	
-	        }
-	        if(qc.RecordTypeId == OBQCRecordTypeId)
-	        {
-	            if (qc.Status__c != 'Cancel')
-	            {
-	                qc.Total_Score__c = OBCallTotalScore(qc);
-	            }
-	            else
-	            {
-	                qc.Total_Score__c = 0;
-	            }
-	        }
-	
-	        if(qc.RecordTypeId == SSIQCRecordTypeId)
-	        {
-	             if (qc.Status__c != 'Disqualified')
-	             {
-	                qc.Total_Score_1__c = QCHelper.SSITotalScore1(qc);
-	                qc.Total_Score_2__c = QCHelper.SSITotalScore2(qc);
-	                if(qc.status__c == 'Complete')
-	                {
-	                     qc.Qualified__c = QCHelper.SetQualified(qc);
-	                     qc.Completed_Time__c = Datetime.now();
-	                }
-	             }
-	             else
-	             {
+        for(QC__c qc : QCNew)
+        {
+            if(qc.RecordTypeId == IBQCRecordTypeId)
+            {
+    
+                if (qc.Status__c != 'Cancel')
+                {
+                    qc.Total_Score__c = IBCallTotalScore(qc);
+                }
+                else
+                {
+                    qc.Total_Score__c = 0;
+                }
+    
+            }
+            if(qc.RecordTypeId == OBQCRecordTypeId)
+            {
+                if (qc.Status__c != 'Cancel')
+                {
+                    qc.Total_Score__c = OBCallTotalScore(qc);
+                }
+                else
+                {
+                    qc.Total_Score__c = 0;
+                }
+            }
+    
+            if(qc.RecordTypeId == SSIQCRecordTypeId)
+            {
+                 if (qc.Status__c != 'Disqualified')
+                 {
+                    qc.Total_Score_1__c = QCHelper.SSITotalScore1(qc);
+                    qc.Total_Score_2__c = QCHelper.SSITotalScore2(qc);
+                    if(qc.status__c == 'Complete')
+                    {
+                         qc.Qualified__c = QCHelper.SetQualified(qc);
+                         qc.Completed_Time__c = Datetime.now();
+                    }
+                 }
+                 else
+                 {
                     qc.Total_Score_1__c = 0;
                     qc.Total_Score_2__c = 0;
                     qc.Qualified__c = failString;
-	            }
-	        }
-	
-	        if (QCOldMap != null && QCOldMap.containskey(qc.Id))
-	        {
-	            QC__c oldQc = QCOldMap.get(qc.Id);
-	            if (qc.Approved__c == 'Yes' && oldQc.Approved__c != 'Yes')
-	            {
-	                qc.Approved_Time__c = Datetime.now();              
-	            }
-	        }
-	    }
-	    
-	    // Added by Justin -- 2014-2-26
-	    Set<String> taskIds = new Set<String>();
-	    for(QC__c qc : QCNew)
-	    {
-	    	if(!isUpdate || qc.Task_ID__c != QCOldMap.get(qc.Id).Task_ID__c)
-	    	{
-	    		taskIds.add(qc.Task_ID__c);
-	    	}
-	    }
-	    
-	    if(taskIds!=null && !taskIds.isEmpty())
-	    {
-		    Map<String, Task> tasks = new Map<String, Task>([select Id, Subject from Task where Id in :taskIds]);
-		    for(QC__c qc : QCNew)
-		    {
-		    	Task task = tasks.get(qc.Task_ID__c);
-		    	qc.TaskName__c = task == null ? null: task.Subject ;
-		    }
-	    }
+                }
+            }
+    
+            if (QCOldMap != null && QCOldMap.containskey(qc.Id))
+            {
+                QC__c oldQc = QCOldMap.get(qc.Id);
+                if (qc.Approved__c == 'Yes' && oldQc.Approved__c != 'Yes')
+                {
+                    qc.Approved_Time__c = Datetime.now();              
+                }
+            }
+        }
+        
+        // Added by Justin -- 2014-2-26
+        Set<String> taskIds = new Set<String>();
+        for(QC__c qc : QCNew)
+        {
+            if(!isUpdate || qc.Task_ID__c != QCOldMap.get(qc.Id).Task_ID__c)
+            {
+                taskIds.add(qc.Task_ID__c);
+            }
+        }
+        
+        if(taskIds!=null && !taskIds.isEmpty())
+        {
+            Map<String, Task> tasks = new Map<String, Task>([select Id, Subject from Task where Id in :taskIds]);
+            for(QC__c qc : QCNew)
+            {
+                Task task = tasks.get(qc.Task_ID__c);
+                qc.TaskName__c = task == null ? null: task.Subject ;
+            }
+        }
     }
     
     public static void afterInsertUpdateEvents(list<QC__c> QCNew,map<id,QC__c> QCOldMap,boolean isInsert,boolean isUpdate)
     {
-    	List<QC__c> QCForShare = new List<QC__c>();
+        List<QC__c> QCForShare = new List<QC__c>();
     
-	    // Set Survey Result ids
-	    Set<Id> SurveyResultIds = new Set<Id>();
-	    
-	    // QC Result Tracking records for insert
-	    List<QC_Result_Tracking__c> QCHistorys = new List<QC_Result_Tracking__c>();
-	    
-	    Set<String> taskIds = new Set<String>();
-	    Set<String> failtaskIds = new Set<String>();
-	    
-	    for(QC__c qc : QCNew)
-	    {	    
-	      if(!qc.Calibration__c && qc.status__c == 'Complete' && qc.status__c != QCOldMap.get(qc.Id).status__c)
-	        {
-	            QCForShare.add(qc);
-	        }
-	 
-			// TODO Kernel fix
-			/*
-	        if(qc.Survey_Result__c != null && Trigger.oldMap.get(qc.Id).Approved__c != 'Yes' && qc.Approved__c == 'Yes') {
-	            SurveyResultIds.add(qc.Survey_Result__c);
-	        }
-			*/
-	        
-	        //If field value changed, create new QC history records
-	     if(QCOldMap!=Null && !QCOldMap.isEmpty()){
-	        if(qc.PACI__c!=Null && QCOldMap.get(qc.Id).PACI__c!=Null && qc.PACI__c != QCOldMap.get(qc.Id).PACI__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Provide Accurate Complete Information', qc.PACI__c, QCOldMap.get(qc.Id).PACI__c));
-	        }	        
-	        if(qc.Q1_Comments__c != QCOldMap.get(qc.Id).Q1_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Provide Accurate Complete Info Comments', qc.Q1_Comments__c, QCOldMap.get(qc.Id).Q1_Comments__c));
-	        }
-	        if(qc.DA__c != QCOldMap.get(qc.Id).DA__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Document Accuracy', qc.DA__c, QCOldMap.get(qc.Id).DA__c));
-	        }
-	        if(qc.Q2_Comments__c != QCOldMap.get(qc.Id).Q2_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Document Accuracy Comments', qc.Q2_Comments__c, QCOldMap.get(qc.Id).Q2_Comments__c));
-	        }
-	        if(qc.FTOP__c != QCOldMap.get(qc.Id).FTOP__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Follow The Operation Process', qc.FTOP__c, QCOldMap.get(qc.Id).FTOP__c));
-	        }
-	        if(qc.Q3_Comments__c != QCOldMap.get(qc.Id).Q3_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Follow The Operation Process Comments', qc.Q3_Comments__c, QCOldMap.get(qc.Id).Q3_Comments__c));
-	        }            
-	        if(qc.FQL__c != QCOldMap.get(qc.Id).FQL__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Following Questionnaire Logic', qc.FQL__c, QCOldMap.get(qc.Id).FQL__c));
-	        }
-	        if(qc.Q4_Comments__c != QCOldMap.get(qc.Id).Q4_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Following Questionnaire Logic Comments', qc.Q4_Comments__c, QCOldMap.get(qc.Id).Q4_Comments__c));
-	        }
-	        if(qc.CITQ__c != QCOldMap.get(qc.Id).CITQ__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Correctly Interpret The Questionnaire', qc.CITQ__c, QCOldMap.get(qc.Id).CITQ__c));
-	        }
-	        if(qc.Q5_Comments__c != QCOldMap.get(qc.Id).Q5_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Correctly Interpret The Questio Comments', qc.Q5_Comments__c, QCOldMap.get(qc.Id).Q5_Comments__c));
-	        }
-	        if(qc.FMSK__c != QCOldMap.get(qc.Id).FMSK__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Familiar Central/Smart/ Knowledge', qc.FMSK__c, QCOldMap.get(qc.Id).FMSK__c));
-	        }
-	        if(qc.Q6_Comments__c != QCOldMap.get(qc.Id).Q6_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Familiar Central/Smart/ Knowledge Comments', qc.Q6_Comments__c, QCOldMap.get(qc.Id).Q6_Comments__c));
-	        }
-	        if(qc.Responsibility__c != QCOldMap.get(qc.Id).Responsibility__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Responsibility', qc.Responsibility__c, QCOldMap.get(qc.Id).Responsibility__c));
-	        }
-	        if(qc.Q7_Comments__c != QCOldMap.get(qc.Id).Q7_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Responsibility Comments', qc.Q7_Comments__c, QCOldMap.get(qc.Id).Q7_Comments__c));
-	        }
-	        if(qc.SO__c != QCOldMap.get(qc.Id).SO__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Standard Opening', qc.SO__c, QCOldMap.get(qc.Id).SO__c));
-	        }
-	        if(qc.Q8_Comments__c != QCOldMap.get(qc.Id).Q8_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Standard Opening Comments', qc.Q8_Comments__c, QCOldMap.get(qc.Id).Q8_Comments__c));
-	        }
-	        if(qc.PPIS__c != QCOldMap.get(qc.Id).PPIS__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Proper Pronunciation&Intonation&Speed', qc.PPIS__c, QCOldMap.get(qc.Id).PPIS__c));
-	        }
-	        if(qc.Q9_Comments__c != QCOldMap.get(qc.Id).Q9_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Proper Pronunciation&Intonation Comments', qc.Q9_Comments__c, QCOldMap.get(qc.Id).Q9_Comments__c));
-	        }
-	        if(qc.SPL__c != QCOldMap.get(qc.Id).SPL__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Specification - Polite Language', qc.SPL__c, QCOldMap.get(qc.Id).SPL__c));
-	        }
-	        if(qc.Q10_Comments__c != QCOldMap.get(qc.Id).Q10_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Specification - Polite Language Comments', qc.Q10_Comments__c, QCOldMap.get(qc.Id).Q10_Comments__c));
-	        }
-	        if(qc.SSL__c != QCOldMap.get(qc.Id).SSL__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Specification - Spoken Language', qc.SSL__c, QCOldMap.get(qc.Id).SSL__c));
-	        }
-	        if(qc.Q11_Comments__c != QCOldMap.get(qc.Id).Q11_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Standard Conclusion Comments', qc.Q11_Comments__c, QCOldMap.get(qc.Id).Q11_Comments__c));
-	        }
-	        if(qc.SC__c != QCOldMap.get(qc.Id).SC__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Standard Conclusion Comments', qc.SC__c, QCOldMap.get(qc.Id).SC__c));
-	        }
-	        if(qc.Q13_Comments__c != QCOldMap.get(qc.Id).Q13_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Specification - Spoken Language Comments', qc.Q13_Comments__c, QCOldMap.get(qc.Id).Q13_Comments__c));
-	        }
-	        if(qc.CALA__c != QCOldMap.get(qc.Id).CALA__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Communicate Ability - Listening Ability', qc.CALA__c, QCOldMap.get(qc.Id).CALA__c));
-	        }
-	        if(qc.Q12_Comments__c != QCOldMap.get(qc.Id).Q12_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Communicate Ability - Listening Comments', qc.Q12_Comments__c, QCOldMap.get(qc.Id).Q12_Comments__c));
-	        }
-	        if(qc.CAI__c != QCOldMap.get(qc.Id).CAI__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Communicate Ability - Initiative', qc.CAI__c, QCOldMap.get(qc.Id).CAI__c));
-	        }
-	        if(qc.Q15_Comments__c != QCOldMap.get(qc.Id).Q15_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Communicate Ability - Initiative Comments', qc.Q15_Comments__c, QCOldMap.get(qc.Id).Q15_Comments__c));
-	        }
-	        if(qc.CARR__c != QCOldMap.get(qc.Id).CARR__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Communicate Ability - Rapid Response', qc.CARR__c, QCOldMap.get(qc.Id).CARR__c));
-	        }
-	        if(qc.Q14_Comments__c != QCOldMap.get(qc.Id).Q14_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Communicate Ability Response Comments', qc.Q14_Comments__c, QCOldMap.get(qc.Id).Q14_Comments__c));
-	        }
-	        if(qc.PFOCF__c != QCOldMap.get(qc.Id).PFOCF__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - Focus On Customer Fee', qc.PFOCF__c, QCOldMap.get(qc.Id).PFOCF__c));
-	        }
-	        if(qc.Q16_Comments__c != QCOldMap.get(qc.Id).Q16_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - Focus On Customer Comments', qc.Q16_Comments__c, QCOldMap.get(qc.Id).Q16_Comments__c));
-	        }
-	        if(qc.PPD__c != QCOldMap.get(qc.Id).PPD__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - Patience Degree', qc.PPD__c, QCOldMap.get(qc.Id).PPD__c));
-	        }
-	        if(qc.Q17_Comments__c != QCOldMap.get(qc.Id).Q17_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - Patience Degree Comments', qc.Q17_Comments__c, QCOldMap.get(qc.Id).Q17_Comments__c));
-	        }
-	        if(qc.PJ__c != QCOldMap.get(qc.Id).PJ__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - JinYongYu', qc.PJ__c, QCOldMap.get(qc.Id).PJ__c));
-	        }
-	        if(qc.Q18_Comments__c != QCOldMap.get(qc.Id).Q18_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - JinYongYu Comments', qc.Q18_Comments__c, QCOldMap.get(qc.Id).Q18_Comments__c));
-	        }
-	        if(qc.PHU__c != QCOldMap.get(qc.Id).PHU__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - Hang Up', qc.PHU__c, QCOldMap.get(qc.Id).PHU__c));
-	        }
-	        if(qc.Q19_Comments__c != QCOldMap.get(qc.Id).Q19_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - Hang Up Comments', qc.Q19_Comments__c, QCOldMap.get(qc.Id).Q19_Comments__c));
-	        }
-	        if(qc.Q0_Comments__c != QCOldMap.get(qc.Id).Q0_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Clarify&Confirm Customer Requir Comments', qc.Q0_Comments__c, QCOldMap.get(qc.Id).Q0_Comments__c));
-	        }
-	        if(qc.CCI_Comments__c != QCOldMap.get(qc.Id).CCI_Comments__c) {
-	            QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Collect Customer Information Comments', qc.CCI_Comments__c, QCOldMap.get(qc.Id).CCI_Comments__c));
-	        }
-	     }    
-	        // Change the task status.
-	        if(qc.RecordTypeId == SSIQCRecordTypeId && qc.Qualified__c == passString){
-	            taskIds.add(qc.Task_ID__c);
-	        }
-	        if(qc.RecordTypeId == SSIQCRecordTypeId && qc.Qualified__c == failString){
-	            failtaskIds.add(qc.Task_ID__c);
-	        }
-	    }
-	    
-	    // Insert QC sharing records
-	    if(QCForShare!=null && !QCForShare.IsEmpty())
-	    {
-	        ShareQCtoCSR(QCForShare);
-	    }
-	    
+        // Set Survey Result ids
+        Set<Id> SurveyResultIds = new Set<Id>();
+        
+        // QC Result Tracking records for insert
+        List<QC_Result_Tracking__c> QCHistorys = new List<QC_Result_Tracking__c>();
+        
+        Set<String> taskIds = new Set<String>();
+        Set<String> failtaskIds = new Set<String>();
+        
+        for(QC__c qc : QCNew)
+        {       
+          if(!qc.Calibration__c && qc.status__c == 'Complete' && qc.status__c != QCOldMap.get(qc.Id).status__c)
+            {
+                QCForShare.add(qc);
+            }
+     
+            // TODO Kernel fix
+            /*
+            if(qc.Survey_Result__c != null && Trigger.oldMap.get(qc.Id).Approved__c != 'Yes' && qc.Approved__c == 'Yes') {
+                SurveyResultIds.add(qc.Survey_Result__c);
+            }
+            */
+            
+            //If field value changed, create new QC history records
+         if(QCOldMap!=Null && !QCOldMap.isEmpty()){
+            if(qc.PACI__c!=Null && QCOldMap.get(qc.Id).PACI__c!=Null && qc.PACI__c != QCOldMap.get(qc.Id).PACI__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Provide Accurate Complete Information', qc.PACI__c, QCOldMap.get(qc.Id).PACI__c));
+            }           
+            if(qc.Q1_Comments__c != QCOldMap.get(qc.Id).Q1_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Provide Accurate Complete Info Comments', qc.Q1_Comments__c, QCOldMap.get(qc.Id).Q1_Comments__c));
+            }
+            if(qc.DA__c != QCOldMap.get(qc.Id).DA__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Document Accuracy', qc.DA__c, QCOldMap.get(qc.Id).DA__c));
+            }
+            if(qc.Q2_Comments__c != QCOldMap.get(qc.Id).Q2_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Document Accuracy Comments', qc.Q2_Comments__c, QCOldMap.get(qc.Id).Q2_Comments__c));
+            }
+            if(qc.FTOP__c != QCOldMap.get(qc.Id).FTOP__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Follow The Operation Process', qc.FTOP__c, QCOldMap.get(qc.Id).FTOP__c));
+            }
+            if(qc.Q3_Comments__c != QCOldMap.get(qc.Id).Q3_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Follow The Operation Process Comments', qc.Q3_Comments__c, QCOldMap.get(qc.Id).Q3_Comments__c));
+            }            
+            if(qc.FQL__c != QCOldMap.get(qc.Id).FQL__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Following Questionnaire Logic', qc.FQL__c, QCOldMap.get(qc.Id).FQL__c));
+            }
+            if(qc.Q4_Comments__c != QCOldMap.get(qc.Id).Q4_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Following Questionnaire Logic Comments', qc.Q4_Comments__c, QCOldMap.get(qc.Id).Q4_Comments__c));
+            }
+            if(qc.CITQ__c != QCOldMap.get(qc.Id).CITQ__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Correctly Interpret The Questionnaire', qc.CITQ__c, QCOldMap.get(qc.Id).CITQ__c));
+            }
+            if(qc.Q5_Comments__c != QCOldMap.get(qc.Id).Q5_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Correctly Interpret The Questio Comments', qc.Q5_Comments__c, QCOldMap.get(qc.Id).Q5_Comments__c));
+            }
+            if(qc.FMSK__c != QCOldMap.get(qc.Id).FMSK__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Familiar Central/Smart/ Knowledge', qc.FMSK__c, QCOldMap.get(qc.Id).FMSK__c));
+            }
+            if(qc.Q6_Comments__c != QCOldMap.get(qc.Id).Q6_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Familiar Central/Smart/ Knowledge Comments', qc.Q6_Comments__c, QCOldMap.get(qc.Id).Q6_Comments__c));
+            }
+            if(qc.Responsibility__c != QCOldMap.get(qc.Id).Responsibility__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Responsibility', qc.Responsibility__c, QCOldMap.get(qc.Id).Responsibility__c));
+            }
+            if(qc.Q7_Comments__c != QCOldMap.get(qc.Id).Q7_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Responsibility Comments', qc.Q7_Comments__c, QCOldMap.get(qc.Id).Q7_Comments__c));
+            }
+            if(qc.SO__c != QCOldMap.get(qc.Id).SO__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Standard Opening', qc.SO__c, QCOldMap.get(qc.Id).SO__c));
+            }
+            if(qc.Q8_Comments__c != QCOldMap.get(qc.Id).Q8_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Standard Opening Comments', qc.Q8_Comments__c, QCOldMap.get(qc.Id).Q8_Comments__c));
+            }
+            if(qc.PPIS__c != QCOldMap.get(qc.Id).PPIS__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Proper Pronunciation&Intonation&Speed', qc.PPIS__c, QCOldMap.get(qc.Id).PPIS__c));
+            }
+            if(qc.Q9_Comments__c != QCOldMap.get(qc.Id).Q9_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Proper Pronunciation&Intonation Comments', qc.Q9_Comments__c, QCOldMap.get(qc.Id).Q9_Comments__c));
+            }
+            if(qc.SPL__c != QCOldMap.get(qc.Id).SPL__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Specification - Polite Language', qc.SPL__c, QCOldMap.get(qc.Id).SPL__c));
+            }
+            if(qc.Q10_Comments__c != QCOldMap.get(qc.Id).Q10_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Specification - Polite Language Comments', qc.Q10_Comments__c, QCOldMap.get(qc.Id).Q10_Comments__c));
+            }
+            if(qc.SSL__c != QCOldMap.get(qc.Id).SSL__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Specification - Spoken Language', qc.SSL__c, QCOldMap.get(qc.Id).SSL__c));
+            }
+            if(qc.Q11_Comments__c != QCOldMap.get(qc.Id).Q11_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Standard Conclusion Comments', qc.Q11_Comments__c, QCOldMap.get(qc.Id).Q11_Comments__c));
+            }
+            if(qc.SC__c != QCOldMap.get(qc.Id).SC__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Standard Conclusion Comments', qc.SC__c, QCOldMap.get(qc.Id).SC__c));
+            }
+            if(qc.Q13_Comments__c != QCOldMap.get(qc.Id).Q13_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Specification - Spoken Language Comments', qc.Q13_Comments__c, QCOldMap.get(qc.Id).Q13_Comments__c));
+            }
+            if(qc.CALA__c != QCOldMap.get(qc.Id).CALA__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Communicate Ability - Listening Ability', qc.CALA__c, QCOldMap.get(qc.Id).CALA__c));
+            }
+            if(qc.Q12_Comments__c != QCOldMap.get(qc.Id).Q12_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Communicate Ability - Listening Comments', qc.Q12_Comments__c, QCOldMap.get(qc.Id).Q12_Comments__c));
+            }
+            if(qc.CAI__c != QCOldMap.get(qc.Id).CAI__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Communicate Ability - Initiative', qc.CAI__c, QCOldMap.get(qc.Id).CAI__c));
+            }
+            if(qc.Q15_Comments__c != QCOldMap.get(qc.Id).Q15_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Communicate Ability - Initiative Comments', qc.Q15_Comments__c, QCOldMap.get(qc.Id).Q15_Comments__c));
+            }
+            if(qc.CARR__c != QCOldMap.get(qc.Id).CARR__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Communicate Ability - Rapid Response', qc.CARR__c, QCOldMap.get(qc.Id).CARR__c));
+            }
+            if(qc.Q14_Comments__c != QCOldMap.get(qc.Id).Q14_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Communicate Ability Response Comments', qc.Q14_Comments__c, QCOldMap.get(qc.Id).Q14_Comments__c));
+            }
+            if(qc.PFOCF__c != QCOldMap.get(qc.Id).PFOCF__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - Focus On Customer Fee', qc.PFOCF__c, QCOldMap.get(qc.Id).PFOCF__c));
+            }
+            if(qc.Q16_Comments__c != QCOldMap.get(qc.Id).Q16_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - Focus On Customer Comments', qc.Q16_Comments__c, QCOldMap.get(qc.Id).Q16_Comments__c));
+            }
+            if(qc.PPD__c != QCOldMap.get(qc.Id).PPD__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - Patience Degree', qc.PPD__c, QCOldMap.get(qc.Id).PPD__c));
+            }
+            if(qc.Q17_Comments__c != QCOldMap.get(qc.Id).Q17_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - Patience Degree Comments', qc.Q17_Comments__c, QCOldMap.get(qc.Id).Q17_Comments__c));
+            }
+            if(qc.PJ__c != QCOldMap.get(qc.Id).PJ__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - JinYongYu', qc.PJ__c, QCOldMap.get(qc.Id).PJ__c));
+            }
+            if(qc.Q18_Comments__c != QCOldMap.get(qc.Id).Q18_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - JinYongYu Comments', qc.Q18_Comments__c, QCOldMap.get(qc.Id).Q18_Comments__c));
+            }
+            if(qc.PHU__c != QCOldMap.get(qc.Id).PHU__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - Hang Up', qc.PHU__c, QCOldMap.get(qc.Id).PHU__c));
+            }
+            if(qc.Q19_Comments__c != QCOldMap.get(qc.Id).Q19_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Perception - Hang Up Comments', qc.Q19_Comments__c, QCOldMap.get(qc.Id).Q19_Comments__c));
+            }
+            if(qc.Q0_Comments__c != QCOldMap.get(qc.Id).Q0_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Clarify&Confirm Customer Requir Comments', qc.Q0_Comments__c, QCOldMap.get(qc.Id).Q0_Comments__c));
+            }
+            if(qc.CCI_Comments__c != QCOldMap.get(qc.Id).CCI_Comments__c) {
+                QCHistorys.add(QCHelper.newQCHistory(qc.Id, 'Collect Customer Information Comments', qc.CCI_Comments__c, QCOldMap.get(qc.Id).CCI_Comments__c));
+            }
+         }    
+            // Change the task status.
+            if(qc.RecordTypeId == SSIQCRecordTypeId && qc.Qualified__c == passString){
+                taskIds.add(qc.Task_ID__c);
+            }
+            if(qc.RecordTypeId == SSIQCRecordTypeId && qc.Qualified__c == failString){
+                failtaskIds.add(qc.Task_ID__c);
+            }
+        }
+        
+        // Insert QC sharing records
+        if(QCForShare!=null && !QCForShare.IsEmpty())
+        {
+            ShareQCtoCSR(QCForShare);
+        }
+        
 
-	    // Insert QC History tracking records
-	    if(QCHistorys!=null && !QCHistorys.IsEmpty()) {
-	        UtilSobject.insertSobjects(QCHistorys);
-	    }
-	    
-	    // Change the task status.
-	    taskIds.remove(null);
-	    if(taskIds!=null && !taskIds.IsEmpty())
-	    {
-	        changeTask(taskIds);
-	    }
-	    failtaskIds.remove(null);
-	    if(failtaskIds!=null && !failtaskIds.IsEmpty())
-	    {
-	        changeFailTask(failtaskIds);
-	    }
+        // Insert QC History tracking records
+        if(QCHistorys!=null && !QCHistorys.IsEmpty()) {
+            UtilSobject.insertSobjects(QCHistorys);
+        }
+        
+        // Change the task status.
+        taskIds.remove(null);
+        if(taskIds!=null && !taskIds.IsEmpty())
+        {
+            changeTask(taskIds);
+        }
+        failtaskIds.remove(null);
+        if(failtaskIds!=null && !failtaskIds.IsEmpty())
+        {
+            changeFailTask(failtaskIds);
+        }
     }
 }

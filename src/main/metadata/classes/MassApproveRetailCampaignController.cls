@@ -26,6 +26,7 @@ public with sharing class MassApproveRetailCampaignController {
     public Boolean headChecked { get; set; }
     public Paginator paginator {get;set;}
     
+    private static String confirmed = 'Confirmed';
     private final String RT_SM_EVENT_RC = 'S&M Event Retail Campaign';
     private final String RT_SM_MEDIA_RC = 'S&M Media Retail Campaign';
     private final String CPN_EVENT = Label.Campaign_Type_Event;
@@ -53,7 +54,7 @@ public with sharing class MassApproveRetailCampaignController {
         Double minExp = cpn.Min_Expense__c;
         Double maxExp = cpn.Max_Expense__c;
         Set<String> approveApplyStatus = new Set<String> {'Confirmed', 'Cancel Application'};
-        String approveFeedbackStatus = 'Confirmed';
+        String approveFeedbackStatus = confirmed;
         String queryStr = 'SELECT Id, ' + this.getColumns() + 'Name FROM Retail_Campaign__c WHERE';
         String[] carModles = carModel == null ? null : carModel.split(';', 0);
         
@@ -148,7 +149,7 @@ public with sharing class MassApproveRetailCampaignController {
         List<SelectOption> options = new List<SelectOption>();
         
         options.add(new SelectOption(UtilConstant.Empty, Label.Select_Option_None));
-        options.add(new SelectOption('Confirmed', Label.Status_Confirmed));
+        options.add(new SelectOption(confirmed, Label.Status_Confirmed));
         options.add(new SelectOption('Cancel Application', Label.Status_Cancel_Application));
         options.add(new SelectOption('Approved', Label.Status_Approved));
         return options;
@@ -158,7 +159,7 @@ public with sharing class MassApproveRetailCampaignController {
         List<SelectOption> options = new List<SelectOption>();
         
         options.add(new SelectOption(UtilConstant.Empty, Label.Select_Option_None));
-        options.add(new SelectOption('Confirmed', Label.Status_Confirmed));
+        options.add(new SelectOption(confirmed, Label.Status_Confirmed));
         options.add(new SelectOption('Approved', Label.Status_Approved));
         return options;
     }

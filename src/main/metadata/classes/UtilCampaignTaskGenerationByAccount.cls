@@ -16,6 +16,7 @@
 global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<sObject>{
     global List<ID> cpIdList = new List<ID>();
     
+    private static String mms ='MMS';
     private MisunderstoodTaskGeneration mis;
     public List<Campaign> cpUpdateList = new List<Campaign>(); 
      public List<User> genericUserQueryList = new List<User>(); 
@@ -89,7 +90,7 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
                 if(tk.Subject == strSMS){
                     upSMSTaskList.put(tk.UniqueCampaignMobile__c, tk);
                 }
-                else if(tk.Subject == 'MMS'){
+                else if(tk.Subject == mms){
                     upMMSTaskList.put(tk.UniqueCampaignMobile__c, tk);
                 }
                 else if(tk.Subject == streDM){
@@ -174,10 +175,10 @@ global Class UtilCampaignTaskGenerationByAccount implements Database.Batchable<s
                 UniqueCampaignGenerateTask__c = uniqueTaskField)
             );
         } 
-        else if (cpm.Campaign.Execution_Type__c == 'MMS' && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
+        else if (cpm.Campaign.Execution_Type__c == mms && cpm.Contact.MobilePhone != null && cpm.Contact.MobilePhone != '') {
             taskList.add(new Task(
-                Subject= 'MMS', 
-                RecordTypeId = taskRecordTypeMap.get('MMS').getRecordTypeId(),
+                Subject= mms, 
+                RecordTypeId = taskRecordTypeMap.get(mms).getRecordTypeId(),
                 OwnerId = intUser.Id,
                 Activity_Status__c = strVeriStatus,
                 Phone__c = cpm.Contact.MobilePhone,

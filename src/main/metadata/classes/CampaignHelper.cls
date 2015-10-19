@@ -7,6 +7,7 @@
 */
 public class CampaignHelper {
     
+    private static String pending ='Pending';
     public static Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName();    // Campaign Record Type MAP
     public static Map<String, Schema.RecordTypeInfo> tkRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
     public static string CacCampaign ='CAC Campaign';
@@ -106,10 +107,10 @@ public class CampaignHelper {
         String cpLeadIds = UtilConstant.Empty;
         String cpVehicleIds = UtilConstant.Empty;
         String cpCaseIds = UtilConstant.Empty;
-        Batch_Job__c accJob = new Batch_Job__c(Batch_Type__c='Contact', Status__c='Pending');
-        Batch_Job__c leadJob = new Batch_Job__c(Batch_Type__c='Lead', Status__c='Pending');
-        Batch_Job__c vehJob = new Batch_Job__c(Batch_Type__c='Vehicle', Status__c='Pending');
-        Batch_Job__c caseJob = new Batch_Job__c(Batch_Type__c='Case', Status__c='Pending');
+        Batch_Job__c accJob = new Batch_Job__c(Batch_Type__c='Contact', Status__c=pending);
+        Batch_Job__c leadJob = new Batch_Job__c(Batch_Type__c='Lead', Status__c=pending);
+        Batch_Job__c vehJob = new Batch_Job__c(Batch_Type__c='Vehicle', Status__c=pending);
+        Batch_Job__c caseJob = new Batch_Job__c(Batch_Type__c='Case', Status__c=pending);
         /* END Variable Definition  */
         
         /* START Iterate Campaign to relevant campaign list */
