@@ -90,10 +90,25 @@
         <description>Inquiry Process</description>
         <isActive>true</isActive>
         <values>
-            <fullName>None</fullName>
+            <fullName>Closed</fullName>
             <default>false</default>
         </values>
-        
+        <values>
+            <fullName>Open</fullName>
+            <default>true</default>
+        </values>
+        <values>
+            <fullName>対応中</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>最終承認依頼</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>最終承認済</fullName>
+            <default>false</default>
+        </values>
     </businessProcesses>
     <businessProcesses>
         <fullName>MB Complaint Process</fullName>
@@ -263,14 +278,6 @@
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>Tokyo</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Osaka</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -285,14 +292,6 @@
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>自宅</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>一般道路</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -50396,27 +50395,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Osaka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tokyo</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Accident_Place__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>一般道路</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>自宅</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -55962,14 +55945,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Case_SubSubType__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>新モデル%2F未導入モデル</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>販売店でのサービスについて</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -78658,27 +78633,11 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Osaka</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Tokyo</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Accident_Place__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>一般道路</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>自宅</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -84224,14 +84183,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Case_SubSubType__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>新モデル%2F未導入モデル</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>販売店でのサービスについて</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
