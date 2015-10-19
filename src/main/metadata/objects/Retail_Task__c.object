@@ -130,6 +130,14 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>ApplicationDate__c</fullName>
+        <externalId>false</externalId>
+        <label>Application Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>Assist_End_Date__c</fullName>
         <externalId>false</externalId>
         <formula>IF((MONTH(EndDate__c)-4) &gt; 0
@@ -193,6 +201,22 @@
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Card_Create_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Card Create Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Card_Reissue_Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Card Reissue Date</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
     </fields>
     <fields>
         <fullName>Client_ID__c</fullName>
@@ -855,6 +879,56 @@
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>MD__c</fullName>
+        <externalId>false</externalId>
+        <label>MD</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_Owner_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT Owner Address</label>
+        <length>180</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_Owner_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT Owner Name</label>
+        <length>90</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_User_Address__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT User Address</label>
+        <length>180</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MOT_User_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>MOT User Name</label>
+        <length>90</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MileageMaximum__c</fullName>
         <externalId>false</externalId>
         <label>MileageMaximum</label>
@@ -919,7 +993,7 @@
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>None</fullName>
                 <default>false</default>
             </picklistValues>
@@ -1132,6 +1206,39 @@
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Return_Amount_Tax__c</fullName>
+        <externalId>false</externalId>
+        <label>Return Amount Tax</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Return_Amount_WithTax__c</fullName>
+        <externalId>false</externalId>
+        <label>Return Amount WithTax</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Return_Amount__c</fullName>
+        <externalId>false</externalId>
+        <label>Return Amount</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Sector__c</fullName>
         <externalId>false</externalId>
         <label>Sector</label>
@@ -1164,6 +1271,39 @@
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Service_Advisor__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Dealer Staff Name</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Retail_Tasks</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Service_Amount_Tax__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Invoice Amount Tax</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Service_Amount_WithTax__c</fullName>
+        <externalId>false</externalId>
+        <label>Customer Invoice Amount With Tax</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Service_Amount__c</fullName>
@@ -2139,7 +2279,7 @@
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -2772,7 +2912,7 @@
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
@@ -3405,7 +3545,7 @@
                 <fullName>Monthly</fullName>
                 <default>false</default>
             </values>
-			<values>
+            <values>
                 <fullName>None</fullName>
                 <default>false</default>
             </values>
