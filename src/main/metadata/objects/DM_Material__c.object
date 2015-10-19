@@ -113,6 +113,14 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
+        <fullName>DEPLOYMENT_DUE_DATE__c</fullName>
+        <externalId>false</externalId>
+        <label>DEPLOYMENT DUE DATE</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
         <fullName>DM_Material_External_Id__c</fullName>
         <description>/*
 Created by:  Chris.Huang
@@ -211,6 +219,70 @@ Modify Reason:
         <summaryOperation>sum</summaryOperation>
         <trackTrending>false</trackTrending>
         <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>LABEL_PRINTING_NAME__c</fullName>
+        <externalId>false</externalId>
+        <label>LABEL PRINTING NAME</label>
+        <length>100</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <externalId>false</externalId>
+        <label>MD</label>
+        <length>2</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Model__c</fullName>
+        <externalId>false</externalId>
+        <label>Model</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>PRESENTATION_DATE__c</fullName>
+        <externalId>false</externalId>
+        <label>PRESENTATION DATE</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>PRINT_DUE_DATE__c</fullName>
+        <externalId>false</externalId>
+        <label>PRINT DUE DATE</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Preliminary_Flag__c</fullName>
+        <externalId>false</externalId>
+        <label>Preliminary Flag</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Remark__c</fullName>
