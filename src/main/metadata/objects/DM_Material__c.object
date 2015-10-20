@@ -272,17 +272,11 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>Preliminary_Flag__c</fullName>
+		<defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Preliminary Flag</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
+        <label>Pre-Flag</label>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>Checkbox</type>
     </fields>
     <fields>
         <fullName>Remark__c</fullName>
