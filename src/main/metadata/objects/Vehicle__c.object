@@ -4877,7 +4877,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Recall“</description
     <fields>
         <fullName>Related_From__c</fullName>
         <externalId>false</externalId>
-        <label>Related_From</label>
+        <label>Start Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -4886,7 +4886,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Recall“</description
     <fields>
         <fullName>Related_To__c</fullName>
         <externalId>false</externalId>
-        <label>Related_To</label>
+        <label>End Date</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -4897,7 +4897,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Recall“</description
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Link the competitor vehicle to Account</description>
         <externalId>false</externalId>
-        <label>Account</label>
+        <label>Related Customer</label>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Other_Vehicles</relationshipLabel>
         <relationshipName>Vehicles</relationshipName>
