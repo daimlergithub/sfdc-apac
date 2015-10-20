@@ -1789,7 +1789,7 @@ Modify Reason:
 */
 Attribute in Data Dictionary object Vehicle is "Vehicle_CurrentMileage“</description>
         <externalId>false</externalId>
-        <label>Odometer Reading</label>
+        <label>CurrentMileage</label>
         <precision>18</precision>
         <required>false</required>
         <scale>0</scale>
@@ -1959,6 +1959,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_FirstRegistrationDate�
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Height__c</fullName>
+        <externalId>false</externalId>
+        <label>Highth</label>
+        <length>4</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Info_Source__c</fullName>
@@ -2255,6 +2266,26 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_FirstRegistrationDate�
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>InsuranceExpiryDate__c</fullName>
+        <externalId>false</externalId>
+        <label>InsuranceExpiryDate</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Katashiki__c</fullName>
+        <externalId>false</externalId>
+        <label>Katashiki</label>
+        <length>13</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>LastServiceDate__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -2310,6 +2341,29 @@ Attribute in Data Dictionary object Vehicle is” LastServiceDate“</descriptio
         <externalId>false</externalId>
         <label>Latest Sales Person</label>
         <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ListPrice__c</fullName>
+        <externalId>false</externalId>
+        <label>List Price</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <externalId>false</externalId>
+        <label>MD</label>
+        <length>2</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -2473,6 +2527,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Model_Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Model Description</label>
+        <length>40</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Model__c</fullName>
@@ -4557,6 +4622,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Modification_Package__c</fullName>
+        <externalId>false</externalId>
+        <label>Modification Package</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>NationalType__c</fullName>
         <externalId>false</externalId>
         <label>NationalType</label>
@@ -4573,11 +4649,26 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
                 <fullName>S-02</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>24624222-JP7</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>National_Model__c</fullName>
+        <externalId>false</externalId>
+        <label>National Model</label>
+        <length>18</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>NextEmissionsCheckDate__c</fullName>
@@ -4663,6 +4754,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_OptionCode“</descrip
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Portal_Vehicle_ID__c</fullName>
+        <externalId>false</externalId>
+        <label>My Car ID</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Power__c</fullName>
         <externalId>false</externalId>
         <label>Power</label>
@@ -4731,6 +4833,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ProductionDate“</des
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Range__c</fullName>
+        <externalId>false</externalId>
+        <label>Range</label>
+        <length>63</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Recall__c</fullName>
         <defaultValue>false</defaultValue>
         <description>/* 
@@ -4762,6 +4875,38 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Recall“</description
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Related_From__c</fullName>
+        <externalId>false</externalId>
+        <label>Related_From</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Related_To__c</fullName>
+        <externalId>false</externalId>
+        <label>Related_To</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Related_contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>Link the competitor vehicle to Account</description>
+        <externalId>false</externalId>
+        <label>Account</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Other_Vehicles</relationshipLabel>
+        <relationshipName>Vehicles</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
         <fullName>Retail_CreatedDate__c</fullName>
         <externalId>false</externalId>
         <label>Retail CreatedDate</label>
@@ -4778,6 +4923,28 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Recall“</description
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>RidingCapacity__c</fullName>
+        <externalId>false</externalId>
+        <label>Riding Capacity</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Ruibetsu__c</fullName>
+        <externalId>false</externalId>
+        <label>Ruibetsu</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>SalesType__c</fullName>
@@ -5822,6 +5989,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>Vehicle_Age__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Age</label>
+        <length>2</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Vehicle_Group__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Group</label>
@@ -5856,6 +6034,21 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Vehicle_Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Vehicle Role</label>
+        <picklist>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Vehicle_Site__c</fullName>
         <externalId>false</externalId>
         <label>Vehicle Site</label>
@@ -5886,6 +6079,28 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <type>Date</type>
     </fields>
     <fields>
+        <fullName>Weight__c</fullName>
+        <externalId>false</externalId>
+        <label>Weight</label>
+        <length>10</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Width__c</fullName>
+        <externalId>false</externalId>
+        <label>Width</label>
+        <length>4</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>last_update_changed_by__c</fullName>
         <externalId>false</externalId>
         <label>Last update changed by</label>
@@ -5904,6 +6119,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>length__c</fullName>
+        <externalId>false</externalId>
+        <label>length</label>
+        <length>5</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <label>Vehicle</label>
     <listViews>
@@ -6866,6 +7092,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <picklistValues>
             <picklist>NationalType__c</picklist>
             <values>
+                <fullName>24624222-JP7</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>S-00</fullName>
                 <default>false</default>
             </values>
@@ -7671,6 +7901,13 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>VAN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Role__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -11035,6 +11272,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <picklistValues>
             <picklist>NationalType__c</picklist>
             <values>
+                <fullName>24624222-JP7</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>S-00</fullName>
                 <default>false</default>
             </values>
@@ -11844,6 +12085,13 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>VAN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Role__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15389,6 +15637,13 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>VAN</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Vehicle_Role__c</picklist>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
