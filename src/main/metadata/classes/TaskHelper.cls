@@ -30,6 +30,8 @@ public class TaskHelper {
     private static String MMSTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('MMS').getRecordTypeId();
     private static String GeneralTaskRecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId();
     private static String mbdaTaskRecordTypeId = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('MBDA Survey').getRecordTypeId();
+	public static string closedString='closed'; 
+	public static string validString='valid';
     
     private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
        
@@ -214,20 +216,20 @@ public class TaskHelper {
             
             // By Shuang Li BRD-AS-CAC-007
             /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
-            if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed')
+            if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId) && t.Status == closedString && Trigger.oldMap.get(t.Id).Status != closedString)
             *--
             
-            if (t.RecordTypeId == SSITaskRecordTypeId && t.Status == 'Closed' && taskOldMap.get(t.Id).Status != 'Closed') 
+            if (t.RecordTypeId == SSITaskRecordTypeId && t.Status == closedString && taskOldMap.get(t.Id).Status != closedString) 
             {
                 taskOwnerIds.add(t.OwnerId);
             }
             
             // By Sinow HLD-CAC-003
             /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
-            if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId1 || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && Trigger.oldMap.get(t.Id).Status != 'Closed') 
+            if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == SMARTSSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId1 || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == closedString && Trigger.oldMap.get(t.Id).Status != closedString) 
             *--
             
-            if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId1 || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == 'Closed' && taskOldMap.get(t.Id).Status != 'Closed') 
+            if ((t.RecordTypeId == SSITaskRecordTypeId || t.RecordTypeId == OBTaskRecordTypeId1 || t.RecordTypeId == WelcomeCallRecordTypeId) && t.Status == closedString && taskOldMap.get(t.Id).Status != closedString) 
             {
                 t.SentTime__c = DateTime.now();
             }
@@ -260,7 +262,7 @@ public class TaskHelper {
         Set<Id> taskOwnerIds = new Set<Id>();
         for(Task t : tasks)
         {
-            if (t.RecordTypeId == SSITaskRecordTypeId && t.Status == 'Closed' && taskOldMap.get(t.Id).Status != 'Closed') 
+            if (t.RecordTypeId == SSITaskRecordTypeId && t.Status == closedString && taskOldMap.get(t.Id).Status != closedString) 
             {
                 taskOwnerIds.add(t.OwnerId);
             }
@@ -283,12 +285,12 @@ public class TaskHelper {
             }
             // By Shuang Li BRD-AS-CAC-007
             /*** TODO commented as part of kernel testing defect - Defect_10993 Validate with Sinow and delete the code 
-            if (Trigger.isUpdate && (task.RecordTypeId == SSITaskRecordTypeId || task.RecordTypeId == SMARTSSITaskRecordTypeId) && task.Status == 'Closed' 
-                && userIdNames.containsKey(task.OwnerId) && Trigger.oldMap.get(task.Id).Status != 'Closed') 
+            if (Trigger.isUpdate && (task.RecordTypeId == SSITaskRecordTypeId || task.RecordTypeId == SMARTSSITaskRecordTypeId) && task.Status == closedString 
+                && userIdNames.containsKey(task.OwnerId) && Trigger.oldMap.get(task.Id).Status != closedString) 
             */
         
-            if (Trigger.isUpdate && task.RecordTypeId == SSITaskRecordTypeId && task.Status == 'Closed' 
-                && userIdNames.containsKey(task.OwnerId) && taskOldMap.get(task.Id).Status != 'Closed') 
+            if (Trigger.isUpdate && task.RecordTypeId == SSITaskRecordTypeId && task.Status == closedString 
+                && userIdNames.containsKey(task.OwnerId) && taskOldMap.get(task.Id).Status != closedString) 
             {
                 task.Executed_CSR__c = userIdNames.get(task.OwnerId);
             }
@@ -340,7 +342,7 @@ public class TaskHelper {
             for(Task t : tasks)
             {
                 if(t.Task_RecordType_Name__c == 'IB Call' && t.CallType  == 'Inbound' && t.Phone__c != null
-                && t.IB_Status__c == 'valid' && t.UCID__c != null){
+                && t.IB_Status__c == validString && t.UCID__c != null){
                     String phone = t.Phone__c;
                     if(phone.startsWith('1') && phone.length() == 11){
                         system.debug('--------Create sms task in Insert-');
@@ -355,15 +357,15 @@ public class TaskHelper {
             //US-DPCR-005
             for(Task t : tasks)
             {
-                if(t.InteractionIds__c != null && t.InteractionIds__c != '' && t.WhatId != null && String.valueOf(t.WhatId).startsWith('500') && t.Status == 'Closed')
+                if(t.InteractionIds__c != null && t.InteractionIds__c != '' && t.WhatId != null && String.valueOf(t.WhatId).startsWith('500') && t.Status == closedString)
                 {
                     caseIdInteractionIds.put(t.whatId, t.InteractionIds__c);
                 } 
                 
                 // Modified By Justin -- Creates a sms task after an IB call hungs   
                 if(t.Task_RecordType_Name__c == 'IB Call' && t.CallType  == 'Inbound' && t.Phone__c != null
-                && ((t.IB_Status__c == 'valid' && t.UCID__c != null && taskOldMap.get(t.Id).UCID__c == null)
-                || (t.UCID__c != null && t.IB_Status__c == 'valid' && taskOldMap.get(t.Id).IB_Status__c != 'valid'))){
+                && ((t.IB_Status__c == validString && t.UCID__c != null && taskOldMap.get(t.Id).UCID__c == null)
+                || (t.UCID__c != null && t.IB_Status__c == validString && taskOldMap.get(t.Id).IB_Status__c != validString))){
                     String phone = t.Phone__c;
                     if(phone.startsWith('1') && phone.length() == 11){
                         system.debug('--------Create sms task in update-');
@@ -654,7 +656,7 @@ public class TaskHelper {
             }
             Task smsTask = new Task();
             smsTask.Subject = 'SMS'; 
-            smsTask.Status = 'Closed';    
+            smsTask.Status = closedString;    
             smsTask.Activity_Status__c = 'Sent';      
             smsTask.RecordTypeId = SMS_TASK_RECORDTYPEID;
             smsTask.Related_Task_Id__c = t.Id;

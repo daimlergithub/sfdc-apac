@@ -25,7 +25,7 @@ public with sharing class MassApproveToolKitController {
     public Boolean headChecked { get; set; }
     public Tool_Kit__c toolKit { get; set; }
     public Paginator paginator {get;set;}
-    
+    public static  String confirmedString='Confirmed';
     private final String RT_EVENT_TK = 'Event';
     private final String RT_MEDIA_TK = 'Media';
     private final String TK_EVENT = Label.Tool_Kit_Type_Event;
@@ -139,7 +139,7 @@ public with sharing class MassApproveToolKitController {
         List<SelectOption> options = new List<SelectOption>();
         
         options.add(new SelectOption('', Label.Select_Option_None));
-        options.add(new SelectOption('Confirmed', Label.Status_Confirmed));
+        options.add(new SelectOption(confirmedString, Label.Status_Confirmed));
         options.add(new SelectOption('Cancel Application', Label.Status_Cancel_Application));
         return options;
     }
@@ -148,7 +148,7 @@ public with sharing class MassApproveToolKitController {
         List<SelectOption> options = new List<SelectOption>();
         
         options.add(new SelectOption('', Label.Select_Option_None));
-        options.add(new SelectOption('Confirmed', Label.Status_Confirmed));
+        options.add(new SelectOption(confirmedString, Label.Status_Confirmed));
         return options;
     }
     
@@ -245,7 +245,7 @@ public with sharing class MassApproveToolKitController {
         headChecked = false;
     }
     
-    public void last() {
+    public void last() { 
         toolKitsInfo.clear();
         toolKitShowList = paginator.getLastPage();
         for (sObject tk : toolKitShowList) {
