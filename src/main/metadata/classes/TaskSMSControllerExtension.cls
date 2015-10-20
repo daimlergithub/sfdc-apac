@@ -40,9 +40,9 @@ public class TaskSMSControllerExtension
     /* Public Methods */
     public PageReference send() 
     {
-        system.debug('-----' + customer );
-        system.debug('-----' + templateId );
-        system.debug('-----' + templateMessage );
+        system.debug('------' + customer );
+        system.debug('-------' + templateId );
+        system.debug('--------' + templateMessage );
         if(customer == null)
         {
             // You have to select one customer before send SMS.
@@ -75,12 +75,12 @@ public class TaskSMSControllerExtension
     // set value to template message
     public PageReference parseTemplateMessage()
     {
-        system.debug('-----' + templateMap);
-        system.debug('-----' + templateId);
+        system.debug('-------------' + templateMap);
+        system.debug('---------' + templateId);
         if(templateMap.containsKey(templateId)) 
         {
            templateMessage = optimzeContent(templateMap.get(templateId));
-           system.debug('-----templateMessage ' + templateMessage );
+           system.debug('------templateMessage ' + templateMessage );
         }
         else
         {

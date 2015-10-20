@@ -11,6 +11,7 @@
 */
 global class SSIBatchGenerateWelcomeCall implements Database.Batchable<SObject>, Database.Stateful  {
     
+    private static String welcomeCallString = 'Welcome Call';
     private String query;
     
     private Integer successCount = 0;
@@ -42,14 +43,14 @@ global class SSIBatchGenerateWelcomeCall implements Database.Batchable<SObject>,
         for(Account acc : (List<Account>)scope){
             Boolean hasTask = false;
             for(ActivityHistory ah : acc.ActivityHistories){
-                if(ah.Subject == 'Welcome Call' || ah.Subject == 'Welcome Call + 1st Survey Call'){
+                if(ah.Subject == welcomeCallString || ah.Subject == 'Welcome Call + 1st Survey Call'){
                     hasTask = true;
                     break;
                 }
             }
 
             for(OpenActivity ah : acc.OpenActivities){
-                if(ah.Subject == 'Welcome Call' || ah.Subject == 'Welcome Call + 1st Survey Call'){
+                if(ah.Subject == welcomeCallString || ah.Subject == 'Welcome Call + 1st Survey Call'){
                     hasTask = true;
                     break;
                 }
@@ -77,18 +78,18 @@ global class SSIBatchGenerateWelcomeCall implements Database.Batchable<SObject>,
 
     }
     
-    private Id WCRTID = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
+    private Id WCRTID = Schema.Sobjecttype.Task.getRecordTypeInfosByName().get(welcomeCallString).getRecordTypeId();
     
    @TestVisible private Task createWelcomeCallTask(Account acc){
         Task t = new Task();
         t.RecordTypeId = WCRTID;
-        t.Subject = 'Welcome Call';
+        t.Subject = welcomeCallString;
         t.WhatId = acc.Id;
         t.WhoId = acc.PersonContactId;
         t.CustomerName__c = acc.Name;
         t.OwnerId = OBSV.Id;
         t.Status = 'Open';
-        t.Welcome_Call_Source__c = 'Welcome Call';
+        t.Welcome_Call_Source__c = welcomeCallString;
         return t;
     }
     

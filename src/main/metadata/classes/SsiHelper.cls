@@ -1,26 +1,27 @@
 public class SsiHelper 
 {
+    private static String  validString = 'Valid';
     public static void fieldsValidationRule(Map<Id,SSI__c> newMap, Map<Id,SSI__c> oldMap){
         for(SSI__c ssi : newMap.values()){
             SSI__c old = oldMap.get(ssi.Id);
 
-            if(ssi.DealerCheck_Status__c == 'Valid'
+            if(ssi.DealerCheck_Status__c == validString
                 && (old.DealerCheck_Status__c == 'Pending' 
                     || old.DealerCheck_Status__c == 'Reject'
                     || old.DealerCheck_Status__c == 'Accept')){
                 ssi.addError('DealerCheck Status cannot be changed to Valid.');
             }
-            if(old.DealerCheck_Status__c == 'Valid' && ssi.DealerCheck_Status__c != 'Valid' ){
+            if(old.DealerCheck_Status__c == validString && ssi.DealerCheck_Status__c != validString ){
                 ssi.addError('DealerCheck Status cannot be changed.');
             }
 
-            if(ssi.CarModelCheck_Status__c == 'Valid' 
+            if(ssi.CarModelCheck_Status__c == validString 
                 && (old.CarModelCheck_Status__c == 'Pending' 
                     || old.CarModelCheck_Status__c == 'Reject'
                     || old.CarModelCheck_Status__c == 'Accept')){
                 ssi.addError('CarModelCheck Status cannot be changed to Valid.');
             }
-            if(old.CarModelCheck_Status__c == 'Valid' && ssi.CarModelCheck_Status__c != 'Valid' ){
+            if(old.CarModelCheck_Status__c == validString && ssi.CarModelCheck_Status__c != validString ){
                 ssi.addError('CarModelCheck Status cannot be changed.');
             }
         }

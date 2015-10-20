@@ -6,6 +6,8 @@
     1. Justin Yu Created on 2014-05-14
 */
 public class LeadConvertingController {
+
+    private static String language = 'English';
     
     private final String retailCampaignId = ApexPages.currentPage().getParameters().get('id');
     private final String leadRTname = ApexPages.currentPage().getParameters().get('rt');
@@ -103,7 +105,7 @@ public class LeadConvertingController {
                 
                 if(leadRTname == 'AS Retail Campaign') {
                     if((rcmi.lead.Lead_Type__c == '' || rcmi.lead.Lead_Type__c == null)) {
-                        if(UserInfo.getLanguage() == 'English') {
+                        if(UserInfo.getLanguage() == language) {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Lead Type'));
                         } else {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: sales Lead type'));
@@ -111,7 +113,7 @@ public class LeadConvertingController {
                         return null;
                     }
                     if((rcmi.lead.Lead_Sub_Type__c == '' || rcmi.lead.Lead_Sub_Type__c == null) && (rcmi.lead.Lead_Type__c == 'Product' || rcmi.lead.Lead_Type__c == 'TA&C')) {
-                        if(UserInfo.getLanguage() == 'English') {
+                        if(UserInfo.getLanguage() == language) {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Lead Sub Type'));
                         } else {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: sales leads a subtype'));
@@ -119,7 +121,7 @@ public class LeadConvertingController {
                         return null;
                     }
                     if((rcmi.lead.Lead_Additional_Service__c == '' || rcmi.lead.Lead_Additional_Service__c == null)) {
-                        if(UserInfo.getLanguage() == 'English') {
+                        if(UserInfo.getLanguage() == language) {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Lead Additional Service'));
                         } else {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: sales leads service'));
@@ -127,7 +129,7 @@ public class LeadConvertingController {
                         return null;
                     }
                     if((rcmi.lead.Collectioner_Notes__c == '' || rcmi.lead.Collectioner_Notes__c == null)) {
-                        if(UserInfo.getLanguage() == 'English') {
+                        if(UserInfo.getLanguage() == language) {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Collectioner Notes'));
                         } else {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: collectors notes'));
@@ -136,7 +138,7 @@ public class LeadConvertingController {
                     }
                 } else if(leadRTname != 'Segmentation Only') {
                     if((rcmi.lead.Lead_Desired_Service__c == '' || rcmi.lead.Lead_Desired_Service__c == null)) {
-                        if(UserInfo.getLanguage() == 'English') {
+                        if(UserInfo.getLanguage() == language) {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Lead Desired Service'));
                         } else {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: Lead Desired Service'));
@@ -144,7 +146,7 @@ public class LeadConvertingController {
                         return null;
                     }
                     if((rcmi.lead.Retail_Purchase_Time__c == '' || rcmi.lead.Retail_Purchase_Time__c == null)) {
-                        if(UserInfo.getLanguage() == 'English') {
+                        if(UserInfo.getLanguage() == language) {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Purchase Time'));
                         } else {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: Purchase Time'));
@@ -152,7 +154,7 @@ public class LeadConvertingController {
                         return null;
                     }
                     if((rcmi.lead.Lead_Type__c == '' || rcmi.lead.Lead_Type__c == null)) {
-                        if(UserInfo.getLanguage() == 'English') {
+                        if(UserInfo.getLanguage() == language) {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please fill the mandatory fields first: Lead Type'));
                         } else {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Sorry, please enter required fields: sales lead type'));
@@ -199,7 +201,7 @@ public class LeadConvertingController {
                 upsert tolead;
             } else {
                 Database.rollback(sp);
-                if(UserInfo.getLanguage() == 'English') {
+                if(UserInfo.getLanguage() == language) {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'No records choosed.'));
                 } else {
                             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 'Did not select any records.'));
