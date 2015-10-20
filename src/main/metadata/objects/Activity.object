@@ -1575,6 +1575,15 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>MD__c</fullName>
+        <externalId>false</externalId>
+        <label>MD</label>
+        <length>2</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>More_Than_2_OB_Times__c</fullName>
         <externalId>false</externalId>
         <formula>IF( OB_Call_Times__c &gt;=3, IMAGE( "/img/samples/flag_red.gif",""), "")</formula>
@@ -2855,8 +2864,8 @@ Avaya Communication Manager over time and is often used for reporting purposes.<
         </sharedTo>
     </listViews>
     <searchLayouts>
-        <excludedStandardButtons>NewEvent</excludedStandardButtons>
         <excludedStandardButtons>NewTask</excludedStandardButtons>
+        <excludedStandardButtons>NewEvent</excludedStandardButtons>
         <searchResultsAdditionalFields>TASK.SUBJECT</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHO_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>TASK.WHAT_NAME</searchResultsAdditionalFields>
