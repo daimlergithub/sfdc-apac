@@ -11,7 +11,7 @@ public class TaskMassChangeActivateDeactiveTest {
 
         Id welcomeCallRT = Schema.SObjectType.Task.getRecordTypeInfosByName().get('Welcome Call').getRecordTypeId();
         Id paid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId();        
-        User usr1 = UtilTestData.createUser('Customer Retention Office 1','Customer Retention');
+        User usr1 = UtilTestData.createUser('Remarketing Team Lead','Customer Retention');
         usr1.Active__c=true;
         update usr1;      
         system.runAs(usr1){
@@ -39,14 +39,14 @@ public class TaskMassChangeActivateDeactiveTest {
         
         Test.startTest();
         PageReference taskMassChangeActivateDeactive = Page.TaskMassChangeActivateDeactive;
-        taskMassChangeActivateDeactive.getParameters().put('objIds', task1.id);
-        Test.setCurrentPage(taskMassChangeActivateDeactive);
+       taskMassChangeActivateDeactive.getParameters().put('objIds', task1.id);
+       Test.setCurrentPage(taskMassChangeActivateDeactive);
         TaskMassChangeActivateDeactive controller = new TaskMassChangeActivateDeactive();
         controller.task = task1;
         controller.Activate();
         controller.Deactivate();
-        usr = [select id, Active__c from User where id = :usr1.id];
-        System.assertEquals(usr.Active__c, true);        
+         usr = [select id, Active__c from User where id = :usr.id];
+        System.assertEquals(usr.Active__c, false);        
         Test.stopTest();
         }
     }
@@ -90,8 +90,8 @@ public class TaskMassChangeActivateDeactiveTest {
         controller.task = task1;
         controller.Deactivate(); 
         Test.stopTest();
-        usr = [select id, Active__c from User where id = :usr1.id];
-        System.assertEquals(usr.Active__c, true); 
+        usr = [select id, Active__c from User where id = :usr.id];
+        System.assertEquals(usr.Active__c, false); 
         }
     }
 }
