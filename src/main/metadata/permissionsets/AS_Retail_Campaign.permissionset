@@ -5224,11 +5224,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Car_Model__c.AMG_Classification__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Car_Model__c.Availability_Flag__c</field>
         <readable>false</readable>
     </fieldPermissions>
