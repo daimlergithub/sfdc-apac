@@ -1362,19 +1362,23 @@
         <fullName>Lead_Creation_flag__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>Lead Creation Flag</label>
+        <label>Auto Lead Creation</label>
         <trackFeedHistory>false</trackFeedHistory>
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>MD__c</fullName>
+       <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+        <description>For JP users set to JP</description>
         <externalId>false</externalId>
-        <label>MD</label>
+        <label>Market Discriminator</label>
         <length>2</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
         <type>Text</type>
-        <unique>false</unique>
+        <unique>false</unique>  
     </fields>
     <fields>
         <fullName>Max_Car_Age__c</fullName>
