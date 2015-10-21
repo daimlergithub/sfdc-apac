@@ -154,7 +154,7 @@
         <fullName>SurveyTakenByVehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Vehicle Relationship</label>
+        <label>Survey Taken By Vehicle Relationship</label>
         <referenceTo>Vehicle_Relationship__c</referenceTo>
         <relationshipLabel>Surveys Taken</relationshipLabel>
         <relationshipName>Surveys_Taken</relationshipName>
