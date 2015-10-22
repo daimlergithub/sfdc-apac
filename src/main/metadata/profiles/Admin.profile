@@ -1217,10 +1217,7 @@
         <apexClass>VehicleDataSharingHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>VehicleDataSharingHandlerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    
     <classAccesses>
         <apexClass>VehicleRelLookingController</apexClass>
         <enabled>true</enabled>
