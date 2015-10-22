@@ -17822,10 +17822,7 @@
         <apexPage>VehicleRelLooking</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
-    <pageAccesses>
-        <apexPage>Vehicle_Picker</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
+    
     <pageAccesses>
         <apexPage>ViewTask</apexPage>
         <enabled>true</enabled>
