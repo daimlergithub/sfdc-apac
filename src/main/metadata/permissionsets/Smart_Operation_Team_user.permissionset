@@ -8048,11 +8048,7 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
         <field>Dealer_Locator__c.Last_Usage_Flag__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Dealer_Locator__c.MD_c__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>false</editable>
         <field>Dealer_Locator__c.Metro_Rural__c</field>
