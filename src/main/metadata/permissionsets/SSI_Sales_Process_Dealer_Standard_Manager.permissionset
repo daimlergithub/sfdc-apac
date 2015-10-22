@@ -5222,7 +5222,11 @@
         <field>Car_Model_Attribute__c.Value__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Car_Model__c.AMG_Classification__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Car_Model__c.Availability_Flag__c</field>
@@ -7861,16 +7865,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Delivery_Type__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.Delivery_Type_c__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>DM_Request__c.Delivery__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16638,6 +16632,10 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Case.Retail_Campaign</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Case.Roadside_Assistance</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
