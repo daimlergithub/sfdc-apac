@@ -97,6 +97,18 @@
             <fullName>Open</fullName>
             <default>true</default>
         </values>
+        <values>
+            <fullName>対応中</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>最終承認依頼</fullName>
+            <default>false</default>
+        </values>
+        <values>
+            <fullName>最終承認済</fullName>
+            <default>false</default>
+        </values>
     </businessProcesses>
     <businessProcesses>
         <fullName>MB Complaint Process</fullName>

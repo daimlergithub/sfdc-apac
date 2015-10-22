@@ -280,9 +280,8 @@
         <label>Market Discriminator</label>
         <length>2</length>
         <required>true</required>
-        <trackTrending>false</trackTrending>
         <type>Text</type>
-        <unique>false</unique>  
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Member_Latest_Update_Time__c</fullName>
