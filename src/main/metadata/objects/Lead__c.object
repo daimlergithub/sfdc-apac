@@ -3448,7 +3448,7 @@ Contact__r.Email__c
         <fullName>FirstName_Native_1__c</fullName>
         <externalId>false</externalId>
         <label>FirstName Native 1</label>
-        <length>50</length>
+        <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -3460,7 +3460,7 @@ Contact__r.Email__c
         <fullName>FirstName__c</fullName>
         <externalId>false</externalId>
         <label>FirstName</label>
-        <length>50</length>
+        <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -6745,7 +6745,7 @@ Modify Reason:
         <fullName>LastName_Native_1__c</fullName>
         <externalId>false</externalId>
         <label>LastName Native 1</label>
-        <length>50</length>
+        <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -6757,7 +6757,7 @@ Modify Reason:
         <fullName>LastName__c</fullName>
         <externalId>false</externalId>
         <label>LastName</label>
-        <length>50</length>
+        <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -10540,13 +10540,12 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <fullName>Related_Configuration_Codes__c</fullName>
         <externalId>false</externalId>
         <label>MB Online Codes</label>
-        <length>255</length>
-        <required>false</required>
+        <length>500</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
     </fields>
     <fields>
         <fullName>Relation_With_The_Leads__c</fullName>
