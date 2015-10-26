@@ -316,22 +316,7 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Delivery_Type_c__c</fullName>
-        <externalId>false</externalId>
-        <label>Delivery_Type__c</label>
-        <picklist>
-            <picklistValues>
-                <fullName>none</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Delivery__c</fullName>
+        <fullName>Delivery_Type__c</fullName>
         <externalId>false</externalId>
         <label>Delivery Type</label>
         <picklist>
@@ -432,6 +417,9 @@ Modify Reason:
     </fields>
     <fields>
         <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>
