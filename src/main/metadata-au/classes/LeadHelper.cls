@@ -1034,27 +1034,37 @@ public static void auAfter_Insert_Update_Events(List<Lead__c> listNewLeads,map<i
             List<String> CCemails = new List<String>();
             
             for(Contact contact : listContact) {
-                //modified by SFDCAU-467 Defect Start
-                if((lead.X24H_Untouched__c == false && lead.X72H_Untouched__c == false) && (contact.AccountId == lead.Assigned_Dealer__c  && contact.Finance_Lead_Type__c != null && contact.Finance_Lead_Type__c.contains(lead.Nature_of_Request__c) &&
-                        contact.Email != null && (contact.Lead_Escalation_Recipient_Type__c.contains('Immediate Notice') && (contact.Business_Unit__c != null && contact.Sub_BusinessUnit__c != null && contact.Business_Unit__c.contains(lead.Business_Unit__c) && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c))))))
-                {
-                    TOemails.add(contact.Email);
-                }
-                else if((lead.X24H_Untouched__c == true && lead.X72H_Untouched__c == false) && (contact.AccountId == lead.Assigned_Dealer__c  && contact.Finance_Lead_Type__c != null && contact.Finance_Lead_Type__c.contains(lead.Nature_of_Request__c) &&
-                        contact.Email != null && (contact.Lead_Escalation_Recipient_Type__c.contains('24H Untouched Notice') && (contact.Business_Unit__c != null && contact.Sub_BusinessUnit__c != null && contact.Business_Unit__c.contains(lead.Business_Unit__c) && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c))))))
-                {
-                    TOemails.add(contact.Email);
-                }
-                else if(lead.X72H_Untouched__c == true && (contact.AccountId == lead.Assigned_Dealer__c  && contact.Finance_Lead_Type__c != null && contact.Finance_Lead_Type__c.contains(lead.Nature_of_Request__c) &&
-                        contact.Email != null && (contact.Lead_Escalation_Recipient_Type__c.contains('72H Untouched Notice') && (contact.Business_Unit__c != null && contact.Sub_BusinessUnit__c != null && contact.Business_Unit__c.contains(lead.Business_Unit__c) && ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c))))))
-                {               
-                    TOemails.add(contact.Email);
-                }
+                //modified by SFDCAU-467 & SFDCAU-524 Defect Start
+                if(contact.Email != null && 
+                    contact.AccountId == lead.Assigned_Dealer__c  && 
+                    contact.Finance_Lead_Type__c != null && 
+                    lead.Nature_of_Request__c != null &&
+                    contact.Finance_Lead_Type__c.contains(lead.Nature_of_Request__c) && 
+                    contact.Business_Unit__c != null && 
+                    contact.Sub_BusinessUnit__c != null && 
+                    contact.Business_Unit__c.contains(lead.Business_Unit__c) &&
+                    ((lead.Sub_BusinessUnit__c == 'Finance & Insurance' && (contact.Sub_BusinessUnit__c.contains('Finance') || contact.Sub_BusinessUnit__c.contains('Insurance'))) || 
+                    contact.Sub_BusinessUnit__c.contains(lead.Sub_BusinessUnit__c))
+                    )
+                    {
+                        if(lead.X24H_Untouched__c == false && lead.X72H_Untouched__c == false && contact.Lead_Escalation_Recipient_Type__c.contains('Immediate Notice'))
+                        {
+                            TOemails.add(contact.Email);
+                        }
+                        else if(lead.X24H_Untouched__c == true && lead.X72H_Untouched__c == false && contact.Lead_Escalation_Recipient_Type__c.contains('24H Untouched Notice'))
+                        {
+                            TOemails.add(contact.Email);
+                        }
+                        else if(lead.X72H_Untouched__c == true && contact.Lead_Escalation_Recipient_Type__c.contains('72H Untouched Notice'))
+                        {
+                            TOemails.add(contact.Email);
+                        }
+                    }
                 else if(contact.AccountId == lead.Assigned_Dealer__c && contact.Lead_Escalation_Recipient_Type__c.contains('CC Lead Escalation Recipient')) {
                     CCemails.add(contact.Email);
                 }
             }
-             //modified by SFDCAU-467 Defect End
+             //modified by SFDCAU-467 & SFDCAU-524 Defect End
             if(!TOemails.isEmpty()) {
                 leadContactToEmails.put(lead, TOemails);
             }
