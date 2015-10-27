@@ -201,6 +201,16 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Company_Name_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Name Kana</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>	
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>

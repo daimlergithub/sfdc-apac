@@ -136,7 +136,7 @@
     <fields>
         <fullName>Data_SubSource__c</fullName>
         <externalId>false</externalId>
-        <label>Touch Point</label>
+        <label>Touch Point Details</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
