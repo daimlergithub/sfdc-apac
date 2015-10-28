@@ -314,11 +314,11 @@ public with sharing class VehicleRelationshipHelper {
                     return;
                 }
                 
-                if (!customerIds.contains(cvr.Contact__c)){
+                 if (cvr.Contact__c != null && !customerIds.contains(cvr.Contact__c)){
                     customerIds.add(cvr.Contact__c);
                 }
                 
-                if (!vehicleIds.contains(cvr.Vehicle_ID__c)){
+               if (cvr.Vehicle_ID__c != null && !vehicleIds.contains(cvr.Vehicle_ID__c)){
                     vehicleIds.add(cvr.Vehicle_ID__c);
                 }
                 if(((isInsert || isdelete) && cvr.Car_Relation__c =='Owner'))
