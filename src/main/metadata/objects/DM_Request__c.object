@@ -117,9 +117,9 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Attention_c__c</fullName>
+        <fullName>Attention__c</fullName>
         <externalId>false</externalId>
-        <label>Attention__c</label>
+        <label>Attention</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -550,9 +550,9 @@ Modify Reason:
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>Status2_c__c</fullName>
+        <fullName>Status1__c</fullName>
         <externalId>false</externalId>
-        <label>Status2__c</label>
+        <label>Status1</label>
         <picklist>
             <picklistValues>
                 <fullName>none</fullName>
@@ -565,9 +565,24 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Status3_c__c</fullName>
+        <fullName>Status2__c</fullName>
         <externalId>false</externalId>
-        <label>Status3__c</label>
+        <label>Status2</label>
+        <picklist>
+            <picklistValues>
+                <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Status3__c</fullName>
+        <externalId>false</externalId>
+        <label>Status3</label>
         <picklist>
             <picklistValues>
                 <fullName>none</fullName>
@@ -649,9 +664,9 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>TitleOfHonor_c__c</fullName>
+        <fullName>TitleOfHonor__c</fullName>
         <externalId>false</externalId>
-        <label>TitleOfHonor__c</label>
+        <label>TitleOfHonor</label>
         <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>

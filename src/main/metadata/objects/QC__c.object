@@ -1375,7 +1375,7 @@ Customer hung up the phone and then hang up.</inlineHelpText>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>PS_Comment_c__c</fullName>
+        <fullName>PS_Comment__c</fullName>
         <externalId>false</externalId>
         <label>Perception - Satisfaction Comments</label>
         <length>255</length>

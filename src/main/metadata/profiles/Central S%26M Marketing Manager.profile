@@ -518,6 +518,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>RecallAfterInsertUpdateTriggerHandler</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>RecallHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1217,7 +1221,6 @@
         <apexClass>VehicleDataSharingHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    
     <classAccesses>
         <apexClass>VehicleRelLookingController</apexClass>
         <enabled>false</enabled>
@@ -1302,7 +1305,6 @@
         <apexClass>campaignHistoryLogGeneration</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    
     <classAccesses>
         <apexClass>superSort</apexClass>
         <enabled>false</enabled>
@@ -4010,6 +4012,11 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Address__c.City__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Address__c.Company_Name_Native__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7893,9 +7900,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.Attention_c__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>DM_Request__c.Attention__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8059,13 +8066,18 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>DM_Request__c.Status2_c__c</field>
+        <field>DM_Request__c.Status1__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.Status3_c__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>DM_Request__c.Status2__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>DM_Request__c.Status3__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -8073,9 +8085,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
+        <editable>false</editable>
         <field>DM_Request__c.Staus__c</field>
-        <readable>true</readable>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8083,9 +8095,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>DM_Request__c.TitleOfHonor_c__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>DM_Request__c.TitleOfHonor__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -8152,7 +8164,6 @@
         <field>Dealer_Locator__c.Last_Usage_Flag__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    
     <fieldPermissions>
         <editable>false</editable>
         <field>Dealer_Locator__c.Metro_Rural__c</field>
@@ -8544,9 +8555,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Event.Created_By_EP_Transaction_c__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>Event.Created_By_EP_Transaction__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -11269,9 +11280,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>QC__c.PS_Comment_c__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>QC__c.PS_Comment__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -14349,9 +14360,9 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Task.Created_By_EP_Transaction_c__c</field>
-        <readable>true</readable>
+        <editable>false</editable>
+        <field>Task.Created_By_EP_Transaction__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -17615,7 +17626,6 @@
         <apexPage>VehicleRelLooking</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
-    
     <pageAccesses>
         <apexPage>ViewTask</apexPage>
         <enabled>true</enabled>
