@@ -518,10 +518,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>RecallAfterInsertUpdateTriggerHandler</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>RecallHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
