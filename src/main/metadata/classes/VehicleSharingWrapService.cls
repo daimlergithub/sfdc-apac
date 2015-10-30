@@ -1,20 +1,25 @@
-/***
-** Wrap service for vehicles to share.
-** 1. Wraps vehicle record linked by account link, find the CRM Code included in the account link "Name" and 
-**    share the vehicle record to all active users of the active dealers with the CRM Code. 
-** 2. Wraps vehicle record linked by retail vehicle relationship, share vehicle to active users of owner dealer 
-**    and the active dealers with the same CRM Code.
-**
-** Created By: CC
-** Date: 2014-06-12
-**/
+/**
+* Wrap service for vehicles to share.
+* 1. Wraps vehicle record linked by account link, find the CRM Code included in the account link "Name" and 
+*    share the vehicle record to all active users of the active dealers with the CRM Code. 
+* 2. Wraps vehicle record linked by retail vehicle relationship, share vehicle to active users of owner dealer 
+*    and the active dealers with the same CRM Code.
+*
+* Created By: CC
+* Date: 2014-06-12
+*/
 public with sharing class VehicleSharingWrapService {
 	public VehicleSharingWrapService() {
 	}
-
-    /***
-    ** Gets account links link to vehicle then wraps those vehicles. 
-    **/
+    
+    /**
+	*@Description :This mehtod gets account links link to vehicle then wraps those vehicles.
+	*@Author :Shrinivas Desai.
+	*@Date : 27/10/2015
+	*@param: List of Account Link object records.
+	*@return:This mehtod does not return any value.
+	*@see:wrapVehicleFromAccountLinks (Constructor method)
+	*/
 	public List<SharingWrapper> wrapVehicleFromAccountLinks(List<Account_Link__c> accountLinks) {
         List<Account_Link__c> accountLinksWithVehicle = new List<Account_Link__c>();
         for(Account_Link__c accountLink : accountLinks) {
@@ -38,10 +43,15 @@ public with sharing class VehicleSharingWrapService {
         }
         return SharingWrapperService.wrapSharings(vehicle2Users, Schema.Vehicle__Share.RowCause.Account_Link_Share__c,UtilConstant.read_Access);
     }
-
-    /***
-    ** Gets "Vehicle Relationship Retail" records and wraps related vehicles.
-    **/
+    
+    /**
+	*@Description :This mehtod gets "Vehicle Relationship Retail" records and wraps related vehicles.
+	*@Author :Shrinivas Desai.
+	*@Date : 27/10/2015
+	*@param: List of Vehicle Relationship object records.
+	*@return:This mehtod returns the wrapper of records to be shared.
+	*@see:wrapVehicleFromRetailRelationships
+	*/
     public List<SharingWrapper> wrapVehicleFromRetailRelationships(List<Vehicle_Relationship__c> vehicleRelationships) {
         List<Vehicle_Relationship__c> retailRelationships = new List<Vehicle_Relationship__c>();
         if(vehicleRelationships!=Null){
@@ -54,9 +64,14 @@ public with sharing class VehicleSharingWrapService {
         return wrapVehicleFromRelationships(retailRelationships, Schema.Vehicle__Share.RowCause.Retail_Vehicle_Relationship_Share__c,UtilConstant.read_Access);
     }
 
-    /***
-    ** Wraps vehicles to share according to the vehicle relationship details.
-    **/
+     /**
+	*@Description :This method returns Wraps of vehicles to share according to the vehicle relationship details.
+	*@Author :Shrinivas Desai.
+	*@Date : 27/10/2015
+	*@param: List of Vehicle Relationship object records, Sharing access Level, Row Cause
+	*@return:This mehtod returns the wrap of records to be shared with the associated sharing details.
+	*@see:wrapVehicleFromRelationships
+	*/
     public List<SharingWrapper> wrapVehicleFromRelationships(List<Vehicle_Relationship__c> vehicleRelationships, String rowCause, String accessLevel) {
         // Gets crm codes and maps them to active users.
         List<Vehicle_Relationship__c> vehicleRelationshipRecords;
