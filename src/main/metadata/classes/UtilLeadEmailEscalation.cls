@@ -1,50 +1,12 @@
-/*
- * Name                 : UtilLeadEmailEscalation
- * Object               : Account(Dealer), Lead
- * Requirement          : US-Lead-46, US-Lead-47, US-Lead-48
- * Refer classes        : 
- * Author               : Mouse Liu
- * Create Date          : 2013-06-18
- * Modify History       : 
- * 
- */
-public class UtilLeadEmailEscalation {
+/**
+** email escalation for the lead assigned dealer.
+** Created By: Mouse Liu
+** Date: 2013-6-18
+**/
+ 
+public with sharing class UtilLeadEmailEscalation {
     // Check Touched Rate in 72H for weekly and ByRegion
-    public static Boolean checkFollowupRate(Account acc) {
-        Decimal touchedCount = 0;
-        for (Lead__c lead : acc.Lead_Assigned_Dealer__r) {
-            // Calc touched count
-            if (!lead.Dealer_Untouched_In_72H__c) {
-                touchedCount++;
-            }
-        }
-
-        // If followup rate is > 90%, return true
-        if (acc.Lead_Assigned_Dealer__r.size() == 0) {
-            return true;
-        }
-        
-        return touchedCount / acc.Lead_Assigned_Dealer__r.size() > 0.9;
-    }
-
-    // Get the dealers of every Destrict Manager(Dealer Owner)
-    public static Map<String, List<Account>> getSeparateAccountsBySubRegion(List<Account> accs) {
-        Map<String, List<Account>> subRegion2Accounts = new Map<String, List<Account>>();
-        for (Account acc : accs) {
-            String subRegion = acc.Dealer_MB_Sub_Region__c;
-
-            if (subRegion2Accounts.containsKey(subRegion)) {
-                subRegion2Accounts.get(subRegion).add(acc);
-            }
-            else {
-                subRegion2Accounts.put(subRegion, new List<Account>{acc});
-            }
-        }
-
-        return subRegion2Accounts;
-    }
-
-    private static String monthlyTableHeader = 
+     private static String monthlyTableHeader = 
         '<table cellspacing="0px" border="1px solid #272822;" style="font-size:12px; ' +
             'background-color: #CDCDCD;border-collapse:collapse"> ' + 
             '<tr style="font-weight: bold;">' + 
@@ -118,21 +80,6 @@ public class UtilLeadEmailEscalation {
                     '</p>' +
                 '</td>' + 
 
-                //'<td width="10%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
-                //    'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
-                //    '<p align="center" style="margin:5px; text-align:center">' +
-                //        'Authentic Updated<br>Leads Checked<br>by CAC<br>' + 
-                //        'The CAC verification follow-up status<br>Actual number of sales leads' +
-                //    '</p>' +
-                //'</td>' + 
-
-                //'<td width="12%" style="border:solid black 1.0pt;border-left:none;background:#CDCDCD;' +
-                //    'padding:0cm 5.4pt 0cm 5.4pt;height:63.85pt">' + 
-                //    '<p align="center" style="margin:5px; text-align:center">' +
-                //        'Leads Status Update<br>Authenticity Rate Checked<br>by CAC<br>' +
-                //        'Authenticity leads status update<br>（KPI ≥ 80%）' +
-                //    '</p>' +
-                //'</td>' + 
             '</tr>';
 
     private static String weeklyTableHeader = 
@@ -218,9 +165,64 @@ public class UtilLeadEmailEscalation {
                 '<b>Success contact rate(KPI ≥ 80%): </b>[Successfully obtained within 72 hours contact/follow up on sales leads]' +
             '</div>' +
         '</div>';
+        /**      
+     * @Description the touch count is calculated if the lead is not untouched for 72 hrs 
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  account record
+                * @return the touch count, if followed return true.
+                 * @see   checkFollowupRate
+                */    
+        
+    public static Boolean checkFollowupRate(Account acc) {
+        Decimal touchedCount = 0;
+        for (Lead__c lead : acc.Lead_Assigned_Dealer__r) {
+            if (!lead.Dealer_Untouched_In_72H__c) {
+                touchedCount++;
+            }
+        }
+        if (acc.Lead_Assigned_Dealer__r.size() == 0) {
+            return true;
+        }
+        
+        return touchedCount / acc.Lead_Assigned_Dealer__r.size() > 0.9;
+    }
 
+   
+     /**      
+     * @Description the dealers of every dealer owner is being fetched.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  map of regions with string id as the key and list of account as the value
+                * @return dealers are returned in accordance with the region.
+                 * @see    getSeparateAccountsBySubRegion
+                */ 
+    public static Map<String, List<Account>> getSeparateAccountsBySubRegion(List<Account> accs) {
+        Map<String, List<Account>> subRegion2Accounts = new Map<String, List<Account>>();
+        for (Account acc : accs) {
+            String subRegion = acc.Dealer_MB_Sub_Region__c;
+
+            if (subRegion2Accounts.containsKey(subRegion)) {
+                subRegion2Accounts.get(subRegion).add(acc);
+            }
+            else {
+                subRegion2Accounts.put(subRegion, new List<Account>{acc});
+            }
+        }
+
+        return subRegion2Accounts;
+    }
+
+   
+/**      
+     * @Description monthly email body by dealer is populated.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  account record
+                * @return monthly email body. 
+                 * @see   getMonthlyEmailBodyByDealer
+                */ 
     public static String getMonthlyEmailBodyByDealer(Account acc) {
-        // Populate Email Body
         Date lastDayInLastMonth = System.today().toStartOfMonth() - 1;
         Date firstDayInLastMonth = lastDayInLastMonth.toStartOfMonth();
         
@@ -235,8 +237,6 @@ public class UtilLeadEmailEscalation {
             '<div align="center" style="font-family:corpoA; font-size: 12px;">' + 
                 '<h3>Leads Follow-Up Monthly Report<BR>Sales lead follow up monthly reports</h3>' +
             '</div>';
-
-        // Add Report Detail: Table Content
         String monthlyTableContent = '<tr style="background-color: #CDCDCD;">';
         List<String> rowValue = getRowValue(1, acc, true);
         for (Integer i = 0; i < rowValue.size(); i++) {
@@ -252,7 +252,6 @@ public class UtilLeadEmailEscalation {
         }
         monthlyTableContent += '</tr></table>';
 
-        // Combine these
         String emailBody = 
             '<div style="font-family: corpoS Arial">' + 
                 emailContent + monthlyTableTitle + 
@@ -261,9 +260,15 @@ public class UtilLeadEmailEscalation {
 
         return emailBody;
     }
-
+/**      
+     * @Description weekly email body by dealer is populated.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  account record
+                * @return weekly email body. 
+                 * @see   getWeeklyEmailBodyByDealer
+                */ 
     public static String getWeeklyEmailBodyByDealer(Account acc) {
-        // Populate Email Body
         Date lastSunday = System.today().toStartOfWeek() - 1;
         Date lastMonday = lastSunday - 6;
         
@@ -279,8 +284,6 @@ public class UtilLeadEmailEscalation {
             '<div align="center" style="font-family:corpoA; font-size: 12px;">' + 
                 '<h3>Leads Follow-Up Weekly Report<BR>Sales lead follow-up weekly reports</h3>' +
             '</div>';
-
-        // Add Report Detail: Table Content
         String weeklyTableContent = '<tr style="background-color: #CDCDCD">';
         List<String> rowValue = getRowValue(1, acc, false);
         for (Integer i = 0; i < rowValue.size(); i++) {
@@ -295,8 +298,6 @@ public class UtilLeadEmailEscalation {
                 '</td>';
         }
         weeklyTableContent += '</tr></table>';
-
-        // Combine these
         String emailBody =             
             '<div style="font-family: corpoS Arial">' + 
                 emailContent + weeklyTableTitle + 
@@ -305,9 +306,15 @@ public class UtilLeadEmailEscalation {
 
         return emailBody;
     }
-
+/**      
+     * @Description monthly email body by Region is populated.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  list of account records.
+                * @return monthly email body. 
+                 * @see  getMonthlyEmailBodyByRegion
+                */ 
     public static String getMonthlyEmailBodyByRegion(List<Account> accs) {
-        // Populate Email Body
         Date lastDayInLastMonth = System.today().toStartOfMonth() - 1;
         Date firstDayInLastMonth = lastDayInLastMonth.toStartOfMonth();
         
@@ -325,8 +332,6 @@ public class UtilLeadEmailEscalation {
             '<div align="center" style="font-family:corpoA Arial; font-size: 12px;">' + 
                 '<h3>Leads Follow-Up Monthly Report<BR/>Regional sales lead follow up monthly report are as follows:</h3>' +
             '</div>';
-
-        // Add Report Detail: Table Content
         List<String> tableContentList = new List<String>();
         for (List<String> rowValue : getRowValues(accs, true)) {
             List<String> tdList = new List<String>();
@@ -341,7 +346,6 @@ public class UtilLeadEmailEscalation {
                         '</p>' +
                     '</td>');
             }
-            // Add Report Detail: Table weiba
             tableContentList.add('<tr style="background-color: #CDCDCD">' + 
                 String.join(tdList, '\n') + '</tr>');
         }
@@ -355,9 +359,15 @@ public class UtilLeadEmailEscalation {
 
         return emailBody;
     }
-
+/**      
+     * @Description weekly email body by Region is populated.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  list of account records.
+                * @return weekly email body. 
+                 * @see  getWeeklyEmailBodyByRegion
+                */
     public static String getWeeklyEmailBodyByRegion(List<Account> accs) {
-        // Populate Email Body
         Date lastSunday = System.today().toStartOfWeek() - 1;
         Date lastMonday = lastSunday - 6;
         
@@ -375,8 +385,6 @@ public class UtilLeadEmailEscalation {
             '<div align="center" style="font-family:corpoA; font-size: 12px;">' + 
                 '<h3>Leads Follow-Up Weekly Report<BR/>Sales lead follow-up weekly reports</h3>' +
             '</div>';
-
-        // Add Report Detail: Table Content
         String weeklyTableContent = '';
         for (List<String> rowValue : getRowValues(accs, false)) {
             weeklyTableContent += '<tr style="background-color: #CDCDCD">';
@@ -391,12 +399,9 @@ public class UtilLeadEmailEscalation {
                         '</p>' +
                     '</td>';
             }
-            // Add Report Detail: Table weiba
             weeklyTableContent += '</tr>';
         }
         weeklyTableContent += '</table>';
-
-        // Combine these
         String emailBody =             
             '<div style="font-family: corpoS Arial">' + 
                 emailContent + weeklyTableTitle + 
@@ -406,7 +411,14 @@ public class UtilLeadEmailEscalation {
         return emailBody;
     }
 
-    // By Region
+    /**      
+     * @Description row values are calculated in accordance withthe region.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  list of list of string 
+                * @return row values
+                 * @see  getRowValues
+                */
     private static List<List<String>> getRowValues(List<Account> accs, Boolean isMonthly) {
         List<List<String>> rowValues = new List<List<String>>();
         for (Integer i = 0; i < accs.size(); i++) {
@@ -417,9 +429,16 @@ public class UtilLeadEmailEscalation {
         return rowValues;
     }
 
-    // By Dealer
-    private static List<String> getRowValue(Integer itemNumber, Account acc, Boolean isMonthly) {
-        // Dealer No., Dealer Name,  Dealer ND Code, Dealer LMS, Dealer Region
+   /**      
+     * @Description row values are calculated in accordance with the dealer.
+     * @Description the total assigned, touched and conacted lead count are calculated with their respective rate.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  list of list of string 
+                * @return row values
+                 * @see  getRowValue
+                */
+    public static List<String> getRowValue(Integer itemNumber, Account acc, Boolean isMonthly) {
         String dealerNo = String.valueOf(itemNumber);
         String dealerName = acc.Name;
         String dealerNDCode = '';
@@ -434,17 +453,11 @@ public class UtilLeadEmailEscalation {
         if (acc.Dealer_MB_Sub_Region__c != null) {
             dealerRegion = acc.Dealer_MB_Sub_Region__c;
         }
-
-        // Calculate total assigned lead count, 
-        // Touched Lead count and Rate, 
-        // Contacted Lead count and Rate
         Decimal touchedCount = 0;
         Decimal contactedCount = 0;
-        Decimal authenticityCount = 0;
         Decimal totalAssignedLeadCount = acc.Lead_Assigned_Dealer__r.size();
         Decimal touchedRate = 0;
         Decimal contactedRate = 0;
-        Decimal authenticityRate = 0;
         for (Lead__c lead : acc.Lead_Assigned_Dealer__r) {
             // Calc touched count
             if (!lead.Dealer_Untouched_In_72H__c) {
@@ -455,13 +468,6 @@ public class UtilLeadEmailEscalation {
             if (lead.Dealer_Successful_Contacted__c) {
                 contactedCount++;
             }
-
-            // Calc authenticity count
-            //if (lead.Dealer_Successful_Contacted__c
-            //        && lead.Dealer_Audit__c 
-            //        && lead.Dealer_Audit_Result__c == 'Dealers contacted the customer') {
-            //    authenticityCount++;
-            //}
         }
 
         // If totalAssignedLeadCount is 0, touchedRate is 0
@@ -550,9 +556,17 @@ public class UtilLeadEmailEscalation {
             '</div>' +
         '</div>';
 
-    // Get conversion rate regional outbound email body
+    
+    /**      
+     * @Description populate the conversion rate email body in accordance with the region.  
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  list of accounts of past 12 months.
+                * @return email body.
+                 * @see   getConversionRateEmailBodyByRegion
+                */    
+    
     public static String getConversionRateEmailBodyByRegion(List<Account> accsInPast12thMonth) {
-        // Populate Email Body
         Date lastDayInLastMonth = System.today().toStartOfMonth() - 1;
         Date firstDayInLastMonth = lastDayInLastMonth.toStartOfMonth();
         
@@ -570,8 +584,6 @@ public class UtilLeadEmailEscalation {
             '<div align="center" style="font-family:corpoA; font-size: 12px;">' + 
                 '<h3>Leads Conversion Rate Report<BR/>Sales lead conversion rate of monthly reports</h3>' +
             '</div>';
-
-        // Add Report Detail: Table Content
         String conversionRateTableContent = '<tr style="background-color: #CDCDCD">';
         List<String> rowValue = getConversionRateRowValue(accsInPast12thMonth);
         for (Integer i = 0; i < rowValue.size(); i++) {
@@ -586,8 +598,6 @@ public class UtilLeadEmailEscalation {
                 '</td>';
         }
         conversionRateTableContent += '</tr></table></div>';
-
-        // Combine these
         String emailBody =             
             '<div style="font-family: corpoS Arial">' + 
                 emailContent + conversionRateTableTitle + 
@@ -598,7 +608,14 @@ public class UtilLeadEmailEscalation {
 
         return emailBody;
     }
-
+ /**      
+     * @Description calculation of the converted lead, contacted leads amount.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  list of accounts of past 12 months.
+                * @return total calculation.
+                 * @see   getConversionRateRowValue
+                */ 
   @TestVisible  private static List<String> getConversionRateRowValue(List<Account> accsInPast12thMonth) {
         Decimal sentLeadsAmount = 0;
         Decimal contactedLeadsAmount = 0;
@@ -612,21 +629,16 @@ public class UtilLeadEmailEscalation {
         for (Account acc : accsInPast12thMonth) {
             sentLeadsAmount += acc.Lead_Assigned_Dealer__r.size();
             for (Lead__c lead : acc.Lead_Assigned_Dealer__r) {
-                // Calc convertedLeadsAmount
                 if (lead.CAC_Lead_Status__c == 'Purchased(Only Non BDC)'
                         && lead.Purchased_Date__c >= firstDay
                         && lead.Purchased_Date__c < firstDayOfNext13thMonth) {
                     convertedLeadsAmount++;
                 }
-
-                // Calc contactedLeadsAmount
                 if (lead.Dealer_Successful_Contacted__c) {
                     contactedLeadsAmount++;
                 }
             }
         }
-
-        // Calc Converted Rate
         if (sentLeadsAmount != 0) {
             convertedRate = (convertedLeadsAmount / sentLeadsAmount).setScale(2);
         }
@@ -639,21 +651,23 @@ public class UtilLeadEmailEscalation {
             format(convertedRate)
         };
     }
-
-    // Format decimal value as percentage and precision is 0
     private static String format(Decimal decimalValue) {
         return String.valueOf((decimalValue * 100).setScale(0)) + '%';
     }
-
-    // Return Date Format: 2013-06-05
     private static String getDateLiteral(Date theDate) {
         return String.valueOf(theDate.year()) + '-' +
                String.valueOf(theDate.month()) + '-' +
                String.valueOf(theDate.day());
     }
-
-    // Get Dealer ToAddesses
-   @TestVisible private static String getDealerToAddresses(Account acc) {
+     /**      
+     * @Description to get the dealer addresses.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  account records.
+                * @return emails
+                 * @see   getDealerToAddresses
+                */ 
+   @TestVisible public static String getDealerToAddresses(Account acc) {
         Set<String> emails = new Set<String> {
             acc.Dealer_CRM_Manager_Email__c, 
             acc.Dealer_General_Manager_Email__c, 
@@ -665,17 +679,33 @@ public class UtilLeadEmailEscalation {
     }
 
     // Get Dealer ccAddress 
-    @TestVisible private static String getDealerCcAddresses(Account acc) {
+     /**      
+     * @Description to get the dealer cc addresses.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  account records.
+                * @return emails
+                 * @see   getDealerCcAddresses
+                */ 
+    @TestVisible public static String getDealerCcAddresses(Account acc) {
         return getValidEmails(new Set<String>{acc.Owner.Email});
     }
     
     // Get Region ToAddress
-    private static String getRegionToAddresses(Account acc, Map<Id, UserRole> roleMap) {
+    /**      
+     * @Description to get region to addresses.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  account records.
+                * @return emails
+                 * @see   getRegionToAddresses
+                */ 
+    public static String getRegionToAddresses(Account acc, Map<Id, UserRole> roleMap) {
         Set<String> destrictManagerEmail = new Set<String>();
 
         String ownerParentRoleId = acc.Owner.UserRole.ParentRoleId;
         List<UserRole> urs = [SELECT Id, (select id, name, email from Users) FROM UserRole WHERE ParentRoleId = :ownerParentRoleId];
-        if(urs.size() > 0){
+        if(!urs.IsEmpty()){
             for(UserRole ur : urs){
                 for(User usr : ur.Users){
                     destrictManagerEmail.add(usr.Email);
@@ -685,10 +715,16 @@ public class UtilLeadEmailEscalation {
 
         return getValidEmails(destrictManagerEmail);
     }
-
-    // Get Region ccAddress
-    // Two Part: Regional Manager and Emails in Custom Settings
-    private static String getRegionCcAddresses(Account acc, Map<Id, UserRole> roleMap) {
+    /**      
+     * @Description to get region Cc addresses.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  account records.
+                 * @param  map of user role with their Id's
+                * @return emails
+                 * @see   getRegionCcAddresses
+                */ 
+    public static String getRegionCcAddresses(Account acc, Map<Id, UserRole> roleMap) {
         Set<String> ccEmails = new Set<String>();
 
         // Add Regional Manager Email to ccEmails
@@ -707,6 +743,14 @@ public class UtilLeadEmailEscalation {
     }
 
     // Combine Email List to email String that is seprated by semicolon
+    /**      
+     * @Description email list is seprated from email string.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  set of string of emails.
+                * @return separation.
+                 * @see   getValidEmails
+                */ 
     private static String getValidEmails(Set<String> emails) {
         List<String> tempList = new List<String>();
         for (String email : emails) {
