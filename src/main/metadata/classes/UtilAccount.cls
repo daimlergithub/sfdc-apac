@@ -1,16 +1,26 @@
-/*
-    Type:       Utility for TriggerAccount
-    Purpose:    Link Dealer to Dealer City by City and Province 
-    User Story: US-DS-001, US-Lead-009
-    Used By:    TriggerAccount.trigger
-    ---------------------------------------------------------------
-    History:
-    
-    1. Mouse Created on 2013-03-28
-    2. Mouse Updated on 2013-07-04 for US-Lead-009
-*/
+/**
+** @Description Link Dealer to Dealer City by City and Province.
+** Type:       Utility for TriggerAccount
+** Created By: 
+** Date: 2013-03-28
+** Modified By : 
+** Modified date : Updated on 2013-07-04 for US-Lead-009; 27-10-2015
+** User Story: US-DS-001, US-Lead-009
+** Used By:    TriggerAccount.trigger
+**/
+
 public class UtilAccount {
     // When Account Allow Data Sharing is True
+	
+	 /**	
+     * @Description Based on the Query if allow data sharing field is updated or changed to yes then lead owner to dealer owner		 
+     * @author  
+     * @Date 10/27/2015(mm/dd/yy)
+	 * @param  List of new accounts and map of Old accounts
+	 * @return 
+	 * @see  TriggerAccountTriggerHandler(UtilAccount.accountSetForUpdateLead)
+	 */   
+	 	 
     public static void accountSetForUpdateLead(List<Account> triggerNew,Map<id,Account> oldAcc){
         Set<Id> accIdSet = new Set<Id>();
         Set<Id> accIdSetForUpdateLead = new Set<Id>();
@@ -42,7 +52,18 @@ public class UtilAccount {
         }
     }       
     // US-Lead-009
-    // When Account Allow Data Sharing is False, 
+	
+	  
+	
+	 /**	
+     * @Description  When Account Allow Data Sharing is True
+     * @author  
+     * @Date 10/27/2015(mm/dd/yy)
+	 * @param  Set of Account Id's
+	 * @return 
+	 * @see   UtilAccount
+	 */   
+	
     public static void updateLeadForDataSharing(Set<Id> accIds) {
         List<Lead__c> leadList = 
             [SELECT Allow_Data_Sharing__c, Contact__r.Allow_Data_Sharing__c 
@@ -65,8 +86,18 @@ public class UtilAccount {
             System.debug('UtilAccount.updateLeadForDataSharing eXception: ' + e);
         }
     }
-    
-   //dealerCodes Info for an Account
+    	
+	 /**	
+     * @Description  DealerCodes Info for an Account. 
+	 *				 It gets record counts from Vehichle relationShip which Contact is current Acount.
+	 *				 Also fills in the Zip Code automatically based on the City
+     * @author  
+     * @Date 10/27/2015(mm/dd/yy)
+	 * @param  Passing trigger Parameters.
+	 * @return 
+	 * @see   TriggerAccountTriggerHandler(UtilAccount.beforeAccDealerInfo)
+	 */   
+	 
    public static void beforeAccDealerInfo(List<Account> triggerNew,Map<id,Account> oldAcc,boolean isInsert,boolean isUpdate){
       
         
@@ -108,7 +139,6 @@ public class UtilAccount {
             }            
          }         
              
-            
        /*Fill in the Zip Code automatically based on the City*/
         
         for(Account account : triggerNew){   
