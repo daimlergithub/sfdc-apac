@@ -1963,7 +1963,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_FirstRegistrationDate�
     <fields>
         <fullName>Height__c</fullName>
         <externalId>false</externalId>
-        <label>Highth</label>
+        <label>Height</label>
         <length>4</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -4652,10 +4652,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
                 <fullName>S-02</fullName>
                 <default>false</default>
             </picklistValues>
-            <picklistValues>
-                <fullName>24624222-JP7</fullName>
-                <default>false</default>
-            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -6124,9 +6120,9 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         <type>DateTime</type>
     </fields>
     <fields>
-        <fullName>length__c</fullName>
+        <fullName>Length__c</fullName>
         <externalId>false</externalId>
-        <label>length</label>
+        <label>Length</label>
         <length>5</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -7094,10 +7090,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         </picklistValues>
         <picklistValues>
             <picklist>NationalType__c</picklist>
-            <values>
-                <fullName>24624222-JP7</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>S-00</fullName>
                 <default>false</default>
@@ -11274,10 +11266,6 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
         </picklistValues>
         <picklistValues>
             <picklist>NationalType__c</picklist>
-            <values>
-                <fullName>24624222-JP7</fullName>
-                <default>false</default>
-            </values>
             <values>
                 <fullName>S-00</fullName>
                 <default>false</default>
