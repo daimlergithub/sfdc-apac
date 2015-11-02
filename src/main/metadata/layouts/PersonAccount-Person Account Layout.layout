@@ -359,7 +359,6 @@
         <fields>NAME</fields>
         <fields>Role__c</fields>
         <fields>toRole__c</fields>
-        <fields>Role2_c__c</fields>
         <fields>Position__c</fields>
         <relatedList>Account_Link__c.fromRole__c</relatedList>
     </relatedLists>
