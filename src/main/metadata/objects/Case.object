@@ -384,7 +384,7 @@ Modify Reason:
     <fields>
         <fullName>Book_In_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Book In Date</label>
+        <label>Book-in Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -7580,30 +7580,6 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Case_Content_Status__c</fullName>
-        <externalId>false</externalId>
-        <label>Case Content Status</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>知らない</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>満足である</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Case_Dealer_User__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -9044,18 +9020,6 @@ Modify Reason:
         <fullName>Customer_Issue__c</fullName>
         <externalId>false</externalId>
         <label>Customer Issue</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Customer_Preferred_Rep__c</fullName>
-        <externalId>false</externalId>
-        <label>Customer Preferred Representative</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -11381,18 +11345,6 @@ Modify Reason:
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Interested_Vehicle_Text__c</fullName>
-        <externalId>false</externalId>
-        <label>Interested Vehicle</label>
-        <length>127</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>IsClosedOnCreate</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -11505,22 +11457,6 @@ Case_Dealer__r.Name = SUBSTITUTE($UserRole.Name, " Partner Executive", ""))</for
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Lost_Situation__c</fullName>
-        <externalId>false</externalId>
-        <label>Lost Situation</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Non</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>MBAFC_Team__c</fullName>
@@ -12213,26 +12149,6 @@ Modify Reason:
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Preferred_Contact_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Desired Contact Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Preferred_Negotiation_DateTime__c</fullName>
-        <externalId>false</externalId>
-        <label>Preferred Negotiation DateTime</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
         <fullName>Previous_Owner__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -12582,16 +12498,6 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Questionnair__c</fullName>
-        <externalId>false</externalId>
-        <label>Questionnair memo</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>RME_CCMS_repeat__c</fullName>
@@ -13028,18 +12934,6 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Related_Configuration_Codes2__c</fullName>
-        <externalId>false</externalId>
-        <label>MB Online Code2</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Related_Warranty__c</fullName>
         <externalId>false</externalId>
         <label>Warranty Contract</label>
@@ -13109,56 +13003,6 @@ Modify Reason:
         <trackTrending>false</trackTrending>
         <type>Number</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Request_Address__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Request Address</label>
-        <referenceTo>Address__c</referenceTo>
-        <relationshipLabel>Cases</relationshipLabel>
-        <relationshipName>Cases</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Request_Phone__c</fullName>
-        <externalId>false</externalId>
-        <label>Request Phone</label>
-        <picklist>
-            <picklistValues>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Work Phone</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Phone 1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other Phone 2</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Requires_Dealer_Contact__c</fullName>
@@ -14103,18 +13947,6 @@ Modify Reason:
         <visibleLines>3</visibleLines>
     </fields>
     <fields>
-        <fullName>Test_Drive_Detail__c</fullName>
-        <externalId>false</externalId>
-        <label>Test drive details</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Third_OB_By__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -14219,32 +14051,6 @@ Modify Reason:
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Trade_In_Vehicle2__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Trade-In MB Vehicle 2</label>
-        <referenceTo>Vehicle__c</referenceTo>
-        <relationshipLabel>Cases (Trade-In MB Vehicle 2)</relationshipLabel>
-        <relationshipName>Cases1</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Trade_In_Vehicle_Text2__c</fullName>
-        <externalId>false</externalId>
-        <label>Trade-In MB Vehicle 2 Text</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
         <unique>false</unique>
     </fields>
     <fields>
@@ -16923,18 +16729,6 @@ Modify Reason:
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Vehicle_Need_Text__c</fullName>
-        <externalId>false</externalId>
-        <label>Purchase type detail</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Vehicle_Relationship__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>Used by Central Complaint Case. Need Clarification</description>
@@ -18849,13 +18643,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Content_Status__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Department__c</picklist>
             <values>
                 <fullName>Aftersales</fullName>
@@ -20146,13 +19933,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Lost_Situation__c</picklist>
-            <values>
-                <fullName>Non</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
                 <fullName>Action</fullName>
@@ -20482,33 +20262,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Related_Warranty__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Request_Phone__c</picklist>
-            <values>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27120,13 +26873,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Content_Status__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Department__c</picklist>
             <values>
                 <fullName>Aftersales</fullName>
@@ -28601,13 +28347,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Lost_Situation__c</picklist>
-            <values>
-                <fullName>Non</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
                 <fullName>Action</fullName>
@@ -28937,33 +28676,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Related_Warranty__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Request_Phone__c</picklist>
-            <values>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36658,13 +36370,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Content_Status__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Department__c</picklist>
             <values>
                 <fullName>Aftersales</fullName>
@@ -38187,13 +37892,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Lost_Situation__c</picklist>
-            <values>
-                <fullName>Non</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
                 <fullName>Action</fullName>
@@ -38523,33 +38221,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Related_Warranty__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Request_Phone__c</picklist>
-            <values>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -46472,13 +46143,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Content_Status__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Department__c</picklist>
             <values>
                 <fullName>Aftersales</fullName>
@@ -47777,13 +47441,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Lost_Situation__c</picklist>
-            <values>
-                <fullName>Non</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
                 <fullName>Action</fullName>
@@ -48113,33 +47770,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Related_Warranty__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Request_Phone__c</picklist>
-            <values>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -55790,21 +55420,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Content_Status__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>満足である</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>知らない</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Department__c</picklist>
             <values>
                 <fullName>Aftersales</fullName>
@@ -57287,13 +56902,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Lost_Situation__c</picklist>
-            <values>
-                <fullName>Non</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
                 <fullName>Action</fullName>
@@ -57623,33 +57231,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Related_Warranty__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Request_Phone__c</picklist>
-            <values>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -61221,13 +60802,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Content_Status__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Department__c</picklist>
             <values>
                 <fullName>Aftersales</fullName>
@@ -62522,13 +62096,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Lost_Situation__c</picklist>
-            <values>
-                <fullName>Non</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
                 <fullName>Action</fullName>
@@ -62850,33 +62417,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Related_Warranty__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Request_Phone__c</picklist>
-            <values>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -65260,13 +64800,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Content_Status__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Department__c</picklist>
             <values>
                 <fullName>Aftersales</fullName>
@@ -66869,13 +66402,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Lost_Situation__c</picklist>
-            <values>
-                <fullName>Non</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
                 <fullName>Action</fullName>
@@ -67205,33 +66731,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Related_Warranty__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Request_Phone__c</picklist>
-            <values>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -74226,13 +73725,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Content_Status__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Department__c</picklist>
             <values>
                 <fullName>Aftersales</fullName>
@@ -76015,13 +75507,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Lost_Situation__c</picklist>
-            <values>
-                <fullName>Non</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
                 <fullName>Action</fullName>
@@ -76351,33 +75836,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Related_Warranty__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Request_Phone__c</picklist>
-            <values>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -84336,21 +83794,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Content_Status__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>満足である</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>知らない</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Department__c</picklist>
             <values>
                 <fullName>Aftersales</fullName>
@@ -86221,13 +85664,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Lost_Situation__c</picklist>
-            <values>
-                <fullName>Non</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
                 <fullName>Action</fullName>
@@ -86633,33 +86069,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Related_Warranty__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Request_Phone__c</picklist>
-            <values>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -94622,21 +94031,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Case_Content_Status__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>満足である</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>知らない</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Case_Department__c</picklist>
             <values>
                 <fullName>Aftersales</fullName>
@@ -96119,13 +95513,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Lost_Situation__c</picklist>
-            <values>
-                <fullName>Non</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Narrative_of_Type__c</picklist>
             <values>
                 <fullName>Action</fullName>
@@ -96455,33 +95842,6 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
             <picklist>Related_Warranty__c</picklist>
             <values>
                 <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Request_Phone__c</picklist>
-            <values>
-                <fullName>Home Phone</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Other Phone 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Mobile</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Work Phone</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
