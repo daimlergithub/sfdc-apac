@@ -16165,11 +16165,6 @@
         <field>Vehicle__c.last_updated__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Vehicle__c.length__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
     <layoutAssignments>
         <layout>Account-Account Master Layout</layout>
     </layoutAssignments>

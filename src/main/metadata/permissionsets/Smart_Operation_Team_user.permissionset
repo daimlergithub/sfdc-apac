@@ -16050,11 +16050,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
         <field>Vehicle__c.last_updated__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Vehicle__c.length__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
     <label>Smart Operation Team user</label>
     <objectPermissions>
         <allowCreate>false</allowCreate>

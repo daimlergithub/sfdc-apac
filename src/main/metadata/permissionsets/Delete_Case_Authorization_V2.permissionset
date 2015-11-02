@@ -16056,11 +16056,6 @@ yujing.he@daimler.com</description>
         <field>Vehicle__c.last_updated__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Vehicle__c.length__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
     <label>Delete Case Authorization_V2</label>
     <objectPermissions>
         <allowCreate>false</allowCreate>
