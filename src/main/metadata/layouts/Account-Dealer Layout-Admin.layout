@@ -68,10 +68,6 @@
                 <behavior>Edit</behavior>
                 <field>MBJ_Yanase_Code__c</field>
             </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Dealer_GPS__c</field>
-            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>

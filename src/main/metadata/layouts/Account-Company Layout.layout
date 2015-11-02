@@ -159,13 +159,6 @@
         <label>Contact Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>400</height>
-                <page>AccountContactInformation</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>100%</width>
-            </layoutItems>
-            <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Description</field>
             </layoutItems>
