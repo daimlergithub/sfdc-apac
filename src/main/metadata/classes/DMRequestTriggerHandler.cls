@@ -8,9 +8,25 @@
     
     11-Mar-2013 Chris Huang (Breakingpoint)    Created
 */
+/**
+** 1. Toatal sent of the DM_Request
+** 2. Updation of task status
+** Created By: Chris Huang
+** Date: 2013-3-11
+**/
 
 public class DMRequestTriggerHandler { 
     
+   /**      
+     * @Description Totalling and updating the DM_Request sent 
+     * @Description incrementing the actual DM Material
+     * @author  Kaushik Mahanty
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  List of new DM Request
+                * @param  Records of old DM_Request with their ID's
+                * @return the updated list of the requests.
+                 * @see   updateDaterialSentTotal
+                */    
 
     public static void updateDaterialSentTotal(List<DM_Request__c> newList, map<Id, DM_Request__c> oldMap){
         
@@ -80,6 +96,14 @@ public class DMRequestTriggerHandler {
             }
         }   
     }
+       /**      
+     * @Description the task status is being updated to the DM_Request status 
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  Map containing Id and respective DM_Request
+                * @return updated task list
+                 * @see   updateActivityStatus
+                */    
     
     public static void updateActivityStatus(map<Id, DM_Request__c> dmrMap){
 
