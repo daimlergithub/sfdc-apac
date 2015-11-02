@@ -10,6 +10,13 @@
     28-Mar-2013 Chris Huang (Breakingpoint)    Created
 
 */
+/**
+** Wrap service for retail tasks to share.
+** 1. DM Send Page controller
+** Created By: Chris Huang
+** Date: 2013-3-28
+**/
+
 
 public class DMControllerExtension {
     /* Public Properties */
@@ -21,16 +28,20 @@ public class DMControllerExtension {
     private ApexPages.standardController controller {get;set;}
     
      /* Constructors */
-      
+     
     /* Public Methods */
     public PageReference send(){
-    
-        // use the standard controller to perform the save and redirect
-        //controller.save();  
+       /**      
+     * @Description By checking the Customer_Name field the dm request is inserted using standard controller.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  
+                * @return null
+                 * @see PageReference send  
+                */     
         dm = (DM_Request__c)controller.getRecord();
         if(dm.Customer_Name__c!=null){
             insert dm;
-            //create task
             createActivity();
         }
 
@@ -41,6 +52,14 @@ public class DMControllerExtension {
     /* Private Methods */
   
     private void createActivity(){
+   /**      
+     * @Description the WhatId and WhoId is being created of the dm task. 
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  
+                * @return DmTask is inserted. 
+                 * @see   createActivity.
+                */    
 
         DMTask.WhatId = dm.Id;
         
@@ -74,7 +93,16 @@ public class DMControllerExtension {
     /* Static initialisers */
   
     public DMControllerExtension(ApexPages.StandardController stdController) {
-        // constructor
+       /**      
+     * @Description From page parameters through the account set the customer_name is being fetched and validated.
+     * @Description case is being set if the dm request comes from the case.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  retailTasks is a list having all the new records of Retail_Task Object.
+                * @return Dm Send.
+                 * @see   DMControllerExtension
+                */    
+    
         controller = stdController;       
         this.dm = (DM_Request__c)stdController.getRecord();
 
@@ -100,8 +128,6 @@ public class DMControllerExtension {
         if(accountObject==null){
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'Customer does not exist, you cannot send this DM Request.'));
         } 
-        
-        //set case if eDM from case
         String caseId = ApexPages.currentPage().getParameters().get('caseId');
 
         if(caseId != null && caseId != ''){
