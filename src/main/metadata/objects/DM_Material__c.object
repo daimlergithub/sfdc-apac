@@ -221,9 +221,9 @@ Modify Reason:
         <type>Summary</type>
     </fields>
     <fields>
-        <fullName>LABEL_PRINTING_NAME__c</fullName>
+        <fullName>Label_Printing_Name__c</fullName>
         <externalId>false</externalId>
-        <label>LABEL PRINTING NAME</label>
+        <label>Label Printing Name</label>
         <length>100</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -236,7 +236,7 @@ Modify Reason:
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
-        <label>MD</label>
+        <label>Market Discriminator</label>
         <length>2</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -258,17 +258,17 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>PRESENTATION_DATE__c</fullName>
+        <fullName>Presentation_Date__c</fullName>
         <externalId>false</externalId>
-        <label>PRESENTATION DATE</label>
+        <label>Presentation Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
     </fields>
     <fields>
-        <fullName>PRINT_DUE_DATE__c</fullName>
+        <fullName>Print_Due_Date__c</fullName>
         <externalId>false</externalId>
-        <label>PRINT DUE DATE</label>
+        <label>Print Due Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>

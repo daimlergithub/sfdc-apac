@@ -7486,7 +7486,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
-        <label>Market discriminator</label>
+        <label>Market Discriminator</label>
         <length>2</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>

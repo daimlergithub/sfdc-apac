@@ -99,10 +99,11 @@
         <fullName>Additional_Address__c</fullName>
         <externalId>false</externalId>
         <label>Additional Address</label>
+        <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Text</type>
     </fields>
     <fields>
         <fullName>Address__c</fullName>
@@ -119,8 +120,8 @@
     <fields>
         <fullName>Attention__c</fullName>
         <externalId>false</externalId>
+        <formula>Sending_Address__r.Company_Name__c</formula>
         <label>Attention</label>
-        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -220,17 +221,6 @@ Modify Reason:
         <externalId>false</externalId>
         <formula>Customer_Name__r.City__c</formula>
         <label>City</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Citytbd__c</fullName>
-        <externalId>false</externalId>
-        <label>City</label>
-        <length>100</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -421,7 +411,7 @@ Modify Reason:
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
-        <label>MD</label>
+        <label>Market Discriminator</label>
         <length>2</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -477,7 +467,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Province__c</fullName>
         <externalId>false</externalId>
         <formula>Text(Customer_Name__r.Province__c)</formula>
-        <label>Prefecture</label>
+        <label>Province</label>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -651,8 +641,8 @@ Modify Reason:
     <fields>
         <fullName>TitleOfHonor__c</fullName>
         <externalId>false</externalId>
+        <formula>Text(Sending_Address__r.TitleOfHonor__c)</formula>
         <label>TitleOfHonor</label>
-        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>

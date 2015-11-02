@@ -210,7 +210,7 @@
 		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <description>For JP users set to JP</description>
         <externalId>false</externalId>
-        <label>MD</label>
+        <label>Market Discriminator</label>
         <length>2</length>
         <required>true</required>
         <trackTrending>false</trackTrending>
