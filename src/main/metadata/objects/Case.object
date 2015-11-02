@@ -7607,7 +7607,7 @@ Modify Reason:
         <fullName>Case_Dealer_User__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Case Dealer User</label>
+        <label>Escalation to (Dealer PIC)</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Cases2</relationshipName>
         <required>false</required>
@@ -7923,7 +7923,7 @@ Modify Reason:
     <fields>
         <fullName>Case_SubSubType__c</fullName>
         <externalId>false</externalId>
-        <label>Case SubSubType</label>
+        <label>Case Content(Detail)</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -9113,7 +9113,7 @@ Modify Reason:
     <fields>
         <fullName>Customer_Satisfaction__c</fullName>
         <externalId>false</externalId>
-        <label>Customer Satisfaction</label>
+        <label>Impression when finishing</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -10754,7 +10754,7 @@ Modify Reason:
     <fields>
         <fullName>Follow_Up_After_Repair__c</fullName>
         <externalId>false</externalId>
-        <label>Follow Up After Repair</label>
+        <label>FollowUp After Repair</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -11783,7 +11783,7 @@ Modify Reason:
     <fields>
         <fullName>Number_of_Customer_Visits__c</fullName>
         <externalId>false</externalId>
-        <label>Number of Customer Visits</label>
+        <label>Interview number of times</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -13224,7 +13224,7 @@ Modify Reason:
     <fields>
         <fullName>Response_Type__c</fullName>
         <externalId>false</externalId>
-        <label>Response Type</label>
+        <label>Result</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -13328,7 +13328,7 @@ Modify Reason:
     <fields>
         <fullName>Risk_classification__c</fullName>
         <externalId>false</externalId>
-        <label>Risk classification</label>
+        <label>Enterprise risk classification</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
