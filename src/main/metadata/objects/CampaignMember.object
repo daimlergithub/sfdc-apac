@@ -123,7 +123,7 @@
     <fields>
         <fullName>Data_Source__c</fullName>
         <externalId>false</externalId>
-        <label>Data Source</label>
+        <label>Touch Point</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -136,7 +136,7 @@
     <fields>
         <fullName>Data_SubSource__c</fullName>
         <externalId>false</externalId>
-        <label>Data SubSource</label>
+        <label>Touch Point Details</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -192,8 +192,9 @@
         <fullName>Latest_Status_History__c</fullName>
         <externalId>false</externalId>
         <label>Latest Status History</label>
-        <required>false</required>
-        <type>TextArea</type>
+        <length>32768</length>
+        <type>LongTextArea</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Latest_Status__c</fullName>
@@ -271,10 +272,14 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+        <description>For JP users set to JP</description>
         <externalId>false</externalId>
-        <label>MD</label>
+        <label>Market Discriminator</label>
         <length>2</length>
-        <required>false</required>
+        <required>true</required>
         <type>Text</type>
         <unique>false</unique>
     </fields>

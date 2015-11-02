@@ -8,6 +8,15 @@ public with sharing class UserService {
     public UserService() {
     }
 
+/**    
+     * @Description : Maps YearlyRetailCampaign to CampaignDealers to share.
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : list of retailCampaigns and permissionSetting
+     * @return      : returns map of records which are related to campaign to Dealers and dealer to CampaignUsers
+     * @see         : RetailCampaignSharingWrapService.wrapYearlyRetailCampaigns
+    **/	
+    
     public Map<Id, Set<Id>> mapYearlyRetailCampaign2CampaignDealers(List<Retail_Campaign__c> retailCampaigns, String permissionSetting) {
         List<Id> accountIds = new List<Id>();
         Map<Id, Set<Id>> campaign2Dealers = new Map<Id, Set<Id>>();
@@ -32,6 +41,16 @@ public with sharing class UserService {
         }
         return mapSObjects2Users(campaign2Dealers, dealer2CampaignUsers);
     }
+    
+    
+    /**    
+     * @Description : Maps RetailCampaign to CampaignDealers to share.
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : list of retailCampaigns and permissionSetting
+     * @return      : returns map of records which are related to campaign to Dealers and dealer to CampaignUsers
+     * @see         : RetailCampaignSharingWrapService.wrapYearlyRetailCampaigns
+    **/	
 
     public Map<Id, Set<Id>> mapRetailCampaign2CampaignDealers(List<Retail_Campaign__c> retailCampaigns, String permissionSetting) {
         system.debug('**-' + retailCampaigns);
@@ -58,6 +77,15 @@ public with sharing class UserService {
         }
         return mapSObjects2Users(campaign2Dealers, dealer2CampaignUsers);
     }
+    
+     /**    
+     * @Description : Maps Campaign to DealerCampaignUsers to share.
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : list of Participating Dealers and permissionSetting
+     * @return      : returns map of records which are related to campaign to Dealers and dealer to CampaignUsers
+     * @see         : 
+    **/	
 
     public Map<Id, Set<Id>> mapCampaign2DealerCampaignUsers(List<Participating_Dealer__c> dealers, String permissionSetting) {
         List<Id> accountIds = new List<Id>();
@@ -81,10 +109,17 @@ public with sharing class UserService {
         }
         return mapSObjects2Users(campaign2Dealers, dealer2CampaignUsers);
     }
+    
+    
+     /**    
+     * @Description : Maps a tool kit record to the dealer campaign users to share.
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : list of toolKits and permissionSetting
+     * @return      : returns map of records which are related to campaign to Dealers and dealer to CampaignUsers
+     * @see         : 
+    **/	
 
-    /**
-    ** Maps a tool kit record to the dealer campaign users to share.
-    **/
     public Map<Id, Set<Id>> mapToolKit2CampaignUsers(List<Tool_Kit__c> toolKits, String permissionSetting) {
         Map<Id, Id> toolKit2DealerAccount = new Map<Id, Id>();
         for(Tool_Kit__c toolKit : toolKits){
@@ -103,9 +138,15 @@ public with sharing class UserService {
         return mapSObject2Users(toolKit2DealerAccount, dealer2CampaignUsers);
     }
     
-    /**
-    ** Maps a lead record to the dealer campaign users to share.
-    **/
+    /**    
+     * @Description : Maps a lead record to the dealer campaign users to share.
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : list of Leads and permissionSetting
+     * @return      : returns map of records which are related to campaign to Dealers and dealer to CampaignUsers
+     * @see         : LeadSharingWrapService.wrapLeads
+    **/	    
+   
     public Map<Id, Set<Id>> mapLead2CampaignUsers(List<Lead__c> leads, Set<Id> profileIds) {
         Map<Id, Id> lead2DealerAccount = new Map<Id, Id>();
         for(Lead__c lead : leads){
@@ -126,6 +167,15 @@ public with sharing class UserService {
         }
         return mapSObject2Users(lead2DealerAccount, dealer2CampaignUsers);
     }
+    
+    /**    
+     * @Description : Maps sObjects to users
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : map of records which are related to campaign to Dealers and dealer to CampaignUsers
+     * @return      : returns map of maped records 
+     * @see         : mapToolKit2CampaignUsers,mapLead2CampaignUsers
+    **/	 
 
     private Map<Id, Set<Id>> mapSObject2Users(Map<Id, Id> sObject2Dealer, Map<Id, Set<Id>> dealer2Users){
         Map<Id, Set<Id>> sObject2Users = new Map<Id, Set<Id>>();
@@ -134,6 +184,16 @@ public with sharing class UserService {
         }
         return sObject2Users;
     }
+    
+     /**    
+     * @Description : Maps sObjects to users
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : map of records which are related to campaign to Dealers and dealer to CampaignUsers
+     * @return      : returns map of maped records 
+     * @see         : mapToolKit2CampaignUsers,mapLead2CampaignUsers
+    **/	 
+    
 
     private Map<Id, Set<Id>> mapSObjects2Users(Map<Id, Set<Id>> sObject2Dealers, Map<Id, Set<Id>> dealer2Users){
         Map<Id, Set<Id>> sObject2Users = new Map<Id, Set<Id>>();
@@ -149,9 +209,15 @@ public with sharing class UserService {
         return sObject2Users;
     }
     
-    /**
-    ** Maps a retail task record with contract record type to the dealers who has access to both related dealer and related vehicle.
-    **/
+    /**    
+     * @Description : Maps a retail task record with contract record type to the dealers who has access to both related dealer and related vehicle.
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : list of Retail Tasks
+     * @return      : returns Contact to user map 
+     * @see         : RetailTaskSharingWrapService.wrapContracts
+    **/	     
+    
     public Map<Id, Set<Id>> mapRetailTaskContract2Users(List<Retail_Task__c> contracts){
         Set<Id> dealerIds = new Set<Id>();
         Set<Id> vehicleIds = new Set<Id>();
@@ -192,10 +258,16 @@ public with sharing class UserService {
         }
         return contract2Users;
     } 
-
-    /**
-    ** Maps the crm code of a retail task record to dealers using the crm code.
-    **/
+    
+    /**    
+     * @Description : Maps the crm code of a retail task record to dealers using the crm code.
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : list of Retail Tasks
+     * @return      : returns crm codes
+     * @see         : RetailTaskSharingWrapService.wrapRetailTasks
+    **/	  
+   
     public Map<String, Set<Id>> mapCrmCode2Users(List<Retail_Task__c> retailTasks){
         Set<String> crmCodes = new Set<String>();
         for(Retail_Task__c retailTask : retailTasks) {
@@ -204,9 +276,15 @@ public with sharing class UserService {
         return mapCrmCode2Users(crmCodes);
     }
     
-    /**
-    ** Maps the crm code of a vehicle relationship record to dealers using the crm code.
-    **/
+    /**    
+     * @Description :  Maps the crm code of a vehicle relationship record to dealers using the crm code.
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : list of vehiclesRelationships
+     * @return      : returns crm codes
+     * @see         : VehicleSharingWrapService.wrapVehicleFromRelationships and VehicleSharingWrapService.wrapVehicleFromAccountLinks
+    **/	     
+    
     public Map<String, Set<Id>> mapCrmCode2Users(List<Vehicle_Relationship__c> vehiclesRelationships){
         Set<String> crmCodes = new Set<String>();
         for(Vehicle_Relationship__c vehiclesRelationship : vehiclesRelationships) {
@@ -214,10 +292,16 @@ public with sharing class UserService {
         }
         return mapCrmCode2Users(crmCodes);
     }
-
-    /**
-    ** Maps the crm code of an account link record to dealers using the crm code.
-    **/
+    
+     /**    
+     * @Description :  Maps the crm code of an account link record to dealers using the crm code.
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : list of accountLinks
+     * @return      : returns crm codes
+     * @see         : AccountLinkSharingWrapService.wrapAccountLinks 
+    **/	 
+   
     public Map<String, Set<Id>> mapCrmCode2Users(List<Account_Link__c> accountLinks){
         Set<String> crmCodes = new Set<String>();
         for(Account_Link__c accountLink : accountLinks) {                       
@@ -225,10 +309,16 @@ public with sharing class UserService {
         }
         return mapCrmCode2Users(crmCodes);
     }
-
-    /**
-    ** Maps a crm code to dealer users using the crm code.
-    **/
+    
+     /**    
+     * @Description : Maps a crm code to dealer users using the crm code.
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : set of crm codes
+     * @return      : returns map of crm to users 
+     * @see         : mapCrmCode2Users,mapCrmCode2Users,mapCrmCode2Users
+    **/	
+   
     private Map<String, Set<Id>> mapCrmCode2Users(Set<String> crmCodes){
         Map<String, Set<Id>> crmCode2Users = new Map<String, Set<Id>>();
         for(User u: [select Id, Contact.Account.Dealer_DMS_CRM_Code__c from User where IsActive = true and Contact.Account.Dealer_DMS_CRM_Code__c in :crmCodes]) {

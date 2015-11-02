@@ -1400,7 +1400,7 @@
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Created_By_EP_Transaction_c__c</fullName>
+        <fullName>Created_By_EP_Transaction__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
         <label>Created By EP Transaction</label>
@@ -1576,6 +1576,9 @@
     </fields>
     <fields>
         <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
         <length>2</length>

@@ -1,5 +1,13 @@
-public class VehicleDataSharingHandler extends SharingDataHandlerBase{
+/**
+** A handler class for Vehicle Data Sharing model.
+** 1. Shares the vehicle data with user groups by using the CRM codes.
+**
+** Created By: CC
+** Date:  
+**/
 
+public with sharing class VehicleDataSharingHandler extends SharingDataHandlerBase{
+	
     private Id recordTypeRetail = 
         UtilRecordType.getRecordTypeIdByName('Vehicle_Relationship__c', 'Vehicle Relationship Retail');
     
@@ -7,11 +15,20 @@ public class VehicleDataSharingHandler extends SharingDataHandlerBase{
         super('Vehicle__c', 'Read');
     }
 
+	/**
+	*@Description :This mehtod fetches the vehicles and shares it to the user group by using the CRM Codes.
+	*@Author :Shrinivas Desai.
+	*@Date : 27/10/2015
+	*@param:List of sObjects.
+	*@return:This mehtod does not return any value.
+	*@see:executeProcessByCRMCode
+	*/
     public override void executeProcessByCRMCode(List<sObject> scope) {
-        system.debug('I am runing');
+        system.debug('I am runing' +scope);
         CMap dmsAndDealer = super.filterDealer(scope);
+        system.debug('dmsAndDealerKeyset...1' +dmsAndDealer.KeySet());
         dmsAndDealer.cleanLessThanTwoList();
-
+        system.debug('dmsAndDealerKeyset...2' +dmsAndDealer.KeySet());
         if(dmsAndDealer.KeySet().size() < 1){return;}
         
         Set<String> dealerIds = dmsAndDealer.values2();

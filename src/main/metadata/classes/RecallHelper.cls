@@ -1,20 +1,31 @@
-/*
-    Type:       Utility for Recall trigger
-    Purpose:    1.  If VIN of recall record matches UsVin of one vehicle record, 
-                    system will link the recall record to this vehicle record automatically. 
-                    System flags ?Recall? on related vehicle, vehicle relationship and customer record automatically.
-                2.  If VIN of recall record matches UsVin of one vehicle record, and if system deletes recall record, 
-                    system removes ?Recall? flag on related vehicle, vehicle relationship and customer record automatically. 
-                
-    User Story: US-CP-022
-    Used By:    
-    ---------------------------------------------------------------
-    History:
-    
-    1. Sichao Lai Created on 2013-06-07
-    2. Lio Huang Created on 2013-11-05
-*/
+
+/**
+**  User Story: US-CP-022
+**1.If VIN of recall record matches UsVin of one vehicle record, 
+        system will link the recall record to this vehicle record automatically. 
+        System flags ?Recall? on related vehicle, vehicle relationship and customer record automatically.
+**2.If VIN of recall record matches UsVin of one vehicle record, and if system deletes recall record, 
+       system removes ?Recall? flag on related vehicle, vehicle relationship and customer record automatically.
+              
+** Created By: Sichao Lai,Lio Huang
+** Date: 2013-06-07,2013-11-05
+
+**Modified By : sriram
+**Modified date : 2015-10-27
+**/
+
+
 public with sharing class RecallHelper {
+	
+	
+	/**    
+     * @Description : Gets the old recall records and extracts vehicle ids.
+     * @author      : Sichao Lai,Lio Huang
+     * @Date        : 2013-06-07,2013-11-05
+     * @param       : all the old recall records 
+     * @return      : returns set of vehicle ids.
+     * @see         : TriggerRecallTriggerHandler
+    **/	
 
 
     public static void beforeDeleteEvent(List<Recall__c> recallOld)
@@ -34,6 +45,14 @@ public with sharing class RecallHelper {
         }
     }
     
+    /**    
+     * @Description : Gets the new recall records and extracts vehicle ids.
+     * @author      : Sichao Lai,Lio Huang
+     * @Date        : 2013-06-07,2013-11-05
+     * @param       : all the new  recall records 
+     * @return      : returns set of vehicle ids.
+     * @see         : TriggerRecallTriggerHandler
+    **/	
     public static void AfterInsertEvent(List<Recall__c> recallNew)
        {
         Set<Id> VehicleIds = new Set<Id>();
@@ -51,9 +70,15 @@ public with sharing class RecallHelper {
          }
       }
    
-    /**
-       Update Recall for Vehicle Relationship, Vehicle, Customer
-     */
+     
+   /**    
+     * @Description : Update Recall for Vehicle Relationship, Vehicle, Customer.
+     * @author      : Sichao Lai,Lio Huang
+     * @Date        : 2013-06-07,2013-11-05
+     * @param       : gets the vehicle ids to be processed.
+     * @return      : returns list of sObjects whitch are to be updated.
+     * @see         : AfterInsertEvent
+    **/	
     public static void updateRecall(Set<Id> vehicleIds) {
     
         List<SObject> objectsToUpdate = new List<SObject>();
@@ -82,6 +107,14 @@ public with sharing class RecallHelper {
         }
     }
     
+    /**    
+     * @Description : remove Recall for Vehicle Relationship, Vehicle, Customer.
+     * @author      : Sichao Lai,Lio Huang
+     * @Date        : 2013-06-07,2013-11-05
+     * @param       : gets the vehicle ids to be processed.
+     * @return      : returns list of sObjects whitch are to be updated.
+     * @see         : beforeDeleteEvent
+    **/	
     public static void removeRecall(Set<Id> vehicleIds) {
     
         List<SObject> objsToUpdate = new List<SObject>();
