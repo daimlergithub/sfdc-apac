@@ -191,13 +191,6 @@
         <label>Address Information</label>
         <layoutColumns>
             <layoutItems>
-                <height>500</height>
-                <page>AddressDisplay</page>
-                <showLabel>false</showLabel>
-                <showScrollbars>false</showScrollbars>
-                <width>100%</width>
-            </layoutItems>
-            <layoutItems>
                 <height>200</height>
                 <page>DisplayAddress</page>
                 <showLabel>false</showLabel>
