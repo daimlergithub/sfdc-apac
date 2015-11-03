@@ -113,9 +113,9 @@ Modify Reason:
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>DEPLOYMENT_DUE_DATE__c</fullName>
+        <fullName>Deployment_Due_Date__c</fullName>
         <externalId>false</externalId>
-        <label>DEPLOYMENT DUE DATE</label>
+        <label>Deployment Due Date</label>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Date</type>
