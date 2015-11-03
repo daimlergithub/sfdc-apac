@@ -9,7 +9,7 @@
         <editHeading>true</editHeading>
         <label>Vehicle information</label>
         <layoutColumns>
-            <layoutItems>
+		    <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Name</field>
             </layoutItems>
@@ -20,6 +20,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Competitor_Model__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>InsuranceExpiryDate__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -76,7 +80,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hO0000000GoiG</masterLabel>
+        <masterLabel>00h28000000KJ6w</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>
