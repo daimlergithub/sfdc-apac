@@ -8982,16 +8982,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Lead__c.Aftersales_Vehicle_Text__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Aftersales_Vehicle__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Lead__c.Allow_Data_Sharing__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -9286,16 +9276,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Existing_Contract_End_Date__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Existing_Contract_Intention__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Existing_Contract__c</field>
         <readable>true</readable>
@@ -9403,16 +9383,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Interested_Competitor_Vehicle__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Interested_Used_Vehicle_Text__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Interested_Used_Vehicle__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9819,11 +9789,6 @@
         <editable>true</editable>
         <field>Lead__c.Preferred_Negotiation_DateTime__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Preferred_Negotiation_Date__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -10316,11 +10281,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.Trade_in__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.UCID__c</field>
         <readable>false</readable>
@@ -10334,11 +10294,6 @@
         <editable>false</editable>
         <field>Lead__c.UsVIN__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.Used_Vehicle__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>

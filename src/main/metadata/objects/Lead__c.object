@@ -79,32 +79,6 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Aftersales_Vehicle_Text__c</fullName>
-        <externalId>false</externalId>
-        <label>Aftersales Vehicle Text</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Aftersales_Vehicle__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Aftersales Vehicle</label>
-        <referenceTo>Vehicle__c</referenceTo>
-        <relationshipLabel>Leads (Aftersales Vehicle)</relationshipLabel>
-        <relationshipName>Leads_Aftersales_Vehicle</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Allow_Data_Sharing__c</fullName>
         <defaultValue>true</defaultValue>
         <externalId>false</externalId>
@@ -163,7 +137,7 @@
     <fields>
         <fullName>Assigned_Dealer_by_Rule__c</fullName>
         <externalId>false</externalId>
-        <label>Assigned Dealer by Rule</label>
+        <label>Customer specified dealer or not flag</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -2655,7 +2629,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <fullName>Current_Vehicle_1_Text__c</fullName>
         <externalId>false</externalId>
         <label>Current Vehicle 1 Text</label>
-        <length>255</length>
+        <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -2681,7 +2655,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <fullName>Current_Vehicle_2_Text__c</fullName>
         <externalId>false</externalId>
         <label>Current Vehicle 2 Text</label>
-        <length>255</length>
+        <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -3264,32 +3238,6 @@ Contact__r.Email__c
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Existing_Contract_End_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Existing Contract End Date</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Existing_Contract_Intention__c</fullName>
-        <externalId>false</externalId>
-        <label>Existing Contract Intention</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Picklist</type>
-    </fields>
-    <fields>
         <fullName>Existing_Contract__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -3447,7 +3395,7 @@ Contact__r.Email__c
     <fields>
         <fullName>FirstName_Native_1__c</fullName>
         <externalId>false</externalId>
-        <label>FirstName Native 1</label>
+        <label>First Name Kana</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3459,7 +3407,7 @@ Contact__r.Email__c
     <fields>
         <fullName>FirstName__c</fullName>
         <externalId>false</externalId>
-        <label>FirstName</label>
+        <label>First Name</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3615,7 +3563,7 @@ Collectioner_Name__r.HomePhone
         <fullName>Interested_Competitor_Vehicle_Text__c</fullName>
         <externalId>false</externalId>
         <label>Interested Competitor Vehicle Text</label>
-        <length>255</length>
+        <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -3631,32 +3579,6 @@ Collectioner_Name__r.HomePhone
         <referenceTo>Vehicle__c</referenceTo>
         <relationshipLabel>Leads (Interested Competitor Vehicle)</relationshipLabel>
         <relationshipName>Interested_Competitor_Vehicle</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
-        <fullName>Interested_Used_Vehicle_Text__c</fullName>
-        <externalId>false</externalId>
-        <label>Interested Used Vehicle Text</label>
-        <length>255</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Interested_Used_Vehicle__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Interested Used Vehicle</label>
-        <referenceTo>Vehicle__c</referenceTo>
-        <relationshipLabel>Leads (Interested Used Vehicle)</relationshipLabel>
-        <relationshipName>Leads_Interested_Used_Vehicle</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -6744,7 +6666,7 @@ Modify Reason:
     <fields>
         <fullName>LastName_Native_1__c</fullName>
         <externalId>false</externalId>
-        <label>LastName Native 1</label>
+        <label>Last Name Kana</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -6756,7 +6678,7 @@ Modify Reason:
     <fields>
         <fullName>LastName__c</fullName>
         <externalId>false</externalId>
-        <label>LastName</label>
+        <label>Last Name</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -8186,7 +8108,7 @@ Modify Reason:
     <fields>
         <fullName>Lost_Comment__c</fullName>
         <externalId>false</externalId>
-        <label>Lost Comment</label>
+        <label>Lost Reason text</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -9383,14 +9305,12 @@ Modify Reason:
     <fields>
         <fullName>Portal_Request_ID__c</fullName>
         <externalId>false</externalId>
-        <label>Portal Request ID</label>
-        <length>80</length>
+        <label>MyM/DSC Request ID</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>TextArea</type>
     </fields>
     <fields>
         <fullName>Postcode__c</fullName>
@@ -9452,16 +9372,6 @@ Modify Reason:
         <fullName>Preferred_Negotiation_DateTime__c</fullName>
         <externalId>false</externalId>
         <label>Preferred Negotiation DateTime</label>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>DateTime</type>
-    </fields>
-    <fields>
-        <fullName>Preferred_Negotiation_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Preferred Negotiation Date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -9764,7 +9674,7 @@ Modify Reason:
         <fullName>Purchased_Vehicle_Text__c</fullName>
         <externalId>false</externalId>
         <label>Purchased Vehicle Text</label>
-        <length>255</length>
+        <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -10539,7 +10449,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
     <fields>
         <fullName>Related_Configuration_Codes__c</fullName>
         <externalId>false</externalId>
-        <label>MB Online Codes</label>
+        <label>MB Online Code1</label>
         <length>500</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -10598,7 +10508,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
     <fields>
         <fullName>Requested_Service_DateTime1__c</fullName>
         <externalId>false</externalId>
-        <label>Requested Service DateTime1</label>
+        <label>Service requested date1</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -10608,7 +10518,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
     <fields>
         <fullName>Requested_Service_DateTime2__c</fullName>
         <externalId>false</externalId>
-        <label>Requested Service DateTime2</label>
+        <label>Service requested date2</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -13994,7 +13904,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <fullName>Service_Advisor__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Service Advisor</label>
+        <label>Assigned Service Adviser</label>
         <referenceTo>User</referenceTo>
         <relationshipName>Leads</relationshipName>
         <required>false</required>
@@ -14260,7 +14170,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
     <fields>
         <fullName>Test_Drive_Type__c</fullName>
         <externalId>false</externalId>
-        <label>Test Drive Type</label>
+        <label>Test drive contents</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -14283,7 +14193,8 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Picklist</type>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Title__c</fullName>
@@ -16583,20 +16494,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Trade_in__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Tradein</label>
-        <referenceTo>Vehicle__c</referenceTo>
-        <relationshipLabel>Leads (Tradein)</relationshipLabel>
-        <relationshipName>Leads6</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>UCID__c</fullName>
         <externalId>false</externalId>
         <label>UCID</label>
@@ -16631,20 +16528,6 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <trackTrending>false</trackTrending>
         <type>Text</type>
         <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>Used_Vehicle__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Used Vehicle</label>
-        <referenceTo>Vehicle__c</referenceTo>
-        <relationshipLabel>Leads (Used Vehicle)</relationshipLabel>
-        <relationshipName>Leads3</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>VIN__c</fullName>
@@ -20405,13 +20288,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>within 1 week</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Existing_Contract_Intention__c</picklist>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -32640,13 +32516,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Existing_Contract_Intention__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Fee_Type__c</picklist>
             <values>
                 <fullName>Financed</fullName>
@@ -44783,13 +44652,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Existing_Contract_Intention__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Fee_Type__c</picklist>
             <values>
                 <fullName>Financed</fullName>
@@ -55754,13 +55616,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>No Plans</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Existing_Contract_Intention__c</picklist>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
