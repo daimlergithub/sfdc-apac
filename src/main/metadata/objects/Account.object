@@ -2663,7 +2663,7 @@ select ID from account where BTLInfo &lt;&gt; "123456789"</description>
         <length>500</length>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
-        <type>Html</type>
+        <type>LongTextArea</type>
         <visibleLines>10</visibleLines>
     </fields>
     <fields>
@@ -3937,6 +3937,24 @@ Feb-18-2012: Added by Rob and Falk</description>
         <unique>false</unique>
     </fields>
     <fields>
+        <fullName>Dealer_NonWorkingDay_Service__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Non Working Day Service</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Dealer_NonWorking_Day__c</fullName>
+        <externalId>false</externalId>
+        <label>Dealer Non Working Day (Sales)</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>TextArea</type>
+    </fields>
+    <fields>
         <fullName>Dealer_Operating_System_Other__c</fullName>
         <externalId>false</externalId>
         <label>Dealer Operating System Other</label>
@@ -4734,7 +4752,7 @@ Attribute in Data Dictionary object Contact is "Contact_Deceased"</description>
     <fields>
         <fullName>Driver_License_Number__c</fullName>
         <externalId>false</externalId>
-        <label>Driver_License_Number</label>
+        <label>Driver License Number</label>
         <length>64</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -4745,7 +4763,7 @@ Attribute in Data Dictionary object Contact is "Contact_Deceased"</description>
     <fields>
         <fullName>Driver_License_Validity_Date__c</fullName>
         <externalId>false</externalId>
-        <label>Driver_License_Valid_date</label>
+        <label>Driver License Valid_date</label>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -5400,7 +5418,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
     <fields>
         <fullName>Finance_Sanction_Comment__c</fullName>
         <externalId>false</externalId>
-        <label>YH_memo</label>
+        <label>YH memo</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -5412,7 +5430,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <fullName>Finance_Sanction__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>YH_Flag(Finance)</label>
+        <label>YH Flag(Finance)</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>
@@ -7295,7 +7313,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
     <fields>
         <fullName>Legal_Form_Position__c</fullName>
         <externalId>false</externalId>
-        <label>Legal_Form_Position</label>
+        <label>Legal Form Position</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -7463,7 +7481,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
     <fields>
         <fullName>MBJ_Yanase_Code__c</fullName>
         <externalId>false</externalId>
-        <label>Yanase Code</label>
+        <label>MBJ Yanase Code</label>
         <length>10</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -7486,7 +7504,7 @@ Attribute in Data Dictionary object Contact is "Contact_LatestAftersalesDealer"<
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
-        <label>Market Discriminator</label>
+        <label>Market discriminator</label>
         <length>2</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -7862,7 +7880,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <fullName>Opt_In_Contact_Reason_Details__c</fullName>
         <externalId>false</externalId>
         <label>Eliminate Reason</label>
-        <length>100</length>
+        <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -7971,7 +7989,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
     <fields>
         <fullName>Opt_Out_Portal__c</fullName>
         <externalId>false</externalId>
-        <label>Opt_Out My Mercedes</label>
+        <label>Opt Out My Mercedes</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -8900,7 +8918,7 @@ Attribute in Data Dictionary object Contact is "Contact_PreferredLanguage "</des
         <fullName>Primary_Phone_Display__c</fullName>
         <externalId>false</externalId>
         <label>Sales Tel Display</label>
-        <length>64</length>
+        <length>63</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -10546,7 +10564,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <fullName>VIP__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>VIP_Indicator Dealer</label>
+        <label>VIP Indicator Dealer</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>

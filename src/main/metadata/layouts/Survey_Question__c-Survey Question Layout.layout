@@ -20,6 +20,10 @@
                 <field>Survey__c</field>
             </layoutItems>
             <layoutItems>
+                <behavior>Edit</behavior>
+                <field>MD__c</field>
+            </layoutItems>
+            <layoutItems>
                 <behavior>Required</behavior>
                 <field>OrderNumber__c</field>
             </layoutItems>
@@ -68,6 +72,7 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
+	
     <relatedLists>
         <fields>NAME</fields>
         <relatedList>SurveyQuestionResponse__c.Survey_Question__c</relatedList>
