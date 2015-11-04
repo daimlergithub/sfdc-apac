@@ -1,29 +1,49 @@
-/*
-    Type:       controller
-    Purpose:    SMSSendLeadResult General Controller
-    User Story: US-Lead-023 - IB/OB CSR send confirmation SMS with dealer 
+/**
+** SMSSendLeadResult General Controller
+** Created By: Sinow
+** Date: 2013-5-20
+**/
 
-    Used By:    VF Page - SMSSendLeadResult.page
-    ---------------------------------------------------------------
-    History:
-
-    20-May-2013 Sinow zhang (Nttdata)    Created
-*/
-
-public class SMSSendLeadResultExtension 
+public with sharing class SMSSendLeadResultExtension 
 {
     /* Public Properties */
     public SMS__c sms { get; set; }
     public String templateId { get; set; }
     public String templateMessage { get; set; }
     public Lead__c leadInfo {get;set;}
+  
     
     /* Private Properties */
     private Map<String, String> templateMap { get; set; }
     private Map<String, String> templateNameMap { get; set; }
     private ApexPages.standardController controller {get;set;}
+      private Task smsTask 
+    {
+        get
+        {
+            if(smsTask == null)
+            {
+                smsTask = new Task();
+                smsTask.Subject = 'SMS';
+                smsTask.Status = 'Closed';
+                smsTask.Activity_Status__c = 'Sent';
+                smsTask.RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
+            }
+            return smsTask;
+        }
+        set;
+    }
 
     /* Public Methods */
+       /**      
+     * @Description standard controller performs the save and redirect, and all the validation rules are there with their error messages.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  
+                * @return the controller
+                 * @see   send
+                */    
+    
     public PageReference send() 
     {
         if(leadInfo.Contact__r.PersonOtherPhone == null && leadInfo.Contact__r.PersonMobilePhone == null)
@@ -41,19 +61,30 @@ public class SMSSendLeadResultExtension
             return null;
         }
         
-        //create task
         createActivity();
 
-        // use the standard controller to perform the save and redirect
         return controller.cancel();
     }
 
-    //set value to template message
+    
+     /**      
+     * @Description value is set for the template message, and the validation rules with error messages.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  
+                * @return null
+                 * @see   parseTemplateMessage
+                */   
     public PageReference parseTemplateMessage()
     {
         if(templateMap.containsKey(templateId)) 
         {
-            if(templateMap.get(templateId).indexOf('{DEALER_') != -1)
+            if(templateMap.get(templateId).indexOf('{DEALER_')!= -1)
+            {
+                templateMessage = templateMap.get(templateId);
+              
+            }
+            else
             {
                 if(sms.Dealer__c == null)
                 {
@@ -62,11 +93,8 @@ public class SMSSendLeadResultExtension
                 }
                 templateMessage = optimzeContent(templateMap.get(templateId));
             }
-            else
-            {
-                templateMessage = templateMap.get(templateId);
-            }
         }
+        
         else
         {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR,'You have to select one SMS template.'));
@@ -74,8 +102,14 @@ public class SMSSendLeadResultExtension
         }
         return null;
     }
-
-    //parse merge fields for message
+    /**      
+     * @Description fields are merged for the message.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  temporary string
+                * @return content
+                 * @see   optimzeContent
+                */ 
     public String optimzeContent(String temp)
     {
         String handledContent = temp;
@@ -88,22 +122,17 @@ public class SMSSendLeadResultExtension
                 String mergeObjectField = handledContent.subString(mergeIndexStart + 1, mergeIndexEnd);
                 if(mergeObjectField.indexOf('_') != -1)
                 {
+                   handledContent = handledContent.subString(0, mergeIndexStart) + ' ' + handledContent.subString(mergeIndexEnd + 1); 
+                }
+                else
+                {
                     String mergeObject = mergeObjectField.subString(0, mergeObjectField.indexOf('_'));
                     String mergeField = mergeObjectField.subString(mergeObjectField.indexOf('_') + 1);
                     if(mergeObject == 'DEALER' && sms.Dealer__c != null)
                     {
                         if(mergeField != 'ADDRESS')
                         {
-                            String dealerQuery = 'select ' + mergeField + ' from Account where Id = \'' + sms.Dealer__c + '\'';
-
-                            List<Account> dealerQuerys = Database.query(dealerQuery);
-                            If(dealerQuerys[0].get(mergeField) != null) {
-                                handledContent = handledContent.subString(0, mergeIndexStart) + dealerQuerys[0].get(mergeField) + handledContent.subString(mergeIndexEnd + 1);
-                            }
-                        }
-                        else
-                        {
-                            Account dealerInfo = [select Dealer_Address_CN__c, City__c, Province__c from Account where Id = :sms.Dealer__c limit 1];
+                           Account dealerInfo = [select Dealer_Address_CN__c, City__c, Province__c from Account where Id = :sms.Dealer__c limit 1];
                             String dealerAddress = '';
                             if(dealerInfo.Province__c != null) {
                                 dealerAddress += dealerInfo.Province__c;
@@ -116,22 +145,35 @@ public class SMSSendLeadResultExtension
                             }
                             handledContent = handledContent.subString(0, mergeIndexStart) + dealerAddress + handledContent.subString(mergeIndexEnd + 1);
                         }
+                        else
+                        {
+                            String dealerQuery = 'select ' + mergeField + ' from Account where Id = \'' + sms.Dealer__c + '\'';
+
+                            List<Account> dealerQuerys = Database.query(dealerQuery);
+                            If(dealerQuerys[0].get(mergeField) != null) {
+                                handledContent = handledContent.subString(0, mergeIndexStart) + dealerQuerys[0].get(mergeField) + handledContent.subString(mergeIndexEnd + 1);
+                            }
+                        }
                     }
                     else
                     {
                         handledContent = handledContent.subString(0, mergeIndexStart) + ' ' + handledContent.subString(mergeIndexEnd + 1);
                     }
                 }
-                else
-                {
-                    handledContent = handledContent.subString(0, mergeIndexStart) + ' ' + handledContent.subString(mergeIndexEnd + 1);
-                }
             }while(handledContent.indexOf('{') != -1);
         }
         return handledContent;
     }   
 
-    //returns list options of templates
+    
+    /**      
+     * @Description list of options of sms templates are returned.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  temporary string
+                * @return template options.
+                 * @see   getTemplates
+                */ 
     public List<SelectOption> getTemplates() 
     {
         List<SelectOption> options = new List<SelectOption>();
@@ -146,8 +188,14 @@ public class SMSSendLeadResultExtension
         }
         return options;
     }
-
-    /* Private Methods */
+     /**      
+     * @Description sms task activity is created.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  
+                * @return smstask is inserted.
+                 * @see   createActivity
+                */ 
     private void createActivity()
     {
         smsTask.WhatId = leadInfo.Id;
@@ -178,24 +226,14 @@ public class SMSSendLeadResultExtension
             ApexPages.addMessages(e);
         }
     }
-    
-    private Task smsTask 
-    {
-        get
-        {
-            if(smsTask == null)
-            {
-                smsTask = new Task();
-                smsTask.Subject = 'SMS';
-                smsTask.Status = 'Closed';
-                smsTask.Activity_Status__c = 'Sent';
-                smsTask.RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('SMS').getRecordTypeId();
-            }
-            return smsTask;
-        }
-        set;
-    }
-  
+   /**      
+     * @Description the constructor method of the class for sending the sms.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  standard controller.
+                * @return sms is ent
+                 * @see   SMSSendLeadResultExtension
+                */ 
     public SMSSendLeadResultExtension(ApexPages.StandardController stdController) 
     {
         // constructor
@@ -211,7 +249,7 @@ public class SMSSendLeadResultExtension
 
         if(leadId != null && leadId != '')
         {
-            List<Lead__c> aList = [Select Id, Name, Contact__c, Contact__r.PersonMobilePhone, Contact__r.PersonOtherPhone, Assigned_Dealer__c, Assigned_Dealer__r.Name From Lead__c Where Id = :leadId];
+             List<Lead__c> aList = [Select Id, Name, Contact__c, Contact__r.PersonMobilePhone, Contact__r.PersonOtherPhone, Assigned_Dealer__c, Assigned_Dealer__r.Name From Lead__c Where Id = :leadId];
             if(aList.size() == 1)
             {
                 leadInfo = aList[0];

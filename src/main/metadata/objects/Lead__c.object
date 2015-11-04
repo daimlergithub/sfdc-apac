@@ -137,7 +137,7 @@
     <fields>
         <fullName>Assigned_Dealer_by_Rule__c</fullName>
         <externalId>false</externalId>
-        <label>Customer specified dealer or not flag</label>
+        <label>Customer specified dealer</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -8840,7 +8840,7 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
-        <length>64</length>
+        <length>2</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
