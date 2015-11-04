@@ -206,7 +206,7 @@
         <fullName>Class_Name__c</fullName>
         <externalId>false</externalId>
         <label>Past Class</label>
-        <length>64</length>
+        <length>255</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -263,7 +263,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Text</type>
         <unique>false</unique>
     </fields>
-	
     <fields>
         <fullName>Mod_Pack__c</fullName>
         <externalId>false</externalId>
