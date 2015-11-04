@@ -19,7 +19,13 @@ public without sharing class SubmitSurveyController{
     public SubmitSurveyController(){
         init();
     }
-
+	/**@Description  Based on surveyID,it checks for Survey_Taking_Status__c in SurveyTaker__c object.Based on survey taken status field it starts the surveytaking process.
+	  *				 If Survey_Taking_Status__c is "finish" it completes the survey or if finishsurvey is false it will set some questions for survey.		
+	  *@author
+      *@Date 11/03/2015
+	*/
+	
+	
     private void init(){
         finishSurvey = false;
         operationType = Apexpages.currentPage().getParameters().get('type');
@@ -109,8 +115,12 @@ public without sharing class SubmitSurveyController{
     }
 
     /** InnerClass: Question
-     *  Retrieves the Survey Question information and puts it in the Question inner Class
-     */
+      *@Description Retrieves the Survey Question information and puts it in the Question inner Class
+      *@author
+      *@Date 11/03/2015
+    */
+     
+     
     public class Question{
         public String surveyResponseID {set;get;}
         public Survey_Question__c surveyQuestion {get;set;}
@@ -135,8 +145,10 @@ public without sharing class SubmitSurveyController{
             surveyQuestion = new Survey_Question__c();
         }
 
-        /** Fills up the Question object
-         *  param:    Survey_Question__c
+        /**@Description Fills up the Question object
+         *@author
+         *@Date 11/03/2015
+         *  param:sq-Survey_Question__c
          */
         public Question(Survey_Question__c sq, String response, String note) {
             surveyQuestion = sq;
@@ -192,8 +204,10 @@ public without sharing class SubmitSurveyController{
             }
         }
 
-        /** Splits up the string as given by the user and adds each option to a list to be displayed as option on the Visualforce page
-          *  param: string   String as submitted by the user
+        /**@Description Splits up the string as given by the user and adds each option to a list to be displayed as option on the Visualforce page.
+          *@author
+          *@Date 11/03/2015
+          *  param: str-  String as submitted by the user
           *  returns the List of SelectOption for the visualforce page
           */
         private List<SelectOption> stringToSelectOptions(String str, Boolean needFreeTextBox){
@@ -216,8 +230,11 @@ public without sharing class SubmitSurveyController{
             return returnVal;
         }
 
-        /**  once user answered the questions, when they answer again will show the value which they answered before
-          *  returns String
+        /**@Description  once user answered the questions, when they answer again will show the value which they answered before
+          *@author
+          *@Date 11/03/2015
+          *  Param Options-List of Selectoption	
+          *  returns list of String
           */
         private List<String> getOptionValue(List<SelectOption> options, String response){
             List<String> result = new List<String>();
@@ -231,7 +248,9 @@ public without sharing class SubmitSurveyController{
             return result;
         }
 
-        /**  Get the question redirect order
+        /** @Description Get the question redirect order
+           *@author
+           *@Date 11/03/2015
           *  param: string   redirect question number configuration
           *  returns Map redirect order
           */
@@ -256,7 +275,9 @@ public without sharing class SubmitSurveyController{
         }
     }
 
-    /**  get the question which show on the page
+    /** @Description get the question which show on the page
+       *@author
+       *@Date 11/03/2015
       *  param: Integer question Order, Boolean whether redirected question, String direction to decide click whick button
       *  returns Inner Class Question
       */
@@ -310,8 +331,9 @@ public without sharing class SubmitSurveyController{
         return q;
     }
 
-    /** Click the next button function
-      * void
+    /**@Description next button function
+      *@author
+      *@Date 11/03/2015
       */
     public void getNextQuestion() {
         Boolean result = true;
@@ -333,11 +355,12 @@ public without sharing class SubmitSurveyController{
         }
     }
 
-    /** Click the previous button function
-      * void
+    /** @Description previous button function,once user click previous button, system will empty this question's answer
+      *@author
+      *@Date 11/03/2015
       */
     public void getPreviousQuestion(){
-        //once user click previous button, system will empty this question's answer
+        
         for(Question q : allQuestions){
             if (q.showQuestionOrder == OneQuestion.showQuestionOrder){
                 q.textValue = '';
@@ -373,8 +396,9 @@ public without sharing class SubmitSurveyController{
         }
     }
 
-    /** Click the return button function
-      *
+    /**@Description return button function
+      *@author
+      *@Date 11/03/2015
       */
     public PageReference submitSurvey(){
         if (surveyTaker!=null) {
@@ -389,8 +413,9 @@ public without sharing class SubmitSurveyController{
         return null;
     }
 
-    /** private function invoked by other public function
-      * insert the survey response result and survey taken information
+    /** @Description insert the survey response result and survey taken information
+   	   *@author
+       *@Date 11/03/2015
       */
    @TestVisible private Boolean upsertSurveyData(Question q){
         Boolean result = true;
@@ -490,10 +515,12 @@ public without sharing class SubmitSurveyController{
         }
         return result;
     }
-
+    /**@Description Clicking break button the survey will jump to last page(end page).
+	  *@author
+      *@Date 11/03/2015
+     */ 
     //click break button function
     public PageReference breakSurvey(){
-        //click break button, the survye will jump to the last question(the end page)
         Boolean result = true;
         //insert the question response data beside the first and last page
         if ( !OneQuestion.showFirstPage && !OneQuestion.showLastPage && 'submit'.equalsIgnoreCase(operationType)) {
