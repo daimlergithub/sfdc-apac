@@ -9,11 +9,19 @@
     1. Mouse Created on 2013-04-27
     2. Mouse Updated on 2013-07-04 for US-Lead-009
 */
-public class UtilLead
+public with sharing class UtilLead
 {
     public static final String aftersalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
     public static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Sales Leads').getRecordTypeId();
-    // US-Lead-009
+       /**      
+     * @Description Leads are updated for the Data Sharing through their contact  
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  List of leads
+                * @return 
+                 * @see  updateLeadForDataSharing
+                */    
+    
     public static void updateLeadForDataSharing(List<Lead__c> leads)
     {
         Set<Id> accIds = new Set<Id>();
@@ -21,23 +29,31 @@ public class UtilLead
         {
             accIds.add(lead.Contact__c);
         }
-		if(accIds!=null && !accIds.isEmpty())
-		{
-	        Map<Id, Account> accMap = new Map<Id, Account>([SELECT Id, Allow_Data_Sharing__c FROM Account WHERE Id IN :accIds]);
-	
-	        for (Lead__c lead : leads)
-	        {
-	        	String allowDataSharing;
-	        	if(accMap.get(lead.Contact__c)!=null && accMap.get(lead.Contact__c).Allow_Data_Sharing__c!=null)
-	            	allowDataSharing = accMap.get(lead.Contact__c).Allow_Data_Sharing__c;
-	            lead.Allow_Data_Sharing__c = allowDataSharing == 'Yes' ? true : false;
-	        }
-		}
+        if(accIds!=null && !accIds.isEmpty())
+        {
+            Map<Id, Account> accMap = new Map<Id, Account>([SELECT Id, Allow_Data_Sharing__c FROM Account WHERE Id IN :accIds]);
+    
+            for (Lead__c lead : leads)
+            {
+                String allowDataSharing;
+                if(accMap.get(lead.Contact__c)!=null && accMap.get(lead.Contact__c).Allow_Data_Sharing__c!=null)
+                    allowDataSharing = accMap.get(lead.Contact__c).Allow_Data_Sharing__c;
+                lead.Allow_Data_Sharing__c = allowDataSharing == 'Yes' ? true : false;
+            }
+        }
     }
 
-    // US-Lead-021
+     /**      
+     * @Description The Related vehicle fields are being updated for the leads through the controlling field contact.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  List of leads
+                * @return 
+                 * @see updateRelatedVehicleRelFields
+                */    
     public static void updateRelatedVehicleRelFields(List<Lead__c> leads)
     {
+        
         Set<Id> leadIdSet = new Set<Id>();
         for (Lead__c lead : leads)
         {
@@ -75,63 +91,70 @@ public class UtilLead
             }
         }
     }
-    
+     /**      
+     * @Description New leads are added and the leads fields are updated in accordance with the vehicle relationship fields.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  List of leads
+                * @return 
+                 * @see updateRelatedVehicleRelFields
+                */    
     public static void beforeInsert_updateEvents(List<Lead__c> leadsNew,map<Id,Lead__c> leadOldmap,boolean isInsert,boolean isUpdate)
     {
-        
+       
         if(isInsert)
         {
-        	List<Lead__c> leads = new List<Lead__c>();
-	        for (Lead__c lead : leadsNew)
-	        {
-	            // US-Lead-021
-	            if (lead.VehicleRel_No__c != null && lead.RecordTypeId == aftersalesRecordTypeId)
-	            {
-	                leads.add(lead);
-	            }
-	        }
-	        if(leads!=null && !leads.IsEmpty())
-	        	updateRelatedVehicleRelFields(leads);
+            List<Lead__c> leads = new List<Lead__c>();
+            for (Lead__c lead : leadsNew)
+            {
+                // US-Lead-021
+                if (lead.VehicleRel_No__c != null && lead.RecordTypeId == aftersalesRecordTypeId)
+                {
+                    leads.add(lead);
+                }
+            }
+            if(leads!=null && !leads.IsEmpty())
+                updateRelatedVehicleRelFields(leads);
         }
         if(isUpdate)
         {
-        	List<Lead__c> vehicleRelationshipLead = new List<Lead__c>();
-	        for (Lead__c newLead: leadsNew) 
-	        {
-	            // Get oldLead
-	            Lead__c oldLead = leadOldmap.get(newLead.Id);
-	            // US-Lead-016: If Assigned Date Time is not null and Dealer Audit is true, 
-	            // just assign Dealer Lead Status to CAC Lead Status
-	            if(newLead.Assigned_Date_Time__c != null && !newLead.Dealer_Audit__c && newLead.RecordTypeId == salesRecordTypeId)
-	            {
-	                newLead.CAC_Lead_Status__c = newLead.Dealer_Lead_Status__c;
-	            }
-	            // US-Lead-13: When lead CAC Lead Staus has change, 
-	            // if this status is changed from New or Qualified to Lost(CAC), 
-	            // update Lead Is Qualify to Unqualified, 
-	            // otherwise, update it to Qualified
-	            if (newLead.CAC_Lead_Status__c != oldLead.CAC_Lead_Status__c)
-	            {
-	                if (newLead.CAC_Lead_Status__c == 'Lost(CAC)' && (oldLead.CAC_Lead_Status__c == 'New' || oldLead.CAC_Lead_Status__c == 'Qualified'))
-	                {
-	                    newLead.Is_Qualify__c = 'Unqualified';
-	                }
-	                else
-	                {
-	                    newLead.Is_Qualify__c = 'Qualified';
-	                }
-	            }
-	            // US-Lead-021: 
-	            if (newLead.VehicleRel_No__c != oldLead.VehicleRel_No__c && newLead.RecordTypeId == aftersalesRecordTypeId)
-	            {
-	                vehicleRelationshipLead.add(newLead);
-	            }
-	        }
-	        // US-Lead-021: 
-	        if (vehicleRelationshipLead!=null && !vehicleRelationshipLead.Isempty())
-	        {
-	            updateRelatedVehicleRelFields(vehicleRelationshipLead);
-	        }
+            List<Lead__c> vehicleRelationshipLead = new List<Lead__c>();
+            for (Lead__c newLead: leadsNew) 
+            {
+                // Get oldLead
+                Lead__c oldLead = leadOldmap.get(newLead.Id);
+                // US-Lead-016: If Assigned Date Time is not null and Dealer Audit is true, 
+                // just assign Dealer Lead Status to CAC Lead Status
+                if(newLead.Assigned_Date_Time__c != null && !newLead.Dealer_Audit__c && newLead.RecordTypeId == salesRecordTypeId)
+                {
+                    newLead.CAC_Lead_Status__c = newLead.Dealer_Lead_Status__c;
+                }
+                // US-Lead-13: When lead CAC Lead Staus has change, 
+                // if this status is changed from New or Qualified to Lost(CAC), 
+                // update Lead Is Qualify to Unqualified, 
+                // otherwise, update it to Qualified
+                if (newLead.CAC_Lead_Status__c != oldLead.CAC_Lead_Status__c)
+                {
+                    if (newLead.CAC_Lead_Status__c == 'Lost(CAC)' && (oldLead.CAC_Lead_Status__c == 'New' || oldLead.CAC_Lead_Status__c == 'Qualified'))
+                    {
+                        newLead.Is_Qualify__c = 'Unqualified';
+                    }
+                    else
+                    {
+                        newLead.Is_Qualify__c = 'Qualified';
+                    }
+                }
+                // US-Lead-021: 
+                if (newLead.VehicleRel_No__c != oldLead.VehicleRel_No__c && newLead.RecordTypeId == aftersalesRecordTypeId)
+                {
+                    vehicleRelationshipLead.add(newLead);
+                }
+            }
+            // US-Lead-021: 
+         /*   if (vehicleRelationshipLead!=null && !vehicleRelationshipLead.Isempty())
+            {
+                updateRelatedVehicleRelFields(vehicleRelationshipLead);
+            }*/
         }
     }
 }

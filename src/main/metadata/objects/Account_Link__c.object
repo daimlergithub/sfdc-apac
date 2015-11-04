@@ -122,33 +122,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Next_Inspection_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Next Inspection Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Next_MOT_Date__c</fullName>
-        <externalId>false</externalId>
-        <label>Next MOT Date</label>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Date</type>
-    </fields>
-    <fields>
-        <fullName>Portal_Email_Opt_Out__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>MyM Mail Opt Out</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Portal_Email__c</fullName>
         <externalId>false</externalId>
         <label>My Mercedes Email</label>
@@ -162,7 +135,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <fullName>Portal_ID2__c</fullName>
         <externalId>false</externalId>
         <label>MBC User ID</label>
-        <length>10</length>
+        <length>20</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -194,15 +167,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Portal Message Opt Out</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Portal_Show_Vehicles__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Portal Show Vehicles</label>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
@@ -264,19 +228,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Checkbox</type>
-    </fields>
-    <fields>
-        <fullName>Related_Dealer__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Related Dealer</label>
-        <referenceTo>Account</referenceTo>
-        <relationshipLabel>Account Link (Contact to Dealer)</relationshipLabel>
-        <relationshipName>Account_Link</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Retail_Business_Type__c</fullName>
@@ -493,18 +444,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Service_Advisor__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Service Advisor</label>
-        <referenceTo>User</referenceTo>
-        <relationshipName>Account_Link</relationshipName>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>SocialMediaAccount_ID__c</fullName>
         <externalId>false</externalId>
         <label>SocialMediaAccount ID</label>
@@ -527,7 +466,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>Status__c</fullName>
         <externalId>false</externalId>
-        <label>Status</label>
+        <label>Dealer Type</label>
         <picklist>
             <picklistValues>
                 <fullName>My Shop</fullName>
