@@ -758,9 +758,6 @@ public with sharing class QCHelper {
     {
         List<QC__c> QCForShare = new List<QC__c>();
     
-        // Set Survey Result ids
-        Set<Id> SurveyResultIds = new Set<Id>();
-        
         // QC Result Tracking records for insert
         List<QC_Result_Tracking__c> QCHistorys = new List<QC_Result_Tracking__c>();
         
