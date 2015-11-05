@@ -256,7 +256,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>Material_Portal_Code__c</fullName>
         <externalId>false</externalId>
-        <label>MyM Model Code</label>
+        <label>Portal Model Code</label>
         <length>32</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
