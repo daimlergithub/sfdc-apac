@@ -1,27 +1,37 @@
 /**
- * DataSharing 
- *   1.Run batch class to extend apex sharing in release 1.0 to share person account 
- *   to active lead/complaint gate keeper of the active dealers with the same CRM Code 
- *   as the assigned dealer at lead/complaint assignment. 
- *   (dealer lead/complaint gate keeper is based on the flag on dealer contact)
- *   2. Run batch class to extend apex sharing in release 1.0 to share person account 
- *   to active users of active dealers with the same CRM Code as the owner dealer of 
- *   retail vehicle relationship.
- */
+** * DataSharing 
+**  1.Run batch class to extend apex sharing in release 1.0 to share person account 
+    to active lead/complaint gate keeper of the active dealers with the same CRM Code 
+    as the assigned dealer at lead/complaint assignment.(dealer lead/complaint gate keeper is based on the flag on dealer contact)
+**  2.Run batch class to extend apex sharing in release 1.0 to share person account 
+	to active users of active dealers with the same CRM Code as the owner dealer of retail vehicle relationship.
+** Created By: 
+** Date: 
+** Modified By : 
+** Modified date : 27-oct-2015
+**/
 
 public class AccountSharingDataHandler {
 
     protected CMap parentIds = new CMap();
     protected CMap userOrGroupIds = new CMap();
-        
-    public AccountSharingDataHandler(String processFlg) {        
+    
+	public AccountSharingDataHandler(String processFlg) {        
         this.processFlg = processFlg;
      }
 
-    //person account record type
+  
     private Id personAccountRecordType = UtilRecordType.getRecordTypeIdByName(UtilConstant.Account_Object,UtilConstant.person_Account);
     private String processFlg = '';
 
+/**	
+* @Description  This method is to get person account record type
+* @author  
+* @Date (mm/dd/yy)
+* @param  passing parentIds, userOrGroupIds
+* @return This method doesn't return any value.
+* @see   AccountSharingDataHandler
+*/ 
     
     public void shareAccount(CMap parentIds, CMap userOrGroupIds){    
         List<sObject> shareRecs = makeInserRecords(parentIds, userOrGroupIds);
@@ -32,7 +42,14 @@ public class AccountSharingDataHandler {
             system.debug('DML Exception: ' + e.getDmlMessage(0));
         }       
     }
-
+/**	
+* @Description make a dms & account map
+* @author  
+* @Date (mm/dd/yy)
+* @param  List of sObjects.
+* @return It returns CMap record
+* @see   SharingDataHandlerBase, VehicleDataSharingHandler, AccountSharingDataHandler
+*/ 
     /**
      * make a dms & account map
      */
@@ -44,10 +61,15 @@ public class AccountSharingDataHandler {
         }
         return dmsAndAccount;       
     }
-    
-    /**
-     *  Create a share record of object
-     */
+/**	
+* @Description  Create a share record of object
+* @author  
+* @Date (mm/dd/yy)
+* @param  passing parentIds, userOrGroupIds
+* @return returns the list of records to be shared
+* @see   SharingDataHandlerBase, AccountSharingDataHandler
+*/     
+
     public sObject createShareObject(id parentId, id UserOrGroupId){
 
         AccountShare shareObj = new AccountShare();
@@ -59,7 +81,15 @@ public class AccountSharingDataHandler {
         return shareObj;
     }
 
-    //using sharing object and to be shared people make sharing record
+/**	
+* @Description  using sharing object and to be shared people make sharing record
+* @author  
+* @Date (mm/dd/yy)
+* @param  passing parentIds, userOrGroupIds
+* @return returns the list of records to be shared
+* @see   VehicleDataSharingHandler, SharingDataHandlerBase, AccountSharingDataHandler
+*/ 
+	
     public List<sObject> makeInserRecords(CMap pIds, CMap uogIds){
         List<sObject> shareRecs = new List<sObject>();
         if (pIds != null)
@@ -75,7 +105,16 @@ public class AccountSharingDataHandler {
         system.debug('shareRecs:'+shareRecs);
         return shareRecs;
     }
-
+/**	
+* @Description  This method shares accounts by CRM codes.
+* @author  
+* @Date (mm/dd/yy)
+* @param  passing trigger parameters
+* @return This method returns no value
+* @see   TriggerLeadTriggerHandler, AccountSharingDataHandler
+*/ 
+	
+	 
     public void shareAccountByCRMCode(Map<id,Lead__c> newData, Map<id,Lead__c> oldData, boolean isNew){        
         CMap cmsAndDealer = new CMap();
         CMap parent = new CMap();
@@ -135,13 +174,18 @@ public class AccountSharingDataHandler {
         system.debug('setp2====================:'+ userOrGroupIds);
         if(userOrGroupIds.values2().size()<1) return;
           shareAccount(parent, userOrGroupIds);        
-     }
-    
-    /**
-     * At complaint assignment, share person account to active comlaint gate keeper of dealer
-     * and the active dealers with same crm code
-     */
-    public void shareAccountByComplaint(Map<id,Case> newData, Map<id,Case> oldData, boolean isNew){
+     }   
+     
+/**	
+* @Description  At complaint assignment, share person account to active complaint gate keeper of dealer
+				and the active dealers with same crm code
+* @author  
+* @Date (mm/dd/yy)
+* @param  Passing trigger parameters
+* @return This method returns no value.
+* @see   CaseHelper, AccountSharingDataHandler
+*/ 
+	public void shareAccountByComplaint(Map<id,Case> newData, Map<id,Case> oldData, boolean isNew){
         CMap cmsAndDealer = new CMap();
         CMap parent = new CMap();
         CMap users = new CMap();
@@ -208,9 +252,15 @@ public class AccountSharingDataHandler {
         if(userOrGroupIds.values2().size()<1) return;
         shareAccount(parent, userOrGroupIds);
     }
-
-    
-     //share person account of Account link 
+	 
+/**	
+* @Description  share person account of Account link 
+* @author  
+* @Date (mm/dd/yy)
+* @param  passing trigger parameters
+* @return This method returns nothing.
+* @see   ShareAccountLinksToDealerTriggerHandler
+*/  
      
     public void shareAccountByAccountLink(Map<id,Account_Link__c> newData, Map<id,Account_Link__c> oldData, boolean isNew){
        //CMap cmsAndDealer = new CMap();
@@ -259,11 +309,16 @@ public class AccountSharingDataHandler {
         if(userOrGroupIds.values2().size()<1) return;
         shareAccount(parent, userOrGroupIds);
     }
-    
-    /**
-     *  get Crm code from Account_link__c 
-     */
-    private String getCRMcodeFromName(String name){
+ /**   
+* @Description  get Crm code from Account_link__c 
+* @author  
+* @Date (mm/dd/yy)
+* @param  passing string name
+* @return this returns CRMcode
+* @see   AccountSharingDataHandler
+*/  
+	 
+	private String getCRMcodeFromName(String name){
         if (name == null)
             return null;
        // List<String> parts = name.split('-');
@@ -281,9 +336,16 @@ public class AccountSharingDataHandler {
         //return parts[2].substring(parts[2].length()-2, parts[2].length()); 
     }
 
-    /**
-     * share person account of retail vehicle raletionship
-     */
+   
+/**	
+* @Description  share person account of retail vehicle relationship
+* @author  
+* @Date (mm/dd/yy)
+* @param  Passing trigger parameters
+* @return This method doesn't return any value
+* @see   TriggerVehicleRelationshipTriggerHandler
+*/  
+	 
     public void shareAccountByRetailVR(Map<id,Vehicle_Relationship__c> newData, Map<id,Vehicle_Relationship__c> oldData, boolean isNew){
         CMap parent = new CMap();
         CMap userOrGroupIds = new CMap();
@@ -326,13 +388,18 @@ public class AccountSharingDataHandler {
         shareAccount(parent, userOrGroupIds);
     }
     
-    /**
-     * share dealer to same code dealer
-     */
+/**	
+* @Description  share dealer to same code dealer
+* @author  
+* @Date (mm/dd/yy)
+* @param  Passing trigger Parameters.
+* @return This method returns nothing.
+* @see   AccountSharingDataHandler
+*/   
+	 
     public void shareDealerByCrmCode(Map<id,Account> newData, Map<id,Account> oldData, boolean isNew){       
         CMap parent = new CMap();   
         String dealerRecordtype =UtilRecordType.getRecordTypeIdByName(UtilConstant.Account_Object,UtilConstant.Dealer);
-        //Delete Old share records
                 
         for(Account a : newData.values()){
             if(a.Dealer_DMS_CRM_Code__c != null && a.RecordTypeId == dealerRecordtype){
@@ -398,9 +465,16 @@ public class AccountSharingDataHandler {
         shareAccount(parent, userOrGroupIds);
      }
     */ 
-    /**
-     * get user of some dms code
-     */
+    
+/**	
+* @Description  This method is to get user of some dms code
+* @author  
+* @Date (mm/dd/yy)
+* @param  set of cms codes
+* @return It returns User Id's
+* @see   shareAccountByAccountLink, shareAccountByRetailVR, shareDealerByCrmCode
+*/ 
+
     private CMap getSameCodeUser(Set<String> cmsCodes){
         
         CMap cmsAndDealer = new CMap();
@@ -436,6 +510,4 @@ public class AccountSharingDataHandler {
         }       
         return userOrGroupIds;
     }
-    
-   
 }

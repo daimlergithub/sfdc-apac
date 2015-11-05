@@ -1,9 +1,9 @@
 /**
-**  Trigger on Account
-**  1. If customer has no vehicle relationship, Status must not be ‘Customer’ 
-**  2. Update dealer record in salesforce manually check
-**  3. When city change , update look up
-**  User Story: US-DS-001, US-Lead-009
+** Trigger on Account
+** 1. If customer has no vehicle relationship, Status must not be ‘Customer’ 
+** 2. Update dealer record in salesforce manually check
+** 3. When city change , update look up
+** User Story: US-DS-001, US-Lead-009
 ** History:   
 ** 1. Mouse Created on 2013-03-28 for US-DS-OO1
 ** 2. Mouse Updated on 2013-07-04 for US-Lead-009
@@ -11,8 +11,8 @@
 ** 4. Gerhard Henning (NTTData)  Moved code to TriggerAccountHandler on 2015-04-21
 ** Created By: CC
 ** Date: 2014-6-15
-Modified By : Sneha Chail
-Modified date : 10-oct-2015
+   Modified By : 
+   Modified date : 
 **/
 
 trigger TriggerAccount on Account (before update,after update) 

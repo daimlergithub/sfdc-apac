@@ -1,10 +1,9 @@
-/*
-    Page Controller
-    ---------------------------------------------------------------
-    History:
-    
-    1. Justin Yu Created on 2014-05-14
-*/
+/**
+** Controller for the lead conversion.
+** Created By: Justin Yu
+** Date: 2014-5-14
+**/
+
 public class LeadConvertingController {
 
     private static String language = 'English';
@@ -34,6 +33,15 @@ public class LeadConvertingController {
     public String contactId { get; set; }
     public String elementId { get; set; }
     public List<RetailCampaignMemberInfo> retailCampaignMemberInfos { get; set; }
+    /**      
+     * @Description Get the dealer Id and the details of the retail campaign member from the campaign id in the page
+     * @Description The retail campaign member info is converted acording to the item status.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  
+                * @return  
+                 * @see   setRetailCampaignMemberInfos()
+                */    
     
     private void setRetailCampaignMemberInfos(){
         retailCampaignMemberInfos = new List<RetailCampaignMemberInfo>();
@@ -75,6 +83,14 @@ public class LeadConvertingController {
     public PageReference cancel() {
         return new PageReference('/' + retailCampaignId);
     }
+    /**      
+     * @Description  Lead is converted.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  
+                * @return 
+                 * @see   PageReference converttolead()
+                */    
     
     public PageReference converttolead() {
         List<Lead__c> tolead = new List<Lead__c>();

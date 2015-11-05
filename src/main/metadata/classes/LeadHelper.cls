@@ -1,27 +1,29 @@
-/*
-    Type:       Utility for LeadAfterUpdate
-    Purpose:    1.Create a custom sharing to share the lead record with Smart Account Owner or the Star Elite Account Owner (from dealer record) with Read Only access.)
-                2.Assigned lead to Dealer Lead Gate Keeper
-                3.Share lead's contact to Dealer Sales Gate Keeper
-                4.If a lead is created from Inquiry case, copy lead id to Case's lead.  US-IB-001
-    User Story: US-DP-022, US-DP-023, US-DP-014, US-IB-001
-    Used By:   
-    ---------------------------------------------------------------
-    History:
-    
-    1. Sinow Created on 2013-04-27
-    3. Sinow Update on 2013-07-22 for US-DP-022, US-DP-023, when Allow Data Sharing changed to yes, update lead's owner.
-*/
+/**
+** Utility for LeadAfterUpdate
+** 1. Create a custom sharing to share the lead record with Smart Account Owner or the Star Elite Account Owner (from dealer record) with Read Only access.)
+** 2. Assigned lead to Dealer Lead Gate Keeper
+** 3. Share lead's contact to Dealer Sales Gate Keeper
+** 4. If a lead is created from Inquiry case, copy lead id to Case's lead.
+** Created By: Sinow
+** Date: 2013-4-27
+**/
+
 public class LeadHelper
 {
-    private static String salesforce = 'Salesforce';
     private static final String salesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.SALES_LEADS).getRecordTypeId();
     private static final String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get(UtilConstant.AFTER_SALES_LEADS).getRecordTypeId();
     private static List<QueueSobject> LeadGateKeeperQ = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType =: UtilConstant.LEAD and Queue.Name =: UtilConstant.DEALER_LEAD_GATE_KEEPER_QUEUE limit 1];
     private static final String SMSTaskRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.SMS).getRecordTypeId();
     private static final String OBTaskRecordTypeId = Schema.SObjectType.Task.getRecordTypeInfosByName().get(UtilConstant.OB_TASK).getRecordTypeId();    
-        
-    // Insert the corresponding lead sharing records
+       /**      
+     * @Description Leads sharing record are created nad inserted for both smart and star elite account owner.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  Map of UsedcarLeadDealer
+                 * @param  Map of newCarLeadDealerId
+                * @return 
+                 * @see   insertLeadSharing
+                */    
     public static void insertLeadSharing(Map<Id, Id> UsedCarLeadDealerId, Map<Id, Id> newCarLeadDealerId)
     {
         Set<Id> existSharingLeadIds = new Set<Id>();
@@ -31,7 +33,6 @@ public class LeadHelper
         List<Lead__Share> SharesToInsert = new List<Lead__Share>();
         List<AccountShare> AccSharesToInsert = new List<AccountShare>();
         
-        // Map account id and Star Elite Owner or Smart Owner
         for(Account acc : [select Id, Star_Elite_Account_Owner__c, Star_Elite_Account_Owner__r.isActive, Smart_Account_Owner__c, Smart_Account_Owner__r.isActive from Account where Id in :UsedCarLeadDealerId.values() or Id in :newCarLeadDealerId.values()])
         {
             if(acc.Star_Elite_Account_Owner__c != null && acc.Star_Elite_Account_Owner__r.isActive == true)
@@ -45,19 +46,16 @@ public class LeadHelper
             }
         }
         
-        // Get exist lead share record ids
         for(Lead__share ls : [select Id from Lead__share where ParentID in :UsedCarLeadDealerId.keySet() or ParentID in :newCarLeadDealerId.keySet()])
         {
             existSharingLeadIds.add(ls.Id);
         }
         
-        // Get exist lead contact ids
         for(Lead__c lead : [select Id, Contact__c from Lead__c where Id in :UsedCarLeadDealerId.keySet() or Id in :newCarLeadDealerId.keySet()])
         {
             leadIdContactIds.put(lead.Id, lead.Contact__c);
         }
         
-        // Create lead sharing records for Used car
         for(Id leadId : UsedCarLeadDealerId.keySet())
         {
             if(!existSharingLeadIds.contains(leadId) && dealerStarElitOwners.containsKey(UsedCarLeadDealerId.get(leadId)))
@@ -67,7 +65,6 @@ public class LeadHelper
             }
         }
         
-        // Create lead sharing records for new car 
         for(Id leadId : newCarLeadDealerId.keySet())
         {
             if(!existSharingLeadIds.contains(leadId) && dealerSmartAccountOwners.containsKey(newCarLeadDealerId.get(leadId)))
@@ -85,30 +82,37 @@ public class LeadHelper
             UtilSobject.insertSobjects(AccSharesToInsert);
         }
     }
+       /**      
+     * @Description Lead owner is updated to gate keeper id or to dealer owner, if not exist.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  Set of dealerIds
+                * @param  List of sObject Lead__c for update
+                * @return 
+                 * @see   UpdateLeadOwner
+                */    
     
     public static void UpdateLeadOwner(Set<Id> dealerIds, List<Lead__c> leadsForUpdate)
     {
-        // Map dealer id and gate keeper id of dealer
+        
         Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>();
         
-        // Query users for map dealer id and gate keeper id of dealer
         for(User u : [select Id, AccountId from User where isActive = true and AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true])
         {
             dealerIdGateKeeperIds.put(u.AccountId, u.Id);
         }
-        // Update lead owner to gate keeper id, if not exist, update lead owner to dealer owner
         for(Lead__c lead : leadsForUpdate)
         {
             if(lead.CAC_Lead_Status__c == 'Qualified')
             {
                 if(dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
                 {
-                    if((lead.Dealer_LMS__c == salesforce && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                    if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
                     {
                         lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
                     }
                 }
-                else  if((lead.Dealer_LMS__c == salesforce && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                else  if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
                 {
                     if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
                     lead.OwnerId = LeadGateKeeperQ[0].QueueId; 
@@ -116,24 +120,31 @@ public class LeadHelper
             }
         }
     }
-    
-    //US-DP-022, US-DP-023, when Allow Data Sharing changed to yes, update lead's owner.
+     /**      
+     * @Description Lead owner is updated to gate keeper id or to dealer owner, if not exist, from contact
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  Set of dealerIds
+                * @param  List of sObject Lead__c for update
+                * @return 
+                 * @see   UpdateLeadOwnerFromContact
+                */ 
     public static void UpdateLeadOwnerFromContact(Set<Id> dealerIds, List<Lead__c> leadsForUpdate)
     {
         List<Lead__c> leadForUpdate = new List<Lead__c>();
-        // Map dealer id and gate keeper id of dealer
+        
         Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>();
         
-        // Query users for map dealer id and gate keeper id of dealer
+       
         for(User u : [select Id, AccountId from User where isActive = true and AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true])
         {
             dealerIdGateKeeperIds.put(u.AccountId, u.Id);
         }
-        // Update lead owner to gate keeper id, if not exist, update lead owner to dealer owner
+        
         for(Lead__c lead : leadsForUpdate) {
             if(lead.Assigned_Dealer__c != null && dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
             {
-                if((lead.Dealer_LMS__c == salesforce && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
                 {
                     lead.OwnerId = dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c);
                     leadForUpdate.add(lead);
@@ -143,7 +154,7 @@ public class LeadHelper
                     leadForUpdate.add(lead);
                 }
             }
-            else  if((lead.Dealer_LMS__c == salesforce && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+            else  if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
             {
                 if(LeadGateKeeperQ!=null && !LeadGateKeeperQ.isEmpty())
                 lead.OwnerId = LeadGateKeeperQ[0].QueueId;
@@ -155,24 +166,29 @@ public class LeadHelper
             UtilSobject.updateSobjects(leadForUpdate);
         }
     }
-    
+    /**      
+     * @Description Lead owner is updated to gate keeper id or to dealer owner, if not exist and shared to gatekeeper.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  Set of dealerIds
+                * @param  List of sObject Lead__c for update
+                * @return 
+                 * @see   ShareToGateKeeper
+                */ 
     public static void ShareToGateKeeper(Set<Id> dealerIds, List<Lead__c> leadsForUpdate) {
         List<AccountShare> SharesToInsert = new List<AccountShare>();
         
-        // Map dealer id and gate keeper id of dealer
         Map<Id, Id> dealerIdGateKeeperIds = new Map<Id, Id>();
         
-        // Query users for map dealer id and gate keeper id of dealer
         for(User u : [select Id, AccountId from User where isActive = true and AccountId in :dealerIds and Contact.Dealer_Lead_Gate_Keeper__c = true]) {
             dealerIdGateKeeperIds.put(u.AccountId, u.Id);
         }
         
-        // Update lead owner to gate keeper id, if not exist, update lead owner to dealer owner
         for(Lead__c lead : leadsForUpdate)
         {
             if(dealerIdGateKeeperIds.containsKey(lead.Assigned_Dealer__c))
             {
-                if((lead.Dealer_LMS__c == salesforce && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
+                if((lead.Dealer_LMS__c == 'Salesforce' && lead.Need_Assign_To_Dealer__c == 'Need' && lead.RecordTypeId == salesRecordTypeId) || lead.RecordTypeId == afterSalesRecordTypeId)
                 {
                     SharesToInsert.add(newAccountShare(lead.Contact__c, dealerIdGateKeeperIds.get(lead.Assigned_Dealer__c)));
                 }/*
@@ -193,7 +209,14 @@ public class LeadHelper
         }
     }
     
-    //US-IB-001
+   /**      
+     * @Description Cases are updated with lead Id's
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  Map of NewCaseLeadIds
+                * @return 
+                 * @see  UpdateCasesWithLeadId
+                */ 
     public static void UpdateCasesWithLeadId(Map<Id, Id> NewCaseLeadIds)
     {
         List<Case> caseForUpdate = new List<Case>();
@@ -208,21 +231,26 @@ public class LeadHelper
             UtilSobject.updateSobjects(caseForUpdate);
         }
     }
-    
+     /**      
+     * @Description leads are shared to assigned dealer, by removing the sharing record for old and creating the record for new dealer.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  Set of String of oldDealerIds
+                * @param  Set of String of leadIds
+                * @return lead shares are inserted.
+                 * @see  shareToAssignedDealer
+                */
     public static void shareToAssignedDealer(Set<String> oldDealerIds, Set<String> leadIds)
     {
         
-        // Get the old dealer owner ids
         Set<ID> oldDealerOwnerIds = new Set<ID>();
         for(Account dealer : [select OwnerId from Account where Id in :oldDealerIds])
         {
             oldDealerOwnerIds.add(dealer.OwnerId);
         }
         
-        // Remove the sharing record for old dealer
         delete [select Id from Lead__Share where AccessLevel = 'Read' and ParentId in :leadIds and UserOrGroupId in :oldDealerOwnerIds];
         
-        // Create the sharing record for new dealer
         List<Lead__c> leads = [select Id, Assigned_Dealer__r.OwnerId from Lead__c where Id in :leadIds and Assigned_Dealer__r.Owner.isActive = true];
         
         Set<ID> dealerOwnerIds = new Set<ID>();
@@ -249,7 +277,16 @@ public class LeadHelper
             insert leadShares;
         }
     }
-    
+    /**      
+     * @Description By accumulating the leads for update, the lead's owner is being updated and the lead contact is being shared.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  list of new leads
+                * @param  map of old leads
+                * @param  boolean isInsert, isUpdate
+                * @return 
+                 * @see  beforeInsert_UpdateEvents
+                */
     public static void beforeInsert_UpdateEvents(list<Lead__c> leadsnew,map<id,Lead__c> leadOldMap,boolean isInsert, boolean isUpdate)
     {
         // Get all dealer ids of update leads
@@ -317,7 +354,16 @@ public class LeadHelper
             }
         }
     }
-    
+    /**      
+     * @Description account sharing is assigned to the lead owner and the leads contact is shared to the lead owner.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  list of new leads
+                * @param  map of old leads
+                * @param  boolean isInsert, isUpdate
+                * @return 
+                 * @see  afterInsert_UpdateEvents
+                */
     public static void afterInsert_UpdateEvents(list<Lead__c> leadsnew,map<id,Lead__c> leadOldMap,boolean isInsert, boolean isUpdate)
     {
         // Map all lead ids and case Ids US-IB-001
@@ -340,7 +386,6 @@ public class LeadHelper
         {
             if(isInsert)
             {
-                // By Justin, assgin account sharings to lead owner
                 if(lead.Need_Assign_To_Dealer__c == 'Need' && lead.OwnerId != null)
                 {
                     dealerIds.add(lead.Assigned_Dealer__c);
@@ -364,7 +409,6 @@ public class LeadHelper
                     NewCarLeadDealerId.put(lead.Id, lead.Assigned_Dealer__c);
                 }
                 
-                // By Justin, assgin account sharings to lead owner
                 if(lead.OwnerId != null && lead.OwnerId != leadOldMap.get(lead.Id).OwnerId)
                 {
                     dealerIds.add(lead.Assigned_Dealer__c);
@@ -378,7 +422,7 @@ public class LeadHelper
                 }
             }
         
-            //US-IB-001
+            
             if(isInsert && lead.Case__c != null)
             {
                 NewCaseLeadIds.put(lead.Case__c, lead.Id);
@@ -391,7 +435,6 @@ public class LeadHelper
             LeadHelper.insertLeadSharing(UsedCarLeadDealerId, NewCarLeadDealerId);
         }
         
-        // Share contact to lead's owner
         if(leadsForUpdate!=null && !leadsForUpdate.IsEmpty())
         {
             ShareToGateKeeper(dealerIds, leadsForUpdate);
@@ -408,7 +451,17 @@ public class LeadHelper
             shareToAssignedDealer(oldDealerIds, leadIdsForSharingToDealerOwner);
         }
     }
-    
+    /**      
+     * @Description Share retail lead to all active campaign users of the linked dealer.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  list of new leads
+                * @param  map of old leads
+                * @param  map of new leads
+                * @param  boolean isInsert, isUpdate
+                * @return 
+                 * @see   LeadSharingWrapService
+                */
     public static void ShareLeadsToCampaignUser(list<Lead__c> leadsnew,map<id,Lead__c> leadOldMap,map<id,Lead__c> leadNewMap,boolean isInsert, boolean isUpdate)
     {
         if(isInsert)
@@ -436,6 +489,15 @@ public class LeadHelper
     /**
      * Private classes
      */
+     /**      
+     * @Description Temporary lead share
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  String of leadId
+                * @param  string of user or groupId
+                * @return temporary share
+                 * @see   Lead__Share newLeadShare
+                */
     private static Lead__Share newLeadShare(String leadId, String userOrGroupId)
     {
         Lead__Share tempShare = new Lead__Share();
@@ -445,7 +507,15 @@ public class LeadHelper
         tempShare.UserOrGroupId = userOrGroupId;
         return tempShare;
     }
-    
+    /**      
+     * @Description Temporary account share
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  String of accountId
+                * @param  string of user or groupId
+                * @return temporary share
+                 * @see   AccountShare newAccountShare
+                */
     private static AccountShare newAccountShare(String accountId, String userOrGroupId)
     {
         AccountShare tempShare = new AccountShare();
@@ -455,7 +525,18 @@ public class LeadHelper
         tempShare.OpportunityAccessLevel = 'Read';
         return tempShare;
     }
-    
+    /**      
+     * @Description to create new task for instructor, mentioning the sms content.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  temporary lead
+                * @param  temporary instructor
+                * @param  temporary user
+                * @param  temporary account
+                * @param  temporary dealer
+                * @return task
+                 * @see   ask createdNewSMSTaskForInstructor
+                */
     @TestVisible private static Task createdNewSMSTaskForInstructor(Lead__c tempLead, User  tempIntegrationUser, User tempInstructor, Account tempAccount, Account tempDealer)
     {
         Task newTask = new Task(RecordTypeId = SMSTaskRecordTypeId, Subject = 'SMS', Status = 'Closed', Activity_Status__c = 'Sent');
@@ -469,7 +550,18 @@ public class LeadHelper
         newTask.WhatId = tempLead.Id;
         return newTask;
     }
-    
+    /**      
+     * @Description to create new task for instructor, mentioning the sms content.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @param  temporary lead
+                * @param  temporary customer
+                * @param  temporary user
+                * @param  temporary account
+                * @param  temporary title
+                * @return task
+                 * @see   createdNewSMSTaskForCustomer
+                */
     @TestVisible private static Task createdNewSMSTaskForCustomer(Lead__c tempLead, User  tempIntegrationUser, Account tempCustomer, Account tempDealer, String tempTitle)
     {
         Task newTask = new Task(RecordTypeId = SMSTaskRecordTypeId, Subject = 'SMS', Status = 'Closed', Activity_Status__c = 'Sent');
@@ -490,7 +582,13 @@ public class LeadHelper
         result = ReservationMessageTemplate.getSMSContent(tempLead, tempCustomer, tempInstructor, tempDealer, tempTitle);
         return result;
     }
-    
+    /**      
+     * @Description to get the epUser.
+     * @author  
+     * @Date 10/26/2015(mm/dd/yy)
+                * @return epUser
+                 * @see   getEPIntegrationUser
+                */
     @TestVisible private static User getEPIntegrationUser()
     {
         User epUser;

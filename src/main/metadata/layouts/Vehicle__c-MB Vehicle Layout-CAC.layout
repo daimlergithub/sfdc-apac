@@ -71,7 +71,6 @@
         <layoutColumns/>
         <style>CustomLinks</style>
     </layoutSections>
-	
     <layoutSections>
         <customLabel>true</customLabel>
         <detailHeading>true</detailHeading>
@@ -84,11 +83,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Length__c</field>
+                <field>Weight__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Weight__c</field>
+                <field>Length__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>

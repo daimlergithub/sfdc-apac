@@ -1,18 +1,25 @@
-/*
-  Name                 : UtilCaseShare
-  Object               : Case
-  Requirement          : moved excessive methods from CaseHelper class  to UtilCaseShare
-  Refer classes        : CaseHelper.cls
-  Author               : Mohana raja reddy Alla
-  Create Date          :10/8/2015
-  Modify History       : 
- 
- */
+/**
+**  Controller was created to moved excessive methods from CaseHelper class  to UtilCaseShare
+** Created By: Mohana raja reddy Alla
+** Date: 10/8/2015
+**Modified By : 
+**Modified date : 
+**Last Modified date:
+**/
+
 public with sharing class UtilCaseShare 
 {
     
      public static CaseTeamRole DealerRole = [select Id from CaseTeamRole where Name = 'Dealer' limit 1];
-    
+ /**      
+  * @Description: Method to share Cases
+  * @author :
+  * @Date :
+  * @param casesToShare is a map having case id and casedealer & 
+     vehicleToOwner is a map having case.Vehicle__c and case.OwnerId
+  * @return  NA
+  * @see   CaseHelper(UtilCaseShare.shareCase());
+*/       
 // share Case For US-CC-023    
     public static void shareCase(Map<Id, Id> casesToShare, Map<String, String> vehicleToOwner) {
        // List<CaseShare> shareCases = new List<CaseShare>();
@@ -58,13 +65,15 @@ public with sharing class UtilCaseShare
         
         shareCaseVehicleToDealer(vehicleToOwner);
     }
-	
-	 /**
-     * Shares the vehicle in case to a dealer
-     *  user after the case owner is changed to the dealer user.
-     * By Justin Yu
-     */
-    private static void shareCaseVehicleToDealer(Map<String, String> vehicleToOwner){
+/**      
+  * @Description:Shares the vehicle in case to a dealer user after the case owner is changed to the dealer user.
+  * @author :Justin Yu
+  * @Date :
+  * @param  vehicleToOwner is a map having case.Vehicle__c and case.OwnerId
+  * @return  NA
+  * @see   UtilCaseShare(shareCaseVehicleToDealer());
+*/         
+   private static void shareCaseVehicleToDealer(Map<String, String> vehicleToOwner){
         
         
         
@@ -82,20 +91,27 @@ public with sharing class UtilCaseShare
             UtilSobject.insertSobjects(vehicleSharings);
         }
     }
-	
-	/**
-     * Maps a sharing to a record.
-     * By Justin Yu
-     */
+/**      
+  * @Description:Maps a sharing to a record.
+  * @author :Justin Yu
+  * @Date :
+  * @param parentId is vehicleId and userOrGroupId is dealerId.
+  * @return  it is returning a concatenated string parentId + ';' + userOrGroupId
+  * @see   UtilCaseShare(getSharingIndex());
+*/           
+  
     public static String getSharingIndex(String parentId, String userOrGroupId){
         return parentId + ';' + userOrGroupId;
     }
-	
-	
-    /**
-     * Gets the existent vehicle sharings.
-     * By Justin Yu
-     */
+/**      
+  * @Description:Gets the existent vehicle sharing.
+  * @author :Justin Yu
+  * @Date :
+  * @param vehicleToOwner is a map having case.Vehicle__c and case.OwnerId
+  * @return  result is set having SharingIndex.
+  * @see   UtilCaseShare(getExistentSharings());
+*/         
+   
     private static Set<String> getExistentSharings(Map<String, String> vehicleToOwner){
         Set<String> result = new Set<String>();
         list<Vehicle__Share> vehShare=new list<Vehicle__Share>([select ParentId, UserOrGroupId from Vehicle__Share 
@@ -107,7 +123,15 @@ public with sharing class UtilCaseShare
         }
         return result;
     }
-    
+  /**      
+  * @Description:
+  * @author :
+  * @Date :  2014/2/21
+  * @param casesToShare is a map having case id
+  * @return  NA
+  * @see   CaseHelper( UtilCaseShare.shareCaseWithoutshareVehicle(););
+*/        
+
     // ADD START AS-Complaint_002 CHAOS 2014/2/21
     public static void shareCaseWithoutshareVehicle(Map<id,Set<Id>> casesToShare) {
       //  List<CaseShare> shareCases = new List<CaseShare>();
@@ -158,7 +182,17 @@ public with sharing class UtilCaseShare
             UtilSobject.insertSobjects(caseTeamMembers);
         }
     }
-	// ADD END AS-Complaint_002 CHAOS 2014/2/21
+  
+  /**      
+  * @Description:The complaint Case Owner will be 
+      auto changed to the Dealer's Complaint Gate keeper
+  * @author :
+  * @Date :  2014/2/21
+  * @param ids is list of caseids
+  * @return  map of caseIds and users
+  * @see   CaseHelper( UtilCaseShare.getGateKeepers(););
+*/        
+  // ADD END AS-Complaint_002 CHAOS 2014/2/21
     
     // The complaint Case Owner will be 
     // auto changed to the Dealer's Complaint Gate keeper
@@ -204,7 +238,15 @@ public with sharing class UtilCaseShare
         
         return caseIdUser;
     }
-	 public static void shareCustomerToGateKeeper(Map<Id, Id> customerGateKeepers) {
+	/**      
+  * @Description:This method shares Customers To GateKeeper.
+  * @author :
+  * @Date : 
+  * @param map of accountId and userId
+  * @return  NA
+  * @see   UtilCaseShare( shareCustomerToGateKeeper(););
+*/        
+   public static void shareCustomerToGateKeeper(Map<Id, Id> customerGateKeepers) {
         List<AccountShare> accShares = new List<AccountShare>();
         Map<Id, Set<Id>> accountIdExistUserIds = new Map<Id, Set<Id>>();
         list<AccountShare> acShare= new list<AccountShare>([select AccountId, UserOrGroupId from AccountShare where id in :customerGateKeepers.keyset()]);

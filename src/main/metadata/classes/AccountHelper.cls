@@ -1,4 +1,3 @@
-
 /**
 ** Utility for Account trigger
 ** when Allow Data Sharing changed to yes, update lead's owner
@@ -10,7 +9,7 @@
 **/
 
 public class AccountHelper {
-  
+ 
     /**
        US-CP-010 error message
      */
@@ -21,17 +20,15 @@ public class AccountHelper {
      */
     public static final String ERROR_MSG_CP_016 = Label.Account_Cann_t_be_Customer;
     
-     /**	
-     * @Description when Allow Data Sharing changed to yes, update lead's owner.
-     * @author  Bing Bai
-     * @Date 2013-06-05(mm/dd/yy)
-	 * @param  Set of dealer Id's
-	 * @return 
-	 * @see  AccountHelper
-	 */   
-
-    
-    //
+/**	
+* @Description: when Allow Data Sharing changed to yes, update lead's owner.
+* @author:  Bing Bai
+* @Date: 2013-06-05(mm/dd/yy)
+* @param:  Set of dealer Id's
+* @return: 
+* @see:  AccountHelper
+*/
+ 
     public static void updateLeads(Set<Id> contactIds) {
         List<Lead__c> leads = [select Id, Dealer_LMS__c, RecordTypeId, Need_Assign_To_Dealer__c, Assigned_Dealer__c from Lead__c where Contact__c in :contactIds and Need_Assign_To_Dealer__c = 'Need' and Assigned_Dealer__c != null];
         Set<Id> dealerIds = new Set<Id>();

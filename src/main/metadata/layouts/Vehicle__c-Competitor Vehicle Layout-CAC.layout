@@ -9,7 +9,7 @@
         <editHeading>true</editHeading>
         <label>Vehicle information</label>
         <layoutColumns>
-		    <layoutItems>
+            <layoutItems>
                 <behavior>Readonly</behavior>
                 <field>Name</field>
             </layoutItems>
