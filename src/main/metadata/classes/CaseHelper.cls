@@ -324,7 +324,7 @@ public with sharing  class  CaseHelper{
   * @see   caseHelper(getComplaintGateKeeperEmail();)
 */       
     
-    public static Map<id,String> getComplaintGateKeeperEmail(Set<id> dealerAccounts){  caseNew.Support_Dealer_1__c
+   public static Map<id,String> getComplaintGateKeeperEmail(Set<id> dealerAccounts){
         Map<id,String> accountAndKeeperEmail = new Map<id,String>(); 
        
         if (dealerAccounts.size() > 0) {
@@ -1629,5 +1629,4 @@ public with sharing  class  CaseHelper{
 	    //---------------------Bing add for data sharing-----------------
     	
     }
-	    
-}
+}    
