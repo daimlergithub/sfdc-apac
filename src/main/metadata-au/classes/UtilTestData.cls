@@ -134,7 +134,7 @@ Public class UtilTestData {
         System.runAs ( thisUser ) {               
                 usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';            
                 usr.ProfileId=profileId;
-                //usr.UserRoleId=userRoleId;
+                usr.UserRoleId=userRoleId;
                 usr.LastName = 'Test User';
                 usr.Email = 'test001@daimler.com.full';
                 usr.Alias = 'test';
