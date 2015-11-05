@@ -5638,23 +5638,12 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>GPS_coordinates_latitude__c</fullName>
+        <fullName>GPS_Coordinates__c</fullName>
         <displayLocationInDecimal>false</displayLocationInDecimal>
         <externalId>false</externalId>
         <label>Dealer GPS</label>
         <required>false</required>
         <scale>1</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Location</type>
-    </fields>
-    <fields>
-        <fullName>GPS_coordinates_longitude__c</fullName>
-        <displayLocationInDecimal>false</displayLocationInDecimal>
-        <externalId>false</externalId>
-        <label>Dealer GPS</label>
-        <required>false</required>
-        <scale>2</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Location</type>

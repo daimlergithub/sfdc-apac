@@ -2557,12 +2557,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.GPS_coordinates_latitude__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.GPS_coordinates_longitude__c</field>
+        <field>Account.GPS_Coordinates__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2854,7 +2849,7 @@
         <editable>false</editable>
         <field>Account.MiddleName__c</field>
         <readable>false</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Minimum_per_Dealer__c</field>
@@ -7919,7 +7914,7 @@
         <editable>false</editable>
         <field>DM_Request__c.Office_Phone__c</field>
         <readable>false</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Primary_Address__c</field>
