@@ -2628,7 +2628,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
     <fields>
         <fullName>Current_Vehicle_1_Text__c</fullName>
         <externalId>false</externalId>
-        <label>Current Vehicle 1 Text</label>
+        <label>Present Possessed Brand 1 Description</label>
         <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2641,7 +2641,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <fullName>Current_Vehicle_1__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Current Vehicle 1</label>
+        <label>Present Possessed Brand 1</label>
         <referenceTo>Vehicle__c</referenceTo>
         <relationshipLabel>Leads (Current Vehicle 1)</relationshipLabel>
         <relationshipName>Leads_Current_Vehicle_1</relationshipName>
@@ -2654,7 +2654,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
     <fields>
         <fullName>Current_Vehicle_2_Text__c</fullName>
         <externalId>false</externalId>
-        <label>Current Vehicle 2 Text</label>
+        <label>Present Possessed Brand 2 Description</label>
         <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2667,7 +2667,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <fullName>Current_Vehicle_2__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Current  Vehicle 2</label>
+        <label>Present Possessed Brand 2</label>
         <referenceTo>Vehicle__c</referenceTo>
         <relationshipLabel>Leads (Current  Vehicle 2)</relationshipLabel>
         <relationshipName>Leads_Current_Vehicle_2</relationshipName>
@@ -3562,7 +3562,7 @@ Collectioner_Name__r.HomePhone
     <fields>
         <fullName>Interested_Competitor_Vehicle_Text__c</fullName>
         <externalId>false</externalId>
-        <label>Interested Competitor Vehicle Text</label>
+        <label>Compared Vehicle Description</label>
         <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3575,7 +3575,7 @@ Collectioner_Name__r.HomePhone
         <fullName>Interested_Competitor_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Interested Competitor Vehicle</label>
+        <label>Compared Vehicle</label>
         <referenceTo>Vehicle__c</referenceTo>
         <relationshipLabel>Leads (Interested Competitor Vehicle)</relationshipLabel>
         <relationshipName>Interested_Competitor_Vehicle</relationshipName>
@@ -9675,7 +9675,7 @@ Modify Reason:
     <fields>
         <fullName>Purchased_Vehicle_Text__c</fullName>
         <externalId>false</externalId>
-        <label>Purchased Vehicle Text</label>
+        <label>New Purchase Model Description</label>
         <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -9688,7 +9688,7 @@ Modify Reason:
         <fullName>Purchased_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Purchased Vehicle</label>
+        <label>New Purchase Model</label>
         <referenceTo>Vehicle__c</referenceTo>
         <relationshipLabel>Leads (Sales Vehicle)</relationshipLabel>
         <relationshipName>Leads8</relationshipName>
@@ -16472,7 +16472,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
     <fields>
         <fullName>Trade_In_Vehicle_Text__c</fullName>
         <externalId>false</externalId>
-        <label>Trade In Vehicle Text</label>
+        <label>Trade-In MB Vehicle Model Description</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -16485,7 +16485,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <fullName>Trade_In_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Trade In Vehicle</label>
+        <label>Trade-In MB Vehicle Model</label>
         <referenceTo>Vehicle__c</referenceTo>
         <relationshipLabel>Leads (Trade In Vehicle)</relationshipLabel>
         <relationshipName>Leads_Trade_In_Vehicle</relationshipName>
