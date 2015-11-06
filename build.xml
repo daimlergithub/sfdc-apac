@@ -391,6 +391,7 @@
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="SelectAssignedDealer"/>
+				<sf:include name="AddressDisplayInlineEdit"/>
 		</sf:typeset>		
 		</deploy>					
     </target>
@@ -407,7 +408,8 @@
 			<sf:include name="TriggerCampaignCityTest"/>
 			<sf:include name="TriggerCampaignLeadTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandler"/>
-			<sf:include name="UtilCampaignCity"/>		
+			<sf:include name="UtilCampaignCity"/>
+			<sf:include name="AddressDisplayInlineEditController"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerCampaignCity"/>
