@@ -13,6 +13,14 @@ public class CampaignHelper {
     public static string CacCampaign ='CAC Campaign';
     public static void copyTopCampaignStatusValueToSavedCampaign(Set<String> campaignIds){
         
+         /**
+  *@Description : Copies Top Campaigns Status value to Saved Campaign.
+  *@Date : 3/11/2015
+  *@param:Set of Campaign Ids.
+  *@return:This mehtod does not return any value.
+
+  */
+        
         Set<String> topCampaignIds = new Set<String>();
         List<Campaign> campaigns = [select ParentId, Parent.ParentId from Campaign where Id in:campaignIds];
         for(Campaign cam : campaigns){
@@ -47,6 +55,14 @@ public class CampaignHelper {
     }
     
     public static void updateCampaignMemberStatusToRelatedCampaign(List<CampaignMember> members){
+    	
+    	/**
+  *@Description : Updates Campaign Member status to Related Campaigns.
+  *@Date : 3/11/2015
+  *@param:List of Campaign Members.
+  *@return:This mehtod does not return any value.
+
+  */
         
         Set<String> topCampaignIds = new Set<String>();
         Set<String> obcallCampaignIds = new Set<String>();
@@ -94,6 +110,16 @@ public class CampaignHelper {
     
     public static void afterInsertUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap, boolean isUpdate)
     {
+    	
+    	
+    	/**
+  *@Description : Actions which are performed as a part of After Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object.
+  *@Date : 3/11/2015
+  *@param:List of campaign.New. Campaign.Oldmap and indicator for Update.
+  *@return:This mehtod does not return any value.
+
+  */
         
         /* START Variable Definition    */
         Set<ID> cpIdSet = new Set<ID>(); // Campaign ID Set       
@@ -204,6 +230,14 @@ public class CampaignHelper {
     
     public static void beforeUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
     {
+    	/**
+  *@Description : Actions which are performed as a part of Before Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object.
+  *@Date : 3/11/2015
+  *@param:List of campaign.New. Campaign.Oldmap.
+  *@return:This mehtod does not return any value.
+
+  */
         
         Id cmpExeReTpIdS = cpRecordTypeMap.get('Campaign Execution - Simple').getRecordTypeId();
         Id cmpExeReTpIdC = cpRecordTypeMap.get('Campaign Execution - Complex').getRecordTypeId();
@@ -240,6 +274,16 @@ public class CampaignHelper {
      */
     public static void afterInsertEvents(list<Campaign> campaignNew)
     {
+    	
+    	/**
+  *@Description : Actions which are performed as a part of After Insert. This gets called from Campaign TriggerHandler
+  This method sends the campaigns with execution type = OB Call  to method copyTopCampaignStatusValueToSavedCampaign().
+  which gets invoked by Trigger on Campaign Object.
+  *@Date : 3/11/2015
+  *@param:List of campaign.New. 
+  *@return:This mehtod does not return any value.
+
+  */
         Set<String> campaignIds = new Set<String>();
         for(Campaign campaign : campaignNew){
             if(campaign.Execution_Type__c == 'OB Call')
@@ -253,6 +297,16 @@ public class CampaignHelper {
     
     public static void afterUpdateEvents(list<Campaign> campaignNew,list<Campaign> campaignOld)
     {
+    	/**
+  *@Description : Actions which are performed as a part of After Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method picks up the campaigns with SMS Task verified = true and updates it to flase if their parent campaign is a 
+  repeated campaign.  
+  *@Date : 3/11/2015
+  *@param:List of campaign.New and Campaign.Old.
+  *@return:This mehtod does not return any value.
+
+  */
+    	
         List<Id> cpSIds = new List<Id>();
         
         
@@ -280,6 +334,16 @@ public class CampaignHelper {
     
     public static void afterInsertEvents_CampaignShare(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
     {
+    	
+    	/**
+  *@Description : Actions which are performed as a part of After Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object.
+  This method updates the campaignshares. Shares campaign to Participating Dealers.
+  *@Date : 3/11/2015
+  *@param:List of campaign.New. Map Campaign.Oldmap.
+  *@return:This mehtod does not return any value.
+
+  */
         //Added community license switching mechanism
     	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
     	{
