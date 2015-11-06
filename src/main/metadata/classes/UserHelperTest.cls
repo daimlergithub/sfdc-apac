@@ -275,7 +275,7 @@ public With Sharing class UserHelperTest
         //create user  
         
         usr = new User(
-            Username = System.now().millisecond() + 'test12345@test.com',
+            Username = System.now().millisecond() + 'testDaimlerUser@Daimler-test.com',
             FirstName = 'firstname',
             ProfileId = DealerDelegatedAdmin.Id,            
             Alias = 'test123',
