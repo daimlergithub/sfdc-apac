@@ -391,7 +391,7 @@
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="SelectAssignedDealer"/>
-				<sf:include name="AddressDisplayInlineEdit"/>
+				
 		</sf:typeset>		
 		</deploy>					
     </target>
@@ -498,6 +498,7 @@
 		<sf:typeset name="pages"> 
 				<sf:include name="YearlyTAAchievementTracingReport"/>
 				<sf:include name="Yearly_TA_Report"/>
+				<sf:include name="AddressDisplayInlineEdit"/>
 		</sf:typeset>
 		</deploy>					
     </target>
