@@ -1,0 +1,126 @@
+<apex:page standardController="Case" extensions="GenerateAndAttachPDF" renderAs="pdf" action="{!GenerateAndAttachPDF}" applyBodyTag="false" standardStylesheets="false">
+ <html>
+ <head>
+    <style type="text/css">
+        body { font-family: Arial Unicode MS; }
+    </style>
+ </head>
+     <table width="100%" rules="rows">                                       
+         <tr><td><h1>Call Center Case Information</h1></td></tr> 
+      </table> 
+      <table width="100%">  
+           <tr>               
+             <td colspan="4" align="right">CaseNumber :</td> 
+             <td><apex:outputField value="{!Case.CaseNumber}"/></td>
+          </tr>
+          <tr>               
+             <td width="25%" align="right">Dealer Name :</td> 
+             <td width="70%"><apex:outputField value="{!Case.Case_Dealer__c}"/></td>                      
+          </tr>
+          <tr>
+             <td width="25%" align="right">Dealer Person Name :</td> 
+             <td width="75%"><apex:outputField value="{!Case.Case_Dealer_User__c}"/></td>                   
+          </tr> 
+          </table>
+        <table rules="rows" width="100%">
+            <tr align="right"><td><p>    
+                        Customer・Assistance・Center<br/>
+                        TEL: 03-5545-6234 FAX: 03-6369-7791<br/> 
+             </p></td></tr> 
+         </table>  
+         <br/>   
+         <table border="1" width="100%" rules="rows">
+          <tr>
+             <td align="right" width="20%">Date/Time :</td>
+             <td align="right" width="30%"></td>
+             <td align="right" width="20%">Dealer :</td>
+             <td align="right" width="30%"></td>
+          </tr> 
+          <tr>
+             <td align="right" width="20%">Kana :</td>
+             <td align="right" width="30%"></td>
+             <td align="right" width="20%">Service Work:</td>
+             <td align="right" width="30%"></td>
+          </tr>
+          <tr>
+             <td align="right" width="20%">Customer :</td>
+             <td align="right" width="30%"></td>
+             <td align="right" width="20%"></td>
+             <td align="right" width="30%"></td> 
+           </tr>        
+        </table>
+        <table border="1" width="100%" rules="rows">  
+           <tr>
+             <td align="right" width="13%">Phone</td>
+             <td align="right" width="20%"></td>
+             <td align="right" width="13%">Mobile</td>
+             <td align="right" width="20%"></td>
+             <td align="right" width="13%">Registration</td>
+             <td align="right" width="20%"></td>
+          </tr>
+          <tr>        
+             <td align="right" width="13%" colspan="5">Registration No</td>
+             <td align="right" width="20%"></td>
+          </tr>
+           <tr>
+             <td align="right" width="13%">Model </td>
+             <td align="right" width="20%"></td>
+             <td align="right" width="13%">Detailed Model Name</td>
+             <td align="right" width="20%"></td>
+             <td align="right" width="13%">Product ID</td>
+             <td align="right" width="20%"></td>
+          </tr>
+           <tr>
+             <td align="right" width="13%">Resource</td>
+             <td align="right" width="20%" colspan="3"></td>            
+             <td align="right" width="13%">Priority</td>
+             <td align="right" width="20%"></td>
+          </tr>
+           <tr>
+             <td align="right" width="13%">Customer</td>
+             <td align="right" width="20%" colspan="3"></td>            
+             <td align="right" width="13%">UCID</td>
+             <td align="right" width="20%"></td>
+          </tr>
+      </table> 
+      <table border="1" width="100%" rules="rows">  
+          <tr>
+           <td align="center" width="100%" bgcolor="#4169E1">Case Content/Status</td>
+          </tr>
+          <tr>
+           <td align="left" width="75%" height="100"><apex:outputField value="{!Case.Customer_Statement__c}"/></td>          
+         </tr> 
+      </table> 
+      <br/>
+      <table border="1" width="100%" rules="rows">  
+          <tr>
+           <td align="center" width="100%" bgcolor="#4169E1">Request Content(to Dealer)</td>
+          </tr>
+          <tr>
+           <td align="left" width="75%" height="100"><apex:outputField value="{!Case.PR_Comment_for_Dealer__c}"/></td>          
+         </tr> 
+      </table> 
+      <table border="1" width="100%" rules="rows">  
+          <tr>
+           <td align="center" width="60%" bgcolor="#4169E1">Information sharing to Dealer/ Internal related department<br/>
+              <img src="/img/checkbox_unchecked.gif"/> Accepted
+              <img src="/img/checkbox_unchecked.gif"/>Could not explain
+              <img src="/img/checkbox_unchecked.gif"/>Not-Accepted
+            </td>
+           <td align="center" width="20%" rowspan="3">Request Content(to Dealer)</td>
+           <td width="2%" rowspan="3">
+              d
+           </td>
+           <td align="center" width="8%" rowspan="3">Request</td>
+           <td align="center" width="8%" rowspan="3"></td>            
+           </tr>    
+      </table> 
+       <table width="100%" border="1" rules="rows">
+         <tr>
+           <td align="right" width="20%">Case Category</td>  
+           <td align="left" width="80%"><apex:outputField value="{!Case.Case_Category__c}"/></td>                  
+         </tr>
+      </table>
+      <br/>
+  </html>
+</apex:page>
