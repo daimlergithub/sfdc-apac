@@ -3,7 +3,7 @@
 ** Audit Trail should be generated on downloading the pdf file.
 ** Created By: Sneha 
 ** Date: 11/06/2015(mm/dd/yy)
-**/
+**/  
 public with sharing class GenerateAndAttachPDF {
    public Case cas{get;set;}
    public String attachmentName;
@@ -11,12 +11,12 @@ public with sharing class GenerateAndAttachPDF {
    public GenerateAndAttachPDF(ApexPages.StandardController controller) {
       this.cas=(Case)controller.getRecord(); 
     }
-    /** 
+    /**     
      * @Description Get the current record Id.  
      * @author  Sneha chail
      * @Date 11/06/2015(mm/dd/yy)   
      * @return Current record Id of a case.
-     */  
+     */ 
    public String recordId {
     get {
       return ApexPages.currentPage().getParameters().get(System.Label.Id);
