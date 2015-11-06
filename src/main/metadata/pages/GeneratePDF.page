@@ -1,4 +1,5 @@
-<apex:page standardController="Case" extensions="GenerateAndAttachPDF" renderAs="pdf" action="{!GenerateAndAttachPDF}" applyBodyTag="false" standardStylesheets="false">
+<apex:page standardController="Case"> 
+<!--extensions="GenerateAndAttachPDF" renderAs="pdf" action="{!GenerateAndAttachPDF}" applyBodyTag="false" standardStylesheets="false">
  <html>
  <head>
     <style type="text/css">
@@ -122,5 +123,5 @@
          </tr>
       </table>
       <br/>
-  </html>
+  </html> -->
 </apex:page>
