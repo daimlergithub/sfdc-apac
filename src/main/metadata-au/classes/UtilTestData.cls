@@ -116,8 +116,9 @@ Public class UtilTestData {
         return usr;
     }
        // Create Test portal User
-    private static User createPortalUser(Id userRoleId, Id profileId) {        
-        Account acc = new Account ( Name = 'dummtyTestAcc');  
+    private static User createPortalUser(Id userRoleId, Id profileId) {
+        User thisUser = [ select Id,UserRoleId from User where Id = :UserInfo.getUserId() ];        
+        Account acc = new Account ( Name = 'dummtyTestAcc', OwnerId = thisUser.Id);  
         insert acc;      
         System.assert(acc.Name=='dummtyTestAcc');
         Contact con = new Contact ( AccountId = acc.id,Salutation = 'Unknown',FirstName='first name', LastName = 'portalTestUser',Dealer_Complaint_Gate_Keeper__c=true, Permission_Set_Settings__c = 'S_M_Retail_Campaign');
@@ -128,13 +129,13 @@ Public class UtilTestData {
         update con;
         
         System.assert(con.LastName=='portalTestUser'); 
-        User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
+       
         System.assertEquals(UserInfo.getUserId(),thisUser.id);
         User usr=new User();       
         System.runAs ( thisUser ) {               
                 usr.UserName = 'test' + Math.rint(Math.random() * 100000) + '@daimler.com';            
                 usr.ProfileId=profileId;
-                usr.UserRoleId=userRoleId;
+                //usr.UserRoleId=userRoleId;
                 usr.LastName = 'Test User';
                 usr.Email = 'test001@daimler.com.full';
                 usr.Alias = 'test';
