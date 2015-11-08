@@ -300,6 +300,7 @@
 			<sf:include name="UtilConstant"/>
 			<sf:include name="AccountSharingDataHandler"/>
 			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
+			<sf:include name="VehicleSharingWrapService"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
