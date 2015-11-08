@@ -36,7 +36,7 @@ public class DMRequestTriggerHandler {
         
         System.debug('---------newList.size()---------'+newList.size());
         
-        if(newList!=null && newList.size()>0){
+        if(newList!=null && newList.size()>0 && oldMap != null && !oldMap.isEmpty()){
             
             map<Id, Integer> updateMap = new map<Id,Integer>();
             
