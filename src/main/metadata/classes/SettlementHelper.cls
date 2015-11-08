@@ -9,7 +9,7 @@
     15-July-2013 Sinow Zhang (NTTData) Created
 */
 public with sharing class SettlementHelper {
-    
+    public static string totalCompanySettlementString = 'Total Complaint Settlement';
     public static void upsertSobjects(List<Sobject> sos) {
         try {
             upsert sos;
@@ -65,7 +65,7 @@ public with sharing class SettlementHelper {
             if(caseIdTotalMB_Amounts.containsKey(id) && caseIdTotalDealer_Amounts.containsKey(id) && caseIdTotalCustomer_Amounts.containsKey(id)) {
                 newSettlement = new Settlement_Management__c();
                 newSettlement.Case__c = id;
-                newSettlement.Settlement_Type__c = 'Total Complaint Settlement';
+                newSettlement.Settlement_Type__c = totalCompanySettlementString;
                 newSettlement.MB_Settlement_Amount__c = caseIdTotalMB_Amounts.get(id);
                 newSettlement.Dealer_Settlement_Amount__c = caseIdTotalDealer_Amounts.get(id);
                 newSettlement.Customer_Settlement_Amount__c = caseIdTotalCustomer_Amounts.get(id);
@@ -80,89 +80,89 @@ public with sharing class SettlementHelper {
     
     public static void CalculateTotalAmountWhenSettlementIsChanged(list<Settlement_Management__c> settlementManagementListNew,list<Settlement_Management__c> settlementManagementListOld,map<id,Settlement_Management__c> smOldMap,boolean isInsert,boolean isUpdate,boolean isDelete)
     {
-    	Set<Id> caseIds = new Set<Id>();
-    	if(isInsert || isUpdate)
-    	{
-	        for(Settlement_Management__c sm : settlementManagementListNew)
-	        {
-	            if(sm.Settlement_Type__c != 'Total Complaint Settlement')
-	            {
-	                caseIds.add(sm.Case__c);
-	            }
-	        }
-    	}
-    	if(isDelete)
-    	{
-	        for(Settlement_Management__c sm : settlementManagementListOld)
-	        {
-	            if(sm.Settlement_Type__c != 'Total Complaint Settlement') {
-	                caseIds.add(sm.Case__c);
-	            }
-	        }
-	    }    
+      Set<Id> caseIds = new Set<Id>();
+      if(isInsert || isUpdate)
+      {
+          for(Settlement_Management__c sm : settlementManagementListNew)
+          {
+              if(sm.Settlement_Type__c != totalCompanySettlementString)
+              {
+                  caseIds.add(sm.Case__c);
+              }
+          }
+      }
+      if(isDelete)
+      {
+          for(Settlement_Management__c sm : settlementManagementListOld)
+          {
+              if(sm.Settlement_Type__c != totalCompanySettlementString) {
+                  caseIds.add(sm.Case__c);
+              }
+          }
+      }    
         if(caseIds!=null && !caseIds.isEmpty())
         {
-	        updateSettlementTotalAmount(caseIds);
-	    }
-	    
-	    Set<Id> updatedCaseIds = new Set<Id>();
-	    if (isInsert)
-	    {
-	        for(Settlement_Management__c smNew : settlementManagementListNew) {
-	            if (smNew.Settlement_Type__c != 'Total Complaint Settlement') {
-	                updatedCaseIds.add(smNew.Case__c);
-	            }
-	        }
-	    }
-	    
-	    if(isDelete)
-	    {
-	        for(Settlement_Management__c smOld : settlementManagementListOld)
-	        {
-	            if (smOld.Settlement_Type__c != 'Total Complaint Settlement') {
-	                updatedCaseIds.add(smOld.Case__c);
-	            }
-	        }
-	    }
-	    if(isUpdate)
-	    {
-	        for(Settlement_Management__c smNew : settlementManagementListNew)
-	        {
-	            Settlement_Management__c smOld = smOldMap.get(smNew.id);
-	            if(smNew.Settlement_Type__c != smOld.Settlement_Type__c 
-	                || (smNew.Settlement_Type__c == smOld.Settlement_Type__c
-	                    && smNew.Settlement_Type__c != 'Total Complaint Settlement'
-	                    && (smNew.Customer_Settlement_Amount__c != smOld.Customer_Settlement_Amount__c
-	                        || smNew.Dealer_Settlement_Amount__c != smOld.Dealer_Settlement_Amount__c
-	                        || smNew.MB_Settlement_Amount__c != smOld.MB_Settlement_Amount__c))) {
-	                updatedCaseIds.add(smNew.Case__c);
-	            }
-	        }
-	    }
-	    
-	    if (updatedCaseIds!=null && !updatedCaseIds.IsEmpty())
-	    {
-	        List<Case> casesForUpdate = new List<Case>();
-	        for(Case cas : [select Id, Settlement_Changed__c from Case where Id in :updatedCaseIds])
-	        {
-	            cas.Settlement_Changed__c = true;
-	            casesForUpdate.add(cas);
-	        }
-	        if (casesForUpdate!=null && !updatedCaseIds.IsEmpty()) {
-	           try {
-	               update casesForUpdate;
-	           }
-	           catch (DMLException e) {
-	               System.debug('Exception occured when update the settlement changed flag on Case: ' + e.getDMLMessage(0));
-	           } 
-	        } 
-	    }
-	    // [End] 2014-05-06 Added by CyrilHuang (Release1.1b)
+          updateSettlementTotalAmount(caseIds);
+      }
+      
+      Set<Id> updatedCaseIds = new Set<Id>();
+      if (isInsert)
+      {
+          for(Settlement_Management__c smNew : settlementManagementListNew) {
+              if (smNew.Settlement_Type__c != totalCompanySettlementString) {
+                  updatedCaseIds.add(smNew.Case__c);
+              }
+          }
+      }
+      
+      if(isDelete)
+      {
+          for(Settlement_Management__c smOld : settlementManagementListOld)
+          {
+              if (smOld.Settlement_Type__c != totalCompanySettlementString) {
+                  updatedCaseIds.add(smOld.Case__c);
+              }
+          }
+      }
+      if(isUpdate)
+      {
+          for(Settlement_Management__c smNew : settlementManagementListNew)
+          {
+              Settlement_Management__c smOld = smOldMap.get(smNew.id);
+              if(smNew.Settlement_Type__c != smOld.Settlement_Type__c 
+                  || (smNew.Settlement_Type__c == smOld.Settlement_Type__c
+                      && smNew.Settlement_Type__c != totalCompanySettlementString
+                      && (smNew.Customer_Settlement_Amount__c != smOld.Customer_Settlement_Amount__c
+                          || smNew.Dealer_Settlement_Amount__c != smOld.Dealer_Settlement_Amount__c
+                          || smNew.MB_Settlement_Amount__c != smOld.MB_Settlement_Amount__c))) {
+                  updatedCaseIds.add(smNew.Case__c);
+              }
+          }
+      }
+      
+      if (updatedCaseIds!=null && !updatedCaseIds.IsEmpty())
+      {
+          List<Case> casesForUpdate = new List<Case>();
+          for(Case cas : [select Id, Settlement_Changed__c from Case where Id in :updatedCaseIds])
+          {
+              cas.Settlement_Changed__c = true;
+              casesForUpdate.add(cas);
+          }
+          if (casesForUpdate!=null && !updatedCaseIds.IsEmpty()) {
+             try {
+                 update casesForUpdate;
+             }
+             catch (DMLException e) {
+                 System.debug('Exception occured when update the settlement changed flag on Case: ' + e.getDMLMessage(0));
+             } 
+          } 
+      }
+      // [End] 2014-05-06 Added by CyrilHuang (Release1.1b)
     }
     
     public static void setFieldvaluestoDefault_0(list<Settlement_Management__c> settlementManagementListNew)
     {
-    	Set<Id> caseIds = new Set<Id>();
+      Set<Id> caseIds = new Set<Id>();
         for(Settlement_Management__c sm : settlementManagementListNew)
         {
             if(sm.Settlement_Type__c == 'No Settlement Require')
@@ -180,9 +180,9 @@ public with sharing class SettlementHelper {
             // [End] Add by Cyril: Release 1.1b
         }
     
-	    if(caseIds!=null && !caseIds.IsEmpty())
-	  	{
-	        updateSettlementTotalAmount(caseIds);
-	    }
+      if(caseIds!=null && !caseIds.IsEmpty())
+      {
+          updateSettlementTotalAmount(caseIds);
+      }
     }
 }

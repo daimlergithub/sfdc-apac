@@ -12,6 +12,8 @@
 */
 public class UtilVehicleRelationship
 {
+
+	private static String yes = 'Yes';
     // US-CP-007
     public static void checkVehcileValidity(List<Vehicle_Relationship__c> relationships)
     {
@@ -24,9 +26,9 @@ public class UtilVehicleRelationship
         {
 	        for (Vehicle_Relationship__c relationship : relationships)
 	        {
-	            if (relationship.Validity__c == 'Yes' && relationship.Vehicle_ID__c != null && relationship.Vehicle_ID__r.Valid__c != 'Yes')
+	            if (relationship.Validity__c == yes && relationship.Vehicle_ID__c != null && relationship.Vehicle_ID__r.Valid__c != yes)
 	            {
-	                relationship.Vehicle_ID__r.Valid__c = 'Yes';
+	                relationship.Vehicle_ID__r.Valid__c = yes;
 	                vehicleList.add(relationship.Vehicle_ID__r);
 	            }
 	        }
@@ -66,19 +68,19 @@ public class UtilVehicleRelationship
 		            for (Vehicle_Relationship__c relationship : vehicle.Vehicle_Relationships__r)
 		            {
 		                // Add vehicle which needs updation to list
-			            if (relationship.Validity__c!=null && relationship.Validity__c.contains('Yes'))
+			            if (relationship.Validity__c!=null && relationship.Validity__c.contains(yes))
 			            {
-			                vehicle.Valid__c = 'Yes';
+			                vehicle.Valid__c = yes;
 			            }
 			            // If all vehicle relationships is not Yes and one is unknown,
 			            // update vehicle to unknown
-			            else if (relationship.Validity__c!=null &&  !relationship.Validity__c.contains('Yes') && relationship.Validity__c.contains('Unknown'))
+			            else if (relationship.Validity__c!=null &&  !relationship.Validity__c.contains(yes) && relationship.Validity__c.contains('Unknown'))
 			            {
 			                vehicle.Valid__c = 'Unknown';
 			            }
 			            // If all vehicle relationship ares not Yes and unknown,
 			            // update vehicle to unknown
-			            else if (relationship.Validity__c!=null &&  !relationship.Validity__c.contains('Yes') && relationship.Validity__c.contains('No'))
+			            else if (relationship.Validity__c!=null &&  !relationship.Validity__c.contains(yes) && relationship.Validity__c.contains('No'))
 			            {
 			                vehicle.Valid__c = 'No';
 			            }

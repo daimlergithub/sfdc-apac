@@ -1,5 +1,5 @@
 global class SlickCtiController {
-
+private static String selectString = 'SELECT ';
 /*
     webservice static String createCase(String personAccountId, String caseType, 
                                         String subType, String callerVerified, 
@@ -77,7 +77,7 @@ global class SlickCtiController {
 
     // ------  Getting the fields to return for the Case Record ------    
     public static Case getCaseFields(String recordId) {        
-        String query = 'SELECT ';
+        String query = selectString;
         for(Schema.FieldSetMember f : getCaseFieldSet()) {
             query += f.getFieldPath() + ',';
         }           
@@ -91,7 +91,7 @@ global class SlickCtiController {
         
     // ------  Getting the fields to return for the Contact Record ------    
     public static Contact getContactFields(String recordId) {        
-        String query = 'SELECT ';
+        String query = selectString;
         for(Schema.FieldSetMember f : getContactFieldSet()) {
             query += f.getFieldPath() + ',';
         }           
@@ -105,7 +105,7 @@ global class SlickCtiController {
         
     // ------  Getting the fields to return for the Lead Record ------        
     public static Lead getLeadFields(String recordId) {
-        String query = 'SELECT ';
+        String query = selectString;
         for(Schema.FieldSetMember f : getLeadFieldSet()) {
             query += f.getFieldPath() + ',';
         }        
@@ -119,7 +119,7 @@ global class SlickCtiController {
     
     // ------  Getting the fields to return for the Account Record ------        
     public static Account getAccountFields(String recordId) {
-        String query = 'SELECT ';
+        String query = selectString;
         for(Schema.FieldSetMember f : getAccountFieldSet()) {
             query += f.getFieldPath() + ',';
         }        

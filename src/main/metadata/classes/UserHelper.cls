@@ -13,6 +13,12 @@
     06-11-2014    zhongyang.si(NttData)  Modified
 */
 public with sharing class UserHelper {
+
+    private static String read='Read';
+    private static String edit='Edit';
+    private static String systemAdministrator='System Administrator';
+    
+
     public Static final String ErrorMessageFirstPart = 'You have reached the max no. of license ';
     public Static final String ErrorMessageSecondPart = ', cannot enabled any new contact as dealer portal user';
     public Static final String ErrorMessageGateKeeper = 'The user profile selected does not match with the contact role selected in the contact record.';
@@ -27,7 +33,16 @@ public with sharing class UserHelper {
     public Static id CACSSITLId;
     public Static id CACSSITRAINERId;
     
-    //validate No of Dealer Portal Licanses
+    
+    /**    
+     * @Description : validate No of Dealer Portal Licanses
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : list of new users
+     * @return      : returns contactId and boolean flag.
+     * @see         : UserTriggerHandler(UserHelper.ValidateUser)
+    **/	   
+    
     public static void ValidateUser(list<user> usersList)
     {
         getPofileId();
@@ -54,7 +69,15 @@ public with sharing class UserHelper {
          }
     }
     
-    //Update Contact Portal User when portal user is enabled or disabled
+    /**    
+     * @Description : Update Contact Portal User when portal user is enabled or disabled
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : contactId and boolean flag
+     * @return      : 
+     * @see         : ValidateUser
+    **/	     
+    
     @future
     public static void updateContact(Id contactId, boolean flag) {
         List<Contact> cons =  [select Id, Portal_user__c from Contact where Id = :contactId];
@@ -68,8 +91,18 @@ public with sharing class UserHelper {
             }
         }
     }
+    
+    
+    /**    
+     * @Description : share the data to the new user, used in Apex Trigger UserAfterInsertUpdate.Fetches the existing users.
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : accountId, UserId and ProfileId.
+     * @return      : 
+     * @see         : AfterInsert_UpdateMethod
+    **/	  
 
-    // share the data to the new user, used in Apex Trigger UserAfterInsertUpdate
+   
     public static void ShareAllDataToNewUser(Id accountId, Id newUserId, Id profileId) {
         // Fetch the existing users
         Set<Id> existUserIds = new Set<Id>();
@@ -83,6 +116,15 @@ public with sharing class UserHelper {
         ShareAllDataToNewUserFuture(newUserId, existUserIds, profileId);
         //ShareAllDataToNewUserBatch(newUserId, existUserIds);
     }
+    
+    /**    
+     * @Description : share  all the data to new batch
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : accountId, newuserId.
+     * @return      : 
+     * @see         : AfterInsert_UpdateMethod
+    **/	  
 
     public static void ShareAllDataToNewUserBatch(Id accountId, ID newUserId) {
         // Fetch the existing users
@@ -102,6 +144,16 @@ public with sharing class UserHelper {
         Database.executeBatch(new ShareDataToNewUserBatch(newUserId,existUserIds,'VehicleRelation'), batchSize);
        // }
     }
+    
+    
+    /**    
+     * @Description : share the data to the new user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds and profileId.
+     * @return      : 
+     * @see         : ShareAllDataToNewUser
+    **/	  
 
     @future
     public static void ShareAllDataToNewUserFuture(Id newUserId, Set<Id> existUserIds, Id profileId) {
@@ -144,13 +196,22 @@ public with sharing class UserHelper {
             ShareBestPracticeToNewUser(newUserId, existUserIds);
         }
     }
+    
+    
+    /**    
+     * @Description : share all the related Vehicle Records to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : 
+    **/	  
 
-    public static void ShareVehicleToNewUser(Id newUserId, Set<Id> existUserIds) {
-        // Share all the related Vehicle Records to new Dealer Portal user
+    public static void ShareVehicleToNewUser(Id newUserId, Set<Id> existUserIds) {      
         List<Vehicle__Share> shares = new List<Vehicle__Share>();
         for(Vehicle__c vehicle : [SELECT id FROM vehicle__c WHERE id in (select ParentId from Vehicle__Share where UserOrGroupId in :existUserIds)]) {
             Vehicle__Share share = new Vehicle__Share();
-            share.AccessLevel = 'Read';
+            share.AccessLevel = read;
             share.ParentID = vehicle.Id;
             //share.RowCause = Schema.Vehicle__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -163,12 +224,22 @@ public with sharing class UserHelper {
         }
     }
 
+
+/**    
+     * @Description : Share all the related VehicleRelationship Records to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : 
+    **/	  
+
     public static void ShareVehicleRelationToNewUser(Id newUserId, Set<Id> existUserIds) {
-        // Share all the related VehicleRelationship Records to new Dealer Portal user
+       
         List<Vehicle_Relationship__Share> shares = new List<Vehicle_Relationship__Share>();
         for(Vehicle_Relationship__c vehicleRs : [SELECT id FROM vehicle_relationship__c WHERE id in (select ParentId from Vehicle_Relationship__Share where UserOrGroupId in :existUserIds)]) {
             Vehicle_Relationship__Share share = new Vehicle_Relationship__Share();
-            share.AccessLevel = 'Read';
+            share.AccessLevel = read;
             share.ParentID = vehicleRs.Id;
             //share.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -182,12 +253,21 @@ public with sharing class UserHelper {
         }
     }
 
+/**    
+     * @Description : Share all the related Account Link Records to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : 
+    **/	  
+    
     public static void ShareAccountLinkToNewUser(Id newUserId, Set<Id> existUserIds) {
-        // Share all the related Account Link Records to new Dealer Portal user
+        
         List<Account_Link__Share> shares = new List<Account_Link__Share>();
         for(Account_Link__c accountLink : [SELECT id FROM Account_Link__c WHERE id in (SELECT ParentId FROM Account_Link__Share WHERE UserOrGroupId IN :existUserIds)]) {
             Account_Link__Share share = new Account_Link__Share();
-            share.AccessLevel = 'Read';
+            share.AccessLevel = read;
             share.ParentID = accountLink.Id;
             share.UserOrGroupId = newUserId;
             shares.add(share);
@@ -199,13 +279,22 @@ public with sharing class UserHelper {
             System.debug('DMLException Exception occured when sharing Account Link to new Dealer user: ' + e.getDMLMessage(0));
         }
     }
+    
+    /**    
+     * @Description : Share all the related Retail Task Records to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : 
+    **/	  
 
     public static void ShareRetailTaskToNewUser(Id newUserId, Set<Id> existUserIds) {
-        // Share all the related Retail Task Records to new Dealer Portal user
+        
         List<Retail_Task__Share> shares = new List<Retail_Task__Share>();
         for(Retail_Task__c retailTask : [SELECT id FROM Retail_Task__c WHERE id in (SELECT ParentId FROM Retail_Task__Share WHERE UserOrGroupId IN :existUserIds)]) {
             Retail_Task__Share share = new Retail_Task__Share();
-            share.AccessLevel = 'Read';
+            share.AccessLevel = read;
             share.ParentID = retailTask.Id;
             share.UserOrGroupId = newUserId;
             shares.add(share);
@@ -217,9 +306,18 @@ public with sharing class UserHelper {
             System.debug('DMLException Exception occured when sharing Retail Task to new Dealer user: ' + e.getDMLMessage(0));
         }
     }
+    
+    /**    
+     * @Description : Share all the related Case records to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : ShareAllDataToNewUserFuture
+    **/	  
 
     public static void ShareCaseToNewUser(Id newUserId, Set<Id> existUserIds) {
-        // Share all the related Case records to new Dealer Portal user
+       
         Set<Id> caseIds = new Set<Id>();
         List<caseTeamMember> caseTeamMembers = new List<caseTeamMember>();
         Id teamRoleId = [select Id from CaseTeamRole where Name = 'Dealer' limit 1].id;
@@ -243,6 +341,17 @@ public with sharing class UserHelper {
             System.debug('DMLException Exception occured when sharing Cases to new Dealer user: ' + e.getDMLMessage(0));
         }
     }
+    
+    
+     /**    
+     * @Description : Share all the Sales Leads and Aftersales Leads to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : ShareAllDataToNewUserFuture
+    **/	  
+    
    
     public static void ShareLeadsToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
@@ -252,7 +361,7 @@ public with sharing class UserHelper {
         List<Lead__Share> shares = new List<Lead__Share>();
         for(Lead__c lead : [Select Id from Lead__c Where Id in (select ParentId from Lead__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Lead__Share share = new Lead__Share();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = lead.Id;
             //share.RowCause = Schema.Lead__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -266,6 +375,16 @@ public with sharing class UserHelper {
         }
     }
         
+     /**    
+     * @Description : Share all the Retail Sales Leads to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : ShareAllDataToNewUserFuture
+    **/	  
+    
+    
     public static void ShareRetailLeadsToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
         recordTypes.add(Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Retail Sales Leads').getRecordTypeId());
@@ -273,7 +392,7 @@ public with sharing class UserHelper {
         List<Lead__Share> shares = new List<Lead__Share>();
         for(Lead__c lead : [Select Id from Lead__c Where Id in (select ParentId from Lead__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Lead__Share share = new Lead__Share();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = lead.Id;
             //share.RowCause = Schema.Lead__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -286,6 +405,16 @@ public with sharing class UserHelper {
             System.debug('DMLException Exception occured when sharing Retail Sale Leads to new Dealer user: ' + e.getDMLMessage(0));
         }
     }
+    
+    
+     /**    
+     * @Description : Share all the AS Retail Campaigns to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : ShareAllDataToNewUserFuture
+    **/	  
      
     public static void ShareAsRecordsToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
@@ -294,7 +423,7 @@ public with sharing class UserHelper {
         List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
         for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Retail_Campaign__Share share = new Retail_Campaign__Share ();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = record.Id;
             //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -308,6 +437,15 @@ public with sharing class UserHelper {
         }
     }
     
+    
+     /**    
+     * @Description : Share all the Aftersales Yearly TA and Monthly TA to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : ShareAllDataToNewUserFuture
+    **/	  
     public static void ShareAsYearlyTAToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
         recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Aftersales Yearly TA').getRecordTypeId());
@@ -316,7 +454,7 @@ public with sharing class UserHelper {
         List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
         for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Retail_Campaign__Share share = new Retail_Campaign__Share ();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = record.Id;
             //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -329,6 +467,16 @@ public with sharing class UserHelper {
             System.debug('DMLException Exception occured when sharing AS Records to new Dealer user: ' + e.getDMLMessage(0));
         }
     }
+    
+    
+     /**    
+     * @Description : Share all the Sales & Marketing Yearly TA and Monthly TA to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : ShareAllDataToNewUserFuture
+    **/	  
     
     public static void ShareSmYearlyTAToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
@@ -338,7 +486,7 @@ public with sharing class UserHelper {
         List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
         for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Retail_Campaign__Share share = new Retail_Campaign__Share();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = record.Id;
             //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -352,6 +500,15 @@ public with sharing class UserHelper {
         }
     }
     
+     /**    
+     * @Description : Share all the S&M Event Retail Campaign and S&M Media Retail Campaign  to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : ShareAllDataToNewUserFuture
+    **/	  
+    
     public static void ShareSmRecordsToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
         recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('S&M Event Retail Campaign').getRecordTypeId());
@@ -360,7 +517,7 @@ public with sharing class UserHelper {
         List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
         for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Retail_Campaign__Share share = new Retail_Campaign__Share();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = record.Id;
             //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -374,6 +531,15 @@ public with sharing class UserHelper {
         }
     }
     
+     /**    
+     * @Description : Share all the Retail MB Best Practice and  Retail smart Best Practice to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : ShareAllDataToNewUserFuture
+    **/	  
+    
     public static void ShareRetailBestPracticeToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
         recordTypes.add(Schema.SObjectType.Retail_Campaign__c.getRecordTypeInfosByName().get('Retail MB Best Practice').getRecordTypeId());
@@ -382,7 +548,7 @@ public with sharing class UserHelper {
         List<Retail_Campaign__Share> shares = new List<Retail_Campaign__Share>();
         for(Retail_Campaign__c record : [Select Id from Retail_Campaign__c Where Id in (select ParentId from Retail_Campaign__Share where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             Retail_Campaign__Share share = new Retail_Campaign__Share();
-            share.AccessLevel = 'Edit';
+            share.AccessLevel = edit;
             share.ParentID = record.Id;
             //share.RowCause = Schema.Retail_Campaign__Share.RowCause.Manual;
             share.UserOrGroupId = newUserId;
@@ -396,6 +562,15 @@ public with sharing class UserHelper {
         }
     }
     
+    /**    
+     * @Description : Share all the RAS Central Campaigns to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : ShareAllDataToNewUserFuture
+    **/	  
+    
     public static void ShareAsCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
         recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('AS Central Campaign').getRecordTypeId());
@@ -403,7 +578,7 @@ public with sharing class UserHelper {
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             CampaignShare share = new CampaignShare();
-            share.CampaignAccessLevel = 'Read';
+            share.CampaignAccessLevel = read;
             share.CampaignId = cpn.Id;
             share.UserOrGroupId = newUserId;
             shares.add(share);
@@ -416,6 +591,14 @@ public with sharing class UserHelper {
         }
     }
     
+     /**    
+     * @Description : Share all the S&M Event Central Campaigns and S&M Media Central Campaigns to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : ShareAllDataToNewUserFuture
+    **/	 
     public static void ShareSmCampaignToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
         recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('S&M Event Central Campaign').getRecordTypeId());
@@ -424,7 +607,7 @@ public with sharing class UserHelper {
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             CampaignShare share = new CampaignShare();
-            share.CampaignAccessLevel = 'Read';
+            share.CampaignAccessLevel = read;
             share.CampaignId = cpn.Id;
             share.UserOrGroupId = newUserId;
             shares.add(share);
@@ -437,6 +620,14 @@ public with sharing class UserHelper {
         }
     }
     
+     /**    
+     * @Description : Share all the MB Best Practices and smart Best Practices to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : ShareAllDataToNewUserFuture
+    **/	
     public static void ShareBestPracticeToNewUser(Id newUserId, Set<Id> existUserIds) {
         Set<Id> recordTypes = new Set<Id>();
         recordTypes.add(Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('MB Best Practice').getRecordTypeId());
@@ -445,7 +636,7 @@ public with sharing class UserHelper {
         List<CampaignShare> shares = new List<CampaignShare>();
         for(Campaign cpn : [Select Id from Campaign Where Id in (select CampaignId from CampaignShare where UserOrGroupId in :existUserIds) And RecordTypeId In :recordTypes]) {
             CampaignShare share = new CampaignShare();
-            share.CampaignAccessLevel = 'Read';
+            share.CampaignAccessLevel = read;
             share.CampaignId = cpn.Id;
             share.UserOrGroupId = newUserId;
             shares.add(share);
@@ -458,11 +649,19 @@ public with sharing class UserHelper {
         }
     }
     
+     /**    
+     * @Description : Share  the ToolLit  to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId, existUserIds 
+     * @return      : 
+     * @see         : ShareAllDataToNewUserFuture
+    **/	
     public static void ShareToolKitToNewUser(Id newUserId, Set<Id> existUserIds) {
         List<Tool_Kit__Share> shares = new List<Tool_Kit__Share>();
         for(Tool_Kit__c tk : [Select Id from Tool_Kit__c Where Id in (select ParentId from Tool_Kit__Share where UserOrGroupId in :existUserIds)]) {
             Tool_Kit__Share share = new Tool_Kit__Share();
-            share.AccessLevel  = 'Edit';
+            share.AccessLevel  = edit;
             share.ParentId = tk.Id;
             share.UserOrGroupId = newUserId;
             //share.RowCause = Schema.Tool_Kit__Share.RowCause.Manual;
@@ -475,6 +674,15 @@ public with sharing class UserHelper {
             System.debug('DMLException Exception occured when sharing Tool Kits to new Dealer user: ' + e.getDMLMessage(0));
         }
     }
+    
+     /**    
+     * @Description : AssignPermissionSet  to new Dealer Portal user
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : newUserId
+     * @return      : 
+     * @see         : AfterInsert_UpdateMethod
+    **/	
 
     public static void AssignPermissionSetForPortalUser(Set<Id> userIds) {
         List<PermissionSetAssignment> permissionSetAssignments = new List<PermissionSetAssignment>();
@@ -518,6 +726,15 @@ public with sharing class UserHelper {
             System.debug('DMLException Exception occured when inserting the new permission set: ' + e.getDMLMessage(0));
         }
     }
+    
+    /**    
+     * @Description : when the user inserts share the account, vehicle and vehicle relation to the user and verifies whether the user is a portal user or not.
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : new user list, old user map, and trigger boolean perameters isInsert,isUpdate.
+     * @return      : 
+     * @see         : UserTriggerHandler
+    **/	
     
     public static void AfterInsert_UpdateMethod(list<User> usersList,map<id,User> userOldMap,boolean isInsert,boolean isUpdate)
     {
@@ -578,11 +795,20 @@ public with sharing class UserHelper {
          }
     }
     
+    /**    
+     * @Description : gets all the profile ids by the profile names
+     * @author      : Sinow Zhang 
+     * @Date        : 23-April-2013
+     * @param       : 
+     * @return      : all the profile ids
+     * @see         : ValidateUser,AfterInsert_UpdateMethod,ShareAllDataToNewUserFuture
+    **/	
+    
     public static void getPofileId()
     {
         set<string> profleNames= new set<string>();
-        profleNames.add('System Administrator');
-        profleNames.add('System Administrator');
+        profleNames.add(systemAdministrator);
+        profleNames.add(systemAdministrator);
         profleNames.add('CAC SSI CSR');
         profleNames.add('CAC SSI QC');
         profleNames.add('CAC SSI SV');
@@ -593,9 +819,9 @@ public with sharing class UserHelper {
         {
             for(Profile obj:lstProfiles)
             {
-                if(obj.name=='System Administrator')
+                if(obj.name==systemAdministrator)
                     DealerComplaintUserId=obj.Id;
-                if(obj.name=='System Administrator')
+                if(obj.name==systemAdministrator)
                     DealerDelegatedAdminId=obj.Id;
                 if(obj.name=='CAC SSI CSR')
                     CACSSICSRId=obj.Id;

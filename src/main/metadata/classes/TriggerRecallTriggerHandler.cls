@@ -20,8 +20,7 @@ public class TriggerRecallTriggerHandler
 {
     public void handleTrigger()
     {
-        Map<Id,Recall__c> oldmap = (Map<Id,Recall__c>)trigger.oldmap;
-        Map<Id,Recall__c> newmap = (Map<Id,Recall__c>)trigger.newmap;
+        
         
         if(trigger.isAfter && trigger.isInsert)
         { 

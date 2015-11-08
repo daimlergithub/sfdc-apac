@@ -1,0 +1,255 @@
+<apex:page standardController="Account" extensions="ContactTableController" id="pageid" showHeader="false" sidebar="false" showChat="false">
+    <apex:form id="form1">
+        <apex:pageMessages id="showmsg"></apex:pageMessages>
+        
+        <apex:outputPanel layout="block" style="overflow:auto;height:330px" >
+            <apex:pageBlock id="myTable">
+                
+                <table style="width:100%" rules="rows">               
+                    <tr>        
+                        <td></td> 
+                        <td></td>
+                        <th>Status</th>         
+                        <th>Last Modified By</th>        
+                        <th>Last Modified Date</th>     
+                    </tr>
+                    
+                    <tr>        
+                        <th style="text-align: Right;">Mobile</th>       
+                        <td><apex:inputtext value="{!ParAcc.Mobile__c}" rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Mobile__c}" rendered="{!!editMode}"/>
+                        </td> 
+                        <td><apex:inputField value="{!ParAcc.Mobile_Status__c}" rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Mobile_Status__c}" rendered="{!!editMode}"/>
+                        </td>       
+                        <td><apex:outputLink onclick="UserRedirect(); return false;">
+                            {!ParAcc.SMS_Last_Modified_By__c}                             
+                            </apex:outputLink>                
+                        </td>        
+                        <td><apex:outputField value="{!ParAcc.SMS_Last_Modified_Date__c}"/></td>    
+                    </tr>
+                    
+                    <tr>        
+                        <th style="text-align: Right;">Work Mobile</th>     
+                        <td><apex:inputField value="{!ParAcc.Mobile2__c}" rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Mobile2__c}" rendered="{!!editMode}"/>
+                        </td>  
+                        <td><apex:inputField value="{!ParAcc.SMS_MMS_IM_Status_2__c}" rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.SMS_MMS_IM_Status_2__c}" rendered="{!!editMode}"/>
+                        </td>        
+                        <td><apex:outputLink onclick="UserRedirect(); return false;">
+                            {!ParAcc.SMS_Last_Modified_By2__c}</apex:outputLink>                     
+                        </td>                  
+                        <td><apex:outputField value="{!ParAcc.SMS_Last_Modified_Date2__c}"/></td>        
+                    </tr>
+                    
+                    <tr>        
+                        <th style="text-align: Right;">Home Phone</th>        
+                        <td><apex:inputField value="{!ParAcc.Individual_Home_Phone__c}" rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Individual_Home_Phone__c}" rendered="{!!editMode}"/>
+                        </td> 
+                        <td><apex:inputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Individual_Home_Phone_Status__c}" rendered="{!!editMode}"/>
+                        </td>     
+                        <td><apex:outputLink onclick="UserRedirect(); return false;">
+                            {!ParAcc.Home_Phone_Last_Modified_By__c}</apex:outputLink>                  
+                        </td>
+                        <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_Date__c}"/></td>            
+                    </tr>
+                    
+                    <tr>        
+                        <th style="text-align: Right;">Other Phone 1</th>        
+                        <td><apex:inputField value="{!ParAcc.Home_Phone_2__c}" rendered="{!editMode}" />
+                            <apex:outputField value="{!ParAcc.Home_Phone_2__c}" rendered="{!!editMode}"/>
+                        </td> 
+                        <td><apex:inputField value="{!ParAcc.Home_Phone_Status_2__c}" rendered="{!editMode}" />
+                            <apex:outputField value="{!ParAcc.Home_Phone_Status_2__c}"  rendered="{!!editMode}" />
+                        </td>   
+                        <td><apex:outputLink onclick="UserRedirect(); return false;">
+                            {!ParAcc.Home_Phone_Last_Modified_By2__c}</apex:outputLink>                
+                        </td>      
+                        <td><apex:outputField value="{!ParAcc.Home_Phone_Last_Modified_Date2__c}"/></td>       
+                    </tr>
+                    
+                    <tr>        
+                        <th style="text-align: Right;">Work Phone </th>                
+                        <td><apex:inputField value="{!ParAcc.Work_Phone__c}" rendered="{!editMode}" />
+                            <apex:outputField value="{!ParAcc.Work_Phone__c}" rendered="{!!editMode}" />
+                        </td> 
+                        <td><apex:inputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!editMode}" />
+                            <apex:outputField value="{!ParAcc.Work_Phone_Status__c}" rendered="{!!editMode}"/>
+                        </td>   
+                        <td><apex:outputLink onclick="UserRedirect(); return false;">
+                            {!ParAcc.Work_Phone_Last_Modified_By__c}</apex:outputLink>               
+                        </td>      
+                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date__c}"/></td>       
+                    </tr>
+                    
+                    <tr>        
+                        <th style="text-align: Right;">Other Phone 2</th>        
+                        <td><apex:inputField value="{!ParAcc.Phone}" rendered="{!editMode}" />
+                            <apex:outputField value="{!ParAcc.Phone}" rendered="{!!editMode}" />
+                        </td> 
+                        <td><apex:inputField value="{!ParAcc.Work_Phone_Status_2__c}" rendered="{!editMode}" />
+                            <apex:outputField value="{!ParAcc.Work_Phone_Status_2__c}" rendered="{!!editMode}" />
+                        </td>   
+                        <td><apex:outputLink onclick="UserRedirect(); return false;">
+                            {!ParAcc.Work_Phone_Last_Modified_By2__c}</apex:outputLink>                
+                        </td>      
+                        <td><apex:outputField value="{!ParAcc.Work_Phone_Last_Modified_Date2__c}"/></td>              
+                    </tr>
+                    
+                    <tr>        
+                        <th style="text-align: Right;">Home Email</th>        
+                        <td><apex:inputField value="{!ParAcc.Email__c}" rendered="{!editMode}" />
+                            <apex:outputField value="{!ParAcc.Email__c}" rendered="{!!editMode}" />
+                        </td>           
+                        <td><apex:inputField value="{!ParAcc.Email_Status__c}" rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Email_Status__c}" rendered="{!!editMode}"/>
+                        </td>   
+                        <td><apex:outputLink onclick="UserRedirect(); return false;">
+                            {!ParAcc.Email_Last_Modified_By__c}</apex:outputLink>  
+                        </td>      
+                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date__c}"/></td>  
+                    </tr>
+                    
+                    <tr>        
+                        <th style="text-align: Right;">Business Email</th>        
+                        <td><apex:inputField value="{!ParAcc.Email2__c}"  rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Email2__c}"  rendered="{!!editMode}"/>
+                        </td>                           
+                        <td><apex:inputField value="{!ParAcc.Email_Status_2__c}" rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Email_Status_2__c}" rendered="{!!editMode}"/>
+                        </td>   
+                        <td><apex:outputLink onclick="UserRedirect(); return false;">
+                            {!ParAcc.Email_Last_Modified_By2__c}</apex:outputLink>                                  
+                        </td>      
+                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date2__c}"/></td>        
+                    </tr> 
+                    
+                    <tr>        
+                        <th style="text-align: Right;">Other Email</th>        
+                        <td><apex:inputField value="{!ParAcc.Email2__c}" rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Email2__c}" rendered="{!!editMode}"/>
+                        </td>                           
+                        <td><apex:inputField value="{!ParAcc.Email_Status_2__c}"  rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Email_Status_2__c}"  rendered="{!!editMode}"/>
+                        </td>   
+                        <td><apex:outputLink onclick="UserRedirect(); return false;">
+                            {!ParAcc.Email_Last_Modified_By2__c}</apex:outputLink>                                  
+                        </td>      
+                        <td><apex:outputField value="{!ParAcc.Email_Last_Modified_Date2__c}"/></td>        
+                    </tr> 
+                    
+                    <tr>        
+                        <th style="text-align: Right;">Fax</th>        
+                        <td><apex:inputField value="{!ParAcc.Fax}" rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Fax}" rendered="{!!editMode}"/>
+                        </td>                           
+                        <td><apex:inputField value="{!ParAcc.Fax_Validity__c}" rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Fax_Validity__c}" rendered="{!!editMode}"/>
+                        </td>   
+                        
+                    </tr> 
+                    
+                    <tr>        
+                        <th style="text-align: Right;">Work Fax</th>        
+                        <td><apex:inputField value="{!ParAcc.Fax2__c}" rendered="{!editMode}" />
+                            <apex:outputField value="{!ParAcc.Fax2__c}" rendered="{!!editMode}" />
+                        </td>                           
+                        <td><apex:inputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!editMode}"/>
+                            <apex:outputField value="{!ParAcc.Fax_Validity2__c}" rendered="{!!editMode}"/>
+                        </td>   
+                        
+                    </tr> 
+                </table>    
+                
+                <apex:pageBlockButtons location="bottom" style="align:left;"  >
+                    <apex:commandbutton value="Edit"  action="{!EditAccount}"  styleClass="btn" style="text-decoration:none;padding:4px; " rendered="{!!editMode}" rerender="myTable"  />
+                    <apex:commandbutton value="Save"  action="{!UpdateAccount}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTable" oncomplete="refreshParentPage()"/>
+                    <apex:commandbutton value="Cancel"  action="{!CancelUpdate}"  styleClass="btn" style="text-decoration:none;padding:4px;" rendered="{!editMode}" rerender="myTable" />
+                </apex:pageBlockButtons>
+                
+                
+            </apex:pageBlock>  
+            
+            
+            
+        </apex:outputPanel>
+        
+        
+        
+        <script  type="text/javascript">
+        function refreshParentPage()
+        {
+            
+            
+            window.open("/{!AccId}","_parent");
+            
+        }
+        </script>
+        
+        
+    </apex:form>
+    <script  type="text/javascript">
+    function UserRedirect() {               
+        window.open('');
+    }
+    
+    </script>
+    <style>
+        .bPageBlock.brandSecondaryBrd.apexDefaultPageBlock.secondaryPalette
+        {
+        background-color: white;
+        }
+        accountTab .secondaryPalette, .individualPalette .accountBlock .secondaryPalette {
+        background-color: white;
+        
+        }
+        table {  
+        color : #4a4a56;
+        background-color: white;            
+        border-spacing: 10px;
+        border-color: #D0D0D0;            
+        border-collapse: collapse;
+        
+        }
+        
+        td{
+
+        color : #4a4a56;
+        background-color: white;            
+        border-spacing: 10px;
+        border-color: #D0D0D0;            
+        border-collapse: collapse;
+        
+        padding-left: 10px;
+        }
+        
+        th{
+        color : #4a4a56;
+        background-color: white;            
+        border-spacing: 1px;
+        border-color: #D0D0D0;            
+        border-collapse: collapse;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 10.92px;
+        font-weight: bold; 
+        
+        padding-right: 10px;
+        }
+        body .bEditBlock .pbBottomButtons, body .apexp .bPageBlock.apexDefaultPageBlock .pbBottomButtons
+        {
+        margin-top: 0px; 
+        
+        }
+        
+        .apexp .bPageBlock.apexDefaultPageBlock .pbBody {
+        margin: 7px 12px 0px;
+        }
+        
+        
+        
+    </style>
+    
+</apex:page>

@@ -1,14 +1,24 @@
-/*
-  Name                 : UtilCase
-  Object               : Case
-  Requirement          : US-Cpn-010
-  Refer classes        : UtilCase.cls
-  Author               : Mouse Liu
-  Create Date          : 2013/7/9
-  Modify History       : 
- 
- */
-public class UtilCase {
+/**
+**update related account record having filed ComplaintAmount with number of cases having  RecordType 'MB Complaint' and 'Chrysler Complaint.
+** Created By:  Mouse Liu
+** Date: 2013/7/9
+**Modified By : 
+**Modified date : 
+**Last Modified date:
+**/
+
+public with sharing class UtilCase {
+    
+   
+/**      
+	* @Description:update related account record having filed ComplaintAmount with number of cases having  RecordType 'MB Complaint' and 'Chrysler Complaint. 
+	* @author :  Mouse Liu
+	* @Date :  2013/7/9
+	* @param  cases is a list having all the new records of case Object.
+	* @return  NA
+	* @see   TriggerCaseTriggerHandler(UtilCase.rollupAccountComplaintAmount(trigger.new);)
+	         TriggerCaseTriggerHandler(UtilCase.rollupAccountComplaintAmount(trigger.old);)
+*/ 
     public static void rollupAccountComplaintAmount(List<Case> cases) {
         Set<Id> accIds = new Set<Id>();
         for (Case c : cases) {
@@ -39,4 +49,6 @@ public class UtilCase {
             System.debug('UtilCase.rollupAccountComplaintAmount Exception: ' + e);
         }
     }
+	
+	
 }

@@ -8,6 +8,7 @@
     06-11-2014 zhongyang.si(NTTData)  Created
  */
 global class ShareDataToNewUserBatch implements Database.Batchable<sObject>{
+    private static String readString = 'Read';
     global final ID newUserID;
     global final String existUserIDs;
     global final String sobjectName;
@@ -123,8 +124,8 @@ global class ShareDataToNewUserBatch implements Database.Batchable<sObject>{
             for(sObject acc : scope){
                 Account accountShare = (Account)acc;
                 AccountShare share = new AccountShare();
-                share.AccountAccessLevel = 'Read';
-                share.OpportunityAccessLevel = 'Read';
+                share.AccountAccessLevel = readString;
+                share.OpportunityAccessLevel = readString;
                 share.AccountId = accountShare.Id;
                 share.UserOrGroupId = newUserID;
                 insertSobject.add(share);
@@ -134,7 +135,7 @@ global class ShareDataToNewUserBatch implements Database.Batchable<sObject>{
             for(sObject acc : scope){
                 Vehicle__c vehicleShare = (Vehicle__c)acc;
                 Vehicle__Share share = new Vehicle__Share();
-                share.AccessLevel = 'Read';
+                share.AccessLevel = readString;
                 share.ParentID = vehicleShare.Id;
                 share.RowCause = Schema.Vehicle__Share.RowCause.Manual;
                 share.UserOrGroupId = newUserID;
@@ -145,7 +146,7 @@ global class ShareDataToNewUserBatch implements Database.Batchable<sObject>{
             for(sObject acc : scope){
                 Vehicle_Relationship__c vehicleRelationshipShare = (Vehicle_Relationship__c)acc;
                 Vehicle_Relationship__Share share = new Vehicle_Relationship__Share();
-                share.AccessLevel = 'Read';
+                share.AccessLevel = readString;
                 share.ParentID = vehicleRelationshipShare.Id;
                 share.RowCause = Schema.Vehicle_Relationship__Share.RowCause.Manual;
                 share.UserOrGroupId = newUserID;
@@ -212,7 +213,7 @@ global class ShareDataToNewUserBatch implements Database.Batchable<sObject>{
             for(sObject acc : scope){
                 Campaign campaignShare = (Campaign)acc;
                 CampaignShare share = new CampaignShare();
-                share.CampaignAccessLevel = 'Read';
+                share.CampaignAccessLevel = readString;
                 share.CampaignID = campaignShare.id;
                 share.UserOrGroupId = newUserId;
                 insertSobject.add(share);

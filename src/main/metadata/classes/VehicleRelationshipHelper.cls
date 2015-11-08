@@ -1,19 +1,22 @@
-/*
-    Type:       Utility for Vehicle Relationship trigger
-    Purpose:    1.  Create a apex trigger to share the VR record to "Portal Role and Subordinates" with read only. 
-                    Partner Name should be Account Name + " " + "Partner Executive", e.g. Beijing Mercedes 4S shop Partner Executive 
- 
-                
-    User Story: ISSUE-0757
-    Used By:    
-    ---------------------------------------------------------------
-    History:
-    
-    1. Sichao Lai Created on 2013-06-18
+/**
+** This is an utility for Vehicle Relationship trigger
+** The following class shares the Vehicle Relationship, associated Account and Vehicle reocrds with the subordinate users 
+** of the Record Owner user.
+**
+** Created By: CC
+** Date: 2013-06-18 
 */
 
 public with sharing class VehicleRelationshipHelper {
 
+	/**
+	*@Description :This mehtod shares the Vehicle Relationships, accounts and vehicle records to the associated users.
+	*@Author :Shrinivas Desai.
+	*@Date : 31/10/2015
+	*@param:List of sObjects - Vehicle Relationships.
+	*@return:This mehtod does not return any value.
+	*@see:shareVR
+	*/
     public static void shareVR(List<Vehicle_Relationship__c> vRelationshipNew)
     {
     	Map<ID, ID> shareid = new Map<ID, ID>();
@@ -39,7 +42,6 @@ public with sharing class VehicleRelationshipHelper {
 	        Map<ID, ID> user = new Map<ID, ID>();
 	        Map<ID, Set<ID>> users = new Map<ID, Set<ID>>();
 	
-	        
 	        for(ACCOUNT a : [SELECT name, id FROM ACCOUNT WHERE id in : shareid.values()]){
 	            String s = a.name + ' ' + 'Partner Executive';
 	            account.put(a.id, s);
@@ -64,14 +66,14 @@ public with sharing class VehicleRelationshipHelper {
 	                    if(userrole.containskey(account.get(shareid.get(share)))){
 	                        if(users.containskey(userrole.get(account.get(shareid.get(share))))){
 	                            for(ID fid : users.get(userrole.get(account.get(shareid.get(share))))){
-	                                vehicleRelationshipShareToInsert.add(new Vehicle_Relationship__Share(AccessLevel = 'Read', ParentId = share , UserOrGroupId = fid));
+	                                vehicleRelationshipShareToInsert.add(new Vehicle_Relationship__Share(AccessLevel = UtilConstant.read_Access, ParentId = share , UserOrGroupId = fid));
 	                                if(vrIdcontactId.containsKey(share))
 	                                {
-	                                    accountShareToInsert.add(new AccountShare(AccountAccessLevel = 'Read', AccountId = vrIdcontactId.get(share), OpportunityAccessLevel = 'Read', CaseAccessLevel = 'Read', UserOrGroupId = fid));
+	                                    accountShareToInsert.add(new AccountShare(AccountAccessLevel = UtilConstant.read_Access, AccountId = vrIdcontactId.get(share), OpportunityAccessLevel = UtilConstant.read_Access, CaseAccessLevel = UtilConstant.read_Access, UserOrGroupId = fid));
 	                                }
 	                                if(vrIdvehicleId.containsKey(share))
 	                                {
-	                                    vehicleShareToInsert.add(new Vehicle__Share(AccessLevel = 'Read', ParentId = vrIdvehicleId.get(share) , UserOrGroupId = fid));
+	                                    vehicleShareToInsert.add(new Vehicle__Share(AccessLevel = UtilConstant.read_Access, ParentId = vrIdvehicleId.get(share) , UserOrGroupId = fid));
 	                                }
 	                            }
 	                        }
@@ -97,8 +99,15 @@ public with sharing class VehicleRelationshipHelper {
         }
     }
 
+	/**
+	*@Description : This method creates a map of subordinate users with their Ids and returns the Ids.
+	*@Author :Shrinivas Desai.
+	*@Date : 31/10/2015
+	*@param:List of sObjects - User Id.
+	*@return:This mehtod returns Set of User Ids.
+	*@see:getRoleSubordinateUsers
+	*/
     public static Set<ID> getRoleSubordinateUsers(Id userId) {
- 
         // get requested user's role
         Id roleId= [select UserRoleId from User where Id = :userId].UserRoleId;
         Map<Id,Id> roles= new Map<Id,Id>();
@@ -112,10 +121,17 @@ public with sharing class VehicleRelationshipHelper {
         // get all of the ids for the users in those roles
         Map<Id,User> users = new Map<Id, User>([Select Id, Name From User where UserRoleId IN :allSubRoleIds and isActive = true]);
         // return the ids as a set so you can do what you want with them
-        return users.keySet();
- 
+        return users.keySet(); 
     }
     
+    /**
+	*@Description : This method fetches all the sub-ordinate roles for a given role.
+	*@Author :Shrinivas Desai.
+	*@Date : 31/10/2015
+	*@param:List of sObjects - Set of Role Ids and Map of roled Ids and Parent role Ids.
+	*@return:This mehtod returns Set of User Ids.
+	*@see:getAllSubRoleIds
+	*/
     private static Set<ID> getAllSubRoleIds(Set<ID> roleIds, Map<Id,Id> roles) {
  
         Set<ID> currentRoleIds = new Set<ID>();

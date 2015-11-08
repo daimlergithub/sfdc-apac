@@ -297,6 +297,10 @@
 			<sf:include name="GenericCSVLoaderController"/>
 			<sf:include name="GenericCSVLoaderControllerTest"/>
 			<sf:include name="TriggerDMRequestTriggerHandler"/>
+			<sf:include name="UtilConstant"/>
+			<sf:include name="AccountSharingDataHandler"/>
+			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
+			<sf:include name="VehicleSharingWrapService"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
@@ -327,6 +331,7 @@
 			<sf:include name="ScheduleCreateMonthlyRegionOBEmailsTest"/>		
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmails"/>
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmailsTest"/>
+			
 		</sf:typeset>
 		<sf:typeset name="tabs">
 			<sf:include name="Retail_Campaigns"/>
@@ -390,6 +395,7 @@
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="SelectAssignedDealer"/>
+				
 		</sf:typeset>		
 		</deploy>					
     </target>
@@ -406,7 +412,8 @@
 			<sf:include name="TriggerCampaignCityTest"/>
 			<sf:include name="TriggerCampaignLeadTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandler"/>
-			<sf:include name="UtilCampaignCity"/>		
+			<sf:include name="UtilCampaignCity"/>
+			<sf:include name="AddressDisplayInlineEditController"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerCampaignCity"/>
@@ -431,7 +438,6 @@
 			<sf:include name="TriggerRecallTriggerHandler"/>
 			<sf:include name="RecallHelper"/>	
 			<sf:include name="RecallHelperTest"/>
-			<sf:include name="RecallAfterInsertUpdateTriggerHandler"/>
 			<sf:include name="SettlementHelper"/>
 			<sf:include name="SettlementHelperTest"/>
 			<sf:include name="TriggerSettlementManagementHandler"/>				
@@ -496,6 +502,7 @@
 		<sf:typeset name="pages"> 
 				<sf:include name="YearlyTAAchievementTracingReport"/>
 				<sf:include name="Yearly_TA_Report"/>
+				<sf:include name="AddressDisplayInlineEdit"/>
 		</sf:typeset>
 		</deploy>					
     </target>
@@ -529,6 +536,7 @@
 			<sf:include name="SSIScheduleWelcomeCallEscalation"/>
 			<sf:include name="SSITriggerHandler"/>
 			<sf:include name="SSITriggerHandlerTest"/>
+			<sf:include name="SsiHelper"/>
 			<sf:include name="SSIVINMatchProcess"/>		
 		</sf:typeset>
 		</deploy>					
@@ -650,6 +658,7 @@
 			<sf:include name="ParticipatingDealerHelperTest"/>	
 			<sf:include name="UtilProfile"/>
 			<sf:include name="UtilCase"/>
+			<sf:include name="UtilCaseShare"/>
 			<sf:include name="ShareDataToNewUserBatch"/>
 			<sf:include name="TriggerCampaignPackageTriggerHandler"/>
 			<sf:include name="TriggerPD_TestClass"/>
@@ -687,7 +696,8 @@
 			<sf:include name="ChatterAnswersEscalationTriggerTest"/>
 			<sf:include name="SSIVINMatchProcessTest"/>
 			<sf:include name="SlickCtiObjectHelperTest"/>
-			<sf:include name="SlickCtiControllerTest"/>					
+			<sf:include name="SlickCtiControllerTest"/>		
+			<sf:include name="ContactTableController"/>
 		</sf:typeset>	
 		<sf:typeset name="triggers">
 			<sf:include name="CaseTrigger"/>			
@@ -695,6 +705,7 @@
 		<sf:typeset name="pages"> 
 				<sf:include name="AssignCaseToDealer"/>
 				<sf:include name="RetailCampaignSegmentation"/>
+				<sf:include name="ContactTable"/>
 		</sf:typeset>		
 		</deploy>				
     </target>	

@@ -51,12 +51,12 @@ public with sharing class UtilCampaignTaskGenerationByCaseTest
             batcher.execute(null,listcase);
             test.stopTest();
             list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
-            task objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,RecordTypeId,Campaign_Member_ID__c,WhatId,DUP_Number__c from task limit 1];
+            list<task> objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,RecordTypeId,Campaign_Member_ID__c,WhatId,DUP_Number__c from task limit 1];
             system.assertEquals(campaignMemberList.size(),lstCM.size());
-            system.assertEquals(objTask.DUP_Number__c,contact.DUP_Number__c);
-            system.assertEquals(objTask.UniqueCampaignGenerateTask__c,childCampaign.Id+''+contact.Id+''+listcase[0].id+'OB Call');
-            system.assertEquals(objTask.RecordTypeId,Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Task').getRecordTypeId());
-            system.assertEquals(objTask.Activity_Status__c,'not started');
+            system.assertEquals(objTask[0].DUP_Number__c,contact.DUP_Number__c);
+            system.assertEquals(objTask[0].UniqueCampaignGenerateTask__c,childCampaign.Id+''+contact.Id+''+listcase[0].id+'OB Call');
+            system.assertEquals(objTask[0].RecordTypeId,Schema.SObjectType.Task.getRecordTypeInfosByName().get('OB Task').getRecordTypeId());
+            system.assertEquals(objTask[0].Activity_Status__c,'not started');
         }
     }
     
@@ -76,11 +76,11 @@ public with sharing class UtilCampaignTaskGenerationByCaseTest
             batcher.execute(null,listcase);
             test.stopTest();
             list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
-            task objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,RecordTypeId,Campaign_Member_ID__c,WhatId,SMSTemplateID__c from task limit 1];
+            list<task> objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,RecordTypeId,Campaign_Member_ID__c,WhatId,SMSTemplateID__c from task limit 1];
             system.assertEquals(campaignMemberList.size(),lstCM.size());
-            system.assertEquals(objTask.UniqueCampaignMobile__c,campaignMemberList[0].CampaignId+'-'+personAccount.PersonMobilePhone);
-            system.assertEquals(objTask.UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+listcase[0].id+'SMS');
-            system.assertEquals(objTask.Activity_Status__c,strVeriStatus);
+            system.assertEquals(objTask[0].UniqueCampaignMobile__c,campaignMemberList[0].CampaignId+'-'+personAccount.PersonMobilePhone);
+            system.assertEquals(objTask[0].UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+listcase[0].id+'SMS');
+            system.assertEquals(objTask[0].Activity_Status__c,strVeriStatus);
         }
     }
     
@@ -100,12 +100,12 @@ public with sharing class UtilCampaignTaskGenerationByCaseTest
             batcher.execute(null,listcase);
             test.stopTest();
             list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
-            task objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,SMSTemplateID__c,RecordTypeId,Campaign_Member_ID__c,WhatId from task limit 1];
+            list<task> objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,SMSTemplateID__c,RecordTypeId,Campaign_Member_ID__c,WhatId from task limit 1];
             system.assertEquals(campaignMemberList.size(),lstCM.size());
-            system.assertEquals(objTask.UniqueCampaignMobile__c,campaignMemberList[0].CampaignId+'-'+personAccount.PersonMobilePhone);
-            system.assertEquals(objTask.UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+listcase[0].id+'MMS'); 
-            system.assertEquals(objTask.Activity_Status__c,strVeriStatus);
-            system.assertEquals(objTask.SMSTemplateID__c,campaignList[0].Template__c);
+            system.assertEquals(objTask[0].UniqueCampaignMobile__c,campaignMemberList[0].CampaignId+'-'+personAccount.PersonMobilePhone);
+            system.assertEquals(objTask[0].UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+listcase[0].id+'MMS'); 
+            system.assertEquals(objTask[0].Activity_Status__c,strVeriStatus);
+            system.assertEquals(objTask[0].SMSTemplateID__c,campaignList[0].Template__c);
         }
     }
     
@@ -125,9 +125,9 @@ public with sharing class UtilCampaignTaskGenerationByCaseTest
             batcher.execute(null,listcase);
             test.stopTest();
             list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
-            task objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,RecordTypeId,Campaign_Member_ID__c,eDM_Template__c,WhatId,SMSTemplateID__c from task limit 1];
+            list<task> objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,RecordTypeId,Campaign_Member_ID__c,eDM_Template__c,WhatId,SMSTemplateID__c from task limit 1];
             system.assertEquals(campaignMemberList.size(),lstCM.size());
-            system.assertEquals(objTask.UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+listcase[0].id+'eDM');
+            system.assertEquals(objTask[0].UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+listcase[0].id+'eDM');
         }
     }
     
@@ -147,10 +147,10 @@ public with sharing class UtilCampaignTaskGenerationByCaseTest
             batcher.execute(null,listcase);
             test.stopTest();
             list<CampaignMember> lstCM=[select id from CampaignMember where Task_Generated__c=true and CampaignId in: setCamId];
-            task objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,RecordTypeId,Campaign_Member_ID__c,WhatId,SMSTemplateID__c from task limit 1];
+            list<task> objTask=[select id,UniqueCampaignGenerateTask__c,Vehicle_Case_ID__c,Activity_Status__c,UniqueCampaignMobile__c,RecordTypeId,Campaign_Member_ID__c,WhatId,SMSTemplateID__c from task limit 1];
             system.assertEquals(campaignMemberList.size(),lstCM.size());
-            system.assertEquals(objTask.UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+listcase[0].id+'DM');
-            system.assertEquals(objTask.Activity_Status__c,'Open');
+            system.assertEquals(objTask[0].UniqueCampaignGenerateTask__c,parentCampaign.Id+''+contact.Id+''+listcase[0].id+'DM');
+            system.assertEquals(objTask[0].Activity_Status__c,'Open');
         }
     }
     

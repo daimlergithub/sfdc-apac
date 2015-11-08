@@ -17,15 +17,6 @@
 */
 public class VinMatchController{
 
-    public VinMatchController(){
-        //2014-2-17 Barney lai start
-        fromSSI = new SSI_Cleansing_Result__c();
-        toSSI = new SSI_Cleansing_Result__c();
-        //2014-2-17 Barney lai end
-        fromTask = new Task();
-        toTask = new Task();
-    }
-
     // public SSI__c fromSSI{get; set;}
     // public SSI__c toSSI{get; set;}
     // InvoiceDate__c of SSI__c is readonly to 'BMBS Sinotrust User', so I have to change SSI__c to 
@@ -35,6 +26,15 @@ public class VinMatchController{
     public SSI_Cleansing_Result__c fromSSI{get; set;}
     public SSI_Cleansing_Result__c toSSI{get; set;}
     public Boolean status{get; set;}
+    
+    public VinMatchController(){
+        //2014-2-17 Barney lai start
+        fromSSI = new SSI_Cleansing_Result__c();
+        toSSI = new SSI_Cleansing_Result__c();
+        //2014-2-17 Barney lai end
+        fromTask = new Task();
+        toTask = new Task();
+    }    
 
     public PageReference vinMatch(){
 

@@ -1,18 +1,18 @@
-/*
-    Type:       Utility for QCAfterUpdate, CaseBeforeUpdate, CaseBeforeInsert
-    Purpose:    1. Update case information.
-                2. Auto track field history when Case record be changed.
-                3. After add sub Complaint,the "Repeat Complaint Times" field of Parent Complaint plus 1
-                4. If the Complaint is a promary complaint, sent a SMS to Customer.
-    User Story: US-CC-002, US-CC-003, US-CC-004,US-CC-015, US-CC-023
-    Used By:    
-    ---------------------------------------------------------------
-    History:
-    
-    1. Bing Bai Created on 2013-05-17
-    2. Chaos Edit on 2014-2-21  AS-Complaint_002(2014Release1.1)
-*/
-public class CaseHelper{
+/**
+**  Utility for QCAfterUpdate, CaseBeforeUpdate, CaseBeforeInsert
+**  1. Update case information.
+	2. Auto track field history when Case record be changed.
+	3. After add sub Complaint,the "Repeat
+	Complaint Times" field of Parent Complaint plus 1
+	4. If the Complaint is a promary complaint, sent a SMS to Customer.
+** Created By: Bing Bai 
+** Date: 2013-05-17
+**Modified By : Chaos 
+**Modified date : 2014-2-21 AS-Complaint_002(2014Release1.1)
+**Last Modified date:
+**/
+
+public with sharing  class  CaseHelper{
     // MB complaint tracking fields
     public static final List<String> COLS_MB_TRACKING = new List<String>{'Case_Type__c', 
                                         'Case_SubType__c',
@@ -146,11 +146,16 @@ public class CaseHelper{
      */    
     public static Id C_INQUIRY_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.INQUIRY).getRecordTypeId();
     
+    public static String vehicleRelationship='Vehicle_Relationship__c';
+    
     // MB complaint record type id
-    //public static EmailTemplate E_MAIL_TEMP = [select id,body from EmailTemplate where Name='Change Complaint Assignment To Dealer GateKeeper Notification'];                                  
+    //public static EmailTemplate E_MAIL_TEMP 
+    //= [select id,body from EmailTemplate where
+    // Name='Change Complaint Assignment To Dealer GateKeeper Notification'];                                  
    
     // error message
-    //public static final String ERR_MSG_HAVEPARENT = 'This Vehicle has a same Complaint, please add it as parent case';
+    //public static final String ERR_MSG_HAVEPARENT 
+    //= 'This Vehicle has a same Complaint, please add it as parent case';
     
     // SMS content
     public static final String SMS_MSG_1 = 'Thank you for your call,your feedback from the Mercedes-Benz customer service hotline has received, officials will continue to investigate the situation,get in touch with you ASAP.['+'Mercedes-Benz Service Center 4008181188'+']';
@@ -166,30 +171,60 @@ public class CaseHelper{
     public static List<User> REGIONAL_CRM_MGR_USERS = [select Id, UserRole.Name from User where UserRole.Name like 'Regional CRM Mgr%' and isActive = true];
     public static List<QueueSobject> CENTRAL_REGIONAL_CASE_QUEUES = [select Id, QueueId from QueueSobject where SobjectType = 'Case' and (Queue.Name like 'Central Office%' or Queue.Name like 'Regional Office%')];
     public static List<QueueSobject> CENTRAL_CASE_QUEUES = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name like '%Central Office%'];
-    
-    // set infomations about Vehicle
+    public static string toString=' to ';
+	public static string closedString='Closed';
+	public static string cacString='CAC';
+	public static string dealerString='Dealer';
+	public static string yesString='Yes';  
+	public static string sendEmailToGateKeeperString='sendemailtogatekeeper__c';
+/**      
+  * @Description:set information about Vehicle
+  * @author :
+  * @Date : 
+  * @param Case record and Vehicle_Relationship__c record
+  * @return  returns case record.
+  * @see   caseHelper(setVehicleInfo();)
+*/        	
+
     public static Case setVehicleInfo(Case c, Vehicle_Relationship__c vr){
         
-        If(vr.Vehicle_Brand__c != null && vr.Vehicle_Brand__c != '') {
+        If(vr.Vehicle_Brand__c != null && !String.isBlank(vr.Vehicle_Brand__c)) {
             c.Vehicle_Brand__c = vr.Vehicle_Brand__c;
         }
-        if(vr.Vehicle_Class__c != null && vr.Vehicle_Class__c != '') {
+        if(vr.Vehicle_Class__c != null && !String.isBlank(vr.Vehicle_Class__c)) {
             c.Vehicle_Class__c = vr.Vehicle_Class__c;
         }
-        if(vr.Vehicle_Model__c != null && vr.Vehicle_Model__c != '') {
+        if(vr.Vehicle_Model__c != null && !String.isBlank(vr.Vehicle_Class__c)) {
             c.Vehicle_Model__c = vr.Vehicle_Model__c;
         }
-        if(vr.Vehicle_ID__r.UsVIN__c != null && vr.Vehicle_ID__r.UsVIN__c != '') {
+        if(vr.Vehicle_ID__r.UsVIN__c != null && !String.isBlank(vr.Vehicle_ID__r.UsVIN__c)) {
             c.VIN_Code__c = vr.Vehicle_ID__r.UsVIN__c;
         }
         c.Vehicle__c = vr.Vehicle_ID__c;
-        If(vr.Vehicle_ID__r.UsVIN__c != null && vr.Vehicle_ID__r.UsVIN__c != '') {
+        If(vr.Vehicle_ID__r.UsVIN__c != null && !String.isBlank(vr.Vehicle_ID__r.UsVIN__c)) {
             c.US_VIN__c = vr.Vehicle_ID__r.UsVIN__c;
         }
-        if(vr.Vehicle_ID__r.EuroVIN__c != null && vr.Vehicle_ID__r.EuroVIN__c != '') {
+       
+	   return setVehicleInfoDetails(c,vr);
+		
+        
+    }
+	/**      
+  * @Description:set information about Vehicle & this method is created to reduce CyclomaticComplexity for setVehicleInfo method
+  * @author :mohana raja reddy alla
+  * @Date : 06/Oct/15
+  * @param Case record and Vehicle_Relationship__c record
+  * @return  returns case record.
+  * @see   caseHelper(setVehicleInfo();)
+*/       
+	// this method is created to reduce CyclomaticComplexity for setVehicleInfo method
+	public static Case setVehicleInfoDetails(Case c, Vehicle_Relationship__c vr)
+	{
+	
+	 if(vr.Vehicle_ID__r.EuroVIN__c != null && !String.isBlank(vr.Vehicle_ID__r.EuroVIN__c)) {
             c.EU_VIN__c = vr.Vehicle_ID__r.EuroVIN__c;
         }
-        if(vr.Vehicle_ID__r.Latest_Sales_Person__c != null && vr.Vehicle_ID__r.Latest_Sales_Person__c != '') {
+        if(vr.Vehicle_ID__r.Latest_Sales_Person__c != null && !String.isBlank(vr.Vehicle_ID__r.Latest_Sales_Person__c)) {
             c.Last_Known_Sales_Person__c = vr.Vehicle_ID__r.Latest_Sales_Person__c;
         }
         if(vr.Vehicle_ID__r.Warranty_Start_Date__c != null) {
@@ -198,11 +233,22 @@ public class CaseHelper{
         if(vr.Vehicle_ID__r.FirstRegistrationDate__c != null) {
             c.Date_of_1st_Registration__c = vr.Vehicle_ID__r.FirstRegistrationDate__c;
         }
-        if(vr.Registration_Number__c != null && vr.Registration_Number__c != '') {
+        if(vr.Registration_Number__c != null && !String.isBlank(vr.Registration_Number__c)) {
             c.Registration_Number__c = vr.Registration_Number__c;
         }
-        return c;
-    }
+		
+	  return c; 
+	
+	}
+/**      
+  * @Description:Creates new complaint Description for US-DPCR-004
+  * @author :
+  * @Date : 
+  * @param Caseid and case filed label and case new filed label and case old filed label.
+  * @return  Complaint_Description__c record.
+  * @see   caseHelper(newCaseDescription();)
+*/       
+	
     
    // Creates new complaint Description for US-DPCR-004
     public static Complaint_Description__c newCaseDescription(Id caseId, String label, String newValue, String oldValue) {
@@ -210,114 +256,41 @@ public class CaseHelper{
         cd.Case__c = caseId;
         cd.Created_By__c = UserInfo.getUserId();
         cd.Date_Time__c = System.now();
-        cd.Action__c = 'Changed ' + label + ' from ' + oldValue + ' to ' + newValue;
+        cd.Action__c = 'Changed ' + label + ' from ' + oldValue + toString + newValue;
         return cd;
     }
-    
+  /**      
+  * @Description:Creates new complaint historys for US-CC-002,US-CC-003.
+  * @author :
+  * @Date : 
+  * @param Caseid and case filed label and case new filed label and case old filed label.
+  * @return  Complaint_Description__c record.
+  * @see   caseHelper(newCaseHistory();)
+*/         
     // Creates new complaint historys for US-CC-002,US-CC-003.
     public static Complaint_Tracking__c newCaseHistory(Id caseId, String label, String newValue, String oldValue) {
         Complaint_Tracking__c ct = new Complaint_Tracking__c();
         ct.Case__c = caseId;
         ct.User__c = UserInfo.getUserId();
-        ct.Action__c = 'Changed ' + label + ' from ' + oldValue + ' to ' + newValue;
+        ct.Action__c = 'Changed ' + label + ' from ' + oldValue + toString + newValue;
         return ct;
     }
-   
-    // share Case For US-CC-023    
-    public static void shareCase(Map<Id, Id> casesToShare, Map<String, String> vehicleToOwner) {
-        List<CaseShare> shareCases = new List<CaseShare>();
-        Map<Id, List<Id>> accountIdUserIds = new Map<Id, List<Id>>();
-        Map<Id, Set<Id>> caseIdExistUserIds = new Map<Id, Set<Id>>();
-        List<CaseTeamMember> caseTeamMembers = new List<CaseTeamMember>();
-        
-        for(User cus: [select id, AccountId from User 
-                        where isActive=true 
-                        and AccountId in :casesToShare.values() 
-                        and (Profile.Name =: UtilConstant.DEALER_DELEGATE_ADMIN
-                        or Contact.Permission_Set_Settings__c includes ('Complaint_Management'))]) {
-            if(!accountIdUserIds.containsKey(cus.AccountId)) {
-                accountIdUserIds.put(cus.AccountId, new List<Id>());
-            }
-            accountIdUserIds.get(cus.AccountId).add(cus.Id);
-        }
-        
-        for(caseTeamMember cs : [select ParentId, MemberId from caseTeamMember where ParentId in :casesToShare.keySet()]) {
-            if(!caseIdExistUserIds.containsKey(cs.ParentId)) {
-                caseIdExistUserIds.put(cs.ParentId, new Set<Id>());
-            }
-            caseIdExistUserIds.get(cs.ParentId).add(cs.MemberId);
-        }
-        
-        for(Id caseId : casesToShare.keySet()) {
-            if(accountIdUserIds.containsKey(casesToShare.get(caseId))) {
-                for(Id userId : accountIdUserIds.get(casesToShare.get(caseId))) {
-                    if((caseIdExistUserIds.containsKey(caseId) && !caseIdExistUserIds.get(caseId).contains(userId)) || !caseIdExistUserIds.containsKey(caseId)) {
-                        caseTeamMembers.add(new caseTeamMember(ParentId = caseId, MemberId = userId, TeamRoleId = DealerRole.Id));
-                    }
-                }
-            }
-        }
-        
-        if(caseTeamMembers!=null && !caseTeamMembers.IsEmpty()) {
-            UtilSobject.insertSobjects(caseTeamMembers);
-        }
-        
-        shareCaseVehicleToDealer(vehicleToOwner);
-    }
-    
-    // ADD START AS-Complaint_002 CHAOS 2014/2/21
-    public static void shareCaseWithoutshareVehicle(Map<id,Set<Id>> casesToShare) {
-        List<CaseShare> shareCases = new List<CaseShare>();
-        List<Id> allAccountIds = new List<Id>();
-        Map<Id, List<Id>> accountIdUserIds = new Map<Id, List<Id>>();
-        Map<Id, Set<Id>> caseIdExistUserIds = new Map<Id, Set<Id>>();
-        List<CaseTeamMember> caseTeamMembers = new List<CaseTeamMember>();
-        
-        for(Id caseid : casesToShare.keySet()){
-            allAccountIds.addAll(casesToShare.get(caseid));
-        }
-        
-        for(User cus: [select id, AccountId from User 
-                        where isActive=true 
-                        and AccountId in :allAccountIds 
-                        and (Profile.Name =: UtilConstant.DEALER_DELEGATE_ADMIN 
-                        or Contact.Permission_Set_Settings__c includes ('Complaint_Management'))]) {
-            if(!accountIdUserIds.containsKey(cus.AccountId)) {
-                accountIdUserIds.put(cus.AccountId, new List<Id>());
-            }
-            accountIdUserIds.get(cus.AccountId).add(cus.Id);
-        }
-        
-        for(caseTeamMember cs : [select ParentId, MemberId from caseTeamMember where ParentId in :casesToShare.keySet()]) {
-            if(!caseIdExistUserIds.containsKey(cs.ParentId)) {
-                caseIdExistUserIds.put(cs.ParentId, new Set<Id>());
-            }
-            caseIdExistUserIds.get(cs.ParentId).add(cs.MemberId);
-        }
-        
-        for(Id caseId : casesToShare.keySet()) {
-            for (Id accountId : allAccountIds) {
-                if(accountIdUserIds.containsKey(accountId)) {
-                    for(Id userId : accountIdUserIds.get(accountId)) {
-                        if((caseIdExistUserIds.containsKey(caseId) && !caseIdExistUserIds.get(caseId).contains(userId)) || !caseIdExistUserIds.containsKey(caseId)) {
-                            caseTeamMembers.add(new caseTeamMember(ParentId = caseId, MemberId = userId, TeamRoleId = DealerRole.Id));
-                        }
-                    }
-                }
-            }
-        }
-        
-        if(caseTeamMembers!=null && !caseTeamMembers.IsEmpty()) {
-            UtilSobject.insertSobjects(caseTeamMembers);
-        }
-    }
-    
+  /**      
+  * @Description: To delete ShareFrom Case
+  * @author :
+  * @Date : 
+  * @param map of caseid,set of caseids
+  * @return 
+  * @see   caseHelper(deleteShareFromCase();)
+*/       
+ 
     public static void deleteShareFromCase(Map<id,Set<Id>> casesToDeleteShare) {
-        List<CaseShare> shareCases = new List<CaseShare>();
-        Map<Id, List<Id>> accountIdUserIds = new Map<Id, List<Id>>();
+      //  List<CaseShare> shareCases = new List<CaseShare>();
+       // Map<Id, List<Id>> accountIdUserIds = new Map<Id, List<Id>>();
         List<Id> allAccountIds = new List<Id>();
         List<CaseTeamMember> caseTeamMembers = new List<CaseTeamMember>();
-        List<Case> cases = new List<Case>();
+      //  List<Case> cases = new List<Case>();
+        
         
         for(Id caseid : casesToDeleteShare.keySet()){
             allAccountIds.addAll(casesToDeleteShare.get(caseid));
@@ -328,8 +301,9 @@ public class CaseHelper{
                                 and AccountId in :allAccountIds 
                                 and (Profile.Name =: UtilConstant.DEALER_DELEGATE_ADMIN 
                         or Contact.Permission_Set_Settings__c includes ('Complaint_Management'))];
+       
         
-        for(CaseTeamMember ctm: [select id, ParentId from CaseTeamMember where MemberId in :usrList]){
+        for(CaseTeamMember ctm:[select id, ParentId from CaseTeamMember where MemberId in :usrList]){
             for(Id caseId : casesToDeleteShare.keySet()) {
                  if(ctm.ParentId == caseId){
                     caseTeamMembers.add(ctm);
@@ -341,11 +315,21 @@ public class CaseHelper{
             UtilSobject.deleteSobjects(caseTeamMembers);
         }
     }
+/**      
+  * @Description:to get the Complaint GateKeeper Email.
+  * @author :
+  * @Date : 
+  * @param set of Support_Dealer_1__c.
+  * @return map of AccountId,Email
+  * @see   caseHelper(getComplaintGateKeeperEmail();)
+*/       
     
-    public static Map<id,String> getComplaintGateKeeperEmail(Set<id> dealerAccounts){
+   public static Map<id,String> getComplaintGateKeeperEmail(Set<id> dealerAccounts){
         Map<id,String> accountAndKeeperEmail = new Map<id,String>(); 
+       
         if (dealerAccounts.size() > 0) {
-            for(User u : [select Id,AccountId, Email, ContactId from User 
+            
+            for(User u :[select Id,AccountId, Email, ContactId from User 
                           where isActive = true and ContactId in 
                             (select Id from Contact where AccountId in :dealerAccounts 
                                                           and Dealer_Complaint_Gate_Keeper__c = true)]){
@@ -356,93 +340,32 @@ public class CaseHelper{
         }
         return accountAndKeeperEmail;
     }
-    // ADD END AS-Complaint_002 CHAOS 2014/2/21
-    
-    // The complaint Case Owner will be auto changed to the Dealer's Complaint Gate keeper
-    public static Map<id,User> getGateKeepers(List<Case> ids){
-        Map<id,User> caseIdUser = new Map<id,User>(); 
-        Set<id> dealerAccounts = new Set<id>();
-        Map<id,List<User>> accountAndUser = new Map<id,List<User>>();
-        Map<Id, Id> customerGateKeepers = new Map<Id, Id>();
-        
-        for(Case c : ids){
-            if(c.Case_Dealer__c != null){
-                dealerAccounts.add(c.Case_Dealer__c);
-            }
-        }
-        
-        for(User u : [select Id,AccountId, Email, ContactId from User 
-                    where  isActive = true and ContactId in (select Id from Contact where AccountId in :dealerAccounts and Dealer_Complaint_Gate_Keeper__c = true)]){
-            if(!accountAndUser.containsKey(u.AccountId)) {
-                accountAndUser.put(u.AccountId, new List<User>());
-            }
-            accountAndUser.get(u.AccountId).add(u);
-        }
-
-        for(Case c : ids){
-            if(null != accountAndUser.get(c.Case_Dealer__c)){
-                User u = accountAndUser.get(c.Case_Dealer__c)[0];
-                if(c.OwnerId != u.id){
-                    caseIdUser.put(c.id, u);
-                    if(null != c.AccountId){
-                        customerGateKeepers.put(c.AccountId, u.Id);
-                    }
-                }
-            }
-        }
-
-        if(customerGateKeepers.size() > 0) {
-            shareCustomerToGateKeeper(customerGateKeepers);
-        }
-        shareCaseToRO(ids);
-        
-        return caseIdUser;
-    }
-   
-    public static void shareCustomerToGateKeeper(Map<Id, Id> customerGateKeepers) {
-        List<AccountShare> accShares = new List<AccountShare>();
-        Map<Id, Set<Id>> accountIdExistUserIds = new Map<Id, Set<Id>>();
-
-        for(AccountShare accShare : [select AccountId, UserOrGroupId from AccountShare where id in :customerGateKeepers.keyset()]) {
-            if(!accountIdExistUserIds.containsKey(accShare.AccountId)) {
-                accountIdExistUserIds.put(accShare.AccountId, new Set<Id>());
-            }
-            accountIdExistUserIds.get(accShare.AccountId).add(accShare.UserOrGroupId);
-        }
-        
-        for(Id accId : customerGateKeepers.keyset()) {
-            If(!accountIdExistUserIds.containsKey(accId) || (accountIdExistUserIds.containsKey(accId) && !accountIdExistUserIds.get(accId).contains(customerGateKeepers.get(accId)))) {
-                accShares.add(new AccountShare(AccountId = accId, OpportunityAccessLevel = 'None', CaseAccessLevel = 'None', AccountAccessLevel = 'Read', UserOrGroupId = customerGateKeepers.get(accId)));
-            }
-        }
-        
-        if(accShares.size() > 0) {
-            try {
-                insert accShares;
-            }
-            catch(Exception ex) {
-                System.debug('Exception message is :' + ex.getMessage());
-            }
-        }
-    }
-    
+/**      
+  * @Description:To create Sms Tasks.
+  * @author :
+  * @Date : 
+  * @param set of caseids and accountIds
+  * @return NA
+  * @see   caseHelper(createSmsTasks();)
+*/           
+ 
     public static void createSmsTasks(Set<Id> caseIds, Set<Id> accIds) {
         List<Task> SMSTasks = new List<Task>();
         Map<Id, Id> accountIdContactIds = new Map<Id, Id>();
         Task smsTask;
         
-        for(Contact con : [select Id, AccountId from Contact where AccountId in :accIds]) {
+        for(Contact con :[select Id, AccountId from Contact where AccountId in :accIds]) {
             accountIdContactIds.put(con.AccountId, con.Id);
         }
         
-        for(Case c : [select Id, AccountId, Account.PersonMobilePhone, Account.SMSOptOut__pc from Case where Id in :caseIds and Account.PersonMobilePhone != null])
+        for(Case c :[select Id, AccountId, Account.PersonMobilePhone, Account.SMSOptOut__pc from Case where Id in :caseIds and Account.PersonMobilePhone != null])
         {
             if(c.Account.SMSOptOut__pc){
                 continue;
             }
             smsTask = new Task();
             smsTask.Subject = 'SMS';
-            smsTask.Status = 'Closed';
+            smsTask.Status = closedString;
             smsTask.Activity_Status__c = 'Sent';
             smsTask.RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get(UtilConstant.SMS).getRecordTypeId();
             smsTask.WhatId = c.Id;
@@ -458,7 +381,14 @@ public class CaseHelper{
             UtilSobject.insertSobjects(SMSTasks);
         }
     }
-    
+ /**      
+  * @Description:To create Case Description
+  * @author :
+  * @Date : 
+  * @param list of cases
+  * @return NA
+  * @see   caseHelper(creatCaseDescription();)
+*/           
     // creat a case description For US-CC-024
     public static void creatCaseDescription (List<case> casesForDescription) {
         List<Complaint_Description__c> CaseDescrptions = new List<Complaint_Description__c>();
@@ -470,15 +400,24 @@ public class CaseHelper{
             UtilSobject.insertSobjects(CaseDescrptions);
         }
     }
-    
+ /**      
+  * @Description:To create Case Description
+  * @author :
+  * @Date : 
+  * @param map of caseid for old and new values
+  * @return NA
+  * @see   CaseHelperTest(CaseHelper.shareDealer();)
+*/        
     public static void shareDealer(Map<Id, Id> casesForShare) {
         List<CaseShare> cs = new List<CaseShare>();
         Map<Id, Id> DealeridCaseid = new Map<Id, Id>();
         Map<Id, Id> UseridCaseid = new Map<Id, Id>();
+       
         
-        for(Case c : [select id, Case_Dealer__c from Case where id in :casesForShare.keyset()]) {
+        for(Case c :[select id, Case_Dealer__c from Case where id in :casesForShare.keyset()]) {
             DealeridCaseid.put(c.Case_Dealer__c, casesForShare.get(c.id));
         }
+        
         
         for(Account a : [select id, OwnerId from Account where id in :DealeridCaseid.keyset()]) {
             UseridCaseid.put(a.OwnerId, DealeridCaseid.get(a.id));
@@ -492,14 +431,21 @@ public class CaseHelper{
             UtilSobject.insertSobjects(cs);
         }
     }
-    
-    // Share Case to RO when a case escalate from RO to CO For US-CC-019    
+/**      
+  * @Description:Share Case to RO when a case escalate from RO to CO
+  * @author :
+  * @Date : 
+  * @param map of case.Id,case.Previous_Owner__c
+  * @return NA
+  * @see   CaseHelper(shareCaseToRO();)
+*/            
+  // Share Case to RO when a case escalate from RO to CO For US-CC-019    
     public static void shareCaseToRO(Map<Id, Id> casesToShare) {
-        List<CaseShare> shareCases = new List<CaseShare>();
+       // List<CaseShare> shareCases = new List<CaseShare>();
         Map<Id, Set<Id>> caseIdExistUserIds = new Map<Id, Set<Id>>();
         List<CaseTeamMember> caseTeamMembers = new List<CaseTeamMember>();
         
-        for(caseTeamMember cs : [select ParentId, MemberId from caseTeamMember where ParentId in :casesToShare.keySet()]) {
+        for(caseTeamMember cs :[select ParentId, MemberId from caseTeamMember where ParentId in :casesToShare.keySet()]) {
             if(!caseIdExistUserIds.containsKey(cs.ParentId)) {
                 caseIdExistUserIds.put(cs.ParentId, new Set<Id>());
             }
@@ -516,7 +462,14 @@ public class CaseHelper{
             UtilSobject.insertSobjects(caseTeamMembers);
         }
     }
-    
+  /**      
+  * @Description:Share Case to RO 
+  * @author :
+  * @Date : 
+  * @param list of caseids
+  * @return NA
+  * @see   UtilCaseShare(CaseHelper.shareCaseToRO())
+*/           
     //share to Ro when getGateKeeper
     public static void shareCaseToRO(List<Case> ids){
         Set<String> caseIdExistUserIds = new Set<String>();
@@ -524,10 +477,19 @@ public class CaseHelper{
         Set<Id> shareCaseIds = new Set<Id>();
 
         Map<String,List<User>> regionalUsers = new Map<String,List<User>>();
-        //regionalUsers.put('EAST',[select Id from User where UserRole.Name = 'Regional CRM Mgr (W)' and isActive = true]);
-        //regionalUsers.put('SOUTH',[select Id from User where UserRole.Name = 'Regional CRM Mgr (S)' and isActive = true]);
-        //regionalUsers.put('WEST',[select Id from User where UserRole.Name = 'Regional CRM Mgr (E)' and isActive = true]);
-        //regionalUsers.put('NORTH',[select Id from User where UserRole.Name = 'Regional CRM Mgr (N)' and isActive = true]);
+		
+	
+        //regionalUsers.put('EAST',[select Id from User where
+        // UserRole.Name = 'Regional CRM Mgr (W)' and isActive = true]);
+        // 
+        //regionalUsers.put('SOUTH',[select Id from User where
+        // UserRole.Name = 'Regional CRM Mgr (S)' and isActive = true]);
+        // 
+        //regionalUsers.put('WEST',[select Id from User where 
+        //UserRole.Name = 'Regional CRM Mgr (E)' and isActive = true]);
+        //
+        //regionalUsers.put('NORTH',[select Id from User where UserRole.Name
+        // = 'Regional CRM Mgr (N)' and isActive = true]);
         for(User user : REGIONAL_CRM_MGR_USERS) {
             if(user.UserRole.Name == UtilConstant.REGIONAL_CRM_MANAGER_E) {
                 if(!regionalUsers.containsKey('EAST')) {
@@ -564,7 +526,7 @@ public class CaseHelper{
             shareCaseIdsForOnSite.add(c.Id);
         }
         
-          
+         
        
         for(caseTeamMember cs : [select ParentId, MemberId from caseTeamMember where (ParentId in :shareCaseIds or ParentId in :shareCaseIdsForOnSite) and TeamRoleId = :CRMManagerRole.Id]) {
             caseIdExistUserIds.add(cs.ParentId + '__' + cs.MemberId);
@@ -574,7 +536,14 @@ public class CaseHelper{
             UtilSobject.insertSobjects(caseTeamMembers);
         }
     }
-
+ /**      
+  * @Description:To populate CarOwnerValues To Case.
+  * @author :
+  * @Date : 
+  * @param Setof carOwnerIds, List cases
+  * @return NA
+  * @see   CaseHelper(populateCarOwnerValuesToCase())
+*/      
     public static void populateCarOwnerValuesToCase(Set<String> carOwnerIds, List<Case> cases){
         Map<String, Account> carOwners = new Map<String, Account>([select Id, PersonBirthdate, Gender__c, Occupation__c, Phone,
                                                                     Primary_Address__c, Province__c, City__c, ZipCode__c
@@ -584,6 +553,7 @@ public class CaseHelper{
             if(newcase.Date_of_Birth__c == null){
                 newcase.Date_of_Birth__c = carOwner.PersonBirthdate;
             }
+            
             if(String.isBlank(newcase.Gender__c)){
                 newcase.Gender__c = carOwner.Gender__c;
             }
@@ -602,7 +572,14 @@ public class CaseHelper{
             }
         }
     }
-    
+/**      
+  * @Description:To update Vehicle Related Fields.
+  * @author :
+  * @Date : 
+  * @param List of cases, List of vehicleIds
+  * @return NA
+  * @see   CaseHelper(updateVehicleRelatedFields())
+*/          
     public static void updateVehicleRelatedFields(List<Case> cases, List<Id> vehicleIds)
     {
         Map<Id, Vehicle__c> vehiclesMap = New Map<Id, Vehicle__c>([select Id, EuroVIN__c, UsVIN__c, Warranty_Start_Date__c,
@@ -614,34 +591,34 @@ public class CaseHelper{
         {
             if(vehiclesMap.containsKey(c.Vehicle__c))
              {
-                 if(c.EU_VIN__c == null || c.EU_VIN__c == '') { 
+                 if(c.EU_VIN__c == null || !String.isBlank(c.EU_VIN__c)) { 
                      c.EU_VIN__c = vehiclesMap.get(c.Vehicle__c).EuroVIN__c;   
                  }   
-                 if(c.US_VIN__c == null || c.US_VIN__c == '') { 
+                 if(c.US_VIN__c == null || !String.isBlank(c.US_VIN__c)) { 
                      c.US_VIN__c = vehiclesMap.get(c.Vehicle__c).UsVIN__c;   
                  }
                  if(c.Date_of_Warranty_Expiry__c == null) { 
                      c.Date_of_Warranty_Expiry__c = vehiclesMap.get(c.Vehicle__c).Warranty_Start_Date__c;   
                  }
-                 if(c.Engine_Number__c == null || c.Engine_Number__c == '') { 
+                 if(c.Engine_Number__c == null || !String.isBlank(c.Engine_Number__c)) { 
                      c.Engine_Number__c = vehiclesMap.get(c.Vehicle__c).EngineNumber__c;   
                  }
-                 if(c.Last_Known_Sales_Person__c == null || c.Last_Known_Sales_Person__c == '') { 
+                 if(c.Last_Known_Sales_Person__c == null || !String.isBlank(c.Last_Known_Sales_Person__c)) { 
                      c.Last_Known_Sales_Person__c = vehiclesMap.get(c.Vehicle__c).Latest_Sales_Person__c;   
                  }
-                 if(c.Car_Type__c == null || c.Car_Type__c == '') {
+                 if(c.Car_Type__c == null || !String.isBlank(c.Car_Type__c)) {
                      c.Car_Type__c = vehiclesMap.get(c.Vehicle__c).CBU_CKD__c;
                      If(vehiclesMap.get(c.Vehicle__c).CBU_CKD__c == 'CKD') {
                          c.Car_Type__c = 'PbP';
                      }
                  }
-                 if(c.Vehicle_Brand__c == null || c.Vehicle_Brand__c == '') {
+                 if(c.Vehicle_Brand__c == null || !String.isBlank(c.Vehicle_Brand__c)) {
                      c.Vehicle_Brand__c = vehiclesMap.get(c.Vehicle__c).Brand__c;   
                  }
-                 if(c.Vehicle_Class__c == null || c.Vehicle_Class__c == '') { 
+                 if(c.Vehicle_Class__c == null || !String.isBlank(c.Vehicle_Class__c)) { 
                      c.Vehicle_Class__c = vehiclesMap.get(c.Vehicle__c).Class__c;   
                  }
-                 if(c.Vehicle_Model__c == null || c.Vehicle_Model__c == '') { 
+                 if(c.Vehicle_Model__c == null || !String.isBlank(c.Vehicle_Model__c)) { 
                      c.Vehicle_Model__c = vehiclesMap.get(c.Vehicle__c).Model__c;   
                  }
                  if(c.Last_Known_Mileage__c == null) { 
@@ -654,61 +631,52 @@ public class CaseHelper{
         }
     }
     
-    /**
-     * Shares the vehicle in case to a dealer user after the case owner is changed to the dealer user.
-     * By Justin Yu
-     */
-    private static void shareCaseVehicleToDealer(Map<String, String> vehicleToOwner){
-        if(!vehicleToOwner.isEmpty()){
-            Set<String> existentSharings = getExistentSharings(vehicleToOwner);
-            List<Vehicle__Share> vehicleSharings = new List<Vehicle__Share>();
-            
-            for(String vehicleId : vehicleToOwner.keySet()){
-                String dealerId = vehicleToOwner.get(vehicleId);
-                if(!existentSharings.contains(getSharingIndex(vehicleId, dealerId))){
-                    vehicleSharings.add(new Vehicle__Share(ParentId = vehicleId, UserOrGroupId = dealerId, AccessLevel = 'Read'));
-                }
-            }
-            if(vehicleSharings!=null && !vehicleSharings.IsEmpty())
-            UtilSobject.insertSobjects(vehicleSharings);
-        }
-    }
-    
-    /**
-     * Gets the existent vehicle sharings.
-     * By Justin Yu
-     */
+/**      
+  * @Description: Gets the existent vehicle sharing.
+  * @author :Justin Yu
+  * @Date : 
+  * @param  vehicleToOwner is a map having case.Vehicle__c and case.OwnerId
+  * @return returns the SharingIndex
+  * @see   UtilCaseShare(CaseHelper.getExistentSharings())
+*/          
+  
     private static Set<String> getExistentSharings(Map<String, String> vehicleToOwner){
         Set<String> result = new Set<String>();
-        for(Vehicle__Share vShare : [select ParentId, UserOrGroupId from Vehicle__Share 
+        
+        for(Vehicle__Share vShare :[select ParentId, UserOrGroupId from Vehicle__Share 
                                     where ParentId in :vehicleToOwner.keySet() 
-                                    and UserOrGroupId in : vehicleToOwner.values()]){
-            result.add(getSharingIndex(vShare.ParentId, vShare.UserOrGroupId));
+                                    and UserOrGroupId in : vehicleToOwner.values()] ){
+            result.add(UtilCaseShare.getSharingIndex(vShare.ParentId, vShare.UserOrGroupId));
         }
         return result;
     }
-    
-    /**
-     * Maps a sharing to a record.
-     * By Justin Yu
-     */
-    private static String getSharingIndex(String parentId, String userOrGroupId){
-        return parentId + ';' + userOrGroupId;
-    }
+/**      
+  * @Description: add for MB Complaint Case Close.
+  * @author :lishuang
+  * @Date : 2013-12-04 
+  * @param  list of caseids
+  * @return NA
+  * @see   CaseHelper(closeRelatedCase())
+*/          
+      
     // 2013-12-04 Created by lishuang: add for MB Complaint Case Close.
     public static void closeRelatedCase(List<Case> ids){
         Map<Id, Case> RelatedCase = new Map<Id, Case>();
         List<Case> updateCase = new List<Case>();
+		
         for(Case caseNew : ids) {
-            if(caseNew.ParentId != null){
-               RelatedCase.put(caseNew.ParentId, caseNew);
+            if(caseNew.ParentId == null){
+			
+			 RelatedCase.put(caseNew.id, caseNew);
+               
             }else{
-               RelatedCase.put(caseNew.id, caseNew);
+               RelatedCase.put(caseNew.ParentId, caseNew);
             }
         }
-        for(Case ca : [select Id, ParentId, status , Case_Dealer__c, Feedback_to_CAC_New__c from Case where ParentId in :RelatedCase.keySet() and status <> 'Closed' and Handling_Level__c = 'Dealer']) {
+		
+        for(Case ca :[select Id, ParentId, status , Case_Dealer__c, Feedback_to_CAC_New__c from Case where ParentId in :RelatedCase.keySet() and status <> 'Closed' and Handling_Level__c = 'Dealer']) {
             if(ca.Case_Dealer__c == RelatedCase.get(ca.ParentId).Case_Dealer__c && ca.id != RelatedCase.get(ca.ParentId).id){
-               ca.Status = 'Closed';
+               ca.Status = closedString;
                ca.Feedback_to_CAC_New__c = RelatedCase.get(ca.ParentId).Feedback_to_CAC_New__c;
                updateCase.add(ca);
             }
@@ -717,12 +685,21 @@ public class CaseHelper{
            UtilSobject.updateSobjects(updateCase);
         }
     }
-    
+ /**      
+  * @Description:To get Dealer SM Manager
+  * @author :
+  * @Date :
+  * @param map of caseCase_Dealer__c ,case.Retail_Campaign__r.Record_Type_Name__c
+  * @return map of AccountId,user Id
+  * @see   CaseHelper(getDealerSMManager())
+*/         
     public static Map<id,id> getDealerSMManager(Map<id,String> dealerAccounts){
         Map<id,id> accountAndsmManager = new Map<id,id>(); 
+		
         if (dealerAccounts.size() > 0) {
-            for(User u : [select Id,AccountId, Email, ContactId, Contact.Permission_Set_Settings__c, Profile.Name from User 
-                          where isActive = true and (Contact.Permission_Set_Settings__c = 'AS_Retail_Campaign' or Contact.Permission_Set_Settings__c = 'S_M_Retail_Campaign') and AccountId in :dealerAccounts.keySet()]){
+            for(User u :[select Id,AccountId, Email, ContactId, Contact.Permission_Set_Settings__c, Profile.Name from User 
+                          where isActive = true and (Contact.Permission_Set_Settings__c = 'AS_Retail_Campaign' or Contact.Permission_Set_Settings__c = 'S_M_Retail_Campaign') and AccountId in :dealerAccounts.keySet()] )
+						  {
                 if(u.Contact.Permission_Set_Settings__c.contains('S_M_Retail_Campaign') && (dealerAccounts.get(u.AccountId) == 'S&M Event Retail Campaign' || dealerAccounts.get(u.AccountId) == 'S&M Media Retail Campaign')
                    || u.Contact.Permission_Set_Settings__c.contains('AS_Retail_Campaign') && dealerAccounts.get(u.AccountId) == 'AS Retail Campaign'){
                     if(!accountAndsmManager.containsKey(u.AccountId)) {
@@ -733,48 +710,56 @@ public class CaseHelper{
         }
         return accountAndsmManager;
     }
+ /**      
+  * @Description:Adding the logical manipulation for caseBeforeInsertUpdateTrigger
+  * @author :
+  * @Date :
+  * @param Trigger.new, Trigger.isInsert, Trigger.isUpdate,Trigger.oldMap
+  * @return NA
+  * @see   CaseTriggerHandler(CaseHelper.caseBeforeInsertUpdateEvents())
+*/          
     
-    
-    			/****** Adding the logical manipulation for caseBeforeInsertUpdateTrigger *****/
-    public static void caseBeforeInsertUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal){
+    public static void caseBeforeInsertUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal)
+	{
 		    String[] eAddresses = null;
 		    String email = null;
 		    Boolean isError = false;
 		    Set<id> caseIds = new Set<id>();
 		    Map<id,String> vrsMap = new Map<id,String>();
-		    
+			
 		    for(Case caseNew : cases) {
-		        if(isInsert && caseNew.RecordTypeId == RETAIL_CAMPAIGN_RECORD_TYPE && CURRENT_PROFILE.Name.startsWith('CAC')) {
+		        if(isInsert && caseNew.RecordTypeId == RETAIL_CAMPAIGN_RECORD_TYPE && CURRENT_PROFILE.Name.startsWith(cacString)) {
 		            caseIds.add(caseNew.Id);
 		        }
 		        // Check the Others email address
 		        if (C_MB_RECORD_TYPE == caseNew.RecordTypeId){
 		            // if the email address of the manager is blank, it can't be the recipient.
-		            if (caseNew.Notice_AS__c && (caseNew.Aftersales_Manager__c == null || caseNew.Aftersales_Manager__c.trim() == '')) {
+		            if (caseNew.Notice_AS__c && (caseNew.Aftersales_Manager__c == null ||!String.isBlank( caseNew.Aftersales_Manager__c.trim()))) {
 		                caseNew.Notice_AS__c = false;
 		            }
-		            if (caseNew.Notice_CRM__c && (caseNew.CRM_Manager__c == null || caseNew.CRM_Manager__c.trim() == '')) {
+		            if (caseNew.Notice_CRM__c && (caseNew.CRM_Manager__c == null || !String.isBlank( caseNew.CRM_Manager__c.trim()))) {
 		                caseNew.Notice_CRM__c = false;
 		            }
-		            if (caseNew.Notice_GM__c && (caseNew.General_Manager__c == null || caseNew.General_Manager__c.trim() == '')) {
+		            if (caseNew.Notice_GM__c && (caseNew.General_Manager__c == null || !String.isBlank( caseNew.General_Manager__c.trim()))) {
 		                caseNew.Notice_GM__c = false;
 		            }
-		            if (caseNew.Notice_SM__c && (caseNew.Sales_Manager__c == null || caseNew.Sales_Manager__c.trim() == '')) {
+		            if (caseNew.Notice_SM__c && (caseNew.Sales_Manager__c == null || !String.isBlank( caseNew.Sales_Manager__c.trim()))) {
 		                caseNew.Notice_SM__c = false;
 		            }
 		                
-		            if (caseNew.Others__c != null && caseNew.Others__c.trim() != '') {
+		            if (caseNew.Others__c != null && !String.isBlank( caseNew.Others__c.trim())) {
 		                isError = false;
 		                email = '';
 		                eAddresses = caseNew.Others__c.trim().split('\n');
 		                
 		                for (String e : eAddresses) {
 		                    if (e.trim() != '') {
-		                        if (!pattern.matches('[_a-zA-Z\\d\\-\\./]+@[_a-zA-Z\\d\\-]+(\\.[_a-zA-Z\\d\\-]+)+',e.trim())) {
-		                            caseNew.addError('Other email address format is incorrect, and one can only fill in the email address.');
-		                            break;
+		                        if (pattern.matches('[_a-zA-Z\\d\\-\\./]+@[_a-zA-Z\\d\\-]+(\\.[_a-zA-Z\\d\\-]+)+',e.trim())) {
+		                              email = email + e.trim() + '\n';
 		                        } else {
-		                            email = email + e.trim() + '\n';
+								caseNew.addError('Other email address format is incorrect, and one can only fill in the email address.');
+		                            break;
+		                            
 		                        }
 		                    }
 		                }
@@ -782,8 +767,9 @@ public class CaseHelper{
 		            }
 		        }
 	    	}
+			
 		    if (caseIds.size()>0){
-		        for(Case vr : [Select Id, Retail_Campaign__r.Record_Type_Name__c, Retail_Campaign__c From Case where id in :caseIds]){
+		        for(Case vr : [Select Id, Retail_Campaign__r.Record_Type_Name__c, Retail_Campaign__c From Case where id in :caseIds] ){
 		            if(!vrsMap.containsKey(vr.id)){
 		                vrsMap.put(vr.id,vr.Retail_Campaign__r.Record_Type_Name__c);
 		            }
@@ -807,8 +793,8 @@ public class CaseHelper{
 		    Map<String, String> subTypeMap = new Map<String, String>();
 		    Map<Id, String> dealerIdsforRetailInquiry = new Map<Id, String>();
 		    Map<Id, Id> dealerIdUserId = new Map<Id, Id>();
-		    Set<Id> retailCaseOwners = new Set<id>();
-		    List<Case> retailCases = new List<Case>();
+		  //  Set<Id> retailCaseOwners = new Set<id>();
+		   // List<Case> retailCases = new List<Case>();
 		    Boolean viewCACIBSVUsers = false;
 		    List<User> CACIBSVUsers;
 		    Id accountId;
@@ -817,7 +803,7 @@ public class CaseHelper{
 		    }
 	    
 	    	//get subtype chinese subject
-		    if(isInsert && CURRENT_PROFILE.Name.startsWith('CAC')){
+		    if(isInsert && CURRENT_PROFILE.Name.startsWith(cacString)){
 		        for(Case_SubType_Mapping__c csm: [select Name,Case_Subject_CN__c from Case_SubType_Mapping__c]){
 		            subTypeMap.put(csm.Name, csm.Case_Subject_CN__c);
 		        }
@@ -831,7 +817,8 @@ public class CaseHelper{
 	                }
 	                if(accountId != null && caseNew.Case_Dealer__c == null ){
 	                    caseNew.Case_Dealer__c = accountId;
-	                    caseNew.Handling_Level__c = 'Dealer';
+	                    caseNew.Handling_Level__c = dealerString;
+                        
 	                }
 	            }
 	
@@ -840,21 +827,29 @@ public class CaseHelper{
 	            }
 	
 	            // Modify Start - Release 1.3 - Deleted by Cyril
-	            // the complaint Case Owner will be auto changed to the Dealer's Complaint Gate keeper, if the following criteria is meet:
+	            // the complaint Case Owner will be auto changed 
+	            // to the Dealer's Complaint Gate keeper, if the following criteria is meet:
 	            // -Case Record Type = MB Complaints and Dealer Contact=Yes
 	            // and (Case SubType !="Fire or Gasbag Case" or On-Site Manager confirmed = True)
-	            //if (caseHelper.C_MB_RECORD_TYPE == caseNew.RecordTypeId && 'Yes' == caseNew.Dealer_Contact__c && 
-	            //    ('Fire or Gasbag Case' != caseNew.Case_SubType__c || caseNew.On_Site_Manager_Confirmed__c ) && currentUserProfle.Name.startsWith('CAC')){
-	            //    changeOwnerAndSendMailObjs.add(caseNew);
+	            //if (caseHelper.C_MB_RECORD_TYPE == 
+	            //caseNew.RecordTypeId && 'Yes' == caseNew.Dealer_Contact__c && 
+	            //('Fire or Gasbag Case' != caseNew.Case_SubType__c || 
+	            // caseNew.On_Site_Manager_Confirmed__c ) 
+	            // && currentUserProfle.Name.startsWith('CAC')){
+	            //changeOwnerAndSendMailObjs.add(caseNew);
 	            //}
-	            //If Onsite Manager need to to assign the "Fire or Gasbag Case" Complaint to Dealer,
-	            //s/he will check "On-Site Manager Confirmed" field and the Complaint will be assigned to Dealer Gate Keeper following
-	            //if (Trigger.isUpdate && caseNew.On_Site_Manager_Confirmed__c && caseHelper.P_Central_ONSITE_CM_ID == UserInfo.getProfileId() && caseNew.OwnerId == Trigger.oldMap.get(caseNew.Id).OwnerId){
+	            //If Onsite Manager need to to assign the 
+	            //"Fire or Gasbag Case" Complaint to Dealer,
+	            //s/he will check "On-Site Manager Confirmed" field and 
+	            //the Complaint will be assigned to Dealer Gate Keeper following
+	            //if (Trigger.isUpdate && caseNew.On_Site_Manager_Confirmed__c && 
+	            //caseHelper.P_Central_ONSITE_CM_ID == UserInfo.getProfileId() &&
+	            // caseNew.OwnerId == Trigger.oldMap.get(caseNew.Id).OwnerId){
 	            //    changeOwnerObjs.add(caseNew);
 	            //}
 	            
 	            // All MB Cases that were created by CAC will be assigned to Dealer
-	            if (C_MB_RECORD_TYPE == caseNew.RecordTypeId && CURRENT_PROFILE.Name.startsWith('CAC')){
+	            if (C_MB_RECORD_TYPE == caseNew.RecordTypeId && CURRENT_PROFILE.Name.startsWith(cacString)){
 	                changeOwnerAndSendMailObjs.add(caseNew);
 	            }
 	            // Modify End - Release 1.3 - Deleted by Cyril
@@ -867,18 +862,18 @@ public class CaseHelper{
 	            }
 	        }
 	        
-	        if(isInsert && caseNew.RecordTypeId == RETAIL_CAMPAIGN_RECORD_TYPE && CURRENT_PROFILE.Name.startsWith('CAC')) {
+	        if(isInsert && caseNew.RecordTypeId == RETAIL_CAMPAIGN_RECORD_TYPE && CURRENT_PROFILE.Name.startsWith(cacString)) {
 	            dealerIdsforRetailInquiry.put(caseNew.Case_Dealer__c , vrsMap.get(caseNew.Id));
 	        }
 	        
 	         if(isInsert && C_MB_RECORD_TYPE == caseNew.RecordTypeId && (caseNew.Case_SubType__c == 'RSA - Waiting Time of Assistance' 
 	            || caseNew.Case_SubType__c == 'RSA-RSA service attitude' || caseNew.Case_SubType__c == 'RSA - Professionalism of Rescue Worker' || caseNew.Case_Type__c == 'Finance service') 
-	            && !(CURRENT_PROFILE.Name.startsWith('Dealer'))) {
+	            && !(CURRENT_PROFILE.Name.startsWith(dealerString))) {
 	            viewCACIBSVUsers = true;   
 	        }
 	        
 	        // Added by Cyril Start -- Release1.3 Complaint Solution Team CR
-	        if (isInsert && CURRENT_PROFILE.Name.startsWith('CAC')) {
+	        if (isInsert && CURRENT_PROFILE.Name.startsWith(cacString)) {
 	            caseNew.CreateByCAC__c = true;
 	        }
 	        // Added by Cyril End -- Release1.3 Complaint Solution Team CR
@@ -888,25 +883,26 @@ public class CaseHelper{
 	        if(dealerIdsforRetailInquiry.size() > 0) {
         		dealerIdUserId = CaseHelper.getDealerSMManager(dealerIdsforRetailInquiry);
     		}
-
+			
 		    if (parentIds.size()>0){
-		        for(Case ca : [select Id, ParentId from Case where ParentId in :parentIds]) {
+		        for(Case ca :[select Id, ParentId from Case where ParentId in :parentIds] ) {
 		            if(!parentIdChildIds.containsKey(ca.ParentId)) {
 		                parentIdChildIds.put(ca.ParentId, new List<Id>());
 		            }
 		            parentIdChildIds.get(ca.ParentId).add(ca.Id);
 		        }
-		
-		        for(Case ca : [select Id, ParentId from Case where Id in :parentIds]) {
+
+		        for(Case ca :[select Id, ParentId from Case where Id in :parentIds] ) {
 		            if(ca.ParentId != null) {
 		                parenthasParents.add(ca.Id);
 		            }
 		        }
 		    }
 
+			
    		//get vehicle infomation
 	    if (vehicleRelationships.size()>0){
-	        for(Vehicle_Relationship__c vr : [select Vehicle_Brand__c, Vehicle_Class__c , Vehicle_Model__c, Vehicle_ID__c, Vehicle_ID__r.UsVIN__c, Vehicle_ID__r.EuroVIN__c, Vehicle_ID__r.Latest_Sales_Person__c, Vehicle_ID__r.Warranty_Start_Date__c, Vehicle_ID__r.FirstRegistrationDate__c, Registration_Number__c from Vehicle_Relationship__c where Id in :vehicleRelationships]){
+	        for(Vehicle_Relationship__c vr : [select Vehicle_Brand__c, Vehicle_Class__c , Vehicle_Model__c, Vehicle_ID__c, Vehicle_ID__r.UsVIN__c, Vehicle_ID__r.EuroVIN__c, Vehicle_ID__r.Latest_Sales_Person__c, Vehicle_ID__r.Warranty_Start_Date__c, Vehicle_ID__r.FirstRegistrationDate__c, Registration_Number__c from Vehicle_Relationship__c where Id in :vehicleRelationships] ){
 	            vehicleRelationshipInfo.put(vr.id,vr);
 	        }
 	    }
@@ -919,7 +915,7 @@ public class CaseHelper{
 	
 	    //get Gate Keeper Owner US-CC-008
 	    if(changeOwnerAndSendMailObjs.size()>0){
-	        changeOwnerAndSendMailObjsResult = CaseHelper.getGateKeepers(changeOwnerAndSendMailObjs);
+	        changeOwnerAndSendMailObjsResult = UtilCaseShare.getGateKeepers(changeOwnerAndSendMailObjs);
 	    }
 	
 	    for(QueueSobject qs : CENTRAL_REGIONAL_CASE_QUEUES) {
@@ -955,7 +951,7 @@ public class CaseHelper{
         if (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId || C_MB_RECORD_TYPE == caseNew.RecordTypeId){
             if(isInsert) {
                 //set "Case Subtype" to field "Subject"
-                if(CURRENT_PROFILE.Name.startsWith('CAC')){
+                if(CURRENT_PROFILE.Name.startsWith(cacString)){
                     caseNew.Subject = subTypeMap.get(caseNew.Case_SubType__c);
                 }
 
@@ -1005,7 +1001,7 @@ public class CaseHelper{
                 && caseNew.Support_Dealer_3__c != null ){
                 dealerAccounts.add(caseNew.Support_Dealer_3__c);
             }
-            Map<id,String> accountAndKeeperEmail = getComplaintGateKeeperEmail(dealerAccounts);
+           Map<id,String> accountAndKeeperEmail = getComplaintGateKeeperEmail(dealerAccounts);
             
             if (caseNew.Support_Dealer_1__c != oldSupportDealer1
                 && caseNew.Support_Dealer_1__c != null 
@@ -1047,15 +1043,16 @@ public class CaseHelper{
             }
 
             // Delete Start - Release 1.3 - Deleted by Cyril
-            //if(changeOwnerObjsResult.containsKey(caseNew.id) && !queueIds.contains(caseNew.OwnerId)) {
-            //    caseNew.OwnerId = changeOwnerObjsResult.get(caseNew.id).id;
-            //    caseNew.Handling_Level__c = 'Dealer';
+            //if(changeOwnerObjsResult.containsKey(caseNew.id)
+            // && !queueIds.contains(caseNew.OwnerId)) {
+            // caseNew.OwnerId = changeOwnerObjsResult.get(caseNew.id).id;
+            // caseNew.Handling_Level__c = 'Dealer';
             //}
             // Delete End - Release 1.3 - Deleted by Cyril
 
             if(changeOwnerAndSendMailObjsResult.containsKey(caseNew.id) && !queueIds.contains(caseNew.OwnerId)) {
                 caseNew.OwnerId = changeOwnerAndSendMailObjsResult.get(caseNew.id).id;
-                caseNew.Handling_Level__c = 'Dealer';
+                caseNew.Handling_Level__c = dealerString;
                 caseNew.SendEmailToGateKeeper__c = true;
             }
 
@@ -1084,14 +1081,14 @@ public class CaseHelper{
             caseNew.X15_Minutes_Before_Deadline__c = caseNew.Deadline__c.addMinutes(-15);
         }
         
-        if(isInsert && caseNew.RecordTypeId == RETAIL_CAMPAIGN_RECORD_TYPE && CURRENT_PROFILE.Name.startsWith('CAC') && dealerIdUserId.containsKey(caseNew.Case_Dealer__c)) {
+        if(isInsert && caseNew.RecordTypeId == RETAIL_CAMPAIGN_RECORD_TYPE && CURRENT_PROFILE.Name.startsWith(cacString) && dealerIdUserId.containsKey(caseNew.Case_Dealer__c)) {
             caseNew.OwnerId = dealerIdUserId.get(caseNew.Case_Dealer__c);
             caseNew.Retail_Case_Notice_Dealer_Flag__c = true;
         }
         
         if(isInsert && C_MB_RECORD_TYPE == caseNew.RecordTypeId && (caseNew.Case_SubType__c == 'RSA - Waiting Time of Assistance' 
             || caseNew.Case_SubType__c == 'RSA-RSA service attitude' || caseNew.Case_SubType__c == 'RSA - Professionalism of Rescue Worker' || caseNew.Case_Type__c == 'Finance service') 
-            && !(CURRENT_PROFILE.Name.startsWith('Dealer')) && CACIBSVUsers.size() > 0) {
+            && !(CURRENT_PROFILE.Name.startsWith(dealerString)) && CACIBSVUsers.size() > 0) {
             caseNew.ownerId = CACIBSVUsers[0].id;
         }
     }
@@ -1155,7 +1152,7 @@ public class CaseHelper{
 	            // Add Start - Release 1.3 - Added by Cyril
 	            if (caseNew.CheckFlag_48H__c && !caseOld.CheckFlag_48H__c && caseNew.Customer_Care_Owner__c != null) {
 	                	taskListOf48H.add(new Task(
-	                    Subject= 'Case' + caseNew.CaseNumber + (caseNew.Dealer_Contact__c == 'Yes' ? 'After 48 hours, please check whether the dealer is given FP' : 'After 48 hours, please check whether the Distributor/area/Center gives FP'),
+	                    Subject= 'Case' + caseNew.CaseNumber + (caseNew.Dealer_Contact__c == yesString ? 'After 48 hours, please check whether the dealer is given FP' : 'After 48 hours, please check whether the Distributor/area/Center gives FP'),
 	                    RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId(),
 	                    OwnerId = caseNew.Customer_Care_Owner__c,
 	                    Status = 'Open',
@@ -1168,7 +1165,7 @@ public class CaseHelper{
 	            }
 	            if (caseNew.CheckFlag_72H__c && !caseOld.CheckFlag_72H__c && caseNew.Customer_Care_Owner__c != null) {
 	                taskListOf72H.add(new Task(
-	                    Subject= 'Case' + caseNew.CaseNumber + (caseNew.Dealer_Contact__c == 'Yes' ? 'After 72 hours, please check whether the dealer gives FP' : 'After 72 hours, please check whether the Distributor/area/Center FP is given, and in reply to end customers within 24 hours'),
+	                    Subject= 'Case' + caseNew.CaseNumber + (caseNew.Dealer_Contact__c == yesString ? 'After 72 hours, please check whether the dealer gives FP' : 'After 72 hours, please check whether the Distributor/area/Center FP is given, and in reply to end customers within 24 hours'),
 	                    RecordTypeId = Schema.SObjectType.task.getRecordTypeInfosByName().get('General Task').getRecordTypeId(),
 	                    OwnerId = caseNew.Customer_Care_Owner__c,
 	                    Status = 'Open',
@@ -1259,6 +1256,9 @@ public class CaseHelper{
 	                if (caseNew.Settlement_Changed__c) {
 	                    caseNew.Settlement_Changed__c = false;
 	                    content = content + 'Settlement Section:\n';
+						
+					
+						
 	                    for (Settlement_Management__c sm : [select Name, Settlement_Type__c, Customer_Settlement_Amount__c, Dealer_Settlement_Amount__c, MB_Settlement_Amount__c, Total_Settlement_Amount__c, Other_Settlement_Type__c, LastModifiedDate from Settlement_Management__c where Case__c = :caseNew.Id order by LastModifiedDate Desc]) {
 	                        content = content + 'Settlement Management ' + sm.Name + ', '
 	                                          + 'LastModifiedDate = ' + sm.LastModifiedDate.format('yyyy/MM/dd HH:mm:ss') + '\n'
@@ -1272,7 +1272,10 @@ public class CaseHelper{
 	                }
 	                if (isDescChanged) {
 	                    content = content + 'ComplaintInfo Section:\n';
-	                    for (Complaint_Description__c cd : [select Name, Description__c, LastModifiedDate from Complaint_Description__c where Case__c =: caseNew.Id order by LastModifiedDate Desc]) {
+						
+						
+						
+	                    for (Complaint_Description__c cd :[select Name, Description__c, LastModifiedDate from Complaint_Description__c where Case__c =: caseNew.Id order by LastModifiedDate Desc] ) {
 	                        content = content + 'Complaint Description / Resolution ' + cd.Name + ', '
 	                                          + 'LastModifiedDate = ' + cd.LastModifiedDate.format('yyyy/MM/dd HH:mm:ss') + '\n'
 	                                          + ' - ' + cd.Description__c + '\n\n';
@@ -1312,10 +1315,15 @@ public class CaseHelper{
 	    }
 	   
     }
-    
-    
-    /**************** CaseAfterInsertORUpdate Trigger merge **************************/
-    //ADD START AS-Complaint_002 CHAOS 2014/2/21
+/**      
+  * @Description: Case After Insert OR Update Trigger merge 
+  * @author :CHAOS
+  * @Date :2014/2/21
+  * @param case.Support_Dealer_1__c,oldSupportDealer1,case.Id, isInsert, isUpdate
+  * @return NA
+  * @see CaseHelper(supportDealerMethod())
+*/              
+      
     private static void supportDealerMethod(Id newDealerId, Id oldDealerId, Id caseId, Boolean isInsert, Boolean isUpdate) {
 		Map<id,Set<Id>> casesToDeleteFromShare = new Map<Id, Set<Id>>();
 		Map<id,Set<Id>> casesToShareForSupport = new Map<Id, Set<Id>>();
@@ -1339,13 +1347,21 @@ public class CaseHelper{
             }
         }
     }
-	//ADD END AS-Complaint_002 CHAOS 2014/2/21
-    
-    public static void handleCaseAfterInsertOrUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal, Map<Id, Case> newVal){
+	/**      
+  * @Description: To handle Case After Insert Or Update Events 
+  * @author :CHAOS
+  * @Date :2014/2/21
+  * @param Trigger.new, Trigger.isInsert, Trigger.isUpdate,Trigger.oldMap,Trigger.newMap
+  * @return NA
+  * @see CaseTriggerHandler(CaseHelper.handleCaseAfterInsertOrUpdateEvents())
+*/          
+	
+    public static void handleCaseAfterInsertOrUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal, Map<Id, Case> newVal)
+	{
     
 	    List<Sobject> insertCaseHistorys = new List<Sobject>();
 	    List<Sobject> insertCaseDescriptions = new List<Sobject>();
-	    List<Sobject> updateObjs = new List<Sobject>();
+	   // List<Sobject> updateObjs = new List<Sobject>();
 	    Map<id,String> vehicleRelationshipMap = new Map<id,String>();
 	    Map<id,String> userMap = new Map<id,String>();
 	    Map<id,id> casesToShare = new Map<id, id>();
@@ -1363,6 +1379,8 @@ public class CaseHelper{
 	    List<Case> casesForDescription = new List<Case>();
 	    List<Id> CentralQueue_ID = new List<Id>();
 	    List<Case> closeRelatedCase = new List<Case>();
+		list<Vehicle_Relationship__c> vehRelationship;
+		
 	    if(isUpdate) {
 	        for(QueueSobject q : CENTRAL_CASE_QUEUES) {
 	            CentralQueue_ID.add(q.QueueId);
@@ -1384,8 +1402,8 @@ public class CaseHelper{
 	                    String newValue = String.valueOf(caseNew.get(cloName));
 	                    String oldValue = String.valueOf(caseOld.get(cloName));
 	                    String labelName = FLDOBJ_MAP.get(cloName).getDescribe().getLabel();
-	                    String seToGKBef = String.valueOf(caseNew.get('SendEmailToGateKeeper__c'));
-	                    String seToGKAft = String.valueOf(caseOld.get('SendEmailToGateKeeper__c'));
+	                    String seToGKBef = String.valueOf(caseNew.get(sendEmailToGateKeeperString));
+	                    String seToGKAft = String.valueOf(caseOld.get(sendEmailToGateKeeperString));
 	                    if(seToGKBef != seToGKAft) {
 	                        continue;
 	                    }
@@ -1405,7 +1423,7 @@ public class CaseHelper{
 	                    }
 	                    //tracking history
 	                    if(newValue != oldValue){
-	                        if (cloName == 'Vehicle_Relationship__c'){
+	                        if (cloName == vehicleRelationship){
 	                            vehicleRelationship_Ids.add(caseNew.Vehicle_Relationship__c);
 	                            vehicleRelationship_Ids.add(caseOld.Vehicle_Relationship__c);
 	                        }else if(cloName == 'OwnerId'){
@@ -1433,11 +1451,11 @@ public class CaseHelper{
 	            if (isUpdate && C_MB_RECORD_TYPE == caseNew.RecordTypeId && caseNew.Close_Relevant_Repeat_Complaint__c == true && caseNew.Case_Dealer__c != null && caseNew.Status == 'Closed' && oldVal.get(caseNew.Id).Status != 'Closed') {
 	                closeRelatedCase.add(caseNew);
 	            }
-	            if (caseNew.Case_Dealer__c != null && 'Yes' == caseNew.Dealer_Contact__c){
+	            if (caseNew.Case_Dealer__c != null && yesString == caseNew.Dealer_Contact__c){
 	                if(isInsert){
 	                    casesToShare.put(caseNew.Id, caseNew.Case_Dealer__c);
 	                }
-	                if(isUpdate && 'Yes' != oldVal.get(caseNew.Id).Dealer_Contact__c){
+	                if(isUpdate && yesString != oldVal.get(caseNew.Id).Dealer_Contact__c){
 	                    casesToShare.put(caseNew.Id, caseNew.Case_Dealer__c);
 	                }
 	                if(isUpdate && caseNew.OwnerId != oldVal.get(caseNew.Id).OwnerId) {
@@ -1453,7 +1471,8 @@ public class CaseHelper{
 	                    }
 	                }
 	                
-	                // By Justin - maps the vehicle and owner in case, to share the vehicle to case owner.
+	                // By Justin - maps the vehicle and owner
+	                //  in case, to share the vehicle to case owner.
 	                String caseOwnerId = caseNew.OwnerId;
 	                if(caseNew.Vehicle__c != null && caseNew.ParentId == null && caseOwnerId.startsWith('005') && !(isUpdate && caseNew.OwnerId == oldVal.get(caseNew.Id).OwnerId)){
 	                    vehicleToOwner.put(caseNew.Vehicle__c, caseNew.OwnerId);
@@ -1481,7 +1500,7 @@ public class CaseHelper{
 	            //ADD END AS-Complaint_002 CHAOS 2014/2/21
 	        }
 	        if (isInsert){
-	            if (caseNew.ParentId == null && caseNew.AccountId != null && caseNew.Handling_Level__c != 'Dealer' && (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId ||C_MB_RECORD_TYPE == caseNew.RecordTypeId)){
+	            if (caseNew.ParentId == null && caseNew.AccountId != null && caseNew.Handling_Level__c != dealerString && (C_CHRYSLER_RECORD_TYPE == caseNew.RecordTypeId ||C_MB_RECORD_TYPE == caseNew.RecordTypeId)){
 	                smsIds.add(caseNew.Id);
 	                account_Ids.add(caseNew.AccountId);
 	            }
@@ -1496,19 +1515,22 @@ public class CaseHelper{
 	    if (closeRelatedCase.size() > 0){
 	        closeRelatedCase(closeRelatedCase);
 	    }
+		
+		vehRelationship=new list<Vehicle_Relationship__c>([select id , name from Vehicle_Relationship__c where id in :vehicleRelationship_Ids]);
 	
 	    if (vehicleRelationship_Ids.size()>0 || userIds.size()>0){
-	        for(Vehicle_Relationship__c vr : [select id , name from Vehicle_Relationship__c where id in :vehicleRelationship_Ids]){
+	        for(Vehicle_Relationship__c vr :vehRelationship ){
 	            if(!vehicleRelationshipMap.containsKey(vr.id)){
 	                vehicleRelationshipMap.put(vr.id,vr.name);
 	            }
 	        }
-	        
+
 	        for(user u:[select id , name from user where Id in :userIds]){
 	            if(!userMap.containsKey(u.id)){
 	                userMap.put(u.id,u.name);
 	            }        
 	        }
+			
 	        for(QueueSobject u:[select QueueId , queue.name from QueueSobject where QueueId in :userIds limit 100]){
 	            if(!userMap.containsKey(u.QueueId)){
 	                userMap.put(u.QueueId,u.queue.name);
@@ -1517,15 +1539,15 @@ public class CaseHelper{
 	    
 	        for(Case caseNew : cases) {
 	            Case caseOld = oldVal.get(caseNew.Id);
-	            String seToGKBef = String.valueOf(caseNew.get('SendEmailToGateKeeper__c'));
-	            String seToGKAft = String.valueOf(caseOld.get('SendEmailToGateKeeper__c'));
+	            String seToGKBef = String.valueOf(caseNew.get(sendEmailToGateKeeperString));
+	            String seToGKAft = String.valueOf(caseOld.get(sendEmailToGateKeeperString));
 	            if(seToGKBef != seToGKAft) {
 	                continue;
 	            }
 	
 	            Id newId = caseNew.Vehicle_Relationship__c;
 	            Id oldId = caseOld.Vehicle_Relationship__c;
-	            String labelName = FLDOBJ_MAP.get('Vehicle_Relationship__c').getDescribe().getLabel();
+	            String labelName = FLDOBJ_MAP.get(vehicleRelationship).getDescribe().getLabel();
 	            //tracking history
 	            if(newId != oldId){
 	                insertCaseHistorys.add(newCaseHistory(caseNew.Id, labelName , vehicleRelationshipMap.get(newId), vehicleRelationshipMap.get(oldId)));
@@ -1552,12 +1574,12 @@ public class CaseHelper{
 	    }
 	    
 	    if(casesToShareForSupport.keySet().size() > 0) {
-	        shareCaseWithoutshareVehicle(casesToShareForSupport);
+	        UtilCaseShare.shareCaseWithoutshareVehicle(casesToShareForSupport);
 	    }
 	    // ADD END AS-Complaint_002 CHAOS 2014/2/21
 	    
 	    if(casesToShare.keySet().size() > 0) {
-	        shareCase(casesToShare, vehicleToOwner);
+	       UtilCaseShare.shareCase(casesToShare, vehicleToOwner);
 	    }
 	
 	    if(casesToShareRO.keySet().size() > 0) {
@@ -1579,7 +1601,8 @@ public class CaseHelper{
 	    
 	   
 	    /**
-	     * 2014-03-24 updated by Justin Yu -- Added the child case description to the Parent MB Complaint case
+	     * 2014-03-24 updated by Justin Yu -- Added 
+	     * the child case description to the Parent MB Complaint case
 	     */
 	    if(isInsert){
 	        Set<String> caseIds = new Set<String>();
@@ -1590,8 +1613,9 @@ public class CaseHelper{
 	        }
 	        
 	        List<Case> parentCases = new List<Case>();
+			
 	        if(caseIds.size() > 0){
-	            for(Case item : [select Description, DescriptionOne__c, Parent.Description, Parent.DescriptionOne__c from Case where Id in :caseIds]){
+	            for(Case item :[select Description, DescriptionOne__c, Parent.Description, Parent.DescriptionOne__c from Case where Id in :caseIds] ){
 	                item.Parent.Description = item.Description;
 	                item.Parent.DescriptionOne__c = item.DescriptionOne__c;
 	                parentCases.add(item.Parent);
@@ -1605,5 +1629,4 @@ public class CaseHelper{
 	    //---------------------Bing add for data sharing-----------------
     	
     }
-	    
-}
+}    

@@ -19,6 +19,17 @@ public class SSIDataCleansingSnapshot{
     private static final String MONTHLYINVALIDTOTAL = 'Monthly Invalid Total';
     private static final String MONTHLYCOMPARISION = 'Monthly Comparision';
     private static final String MONTHLYINVALIDDETAIL = 'Monthly Invalid Detail';
+    
+    private static final String Rule_1 = 'Time cannot match'; 
+    private static final String Rule_2 = 'Invalid contact';  
+    private static final String Rule_3 = 'Same VIN of current period';  
+    private static final String Rule_4 = 'Same contact information of current period';  
+    private static final String Rule_5 = 'Government vehicles';  
+    private static final String Rule_6 = 'Dealer vehicles & Sub-dealer vehicles';  
+    private static final String Rule_7 = 'Same VIN and same contact name';  
+    private static final String Rule_8 = 'Same VIN and different contact name';  
+    private static final String Rule_9 = 'Same contact and same contact name';  
+    private static final String Rule_10 = 'Same contact and different contact name';  
 
     public static void generateSnapshot(List<Id> batchIds){
         
@@ -196,18 +207,7 @@ public class SSIDataCleansingSnapshot{
             }
         }
     }
-
-
-    private static final String Rule_1 = 'Time cannot match'; 
-    private static final String Rule_2 = 'Invalid contact';  
-    private static final String Rule_3 = 'Same VIN of current period';  
-    private static final String Rule_4 = 'Same contact information of current period';  
-    private static final String Rule_5 = 'Government vehicles';  
-    private static final String Rule_6 = 'Dealer vehicles & Sub-dealer vehicles';  
-    private static final String Rule_7 = 'Same VIN and same contact name';  
-    private static final String Rule_8 = 'Same VIN and different contact name';  
-    private static final String Rule_9 = 'Same contact and same contact name';  
-    private static final String Rule_10 = 'Same contact and different contact name';  
+    
 
     private static void addSuspectReason (SSI__c ssi, SSI_Cleansing_Result__c cr) {
         if(ssi.DealerCheck_Status__c == 'Reject'){

@@ -1,4 +1,5 @@
 public with sharing class RetailCampaignSharingWrapService {
+    private static String editString = 'Edit';
     private static String smPermissionSetting = 'S_M_Retail_Campaign';
     private static String asPermissionSetting = 'AS_Retail_Campaign';
     private static Set<String> readOnlyBPStatus = new Set<String>{'Region Submit', 'Final Submit'};
@@ -98,31 +99,31 @@ public with sharing class RetailCampaignSharingWrapService {
     }
 
     public List<SharingWrapper> wrapSMEventRetailCampaigns(List<Retail_Campaign__c> retailCampaigns) {
-        return wrapRetailCampaigns(retailCampaigns, smPermissionSetting, 'Edit');
+        return wrapRetailCampaigns(retailCampaigns, smPermissionSetting, editString);
     }
 
     public List<SharingWrapper> wrapSMMediaRetailCampaigns(List<Retail_Campaign__c> retailCampaigns) {
-        return wrapRetailCampaigns(retailCampaigns, smPermissionSetting, 'Edit');
+        return wrapRetailCampaigns(retailCampaigns, smPermissionSetting, editString);
     }
 
     public List<SharingWrapper> wrapASRetailCampaigns(List<Retail_Campaign__c> retailCampaigns) {
-        return wrapRetailCampaigns(retailCampaigns, asPermissionSetting, 'Edit');
+        return wrapRetailCampaigns(retailCampaigns, asPermissionSetting, editString);
     }
 
     public List<SharingWrapper> wrapSegmentationRetailCampaigns(List<Retail_Campaign__c> retailCampaigns) {
-        return wrapRetailCampaigns(retailCampaigns, null, 'Edit');
+        return wrapRetailCampaigns(retailCampaigns, null, editString);
     }
 
     public List<SharingWrapper> wrapSMYearlyRetailCampaigns(List<Retail_Campaign__c> retailCampaigns) {
-        return wrapYearlyRetailCampaigns(retailCampaigns, smPermissionSetting, 'Edit');
+        return wrapYearlyRetailCampaigns(retailCampaigns, smPermissionSetting, editString);
     }
 
     public List<SharingWrapper> wrapASYearlyRetailCampaigns(List<Retail_Campaign__c> retailCampaigns) {
-        return wrapYearlyRetailCampaigns(retailCampaigns, asPermissionSetting, 'Edit');
+        return wrapYearlyRetailCampaigns(retailCampaigns, asPermissionSetting, editString);
     }
 
     public List<SharingWrapper> wrapMonthlyRetailCampaigns(List<Retail_Campaign__c> retailCampaigns) {
-        return wrapYearlyRetailCampaigns(retailCampaigns, smPermissionSetting, 'Edit');
+        return wrapYearlyRetailCampaigns(retailCampaigns, smPermissionSetting, editString);
     }
 
     public List<SharingWrapper> wrapMBRetailCampaigns(List<Retail_Campaign__c> retailCampaigns) {
@@ -148,7 +149,7 @@ public with sharing class RetailCampaignSharingWrapService {
             }
         }
 
-        return SharingWrapperService.wrapSharings(campaign2Users, Schema.Retail_Campaign__Share.RowCause.Dealer_Campaign_Share__c, 'Edit');
+        return SharingWrapperService.wrapSharings(campaign2Users, Schema.Retail_Campaign__Share.RowCause.Dealer_Campaign_Share__c, editString);
     }
 
     // Shares retail campaigns to brand owner.
@@ -164,7 +165,7 @@ public with sharing class RetailCampaignSharingWrapService {
             }
         }
 
-        return SharingWrapperService.wrapSharings(campaign2Users, Schema.Retail_Campaign__Share.RowCause.Dealer_Campaign_Share__c, 'Edit');
+        return SharingWrapperService.wrapSharings(campaign2Users, Schema.Retail_Campaign__Share.RowCause.Dealer_Campaign_Share__c, editString);
     }    
 
     private List<SharingWrapper> wrapYearlyRetailCampaigns(List<Retail_Campaign__c> retailCampaigns, String permissionSetting, String accessLevel) {
@@ -190,7 +191,7 @@ public with sharing class RetailCampaignSharingWrapService {
             sharingWrappers.addAll(wrapRetailCampaigns(retailCampaigns, null, 'Read')); 
         }
         if(!editableRetailCampaigns.isEmpty()) {
-            sharingWrappers.addAll(wrapRetailCampaigns(retailCampaigns, null, 'Edit'));
+            sharingWrappers.addAll(wrapRetailCampaigns(retailCampaigns, null, editString));
         }
         system.debug('**-' + sharingWrappers);
         return sharingWrappers;

@@ -56,6 +56,16 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Address_Code__c</fullName>
+        <externalId>false</externalId>
+        <label>Address Code</label>
+        <length>11</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Address_Line_1__c</fullName>
         <externalId>false</externalId>
         <label>Address Line 1</label>
@@ -144,10 +154,42 @@
                 <fullName>Site 9 -Auto Body</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Other Address 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Address 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Address 3</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Block__c</fullName>
+        <externalId>false</externalId>
+        <label>Block</label>
+        <length>24</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>City__c</fullName>
+        <externalId>false</externalId>
+        <label>City</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Company_Name__c</fullName>
@@ -159,6 +201,16 @@
         <type>Text</type>
         <unique>false</unique>
     </fields>
+	<fields>
+        <fullName>Company_Name_Native__c</fullName>
+        <externalId>false</externalId>
+        <label>Company Name Kana</label>
+        <length>80</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>	
     <fields>
         <fullName>Country__c</fullName>
         <externalId>false</externalId>
@@ -214,7 +266,7 @@
     <fields>
         <fullName>District__c</fullName>
         <externalId>false</externalId>
-        <label>Suburb</label>
+        <label>Town</label>
         <length>100</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
@@ -266,6 +318,20 @@
         <type>DateTime</type>
     </fields>
     <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+        <description>For JP users set to JP</description>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Opt_In_Hardcopy__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
@@ -284,7 +350,7 @@
     <fields>
         <fullName>Province__c</fullName>
         <externalId>false</externalId>
-        <label>State</label>
+        <label>Prefecture</label>
         <picklist>
             <picklistValues>
                 <fullName>ACT</fullName>
@@ -316,6 +382,10 @@
             </picklistValues>
             <picklistValues>
                 <fullName>NT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tokyo</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -360,6 +430,36 @@
         <type>Picklist</type>
     </fields>
     <fields>
+        <fullName>TitleOfHonor__c</fullName>
+        <externalId>false</externalId>
+        <label>TitleOfHonor</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Mr</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ms</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mrs</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>様</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>御中</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
         <fullName>Updated_By_EP_Transactions__c</fullName>
         <description>The integration layer (EP) needs this field for defect handling and debugging.</description>
         <externalId>false</externalId>
@@ -374,7 +474,7 @@
         <fullName>ZipCode__c</fullName>
         <externalId>false</externalId>
         <label>Post Code</label>
-        <length>6</length>
+        <length>8</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>
@@ -411,47 +511,23 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other Address 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Postal address</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Prev Mailing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 1 -Main Location Sales%2C Service %26 Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 2 -Main Location Sales Only</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 3 -Main Location Service %26 Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 6 -Additional Sales%2C Service %26 Parts location not within Site 1 or Site 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 7 -Service %26 Parts ONLY Location</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 8 -Only Parts Location</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 9 -Auto Body</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -497,6 +573,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Tokyo</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>VIC</fullName>
                 <default>false</default>
             </values>
@@ -521,6 +601,29 @@
             </values>
             <values>
                 <fullName>Opt out</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TitleOfHonor__c</picklist>
+            <values>
+                <fullName>Mr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ms</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>御中</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>様</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -549,6 +652,18 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other Address 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Postal address</fullName>
                 <default>false</default>
             </values>
@@ -635,6 +750,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Tokyo</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>VIC</fullName>
                 <default>false</default>
             </values>
@@ -659,6 +778,21 @@
             </values>
             <values>
                 <fullName>Opt out</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TitleOfHonor__c</picklist>
+            <values>
+                <fullName>Mr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ms</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -687,6 +821,18 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other Address 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other Address 3</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Postal address</fullName>
                 <default>false</default>
             </values>
@@ -773,6 +919,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Tokyo</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>VIC</fullName>
                 <default>false</default>
             </values>
@@ -800,8 +950,31 @@
                 <default>false</default>
             </values>
         </picklistValues>
+        <picklistValues>
+            <picklist>TitleOfHonor__c</picklist>
+            <values>
+                <fullName>Mr</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mrs</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ms</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
     </recordTypes>
-    <searchLayouts/>
+    <searchLayouts>
+        <lookupDialogsAdditionalFields>Address_Type__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Province__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>City__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>District__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Address_Line_1__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Address_Line_2__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Company_Name__c</lookupDialogsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
         <fullName>CheckedState</fullName>

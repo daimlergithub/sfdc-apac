@@ -19,7 +19,6 @@ public class TriggerSettlementManagementHandler
     public void handleTrigger()
     {
         Map<Id,Settlement_Management__c> oldmap = (Map<Id,Settlement_Management__c>)trigger.oldmap;
-        Map<Id,Settlement_Management__c> newmap = (Map<Id,Settlement_Management__c>)trigger.newmap;
         
         if(trigger.isAfter && trigger.isInsert)
         {

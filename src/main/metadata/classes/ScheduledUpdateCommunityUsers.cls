@@ -16,7 +16,7 @@ global class ScheduledUpdateCommunityUsers implements Schedulable{
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
-            Date currentDay = System.today();
+            
             Date previousDay = System.today().addDays(-1);
             Id licenseId = [Select Id From UserLicense Where Name = 'Partner Community'].Id;
             List<user> newCommunityUsers = [Select Id, FederationIdentifier, Contact.Federation_ID__c, UserPermissionsSFContentUser, Contact.Permission_Set_Settings__c from user where IsActive = true AND Profile.UserLicenseId = :licenseId AND Contact.LastModifiedDate >= :previousDay];

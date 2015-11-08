@@ -21,14 +21,13 @@ public class UserTriggerHandler
 {
     public void handleTrigger()
     {
-        Map<Id,User> oldmap = (Map<Id,User>)trigger.oldmap;
-        Map<Id,User> newmap = (Map<Id,User>)trigger.newmap;
+       
         
         if (trigger.isAfter && trigger.isInsert) {
-            UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);      
+            UserHelper.AfterInsert_UpdateMethod(Trigger.new,(Map<Id,User>)trigger.oldmap,trigger.isinsert,trigger.isupdate);      
         }
         if (trigger.isAfter && trigger.isUpdate) {
-            UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);  
+            UserHelper.AfterInsert_UpdateMethod(Trigger.new,(Map<Id,User>)trigger.oldmap,trigger.isinsert,trigger.isupdate);  
         }
         if (trigger.isBefore && trigger.isInsert) {
             UserHelper.ValidateUser(Trigger.new);   

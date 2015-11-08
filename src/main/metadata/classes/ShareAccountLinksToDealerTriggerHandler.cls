@@ -1,3 +1,12 @@
+/**
+** Handler for ShareAccountLinksToDealer
+** Created By: 
+** Date: 
+** Modified By : 
+** Modified date : 27-oct-2015
+**/
+
+
 public class ShareAccountLinksToDealerTriggerHandler 
     implements TriggerHandlerIf
 {

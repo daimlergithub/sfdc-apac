@@ -7,10 +7,19 @@
 */
 public class CampaignHelper {
     
+    private static String pending ='Pending';
     public static Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName();    // Campaign Record Type MAP
     public static Map<String, Schema.RecordTypeInfo> tkRecordTypeMap = Schema.SObjectType.Task.getRecordTypeInfosByName();
-    
+    public static string CacCampaign ='CAC Campaign';
     public static void copyTopCampaignStatusValueToSavedCampaign(Set<String> campaignIds){
+        
+         /**
+  *@Description : Copies Top Campaigns Status value to Saved Campaign.
+  *@Date : 3/11/2015
+  *@param:Set of Campaign Ids.
+  *@return:This mehtod does not return any value.
+
+  */
         
         Set<String> topCampaignIds = new Set<String>();
         List<Campaign> campaigns = [select ParentId, Parent.ParentId from Campaign where Id in:campaignIds];
@@ -40,12 +49,20 @@ public class CampaignHelper {
         update statuses;
         delete statuses;
         
-        if(savedStatus.size() > 0){
+        if(!savedStatus.isEmpty()){
             insert savedStatus;
         }
     }
     
     public static void updateCampaignMemberStatusToRelatedCampaign(List<CampaignMember> members){
+    	
+    	/**
+  *@Description : Updates Campaign Member status to Related Campaigns.
+  *@Date : 3/11/2015
+  *@param:List of Campaign Members.
+  *@return:This mehtod does not return any value.
+
+  */
         
         Set<String> topCampaignIds = new Set<String>();
         Set<String> obcallCampaignIds = new Set<String>();
@@ -86,13 +103,23 @@ public class CampaignHelper {
             updatedMembers.add(mem);
         }
         
-        if(updatedMembers.size() > 0){
+        if(!updatedMembers.isEmpty()){
             update updatedMembers;
         }
     }
     
     public static void afterInsertUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap, boolean isUpdate)
     {
+    	
+    	
+    	/**
+  *@Description : Actions which are performed as a part of After Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object.
+  *@Date : 3/11/2015
+  *@param:List of campaign.New. Campaign.Oldmap and indicator for Update.
+  *@return:This mehtod does not return any value.
+
+  */
         
         /* START Variable Definition    */
         Set<ID> cpIdSet = new Set<ID>(); // Campaign ID Set       
@@ -102,14 +129,14 @@ public class CampaignHelper {
         List<Campaign> cpCaseList = new List<Campaign>(); // Campaign Exection List by Case
         
         // Batch Job String Ids
-        String cpAccIds = ''; // Campaign Id String
-        String cpLeadIds = '';
-        String cpVehicleIds = '';
-        String cpCaseIds = '';
-        Batch_Job__c accJob = new Batch_Job__c(Batch_Type__c='Contact', Status__c='Pending');
-        Batch_Job__c leadJob = new Batch_Job__c(Batch_Type__c='Lead', Status__c='Pending');
-        Batch_Job__c vehJob = new Batch_Job__c(Batch_Type__c='Vehicle', Status__c='Pending');
-        Batch_Job__c caseJob = new Batch_Job__c(Batch_Type__c='Case', Status__c='Pending');
+        String cpAccIds = UtilConstant.Empty; // Campaign Id String
+        String cpLeadIds = UtilConstant.Empty;
+        String cpVehicleIds = UtilConstant.Empty;
+        String cpCaseIds = UtilConstant.Empty;
+        Batch_Job__c accJob = new Batch_Job__c(Batch_Type__c='Contact', Status__c=pending);
+        Batch_Job__c leadJob = new Batch_Job__c(Batch_Type__c='Lead', Status__c=pending);
+        Batch_Job__c vehJob = new Batch_Job__c(Batch_Type__c='Vehicle', Status__c=pending);
+        Batch_Job__c caseJob = new Batch_Job__c(Batch_Type__c='Case', Status__c=pending);
         /* END Variable Definition  */
         
         /* START Iterate Campaign to relevant campaign list */
@@ -140,11 +167,11 @@ public class CampaignHelper {
                     // Batch Job Ids String
                     cpCaseIds = cpCaseIds + ';' + String.valueof(cp.Id);
                 }
-            } else if (isUpdate && cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get('CAC Campaign').getRecordTypeId()) {
+            } else if (isUpdate && cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get(CacCampaign).getRecordTypeId()) {
                 // CAC Campaign List
                 cpIdSet.add(cp.id);
                 List<Campaign> childCmpList = new List<Campaign>(); 
-                for(Campaign childCAC : [Select Id From Campaign Where ParentId=:cp.Id And isActive=false And RecordTypeId=:cpRecordTypeMap.get('CAC Campaign').getRecordTypeId()]){
+                for(Campaign childCAC : [Select Id From Campaign Where ParentId=:cp.Id And isActive=false And RecordTypeId=:cpRecordTypeMap.get(CacCampaign).getRecordTypeId()]){
                     childCAC.isActive = true;
                     childCmpList.add(childCAC);
                 }
@@ -162,37 +189,37 @@ public class CampaignHelper {
         /* START Campaign Excution create task update */
         List<Campaign> cpExeList = new List<Campaign>();
         
-        if(cpIdSet!=null && !cpIdSet.isEmpty()) {
+        if(!cpIdSet.isEmpty()) {
             for(Campaign cpExe : [select id, Create_Task__c from Campaign where ParentId in :cpIdSet ]) {
                 cpExeList.add(new Campaign(id = cpExe.Id, Create_Task__c = true));
             }
         }
 
-        if(cpExeList!=null && !cpExeList.IsEmpty()) update cpExeList;
+        if(!cpExeList.IsEmpty()) update cpExeList;
         /* END Campaign Excution create task update */
         
         System.debug('cpVehicleList >>>' + cpVehicleList);
             
         /* START Batch Execution */
-        if(cpAccList!=null && !cpAccList.isEmpty()) {          
+        if(!cpAccList.isEmpty()) {          
             //database.executeBatch(new UtilCampaignTaskGenerationByAccount(cpAccList), 200);
             accJob.Campaign_Set__c = cpAccIds;
             insert accJob;
         }
         
-        if(cpLeadList!=null && !cpLeadList.isEmpty()) {         
+        if(!cpLeadList.isEmpty()) {         
             //database.executeBatch(new UtilCampaignTaskGenerationByLeads(cpLeadList), 200);
             leadJob.Campaign_Set__c = cpLeadIds;
             if(leadJob!=Null){
              insert leadJob;       
             }  
         }
-        if(cpVehicleList!=null && !cpVehicleList.isEmpty()) {          
+        if(!cpVehicleList.isEmpty()) {          
             //database.executeBatch(new UtilCampaignTaskGenerationByVehicle(cpVehicleList), 200); 
             vehJob.Campaign_Set__c = cpVehicleIds;
             insert vehJob; 
         }
-        if(cpCaseList!=null && !cpCaseList.isEmpty()) {          
+        if(!cpCaseList.isEmpty()) {          
             //database.executeBatch(new UtilCampaignTaskGenerationByCase(cpCaseList), 200); 
             caseJob.Campaign_Set__c = cpCaseIds;
             insert caseJob; 
@@ -203,12 +230,20 @@ public class CampaignHelper {
     
     public static void beforeUpdateEvents(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
     {
-        List<Campaign> cmpExes = new List<Campaign>();
+    	/**
+  *@Description : Actions which are performed as a part of Before Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object.
+  *@Date : 3/11/2015
+  *@param:List of campaign.New. Campaign.Oldmap.
+  *@return:This mehtod does not return any value.
+
+  */
+        
         Id cmpExeReTpIdS = cpRecordTypeMap.get('Campaign Execution - Simple').getRecordTypeId();
         Id cmpExeReTpIdC = cpRecordTypeMap.get('Campaign Execution - Complex').getRecordTypeId();
         Set<Id> campaignIds = new Set<Id>();
         for(Campaign cp : campaignNew) {
-            if (cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get('CAC Campaign').getRecordTypeId())
+            if (cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get(CacCampaign).getRecordTypeId())
             {
                  campaignIds.add(cp.Id);
             }
@@ -225,20 +260,30 @@ public class CampaignHelper {
         }
         
         for(Campaign cp : campaignNew) {
-            if (cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get('CAC Campaign').getRecordTypeId())
+            if ((cp.isActive && !campaignOldMap.get(cp.Id).isActive && cp.RecordTypeId == cpRecordTypeMap.get(CacCampaign).getRecordTypeId()) && (CampaignCMPExes.get(cp.Id) < 1))
             {
-                if(CampaignCMPExes.get(cp.Id) < 1)
-                {
+                
                     cp.addError('You can not activate a campaign without any execution.');
-                }                
+                                
             }
         }
     }
     /**
-     * 2014-2-17 added by Justin for copying the status in the top level campaign to the OB campaign
+     * 2014-2-17 added by Justin for copying the status
+     *  in the top level campaign to the OB campaign
      */
     public static void afterInsertEvents(list<Campaign> campaignNew)
     {
+    	
+    	/**
+  *@Description : Actions which are performed as a part of After Insert. This gets called from Campaign TriggerHandler
+  This method sends the campaigns with execution type = OB Call  to method copyTopCampaignStatusValueToSavedCampaign().
+  which gets invoked by Trigger on Campaign Object.
+  *@Date : 3/11/2015
+  *@param:List of campaign.New. 
+  *@return:This mehtod does not return any value.
+
+  */
         Set<String> campaignIds = new Set<String>();
         for(Campaign campaign : campaignNew){
             if(campaign.Execution_Type__c == 'OB Call')
@@ -252,18 +297,28 @@ public class CampaignHelper {
     
     public static void afterUpdateEvents(list<Campaign> campaignNew,list<Campaign> campaignOld)
     {
+    	/**
+  *@Description : Actions which are performed as a part of After Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object. This method picks up the campaigns with SMS Task verified = true and updates it to flase if their parent campaign is a 
+  repeated campaign.  
+  *@Date : 3/11/2015
+  *@param:List of campaign.New and Campaign.Old.
+  *@return:This mehtod does not return any value.
+
+  */
+    	
         List<Id> cpSIds = new List<Id>();
-        List<Task> taskSMS = new List<Task>();
-        Id tkRecTpId = tkRecordTypeMap.get('SMS').getRecordTypeId();
+        
+        
         
         for(Integer j=0; j<campaignNew.size(); j++)
         {
-            if(campaignNew[j].SMS_Task_Verified__c != campaignOld[j].SMS_Task_Verified__c && campaignNew[j].SMS_Task_Verified__c == true)
+            if(campaignNew[j].SMS_Task_Verified__c != campaignOld[j].SMS_Task_Verified__c && campaignNew[j].SMS_Task_Verified__c )
             {
                 cpSIds.add(campaignNew[j].Id);
             }
         }
-        if(cpSIds!=null && !cpSIds.isEmpty())
+        if(!cpSIds.isEmpty())
         {
             List<Campaign> cpExes = [SELECT Id, SMS_Task_Verified__c, Parent.Repeated_Campaign__c FROM Campaign WHERE Id in :cpSIds AND Parent.Repeated_Campaign__c = true];
             if(cpExes!=null && !cpExes.isEmpty())
@@ -279,6 +334,16 @@ public class CampaignHelper {
     
     public static void afterInsertEvents_CampaignShare(list<Campaign> campaignNew,map<id,Campaign> campaignOldMap)
     {
+    	
+    	/**
+  *@Description : Actions which are performed as a part of After Insert/Update. This gets called from Campaign TriggerHandler
+  which gets invoked by Trigger on Campaign Object.
+  This method updates the campaignshares. Shares campaign to Participating Dealers.
+  *@Date : 3/11/2015
+  *@param:List of campaign.New. Map Campaign.Oldmap.
+  *@return:This mehtod does not return any value.
+
+  */
         //Added community license switching mechanism
     	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
     	{
@@ -362,7 +427,7 @@ public class CampaignHelper {
 	                if (cpnDealerMap.get(cpnId) != null && cpnDealerMap.get(cpnId).contains(u.AccountId) && (u.ProfileId == pIdDealerAdmin || (u.Contact.Permission_Set_Settings__c != null && u.Contact.Permission_Set_Settings__c.contains(cpnPermSetMap.get(cpnId)))))
 	                {
 	                    CampaignShare share = new CampaignShare();
-	                    share.CampaignAccessLevel = 'Read';
+	                    share.CampaignAccessLevel = UtilConstant.read_Access;
 	                    share.CampaignId = cpnId;
 	                    share.UserOrGroupId = u.id;
 	                    cpnShares.add(share);
@@ -387,7 +452,7 @@ public class CampaignHelper {
 	                    if (dealerBrandOwnerIds.get(dealerId) != null)
 	                    {
 	                        CampaignShare share = new CampaignShare();
-	                        share.CampaignAccessLevel = 'Read';
+	                        share.CampaignAccessLevel = UtilConstant.read_Access;
 	                        share.CampaignId = cpnId;
 	                        share.UserOrGroupId = dealerBrandOwnerIds.get(dealerId);
 	                        cpnShares.add(share);
@@ -397,14 +462,14 @@ public class CampaignHelper {
 	        }
 	        
 	        // Insert sharing records
-	        if (cpnShares!=null && !cpnShares.isEmpty()) {
+	        if (!cpnShares.isEmpty()) {
 	            try {
 	                insert cpnShares;
 	            } catch (DMLException e) {
 	                System.debug('DMLException Exception occured when sharing Campaign to Participating Dealer: ' + e);
 	            }
 	        }
-	        if(taskList!=null && !taskList.isEmpty()){
+	        if(!taskList.isEmpty()){
 	            try {
 	                insert taskList;
 	            }

@@ -8,13 +8,21 @@
 public class UserLookupResultController {
 	
 	private String assignmentType = ApexPages.currentPage().getParameters().get('type');
+	public List<UserInfo> userInfos { get; set; }
 	
 	public UserLookupResultController(){
 		setProperties();
 	}
 	
-	public List<UserInfo> userInfos { get; set; }
-	
+	/**    
+     * @Description : sets the properties like QcCount and userinfo to every user by getting list of users
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : 
+     * @return      : 
+     * @see         : UserLookupResultController
+    **/	
+    
 	private void setProperties(){
 		
 		List<User> users = getUsers();
@@ -34,6 +42,15 @@ public class UserLookupResultController {
 		}
 	}
 	
+	/**    
+     * @Description : gets all the users having assignment types assignment,recall
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : 
+     * @return      : list of users having profiles 'CAC SSI QC','CAC SSI SV' and  'CAC SSI TL'.
+     * @see         : setProperties
+    **/	
+    
 	private List<User> getUsers(){
 		List<User> result = new List<User>();
 		if(assignmentType == 'assignment'){
@@ -45,6 +62,14 @@ public class UserLookupResultController {
 		return result;
 	}
 	
+	/**    
+     * @Description : gets Qc record count for every user
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : set of user ids
+     * @return      : Qc count map
+     * @see         : setProperties
+    **/	
 	private Map<String, Integer> getQcCount(Set<String> userIds){
 		Map<String, Integer> qcCountMap = new Map<String, Integer>();//01290000000rXmW this record type id doesnot exist.
 		for(AggregateResult result : [select OwnerId, COUNT(Id) qcSize from QC__c where RecordTypeId = '012O00000000flz'and Status__c = 'New'
@@ -53,9 +78,18 @@ public class UserLookupResultController {
 		}
 		return qcCountMap;
 	}
-	
+		
 	
 	public class UserInfo{
+		
+	/**    
+     * @Description : gets the user information 
+     * @author      : Justin Yu
+     * @Date        : 2014-03-18
+     * @param       : user and qcCount
+     * @return      : userinformation 
+     * @see         : 
+    **/	
 		public UserInfo(User user, Integer qcCount){
 			this.user = user;
 			this.qcCount = qcCount;

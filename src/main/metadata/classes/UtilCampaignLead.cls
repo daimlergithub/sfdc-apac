@@ -128,7 +128,7 @@ public with sharing class UtilCampaignLead
                 campaignLeadIndexs.add(index);
             }
             
-            List<Campaign_Lead__c> updatedCampaignLeads = new List<Campaign_Lead__c>();
+            
             for(Campaign_Lead__c cl : campaignLeadsNew)
             {
                 String index = cl.Campaign__c + ':' + cl.Lead__c;

@@ -1359,6 +1359,28 @@
         <type>Checkbox</type>
     </fields>
     <fields>
+        <fullName>Lead_Creation_flag__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Auto Lead Creation</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>MD__c</fullName>
+        <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
+		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
+		IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
+        <description>For JP users set to JP</description>
+        <externalId>false</externalId>
+        <label>Market Discriminator</label>
+        <length>2</length>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>Max_Car_Age__c</fullName>
         <description>Max Car Age of the campaign</description>
         <externalId>false</externalId>
@@ -7130,7 +7152,7 @@
     <recordTypes>
         <fullName>Central_Marketing_Campaign</fullName>
         <active>true</active>
-        <description>For Central Marketing Campaign Planning</description>
+        <description>Campaign Planning</description>
         <label>Central Marketing Campaign</label>
         <picklistValues>
             <picklist>ATL_BTL__c</picklist>
@@ -11592,6 +11614,25 @@ IsActive = True
         <openType>replace</openType>
         <protected>false</protected>
         <url>/701/e?retURL=%2F{!Campaign.Id}&amp;RecordType=01224000000JA3J&amp;ent=Campaign&amp;Parent={!Campaign.Name}&amp;Parent_lkid={!Campaign.Id}</url>
+    </webLinks>
+    <webLinks>
+        <fullName>Create_Child_Campaign</fullName>
+        <availability>online</availability>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <hasMenubar>false</hasMenubar>
+        <hasScrollbars>true</hasScrollbars>
+        <hasToolbar>false</hasToolbar>
+        <height>600</height>
+        <isResizable>true</isResizable>
+        <linkType>url</linkType>
+        <masterLabel>Create Child Campaign</masterLabel>
+        <openType>newWindow</openType>
+        <position>none</position>
+        <protected>false</protected>
+        <showsLocation>false</showsLocation>
+        <showsStatus>false</showsStatus>
+        <url>{!Campaign.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>Create_Complex_Execution</fullName>

@@ -1,5 +1,5 @@
 @isTest
-private class MassAssignRecallTasksTest {
+private with sharing class MassAssignRecallTasksTest {
 
 private static Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Task.getRecordTypeInfosByName();
 private static Id SSIRTID = rtMap.get('SSI Task').getRecordTypeId();

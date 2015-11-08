@@ -1,17 +1,14 @@
-/*
-    Type:       Controller of of page CaseEscalation
-    Purpose:    1. Escalate Case to Region Q
-                2. Escalate Case to Central Q
-    
-    User Story: US-DP-013, US-DP-015
-    Used By:    
-    ---------------------------------------------------------------
-    History:
-    
-    27-May-2013 Sinow Zhang (NTTData)  Created
-    13-2-2014 Baib (NTTData)  Modified
-*/
-public class CaseEscalationController {
+/**
+**  Controller of page CaseEscalation
+**  1. Escalate Case to Region Q
+**  2. Escalate Case to Central Q
+** Created By: Sinow Zhang (NTTData) 
+** Date: 27-May-2013
+**Modified By : Baib (NTTData)
+**Modified date : 13-2-2014
+**Last Modified date:27-10-2015
+**/
+public with sharing class CaseEscalationController {
 
     private Static final String ErrorMessageInvalidId = 'Invalid Case Id.';
     private Static final String ErrorMessageWrongRegion = 'Please set up dealer region first before escalate case.';
@@ -20,6 +17,7 @@ public class CaseEscalationController {
     private final static String ERROR_MSGChinese = 'Upgrade complaints, all complaints for more information fields are required.';
     private final static String ERROR_DupEscalate = 'Complaints have been upgraded, there is no need to upgrade again.';
     private QueueSobject CentralPLWLQ = [select Id, QueueId, Queue.Name from QueueSobject where SobjectType = 'Case' and Queue.Name = 'Central Office PL / WL Queue' limit 1];
+  public Static String regionalCRMManager='Regional CRM Manager';
     
     //CR No.: CR-AS-Complaint-008 START
     //added by baib 2014/02/13 
@@ -67,7 +65,7 @@ public class CaseEscalationController {
     private final static String AWAITING_MB = 'Awaiting MB';
         
     public Case EscalateCase { get; set; }
-    private List<CaseShare> caseShares { get; set; }
+   // private List<CaseShare> caseShares { get; set; }
     
     public CaseEscalationController() {
         String caseId = ApexPages.currentPage().getParameters().get('id');
@@ -115,9 +113,17 @@ public class CaseEscalationController {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, ErrorMessageInvalidId));
         }
     }
-
+   
+/**      
+  * @Description:To load the centralQs map having where SobjectType = 'Case' and Queue.Name like 'Central Office-%' 
+  * @author :baib
+  * @Date :2014/02/13 
+  * @param  NA
+  * @return  NA
+  * @see   CaseEscalationController(initalQueueMap())
+*/ 
     //CR No.: CR-AS-Complaint-008 START
-    //added by baib 2014/02/13     
+        
     private void initalQueueMap(){
         //get central Q name and id
         for (QueueSobject qo : 
@@ -142,21 +148,37 @@ public class CaseEscalationController {
         }
         system.debug(regionalQs);
     }
-    
+   /**      
+  * @Description: Method to set the escalation information
+  * @author :
+  * @Date :
+  * @param  CaseDealer DealerRegion and currentUserProfle
+  * @return  NA
+  * @see   CaseEscalationController(setEscalteInfo())
+*/     
     private void setEscalteInfo(String region, Profile currentUserProfle){
         EscalateCase.Status = AWAITING_MB;
-        EscalateCase.OwnerId = currentUserProfle.Name == 'Regional CRM Manager' ? 
+        EscalateCase.OwnerId = currentUserProfle.Name == regionalCRMManager ? 
             (EscalateCase.Case_Involvement_MPC__c == 'PL/WL' ? CentralPLWLQ.QueueId : centralQs.get(CENTRAL_QUEUE_NAME.get(region))) 
             : regionalQs.get(region);
-        EscalateCase.Handling_Level__c = currentUserProfle.Name == 'Regional CRM Manager' ? 'Central Office' : 'Regional Office';
+        EscalateCase.Handling_Level__c = currentUserProfle.Name == regionalCRMManager ? 'Central Office' : 'Regional Office';
     }
+    
+    
+/**      
+  * @Description: Method for page CaseEscalation 
+  * @author :
+  * @Date :
+  * @param  NA
+  * @return  page related to escalation
+  * @see   CaseEscalationController(escalate())
+*/    
     //CR No.: CR-AS-Complaint-008 END
-        
     public pageReference escalate() {
         Profile currentUserProfle = [select Id, Name from Profile where Id = :UserInfo.getProfileId()];
         
         for(String colName : MandatoryFields){
-            if(String.isEmpty(String.valueOf(EscalateCase.get(colName))) && currentUserProfle.Name != 'Regional CRM Manager'){
+            if(String.isEmpty(String.valueOf(EscalateCase.get(colName))) && currentUserProfle.Name != regionalCRMManager){
                 if(UserInfo.getLanguage() == 'English') {
                     ApexPages.addMessage(new ApexPages.Message(ApexPages.Severity.ERROR, ERROR_MSG));
                 }
@@ -186,7 +208,7 @@ public class CaseEscalationController {
             EscalateCase.Escalate_Date_to_RO__c = Date.today();
         }
         system.debug('currentUserProfle:'+currentUserProfle);
-        if (EscalateCase.Escalate_Date_to_CO__c == null && currentUserProfle.Name == 'Regional CRM Manager') {
+        if (EscalateCase.Escalate_Date_to_CO__c == null && currentUserProfle.Name == regionalCRMManager) {
             EscalateCase.Escalate_Date_to_CO__c = Date.today();
         }
 
