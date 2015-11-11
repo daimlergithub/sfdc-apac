@@ -3850,11 +3850,7 @@
         <field>Account_Link__c.Portal_Email__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Link__c.Portal_ID2__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Portal_Mail_Opt_Out__c</field>
