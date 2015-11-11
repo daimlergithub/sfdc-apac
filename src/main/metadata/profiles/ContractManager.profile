@@ -1311,10 +1311,7 @@
         <enabled>false</enabled>
     </classAccesses>
     
-    <classAccesses>
-        <apexClass>myCustomExtension</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+    
     <classAccesses>
         <apexClass>superSort</apexClass>
         <enabled>false</enabled>
@@ -17199,10 +17196,7 @@
         <apexPage>VehicleRelLooking</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
-    <pageAccesses>
-        <apexPage>Vehicle_Picker</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
+    
     <pageAccesses>
         <apexPage>ViewTask</apexPage>
         <enabled>false</enabled>
