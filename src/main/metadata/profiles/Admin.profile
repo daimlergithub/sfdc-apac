@@ -142,6 +142,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AddressDisplayInlineEditController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AssignCaseToDealerController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1222,6 +1226,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>VehicleDataSharingHandlerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>VehicleRelLookingController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1303,6 +1311,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>campaignHistoryLogGeneration</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>contactTableControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>myCustomExtension</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -2641,7 +2657,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Household_Total__c</field>
+        <field>Account.Household_Total_del__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2846,12 +2862,12 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.MiddleName_Native_1__c</field>
+        <field>Account.MiddleName_Native_1_del__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.MiddleName__c</field>
+        <field>Account.MiddleName_del__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2921,7 +2937,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Opt_In_Contact_Reason_2__c</field>
+        <field>Account.Opt_In_Contact_Reason_2_del__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3331,7 +3347,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Region__c</field>
+        <field>Account.Region_del__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3836,7 +3852,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account_Link__c.Portal_ID__c</field>
+        <field>Account_Link__c.Portal_ID2__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -9057,11 +9073,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Company_Account__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.Competitor_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15420,11 +15431,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Vehicle_Relationship__c.Self_Registered__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Selling_Dealer__c</field>
         <readable>true</readable>
@@ -17421,6 +17427,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>AddressDisplayInlineEdit</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>AnswersHome</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -17542,6 +17552,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ForgotPasswordConfirm</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>GeneratePDF</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -17710,6 +17724,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>VehicleRelLooking</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Vehicle_Picker</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -18627,6 +18645,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>InstallPackaging</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LightningExperienceUser</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
