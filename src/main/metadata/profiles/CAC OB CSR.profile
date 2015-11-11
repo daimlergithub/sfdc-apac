@@ -1310,10 +1310,7 @@
         <apexClass>campaignHistoryLogGeneration</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>contactTableControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+    
     <classAccesses>
         <apexClass>myCustomExtension</apexClass>
         <enabled>false</enabled>

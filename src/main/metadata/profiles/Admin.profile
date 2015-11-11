@@ -1309,10 +1309,7 @@
         <apexClass>campaignHistoryLogGeneration</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>contactTableControllerTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    
     <classAccesses>
         <apexClass>myCustomExtension</apexClass>
         <enabled>true</enabled>
