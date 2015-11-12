@@ -3465,11 +3465,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Sales_Address__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Sales_Sanction_Comment__c</field>
         <readable>false</readable>
     </fieldPermissions>
