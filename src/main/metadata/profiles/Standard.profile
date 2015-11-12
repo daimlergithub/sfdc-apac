@@ -128,11 +128,7 @@
     <classAccesses>
         <apexClass>AccountLinkSharingWrapService</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AccountOptinandOptoutController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses>   
     <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
         <enabled>false</enabled>
