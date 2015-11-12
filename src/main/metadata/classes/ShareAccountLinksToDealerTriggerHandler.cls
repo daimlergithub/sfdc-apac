@@ -1,16 +1,7 @@
-/**
-** Handler for ShareAccountLinksToDealer
-** Created By: 
-** Date: 
-** Modified By : 
-** Modified date : 27-oct-2015
-**/
-
-
 public class ShareAccountLinksToDealerTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         //------------------Added by bing---------------------    
         AccountSharingDataHandler handler = new AccountSharingDataHandler('Account_Link__c');
@@ -29,5 +20,9 @@ public class ShareAccountLinksToDealerTriggerHandler
             VehicleSharingWrapService vehicleWrapService = new VehicleSharingWrapService();
             SharingService.shareVehicles(vehicleWrapService.wrapVehicleFromAccountLinks(Trigger.new));
         }
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }

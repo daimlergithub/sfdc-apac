@@ -12,7 +12,7 @@
 public class TriggerCampaignMembersTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         Map<Id,CampaignMember> oldmap = (Map<Id,CampaignMember>)trigger.oldmap;
         Map<Id,CampaignMember> newmap = (Map<Id,CampaignMember>)trigger.newmap;
@@ -34,5 +34,9 @@ public class TriggerCampaignMembersTriggerHandler
         }
         
         Database.update(accList,false);
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }

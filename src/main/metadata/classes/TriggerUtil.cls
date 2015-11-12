@@ -7,6 +7,10 @@
 */
 public class TriggerUtil 
 {
+    //User variable
+    public static Boolean user = false;
+    public static User usr = new User();
+    
     public static Boolean isTriggerEnabled(String aTriggerName) 
     {
         return isTriggerEnabled(getTriggerInfo(aTriggerName));
@@ -24,13 +28,19 @@ public class TriggerUtil
     
     public static void handleTrigger(String aTriggerName)
     {
-		Trigger__c triggerInfo = getTriggerInfo(aTriggerName);
-        
+        Trigger__c triggerInfo = getTriggerInfo(aTriggerName);
+        if(!user && !test.isrunningtest()){
+            usr = [select id,profileid,profile.Name from user where id=:userinfo.getuserid()];
+            user = true;
+        }
         if (isTriggerEnabled(triggerInfo)) {
             TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);
             
             if (triggerHandler != null) {
-                triggerHandler.handleTrigger();
+                if(usr.profile.Name!='IntegrationAPI')
+                    triggerHandler.handleTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete);
+                else
+                    triggerHandler.handleIntegrationTrigger(trigger.isinsert,trigger.isupdate,trigger.isbefore, trigger.isdelete);
             }
         }
     }

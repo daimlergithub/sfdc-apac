@@ -25,7 +25,7 @@ public class TaskTriggerHandler
     private static Id WCRTID;
     private static Id OBTRTID;
     
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         if(trigger.isAfter && trigger.isInsert)
         {
@@ -72,6 +72,10 @@ public class TaskTriggerHandler
             TaskHelper.Reply_TD_unsubscribeForeachSMScontent(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
             TaskHelper.FillintheCampaignNameBasedontheRelatedtoObject(Trigger.new,(Map<Id,Task>)trigger.oldmap,trigger.isinsert,trigger.isupdate);
         }
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
     
     private static void getRecordTypeId(){

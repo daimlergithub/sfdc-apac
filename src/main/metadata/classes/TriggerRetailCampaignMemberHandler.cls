@@ -13,13 +13,18 @@
 public class TriggerRetailCampaignMemberHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
-       
+        Map<Id,Retail_Campaign_Member__c> oldmap = (Map<Id,Retail_Campaign_Member__c>)trigger.oldmap;
+        Map<Id,Retail_Campaign_Member__c> newmap = (Map<Id,Retail_Campaign_Member__c>)trigger.newmap;
         
         if(trigger.isBefore && trigger.isInsert)
         {
             RetailCampaignMemberHelper.retailCampaignMemberDuplicateCheck(Trigger.new); 
         }
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }
