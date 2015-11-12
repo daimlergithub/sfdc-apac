@@ -26,7 +26,7 @@
        <apex:pageBlockButtons >
               <apex:commandButton value="Save" action="{!Save}" rendered="{!lstVehicleRelation.size!=0}"/>
                <apex:commandButton value="Cancel" action="{!Cancel}"/>
-        </apex:pageBlockButtons>           
+        </apex:pageBlockButtons>          
   </apex:pageBlock>
  </apex:form> -->
 </apex:page>
