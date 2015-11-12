@@ -18631,10 +18631,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>LightningExperienceUser</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>ManageAnalyticSnapshots</name>
     </userPermissions>
     <userPermissions>
