@@ -241,7 +241,8 @@
 			<sf:include name="TriggerHandlerIf"/>
 			<sf:include name="TriggerUtil"/>
 			<sf:include name="TriggerUtilTest"/>
-			<sf:include name="IllegalArgumentException"/>
+			<sf:include name="IllegalArgumentException"/>			
+			<sf:include name="AttachmentAfterTriggerHandler"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerUtilTestTrigger"/>
@@ -577,7 +578,6 @@
 			<sf:include name="TriggerRetailCampaignTest"/>
 			<sf:include name="TriggerRetailTaskTriggerHandler"/>
 			<sf:include name="TriggerTaskTest"/>	
-			<sf:include name="AttachmentAfterTriggerHandler"/>
 			<sf:include name="BatchAssignTasks"/>
 			<sf:include name="BatchAssignTasksTest"/>
 			<sf:include name="CampaignHelperTest"/>
