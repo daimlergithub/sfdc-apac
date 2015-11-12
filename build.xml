@@ -267,7 +267,7 @@
 			<sf:include name="UtilCampaignTaskGenerationByCaseTest"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
-			<sf:include name="UtilTestData"/>
+			<sf:include name="UtilTestData"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
@@ -716,6 +716,9 @@
 			<sf:typeset name="pages"> 
 				<sf:exclude name="TrialCustomerPortalHomePage"/>
 			</sf:typeset>	
+			<sf:typeset name="classes">
+			   <sf:include name="TerminateVehicleRelationshipExtension"/>
+			</sf:typeset>			
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
 			<sf:typeset name="tabs">
