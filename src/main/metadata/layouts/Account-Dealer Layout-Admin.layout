@@ -534,10 +534,6 @@
         <fields>NAME</fields>
         <relatedList>Audit_Trail__c.Customer__c</relatedList>
     </relatedLists>
-    <relatedLists>
-        <fields>NAME</fields>
-        <relatedList>Account_Link__c.Related_Dealer__c</relatedList>
-    </relatedLists>
     <relatedObjects>ParentId</relatedObjects>
     <showEmailCheckbox>false</showEmailCheckbox>
     <showHighlightsPanel>true</showHighlightsPanel>

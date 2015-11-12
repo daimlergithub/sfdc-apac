@@ -1,9 +1,14 @@
-/***
+
+/**
 ** Service class to share different SObjects.
 ** 
 ** Created By: CC
-** Date: 2014-06-11
+** Date: 2014-6-11
+** Modified By : 
+** Modified date : 4-Nov-2015
 **/
+
+
 public class SharingService {
 
     public static void shareRetailCampaigns(List<SharingWrapper> sharings) {
@@ -37,7 +42,16 @@ public class SharingService {
     public static void shareAccountLinks(List<SharingWrapper> sharings) {
         shareSObjects('Account_Link__Share', sharings);
     }
-
+	
+/**	
+* @Description  To get different Sobjects and to share those SObjects
+* @author  
+* @Date (mm/dd/yy)
+* @param  sharing Object type and sharing object wrapper
+* @return This method doesn't return anything.
+* @see   SharingService
+*/ 
+	 
     private static void shareSObjects(String sharingSObjectType, List<SharingWrapper> sharings){
         Schema.SObjectType targetType = Schema.getGlobalDescribe().get(sharingSObjectType);
         if (targetType == null) {

@@ -1,4 +1,22 @@
+/**
+* This class is for sharing records
+*
+* Created By: CC
+* Date: 2014-06-12
+*/
+
 public class SharingWrapperService {
+
+/**	
+* @Description  This method is to share records
+* @author  
+* @Date (mm/dd/yy)
+* @param  Passing row cause, list of Retail Tasks and access level.
+* @return list of SharingWrapper
+* @see   AccountLinkSharingWrapService, LeadSharingWrapService, RetailCampaignSharingWrapService, 
+* 		 RetailTaskSharingWrapService, TookKitSharingWrapService, VehicleRelationshipSharingWrapService, 
+*		 VehicleSharingWrapService
+*/ 	 
 	public static List<SharingWrapper> wrapSharings(Map<Id, Set<Id>> record2Users, String rowCause, String accessLevel){
 		if(String.isBlank(accessLevel)){
 			accessLevel = 'Read';

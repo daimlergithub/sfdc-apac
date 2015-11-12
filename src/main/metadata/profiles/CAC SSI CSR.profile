@@ -142,6 +142,10 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AddressDisplayInlineEditController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AssignCaseToDealerController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -343,6 +347,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ContactHelperTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ContactTableController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1042,14 +1050,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TriggerSurveyQuestionResponseHandler</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>TriggerSurveyQuestionResponseTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TriggerTaskTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1198,10 +1198,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>UtilSurveyQuestionResponse</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>UtilTask</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -1217,6 +1213,7 @@
         <apexClass>VehicleDataSharingHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    
     <classAccesses>
         <apexClass>VehicleRelLookingController</apexClass>
         <enabled>false</enabled>
@@ -1301,6 +1298,8 @@
         <apexClass>campaignHistoryLogGeneration</apexClass>
         <enabled>false</enabled>
     </classAccesses>
+    
+    
     <classAccesses>
         <apexClass>superSort</apexClass>
         <enabled>false</enabled>
@@ -2557,13 +2556,8 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.GPS_coordinates_latitude__c</field>
+        <field>Account.GPS_Coordinates__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.GPS_coordinates_longitude__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -2642,7 +2636,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Household_Total__c</field>
+        <field>Account.Household_Total_del__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -2847,14 +2841,14 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.MiddleName_Native_1__c</field>
+        <field>Account.MiddleName_Native_1_del__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.MiddleName__c</field>
+        <field>Account.MiddleName_del__c</field>
         <readable>false</readable>
-    </fieldPermissions> 
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Minimum_per_Dealer__c</field>
@@ -2922,7 +2916,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Opt_In_Contact_Reason_2__c</field>
+        <field>Account.Opt_In_Contact_Reason_2_del__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3332,7 +3326,7 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Account.Region__c</field>
+        <field>Account.Region_del__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3469,11 +3463,6 @@
         <editable>true</editable>
         <field>Account.SMS_MMS_IM_Status_2__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Sales_Address__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3821,6 +3810,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Account_Link__c.MBConnection__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.MD__c</field>
         <readable>true</readable>
@@ -3830,16 +3824,7 @@
         <field>Account_Link__c.Portal_Email__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Link__c.Portal_ID2__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account_Link__c.Portal_ID__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
+    
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Portal_Mail_Opt_Out__c</field>
@@ -5344,6 +5329,11 @@
         <editable>true</editable>
         <field>Car_Model__c.Series__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Car_Model__c.Status__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -7922,11 +7912,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DM_Request__c.Prefecturetbd__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DM_Request__c.Primary_Address__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -9058,11 +9043,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Company_Account__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead__c.Competitor_Vehicle__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15421,11 +15401,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Vehicle_Relationship__c.Self_Registered__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle_Relationship__c.Selling_Dealer__c</field>
         <readable>true</readable>
@@ -16711,6 +16686,14 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
+        <recordType>Vehicle__c.Self_Registered</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
+        <recordType>Vehicle__c.Vehicle_Product</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
     </layoutAssignments>
     <loginIpRanges>
@@ -17414,6 +17397,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>AddressDisplayInlineEdit</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>AnswersHome</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -17506,6 +17493,10 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>ContactTable</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>DMSendResult</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -17531,6 +17522,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ForgotPasswordConfirm</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>GeneratePDF</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -17701,6 +17696,7 @@
         <apexPage>VehicleRelLooking</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
+    
     <pageAccesses>
         <apexPage>ViewTask</apexPage>
         <enabled>true</enabled>
@@ -18230,6 +18226,16 @@
         <default>true</default>
         <recordType>Vehicle__c.MB</recordType>
         <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Vehicle__c.Self_Registered</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Vehicle__c.Vehicle_Product</recordType>
+        <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>

@@ -172,10 +172,10 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
           test.stopTest();
         
         //verify
-        Task objTask =[select Activity_Status__c,Campaign_Member_ID__c,ActivityDate,WhoId,WhatId,Campaign_Name__c from Task where Campaign_Name__c = 'top' Limit 1];
-        system.assertEquals(objTask.Campaign_Name__c, 'top');
-        system.assertEquals(objTask.Activity_Status__c, 'not started');
-        system.assertEquals(objTask.WhatId,top.id);
+        list<Task> objTask =[select Activity_Status__c,Campaign_Member_ID__c,ActivityDate,WhoId,WhatId,Campaign_Name__c from Task where Campaign_Name__c = 'top' Limit 1];
+        system.assertEquals(objTask[0].Campaign_Name__c, 'top');
+        system.assertEquals(objTask[0].Activity_Status__c, 'not started');
+        system.assertEquals(objTask[0].WhatId,top.id);
 
          
         }
@@ -239,10 +239,10 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
           test.stopTest();
         
         //verify
-        Task objTask =[select ActivityDate,Campaign_Member_ID__c,WhoId,WhatId,Campaign_Name__c from Task Limit 1];
+        list<Task> objTask =[select ActivityDate,Campaign_Member_ID__c,WhoId,WhatId,Campaign_Name__c from Task Limit 1];
           
-          system.assertEquals(objTask.ActivityDate, system.today());
-          system.assertEquals(objTask.WhatId,top.id);
+          system.assertEquals(objTask[0].ActivityDate, system.today());
+          system.assertEquals(objTask[0].WhatId,top.id);
 
          
         }
@@ -306,10 +306,10 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
           test.stopTest();
         
         //verify
-         Task objTask =[select ActivityDate,Campaign_Member_ID__c,WhoId,WhatId,Campaign_Name__c from Task Limit 1];
+         list<Task> objTask =[select ActivityDate,Campaign_Member_ID__c,WhoId,WhatId,Campaign_Name__c from Task Limit 1];
           
-          system.assertEquals(objTask.ActivityDate, system.today());
-          system.assertEquals(objTask.WhatId,top.id);
+          system.assertEquals(objTask[0].ActivityDate, system.today());
+          system.assertEquals(objTask[0].WhatId,top.id);
 
          
         }
@@ -373,10 +373,10 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
           test.stopTest();
         
         //verify
-        Task objTask =[select ActivityDate,Campaign_Member_ID__c,WhoId,WhatId,Campaign_Name__c from Task Limit 1];
+        list<Task> objTask =[select ActivityDate,Campaign_Member_ID__c,WhoId,WhatId,Campaign_Name__c from Task Limit 1];
           
-          system.assertEquals(objTask.ActivityDate, system.today());
-          system.assertEquals(objTask.WhatId,top.id);
+          system.assertEquals(objTask[0].ActivityDate, system.today());
+          system.assertEquals(objTask[0].WhatId,top.id);
 
          
         }
@@ -440,10 +440,10 @@ public with sharing class UtilCampaignTaskGenerationByVehicleTest {
           test.stopTest();
         
         //verify
-        Task objTask =[select ActivityDate,Campaign_Member_ID__c,WhoId,WhatId,Campaign_Name__c from Task Limit 1];
+        list<Task> objTask =[select ActivityDate,Campaign_Member_ID__c,WhoId,WhatId,Campaign_Name__c from Task Limit 1];
           
-          system.assertEquals(objTask.ActivityDate, system.today());
-          system.assertEquals(objTask.WhatId,top.id);
+          system.assertEquals(objTask[0].ActivityDate, system.today());
+          system.assertEquals(objTask[0].WhatId,top.id);
 
          
         }

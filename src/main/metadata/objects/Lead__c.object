@@ -137,7 +137,7 @@
     <fields>
         <fullName>Assigned_Dealer_by_Rule__c</fullName>
         <externalId>false</externalId>
-        <label>Customer specified dealer or not flag</label>
+        <label>Customer Specified Dealer</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -2513,20 +2513,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Competitor_Vehicle__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Competitor Vehicle</label>
-        <referenceTo>Vehicle__c</referenceTo>
-        <relationshipLabel>Leads (Competitor Vehicle)</relationshipLabel>
-        <relationshipName>Leads2</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Contact_Failed_For_3_Days_Date_Time__c</fullName>
         <externalId>false</externalId>
         <label>Contact Failed For 3 Days Date Time</label>
@@ -2628,7 +2614,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
     <fields>
         <fullName>Current_Vehicle_1_Text__c</fullName>
         <externalId>false</externalId>
-        <label>Current Vehicle 1 Text</label>
+        <label>Present Possessed Brand 1 Description</label>
         <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2641,7 +2627,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <fullName>Current_Vehicle_1__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Current Vehicle 1</label>
+        <label>Present Possessed Brand 1</label>
         <referenceTo>Vehicle__c</referenceTo>
         <relationshipLabel>Leads (Current Vehicle 1)</relationshipLabel>
         <relationshipName>Leads_Current_Vehicle_1</relationshipName>
@@ -2654,7 +2640,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
     <fields>
         <fullName>Current_Vehicle_2_Text__c</fullName>
         <externalId>false</externalId>
-        <label>Current Vehicle 2 Text</label>
+        <label>Present Possessed Brand 2 Description</label>
         <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2667,7 +2653,7 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <fullName>Current_Vehicle_2__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Current  Vehicle 2</label>
+        <label>Present Possessed Brand 2</label>
         <referenceTo>Vehicle__c</referenceTo>
         <relationshipLabel>Leads (Current  Vehicle 2)</relationshipLabel>
         <relationshipName>Leads_Current_Vehicle_2</relationshipName>
@@ -3451,7 +3437,7 @@ Contact__r.Email__c
     <fields>
         <fullName>Full_Address__c</fullName>
         <externalId>false</externalId>
-        <label>Full Address</label>
+        <label>Address</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3562,7 +3548,7 @@ Collectioner_Name__r.HomePhone
     <fields>
         <fullName>Interested_Competitor_Vehicle_Text__c</fullName>
         <externalId>false</externalId>
-        <label>Interested Competitor Vehicle Text</label>
+        <label>Compared Vehicle Description</label>
         <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3575,7 +3561,7 @@ Collectioner_Name__r.HomePhone
         <fullName>Interested_Competitor_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Interested Competitor Vehicle</label>
+        <label>Compared Vehicle</label>
         <referenceTo>Vehicle__c</referenceTo>
         <relationshipLabel>Leads (Interested Competitor Vehicle)</relationshipLabel>
         <relationshipName>Interested_Competitor_Vehicle</relationshipName>
@@ -8840,7 +8826,7 @@ IF(ISPICKVAL($User.Market__c, 'CN'), 'CN',
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
         <label>MD</label>
-        <length>64</length>
+        <length>2</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -9306,11 +9292,13 @@ Modify Reason:
         <fullName>Portal_Request_ID__c</fullName>
         <externalId>false</externalId>
         <label>MyM/DSC Request ID</label>
+        <length>80</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>TextArea</type>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Postcode__c</fullName>
@@ -9673,7 +9661,7 @@ Modify Reason:
     <fields>
         <fullName>Purchased_Vehicle_Text__c</fullName>
         <externalId>false</externalId>
-        <label>Purchased Vehicle Text</label>
+        <label>New Purchase Model Description</label>
         <length>127</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -9686,7 +9674,7 @@ Modify Reason:
         <fullName>Purchased_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Purchased Vehicle</label>
+        <label>New Purchase Model</label>
         <referenceTo>Vehicle__c</referenceTo>
         <relationshipLabel>Leads (Sales Vehicle)</relationshipLabel>
         <relationshipName>Leads8</relationshipName>
@@ -16470,7 +16458,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
     <fields>
         <fullName>Trade_In_Vehicle_Text__c</fullName>
         <externalId>false</externalId>
-        <label>Trade In Vehicle Text</label>
+        <label>Trade-In MB Vehicle Model Description</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -16483,7 +16471,7 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <fullName>Trade_In_Vehicle__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
-        <label>Trade In Vehicle</label>
+        <label>Trade-In MB Vehicle Model</label>
         <referenceTo>Vehicle__c</referenceTo>
         <relationshipLabel>Leads (Trade In Vehicle)</relationshipLabel>
         <relationshipName>Leads_Trade_In_Vehicle</relationshipName>

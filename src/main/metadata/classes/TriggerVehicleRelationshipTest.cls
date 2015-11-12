@@ -20,21 +20,21 @@ public class TriggerVehicleRelationshipTest {
             UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
         
         // Create Vehicle
-        Vehicle__c vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), null);
+        Vehicle__c vehicle = (Vehicle__c)UtilTestData.createSobject(new Vehicle__c(), UtilTestData.VEHICLE_MB);
         
         // Create Vehicle Relationship
         Vehicle_Relationship__c relationship = new Vehicle_Relationship__c();
         relationship.Vehicle_ID__c = vehicle.Id;
         relationship.Contact__c = personAccount.Id;
         relationship.Selling_Dealer__c = dealer.Id;
-        relationship = (Vehicle_Relationship__c)UtilTestData.createSobject(relationship, null);
+        relationship = (Vehicle_Relationship__c)UtilTestData.createSobject(relationship, UtilTestData.VEHICLE_RELATIONSHIP);
         
         // Create Vehicle Relationship
         Vehicle_Relationship__c relationship2 = new Vehicle_Relationship__c();
         relationship2.Vehicle_ID__c = vehicle.Id;
         relationship2.Contact__c = personAccount.Id;
         relationship2.Selling_Dealer__c = dealer.Id;
-        relationship2 = (Vehicle_Relationship__c)UtilTestData.createSobject(relationship2, null);
+        relationship2 = (Vehicle_Relationship__c)UtilTestData.createSobject(relationship2, UtilTestData.VEHICLE_RELATIONSHIP);
 
         // Start Test
         Test.startTest();

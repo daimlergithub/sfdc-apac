@@ -11,7 +11,18 @@
 
 public class UtilCampaignShareByCollaboration {
 	// insert campaign sharing records
-    public static void shareToUserInsert(List<Collaboration_Team__c> ctList) {
+    public static void shareToUserInsert(List<Collaboration_Team__c> ctList)
+    
+   {   
+   	 /**
+  *@Description : Creates new Campaign share records for the users taken from Collaboration team records.
+  *@Date : 5/11/2015
+  *@param:List of Collaboration_Team
+  *@return:This mehtod does not return any value.
+
+  */
+   	
+   	
     	Savepoint sp = Database.setSavepoint();
     	List<CampaignShare> csList = new List<CampaignShare>();
     	try{
@@ -33,7 +44,16 @@ public class UtilCampaignShareByCollaboration {
     }
     
     // update campaign sharing records
-    public static void shareToUserUpdate(List<Collaboration_Team__c> ctList) {
+    public static void shareToUserUpdate(List<Collaboration_Team__c> ctList)
+    
+     {
+     	/**
+  *@Description :updates Campaign share records for the users with appropriate access level taken from Collaboration team records.
+  *@Date : 5/11/2015
+  *@param:List of Collaboration_Team
+  *@return:This mehtod does not return any value.
+
+  */
     	Savepoint sp = Database.setSavepoint();
     	List<CampaignShare> csList = new List<CampaignShare>();
     	List<ID> userIdList = new List<ID>();
@@ -74,6 +94,14 @@ public class UtilCampaignShareByCollaboration {
     
     // delete campaign sharing records
     public static void shareToUserDelete(List<Collaboration_Team__c> ctList) {
+    	
+    	/**
+  *@Description : Deletes Campaign share records for the users taken from Collaboration team.
+  *@Date : 5/11/2015
+  *@param:List of Collaboration_Team
+  *@return:This mehtod does not return any value.
+
+  */
     	Savepoint sp = Database.setSavepoint();
     	List<CampaignShare> csList = new List<CampaignShare>();
     	List<CampaignShare> csDelList = new List<CampaignShare>();

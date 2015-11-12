@@ -16,10 +16,10 @@
 public class TriggerCampaignLeadTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         Map<Id,Campaign_Lead__c> oldmap = (Map<Id,Campaign_Lead__c>)trigger.oldmap;
-        
+        Map<Id,Campaign_Lead__c> newmap = (Map<Id,Campaign_Lead__c>)trigger.newmap;
         
         if(trigger.isAfter && trigger.isInsert)
         {       
@@ -39,5 +39,9 @@ public class TriggerCampaignLeadTriggerHandler
         {
             UtilCampaignLead.beforeUpdateEvents(trigger.new,oldmap);
         }
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }

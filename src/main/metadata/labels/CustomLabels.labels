@@ -117,6 +117,13 @@
         <value>Assign QC</value>
     </labels>
     <labels>
+        <fullName>AttachedPdfError</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AttachedPdfError</shortDescription>
+        <value>There is an error in this attached pdf.</value>
+    </labels>
+    <labels>
         <fullName>Btn_Preview_No_Questions</fullName>
         <categories>Questionnaire Tool</categories>
         <language>en_US</language>
@@ -757,6 +764,13 @@
         <value>You can&apos;t delete an active campaign.</value>
     </labels>
     <labels>
+        <fullName>Case</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case</shortDescription>
+        <value>Case-</value>
+    </labels>
+    <labels>
         <fullName>Case_Record_Type</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -875,6 +889,13 @@
         <value>Delete Filter</value>
     </labels>
     <labels>
+        <fullName>Downloadedfile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Downloadedfile</shortDescription>
+        <value>Downloaded file:</value>
+    </labels>
+    <labels>
         <fullName>End_Time_Greater_Start_Time</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -981,6 +1002,13 @@
         <protected>false</protected>
         <shortDescription>Has Referral Record</shortDescription>
         <value>Has Referral Record</value>
+    </labels>
+    <labels>
+        <fullName>Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Id</shortDescription>
+        <value>Id</value>
     </labels>
     <labels>
         <fullName>Idle_Hour_Promotion</fullName>
@@ -2228,6 +2256,13 @@
         <value>IB Task</value>
     </labels>
     <labels>
+        <fullName>TerminateVehicleRelationship</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TerminateVehicleRelationship</shortDescription>
+        <value>No Vehicle Relationship found for Termination</value>
+    </labels>
+    <labels>
         <fullName>The_filter_count_is_greater_than_15</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2537,6 +2572,20 @@
         <value>Yearly Targets</value>
     </labels>
     <labels>
+        <fullName>applicationpdf</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>applicationpdf</shortDescription>
+        <value>application/pdf</value>
+    </labels>
+    <labels>
+        <fullName>displayOnly</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>displayOnly</shortDescription>
+        <value>displayOnly</value>
+    </labels>
+    <labels>
         <fullName>l_AtmospherePerceptionandLighting</fullName>
         <categories>Car Comparation</categories>
         <language>en_US</language>
@@ -2775,5 +2824,12 @@
         <protected>false</protected>
         <shortDescription>Test Drive</shortDescription>
         <value>Test Drive</value>
+    </labels>
+    <labels>
+        <fullName>servletfile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>servletfile</shortDescription>
+        <value>/servlet/servlet.FileDownload?file=</value>
     </labels>
 </CustomLabels>

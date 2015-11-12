@@ -1,4 +1,3 @@
-
 /**
 **  User Story: US-CP-022
 **1.If VIN of recall record matches UsVin of one vehicle record, 

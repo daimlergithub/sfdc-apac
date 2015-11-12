@@ -12,9 +12,10 @@
 public class TriggerCampaignCityTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
-        
+        Map<Id,Campaign_City__c> oldmap = (Map<Id,Campaign_City__c>)trigger.oldmap;
+        Map<Id,Campaign_City__c> newmap = (Map<Id,Campaign_City__c>)trigger.newmap;
 
         // get all deleted records
         if (trigger.isDelete && trigger.isBefore)
@@ -24,5 +25,9 @@ public class TriggerCampaignCityTriggerHandler
                 UtilCampaignCity.deleteParticipatingDealer(trigger.old);
             }
         }
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }

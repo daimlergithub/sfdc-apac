@@ -964,14 +964,6 @@
                 <fullName>Ms</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>御中</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>様</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
     </recordTypes>
     <searchLayouts>

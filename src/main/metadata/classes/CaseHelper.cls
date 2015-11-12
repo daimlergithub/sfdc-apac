@@ -1,18 +1,17 @@
-/*
-    Type:       Utility for QCAfterUpdate, CaseBeforeUpdate, CaseBeforeInsert
-    Purpose:    1. Update case information.
-                2. Auto track field history when Case record be changed.
-                3. After add sub Complaint,the "Repeat
-                Complaint Times" field of Parent Complaint plus 1
-                4. If the Complaint is a promary complaint, sent a SMS to Customer.
-    User Story: US-CC-002, US-CC-003, US-CC-004,US-CC-015, US-CC-023
-    Used By:    
-    ---------------------------------------------------------------
-    History:
-    
-    1. Bing Bai Created on 2013-05-17
-    2. Chaos Edit on 2014-2-21  AS-Complaint_002(2014Release1.1)
-*/
+/**
+**  Utility for QCAfterUpdate, CaseBeforeUpdate, CaseBeforeInsert
+**  1. Update case information.
+	2. Auto track field history when Case record be changed.
+	3. After add sub Complaint,the "Repeat
+	Complaint Times" field of Parent Complaint plus 1
+	4. If the Complaint is a promary complaint, sent a SMS to Customer.
+** Created By: Bing Bai 
+** Date: 2013-05-17
+**Modified By : Chaos 
+**Modified date : 2014-2-21 AS-Complaint_002(2014Release1.1)
+**Last Modified date:
+**/
+
 public with sharing  class  CaseHelper{
     // MB complaint tracking fields
     public static final List<String> COLS_MB_TRACKING = new List<String>{'Case_Type__c', 
@@ -178,11 +177,15 @@ public with sharing  class  CaseHelper{
 	public static string dealerString='Dealer';
 	public static string yesString='Yes';  
 	public static string sendEmailToGateKeeperString='sendemailtogatekeeper__c';
-	
-	
-	
-	
-    // set infomations about Vehicle
+/**      
+  * @Description:set information about Vehicle
+  * @author :
+  * @Date : 
+  * @param Case record and Vehicle_Relationship__c record
+  * @return  returns case record.
+  * @see   caseHelper(setVehicleInfo();)
+*/        	
+
     public static Case setVehicleInfo(Case c, Vehicle_Relationship__c vr){
         
         If(vr.Vehicle_Brand__c != null && !String.isBlank(vr.Vehicle_Brand__c)) {
@@ -206,6 +209,14 @@ public with sharing  class  CaseHelper{
 		
         
     }
+	/**      
+  * @Description:set information about Vehicle & this method is created to reduce CyclomaticComplexity for setVehicleInfo method
+  * @author :mohana raja reddy alla
+  * @Date : 06/Oct/15
+  * @param Case record and Vehicle_Relationship__c record
+  * @return  returns case record.
+  * @see   caseHelper(setVehicleInfo();)
+*/       
 	// this method is created to reduce CyclomaticComplexity for setVehicleInfo method
 	public static Case setVehicleInfoDetails(Case c, Vehicle_Relationship__c vr)
 	{
@@ -229,7 +240,14 @@ public with sharing  class  CaseHelper{
 	  return c; 
 	
 	}
-	
+/**      
+  * @Description:Creates new complaint Description for US-DPCR-004
+  * @author :
+  * @Date : 
+  * @param Caseid and case filed label and case new filed label and case old filed label.
+  * @return  Complaint_Description__c record.
+  * @see   caseHelper(newCaseDescription();)
+*/       
 	
     
    // Creates new complaint Description for US-DPCR-004
@@ -241,7 +259,14 @@ public with sharing  class  CaseHelper{
         cd.Action__c = 'Changed ' + label + ' from ' + oldValue + toString + newValue;
         return cd;
     }
-    
+  /**      
+  * @Description:Creates new complaint historys for US-CC-002,US-CC-003.
+  * @author :
+  * @Date : 
+  * @param Caseid and case filed label and case new filed label and case old filed label.
+  * @return  Complaint_Description__c record.
+  * @see   caseHelper(newCaseHistory();)
+*/         
     // Creates new complaint historys for US-CC-002,US-CC-003.
     public static Complaint_Tracking__c newCaseHistory(Id caseId, String label, String newValue, String oldValue) {
         Complaint_Tracking__c ct = new Complaint_Tracking__c();
@@ -250,11 +275,15 @@ public with sharing  class  CaseHelper{
         ct.Action__c = 'Changed ' + label + ' from ' + oldValue + toString + newValue;
         return ct;
     }
-   
-    
-    
-    
-    
+  /**      
+  * @Description: To delete ShareFrom Case
+  * @author :
+  * @Date : 
+  * @param map of caseid,set of caseids
+  * @return 
+  * @see   caseHelper(deleteShareFromCase();)
+*/       
+ 
     public static void deleteShareFromCase(Map<id,Set<Id>> casesToDeleteShare) {
       //  List<CaseShare> shareCases = new List<CaseShare>();
        // Map<Id, List<Id>> accountIdUserIds = new Map<Id, List<Id>>();
@@ -286,8 +315,16 @@ public with sharing  class  CaseHelper{
             UtilSobject.deleteSobjects(caseTeamMembers);
         }
     }
+/**      
+  * @Description:to get the Complaint GateKeeper Email.
+  * @author :
+  * @Date : 
+  * @param set of Support_Dealer_1__c.
+  * @return map of AccountId,Email
+  * @see   caseHelper(getComplaintGateKeeperEmail();)
+*/       
     
-    public static Map<id,String> getComplaintGateKeeperEmail(Set<id> dealerAccounts){
+   public static Map<id,String> getComplaintGateKeeperEmail(Set<id> dealerAccounts){
         Map<id,String> accountAndKeeperEmail = new Map<id,String>(); 
        
         if (dealerAccounts.size() > 0) {
@@ -303,10 +340,15 @@ public with sharing  class  CaseHelper{
         }
         return accountAndKeeperEmail;
     }
-    
-   
-																					
-    
+/**      
+  * @Description:To create Sms Tasks.
+  * @author :
+  * @Date : 
+  * @param set of caseids and accountIds
+  * @return NA
+  * @see   caseHelper(createSmsTasks();)
+*/           
+ 
     public static void createSmsTasks(Set<Id> caseIds, Set<Id> accIds) {
         List<Task> SMSTasks = new List<Task>();
         Map<Id, Id> accountIdContactIds = new Map<Id, Id>();
@@ -339,7 +381,14 @@ public with sharing  class  CaseHelper{
             UtilSobject.insertSobjects(SMSTasks);
         }
     }
-    
+ /**      
+  * @Description:To create Case Description
+  * @author :
+  * @Date : 
+  * @param list of cases
+  * @return NA
+  * @see   caseHelper(creatCaseDescription();)
+*/           
     // creat a case description For US-CC-024
     public static void creatCaseDescription (List<case> casesForDescription) {
         List<Complaint_Description__c> CaseDescrptions = new List<Complaint_Description__c>();
@@ -351,7 +400,14 @@ public with sharing  class  CaseHelper{
             UtilSobject.insertSobjects(CaseDescrptions);
         }
     }
-    
+ /**      
+  * @Description:To create Case Description
+  * @author :
+  * @Date : 
+  * @param map of caseid for old and new values
+  * @return NA
+  * @see   CaseHelperTest(CaseHelper.shareDealer();)
+*/        
     public static void shareDealer(Map<Id, Id> casesForShare) {
         List<CaseShare> cs = new List<CaseShare>();
         Map<Id, Id> DealeridCaseid = new Map<Id, Id>();
@@ -375,8 +431,15 @@ public with sharing  class  CaseHelper{
             UtilSobject.insertSobjects(cs);
         }
     }
-    
-    // Share Case to RO when a case escalate from RO to CO For US-CC-019    
+/**      
+  * @Description:Share Case to RO when a case escalate from RO to CO
+  * @author :
+  * @Date : 
+  * @param map of case.Id,case.Previous_Owner__c
+  * @return NA
+  * @see   CaseHelper(shareCaseToRO();)
+*/            
+  // Share Case to RO when a case escalate from RO to CO For US-CC-019    
     public static void shareCaseToRO(Map<Id, Id> casesToShare) {
        // List<CaseShare> shareCases = new List<CaseShare>();
         Map<Id, Set<Id>> caseIdExistUserIds = new Map<Id, Set<Id>>();
@@ -399,7 +462,14 @@ public with sharing  class  CaseHelper{
             UtilSobject.insertSobjects(caseTeamMembers);
         }
     }
-    
+  /**      
+  * @Description:Share Case to RO 
+  * @author :
+  * @Date : 
+  * @param list of caseids
+  * @return NA
+  * @see   UtilCaseShare(CaseHelper.shareCaseToRO())
+*/           
     //share to Ro when getGateKeeper
     public static void shareCaseToRO(List<Case> ids){
         Set<String> caseIdExistUserIds = new Set<String>();
@@ -466,7 +536,14 @@ public with sharing  class  CaseHelper{
             UtilSobject.insertSobjects(caseTeamMembers);
         }
     }
-
+ /**      
+  * @Description:To populate CarOwnerValues To Case.
+  * @author :
+  * @Date : 
+  * @param Setof carOwnerIds, List cases
+  * @return NA
+  * @see   CaseHelper(populateCarOwnerValuesToCase())
+*/      
     public static void populateCarOwnerValuesToCase(Set<String> carOwnerIds, List<Case> cases){
         Map<String, Account> carOwners = new Map<String, Account>([select Id, PersonBirthdate, Gender__c, Occupation__c, Phone,
                                                                     Primary_Address__c, Province__c, City__c, ZipCode__c
@@ -495,7 +572,14 @@ public with sharing  class  CaseHelper{
             }
         }
     }
-    
+/**      
+  * @Description:To update Vehicle Related Fields.
+  * @author :
+  * @Date : 
+  * @param List of cases, List of vehicleIds
+  * @return NA
+  * @see   CaseHelper(updateVehicleRelatedFields())
+*/          
     public static void updateVehicleRelatedFields(List<Case> cases, List<Id> vehicleIds)
     {
         Map<Id, Vehicle__c> vehiclesMap = New Map<Id, Vehicle__c>([select Id, EuroVIN__c, UsVIN__c, Warranty_Start_Date__c,
@@ -547,12 +631,15 @@ public with sharing  class  CaseHelper{
         }
     }
     
-   
-    
-    /**
-     * Gets the existent vehicle sharings.
-     * By Justin Yu
-     */
+/**      
+  * @Description: Gets the existent vehicle sharing.
+  * @author :Justin Yu
+  * @Date : 
+  * @param  vehicleToOwner is a map having case.Vehicle__c and case.OwnerId
+  * @return returns the SharingIndex
+  * @see   UtilCaseShare(CaseHelper.getExistentSharings())
+*/          
+  
     private static Set<String> getExistentSharings(Map<String, String> vehicleToOwner){
         Set<String> result = new Set<String>();
         
@@ -563,7 +650,15 @@ public with sharing  class  CaseHelper{
         }
         return result;
     }
-    
+/**      
+  * @Description: add for MB Complaint Case Close.
+  * @author :lishuang
+  * @Date : 2013-12-04 
+  * @param  list of caseids
+  * @return NA
+  * @see   CaseHelper(closeRelatedCase())
+*/          
+      
     // 2013-12-04 Created by lishuang: add for MB Complaint Case Close.
     public static void closeRelatedCase(List<Case> ids){
         Map<Id, Case> RelatedCase = new Map<Id, Case>();
@@ -590,7 +685,14 @@ public with sharing  class  CaseHelper{
            UtilSobject.updateSobjects(updateCase);
         }
     }
-    
+ /**      
+  * @Description:To get Dealer SM Manager
+  * @author :
+  * @Date :
+  * @param map of caseCase_Dealer__c ,case.Retail_Campaign__r.Record_Type_Name__c
+  * @return map of AccountId,user Id
+  * @see   CaseHelper(getDealerSMManager())
+*/         
     public static Map<id,id> getDealerSMManager(Map<id,String> dealerAccounts){
         Map<id,id> accountAndsmManager = new Map<id,id>(); 
 		
@@ -608,9 +710,15 @@ public with sharing  class  CaseHelper{
         }
         return accountAndsmManager;
     }
+ /**      
+  * @Description:Adding the logical manipulation for caseBeforeInsertUpdateTrigger
+  * @author :
+  * @Date :
+  * @param Trigger.new, Trigger.isInsert, Trigger.isUpdate,Trigger.oldMap
+  * @return NA
+  * @see   CaseTriggerHandler(CaseHelper.caseBeforeInsertUpdateEvents())
+*/          
     
-    
-    			/****** Adding the logical manipulation for caseBeforeInsertUpdateTrigger *****/
     public static void caseBeforeInsertUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal)
 	{
 		    String[] eAddresses = null;
@@ -1207,10 +1315,15 @@ public with sharing  class  CaseHelper{
 	    }
 	   
     }
-    
-    
-    /**************** CaseAfterInsertORUpdate Trigger merge **************************/
-    //ADD START AS-Complaint_002 CHAOS 2014/2/21
+/**      
+  * @Description: Case After Insert OR Update Trigger merge 
+  * @author :CHAOS
+  * @Date :2014/2/21
+  * @param case.Support_Dealer_1__c,oldSupportDealer1,case.Id, isInsert, isUpdate
+  * @return NA
+  * @see CaseHelper(supportDealerMethod())
+*/              
+      
     private static void supportDealerMethod(Id newDealerId, Id oldDealerId, Id caseId, Boolean isInsert, Boolean isUpdate) {
 		Map<id,Set<Id>> casesToDeleteFromShare = new Map<Id, Set<Id>>();
 		Map<id,Set<Id>> casesToShareForSupport = new Map<Id, Set<Id>>();
@@ -1234,8 +1347,15 @@ public with sharing  class  CaseHelper{
             }
         }
     }
-	//ADD END AS-Complaint_002 CHAOS 2014/2/21
-    
+	/**      
+  * @Description: To handle Case After Insert Or Update Events 
+  * @author :CHAOS
+  * @Date :2014/2/21
+  * @param Trigger.new, Trigger.isInsert, Trigger.isUpdate,Trigger.oldMap,Trigger.newMap
+  * @return NA
+  * @see CaseTriggerHandler(CaseHelper.handleCaseAfterInsertOrUpdateEvents())
+*/          
+	
     public static void handleCaseAfterInsertOrUpdateEvents(List<Case> cases, Boolean isInsert, Boolean isUpdate, Map<Id,Case> oldVal, Map<Id, Case> newVal)
 	{
     
@@ -1509,5 +1629,4 @@ public with sharing  class  CaseHelper{
 	    //---------------------Bing add for data sharing-----------------
     	
     }
-	    
-}
+}    

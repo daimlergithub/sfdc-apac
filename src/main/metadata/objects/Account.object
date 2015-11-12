@@ -5638,23 +5638,12 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
         <visibleLines>4</visibleLines>
     </fields>
     <fields>
-        <fullName>GPS_coordinates_latitude__c</fullName>
+        <fullName>GPS_Coordinates__c</fullName>
         <displayLocationInDecimal>false</displayLocationInDecimal>
         <externalId>false</externalId>
         <label>Dealer GPS</label>
         <required>false</required>
         <scale>1</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Location</type>
-    </fields>
-    <fields>
-        <fullName>GPS_coordinates_longitude__c</fullName>
-        <displayLocationInDecimal>false</displayLocationInDecimal>
-        <externalId>false</externalId>
-        <label>Dealer GPS</label>
-        <required>false</required>
-        <scale>2</scale>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Location</type>
@@ -6104,7 +6093,7 @@ Attribute in Data Dictionary object Contact is "Contact_HouseholdAmount"</descri
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Household_Total__c</fullName>
+        <fullName>Household_Total_del__c</fullName>
         <externalId>false</externalId>
         <label>Household_Amount</label>
         <precision>18</precision>
@@ -7617,7 +7606,7 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>MiddleName_Native_1__c</fullName>
+        <fullName>MiddleName_Native_1_del__c</fullName>
         <externalId>false</externalId>
         <label>Middle Name(Kana)</label>
         <length>64</length>
@@ -7628,7 +7617,7 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>MiddleName__c</fullName>
+        <fullName>MiddleName_del__c</fullName>
         <externalId>false</externalId>
         <label>MiddleName</label>
         <length>64</length>
@@ -7861,7 +7850,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <type>Picklist</type>
     </fields>
     <fields>
-        <fullName>Opt_In_Contact_Reason_2__c</fullName>
+        <fullName>Opt_In_Contact_Reason_2_del__c</fullName>
         <externalId>false</externalId>
         <label>Eliminate list by activities 2</label>
         <picklist>
@@ -9318,7 +9307,7 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Region__c</fullName>
+        <fullName>Region_del__c</fullName>
         <externalId>false</externalId>
         <label>Region</label>
         <length>25</length>
@@ -14131,7 +14120,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Opt_In_Contact_Reason_2__c</picklist>
+            <picklist>Opt_In_Contact_Reason_2_del__c</picklist>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
@@ -17906,7 +17895,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Opt_In_Contact_Reason_2__c</picklist>
+            <picklist>Opt_In_Contact_Reason_2_del__c</picklist>
             <values>
                 <fullName>None</fullName>
                 <default>false</default>
