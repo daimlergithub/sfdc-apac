@@ -1,7 +1,7 @@
 public class TerminateVehicleRelationshipExtension  
 {
     public Vehicle__c vehicle{get;set;}
-    public Vehicle_Relationship__c objVehicleRelation{get;set;}
+    public Vehicle_Relationship__c objVehicleRelation{get;set;} 
     private List<Vehicle_Relationship__c> listvehicleRelation=new List<Vehicle_Relationship__c>();
  
      public terminateVehicleRelationshipExtension(ApexPages.StandardController controller) {
