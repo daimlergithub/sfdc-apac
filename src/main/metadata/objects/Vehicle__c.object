@@ -24471,15 +24471,5 @@ Modify Reason:
         <errorConditionFormula>AND($Profile.Name &lt;&gt; "IntegrationAPI",ISCHANGED( UsVIN__c ) , NOT( ISBLANK(Created_By_EP_Transaction__c ) ), RecordType.DeveloperName = 'MB')</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
         <errorMessage>It's not allowed to change UsVIN for a vehicle from interface.</errorMessage>
-    </validationRules>
-    <webLinks>
-        <fullName>TerminateVehicleRelationships</fullName>
-        <availability>online</availability>
-        <displayType>button</displayType>
-        <linkType>page</linkType>
-        <masterLabel>Terminate Vehicle Relationships</masterLabel>
-        <openType>replace</openType>
-        <page>TerminateVehicleRelationship</page>
-        <protected>false</protected>
-    </webLinks>
+    </validationRules>  
 </CustomObject>
