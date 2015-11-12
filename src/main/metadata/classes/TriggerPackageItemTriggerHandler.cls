@@ -12,9 +12,13 @@
 public class TriggerPackageItemTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         if(trigger.isInsert) UtilDealerOffering.UpdateDOByPackageItem(trigger.new, 'insert');
         else if(trigger.isDelete) UtilDealerOffering.UpdateDOByPackageItem(trigger.old, 'delete');
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }

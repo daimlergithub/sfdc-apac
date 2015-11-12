@@ -14,7 +14,7 @@
 public class AttachmentAfterTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         List<id> caseIds = new List<id>();
     
@@ -30,5 +30,9 @@ public class AttachmentAfterTriggerHandler
         if (caseIds.size()>0) {
             ComplaintDesHelper.sendMailToCaseMember(caseIds);
         }
+    }
+       public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }

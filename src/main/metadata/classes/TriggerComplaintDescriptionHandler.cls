@@ -18,15 +18,16 @@
 public class TriggerComplaintDescriptionHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
-        
+        Map<Id,Complaint_Description__c> oldmap = (Map<Id,Complaint_Description__c>)trigger.oldmap;
+        Map<Id,Complaint_Description__c> newmap = (Map<Id,Complaint_Description__c>)trigger.newmap;
         
         if (trigger.isAfter && trigger.isInsert) {
             ComplaintDesHelper.before_AfterInsertEvents(Trigger.new);       
         }
         if (trigger.isAfter && trigger.isUpdate) {
-            ComplaintDesHelper.afterupdateEvents(Trigger.new,(Map<Id,Complaint_Description__c>)trigger.oldmap);   
+            ComplaintDesHelper.afterupdateEvents(Trigger.new,oldmap);   
         }
         if (trigger.isAfter && trigger.isdelete) {
             ComplaintDesHelper.afterDeleteEvents(Trigger.old);  
@@ -34,5 +35,9 @@ public class TriggerComplaintDescriptionHandler
         if (trigger.isBefore && trigger.isInsert) {
              ComplaintDesHelper.updateComplaintDateandCreatedBy(Trigger.new);    
         }
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }

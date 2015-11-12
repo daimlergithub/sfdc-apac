@@ -12,9 +12,10 @@
 public class TriggerCampaignPackageTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
-        
+        Map<Id,Campaign_Package__c> oldmap = (Map<Id,Campaign_Package__c>)trigger.oldmap;
+        Map<Id,Campaign_Package__c> newmap = (Map<Id,Campaign_Package__c>)trigger.newmap;
         
         if(trigger.isAfter && trigger.isInsert)
         {
@@ -28,5 +29,9 @@ public class TriggerCampaignPackageTriggerHandler
         {
             CampaignPackageHelper.GenerateCampaignOfferingHistoryLOG(trigger.new,trigger.old,trigger.isInsert,trigger.isUpdate,trigger.isDelete);
         }
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }
