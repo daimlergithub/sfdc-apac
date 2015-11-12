@@ -249,7 +249,7 @@
 			<sf:include name="TriggerUtilTest"/>
 			<sf:include name="IllegalArgumentException"/>			
 			<sf:include name="AttachmentAfterTriggerHandler"/>
-			<sf:include name="campaignmemberaftertriggerhandler"/>
+			<sf:include name="CampaignMemberAfterTriggerHandler"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerUtilTestTrigger"/>
@@ -830,4 +830,9 @@
 				dryRun="${dryrun}" deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
 	</target>
 	
+	<target name="runAllTests">
+		<sf:runAllTests debug="${sfdc.debug}" dryRun="${dryrun}"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
+	</target>
 </project>
