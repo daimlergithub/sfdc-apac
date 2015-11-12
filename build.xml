@@ -111,6 +111,12 @@
 			    <sf:include name="Contact"/>
 				<sf:include name="PersonAccount"/>
 				<sf:include name="Account"/>
+			<sf:typeset name="pages">
+			   <sf:include name="TerminateVehicleRelationship"/>
+			</sf:typeset>				
+			<sf:typeset name="classes">
+			   <sf:include name="TerminateVehicleRelationshipExtension"/>
+			</sf:typeset>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -713,9 +719,6 @@
 			<sf:typeset name="applications"/>
 			<sf:typeset name="pages"> 
 				<sf:exclude name="TrialCustomerPortalHomePage"/>
-			</sf:typeset>	
-			<sf:typeset name="classes">
-			   <sf:include name="TerminateVehicleRelationshipExtension"/>
 			</sf:typeset>			
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>

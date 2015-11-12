@@ -1,4 +1,4 @@
-<apex:page standardController="Vehicle__c"><!-- extensions="TerminateVehicleRelationshipExtension" tabStyle="Vehicle__c">
+<apex:page standardController="Vehicle__c" extensions="TerminateVehicleRelationshipExtension" tabStyle="Vehicle__c">
  <apex:form >
   <apex:pageBlock >
       <apex:pageBlockSection title="Vehicle Information" collapsible="false">
@@ -28,5 +28,5 @@
                <apex:commandButton value="Cancel" action="{!Cancel}"/>
         </apex:pageBlockButtons>          
   </apex:pageBlock>
- </apex:form> -->
+ </apex:form>
 </apex:page>
