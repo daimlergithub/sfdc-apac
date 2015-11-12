@@ -243,6 +243,7 @@
 			<sf:include name="TriggerUtilTest"/>
 			<sf:include name="IllegalArgumentException"/>			
 			<sf:include name="AttachmentAfterTriggerHandler"/>
+			<sf:include name="campaignmemberaftertriggerhandler"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerUtilTestTrigger"/>
@@ -632,9 +633,6 @@
 				<sf:include name="MonthlyMarketAmountReport"/>
 				<sf:include name="MonthlyMarketAmountReportPage"/>
 				<sf:include name="MassApproveToolKit"/>
-		</sf:typeset>
-		<sf:typeset name="triggers">
-				<sf:include name="TriggerSurveyQuestionResponse"/>
 		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
