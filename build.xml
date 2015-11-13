@@ -249,7 +249,8 @@
 			<sf:include name="TriggerUtilTest"/>
 			<sf:include name="IllegalArgumentException"/>
 			<sf:include name="TriggerBatchJobTriggerHandler"/>
-			<sf:include name="ShareCampaignByCollabTriggerHandler"/>			
+			<sf:include name="ShareCampaignByCollabTriggerHandler"/>
+			<sf:include name="TriggerQCTriggerHandler"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerUtilTestTrigger"/>
