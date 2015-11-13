@@ -360,11 +360,7 @@
     <classAccesses>
         <apexClass>CpCallControllerClass_Test</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CreateVehicleController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    </classAccesses>    
     <classAccesses>
         <apexClass>DMControllerExtension</apexClass>
         <enabled>true</enabled>
@@ -17511,11 +17507,7 @@
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>CreateVehicle</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
+    </pageAccesses>   
     <pageAccesses>
         <apexPage>DMSendResult</apexPage>
         <enabled>true</enabled>

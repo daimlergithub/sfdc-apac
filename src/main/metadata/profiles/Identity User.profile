@@ -130,10 +130,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AccountOptinandOptoutController</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -363,10 +359,6 @@
     </classAccesses>
     <classAccesses>
         <apexClass>CpCallControllerClass_Test</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>CreateVehicleController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -17003,10 +16995,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>CreateVehicle</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
