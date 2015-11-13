@@ -18,11 +18,11 @@ public class TriggerDMRequestTriggerHandler
         Map<Id,DM_Request__c> newmap = (Map<Id,DM_Request__c>)trigger.newmap;
         
         // update sent total
-        DMRequestTriggerHandler.updateDaterialSentTotal(trigger.new, oldmap);         
+        DMRequestTriggerHandler.updateDaterialSentTotal(trigger.new, trigger.old);         
         
         // update activity status
         if(trigger.isUpdate){
-            DMRequestTriggerHandler.updateActivityStatus(newmap);            
+            DMRequestTriggerHandler.updateActivityStatus(trigger.new);            
         }  
     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
