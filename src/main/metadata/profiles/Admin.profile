@@ -128,11 +128,7 @@
     <classAccesses>
         <apexClass>AccountLinkSharingWrapService</apexClass>
         <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AccountOptinandOptoutController</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
+    </classAccesses>    
     <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
         <enabled>true</enabled>
@@ -17415,11 +17411,7 @@
     <pageAccesses>
         <apexPage>AddToRetailCampaign</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>Address</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
+    </pageAccesses>  
     <pageAccesses>
         <apexPage>AddressDisplayInlineEdit</apexPage>
         <enabled>true</enabled>
