@@ -18281,11 +18281,7 @@
     <tabVisibilities>
         <tab>Attribute__c</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>
-    <tabVisibilities>
-        <tab>Audit_Trail__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
+    </tabVisibilities>    
     <tabVisibilities>
         <tab>Campaign_Calendar</tab>
         <visibility>DefaultOff</visibility>

@@ -17760,11 +17760,7 @@
         <default>false</default>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
         <visible>false</visible>
-    </recordTypeVisibilities>
-    <tabVisibilities>
-        <tab>Audit_Trail__c</tab>
-        <visibility>DefaultOn</visibility>
-    </tabVisibilities>
+    </recordTypeVisibilities>  
     <tabVisibilities>
         <tab>Getting_Started</tab>
         <visibility>DefaultOff</visibility>
