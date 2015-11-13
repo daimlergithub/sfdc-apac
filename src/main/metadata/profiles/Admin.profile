@@ -130,6 +130,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountOptinandOptoutController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -362,6 +366,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CreateVehicleController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DMControllerExtension</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -391,6 +399,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>ForgotPasswordControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GenerateAndAttachPDF</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -886,6 +898,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TerminateVehicleRelationshipExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TestTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1297,14 +1313,20 @@
         <apexClass>campaignHistoryLogGeneration</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    
-
     <classAccesses>
         <apexClass>superSort</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>superSortTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>updatepicklistvalueAPI</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>updatepicklistvalueAPIController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <custom>false</custom>
@@ -3823,7 +3845,6 @@
         <field>Account_Link__c.Portal_Email__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Portal_Mail_Opt_Out__c</field>
@@ -8892,6 +8913,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Phone</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead.Picklist__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15000,9 +15026,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.Comments__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -15075,9 +15101,9 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>Vehicle_Relationship__c.End_Reason__c</field>
-        <readable>false</readable>
+        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -17396,6 +17422,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>Address</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>AddressDisplayInlineEdit</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -17493,6 +17523,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>CreateVehicle</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -17668,6 +17702,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>TerminateVehicleRelationship</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>TextInputting</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -17695,7 +17733,6 @@
         <apexPage>VehicleRelLooking</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    
     <pageAccesses>
         <apexPage>ViewTask</apexPage>
         <enabled>true</enabled>
@@ -18251,6 +18288,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Audit_Trail__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>Campaign_Calendar</tab>
         <visibility>DefaultOff</visibility>
     </tabVisibilities>
@@ -18611,6 +18652,10 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>InstallPackaging</name>
+    </userPermissions>
+    <userPermissions>
+        <enabled>true</enabled>
+        <name>LightningExperienceUser</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
