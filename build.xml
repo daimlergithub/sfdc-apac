@@ -110,7 +110,13 @@
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
 				<sf:include name="PersonAccount"/>
-				<sf:include name="Account"/>
+				<sf:include name="Account"/>			
+			</sf:typeset>
+			<sf:typeset name="pages">
+			   <sf:include name="TerminateVehicleRelationship"/>
+			</sf:typeset>				
+			<sf:typeset name="classes">
+			   <sf:include name="TerminateVehicleRelationshipExtension"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -242,6 +248,9 @@
 			<sf:include name="TriggerUtil"/>
 			<sf:include name="TriggerUtilTest"/>
 			<sf:include name="IllegalArgumentException"/>
+			<sf:include name="TriggerBatchJobTriggerHandler"/>
+			<sf:include name="ShareCampaignByCollabTriggerHandler"/>
+			<sf:include name="TriggerQCTriggerHandler"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerUtilTestTrigger"/>
@@ -267,7 +276,7 @@
 			<sf:include name="UtilCampaignTaskGenerationByCaseTest"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
-			<sf:include name="UtilTestData"/>
+			<sf:include name="UtilTestData"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
@@ -576,7 +585,7 @@
 			<sf:include name="TriggerRetailCampaignMemberHandler"/>
 			<sf:include name="TriggerRetailCampaignTest"/>
 			<sf:include name="TriggerRetailTaskTriggerHandler"/>
-			<sf:include name="TriggerTaskTest"/>	
+			<sf:include name="TriggerTaskTest"/>			
 			<sf:include name="AttachmentAfterTriggerHandler"/>
 			<sf:include name="BatchAssignTasks"/>
 			<sf:include name="BatchAssignTasksTest"/>
@@ -632,9 +641,6 @@
 				<sf:include name="MonthlyMarketAmountReport"/>
 				<sf:include name="MonthlyMarketAmountReportPage"/>
 				<sf:include name="MassApproveToolKit"/>
-		</sf:typeset>
-		<sf:typeset name="triggers">
-				<sf:include name="TriggerSurveyQuestionResponse"/>
 		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
@@ -715,7 +721,7 @@
 			<sf:typeset name="applications"/>
 			<sf:typeset name="pages"> 
 				<sf:exclude name="TrialCustomerPortalHomePage"/>
-			</sf:typeset>	
+			</sf:typeset>			
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
 			<sf:typeset name="tabs">
@@ -826,4 +832,9 @@
 				dryRun="${dryrun}" deployRoot="src/main/destructive" destructiveFile="destructive.properties" checksums="${file.checksums.local}"/>
 	</target>
 	
+	<target name="runAllTests">
+		<sf:runAllTests debug="${sfdc.debug}" dryRun="${dryrun}"
+				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
+				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"/>
+	</target>
 </project>

@@ -67,7 +67,7 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>MiddleName_Native_1__c</field>
+                <field>MiddleName_Native_1_del__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -307,6 +307,10 @@
                 <behavior>Edit</behavior>
                 <field>Work_Phone_Status__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Description</field>
+            </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
     </layoutSections>
@@ -317,8 +321,18 @@
         <label>Contact Information</label>
         <layoutColumns>
             <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Description</field>
+                <height>400</height>
+                <page>ContactTable</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
+            </layoutItems>
+            <layoutItems>
+                <height>400</height>
+                <page>AddressDisplayInlineEdit</page>
+                <showLabel>false</showLabel>
+                <showScrollbars>false</showScrollbars>
+                <width>100%</width>
             </layoutItems>
         </layoutColumns>
         <style>OneColumn</style>
@@ -336,10 +350,6 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Place_of_Birth__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Gender__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
@@ -383,6 +393,10 @@
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Gender__c</field>
+            </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Industry</field>
@@ -495,7 +509,6 @@
     <relatedLists>
         <fields>NAME</fields>
         <fields>RECORDTYPE</fields>
-        <fields>Portal_ID__c</fields>
         <fields>Role__c</fields>
         <fields>Position__c</fields>
         <fields>Status__c</fields>
@@ -603,7 +616,7 @@
     <showRunAssignmentRulesCheckbox>false</showRunAssignmentRulesCheckbox>
     <showSubmitAndAttachButton>false</showSubmitAndAttachButton>
     <summaryLayout>
-        <masterLabel>00hO0000000Hbqu</masterLabel>
+        <masterLabel>00h28000000JTNY</masterLabel>
         <sizeX>4</sizeX>
         <sizeY>0</sizeY>
         <summaryLayoutStyle>Default</summaryLayoutStyle>

@@ -3418,15 +3418,6 @@ What factors were influential in your purchase decision?
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Self_Registered__c</fullName>
-        <defaultValue>false</defaultValue>
-        <externalId>false</externalId>
-        <label>Self Registered</label>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Checkbox</type>
-    </fields>
-    <fields>
         <fullName>Selling_Dealer__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <description>/* 

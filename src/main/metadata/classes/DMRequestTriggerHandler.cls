@@ -8,35 +8,24 @@
     
     11-Mar-2013 Chris Huang (Breakingpoint)    Created
 */
-/**
-** 1. Toatal sent of the DM_Request
-** 2. Updation of task status
-** Created By: Chris Huang
-** Date: 2013-3-11
-**/
 
 public class DMRequestTriggerHandler { 
     
-   /**      
-     * @Description Totalling and updating the DM_Request sent 
-     * @Description incrementing the actual DM Material
-     * @author  Kaushik Mahanty
-     * @Date 10/26/2015(mm/dd/yy)
-                * @param  List of new DM Request
-                * @param  Records of old DM_Request with their ID's
-                * @return the updated list of the requests.
-                 * @see   updateDaterialSentTotal
-                */    
 
-    public static void updateDaterialSentTotal(List<DM_Request__c> newList, map<Id, DM_Request__c> oldMap){
+    public static void updateDaterialSentTotal(List<DM_Request__c> newList, List<DM_Request__c> oldList){
         
         System.debug('---------enter--------'); 
         
-        
+        map<Id, DM_Request__c> oldMap = new map<Id, DM_Request__c>();
+        if(oldList!=null && oldList.size()>0){
+            for(DM_Request__c dmr : oldList){
+                oldMap.put(dmr.Id,dmr);
+            }
+        }
         
         System.debug('---------newList.size()---------'+newList.size());
         
-        if(newList!=null && newList.size()>0 && oldMap != null && !oldMap.isEmpty()){
+        if(newList!=null && newList.size()>0){
             
             map<Id, Integer> updateMap = new map<Id,Integer>();
             
@@ -96,18 +85,15 @@ public class DMRequestTriggerHandler {
             }
         }   
     }
-       /**      
-     * @Description the task status is being updated to the DM_Request status 
-     * @author  
-     * @Date 10/26/2015(mm/dd/yy)
-                * @param  Map containing Id and respective DM_Request
-                * @return updated task list
-                 * @see   updateActivityStatus
-                */    
     
-    public static void updateActivityStatus(map<Id, DM_Request__c> dmrMap){
+    public static void updateActivityStatus(List<DM_Request__c> newList){
 
-        
+        map<Id, DM_Request__c> dmrMap = new map<Id, DM_Request__c>();
+        if(newList!=null && newList.size()>0){
+            for(DM_Request__c dmr : newList){
+                dmrMap.put(dmr.Id,dmr);
+            }
+        }
         
         List<Task> taskList = [Select Id, WhatId From Task Where whatId=:dmrMap.keySet()];
         for(Task t : taskList){

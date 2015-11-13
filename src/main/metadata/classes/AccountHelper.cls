@@ -8,7 +8,7 @@
 ** Modified date : 27-oct-2015
 **/
 
-public class AccountHelper {
+public class AccountHelper { 
  
     /**
        US-CP-010 error message

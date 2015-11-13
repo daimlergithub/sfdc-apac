@@ -1,7 +1,7 @@
 public class ShareCampaignByCollabTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         if (trigger.isBefore && trigger.isInsert) {
             UtilCampaignShareByCollaboration.shareToUserInsert(trigger.new);
@@ -32,5 +32,9 @@ public class ShareCampaignByCollabTriggerHandler
                 system.debug('Send Collaboration Team Email Exception ::' + ex.getMessage());
             }
         } */
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }

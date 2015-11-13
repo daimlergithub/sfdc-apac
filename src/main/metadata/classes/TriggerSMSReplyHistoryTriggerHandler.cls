@@ -12,13 +12,18 @@
 public class TriggerSMSReplyHistoryTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
-       
+        Map<Id,SMSReplyHistory__c> oldmap = (Map<Id,SMSReplyHistory__c>)trigger.oldmap;
+        Map<Id,SMSReplyHistory__c> newmap = (Map<Id,SMSReplyHistory__c>)trigger.newmap;
         
         if(trigger.isBefore && trigger.isInsert)
         {
             SMSReplyHistoryHelper.beforeInsertEvents(Trigger.new);
         }
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }

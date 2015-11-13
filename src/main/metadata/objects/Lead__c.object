@@ -2513,20 +2513,6 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
         <type>Lookup</type>
     </fields>
     <fields>
-        <fullName>Competitor_Vehicle__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Competitor Vehicle</label>
-        <referenceTo>Vehicle__c</referenceTo>
-        <relationshipLabel>Leads (Competitor Vehicle)</relationshipLabel>
-        <relationshipName>Leads2</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Lookup</type>
-    </fields>
-    <fields>
         <fullName>Contact_Failed_For_3_Days_Date_Time__c</fullName>
         <externalId>false</externalId>
         <label>Contact Failed For 3 Days Date Time</label>
@@ -9305,8 +9291,8 @@ Modify Reason:
     <fields>
         <fullName>Portal_Request_ID__c</fullName>
         <externalId>false</externalId>
-		<length>80</length>
         <label>MyM/DSC Request ID</label>
+        <length>80</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
