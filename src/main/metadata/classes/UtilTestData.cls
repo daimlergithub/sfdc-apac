@@ -129,7 +129,8 @@ Public class UtilTestData {
     }
        // Create Test portal User
     private static User createPortalUser(Id userRoleId, Id profileId) {   
-        Account acc = new Account ( Name = 'dummtyTestAcc');
+       User thisUser = [ select Id,UserRoleId from User where Id = :UserInfo.getUserId() ];        
+        Account acc = new Account ( Name = 'dummtyTestAcc', OwnerId = thisUser.Id); 
         acc.RecordTypeId = 
             getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + accountString);     
         insert acc;      
@@ -142,7 +143,6 @@ Public class UtilTestData {
         //Set<String> customerUserTypes = new Set<String> {'CSPLiteUser', 'PowerPartner', 'PowerCustomerSuccess',   'CustomerSuccess'};
         //Profile PartnerPrfile = [select Id,name from Profile where UserType in :customerUserTypes limit 1];
         //System.Debug('@@@@@@@@@@@ PartnerPrfile.Id'+PartnerPrfile.Id); 
-        User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
         System.assertEquals(UserInfo.getUserId(),thisUser.id);   
         User usr=new User();       
         System.runAs ( thisUser ) {               

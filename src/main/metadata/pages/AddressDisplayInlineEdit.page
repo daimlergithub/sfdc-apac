@@ -1,135 +1,128 @@
 <apex:page standardController="Account" extensions="AddressDisplayInlineEditController">
 
     <!--form starts here-->
-	<apex:form id="form" >
-		
-		<!--OutPutPanel starts here-->
-		<apex:outputPanel layout="block" style="overflow:auto;">
-			
-			<!--PageBlock starts here-->
- 			<apex:pageBlock title="Addresses" id="pageBlock">
- 				<apex:pageMessages /> 
- 				 
- 				 <!--PageBlockTable  starts here-->
-  				<apex:pageBlockTable id="acc_address" value="{!adds}" var="row">   				 	
-  				 	 
-				     <apex:column width="8%">
+    <apex:form id="form" >
+        
+        <!--OutPutPanel starts here-->
+        <apex:outputPanel layout="block" style="overflow:auto;">
+            
+            <!--PageBlock starts here-->
+            <apex:pageBlock title="Addresses" id="pageBlock">
+                <apex:pageMessages /> 
+                 
+                 <!--PageBlockTable  starts here-->
+                <apex:pageBlockTable id="acc_address" value="{!adds}" var="row">                    
+                     
+                     <apex:column width="8%">
                          <!--Link to  delete a address record -->
-				         <apex:commandLink action="{!delAccountAddress}" onclick="return confirm('Are you sure you want to delete this Address?')"  style="color:blue">Delete
-                           	<!--pass row id parameter to controller  -->
-				            <apex:param name="delete" value="{!row.Id}" assignTo="{!addressId}"/>
-				         </apex:commandLink>	
-                          	                        	
-				     </apex:column>
-				     
-				     <apex:column headerValue="Address Type">
-				     	  <!--out put field to display address Type   -->
-				          <apex:outputField value="{!row.Address_Type__c}" style="width:10%;">
-				          	 <!--provides inline support for the fields   -->
-				              <apex:inlineEditSupport showonEdit="saveButton,editModeCancel" hideOnEdit="addbutton"/>
-				          </apex:outputField>
-				     </apex:column>
-				     
-				     <apex:column headerValue="Post Code">
-				          <apex:outputField value="{!row.ZipCode__c}"  style="width:10%;">
-				              <apex:inlineEditSupport showonEdit="saveButton,editModeCancel" hideOnEdit="addbutton"/>
-				          </apex:outputField>
-				     </apex:column>
-				     
-				     <apex:column headerValue="Province" >
-				          <apex:outputField value="{!row.Province__c}" style="width:10%;">
-				              <apex:inlineEditSupport showonEdit="saveButton,editModeCancel" hideOnEdit="addbutton"/>
-				          </apex:outputField>
-				     </apex:column>
-				     
-				     <apex:column headerValue="City">
-				          <apex:outputField value="{!row.City__c}" style="width:10%;">
-				              <apex:inlineEditSupport showonEdit="saveButton,editModeCancel" hideOnEdit="addbutton"/>
-				          </apex:outputField>
-				     </apex:column> 
-				     
-				     <apex:column headerValue="Town" >
-				          <apex:outputField value="{!row.District__c}" style="width:10%;">
-				              <apex:inlineEditSupport showonEdit="saveButton,editModeCancel" hideOnEdit="addbutton"/>
-				          </apex:outputField>
-				     </apex:column>
-				     
-				     <apex:column headerValue="Block" >
-				          <apex:outputField value="{!row.Block__c}" style="width:10%;">
-				              <apex:inlineEditSupport showonEdit="saveButton,editModeCancel" hideOnEdit="addbutton"/>
-				          </apex:outputField>
-				     </apex:column>
-				     
-				     <apex:column headerValue="Address Line 1" >
-				          <apex:outputField value="{!row.Address_Line_1__c}" style="width:10%; white-space:none;">
-				              <apex:inlineEditSupport showonEdit="saveButton,editModeCancel" hideOnEdit="addbutton"/>
-				          </apex:outputField>
-				     </apex:column>
-				     
-				     <apex:column headerValue="Address Line 2" >
-				          <apex:outputField value="{!row.Address_Line_2__c}" style="width:10%; white-space:none;">
-				              <apex:inlineEditSupport showonEdit="saveButton,editModeCancel" hideOnEdit="addbutton"/>
-				          </apex:outputField>
-				     </apex:column>
-				     
-				     <apex:column headerValue="Company Name">
-				          <apex:outputField value="{!row.Company_Name__c}" style="width:10%;">
-				              <apex:inlineEditSupport showonEdit="saveButton,editModeCancel" hideOnEdit="addbutton"/>
-				          </apex:outputField>
-				     </apex:column>
-				     
-				     <apex:column headerValue="Title of Honor">
-				          <apex:outputField value="{!row.TitleOfHonor__c}" style="width:10%;">
-				              <apex:inlineEditSupport showonEdit="saveButton,editModeCancel" hideOnEdit="addbutton"/>
-				          </apex:outputField>
-				     </apex:column>
-				     
-				     <apex:column headerValue="Preferred">
-				          <apex:outputField value="{!row.Preferred__c}" style="width:2%;">
-				              <apex:inlineEditSupport showonEdit="saveButton,editModeCancel" hideOnEdit="addbutton"/>
-				          </apex:outputField>
-				     </apex:column>
-				     
-				     <apex:column headerValue="Status">
-				          <apex:outputField value="{!row.Status__c}" style="width:4%;">
-				              <apex:inlineEditSupport showonEdit="saveButton,editModeCancel" hideOnEdit="addbutton"/>
-				          </apex:outputField>
-				     </apex:column>
- 				 </apex:pageBlockTable>
- 				 
-  			  <!--buttons to add, save edit  and edit cancel-->
-			  <apex:commandButton id="addbutton" value="Add" action="{!addEditOptions}" />
-			  <apex:commandButton id="saveButton" value="Save" action="{!saveEditedRecords}" style="display:none" />
-			  <apex:commandButton id="editModeCancel" value="Cancel" reRender="pageBlock" style="display:none" immediate="true"/>
-			  
-			  <script  type="text/javascript">
-			    function refreshParentPage(){                   
-			         window.open("/{!id}","_parent");       
-			    }
-			  </script>  
-			</apex:pageBlock>
+                         <apex:commandLink action="{!delAccountAddress}" onclick="return confirm('Are you sure you want to delete this Address?')"  style="color:blue">Delete
+                            <!--pass row id parameter to controller  -->
+                            <apex:param name="delete" value="{!row.Id}" assignTo="{!addressId}"/>
+                            </apex:commandLink> &nbsp;&nbsp;
+                            
+                            <!--Link to  edit a address record -->
+                         <apex:commandLink action="{!EditOptions}"  style="color:blue">Edit
+                            <!--pass row id parameter to controller  -->
+                            <apex:param name="edit" value="{!row.Id}" assignTo="{!editaddressId}"/>
+                         </apex:commandLink>    
+                                                        
+                     </apex:column>
+                     
+                    <apex:column headerValue="Address Type">
+                          <!--out put field to display address Type  --> 
+                          <apex:outputField value="{!row.Address_Type__c}" style="width:10%;">
+                          </apex:outputField>
+                     </apex:column>
+                     
+                     <apex:column headerValue="Post Code">
+                          <apex:outputField value="{!row.ZipCode__c}"  style="width:10%;">                              
+                          </apex:outputField>
+                     </apex:column> 
+                     
+                     <apex:column headerValue="Province" >
+                          <apex:outputField value="{!row.Province__c}" style="width:10%;">
+                          </apex:outputField>
+                     </apex:column>
+                     
+                     <apex:column headerValue="City">
+                          <apex:outputField value="{!row.City__c}" style="width:10%;">
+                          </apex:outputField>
+                     </apex:column> 
+                     
+                     <apex:column headerValue="Town" >
+                          <apex:outputField value="{!row.District__c}" style="width:10%;">
+                          </apex:outputField>
+                     </apex:column>
+                     
+                     <apex:column headerValue="Block" >
+                          <apex:outputField value="{!row.Block__c}" style="width:10%;">
+                          </apex:outputField>
+                     </apex:column>
+                     
+                     <apex:column headerValue="Address Line 1" >
+                          <apex:outputField value="{!row.Address_Line_1__c}" style="width:10%; white-space:none;">
+                          </apex:outputField>
+                     </apex:column>
+                     
+                     <apex:column headerValue="Address Line 2" >
+                          <apex:outputField value="{!row.Address_Line_2__c}" style="width:10%; white-space:none;">
+                          </apex:outputField>
+                     </apex:column>
+                     
+                     <apex:column headerValue="Company Name">
+                          <apex:outputField value="{!row.Company_Name__c}" style="width:10%;">
+                          </apex:outputField>
+                     </apex:column>
+                     
+                     <apex:column headerValue="Title of Honor">
+                          <apex:outputField value="{!row.TitleOfHonor__c}" style="width:10%;">
+                          </apex:outputField>
+                     </apex:column>
+                     
+                     <apex:column headerValue="Preferred">
+                          <apex:outputField value="{!row.Preferred__c}" style="width:2%;">
+                          </apex:outputField>
+                     </apex:column>
+                     
+                     <apex:column headerValue="Status">
+                          <apex:outputField value="{!row.Status__c}" style="width:4%;">
+                          </apex:outputField>
+                     </apex:column>
+                 </apex:pageBlockTable>
+                 
+              <!--buttons to add, save edit  and edit cancel-->
+              <apex:commandButton id="addbutton" value="Add" action="{!addEditOptions}" />
+              <apex:commandButton id="saveButton" value="Save" action="{!saveEditedRecords}" style="display:none" />
+              <apex:commandButton id="editModeCancel" value="Cancel" reRender="pageBlock" style="display:none" immediate="true"/>
+              
+              <script  type="text/javascript">
+                function refreshParentPage(){                   
+                     window.open("/{!id}","_parent");       
+                }
+              </script>  
+            </apex:pageBlock>
             <apex:pageBlock id="hiddenBlock" rendered="false"></apex:pageBlock>
-			<apex:pageBlock rendered="{!ShowpageBlockFlag}">				 
-			    <apex:pageBlockSection title="Address Information" columns="3">
+            <apex:pageBlock rendered="{!ShowpageBlockFlag}">                 
+                <apex:pageBlockSection title="Address Information" columns="3">
                     <!--input fields for new address -->
-			        <apex:inputField value="{!addressobj.Address_Type__c}"/>
-			        <apex:inputField value="{!addressobj.ZipCode__c}"/>
-			        <apex:inputField value="{!addressobj.Province__c}"/>
-			        <apex:inputField value="{!addressobj.City__c}"/>
-			        <apex:inputField value="{!addressobj.District__c}"/>
-			        <apex:inputField value="{!addressobj.Block__c}"/>
-			        <apex:inputField value="{!addressobj.Address_Line_1__c}"/>
-			        <apex:inputField value="{!addressobj.Address_Line_2__c}"/>
-			        <apex:inputField value="{!addressobj.Company_Name__c}"/>
-			        <apex:inputField value="{!addressobj.TitleOfHonor__c}"/>  
-			        <apex:inputField value="{!addressobj.Status__c}"/>
-			        <apex:inputField value="{!addressobj.Preferred__c}"/>
-			    </apex:pageBlockSection>
-			    <!--buttons to save and cancel-->
-			    <apex:commandbutton value="Save" action="{!SaveAddress}"  oncomplete="refreshParentPage()"/>
-			    <apex:commandButton onclick="resetInlineEdit()" action="{!cancelEdit}" id="cancelButton" value="Cancel"/>
-			</apex:pageBlock>
+                    <apex:inputField value="{!addressobj.Address_Type__c}"/>
+                    <apex:inputField value="{!addressobj.ZipCode__c}"/>
+                    <apex:inputField value="{!addressobj.Province__c}"/>
+                    <apex:inputField value="{!addressobj.City__c}"/>
+                    <apex:inputField value="{!addressobj.District__c}"/>
+                    <apex:inputField value="{!addressobj.Block__c}"/>
+                    <apex:inputField value="{!addressobj.Address_Line_1__c}"/>
+                    <apex:inputField value="{!addressobj.Address_Line_2__c}"/>
+                    <apex:inputField value="{!addressobj.Company_Name__c}"/>
+                    <apex:inputField value="{!addressobj.TitleOfHonor__c}"/>  
+                    <apex:inputField value="{!addressobj.Status__c}"/>
+                    <apex:inputField value="{!addressobj.Preferred__c}"/>
+                </apex:pageBlockSection>
+                <!--buttons to save and cancel-->
+                <apex:commandbutton value="Save" action="{!SaveAddress}"  oncomplete="refreshParentPage()"/>
+                <apex:commandButton onclick="resetInlineEdit()" action="{!cancelEdit}" id="cancelButton" value="Cancel"/>
+            </apex:pageBlock>
 
-		</apex:outputPanel>
-	</apex:form>
+        </apex:outputPanel>
+    </apex:form>
 </apex:page>
