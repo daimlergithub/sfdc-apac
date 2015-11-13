@@ -19,15 +19,16 @@
 public class UserTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
-       
+        Map<Id,User> oldmap = (Map<Id,User>)trigger.oldmap;
+        Map<Id,User> newmap = (Map<Id,User>)trigger.newmap;
         
         if (trigger.isAfter && trigger.isInsert) {
-            UserHelper.AfterInsert_UpdateMethod(Trigger.new,(Map<Id,User>)trigger.oldmap,trigger.isinsert,trigger.isupdate);      
+            UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);      
         }
         if (trigger.isAfter && trigger.isUpdate) {
-            UserHelper.AfterInsert_UpdateMethod(Trigger.new,(Map<Id,User>)trigger.oldmap,trigger.isinsert,trigger.isupdate);  
+            UserHelper.AfterInsert_UpdateMethod(Trigger.new,oldmap,trigger.isinsert,trigger.isupdate);  
         }
         if (trigger.isBefore && trigger.isInsert) {
             UserHelper.ValidateUser(Trigger.new);   
@@ -35,5 +36,9 @@ public class UserTriggerHandler
         if (trigger.isBefore && trigger.isUpdate) {
             UserHelper.ValidateUser(Trigger.new);   
         }
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }

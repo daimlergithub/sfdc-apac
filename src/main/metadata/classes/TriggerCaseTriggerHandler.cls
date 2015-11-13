@@ -9,13 +9,13 @@
     23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerCaseTriggerHandler
  
  */
-    public class TriggerCaseTriggerHandler 
+public class TriggerCaseTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
-       // Map<Id,Case> oldmap = (Map<Id,Case>)trigger.oldmap;
-      //  Map<Id,Case> newmap = (Map<Id,Case>)trigger.newmap;
+        Map<Id,Case> oldmap = (Map<Id,Case>)trigger.oldmap;
+        Map<Id,Case> newmap = (Map<Id,Case>)trigger.newmap;
         
         if (trigger.isAfter && (trigger.isInsert || trigger.isUnDelete)) {
             UtilCase.rollupAccountComplaintAmount(trigger.new);
@@ -24,5 +24,9 @@
         if (trigger.isAfter && trigger.isDelete) {
             UtilCase.rollupAccountComplaintAmount(trigger.old);
         }
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }

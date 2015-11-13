@@ -1,7 +1,7 @@
 public class ChatterAnswersEscalationTriggerHandler 
     implements TriggerHandlerIf
 {
-    public void handleTrigger()
+    public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
         Map<Id,Question> oldmap = (Map<Id,Question>)trigger.oldmap;
         Map<Id,Question> newmap = (Map<Id,Question>)trigger.newmap;
@@ -33,5 +33,9 @@ public class ChatterAnswersEscalationTriggerHandler
                 Messaging.sendEmail(new Messaging.SingleEmailMessage[] { mail });
             }
         }
+    }
+    public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
+    {
+    	// Implementation to addedd as required in market
     }
 }
