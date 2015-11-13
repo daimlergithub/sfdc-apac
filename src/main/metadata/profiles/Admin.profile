@@ -8914,12 +8914,7 @@
         <editable>true</editable>
         <field>Lead.Phone</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Lead.Picklist__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
+    </fieldPermissions>   
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Primary__c</field>
