@@ -1192,7 +1192,6 @@
         <apexClass>VehicleDataSharingHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    
     <classAccesses>
         <apexClass>VehicleRelLookingController</apexClass>
         <enabled>false</enabled>
@@ -1277,8 +1276,6 @@
         <apexClass>campaignHistoryLogGeneration</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    
-    
     <classAccesses>
         <apexClass>superSort</apexClass>
         <enabled>false</enabled>
@@ -2616,11 +2613,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Household_Total_del__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.ID_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2821,16 +2813,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.MiddleName_Native_1_del__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.MiddleName_del__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Minimum_per_Dealer__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2892,11 +2874,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Occupation__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Opt_In_Contact_Reason_2_del__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3306,11 +3283,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Region_del__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.Retail_AMG_Owner__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -3442,11 +3414,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.SMS_MMS_IM_Status_2__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Sales_Address__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3809,7 +3776,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
         <field>Account_Link__c.Portal_Email__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    
     <fieldPermissions>
         <editable>false</editable>
         <field>Account_Link__c.Portal_Mail_Opt_Out__c</field>
@@ -16256,7 +16222,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
         <apexPage>VehicleRelLooking</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
-    
     <pageAccesses>
         <apexPage>ViewTask</apexPage>
         <enabled>false</enabled>

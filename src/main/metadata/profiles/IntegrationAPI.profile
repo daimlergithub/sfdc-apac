@@ -886,10 +886,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TerminateVehicleRelationshipExtension</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TestTriggerHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -2636,11 +2632,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Household_Total_del__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.ID_Number__c</field>
         <readable>true</readable>
@@ -2841,16 +2832,6 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.MiddleName_Native_1_del__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.MiddleName_del__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Minimum_per_Dealer__c</field>
         <readable>true</readable>
@@ -2914,11 +2895,6 @@
         <editable>true</editable>
         <field>Account.Occupation__c</field>
         <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Opt_In_Contact_Reason_2_del__c</field>
-        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
@@ -3323,11 +3299,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Account.Recall__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Region_del__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -8894,7 +8865,7 @@
         <editable>true</editable>
         <field>Lead.Phone</field>
         <readable>true</readable>
-    </fieldPermissions>   
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead.Primary__c</field>
@@ -17404,7 +17375,7 @@
     <pageAccesses>
         <apexPage>AddToRetailCampaign</apexPage>
         <enabled>false</enabled>
-    </pageAccesses> 
+    </pageAccesses>
     <pageAccesses>
         <apexPage>AddressDisplayInlineEdit</apexPage>
         <enabled>false</enabled>
@@ -17504,7 +17475,7 @@
     <pageAccesses>
         <apexPage>ContactTable</apexPage>
         <enabled>false</enabled>
-    </pageAccesses>    
+    </pageAccesses>
     <pageAccesses>
         <apexPage>DMSendResult</apexPage>
         <enabled>false</enabled>
@@ -17671,10 +17642,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Tasks</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>TerminateVehicleRelationship</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -18258,7 +18225,7 @@
     <tabVisibilities>
         <tab>Attribute__c</tab>
         <visibility>DefaultOn</visibility>
-    </tabVisibilities>    
+    </tabVisibilities>
     <tabVisibilities>
         <tab>Campaign_Calendar</tab>
         <visibility>DefaultOff</visibility>
