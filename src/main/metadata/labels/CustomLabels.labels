@@ -132,6 +132,13 @@
         <value>There is no questions, you cannot preview the survey, please check the survey question again.</value>
     </labels>
     <labels>
+        <fullName>Business_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Business Email</shortDescription>
+        <value>Business Email</value>
+    </labels>
+    <labels>
         <fullName>Button_Approve</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
         <language>en_US</language>
@@ -941,6 +948,13 @@
         <value>Familiarization workshop for new vehicle owners</value>
     </labels>
     <labels>
+        <fullName>Fax</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Fax</shortDescription>
+        <value>Fax</value>
+    </labels>
+    <labels>
         <fullName>Field</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1002,6 +1016,20 @@
         <protected>false</protected>
         <shortDescription>Has Referral Record</shortDescription>
         <value>Has Referral Record</value>
+    </labels>
+    <labels>
+        <fullName>Home_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Email</shortDescription>
+        <value>Home Email</value>
+    </labels>
+    <labels>
+        <fullName>Home_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Home Phone</shortDescription>
+        <value>Home Phone</value>
     </labels>
     <labels>
         <fullName>Id</fullName>
@@ -1490,6 +1518,20 @@
         <value>please visit</value>
     </labels>
     <labels>
+        <fullName>Last_Modified_By</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Modified By</shortDescription>
+        <value>Last Modified By</value>
+    </labels>
+    <labels>
+        <fullName>Last_Modified_Date</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Last Modified Date</shortDescription>
+        <value>Last Modified Date</value>
+    </labels>
+    <labels>
         <fullName>LimitQueries</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1655,6 +1697,13 @@
         <value>No record that you can approve is seleced</value>
     </labels>
     <labels>
+        <fullName>Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Mobile fields which are referenced in VF pages</shortDescription>
+        <value>Mobile</value>
+    </labels>
+    <labels>
         <fullName>New_Customer_Acquisition</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -1682,6 +1731,27 @@
         <protected>false</protected>
         <shortDescription>Operation</shortDescription>
         <value>Operation</value>
+    </labels>
+    <labels>
+        <fullName>Other_Email</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Other Email</shortDescription>
+        <value>Other Email</value>
+    </labels>
+    <labels>
+        <fullName>Other_Phone_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Other Phone 1</shortDescription>
+        <value>Other Phone 1</value>
+    </labels>
+    <labels>
+        <fullName>Other_Phone_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Other Phone 2</shortDescription>
+        <value>Other Phone 2</value>
     </labels>
     <labels>
         <fullName>Others</fullName>
@@ -2043,6 +2113,13 @@
         <protected>false</protected>
         <shortDescription>Special Filters</shortDescription>
         <value>Special Filters</value>
+    </labels>
+    <labels>
+        <fullName>Status</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Status</shortDescription>
+        <value>Status</value>
     </labels>
     <labels>
         <fullName>Status_Approved</fullName>
@@ -2466,6 +2543,27 @@
         <protected>false</protected>
         <shortDescription>Vehicle Filter</shortDescription>
         <value>Vehicle Filter</value>
+    </labels>
+    <labels>
+        <fullName>Work_Fax</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Fax</shortDescription>
+        <value>Work Fax</value>
+    </labels>
+    <labels>
+        <fullName>Work_Mobile</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label for Work Mobile  fields to be referenced in VF pages</shortDescription>
+        <value>Work Mobile</value>
+    </labels>
+    <labels>
+        <fullName>Work_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Work Phone</shortDescription>
+        <value>Work Phone</value>
     </labels>
     <labels>
         <fullName>Yearly_TA_Apply_deadline</fullName>
