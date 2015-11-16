@@ -351,11 +351,7 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Interested_Vehicle__c</field>
-            </layoutItems>
-            <layoutItems>
-                <behavior>Edit</behavior>
-                <field>Competitor_Vehicle__c</field>
-            </layoutItems>
+            </layoutItems>            
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Current_Vehicle_1__c</field>

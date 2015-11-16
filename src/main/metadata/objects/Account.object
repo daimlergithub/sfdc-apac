@@ -6093,18 +6093,6 @@ Attribute in Data Dictionary object Contact is "Contact_HouseholdAmount"</descri
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Household_Total_del__c</fullName>
-        <externalId>false</externalId>
-        <label>Household_Amount</label>
-        <precision>18</precision>
-        <required>false</required>
-        <scale>0</scale>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>ID_Number__c</fullName>
         <description>/* 
 Created by: Tony Li 
@@ -7606,28 +7594,6 @@ Function: After a suspect account is rejected or merged, master account id shoul
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>MiddleName_Native_1_del__c</fullName>
-        <externalId>false</externalId>
-        <label>Middle Name(Kana)</label>
-        <length>64</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
-        <fullName>MiddleName_del__c</fullName>
-        <externalId>false</externalId>
-        <label>MiddleName</label>
-        <length>64</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Minimum_per_Dealer__c</fullName>
         <externalId>false</externalId>
         <label>Minimum per Dealer</label>
@@ -7848,22 +7814,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Opt_In_Contact_Reason_2_del__c</fullName>
-        <externalId>false</externalId>
-        <label>Eliminate list by activities 2</label>
-        <picklist>
-            <picklistValues>
-                <fullName>None</fullName>
-                <default>false</default>
-            </picklistValues>
-            <sorted>false</sorted>
-        </picklist>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>MultiselectPicklist</type>
-        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Opt_In_Contact_Reason_Details__c</fullName>
@@ -9307,17 +9257,6 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Region_del__c</fullName>
-        <externalId>false</externalId>
-        <label>Region</label>
-        <length>25</length>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Retail_AMG_Owner__c</fullName>
         <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
@@ -9720,19 +9659,6 @@ OR(ISPICKVAL(Email_Validity__c, 'Valid'),ISPICKVAL(Email_Validity__c, 'Unknown')
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Picklist</type>
-    </fields>
-    <fields>
-        <fullName>Sales_Address__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
-        <externalId>false</externalId>
-        <label>Sales Address</label>
-        <referenceTo>Address__c</referenceTo>
-        <relationshipLabel>Accounts (Address)</relationshipLabel>
-        <relationshipName>Accounts1</relationshipName>
-        <required>false</required>
-        <trackFeedHistory>false</trackFeedHistory>
-        <trackHistory>false</trackHistory>
-        <type>Lookup</type>
     </fields>
     <fields>
         <fullName>Sales_Sanction_Comment__c</fullName>
@@ -14120,13 +14046,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
         </picklistValues>
         <picklistValues>
-            <picklist>Opt_In_Contact_Reason_2_del__c</picklist>
-            <values>
-                <fullName>None</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
             <picklist>Opt_In_Contact_Reason__c</picklist>
             <values>
                 <fullName>None</fullName>
@@ -17891,13 +17810,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-        </picklistValues>
-        <picklistValues>
-            <picklist>Opt_In_Contact_Reason_2_del__c</picklist>
-            <values>
-                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

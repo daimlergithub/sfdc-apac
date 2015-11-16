@@ -1213,7 +1213,6 @@
         <apexClass>VehicleDataSharingHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    
     <classAccesses>
         <apexClass>VehicleRelLookingController</apexClass>
         <enabled>false</enabled>
@@ -1298,8 +1297,6 @@
         <apexClass>campaignHistoryLogGeneration</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    
-    
     <classAccesses>
         <apexClass>superSort</apexClass>
         <enabled>false</enabled>
@@ -2636,11 +2633,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Account.Household_Total_del__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>Account.ID_Number__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -2840,16 +2832,6 @@
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.MiddleName_Native_1_del__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.MiddleName_del__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
         <editable>true</editable>
         <field>Account.Minimum_per_Dealer__c</field>
         <readable>true</readable>
@@ -2912,11 +2894,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.Occupation__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Account.Opt_In_Contact_Reason_2_del__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -3323,11 +3300,6 @@
         <editable>false</editable>
         <field>Account.Recall__c</field>
         <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Account.Region_del__c</field>
-        <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
@@ -3824,7 +3796,6 @@
         <field>Account_Link__c.Portal_Email__c</field>
         <readable>false</readable>
     </fieldPermissions>
-    
     <fieldPermissions>
         <editable>true</editable>
         <field>Account_Link__c.Portal_Mail_Opt_Out__c</field>
@@ -17014,10 +16985,6 @@
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
-        <apexPage>GeneratePDF</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
         <apexPage>GenericUploader</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -17185,7 +17152,6 @@
         <apexPage>VehicleRelLooking</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
-    
     <pageAccesses>
         <apexPage>ViewTask</apexPage>
         <enabled>false</enabled>
