@@ -1,7 +1,25 @@
-<apex:page standardController="Account" extensions="ContactTableController" id="pageid" showHeader="false" sidebar="false" showChat="false">
+<!--==================================================== -->
+<!--Project name: MB APAC CRM                              -->
+<!--Copyright notice: 2015 NTT Data Corp.                              -->
+<!--  Service name: Account Details                              -->
+<!--Name: Contact Table                              -->
+<!--==================================================== -->
+<!--==================================================== -->
+<!-- Purpose: Page is used to display Contact Information in Account detail page -->
+<!---------                               -->
+<!--==================================================== -->
+<!--==================================================== -->
+<!-- History                              -->
+<!-- -------                              -->
+<!-- VERSION  AUTHOR      DATE            DETAIL RELEASE/CSR                              -->
+<!--   1.0    Narasimha G   11/11/2015      INITIAL DEVELOPMENT                              -->
+
+<!--  ==================================================== -->
+
+<apex:page standardController="Account" extensions="ContactTableController" id="pageid" showHeader="false" sidebar="false" showChat="false"  >
     <apex:form id="form1">
         <apex:pageMessages id="showmsg"></apex:pageMessages>
-        
+       <apex:stylesheet value="{!$Resource.ContactTableVfStylesheet}"/> 
         <apex:outputPanel layout="block" style="overflow:auto;height:330px" >
             <apex:pageBlock id="myTable">
                 
@@ -9,13 +27,13 @@
                     <tr>        
                         <td></td> 
                         <td></td>
-                        <th>Status</th>         
-                        <th>Last Modified By</th>        
-                        <th>Last Modified Date</th>     
+                        <th>{!$Label.Status}</th>         
+                        <th>{!$Label.Last_Modified_By}</th>        
+                        <th>{!$Label.Last_Modified_Date}</th>     
                     </tr>
                     
                     <tr>        
-                        <th style="text-align: Right;">Mobile</th>       
+                        <th style="text-align: Right;">{!$Label.Mobile}</th>       
                         <td><apex:inputtext value="{!ParAcc.Mobile__c}" rendered="{!editMode}"/>
                             <apex:outputField value="{!ParAcc.Mobile__c}" rendered="{!!editMode}"/>
                         </td> 
@@ -30,7 +48,7 @@
                     </tr>
                     
                     <tr>        
-                        <th style="text-align: Right;">Work Mobile</th>     
+                        <th style="text-align: Right;">{!$Label.Work_Mobile}</th>     
                         <td><apex:inputField value="{!ParAcc.Mobile2__c}" rendered="{!editMode}"/>
                             <apex:outputField value="{!ParAcc.Mobile2__c}" rendered="{!!editMode}"/>
                         </td>  
@@ -44,7 +62,7 @@
                     </tr>
                     
                     <tr>        
-                        <th style="text-align: Right;">Home Phone</th>        
+                        <th style="text-align: Right;">{!$Label.Home_Phone}</th>        
                         <td><apex:inputField value="{!ParAcc.Individual_Home_Phone__c}" rendered="{!editMode}"/>
                             <apex:outputField value="{!ParAcc.Individual_Home_Phone__c}" rendered="{!!editMode}"/>
                         </td> 
@@ -58,7 +76,7 @@
                     </tr>
                     
                     <tr>        
-                        <th style="text-align: Right;">Other Phone 1</th>        
+                        <th style="text-align: Right;">{!$Label.Other_Phone_1}</th>        
                         <td><apex:inputField value="{!ParAcc.Home_Phone_2__c}" rendered="{!editMode}" />
                             <apex:outputField value="{!ParAcc.Home_Phone_2__c}" rendered="{!!editMode}"/>
                         </td> 
@@ -72,7 +90,7 @@
                     </tr>
                     
                     <tr>        
-                        <th style="text-align: Right;">Work Phone </th>                
+                        <th style="text-align: Right;">{!$Label.Work_Phone} </th>                
                         <td><apex:inputField value="{!ParAcc.Work_Phone__c}" rendered="{!editMode}" />
                             <apex:outputField value="{!ParAcc.Work_Phone__c}" rendered="{!!editMode}" />
                         </td> 
@@ -86,7 +104,7 @@
                     </tr>
                     
                     <tr>        
-                        <th style="text-align: Right;">Other Phone 2</th>        
+                        <th style="text-align: Right;">{!$Label.Other_Phone_2}</th>        
                         <td><apex:inputField value="{!ParAcc.Phone}" rendered="{!editMode}" />
                             <apex:outputField value="{!ParAcc.Phone}" rendered="{!!editMode}" />
                         </td> 
@@ -100,7 +118,7 @@
                     </tr>
                     
                     <tr>        
-                        <th style="text-align: Right;">Home Email</th>        
+                        <th style="text-align: Right;">{!$Label.Home_Email}</th>        
                         <td><apex:inputField value="{!ParAcc.Email__c}" rendered="{!editMode}" />
                             <apex:outputField value="{!ParAcc.Email__c}" rendered="{!!editMode}" />
                         </td>           
@@ -114,7 +132,7 @@
                     </tr>
                     
                     <tr>        
-                        <th style="text-align: Right;">Business Email</th>        
+                        <th style="text-align: Right;">{!$Label.Business_Email}</th>        
                         <td><apex:inputField value="{!ParAcc.Email2__c}"  rendered="{!editMode}"/>
                             <apex:outputField value="{!ParAcc.Email2__c}"  rendered="{!!editMode}"/>
                         </td>                           
@@ -128,7 +146,7 @@
                     </tr> 
                     
                     <tr>        
-                        <th style="text-align: Right;">Other Email</th>        
+                        <th style="text-align: Right;">{!$Label.Other_Email}</th>        
                         <td><apex:inputField value="{!ParAcc.Email2__c}" rendered="{!editMode}"/>
                             <apex:outputField value="{!ParAcc.Email2__c}" rendered="{!!editMode}"/>
                         </td>                           
@@ -142,7 +160,7 @@
                     </tr> 
                     
                     <tr>        
-                        <th style="text-align: Right;">Fax</th>        
+                        <th style="text-align: Right;">{!$Label.Fax}</th>        
                         <td><apex:inputField value="{!ParAcc.Fax}" rendered="{!editMode}"/>
                             <apex:outputField value="{!ParAcc.Fax}" rendered="{!!editMode}"/>
                         </td>                           
@@ -153,7 +171,7 @@
                     </tr> 
                     
                     <tr>        
-                        <th style="text-align: Right;">Work Fax</th>        
+                        <th style="text-align: Right;">{!$Label.Work_Fax}</th>        
                         <td><apex:inputField value="{!ParAcc.Fax2__c}" rendered="{!editMode}" />
                             <apex:outputField value="{!ParAcc.Fax2__c}" rendered="{!!editMode}" />
                         </td>                           
@@ -187,69 +205,19 @@
             window.open("/{!AccId}","_parent");
             
         }
-        </script>
         
-        
-    </apex:form>
-    <script  type="text/javascript">
-    function UserRedirect() {               
+        function UserRedirect() {               
         window.open('');
     }
+        </script>
+     
+       
+ 
+        
+   
+        
+    </apex:form>
     
-    </script>
-    <style>
-        .bPageBlock.brandSecondaryBrd.apexDefaultPageBlock.secondaryPalette
-        {
-        background-color: white;
-        }
-        accountTab .secondaryPalette, .individualPalette .accountBlock .secondaryPalette {
-        background-color: white;
-        
-        }
-        table {  
-        color : #4a4a56;
-        background-color: white;            
-        border-spacing: 10px;
-        border-color: #D0D0D0;            
-        border-collapse: collapse;
-        
-        }
-        
-        td{
-
-        color : #4a4a56;
-        background-color: white;            
-        border-spacing: 10px;
-        border-color: #D0D0D0;            
-        border-collapse: collapse;
-        
-        padding-left: 10px;
-        }
-        
-        th{
-        color : #4a4a56;
-        background-color: white;            
-        border-spacing: 1px;
-        border-color: #D0D0D0;            
-        border-collapse: collapse;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 10.92px;
-        font-weight: bold; 
-        
-        padding-right: 10px;
-        }
-        body .bEditBlock .pbBottomButtons, body .apexp .bPageBlock.apexDefaultPageBlock .pbBottomButtons
-        {
-        margin-top: 0px; 
-        
-        }
-        
-        .apexp .bPageBlock.apexDefaultPageBlock .pbBody {
-        margin: 7px 12px 0px;
-        }
-        
-        
-        
-    </style>
+    
     
 </apex:page>

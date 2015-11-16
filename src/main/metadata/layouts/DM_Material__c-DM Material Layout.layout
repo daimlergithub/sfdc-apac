@@ -13,15 +13,23 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
+                <field>Brand__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Type__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
                 <field>Preliminary_Flag__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PRESENTATION_DATE__c</field>
+                <field>Print_Due_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>PRINT_DUE_DATE__c</field>
+                <field>Presentation_Date__c</field>
             </layoutItems>
         </layoutColumns>
         <layoutColumns>
@@ -31,11 +39,23 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>LABEL_PRINTING_NAME__c</field>
+                <field>Car_Model__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
-                <field>Model__c</field>
+                <field>Active__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Label_Printing_Name__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Deployment_Due_Date__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>DM_Material_External_Id__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>
