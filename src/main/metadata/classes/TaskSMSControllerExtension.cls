@@ -38,6 +38,14 @@ public class TaskSMSControllerExtension
     private ApexPages.standardController controller {get;set;}
 
     /* Public Methods */
+    
+    /**
+  *@Description : Creates Task if CustomerPhone number ,templateId and Template msg is not null.
+  *@Date : 4/11/2015
+  *@param: None
+  *@return:PageReference
+
+  */
     public PageReference send() 
     {
         system.debug('------' + customer );
@@ -72,7 +80,15 @@ public class TaskSMSControllerExtension
         return null;
     }
 
-    // set value to template message
+
+/**
+  *@Description :  sets value to template message
+  *@Date : 4/11/2015
+  *@param: None
+  *@return:PageReference
+
+  */
+    
     public PageReference parseTemplateMessage()
     {
         system.debug('-------------' + templateMap);
@@ -91,7 +107,14 @@ public class TaskSMSControllerExtension
         return null;
     }
 
-    // parse merge fields for message
+/**
+  *@Description :  parses merge fields for message
+  *@Date : 4/11/2015
+  *@param: String
+  *@return:String
+
+  */
+    
     public String optimzeContent(String msg)
     {
         // merge contact name
@@ -142,7 +165,14 @@ public class TaskSMSControllerExtension
         return msg;
     } 
 
-    // returns list options of templates
+/**
+  *@Description :  returns list options of templates
+  *@Date : 4/11/2015
+  *@param: None
+  *@return:List of Select Options
+
+  */
+    
     public List<SelectOption> getTemplates() 
     {
         List<SelectOption> options = new List<SelectOption>();
@@ -179,6 +209,13 @@ public class TaskSMSControllerExtension
     }
 
     /* Private Methods */
+    /**
+  *@Description : Creates Activity(Task) 
+  *@Date : 4/11/2015
+  *@param: None
+  *@return:None
+
+  */
   @TestVisible  private void createActivity()
     {
         if(taskObject != null)
@@ -237,6 +274,13 @@ public class TaskSMSControllerExtension
 
     /* Static initialisers */
   
+  /**
+  *@Description :onstructor 
+  *@Date : 4/11/2015
+  *@param: None
+  *@return:None
+
+  */
     public TaskSMSControllerExtension(ApexPages.StandardController stdController) 
     {
         // constructor
