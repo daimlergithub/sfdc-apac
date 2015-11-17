@@ -146,10 +146,6 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>AddressDisplayInlineEditControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>AssignCaseToDealerController</apexClass>
         <enabled>false</enabled>
     </classAccesses>
