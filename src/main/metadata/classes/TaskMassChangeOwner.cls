@@ -14,6 +14,13 @@ public with sharing class TaskMassChangeOwner {
 	public Task task{set;get;}    
 	private String [] arrObjIds;    
     
+    /**
+  *@Description : Constructor
+  *@Date : 4/11/2015
+  *@param: ApexPages.StandardController(Task)
+  *@return:This mehtod does not return any value.
+
+  */
 	public TaskMassChangeOwner(){        
 		//Initalize the variables   
 		     
@@ -22,6 +29,14 @@ public with sharing class TaskMassChangeOwner {
 		String strObjIds = params.get('objIds');        
 		arrObjIds = strObjIds.split(',');                  
 	}            
+		
+	/**
+  *@Description : Assigns the task with different owner and updates Related SSI object.
+  *@Date : 4/11/2015
+  *@param: None
+  *@return:This mehtod does not return any value.
+
+  */	
 		
 	public void assignToOwnerClick(){        
 		if(task.OwnerId==null){            
@@ -44,6 +59,13 @@ public with sharing class TaskMassChangeOwner {
 			}          
 		}    
 	}
+	/**
+  *@Description : Assigns the task with different owner and updates Related SSI object.
+  *@Date : 4/11/2015
+  *@param: None
+  *@return:This mehtod does not return any value.
+
+  */
 	public void updateRelatedSSIs(List<Id> relatedSSIIds, Id ownerId){
 		List<SSI__c> ssis = [Select Id, OwnerId From SSI__c Where Id in :relatedSSIIds];
 		for(SSI__c ssi : ssis){

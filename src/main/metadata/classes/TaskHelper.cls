@@ -34,9 +34,17 @@ public class TaskHelper {
 	public static string validString='valid';
     
     private static Map<String, String> srRecordTypeSubjects = new Map<String, String>{'1st Survey Result'=>'1st Survey Call', '2nd Survey Result'=>'2nd Survey Call', 'Welcome Call + 1st Survey Result'=>'Welcome Call + 1st Survey Call', 'Welcome Call Result'=>'Welcome Call'};
-       
+  /**
+  *@Description : Updates Accounts if they are blacklisted based on Activity status of Tasks.
+  *@Date : 4/11/2015
+  *@param:List of Tasks.new , Task Old Map , Indicators for Insert/Update.
+  *@return:This mehtod does not return any value.
+
+  */     
    public static void TaskFailBlacklist(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
+   	
+   	
         set<Id> setTaskIds = new set<Id>();
         for(Task tk : tasks)
         {
@@ -81,8 +89,19 @@ public class TaskHelper {
         }      
    }
    
+   /**
+  *@Description : Fetches related Campaign members based on whoId and whatId and updates the campaignMember status
+  based on task.Activity status and priority.
+  *@Date : 4/11/2015
+  *@param:List of Tasks.new , Task Old Map , Indicators for Insert/Update.
+  *@return:This mehtod does not return any value.
+
+  */
    public static void updateCampaignMemberStatus(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
+   	
+   		
+   	
         if(isInsert)
             UtilTask.updateCampaignMemberStatus(tasks);
         if(isUpdate)
@@ -99,8 +118,17 @@ public class TaskHelper {
         }   
    }
    
+   /**
+  *@Description : Updates Tasks record type based on Subject.
+  *@Date : 4/11/2015
+  *@param:List of Tasks.new.
+  *@return:This mehtod does not return any value.
+
+  */
    public static void recordTypeUpdate_Generaltask(List<Task> tasks)
    {
+   		
+   	
        Set<String> contactIds = new Set<String>();
        Set<String> templateIds = new Set<String>();
        Set<Id> relatedOrderIds = new Set<Id>();
@@ -256,8 +284,17 @@ public class TaskHelper {
         }
    }*/
    
+   /**
+  *@Description : Updates Task.SMS_Content__c .
+  *@Date : 4/11/2015
+  *@param:List of Tasks.new , Task Old Map , Indicators for Insert/Update.
+  *@return:This mehtod does not return any value.
+
+  */
    public static void Reply_TD_unsubscribeForeachSMScontent(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
+   	
+   		
         Map<Id, String> userIdNames = new Map<Id, String>();
         Set<Id> taskOwnerIds = new Set<Id>();
         for(Task t : tasks)
@@ -297,8 +334,17 @@ public class TaskHelper {
         }   
    }
    
+   /**
+  *@Description : Based on WhatID(Case,Campaign ,Campaign Leads) of tasks Updates the campaign Names.
+  *@Date : 4/11/2015
+  *@param:List of Tasks.new , Task Old Map , Indicators for Insert/Update.
+  *@return:This mehtod does not return any value.
+
+  */
    public static void FillintheCampaignNameBasedontheRelatedtoObject(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
    {
+   		
+   	
         Set<String> caseIds = new Set<String>();
         Set<String> campaignIds = new Set<String>();
         Set<String> campaignLeadIds = new Set<String>();
@@ -331,8 +377,19 @@ public class TaskHelper {
         }   
    }
    
+   /**
+  *@Description : Creates an SMS task in Update/Insert if record type is IB Call , Call Type is Inbound and if status, phone number are valid. 
+  *@Date : 4/11/2015
+  *@param:List of Tasks.new , Task Old Map , Indicators for Insert/Update.
+  *@return:This mehtod does not return any value.
+
+  */
+   
    public static void SurveySuccessfulupdateAccountcallmessage_generatewctask_update_call_times(List<Task> tasks,Map<Id, Task> taskOldMap,boolean isInsert,boolean isUpdate)
+   
+   	
    {
+   	
        List<Task> taskforGenerateQC = new List<Task>();
        Map<String, Task> taskMapForSMS = new Map<String, Task>();
        Map<Id, String> caseIdInteractionIds = new Map<Id,String>();
@@ -459,6 +516,15 @@ public class TaskHelper {
     /**
      * By Justin - replaces the merge fields.
      */
+    
+    /**
+  *@Description : Updates the Salutation to Contact Name based on Gender.
+  *@Date : 4/11/2015
+  *@param: Contact and String(Content)
+  *@return:String (Contact name updated with Salutation)
+
+  */ 
+     
     public static String replaceMergeField(Contact contact, String content){
         String nameMergeField = '{CONTACT_NAME}';
         String salutationMergeField = '{CONTACT_SALUTATION}';
@@ -485,6 +551,15 @@ public class TaskHelper {
     /**
      * By Justin - replaces the merge fields from templates before task saved.
      */
+     
+    /**
+  *@Description : Updates the Salutation to Contact Name based on Gender.
+  *@Date : 4/11/2015
+  *@param: List of new Tasks, Map of contacts.
+  *@return: It does not return anything.
+
+  */  
+     
     public static void replaceMergeFields(List<Task> tasks, Map<String, Contact> contacts){
         for(Task task : tasks){
             Contact contact = contacts.get(task.WhoId);
@@ -494,9 +569,16 @@ public class TaskHelper {
         }
     }
     
-    /**
-     * By Justin - Checks the SMS Response Required of task
-     */
+    
+     
+     /**
+  *@Description : Checks the SMS Response Required of task
+  *@Date : 4/11/2015
+  *@param: List of new Tasks, Map of templates.
+  *@return: It does not return anything.
+
+  */  
+     
     public static void checkResponseRequired(List<Task> tasks, Map<String, Template__c> templates){
         for(Task task : tasks){
             Template__c template = templates.get(task.SMSTemplateID__c);
@@ -506,9 +588,15 @@ public class TaskHelper {
         }
     }
     
-    /**
-     * By Justin - Prevents the sms task from saving when the SMS Opt Out of contact is checked.
-     */
+   
+     
+     /**
+  *@Description : Prevents the sms task from saving when the SMS Opt Out of contact is checked.
+  *@Date : 4/11/2015
+  *@param: List of new Tasks, Map of contacts.
+  *@return: It does not return anything.
+
+  */  
     public static void preventTaskFromCreating(List<Task> tasks, Map<String, Contact> contacts){
         for(Task task : tasks){
             Contact contact = contacts.get(task.WhoId);
@@ -552,6 +640,15 @@ public class TaskHelper {
 
     }*/
     
+     
+     /**
+  *@Description : Generates Qc based on details in Task Object.
+  *@Date : 4/11/2015
+  *@param: List of  Tasks.
+  *@return: It does not return anything.
+
+  */  
+    
     public static void GenerateMultipleQCs(List<Task> updateTasks) {
         List<QC__c> QCForInsert = new List<QC__c>();
         QC__c qc;
@@ -576,6 +673,14 @@ public class TaskHelper {
             UtilSobject.insertSobjects(QCForInsert);
         }
     }
+    
+    /**
+  *@Description : Based on WhatID(Case,Campaign ,Campaign Leads) of tasks Updates the campaign Names.
+  *@Date : 4/11/2015
+  *@param:Set of CaseIds, CampaignIds,CampaignLeadIds and List of Tasks.
+  *@return:This mehtod does not return any value.
+
+  */
     
     public static void copyCampaignNameFromRelatedToObject(Set<String> caseIds, Set<String> campaignIds, Set<String> campaignLeadIds, List<Task> tasks){
         Map<String, Case> cases = new Map<String, Case>();
@@ -605,6 +710,15 @@ public class TaskHelper {
             }
         }
     }
+    
+    
+    /**
+  *@Description : Copies IBCall Type to Task from case .
+  *@Date : 4/11/2015
+  *@param:Set of CaseIds,List of Tasks.
+  *@return:This mehtod does not return any value.
+
+  */
     
     public static void copyIBCallTypeFromCase(Set<String> caseIds, List<Task> tasks) {
         Map<String, Case> cases = new Map<String, Case>([select Id, RecordType.Name from Case where Id in :caseIds]);
@@ -637,6 +751,14 @@ public class TaskHelper {
     
     // Creat new SMS Task 
     // --- Modified by Justin on 2013-12-10
+    
+    /**
+  *@Description : Creates New SMS task after IB call.
+  *@Date : 4/11/2015
+  *@param:List of Tasks.
+  *@return:This mehtod does not return any value.
+
+  */
     public static void createSMSTaskAfterIBCall(List<Task> tasks) {
         Template__c ivrTemplates = [select Message_Detail__c from Template__c where RecordType.Name = 'SMS' and Name = 'IB SMS IVR'];
         Template__c smartTemplate = [select Message_Detail__c from Template__c where RecordType.Name = 'SMS' and Name = 'IB SMS IVR Smart'];
@@ -685,6 +807,14 @@ public class TaskHelper {
         }
     }
     
+    /**
+  *@Description : updates Case Voice recordlink. 
+  *@Date : 4/11/2015
+  *@param: Map of CaseInteractionIds.
+  *@return:This mehtod does not return any value.
+
+  */
+    
     public static void UpdateCaseVoiceRecordlink(Map<Id, String> caseIdInteractionIds) {
         List<Case> caseForUpdate = new List<Case>();
         
@@ -703,6 +833,15 @@ public class TaskHelper {
     }
     
     //US-CTI-001
+    
+    
+    /**
+  *@Description : updates InteractionIds. 
+  *@Date : 4/11/2015
+  *@param: Map of Task ids and Ucids.
+  *@return:This mehtod does not return any value.
+
+  */
     @Future(CallOut=True)
     public static void updateInteractionIds(Map<Id, String> taskIdUCIds) {
         List<Task> tasks = new List<Task>();
@@ -716,6 +855,14 @@ public class TaskHelper {
         }
     }
     // By Shuang Li BRD-AS-CAC-007---- strart
+    /**
+  *@Description : Updates SSITasks. 
+  *@Date : 4/11/2015
+  *@param: Set of UserIds.
+  *@return:This mehtod does not return any value.
+
+  */
+    
     @future(CallOut=True)
     public static void autoUpdateSSITask(Set<Id> userIds){
         Profile CACSSISV = [select Id from Profile where Name = 'CAC SSI SV'];
