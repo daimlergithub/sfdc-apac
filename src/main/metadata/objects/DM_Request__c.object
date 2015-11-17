@@ -104,6 +104,7 @@
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
         <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>Address__c</fullName>

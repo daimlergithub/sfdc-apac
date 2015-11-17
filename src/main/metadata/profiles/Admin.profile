@@ -886,6 +886,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TerminateVehicleRelationshipExtension</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TestTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -7628,6 +7632,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Custom_Debug_Info__c.Custom_Debug_Log_Data__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DM_Material__c.Active__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12418,21 +12427,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Task__c.Annual_Call_Task_1_del__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.Annual_Call_Task_2_del__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.Annual_Call_Task_3_del__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Retail_Task__c.Annual_Call__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -12529,21 +12523,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Duration__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.EOC_Call_Task_1_del__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.EOC_Call_Task_2_del__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Retail_Task__c.EOC_Call_Task_3_del__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -12714,6 +12693,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Origin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Retail_Task__c.Payment_Frequency__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -16244,6 +16228,9 @@
         <layout>Contract_Relation__c-Contract Relation Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Custom_Debug_Info__c-Custom Debug Info Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>DM_Material__c-DM Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -16902,6 +16889,15 @@
         <allowEdit>true</allowEdit>
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
+        <object>Custom_Debug_Info__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
         <object>DM_Material__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
@@ -17496,6 +17492,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>GeneratePDF</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>GenericUploader</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -17633,6 +17633,10 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>Tasks</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>TerminateVehicleRelationship</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -18235,6 +18239,10 @@
     </tabVisibilities>
     <tabVisibilities>
         <tab>Central_Campaigns</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
+        <tab>Custom_Debug_Info__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>

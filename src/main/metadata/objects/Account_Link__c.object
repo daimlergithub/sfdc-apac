@@ -143,17 +143,6 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Portal_ID__c</fullName>
-        <externalId>false</externalId>
-        <label>My Mercedes Id</label>
-        <length>64</length>
-        <required>false</required>
-        <trackHistory>false</trackHistory>
-        <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
-    </fields>
-    <fields>
         <fullName>Portal_Mail_Opt_Out__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
