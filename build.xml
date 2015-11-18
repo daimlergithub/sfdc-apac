@@ -97,6 +97,7 @@
 	<target name="deploy07">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
+				<sf:include name="User"/>
 				<sf:include name="Picklist_Mapping__c"/>
 				<sf:include name="Integration_Picklist__c"/>
 				<sf:include name="External_Picklist__c"/>
