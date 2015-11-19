@@ -435,6 +435,7 @@
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
+	<!-- TODO : Commented due to ASIA-DEV CI sandbox deployment issue
     <rules>
         <fullName>Notification to new User When add attachment</fullName>
         <actions>
@@ -453,6 +454,7 @@
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
+	-->
     <rules>
         <fullName>Send Email to Gate Keeper</fullName>
         <actions>
