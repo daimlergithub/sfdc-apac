@@ -252,11 +252,7 @@
 			<sf:include name="TriggerHandlerIf"/>
 			<sf:include name="TriggerUtil"/>
 			<sf:include name="TriggerUtilTest"/>
-			<sf:include name="IllegalArgumentException"/>
-			<sf:include name="TriggerBatchJobTriggerHandler"/>
-			<sf:include name="ShareCampaignByCollabTriggerHandler"/>
-			<sf:include name="TriggerQCTriggerHandler"/>
-			<sf:include name="TriggerComplaintDescriptionTriggerHandler"/>			
+			<sf:include name="IllegalArgumentException"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerUtilTestTrigger"/>
@@ -282,7 +278,9 @@
 			<sf:include name="UtilCampaignTaskGenerationByCaseTest"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
-			<sf:include name="UtilTestData"/>			
+			<sf:include name="UtilTestData"/>
+			<sf:include name="TriggerQCTriggerHandler"/>
+			<sf:include name="TriggerBatchJobTriggerHandler"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
@@ -314,8 +312,7 @@
 			<sf:include name="TriggerDMRequestTriggerHandler"/>
 			<sf:include name="UtilConstant"/>
 			<sf:include name="AccountSharingDataHandler"/>
-			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
-			<sf:include name="VehicleSharingWrapService"/>
+			<sf:include name="ComplaintDescriptionController"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
@@ -379,7 +376,10 @@
 			<sf:include name="AccountLinkHelper"/>
 			<sf:include name="AccountLinkHelperTest"/>
 			<sf:include name="SharingWrapperService"/>
-			<sf:include name="AccountLinkSharingTest"/>			
+			<sf:include name="AccountLinkSharingTest"/>					
+			<sf:include name="ShareCampaignByCollabTriggerHandler"/>
+			<sf:include name="ShareCampaignByCollaborationTest"/>
+			<sf:include name="UtilCampaignShareByCollaboration"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ShareAccountLinksToDealer"/>
@@ -427,8 +427,7 @@
 			<sf:include name="TriggerCampaignCityTest"/>
 			<sf:include name="TriggerCampaignLeadTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandler"/>
-			<sf:include name="UtilCampaignCity"/>
-			<sf:include name="AddressDisplayInlineEditController"/>			
+			<sf:include name="UtilCampaignCity"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerCampaignCity"/>
@@ -509,7 +508,9 @@
 			<sf:include name="UtilLeadEmailEscalationTest"/>
 			<sf:include name="UtilDealerOffering"/>
 			<sf:include name="TriggerPackageItemTriggerHandler"/>
-			<sf:include name="TriggerPackageItem_TestClass"/>	
+			<sf:include name="TriggerPackageItem_TestClass"/>			
+			<sf:include name="AddressDisplayInlineEditController"/>
+			<sf:include name="AddressDisplayInlineEditControllerTest"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerPackageItem"/>
@@ -553,6 +554,9 @@
 			<sf:include name="SSITriggerHandlerTest"/>
 			<sf:include name="SsiHelper"/>
 			<sf:include name="SSIVINMatchProcess"/>		
+		</sf:typeset>
+		<sf:typeset name="pages"> 
+				<sf:include name="SSINewComplaintEnd"/>
 		</sf:typeset>
 		</deploy>					
     </target>
@@ -647,6 +651,7 @@
 				<sf:include name="MonthlyMarketAmountReport"/>
 				<sf:include name="MonthlyMarketAmountReportPage"/>
 				<sf:include name="MassApproveToolKit"/>
+				<sf:include name="LeadConverting"/>
 		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
