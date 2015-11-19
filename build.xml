@@ -742,6 +742,7 @@
 			<sf:include name="CACFieldsExtension"/>
 			<sf:include name="CACFieldsExtensionTest"/>
 			<sf:include name="CPCalController"/>
+			<sf:include name="CpCallControllerClass_Test"/>
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
