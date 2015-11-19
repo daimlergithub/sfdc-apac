@@ -737,6 +737,11 @@
 			</sf:typeset>			
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
+			<sf:typeset name="classes">
+			<sf:include name="CACFieldsExtension"/>
+			<sf:include name="CACFieldsExtensionTest"/>
+			<sf:include name="CPCalController"/>
+			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
 				<sf:include name="Tasks"/>
