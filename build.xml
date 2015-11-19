@@ -651,6 +651,7 @@
 				<sf:include name="MonthlyMarketAmountReport"/>
 				<sf:include name="MonthlyMarketAmountReportPage"/>
 				<sf:include name="MassApproveToolKit"/>
+				<sf:include name="LeadConverting"/>
 		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
