@@ -427,8 +427,7 @@
 			<sf:include name="TriggerCampaignCityTest"/>
 			<sf:include name="TriggerCampaignLeadTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandler"/>
-			<sf:include name="UtilCampaignCity"/>
-			<sf:include name="AddressDisplayInlineEditController"/>			
+			<sf:include name="UtilCampaignCity"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerCampaignCity"/>
@@ -509,7 +508,9 @@
 			<sf:include name="UtilLeadEmailEscalationTest"/>
 			<sf:include name="UtilDealerOffering"/>
 			<sf:include name="TriggerPackageItemTriggerHandler"/>
-			<sf:include name="TriggerPackageItem_TestClass"/>	
+			<sf:include name="TriggerPackageItem_TestClass"/>			
+			<sf:include name="AddressDisplayInlineEditController"/>
+			<sf:include name="AddressDisplayInlineEditControllerTest"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerPackageItem"/>

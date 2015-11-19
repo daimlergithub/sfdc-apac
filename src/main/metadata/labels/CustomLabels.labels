@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+	<labels>
+        <fullName>Account_cannot_have_more_than_5_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddressList Page Error Message</shortDescription>
+        <value>Please delete 1 or more records before you can add new entry.</value>
+    </labels>
     <labels>
         <fullName>Account_Cann_t_be_Customer</fullName>
         <language>en_US</language>
