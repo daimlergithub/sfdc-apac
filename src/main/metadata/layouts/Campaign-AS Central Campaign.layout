@@ -54,11 +54,11 @@
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Publish_Date_del__c</field>
+                <field>Closed_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Readonly</behavior>
-                <field>Closed_Date__c</field>
+                <field>Publish_Date__c</field>
             </layoutItems>
             <layoutItems>
                 <behavior>Edit</behavior>
