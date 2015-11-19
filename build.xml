@@ -644,6 +644,8 @@
 			<sf:include name="MonthlyMarketAmountReportControllerTest"/>
 			<sf:include name="MyProcess"/>
 			<sf:include name="MyProcessTest"/>
+			<sf:include name="BatchUpdateRecords"/>
+			<sf:include name="BatchUpdateRecordsTest"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="CaseEscalation"/>
@@ -655,7 +657,7 @@
 		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
-		<sf:typeset name="workflows"/>		
+		<sf:typeset name="workflows"/>
 		</deploy>					
     </target>
 	
