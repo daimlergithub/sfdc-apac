@@ -378,7 +378,8 @@
 			<sf:include name="SharingWrapperService"/>
 			<sf:include name="AccountLinkSharingTest"/>					
 			<sf:include name="ShareCampaignByCollabTriggerHandler"/>
-			<sf:include name="ShareCampaignByCollaborationTest"/>		
+			<sf:include name="ShareCampaignByCollaborationTest"/>
+			<sf:include name="UtilCampaignShareByCollaboration"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ShareAccountLinksToDealer"/>
