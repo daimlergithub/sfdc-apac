@@ -676,8 +676,6 @@
 			<sf:include name="ParticipatingDealerHelper"/>
 			<sf:include name="ParticipatingDealerHelperTest"/>	
 			<sf:include name="UtilProfile"/>
-			<sf:include name="UtilCase"/>
-			<sf:include name="UtilCaseShare"/>
 			<sf:include name="ShareDataToNewUserBatch"/>
 			<sf:include name="TriggerCampaignPackageTriggerHandler"/>
 			<sf:include name="TriggerPD_TestClass"/>
@@ -702,6 +700,8 @@
 			<sf:include name="AssignCaseToDealerControllerTest"/>
 			<sf:include name="CaseHelper"/>
 			<sf:include name="CaseHelperTest"/>
+			<sf:include name="UtilCase"/>
+			<sf:include name="UtilCaseShare"/>
 			<sf:include name="CaseTriggerHandler"/>
 			<sf:include name="RetailCampaignSegmentationController"/>
 			<sf:include name="RetailCampaignSegmentationControllerTest"/>
