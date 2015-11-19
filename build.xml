@@ -719,6 +719,7 @@
 			<sf:include name="ContactTableController"/>
 			<sf:include name="ChatterAnswersTest"/>
 			<sf:include name="TrialCustomerPortalHomePageTest"/>
+			<sf:include name="superSortTest"/>
 		</sf:typeset>	
 		<sf:typeset name="triggers">
 			<sf:include name="CaseTrigger"/>			
