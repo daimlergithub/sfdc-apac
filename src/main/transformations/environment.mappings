@@ -8,6 +8,9 @@ dev_sb_asia_ci=arun.iyer.ntt@mbj.daimler-apac.com.ci
 # Demo sandbox
 demo_sb_kernel_ci=falk.lehmann.ntt@kernel.daimler-apac.com.demo
 
+#Test Sandbox
+dev_sb_asia_Test=arun.iyer.ntt@mbj.daimler-apac.com.test
+
 dev_sb_kernel_dev1=falk.lehmann.ntt@kernel.daimler-apac.com.dev1
 dev_sb_kernel_dev2=sneha.chail.ntt@kernel.daimler-apac.com.dev2
 dev_sb_kernel_dev3=sukumar.rajashekaran.ntt@kernel.daimler-apac.com.dev3,sudhirkumar.acharya.ntt@kernel.daimler-apac.com.dev3
