@@ -252,11 +252,7 @@
 			<sf:include name="TriggerHandlerIf"/>
 			<sf:include name="TriggerUtil"/>
 			<sf:include name="TriggerUtilTest"/>
-			<sf:include name="IllegalArgumentException"/>
-			<sf:include name="TriggerBatchJobTriggerHandler"/>
-			<sf:include name="ShareCampaignByCollabTriggerHandler"/>
-			<sf:include name="TriggerQCTriggerHandler"/>
-			<sf:include name="TriggerComplaintDescriptionTriggerHandler"/>			
+			<sf:include name="IllegalArgumentException"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerUtilTestTrigger"/>
@@ -282,7 +278,9 @@
 			<sf:include name="UtilCampaignTaskGenerationByCaseTest"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
-			<sf:include name="UtilTestData"/>			
+			<sf:include name="UtilTestData"/>
+			<sf:include name="TriggerQCTriggerHandler"/>
+			<sf:include name="TriggerBatchJobTriggerHandler"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
@@ -379,7 +377,9 @@
 			<sf:include name="AccountLinkHelper"/>
 			<sf:include name="AccountLinkHelperTest"/>
 			<sf:include name="SharingWrapperService"/>
-			<sf:include name="AccountLinkSharingTest"/>			
+			<sf:include name="AccountLinkSharingTest"/>					
+			<sf:include name="ShareCampaignByCollabTriggerHandler"/>
+			<sf:include name="ShareCampaignByCollaborationTest"/>		
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ShareAccountLinksToDealer"/>
