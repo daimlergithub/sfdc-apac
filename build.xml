@@ -555,6 +555,9 @@
 			<sf:include name="SsiHelper"/>
 			<sf:include name="SSIVINMatchProcess"/>		
 		</sf:typeset>
+		<sf:typeset name="pages"> 
+				<sf:include name="SSINewComplaintEnd"/>
+		</sf:typeset>
 		</deploy>					
     </target>
 	
