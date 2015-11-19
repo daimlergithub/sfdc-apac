@@ -18,14 +18,14 @@ public class AddressDisplayInlineEditController {
    public AddressDisplayInlineEditController(ApexPages.StandardController stdController){
            this.stdController = stdController;     
            aid = ApexPages.currentPage().getParameters().get('id');
-           system.debug('######'+ aid);
+           system.debug('######'+ aid); 
        
              if(ApexPages.currentPage().getParameters().get('id')!=Null){
                 
                 adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
-                Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c, TitleOfHonor__c from Address__c where Customer__c =: aid ];        
+                Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c, TitleOfHonor__c,Company_Name_Native__c from Address__c where Customer__c =: aid ];        
                 system.debug('@Account Information :' +adds);
-             }
+             }             
      
          /*Intitializing address object*/
          addressobj = new Address__c();
@@ -39,8 +39,8 @@ public class AddressDisplayInlineEditController {
      * @return      : null
       
     **/  
-    public void cancelEdit() {    	
-    	addressobj=null;
+    public void cancelEdit() {      
+        addressobj=null;
         ShowpageBlockFlag = null;                       
     }
     
@@ -66,10 +66,10 @@ public class AddressDisplayInlineEditController {
      * @author      : Srinivas
      * @Date        : 11/3/2015     
     **/  
-   private void loadData() {
-           system.debug('@Loading Addresses...');
+   @TestVisible private void loadData() {
+           system.debug('@Loading Addresses...' +aid);
            adds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
-                  Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c  from Address__c where Customer__c =: aid];
+                  Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c  from Address__c where Customer__c =: aid];
    }
    
    
@@ -114,11 +114,21 @@ public class AddressDisplayInlineEditController {
           loadData();
       }
       
-   public void addEditOptions(){
-    
+   public void addEditOptions()
+   {
+       Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
+       adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
+                  Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c  from Address__c where Customer__c=:acc.id];
+       if(adds.size()>=5)
+       {
+           ShowpageBlockFlag=false;
+           ApexPages.addmessage(new ApexPages.message(ApexPages.severity.error,'You cannot add more than 5 Address'));
+       }
+       else 
        ShowpageBlockFlag = true;
        
    }
+   
  
  /**    
      * @Description : Edit the address record  
@@ -131,7 +141,7 @@ public class AddressDisplayInlineEditController {
        if (editaddressId != null) 
        {
        editadds = [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
-                  Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c  from Address__c where Id =: editaddressId];
+                  Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c  from Address__c where Id =: editaddressId];
        // if for any reason we are missing the reference 
           
        }
@@ -148,6 +158,7 @@ public class AddressDisplayInlineEditController {
               addressobj.Address_Line_1__c =editadds.Address_Line_1__c;
               addressobj.Address_Line_2__c =editadds.Address_Line_2__c;
               addressobj.Company_Name__c =editadds.Company_Name__c;
+              addressobj.Company_Name_Native__c = editadds.Company_Name_Native__c;
               addressobj.TitleOfHonor__c =editadds.TitleOfHonor__c;
               addressobj.Status__c =editadds.Status__c;
               addressobj.Preferred__c = editadds.Preferred__c;
@@ -168,19 +179,30 @@ public class AddressDisplayInlineEditController {
     
           system.debug('addressobj>>>>>'+addressobj);
           system.debug('@Account Id :' +ApexPages.currentPage().getParameters().get('id'));
+  
         if(addressobj != null ){ 
         
             Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
+             adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
+                  Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c  from Address__c where Customer__c=:acc.id];
             system.debug('ACCid>>>>>'+acc); 
             if (editaddressId ==null)
             {
-            	addressobj.Customer__c = acc.id;
+                addressobj.Customer__c = acc.id;
             }
         try{
-           insert addressobj;  
+            if(adds.size()>=5)
+           {
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'You cannot add more than 5 Address'));
+                
+           }
+           else
+           insert addressobj;
+                    
         }catch (Exception e) {
             ApexPages.addMessages(e);
            }
+             
            
         }
         
