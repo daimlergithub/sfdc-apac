@@ -21,7 +21,8 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
-    <alerts>
+   <!-- TODO : Commented due to ASIA-DEV CI sandbox deployment issue
+   <alerts>
         <fullName>Complaint_Update_Notification</fullName>
         <description>Complaint Update Notification</description>
         <protected>false</protected>
@@ -47,7 +48,7 @@
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Complaint_update_notification</template>
-    </alerts>
+    </alerts>-->
     <alerts>
         <fullName>Email_to_Dealer_when_Retail_Campaign_Case_is_assigned</fullName>
         <description>Email to Dealer when Retail Campaign Case is assigned</description>
