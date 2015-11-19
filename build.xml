@@ -314,6 +314,7 @@
 			<sf:include name="AccountSharingDataHandler"/>
 			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
 			<sf:include name="VehicleSharingWrapService"/>
+			<sf:include name="ComplaintDescriptionController"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
