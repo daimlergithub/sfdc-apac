@@ -27,23 +27,23 @@
         <protected>false</protected>
         <recipients>
             <recipient>After-sales team</recipient>
-            <type>caseTeam</type>
+            <type>CaseTeamRole</type>
         </recipients>
         <recipients>
             <recipient>CRM Manager</recipient>
-            <type>caseTeam</type>
+            <type>CaseTeamRole</type>
         </recipients>
         <recipients>
             <recipient>Dealer</recipient>
-            <type>caseTeam</type>
+            <type>CaseTeamRole</type>
         </recipients>
         <recipients>
             <recipient>PR</recipient>
-            <type>caseTeam</type>
+            <type>CaseTeamRole</type>
         </recipients>
         <recipients>
             <recipient>Technical</recipient>
-            <type>caseTeam</type>
+            <type>CaseTeamRole</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Complaint_update_notification</template>
