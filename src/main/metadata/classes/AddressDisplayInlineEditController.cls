@@ -122,7 +122,7 @@ public class AddressDisplayInlineEditController {
        if(adds.size()>=5)
        {
            ShowpageBlockFlag=false;
-           ApexPages.addmessage(new ApexPages.message(ApexPages.severity.error,'You cannot add more than 5 Address'));
+           ApexPages.addmessage(new ApexPages.message(ApexPages.severity.error,system.label.Account_cannot_have_more_than_5_Address));
        }
        else 
        ShowpageBlockFlag = true;
@@ -183,27 +183,17 @@ public class AddressDisplayInlineEditController {
         if(addressobj != null ){ 
         
             Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
-             adds= [Select id,Name, Address_Type__c, Status__c , ZipCode__c,Province__c,Preferred__c,Company_Name__c,
-                  Address_Line_2__c ,Address_Line_1__c,District__c,City__c, Block__c,TitleOfHonor__c,Company_Name_Native__c  from Address__c where Customer__c=:acc.id];
             system.debug('ACCid>>>>>'+acc); 
             if (editaddressId ==null)
             {
                 addressobj.Customer__c = acc.id;
             }
         try{
-            if(adds.size()>=5)
-           {
-                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.WARNING,'You cannot add more than 5 Address'));
-                
-           }
-           else
            insert addressobj;
                     
         }catch (Exception e) {
             ApexPages.addMessages(e);
-           }
-             
-           
+           }                        
         }
         
                   

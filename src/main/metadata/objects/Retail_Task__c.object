@@ -98,7 +98,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>Annual_Call_Task_1_del__c</fullName>
+        <fullName>Annual_Call_Task_1__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Annual Call Task 1</label>
@@ -106,7 +106,7 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Annual_Call_Task_2_del__c</fullName>
+        <fullName>Annual_Call_Task_2__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Annual Call Task 2</label>
@@ -114,7 +114,7 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>Annual_Call_Task_3_del__c</fullName>
+        <fullName>Annual_Call_Task_3__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>Annual Call Task 3</label>
@@ -323,7 +323,7 @@
         <unique>false</unique>
     </fields>
     <fields>
-        <fullName>EOC_Call_Task_1_del__c</fullName>
+        <fullName>EOC_Call_Task_1__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>EOC Call Task 1</label>
@@ -331,7 +331,7 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>EOC_Call_Task_2_del__c</fullName>
+        <fullName>EOC_Call_Task_2__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>EOC Call Task 2</label>
@@ -339,7 +339,7 @@
         <type>Checkbox</type>
     </fields>
     <fields>
-        <fullName>EOC_Call_Task_3_del__c</fullName>
+        <fullName>EOC_Call_Task_3__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
         <label>EOC Call Task 3</label>
@@ -955,6 +955,48 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
+        </picklist>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Payment_Frequency__c</fullName>
+        <externalId>false</externalId>
+        <label>Payment Frequency</label>
+        <picklist>
+            <picklistValues>
+                <fullName>Daily</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fortnightly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Half Yearly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>None</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yearly</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>true</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
@@ -2152,6 +2194,41 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Daily</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fortnightly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Half Yearly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yearly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Product_Variation__c</picklist>
             <values>
                 <fullName>TBC</fullName>
@@ -2750,6 +2827,41 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Daily</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fortnightly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Half Yearly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yearly</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Product_Variation__c</picklist>
             <values>
                 <fullName>TBC</fullName>
@@ -3344,6 +3456,41 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Service</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Payment_Frequency__c</picklist>
+            <values>
+                <fullName>Daily</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fortnightly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Half Yearly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monthly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quarterly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekly</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yearly</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
