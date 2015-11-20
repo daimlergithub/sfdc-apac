@@ -109,7 +109,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
         if(users.size() == 0) {
             users = RTLusers;
         }
-        else if(users != null && users.size() > 0 && RTLusers != null && RTLusers.size() > 0)
+        else if(users != null && users.size() > 0)
         {
 	        Integer usersNum = users.size();
 	        Integer RTLusersNum = RTLusers.size();
@@ -125,7 +125,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 		            List<String> phone = new List<String>();
 		             if(accountIdPhone.get(con.Account__c) != null)
 		            phone = accountIdPhone.get(con.Account__c);
-		            if(phone[0] == null && phone[1] == null && phone[2] == null) {
+		            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
 		                Task t = createTask(con, RTLusers[j], 'Welcome Call', contactid, phone, WelcomeCallRT);
 		                preTask.add(t);
 		                j++;
@@ -155,7 +155,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            List<String> phone = new List<String>();
 	            if(accountIdPhone.get(con.Account__c) != null)
 	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == null && phone[1] == null && phone[2] == null) {
+	            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
 	                Task t = createTask(con, RTLusers[j], 'First Year Annual Call', contactid, phone, AnnualCallRT);
 	                preTask.add(t);
 	                j++;
@@ -181,7 +181,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            List<String> phone = new List<String>();
 	            if(accountIdPhone.get(con.Account__c) != null)
 	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == null && phone[1] == null && phone[2] == null) {
+	            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
 	                Task t = createTask(con, RTLusers[j], 'Second Year Annual Call', contactid, phone, AnnualCallRT);
 	                preTask.add(t);
 	                j++;
@@ -207,7 +207,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            List<String> phone = new List<String>();
 	            if(accountIdPhone.get(con.Account__c) != null)
 	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == null && phone[1] == null && phone[2] == null) {
+	            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
 	                Task t = createTask(con, RTLusers[j], 'Third Year Annual Call', contactid, phone, AnnualCallRT);
 	                preTask.add(t);
 	                j++;
@@ -235,7 +235,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            List<String> phone = new List<String>();
 	            if(accountIdPhone.get(con.Account__c) != null)
 	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == null && phone[1] == null && phone[2] == null) {
+	            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
 	                Task t = createTask(con, RTLusers[j], 'First End of Contract Call', contactid, phone, EOCCallRT);
 	                preTask.add(t);
 	                j++;
@@ -261,7 +261,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            List<String> phone = new List<String>();
 	            if(accountIdPhone.get(con.Account__c) != null)
 	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == null && phone[1] == null && phone[2] == null) {
+	            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
 	                Task t = createTask(con, RTLusers[j], 'Second End of Contract Call', contactid, phone, EOCCallRT);
 	                preTask.add(t);
 	                j++;
@@ -287,7 +287,7 @@ global class ScheduledSharingContractToCROs implements Schedulable{
 	            List<String> phone = new List<String>();
 	             if(accountIdPhone.get(con.Account__c) != null)
 	            phone = accountIdPhone.get(con.Account__c);
-	            if(phone[0] == null && phone[1] == null && phone[2] == null) {
+	            if(phone[0] == null && phone[1] == null && phone[2] == null && RTLusers != null && !RTLusers.isEmpty()) {
 	                Task t = createTask(con, RTLusers[j], 'Final End of Contract Call', contactid, phone, EOCCallRT);
 	                preTask.add(t);
 	                j++;
