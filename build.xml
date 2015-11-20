@@ -316,12 +316,16 @@
 			<sf:include name="AccountSharingDataHandler"/>
 			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
 			<sf:include name="VehicleSharingWrapService"/>
+			<sf:include name="VehicleExtension"/>
+			<sf:include name="VehicleExtensionTest"/>
+			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="ComplaintDescriptionViewAll"/>
+				<sf:include name="Create_Vehicle"/>
 		</sf:typeset>		
 		</deploy>					
     </target>
