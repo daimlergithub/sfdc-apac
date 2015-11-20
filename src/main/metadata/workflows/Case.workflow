@@ -21,34 +21,33 @@
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Case_Deadline_Notification</template>
     </alerts>
-   <!-- TODO : Commented due to ASIA-DEV CI sandbox deployment issue
-   <alerts>
+    <alerts>
         <fullName>Complaint_Update_Notification</fullName>
         <description>Complaint Update Notification</description>
         <protected>false</protected>
         <recipients>
             <recipient>After-sales team</recipient>
-            <type>CaseTeam</type>
+            <type>caseTeam</type>
         </recipients>
         <recipients>
             <recipient>CRM Manager</recipient>
-            <type>CaseTeam</type>
+            <type>caseTeam</type>
         </recipients>
         <recipients>
             <recipient>Dealer</recipient>
-            <type>CaseTeam</type>
+            <type>caseTeam</type>
         </recipients>
         <recipients>
             <recipient>PR</recipient>
-            <type>CaseTeam</type>
+            <type>caseTeam</type>
         </recipients>
         <recipients>
             <recipient>Technical</recipient>
-            <type>CaseTeam</type>
+            <type>caseTeam</type>
         </recipients>
         <senderType>CurrentUser</senderType>
         <template>unfiled$public/Complaint_update_notification</template>
-    </alerts>-->
+    </alerts>
     <alerts>
         <fullName>Email_to_Dealer_when_Retail_Campaign_Case_is_assigned</fullName>
         <description>Email to Dealer when Retail Campaign Case is assigned</description>
@@ -408,7 +407,6 @@
         <description>When a MB Complaint created by RO/CO,  Update Complaint Creator Department To RO/CO.</description>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-	<!-- TODO : Commented due to ASIA-DEV CI sandbox deployment issue
     <rules>
         <fullName>Complaint Update Notification</fullName>
         <actions>
@@ -420,7 +418,6 @@
         <formula>AND( OR( $Profile.Name == &apos;BMBS Regional CRM Manager&apos;, $Profile.Name == &apos;BMBS Service Technical Manager&apos;, $Profile.Name ==&apos;BMBS PL/WL Manager&apos;, CONTAINS($Profile.Name, &apos;Dealer&apos;)  ), AND(Urgent__c, OR(  ISCHANGED(OwnerId),   ISCHANGED(Follow_Up_Inquiry__c),  ISCHANGED(Complaint_Date__c),  ISCHANGED(Case_Involvement_MPC__c),  ISCHANGED(Case_Source__c),  ISCHANGED(ParentId),  ISCHANGED(AccountId),  ISCHANGED(Region__c),  ISCHANGED(Handling_Level__c),   ISCHANGED(Data_Source__c),  ISCHANGED(Case_Department__c),  ISCHANGED(Data_Subsource__c),  ISCHANGED(Case_Status__c),  ISCHANGED(Progress_Status__c),  ISCHANGED(Escalate_Date_to_RO__c),  ISCHANGED(Escalate_Date_to_CO__c),  ISCHANGED(Suspended_Date__c),  ISCHANGED(Suspended_Reason__c),  ISCHANGED(Overdue__c),  ISCHANGED(Overdue_Reason__c),  ISCHANGED(X1st_FP_Position_Release_Date__c),  ISCHANGED(X2nd_FP_Position_Release_Date__c),  ISCHANGED(SFPositionDate__c),  ISCHANGED(FFPositionDate__c),  ISCHANGED(Release_Date__c),  ISCHANGED(Resolved_Date__c),  ISCHANGED(Contact_Person__c),  ISCHANGED(Perferred_Contact_Number__c),  ISCHANGED(Contact_Person_Tele__c),  ISCHANGED(Perferred_Contact_Email__c),  ISCHANGED(Customer_Background_Info__c),  ISCHANGED(Government_Background__c),  ISCHANGED(Car_Owner__c),  ISCHANGED(Gender__c),  ISCHANGED(Occupation__c),  ISCHANGED(Title__c),  ISCHANGED(Owner_Tele__c),  ISCHANGED(Date_of_Birth__c),  ISCHANGED(Address__c),  ISCHANGED(Licence_Number__c),  ISCHANGED(Other_Brand__c),  ISCHANGED(Owned_MB_Vehicle__c),  ISCHANGED(Vehicle_In_Workshop__c),  ISCHANGED(Dealer_Provides_Transport__c),  ISCHANGED(Customer_Requests_Transport__c),  ISCHANGED(Selling_Dealer__c),  ISCHANGED(Order_No__c),  ISCHANGED(Last_Known_Sales_Person__c),  ISCHANGED(Date_of_Warranty_Expiry__c),  ISCHANGED(Last_Known_Mileage__c),  ISCHANGED(Date_of_1st_Registration__c),  ISCHANGED(US_VIN__c),  ISCHANGED(EU_VIN__c),  ISCHANGED(Defective_Item__c),  ISCHANGED(Defective_SubItem__c),  ISCHANGED(Car_Type__c),  ISCHANGED(Vehicle_Source__c),  ISCHANGED(Vehicle_Model__c),  ISCHANGED(Vehicle_Brand__c),  ISCHANGED(Engine_Number__c),  ISCHANGED(Vehicle_Class__c),  ISCHANGED(Special_Goodwill__c),  ISCHANGED(Goodwill_Category__c),  ISCHANGED(Goodwill_Details__c),  ISCHANGED(Goodwill_Cost__c),  ISCHANGED(Case_Dealer__c),  ISCHANGED(Dealer_Case_Category__c),  ISCHANGED(Dealer_Case_Type__c), ISCHANGED(Subject),   ISCHANGED( Ref_No_Central__c ),   ISCHANGED( Ref_No_Regional__c ),   ISCHANGED(  PR_Comment_Central_Internal__c ),   ISCHANGED( MPC_Internal_Notes__c ),   ISCHANGED(Dealer_Case_SubType__c)  )) )</formula>
         <triggerType>onAllChanges</triggerType>
     </rules>
-	-->
     <rules>
         <fullName>New Retail Campaign Case Notification for Dealer</fullName>
         <actions>
@@ -435,7 +432,6 @@
         </criteriaItems>
         <triggerType>onCreateOnly</triggerType>
     </rules>
-	<!-- TODO : Commented due to ASIA-DEV CI sandbox deployment issue
     <rules>
         <fullName>Notification to new User When add attachment</fullName>
         <actions>
@@ -454,7 +450,6 @@
         </criteriaItems>
         <triggerType>onAllChanges</triggerType>
     </rules>
-	-->
     <rules>
         <fullName>Send Email to Gate Keeper</fullName>
         <actions>
