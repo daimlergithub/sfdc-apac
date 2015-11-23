@@ -12,7 +12,7 @@
 
 */
 public class CPCalController {
-    private static String whereString='Where';
+    private static String whereString='Where ';
     private static String andString='AND';
     private static String blank='';
     private static String minusOne='-1';
