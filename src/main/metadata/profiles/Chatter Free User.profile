@@ -7772,11 +7772,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DM_Request__c.CAC_SourceId__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DM_Request__c.Campaign__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -9138,11 +9133,6 @@
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Dealer_Commission__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Dealer_LMS__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -17558,10 +17548,6 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>SelectFilesFromSalesforce</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>ViewGlobalHeader</name>
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>

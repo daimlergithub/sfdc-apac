@@ -97,6 +97,7 @@
 	<target name="deploy07">
 		<deploy runAllTests="${sfdc.runAllTests}">
 			<sf:typeset name="objects">
+				<sf:include name="User"/>
 				<sf:include name="Picklist_Mapping__c"/>
 				<sf:include name="Integration_Picklist__c"/>
 				<sf:include name="External_Picklist__c"/>
@@ -110,7 +111,11 @@
 			<sf:typeset name="objects">
 			    <sf:include name="Contact"/>
 				<sf:include name="PersonAccount"/>
-				<sf:include name="Account"/>			
+				<sf:include name="Account"/>
+				<sf:include name="Address__c"/>	
+				<sf:include name="Vehicle_Relationship__c"/>
+				<sf:include name="SSI__c"/>
+				<sf:include name="Vehicle__c"/>				
 			</sf:typeset>
 			<sf:typeset name="pages">
 			   <sf:include name="TerminateVehicleRelationship"/>
@@ -247,11 +252,7 @@
 			<sf:include name="TriggerHandlerIf"/>
 			<sf:include name="TriggerUtil"/>
 			<sf:include name="TriggerUtilTest"/>
-			<sf:include name="IllegalArgumentException"/>
-			<sf:include name="TriggerBatchJobTriggerHandler"/>
-			<sf:include name="ShareCampaignByCollabTriggerHandler"/>
-			<sf:include name="TriggerQCTriggerHandler"/>
-			<sf:include name="TriggerComplaintDescriptionTriggerHandler"/>			
+			<sf:include name="IllegalArgumentException"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerUtilTestTrigger"/>
@@ -277,7 +278,9 @@
 			<sf:include name="UtilCampaignTaskGenerationByCaseTest"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
-			<sf:include name="UtilTestData"/>			
+			<sf:include name="UtilTestData"/>
+			<sf:include name="TriggerQCTriggerHandler"/>
+			<sf:include name="TriggerBatchJobTriggerHandler"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
@@ -311,12 +314,16 @@
 			<sf:include name="AccountSharingDataHandler"/>
 			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
 			<sf:include name="VehicleSharingWrapService"/>
+			<sf:include name="VehicleExtension"/>
+			<sf:include name="VehicleExtensionTest"/>
+			<sf:include name="ComplaintDescriptionController"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerDMRequest"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="ComplaintDescriptionViewAll"/>
+				<sf:include name="Create_Vehicle"/>
 		</sf:typeset>		
 		</deploy>					
     </target>
@@ -374,7 +381,10 @@
 			<sf:include name="AccountLinkHelper"/>
 			<sf:include name="AccountLinkHelperTest"/>
 			<sf:include name="SharingWrapperService"/>
-			<sf:include name="AccountLinkSharingTest"/>			
+			<sf:include name="AccountLinkSharingTest"/>					
+			<sf:include name="ShareCampaignByCollabTriggerHandler"/>
+			<sf:include name="ShareCampaignByCollaborationTest"/>
+			<sf:include name="UtilCampaignShareByCollaboration"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ShareAccountLinksToDealer"/>
@@ -422,8 +432,7 @@
 			<sf:include name="TriggerCampaignCityTest"/>
 			<sf:include name="TriggerCampaignLeadTest"/>
 			<sf:include name="TriggerCampaignCityTriggerHandler"/>
-			<sf:include name="UtilCampaignCity"/>
-			<sf:include name="AddressDisplayInlineEditController"/>			
+			<sf:include name="UtilCampaignCity"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerCampaignCity"/>
@@ -504,7 +513,9 @@
 			<sf:include name="UtilLeadEmailEscalationTest"/>
 			<sf:include name="UtilDealerOffering"/>
 			<sf:include name="TriggerPackageItemTriggerHandler"/>
-			<sf:include name="TriggerPackageItem_TestClass"/>	
+			<sf:include name="TriggerPackageItem_TestClass"/>			
+			<sf:include name="AddressDisplayInlineEditController"/>
+			<sf:include name="AddressDisplayInlineEditControllerTest"/>
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerPackageItem"/>
@@ -548,6 +559,9 @@
 			<sf:include name="SSITriggerHandlerTest"/>
 			<sf:include name="SsiHelper"/>
 			<sf:include name="SSIVINMatchProcess"/>		
+		</sf:typeset>
+		<sf:typeset name="pages"> 
+				<sf:include name="SSINewComplaintEnd"/>
 		</sf:typeset>
 		</deploy>					
     </target>
@@ -635,6 +649,8 @@
 			<sf:include name="MonthlyMarketAmountReportControllerTest"/>
 			<sf:include name="MyProcess"/>
 			<sf:include name="MyProcessTest"/>
+			<sf:include name="BatchUpdateRecords"/>
+			<sf:include name="BatchUpdateRecordsTest"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="CaseEscalation"/>
@@ -642,10 +658,11 @@
 				<sf:include name="MonthlyMarketAmountReport"/>
 				<sf:include name="MonthlyMarketAmountReportPage"/>
 				<sf:include name="MassApproveToolKit"/>
+				<sf:include name="LeadConverting"/>
 		</sf:typeset>		
 		<sf:typeset name="approvalProcesses"/>
 		<sf:typeset name="email"/>
-		<sf:typeset name="workflows"/>		
+		<sf:typeset name="workflows"/>
 		</deploy>					
     </target>
 	
@@ -664,8 +681,6 @@
 			<sf:include name="ParticipatingDealerHelper"/>
 			<sf:include name="ParticipatingDealerHelperTest"/>	
 			<sf:include name="UtilProfile"/>
-			<sf:include name="UtilCase"/>
-			<sf:include name="UtilCaseShare"/>
 			<sf:include name="ShareDataToNewUserBatch"/>
 			<sf:include name="TriggerCampaignPackageTriggerHandler"/>
 			<sf:include name="TriggerPD_TestClass"/>
@@ -690,6 +705,8 @@
 			<sf:include name="AssignCaseToDealerControllerTest"/>
 			<sf:include name="CaseHelper"/>
 			<sf:include name="CaseHelperTest"/>
+			<sf:include name="UtilCase"/>
+			<sf:include name="UtilCaseShare"/>
 			<sf:include name="CaseTriggerHandler"/>
 			<sf:include name="RetailCampaignSegmentationController"/>
 			<sf:include name="RetailCampaignSegmentationControllerTest"/>
@@ -705,6 +722,9 @@
 			<sf:include name="SlickCtiObjectHelperTest"/>
 			<sf:include name="SlickCtiControllerTest"/>		
 			<sf:include name="ContactTableController"/>
+			<sf:include name="ChatterAnswersTest"/>
+			<sf:include name="TrialCustomerPortalHomePageTest"/>
+			<sf:include name="superSortTest"/>
 		</sf:typeset>	
 		<sf:typeset name="triggers">
 			<sf:include name="CaseTrigger"/>			
@@ -725,6 +745,12 @@
 			</sf:typeset>			
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
+			<sf:typeset name="classes">
+			<sf:include name="CACFieldsExtension"/>
+			<sf:include name="CACFieldsExtensionTest"/>
+			<sf:include name="CPCalController"/>
+			<sf:include name="CpCallControllerClass_Test"/>
+			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
 				<sf:include name="Tasks"/>

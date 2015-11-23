@@ -1,0 +1,193 @@
+<apex:page docType="html-5.0" showHeader="true" sidebar="false" standardStylesheets="true" standardController="Vehicle__c" extensions="VehicleExtension">
+    
+    <apex:includeScript value="{!$Resource.jQuery}" />
+    <apex:includeScript value="{!$Resource.Angular}"/>
+    <apex:includeScript value="{!$Resource.jQueryCSV}" />
+    <apex:includeScript value="{!$Resource.JSforce}" />
+    <script type="text/javascript">
+    
+    /*on click of save button sends brand, model, class values to action function*/
+    function saveDetail() 
+    { 
+        
+        var brandVal = document.getElementById("brandItems").value;
+        var classVal = document.getElementById("classItems").value;
+        var modelVal = document.getElementById("modelItems").value;              
+        echo(brandVal,classVal,modelVal);
+        
+        
+    }
+    /*on click of save and new  button sends brand, model, class values to action function*/
+    function saveAndNewDetail() 
+    { 
+        
+        var brandVal = document.getElementById("brandItems").value;
+        var classVal = document.getElementById("classItems").value;
+        var modelVal = document.getElementById("modelItems").value;              
+        echonew(brandVal,classVal,modelVal);
+        
+        
+    }
+    
+    
+    var app = angular.module('VehiclePickerApp', []);      
+    app.controller('VehiclePickerController', function ($scope) {
+        
+        /*TEMP : Declaration of the variables*/
+        
+        $scope.selectedBrand = "";
+        $scope.selectedClass = "";
+        $scope.selectedModel = "";         
+        $scope.vehicle_brand_classes = []; 
+        
+        /* Gets the maps from controller */
+        $scope.classModels_map = angular.fromJson({!classModelMapping});                  
+        $scope.brandsClasses = angular.fromJson({!VehicleBrandClassMapping});
+        
+        
+        
+        /*Create a Data holder for the Vehicle Brands and Classes*/
+        angular.forEach($scope.brandsClasses, function(value, index){
+            $scope.vehicle_brand_classes.push({
+                Classes: $scope.brandsClasses[index].brandClass,
+                id:$scope.brandsClasses[index].name.Id,
+                name:$scope.brandsClasses[index].name.name       
+            });
+        })  
+        
+        /*Set the initial Brand value for the vehicle which is already selected*/                  
+        $scope.setSelectedValue = function (brand){
+            
+            angular.forEach($scope.vehicle_brand_classes, function(value, index){               
+                $scope.relatedClasses = brand.Classes;
+                
+            });
+        };
+        
+        
+        /*Set the initial Model values for the vehicle which is already selected*/
+        $scope.setModelValue = function(class_selected){
+            $scope.selectedClass = class_selected.name;
+            var class_name = class_selected.name;
+            $scope.models = $scope.classModels_map[class_name];
+        }     
+        
+    }); 
+    
+    </script>  
+    
+    <apex:form id="form">  
+        <!--Displays error messages-->
+        <apex:pageMessages id="showmsg"></apex:pageMessages>
+        
+        <div id="ng-app" ng-app="VehiclePickerApp"  ng-controller="VehiclePickerController" style="padding-left:200px,position: relative">
+            
+            <!--PageBlock starts here-->
+            <apex:pageBlock title="Create Vehicle" mode="edit" id="block">
+                  
+                <!--PageBlockSection starts here-->
+                <apex:pageBlockSection title="Vehicle Information">  
+                    <!--ActionFunction to send to send the perameters to controller and to call controller method-->
+                    <apex:actionFunction name="echo" action="{!saveVal}" rerender="showmsg">
+                        <!--param to pass the perameters to the controller-->
+                        <apex:param name="firstParam" assignTo="{!enteredText1}" value="" />
+                        <apex:param name="secondParam" assignTo="{!enteredText2}" value="" />
+                        <apex:param name="thirdParam" assignTo="{!enteredText3}" value="" />                                                            
+                    </apex:actionFunction> 
+                    
+                    <apex:actionFunction name="echonew" action="{!saveValnew}" rerender="showmsg">
+                        <apex:param name="firstParam" assignTo="{!enteredText1}" value="" />
+                        <apex:param name="secondParam" assignTo="{!enteredText2}" value="" />
+                        <apex:param name="thirdParam" assignTo="{!enteredText3}" value="" />                        
+                    </apex:actionFunction>
+                    
+                    <apex:inputField value="{!vehicle.RecordTypeId}"/>   
+                    <apex:inputField value="{!vehicle.Competitor_Brand__c}"/>
+                    <apex:inputField value="{!vehicle.UsVIN__c}"/>
+                    <apex:inputField value="{!vehicle.Model_Description__c}"/>
+                    <apex:inputField value="{!vehicle.Related_contact__c}"/>
+                    <apex:inputField value="{!vehicle.Vehicle_Role__c}"/>
+                    <apex:inputField value="{!vehicle.Competitor_Model__c}"/>
+                    <apex:inputField value="{!vehicle.Range__c}"/>
+                    <apex:inputField value="{!vehicle.Modification_Package__c}"/>            
+                    <apex:inputField value="{!vehicle.Vehicle_Group__c}"/>
+                    <tr>
+                        <!--Custom brand picklist to get the values from carmodal object-->
+                        <td class="labelCol requiredInput"  >Brand</td>
+                        <td>
+                                <div class = "requiredInput"  >
+                                <div style=" background-color: #C00;position: absolute;left: 8px;width: 3px;top: 0.000%;bottom: 1px;height: 25px;"></div>      
+                                 <table>
+                                    <tr>
+                                        <td class="dataCol requiredInput" >
+                                        <select  id="brandItems"  ng-change="setSelectedValue(selectedBrand)" ng-model="selectedBrand" ng-options="brand.name for brand in vehicle_brand_classes track by brand.name " />
+                                        </td> 
+                                    </tr> 
+                                 </table>
+                                </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="labelCol vfLabelColTextWrap"   >Class</th>                  
+                        <td class="dataCol"><select id="classItems" ng-model="selectedClasses" ng-change="setModelValue(selectedClasses)" ng-options="class.name for class in relatedClasses track by class.name"/></td>                
+                    </tr>
+                    
+                    
+                    
+                    <tr>
+                        <th class="labelCol vfLabelColTextWrap" >Model</th>
+                        <td class="dataCol"><select id="modelItems" style="width:150px" ng-change="getSelectedModel(selectedModel)" ng-model="selectedModel" ng-options="model for model in models track by model"/></td>                             
+                    </tr>                             
+                    
+                </apex:pageBlockSection> 
+                
+                <apex:pageBlockSection title="Vehicle Detail" >  
+                    <apex:inputField value="{!vehicle.OptionCode__c}"/> 
+                    <apex:inputField value="{!vehicle.Colour__c}"/>
+                    <apex:inputField value="{!vehicle.EngineNumber__c}"/>
+                    <apex:inputField value="{!vehicle.Trim__c}"/>
+                    <apex:inputField value="{!vehicle.CurrentMileage__c}"/>
+                    <apex:inputField value="{!vehicle.BaumusterEx__c}"/>
+                    <apex:inputField value="{!vehicle.CylinderCapacity__c}"/>
+                    <apex:inputField value="{!vehicle.Fuel__c}"/>
+                    <apex:inputField value="{!vehicle.Height__c}"/>
+                    <apex:inputField value="{!vehicle.Length__c}"/>
+                    <apex:inputField value="{!vehicle.Width__c}"/>
+                    <apex:inputField value="{!vehicle.Weight__c}"/>
+                    <apex:inputField value="{!vehicle.Katashiki__c}"/>
+                    <apex:inputField value="{!vehicle.ModelYear__c}"/>                    
+                    <apex:inputField value="{!vehicle.National_Model__c}"/>
+                    <apex:inputField value="{!vehicle.Ruibetsu__c}"/>
+                    <apex:inputField value="{!vehicle.Vehicle_Age__c}"/>
+                </apex:pageBlockSection>  
+                
+                <apex:pageBlockSection title="Date Information">
+                    <apex:inputField value="{!vehicle.InsuranceExpiryDate__c}"/>  
+                    <apex:inputField value="{!vehicle.FirstRegistrationDate__c}"/>
+                    <apex:inputField value="{!vehicle.ProductionDate__c}"/>
+                    <apex:inputField value="{!vehicle.NextServiceDate__c}"/>
+                    <apex:inputField value="{!vehicle.NextInspectionDate__c}"/>
+                    <apex:inputField value="{!vehicle.Related_From__c}"/>
+                    <apex:inputField value="{!vehicle.Related_To__c}"/> 
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="Other Information">
+                    <apex:inputField value="{!vehicle.Transmission__c}"/>
+                    <apex:inputField value="{!vehicle.CommissionNumber__c}"/>
+                    <apex:inputField value="{!vehicle.Portal_Vehicle_ID__c}"/>
+                    <apex:inputField value="{!vehicle.RegistrationNo__c}"/>
+                    <apex:inputField value="{!vehicle.System_Data_Source__c}"/>
+                    <apex:inputField value="{!vehicle.VehicleStatus__c}"/>
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockButtons >
+                    <!--Save button to save the record-->
+                    <apex:commandButton value="Save" onclick="saveDetail();return false;"/>
+                    <apex:commandButton value="Save & New"  onclick="saveAndNewDetail();return false;" />
+                    <apex:commandButton action="{!Cancel}" value="Cancel"/>                    
+                </apex:pageBlockButtons>
+            </apex:pageBlock>
+            
+        </div>
+    </apex:form>
+</apex:page>

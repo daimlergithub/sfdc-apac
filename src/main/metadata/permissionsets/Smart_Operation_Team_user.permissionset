@@ -4577,7 +4577,7 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>Campaign.Publish_Date_del__c</field>
+        <field>Campaign.Publish_Date__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7657,11 +7657,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
-        <field>DM_Request__c.CAC_SourceId__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
         <field>DM_Request__c.Campaign__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -9023,11 +9018,6 @@ Smart Account Owner, Dealer Smart-Sub Region</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Lead__c.Dealer_Commission__c</field>
-        <readable>false</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>false</editable>
-        <field>Lead__c.Dealer_LMS__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>

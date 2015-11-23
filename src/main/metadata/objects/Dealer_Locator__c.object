@@ -940,7 +940,7 @@
         <fullName>Suburb__c</fullName>
         <externalId>false</externalId>
         <label>Suburb</label>
-        <length>30</length>
+        <length>100</length>
         <required>false</required>
         <trackTrending>false</trackTrending>
         <type>Text</type>

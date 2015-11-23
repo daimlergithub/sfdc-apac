@@ -19204,6 +19204,18 @@ else {
 }</url>
     </webLinks>
     <webLinks>
+        <fullName>Create_Vehicle</fullName>
+        <availability>online</availability>
+        <description>Create new vehicle record</description>
+        <displayType>button</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Create Vehicle</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <url>https://c.cs5.visual.force.com/apex/Create_Vehicle</url>
+    </webLinks>
+    <webLinks>
         <fullName>DM</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
