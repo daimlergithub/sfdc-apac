@@ -732,7 +732,7 @@
 		<sf:typeset name="pages"> 
 				<sf:include name="AssignCaseToDealer"/>
 				<sf:include name="RetailCampaignSegmentation"/>
-				<sf:include name="ContactTable"/>
+				<sf:include name="ContactTable"/>				
 		</sf:typeset>		
 		</deploy>				
     </target>	
@@ -742,6 +742,7 @@
 			<sf:typeset name="applications"/>
 			<sf:typeset name="pages"> 
 				<sf:exclude name="TrialCustomerPortalHomePage"/>
+				<sf:include name="GeneratePDF"/>
 			</sf:typeset>			
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
@@ -750,6 +751,7 @@
 			<sf:include name="CACFieldsExtensionTest"/>
 			<sf:include name="CPCalController"/>
 			<sf:include name="CpCallControllerClass_Test"/>
+			<sf:include name="GenerateAndAttachPDF"/>			
 			</sf:typeset>
 			<sf:typeset name="tabs">
 				<sf:include name="EPA_.*"/>
