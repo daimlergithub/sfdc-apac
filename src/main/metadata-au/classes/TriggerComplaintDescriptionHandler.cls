@@ -3,7 +3,7 @@
     Purpose:    1. When a complaint description created, update date time with current time, update created by with current user.
                 2. Update the Description flag on Case when the Description is changed.
                 3. As the case team member, when a  team member  create  a complaint description/ resolution
-                   on MB Complaint , and the �Urgent� field of the case is ticked, an notify email will be
+                   on MB Complaint , and the Urgent field of the case is ticked, an notify email will be
                    sent to other case team members.
     User Story: US-DPCR-004
     Used By:    
