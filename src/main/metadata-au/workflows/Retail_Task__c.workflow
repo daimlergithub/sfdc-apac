@@ -165,7 +165,7 @@ Used By:
     <rules>
         <fullName>Final End of Contract Call Check</fullName>
         <active>true</active>
-        <formula>AND( AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;))) , EndDate__c &gt;= Today())</formula>
+        <formula>AND( AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;))) , EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -184,7 +184,7 @@ Used By:
     <rules>
         <fullName>First End of Contract Call Check</fullName>
         <active>true</active>
-        <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;))) , EndDate__c &gt;= Today())</formula>
+        <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;))) , EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -203,7 +203,7 @@ Used By:
     <rules>
         <fullName>First Year Annual Call Check</fullName>
         <active>true</active>
-        <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;)),  livetime__c &gt;= 36) , EndDate__c &gt;= Today())</formula>
+        <formula>AND( AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;)),  livetime__c &gt;= 36) , EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -222,7 +222,7 @@ Used By:
     <rules>
         <fullName>Second End of Contract Call Check</fullName>
         <active>true</active>
-        <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;))) , EndDate__c &gt;= Today())</formula>
+        <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;))) , EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -241,7 +241,7 @@ Used By:
     <rules>
         <fullName>Second Year Annual Call Check</fullName>
         <active>true</active>
-        <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;)),   livetime__c &gt;= 48) , EndDate__c &gt;= Today())</formula>
+        <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;)),   livetime__c &gt;= 48) , EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -260,7 +260,7 @@ Used By:
     <rules>
         <fullName>Third Year Annual Call Check</fullName>
         <active>true</active>
-        <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;)),   livetime__c &gt;= 60) , EndDate__c &gt;= Today())</formula>
+        <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;)),   livetime__c &gt;= 60) , EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
@@ -279,7 +279,7 @@ Used By:
     <rules>
         <fullName>Welcome Call Check</fullName>
         <active>true</active>
-        <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;))), EndDate__c &gt;= Today())</formula>
+        <formula>AND(AND( GFV__c = true, OR(ISPICKVAL( Status__c , &apos;Current&apos;),  ISPICKVAL( Status__c , &apos;Default-Collection Officer&apos;), ISPICKVAL( Status__c , &apos;Default-External Agent&apos;), ISPICKVAL( Status__c , &apos;Overdue&apos;))), EndDate__c &gt;= Today(), NOT(ISPICKVAL(Finance_Product_Type__c , &apos;Operating Lease&apos;) ))</formula>
         <triggerType>onCreateOrTriggeringUpdate</triggerType>
         <workflowTimeTriggers>
             <actions>
