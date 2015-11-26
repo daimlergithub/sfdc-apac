@@ -900,6 +900,13 @@
         <shortDescription>Dealer Has SR Code 1</shortDescription>
         <value>There&apos;s already a dealer with the same SR Code 1 whose dealer default Flag is checked.</value>
     </labels>
+	<labels>
+        <fullName>Delete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
     <labels>
         <fullName>Delete_Campaign_Failed</fullName>
         <categories>Campaign</categories>
@@ -929,6 +936,13 @@
         <protected>false</protected>
         <shortDescription>Downloadedfile</shortDescription>
         <value>Downloaded file:</value>
+    </labels>
+	<labels>
+        <fullName>Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
     </labels>
     <labels>
         <fullName>End_Time_Greater_Start_Time</fullName>
