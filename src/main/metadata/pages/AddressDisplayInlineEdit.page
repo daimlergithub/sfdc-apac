@@ -29,68 +29,68 @@
                                                         
                      </apex:column>
                      
-                    <apex:column headerValue="Address Type">
+                    <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Type__c.Label}">
                           <!--out put field to display address Type  --> 
                           <apex:outputField value="{!row.Address_Type__c}" style="width:10%;">
                           </apex:outputField>
                      </apex:column>
                      
-                     <apex:column headerValue="Post Code">
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.ZipCode__c.Label}">
                           <apex:outputField value="{!row.ZipCode__c}"  style="width:10%;">                              
                           </apex:outputField>
                      </apex:column> 
                      
-                     <apex:column headerValue="Prefecture" >
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Province__c.Label}" >
                           <apex:outputField value="{!row.Province__c}" style="width:10%;">
                           </apex:outputField>
                      </apex:column>
                      
-                     <apex:column headerValue="City">
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.City__c.Label}">
                           <apex:outputField value="{!row.City__c}" style="width:10%;">
                           </apex:outputField>
                      </apex:column> 
                      
-                     <apex:column headerValue="Town" >
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.District__c.Label}" >
                           <apex:outputField value="{!row.District__c}" style="width:10%;">
                           </apex:outputField>
                      </apex:column>
                      
-                     <apex:column headerValue="Block" >
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Block__c.Label}" >
                           <apex:outputField value="{!row.Block__c}" style="width:10%;">
                           </apex:outputField>
                      </apex:column>
                      
-                     <apex:column headerValue="Address Line 1" >
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_1__c.Label}" >
                           <apex:outputField value="{!row.Address_Line_1__c}" style="width:10%; white-space:none;">
                           </apex:outputField>
                      </apex:column>
                      
-                     <apex:column headerValue="Address Line 2" >
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Address_Line_2__c.Label}" >
                           <apex:outputField value="{!row.Address_Line_2__c}" style="width:10%; white-space:none;">
                           </apex:outputField>
                      </apex:column>
                      
-                     <apex:column headerValue="Company Name">
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name__c.Label}">
                           <apex:outputField value="{!row.Company_Name__c}" style="width:10%;">
                           </apex:outputField>
                      </apex:column>
                      
-                     <apex:column headerValue="Company Name Kana">
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Company_Name_Native__c.Label}">
                           <apex:outputField value="{!row.Company_Name_Native__c}" style="width:10%;">
                           </apex:outputField>
                      </apex:column>
                      
-                     <apex:column headerValue="Title of Honor">
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.TitleOfHonor__c.Label}">
                           <apex:outputField value="{!row.TitleOfHonor__c}" style="width:10%;">
                           </apex:outputField>
                      </apex:column>
                      
-                     <apex:column headerValue="Preferred">
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Preferred__c.Label}">
                           <apex:outputField value="{!row.Preferred__c}" style="width:2%;">
                           </apex:outputField>
                      </apex:column>
                      
-                     <apex:column headerValue="Status">
+                     <apex:column headerValue="{!$ObjectType.Address__c.fields.Status__c.Label}">
                           <apex:outputField value="{!row.Status__c}" style="width:4%;">
                           </apex:outputField>
                      </apex:column>
