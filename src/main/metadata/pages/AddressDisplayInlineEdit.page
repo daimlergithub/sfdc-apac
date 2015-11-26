@@ -16,18 +16,16 @@
                      <apex:column width="8%">
                      
                         <!--Link to  edit a address record -->
-                         <apex:commandLink action="{!EditOptions}"  style="color:blue">Edit
+                         <apex:commandLink action="{!EditOptions}" value="{!$Label.Edit}" style="color:blue">
                             <!--pass row id parameter to controller  -->
                             <apex:param name="edit" value="{!row.Id}" assignTo="{!editaddressId}"/>
                          </apex:commandLink> &nbsp;|&nbsp;
                      
                          <!--Link to  delete a address record -->
-                         <apex:commandLink action="{!delAccountAddress}" onclick="return confirm('{!$Label.Confirmation_for_delete_address}')"  style="color:blue">Delete
+                         <apex:commandLink action="{!delAccountAddress}" onclick="return confirm('{!$Label.Confirmation_for_delete_address}')" value="{!$Label.Delete}" style="color:blue">
                             <!--pass row id parameter to controller  -->
                             <apex:param name="delete" value="{!row.Id}" assignTo="{!addressId}"/>
-                            </apex:commandLink>
-                            
-                               
+                            </apex:commandLink>                                                           
                                                         
                      </apex:column>
                      
@@ -128,8 +126,8 @@
                     <apex:inputField value="{!addressobj.Preferred__c}"/>
                 </apex:pageBlockSection>
                 <!--buttons to save and cancel-->
-                <apex:commandbutton value="Save" action="{!SaveAddress}"  oncomplete="refreshParentPage()"/>
-                <apex:commandButton onclick="resetInlineEdit()" action="{!cancelEdit}" id="cancelButton" value="Cancel"/>
+                <apex:commandbutton value="{!$Label.Save_Button}" action="{!SaveAddress}"  oncomplete="refreshParentPage()"/>
+                <apex:commandButton onclick="resetInlineEdit()" action="{!cancelEdit}" id="cancelButton" value="{!$Label.Cancel_Button}"/>
             </apex:pageBlock>
 
         </apex:outputPanel>
