@@ -3797,6 +3797,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Account_Link__c.Origin__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Account_Link__c.Portal_Email__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -4163,6 +4168,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Audit_Trail__c.Date_of_Change__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Audit_Trail__c.MD__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7282,6 +7292,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Contact.MD__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Contact.MailingAddress</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7761,13 +7776,18 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Address__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Attention__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>DM_Request__c.CAC_SourceId__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -7796,7 +7816,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.City__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7891,7 +7911,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Province__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7946,7 +7966,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
-        <editable>false</editable>
+        <editable>true</editable>
         <field>DM_Request__c.Zip_Code__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -9133,6 +9153,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Dealer_Commission__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Lead__c.Dealer_LMS__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11603,6 +11628,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Recall__c.Recall_Type__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Recall__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15577,6 +15607,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Vehicle__c.Category_Code__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Vehicle__c.Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15687,11 +15722,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Vehicle__c.Katashiki__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Vehicle__c.LastServiceDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15797,6 +15827,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Vehicle__c.Product_Model__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Vehicle__c.ProductionDate__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15858,11 +15893,6 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Vehicle__c.RidingCapacity__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
-        <field>Vehicle__c.Ruibetsu__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -15996,6 +16026,10 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
+        <recordType>Account_Link__c.Company_Customer_External_Link</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Link__c-Account Link Layout</layout>
         <recordType>Account_Link__c.Contact2Contact</recordType>
     </layoutAssignments>
     <layoutAssignments>
@@ -16004,7 +16038,11 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Account_Link__c-Account Link Layout</layout>
-        <recordType>Account_Link__c.ExternalLink</recordType>
+        <recordType>Account_Link__c.Individual_Customer_External_Link</recordType>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Account_Link__c-Account Link Layout</layout>
+        <recordType>Account_Link__c.Vehicle_External_Link</recordType>
     </layoutAssignments>
     <layoutAssignments>
         <layout>Address__c-Address Layout</layout>
@@ -17719,6 +17757,11 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>false</default>
+        <recordType>Account_Link__c.Company_Customer_External_Link</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
         <recordType>Account_Link__c.Contact2Contact</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
@@ -17729,7 +17772,12 @@
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <default>true</default>
-        <recordType>Account_Link__c.ExternalLink</recordType>
+        <recordType>Account_Link__c.Individual_Customer_External_Link</recordType>
+        <visible>true</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <default>false</default>
+        <recordType>Account_Link__c.Vehicle_External_Link</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>

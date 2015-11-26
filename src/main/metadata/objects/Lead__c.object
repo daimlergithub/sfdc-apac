@@ -3381,7 +3381,7 @@ Contact__r.Email__c
     <fields>
         <fullName>FirstName_Native_1__c</fullName>
         <externalId>false</externalId>
-        <label>First Name Kana</label>
+        <label>First Name Native</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -6652,7 +6652,7 @@ Modify Reason:
     <fields>
         <fullName>LastName_Native_1__c</fullName>
         <externalId>false</externalId>
-        <label>Last Name Kana</label>
+        <label>Last Name Native</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -9291,7 +9291,7 @@ Modify Reason:
     <fields>
         <fullName>Portal_Request_ID__c</fullName>
         <externalId>false</externalId>
-        <label>MyM/DSC Request ID</label>
+        <label>Portal Request ID</label>
         <length>80</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -9316,11 +9316,50 @@ Modify Reason:
         <fullName>Preferred_Contact_Date__c</fullName>
         <externalId>false</externalId>
         <label>Desired Contact Date</label>
-        <required>false</required>
+        <picklist>
+            <picklistValues>
+                <fullName>Weekday</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Weekend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Monday</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tuesday</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wednesday</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Thursday</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Friday</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saturday</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sunday</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Date</type>
+        <type>MultiselectPicklist</type>
+        <visibleLines>4</visibleLines>
     </fields>
     <fields>
         <fullName>Preferred_Contact_Method__c</fullName>
@@ -24153,6 +24192,45 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Preferred_Contact_Date__c</picklist>
+            <values>
+                <fullName>Friday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saturday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sunday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thursday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tuesday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wednesday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekend</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preferred_Contact_Method__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -36677,6 +36755,45 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Preferred_Contact_Date__c</picklist>
+            <values>
+                <fullName>Friday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saturday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sunday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thursday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tuesday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wednesday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekend</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preferred_Contact_Method__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -48285,6 +48402,45 @@ Company_Account__r.Work_Phone__c  ,
             </values>
         </picklistValues>
         <picklistValues>
+            <picklist>Preferred_Contact_Date__c</picklist>
+            <values>
+                <fullName>Friday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saturday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sunday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thursday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tuesday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wednesday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekend</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
             <picklist>Preferred_Contact_Method__c</picklist>
             <values>
                 <fullName>Email</fullName>
@@ -59109,6 +59265,45 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Structured</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Preferred_Contact_Date__c</picklist>
+            <values>
+                <fullName>Friday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Monday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saturday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sunday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Thursday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tuesday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wednesday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekday</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Weekend</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

@@ -560,7 +560,7 @@ Attribute in Data Dictionary object Contact is "Contact_AgeRange"</description>
     <fields>
         <fullName>Allow_Data_Sharing2__c</fullName>
         <externalId>false</externalId>
-        <label>Allow Data Sharing (MBJ -&gt; Dealer)</label>
+        <label>Allow Data Sharing</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -760,7 +760,7 @@ LEN( Phone ) &lt;&gt; 0
     <fields>
         <fullName>Branch_name_Native__c</fullName>
         <externalId>false</externalId>
-        <label>Outlet Name Kana</label>
+        <label>Branch Name Native</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -1286,7 +1286,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
     <fields>
         <fullName>Company_Name_Native_1__c</fullName>
         <externalId>false</externalId>
-        <label>Company Name Kana</label>
+        <label>Company Name Native</label>
         <length>80</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -3795,7 +3795,7 @@ Modify Reason:
     <fields>
         <fullName>Dealer_Legal_NativeCode__c</fullName>
         <externalId>false</externalId>
-        <label>Company Code (DAW)</label>
+        <label>Dealer Native Legal Code</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -4064,7 +4064,7 @@ Rich text field with : Name (Chinese + English), Phone and Email</description>
     <fields>
         <fullName>Dealer_Province__c</fullName>
         <externalId>false</externalId>
-        <label>Prefecture (DAW)</label>
+        <label>Dealer Province</label>
         <length>255</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -5438,7 +5438,7 @@ Attribute in Data Dictionary object Contact is "Contact_FaxValidity"</descriptio
     <fields>
         <fullName>FirstName_Native_1__c</fullName>
         <externalId>false</externalId>
-        <label>First Name Kana</label>
+        <label>First Name Native</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -7125,7 +7125,7 @@ Attribute in Data Dictionary object Contact is "Contact_JobTitle"</description>
     <fields>
         <fullName>LastName_Native_1__c</fullName>
         <externalId>false</externalId>
-        <label>Last Name Kana</label>
+        <label>Last Name Native</label>
         <length>40</length>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
@@ -7829,7 +7829,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
     <fields>
         <fullName>Opt_In_Contact_Reason__c</fullName>
         <externalId>false</externalId>
-        <label>Acceptable Actirivies</label>
+        <label>Acceptable Activities</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -7928,7 +7928,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
     <fields>
         <fullName>Opt_Out_Portal__c</fullName>
         <externalId>false</externalId>
-        <label>Opt Out My Mercedes</label>
+        <label>Portal Opt Out</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -8449,7 +8449,7 @@ Modify Reason:
     <fields>
         <fullName>Portal_Email__c</fullName>
         <externalId>false</externalId>
-        <label>My Mercedes Mail Address</label>
+        <label>Portal Mail Address</label>
         <picklist>
             <picklistValues>
                 <fullName>None</fullName>
@@ -10479,7 +10479,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
         <fullName>VIP__c</fullName>
         <defaultValue>false</defaultValue>
         <externalId>false</externalId>
-        <label>VIP Indicator Dealer</label>
+        <label>VIP Indicator</label>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
         <type>Checkbox</type>

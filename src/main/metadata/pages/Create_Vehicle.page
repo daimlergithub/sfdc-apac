@@ -154,10 +154,10 @@
                     <apex:inputField value="{!vehicle.Length__c}"/>
                     <apex:inputField value="{!vehicle.Width__c}"/>
                     <apex:inputField value="{!vehicle.Weight__c}"/>
-                    <apex:inputField value="{!vehicle.Katashiki__c}"/>
+                    <!--<apex:inputField value="{!vehicle.Katashiki__c}"/>-->
                     <apex:inputField value="{!vehicle.ModelYear__c}"/>                    
                     <apex:inputField value="{!vehicle.National_Model__c}"/>
-                    <apex:inputField value="{!vehicle.Ruibetsu__c}"/>
+                    <!--<apex:inputField value="{!vehicle.Ruibetsu__c}"/>-->
                     <apex:inputField value="{!vehicle.Vehicle_Age__c}"/>
                 </apex:pageBlockSection>  
                 
