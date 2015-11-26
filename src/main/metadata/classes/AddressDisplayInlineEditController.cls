@@ -55,8 +55,8 @@ public class AddressDisplayInlineEditController {
        system.debug('@Changed Address Records :' +adds);
            try{
             update adds;
-           }catch (Exception e) {
-            ApexPages.addMessages(e);
+           }catch (DmlException e) {
+             ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));
            }
    }
    
@@ -82,10 +82,9 @@ public class AddressDisplayInlineEditController {
     **/  
    
    public void delAccountAddress(){
-            system.debug('@Entered Delete method...');
+       
             system.debug('@addressId :' +addressId);
-            
-        
+                    
         // if for any reason we are missing the reference 
           if (addressId == null) {
              return;
@@ -105,10 +104,9 @@ public class AddressDisplayInlineEditController {
              system.debug('@Delete DML' +tobeDeleted.id);
              try{
                 Delete tobeDeleted;
-             }catch (Exception e) {
-                 ApexPages.addMessages(e);
+             }catch (DmlException e) {
+                 ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));
              }
-             system.debug('@Delete Address...');
           }
           //refresh the data
           loadData();
@@ -187,31 +185,27 @@ public class AddressDisplayInlineEditController {
             if (editaddressId ==null)
             {
                 addressobj.Customer__c = acc.id;
+            
+            try {
+           			insert addressobj;                    
+        		}
+        	catch (DmlException e) 
+        		{
+            		 ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));
+            	}
             }
-        try{
-           insert addressobj;
-                    
-        }catch (Exception e) {
-            ApexPages.addMessages(e);
-           }                        
-        }
-        
-                  
-        if(addressobj != null ){ 
-        
-            Account acc=[select id,name from Account where id=:ApexPages.currentPage().getParameters().get('id')];
-            system.debug('ACCid>>>>>'+acc); 
-            if (editaddressId !=null)
+           else if(editaddressId !=null)
             {
             addressobj.id = editaddressId;
-            }
-        try{
-           update addressobj;  
-        }catch (Exception e) {
-            ApexPages.addMessages(e);
-           }
-           
-        }
-                               
+            
+            try {
+           			update addressobj;  
+        		}
+            catch (DmlException e) 
+            	{
+            		 ApexPages.addMessage(new ApexPages.message(ApexPages.severity.Error,e.getDMLMessage(0)));
+           		}
+        	}    
+        }               
    } 
 }

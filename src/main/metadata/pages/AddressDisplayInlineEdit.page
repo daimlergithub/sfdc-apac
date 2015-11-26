@@ -1,7 +1,7 @@
 <apex:page standardController="Account" extensions="AddressDisplayInlineEditController">
 
     <!--form starts here-->
-    <apex:form id="form" >
+    <apex:form id="addfrm" >
         
         <!--OutPutPanel starts here-->
         <apex:outputPanel layout="block" style="overflow:auto;">
@@ -22,7 +22,7 @@
                          </apex:commandLink> &nbsp;|&nbsp;
                      
                          <!--Link to  delete a address record -->
-                         <apex:commandLink action="{!delAccountAddress}" onclick="return confirm('Are you sure you want to delete this Address?')"  style="color:blue">Delete
+                         <apex:commandLink action="{!delAccountAddress}" onclick="return confirm('{!$Label.Confirmation_for_delete_address}')"  style="color:blue">Delete
                             <!--pass row id parameter to controller  -->
                             <apex:param name="delete" value="{!row.Id}" assignTo="{!addressId}"/>
                             </apex:commandLink>
@@ -99,9 +99,9 @@
                  </apex:pageBlockTable>
                  
               <!--buttons to add, save edit  and edit cancel-->
-              <apex:commandButton id="addbutton" value="Add" action="{!addEditOptions}" />
-              <apex:commandButton id="saveButton" value="Save" action="{!saveEditedRecords}" style="display:none" />
-              <apex:commandButton id="editModeCancel" value="Cancel" reRender="pageBlock" style="display:none" immediate="true"/>
+              <apex:commandButton id="addbutton" value="{!$Label.Add_Button}" action="{!addEditOptions}" />
+              <apex:commandButton id="saveButton" value="{!$Label.Save_Button}" action="{!saveEditedRecords}" style="display:none" />
+              <apex:commandButton id="editModeCancel" value="{!$Label.Cancel_Button}" reRender="pageBlock" style="display:none" immediate="true"/>
               
               <script  type="text/javascript">
                 function refreshParentPage(){                   
