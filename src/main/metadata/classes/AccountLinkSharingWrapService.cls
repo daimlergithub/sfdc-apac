@@ -38,7 +38,7 @@ public class AccountLinkSharingWrapService{
                     contact2contacts.add(accountLink);
                 } else if(accountLinkTypes.get(accountLink.RecordTypeId).DeveloperName.equalsIgnoreCase('contactsector')) {
                     contactsectors.add(accountLink);
-                } else if(accountLinkTypes.get(accountLink.RecordTypeId).DeveloperName.equalsIgnoreCase('externallink')) {
+                } else if(accountLinkTypes.get(accountLink.RecordTypeId).DeveloperName.equalsIgnoreCase('Individual Customer External Link')) {
                     externallinks.add(accountLink);
                 }
             }

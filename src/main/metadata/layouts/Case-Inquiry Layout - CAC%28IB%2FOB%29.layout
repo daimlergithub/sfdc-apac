@@ -5,6 +5,7 @@
     <customButtons>SMS</customButtons>
     <customButtons>Car_Model_Comparison</customButtons>
     <customButtons>New_Lead</customButtons>
+    <customButtons>Generate_Pdf</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>

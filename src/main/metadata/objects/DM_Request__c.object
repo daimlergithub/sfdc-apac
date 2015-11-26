@@ -108,10 +108,9 @@
     </fields>
     <fields>
         <fullName>Address__c</fullName>
-        <description>Display requirement Changed to primary address by Fulfilment User(fu, Jiaming)</description>
         <externalId>false</externalId>
-        <formula>Customer_Name__r.Primary_Address__c</formula>
         <label>Address</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -121,8 +120,8 @@
     <fields>
         <fullName>Attention__c</fullName>
         <externalId>false</externalId>
-        <formula>Sending_Address__r.Company_Name__c</formula>
         <label>Attention</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -220,8 +219,8 @@ Modify Reason:
     <fields>
         <fullName>City__c</fullName>
         <externalId>false</externalId>
-        <formula>Customer_Name__r.City__c</formula>
         <label>City</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -456,8 +455,8 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <fields>
         <fullName>Province__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Customer_Name__r.Province__c)</formula>
         <label>Province</label>
+        <length>255</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
@@ -477,25 +476,38 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     </fields>
     <fields>
         <fullName>Sending_Address__c</fullName>
-        <deleteConstraint>SetNull</deleteConstraint>
         <externalId>false</externalId>
         <label>Sending Address</label>
-        <lookupFilter>
-            <active>true</active>
-            <filterItems>
-                <field>$Source.Customer_Name__c</field>
-                <operation>equals</operation>
-                <valueField>Address__c.Customer__c</valueField>
-            </filterItems>
-            <isOptional>false</isOptional>
-        </lookupFilter>
-        <referenceTo>Address__c</referenceTo>
-        <relationshipLabel>DM Request</relationshipLabel>
-        <relationshipName>DM_Request</relationshipName>
-        <required>false</required>
+        <picklist>
+            <picklistValues>
+                <fullName>Home</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Address 1</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Address 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other Address 3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Temporary</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Lookup</type>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>SentName__c</fullName>
@@ -631,19 +643,27 @@ Modify Reason:
     <fields>
         <fullName>TitleOfHonor__c</fullName>
         <externalId>false</externalId>
-        <formula>Text(Sending_Address__r.TitleOfHonor__c)</formula>
         <label>Title</label>
-        <required>false</required>
+        <picklist>
+            <picklistValues>
+                <fullName>To Person</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>To Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <sorted>false</sorted>
+        </picklist>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
-        <type>Text</type>
-        <unique>false</unique>
+        <type>Picklist</type>
     </fields>
     <fields>
         <fullName>Zip_Code__c</fullName>
         <externalId>false</externalId>
-        <formula>Customer_Name__r.ZipCode__c</formula>
         <label>Zip Code</label>
+        <length>8</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
         <trackTrending>false</trackTrending>
