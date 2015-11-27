@@ -7,7 +7,7 @@
 public with sharing class GenerateAndAttachPDF {
    public Case cas{get;set;}
    public String attachmentName;
-   
+  
    public GenerateAndAttachPDF(ApexPages.StandardController controller) {
       this.cas=(Case)controller.getRecord(); 
     }

@@ -22,6 +22,13 @@
         <shortDescription>QC_Accuracy</shortDescription>
         <value>Accuracy of documentation</value>
     </labels>
+	<labels>
+        <fullName>Add_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Add Button</shortDescription>
+        <value>Add</value>
+    </labels>
     <labels>
         <fullName>Add_to_Campaign</fullName>
         <language>en_US</language>
@@ -769,6 +776,13 @@
         <shortDescription>Campaing Planning Page Title</shortDescription>
         <value>Campaign</value>
     </labels>
+	<labels>
+        <fullName>Cancel_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Cancel Button</shortDescription>
+        <value>Cancel</value>
+    </labels>
     <labels>
         <fullName>Cannot_Delete_Central_Campaign</fullName>
         <categories>Campaign</categories>
@@ -828,6 +842,13 @@
         <shortDescription>Completenes</shortDescription>
         <value>To provide accurate and complete information/solution</value>
     </labels>
+	<labels>
+        <fullName>Confirmation_for_delete_address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Confirmation for delete address</shortDescription>
+        <value>Are you sure you want to delete this Address?</value>
+    </labels>
     <labels>
         <fullName>Contact_Admin</fullName>
         <language>en_US</language>
@@ -879,6 +900,13 @@
         <shortDescription>Dealer Has SR Code 1</shortDescription>
         <value>There&apos;s already a dealer with the same SR Code 1 whose dealer default Flag is checked.</value>
     </labels>
+	<labels>
+        <fullName>Delete</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
     <labels>
         <fullName>Delete_Campaign_Failed</fullName>
         <categories>Campaign</categories>
@@ -908,6 +936,13 @@
         <protected>false</protected>
         <shortDescription>Downloadedfile</shortDescription>
         <value>Downloaded file:</value>
+    </labels>
+	<labels>
+        <fullName>Edit</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
     </labels>
     <labels>
         <fullName>End_Time_Greater_Start_Time</fullName>
@@ -1929,6 +1964,13 @@
         <value>Yearly Budget,Actual Expense</value>
     </labels>
     <labels>
+        <fullName>Required_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Required information error message</shortDescription>
+        <value>Please Enter The Required Information</value>
+    </labels>
+    <labels>
         <fullName>Response_Date_From</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2062,6 +2104,13 @@
         <protected>false</protected>
         <shortDescription>Sales &amp; Marketing</shortDescription>
         <value>Sales &amp; Marketing</value>
+    </labels>
+	<labels>
+        <fullName>Save_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save Button</shortDescription>
+        <value>Save</value>
     </labels>
     <labels>
         <fullName>Save_Filter</fullName>
