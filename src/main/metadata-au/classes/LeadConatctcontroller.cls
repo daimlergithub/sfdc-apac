@@ -80,11 +80,9 @@ public class LeadConatctcontroller{
     
     // public Account getaccountList_details (){ return null;}  
     public pagereference updateAccount(){ 
-    System.debug('came into updateAccount method before try');
-      
+    System.debug('came into updateAccount method before try');     
             
-            CustomLogUtil.CustomLoggingEntry('LeadConatctcontroller class with updateAccount Method'+'account details = ' + accountList_details);
-           System.debug('came into updateAccount method after  try');
+            
         Id profileId = userinfo.getProfileId();
         String profileName = [Select Id,Name from Profile where Id=:profileId].Name;
         if(accountList_details!=null && profileName != 'IntegrationAPI')
