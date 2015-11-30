@@ -81,8 +81,7 @@ public class LeadConatctcontroller{
     // public Account getaccountList_details (){ return null;}  
     public pagereference updateAccount(){ 
     System.debug('came into updateAccount method before try');
-      try
-            {
+      
             
             CustomLogUtil.CustomLoggingEntry('LeadConatctcontroller class with updateAccount Method'+'account details = ' + accountList_details);
            System.debug('came into updateAccount method after  try');
@@ -183,18 +182,19 @@ public class LeadConatctcontroller{
                 
             }
             
-           
+           try
+            {
                 update accountList_details;                 
                 isnoerror=true;             
-            } 
-            return null;
-            }          
+            }           
             catch(DMLException de)
             {
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,de.getDmlMessage(0)));
                 isnoerror=false;
-                CustomLogUtil.DebugException(de);
             }
+            return null;
+            
+               }
             
         
         return null;
