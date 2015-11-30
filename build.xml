@@ -187,6 +187,9 @@
 				<sf:exclude name="Site"/>
 			    <sf:exclude name=".*__c"/>
 			</sf:typeset>
+			<sf:typeset name="pages">
+			   <sf:include name="GeneratePDF"/>
+			</sf:typeset>
 		</deploy>
     </target>
 	
@@ -742,7 +745,6 @@
 			<sf:typeset name="applications"/>
 			<sf:typeset name="pages"> 
 				<sf:exclude name="TrialCustomerPortalHomePage"/>
-				<sf:include name="GeneratePDF"/>
 			</sf:typeset>			
 			<sf:typeset name="triggers"/>			
 			<sf:typeset name="components"/>
