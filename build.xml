@@ -316,10 +316,8 @@
 			<sf:include name="GenericCSVLoaderController"/>
 			<sf:include name="GenericCSVLoaderControllerTest"/>
 			<sf:include name="TriggerDMRequestTriggerHandler"/>
-			<sf:include name="UtilConstant"/>
+			<sf:include name="UtilConstant"/> 
 			<sf:include name="AccountSharingDataHandler"/>
-			<sf:include name="ShareAccountLinksToDealerTriggerHandler"/>
-			<sf:include name="VehicleSharingWrapService"/>
 			<sf:include name="VehicleExtension"/>
 			<sf:include name="VehicleExtensionTest"/>
 			<sf:include name="ComplaintDescriptionController"/>
