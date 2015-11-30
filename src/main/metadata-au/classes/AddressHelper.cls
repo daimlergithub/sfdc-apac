@@ -265,11 +265,19 @@ public class AddressHelper
      // US_AU-CD-001.6 Track the updating history for FS fields
     public static void trackUpdatHistoryForFsInfo(Address__c updateAddress, Address__c oldAddress){
         
-        if(updateAddress.FS_Opt_In_Hardcopy__c != oldAddress.FS_Opt_In_Hardcopy__c){
-            updateAddress.FS_Hardcopy_Last_Modified_By__c = UserInfo.getName();
+         Map<Id, GroupMember> groupMemberMap = new Map<Id, GroupMember>([Select GroupId, UserOrGroupId From GroupMember  Where Group.DeveloperName =: 'MB_Financial_Services' AND UserOrGroupId =: userinfo.getUserID()]);
+        if(groupMemberMap!=null && !groupMemberMap.isEmpty())
+        {
+        
+            if((updateAddress.Address_Type__c!= oldAddress.Address_Type__c) || (updateAddress.Company_Name__c!= oldAddress.Company_Name__c) || (updateAddress.Address_Line_1__c!= oldAddress.Address_Line_1__c) || (updateAddress.Address_Line_2__c!= oldAddress.Address_Line_2__c) || (updateAddress.District__c!= oldAddress.District__c) || (updateAddress.ZipCode__c!= oldAddress.ZipCode__c) || (updateAddress.Province__c!= oldAddress.Province__c) || (updateAddress.Country__c!= oldAddress.Country__c) || (updateAddress.Preferred__c!= oldAddress.Preferred__c) || (updateAddress.Status__c!= oldAddress.Status__c) || (updateAddress.Delivery_Point_ID__c!= oldAddress.Delivery_Point_ID__c) || (updateAddress.FS_Opt_In_Hardcopy__c != oldAddress.FS_Opt_In_Hardcopy__c ))
+            {
+           updateAddress.FS_Hardcopy_Last_Modified_By__c = UserInfo.getName();
             updateAddress.FS_Hardcopy_Last_Modified_Date__c = System.now();
-        }
-        if(updateAddress.Opt_In_Hardcopy__c != oldAddress.Opt_In_Hardcopy__c){
+            }
+            }
+       else 
+       if((updateAddress.Address_Type__c!= oldAddress.Address_Type__c) || (updateAddress.Company_Name__c!= oldAddress.Company_Name__c) || (updateAddress.Address_Line_1__c!= oldAddress.Address_Line_1__c) || (updateAddress.Address_Line_2__c!= oldAddress.Address_Line_2__c) || (updateAddress.District__c!= oldAddress.District__c) || (updateAddress.ZipCode__c!= oldAddress.ZipCode__c) || (updateAddress.Province__c!= oldAddress.Province__c) || (updateAddress.Country__c!= oldAddress.Country__c) || (updateAddress.Preferred__c!= oldAddress.Preferred__c) || (updateAddress.Status__c!= oldAddress.Status__c) || (updateAddress.Delivery_Point_ID__c!= oldAddress.Delivery_Point_ID__c) || (updateAddress.Opt_In_Hardcopy__c!= oldAddress.Opt_In_Hardcopy__c))
+            {
             updateAddress.Hardcopy_Last_Modified_By__c = UserInfo.getName();
             updateAddress.Hardcopy_Last_Modified_Date__c = System.now();
         }
@@ -315,13 +323,13 @@ public class AddressHelper
                     {
                         updateAccntList.add(updateAccntMap.get(acc.Id));
                     }
-              } 				
+              }                 
           }
       }
-		if(updateAccntList != null && !updateAccntList.isEmpty())  
-    	{
-      		 update updateAccntList;
-   		}
+        if(updateAccntList != null && !updateAccntList.isEmpty())  
+        {
+             update updateAccntList;
+        }
      
     } 
     

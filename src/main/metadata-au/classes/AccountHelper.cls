@@ -186,6 +186,10 @@ public class AccountHelper {
     public static void trackUpdatHistoryForFsInfo(Account updateAcc, Account oldAcc){
     //Id profileId = userinfo.getProfileId();
     //String profileName = [Select Id,Name from Profile where Id=:profileId].Name;
+
+   Map<Id, GroupMember> groupMemberMap = new Map<Id, GroupMember>([Select GroupId, UserOrGroupId From GroupMember  Where Group.DeveloperName =: 'MB_Financial_Services' AND UserOrGroupId =: userinfo.getUserID()]);
+   System.debug('@@@@ groupMap '+groupMemberMap);
+
         if(profileName!= 'IntegrationAPI'){
 
         if(updateAcc.FS_Opt_In_Email__c != oldAcc.FS_Opt_In_Email__c){
@@ -208,6 +212,82 @@ public class AccountHelper {
         }
         
         /************* SHRINIVAS **************/
+
+
+        if(groupMemberMap!=null && !groupMemberMap.isEmpty())
+        {
+        
+            if(updateAcc.Mobile__c != oldAcc.Mobile__c){
+            updateAcc.FS_SMS_Last_Modified_By__c = UserInfo.getName();
+            updateAcc.FS_SMS_Last_Modified_Date__c = System.now();
+            }
+            
+            if(updateAcc.Mobile2__c != oldAcc.Mobile2__c){
+            updateAcc.FS_SMS_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.FS_SMS_Last_Modified_Date2__c = System.now();
+            }
+            if(updateAcc.Individual_Home_Phone__c != oldAcc.Individual_Home_Phone__c){
+            updateAcc.FS_Home_Phone_Last_Modified_By__c = UserInfo.getName();
+            updateAcc.FS_Home_Phone_Last_Modified_Date__c = System.now();
+            }
+            if(updateAcc.Home_Phone_2__c != oldAcc.Home_Phone_2__c){
+            updateAcc.FS_Home_Phone_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.FS_Home_Phone_Last_Modified_Date2__c = System.now();
+            }
+             if(updateAcc.Work_Phone__c != oldAcc.Work_Phone__c){
+            updateAcc.FS_Work_Phone_Last_Modified_By__c = UserInfo.getName();
+            updateAcc.FS_Work_Phone_Last_Modified_Date__c = System.now();
+            }
+             if(updateAcc.Phone != oldAcc.Phone){
+            updateAcc.FS_Work_Phone_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.FS_Work_Phone_Last_Modified_Date2__c = System.now();
+            }
+            if(updateAcc.Email__c != oldAcc.Email__c){
+            updateAcc.FS_Email_Last_Modified_By__c = UserInfo.getName();
+            updateAcc.FS_Email_Last_Modified_Date__c = System.now();
+            }
+            if(updateAcc.Email2__c != oldAcc.Email2__c){
+            updateAcc.FS_Email_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.FS_Email_Last_Modified_Date2__c = System.now();
+            }
+        }
+       
+        else
+        {
+           if(updateAcc.Mobile__c != oldAcc.Mobile__c){
+            updateAcc.SMS_Last_Modified_By__c= UserInfo.getName();
+            updateAcc.SMS_Last_Modified_Date__c= System.now();
+            }
+            
+            if(updateAcc.Mobile2__c != oldAcc.Mobile2__c){
+            updateAcc.SMS_Last_Modified_By2__c= UserInfo.getName();
+            updateAcc.SMS_Last_Modified_Date2__c= System.now();
+            }
+            if(updateAcc.Individual_Home_Phone__c != oldAcc.Individual_Home_Phone__c){
+            updateAcc.Home_Phone_Last_Modified_By__c= UserInfo.getName();
+            updateAcc.Home_Phone_Last_Modified_Date__c= System.now();
+            }
+            if(updateAcc.Home_Phone_2__c != oldAcc.Home_Phone_2__c){
+            updateAcc.Home_Phone_Last_Modified_By2__c= UserInfo.getName();
+            updateAcc.Home_Phone_Last_Modified_Date2__c= System.now();
+            }
+             if(updateAcc.Work_Phone__c != oldAcc.Work_Phone__c){
+            updateAcc.Work_Phone_Last_Modified_By__c= UserInfo.getName();
+            updateAcc.Work_Phone_Last_Modified_Date__c= System.now();
+            }
+             if(updateAcc.Phone != oldAcc.Phone){
+            updateAcc.Work_Phone_Last_Modified_By2__c= UserInfo.getName();
+            updateAcc.Work_Phone_Last_Modified_Date2__c= System.now();
+            }
+            if(updateAcc.Email__c != oldAcc.Email__c){
+            updateAcc.Email_Last_Modified_By__c= UserInfo.getName();
+            updateAcc.Email_Last_Modified_Date__c= System.now();
+            }
+            if(updateAcc.Email2__c != oldAcc.Email2__c){
+            updateAcc.Email_Last_Modified_By2__c= UserInfo.getName();
+            updateAcc.Email_Last_Modified_Date2__c= System.now();
+            }
+        }
         
         if(updateAcc.FS_Opt_In_SMS2__c != oldAcc.FS_Opt_In_SMS2__c){
             updateAcc.FS_SMS_Last_Modified_By2__c = UserInfo.getName();

@@ -464,13 +464,16 @@
 			<sf:include name="ContactHelperTest"/>
 			<sf:include name="ContactTriggerHandler"/>
 			<sf:include name="ExtSelectAssignedDealer"/>
-			<sf:include name="ExtSelectAssignedDealerTest"/>			
+			<sf:include name="ExtSelectAssignedDealerTest"/>
+            <sf:include name="LeadConatctcontroller"/>
+			<sf:include name="LeadConatctcontrollerTest"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ContactTrigger"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
 				<sf:include name="SelectAssignedDealer"/>
+				<sf:include name="LeadContactInformation"/>
 		</sf:typeset>		
 		</deploy>					
     </target>
