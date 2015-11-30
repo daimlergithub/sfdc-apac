@@ -190,6 +190,9 @@
 			<sf:typeset name="pages">
 			   <sf:include name="GeneratePDF"/>
 			</sf:typeset>
+			<sf:typeset name="classes">
+				<sf:include name="GenerateAndAttachPDF"/>	
+			</sf:typeset>
 		</deploy>
     </target>
 	
