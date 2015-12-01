@@ -23,3 +23,7 @@ dev_sb_kernel_dev8=gerhard.henning.ntt@kernel.daimler-apac.com.dev8
 dev_sb_kernel_dev11=kobayashisi.ntt@kernel.daimler-apac.com.dev11
 kernel_prod_1=nazeer.ahamed.ntt@kernel.daimler-apac.com
 kernel_prod_2=raghuprasad.halakere.ntt@kernel.daimler-apac.com
+
+dev_sb_asia_dev7=sudhirkumar.acharya.ntt@asia.daimler-apac.com.asiadev7
+dev_sb_asia_dev8=sreeram.kantamani.ntt@asia.daimler-apac.com.asiadev8 
+dev_sb_asia_dev9=mohanaraja.alla.ntt@asia.daimler-apac.com.asiadev9
