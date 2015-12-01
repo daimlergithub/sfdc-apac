@@ -12,7 +12,6 @@ public class LeadConatctcontroller{
     public date FSLastModifieddate{get;set;}  
     public String redirectUrl {public get; public set;}
     public Boolean shouldRedirect {public get; private set;}
-    public String accountid{get;set;}
     public String leadid{get;set;}
     public boolean isnoerror{get;set;}
     public Set<Id> Contactid;
@@ -29,7 +28,6 @@ public class LeadConatctcontroller{
         isnoerror=false;
         shouldRedirect = false;
         leadid=ApexPages.currentPage().getParameters().get('id');
-       // accountid=ApexPages.currentPage().getParameters().get('id');
        listLead=[Select id,Contact__c,Assigned_Dealer__c,Recommended_Dealer__c,Company_Account__c from Lead__c where Id=:leadid];
      
         for(Lead__c lead:listLead)
