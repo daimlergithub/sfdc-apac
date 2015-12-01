@@ -6,12 +6,13 @@ dev_sb_kernel_ci=falk.lehmann.ntt@kernel.daimler-apac.com.ci
 dev_sb_asia_ci=arun.iyer.ntt@mbj.daimler-apac.com.ci
 dev_sb_asia_migration=arun.iyer.ntt@mbj.daimler-apac.com.migration
 
-# Demo sandbox
+# Kernel Demo sandbox
 demo_sb_kernel_ci=falk.lehmann.ntt@kernel.daimler-apac.com.demo
 
-#Test Sandbox
+# Asia Test Sandbox
 dev_sb_asia_Test=arun.iyer.ntt@mbj.daimler-apac.com.test
 
+# Kernel Dev Sandboxes
 dev_sb_kernel_dev1=falk.lehmann.ntt@kernel.daimler-apac.com.dev1
 dev_sb_kernel_dev2=sneha.chail.ntt@kernel.daimler-apac.com.dev2
 dev_sb_kernel_dev3=sukumar.rajashekaran.ntt@kernel.daimler-apac.com.dev3,sudhirkumar.acharya.ntt@kernel.daimler-apac.com.dev3
@@ -21,5 +22,18 @@ dev_sb_kernel_dev6=shrinivas.desai.ntt@kernel.daimler-apac.com.dev6
 dev_sb_kernel_dev7=ayyavari.venkateswarlu.ntt@kernel.daimler-apac.com.dev7,sriram.kalluri@kernel.daimler-apac.com.dev7
 dev_sb_kernel_dev8=gerhard.henning.ntt@kernel.daimler-apac.com.dev8
 dev_sb_kernel_dev11=kobayashisi.ntt@kernel.daimler-apac.com.dev11
+
+#kernel PROD org
 kernel_prod_1=nazeer.ahamed.ntt@kernel.daimler-apac.com
 kernel_prod_2=raghuprasad.halakere.ntt@kernel.daimler-apac.com
+
+# Asia Dev Sandboxes
+dev_sb_asia_dev1=sukumar.rajashekaran.ntt@asia.daimler-apac.com.asiadev1
+dev_sb_asia_dev2=arun.iyer.ntt@asia.daimler-apac.com.asiadev2
+dev_sb_asia_dev3=sneha.chail.ntt@asia.daimler-apac.com.asiadev3
+dev_sb_asia_dev4=narasimha.gundurao.ntt@asia.daimler-apac.com.asiadev4
+dev_sb_asia_dev5=shrinivas.desai.ntt@asia.daimler-apac.com.asiadev5
+dev_sb_asia_dev6=sriram.kalluri.ntt@asia.daimler-apac.com.asiadev6
+dev_sb_asia_dev7=sudhirkumar.acharya.ntt@asia.daimler-apac.com.asiadev7
+dev_sb_asia_dev8=sreeram.kantamani.ntt@asia.daimler-apac.com.asiadev8 
+dev_sb_asia_dev9=mohanaraja.alla.ntt@asia.daimler-apac.com.asiadev9
