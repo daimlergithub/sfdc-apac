@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
-	<labels>
-        <fullName>Account_cannot_have_more_than_5_Address</fullName>
-        <language>en_US</language>
-        <protected>false</protected>
-        <shortDescription>AddressList Page Error Message</shortDescription>
-        <value>Please delete 1 or more records before you can add new entry.</value>
-    </labels>
     <labels>
         <fullName>Account_Cann_t_be_Customer</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Account Cann&apos;t be Customer</shortDescription>
         <value>If customer has no vehicle relationship, Status must not be ‘Customer’.</value>
+    </labels>
+    <labels>
+        <fullName>Account_cannot_have_more_than_5_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AddressList Page Error Message</shortDescription>
+        <value>Please delete 1 or more records before you can add new entry.</value>
     </labels>
     <labels>
         <fullName>Accuracy</fullName>
@@ -22,7 +22,7 @@
         <shortDescription>QC_Accuracy</shortDescription>
         <value>Accuracy of documentation</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Add_Button</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -35,6 +35,20 @@
         <protected>false</protected>
         <shortDescription>Add to Campaign</shortDescription>
         <value>Add to Campaign</value>
+    </labels>
+    <labels>
+        <fullName>Address_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Address 1</value>
+    </labels>
+    <labels>
+        <fullName>Address_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Address 2</value>
     </labels>
     <labels>
         <fullName>Aftersales</fullName>
@@ -776,7 +790,7 @@
         <shortDescription>Campaing Planning Page Title</shortDescription>
         <value>Campaign</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Cancel_Button</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -835,6 +849,13 @@
         <value>Common Filter Name</value>
     </labels>
     <labels>
+        <fullName>Company_Name_Department_Title</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Company Name Department Title</value>
+    </labels>
+    <labels>
         <fullName>Completenes</fullName>
         <categories>QC Question</categories>
         <language>en_US</language>
@@ -842,7 +863,7 @@
         <shortDescription>Completenes</shortDescription>
         <value>To provide accurate and complete information/solution</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Confirmation_for_delete_address</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -900,7 +921,7 @@
         <shortDescription>Dealer Has SR Code 1</shortDescription>
         <value>There&apos;s already a dealer with the same SR Code 1 whose dealer default Flag is checked.</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Delete</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -937,7 +958,7 @@
         <shortDescription>Downloadedfile</shortDescription>
         <value>Downloaded file:</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Edit</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -950,6 +971,20 @@
         <protected>false</protected>
         <shortDescription>End Time Greater Start Time</shortDescription>
         <value>The End Time must be greater than Start Time</value>
+    </labels>
+    <labels>
+        <fullName>Error_Message_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Previous Download Request is less than 5 minutes from now. Please try again in sometime.</value>
+    </labels>
+    <labels>
+        <fullName>Error_Message_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>No DM requests avaiable for Download</value>
     </labels>
     <labels>
         <fullName>Error_Please_enter_your_criteria</fullName>
@@ -1746,6 +1781,90 @@
         <value>Mobile</value>
     </labels>
     <labels>
+        <fullName>MyShop_Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>My Shop Phone</value>
+    </labels>
+    <labels>
+        <fullName>My_Shop_Address</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>My Shop Address</value>
+    </labels>
+    <labels>
+        <fullName>My_shop_Name</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>My shop Name</value>
+    </labels>
+    <labels>
+        <fullName>Near_Dealer_1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Near Dealer 1</value>
+    </labels>
+    <labels>
+        <fullName>Near_Dealer_2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Near Dealer 2</value>
+    </labels>
+    <labels>
+        <fullName>Near_Dealer_3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Near Dealer 3</value>
+    </labels>
+    <labels>
+        <fullName>Near_Dealer_Address1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Near Dealer Address1</value>
+    </labels>
+    <labels>
+        <fullName>Near_Dealer_Address2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Near Dealer Address2</value>
+    </labels>
+    <labels>
+        <fullName>Near_Dealer_Address3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Near Dealer Address3</value>
+    </labels>
+    <labels>
+        <fullName>Near_Dealer_Phone1</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Near Dealer Phone1</value>
+    </labels>
+    <labels>
+        <fullName>Near_Dealer_Phone2</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Near Dealer Phone2</value>
+    </labels>
+    <labels>
+        <fullName>Near_Dealer_Phone3</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Near Dealer Phone3</value>
+    </labels>
+    <labels>
         <fullName>New_Customer_Acquisition</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -2105,7 +2224,7 @@
         <shortDescription>Sales &amp; Marketing</shortDescription>
         <value>Sales &amp; Marketing</value>
     </labels>
-	<labels>
+    <labels>
         <fullName>Save_Button</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2200,6 +2319,13 @@
         <protected>false</protected>
         <shortDescription>Status - Confirmed</shortDescription>
         <value>Confirmed</value>
+    </labels>
+    <labels>
+        <fullName>Success_message</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Label used in Catalogue CSV</shortDescription>
+        <value>Download File is created please follow the link in task  for download</value>
     </labels>
     <labels>
         <fullName>Task_Phone</fullName>
