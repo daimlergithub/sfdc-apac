@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
     <labels>
+        <fullName>Accepted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Accepted</shortDescription>
+        <value>Accepted</value>
+    </labels>
+    <labels>
+        <fullName>AccountMergeFields</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountMergeFields</shortDescription>
+        <value>AccountMergeFields</value>
+    </labels>
+    <labels>
         <fullName>Account_Cann_t_be_Customer</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Account Cann&apos;t be Customer</shortDescription>
         <value>If customer has no vehicle relationship, Status must not be ‘Customer’.</value>
+    </labels>
+    <labels>
+        <fullName>Account_Merge</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account Merge</shortDescription>
+        <value>Account Merge</value>
     </labels>
     <labels>
         <fullName>Account_cannot_have_more_than_5_Address</fullName>
@@ -357,6 +378,13 @@
         <protected>false</protected>
         <shortDescription>CSR Lookup User Name</shortDescription>
         <value>User Name</value>
+    </labels>
+    <labels>
+        <fullName>CallCenterCaseInformation</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Call Center Case Information</shortDescription>
+        <value>Call Center Case Information</value>
     </labels>
     <labels>
         <fullName>CampaignType</fullName>
@@ -813,6 +841,27 @@
         <value>Case-</value>
     </labels>
     <labels>
+        <fullName>CaseCategory</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Category</shortDescription>
+        <value>Case Category</value>
+    </labels>
+    <labels>
+        <fullName>CaseContentStatus</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Case Content/Status</shortDescription>
+        <value>Case Content/Status</value>
+    </labels>
+    <labels>
+        <fullName>CaseNumber</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>CaseNumber :</shortDescription>
+        <value>CaseNumber :</value>
+    </labels>
+    <labels>
         <fullName>Case_Record_Type</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -826,6 +875,13 @@
         <protected>false</protected>
         <shortDescription>City</shortDescription>
         <value>City</value>
+    </labels>
+    <labels>
+        <fullName>Close</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Close</shortDescription>
+        <value>Close</value>
     </labels>
     <labels>
         <fullName>Cluster</fullName>
@@ -894,6 +950,13 @@
         <value>Convert To Lead</value>
     </labels>
     <labels>
+        <fullName>Couldnotexplain</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Could not explain</shortDescription>
+        <value>Could not explain</value>
+    </labels>
+    <labels>
         <fullName>Criteria</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -908,11 +971,46 @@
         <value>Customer</value>
     </labels>
     <labels>
+        <fullName>CustomerAssistanceCenter</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Customer・Assistance・Center</shortDescription>
+        <value>Customer・Assistance・Center</value>
+    </labels>
+    <labels>
         <fullName>Customer_Filter</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Customer Filter</shortDescription>
         <value>Customer Filter</value>
+    </labels>
+    <labels>
+        <fullName>DateTime</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Date/Time :</shortDescription>
+        <value>Date/Time :</value>
+    </labels>
+    <labels>
+        <fullName>Dealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer :</shortDescription>
+        <value>Dealer :</value>
+    </labels>
+    <labels>
+        <fullName>DealerName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Name :</shortDescription>
+        <value>Dealer Name :</value>
+    </labels>
+    <labels>
+        <fullName>DealerPersonName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Dealer Person Name :</shortDescription>
+        <value>Dealer Person Name :</value>
     </labels>
     <labels>
         <fullName>Dealer_Has_SR_Code_1</fullName>
@@ -950,6 +1048,13 @@
         <protected>false</protected>
         <shortDescription>Delete_Filter</shortDescription>
         <value>Delete Filter</value>
+    </labels>
+    <labels>
+        <fullName>DetailedModelName</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Detailed Model Name</shortDescription>
+        <value>Detailed Model Name</value>
     </labels>
     <labels>
         <fullName>Downloadedfile</fullName>
@@ -1124,6 +1229,13 @@
         <value>Idle Hour Promotion</value>
     </labels>
     <labels>
+        <fullName>Informationsharing</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Information sharing</shortDescription>
+        <value>Information sharing to Dealer/ Internal related department</value>
+    </labels>
+    <labels>
         <fullName>Insurance_Promotion</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -1144,6 +1256,13 @@
         <protected>false</protected>
         <shortDescription>Interest Filter</shortDescription>
         <value>Interest Filter</value>
+    </labels>
+    <labels>
+        <fullName>Kana</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Kana :</shortDescription>
+        <value>Kana :</value>
     </labels>
     <labels>
         <fullName>Knowledge_Choose_Car_Model</fullName>
@@ -1726,12 +1845,33 @@
         <value>Select calibration person</value>
     </labels>
     <labels>
+        <fullName>Master_Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Master Account</shortDescription>
+        <value>Master Account</value>
+    </labels>
+    <labels>
+        <fullName>Master_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Master Record</shortDescription>
+        <value>Master Record</value>
+    </labels>
+    <labels>
         <fullName>Media_Type</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Media Type</shortDescription>
         <value>Media Type:</value>
+    </labels>
+    <labels>
+        <fullName>Merge</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Merge</shortDescription>
+        <value>Merge</value>
     </labels>
     <labels>
         <fullName>Message_Approve_Failed</fullName>
@@ -1781,11 +1921,25 @@
         <value>Mobile</value>
     </labels>
     <labels>
+        <fullName>Model</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Model</shortDescription>
+        <value>Model</value>
+    </labels>
+    <labels>
         <fullName>MyShop_Phone</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>My Shop Phone</value>
+    </labels>
+    <labels>
+        <fullName>My_Mercedes_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>My Mercedes ID</shortDescription>
+        <value>My Mercedes ID</value>
     </labels>
     <labels>
         <fullName>My_Shop_Address</fullName>
@@ -1880,6 +2034,13 @@
         <value>No Complaint</value>
     </labels>
     <labels>
+        <fullName>NotAccepted</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Not-Accepted</shortDescription>
+        <value>Not-Accepted</value>
+    </labels>
+    <labels>
         <fullName>Not_found_QC</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -1963,11 +2124,46 @@
         <value>Parts Cross Promotion</value>
     </labels>
     <labels>
+        <fullName>Phone</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Phone</shortDescription>
+        <value>Phone</value>
+    </labels>
+    <labels>
         <fullName>Please_enter_the_filter_name</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Please enter the filter name</shortDescription>
         <value>Please enter the filter name</value>
+    </labels>
+    <labels>
+        <fullName>Please_select_only_one_Master_Record</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Please select only one Master Record</shortDescription>
+        <value>Please select only one Master Record</value>
+    </labels>
+    <labels>
+        <fullName>Previous</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Previous</shortDescription>
+        <value>Previous</value>
+    </labels>
+    <labels>
+        <fullName>Priority</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Priority</shortDescription>
+        <value>Priority</value>
+    </labels>
+    <labels>
+        <fullName>Product_ID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Product ID</shortDescription>
+        <value>Product ID</value>
     </labels>
     <labels>
         <fullName>Promotion_on_Technical_accessories_and_collections</fullName>
@@ -2067,6 +2263,27 @@
         <value>Inspection tasks</value>
     </labels>
     <labels>
+        <fullName>Registration</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration</shortDescription>
+        <value>Registration</value>
+    </labels>
+    <labels>
+        <fullName>RegistrationNo</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Registration No</shortDescription>
+        <value>Registration No :</value>
+    </labels>
+    <labels>
+        <fullName>Reject</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Reject</shortDescription>
+        <value>Reject</value>
+    </labels>
+    <labels>
         <fullName>Report_Title1_TA_Tracing</fullName>
         <categories>Report</categories>
         <language>en_US</language>
@@ -2083,11 +2300,32 @@
         <value>Yearly Budget,Actual Expense</value>
     </labels>
     <labels>
+        <fullName>Request</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request</shortDescription>
+        <value>Request</value>
+    </labels>
+    <labels>
+        <fullName>RequestContenttoDealer</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Request Content(to Dealer)</shortDescription>
+        <value>Request Content(to Dealer)</value>
+    </labels>
+    <labels>
         <fullName>Required_Information</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Required information error message</shortDescription>
         <value>Please Enter The Required Information</value>
+    </labels>
+    <labels>
+        <fullName>Resource</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Resource</shortDescription>
+        <value>Resource</value>
     </labels>
     <labels>
         <fullName>Response_Date_From</fullName>
@@ -2260,6 +2498,13 @@
         <value>Search Customer</value>
     </labels>
     <labels>
+        <fullName>Select_All</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>[Select All]</shortDescription>
+        <value>[Select All]</value>
+    </labels>
+    <labels>
         <fullName>Select_Option_None</fullName>
         <categories>Retail Camapign &amp; Tool Kit</categories>
         <language>en_US</language>
@@ -2281,6 +2526,13 @@
         <protected>false</protected>
         <shortDescription>Service Product Promotion</shortDescription>
         <value>Service Product Promotion</value>
+    </labels>
+    <labels>
+        <fullName>Service_Work</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Service Work:</shortDescription>
+        <value>Service Work:</value>
     </labels>
     <labels>
         <fullName>Special_Filters</fullName>
@@ -2326,6 +2578,13 @@
         <protected>false</protected>
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>Download File is created please follow the link in task  for download</value>
+    </labels>
+    <labels>
+        <fullName>Suspected_Duplicates</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Suspected Duplicates</shortDescription>
+        <value>Suspected Duplicates</value>
     </labels>
     <labels>
         <fullName>Task_Phone</fullName>
@@ -2515,6 +2774,13 @@
         <value>IB Task</value>
     </labels>
     <labels>
+        <fullName>TelFax</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>TelFax</shortDescription>
+        <value>TEL: 03-5545-6234 FAX: 03-6369-7791</value>
+    </labels>
+    <labels>
         <fullName>TerminateVehicleRelationship</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2590,6 +2856,13 @@
         <protected>false</protected>
         <shortDescription>Total Amount Spend On Car Service is Greater Than</shortDescription>
         <value>Total Amount Spend On Car Service is Greater Than</value>
+    </labels>
+    <labels>
+        <fullName>UCID</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>UCID</shortDescription>
+        <value>UCID</value>
     </labels>
     <labels>
         <fullName>Used_car_buy_back_trade_in</fullName>
@@ -2852,6 +3125,20 @@
         <value>Yearly Targets</value>
     </labels>
     <labels>
+        <fullName>apex_AccountMerge_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>/apex/AccountMerge?Id=</shortDescription>
+        <value>/apex/AccountMerge?Id=</value>
+    </labels>
+    <labels>
+        <fullName>apex_SelectSlaveAccount</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>/apex/SelectSlaveAccount</shortDescription>
+        <value>/apex/SelectSlaveAccount?Id=</value>
+    </labels>
+    <labels>
         <fullName>applicationpdf</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2968,6 +3255,13 @@
         <protected>false</protected>
         <shortDescription>l_Sparetire</shortDescription>
         <value>Spare Tire</value>
+    </labels>
+    <labels>
+        <fullName>master</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>master</shortDescription>
+        <value>master</value>
     </labels>
     <labels>
         <fullName>rcc_Auto_Show</fullName>
@@ -3106,10 +3400,38 @@
         <value>Test Drive</value>
     </labels>
     <labels>
+        <fullName>retURL</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>retURL</shortDescription>
+        <value>retURL</value>
+    </labels>
+    <labels>
+        <fullName>retURL_apex_SelectSlaveAccount_Id</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>&amp;retURL=/apex/SelectSlaveAccount?Id=</shortDescription>
+        <value>&amp;retURL=/apex/SelectSlaveAccount?Id=</value>
+    </labels>
+    <labels>
         <fullName>servletfile</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>servletfile</shortDescription>
         <value>/servlet/servlet.FileDownload?file=</value>
+    </labels>
+    <labels>
+        <fullName>slave</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>slave</shortDescription>
+        <value>slave</value>
+    </labels>
+    <labels>
+        <fullName>slaveId</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>&amp;slaveId=</shortDescription>
+        <value>&amp;slaveId=</value>
     </labels>
 </CustomLabels>

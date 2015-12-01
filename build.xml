@@ -189,9 +189,12 @@
 			</sf:typeset>
 			<sf:typeset name="pages">
 			   <sf:include name="GeneratePDF"/>
+			   <sf:include name="SelectSlaveAccount"/>
+			   <sf:include name="AccountMerge"/>
 			</sf:typeset>
 			<sf:typeset name="classes">
-				<sf:include name="GenerateAndAttachPDF"/>	
+				<sf:include name="GenerateAndAttachPDF"/>				
+				<sf:include name="AccountMergeController"/>	
 			</sf:typeset>
 		</deploy>
     </target>

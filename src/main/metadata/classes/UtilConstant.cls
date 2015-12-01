@@ -10,6 +10,7 @@ Global with sharing class UtilConstant {
     public final static String AS_RETAIL_CAMPAIGN = 'AS Retail Campaign';
     public final static String DEALER_LEAD_GATE_KEEPER_QUEUE = 'Dealer Lead Gate Keeper Queue';
     public final static String LEAD = 'Lead__c';
+    public final static String sObjCase='Case';
     public final static String MBDA_LEAD = 'MBDA Leads';
     public final static String SMS = 'SMS';
     public final static String MMS = 'MMS';
@@ -52,6 +53,10 @@ Global with sharing class UtilConstant {
     //Varibale is being used in contactHelper class
     public final static String whiteSpace=' ';    
     public final static String nullValue='Null';
+    // Soft deleted Account Record Type Name
+    public final static String RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED ='Person Account Soft Deleted';    
+    // Soft deleted Account Owner Profile Name
+    Public final static String PROFILE_PERSON_ACCOUNT_SOFT_DELETED ='IntegrationAPI';
         
     private static Map<String, Id> getUserRoleMapInstance() {
         if (roleMap == null) {
