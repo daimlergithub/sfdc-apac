@@ -358,6 +358,7 @@
 			<sf:include name="UtilConstantTest"/>
 			<sf:include name="AvatoHelper"/>
 			<sf:include name="NiceWebServices"/>
+			<sf:include name="CustomLogUtil"/>
 		</sf:typeset>
 		<sf:typeset name="tabs">
 			<sf:include name="Retail_Campaigns"/>

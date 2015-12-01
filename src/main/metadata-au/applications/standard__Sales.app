@@ -18,4 +18,5 @@
     <tab>standard-Product2</tab>
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
+    <tab>Custom_Debug_Info__c</tab>
 </CustomApplication>
