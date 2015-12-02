@@ -126,7 +126,6 @@
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>refreshListRows</listRefreshMethod>
-    <logo>Logo/MB_LOGO.png</logo>
     <saveUserSessions>true</saveUserSessions>
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>
@@ -138,28 +137,28 @@
     <tab>standard-report</tab>
     <workspaceMappings>
         <mapping>
-            <tab>standard-Campaign</tab>
-        </mapping>
-        <mapping>
-            <tab>standard-report</tab>
-        </mapping>
-        <mapping>
-            <tab>standard-Case</tab>
-        </mapping>
-        <mapping>
             <tab>QC__c</tab>
         </mapping>
         <mapping>
-            <tab>Vehicle_Relationship__c</tab>
+            <tab>Tasks</tab>
         </mapping>
         <mapping>
-            <tab>Tasks</tab>
+            <tab>Vehicle_Relationship__c</tab>
         </mapping>
         <mapping>
             <tab>Vehicle__c</tab>
         </mapping>
         <mapping>
             <tab>standard-Account</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-Campaign</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-Case</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-report</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>

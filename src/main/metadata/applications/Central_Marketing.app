@@ -2,7 +2,6 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>Central Marketing</label>
-    <logo>Logo/MB_LOGO.png</logo>
     <tab>standard-Account</tab>
     <tab>standard-Campaign</tab>
     <tab>Participating_Dealer__c</tab>

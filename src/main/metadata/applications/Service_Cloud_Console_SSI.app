@@ -123,7 +123,6 @@
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>refreshListRows</listRefreshMethod>
-    <logo>Logo/Central_LOGO.png</logo>
     <saveUserSessions>true</saveUserSessions>
     <tab>Tasks</tab>
     <tab>SSI__c</tab>
@@ -131,9 +130,6 @@
     <tab>QC__c</tab>
     <tab>standard-report</tab>
     <workspaceMappings>
-        <mapping>
-            <tab>standard-report</tab>
-        </mapping>
         <mapping>
             <tab>QC__c</tab>
         </mapping>
@@ -145,6 +141,9 @@
         </mapping>
         <mapping>
             <tab>standard-Account</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-report</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>

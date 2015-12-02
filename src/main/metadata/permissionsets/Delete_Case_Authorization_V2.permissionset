@@ -109,6 +109,22 @@
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>AccountMergeController</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountMergeController1</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountMergeControllerTest</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>AccountMergeControllerTest1</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AccountSharingDataHandler</apexClass>
         <enabled>false</enabled>
     </classAccesses>
@@ -378,6 +394,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GenerateAndAttachPDF</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>GenerateAndAttachPDFTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -874,6 +894,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>TerminateVehicleRelationshipExtension</apexClass>
+        <enabled>false</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TerminateVehicleRelationshipTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -1615,6 +1639,11 @@ yujing.he@daimler.com</description>
     <fieldPermissions>
         <editable>false</editable>
         <field>Account.DMS_Customer_ID__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Account.DUPNumber__c</field>
         <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -11564,6 +11593,11 @@ yujing.he@daimler.com</description>
     </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
+        <field>Rejected_Duplicate_Log__c.Status__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
         <field>Retail_Campaign_Member__c.Campaign_Dealer__c</field>
         <readable>false</readable>
     </fieldPermissions>
@@ -15966,6 +16000,10 @@ yujing.he@daimler.com</description>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>AccountMerge</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>AddToRetailCampaign</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
@@ -16190,7 +16228,15 @@ yujing.he@daimler.com</description>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>SSITEST20151021</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>SelectAssignedDealer</apexPage>
+        <enabled>false</enabled>
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>SelectSlaveAccount</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
@@ -16339,6 +16385,10 @@ yujing.he@daimler.com</description>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
         <recordType>Account_Link__c.ContactSector</recordType>
+        <visible>false</visible>
+    </recordTypeVisibilities>
+    <recordTypeVisibilities>
+        <recordType>Account_Link__c.ExternalLink</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
@@ -16799,6 +16849,10 @@ yujing.he@daimler.com</description>
     </tabSettings>
     <tabSettings>
         <tab>QC__c</tab>
+        <visibility>None</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Recall__c</tab>
         <visibility>None</visibility>
     </tabSettings>
     <tabSettings>

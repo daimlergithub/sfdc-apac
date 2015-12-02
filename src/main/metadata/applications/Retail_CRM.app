@@ -2,7 +2,6 @@
 <CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
     <defaultLandingTab>standard-home</defaultLandingTab>
     <label>Retail CRM</label>
-    <logo>Logo/Logo_Mercedes_Benz.png</logo>
     <tab>standard-Account</tab>
     <tab>Yearly_Target</tab>
     <tab>standard-Campaign</tab>
