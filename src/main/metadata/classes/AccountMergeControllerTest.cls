@@ -9,7 +9,7 @@
     1. Created on 2-Dec-2015    
 */
 @isTest
-public class AccountMergeControllerTest {
+public class AccountMergeControllerTest {  
 public static Account objMaster;
 public static Account objSlave;
   //creating records for Master and Slave Account
