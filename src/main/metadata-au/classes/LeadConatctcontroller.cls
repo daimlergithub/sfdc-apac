@@ -80,7 +80,8 @@ public class LeadConatctcontroller{
     public pagereference updateAccount(){ 
     System.debug('came into updateAccount method before try');     
             
-            
+        CustomLogUtil.CustomLoggingEntry('LeadConatctcontroller class UpdateAccount method '); 
+             
         Id profileId = userinfo.getProfileId();
         String profileName = [Select Id,Name from Profile where Id=:profileId].Name;
         if(accountList_details!=null && profileName != 'IntegrationAPI')
@@ -186,13 +187,13 @@ public class LeadConatctcontroller{
             catch(DMLException de)
             {
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,de.getDmlMessage(0)));
+                  CustomLogUtil.DebugException(de);
                 isnoerror=false;
             }
             return null;
             
                }
-            
-        
+                       
         return null;
     }
     

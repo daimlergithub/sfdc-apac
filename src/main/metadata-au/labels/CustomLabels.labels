@@ -831,6 +831,13 @@
         <value>Criteria</value>
     </labels>
     <labels>
+        <fullName>Custom_Debug_Log_Switch</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Debug Log Switch</shortDescription>
+        <value>true</value>
+    </labels>
+    <labels>
         <fullName>Customer</fullName>
         <language>en_US</language>
         <protected>false</protected>
