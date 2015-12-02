@@ -126,6 +126,7 @@
         <location>full</location>
     </listPlacement>
     <listRefreshMethod>refreshListRows</listRefreshMethod>
+    <logo>Logo/MB_LOGO.png</logo>
     <saveUserSessions>true</saveUserSessions>
     <tab>standard-Account</tab>
     <tab>standard-Case</tab>

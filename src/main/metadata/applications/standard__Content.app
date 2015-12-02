@@ -6,5 +6,4 @@
     <tab>standard-ContentSearch</tab>
     <tab>standard-ContentSubscriptions</tab>
     <tab>standard-ContentFavorites</tab>
-    <tab>Recall__c</tab>
 </CustomApplication>
