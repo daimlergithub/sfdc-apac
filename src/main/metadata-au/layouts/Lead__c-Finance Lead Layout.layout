@@ -76,8 +76,8 @@
         <label>Contact Details</label>
         <layoutColumns>
             <layoutItems>
-                <height>160</height>
-                <page>Lead_Address</page>
+                <height>300</height>
+                <page>LeadContactInformation</page>
                 <showLabel>false</showLabel>
                 <showScrollbars>false</showScrollbars>
                 <width>100%</width>

@@ -1,4 +1,4 @@
-public class AccountConatctcontroller{
+public class LeadConatctcontroller{
     //Variable declaration
     public static list<Account> contactList=new list<Account>();
     public Account accountList_details{get;set;}
@@ -12,15 +12,37 @@ public class AccountConatctcontroller{
     public date FSLastModifieddate{get;set;}  
     public String redirectUrl {public get; public set;}
     public Boolean shouldRedirect {public get; private set;}
-    public String accountid{get;set;}
+    public String leadid{get;set;}
     public boolean isnoerror{get;set;}
+    public Set<Id> Contactid;
+    public Set<Id> CompanyAccountid ;
+    public List<Lead__c> listLead{get;set;}
+    
+   
     //Constructor Called to get the current account record id
-    public AccountConatctcontroller(ApexPages.StandardController stdController) {    
+    public LeadConatctcontroller(ApexPages.StandardController stdController) {    
         accountList_details= new Account();
+        Contactid=new Set<Id>();
+        CompanyAccountid=new Set<Id>();
         this.stdController = stdController;
         isnoerror=false;
         shouldRedirect = false;
-        accountid=ApexPages.currentPage().getParameters().get('id');
+        leadid=ApexPages.currentPage().getParameters().get('id');
+       listLead=[Select id,Contact__c,Assigned_Dealer__c,Recommended_Dealer__c,Company_Account__c from Lead__c where Id=:leadid];
+     
+        for(Lead__c lead:listLead)
+        {
+        if(lead.Contact__c !=null)
+        {
+        Contactid.add(lead.Contact__c);    
+        }
+        else
+        {
+        CompanyAccountid.add(lead.Company_Account__c);
+          } 
+        }
+       
+       
         if(ApexPages.currentPage().getParameters().get('id')!=Null)
         {
             contactList=[select id,Mobile__c,Mobile_Status__c,Mobile2__c,SMS_MMS_IM_Status_2__c,PersonHomePhone,Individual_Home_Phone__c,Individual_Home_Phone_Status__c,Home_Phone_Status_2__c,Home_Phone_2__c,
@@ -41,16 +63,25 @@ public class AccountConatctcontroller{
                          Work_Phone_Last_Modified_By2__c,Work_Phone_Last_Modified_Date2__c,Email_Last_Modified_By__c,
                          Email_Last_Modified_Date__c,Email_Last_Modified_By2__c,Email_Last_Modified_Date2__c,LastModifiedById,LastModifiedDate,
                          Preferred_Email_1__c,Preferred_Email_2__c,Preferred_Mobile_1__c,Preferred_Mobile_2__c,Preferred_Home_Phone_1__c,Preferred_Home_Phone_2__c,
-                         Preferred_Work_Phone_1__c,Preferred_Work_Phone_2__c,Phone,IsPersonAccount
-                         from Account Where Id=:ApexPages.currentPage().getParameters().get('id') Limit 1]; 
+                         Preferred_Work_Phone_1__c,Preferred_Work_Phone_2__c,Phone,IsPersonAccount 
+                         from Account Where Id=:Contactid or id=:CompanyAccountid Limit 1]; 
             
         }
+        System.debug('contactList '+ contactList);
         if(contactList!=Null && !contactList.isEmpty())         
             accountList_details=contactList[0];        
+            System.debug('accountList details'+accountList_details);
         
     }
+    
+    
+    
     // public Account getaccountList_details (){ return null;}  
     public pagereference updateAccount(){ 
+    System.debug('came into updateAccount method before try');     
+            
+        CustomLogUtil.CustomLoggingEntry('LeadConatctcontroller class UpdateAccount method '); 
+             
         Id profileId = userinfo.getProfileId();
         String profileName = [Select Id,Name from Profile where Id=:profileId].Name;
         if(accountList_details!=null && profileName != 'IntegrationAPI')
@@ -147,7 +178,8 @@ public class AccountConatctcontroller{
                 }
                 
             }
-            try
+            
+           try
             {
                 update accountList_details;                 
                 isnoerror=true;             
@@ -155,10 +187,13 @@ public class AccountConatctcontroller{
             catch(DMLException de)
             {
                 ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,de.getDmlMessage(0)));
+                  CustomLogUtil.DebugException(de);
                 isnoerror=false;
             }
             return null;
-        }   
+            
+               }
+                       
         return null;
     }
     
