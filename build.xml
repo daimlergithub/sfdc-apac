@@ -356,9 +356,9 @@
 			<sf:include name="ScheduleCreateMonthlyRegionOBEmailsTest"/>		
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmails"/>
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmailsTest"/>
-			
+			<sf:include name="AccountMergeControllerTest"/>
 		</sf:typeset>
-		<sf:typeset name="tabs">
+		<sf:typeset name="tabs"> 
 			<sf:include name="Retail_Campaigns"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
