@@ -111,17 +111,9 @@
     <classAccesses>
         <apexClass>AccountMergeController</apexClass>
         <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AccountMergeController1</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+    </classAccesses>    
     <classAccesses>
         <apexClass>AccountMergeControllerTest</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AccountMergeControllerTest1</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -16218,10 +16210,6 @@
     </pageAccesses>
     <pageAccesses>
         <apexPage>SSINewComplaintStart</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
-    <pageAccesses>
-        <apexPage>SSITEST20151021</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
     <pageAccesses>
