@@ -1,5 +1,5 @@
 @istest 
-public class LeadConatctcontrollerTest 
+public class LeadContactControllerTest 
 {
 
   private static Account objAccount;
@@ -23,12 +23,12 @@ public class LeadConatctcontrollerTest
       test.startTest();
       ApexPages.currentPage().getParameters().put('Id',objlead.id);
       ApexPages.StandardController objSc = new ApexPages.StandardController(objlead);
-      LeadConatctcontroller objLeadConatctcontroller= new LeadConatctcontroller(objSc);
-      objLeadConatctcontroller.showPopup();
+      LeadContactController objLeadContactController= new LeadContactController(objSc);
+      objLeadContactController.showPopup();
       test.stopTest();
         
       //verify
-      System.assert(objLeadConatctcontroller.displayPopup);
+      System.assert(objLeadContactController.displayPopup);
   }
    
   public static testMethod void test_updateAccount1()
@@ -52,8 +52,8 @@ public class LeadConatctcontrollerTest
       
       ApexPages.currentPage().getParameters().put('Id',objAccount1.id);
       ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount1);
-      LeadConatctcontroller objLeadConatctcontroller= new LeadConatctcontroller(objSc);
-      objLeadConatctcontroller.updateAccount();
+      LeadContactController objLeadContactController= new LeadContactController(objSc);
+      objLeadContactController.updateAccount();
       test.stopTest();
         
       //verify
@@ -108,8 +108,8 @@ public class LeadConatctcontrollerTest
       
       ApexPages.currentPage().getParameters().put('Id',objlead1.id);
       ApexPages.StandardController objSc = new ApexPages.StandardController(objlead1);
-      LeadConatctcontroller objLeadConatctcontroller= new LeadConatctcontroller(objSc);
-      objLeadConatctcontroller.updateAccount();       
+      LeadContactController objLeadContactController= new LeadContactController(objSc);
+      objLeadContactController.updateAccount();       
       test.stopTest();
         
       //verify
@@ -139,12 +139,12 @@ public class LeadConatctcontrollerTest
       
       ApexPages.currentPage().getParameters().put('Id',objAccount1.id);
       ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount1);
-      LeadConatctcontroller objLeadConatctcontroller= new LeadConatctcontroller(objSc);
-      objLeadConatctcontroller.updateAccount();
-      LeadConatctcontroller.ValidatePhoneNumberFields('042538');
-       LeadConatctcontroller.ValidatePhoneNumberFields('+61232145');
-       LeadConatctcontroller.ValidatePhoneNumberFields('130042538');
-       LeadConatctcontroller.ValidatePhoneNumberFields('1338');
+      LeadContactController objLeadContactController= new LeadContactController(objSc);
+      objLeadContactController.updateAccount();
+      LeadContactController.ValidatePhoneNumberFields('042538');
+       LeadContactController.ValidatePhoneNumberFields('+61232145');
+       LeadContactController.ValidatePhoneNumberFields('130042538');
+       LeadContactController.ValidatePhoneNumberFields('1338');
       test.stopTest();
         
       //verify
@@ -161,13 +161,13 @@ public class LeadConatctcontrollerTest
       test.startTest();
       ApexPages.currentPage().getParameters().put('Id',objAccount.id);
       ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
-      LeadConatctcontroller objLeadConatctcontroller= new LeadConatctcontroller(objSc);
-      objLeadConatctcontroller.selectedUserName=userinfo.getFirstName()+' '+userinfo.getlastName();
-      objLeadConatctcontroller.userInfo();
+      LeadContactController objLeadContactController= new LeadContactController(objSc);
+      objLeadContactController.selectedUserName=userinfo.getFirstName()+' '+userinfo.getlastName();
+      objLeadContactController.userInfo();
       test.stopTest();
         
       //verify
-      System.assert(objLeadConatctcontroller.usrInfolst!=null);
+      System.assert(objLeadContactController.usrInfolst!=null);
        }
   
   public static testMethod void test_closePopup()
@@ -180,18 +180,18 @@ public class LeadConatctcontrollerTest
       test.startTest();
       ApexPages.currentPage().getParameters().put('Id',objAccount.id);
       ApexPages.StandardController objSc = new ApexPages.StandardController(objAccount);
-      LeadConatctcontroller objLeadConatctcontroller= new LeadConatctcontroller(objSc);
-      objLeadConatctcontroller.selectedUserName=userinfo.getName();
-      objLeadConatctcontroller.userInfo();
-      objLeadConatctcontroller.closePopup();
-      objLeadConatctcontroller.LastModifiedby='Testve';
-      objLeadConatctcontroller.LastModifieddate='Testsu';
-      objLeadConatctcontroller.FSLastModifiedby='Tests';
-      objLeadConatctcontroller.FSLastModifieddate=system.today();
+      LeadContactController objLeadContactController= new LeadContactController(objSc);
+      objLeadContactController.selectedUserName=userinfo.getName();
+      objLeadContactController.userInfo();
+      objLeadContactController.closePopup();
+      objLeadContactController.LastModifiedby='Testve';
+      objLeadContactController.LastModifieddate='Testsu';
+      objLeadContactController.FSLastModifiedby='Tests';
+      objLeadContactController.FSLastModifieddate=system.today();
       test.stopTest();
         
       //verify
-      System.assert(!objLeadConatctcontroller.displayPopup);
+      System.assert(!objLeadContactController.displayPopup);
   }
 
  static void createAccount()

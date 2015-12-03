@@ -1,4 +1,4 @@
-public class LeadConatctcontroller{
+public class LeadContactController{
     //Variable declaration
     public static list<Account> contactList=new list<Account>();
     public Account accountList_details{get;set;}
@@ -20,7 +20,7 @@ public class LeadConatctcontroller{
     
    
     //Constructor Called to get the current account record id
-    public LeadConatctcontroller(ApexPages.StandardController stdController) {    
+    public LeadContactController(ApexPages.StandardController stdController) {    
         accountList_details= new Account();
         Contactid=new Set<Id>();
         CompanyAccountid=new Set<Id>();
