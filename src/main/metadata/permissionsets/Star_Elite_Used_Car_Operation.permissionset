@@ -16391,10 +16391,6 @@ Star Elite Account Owner</description>
         <visible>false</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Account_Link__c.ExternalLink</recordType>
-        <visible>false</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <recordType>Account_Link__c.Individual_Customer_External_Link</recordType>
         <visible>false</visible>
     </recordTypeVisibilities>

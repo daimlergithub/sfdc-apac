@@ -16471,10 +16471,6 @@
         <visible>true</visible>
     </recordTypeVisibilities>
     <recordTypeVisibilities>
-        <recordType>Account_Link__c.ExternalLink</recordType>
-        <visible>true</visible>
-    </recordTypeVisibilities>
-    <recordTypeVisibilities>
         <recordType>Account_Link__c.Individual_Customer_External_Link</recordType>
         <visible>true</visible>
     </recordTypeVisibilities>
