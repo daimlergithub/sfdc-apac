@@ -783,8 +783,14 @@
 	</target>
 	
 	<target name="deploy47">
-		<deploy>
-		<sf:typeset name="profiles" force="true"/>		
+		<deploy>		
+	    <sf:typeset name="classes">
+			<sf:include name="GenerateAndAttachPDFTest"/>
+			<sf:include name="AccountMergeControllerTest"/>
+			<sf:include name="AccountMergeController"/>
+			<sf:include name="TerminateVehicleRelationshipTest"/>						
+		</sf:typeset>	
+        <sf:typeset name="profiles" force="true"/>	
 		</deploy>
 	</target>	
 	
