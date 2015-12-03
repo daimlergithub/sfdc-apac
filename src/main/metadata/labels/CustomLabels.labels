@@ -957,6 +957,13 @@
         <value>Could not explain</value>
     </labels>
     <labels>
+        <fullName>Create_Vehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create Vehicle</shortDescription>
+        <value>Create Vehicle</value>
+    </labels>
+    <labels>
         <fullName>Criteria</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -990,6 +997,13 @@
         <protected>false</protected>
         <shortDescription>Date/Time :</shortDescription>
         <value>Date/Time :</value>
+    </labels>
+    <labels>
+        <fullName>Date_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Date Information</shortDescription>
+        <value>Date Information</value>
     </labels>
     <labels>
         <fullName>Dealer</fullName>
@@ -2062,6 +2076,13 @@
         <value>Other Email</value>
     </labels>
     <labels>
+        <fullName>Other_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Other Information</shortDescription>
+        <value>Other Information</value>
+    </labels>
+    <labels>
         <fullName>Other_Phone_1</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2475,6 +2496,13 @@
         <protected>false</protected>
         <shortDescription>Save Filter</shortDescription>
         <value>Save Filter</value>
+    </labels>
+    <labels>
+        <fullName>Save_New_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save &amp; New Button</shortDescription>
+        <value>Save &amp; New</value>
     </labels>
     <labels>
         <fullName>Sccussful</fullName>
@@ -2993,11 +3021,25 @@
         <value>Publish Date</value>
     </labels>
     <labels>
+        <fullName>Vehicle_Detail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Detail</shortDescription>
+        <value>Vehicle Detail</value>
+    </labels>
+    <labels>
         <fullName>Vehicle_Filter</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Vehicle Filter</shortDescription>
         <value>Vehicle Filter</value>
+    </labels>
+    <labels>
+        <fullName>Vehicle_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Information</shortDescription>
+        <value>Vehicle Information</value>
     </labels>
     <labels>
         <fullName>Work_Fax</fullName>
