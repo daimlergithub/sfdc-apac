@@ -11,7 +11,7 @@ public class VehicleExtensionTest {
         //create test data
         objCarmodel = new Car_Model__c ();
         objCarmodel.Name='Daimler';
-        objCarmodel.Brand__c='smart';
+        objCarmodel.Brand__c='Smart';
         objCarmodel.Series__c='A-CLASS';
         objCarmodel.Model__c='A160';
         objCarmodel.Status__c = 'Own Sellable';
@@ -19,7 +19,7 @@ public class VehicleExtensionTest {
         
     }
 
-    public static testMethod void testSaveVal(){
+    public static testMethod void testSaveValNegative(){
       //create test data
       createCarModel();
         
@@ -28,20 +28,22 @@ public class VehicleExtensionTest {
       Vehicle__c vehicle = new Vehicle__c();
       ApexPages.StandardController objSc = new ApexPages.StandardController(vehicle);      
       VehicleExtension objVehicleExtension= new VehicleExtension(objSc);
-      objVehicleExtension.enteredText1=objCarmodel.Brand__c;
-      objVehicleExtension.enteredText2='?';
-      objVehicleExtension.enteredText3='?';  
+      objVehicleExtension.brand=UtilConstant.Question;
+      objVehicleExtension.class1=UtilConstant.Question;
+      objVehicleExtension.recordType=UtilConstant.MB;
       objVehicleExtension.saveVal();
+      objVehicleExtension.saveAndNew();
+      
       //stop test
       test.stopTest();
         
       //verify test
-      vehicle=[select Brand__c from Vehicle__c where Brand__c=:objCarmodel.Brand__c];
-      system.assertEquals(vehicle.Brand__c, objCarmodel.Brand__c);
+      system.assertEquals(objVehicleExtension.saveVal(), null);
+      system.assertEquals(objVehicleExtension.saveAndNew(), null);
         
         
     }
-     public static testMethod void testSaveValNegative(){
+     public static testMethod void testSaveVal(){
      
      //create test data
       createCarModel();
@@ -51,52 +53,62 @@ public class VehicleExtensionTest {
       Vehicle__c vehicle = new Vehicle__c();
       ApexPages.StandardController objSc = new ApexPages.StandardController(vehicle); 
       VehicleExtension objVehicleExtension= new VehicleExtension(objSc);
-      objVehicleExtension.saveVal();
+       objVehicleExtension.recordType=UtilConstant.Competitor;
+       VehicleExtension.getCarModelValues(UtilConstant.Competitor);
+       VehicleExtension.getCarModelValues(UtilConstant.MB);
+       objVehicleExtension.compBrand=objCarmodel.Brand__c;
+       objVehicleExtension.class1=UtilConstant.Question;
+       objVehicleExtension.model=UtilConstant.Question;
+       objVehicleExtension.range=UtilConstant.Question;
+       objVehicleExtension.modPackage=UtilConstant.Question;
+       objVehicleExtension.VG=UtilConstant.Question;
+       objVehicleExtension.steering=UtilConstant.Question;
+       objVehicleExtension.compModel=UtilConstant.Question;
+       objVehicleExtension.brand=UtilConstant.Question;
+       objVehicleExtension.saveVal();
+       objVehicleExtension.saveAndNew();
+       objVehicleExtension.Cancel();
       //stop test
       test.stopTest();
         
       //verify test
-      system.assertEquals(objVehicleExtension.enteredText1, null);  
+      vehicle=[select Competitor_Brand__c from Vehicle__c where Competitor_Brand__c=:objCarmodel.Brand__c];
+      system.assertEquals(objVehicleExtension.compBrand, vehicle.Competitor_Brand__c);  
         
     }
-     public static testMethod void testSaveValnew(){
+    
+    public static testMethod void testSaveAndNewVal(){
+     
      //create test data
       createCarModel();
          
       //start test
       test.startTest();
       Vehicle__c vehicle = new Vehicle__c();
-      ApexPages.StandardController objSc = new ApexPages.StandardController(vehicle);
+      ApexPages.StandardController objSc = new ApexPages.StandardController(vehicle); 
       VehicleExtension objVehicleExtension= new VehicleExtension(objSc);
-      objVehicleExtension.enteredText1=objCarmodel.Brand__c;
-      objVehicleExtension.enteredText2='?';
-      objVehicleExtension.enteredText3='?';    
-
-      objVehicleExtension.saveValnew();
-     //stop test
+       objVehicleExtension.recordType=UtilConstant.MB;
+       VehicleExtension.getCarModelValues(UtilConstant.MB);
+       objVehicleExtension.compBrand=UtilConstant.Question;
+       objVehicleExtension.class1=UtilConstant.Question;
+       objVehicleExtension.model=UtilConstant.Question;
+       objVehicleExtension.range=UtilConstant.Question;
+       objVehicleExtension.modPackage=UtilConstant.Question;
+       objVehicleExtension.VG=UtilConstant.Question;
+       objVehicleExtension.steering=UtilConstant.Question;
+       objVehicleExtension.compModel=UtilConstant.Question;
+       objVehicleExtension.brand=objCarmodel.Brand__c;
+       objVehicleExtension.saveVal();
+       objVehicleExtension.saveAndNew();
+       objVehicleExtension.Cancel();
+      //stop test
       test.stopTest();
         
       //verify test
-       vehicle=[select Brand__c from Vehicle__c where Brand__c=:objCarmodel.Brand__c];
-      system.assertEquals(vehicle.Brand__c, objCarmodel.Brand__c);  
+      vehicle=[select Brand__c from Vehicle__c where Brand__c=:objCarmodel.Brand__c];
+      system.assertEquals('smart', vehicle.Brand__c);  
         
     }
-    public static testMethod void testSaveValnewNegetive(){
-     //create test data
-      createCarModel();
-        
-      //start test
-      test.startTest();
-      Vehicle__c vehicle = new Vehicle__c();
-      ApexPages.StandardController objSc = new ApexPages.StandardController(vehicle);
-      VehicleExtension objVehicleExtension= new VehicleExtension(objSc);
-      objVehicleExtension.saveValnew();
-     //stop test
-      test.stopTest();
-        
-      //verify test
-        system.assertEquals(objVehicleExtension.enteredText1, null);    
-        
-    }
+    
     
 }
