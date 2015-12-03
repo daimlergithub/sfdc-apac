@@ -88,8 +88,9 @@ public class AccountHelper {
     {
     try
        {
-          CustomLogUtil.CustomLoggingEntry('Account helper class auBefore_Insert_Update_Events method'+ listAccounts.size() +' oldAccountMap'+oldAccountMap.size());
-      
+       if(listAccounts!=null && !listAccounts.isEmpty())
+        {            
+        CustomLogUtil.CustomLoggingEntry('Account helper class auBefore_Insert_Update_Events method = '+listAccounts.size() );
         for(Account acc : listAccounts){
         //US_AU-CD-001 No.7, US_AU-002
         if (RECORD_TYPE_SET.contains(acc.RecordTypeId)){
@@ -112,6 +113,7 @@ public class AccountHelper {
             }
         }
         
+        
         // US_AU-CD-001.6 Track the updating history for FS fields.
         if(isUpdate){
             trackUpdatHistoryForFsInfo(acc, oldAccountMap.get(acc.Id));
@@ -127,7 +129,7 @@ public class AccountHelper {
             acc.Dealer_Street_Address_Country__c = acc.Dealer_Postal_Address_Country__c;        
         }*/
     }
-    
+    }
     // US-CD-004 Flag the primary person account: the lastest inserted contact or updated contact is primary.
     newCompanyIds.remove(null);
     if(!newCompanyIds.isEmpty()){
@@ -425,8 +427,7 @@ public class AccountHelper {
     {
     try
        {
-          CustomLogUtil.CustomLoggingEntry('Account Helper class auAfter_Insert_Update_Delete_Events Method'+'accountNewMap= ' + accountNewMap.size()+ 'accountOldMap= ' + accountOldMap.size()+'listNewAccounts'+ listNewAccounts.size());
-    
+                     
         Set<String> companyIds = new Set<String>();
         Set<Id> dealerIds = new Set<Id>();
         List<AccountContactRole> AccountContactRoles = new List<AccountContactRole>();
@@ -434,7 +435,10 @@ public class AccountHelper {
         Map<Id, Id> personAccountIdcontactId = new Map<Id, Id>();
         AccountContactRole temp;
         
-        if(isDelete || isUpdate) {
+        if(isDelete || isUpdate && listOldAccounts!=null && !listOldAccounts.isEmpty()) {  
+              
+          CustomLogUtil.CustomLoggingEntry('Account Helper class auAfter_Insert_Update_Delete_Events Method'+  'listNewAccounts'+ listNewAccounts.size());  
+          
             for(Account item : listOldAccounts){
                   if(item.isPersonAccount && item.Primary__pc && item.Company__c != null){
                     if(isDelete){
@@ -447,10 +451,19 @@ public class AccountHelper {
             }
         }
         
-        if(isInsert) {
+        if(isInsert && listNewAccounts!=null && !listNewAccounts.isEmpty()) {
+        
             for(Account item : listNewAccounts){
-                if(item.isPersonAccount && item.Company__c != null){
+             if(item.isPersonAccount && item.Company__c != null){
                     personAccountIds.add(item.Id);
+                }
+                
+                if(item.isPersonAccount && item.Company__c != null && personAccountIdcontactId.containsKey(item.Id)){
+                    temp = new AccountContactRole();
+                    temp.AccountId = item.Company__c;
+                    temp.ContactId = personAccountIdcontactId.get(item.Id);
+                    temp.Role = item.Job__c;
+                    AccountContactRoles.add(temp);
                 }
             }
         }
@@ -461,17 +474,7 @@ public class AccountHelper {
             }
         }
         
-        if(isInsert) {
-            for(Account item : listNewAccounts){
-                if(item.isPersonAccount && item.Company__c != null && personAccountIdcontactId.containsKey(item.Id)){
-                    temp = new AccountContactRole();
-                    temp.AccountId = item.Company__c;
-                    temp.ContactId = personAccountIdcontactId.get(item.Id);
-                    temp.Role = item.Job__c;
-                    AccountContactRoles.add(temp);
-                }
-            }
-        }
+        
     
         if(isUpdate){
             String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();

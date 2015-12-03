@@ -550,11 +550,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadConatctcontroller</apexClass>
+        <apexClass>LeadContactController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadConatctcontrollerTest</apexClass>
+        <apexClass>LeadContactControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -11968,7 +11968,7 @@
         <editable>true</editable>
         <field>Retail_Task__c.Payment_Frequency__c</field>
         <readable>true</readable>
-	</fieldPermissions>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Retail_Task__c.Policy_Class__c</field>
@@ -17834,7 +17834,7 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>InstallPackaging</name>
-    </userPermissions> 
+    </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
         <name>ManageAnalyticSnapshots</name>
@@ -18026,7 +18026,7 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ScheduleReports</name>
-    </userPermissions>
+    </userPermissions> 
     <userPermissions>
         <enabled>true</enabled>
         <name>SendSitRequests</name>

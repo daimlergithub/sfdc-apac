@@ -466,8 +466,8 @@
 			<sf:include name="ContactTriggerHandler"/>
 			<sf:include name="ExtSelectAssignedDealer"/>
 			<sf:include name="ExtSelectAssignedDealerTest"/>
-            <sf:include name="LeadConatctcontroller"/>
-			<sf:include name="LeadConatctcontrollerTest"/>			
+            <sf:include name="LeadContactController"/>
+			<sf:include name="LeadContactControllerTest"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="ContactTrigger"/>
