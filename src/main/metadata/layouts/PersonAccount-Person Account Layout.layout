@@ -4,6 +4,8 @@
     <customButtons>View_Hierarchy</customButtons>
     <customButtons>DM</customButtons>
     <customButtons>Mergeexample</customButtons>
+    <customButtons>New_Leads</customButtons>
+    <customButtons>Merge</customButtons>
     <customConsoleComponents>
         <primaryTabComponents>
             <containers>
