@@ -57,11 +57,21 @@ Global with sharing class UtilConstant {
     public final static String RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED ='Person Account Soft Deleted';    
     // Soft deleted Account Owner Profile Name
     Public final static String PROFILE_PERSON_ACCOUNT_SOFT_DELETED ='IntegrationAPI';
-     //used in VehicleExtension class
-    public final static string MB='MB';
-    public final static string Competitor='Competitor';
-    public final static string Question='?';    
-		
+    
+    
+    //Vehicle Picker constants.
+    public final static String MB = 'MB';
+    public final String INTERESTED_VEHICLE = 'Interested Vehicle';
+    public final String COMPETITOR_VEHICLE = 'Competitor Vehicle';
+    public final String CURRENT1_VEHICLE   = 'CurrentVehicle1';
+    public final String CURRENT2_VEHICLE   = 'CurrentVehicle2';
+    public final String TRADE_IN_VEHICLE   = 'TradeIn';
+    public final String PURCHASED_VEHICLE  = 'Purchased';
+    public final String VIN = 'VIN';
+    public final String VEHICLE_TYPE = 'VehicleType';
+    public final String VEHICLE_PRODUCT = 'Vehicle Product';
+    public final String SELF_REGISTERED = 'Self Registered';
+        
     private static Map<String, Id> getUserRoleMapInstance() {
         if (roleMap == null) {
             roleMap = new Map<String, Id>();
