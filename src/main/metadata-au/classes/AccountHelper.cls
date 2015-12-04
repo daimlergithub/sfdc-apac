@@ -87,8 +87,10 @@ public class AccountHelper {
     public static void auBefore_Insert_Update_Events(List<Account> listAccounts,map<Id,Account> oldAccountMap, boolean isInsert,boolean isUpdate)
     {
     try
-       {                 
-        CustomLogUtil.CustomLoggingEntry('Account helper class auBefore_Insert_Update_Events method = ' );
+       {      
+         if(listAccounts !=null && listAccounts.isEmpty())	 
+		{		 
+        CustomLogUtil.CustomLoggingEntry('Account helper class auBefore_Insert_Update_Events method = ' +listAccounts.size() );
         for(Account acc : listAccounts){
         //US_AU-CD-001 No.7, US_AU-002
         if (RECORD_TYPE_SET.contains(acc.RecordTypeId)){
@@ -127,6 +129,7 @@ public class AccountHelper {
             acc.Dealer_Street_Address_Country__c = acc.Dealer_Postal_Address_Country__c;        
         }*/
     }
+	}
     
     // US-CD-004 Flag the primary person account: the lastest inserted contact or updated contact is primary.
     newCompanyIds.remove(null);
