@@ -1,4 +1,4 @@
-<apex:page standardController="Lead__c" extensions="LeadConatctcontroller" id="pageid" showHeader="false" sidebar="false" showChat="false">
+<apex:page standardController="Lead__c" extensions="LeadContactController" id="pageid" showHeader="false" sidebar="false" showChat="false">
  <apex:form id="form1">
  <apex:pageMessages id="showmsg"></apex:pageMessages>
    <apex:actionFunction name="callHidepopUp" action="{!closePopup}" rerender="tstpopup" immediate="true"/>

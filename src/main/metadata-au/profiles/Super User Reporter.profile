@@ -550,11 +550,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadConatctcontroller</apexClass>
+        <apexClass>LeadContactController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>LeadConatctcontrollerTest</apexClass>
+        <apexClass>LeadContactControllerTest</apexClass>
         <enabled>false</enabled>
     </classAccesses>
     <classAccesses>
@@ -17225,7 +17225,7 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ScheduleReports</name>
-    </userPermissions>
+    </userPermissions> 
     <userPermissions>
         <enabled>true</enabled>
         <name>SubmitMacrosAllowed</name>
