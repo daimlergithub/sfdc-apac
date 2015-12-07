@@ -1,9 +1,8 @@
 /**
-** Terminate VehicleRelationship
+** Onclicking on "Terminate VehicleRelationship" button,It will terminate all the vehicle_Relationship for the respective Vehicle
+** and update End Date ,End reason and comments for all Vehicle Relationship records
 ** Created By: Sneha Chail
-** Date: 2014-6-15
-Modified By : Sneha Chail
-Modified date : 10-oct-2015
+** Date: 2015-10-11
 **/
 
 public class TerminateVehicleRelationshipExtension   
@@ -17,7 +16,7 @@ public class TerminateVehicleRelationshipExtension
           objVehicleRelation= new Vehicle_Relationship__c();
           this.vehicle= (Vehicle__c)controller.getRecord();
     }
-	/**  
+    /**  
      * @Description Gets all the records from Vehicle Relationship of the current associated Vehicle.  
      * @author  Sneha chail
      * @Date  28/10/2015(mm/dd/yy)  
@@ -28,7 +27,7 @@ public class TerminateVehicleRelationshipExtension
           listvehicleRelation=[select Contact__c,Start_Date__c,Car_Relation__c,Owner_Relation__c,End_Date__c from Vehicle_Relationship__c where End_Date__c=NULL AND Vehicle_ID__c=:vehicle.Id];
           return listvehicleRelation;
     }
-	/**  
+    /**  
      * @Description Update End_Date__c,End_Reason__c,End_Setting_User__c and End_Setting_DateTime__c of the selected vehicleRelationships
      * @author  Sneha chail
      * @Date  28/10/2015(mm/dd/yy)  
@@ -36,8 +35,9 @@ public class TerminateVehicleRelationshipExtension
      * @see   TerminateVehicleRelationship(Vf Page)
     */ 
     public PageReference Save() {
-        try {
-            List<Vehicle_Relationship__c> lstVehiRelation=new List<Vehicle_Relationship__c>();
+           
+       List<Vehicle_Relationship__c> lstVehiRelation=new List<Vehicle_Relationship__c>();
+       getlstVehicleRelation();
             for(Vehicle_Relationship__c veR:listvehicleRelation){
                veR.End_Date__c=objVehicleRelation.End_Date__c;
                veR.End_Reason__c=objVehicleRelation.End_Reason__c;
@@ -46,16 +46,17 @@ public class TerminateVehicleRelationshipExtension
                veR.End_Setting_DateTime__c=system.now();
                lstVehiRelation.add(veR);
             }
+        try {   
+            if(lstVehiRelation.size()>0)
             update lstVehiRelation;
-        } catch(System.DMLException e) {
-            ApexPages.addMessages(e);
-            return null;
-        }
+         } catch(System.DMLException e) {
+            ApexPages.addMessages(e);          
+         }
         //  After successful Save, navigate to the default view page
         PageReference redirectSuccess = new ApexPages.StandardController(this.vehicle).view();
         return (redirectSuccess);
     }
-	/**  
+    /**  
      * @Description Redirect to the parent page of Vehicle record.
      * @author  Sneha chail
      * @Date  28/10/2015(mm/dd/yy)  

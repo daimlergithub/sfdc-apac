@@ -6,44 +6,44 @@
     </style>
  </head>
      <table width="100%" rules="rows">                                       
-         <tr><td><h1>Call Center Case Information</h1></td></tr> 
+         <tr><td><h1>{!$Label.CallCenterCaseInformation}</h1></td></tr> 
       </table> 
       <table width="100%">  
            <tr>               
-             <td colspan="4" align="right">CaseNumber :</td> 
+             <td colspan="4" align="right">{!$Label.CaseNumber}</td> 
              <td><apex:outputField value="{!Case.CaseNumber}"/></td>
           </tr>
           <tr>               
-             <td width="25%" align="right">Dealer Name :</td> 
+             <td width="25%" align="right">{!$Label.DealerName}</td> 
              <td width="70%"><apex:outputField value="{!Case.Case_Dealer__c}"/></td>                      
           </tr>
           <tr>
-             <td width="25%" align="right">Dealer Person Name :</td> 
+             <td width="25%" align="right">{!$Label.DealerPersonName}</td> 
              <td width="75%"><apex:outputField value="{!Case.Case_Dealer_User__c}"/></td>                   
           </tr> 
           </table>
         <table rules="rows" width="100%">
             <tr align="right"><td><p>    
-                        Customer・Assistance・Center<br/>
-                        TEL: 03-5545-6234 FAX: 03-6369-7791<br/> 
+                        {!$Label.CustomerAssistanceCenter}<br/>
+                        {!$Label.TelFax}<br/> 
              </p></td></tr> 
          </table>  
          <br/>   
          <table border="1" width="100%" rules="rows">
           <tr>
-             <td align="right" width="20%">Date/Time :</td>
+             <td align="right" width="20%">{!$Label.DateTime}</td>
              <td align="right" width="30%"></td>
-             <td align="right" width="20%">Dealer :</td>
+             <td align="right" width="20%">{!$Label.Dealer}</td>
              <td align="right" width="30%"></td>
           </tr> 
           <tr>
-             <td align="right" width="20%">Kana :</td>
+             <td align="right" width="20%">{!$Label.Kana}</td>
              <td align="right" width="30%"></td>
-             <td align="right" width="20%">Service Work:</td>
+             <td align="right" width="20%">{!$Label.Service_Work}</td>
              <td align="right" width="30%"></td>
           </tr>
           <tr>
-             <td align="right" width="20%">Customer :</td>
+             <td align="right" width="20%">{!$Label.Customer}</td>
              <td align="right" width="30%"></td>
              <td align="right" width="20%"></td>
              <td align="right" width="30%"></td> 
@@ -51,41 +51,41 @@
         </table>
         <table border="1" width="100%" rules="rows">  
            <tr>
-             <td align="right" width="13%">Phone</td>
+             <td align="right" width="13%">{!$Label.Phone}</td>
              <td align="right" width="20%"></td>
-             <td align="right" width="13%">Mobile</td>
+             <td align="right" width="13%">{!$Label.Mobile}</td>
              <td align="right" width="20%"></td>
-             <td align="right" width="13%">Registration</td>
+             <td align="right" width="13%">{!$Label.Registration}</td>
              <td align="right" width="20%"></td>
           </tr>
           <tr>        
-             <td align="right" width="13%" colspan="5">Registration No</td>
+             <td align="right" width="13%" colspan="5">{!$Label.RegistrationNo}</td>
              <td align="right" width="20%"></td>
           </tr>
            <tr>
-             <td align="right" width="13%">Model </td>
+             <td align="right" width="13%">{!$Label.Model}</td>
              <td align="right" width="20%"></td>
-             <td align="right" width="13%">Detailed Model Name</td>
+             <td align="right" width="13%">{!$Label.DetailedModelName}</td>
              <td align="right" width="20%"></td>
-             <td align="right" width="13%">Product ID</td>
+             <td align="right" width="13%">{!$Label.Product_ID}</td>
              <td align="right" width="20%"></td>
           </tr>
            <tr>
-             <td align="right" width="13%">Resource</td>
+             <td align="right" width="13%">{!$Label.Resource}</td>
              <td align="right" width="20%" colspan="3"></td>            
-             <td align="right" width="13%">Priority</td>
+             <td align="right" width="13%">{!$Label.Priority}</td>
              <td align="right" width="20%"></td>
           </tr>
            <tr>
-             <td align="right" width="13%">Customer</td>
+             <td align="right" width="13%">{!$Label.Customer}</td>
              <td align="right" width="20%" colspan="3"></td>            
-             <td align="right" width="13%">UCID</td>
+             <td align="right" width="13%">{!$Label.UCID}</td>
              <td align="right" width="20%"></td>
           </tr>
       </table> 
       <table border="1" width="100%" rules="rows">  
           <tr>
-           <td align="center" width="100%" bgcolor="#4169E1">Case Content/Status</td>
+           <td align="center" width="100%" bgcolor="#4169E1">{!$Label.CaseContentStatus}</td>
           </tr>
           <tr>
            <td align="left" width="75%" height="100"><apex:outputField value="{!Case.Customer_Statement__c}"/></td>          
@@ -94,7 +94,7 @@
       <br/>
       <table border="1" width="100%" rules="rows">  
           <tr>
-           <td align="center" width="100%" bgcolor="#4169E1">Request Content(to Dealer)</td>
+           <td align="center" width="100%" bgcolor="#4169E1">{!$Label.RequestContenttoDealer}</td>
           </tr>
           <tr>
            <td align="left" width="75%" height="100"><apex:outputField value="{!Case.PR_Comment_for_Dealer__c}"/></td>          
@@ -102,22 +102,22 @@
       </table> 
       <table border="1" width="100%" rules="rows">  
           <tr>
-           <td align="center" width="60%" bgcolor="#4169E1">Information sharing to Dealer/ Internal related department<br/>
-              <img src="/img/checkbox_unchecked.gif"/> Accepted
-              <img src="/img/checkbox_unchecked.gif"/>Could not explain
-              <img src="/img/checkbox_unchecked.gif"/>Not-Accepted
+           <td align="center" width="60%" bgcolor="#4169E1">{!$Label.Informationsharing}<br/>
+              <img src="/img/checkbox_unchecked.gif"/>{!$Label.Accepted}
+              <img src="/img/checkbox_unchecked.gif"/>{!$Label.Couldnotexplain}
+              <img src="/img/checkbox_unchecked.gif"/>{!$Label.NotAccepted}
             </td>
-           <td align="center" width="20%" rowspan="3">Request Content(to Dealer)</td>
+           <td align="center" width="20%" rowspan="3">{!$Label.RequestContenttoDealer}</td>
            <td width="2%" rowspan="3">
-              d
+              
            </td>
-           <td align="center" width="8%" rowspan="3">Request</td>
+           <td align="center" width="8%" rowspan="3">{!$Label.Request}</td>
            <td align="center" width="8%" rowspan="3"></td>            
            </tr>    
       </table> 
        <table width="100%" border="1" rules="rows">
          <tr>
-           <td align="right" width="20%">Case Category</td>  
+           <td align="right" width="20%">{!$Label.CaseCategory}</td>  
            <td align="left" width="80%"><apex:outputField value="{!Case.Case_Category__c}"/></td>                  
          </tr>
       </table>
