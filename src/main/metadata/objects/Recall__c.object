@@ -56,6 +56,28 @@
     <enableStreamingApi>true</enableStreamingApi>
     <externalSharingModel>ControlledByParent</externalSharingModel>
     <fields>
+        <fullName>Created_By_EP_Transaction__c</fullName>
+        <description>Contains the EP transaction ID which created this record</description>
+        <externalId>false</externalId>
+        <label>Created By EP Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>EP_Parent_Transaction__c</fullName>
+        <description>Used to identify all records updated by a single data load or specific data load</description>
+        <externalId>false</externalId>
+        <label>EP Parent Transaction</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
         <fullName>MD__c</fullName>
         <defaultValue>IF(ISPICKVAL($User.Market__c, 'AU') ,'AU', 
 		IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
@@ -134,6 +156,16 @@
         </picklist>
         <trackTrending>false</trackTrending>
         <type>Picklist</type>
+    </fields>
+    <fields>
+        <fullName>Updated_By_EP_Transactions__c</fullName>
+        <externalId>false</externalId>
+        <label>Updated By EP Transactions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
     </fields>
     <fields>
         <fullName>VIN__c</fullName>
