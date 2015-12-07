@@ -59,8 +59,8 @@ Global with sharing class UtilConstant {
     Public final static String PROFILE_PERSON_ACCOUNT_SOFT_DELETED ='IntegrationAPI';
     
     //used in VehicleExtension class
--    public final static string Competitor='Competitor';
--    public final static string Question='?';
+    public final static string Competitor='Competitor';
+    public final static string Question='?';
 
     //Vehicle Picker constants.
     public final static String MB = 'MB';
