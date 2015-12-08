@@ -199,6 +199,7 @@
 				<sf:include name="VehiclePickerControllerTests"/>
 				<sf:include name="GenerateAndAttachPDF"/>				
 				<sf:include name="AccountMergeController"/>	
+				<sf:include name="CustomLogUtil"/>
 			</sf:typeset>
 		</deploy>
     </target>
