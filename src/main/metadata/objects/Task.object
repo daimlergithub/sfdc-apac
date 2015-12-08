@@ -15863,12 +15863,13 @@
         <fullName>Activity_Status_is_Required</fullName>
         <active>true</active>
         <description>Activity Status is equired when Status equals to 'Closed'.</description>
-        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI', 
+        <errorConditionFormula>AND ($Profile.Name != 'IntegrationAPI',
+MD__c ='JP',		
 RecordType.DeveloperName = 'SSI_Task', 
 ISPICKVAL(Status, 'Closed'), 
 ISPICKVAL( Activity_Status__c, '' ) 
 )</errorConditionFormula>
-        <errorMessage>This value cannot be null.</errorMessage>
+        <errorMessage>Activity status is required if you close task.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>QC_Fields_editing_limitations</fullName>
