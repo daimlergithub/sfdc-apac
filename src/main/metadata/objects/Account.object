@@ -6137,19 +6137,19 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
 			<picklistValues>
-                <fullName>Communications%20equipment%2Fcomputers%20and%20other%20electronic%20equipment%20manufacturing</fullName>
+                <fullName>Communications equipment/computers and other electronic equipment manufacturing</fullName>
                 <default>false</default>
             </picklistValues>
 			<picklistValues>
-                <fullName>Electricity%2Fheat%20production%20and%20supply%20industry</fullName>
+                <fullName>Electricity/heat production and supply industry</fullName>
                 <default>false</default>
             </picklistValues>
 			<picklistValues>
-                <fullName>Mass%20organizations%2Fcommunity%20groups%20and%20religious%20organizations</fullName>
+                <fullName>Mass organizations/community groups and religious organizations</fullName>
                 <default>false</default>
             </picklistValues>
 			<picklistValues>
-                <fullName>Petroleum%20processing%2Fcoking%20and%20nuclear%20fuel%20processing%20industry</fullName>
+                <fullName>Petroleum processing/coking and nuclear fuel processing industry</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
