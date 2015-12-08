@@ -138,22 +138,22 @@
             <tab>Getting_Started</tab>
         </mapping>
         <mapping>
-            <tab>standard-report</tab>
-        </mapping>
-        <mapping>
             <tab>standard-Case</tab>
-        </mapping>
-        <mapping>
-            <tab>standard-Contact</tab>
         </mapping>
         <mapping>
             <tab>standard-Chatter</tab>
         </mapping>
         <mapping>
-            <tab>standard-Knowledge</tab>
+            <tab>standard-Contact</tab>
         </mapping>
         <mapping>
             <tab>standard-Dashboard</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-Knowledge</tab>
+        </mapping>
+        <mapping>
+            <tab>standard-report</tab>
         </mapping>
     </workspaceMappings>
 </CustomApplication>
