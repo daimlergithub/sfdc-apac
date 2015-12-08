@@ -173,6 +173,13 @@
         <value>There is an error in this attached pdf.</value>
     </labels>
     <labels>
+        <fullName>Brand</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Picker label</shortDescription>
+        <value>Brand</value>
+    </labels>
+    <labels>
         <fullName>Btn_Preview_No_Questions</fullName>
         <categories>Questionnaire Tool</categories>
         <language>en_US</language>
@@ -877,6 +884,20 @@
         <value>City</value>
     </labels>
     <labels>
+        <fullName>Class</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>For Vehicle Picker</shortDescription>
+        <value>Class</value>
+    </labels>
+    <labels>
+        <fullName>Clear_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Button used in Vehicle Picker</shortDescription>
+        <value>Clear</value>
+    </labels>
+    <labels>
         <fullName>Close</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -889,6 +910,13 @@
         <protected>false</protected>
         <shortDescription>Cluster</shortDescription>
         <value>Cluster</value>
+    </labels>
+    <labels>
+        <fullName>Colour</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>For Vehicle Picker</shortDescription>
+        <value>Colour</value>
     </labels>
     <labels>
         <fullName>Common_Filter</fullName>
@@ -969,6 +997,13 @@
         <protected>false</protected>
         <shortDescription>Criteria</shortDescription>
         <value>Criteria</value>
+    </labels>
+    <labels>
+        <fullName>Custom_Debug_Log_Switch</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Debug Log Switch</shortDescription>
+        <value>true</value>
     </labels>
     <labels>
         <fullName>Customer</fullName>
@@ -1090,6 +1125,13 @@
         <protected>false</protected>
         <shortDescription>End Time Greater Start Time</shortDescription>
         <value>The End Time must be greater than Start Time</value>
+    </labels>
+    <labels>
+        <fullName>Enter_VIN_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>For Vehicle Picker</shortDescription>
+        <value>Enter VIN number</value>
     </labels>
     <labels>
         <fullName>Error_Message_1</fullName>
@@ -1756,6 +1798,13 @@
         <value>Error: The logic is wrong.</value>
     </labels>
     <labels>
+        <fullName>Lookup_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lookup Button</shortDescription>
+        <value>Lookup</value>
+    </labels>
+    <labels>
         <fullName>Maintenance_Promotion</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -1928,6 +1977,13 @@
         <value>No record that you can approve is seleced</value>
     </labels>
     <labels>
+        <fullName>Mileage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>For Vehicle Picker</shortDescription>
+        <value>Mileage</value>
+    </labels>
+    <labels>
         <fullName>Mobile</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2031,6 +2087,13 @@
         <protected>false</protected>
         <shortDescription>Label used in Catalogue CSV</shortDescription>
         <value>Near Dealer Phone3</value>
+    </labels>
+    <labels>
+        <fullName>New_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Button used in Vehicle Picker</shortDescription>
+        <value>New</value>
     </labels>
     <labels>
         <fullName>New_Customer_Acquisition</fullName>
@@ -2884,6 +2947,13 @@
         <protected>false</protected>
         <shortDescription>Total Amount Spend On Car Service is Greater Than</shortDescription>
         <value>Total Amount Spend On Car Service is Greater Than</value>
+    </labels>
+    <labels>
+        <fullName>Trim</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>For Vehicle Picker</shortDescription>
+        <value>Trim</value>
     </labels>
     <labels>
         <fullName>UCID</fullName>
