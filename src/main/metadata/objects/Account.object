@@ -6180,6 +6180,22 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <fullName>Urban public transport sector</fullName>
                 <default>false</default>
             </picklistValues>
+			<picklistValues>
+                <fullName>Communications%20equipment%2Fcomputers%20and%20other%20electronic%20equipment%20manufacturing</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Electricity%2Fheat%20production%20and%20supply%20industry</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Mass%20organizations%2Fcommunity%20groups%20and%20religious%20organizations</fullName>
+                <default>false</default>
+            </picklistValues>
+			<picklistValues>
+                <fullName>Petroleum%20processing%2Fcoking%20and%20nuclear%20fuel%20processing%20industry</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Water Transportation</fullName>
                 <default>false</default>
@@ -6238,6 +6254,10 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>State institutions</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6318,10 +6338,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Ship building</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -7542,6 +7558,14 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Government employees</fullName>
                 <default>false</default>
             </picklistValues>
@@ -7619,14 +7643,6 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
             </picklistValues>
             <picklistValues>
                 <fullName>Reject to answer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Others</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
