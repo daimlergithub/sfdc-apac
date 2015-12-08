@@ -22,7 +22,7 @@ Public static Account objAccount;
        String vehicleId=objVehicle.Id;
        system.assertEquals(redirectSuccess.getURL(),'/'+vehicleId.substring(0,15));     
        system.assertEquals(objVehicleRelship.End_Setting_User__c,UserInfo.getUserId());
-       system.assertEquals(objVehicleRelship.End_Setting_DateTime__c,system.now());
+       system.assertEquals(Date.valueOf(objVehicleRelship.End_Setting_DateTime__c),Date.valueOf(system.now()));
     }
   // Calling "cancel method
     public static testMethod void cancelTest()
