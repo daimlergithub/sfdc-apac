@@ -2358,6 +2358,18 @@
                 <fullName>Purchased</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Approving</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2713,6 +2725,10 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
                 <fullName>New Customer</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Company Sales</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2888,6 +2904,14 @@ ISPICKVAL(Interested_Vehicle_Brand__c,'AMG')
             </picklistValues>
             <picklistValues>
                 <fullName>Lost(Dealer)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On-going</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -7537,6 +7561,14 @@ Modify Reason:
                 <fullName>Leasing</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Catalogue</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Quotation</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -7930,6 +7962,48 @@ Modify Reason:
                 <controllingFieldValues>TA&amp;C</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Demo Car</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Employee Car</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Employee Lease</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Alternative Car</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company Car</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daimler Employee</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gift Car</fullName>
+                <controllingFieldValues>New Car</controllingFieldValues>
+                <controllingFieldValues>Used Car</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -8130,6 +8204,70 @@ Modify Reason:
         <picklist>
             <picklistValues>
                 <fullName>none</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Changed car in same company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Changed car in different company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Changed to other importer maker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Changed to other domestic maker</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade in to other company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Trade in to general workshop/ Car goods store/ Gas station</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Stopped activity</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchased Competitor's Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purhcased at othe MB stores</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purhcased MB from other importer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Purchased MB at normal Used Car store</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gave up owning a car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Continued using current car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sales not appropriate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Transferred for house moving</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -8476,6 +8614,98 @@ Modify Reason:
             <picklistValues>
                 <fullName>Rosa</fullName>
                 <controllingFieldValues>Fuso</controllingFieldValues>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>C-Class AMG</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLA-Class Shooting Brake</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Sedan BlueTEC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Estate BlueTEC</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>E-Class Sedan Hybrid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S Class Sedan Hybrid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S Class Coupe</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Maybach S class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>S Class Plug-in Hybrid</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>AMG GT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Smart for 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart for 4</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Smart for 2 Coupe mhd</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Smart for 4 Cabrio mhd</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Smart for two Cabrio</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart electric</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart edition Disney</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A 180 Customized Version</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>A 180 Edition Green</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Unknown</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>smart Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -9215,6 +9445,10 @@ Modify Reason:
                 <fullName>Financed</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -9479,47 +9713,71 @@ Modify Reason:
         <label>Price Range</label>
         <picklist>
             <picklistValues>
-                <fullName>RMB100,001~150,000</fullName>
+                <fullName>Range 1</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>RMB150,001~200,000</fullName>
+                <fullName>Range 2</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>RMB200,000~300,000</fullName>
+                <fullName>Range 3</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>RMB300,001~400,000</fullName>
+                <fullName>Range 4</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>RMB400,001~500,000</fullName>
+                <fullName>Range 5</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>RMB500,001~700,000</fullName>
+                <fullName>Range 6</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>RMB700,001~1 million</fullName>
+                <fullName>Range 7</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>RMB1,000,001~1,500,000</fullName>
+                <fullName>Range 8</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>RMB1,500,001~2 million</fullName>
+                <fullName>Range 9</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>2～3 million RMB</fullName>
+                <fullName>Range 10</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>more than 3 million RMB</fullName>
+                <fullName>Range 11</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 12</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 13</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 14</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 15</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 16</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Range 17</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -9648,6 +9906,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>within 12 month</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Considering</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -14200,19 +14462,27 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
         <label>Test drive contents</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>1:Test Drive near showroom</fullName>
+                <fullName>Aruond show room</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>2:Test Drive near home</fullName>
+                <fullName>Around Customer home</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>3:Test Drive at highway</fullName>
+                <fullName>On Highways</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Experience of advanced safety function</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>On assistant driver's seat</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -24274,47 +24544,47 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Price_Range__c</picklist>
             <values>
-                <fullName>2%EF%BD%9E3 million RMB</fullName>
+                <fullName>Range 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB1%2C000%2C001%7E1%2C500%2C000</fullName>
+                <fullName>Range 10</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB1%2C500%2C001%7E2 million</fullName>
+                <fullName>Range 11</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB100%2C001%7E150%2C000</fullName>
+                <fullName>Range 2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB150%2C001%7E200%2C000</fullName>
+                <fullName>Range 3</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB200%2C000%7E300%2C000</fullName>
+                <fullName>Range 4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB300%2C001%7E400%2C000</fullName>
+                <fullName>Range 5</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB400%2C001%7E500%2C000</fullName>
+                <fullName>Range 6</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB500%2C001%7E700%2C000</fullName>
+                <fullName>Range 7</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB700%2C001%7E1 million</fullName>
+                <fullName>Range 8</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>more than 3 million RMB</fullName>
+                <fullName>Range 9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -27270,19 +27540,19 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Test_Drive_Type__c</picklist>
             <values>
-                <fullName>1%3ATest Drive near showroom</fullName>
+                <fullName>Around Customer home</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3ATest Drive near home</fullName>
+                <fullName>Aruond show room</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3ATest Drive at highway</fullName>
+                <fullName>On Highways</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>None</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36829,47 +37099,47 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Price_Range__c</picklist>
             <values>
-                <fullName>2%EF%BD%9E3 million RMB</fullName>
+                <fullName>Range 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB1%2C000%2C001%7E1%2C500%2C000</fullName>
+                <fullName>Range 10</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB1%2C500%2C001%7E2 million</fullName>
+                <fullName>Range 11</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB100%2C001%7E150%2C000</fullName>
+                <fullName>Range 2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB150%2C001%7E200%2C000</fullName>
+                <fullName>Range 3</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB200%2C000%7E300%2C000</fullName>
+                <fullName>Range 4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB300%2C001%7E400%2C000</fullName>
+                <fullName>Range 5</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB400%2C001%7E500%2C000</fullName>
+                <fullName>Range 6</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB500%2C001%7E700%2C000</fullName>
+                <fullName>Range 7</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB700%2C001%7E1 million</fullName>
+                <fullName>Range 8</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>more than 3 million RMB</fullName>
+                <fullName>Range 9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -39841,7 +40111,7 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Test_Drive_Type__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -44548,8 +44818,24 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>CAC_Lead_Status__c</picklist>
             <values>
+                <fullName>Allocated</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Approving</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Lost%28CAC%29</fullName>
                 <default>false</default>
+            </values>
+            <values>
+                <fullName>New</fullName>
+                <default>true</default>
             </values>
             <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
@@ -44557,7 +44843,7 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Qualified</fullName>
-                <default>true</default>
+                <default>false</default>
             </values>
         </picklistValues>
         <picklistValues>
@@ -44622,15 +44908,15 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Dealer_Lead_Status__c</picklist>
             <values>
-                <fullName>Contact Failed For 3 Days%28Only Non BDC%29</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>First Contact Customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Lost%28Dealer%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Not Started</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On-going</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -44641,27 +44927,11 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Purchased%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>Test Drive</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_Lost_Reason__c</picklist>
             <values>
-                <fullName>Bought MB elsewhere</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Bought other brand</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer can not be reached</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer does not respond</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -44669,19 +44939,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Duplicate for un-reported show-up</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Financing failed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Hibernate Lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invalid customer data</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -44702,26 +44960,6 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Price not accepted</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Purchase plan postponed</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Quotation request from other dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test lead</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>The showroom is not convenient for me</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Trade in failed</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47786,6 +48024,42 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lost_Situation__c</picklist>
             <values>
+                <fullName>Continued using current car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gave up owning a car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased Competitor%27s Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purchased MB at normal Used Car store</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purhcased MB from other importer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Purhcased at othe MB stores</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales not appropriate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transferred for house moving</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>none</fullName>
                 <default>false</default>
             </values>
@@ -47794,22 +48068,6 @@ Company_Account__r.Work_Phone__c  ,
             <picklist>MB_Vehicle_Interest__c</picklist>
             <values>
                 <fullName>A-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Actros</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Argosy</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Atego</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Axor</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47857,66 +48115,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Canter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Century Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Century Class S%2FT 112</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Charter Bus</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Citan</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>City Bus</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coach</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Columbia</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Columbia 112</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Columbia 112 Concrete</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coronado</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coronado 112</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coronado 114</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coronado SD</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Coronado SD 114</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>E-Class Cabriolet</fullName>
                 <default>false</default>
             </values>
@@ -47933,14 +48131,6 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Econic</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Fighter</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>G-Class</fullName>
                 <default>false</default>
             </values>
@@ -47953,19 +48143,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>Heavy</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>M-Class</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>R-Class</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Rosa</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -47985,63 +48167,7 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>School Bus</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sprinter Cab Chassis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sprinter Dual Chassis</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sprinter Panel Van</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sprinter Transfer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sprinter Van</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Unimog</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Valente</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Viano</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vito Crew Cab</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vito Panel Van</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vito Shuttle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vito Van</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vito Wagon</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Zetros</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48370,19 +48496,11 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
-                <fullName>EFT</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Financed</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Invoice</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Transfer</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -48484,47 +48602,47 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Price_Range__c</picklist>
             <values>
-                <fullName>2%EF%BD%9E3 million RMB</fullName>
+                <fullName>Range 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB1%2C000%2C001%7E1%2C500%2C000</fullName>
+                <fullName>Range 10</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB1%2C500%2C001%7E2 million</fullName>
+                <fullName>Range 11</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB100%2C001%7E150%2C000</fullName>
+                <fullName>Range 2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB150%2C001%7E200%2C000</fullName>
+                <fullName>Range 3</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB200%2C000%7E300%2C000</fullName>
+                <fullName>Range 4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB300%2C001%7E400%2C000</fullName>
+                <fullName>Range 5</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB400%2C001%7E500%2C000</fullName>
+                <fullName>Range 6</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB500%2C001%7E700%2C000</fullName>
+                <fullName>Range 7</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB700%2C001%7E1 million</fullName>
+                <fullName>Range 8</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>more than 3 million RMB</fullName>
+                <fullName>Range 9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -51496,19 +51614,19 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Test_Drive_Type__c</picklist>
             <values>
-                <fullName>1%3ATest Drive near showroom</fullName>
+                <fullName>Around Customer home</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>2%3ATest Drive near home</fullName>
+                <fullName>Aruond show room</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>3%3ATest Drive at highway</fullName>
+                <fullName>On Highways</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>None</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -59343,47 +59461,47 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Price_Range__c</picklist>
             <values>
-                <fullName>2%EF%BD%9E3 million RMB</fullName>
+                <fullName>Range 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB1%2C000%2C001%7E1%2C500%2C000</fullName>
+                <fullName>Range 10</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB1%2C500%2C001%7E2 million</fullName>
+                <fullName>Range 11</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB100%2C001%7E150%2C000</fullName>
+                <fullName>Range 2</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB150%2C001%7E200%2C000</fullName>
+                <fullName>Range 3</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB200%2C000%7E300%2C000</fullName>
+                <fullName>Range 4</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB300%2C001%7E400%2C000</fullName>
+                <fullName>Range 5</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB400%2C001%7E500%2C000</fullName>
+                <fullName>Range 6</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB500%2C001%7E700%2C000</fullName>
+                <fullName>Range 7</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>RMB700%2C001%7E1 million</fullName>
+                <fullName>Range 8</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>more than 3 million RMB</fullName>
+                <fullName>Range 9</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -62327,7 +62445,7 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Test_Drive_Type__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
