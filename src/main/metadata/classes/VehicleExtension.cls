@@ -5,117 +5,32 @@
 */
 
 public with sharing class VehicleExtension {
+    
+    public String recordType {set;get;} 
+    public boolean check{set;get;}
     public Vehicle__c vehicle{get;set;}
-    public String serialized_vehicleTypeMap {set;get;}
-    public String brandClassMapping {get;set;}
-    public String classModelMapping {get;set;}
-    public String VehicleBrandClassMapping {get;set;}
-    public List<VehicleBrandsAndClasses> vBrandsAndClasses {get;set;}
-    public VehicleBrandsAndClasses vBC {get;set;}
-    Map<String, Set<String>> brandClassMap {get;set;}
-    Map<String, Set<String>> classModelMap {get;set;}
-    public String enteredText1{get;set;}
-    public String enteredText2{get;set;}
-    public String enteredText3{get;set;}
+    public String brand{get;set;}
+    public String class1{get;set;}
+    public String model{get;set;}
+    public String compBrand{get;set;}
+    public String range{get;set;}
+    public String modPackage{get;set;}
+    public String VG{get;set;}
+    public String steering{get;set;}
+    public String compModel{get;set;}
     public PageReference nextPage;
     
-   
+    
 
     /*Constructor Method*/
     public VehicleExtension(ApexPages.StandardController controller) {
         
+        String type;
+        check=true;
         vehicle = new Vehicle__c();
-        List<Car_Model__c> carModels;
-        serialized_vehicleTypeMap = JSON.serialize('');
-        brandClassMap = new Map<String, Set<String>>();
-        classModelMap = new Map<String, Set<String>>();
-        
-        try{
-            
-            /***************** CAR MODEL WRAPPER CLASS LOGIC : START ****************************/
-            
-            /*Query Car Model Records : INTERESETED VEHICLE*/
-            carModels = [SELECT Brand__c,Model__c,Series__c FROM Car_Model__c Where Status__c = 'Own Sellable'];
-            Set<String> tempSet = new Set<String>();
-           
-            for(Car_Model__c cm : carModels){
-                //Create brand class map.
-                tempSet = brandClassMap.get(cm.Brand__c);
-                if(tempSet == null){
-                    brandClassMap.put(cm.Brand__c, new Set<String>{cm.Series__c});
-                }else{
-                    tempSet.add(cm.Series__c);
-                } 
-                //Create Class model map.
-                tempSet = classModelMap.get(cm.Series__c);
-                if(tempSet == null){
-                    classModelMap.put(cm.Series__c, new Set<String>{cm.Model__c});
-                }else{
-                    tempSet.add(cm.Model__c);
-                }
-            }           
-
-           
-            brandClassMapping = JSON.serialize(brandClassMap);
-           
-            
-            /*Work on the Picklist values here */
-            if (vBrandsAndClasses == null){
-                vBrandsAndClasses = new List<vehicleBrandsAndClasses>();
-            }
-            
-            Integer dynamicID = 0;
-            Set<String> brandKeySets = brandClassMap.keySet();
-            for (String brands : brandKeySets){
-                System.debug('@Entered for loop...' +brandClassMap.keySet());
-                vBC = new VehicleBrandsAndClasses();
-                vBC.name = new Map<String, String>();
-                vBC.name.put('Id',String.valueof(++dynamicID));
-                vBC.name.put('name', brands);
-                System.debug('vBC Maps :' +vBC);
-                if (brandClassMap.get(brands) != null){
-                    Set<String> b_Classes = brandClassMap.get(brands);
-                   
-                    vBC.brandClass = new List<Map<String,String>>();
-                    for (String cls : b_Classes){
-                        BrandClasses b_Cls = new BrandClasses();                    
-                        b_Cls.name = new Map<String, String>();
-                        b_Cls.name.put('Id', String.valueof(++dynamicID));
-                        b_Cls.name.put('name', cls);
-                        vBC.brandClass.add(b_Cls.name);
-                        System.debug('@Brand Classes :' +vBC);
-                    }
-                }
-                vBrandsAndClasses.add(vBC);             
-            } 
-
-           
-            VehicleBrandClassMapping = JSON.serialize(vBrandsAndClasses);
-            classModelMapping = JSON.serialize(classModelMap);
-            
-            /***************** CAR MODEL WRAPPER CLASS LOGIC : END ****************************/ 
-           
-
-             
-        }catch(Exception e){
-            System.debug('Exception encountered...' +e.getMessage());
-        }  
-        
-        
+     
     }
-    
-    /*********** WRAPPER CLASSES *******************/
-    public class VehicleBrandsAndClasses{
-        public Map<String, String> name {get; set;}
-        public List<Map<String,String>> brandClass {get; set;}
-    }
-    
-    public class BrandClasses{
-        public Map<String, String> name {get;set;}
-    }
-    
-   
-    
+        
     /**    
      * @Description : saves the record and redirects to record detail page
      * @author      : sriram kalluri
@@ -127,36 +42,19 @@ public with sharing class VehicleExtension {
     
      public PageReference saveVal()
     {
-         system.debug('saveVal method enters here'+enteredText1);
-         if(enteredText1==null || enteredText1 == '?'){
+        
+       if((recordType == UtilConstant.MB && brand == UtilConstant.Question)||(recordType == UtilConstant.Competitor && compBrand == UtilConstant.Question)){
             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.Required_Information));
             nextPage = null;
          }
         else{
-            if(enteredText2 == '?'){
-                enteredText2=null;
-            }
-            if(enteredText3 == '?'){
-                enteredText3=null;
-            }
-            
-            vehicle.Brand__c=enteredText1;
-            vehicle.Class__c=enteredText2;
-            vehicle.Model__c=enteredText3;
-            try{
-                insert vehicle;
-            }catch(Exception e){
-                string error=e.getMessage();
-                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,error));
-                System.debug('Exception encountered...' +error);
-            } 
-            nextPage = new PageReference('/' + vehicle.Id);
-            nextPage.setRedirect(true);
-            system.debug('redirecturl'+nextPage);
+                save(); 
+                nextPage = new PageReference('/' + vehicle.Id);
+                nextPage.setRedirect(true);
+                system.debug('redirecturl'+nextPage);
         
-             
-         
          }
+        
         return nextPage;
     }
     
@@ -169,41 +67,212 @@ public with sharing class VehicleExtension {
      * @see         : VehicleExtension
     **/   
    
-    public PageReference saveValnew()
+    public PageReference saveAndNew()
     {
-          system.debug('saveValnew method enters here');
-          if(enteredText1==null || enteredText1 == '?'){  
-             
-             ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.Required_Information));
-             nextPage = null;
-              
-          }else{
-                if(enteredText2 == '?'){
-                    enteredText2=null;
+          
+        if((recordType == UtilConstant.MB && brand == UtilConstant.Question)||(recordType == UtilConstant.Competitor && compBrand == UtilConstant.Question)){
+                ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,Label.Required_Information));
+                nextPage = null;
+         }
+        else{   
+            	save();
+                nextPage = new PageReference('/apex/Create_Vehicle');
+                nextPage.setRedirect(true);
+                system.debug('redirecturl'+nextPage);
+         }             
+        return nextPage;
+            
+    }
+
+     /**    
+     * @Description : saves the vehicle record
+     * @author      : sriram kalluri
+     * @Date        : 12/1/2015
+     * @param       : Field values entered in vf page 
+     * @return      : nothing
+     * @see         : VehicleExtension
+    **/  
+    
+    public void save()
+    {
+               if(brand == UtilConstant.Question){
+                        brand=null;
                     }
-                if(enteredText3 == '?'){
-                    enteredText3=null;
+               if(class1 == UtilConstant.Question){
+                    class1=null;
                 }
-                vehicle.Brand__c=enteredText1;
-                vehicle.Class__c=enteredText2;
-                vehicle.Model__c=enteredText3;          
+                if(model == UtilConstant.Question){
+                    model=null;
+                }
+                if(compBrand == UtilConstant.Question){
+                        compBrand=null;
+                    }
+                if(range == UtilConstant.Question){
+                        range=null;
+                    }
+                if(modPackage == UtilConstant.Question){
+                        modPackage=null;
+                    }
+                if(VG == UtilConstant.Question){
+                        VG=null;
+                    }
+                if(steering == UtilConstant.Question){
+                        steering=null;
+                    }
+                if(compModel == UtilConstant.Question){
+                        compModel=null;
+                    }
+                vehicle.RecordTypeId=Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get(recordType).getRecordTypeId();
+                vehicle.Brand__c=brand;
+                vehicle.Class__c=class1;
+                vehicle.Model__c=model;
+                vehicle.Competitor_Brand__c=compBrand;
+                vehicle.Range__c=range;
+                vehicle.Modification_Package__c=modPackage;
+                vehicle.Vehicle_Group__c=VG;
+                vehicle.BaumusterEx__c=steering;
+                vehicle.Competitor_Model__c=compModel;
                 try{
                     insert vehicle;
-                }catch(Exception e){
+                }catch(DmlException  e){
                     string error=e.getMessage();
                     ApexPages.addmessage(new ApexPages.message(ApexPages.severity.Error,error));
                     System.debug('Exception encountered...' +error);
-                } 
-              
-                nextPage = new PageReference('/apex/Create_Vehicle');
-                nextPage.setRedirect(true);
-          
-          }
-             return nextPage;
-            
+                }
+        
+    }
+    
+     /**    
+     * @Description : Redirects to Account record detail Page
+     * @author      : sriram kalluri
+     * @Date        : 12/1/2015
+     * @return      : Account record detail Page URL
+     * @see         : VehicleExtension
+    **/  
+     public PageReference Cancel()
+    { 
+          string returnId = ApexPages.currentPage().getParameters().get('accId');
+          nextPage = new PageReference(System.Url.getSalesforceBaseURL().toExternalForm()+'/'+returnId);
+          nextPage.setRedirect(true);
+          return nextPage;
     }
     
     
-   
+    
+        /**    
+     * @Description : gets related map values based on Record Type
+     * @author      : sriram kalluri
+     * @Date        : 12/1/2015
+     * @param       : Selected RecordType Value 
+     * @return      : Relared values as Map
+     * @see         : VehicleExtension
+    **/  
+    
+    @RemoteAction
+    public static List<Map<String, Set<String>>> getCarModelValues(String status_type){   
+             
+         String type;
+         List<Car_Model__c> carModels;
+         Map<String,Set<String>> brandClassMap = new Map<String, Set<String>>();
+         Map<String,Set<String>> classModelMap = new Map<String, Set<String>>(); 
+         Map<String,Set<String>> modelRangeMap = new Map<String, Set<String>>();
+         Map<String,Set<String>> rangeMpMap = new Map<String, Set<String>>();
+         Map<String,Set<String>> rangeVgMap = new Map<String, Set<String>>();
+         Map<String,Set<String>> rangeSteeringMap = new Map<String, Set<String>>();
+         Map<String,Set<String>> brandCompitiorModelMap = new Map<String, Set<String>>();
+         List<Map<String, Set<String>>> finalMap = new List<Map<String, Set<String>>>();   
+         Set<String> tempSet = new Set<String>();
+        
+         system.debug('status_type'+status_type);
+         type=status_type;
+        
+            if(type==UtilConstant.MB){
+                type='Own Sellable';
+            }
+                        
+            carModels = [SELECT Brand__c,Series__c,Model__c,Range__c,Mod_Pack__c,Vehicle_Group__c,Steering__c,Model_Name__c FROM Car_Model__c Where Status__c =:type];
+        
+            for(Car_Model__c cm : carModels){
+                
+                    //Create brand class map.
+                    tempSet = brandClassMap.get(cm.Brand__c);
+                    if(tempSet == null){
+                        brandClassMap.put(cm.Brand__c, new Set<String>{cm.Series__c});
+                    }else{
+                        tempSet.add(cm.Series__c);
+                    } 
+                
+                     //Create Class model map.
+                    tempSet = classModelMap.get(cm.Series__c);
+                    if(tempSet == null){
+                        classModelMap.put(cm.Series__c, new Set<String>{cm.Model__c});
+                    }else{
+                        tempSet.add(cm.Model__c);
+                    }
+                    //Create model Range map.
+                   
+                    tempSet = modelRangeMap.get(cm.Model__c);
+                    if(tempSet == null){
+                        modelRangeMap.put(cm.Model__c, new Set<String>{cm.Range__c});
+                    }else{
+                        tempSet.add(cm.Range__c);
+                    }
+                
+                 //Create  Range MP map.
+                   
+                    tempSet = rangeMpMap.get(cm.Range__c);
+                    if(tempSet == null){
+                        rangeMpMap.put(cm.Range__c, new Set<String>{cm.Mod_Pack__c});
+                    }else{
+                        tempSet.add(cm.Mod_Pack__c);
+                    }
+                
+                 //Create  Range Vehicle group map.
+                   
+                    tempSet = rangeVgMap.get(cm.Range__c);
+                    if(tempSet == null){
+                        rangeVgMap.put(cm.Range__c, new Set<String>{cm.Vehicle_Group__c});
+                    }else{
+                        tempSet.add(cm.Vehicle_Group__c);
+                    }
+                
+                //Create  Range steering group map.
+                   
+                    tempSet = rangeSteeringMap.get(cm.Range__c);
+                    if(tempSet == null){
+                        rangeSteeringMap.put(cm.Range__c, new Set<String>{cm.Steering__c});
+                    }else{
+                        tempSet.add(cm.Steering__c);
+                    }
+                
+                //Create  Brand and Compitior Model group map.
+                   
+                    tempSet = brandCompitiorModelMap.get(cm.Brand__c);
+                    if(tempSet == null){
+                        brandCompitiorModelMap.put(cm.Brand__c, new Set<String>{cm.Model_Name__c});
+                    }else{
+                        tempSet.add(cm.Model_Name__c);
+                    } 
+                
+                
+            }            
+
+           
+            finalMap.clear();
+            finalMap.add(brandClassMap);
+            finalMap.add(classModelMap);
+            finalMap.add(modelRangeMap);
+            finalMap.add(rangeMpMap);
+            finalMap.add(rangeVgMap);
+            finalMap.add(rangeSteeringMap);
+            finalMap.add(brandCompitiorModelMap);
+        
+           system.debug('finalMap'+finalMap);
+        
+          return finalMap;
+        
+        
+    }
+    
 
 }

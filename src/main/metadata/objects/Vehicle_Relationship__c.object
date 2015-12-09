@@ -196,43 +196,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
         <label>Car Relation</label>
         <picklist>
             <picklistValues>
-                <fullName>Owner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>User</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Other</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Keeper</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Contact Person</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Book people</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Unknown</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Reservation</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Telematics User</fullName>
+                <fullName>Purchaser</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -240,11 +204,27 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_CarRel
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Purchaser</fullName>
+                <fullName>Aftersales Contact Target 1</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Aftersales Contact Target</fullName>
+                <fullName>Aftersales Contact Target 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Self-registered</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Other</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1428,7 +1408,31 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_Contac
         <label>Democar flag</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Demo Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Employee Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Dealer Employee Lease</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Alternative Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company Car</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Daimler Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gift Car</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -1546,7 +1550,35 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
         <label>End_Reason</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Replacement</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Sold</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Handover</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Bought Competitors</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Warranty system</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Online</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>DMS</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2106,23 +2138,15 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Magazine</label>
         <picklist>
             <picklistValues>
-                <fullName>1</fullName>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>2</fullName>
+                <fullName>No</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>5</fullName>
+                <fullName>Unknown</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2323,7 +2347,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
         <label>Owner Relation</label>
         <picklist>
             <picklistValues>
-                <fullName>Driver</fullName>
+                <fullName>Same</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2331,15 +2355,7 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Family</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Coworker</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Dealer</fullName>
+                <fullName>Colleague</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -2347,15 +2363,51 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Owner</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Others</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Secretary</fullName>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Husband・Wife</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manager</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4216,15 +4268,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
-                <fullName>Aftersales Contact Target</fullName>
+                <fullName>Aftersales Contact Target 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Book people</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Contact Person</fullName>
+                <fullName>Aftersales Contact Target 2</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4232,15 +4280,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>Keeper</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Owner</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4252,15 +4292,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>Telematics User</fullName>
+                <fullName>Self-registered</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4288,7 +4324,31 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Customer_Type__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Alternative Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4309,7 +4369,35 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>End_Reason__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Bought Competitors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Handover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replacement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty system</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4337,7 +4425,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Magazine__c</picklist>
             <values>
-                <fullName>1</fullName>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4388,19 +4484,23 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Owner_Relation__c</picklist>
             <values>
-                <fullName>Coworker</fullName>
+                <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealer</fullName>
+                <fullName>Child</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Driver</fullName>
+                <fullName>Colleague</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Family</fullName>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4408,15 +4508,39 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Owner</fullName>
+                <fullName>Parent</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Secretary</fullName>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4594,15 +4718,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
-                <fullName>Aftersales Contact Target</fullName>
+                <fullName>Aftersales Contact Target 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Book people</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Contact Person</fullName>
+                <fullName>Aftersales Contact Target 2</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4610,15 +4730,7 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>Keeper</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Owner</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4630,15 +4742,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>Telematics User</fullName>
+                <fullName>Self-registered</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4666,7 +4774,31 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Customer_Type__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Alternative Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4687,7 +4819,35 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>End_Reason__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Bought Competitors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Handover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replacement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty system</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4715,7 +4875,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Magazine__c</picklist>
             <values>
-                <fullName>1</fullName>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4766,19 +4934,23 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Owner_Relation__c</picklist>
             <values>
-                <fullName>Coworker</fullName>
+                <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealer</fullName>
+                <fullName>Child</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Driver</fullName>
+                <fullName>Colleague</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Family</fullName>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4786,15 +4958,39 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Owner</fullName>
+                <fullName>Parent</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Secretary</fullName>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4973,11 +5169,11 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Car_Relation__c</picklist>
             <values>
-                <fullName>Book people</fullName>
+                <fullName>Aftersales Contact Target 1</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Contact Person</fullName>
+                <fullName>Aftersales Contact Target 2</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4985,27 +5181,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
-                <fullName>Keeper</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Other</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Owner</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Telematics User</fullName>
+                <fullName>Self-registered</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Unknown</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>User</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5033,7 +5217,31 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Customer_Type__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Alternative Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Daimler Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dealer Employee Lease</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demo Car</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift Car</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5054,7 +5262,35 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>End_Reason__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Bought Competitors</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Handover</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MB Online</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Replacement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sold</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warranty system</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5082,7 +5318,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Magazine__c</picklist>
             <values>
-                <fullName>1</fullName>
+                <fullName>No</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yes</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -5133,19 +5377,23 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Owner_Relation__c</picklist>
             <values>
-                <fullName>Coworker</fullName>
+                <fullName>Business partner</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Dealer</fullName>
+                <fullName>Child</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Driver</fullName>
+                <fullName>Colleague</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Family</fullName>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5153,15 +5401,39 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
                 <default>false</default>
             </values>
             <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Owner</fullName>
+                <fullName>Parent</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Secretary</fullName>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same</fullName>
                 <default>false</default>
             </values>
             <values>
