@@ -1188,7 +1188,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Medial enterprise</fullName>
+                <fullName>Medical enterprise</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6136,19 +6136,19 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <fullName>Urban public transport sector</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Communications equipment/computers and other electronic equipment manufacturing</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Electricity/heat production and supply industry</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Mass organizations/community groups and religious organizations</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
+            <picklistValues>
                 <fullName>Petroleum processing/coking and nuclear fuel processing industry</fullName>
                 <default>false</default>
             </picklistValues>
@@ -7498,7 +7498,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <label>Occupation</label>
         <picklist>
             <picklistValues>
-                <fullName>Office, enterprise and public institution responsible officer</fullName>
+                <fullName>enterprise and public institution responsible officer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7506,11 +7506,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Primary Industry (Farming, Fishing, Forestry etc)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Manufacture, transport equipment operation staff</fullName>
+                <fullName>Primary Industry (Farming/ Fishing/ Forestry etc)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7546,7 +7542,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Laywer</fullName>
+                <fullName>Lawyer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7624,7 +7620,55 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <label>Acceptable Activities</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (New Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (Finance)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (Aftersales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event (New Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event (Aftersales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign (New Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign (Finance)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign (Aftersales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -10267,7 +10311,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Yes(New Car)</fullName>
+                <fullName>Yes (New Car)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11239,11 +11283,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medial enterprise</fullName>
+                <fullName>Medical corporation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medical corporation</fullName>
+                <fullName>Medical enterprise</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12968,10 +13012,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Fax_Validity__c</picklist>
             <values>
-                <fullName>Blacklisted</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
@@ -13424,7 +13464,51 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
+                <fullName>Advertising %2F Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Car dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical fiber manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical materials and chemical products manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal mining and washing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications equipment%2Fcomputers and other electronic equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction and installation industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crafts and other manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13432,7 +13516,59 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical machinery and equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity%2Fheat production and supply industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ferrous metal mining industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fisheries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forestry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gas Production and Supply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mass organizations%2Fcommunity groups and religious organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nonferrous Metals</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13440,7 +13576,47 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other financial activities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper and paper products industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petroleum processing%2Fcoking and nuclear fuel processing industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmaceutical Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rubber</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Securities Industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13448,7 +13624,39 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Special equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications and Other Information Transmission Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Equipment Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urban public transport sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warehousing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Transportation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14049,19 +14257,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Laywer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manufacture%2C transport equipment operation staff</fullName>
+                <fullName>Lawyer</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Office Staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Office%2C enterprise and public institution responsible officer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14081,7 +14281,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Primary Industry %28Farming%2C Fishing%2C Forestry etc%29</fullName>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14116,11 +14316,63 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Opt_In_Contact_Reason__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Campaign %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14762,18 +15014,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Special_Mark_on_Account__c</picklist>
             <values>
-                <fullName>BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central%26BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Dealer</fullName>
                 <default>false</default>
             </values>
@@ -14787,10 +15027,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>MBJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15070,11 +15306,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes %28Used Car%29</fullName>
+                <fullName>Yes %28New Car%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes%28New Car%29</fullName>
+                <fullName>Yes %28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15599,11 +15835,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medial enterprise</fullName>
+                <fullName>Medical corporation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medical corporation</fullName>
+                <fullName>Medical enterprise</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18045,19 +18281,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Laywer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manufacture%2C transport equipment operation staff</fullName>
+                <fullName>Lawyer</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Office Staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Office%2C enterprise and public institution responsible officer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18077,7 +18305,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Primary Industry %28Farming%2C Fishing%2C Forestry etc%29</fullName>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18112,11 +18340,63 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Opt_In_Contact_Reason__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Campaign %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19054,11 +19334,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes %28Used Car%29</fullName>
+                <fullName>Yes %28New Car%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes%28New Car%29</fullName>
+                <fullName>Yes %28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
