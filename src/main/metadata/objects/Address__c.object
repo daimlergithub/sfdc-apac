@@ -91,67 +91,11 @@
         <label>Address Type</label>
         <picklist>
             <picklistValues>
-                <fullName>Mailing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Prev Mailing</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Home</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Business</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site address</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Postal address</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 1 -Main Location Sales, Service &amp; Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 2 -Main Location Sales Only</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 3 -Main Location Service &amp; Parts</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 6 -Additional Sales, Service &amp; Parts location not within Site 1 or Site 3</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 7 -Service &amp; Parts ONLY Location</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 8 -Only Parts Location</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Site 9 -Auto Body</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -353,39 +297,191 @@
         <label>Prefecture</label>
         <picklist>
             <picklistValues>
-                <fullName>ACT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NSW</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>QLD</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>VIC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>TAS</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>SA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NT</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Tokyo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hokkaido</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aomori</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Iwate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Miyagi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Akita</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yamagata</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fukushima</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ibaraki</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tochigi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gunma</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saitama</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Chiba</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kanagawa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Niigata</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Toyama</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ishikawa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fukui</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yamanashi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nagano</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gifu</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shizuoka</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Aichi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Mie</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shiga</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kyoto</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Osaka</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hyogo</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nara</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Wakayama</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tottori</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Shimane</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Okayama</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Hiroshima</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Yamaguchi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Tokushima</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kagawa</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Ehime</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kochi</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Fukuoka</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Saga</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Nagasaki</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kumamoto</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Oita</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Miyazaki</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Kagoshima</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Okinawa</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -435,23 +531,11 @@
         <label>TitleOfHonor</label>
         <picklist>
             <picklistValues>
+                <fullName>Dear</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
                 <fullName>Mr</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Ms</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mrs</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>様</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>御中</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -499,15 +583,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Home</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mailing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -520,18 +596,6 @@
             </values>
             <values>
                 <fullName>Other Address 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal address</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prev Mailing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -549,27 +613,163 @@
         <picklistValues>
             <picklist>Province__c</picklist>
             <values>
-                <fullName>ACT</fullName>
+                <fullName>Aichi</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NSW</fullName>
+                <fullName>Akita</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NT</fullName>
+                <fullName>Aomori</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>QLD</fullName>
+                <fullName>Chiba</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>SA</fullName>
+                <fullName>Ehime</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>TAS</fullName>
+                <fullName>Fukui</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fukuoka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fukushima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gifu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gunma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hiroshima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hokkaido</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hyogo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ibaraki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ishikawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iwate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kagawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kagoshima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kanagawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kochi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kumamoto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kyoto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miyagi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miyazaki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nagano</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nagasaki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nara</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Niigata</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oita</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Okayama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Okinawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Osaka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saitama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shiga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shimane</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shizuoka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tochigi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokushima</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -577,11 +777,27 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>VIC</fullName>
+                <fullName>Tottori</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>WA</fullName>
+                <fullName>Toyama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wakayama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamagata</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamaguchi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamanashi</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -607,23 +823,11 @@
         <picklistValues>
             <picklist>TitleOfHonor__c</picklist>
             <values>
+                <fullName>Dear</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mr</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mrs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ms</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>御中</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>様</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -640,15 +844,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Home</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mailing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -661,54 +857,6 @@
             </values>
             <values>
                 <fullName>Other Address 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal address</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prev Mailing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 1 -Main Location Sales%2C Service %26 Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 2 -Main Location Sales Only</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 3 -Main Location Service %26 Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 6 -Additional Sales%2C Service %26 Parts location not within Site 1 or Site 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 7 -Service %26 Parts ONLY Location</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 8 -Only Parts Location</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 9 -Auto Body</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -726,27 +874,163 @@
         <picklistValues>
             <picklist>Province__c</picklist>
             <values>
-                <fullName>ACT</fullName>
+                <fullName>Aichi</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NSW</fullName>
+                <fullName>Akita</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NT</fullName>
+                <fullName>Aomori</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>QLD</fullName>
+                <fullName>Chiba</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>SA</fullName>
+                <fullName>Ehime</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>TAS</fullName>
+                <fullName>Fukui</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fukuoka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fukushima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gifu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gunma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hiroshima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hokkaido</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hyogo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ibaraki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ishikawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iwate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kagawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kagoshima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kanagawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kochi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kumamoto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kyoto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miyagi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miyazaki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nagano</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nagasaki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nara</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Niigata</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oita</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Okayama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Okinawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Osaka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saitama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shiga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shimane</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shizuoka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tochigi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokushima</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -754,11 +1038,27 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>VIC</fullName>
+                <fullName>Tottori</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>WA</fullName>
+                <fullName>Toyama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wakayama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamagata</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamaguchi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamanashi</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -784,15 +1084,11 @@
         <picklistValues>
             <picklist>TitleOfHonor__c</picklist>
             <values>
+                <fullName>Dear</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mr</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mrs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ms</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -809,15 +1105,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Company</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Home</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mailing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -830,54 +1118,6 @@
             </values>
             <values>
                 <fullName>Other Address 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Postal address</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Prev Mailing</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 1 -Main Location Sales%2C Service %26 Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 2 -Main Location Sales Only</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 3 -Main Location Service %26 Parts</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 4 -Additional Sales location not within Site 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 5 -Additional Sales location not within Site 1 or Site 4</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 6 -Additional Sales%2C Service %26 Parts location not within Site 1 or Site 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 7 -Service %26 Parts ONLY Location</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 8 -Only Parts Location</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site 9 -Auto Body</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Site address</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -895,27 +1135,163 @@
         <picklistValues>
             <picklist>Province__c</picklist>
             <values>
-                <fullName>ACT</fullName>
+                <fullName>Aichi</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NSW</fullName>
+                <fullName>Akita</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>NT</fullName>
+                <fullName>Aomori</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>QLD</fullName>
+                <fullName>Chiba</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>SA</fullName>
+                <fullName>Ehime</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>TAS</fullName>
+                <fullName>Fukui</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fukuoka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fukushima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gifu</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gunma</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hiroshima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hokkaido</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hyogo</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ibaraki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ishikawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Iwate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kagawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kagoshima</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kanagawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kochi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kumamoto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Kyoto</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mie</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miyagi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Miyazaki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nagano</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nagasaki</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nara</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Niigata</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Oita</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Okayama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Okinawa</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Osaka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Saitama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shiga</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shimane</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Shizuoka</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tochigi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Tokushima</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -923,11 +1299,27 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>VIC</fullName>
+                <fullName>Tottori</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>WA</fullName>
+                <fullName>Toyama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Wakayama</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamagata</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamaguchi</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Yamanashi</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -953,15 +1345,11 @@
         <picklistValues>
             <picklist>TitleOfHonor__c</picklist>
             <values>
+                <fullName>Dear</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Mr</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mrs</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Ms</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -976,15 +1364,4 @@
         <lookupDialogsAdditionalFields>Company_Name__c</lookupDialogsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
-    <validationRules>
-        <fullName>CheckedState</fullName>
-        <active>true</active>
-        <description>State (only if country is equal to Australia)</description>
-        <errorConditionFormula>AND(ISPICKVAL(Country__c, 'Australia'),
-ISPICKVAL(Province__c, ''),
-$Profile.Name != 'IntegrationAPI' 
-)</errorConditionFormula>
-        <errorDisplayField>Province__c</errorDisplayField>
-        <errorMessage>State is a mandatory fields when your Country is Australia.</errorMessage>
-    </validationRules>
 </CustomObject>
