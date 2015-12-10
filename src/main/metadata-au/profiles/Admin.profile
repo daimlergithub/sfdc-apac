@@ -446,6 +446,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CustomLogUtil</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>DBUtil</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -543,6 +547,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>InlineVFToShowVehicleDetailTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadContactController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LeadContactControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -680,7 +692,7 @@
     <classAccesses>
         <apexClass>QCHelperTest</apexClass>
         <enabled>true</enabled>
-    </classAccesses> 
+    </classAccesses>
     <classAccesses>
         <apexClass>RecallHelper</apexClass>
         <enabled>true</enabled>
@@ -1142,6 +1154,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>TriggerAddressTriggerHandler</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>TriggerBatchJobTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -1256,7 +1272,7 @@
     <classAccesses>
         <apexClass>TriggerSettlementManagementHandler</apexClass>
         <enabled>true</enabled>
-    </classAccesses>	
+    </classAccesses>
     <classAccesses>
         <apexClass>TriggerTaskTest</apexClass>
         <enabled>true</enabled>
@@ -1440,7 +1456,7 @@
     <classAccesses>
         <apexClass>UtilSobjectTest</apexClass>
         <enabled>true</enabled>
-    </classAccesses>	
+    </classAccesses>
     <classAccesses>
         <apexClass>UtilTask</apexClass>
         <enabled>true</enabled>
@@ -7190,6 +7206,11 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Custom_Debug_Info__c.Custom_Debug_Log_Data__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>DM_Material__c.Active__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -7277,7 +7298,7 @@
         <editable>false</editable>
         <field>DM_Request__c.Address__c</field>
         <readable>true</readable>
-    </fieldPermissions>   
+    </fieldPermissions>
     <fieldPermissions>
         <editable>false</editable>
         <field>DM_Request__c.Campaign__c</field>
@@ -8477,7 +8498,12 @@
         <editable>true</editable>
         <field>Lead__c.Contact_Failed_For_3_Days_Date__c</field>
         <readable>true</readable>
-    </fieldPermissions>   
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Lead__c.Contact_Search__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
         <field>Lead__c.Contact_Timing__c</field>
@@ -11945,11 +11971,6 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Retail_Task__c.Payment_Frequency__c</field>
-        <readable>true</readable>
-    </fieldPermissions>
-    <fieldPermissions>
-        <editable>true</editable>
         <field>Retail_Task__c.Policy_Class__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -15250,6 +15271,9 @@
         <layout>Contract_Relation__c-Contract Relation Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
+        <layout>Custom_Debug_Info__c-Custom Debug Info Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
         <layout>DM_Material__c-DM Layout</layout>
     </layoutAssignments>
     <layoutAssignments>
@@ -15708,7 +15732,11 @@
     <layoutAssignments>
         <layout>Vehicle__c-MB Vehicle Layout-CAC</layout>
         <recordType>Vehicle__c.Vehicle_Soft_Deleted</recordType>
-    </layoutAssignments>   
+    </layoutAssignments>
+    <loginIpRanges>
+        <endAddress>255.255.255.255</endAddress>
+        <startAddress>0.0.0.0</startAddress>
+    </loginIpRanges>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>
@@ -15932,6 +15960,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Contract_Relation__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Custom_Debug_Info__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <objectPermissions>
@@ -16606,6 +16643,10 @@
         <enabled>true</enabled>
     </pageAccesses>
     <pageAccesses>
+        <apexPage>LeadContactInformation</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <pageAccesses>
         <apexPage>LeadConverting</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
@@ -16616,7 +16657,11 @@
     <pageAccesses>
         <apexPage>Lead_Address</apexPage>
         <enabled>true</enabled>
-    </pageAccesses>   
+    </pageAccesses>
+    <pageAccesses>
+        <apexPage>Lead_Address_Vehicle_Layout</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <pageAccesses>
         <apexPage>LeadsConsoleRefresh</apexPage>
         <enabled>true</enabled>
@@ -17422,6 +17467,10 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
     <tabVisibilities>
+        <tab>Custom_Debug_Info__c</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities>
+    <tabVisibilities>
         <tab>DM_Material__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities>
@@ -17977,7 +18026,7 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ScheduleReports</name>
-    </userPermissions>    
+    </userPermissions> 
     <userPermissions>
         <enabled>true</enabled>
         <name>SendSitRequests</name>

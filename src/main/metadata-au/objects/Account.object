@@ -1034,6 +1034,10 @@ Service Only - does have at least one After Sales Record</description>
                 <fullName>Eastern Region</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Queensland Region</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2348,6 +2352,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_AddressEN"</description>
                 <fullName>Both</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>MBNZ</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -2495,6 +2503,10 @@ select ID from account where BTLInfo &lt;&gt; "123456789"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>NTHN</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Queensland Region</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -4184,6 +4196,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
                 <fullName>Zone 2</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Zone 3</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -4201,6 +4217,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_Service"</description>
             </picklistValues>
             <picklistValues>
                 <fullName>Zone 2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Zone 3</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -16963,6 +16983,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Queensland Region</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>STHN</fullName>
                 <default>false</default>
             </values>
@@ -17451,6 +17475,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>MBFS</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>MBNZ</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_Car_Service_Region__c</picklist>
@@ -17460,6 +17488,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>NTHN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Queensland Region</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18051,15 +18083,15 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>The franchise was transferred%2E</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>The franchised business ceased to operate%2E</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>The franchised business was bought back by the franchisor%2E</fullName>
-                <default>false</default>
-            </values>
-			<values>
-                <fullName>The franchise was transferred.</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18194,6 +18226,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Zone 2</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Zone 3</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Dealer_Vans_Service_Region__c</picklist>
@@ -18203,6 +18239,10 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>Zone 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Zone 3</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -24054,11 +24094,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <searchResultsAdditionalFields>Business_Unit__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Primary_Address__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>ACCOUNT.PHONE1</searchResultsAdditionalFields>
-        <searchResultsAdditionalFields>PC_EMAIL</searchResultsAdditionalFields>        
+        <searchResultsAdditionalFields>PC_EMAIL</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>PC_LEAD_SOURCE</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.FIRST_NAME</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.LAST_NAME</searchResultsAdditionalFields>
-		<searchResultsAdditionalFields>UPDATEDBY_USER.NAME</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>UPDATEDBY_USER.NAME</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>

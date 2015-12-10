@@ -86,6 +86,11 @@ public class AccountHelper {
     // For the new company with inserting or updating.
     public static void auBefore_Insert_Update_Events(List<Account> listAccounts,map<Id,Account> oldAccountMap, boolean isInsert,boolean isUpdate)
     {
+    try
+       {      
+         if(listAccounts !=null && listAccounts.isEmpty())	 
+		{		 
+        CustomLogUtil.CustomLoggingEntry('Account helper class auBefore_Insert_Update_Events method = ' +listAccounts.size() );
         for(Account acc : listAccounts){
         //US_AU-CD-001 No.7, US_AU-002
         if (RECORD_TYPE_SET.contains(acc.RecordTypeId)){
@@ -108,6 +113,7 @@ public class AccountHelper {
             }
         }
         
+        
         // US_AU-CD-001.6 Track the updating history for FS fields.
         if(isUpdate){
             trackUpdatHistoryForFsInfo(acc, oldAccountMap.get(acc.Id));
@@ -123,6 +129,7 @@ public class AccountHelper {
             acc.Dealer_Street_Address_Country__c = acc.Dealer_Postal_Address_Country__c;        
         }*/
     }
+	}
     
     // US-CD-004 Flag the primary person account: the lastest inserted contact or updated contact is primary.
     newCompanyIds.remove(null);
@@ -130,10 +137,17 @@ public class AccountHelper {
         cancelPrimaryContact(newCompanyIds, personIds);
     }
     }
+    catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
+    }
     
      //US-CD-001 #7. update field "Display Name"
     public static Account updateDisplayName(Account acc){
-        
+          try
+       {
+          CustomLogUtil.CustomLoggingEntry('Account Helper Class updateDisplayName Method'+'Account Lastname=' + acc.LastName + 'Account Partner Surname ='+ acc.Partner_Surname__c );
         if (String.isblank(acc.Partner_Surname__c)) {
             //if no partner information available than <Customer Title> < First Name> <Surname> <Suffix>
             acc.Display_Name__c = 
@@ -169,6 +183,11 @@ public class AccountHelper {
                                      (String.isblank(acc.Partner_Surname__c)?'': acc.Partner_Surname__c);
             }
         }
+        }
+         catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
         return acc;
     }
     
@@ -184,8 +203,15 @@ public class AccountHelper {
     
     // US_AU-CD-001.6 Track the updating history for FS fields
     public static void trackUpdatHistoryForFsInfo(Account updateAcc, Account oldAcc){
+    try
+       {
+         
     //Id profileId = userinfo.getProfileId();
     //String profileName = [Select Id,Name from Profile where Id=:profileId].Name;
+
+   Map<Id, GroupMember> groupMemberMap = new Map<Id, GroupMember>([Select GroupId, UserOrGroupId From GroupMember  Where Group.DeveloperName =: 'MB_Financial_Services' AND UserOrGroupId =: userinfo.getUserID()]);
+   System.debug('@@@@ groupMap '+groupMemberMap);
+ CustomLogUtil.CustomLoggingEntry('Account Helper Class trackUpdatHistoryForFsInfo Method'+'profileName = ' + profileName + ' groupMember Name = '+ groupMemberMap.size());
         if(profileName!= 'IntegrationAPI'){
 
         if(updateAcc.FS_Opt_In_Email__c != oldAcc.FS_Opt_In_Email__c){
@@ -208,6 +234,82 @@ public class AccountHelper {
         }
         
         /************* SHRINIVAS **************/
+
+
+        if(groupMemberMap!=null && !groupMemberMap.isEmpty())
+        {
+        
+            if(updateAcc.Mobile__c != oldAcc.Mobile__c){
+            updateAcc.FS_SMS_Last_Modified_By__c = UserInfo.getName();
+            updateAcc.FS_SMS_Last_Modified_Date__c = System.now();
+            }
+            
+            if(updateAcc.Mobile2__c != oldAcc.Mobile2__c){
+            updateAcc.FS_SMS_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.FS_SMS_Last_Modified_Date2__c = System.now();
+            }
+            if(updateAcc.Individual_Home_Phone__c != oldAcc.Individual_Home_Phone__c){
+            updateAcc.FS_Home_Phone_Last_Modified_By__c = UserInfo.getName();
+            updateAcc.FS_Home_Phone_Last_Modified_Date__c = System.now();
+            }
+            if(updateAcc.Home_Phone_2__c != oldAcc.Home_Phone_2__c){
+            updateAcc.FS_Home_Phone_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.FS_Home_Phone_Last_Modified_Date2__c = System.now();
+            }
+             if(updateAcc.Work_Phone__c != oldAcc.Work_Phone__c){
+            updateAcc.FS_Work_Phone_Last_Modified_By__c = UserInfo.getName();
+            updateAcc.FS_Work_Phone_Last_Modified_Date__c = System.now();
+            }
+             if(updateAcc.Phone != oldAcc.Phone){
+            updateAcc.FS_Work_Phone_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.FS_Work_Phone_Last_Modified_Date2__c = System.now();
+            }
+            if(updateAcc.Email__c != oldAcc.Email__c){
+            updateAcc.FS_Email_Last_Modified_By__c = UserInfo.getName();
+            updateAcc.FS_Email_Last_Modified_Date__c = System.now();
+            }
+            if(updateAcc.Email2__c != oldAcc.Email2__c){
+            updateAcc.FS_Email_Last_Modified_By2__c = UserInfo.getName();
+            updateAcc.FS_Email_Last_Modified_Date2__c = System.now();
+            }
+        }
+       
+        else
+        {
+           if(updateAcc.Mobile__c != oldAcc.Mobile__c){
+            updateAcc.SMS_Last_Modified_By__c= UserInfo.getName();
+            updateAcc.SMS_Last_Modified_Date__c= System.now();
+            }
+            
+            if(updateAcc.Mobile2__c != oldAcc.Mobile2__c){
+            updateAcc.SMS_Last_Modified_By2__c= UserInfo.getName();
+            updateAcc.SMS_Last_Modified_Date2__c= System.now();
+            }
+            if(updateAcc.Individual_Home_Phone__c != oldAcc.Individual_Home_Phone__c){
+            updateAcc.Home_Phone_Last_Modified_By__c= UserInfo.getName();
+            updateAcc.Home_Phone_Last_Modified_Date__c= System.now();
+            }
+            if(updateAcc.Home_Phone_2__c != oldAcc.Home_Phone_2__c){
+            updateAcc.Home_Phone_Last_Modified_By2__c= UserInfo.getName();
+            updateAcc.Home_Phone_Last_Modified_Date2__c= System.now();
+            }
+             if(updateAcc.Work_Phone__c != oldAcc.Work_Phone__c){
+            updateAcc.Work_Phone_Last_Modified_By__c= UserInfo.getName();
+            updateAcc.Work_Phone_Last_Modified_Date__c= System.now();
+            }
+             if(updateAcc.Phone != oldAcc.Phone){
+            updateAcc.Work_Phone_Last_Modified_By2__c= UserInfo.getName();
+            updateAcc.Work_Phone_Last_Modified_Date2__c= System.now();
+            }
+            if(updateAcc.Email__c != oldAcc.Email__c){
+            updateAcc.Email_Last_Modified_By__c= UserInfo.getName();
+            updateAcc.Email_Last_Modified_Date__c= System.now();
+            }
+            if(updateAcc.Email2__c != oldAcc.Email2__c){
+            updateAcc.Email_Last_Modified_By2__c= UserInfo.getName();
+            updateAcc.Email_Last_Modified_Date2__c= System.now();
+            }
+        }
         
         if(updateAcc.FS_Opt_In_SMS2__c != oldAcc.FS_Opt_In_SMS2__c){
             updateAcc.FS_SMS_Last_Modified_By2__c = UserInfo.getName();
@@ -290,26 +392,43 @@ public class AccountHelper {
             updateAcc.SMS_Last_Modified_By__c = UserInfo.getName();
             updateAcc.SMS_Last_Modified_Date__c = System.now();
         }
+      
+        
+    }
+    }
+    catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
       }
     }
     
     // US_AU-CD-004: cancel the primary contact.
     public static void cancelPrimaryContact(Set<String> newCompanyId, Set<String> personId){
-        
+        try
+       {
+          
         Account[] cancelPrimaryAccounts = [select Primary__pc from Account 
                                            where Company__c in :newCompanyId 
                                            and Primary__pc = true
                                            and Id not in :personId];
+                                           CustomLogUtil.CustomLoggingEntry('Account Helper class cancelPrimaryContact Method '+ ' cancelPrimaryAccounts = '+cancelPrimaryAccounts.size());
         if(cancelPrimaryAccounts.size() > 0){
             for(Account item : cancelPrimaryAccounts){
                 item.Primary__pc = false;
             }
             update cancelPrimaryAccounts;
         }
+        }  catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
     }
     
     public static void auAfter_Insert_Update_Delete_Events(map<id,Account> accountNewMap,map<id,Account> accountOldMap,list<Account> listNewAccounts,list<Account> listOldAccounts,boolean isInsert,boolean isDelete,boolean isUpdate)
     {
+    try
+       {
+                     
         Set<String> companyIds = new Set<String>();
         Set<Id> dealerIds = new Set<Id>();
         List<AccountContactRole> AccountContactRoles = new List<AccountContactRole>();
@@ -317,7 +436,10 @@ public class AccountHelper {
         Map<Id, Id> personAccountIdcontactId = new Map<Id, Id>();
         AccountContactRole temp;
         
-        if(isDelete || isUpdate) {
+        if(isDelete || isUpdate && listOldAccounts!=null && !listOldAccounts.isEmpty()) {  
+              
+          CustomLogUtil.CustomLoggingEntry('Account Helper class auAfter_Insert_Update_Delete_Events Method'+  'listNewAccounts'+ listNewAccounts.size());  
+          
             for(Account item : listOldAccounts){
                   if(item.isPersonAccount && item.Primary__pc && item.Company__c != null){
                     if(isDelete){
@@ -330,10 +452,19 @@ public class AccountHelper {
             }
         }
         
-        if(isInsert) {
+        if(isInsert && listNewAccounts!=null && !listNewAccounts.isEmpty()) {
+        
             for(Account item : listNewAccounts){
-                if(item.isPersonAccount && item.Company__c != null){
+             if(item.isPersonAccount && item.Company__c != null){
                     personAccountIds.add(item.Id);
+                }
+                
+                if(item.isPersonAccount && item.Company__c != null && personAccountIdcontactId.containsKey(item.Id)){
+                    temp = new AccountContactRole();
+                    temp.AccountId = item.Company__c;
+                    temp.ContactId = personAccountIdcontactId.get(item.Id);
+                    temp.Role = item.Job__c;
+                    AccountContactRoles.add(temp);
                 }
             }
         }
@@ -344,17 +475,7 @@ public class AccountHelper {
             }
         }
         
-        if(isInsert) {
-            for(Account item : listNewAccounts){
-                if(item.isPersonAccount && item.Company__c != null && personAccountIdcontactId.containsKey(item.Id)){
-                    temp = new AccountContactRole();
-                    temp.AccountId = item.Company__c;
-                    temp.ContactId = personAccountIdcontactId.get(item.Id);
-                    temp.Role = item.Job__c;
-                    AccountContactRoles.add(temp);
-                }
-            }
-        }
+        
     
         if(isUpdate){
             String dealerRecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
@@ -376,14 +497,23 @@ public class AccountHelper {
         if(!AccountContactRoles.IsEmpty()) {
             insert AccountContactRoles;
         }
+        }
+    
+     catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
     }
     
      // US_AU-CD-004: flag the primary contact.
     public static void flagPrimaryContact(Set<String> companyIds){
-        
+         try
+       {
+          
+   
         Map<String, Account> primaryContacts = new Map<String, Account>();
         Map<String, List<Account>> contacts = new Map<String, List<Account>>();
-        
+       
         for(Account item : [select Primary__pc, Company__c from Account where Company__c in :companyIds order by CreatedDate desc]){
             if(contacts.containsKey(item.Company__c)){
                 contacts.get(item.Company__c).add(item);
@@ -400,10 +530,16 @@ public class AccountHelper {
                 primaryContacts.put(cons[0].Id, cons[0]);
             }
         }
-
+ CustomLogUtil.CustomLoggingEntry('Account Helper class flagPrimaryContact'+ ' primaryContacts = ' + primaryContacts.size());
         if(!primaryContacts.IsEmpty()){
             update primaryContacts.values();
         }
+        }
+    
+     catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
     }
     
     //Delete Dealer locators   US_AU-DD-004
@@ -415,6 +551,8 @@ public class AccountHelper {
             for (Dealer_Locator__c dl : dealerLocators){
                  dl.Inactive__c = true;
             }
+            CustomLogUtil.CustomLoggingEntry('Account Heler Class deleteDealerLocators Method'+'dealerLocators = ' + dealerLocators.size());
+            
             update dealerLocators;
             //TODO: Inactive__c doesn't exist in Retail_Task__c
             /*List<Retail_Task__c> contacts = [select id from Retail_Task__c where Account__c in :dealerIds];
@@ -426,6 +564,7 @@ public class AccountHelper {
         }
         catch(Exception ex) {
             trigger.new[0].addError('inactivate Dealer Locator Error, please contact administrator');
+            CustomLogUtil.DebugException(ex);
         }
     }
     
@@ -451,6 +590,10 @@ public class AccountHelper {
    //Method to update PC Status,CV Status,VAN Status to customer when address record and vehicle relation is associated to customer
     public static void auAfter_Update_UpdatePc_Status_Values(list<Account> listNewAccounts)
     {
+    try
+       {
+          CustomLogUtil.CustomLoggingEntry('Account Helper Class auAfter_Update_UpdatePc_Status_Values'+'listNewAccounts = ' + listNewAccounts.size());
+          
         Set<Id> vehicleIds = new Set<Id>();
         Set<Id> vehicleRelationIds = new Set<Id>();
         Set<Id> customerIds = new Set<Id>();
@@ -601,12 +744,22 @@ public class AccountHelper {
                 }
             }
         }
+        }
+    
+     catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
+      CustomLogUtil.DebugLogInsert();
     }
     
     
     //When PA gets a Vehicle-Relationship
     public static void updataWhenCreateCVR(Set<Id> vehicleIds, Set<Id> customerIds, list<Vehicle_Relationship__c> cvrs,set<id> setAccId,Map<Id, Map<String,Integer>> tempcount,Map<Id, Map<String,Integer>> tenure) {
-        
+         try
+       {
+          CustomLogUtil.CustomLoggingEntry('Account Helper Class updataWhenCreateCVR Method'+ 'vehicleIds= ' + vehicleIds.size() + 'customerIds= ' + customerIds.size() + 'Vehicle Relationship= ' + cvrs.size() + 'AccId=' + setAccId.size() + 'tempcount=' + tempcount.size()+ 'tenure=' + tenure.size());
+      
         Map<id,Account> accounts = new Map<id,Account>();
         Map<String, Map<String,Date>> exsisedRecord = new Map<String, Map<String,Date>>();
         //get pc first date records
@@ -660,6 +813,13 @@ public class AccountHelper {
             String JSONString = JSON.serialize(accounts.values());
             updateaccounts(JSONString);
           }
+          }
+    
+     catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
+         
          
     }
     @future
@@ -695,7 +855,10 @@ public class AccountHelper {
       
           //update PC CV VAN tenure
     @testvisible private static Account updatePCCVField(Account userInfo ,String vehicleGroup, Map<String ,Map<String,Date>> preRecords,boolean isCustomer,Map<Id, Map<String,Integer>> tempcount,Map<Id, Map<String,Integer>> tenureVehicle){    
-      
+       try
+       {
+          CustomLogUtil.CustomLoggingEntry('Account Helper Class updatePCCVField Method'+ 'tempcount=' + tempcount.size()+ 'tenureVehicle=' + tenureVehicle.size());
+       
          if(!String.isblank(vehicleGroup) && colsMap != null && colsMap.get(vehicleGroup) != null && preRecords!= null && preRecords.get(vehicleGroup) != null){
             Map<String,Date> preRecord = preRecords.get(vehicleGroup);
 
@@ -747,11 +910,19 @@ public class AccountHelper {
             return userInfo;    
             }
         }
+        }
+        catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
          return null;       
     }  
     
     public static void auBeforeUpdateCheckRequiredPhoneFields(List<Account> lstNewAccouts)
     {
+     try
+       {
+          CustomLogUtil.CustomLoggingEntry('Account helper class auBeforeUpdateCheckRequiredPhoneFields Method'+'lstNewAccouts= ' + lstNewAccouts.size() );
         set<Id> setAAcId= new set<Id>();
         List<Address__c> lstAddress = new List<Address__c>();
         for(Account objAcc:lstNewAccouts)
@@ -783,10 +954,19 @@ public class AccountHelper {
                 }
             }
         }
+        }
+      catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
     }
     //SFDCAU-267
     public static void auBeforeInsertUpdateTrimPhoneFileds(List<Account> lstNewAccouts)
     {
+    try
+       {
+         CustomLogUtil.CustomLoggingEntry('Account Helper Class auBeforeInsertUpdateTrimPhoneFileds'+'lstNewAccouts= ' + lstNewAccouts.size());
+          
         for(Account objAcc:lstNewAccouts)
         {
             objAcc.Batch_No__c='';
@@ -809,10 +989,19 @@ public class AccountHelper {
             if(string.valueof(objAcc.Phone)!=null && string.valueof(objAcc.Phone)!='')
                 objAcc.Batch_No__c+=' '+trimPhoneNumbersUtil(objAcc.Phone);
         }
+        }
+      catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
     }
     
     private static string trimPhoneNumbersUtil(string fieldAPiName)
     {
+    try
+       {
+          CustomLogUtil.CustomLoggingEntry('Account Helper Class trimPhoneNumbersUtil Method '+'fieldAPiName = ' + fieldAPiName);
+    
         //Mobile & Landline
         if(string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '').length()==12)
             fieldAPiName='0'+string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '').substring(3,12);
@@ -822,11 +1011,20 @@ public class AccountHelper {
         //13 number
         if(string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '').length()==6)
             fieldAPiName=string.valueof(fieldAPiName).trim().replaceAll('(\\s+)', '');
+            }
+      catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
         return fieldAPiName;    
     }
     
     public static void auBeforeInsert_Update_Phonenum_validation(List<Account> lstNewAccouts)
     {
+    try
+       {
+          CustomLogUtil.CustomLoggingEntry(' Account Helper Class auBeforeInsert_Update_Phonenum_validation method '+'lstNewAccouts= ' + lstNewAccouts.size());
+    
         //Id profileId = userinfo.getProfileId();
         //String profileName = [Select Id,Name from Profile where Id=:profileId].Name; 
         for(Account objAcc:lstNewAccouts)
@@ -878,6 +1076,12 @@ public class AccountHelper {
                 }
             }    
         }
+        }
+      catch(DMLException ex)
+      {
+        CustomLogUtil.DebugException(ex);
+      }
+      CustomLogUtil.DebugLogInsert();
     }
     
     public static String ValidatePhoneNumberFields(String PhoneNum)
