@@ -360,6 +360,42 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Child</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Husband・Wife</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -393,6 +429,42 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>Child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Husband・Wife</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Manager</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -573,7 +645,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <pluralLabel>Account Link</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
-        <fullName>Company_Customer_External_Link</fullName>
+        <fullName>CompanyExternalLink</fullName>
         <active>true</active>
         <label>Company Customer External Link</label>
         <picklistValues>
@@ -654,11 +726,43 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Child</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -667,6 +771,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -681,11 +789,43 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Child</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -694,6 +834,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -834,11 +978,43 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Child</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -847,6 +1023,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -861,11 +1041,43 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Child</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -874,6 +1086,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -982,11 +1198,43 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Child</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -995,6 +1243,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1009,11 +1261,43 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Child</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1022,6 +1306,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1047,7 +1335,227 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
         </picklistValues>
-    </recordTypes>   
+    </recordTypes>
+    <recordTypes>
+        <fullName>IndividualExternalLink</fullName>
+        <active>true</active>
+        <label>Individual Customer External Link</label>
+        <picklistValues>
+            <picklist>Portal_Source__c</picklist>
+            <values>
+                <fullName>None</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portal_Type__c</picklist>
+            <values>
+                <fullName>M-Care</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Normal %28M-Care%29</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Business_Type__c</picklist>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>W</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_Contact_Method__c</picklist>
+            <values>
+                <fullName>Letters to home address</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>No correspondence</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telephone</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Retail_CustomerType__c</picklist>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>P</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>X</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role2__c</picklist>
+            <values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Role__c</picklist>
+            <values>
+                <fullName>After-Sales</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Sales</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Sector__c</picklist>
+            <values>
+                <fullName>Passenger Car</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Status__c</picklist>
+            <values>
+                <fullName>My Shop</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>My Shops</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
     <recordTypes>
         <fullName>Vehicle_External_Link</fullName>
         <active>true</active>
@@ -1130,11 +1638,43 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Child</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1143,6 +1683,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1157,11 +1701,43 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Business partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Child</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Colleague</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Company</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Employee</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Friend</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand child</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Grand parent</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Husband%E3%83%BBWife</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Manager</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1170,6 +1746,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </values>
             <values>
                 <fullName>Partner</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Relative</fullName>
                 <default>false</default>
             </values>
             <values>
