@@ -419,11 +419,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medial enterprise</fullName>
+                <fullName>Medical corporation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medical corporation</fullName>
+                <fullName>Medical enterprise</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -1947,6 +1947,10 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Email_Status_3__c</picklist>
@@ -1971,6 +1975,10 @@
             </values>
             <values>
                 <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2384,6 +2392,10 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>ID_Type__c</picklist>
@@ -2412,6 +2424,10 @@
             </values>
             <values>
                 <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2454,6 +2470,10 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Communications equipment%2Fcomputers and other electronic equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Construction and installation industry</fullName>
                 <default>false</default>
             </values>
@@ -2471,6 +2491,10 @@
             </values>
             <values>
                 <fullName>Electrical machinery and equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity%2Fheat production and supply industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2506,7 +2530,15 @@
                 <default>false</default>
             </values>
             <values>
+                <fullName>Mass organizations%2Fcommunity groups and religious organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nonferrous Metals</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -2523,6 +2555,14 @@
             </values>
             <values>
                 <fullName>Paper and paper products industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petroleum processing%2Fcoking and nuclear fuel processing industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3368,19 +3408,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Laywer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manufacture%2C transport equipment operation staff</fullName>
+                <fullName>Lawyer</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Office Staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Office%2C enterprise and public institution responsible officer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3400,7 +3432,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Primary Industry %28Farming%2C Fishing%2C Forestry etc%29</fullName>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -3433,6 +3465,65 @@
             </values>
             <values>
                 <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Opt_In_Contact_Reason__c</picklist>
+            <values>
+                <fullName>Campaign %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3902,7 +3993,31 @@
         <picklistValues>
             <picklist>Sales_Sanction__c</picklist>
             <values>
+                <fullName>A</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>B</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>F</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>None</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -3963,10 +4078,6 @@
         <picklistValues>
             <picklist>Special_Mark_on_Account__c</picklist>
             <values>
-                <fullName>BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Dealer</fullName>
                 <default>false</default>
             </values>
@@ -3980,10 +4091,6 @@
             </values>
             <values>
                 <fullName>MBJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4281,11 +4388,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes %28Used Car%29</fullName>
+                <fullName>Yes %28New Car%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes%28New Car%29</fullName>
+                <fullName>Yes %28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4368,6 +4475,10 @@
                 <fullName>Incomplete</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Valid</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Work_Phone_Status__c</picklist>
@@ -4377,6 +4488,10 @@
             </values>
             <values>
                 <fullName>Incomplete</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valid</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -4849,11 +4964,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medial enterprise</fullName>
+                <fullName>Medical corporation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medical corporation</fullName>
+                <fullName>Medical enterprise</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7730,19 +7845,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Laywer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manufacture%2C transport equipment operation staff</fullName>
+                <fullName>Lawyer</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Office Staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Office%2C enterprise and public institution responsible officer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7762,7 +7869,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Primary Industry %28Farming%2C Fishing%2C Forestry etc%29</fullName>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -7797,11 +7904,63 @@
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Opt_In_Contact_Reason__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Campaign %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -8843,11 +9002,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes %28Used Car%29</fullName>
+                <fullName>Yes %28New Car%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes%28New Car%29</fullName>
+                <fullName>Yes %28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -9411,11 +9570,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medial enterprise</fullName>
+                <fullName>Medical corporation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medical corporation</fullName>
+                <fullName>Medical enterprise</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12264,19 +12423,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Laywer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manufacture%2C transport equipment operation staff</fullName>
+                <fullName>Lawyer</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Office Staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Office%2C enterprise and public institution responsible officer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12296,7 +12447,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Primary Industry %28Farming%2C Fishing%2C Forestry etc%29</fullName>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12331,11 +12482,63 @@
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Opt_In_Contact_Reason__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Campaign %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13377,11 +13580,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes %28Used Car%29</fullName>
+                <fullName>Yes %28New Car%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes%28New Car%29</fullName>
+                <fullName>Yes %28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -13945,11 +14148,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medial enterprise</fullName>
+                <fullName>Medical corporation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medical corporation</fullName>
+                <fullName>Medical enterprise</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16730,19 +16933,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Laywer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manufacture%2C transport equipment operation staff</fullName>
+                <fullName>Lawyer</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Office Staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Office%2C enterprise and public institution responsible officer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16762,7 +16957,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Primary Industry %28Farming%2C Fishing%2C Forestry etc%29</fullName>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -16797,11 +16992,63 @@
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Opt_In_Contact_Reason__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Campaign %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -17823,11 +18070,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes %28Used Car%29</fullName>
+                <fullName>Yes %28New Car%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes%28New Car%29</fullName>
+                <fullName>Yes %28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -18418,11 +18665,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medial enterprise</fullName>
+                <fullName>Medical corporation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medical corporation</fullName>
+                <fullName>Medical enterprise</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21487,19 +21734,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Laywer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manufacture%2C transport equipment operation staff</fullName>
+                <fullName>Lawyer</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Office Staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Office%2C enterprise and public institution responsible officer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21519,7 +21758,7 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Primary Industry %28Farming%2C Fishing%2C Forestry etc%29</fullName>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -21554,11 +21793,63 @@
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Opt_In_Contact_Reason__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Campaign %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -22600,11 +22891,11 @@
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes %28Used Car%29</fullName>
+                <fullName>Yes %28New Car%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes%28New Car%29</fullName>
+                <fullName>Yes %28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

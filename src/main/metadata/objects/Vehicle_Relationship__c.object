@@ -1631,63 +1631,15 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_EndDat
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Bankmecu</fullName>
+                <fullName>Cash</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>BFS</fullName>
+                <fullName>Loan</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>CBA</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>CORPORATE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Fleet</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>GE CAPITAL</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MACQUARIE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MB</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>MERCEDES BENZ FINANCE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Mercedes-Benz</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>NLC</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>ORIX</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>REGENT FINANCE</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>WESTPAC</fullName>
+                <fullName>Residual Loan</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2346,6 +2298,10 @@ Attribute in Data Dictionary object Vehicle Relationship is "VehicleRel_NewUsed"
         <externalId>false</externalId>
         <label>Owner Relation</label>
         <picklist>
+            <picklistValues>
+                <fullName>Same</fullName>
+                <default>false</default>
+            </picklistValues>
             <picklistValues>
                 <fullName>Friend</fullName>
                 <default>false</default>
@@ -4400,6 +4356,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Finance_Method__c</picklist>
             <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Residual Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
@@ -4533,6 +4501,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -4846,6 +4818,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Finance_Method__c</picklist>
             <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Residual Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
@@ -4979,6 +4963,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -5285,6 +5273,18 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <picklistValues>
             <picklist>Finance_Method__c</picklist>
             <values>
+                <fullName>Cash</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Residual Loan</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
@@ -5418,6 +5418,10 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
             </values>
             <values>
                 <fullName>Relative</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Same</fullName>
                 <default>false</default>
             </values>
             <values>
