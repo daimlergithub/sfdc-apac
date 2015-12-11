@@ -1050,7 +1050,7 @@ Attribute in Data Dictionary object Vehicle is "Vehicle_CBU-CKD"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
@@ -4295,17 +4295,17 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_ModelYear“</descript
             </picklistValues>
             <picklistValues>
                 <fullName>MAYBACH</fullName>
-                <controllingFieldValues>MAYBACH</controllingFieldValues>
+                <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach 62 Zeppelin</fullName>
-                <controllingFieldValues>MAYBACH</controllingFieldValues>
+                <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
                 <fullName>Maybach 62</fullName>
-                <controllingFieldValues>MAYBACH</controllingFieldValues>
+                <controllingFieldValues>Maybach</controllingFieldValues>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -9948,7 +9948,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15011,7 +15011,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -20170,7 +20170,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -25322,7 +25322,7 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>MAYBACH</fullName>
+                <fullName>Maybach</fullName>
                 <default>false</default>
             </values>
             <values>

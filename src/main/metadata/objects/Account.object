@@ -6197,7 +6197,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-				<fullName>Other Services</fullName>
+                <fullName>Other Services</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6225,7 +6225,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-               <fullName>Agriculture</fullName>
+                <fullName>Agriculture</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6241,7 +6241,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-				<fullName>Food Manufacturing</fullName>
+                <fullName>Food Manufacturing</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6285,7 +6285,7 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-				<fullName>Other</fullName>
+                <fullName>Other</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6293,7 +6293,6 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-
                 <fullName>Ship building</fullName>
                 <default>false</default>
             </picklistValues>
@@ -19483,7 +19482,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <searchResultsAdditionalFields>PC_EMAIL</searchResultsAdditionalFields>
     </searchLayouts>
     <sharingModel>Private</sharingModel>
-<validationRules>
+    <validationRules>
         <fullName>Account_Status</fullName>
         <active>true</active>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
@@ -20162,7 +20161,7 @@ else {
         <masterLabel>Create Vehicle</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>https://c.cs5.visual.force.com/apex/Create_Vehicle?accId={!Account.Id}</url>
+        <url>/apex/Create_Vehicle?accId={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>DM</fullName>
