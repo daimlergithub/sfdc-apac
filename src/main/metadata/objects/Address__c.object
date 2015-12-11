@@ -531,11 +531,11 @@
         <label>TitleOfHonor</label>
         <picklist>
             <picklistValues>
-                <fullName>Dear</fullName>
+                <fullName>To Person</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mr</fullName>
+                <fullName>To Company</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -565,6 +565,11 @@
         <unique>false</unique>
     </fields>
     <label>Address</label>
+    <listViews>
+        <fullName>All</fullName>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+    </listViews>
     <nameField>
         <displayFormat>A-{0000000}</displayFormat>
         <label>Address</label>
@@ -823,11 +828,11 @@
         <picklistValues>
             <picklist>TitleOfHonor__c</picklist>
             <values>
-                <fullName>Dear</fullName>
+                <fullName>To Company</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mr</fullName>
+                <fullName>To Person</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1084,11 +1089,11 @@
         <picklistValues>
             <picklist>TitleOfHonor__c</picklist>
             <values>
-                <fullName>Dear</fullName>
+                <fullName>To Company</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mr</fullName>
+                <fullName>To Person</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1345,11 +1350,11 @@
         <picklistValues>
             <picklist>TitleOfHonor__c</picklist>
             <values>
-                <fullName>Dear</fullName>
+                <fullName>To Company</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mr</fullName>
+                <fullName>To Person</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1364,4 +1369,29 @@
         <lookupDialogsAdditionalFields>Company_Name__c</lookupDialogsAdditionalFields>
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Company_Name_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(TitleOfHonor__c),ISNEW()),
+ISPICKVAL(TitleOfHonor__c,'Dear'),
+ISBLANK(Company_Name__c), 
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP'   
+)</errorConditionFormula>
+        <errorDisplayField>Company_Name__c</errorDisplayField>
+        <errorMessage>Company name is required when TitleOfHonor is 'Dear'.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Invalid_ZipCode</fullName>
+        <active>true</active>
+        <description>Post Code is not 7 digits long</description>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',
+MD__c = 'JP', 
+OR(ISCHANGED(ZipCode__c),ISNEW()), 
+NOT(ISBLANK(ZipCode__c)),
+NOT(REGEX(ZipCode__c,"[0-9]{7}")) 
+)</errorConditionFormula>
+        <errorDisplayField>ZipCode__c</errorDisplayField>
+        <errorMessage>Please enter a 7 digit Zip code.</errorMessage>
+    </validationRules>
 </CustomObject>
