@@ -19169,7 +19169,7 @@ else {
         <masterLabel>Create Vehicle</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>https://c.cs5.visual.force.com/apex/Create_Vehicle</url>
+        <url>https://c.cs5.visual.force.com/apex/Create_Vehicle?accId={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>DM</fullName>
@@ -19379,7 +19379,8 @@ else {
         <protected>false</protected>
         <showsLocation>false</showsLocation>
         <showsStatus>false</showsStatus>
-        <url>{!Account.Id}</url>
+        <url>/701/e?RecordType=012280000008ptb&amp;ent=Account&amp;00N28000007QqUf={!Account.FirstName}&amp;00N28000007QqUm={!Account.LastName}&amp;00N28000007QqUe={!Account.FirstName_Native_1__c}&amp;00N28000007QqUl={!Account.LastName_Native_1__c}
+ &amp;00N28000007QqUg={!Account.Primary_Address_Display__c}&amp;00N28000007QqUr={!Account.Primary_Phone_Display__c}&amp;00N28000007QqUd={!Account.Primary_Fax_Display__c}&amp;saveURL={!Account.Id}&amp;retURL={!Account.Id}&amp;cancelURL={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>SMS</fullName>

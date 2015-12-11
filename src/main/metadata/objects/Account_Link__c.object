@@ -573,7 +573,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
     <pluralLabel>Account Link</pluralLabel>
     <recordTypeTrackHistory>false</recordTypeTrackHistory>
     <recordTypes>
-        <fullName>Company_Customer_External_Link</fullName>
+        <fullName>CompanyExternalLink</fullName>
         <active>true</active>
         <label>Company Customer External Link</label>
         <picklistValues>
@@ -1049,7 +1049,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         </picklistValues>
     </recordTypes>
     <recordTypes>
-        <fullName>Individual_Customer_External_Link</fullName>
+        <fullName>IndividualExternalLink</fullName>
         <active>true</active>
         <label>Individual Customer External Link</label>
         <picklistValues>

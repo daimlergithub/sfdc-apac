@@ -12,7 +12,7 @@
 				username="${sfdc.username}" password="${sfdc.password}" serverurl="${sfdc.serverurl}" maxPoll="${sfdc.maxPoll}" 
 				useProxy="${sfdc.proxy.use}" proxyHost="${sfdc.proxy.host}" proxyPort="${sfdc.proxy.port}" deployRoot="src/main/metadata"
 				transformationsRoot="src/main/transformations" checksums="${file.checksums.local}"/>
-	</presetdef>
+	</presetdef> 
 	
 	<presetdef name="loadData">
 		<sf:loadData
@@ -191,11 +191,15 @@
 			   <sf:include name="GeneratePDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
+			   <sf:include name="VehiclePicker"/>
 			</sf:typeset>
 			<sf:typeset name="classes">			
-			    <sf:include name="UtilConstant"/>  
+			    <sf:include name="UtilConstant"/>
+				<sf:include name="VehiclePickerController"/>
+				<sf:include name="VehiclePickerControllerTests"/>
 				<sf:include name="GenerateAndAttachPDF"/>				
 				<sf:include name="AccountMergeController"/>	
+				<sf:include name="CustomLogUtil"/>
 			</sf:typeset>
 		</deploy>
     </target>
@@ -356,9 +360,9 @@
 			<sf:include name="ScheduleCreateMonthlyRegionOBEmailsTest"/>		
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmails"/>
 			<sf:include name="ScheduleCreateWeeklyDealerOBEmailsTest"/>
-			
+			<sf:include name="AccountMergeControllerTest"/>
 		</sf:typeset>
-		<sf:typeset name="tabs">
+		<sf:typeset name="tabs"> 
 			<sf:include name="Retail_Campaigns"/>
 		</sf:typeset>	
 		<sf:typeset name="pages"> 
@@ -783,8 +787,14 @@
 	</target>
 	
 	<target name="deploy47">
-		<deploy>
-		<sf:typeset name="profiles" force="true"/>		
+		<deploy>		
+	    <sf:typeset name="classes">
+			<sf:include name="GenerateAndAttachPDFTest"/>
+			<sf:include name="AccountMergeControllerTest"/>
+			<sf:include name="AccountMergeController"/>
+			<sf:include name="TerminateVehicleRelationshipTest"/>						
+		</sf:typeset>	
+        <sf:typeset name="profiles" force="true"/>	
 		</deploy>
 	</target>	
 	

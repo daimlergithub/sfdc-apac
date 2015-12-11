@@ -173,6 +173,13 @@
         <value>There is an error in this attached pdf.</value>
     </labels>
     <labels>
+        <fullName>Brand</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Picker label</shortDescription>
+        <value>Brand</value>
+    </labels>
+    <labels>
         <fullName>Btn_Preview_No_Questions</fullName>
         <categories>Questionnaire Tool</categories>
         <language>en_US</language>
@@ -877,6 +884,20 @@
         <value>City</value>
     </labels>
     <labels>
+        <fullName>Class</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>For Vehicle Picker</shortDescription>
+        <value>Class</value>
+    </labels>
+    <labels>
+        <fullName>Clear_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Button used in Vehicle Picker</shortDescription>
+        <value>Clear</value>
+    </labels>
+    <labels>
         <fullName>Close</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -889,6 +910,13 @@
         <protected>false</protected>
         <shortDescription>Cluster</shortDescription>
         <value>Cluster</value>
+    </labels>
+    <labels>
+        <fullName>Colour</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>For Vehicle Picker</shortDescription>
+        <value>Colour</value>
     </labels>
     <labels>
         <fullName>Common_Filter</fullName>
@@ -957,11 +985,25 @@
         <value>Could not explain</value>
     </labels>
     <labels>
+        <fullName>Create_Vehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Create Vehicle</shortDescription>
+        <value>Create Vehicle</value>
+    </labels>
+    <labels>
         <fullName>Criteria</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Criteria</shortDescription>
         <value>Criteria</value>
+    </labels>
+    <labels>
+        <fullName>Custom_Debug_Log_Switch</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Custom Debug Log Switch</shortDescription>
+        <value>true</value>
     </labels>
     <labels>
         <fullName>Customer</fullName>
@@ -990,6 +1032,13 @@
         <protected>false</protected>
         <shortDescription>Date/Time :</shortDescription>
         <value>Date/Time :</value>
+    </labels>
+    <labels>
+        <fullName>Date_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Date Information</shortDescription>
+        <value>Date Information</value>
     </labels>
     <labels>
         <fullName>Dealer</fullName>
@@ -1076,6 +1125,13 @@
         <protected>false</protected>
         <shortDescription>End Time Greater Start Time</shortDescription>
         <value>The End Time must be greater than Start Time</value>
+    </labels>
+    <labels>
+        <fullName>Enter_VIN_number</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>For Vehicle Picker</shortDescription>
+        <value>Enter VIN number</value>
     </labels>
     <labels>
         <fullName>Error_Message_1</fullName>
@@ -1742,6 +1798,13 @@
         <value>Error: The logic is wrong.</value>
     </labels>
     <labels>
+        <fullName>Lookup_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Lookup Button</shortDescription>
+        <value>Lookup</value>
+    </labels>
+    <labels>
         <fullName>Maintenance_Promotion</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -1914,6 +1977,13 @@
         <value>No record that you can approve is seleced</value>
     </labels>
     <labels>
+        <fullName>Mileage</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>For Vehicle Picker</shortDescription>
+        <value>Mileage</value>
+    </labels>
+    <labels>
         <fullName>Mobile</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2019,6 +2089,13 @@
         <value>Near Dealer Phone3</value>
     </labels>
     <labels>
+        <fullName>New_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Button used in Vehicle Picker</shortDescription>
+        <value>New</value>
+    </labels>
+    <labels>
         <fullName>New_Customer_Acquisition</fullName>
         <categories>Retail Campaign Calendar</categories>
         <language>en_US</language>
@@ -2060,6 +2137,13 @@
         <protected>false</protected>
         <shortDescription>Other Email</shortDescription>
         <value>Other Email</value>
+    </labels>
+    <labels>
+        <fullName>Other_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Other Information</shortDescription>
+        <value>Other Information</value>
     </labels>
     <labels>
         <fullName>Other_Phone_1</fullName>
@@ -2477,6 +2561,13 @@
         <value>Save Filter</value>
     </labels>
     <labels>
+        <fullName>Save_New_Button</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Save &amp; New Button</shortDescription>
+        <value>Save &amp; New</value>
+    </labels>
+    <labels>
         <fullName>Sccussful</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2858,6 +2949,13 @@
         <value>Total Amount Spend On Car Service is Greater Than</value>
     </labels>
     <labels>
+        <fullName>Trim</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>For Vehicle Picker</shortDescription>
+        <value>Trim</value>
+    </labels>
+    <labels>
         <fullName>UCID</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -2993,11 +3091,25 @@
         <value>Publish Date</value>
     </labels>
     <labels>
+        <fullName>Vehicle_Detail</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Detail</shortDescription>
+        <value>Vehicle Detail</value>
+    </labels>
+    <labels>
         <fullName>Vehicle_Filter</fullName>
         <language>en_US</language>
         <protected>false</protected>
         <shortDescription>Vehicle Filter</shortDescription>
         <value>Vehicle Filter</value>
+    </labels>
+    <labels>
+        <fullName>Vehicle_Information</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle Information</shortDescription>
+        <value>Vehicle Information</value>
     </labels>
     <labels>
         <fullName>Work_Fax</fullName>
