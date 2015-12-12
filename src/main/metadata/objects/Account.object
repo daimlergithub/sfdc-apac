@@ -1188,7 +1188,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_CityCN"</description>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Medial enterprise</fullName>
+                <fullName>Medical enterprise</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -6136,20 +6136,20 @@ Attribute in Data Dictionary object Contact is "Contact_IDType"</description>
                 <fullName>Urban public transport sector</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
-                <fullName>Communications%20equipment%2Fcomputers%20and%20other%20electronic%20equipment%20manufacturing</fullName>
+            <picklistValues>
+                <fullName>Communications equipment/computers and other electronic equipment manufacturing</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
-                <fullName>Electricity%2Fheat%20production%20and%20supply%20industry</fullName>
+            <picklistValues>
+                <fullName>Electricity/heat production and supply industry</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
-                <fullName>Mass%20organizations%2Fcommunity%20groups%20and%20religious%20organizations</fullName>
+            <picklistValues>
+                <fullName>Mass organizations/community groups and religious organizations</fullName>
                 <default>false</default>
             </picklistValues>
-			<picklistValues>
-                <fullName>Petroleum%20processing%2Fcoking%20and%20nuclear%20fuel%20processing%20industry</fullName>
+            <picklistValues>
+                <fullName>Petroleum processing/coking and nuclear fuel processing industry</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7498,7 +7498,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <label>Occupation</label>
         <picklist>
             <picklistValues>
-                <fullName>Office, enterprise and public institution responsible officer</fullName>
+                <fullName>enterprise and public institution responsible officer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7506,11 +7506,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Primary Industry (Farming, Fishing, Forestry etc)</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
-                <fullName>Manufacture, transport equipment operation staff</fullName>
+                <fullName>Primary Industry (Farming/ Fishing/ Forestry etc)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7546,7 +7542,7 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Laywer</fullName>
+                <fullName>Lawyer</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -7624,7 +7620,55 @@ Attribute in Data Dictionary object Contact is "Contact_Occupation"</description
         <label>Acceptable Activities</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (New Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (Finance)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Product Info (Aftersales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event (New Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event (Aftersales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign (New Car)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign (Finance)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign (Aftersales)</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Survey</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Magazine</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -10267,7 +10311,7 @@ Attribute in Data Dictionary object Contact is "Contact_Salutation"</description
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Yes(New Car)</fullName>
+                <fullName>Yes (New Car)</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -11239,11 +11283,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medial enterprise</fullName>
+                <fullName>Medical corporation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medical corporation</fullName>
+                <fullName>Medical enterprise</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -12968,10 +13012,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Fax_Validity__c</picklist>
             <values>
-                <fullName>Blacklisted</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Invalid</fullName>
                 <default>false</default>
             </values>
@@ -13424,7 +13464,51 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Industry</picklist>
             <values>
+                <fullName>Advertising %2F Marketing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agriculture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Air transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Banking</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Business Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Car dealer</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical fiber manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Chemical materials and chemical products manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Coal mining and washing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Communications equipment%2Fcomputers and other electronic equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Construction and installation industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crafts and other manufacturing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13432,7 +13516,59 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Education</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electrical machinery and equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Electricity%2Fheat production and supply industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Ferrous metal mining industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fisheries</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Food Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Forestry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gas Production and Supply</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>General equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Health</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Insurance</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mass organizations%2Fcommunity groups and religious organizations</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Media</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Nonferrous Metals</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13440,7 +13576,47 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Other Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Other financial activities</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Paper and paper products industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Parts</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Petroleum processing%2Fcoking and nuclear fuel processing industry</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Pharmaceutical Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Real Estate</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Retail</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Road transport</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rubber</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Securities Industry</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -13448,7 +13624,39 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
+                <fullName>Special equipment manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>State institutions</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Telecommunications and Other Information Transmission Services</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Trade</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Transportation Equipment Manufacturing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Urban public transport sector</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Warehousing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Water Transportation</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14049,19 +14257,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Laywer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manufacture%2C transport equipment operation staff</fullName>
+                <fullName>Lawyer</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Office Staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Office%2C enterprise and public institution responsible officer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14081,7 +14281,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Primary Industry %28Farming%2C Fishing%2C Forestry etc%29</fullName>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -14116,11 +14316,63 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Opt_In_Contact_Reason__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Campaign %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -14762,18 +15014,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <picklistValues>
             <picklist>Special_Mark_on_Account__c</picklist>
             <values>
-                <fullName>BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Central%26BBAC</fullName>
-                <default>false</default>
-            </values>
-            <values>
                 <fullName>Dealer</fullName>
                 <default>false</default>
             </values>
@@ -14787,10 +15027,6 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
             </values>
             <values>
                 <fullName>MBJ</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Media</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -15070,11 +15306,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes %28Used Car%29</fullName>
+                <fullName>Yes %28New Car%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes%28New Car%29</fullName>
+                <fullName>Yes %28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -15599,11 +15835,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medial enterprise</fullName>
+                <fullName>Medical corporation</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Medical corporation</fullName>
+                <fullName>Medical enterprise</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18045,19 +18281,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Laywer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Manufacture%2C transport equipment operation staff</fullName>
+                <fullName>Lawyer</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Office Staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Office%2C enterprise and public institution responsible officer</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18077,7 +18305,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Primary Industry %28Farming%2C Fishing%2C Forestry etc%29</fullName>
+                <fullName>Primary Industry %28Farming%2F Fishing%2F Forestry etc%29</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -18112,11 +18340,63 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <fullName>Unknown</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>enterprise and public institution responsible officer</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Opt_In_Contact_Reason__c</picklist>
             <values>
-                <fullName>None</fullName>
+                <fullName>Campaign %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Campaign %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Event %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Fair</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gift</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MOT Car inspection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Magazine</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Aftersales%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28Finance%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Product Info %28New Car%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Survey</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19054,11 +19334,11 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes %28Used Car%29</fullName>
+                <fullName>Yes %28New Car%29</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Yes%28New Car%29</fullName>
+                <fullName>Yes %28Used Car%29</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -19206,7 +19486,7 @@ Attribute in Data Dictionary object Dealer is "Dealer_ZipCode"</description>
         <fullName>Account_Status</fullName>
         <active>true</active>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
-ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  Status__c , 'Customer')</errorConditionFormula>
+ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  Status__c , 'Customer') &amp;&amp;(MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Status__c</errorDisplayField>
         <errorMessage>If customer has no vehicle relationship, Status must not be ‘Customer’.</errorMessage>
     </validationRules>
@@ -19217,7 +19497,7 @@ ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  St
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
 OR(YEAR( TODAY() ) -YEAR( PersonBirthdate) &gt;150,PersonBirthdate &gt; TODAY()),
-$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+$Profile.Name != 'IntegrationAPI') &amp;&amp; (MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>PersonBirthdate</errorDisplayField>
         <errorMessage>Birthdate is not allowed to be later than today or earlier than 150 years.</errorMessage>
     </validationRules>
@@ -19379,12 +19659,173 @@ $Profile.Name != 'IntegrationAPI'
         <errorMessage>The driver's license year is not in correct format</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Fax2StartsWith0</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Fax2__c),ISNEW()), 
+NOT(ISBLANK(Fax2__c)), 
+LEFT(Fax2__c, 1) &lt;&gt; '0', 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Fax2__c</errorDisplayField>
+        <errorMessage>Fax 2 should start with "0".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Fax2_NoChar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Fax2__c),ISNEW()), 
+NOT(ISBLANK(Fax2__c)), 
+NOT(ISNUMBER(Fax2__c)), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Fax2__c</errorDisplayField>
+        <errorMessage>Fax 2 should not include "-" or "+".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Fax2_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Fax2__c),ISNEW()), 
+NOT(ISBLANK(Fax2__c)), 
+LEN(Fax2__c) &gt; 11, 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorMessage>Fax 2 should be less than or equal to 11 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Fax_NoChar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Fax),ISNEW()), 
+NOT(ISBLANK(Fax)), 
+NOT(ISNUMBER(Fax)), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Fax</errorDisplayField>
+        <errorMessage>Fax should not include "-" or "+".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Fax_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Fax),ISNEW()), 
+NOT(ISBLANK(Fax)), 
+LEN(Fax) &gt; 11, 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Fax</errorDisplayField>
+        <errorMessage>Fax should be less than or equal to 11 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Fax_StartsWith0</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Fax),ISNEW()), 
+NOT(ISBLANK(Fax)), 
+LEFT(Fax,1) &lt;&gt; '0', 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Fax</errorDisplayField>
+        <errorMessage>Fax should start with "0".</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Fax_Validation</fullName>
         <active>true</active>
         <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Fax__c) ), 
 NOT( ISBLANK(Retail_Fax__c) ) )</errorConditionFormula>
         <errorDisplayField>Retail_Fax__c</errorDisplayField>
         <errorMessage>Fax must contain digits only.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Finance_Sanction_Comment_required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Finance_Sanction__c),ISNEW()),
+Finance_Sanction__c = true,
+ISBLANK(Finance_Sanction_Comment__c),
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Finance_Sanction_Comment__c</errorDisplayField>
+        <errorMessage>If Finance Sanction is checked, Finance Sanction Comment needs to be entered.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Foundation_Date_Past</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Foundation_Date__c),ISNEW()),
+NOT( ISBLANK(Foundation_Date__c)),
+Foundation_Date__c &gt; TODAY(),
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Foundation_Date__c</errorDisplayField>
+        <errorMessage>Foundation date is not allowed to be later than today.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Home_Phone_2_NoChar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Home_Phone_2__c),ISNEW()), 
+NOT(ISBLANK(Home_Phone_2__c)), 
+NOT(ISNUMBER(Home_Phone_2__c)), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Home_Phone_2__c</errorDisplayField>
+        <errorMessage>Home Phone 2 should not include "-" or "+".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Home_Phone_2_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Home_Phone_2__c),ISNEW()), 
+NOT(ISBLANK(Home_Phone_2__c)), 
+LEN(Home_Phone_2__c) &gt; 11, 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Home_Phone_2__c</errorDisplayField>
+        <errorMessage>Home Phone 2 should be less than or equal to 11 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Home_Phone_2_StartsWith0</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Home_Phone_2__c),ISNEW()), 
+NOT(ISBLANK(Home_Phone_2__c)), 
+LEFT(Home_Phone_2__c,1) &lt;&gt; '0', 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Home_Phone_2__c</errorDisplayField>
+        <errorMessage>Home Phone 2 should start with "0".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Individual_Home_Phone_NoChar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Individual_Home_Phone__c),ISNEW()), 
+NOT(ISBLANK(Individual_Home_Phone__c)),
+NOT(ISNUMBER(Individual_Home_Phone__c)),
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP'
+)</errorConditionFormula>
+        <errorDisplayField>Individual_Home_Phone__c</errorDisplayField>
+        <errorMessage>Home Phone should not include "-" or "+".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Individual_Home_Phone_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Individual_Home_Phone__c),ISNEW()), 
+NOT(ISBLANK(Individual_Home_Phone__c)),
+LEN(Individual_Home_Phone__c ) &gt; 11,
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Individual_Home_Phone__c</errorDisplayField>
+        <errorMessage>Home Phone should be less than or equal to 11 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Individual_Home_Phone_StartsWith0</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Individual_Home_Phone__c),ISNEW()),
+NOT(ISBLANK(Individual_Home_Phone__c)),
+LEFT(Individual_Home_Phone__c, 1) &lt;&gt; '0',
+$Profile.Name != 'IntegrationAPI',
+MD__c = 'JP'  
+)</errorConditionFormula>
+        <errorDisplayField>Individual_Home_Phone__c</errorDisplayField>
+        <errorMessage>Home Phone should start with "0".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Invalid_Email</fullName>
@@ -19405,11 +19846,82 @@ $Profile.Name != 'IntegrationAPI'
         <errorConditionFormula>AND(
 OR(ISCHANGED(ZipCode__c ), ISNEW()),
 NOT( ISBLANK(ZipCode__c ) ),
-NOT(REGEX( ZipCode__c , "[0-9]{6}")),
-$Profile.Name &lt;&gt; 'IntegrationAPI'
+NOT(REGEX( ZipCode__c , "[0-9]{7}")),
+$Profile.Name &lt;&gt; 'IntegrationAPI',
+MD__c = 'JP' 
 )</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
         <errorMessage>Zip is not 6 digits long</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mobile2_NoChar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Mobile2__c),ISNEW()), 
+NOT(ISBLANK(Mobile2__c)), 
+NOT(ISNUMBER(Mobile2__c)), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Mobile2__c</errorDisplayField>
+        <errorMessage>Mobile Phone 2 should not include "-" or "+".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mobile2_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Mobile2__c),ISNEW()), 
+NOT(ISBLANK(Mobile2__c)), 
+LEN(Mobile2__c) &gt; 11, 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Mobile2__c</errorDisplayField>
+        <errorMessage>Mobile Phone 2 should be less than or equal to 11 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mobile2_StartsWith0</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Mobile2__c),ISNEW()), 
+NOT(ISBLANK(Mobile2__c)), 
+LEFT(Mobile2__c, 1) &lt;&gt; '0', 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Mobile2__c</errorDisplayField>
+        <errorMessage>Mobile Phone 2 should start with "0".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mobile_NoChar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Mobile__c),ISNEW()), 
+NOT(ISBLANK(Mobile__c)), 
+NOT(ISNUMBER(Mobile__c)), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Mobile__c</errorDisplayField>
+        <errorMessage>Mobile Phone should not include "-" or "+".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mobile_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Mobile__c),ISNEW()), 
+NOT(ISBLANK(Mobile__c)), 
+LEN(Mobile__c) &gt; 11, 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Mobile__c</errorDisplayField>
+        <errorMessage>Mobile Phone should be less than or equal to 11 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Mobile_StartsWith0</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Mobile__c),ISNEW()), 
+NOT(ISBLANK(Mobile__c)), 
+LEFT(Mobile__c,1) &lt;&gt; '0', 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Mobile__c</errorDisplayField>
+        <errorMessage>Mobile Phone should start with "0".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>PersonHomePhone</fullName>
@@ -19438,6 +19950,29 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>Phone number must contain digits only.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Phone_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Phone),ISNEW()), 
+NOT(ISBLANK(Phone)), 
+LEN(Phone) &gt; 11, 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Phone</errorDisplayField>
+        <errorMessage>Phone should be less than or equal to 11 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Phone_StartsWith0</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Phone),ISNEW()), 
+NOT(ISBLANK(Phone)), 
+LEFT(Phone,1) &lt;&gt; '0', 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Phone</errorDisplayField>
+        <errorMessage>Phone should start with "0".</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Preferred_contact_method_Changed</fullName>
         <active>true</active>
         <errorConditionFormula>AND(
@@ -19450,6 +19985,16 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
 )</errorConditionFormula>
         <errorDisplayField>Preferred_Phone__c</errorDisplayField>
         <errorMessage>Preferred phone can not be set unless Preferred contact method  is set to “Phone”.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Sales_Sanction_Comment_required</fullName>
+        <active>false</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Sales_Sanction__c),ISNEW()), 
+NOT(ISPICKVAL(Sales_Sanction__c,'')), 
+ISBLANK(Finance_Sanction_Comment__c), 
+$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Sales_Sanction__c</errorDisplayField>
+        <errorMessage>If Sales Sanction is checked, Sales Sanction Comment needs to be entered.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Second_Mobile</fullName>
@@ -19511,6 +20056,41 @@ ISPICKVAL(  Gender__c , 'Male'))
 )</errorConditionFormula>
         <errorDisplayField>Gender__c</errorDisplayField>
         <errorMessage>Please compare the value of salution and gender, and fill in the appropriate values.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Work_Phone_2_NoChar</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Work_Phone__c),ISNEW()), 
+NOT(ISBLANK(Work_Phone__c)), 
+NOT(ISNUMBER(Work_Phone__c)), 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Work_Phone__c</errorDisplayField>
+        <errorMessage>Work Phone should not include "-" or "+".</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Work_Phone_2_NoOfDigits</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Individual_Home_Phone__c),ISNEW()), 
+NOT(ISBLANK(Individual_Home_Phone__c)), 
+LEN(Individual_Home_Phone__c ) &gt; 11, 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP')</errorConditionFormula>
+        <errorDisplayField>Work_Phone__c</errorDisplayField>
+        <errorMessage>Work Phone should be less than or equal to 11 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Work_Phone_2_StartsWith0</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Work_Phone__c),ISNEW()), 
+NOT(ISBLANK(Work_Phone__c)), 
+LEFT(Work_Phone__c,1) &lt;&gt; '0', 
+$Profile.Name != 'IntegrationAPI', 
+MD__c = 'JP' 
+)</errorConditionFormula>
+        <errorDisplayField>Work_Phone__c</errorDisplayField>
+        <errorMessage>Work Phone should start with "0".</errorMessage>
     </validationRules>
     <webLinks>
         <fullName>AltavistaNews</fullName>
@@ -19581,7 +20161,7 @@ else {
         <masterLabel>Create Vehicle</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>https://c.cs5.visual.force.com/apex/Create_Vehicle?accId={!Account.Id}</url>
+        <url>/apex/Create_Vehicle?accId={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>DM</fullName>

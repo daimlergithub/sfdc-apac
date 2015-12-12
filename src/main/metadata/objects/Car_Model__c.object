@@ -1903,63 +1903,63 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <label>Series</label>
         <picklist>
             <picklistValues>
-                <fullName>A-CLASS</fullName>
+                <fullName>A-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>B-CLASS</fullName>
+                <fullName>B-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>C-CLASS</fullName>
+                <fullName>C-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>CL-CLASS</fullName>
+                <fullName>CL-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>CLK-CLASS</fullName>
+                <fullName>CLK-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>CLS-CLASS</fullName>
+                <fullName>CLS-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>E-CLASS</fullName>
+                <fullName>E-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>G-CLASS</fullName>
+                <fullName>G-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>GL-CLASS</fullName>
+                <fullName>GL-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>GLK-CLASS</fullName>
+                <fullName>GLK-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>ML-CLASS</fullName>
+                <fullName>M-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>R-CLASS</fullName>
+                <fullName>R-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>S-CLASS</fullName>
+                <fullName>S-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SL-CLASS</fullName>
+                <fullName>SL-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>SLK-CLASS</fullName>
+                <fullName>SLK-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
@@ -1996,6 +1996,38 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>AGM GT</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLA-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLC-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>GLE-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLR-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>SLS-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>VANEO</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>V-Class</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>CLA-Class</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

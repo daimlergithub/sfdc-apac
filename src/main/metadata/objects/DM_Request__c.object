@@ -207,7 +207,19 @@ Modify Reason:
         <label>Touch Point</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>IB Call</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Event</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>MB Online</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Campaign</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -311,7 +323,19 @@ Modify Reason:
         <label>Delivery Type</label>
         <picklist>
             <picklistValues>
-                <fullName>None</fullName>
+                <fullName>1</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>2</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>3</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -547,7 +571,31 @@ Modify Reason:
         <label>Status1</label>
         <picklist>
             <picklistValues>
-                <fullName>none</fullName>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>to be sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Returned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not send</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -562,7 +610,31 @@ Modify Reason:
         <label>Catalogue Printing check 2</label>
         <picklist>
             <picklistValues>
-                <fullName>none</fullName>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>to be sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Returned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not send</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -577,7 +649,31 @@ Modify Reason:
         <label>Catalogue Printing Check 3</label>
         <picklist>
             <picklistValues>
-                <fullName>none</fullName>
+                <fullName>Open</fullName>
+                <default>true</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Duplicate</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>to be sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Failed</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Returned</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Success</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not send</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -609,6 +705,18 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Success</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approving</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>to be sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not send</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>

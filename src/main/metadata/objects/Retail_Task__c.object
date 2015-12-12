@@ -1458,6 +1458,50 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>Invalid</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waiting for Approval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>pullback</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Save</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Waiting for cancellation approval</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancellation Approved</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>In service</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
@@ -1675,6 +1719,14 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
             </picklistValues>
             <picklistValues>
                 <fullName>Contact termination</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Standard Warranty</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Used Car Warranty</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -2312,11 +2364,47 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Status__c</picklist>
             <values>
-                <fullName>Invalid</fullName>
+                <fullName>Approved</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Valid</fullName>
+                <fullName>Cancellation Approved</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Cancelled</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Draft</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Expired</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>In service</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Rejected</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Save</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiting for Approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Waiting for cancellation approval</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>pullback</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -2330,187 +2418,11 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <picklistValues>
             <picklist>Type__c</picklist>
             <values>
-                <fullName>Accepted vehicle order VS</fullName>
+                <fullName>Standard Warranty</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Acquisition visit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Acquisition%2Fcold call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Aftersales estimate</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Birthday card</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Campaign Letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car anniversary 1</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car anniversary 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Car anniversary 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Confirmed vehicle order</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Contact termination</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer Satisfaction Invtgn</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer Satisfaction Invtgn 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer Satisfaction Invtgn 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer complaint - dealer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer complaint - other</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer complaint - product</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Customer complaint - staff</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Demo Bokking Approval</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Deposit</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Email</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Incoming letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Incoming telephone call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Invoice New Vehicle</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Lost sale - new</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>MPC Contact Termination</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Mercedes-Benz Magazine</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>N%2FA</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>New vehicle lost sale letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Outgoing telephone call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Post-sale follow up call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Re-qualification call</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>SMS</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Letter</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Satisfaction Investign</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Satisfaction Investign 2</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Sales Satisfaction Investign 3</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Service Invoice</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Showroom visit by customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Test drive</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle delivery</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle enquiry</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle order</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Vehicle quotation</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Visit to customer</fullName>
-                <default>false</default>
-            </values>
-            <values>
-                <fullName>Welcome pack</fullName>
+                <fullName>Used Car Warranty</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
