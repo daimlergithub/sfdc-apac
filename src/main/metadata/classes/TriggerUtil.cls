@@ -33,7 +33,7 @@ public class TriggerUtil
             usr = [select id,profileid,profile.Name,Market__c from user where id=:userinfo.getuserid()];
             user = true;
         }
-        if (isTriggerEnabled(triggerInfo) && (usr.Market__c.equals(triggerInfo.Market__c))) {
+        if (isTriggerEnabled(triggerInfo) ) {
             TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);
             
             if (triggerHandler != null) {
@@ -49,7 +49,9 @@ public class TriggerUtil
     {
         if (aTriggerName != null) {
             for (Trigger__c triggerInfo : Trigger__c.getAll().values()) {
+
                 if (aTriggerName.equals(triggerInfo.Trigger_Name__c)) {
+
                     if (trigger.isAfter && !triggerInfo.after__c) {
                         continue;
                     }
@@ -80,10 +82,10 @@ public class TriggerUtil
         if (aTriggerInfo != null && aTriggerInfo.Trigger_Handler__c != null) {
             triggerHandlerName = aTriggerInfo.Trigger_Handler__c;
         }
-        /*else {
+        else {
             triggerHandlerName = getDefaultTriggerHandlerName(aTriggerName);
 
-        }*/
+        }
         
         Type triggerHandlerType = Type.forName(triggerHandlerName);
             
