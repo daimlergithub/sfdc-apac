@@ -65773,6 +65773,30 @@ NOT(CONTAINS($Profile.Name,'Dealer'))
         <errorMessage>If CAC Lead Status is Purchased(Only Non BDC), Purchase Date, Bought Vehicle Brand, Bought Vehicle Class and Bought Vehicle Model are required.</errorMessage>
     </validationRules>
     <validationRules>
+        <fullName>Cannnot_Change_Lead_Status</fullName>
+        <active>true</active>
+        <description>"Lead status changed to ""Approved(waition)"" or ""Allocated""
+AND User profile is Call center agent"</description>
+        <errorConditionFormula>AND($Profile.Name ='System Administrator', OR (ISPICKVAL( CAC_Lead_Status__c , 'Approved'), ISPICKVAL(CAC_Lead_Status__c , 'Allocated'))&amp;&amp;  
+ UPPER( MD__c ) = 'JP' &amp;&amp; 
+($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
+        <errorDisplayField>CAC_Lead_Status__c</errorDisplayField>
+        <errorMessage>You can't change lead status to "Approval(waiting)" or "Allocated"</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Company_Account_Required</fullName>
+        <active>true</active>
+        <description>"Customer_Type__c = ""Company Sales""
+AND Company__c is null"</description>
+        <errorConditionFormula>AND(
+ISPICKVAL( Customer_Type__c , 'Company Sales'),
+ISBLANK( Company_Account__c )&amp;&amp;  
+ UPPER( MD__c ) = 'JP' &amp;&amp; 
+($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
+        <errorDisplayField>Company_Account__c</errorDisplayField>
+        <errorMessage>Company account is required when company type is Company.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Contact_Failed_Required_Check</fullName>
         <active>true</active>
         <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', 
@@ -65827,6 +65851,14 @@ ISNULL(First_Contact_Customer_Date__c)
 )</errorConditionFormula>
         <errorDisplayField>First_Contact_Customer_Date__c</errorDisplayField>
         <errorMessage>If Dealer Lead Status is First Contact Customer, First Contact Customer Date is required.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>First_Name_Native_Single</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR (ISCHANGED( FirstName_Native_1__c ),(ISNEW())), 
+NOT(REGEX(FirstName_Native_1__c , "[a-zA-Z0-9+-]")))</errorConditionFormula>
+        <errorDisplayField>FirstName_Native_1__c</errorDisplayField>
+        <errorMessage>First Name Native should be Double byte.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>InstructorMandatory</fullName>

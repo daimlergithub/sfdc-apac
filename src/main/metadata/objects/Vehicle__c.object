@@ -8026,6 +8026,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
                 <fullName>BL</fullName>
                 <default>false</default>
             </values>
@@ -8266,6 +8270,14 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
+
+
+
+
                 <fullName>MVS</fullName>
                 <default>false</default>
             </values>
@@ -8319,6 +8331,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Nissan</fullName>
+
+
+
+
+
                 <default>false</default>
             </values>
             <values>
@@ -8394,6 +8411,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
                 <fullName>SEAT</fullName>
                 <default>false</default>
             </values>
@@ -10866,6 +10887,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
                 <fullName>BL</fullName>
                 <default>false</default>
             </values>
@@ -11106,6 +11131,14 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
+
+
+
+
                 <fullName>MVS</fullName>
                 <default>false</default>
             </values>
@@ -11159,6 +11192,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Nissan</fullName>
+
+
+
+
+
                 <default>false</default>
             </values>
             <values>
@@ -11234,6 +11272,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
                 <fullName>SEAT</fullName>
                 <default>false</default>
             </values>
@@ -15957,6 +15999,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
                 <fullName>BL</fullName>
                 <default>false</default>
             </values>
@@ -16197,6 +16243,14 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
+
+
+
+
                 <fullName>MVS</fullName>
                 <default>false</default>
             </values>
@@ -16250,6 +16304,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Nissan</fullName>
+
+
+
+
+
                 <default>false</default>
             </values>
             <values>
@@ -16325,6 +16384,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
                 <fullName>SEAT</fullName>
                 <default>false</default>
             </values>
@@ -21116,6 +21179,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
                 <fullName>BL</fullName>
                 <default>false</default>
             </values>
@@ -21356,6 +21423,14 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
+
+
+
+
                 <fullName>MVS</fullName>
                 <default>false</default>
             </values>
@@ -21412,6 +21487,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
                 <fullName>Oldsmobile</fullName>
                 <default>false</default>
             </values>
@@ -21484,6 +21563,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
                 <fullName>SEAT</fullName>
                 <default>false</default>
             </values>
@@ -26240,6 +26323,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
                 <fullName>BL</fullName>
                 <default>false</default>
             </values>
@@ -26480,6 +26567,14 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
+
+
+
+
                 <fullName>MVS</fullName>
                 <default>false</default>
             </values>
@@ -26533,6 +26628,11 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
             </values>
             <values>
                 <fullName>Nissan</fullName>
+
+
+
+
+
                 <default>false</default>
             </values>
             <values>
@@ -26608,6 +26708,10 @@ Attribute in Data Dictionary object Vehicle is ”Vehicle_Valid“</description>
                 <default>false</default>
             </values>
             <values>
+
+
+
+
                 <fullName>SEAT</fullName>
                 <default>false</default>
             </values>
@@ -29150,11 +29254,13 @@ Modify History
 Modify By: 
 Modify Reason: 
 */</description>
-        <errorConditionFormula>AND (
-	NOT(ISNULL( UsVIN__c )),
-	NOT(ISBLANK( UsVIN__c )),
-	LEN( UsVIN__c ) &lt;&gt; 17
-)</errorConditionFormula>
+
+        <errorConditionFormula>AND(
+NOT(ISBLANK(  UsVIN__c  ))&amp;&amp;
+(LEN(  UsVIN__c  )  &lt;&gt; 17) &amp;&amp;  
+
+ UPPER( MD__c ) = 'JP' &amp;&amp; 
+($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
         <errorMessage>US-VIN must be 17 characters.</errorMessage>
     </validationRules>
@@ -29167,20 +29273,24 @@ Modify Reason:
         <errorDisplayField>EuroVIN__c</errorDisplayField>
         <errorMessage>Euro VIN Has Invalid Syntax.</errorMessage>
     </validationRules>
-    <validationRules>
-        <fullName>US_VIN_Invalid_Syntax</fullName>
+	 <validationRules>
+        <fullName>Invalid_Start_End_Date</fullName>
         <active>true</active>
-        <description>VIN is not allowed to have invalid syntax: $,%,^, ?, -, _, (, ), Space , *, @, punctuation, Chinese character.</description>
-        <errorConditionFormula>AND(	NOT(ISNULL( UsVIN__c )),
-	NOT(ISBLANK( UsVIN__c )),NOT(REGEX( UsVIN__c , "^[A-Za-z0-9]+$")), $Profile.Name != 'IntegrationAPI', RecordType.DeveloperName = 'MB')</errorConditionFormula>
-        <errorDisplayField>UsVIN__c</errorDisplayField>
-        <errorMessage>US VIN Has Invalid Syntax.</errorMessage>
-    </validationRules>
+        <description>End date should not before Start date.</description>
+        <errorConditionFormula>AND (
+NOT(ISNULL( Related_From__c )),
+AND (
+NOT(ISNULL( Related_To__c )),
+Related_From__c  &gt;  Related_To__c)) &amp;&amp;
+($Profile.Name != 'IntegrationAPI') &amp;&amp; UPPER(MD__c) = 'JP'</errorConditionFormula>
+        <errorDisplayField>Related_To__c</errorDisplayField>
+        <errorMessage>End date should not before Start date.</errorMessage>
+    </validationRules>    
     <validationRules>
         <fullName>UsVIN_Read_Only</fullName>
         <active>true</active>
         <description>If the vehicle is imported from interface, it's not allowed to change UsVIN in salesforce manually by CAC user.</description>
-        <errorConditionFormula>AND($Profile.Name &lt;&gt; "IntegrationAPI",ISCHANGED( UsVIN__c ) , NOT( ISBLANK(Created_By_EP_Transaction__c ) ), RecordType.DeveloperName = 'MB')</errorConditionFormula>
+         <errorConditionFormula>AND($Profile.Name &lt;&gt; "IntegrationAPI",ISCHANGED( UsVIN__c ) , NOT( ISBLANK(Created_By_EP_Transaction__c ) ), UPPER(MD__c) = 'JP')</errorConditionFormula>
         <errorDisplayField>UsVIN__c</errorDisplayField>
         <errorMessage>It's not allowed to change UsVIN for a vehicle from interface.</errorMessage>
     </validationRules>
