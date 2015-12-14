@@ -19856,7 +19856,7 @@ $Profile.Name != 'IntegrationAPI'
     <validationRules>
         <fullName>Invalid_ZipCode</fullName>
         <active>true</active>
-        <description>Zip is not 6 digits long</description>
+        <description>Zipcode is not 7 digits long</description>
         <errorConditionFormula>AND(
 OR(ISCHANGED(ZipCode__c ), ISNEW()),
 NOT( ISBLANK(ZipCode__c ) ),
@@ -19865,7 +19865,7 @@ $Profile.Name &lt;&gt; 'IntegrationAPI',
 MD__c = 'JP' 
 )</errorConditionFormula>
         <errorDisplayField>ZipCode__c</errorDisplayField>
-        <errorMessage>Zip is not 6 digits long</errorMessage>
+        <errorMessage>Zipcode is not 7 digits long</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Mobile2_NoChar</fullName>
