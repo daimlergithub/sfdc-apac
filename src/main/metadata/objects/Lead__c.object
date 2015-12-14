@@ -2370,6 +2370,10 @@
                 <fullName>Allocated</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Not Allocated</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -8203,10 +8207,6 @@ Modify Reason:
         <label>Lost Situation</label>
         <picklist>
             <picklistValues>
-                <fullName>none</fullName>
-                <default>false</default>
-            </picklistValues>
-            <picklistValues>
                 <fullName>Changed car in same company</fullName>
                 <default>false</default>
             </picklistValues>
@@ -9612,6 +9612,10 @@ Modify Reason:
                 <fullName>Phone and Email</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -9910,6 +9914,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Considering</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Next Inspection Timing</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -18309,6 +18317,10 @@ ISPICKVAL(Dealer_Lead_Status__c,"Visited Showroom(Only Non BDC)"),
                 <fullName>Replace existing vehicle</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Others</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackFeedHistory>false</trackFeedHistory>
@@ -23846,7 +23858,7 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lost_Situation__c</picklist>
             <values>
-                <fullName>none</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -36409,7 +36421,7 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lost_Situation__c</picklist>
             <values>
-                <fullName>none</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -44838,6 +44850,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>true</default>
             </values>
             <values>
+                <fullName>Not Allocated</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Purchased%28Only Non BDC%29</fullName>
                 <default>false</default>
             </values>
@@ -44870,6 +44886,10 @@ Company_Account__r.Work_Phone__c  ,
         </picklistValues>
         <picklistValues>
             <picklist>Customer_Type__c</picklist>
+            <values>
+                <fullName>Company Sales</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>Existing Customer</fullName>
                 <default>false</default>
@@ -47643,11 +47663,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Catalogue</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Financial</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>Leasing</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Quotation</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48059,19 +48087,31 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Transferred for house moving</fullName>
                 <default>false</default>
             </values>
-            <values>
-                <fullName>none</fullName>
-                <default>false</default>
-            </values>
         </picklistValues>
         <picklistValues>
             <picklist>MB_Vehicle_Interest__c</picklist>
+            <values>
+                <fullName>A 180 Customized Version</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>A 180 Edition Green</fullName>
+                <default>false</default>
+            </values>
             <values>
                 <fullName>A-Class</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>AMG GT</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>B-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>C-Class AMG</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48092,6 +48132,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>CLA-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLA-Class Shooting Brake</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48127,7 +48171,19 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>E-Class Estate BlueTEC</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>E-Class Sedan</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Sedan BlueTEC</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>E-Class Sedan Hybrid</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48143,11 +48199,39 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>GLE-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>GLK-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>M-Class</fullName>
                 <default>false</default>
             </values>
             <values>
+                <fullName>MB Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Maybach S class</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>R-Class</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S Class Coupe</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S Class Plug-in Hybrid</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>S Class Sedan Hybrid</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48167,11 +48251,43 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Smart for 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smart for 2 Coupe mhd</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smart for 4 Cabrio mhd</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Smart for two Cabrio</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Viano</fullName>
                 <default>false</default>
             </values>
             <values>
                 <fullName>smart</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart Unknown</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart edition Disney</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart electric</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>smart for 4</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -48503,6 +48619,10 @@ Company_Account__r.Work_Phone__c  ,
                 <fullName>Invoice</fullName>
                 <default>false</default>
             </values>
+            <values>
+                <fullName>Loan</fullName>
+                <default>false</default>
+            </values>
         </picklistValues>
         <picklistValues>
             <picklist>Payment_Type__c</picklist>
@@ -48565,6 +48685,10 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Fax</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>Phone</fullName>
                 <default>false</default>
             </values>
@@ -48611,6 +48735,30 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Range 11</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 12</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 13</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 14</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 15</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 16</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Range 17</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -48685,6 +48833,14 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Above 12 Months</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Considering</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Next Inspection Timing</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -51622,7 +51778,15 @@ Company_Account__r.Work_Phone__c  ,
                 <default>false</default>
             </values>
             <values>
+                <fullName>Experience of advanced safety function</fullName>
+                <default>false</default>
+            </values>
+            <values>
                 <fullName>On Highways</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>On assistant driver%27s seat</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -54253,6 +54417,10 @@ Company_Account__r.Work_Phone__c  ,
             </values>
             <values>
                 <fullName>Buy new vehicle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
             <values>
@@ -58771,7 +58939,7 @@ Company_Account__r.Work_Phone__c  ,
         <picklistValues>
             <picklist>Lost_Situation__c</picklist>
             <values>
-                <fullName>none</fullName>
+                <fullName>Others</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

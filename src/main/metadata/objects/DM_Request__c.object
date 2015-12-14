@@ -334,6 +334,10 @@ Modify Reason:
                 <fullName>3</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>4</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -590,6 +594,10 @@ Modify Reason:
                 <fullName>Success</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Not send</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -625,6 +633,10 @@ Modify Reason:
                 <fullName>Success</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>Not send</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackHistory>false</trackHistory>
@@ -658,6 +670,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>Success</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not send</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -697,6 +713,10 @@ Modify Reason:
             </picklistValues>
             <picklistValues>
                 <fullName>to be sent</fullName>
+                <default>false</default>
+            </picklistValues>
+            <picklistValues>
+                <fullName>Not send</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
