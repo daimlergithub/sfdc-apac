@@ -97890,6 +97890,14 @@ when  Workflow Order = 'send mail finished', update field to 'no action'</descri
     </searchLayouts>
     <sharingModel>Private</sharingModel>
     <validationRules>
+        <fullName>Cannot_Update_Knowledge_Complete_Flag</fullName>
+        <active>true</active>
+        <description>The user who checked Knowledge complete flag is not call center supervisor or MBJ employee.</description>
+        <errorConditionFormula>AND( Knowledge_Complete_Flag__c  = TRUE,  OR($Profile.Name  = 'System Administrator', $Profile.Name  = 'Marketing User'),UPPER(MD__c) = 'JP') &amp;&amp; ($Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Knowledge_Complete_Flag__c</errorDisplayField>
+        <errorMessage>You can't check Knowledge complete flag.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Case_Dealer_is_Required</fullName>
         <active>true</active>
         <errorConditionFormula>AND( 
@@ -98205,14 +98213,13 @@ ISCHANGED(Car_Model__c)
         <fullName>US_VIN_field_must_be_17_digits</fullName>
         <active>true</active>
         <description>"US VIN" field must be 17 digits</description>
-        <errorConditionFormula>NOT(ISBLANK( US_VIN__c ))&amp;&amp;
+        <errorConditionFormula>AND(
+NOT(ISBLANK( US_VIN__c ))&amp;&amp;
 (LEN( US_VIN__c )  &lt;&gt; 17) &amp;&amp;  
-(($Profile.Name="Dealer-Complaint Manager") || 
-($Profile.Name="Dealer-Complaint User") || 
-($Profile.Name="Dealer-Delegated Admin") || 
-($Profile.Name="Dealer-Lead+Complaint Manager"))</errorConditionFormula>
+ UPPER(MD__c) = 'JP' &amp;&amp; 
+($Profile.Name != 'IntegrationAPI'))</errorConditionFormula>
         <errorDisplayField>US_VIN__c</errorDisplayField>
-        <errorMessage>"US VIN" field must be 17 digits</errorMessage>
+        <errorMessage>Please enter a 17 digit US VIN.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Update_Release_Date_to_Required</fullName>
