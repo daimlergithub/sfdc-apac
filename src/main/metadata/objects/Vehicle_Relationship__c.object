@@ -1955,7 +1955,7 @@ Attribute in Data Dictionary object Vehicle Relationship is ”VehicleRel_LastSe
 IF(ISPICKVAL($User.Market__c, 'CN'), 'CN', 
 IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
         <externalId>false</externalId>
-        <label>MD</label>
+        <label>Market Discriminator</label>
         <length>2</length>
         <required>false</required>
         <trackHistory>false</trackHistory>
@@ -5609,6 +5609,15 @@ Attribute in Data Dictionary object Vehicle Relationship is"VehicleRel_VehicleID
         <fullName>Retail_Vehicle_Relationship_Share__c</fullName>
         <label>Retail Vehicle Relationship Share</label>
     </sharingReasons>
+    <validationRules>
+        <fullName>End_Reason_Required</fullName>
+        <active>true</active>
+        <description>"End date is not null
+AND End reason is null"</description>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI', NOT(ISNULL(End_Date__c)), ISPICKVAL( End_Reason__c ,''),UPPER(MD__c) = 'JP')</errorConditionFormula>
+        <errorDisplayField>End_Reason__c</errorDisplayField>
+        <errorMessage>Once end date has been set for the vehicle relationship, the end reason must be entered.</errorMessage>
+    </validationRules>
     <webLinks>
         <fullName>New_Complaint</fullName>
         <availability>online</availability>

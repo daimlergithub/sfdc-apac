@@ -531,11 +531,11 @@
         <label>TitleOfHonor</label>
         <picklist>
             <picklistValues>
-                <fullName>Dear</fullName>
+                <fullName>To Person</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>Mr</fullName>
+                <fullName>To Company</fullName>
                 <default>false</default>
             </picklistValues>
             <sorted>false</sorted>
@@ -828,11 +828,11 @@
         <picklistValues>
             <picklist>TitleOfHonor__c</picklist>
             <values>
-                <fullName>Dear</fullName>
+                <fullName>To Company</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mr</fullName>
+                <fullName>To Person</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1089,11 +1089,11 @@
         <picklistValues>
             <picklist>TitleOfHonor__c</picklist>
             <values>
-                <fullName>Dear</fullName>
+                <fullName>To Company</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mr</fullName>
+                <fullName>To Person</fullName>
                 <default>false</default>
             </values>
         </picklistValues>
@@ -1350,11 +1350,11 @@
         <picklistValues>
             <picklist>TitleOfHonor__c</picklist>
             <values>
-                <fullName>Dear</fullName>
+                <fullName>To Company</fullName>
                 <default>false</default>
             </values>
             <values>
-                <fullName>Mr</fullName>
+                <fullName>To Person</fullName>
                 <default>false</default>
             </values>
         </picklistValues>

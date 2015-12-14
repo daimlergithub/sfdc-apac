@@ -2026,6 +2026,10 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <fullName>V-Class</fullName>
                 <default>false</default>
             </picklistValues>
+            <picklistValues>
+                <fullName>CLA-Class</fullName>
+                <default>false</default>
+            </picklistValues>
             <sorted>false</sorted>
         </picklist>
         <trackTrending>false</trackTrending>
