@@ -197,6 +197,7 @@
 			    <sf:include name="UtilConstant"/>
 				<sf:include name="UtilRecordTypeTest"/>
 				<sf:include name="UtilRecordType"/>
+				<sf:include name="UtilTestData"/>
 				<sf:include name="VehiclePickerController"/>
 				<sf:include name="VehiclePickerControllerTests"/>
 				<sf:include name="GenerateAndAttachPDF"/>				
@@ -294,7 +295,6 @@
 			<sf:include name="UtilCampaignTaskGenerationByCaseTest"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
-			<sf:include name="UtilTestData"/>
 			<sf:include name="TriggerQCTriggerHandler"/>
 			<sf:include name="TriggerBatchJobTriggerHandler"/>			
 		</sf:typeset>
