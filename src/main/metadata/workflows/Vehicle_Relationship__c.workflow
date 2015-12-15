@@ -16,11 +16,11 @@
             <name>Validate_Vehicle_Relationship</name>
             <type>FieldUpdate</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <criteriaItems>
             <field>Vehicle_Relationship__c.Car_Relation__c</field>
             <operation>equals</operation>
-            <value>Owner</value>
+            <value>Purchaser</value>
         </criteriaItems>
         <criteriaItems>
             <field>User.ProfileId</field>
