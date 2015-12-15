@@ -195,6 +195,8 @@
 			</sf:typeset>
 			<sf:typeset name="classes">			
 			    <sf:include name="UtilConstant"/>
+				<sf:include name="UtilRecordTypeTest"/>
+				<sf:include name="UtilRecordType"/>
 				<sf:include name="VehiclePickerController"/>
 				<sf:include name="VehiclePickerControllerTests"/>
 				<sf:include name="GenerateAndAttachPDF"/>				
@@ -311,8 +313,6 @@
 			<sf:include name="CampaignOfferingHelper"/>
 			<sf:include name="CampaignOfferingHelperTest"/>
 			<sf:include name="campaignHistoryLogGeneration"/>
-			<sf:include name="UtilRecordTypeTest"/>
-			<sf:include name="UtilRecordType"/>
 			<sf:include name="CSRLookupController"/>
 			<sf:include name="CSRLookupControllerTest"/>
 			<sf:include name="DealerSearchController"/>
