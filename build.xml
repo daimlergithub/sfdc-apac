@@ -194,7 +194,9 @@
 			</sf:typeset>
 			<sf:typeset name="classes">			
 			    <sf:include name="UtilConstant"/>
-				<sf:include name="GenerateAndAttachPDF"/>				
+				<sf:include name="GenerateAndAttachPDF"/>
+				<sf:include name="UtilRecordTypeTest"/>
+				<sf:include name="UtilRecordType"/>				
 				<sf:include name="AccountMergeController"/>	
 				<sf:include name="CustomLogUtil"/>
 			</sf:typeset>
@@ -284,8 +286,6 @@
 			<sf:include name="MisunderstoodTaskGenerationTest"/>
 			<sf:include name="BatchJobHelper"/>
 			<sf:include name="BatchJobHelperTest"/>
-			<sf:include name="UtilRecordTypeTest"/>
-			<sf:include name="UtilRecordType"/>
 			<sf:include name="UtilTestData"/>
 			<sf:include name="UtilCampaignTaskGenerationByAccount"/>
 			<sf:include name="UtilCampaignTaskGenerationByAccountTest"/>
