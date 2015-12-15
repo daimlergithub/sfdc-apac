@@ -191,13 +191,12 @@
 			   <sf:include name="GeneratePDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
-			   <sf:include name="VehiclePicker"/>
 			</sf:typeset>
 			<sf:typeset name="classes">			
 			    <sf:include name="UtilConstant"/>
-				<sf:include name="VehiclePickerController"/>
-				<sf:include name="VehiclePickerControllerTests"/>
-				<sf:include name="GenerateAndAttachPDF"/>				
+				<sf:include name="GenerateAndAttachPDF"/>
+				<sf:include name="UtilRecordTypeTest"/>
+				<sf:include name="UtilRecordType"/>				
 				<sf:include name="AccountMergeController"/>	
 				<sf:include name="CustomLogUtil"/>
 			</sf:typeset>
@@ -276,6 +275,9 @@
 	
 	<target name="deploy31">
 		<deploy runAllTests="${sfdc.runAllTests}">
+		<sf:typeset name="pages">
+				<sf:include name="VehiclePicker"/>
+		</sf:typeset>
 		<sf:typeset name="classes">
 			<sf:include name="QCHelperTest"/>
 			<sf:include name="UtilSobject"/>
@@ -284,6 +286,7 @@
 			<sf:include name="MisunderstoodTaskGenerationTest"/>
 			<sf:include name="BatchJobHelper"/>
 			<sf:include name="BatchJobHelperTest"/>
+			<sf:include name="UtilTestData"/>
 			<sf:include name="UtilCampaignTaskGenerationByAccount"/>
 			<sf:include name="UtilCampaignTaskGenerationByAccountTest"/>
 			<sf:include name="UtilCampaignTaskGenerationByVehicle"/>
@@ -292,9 +295,10 @@
 			<sf:include name="UtilCampaignTaskGenerationByCaseTest"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
-			<sf:include name="UtilTestData"/>
 			<sf:include name="TriggerQCTriggerHandler"/>
-			<sf:include name="TriggerBatchJobTriggerHandler"/>			
+			<sf:include name="TriggerBatchJobTriggerHandler"/>
+			<sf:include name="VehiclePickerController"/>
+			<sf:include name="VehiclePickerControllerTests"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
@@ -311,8 +315,6 @@
 			<sf:include name="CampaignOfferingHelper"/>
 			<sf:include name="CampaignOfferingHelperTest"/>
 			<sf:include name="campaignHistoryLogGeneration"/>
-			<sf:include name="UtilRecordTypeTest"/>
-			<sf:include name="UtilRecordType"/>
 			<sf:include name="CSRLookupController"/>
 			<sf:include name="CSRLookupControllerTest"/>
 			<sf:include name="DealerSearchController"/>
