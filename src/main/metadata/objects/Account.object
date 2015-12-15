@@ -19169,7 +19169,7 @@ else {
         <masterLabel>Create Vehicle</masterLabel>
         <openType>replace</openType>
         <protected>false</protected>
-        <url>https://c.cs5.visual.force.com/apex/Create_Vehicle?accId={!Account.Id}</url>
+        <url>/apex/Create_Vehicle?accId={!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>DM</fullName>
