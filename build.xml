@@ -191,16 +191,9 @@
 			   <sf:include name="GeneratePDF"/>
 			   <sf:include name="SelectSlaveAccount"/>
 			   <sf:include name="AccountMerge"/>
-			   <sf:include name="VehiclePicker"/>
 			</sf:typeset>
 			<sf:typeset name="classes">			
 			    <sf:include name="UtilConstant"/>
-				<sf:include name="UtilRecordTypeTest"/>
-				<sf:include name="UtilRecordType"/>
-				<sf:include name="IllegalArgumentException"/>
-				<sf:include name="UtilTestData"/>
-				<sf:include name="VehiclePickerController"/>
-				<sf:include name="VehiclePickerControllerTests"/>
 				<sf:include name="GenerateAndAttachPDF"/>				
 				<sf:include name="AccountMergeController"/>	
 				<sf:include name="CustomLogUtil"/>
@@ -280,6 +273,9 @@
 	
 	<target name="deploy31">
 		<deploy runAllTests="${sfdc.runAllTests}">
+		<sf:typeset name="pages">
+				<sf:include name="VehiclePicker"/>
+		</sf:typeset>
 		<sf:typeset name="classes">
 			<sf:include name="QCHelperTest"/>
 			<sf:include name="UtilSobject"/>
@@ -288,6 +284,9 @@
 			<sf:include name="MisunderstoodTaskGenerationTest"/>
 			<sf:include name="BatchJobHelper"/>
 			<sf:include name="BatchJobHelperTest"/>
+			<sf:include name="UtilRecordTypeTest"/>
+			<sf:include name="UtilRecordType"/>
+			<sf:include name="UtilTestData"/>
 			<sf:include name="UtilCampaignTaskGenerationByAccount"/>
 			<sf:include name="UtilCampaignTaskGenerationByAccountTest"/>
 			<sf:include name="UtilCampaignTaskGenerationByVehicle"/>
@@ -297,7 +296,9 @@
 			<sf:include name="UtilCampaignTaskGenerationByLeads"/>
 			<sf:include name="UtilCampaignTaskGenerationByLeadsTest"/>		
 			<sf:include name="TriggerQCTriggerHandler"/>
-			<sf:include name="TriggerBatchJobTriggerHandler"/>			
+			<sf:include name="TriggerBatchJobTriggerHandler"/>
+			<sf:include name="VehiclePickerController"/>
+			<sf:include name="VehiclePickerControllerTests"/>			
 		</sf:typeset>
 		<sf:typeset name="triggers">
 			<sf:include name="TriggerBatchJob"/>
