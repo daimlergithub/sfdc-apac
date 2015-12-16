@@ -194,6 +194,7 @@
 			</sf:typeset>
 			<sf:typeset name="classes">			
 			    <sf:include name="UtilConstant"/>
+				<sf:include name="UtilCustomSettingsJP"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilRecordTypeTest"/>
 				<sf:include name="UtilRecordType"/>				
