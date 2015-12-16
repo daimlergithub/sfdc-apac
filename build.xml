@@ -80,7 +80,7 @@
 			<sf:typeset name="staticresources">
 				<!-- the Checksums resource is handled by separate tasks -->
 				<sf:exclude name="Checksums"/>
-				<sf:exclude name="treeHierarhy"/>
+				<sf:include name="treeHierarhy"/>
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
