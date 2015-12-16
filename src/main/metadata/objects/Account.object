@@ -20328,26 +20328,32 @@ if("{!Account.SMSOptOut__pc}" != '1'){
         <masterLabel>Verify Duplicate</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
-{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
-if (sforce.console.isInConsole()) {
-	javascript:sforce.console.getEnclosingPrimaryTabId(
-		function openSubTab(result) {
-			sforce.console.openSubtab(result.id, 
-				'/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}',true, 'Account Merge');
+        <url>
+		{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+		{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
+
+		var accnt_DUP_Number__pc= '{!Account.DUP_Number__pc}'; 
+		var acct_RecordType_Name='{!Account.RecordType}'; 
+
+
+		if(accnt_DUP_Number__pc==null || accnt_DUP_Number__pc==''){ 
+		alert('No duplicate records found to be merged!!!'); 
+		} else { 
+
+		if (sforce.console.isInConsole()) { 
+		javascript:sforce.console.getEnclosingPrimaryTabId( 
+		function openSubTab(result) { 
+		sforce.console.openSubtab(result.id, 
+		'/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}',true, 'Account Merge'); 		
+		} 
+		) 
+		} 
+		else { 
+		window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 
+		} 
 		}
-	)
-}
-else {       
-      var accnt_DUP_Number__pc= '{!Account.DUP_Number__pc}'; 
-      var acct_RecordType_Name='{!Account.RecordType}';       
-      if(accnt_DUP_Number__pc==null || accnt_DUP_Number__pc==''){
-       alert('No duplicate records found to be merged!!!');
-   } else {
-	window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600");
-   }
-}</url>
+       </url>
     </webLinks>
     <webLinks>
         <fullName>Mergeexample</fullName>
@@ -20503,13 +20509,11 @@ window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}"
         <fullName>View_Hierarchy</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
+        <linkType>page</linkType>
         <masterLabel>View Hierarchy</masterLabel>
-        <openType>noSidebar</openType>
+        <openType>replace</openType>
+        <page>ViewHierarchy</page>
         <protected>false</protected>
-        <url>{!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>YahooMaps</fullName>
