@@ -89,8 +89,10 @@
 			   <sf:include name="ViewHierarchy"/>
 			</sf:typeset>				
 			<sf:typeset name="classes">
+		       <sf:include name="UtilConstant"/>
+			   <sf:include name="UtilTestData"/>
 			   <sf:include name="ViewHierarchyController"/>
-			   <sf:include name="ViewHierarchyControllerTest"/>
+			   <sf:include name="ViewHierarchyControllerTest"/>			   
 			</sf:typeset>
 		</deploy>
     </target>
