@@ -23,6 +23,8 @@
 public class DMControllerExtensionTest {
 
     public static testMethod void testMyController() {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         
        // User user1 = UtilTestData.createUser('IB CSR','CAC IB CSR');
       //  System.runAs ( user1 ) {
@@ -53,7 +55,7 @@ public class DMControllerExtensionTest {
                                          DMS_Address__c = 'dmsaddress1');
             dealer = (Account)UtilTestData.createSobject(dealer, UtilTestData.ACCOUNT_RT_DEALER);                             
             Case case1 = new Case(AccountId=customer.Id, Subject='Case-'+Datetime.now().formatLong());
-        	case1.Case_Dealer__c = dealer.Id;
+            case1.Case_Dealer__c = dealer.Id;
             insert case1;
             ApexPages.standardController controller2 = new ApexPages.standardController(new DM_Request__c());
             ApexPages.currentPage().getParameters().put('caseId',case1.Id);

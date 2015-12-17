@@ -7,6 +7,8 @@ private class ContactHelperTest {
     public static List<Contact> contacts;
     
     public static testMethod void ValidateGateKeepersAndManagerTest() {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         // Create Dealer 
         
         createTestData();
@@ -19,6 +21,8 @@ private class ContactHelperTest {
     
      Public static testMethod void CopyPresalesInfoToDealerTest()
       {
+      List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      insert updatecustomsettings;
          // Create Dealer         
           createTestData();
           test.startTest();
@@ -32,6 +36,8 @@ private class ContactHelperTest {
       
         Public static testMethod void CopyCRMManagerInfoToDealerTest()
       {
+      List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      insert updatecustomsettings;
          // Create Dealer         
           createTestData();
           test.startTest();
@@ -44,6 +50,8 @@ private class ContactHelperTest {
       
        Public static testMethod void copyMarketingManagerInfoToDealerTest()
       {
+      List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      insert updatecustomsettings;
          // Create Dealer         
           createTestData();
           test.startTest();
@@ -53,6 +61,8 @@ private class ContactHelperTest {
       }
       
     private static testMethod void CopyContactInfoToDealerTest() {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
        
         createTestData();
         Test.StartTest();
