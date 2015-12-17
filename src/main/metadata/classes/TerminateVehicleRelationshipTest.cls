@@ -7,6 +7,7 @@ Public static Account objAccount;
   // Calling "Save" method
    public static testMethod void SaveTest()
      {
+
       init();
       ApexPages.currentPage().getParameters().put(system.label.Id,objVehicle.id);     
       ApexPages.StandardController objSc = new ApexPages.StandardController(objVehicle);
@@ -42,6 +43,8 @@ Public static Account objAccount;
  // creating records 
   public static void init()
     {  
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		 insert updatecustomsettings;
         // Create Account
         objAccount=new Account();
         objAccount=(Account)UtilTestData.createSobject(new Account(),UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT); 
