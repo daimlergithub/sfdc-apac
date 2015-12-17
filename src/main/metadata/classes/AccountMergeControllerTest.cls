@@ -16,12 +16,12 @@ public static Account objSlave;
   public static void init()
     {       
        objMaster= new Account(Master_Record__c = true,                                      
-                                     Phone = '1234575',DUP_Number__pc='110',
+                                     Phone = '01234575892',DUP_Number__pc='110',
                                      Last_Successful_Call_Office_Phone__c = System.today() - 10,
                                      DMS_Address__c = 'dmsaddress1');       
        objMaster = (Account)UtilTestData.createSobject(objMaster,UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
        objSlave= new Account(Master_Record__c = false,                                     
-                                    Phone = '1234572',DUP_Number__pc='110',
+                                    Phone = '01234575892',DUP_Number__pc='110',
                                     Last_Successful_Call_Office_Phone__c = System.today(),
                                     DMS_Address__c = 'dmsaddress2');
        objSlave = (Account)UtilTestData.createSobject(objSlave,UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);                             
