@@ -113,6 +113,8 @@ public With Sharing class CaseHelperTest {
     
     public static testMethod void testUSCC002()
     {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         system.debug('test&&&&&>>'+UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH));
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
@@ -152,6 +154,8 @@ public With Sharing class CaseHelperTest {
     
     public static testMethod void testUSCC003()
     {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -179,6 +183,8 @@ public With Sharing class CaseHelperTest {
     }
       public static testMethod void testUSCC004()
       {
+      List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      insert updatecustomsettings;
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -228,6 +234,8 @@ public With Sharing class CaseHelperTest {
      @isTest(seeAllData=true)
     static void testUSCC008()
     {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -260,6 +268,8 @@ public With Sharing class CaseHelperTest {
     @isTest
     public static void testUSCC024() 
     {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -289,6 +299,8 @@ public With Sharing class CaseHelperTest {
      @isTest
     public static void testUSCC026() 
     {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -321,6 +333,8 @@ public With Sharing class CaseHelperTest {
     @isTest
     public static void testUSCC025()
     {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -346,6 +360,8 @@ public With Sharing class CaseHelperTest {
    @isTest(seeAllData=true)
     public static void testUSCC031()
     { 
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -380,6 +396,8 @@ public With Sharing class CaseHelperTest {
     
     public static testMethod void testRelease11b01()
     {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         Test.startTest();
         Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
         Case cas = (Case)UtilTestData.createSobject(new Case(Case_Dealer__c = dealer.id, Others__c = 'test@163.com'), UtilTestData.CASE_RT_MB_COMPLAINT);
@@ -403,6 +421,8 @@ public With Sharing class CaseHelperTest {
     
     public static testMethod void testRelease11b02()
     {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         Test.startTest();
         insert ve1;
         Account dealer = (Account)UtilTestData.createSobject(new Account(Dealer_General_Manager_Email__c = 'gm@163.com', Dealer_Sales_Manager_Email__c = 'ds@163.com'), UtilTestData.ACCOUNT_RT_DEALER);
@@ -428,6 +448,8 @@ public With Sharing class CaseHelperTest {
     }
     public static testMethod void testUSCC005()
     {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
        //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         { 

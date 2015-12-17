@@ -37,6 +37,9 @@ private class VehicleRelationshipHelperTest {
     static testMethod void myUnitTest() {
        
        Test.StartTest();
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
         insert vehicles;
         insert account1;
         insert account2;
