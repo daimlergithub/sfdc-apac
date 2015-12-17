@@ -874,10 +874,6 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>TaskFailBlacklistTrigger_TestClass</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TaskHelper</apexClass>
         <enabled>true</enabled>
     </classAccesses>
