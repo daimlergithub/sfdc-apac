@@ -7,6 +7,8 @@
 @isTest
 private with sharing class TriggerAccountTest {
     public static testMethod void testLinkDealerCity() {
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		 insert updatecustomsettings;
     Test.startTest();
         // Create Dealer
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
@@ -23,12 +25,14 @@ private with sharing class TriggerAccountTest {
     }
 
     public testMethod static void testUpdateLeadDataSharing() {
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		 insert updatecustomsettings;
      Test.startTest();
         Account personAccount = new Account();
         UtilTestData.createSobject(personAccount, UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
                     personAccount.Email__c='test@mbau.com';
                     personAccount.Email2__c = 'testemail2@test.com';
-                    personAccount.Home_Phone_2__c = '98765413';
+                    personAccount.Home_Phone_2__c = '098765413';
         
         Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Contact__c = personAccount.Id);
         UtilTestData.createSobject(lead, UtilTestData.LEAD_RT_SALES_LEADS);

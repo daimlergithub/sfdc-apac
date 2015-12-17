@@ -10,6 +10,8 @@ public class YearlyTargetControllerTest {
 
     public static testMethod void testYearlyTargetController() {
     
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
         Test.startTest();
         YearlyTargetController controller = new YearlyTargetController();
         controller.goRequestedPage();

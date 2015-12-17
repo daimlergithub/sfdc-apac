@@ -43,6 +43,7 @@ private static String ssiPrefix = Schema.getGlobalDescribe().get('SSI__c').getDe
      
      static testMethod void testdealerClean_TaskStart_and_Enddate_Status()
       {
+          prepareTestData();
         Test.startTest();
         VinMatchController con4 = new VinMatchController();
         SSI_Cleansing_Result__c ssi3=new SSI_Cleansing_Result__c();
@@ -59,6 +60,7 @@ private static String ssiPrefix = Schema.getGlobalDescribe().get('SSI__c').getDe
        
         static testMethod void testdealerClean_TaskStart_and_Enddate()
       {
+          prepareTestData();
         Test.startTest();
         VinMatchController con5 = new VinMatchController();
         SSI_Cleansing_Result__c ssi5=new SSI_Cleansing_Result__c();
@@ -74,6 +76,8 @@ private static String ssiPrefix = Schema.getGlobalDescribe().get('SSI__c').getDe
         
       static void prepareTestData()
       {
+          List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;
           Map<String, RecordTypeInfo> rtMap =  Schema.SObjectType.Account.getRecordTypeInfosByName();
           Id dlrrtid = rtMap.get('Person Account').getRecordTypeId();
        List<Account> accts = new List<Account>();

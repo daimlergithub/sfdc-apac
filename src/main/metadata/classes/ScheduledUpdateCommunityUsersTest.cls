@@ -8,15 +8,15 @@ public Without Sharing class ScheduledUpdateCommunityUsersTest{
     
     static testMethod void testScheduledUpdateCommunityUsers()
     {
-     Community_License_Switch__c cls=new Community_License_Switch__c();
-        cls.Enable__c=true;
-        cls.name='Community Enabled';
-        insert cls;
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+     
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
             User testUser;
             Test.startTest();
+
             //Create a Community User:
             User usr = [Select id from User where Id = :UserInfo.getUserId()];
             System.RunAs(usr){

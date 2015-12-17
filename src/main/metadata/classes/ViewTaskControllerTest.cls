@@ -12,6 +12,8 @@ Private static string Closed='Closed';
     public static testMethod void testMyController() 
     {
         Test.startTest();
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
         // Create Person Account
         Account personAccount = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);

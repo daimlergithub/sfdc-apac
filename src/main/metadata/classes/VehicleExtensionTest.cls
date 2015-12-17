@@ -8,6 +8,10 @@ public class VehicleExtensionTest {
     public static Car_Model__c objCarmodel;
     
     public static void createCarModel(){
+        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
         //create test data
         objCarmodel = new Car_Model__c ();
         objCarmodel.Name='Daimler';

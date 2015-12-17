@@ -1,6 +1,8 @@
 @isTest 
 public with sharing class TriggerCampaignCityTest {
  @isTest static void testCampaignHelper(){
+     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		 insert updatecustomsettings;
  String topCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();
         String cacCampRecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('CAC Campaign').getRecordTypeId();
  Test.startTest();

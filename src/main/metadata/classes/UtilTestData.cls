@@ -17,7 +17,7 @@
                 ScheduleCreateOutboundEmailTest.cls
                 ScheduleSendOutboundEmailTest.cls
     ---------------------------------------------------------------
-    History:   
+    History:
     
     1. Mouse Created on 2013-03-13
     2. Chris Overwrite createUser method by RoleName and ProfileName on 2013-03-14
@@ -356,11 +356,12 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
         // acc.Name = testString;
         acc.LastName = 'Customer';
         acc.Gender__c = '0=Male';
-        acc.ZipCode__c = '200235';
+        acc.ZipCode__c = '2002355';
         acc.Type = acc.Type == null ? '0=Company' : acc.Type;
-        acc.Phone = acc.Phone == null ? '1234567' : acc.Phone;
+        acc.Phone = acc.Phone == null ? '09945609796' : acc.Phone;
         acc.Area_Code__c = '010';
         acc.Status__c = acc.Status__c == null ? '0=Customer' : acc.Status__c;
+        acc.MD__c='JP';
     }
 
     // Create Unsaved Contact

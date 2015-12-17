@@ -94,6 +94,8 @@ public with sharing class TaskSMSControllerExtensionTest{
     
     public static testMethod void testsendElseCondition()
     {
+    	List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		 insert updatecustomsettings;
         System.runAs(userObj) {
             Test.startTest();
             prepareTestDataElseCondition();
@@ -133,9 +135,11 @@ public with sharing class TaskSMSControllerExtensionTest{
 
     static void prepareTestData()
     {
-      customer = new Account(LastName = 'Acme Customer', Phone = '8888888',PersonOtherPhone='99999999', RecordTypeId = personAccountRecordTypeId, PersonMobilePhone = '12345678901',Gender__c ='Male');
+         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		 insert updatecustomsettings;
+        customer = new Account(LastName = 'Acme Customer', Phone = '08888888',PersonOtherPhone='99999999', RecordTypeId = personAccountRecordTypeId, PersonMobilePhone = '12345678901',Gender__c ='Male');
         insert customer;
-        dealer = new Account(Name = 'Acme Dealer', Phone = '8888888',RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
+        dealer = new Account(Name = 'Acme Dealer', Phone = '08888888',RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
         insert dealer;
         sms=new SMS__c(CustomerName__c='Acme Dealer',Secondary_Mobile__c=true);
         insert sms;
@@ -146,10 +150,10 @@ public with sharing class TaskSMSControllerExtensionTest{
     
     static void prepareTestDataElseCondition()
     {
-      customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '8888888', RecordTypeId = personAccountRecordTypeId,Gender__c ='Female');
+      customer = new Account(Area_Code__c = '010', LastName = 'Acme Customer', Phone = '08888888', RecordTypeId = personAccountRecordTypeId,Gender__c ='Female');
         insert customer;
         customer = [Select Customer_Number__c, PersonContactId From Account Where Id=:customer.Id];
-        dealer = new Account(Name = 'Acme Dealer', Phone = '8888887', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
+        dealer = new Account(Name = 'Acme Dealer', Phone = '08888887', RecordTypeId = dealerRecordTypeId,Dealer_Address_CN__c = 'chaoyang', City__c = 'beijing', Province__c = '151');
         insert dealer;
         
         campaignPreparation();
