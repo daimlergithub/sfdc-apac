@@ -9,6 +9,10 @@
 public class ScheduleCreateMonthlyRegionOBEmailsTest{
     
     static testMethod void testScheduleCreateMonthlyRegionOBEmails(){
+    
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+
 
         Test.startTest();
         //Create Account Record : 

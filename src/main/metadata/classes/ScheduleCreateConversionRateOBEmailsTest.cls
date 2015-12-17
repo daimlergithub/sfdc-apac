@@ -9,6 +9,10 @@ public class ScheduleCreateConversionRateOBEmailsTest{
     
     public static Account testAccount;
     static testMethod void testScheduleCreateConversionRateOBEmails(){
+     
+     List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+     insert updatecustomsettings;
+
         Test.startTest();
         //Create the Account Records : 
         testAccount = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);

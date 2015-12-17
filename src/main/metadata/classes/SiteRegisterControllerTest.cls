@@ -2,16 +2,19 @@
  * Class containing tests for SiteRegisterController
  */
 @IsTest public with sharing class SiteRegisterControllerTest {
-    @IsTest  static void testRegistration() {
-    Test.startTest();
+    @IsTest(SeeAllData=true) static void testRegistration() {
+       List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;
+
         SiteRegisterController controller = new SiteRegisterController();
         controller.username = 'test@force.com';
         controller.email = 'test@force.com';
         controller.communityNickname = 'test';
-        System.assert(controller.registerUser() == null);          
+        // registerUser will always return null when the page isn't accessed as a guest user
+        System.assert(controller.registerUser() == null);    
+        
         controller.password = 'abcd1234';
         controller.confirmPassword = 'abcd123';
-        Test.stopTest();
         System.assert(controller.registerUser() == null);  
     }
 }
