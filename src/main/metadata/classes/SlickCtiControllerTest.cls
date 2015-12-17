@@ -12,6 +12,7 @@
 
 
  static testMethod void TestContactRetrieve() {
+      createCustomSettings();
         Contact testContact = new Contact();
         testContact.account = setupTestAccount(); 
         testContact.firstName = 'Test Contact';
@@ -24,6 +25,7 @@
     }
     
     static testMethod void TestLeadRetrieve() {
+    createCustomSettings();
         Lead testLead = new Lead();
         testLead.firstName = 'Test Lead';
         testLead.lastName = 'Test Lead';
@@ -37,6 +39,7 @@
     } 
 
     static testMethod void TestAccountRetrieve() {
+    createCustomSettings();
         Account testAccount = setupTestAccount();
         
         test.startTest();                        
@@ -46,6 +49,7 @@
     }
 
     static testMethod void TestCaseRetrieve() {
+        createCustomSettings();
         Contact testContact = new Contact();
         testContact.account = setupTestAccount(); 
         testContact.firstName = 'Test fname';
@@ -73,6 +77,12 @@
         upsert testAccount;
         
         return testAccount;
+        
+    }
+    static private void createCustomSettings() {
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
         
     }
 }

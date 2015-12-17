@@ -9,6 +9,8 @@
 public with sharing class CpCallControllerClass_Test{
     private static string blank='';
     static testMethod void runCpCallControllerClass_Test(){
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         Map<String, Schema.RecordTypeInfo> cpRecordTypeMap = Schema.SObjectType.Campaign.getRecordTypeInfosByName();
        
         /* Test Method queAllCamps */

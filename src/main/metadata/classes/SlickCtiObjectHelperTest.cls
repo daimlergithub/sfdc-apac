@@ -3,6 +3,9 @@ public with sharing class SlickCtiObjectHelperTest
 {
 
  static testMethod void TestThisSlick() {
+ List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+insert updatecustomsettings;
+
  Test.StartTest();
         String objectId = '/003d000000kCQtI';
         String returnedObjectType =  SlickCtiObjectHelper.getObjectType(objectId);
