@@ -9,7 +9,7 @@
     25-Mar-2013 Jorry Chen (Breakingpoint)    Created
     23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerParticipatingDealerTriggerHandler
 */
-public class TriggerParticipatingDealerTriggerHandlerJP 
+public class TriggerParticipateDealerTriggerHandlerJP 
     implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)

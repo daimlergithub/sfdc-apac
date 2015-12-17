@@ -1,4 +1,4 @@
-public class RetailCampaignTriggerHandler 
+public class RetailCampaignTriggerHandlerJP
     implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
