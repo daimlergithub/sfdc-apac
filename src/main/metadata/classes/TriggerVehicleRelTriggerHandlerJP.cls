@@ -14,7 +14,7 @@
     3. CC Modified on 2014-06-12
     23-Apr-2015 Gerhard Henning (NTTData)     Moved code to TriggerVehicleRelationshipTriggerHandler
 */
-public class TriggerVehicleRelationshipTriggerHandlerJP 
+public class TriggerVehicleRelTriggerHandlerJP 
     implements TriggerHandlerIf
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
