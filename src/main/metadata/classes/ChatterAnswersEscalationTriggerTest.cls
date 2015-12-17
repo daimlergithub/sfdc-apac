@@ -1,7 +1,9 @@
 @isTest
 private with sharing class ChatterAnswersEscalationTriggerTest {
     static testMethod void validateQuestionEscalation() {
-        upsert new Trigger__c(Name = 'ChatterAnswersEscalation', Trigger_Name__c = 'chatter_answers_question_escalation_to_case_trigger', Trigger_Handler__c = 'ChatterAnswersEscalationTriggerHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+        upsert new Trigger__c(Name = 'ChatterAnswersEscalation', Market__c='JP',Trigger_Name__c = 'chatter_answers_question_escalation_to_case_trigger', Trigger_Handler__c = 'ChatterAnswersEscalationTriggerHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         String questionTitle = 'questionTitle';
         String questionBody = 'questionBody';
         Test.startTest();

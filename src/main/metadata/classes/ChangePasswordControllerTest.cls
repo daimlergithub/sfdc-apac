@@ -2,14 +2,15 @@
  * An apex page controller that exposes the change password functionality
  */
 @IsTest public with sharing class ChangePasswordControllerTest {
-    @IsTest  public static void testChangePasswordController() {
+    @IsTest(SeeAllData=true) public static void testChangePasswordController() {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         // Instantiate a new controller with all parameters in the page
-        Test.startTest();
         ChangePasswordController controller = new ChangePasswordController();
         controller.oldPassword = '123456';
         controller.newPassword = 'qwerty1'; 
         controller.verifyNewPassword = 'qwerty1';                
-        Test.stopTest();
+        
         System.assertEquals(controller.changePassword(),null);                           
     }    
 }

@@ -1,14 +1,11 @@
 /**
- * An apex page controller that takes the user to
-  the right start page based on credentials or lack thereof
+ * An apex page controller that takes the user to the right start page based on credentials or lack thereof
  */
 @IsTest public with sharing class CommunitiesSelfRegConfirmControllerTest {
-private static CommunitiesSelfRegConfirmController controller;
-    @IsTest public static void testCommunitiesSelfRegConfirmController() {
+    @IsTest(SeeAllData=true) public static void testCommunitiesSelfRegConfirmController() {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         // Instantiate a new controller with all parameters in the page
-        Test.startTest();
-        controller = new CommunitiesSelfRegConfirmController();
-        Test.stopTest();
-        system.assertNotEquals(null,controller);
+        CommunitiesSelfRegConfirmController controller = new CommunitiesSelfRegConfirmController();
       }    
 }

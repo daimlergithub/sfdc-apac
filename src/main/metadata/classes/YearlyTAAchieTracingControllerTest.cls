@@ -102,6 +102,9 @@ Private static String currentYear= String.valueOf(Date.today().year());
     }
      public static void preparedTestData()
     {
+        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
         dealer =  new Account(RecordTypeId = dealerType,  Name = 'test dealer', Branch_name__c = 'test chs dealer');
         insert dealer;
         

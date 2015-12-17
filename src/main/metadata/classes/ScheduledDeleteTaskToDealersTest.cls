@@ -9,6 +9,10 @@
 public class ScheduledDeleteTaskToDealersTest{
     
     static testMethod void testScheduledDeleteTaskToDealers(){
+    
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+
         Test.startTest();
         
         Task testTask = (Task)UtilTestData.createSobject(new Task(), 'General Task');

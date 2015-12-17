@@ -9,6 +9,9 @@
 public class ScheduleCreateWeeklyDealerOBEmailsTest{
     
     static testMethod void testScheduleCreateWeeklyDealerOBEmails(){
+      List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      insert updatecustomsettings;
+
 
         Test.startTest();
         

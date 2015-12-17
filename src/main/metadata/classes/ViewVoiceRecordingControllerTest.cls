@@ -12,6 +12,8 @@ public with sharing class ViewVoiceRecordingControllerTest {
 Private static ViewVoiceRecordingController extension;
 Private static App_Setting__c app;
     public static testMethod void testViewVoiceRecordingController1(){
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
         Task t1 = new Task(InteractionIds__c = 'test');
         app= new App_Setting__c ();
         app.name='Voice Recording Location';

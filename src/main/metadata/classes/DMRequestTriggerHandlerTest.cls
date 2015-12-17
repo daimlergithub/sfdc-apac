@@ -2,9 +2,12 @@
 private with sharing class DMRequestTriggerHandlerTest {
     
     public static testMethod void testMyController() {
+    
        
         User user1 = UtilTestData.createUser('SSI CSR','CAC SSI CSR');
         System.runAs ( user1 ) {
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
            
             Test.startTest();
             // DM Material

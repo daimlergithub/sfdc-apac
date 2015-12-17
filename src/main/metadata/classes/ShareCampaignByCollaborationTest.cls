@@ -46,6 +46,10 @@ public class ShareCampaignByCollaborationTest {
                  
          Public Static void PrepareTestData()
          {
+         
+         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;
+
          listCTNew=new List<Collaboration_Team__c>();
          listCTupdate=new List<Collaboration_Team__c>();
          csList = new List<CampaignShare>();

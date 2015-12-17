@@ -2,9 +2,10 @@
  * An apex page controller that supports self registration of users in communities that allow self registration
  */
 @IsTest public with sharing class CommunitiesSelfRegControllerTest {
-    @IsTest 
+    @IsTest(SeeAllData=true) 
     public static void testCommunitiesSelfRegController() {
-    Test.startTest();
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         CommunitiesSelfRegController controller = new CommunitiesSelfRegController();
         controller.firstName = 'FirstName';
         controller.lastName = 'LastName';
@@ -16,7 +17,6 @@
         
         controller.password = 'abcd1234';
         controller.confirmPassword = 'abcd123';
-        Test.stopTest();
         System.assert(controller.registerUser() == null);  
     }    
 }

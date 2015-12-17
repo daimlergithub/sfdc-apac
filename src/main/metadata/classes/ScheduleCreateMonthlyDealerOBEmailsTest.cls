@@ -11,6 +11,10 @@
 public class ScheduleCreateMonthlyDealerOBEmailsTest{
     
     static testMethod void testScheduleCreateMonthlyDealerOBEmails(){
+    
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+
 
         Test.startTest();
         

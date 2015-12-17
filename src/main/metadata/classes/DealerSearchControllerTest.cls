@@ -3,7 +3,9 @@ public class DealerSearchControllerTest
 {
     public static testMethod void testDealerSearch_QueryException()
     {
-    	Test.startTest();
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+        Test.startTest();
         // Test DealerSearch
         PageReference pr  = new PageReference('/apex/DealerSearch');
         Test.setCurrentPage(pr);
@@ -15,6 +17,8 @@ public class DealerSearchControllerTest
     
     public static testMethod void testDealerSearch()
     {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
         // Create dealer
         Account dealer = new Account(Name = 'Shanghai test',
                                      Province__c = 'Shanghai',

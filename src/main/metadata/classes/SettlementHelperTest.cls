@@ -15,14 +15,18 @@ Private static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfo
 Private static String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
     public static testMethod void testupdateSettlementTotalAmount1() 
     {
+    
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+insert updatecustomsettings;
+
         List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c = 'TriggerSettlementManagement'];
         if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.isEmpty()) {
-            upsert new Trigger__c(Name = TriggerSettlementManagement, Trigger_Name__c = TriggerSettlementManagement, Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+            upsert new Trigger__c(Name = TriggerSettlementManagement,Market__c='JP', Trigger_Name__c = TriggerSettlementManagement, Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         }
 
         
         Test.startTest();
-        Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer');
+        Account dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '058392243', Name = 'testdealer');
         insert dealer;
         
         Case c1 = new Case(RecordTypeId = MBRecordtypeid, Case_Dealer__c = dealer.Id);
@@ -62,9 +66,12 @@ Private static String DealerRecordtypeid = Schema.SObjectType.Account.getRecordT
     
     public static testMethod void testTriggerSettlementAfterInsertUpdateDelete() 
     {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+insert updatecustomsettings;
+
         List<Trigger__c> triggerRetailCampaignMembers = [select Id from Trigger__c where Trigger_Name__c =:TriggerSettlementManagement];
         if (triggerRetailCampaignMembers == null || triggerRetailCampaignMembers.isEmpty()) {
-            upsert new Trigger__c(Name = 'TriggerSettlementManagement', Trigger_Name__c = 'TriggerSettlementManagement', Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+            upsert new Trigger__c(Name = 'TriggerSettlementManagement',Market__c='JP', Trigger_Name__c = 'TriggerSettlementManagement', Trigger_Handler__c = 'TriggerSettlementManagementHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
         }
 
         Test.startTest();

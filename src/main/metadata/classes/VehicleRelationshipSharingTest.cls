@@ -5,6 +5,10 @@ private class VehicleRelationshipSharingTest {
     private static Vehicle__c vehicle;
     
     static {
+        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+        
         RecordType dealerType = [select Id from RecordType where SObjectType = 'Account' and DeveloperName = 'Dealer' limit 1];
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer');
         insert dealer;
@@ -14,6 +18,8 @@ private class VehicleRelationshipSharingTest {
 
         vehicle = new Vehicle__c();
         insert vehicle;
+        
+        
     }
     
     @isTest 

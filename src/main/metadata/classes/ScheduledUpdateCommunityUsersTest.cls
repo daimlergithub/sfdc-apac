@@ -8,6 +8,9 @@ public Without Sharing class ScheduledUpdateCommunityUsersTest{
     
     static testMethod void testScheduledUpdateCommunityUsers()
     {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+
      Community_License_Switch__c cls=new Community_License_Switch__c();
         cls.Enable__c=true;
         cls.name='Community Enabled';
