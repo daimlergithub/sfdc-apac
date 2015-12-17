@@ -10,7 +10,10 @@ private class VehicleSharingTest {
     Private static String retailType =Schema.SObjectType.Vehicle_Relationship__c.getRecordTypeInfosByName().get(UtilTestData.Vehicle_Relationship_Retail).getRecordTypeId();
     Private static String VehicleRetailType =Schema.SObjectType.Vehicle__c.getRecordTypeInfosByName().get('MB').getRecordTypeId();
     //create test data
-    static {      
+    static {
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+        
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer');
         insert dealer;
         

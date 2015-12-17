@@ -12,6 +12,10 @@ public without sharing class VehiclePickerControllerTests{
     public static void createTestData(){
     
     /********************* CREATING TEST DATA : START **************************/
+        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
         UtilConstant utilConst = new UtilConstant();     
         testLead = (Lead__c)UtilTestData.createSobject(new Lead__c(), UtilConstant.SALES_LEADS);
         system.debug('Leads... :' +testLead);
@@ -156,7 +160,7 @@ public without sharing class VehiclePickerControllerTests{
                 
             
             System.assertEquals(lead_VehicleDetails.Brand__c,'AMG');
-            System.assertEquals(lead_VehicleDetails.Class__c,'A-CLASS');
+            System.assertEquals(lead_VehicleDetails.Class__c,'A-Class');
             System.assertEquals(lead_VehicleDetails.Model__c,'A160');
             System.assertEquals(lead_VehicleDetails.Colour__c,'Green');
             System.assertEquals(lead_VehicleDetails.Trim__c,'Yellow');
@@ -204,7 +208,7 @@ public without sharing class VehiclePickerControllerTests{
             }
             
             System.assertEquals(lead_VehicleDetails.Brand__c,'Maybach');
-            System.assertEquals(lead_VehicleDetails.Class__c,'C-CLASS');
+            System.assertEquals(lead_VehicleDetails.Class__c,'C-Class');
             System.assertEquals(lead_VehicleDetails.Model__c,'C200K Elegance');
             System.assertEquals(lead_VehicleDetails.Colour__c,'Green');
             System.assertEquals(lead_VehicleDetails.Trim__c,'Yellow');
