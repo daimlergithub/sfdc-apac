@@ -80,10 +80,20 @@
 			<sf:typeset name="staticresources">
 				<!-- the Checksums resource is handled by separate tasks -->
 				<sf:exclude name="Checksums"/>
+				<sf:include name="treeHierarhy"/>
 			</sf:typeset>
 			<sf:typeset name="remoteSiteSettings"/>
 			<sf:typeset name="roles"/>
 			<sf:typeset name="queues"/>
+			<sf:typeset name="pages">
+			   <sf:include name="ViewHierarchy"/>
+			</sf:typeset>				
+			<sf:typeset name="classes">
+		       <sf:include name="UtilConstant"/>
+			   <sf:include name="UtilTestData"/>
+			   <sf:include name="ViewHierarchyController"/>
+			   <sf:include name="ViewHierarchyControllerTest"/>			   
+			</sf:typeset>
 		</deploy>
     </target>
 	
@@ -194,11 +204,34 @@
 			</sf:typeset>
 			<sf:typeset name="classes">			
 			    <sf:include name="UtilConstant"/>
+				<sf:include name="UtilCustomSettingsJP"/>
 				<sf:include name="GenerateAndAttachPDF"/>
 				<sf:include name="UtilRecordTypeTest"/>
 				<sf:include name="UtilRecordType"/>				
 				<sf:include name="AccountMergeController"/>	
-				<sf:include name="CustomLogUtil"/>
+				<sf:include name="CampaignMemberAfterTriggerHandlerJP"/>
+				<sf:include name="ContactTriggerHandlerJP"/>
+				<sf:include name="RetailCampaignTriggerHandlerJP"/>
+				<sf:include name="SSITriggerHandlerJP"/>
+				<sf:include name="TriggerAccountTriggerHandlerJP"/>
+				<sf:include name="TriggerCampaignCityTriggerHandlerJP"/>
+				<sf:include name="TriggerCampaignLeadTriggerHandlerJP"/>
+				<sf:include name="TriggerCampaignMembersTriggerHandlerJP"/>
+				<sf:include name="TriggerCampaignOfferingTriggerHandlerJP"/>
+				<sf:include name="TriggerCampaignPackageTriggerHandlerJP"/>
+				<sf:include name="TriggerCampaignTriggerHandlerJP"/>
+				<sf:include name="TriggerCaseTriggerHandlerJP"/>
+				<sf:include name="TriggerComplaintDescriptionHandlerJP"/>
+				<sf:include name="TriggerDMRequestTriggerHandlerJP"/>
+				<sf:include name="TriggerLeadTriggerHandlerJP"/>
+				<sf:include name="TriggerPackageItemTriggerHandlerJP"/>
+				<sf:include name="TriggerParticipatingDealerTriggerHandlerJP"/>
+				<sf:include name="TriggerRecallTriggerHandlerJP"/>
+				<sf:include name="TriggerRetailCampaignMemberHandlerJP"/>
+				<sf:include name="TriggerRetailTaskTriggerHandlerJP"/>
+				<sf:include name="TriggerSMSReplyHistoryTriggerHandlerJP"/>
+				<sf:include name="TriggerSettlementManagementHandlerJP"/>
+				<sf:include name="TriggerVehicleRelationshipTriggerHandlerJP"/>
 			</sf:typeset>
 		</deploy>
     </target>
