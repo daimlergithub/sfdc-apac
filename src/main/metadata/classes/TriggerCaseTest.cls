@@ -8,6 +8,8 @@
 @isTest
 private with sharing class TriggerCaseTest {
     public static testMethod void testRollupComplaintCaseAmount_CreateCase() {
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+     insert updatecustomsettings;
     Test.startTest();
         // Create Test Account
         Account acc = new Account();
@@ -28,6 +30,8 @@ private with sharing class TriggerCaseTest {
     }
 
     public static testMethod void testRollupComplaintCaseAmount_DeleteCase() {
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+     insert updatecustomsettings;
     Test.startTest();
         // Create Test Account
         Account acc = new Account();
@@ -47,6 +51,8 @@ private with sharing class TriggerCaseTest {
     }
 
     public static testMethod void testRollupComplaintCaseAmount_UndeleteCase() {
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+     insert updatecustomsettings;
     Test.startTest();
         // Create Test Account
         Account acc = new Account();
