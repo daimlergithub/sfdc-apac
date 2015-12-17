@@ -34,7 +34,9 @@ public with sharing class QCHelperTest {
         //Gets qc record type ids
         
         createTestData();
-        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
         createQC(IBQCRecordTypeId,IBCSRUser.Id);
         Test.startTest();
          

@@ -10,10 +10,6 @@ public with sharing class ScheduleCalcAmountOfAssignedLeadsTest {
 
 public static void preparedTestDataCustomsettings()
 {
-List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
-insert updatecustomsettings;
-
-
 App_Setting__c ap=new App_Setting__c();
 ap.name='DailyAssignedLeadsReport eMail Address';
 ap.Value__c='raghuprasad.halakere@nttdata.com';
@@ -103,6 +99,9 @@ insert ap;
     }
     
     public static testMethod void testBatchCalcAssignedLeads() {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_DEALER);
 
