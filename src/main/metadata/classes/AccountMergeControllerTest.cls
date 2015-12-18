@@ -61,13 +61,7 @@ public static User user;
         Test.stopTest(); 
         Rejected_Duplicate_Log__c duplicateLog =[Select id,Master_Account__c,Duplicate_Account__c from Rejected_Duplicate_Log__c Where Master_Account__c=:objMaster.Id];   
         system.assert(duplicateLog!=Null); 
-        system.assertEquals(duplicateLog.Duplicate_Account__c,objSlave.Id);
-        Account salveAcct=[select id,DUP_Number__pc,Dup_Reason__c,Master_Account_Id__c from Account Where Id=:objSlave.Id];
-        Account masterAcct=[select id,DUP_Number__pc,Dup_Reason__c,Master_Record__c from Account Where Id=:objMaster.Id];
-        system.assertEquals(Null,salveAcct.Dup_Reason__c);   
-        system.assertEquals(Null,salveAcct.DUP_Number__pc); 
-        system.assertEquals(objMaster.Id,salveAcct.Master_Account_Id__c);   
-        system.assertEquals(false,masterAcct.Master_Record__c);           
+        system.assertEquals(duplicateLog.Duplicate_Account__c,objSlave.Id);                
      }
     //If no Master Record found or More than one master record has selected
     public static testMethod void testMasterRecord() {
