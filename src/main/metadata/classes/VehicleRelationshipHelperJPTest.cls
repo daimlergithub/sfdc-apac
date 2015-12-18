@@ -13,6 +13,7 @@ public with sharing class VehicleRelationshipHelperJPTest{
            vehicle_relationship.Start_Date__c = startDate;
            vehicle_relationship.End_Date__c = endDate;
            vehicle_relationship.Contact__c = testAccount.Id;
+           vehicle_relationship.End_Reason__c = 'DMS';
            update vehicle_relationship;
        }
        
@@ -21,8 +22,8 @@ public with sharing class VehicleRelationshipHelperJPTest{
            Date today = Date.today();
            createTestData(today, today.addDays(1));          
            test.StartTest();         
-           vehicle_relationship = new Vehicle_Relationship__c(Contact__c=testAccount.Id, Start_Date__c=today, End_Date__c=today.addDays(1));
-           vrHelperJP.validateOverlappingVehicleRelationship(new List<Vehicle_Relationship__c>{vehicle_relationship});
+           vehicle_relationship = new Vehicle_Relationship__c(Contact__c=testAccount.Id, Start_Date__c=today, End_Date__c=today.addDays(1), End_Reason__c = 'DMS');
+           vrHelperJP.validateOverlappingVehicleRelationship(new List<Vehicle_Relationship__c>{vehicle_relationship}, 'insert');
            list_VR = [Select Id from Vehicle_Relationship__c Where Contact__c =: testAccount.Id];
            system.assertNotEquals(list_VR, null);
            test.StopTest();
@@ -34,8 +35,8 @@ public with sharing class VehicleRelationshipHelperJPTest{
            Date today = Date.today();
            createTestData(today, today.addDays(1));          
            test.StartTest();
-           vehicle_relationship = new Vehicle_Relationship__c(Contact__c=testAccount.id, Start_Date__c=today, End_Date__c=today.addDays(2));
-           vrHelperJP.validateOverlappingVehicleRelationship(new List<Vehicle_Relationship__c>{vehicle_relationship});
+           vehicle_relationship = new Vehicle_Relationship__c(Contact__c=testAccount.id, Start_Date__c=today, End_Date__c=today.addDays(2), End_Reason__c = 'DMS');
+           vrHelperJP.validateOverlappingVehicleRelationship(new List<Vehicle_Relationship__c>{vehicle_relationship}, 'insert');
            list_VR = [Select Id from Vehicle_Relationship__c Where Contact__c =: testAccount.Id];
            system.assertNotEquals(list_VR, null);
            test.StopTest();
