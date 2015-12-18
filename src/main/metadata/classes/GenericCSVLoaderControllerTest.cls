@@ -7,6 +7,9 @@ public class GenericCSVLoaderControllerTest {
                                     
     public static void preparedTestdata()
     {
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
     customer = new Account(Dealer_DMS_SR_Code__c='',
                                     Status__c='xCustomer',
                                     City__c='Beijing',
@@ -22,6 +25,10 @@ public class GenericCSVLoaderControllerTest {
     
     public static void preparedTestAccountdata()
     {
+        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
     BranchName = new Account(Dealer_DMS_SR_Code__c='',
                                     Status__c='xCustomer',
                                     City__c='Beijing',

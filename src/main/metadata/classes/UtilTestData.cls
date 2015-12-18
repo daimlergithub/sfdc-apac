@@ -338,7 +338,7 @@ System.Debug('@@@@@@@@@@ profileName'+profileName);
         acc.RecordTypeId = 
             getRecordTypeMapInstance().get(ACCOUNT_RT_DEALER  + accountString);
         acc.Dealer_Alternate_Name__c = 'Test Alternate';
-        acc.Phone = '021-000000';
+        acc.Phone = '021000000';
         acc.Dealer_GC_Code__c = 'gc code';
         acc.Dealer_GS_Code__c = 'gs code';
         acc.Name = acc.Name == null ? 'test dealer' : acc.Name;

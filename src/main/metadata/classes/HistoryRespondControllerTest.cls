@@ -9,6 +9,10 @@
 public with sharing class HistoryRespondControllerTest {
     
     public static testMethod void testHistoryRespondController1(){
+        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;
+
         Task t1 = new Task();
         Test.startTest();
         insert t1;

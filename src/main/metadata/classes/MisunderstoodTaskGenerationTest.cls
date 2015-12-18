@@ -2,6 +2,11 @@
 public with sharing class MisunderstoodTaskGenerationTest {
 
     public static testMethod void testMyController() {
+        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
+
 
         Id cca_RecordTypeId = Schema.SObjectType.Campaign.getRecordTypeInfosByName().get('Central Marketing Campaign').getRecordTypeId();         // Central Campaign
 
@@ -25,7 +30,7 @@ public with sharing class MisunderstoodTaskGenerationTest {
             LastName =  DateTime.now().formatLong(),
             PersonMobilePhone = '1301111111',
             PersonOtherPhone = '1301111122', 
-            Phone = '1234567', 
+            Phone = '01234567', 
             PersonHomePhone = '1234567', 
             PersonAssistantPhone = '1234567'
         );

@@ -17,8 +17,11 @@ public class MonthlyMarketAmountReportControllerTest {
     public Static String Joint='Joint';
     public Static String dealerdriven='dealer driven';
     public Static MonthlyMarketAmountReportController MonthlyMarketAmountReportCon;
+    
     public static testMethod void testMonthlyMarketAmountReportController() {
     
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
         
         RecordType dealerType = [select Id from RecordType where SObjectType = 'Account' and DeveloperName = 'Dealer' limit 1];
         Account dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer');
@@ -48,7 +51,11 @@ public class MonthlyMarketAmountReportControllerTest {
     }
     
      public static testMethod void testMonthlyMarketAmountReportControllerElseCondition() {
-    
+     
+         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;
+
+         
         RecordType dealerType = [select Id from RecordType where SObjectType = 'Account' and DeveloperName = 'Dealer' limit 1];
         Account dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType.Id, Name = 'test dealer');
         insert dealer;

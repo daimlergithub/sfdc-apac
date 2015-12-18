@@ -2,12 +2,15 @@
  * An apex page controller that exposes the site forgot password functionality
  */
 @IsTest public with sharing class ForgotPasswordControllerTest {
-     @IsTest  public static void testForgotPasswordController() {
-        // Instantiate a new controller with all parameters in the page
-        Test.startTest();
-        ForgotPasswordController controller = new ForgotPasswordController();
-        controller.username = 'test@salesforce.com';        
-     Test.stopTest();
-        System.assertEquals(controller.forgotPassword(),null); 
+  	 @IsTest(SeeAllData=true) public static void testForgotPasswordController() {
+         
+         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;
+
+    	// Instantiate a new controller with all parameters in the page
+    	ForgotPasswordController controller = new ForgotPasswordController();
+    	controller.username = 'test@salesforce.com';     	
+    
+    	System.assertEquals(controller.forgotPassword(),null); 
     }
 }
