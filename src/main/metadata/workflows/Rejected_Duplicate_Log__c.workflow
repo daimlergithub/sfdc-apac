@@ -11,7 +11,7 @@
         <fields>Master_Account__c</fields>
         <fields>Status__c</fields>
         <includeSessionId>false</includeSessionId>
-        <integrationUser>sneha.chail.ntt@asia.daimler-apac.com</integrationUser>
+        <integrationUser>arun.Iyer.ntt@mbj.daimler-apac.com.ci</integrationUser>
         <name>Rejected Duplicate Log Sync</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
@@ -22,7 +22,7 @@
             <name>Rejected_Duplicate_Log_Sync</name>
             <type>OutboundMessage</type>
         </actions>
-        <active>false</active>
+        <active>true</active>
         <description>Created by: Sneha Chail
 CreatedDate: 12/18/2015
 Used by: Account Workflow(US-DD-002)
