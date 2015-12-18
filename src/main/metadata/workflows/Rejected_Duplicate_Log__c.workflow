@@ -22,7 +22,7 @@
             <name>Rejected_Duplicate_Log_Sync</name>
             <type>OutboundMessage</type>
         </actions>
-        <active>true</active>
+        <active>false</active>
         <description>Created by: Sneha Chail
 CreatedDate: 12/18/2015
 Used by: Account Workflow(US-DD-002)
