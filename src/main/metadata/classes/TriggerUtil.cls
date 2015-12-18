@@ -80,10 +80,10 @@ public class TriggerUtil
         if (aTriggerInfo != null && aTriggerInfo.Trigger_Handler__c != null) {
             triggerHandlerName = aTriggerInfo.Trigger_Handler__c;
         }
-        /*else {
+        else {
             triggerHandlerName = getDefaultTriggerHandlerName(aTriggerName);
 
-        }*/
+        }
         
         Type triggerHandlerType = Type.forName(triggerHandlerName);
             
