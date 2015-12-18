@@ -976,10 +976,7 @@
         <apexClass>ToolKitTriggerHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>TreeNodes</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+
     <classAccesses>
         <apexClass>TrialCustomerPortalHomePageController</apexClass>
         <enabled>false</enabled>
@@ -16434,10 +16431,7 @@
         <apexPage>ToolKitSelectContent</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
-    <pageAccesses>
-        <apexPage>TreeViewDemo</apexPage>
-        <enabled>false</enabled>
-    </pageAccesses>
+
     <pageAccesses>
         <apexPage>TrialCustomerPortalHomePage</apexPage>
         <enabled>false</enabled>
