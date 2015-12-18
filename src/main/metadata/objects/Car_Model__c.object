@@ -1995,7 +1995,7 @@ IF(ISPICKVAL($User.Market__c, 'JP'), 'JP','NA')))</defaultValue>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
-                <fullName>AGM GT</fullName>
+                <fullName>AMG GT</fullName>
                 <default>false</default>
             </picklistValues>
             <picklistValues>
