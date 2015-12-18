@@ -13,6 +13,9 @@ public class AddToRetailCampaignControllerTet
     
     static testMethod void RetailCampaignTest()
     {
+	
+		List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		insert updatecustomsettings;
     	system.debug('test>>>$$$$test'+UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH));
     	//Added community license switching mechanism
     	if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))

@@ -8,6 +8,8 @@
 @isTest
 public with sharing class CACFieldsExtensionTest {
     public static testMethod void testCACFieldsExtension1(){
+		List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		insert updatecustomsettings;
         Case c1 = new Case();
         Test.startTest();
         insert c1;

@@ -21,14 +21,17 @@
     
      public static void preparedTestDataCustomsettings()
      {
-       Community_License_Switch__c cls=new Community_License_Switch__c();
+        Community_License_Switch__c cls=new Community_License_Switch__c();
         cls.Enable__c=true;
         cls.name='Community Enabled';
         insert cls;
     }
      public static void preparedTestData()
      {
-      topCampaignIds = new Set<String>();
+		List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		insert updatecustomsettings;
+
+       topCampaignIds = new Set<String>();
        listcampaigns=new list<Campaign>();
        Campaign top1 = new Campaign(          
             Name = top, 
@@ -89,7 +92,7 @@
         Contact contact = new Contact(
             AccountId = dealer.Id, 
             LastName = 'b', 
-            Phone = '1212313', 
+            Phone = '01212313', 
             email = 's@s.s'
         );
         insert contact;

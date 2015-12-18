@@ -7,6 +7,9 @@ public class BatchAssignTasksTest {
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
         System.runAs(thisUser)
         {
+			List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+			insert updatecustomsettings;
+			
             String[] csrProfiles = new String[]{
                     'CAC IB CSR', 'CAC IB TL', 'CAC IB QC', 'CAC OB CSR', 'CAC OB TL', 'CAC OB QC', 'CAC SSI CSR', 'CAC SSI TL', 'CAC SSI SV', 'CAC SSI QC', 'CAC SSI Trainer'};
                // String[] csrProfiles = new String[]{'System Administrator', 'CAC IB TL'};
