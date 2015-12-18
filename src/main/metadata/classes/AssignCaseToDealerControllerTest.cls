@@ -4,7 +4,7 @@
     1. Chaos Created on 2014-02-24
 
 */
-@isTest 
+@isTest
 public Without Sharing class AssignCaseToDealerControllerTest {
     
     final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().
@@ -17,8 +17,11 @@ public Without Sharing class AssignCaseToDealerControllerTest {
    
     public static void preparedTestData()
     {
-    user1=UtilTestData.createPortalUser('Dealer User','Dealer Community User');
-          user2=UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin'); 
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+          
+        user1=UtilTestData.createPortalUser('Dealer User','Dealer Community User');
+        user2=UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin'); 
         
     }
     
@@ -27,7 +30,7 @@ public Without Sharing class AssignCaseToDealerControllerTest {
     Community_License_Switch__c cls=new Community_License_Switch__c();
         cls.Enable__c=true;
         cls.name='Community Enabled';
-        insert cls;
+       // insert cls;
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -72,7 +75,7 @@ public Without Sharing class AssignCaseToDealerControllerTest {
      Community_License_Switch__c cls=new Community_License_Switch__c();
         cls.Enable__c=true;
         cls.name='Community Enabled';
-        insert cls;
+       // insert cls;
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {     
@@ -108,7 +111,7 @@ public Without Sharing class AssignCaseToDealerControllerTest {
     Community_License_Switch__c cls=new Community_License_Switch__c();
         cls.Enable__c=true;
         cls.name='Community Enabled';
-        insert cls;
+       // insert cls;
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {

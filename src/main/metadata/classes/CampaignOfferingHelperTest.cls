@@ -3,6 +3,9 @@ public class CampaignOfferingHelperTest
 {
     static testmethod void testGenerateCampaignOfferingHistoryLOG(){
         
+		List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		insert updatecustomsettings;
+
         Test.startTest();
       // Data Prepared
         Campaign TestData_CCA = UtilTestData.dataPreparation();

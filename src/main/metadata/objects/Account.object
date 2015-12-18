@@ -20002,11 +20002,11 @@ MD__c = 'JP'
     </validationRules>
     <validationRules>
         <fullName>Sales_Sanction_Comment_required</fullName>
-        <active>false</active>
+        <active>true</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Sales_Sanction__c),ISNEW()), 
 NOT(ISPICKVAL(Sales_Sanction__c,'')), 
-ISBLANK(Finance_Sanction_Comment__c), 
-$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+ISBLANK(Sales_Sanction_Comment__c), 
+$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Sales_Sanction__c</errorDisplayField>
         <errorMessage>If Sales Sanction is checked, Sales Sanction Comment needs to be entered.</errorMessage>
     </validationRules>

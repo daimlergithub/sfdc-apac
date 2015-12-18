@@ -19,10 +19,31 @@ public class TriggerVehicleRelTriggerHandlerJP
 {
     public void handleTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
-        // Implementation to addedd as required in market
-    }
+        Map<Id,Vehicle_Relationship__c> oldmap = (Map<Id,Vehicle_Relationship__c>)trigger.oldmap;
+        Map<Id,Vehicle_Relationship__c> newmap = (Map<Id,Vehicle_Relationship__c>)trigger.newmap;
+        VehicleRelationshipHelperJP vrHelperJP = new VehicleRelationshipHelperJP();
+        
+        system.debug('Entered handler...' +trigger.isBefore);
+        system.debug('Entered handler1...' +isBefore);
+        if(trigger.isBefore)
+        {
+            system.debug('Entered isBefore...' +trigger.isUpdate);
+            // US-CP-007
+            if (trigger.isInsert){
+                system.debug('Entered insert block...');
+                system.debug('Trigger Block...' +trigger.old);
+                vrHelperJP.validateOverlappingVehicleRelationship(trigger.new, 'insert');
+            }else if (trigger.isUpdate){
+                system.debug('Entered update block...');
+                system.debug('Trigger Block...' +Trigger.oldMap);
+                vrHelperJP.validateOverlappingVehicleRelationship(trigger.new, 'update');
+            }
+            
+        }
+        
+     }
     public void handleIntegrationTrigger(boolean isInsert,boolean isUpdate,boolean isBefore, boolean isDelete)
     {
-    	// Implementation to addedd as required in market
+      // Implementation to addedd as required in market
     }
 }

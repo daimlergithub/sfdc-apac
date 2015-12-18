@@ -16,6 +16,9 @@ public static void preparedTestData(List<Profile> userProfile)
 }
   static testMethod void testTaskDeletingController()
   {
+  List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+  insert updatecustomsettings;
+
     List<Profile> userProfile = new List<Profile>([SELECT Id FROM profile WHERE name='Central CRM Manager' OR Name='Central AS Marketing Manager' OR  Name='Central AS Marketing Staff' OR Name='CAC IT Manager']);
     //data for user object
        
@@ -37,7 +40,8 @@ public static void preparedTestData(List<Profile> userProfile)
   }  
   static testMethod void TestRemoveTask_ElseConditon()
   {
-    
+  List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+  insert updatecustomsettings;
         List<Profile> userProfile= new List<Profile>([SELECT Id FROM profile WHERE name='CAC Data Manager' ]);       
        //data for user object
     
