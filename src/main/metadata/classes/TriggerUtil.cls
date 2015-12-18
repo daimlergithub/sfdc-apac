@@ -33,7 +33,7 @@ public class TriggerUtil
             usr = [select id,profileid,profile.Name,Market__c from user where id=:userinfo.getuserid()];
             user = true;
         }
-        if (isTriggerEnabled(triggerInfo) && (usr.Market__c.equals(triggerInfo.Market__c))) {
+        if (isTriggerEnabled(triggerInfo)) {
             TriggerHandlerIf triggerHandler = getTriggerHandler(triggerInfo, aTriggerName);
             
             if (triggerHandler != null) {
