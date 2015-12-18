@@ -12,19 +12,27 @@
 public class AccountMergeControllerTest {  
 public static Account objMaster;
 public static Account objSlave;
+public static User user;
   //creating records for Master and Slave Account
   public static void init()
-    {       
+    {      
+
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+        
        objMaster= new Account(Master_Record__c = true,                                      
-                                     Phone = '01234575892',DUP_Number__pc='110',
+                                     Phone = '1234575',DUP_Number__pc='110',
                                      Last_Successful_Call_Office_Phone__c = System.today() - 10,
                                      DMS_Address__c = 'dmsaddress1');       
        objMaster = (Account)UtilTestData.createSobject(objMaster,UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
        objSlave= new Account(Master_Record__c = false,                                     
-                                    Phone = '01234575892',DUP_Number__pc='110',
+                                    Phone = '1234572',DUP_Number__pc='110',
                                     Last_Successful_Call_Office_Phone__c = System.today(),
                                     DMS_Address__c = 'dmsaddress2');
-       objSlave = (Account)UtilTestData.createSobject(objSlave,UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);                             
+       objSlave = (Account)UtilTestData.createSobject(objSlave,UtilTestData.ACCOUNT_RT_PERSON_ACCOUNT);
+       System.runAs ( new User(Id = UserInfo.getUserId()) ){
+           user = (User)UtilTestData.createUser('Central', UtilConstant.PROFILE_PERSON_ACCOUNT_SOFT_DELETED);
+       }                         
     }   
     //Tested MergeDup Method
     public static testMethod void testmergeDup() {
