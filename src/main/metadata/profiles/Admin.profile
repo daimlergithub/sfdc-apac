@@ -17922,10 +17922,7 @@
         <apexPage>ToolKitSelectContent</apexPage>
         <enabled>true</enabled>
     </pageAccesses>
-    <pageAccesses>
-        <apexPage>TreeViewDemo</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
+
     <pageAccesses>
         <apexPage>TrialCustomerPortalHomePage</apexPage>
         <enabled>true</enabled>

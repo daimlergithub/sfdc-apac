@@ -17405,10 +17405,7 @@
         <apexPage>ToolKitSelectContent</apexPage>
         <enabled>false</enabled>
     </pageAccesses>
-    <pageAccesses>
-        <apexPage>TreeViewDemo</apexPage>
-        <enabled>true</enabled>
-    </pageAccesses>
+
     <pageAccesses>
         <apexPage>TrialCustomerPortalHomePage</apexPage>
         <enabled>false</enabled>
