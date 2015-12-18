@@ -1003,10 +1003,7 @@
         <apexClass>ToolKitTriggerHelper</apexClass>
         <enabled>false</enabled>
     </classAccesses>
-    <classAccesses>
-        <apexClass>TreeNodes</apexClass>
-        <enabled>false</enabled>
-    </classAccesses>
+  
     <classAccesses>
         <apexClass>TrialCustomerPortalHomePageController</apexClass>
         <enabled>false</enabled>
