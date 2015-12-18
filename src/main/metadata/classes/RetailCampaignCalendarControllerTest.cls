@@ -10,6 +10,9 @@ Public static List<Retail_Campaign__c> testData;
 Public static RetailCampaignCalendarController RC;
     public static testMethod void testRetailCampaignCalendarController() {
         Test.startTest();
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
         testData = RetailCampaignCalendarController.queAfterSalesCamps('2013', '2014', 'a', 'b');        
         testData = RetailCampaignCalendarController.queSMMediaCamps('2013', '2014', 'a');
         testData = RetailCampaignCalendarController.queSMEventCamps('2013', '2014', 'a');

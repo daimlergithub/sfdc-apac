@@ -8,15 +8,18 @@ public With Sharing class ScheduledCreationTaskToDealersTest{
     
     static testMethod void testScheduledCreationTaskToDealers()
     {
-     Community_License_Switch__c cls=new Community_License_Switch__c();
+     /*Community_License_Switch__c cls=new Community_License_Switch__c();
         cls.Enable__c=true;
         cls.name='Community Enabled';
-        insert cls;
+        insert cls;*/
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
             User testUser;
             Test.startTest();
+            List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+            insert updatecustomsettings;
+
             //Create User
             User usr = [Select id from User where Id = :UserInfo.getUserId()];
             System.RunAs(usr){

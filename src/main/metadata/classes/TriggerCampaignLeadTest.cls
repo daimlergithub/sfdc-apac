@@ -25,6 +25,9 @@ Public with sharing class TriggerCampaignLeadTest {
     // US-Lead-001
     public static testMethod void testTriggerCampaignLead_PopulateContact() {
         
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+     insert updatecustomsettings;
+        
         // One Lead which has a reference to this person account
         Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Contact__c = personAccount.Id);
         lead = (Lead__c)UtilTestData.createSobject(lead,
@@ -46,7 +49,8 @@ Public with sharing class TriggerCampaignLeadTest {
 
     public static testMethod void testTriggerCampaignLead_InsertAction() {
         
-       
+       List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+     insert updatecustomsettings;
         // One Lead which has a reference to this person account
         Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Contact__c = personAccount.Id);
         lead = (Lead__c)UtilTestData.createSobject(lead,UtilTestData.LEAD_RT_SALES_LEADS);
@@ -105,7 +109,8 @@ Public with sharing class TriggerCampaignLeadTest {
 
     public static testMethod void testTriggerCampaignLead_UpdateAction() {
        
-                 
+         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+     insert updatecustomsettings;        
         // One Lead which has a reference to this person account
         Lead__c lead = new Lead__c(CAC_Lead_Status__c='New Enquiry',Contact__c = personAccount.Id);
         lead = (Lead__c)UtilTestData.createSobject(lead,

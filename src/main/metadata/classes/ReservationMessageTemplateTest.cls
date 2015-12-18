@@ -51,10 +51,10 @@ private class ReservationMessageTemplateTest {
     public static void prepareTestData(){
         String DealerRecordtypeid = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         String afterSalesRecordTypeId = Schema.SObjectType.Lead__c.getRecordTypeInfosByName().get('Aftersales Leads').getRecordTypeId();
-        dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '58392243', Name = 'testdealer',ID_Number__c='123456');
+        dealer = new Account(RecordTypeId = DealerRecordtypeid, Phone = '058392243', Name = 'testdealer',ID_Number__c='123456');
         insert dealer;
 
-        con = new Contact(AccountId = dealer.Id,firstName='Test', LastName = 'lastname',Salutation='Mr',Title='test', Phone = '123', email = 's@s.s');
+        con = new Contact(AccountId = dealer.Id,firstName='Test', LastName = 'lastname',Salutation='Mr',Title='test', Phone = '0123', email = 's@s.s');
         insert con;
         
         cont=[select id,name,MobilePhone,Account.ID_Number__c from contact where id=:con.id];
