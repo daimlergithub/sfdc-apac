@@ -13,11 +13,16 @@
 public class NewVehicleRelationshipControllerTest {
     @isTest
     static void testNewVehicleRelationshipController1(){
+       
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
+        
         Id dealerRTId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId();
         Account dealer1 = new Account(Status__c = 'new'
                                      , Name = 'TestDealer' + date.Today()
                                      , RecordTypeId = dealerRTId
-                                     , Phone ='(01) 8677 0993'
+                                     , Phone ='0186770993'
                                      , Dealer_Active__c = true
                                      );
         insert dealer1;

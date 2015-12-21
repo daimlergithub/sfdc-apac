@@ -26,7 +26,10 @@ public static Case objCase;
     
     // creating record for Case
   public static void init()
-    {       
+    {  
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
        objCase= new Case(); 
        objCase.subject='TestSubject';
        objCase.RecordtypeId=UtilRecordType.getRecordTypeIdByName(UtilConstant.sObjCase,UtilConstant.INQUIRY);

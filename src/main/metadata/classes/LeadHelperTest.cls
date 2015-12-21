@@ -86,6 +86,10 @@ public with sharing class LeadHelperTest {
     }
    @istest
     public static void TestLeadHelper() {
+        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
         createuserrecord();
         system.runAs(user1) {
         Test.startTest();
@@ -138,7 +142,9 @@ public with sharing class LeadHelperTest {
     
    public Static void preparedTestData()
    {
-   
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
        
         
         SmartDM = createUser(roleId1.Id,profileCAC.Id);

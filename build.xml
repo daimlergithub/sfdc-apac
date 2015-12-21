@@ -232,6 +232,8 @@
 				<sf:include name="TriggerSMSReplyHistoryTriggerHandlerJP"/>
 				<sf:include name="TriggerSettlementManagementHandlerJP"/>
 				<sf:include name="TriggerVehicleRelTriggerHandlerJP"/>
+				<sf:include name="VehicleRelationshipHelperJP"/>
+				<sf:include name="VehicleRelationshipHelperJPTest"/>
 			</sf:typeset>
 		</deploy>
     </target>

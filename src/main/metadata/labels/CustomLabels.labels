@@ -3161,6 +3161,13 @@
         <value>Vehicle Information</value>
     </labels>
     <labels>
+        <fullName>Vehicle_Relationship_overlap</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Time period for Vehicle Relationship should not overlap</shortDescription>
+        <value>There can&apos;t be two vehicle relationship with overlapping time period.</value>
+    </labels>
+    <labels>
         <fullName>Work_Fax</fullName>
         <language>en_US</language>
         <protected>false</protected>

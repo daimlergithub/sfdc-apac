@@ -12,6 +12,9 @@ private static string OBTask='OB Task';
 
 Public static void preparedTestData()
 {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+   insert updatecustomsettings;
+
 newUsers = new List<User>();
          user1  = new User();
         User thisUser = [ select Id from User where Id = :UserInfo.getUserId() ];
@@ -52,9 +55,9 @@ newUsers = new List<User>();
         
           acc = new Account(            
             LastName = 'Test-Customer',          
-            Phone = '1234567',
+            Phone = '01234567',
             Area_Code__c = '010',                         
-            ZipCode__c = '123456',            
+            ZipCode__c = '7123456',            
             Recordtypeid = Schema.Sobjecttype.Account.getRecordTypeInfosByName().get('Person Account').getRecordTypeId()        
         );        
         insert acc;
