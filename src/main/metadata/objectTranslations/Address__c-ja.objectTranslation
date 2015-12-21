@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Address --></value>
+    </caseValues>
+    <fields>
+        <label>住所コード</label>
+        <name>Address_Code__c</name>
+    </fields>
+    <fields>
+        <label>住所1</label>
+        <name>Address_Line_1__c</name>
+    </fields>
+    <fields>
+        <label>住所2</label>
+        <name>Address_Line_2__c</name>
+    </fields>
+    <fields>
+        <label>住所区分</label>
+        <name>Address_Type__c</name>
+        <picklistValues>
+            <masterLabel>Business</masterLabel>
+            <translation><!-- Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Home</masterLabel>
+            <translation><!-- Home --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 1</masterLabel>
+            <translation><!-- Other Address 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 2</masterLabel>
+            <translation><!-- Other Address 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other Address 3</masterLabel>
+            <translation><!-- Other Address 3 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>字名・丁目</label>
+        <name>Block__c</name>
+    </fields>
+    <fields>
+        <label>市区郡町村</label>
+        <name>City__c</name>
+    </fields>
+    <fields>
+        <label>宛名（カナ</label>
+        <name>Company_Name_Native__c</name>
+    </fields>
+    <fields>
+        <label>宛名</label>
+        <name>Company_Name__c</name>
+    </fields>
+    <fields>
+        <label><!-- Country --></label>
+        <name>Country__c</name>
+        <picklistValues>
+            <masterLabel>Australia</masterLabel>
+            <translation><!-- Australia --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Zealand</masterLabel>
+            <translation><!-- New Zealand --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Created By EP Transaction --></label>
+        <name>Created_By_EP_Transaction__c</name>
+    </fields>
+    <fields>
+        <label>顧客</label>
+        <name>Customer__c</name>
+        <relationshipLabel><!-- Addresses --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Delivery Point ID --></label>
+        <name>Delivery_Point_ID__c</name>
+    </fields>
+    <fields>
+        <label>大字・通称名</label>
+        <name>District__c</name>
+    </fields>
+    <fields>
+        <label><!-- FS Mail Last Modified By --></label>
+        <name>FS_Hardcopy_Last_Modified_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- FS Mail Last Modified Date --></label>
+        <name>FS_Hardcopy_Last_Modified_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- FS Opt In Mail --></label>
+        <name>FS_Opt_In_Hardcopy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mail Last Modified By --></label>
+        <name>Hardcopy_Last_Modified_By__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mail Last Modified Date --></label>
+        <name>Hardcopy_Last_Modified_Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Market Discriminator --></label>
+        <name>MD__c</name>
+    </fields>
+    <fields>
+        <label>DM Opt In</label>
+        <name>Opt_In_Hardcopy__c</name>
+    </fields>
+    <fields>
+        <label><!-- Preferred --></label>
+        <name>Preferred__c</name>
+    </fields>
+    <fields>
+        <label>都道府県</label>
+        <name>Province__c</name>
+        <picklistValues>
+            <masterLabel>Aichi</masterLabel>
+            <translation><!-- Aichi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Akita</masterLabel>
+            <translation><!-- Akita --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aomori</masterLabel>
+            <translation><!-- Aomori --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Chiba</masterLabel>
+            <translation><!-- Chiba --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ehime</masterLabel>
+            <translation><!-- Ehime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fukui</masterLabel>
+            <translation><!-- Fukui --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fukuoka</masterLabel>
+            <translation><!-- Fukuoka --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fukushima</masterLabel>
+            <translation><!-- Fukushima --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gifu</masterLabel>
+            <translation><!-- Gifu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gunma</masterLabel>
+            <translation><!-- Gunma --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hiroshima</masterLabel>
+            <translation><!-- Hiroshima --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hokkaido</masterLabel>
+            <translation><!-- Hokkaido --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Hyogo</masterLabel>
+            <translation><!-- Hyogo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ibaraki</masterLabel>
+            <translation><!-- Ibaraki --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ishikawa</masterLabel>
+            <translation><!-- Ishikawa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Iwate</masterLabel>
+            <translation><!-- Iwate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kagawa</masterLabel>
+            <translation><!-- Kagawa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kagoshima</masterLabel>
+            <translation><!-- Kagoshima --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kanagawa</masterLabel>
+            <translation><!-- Kanagawa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kochi</masterLabel>
+            <translation><!-- Kochi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kumamoto</masterLabel>
+            <translation><!-- Kumamoto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kyoto</masterLabel>
+            <translation><!-- Kyoto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mie</masterLabel>
+            <translation><!-- Mie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miyagi</masterLabel>
+            <translation><!-- Miyagi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miyazaki</masterLabel>
+            <translation><!-- Miyazaki --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nagano</masterLabel>
+            <translation><!-- Nagano --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nagasaki</masterLabel>
+            <translation><!-- Nagasaki --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nara</masterLabel>
+            <translation><!-- Nara --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Niigata</masterLabel>
+            <translation><!-- Niigata --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oita</masterLabel>
+            <translation><!-- Oita --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Okayama</masterLabel>
+            <translation><!-- Okayama --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Okinawa</masterLabel>
+            <translation><!-- Okinawa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Osaka</masterLabel>
+            <translation><!-- Osaka --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saga</masterLabel>
+            <translation><!-- Saga --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saitama</masterLabel>
+            <translation><!-- Saitama --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shiga</masterLabel>
+            <translation><!-- Shiga --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shimane</masterLabel>
+            <translation><!-- Shimane --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Shizuoka</masterLabel>
+            <translation><!-- Shizuoka --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tochigi</masterLabel>
+            <translation><!-- Tochigi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tokushima</masterLabel>
+            <translation><!-- Tokushima --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tokyo</masterLabel>
+            <translation><!-- Tokyo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tottori</masterLabel>
+            <translation><!-- Tottori --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toyama</masterLabel>
+            <translation><!-- Toyama --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Wakayama</masterLabel>
+            <translation><!-- Wakayama --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yamagata</masterLabel>
+            <translation><!-- Yamagata --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yamaguchi</masterLabel>
+            <translation><!-- Yamaguchi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Yamanashi</masterLabel>
+            <translation><!-- Yamanashi --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Source System --></label>
+        <name>Source_System__c</name>
+    </fields>
+    <fields>
+        <label>住所有効フラグ</label>
+        <name>Status__c</name>
+        <picklistValues>
+            <masterLabel>Active</masterLabel>
+            <translation><!-- Active --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dead Mail</masterLabel>
+            <translation><!-- Dead Mail --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Incomplete</masterLabel>
+            <translation><!-- Incomplete --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opt out</masterLabel>
+            <translation><!-- Opt out --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>様or御中</label>
+        <name>TitleOfHonor__c</name>
+        <picklistValues>
+            <masterLabel>To Company</masterLabel>
+            <translation><!-- To Company --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>To Person</masterLabel>
+            <translation><!-- To Person --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Updated By EP Transactions --></label>
+        <name>Updated_By_EP_Transactions__c</name>
+    </fields>
+    <fields>
+        <label>郵便番号</label>
+        <name>ZipCode__c</name>
+    </fields>
+    <layouts>
+        <layout>Address Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Address --></nameFieldLabel>
+    <recordTypes>
+        <label><!-- Company --></label>
+        <name>Company</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Dealer --></label>
+        <name>Dealer</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Individual --></label>
+        <name>Individual</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- Address Type is required. --></errorMessage>
+        <name>Address_Type_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Company name is required when TitleOfHonor is &apos;Dear&apos;. --></errorMessage>
+        <name>Company_Name_Required</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Please enter a 7 digit Zip code. --></errorMessage>
+        <name>Invalid_ZipCode</name>
+    </validationRules>
+</CustomObjectTranslation>
