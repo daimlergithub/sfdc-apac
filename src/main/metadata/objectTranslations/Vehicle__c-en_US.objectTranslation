@@ -64,7 +64,7 @@
             <translation><!-- COUPE --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Estate</masterLabel>
+            <masterLabel>ESTATE</masterLabel>
             <translation><!-- Estate --></translation>
         </picklistValues>
         <picklistValues>
@@ -76,7 +76,7 @@
             <translation><!-- MPV --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>Roadster</masterLabel>
+            <masterLabel>ROADSTER</masterLabel>
             <translation><!-- Roadster --></translation>
         </picklistValues>
         <picklistValues>
@@ -1750,7 +1750,7 @@
             <translation><!-- Avanti --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>BENTLEY</masterLabel>
+            <masterLabel>Bentley</masterLabel>
             <translation><!-- BENTLEY --></translation>
         </picklistValues>
         <picklistValues>
@@ -1766,7 +1766,7 @@
             <translation><!-- BMW Alpina --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>BUICK</masterLabel>
+            <masterLabel>Buick</masterLabel>
             <translation><!-- BUICK --></translation>
         </picklistValues>
         <picklistValues>
@@ -1794,19 +1794,19 @@
             <translation><!-- Burstner --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CADILLAC</masterLabel>
+            <masterLabel>Cadillac</masterLabel>
             <translation><!-- CADILLAC --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CHEVROLET</masterLabel>
+            <masterLabel>Chevrolet</masterLabel>
             <translation><!-- CHEVROLET --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CHRYSLER</masterLabel>
+            <masterLabel>Chrysler</masterLabel>
             <translation><!-- CHRYSLER --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CITROEN</masterLabel>
+            <masterLabel>Citroen</masterLabel>
             <translation><!-- CITROEN --></translation>
         </picklistValues>
         <picklistValues>
@@ -1862,11 +1862,11 @@
             <translation><!-- Eagle --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>FIAT</masterLabel>
+            <masterLabel>Fiat</masterLabel>
             <translation><!-- FIAT --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>FORD</masterLabel>
+            <masterLabel>Ford</masterLabel>
             <translation><!-- FORD --></translation>
         </picklistValues>
         <picklistValues>
@@ -1902,15 +1902,15 @@
             <translation><!-- Gumpert --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>HONDA</masterLabel>
+            <masterLabel>Honda</masterLabel>
             <translation><!-- HONDA --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>HUMMER</masterLabel>
+            <masterLabel>Hummer</masterLabel>
             <translation><!-- HUMMER --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>HYUNDAI</masterLabel>
+            <masterLabel>Hyundai</masterLabel>
             <translation><!-- HYUNDAI --></translation>
         </picklistValues>
         <picklistValues>
@@ -1938,7 +1938,7 @@
             <translation><!-- Isuzu --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>JAGUAR</masterLabel>
+            <masterLabel>Jaguar</masterLabel>
             <translation><!-- JAGUAR --></translation>
         </picklistValues>
         <picklistValues>
@@ -1946,7 +1946,7 @@
             <translation><!-- Jeep --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>KIA</masterLabel>
+            <masterLabel>Kia</masterLabel>
             <translation><!-- KIA --></translation>
         </picklistValues>
         <picklistValues>
@@ -1958,7 +1958,7 @@
             <translation><!-- Koenigsegg --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>LEXUS</masterLabel>
+            <masterLabel>Lexus</masterLabel>
             <translation><!-- LEXUS --></translation>
         </picklistValues>
         <picklistValues>
@@ -1990,11 +1990,11 @@
             <translation><!-- MG --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>MINI</masterLabel>
+            <masterLabel>Mini</masterLabel>
             <translation><!-- MINI --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>MITSUBISHI</masterLabel>
+            <masterLabel>Mitsubishi</masterLabel>
             <translation><!-- MITSUBISHI --></translation>
         </picklistValues>
         <picklistValues>
@@ -2042,11 +2042,11 @@
             <translation><!-- Morgan --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>NISSAN</masterLabel>
+            <masterLabel>Nissan</masterLabel>
             <translation><!-- NISSAN --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>OPEL</masterLabel>
+            <masterLabel>Opel</masterLabel>
             <translation><!-- OPEL --></translation>
         </picklistValues>
         <picklistValues>
@@ -2054,7 +2054,7 @@
             <translation><!-- Oldsmobile --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>PEUGEOT</masterLabel>
+            <masterLabel>Peugeot</masterLabel>
             <translation><!-- PEUGEOT --></translation>
         </picklistValues>
         <picklistValues>
@@ -2086,7 +2086,7 @@
             <translation><!-- Proton --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>RENAULT</masterLabel>
+            <masterLabel>Renault</masterLabel>
             <translation><!-- RENAULT --></translation>
         </picklistValues>
         <picklistValues>
@@ -2118,7 +2118,7 @@
             <translation><!-- Ruf --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>SAAB</masterLabel>
+            <masterLabel>Saab</masterLabel>
             <translation><!-- SAAB --></translation>
         </picklistValues>
         <picklistValues>
@@ -2126,7 +2126,7 @@
             <translation><!-- SEAT --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>SUZUKI</masterLabel>
+            <masterLabel>Suzuki</masterLabel>
             <translation><!-- SUZUKI --></translation>
         </picklistValues>
         <picklistValues>
@@ -2158,7 +2158,7 @@
             <translation><!-- TD --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>TOYOTA</masterLabel>
+            <masterLabel>Toyota</masterLabel>
             <translation><!-- TOYOTA --></translation>
         </picklistValues>
         <picklistValues>
@@ -2254,7 +2254,7 @@
             <translation><!-- Uzurei --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>VOLVO</masterLabel>
+            <masterLabel>Volvo</masterLabel>
             <translation><!-- VOLVO --></translation>
         </picklistValues>
         <picklistValues>
