@@ -11,6 +11,11 @@
 		<token>WORKFLOW_INTEGRATION_USER</token>
 	</changetext>
 	<changetext>
+		<filename>workflows\Rejected_Duplicate_Log__c.workflow</filename>
+		<xpath>/Workflow/outboundMessages[fullName/text()='Rejected_Duplicate_Log_Sync']/integrationUser/text()</xpath>
+		<token>WORKFLOW_INTEGRATION_USER</token>
+	</changetext>
+	<changetext>
 		<filename>objects\Campaign.object</filename>
 		<xpath>/CustomObject/webLinks[fullName/text()='Create_CAC_Campaign']/url/text()</xpath>
 		<token tokenonly="true">OBJECT_CAMPAIGN_WEBLINK_CAC_CAMPAIGN_RECORD_TYPE_ID</token>
