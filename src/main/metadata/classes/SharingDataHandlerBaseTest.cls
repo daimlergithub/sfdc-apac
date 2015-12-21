@@ -4,6 +4,9 @@ public with sharing class SharingDataHandlerBaseTest {
 
 public static testMethod void testSharingDataHandlerBase() 
 {
+  List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+  insert updatecustomsettings;
+
    String AccessLevel = 'Read';    
     String  originalTypeName='led';   
     List<sObject> scope=new list<sObject>();

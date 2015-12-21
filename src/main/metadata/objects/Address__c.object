@@ -1370,6 +1370,13 @@
     </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <validationRules>
+        <fullName>Address_Type_Required</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND($Profile.Name != 'IntegrationAPI',UPPER(MD__c) = 'JP', ISPICKVAL(  Address_Type__c  ,''))</errorConditionFormula>
+        <errorDisplayField>Address_Type__c</errorDisplayField>
+        <errorMessage>Address Type is required.</errorMessage>
+    </validationRules>
+    <validationRules>
         <fullName>Company_Name_Required</fullName>
         <active>true</active>
         <errorConditionFormula>AND(OR(ISCHANGED(TitleOfHonor__c),ISNEW()),

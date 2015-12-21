@@ -13,7 +13,9 @@ public class ScheduleCreateMonthlyDealerOBEmailsTest{
     static testMethod void testScheduleCreateMonthlyDealerOBEmails(){
 
         Test.startTest();
-        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
         //Create Account Record : 
         Account testAccount = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
         

@@ -19,6 +19,9 @@ private class TookKitSharingTest {
     
     @isTest 
     static void testWrapToolKits() {
+        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		 insert updatecustomsettings;
         Test.startTest();
         Tool_Kit__c toolKit = new Tool_Kit__c(Dealer_Name__c = dealer.Id, Vendor_Employee__c = thirdPartyUser.Id);
         insert toolKit;

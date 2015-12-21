@@ -7,7 +7,7 @@
 @isTest
 public class AddressDisplayInlineEditControllerTest 
 {
-	public static Address__c objaddress;
+    public static Address__c objaddress;
     public static Account objAccount;
     public static Id editaddressId;
     public static Id addressId;
@@ -177,7 +177,11 @@ public class AddressDisplayInlineEditControllerTest
    **/
     
    public static void init()
-    {                                   
+    {    
+
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+        
         objAccount= new Account();
         objAccount.RecordtypeId=PersonaccRTId;
         objAccount.Firstname='Test Person 1st';
@@ -189,7 +193,7 @@ public class AddressDisplayInlineEditControllerTest
         objAccount.City__c='Test';
         objAccount.Email__c='test@mbau.com';
         objAccount.Email2__c = 'testemail2@test.com';
-        objAccount.Home_Phone_2__c = '98765413';    
+        objAccount.Home_Phone_2__c = '098765413';    
         objAccount.PersonMobilePhone ='8884545243';
         objAccount.Partner_Surname__c='Test Person';
         
@@ -199,7 +203,8 @@ public class AddressDisplayInlineEditControllerTest
         objAddress= new Address__c();
         objAddress.Customer__c=objAccount.Id; 
         objAddress.Preferred__c=true;
-        objAddress.Province__c='ACT';        
+        objAddress.Province__c='ACT'; 
+        objAddress.Address_Type__c = 'Home';       
         insert objAddress;
         system.debug('objAddress>>>>>'+objAddress.Id);
         

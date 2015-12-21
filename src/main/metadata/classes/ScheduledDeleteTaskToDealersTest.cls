@@ -10,7 +10,9 @@ public class ScheduledDeleteTaskToDealersTest{
     
     static testMethod void testScheduledDeleteTaskToDealers(){
         Test.startTest();
-        
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
         Task testTask = (Task)UtilTestData.createSobject(new Task(), 'General Task');
         system.debug('General Task Id :' +testTask);
         String CRON_EXP = '0 0 0 1 1 ? 2025';  

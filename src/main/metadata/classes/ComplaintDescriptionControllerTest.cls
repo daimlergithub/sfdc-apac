@@ -17,13 +17,14 @@ public class ComplaintDescriptionControllerTest {
     static PageReference ComplaintDescriptionViewAll;
     
     private static void init(){
+    
          cas = (Case)UtilTestData.createSobject(new Case(), UtilTestData.CASE_RT_MB_COMPLAINT);
          Complaint_Description__c c_Desc1 = new Complaint_Description__c (Case__c = cas.id,Description__c='Description1');
          Complaint_Description__c c_Desc2 = new Complaint_Description__c (Case__c = cas.id,Description__c='Description2');
          Complaint_Description__c c_Desc3 = new Complaint_Description__c (Case__c = cas.id,Description__c='Description3');
          Complaint_Description__c c_Desc4 = new Complaint_Description__c (Case__c = cas.id,Description__c='Description4');
          Complaint_Description__c c_Desc5 = new Complaint_Description__c (Case__c = cas.id);
-         Complaint_Description__c c_Desc6 = new Complaint_Description__c (Case__c = cas.id);
+         Complaint_Description__c c_Desc6 = new Complaint_Description__c (Case__c = cas.id,Description__c='Description5');
          lstComplaintDsc.add(c_Desc1);
          lstComplaintDsc.add(c_Desc2);
          lstComplaintDsc.add(c_Desc3);
@@ -35,10 +36,12 @@ public class ComplaintDescriptionControllerTest {
         ComplaintDescriptionViewAll.getParameters().put('caseId',cas.Id);       
         Test.setCurrentPage(ComplaintDescriptionViewAll);    
         extension= new ComplaintDescriptionController();
-        upsert new Trigger__c(Name = 'TriggerComplaintDescription', Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
+        //upsert new Trigger__c(Name = 'TriggerComplaintDescription', Market__c='JP',Trigger_Name__c = 'TriggerComplaintDescription', Trigger_Handler__c = 'TriggerComplaintDescriptionHandler', enabled__c = true, before__c = true, after__c = true, insert__c = true, update__c = true, delete__c = true);
     }
     
-    public static testMethod void test_getTheResults(){       
+    public static testMethod void test_getTheResults(){ 
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;      
         init();      
         insert lstComplaintDsc;               
         Test.startTest();
@@ -51,7 +54,9 @@ public class ComplaintDescriptionControllerTest {
         Test.stopTest();           
         system.assertEquals(extension.getTheResults(),lstComplaintDsctest);       
     }
-      public static testMethod void test_Cancel(){        
+      public static testMethod void test_Cancel(){    
+      List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;    
         init(); 
         PageReference recordURL=new PageReference('/' +cas.Id);        
         Test.startTest();

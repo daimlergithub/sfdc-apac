@@ -147,6 +147,10 @@ private with sharing class SelectAssignedDealerControllerTest
     
     static void prepareTestdata(string leadType)
     {
+    
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+
         // Two Account: one Dealer and one Person Account
         dealer = (Account)UtilTestData.createSobject(
             new Account(

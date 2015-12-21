@@ -6,6 +6,10 @@ Private static Account customer3;
 Private static List<Account> listacc;
 public static void preparedTestData()
 {
+    
+  List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+  insert updatecustomsettings;
+     
  customer1 = new Account(Dealer_Default_Flag__c=false,
                                     Dealer_DMS_SR_Code__c='',
                                     Status__c='NoCustomer',

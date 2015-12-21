@@ -20,6 +20,9 @@ public with sharing class CaseEscalationControllerTest {
         objUsr=[select id from user where id=:userinfo.getuserid()];
     }   
     static void init( boolean isrequired){
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+    
      Account dealer = new Account();
         dealer.Allow_Data_Sharing__c = 'Yes';
         dealer.Province__c = 'jiangsu';
@@ -28,7 +31,7 @@ public with sharing class CaseEscalationControllerTest {
         dealer.Dealer_Lead_System__c = 'Salesforce';
         dealer.Name='shrek';
         dealer.Gender__c = '0=Male';
-        dealer.ZipCode__c = '200235';
+        dealer.ZipCode__c = '2002356';
         dealer.Type = '0=Company';
         dealer.Phone = '00000000'; 
         dealer.Status__c = '0=contac1';
@@ -108,8 +111,9 @@ public with sharing class CaseEscalationControllerTest {
          system.runAs(currentUsr){
             Test.startTest();
             test_EscalateCase_Dealer_Region_East();                     
-            Test.stopTest();                       
-            system.assert(controller.escalate()!=Null);  
+            Test.stopTest(); 
+            system.debug('Case Escalated controller :' +controller.escalate());                      
+            system.assert(controller.escalate()!= Null);  
             system.assertequals(Date.today(),controller.EscalateCase.Escalate_Date_to_CO__c);               
             system.assertequals('Awaiting MB',controller.EscalateCase.Status);  
             system.assertequals('Central Office',controller.EscalateCase.Handling_Level__c);             
@@ -120,7 +124,7 @@ public with sharing class CaseEscalationControllerTest {
             Test.startTest();           
             test_EscalateCase_Dealer_Region();          
             Test.stopTest();         
-           system.assert(controller.escalate()==Null);                            
+            system.assert(controller.escalate()==Null);                            
          }        
       } 
      public static testMethod void testEscalate_West_elsecondition(){         

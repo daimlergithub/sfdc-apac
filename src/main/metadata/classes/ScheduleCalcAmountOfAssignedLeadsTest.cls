@@ -99,6 +99,9 @@ insert ap;
     }
     
     public static testMethod void testBatchCalcAssignedLeads() {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+    insert updatecustomsettings;
+
         Account dealer = (Account)UtilTestData.createSobject(new Account(), 
             UtilTestData.ACCOUNT_RT_DEALER);
 

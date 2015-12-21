@@ -3,6 +3,9 @@ public class CampaignPackageHelperTest
 {
      
    static testmethod void testGenerateCampaignPackageHistoryLOG(){
+		
+		List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		insert updatecustomsettings;
         Test.startTest();
       // Data Prepared
         Campaign TestData_CCA = UtilTestData.dataPreparation();

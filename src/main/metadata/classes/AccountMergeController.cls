@@ -47,30 +47,15 @@ public with sharing class AccountMergeController{
             Duplicate_Account__c = chosenSlaveId ,
             Duplicate_Reason_Code__c = chosenDupReason 
           );
-   
-        Account slave = new Account(
-            Id = chosenSlaveId , 
-            DUP_Number__pc = null,
-            Dup_Reason__c = null,
-            Master_Account_Id__c = master.Id);
-
         // If this rejected account is the last one, just return master record
         // detail page
         Integer dupCount = [SELECT COUNT() FROM Account 
                                  WHERE DUP_Number__pc = :master.DUP_Number__pc 
                                  AND Master_Record__c = False];
-
-        if (dupCount == 1) {
-            master.DUP_Number__pc = null;
-            master.Master_Record__c = false;
-        }
-
         SavePoint sp = Database.setSavepoint();
        
         try {
-            insert duplicateLog;
-            update slave;
-            update master;
+            insert duplicateLog;            
         }
         catch (DMLException e) {
             ApexPages.addMessage(new ApexPages.Message(ApexPages.severity.ERROR, 
@@ -353,16 +338,7 @@ public with sharing class AccountMergeController{
             UtilConstant.RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED); 
         slave.OwnerId = usr.Id;       
         slave.Master_Account_Id__c = master.Id;              
-        // If the merged record is the last suspected duplicate to the master record, 
-        // after merge, also remove master record (checkbox) and Dup Number 
-        // from the master record.
-        Integer slaveCount = [SELECT COUNT() FROM Account 
-                              WHERE DUP_Number__pc = :master.DUP_Number__pc
-                              AND Master_Record__c = false];
-        if (slaveCount == 1) {
-            master.DUP_Number__pc = null;
-            master.Master_Record__c = false;
-        }
+      
         // Set SavePoint, if slave DML failed, master DML should be rollback .
         SavePoint sp = Database.setSavepoint();
         try {

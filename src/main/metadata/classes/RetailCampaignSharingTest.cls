@@ -39,6 +39,8 @@ private class RetailCampaignSharingTest {
 
     @isTest 
     static void testWrapRetailCampaigns() {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+            insert updatecustomsettings;
         List<Retail_Campaign__c> retailCampaigns = new List<Retail_Campaign__c>();
         listRecordType= [select Id, DeveloperName from RecordType where SObjectType = 'Retail_Campaign__c'];
         for(RecordType retailCampaignType :listRecordType) {

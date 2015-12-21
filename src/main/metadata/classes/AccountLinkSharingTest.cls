@@ -6,7 +6,14 @@ private class AccountLinkSharingTest {
     Private static String externalLinkType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Individual Customer External Link').getRecordTypeId(); 
     Private static String contact2ContactType = Schema.SObjectType.Account_Link__c.getRecordTypeInfosByName().get('Contact2Contact').getRecordTypeId(); 
     Private static String dealerType =Schema.SObjectType.Account.getRecordTypeInfosByName().get(UtilTestData.ACCOUNT_RT_DEALER).getRecordTypeId();
-    static {   
+    
+	
+	
+	static { 
+
+		List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		insert updatecustomsettings;
+		
         dealer =  new Account(Dealer_DMS_CRM_Code__c = 'DealerCode', RecordTypeId = dealerType, Name = 'test dealer');
         insert dealer;
 

@@ -18,6 +18,8 @@ Private Static Boolean hasNext=true;
 Private Static Boolean hasPrev=true;
 public static void preparedTestData()
 {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+		 insert updatecustomsettings;
  /*Insert account with record type Dealer*/
         Id dealerRecTypeId = [SELECT Id FROM RecordType WHERE Name = 'Dealer' limit 1].Id;
         dealerAcc = new Account (Name='Test Account', RecordTypeId=dealerRecTypeId, Dealer_Region__c='Test region');

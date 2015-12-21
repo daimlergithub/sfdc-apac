@@ -3,6 +3,9 @@ private class AccountLinkHelperTest {
 
   public static testMethod void test_nameParsing()
   {
+	  List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+      insert updatecustomsettings;
+	  
       string crmcode ;
       string name =  'nameDMS-';
       test.startTest();

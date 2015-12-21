@@ -23,6 +23,8 @@ private with sharing class RecallHelperTest {
                                                                                                                                                                                       
     @future
     private static void testMain(){
+         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;
         insert vehicles;
         insert account;
         VR.Contact__c = account.id;

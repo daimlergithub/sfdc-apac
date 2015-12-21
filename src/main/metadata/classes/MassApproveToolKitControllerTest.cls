@@ -10,6 +10,10 @@
 @isTest(seeAllData=false)
 public class MassApproveToolKitControllerTest {
     static testMethod void myUnitTest() {
+        
+         List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+         insert updatecustomsettings;
+        
         Account dealer = new Account(
             RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Dealer').getRecordTypeId(),
             Name = 'test dealer',

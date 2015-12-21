@@ -19492,7 +19492,7 @@ ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  St
     </validationRules>
     <validationRules>
         <fullName>Allow_Data_Sharing_cannot_be_changed</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</description>
         <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")) )</errorConditionFormula>
         <errorMessage>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</errorMessage>
@@ -19510,7 +19510,7 @@ $Profile.Name != 'IntegrationAPI') &amp;&amp; (MD__c = 'JP')</errorConditionForm
     </validationRules>
     <validationRules>
         <fullName>CP_Contact_Background_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu
 Used by:  US-CP-001
@@ -19538,7 +19538,7 @@ AND ($Profile.Name != 'IntegrationAPI',
     </validationRules>
     <validationRules>
         <fullName>CP_Customer_Phone_Check</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>/* 
 Created by: Mouse Liu
 Used by: Person Account Record Type (US-CP-001)
@@ -19596,7 +19596,7 @@ RecordType.DeveloperName = 'ThirdParty'
     </validationRules>
     <validationRules>
         <fullName>Couldnot_change_Dealer_Group</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>HLD Dealer 004</description>
         <errorConditionFormula>AND(
 ISCHANGED(Dealer_Group__c),
@@ -19607,14 +19607,14 @@ NOT(Dealer_Active__c)
     </validationRules>
     <validationRules>
         <fullName>Customer_Lifecycle_Phase_Discard</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Customer Lifecycle Phase can only be changed to "Discard" manually.</description>
         <errorConditionFormula>AND(NOT(ISPICKVAL(PRIORVALUE(Customer_Lifecycle_Phase__c),"Discard")),ISPICKVAL((Customer_Lifecycle_Phase__c),"Discard"), $Profile.Name = 'IntegrationAPI'  )</errorConditionFormula>
         <errorMessage>Customer Lifecycle Phase can only be changed to "Discard" manually.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Dealer_Name_Read_only</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>It's not allowed to change dealer name.</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(RecordType.DeveloperName = 'Dealer', ISCHANGED(Name), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
@@ -19623,7 +19623,7 @@ AND(RecordType.DeveloperName = 'Dealer', ISCHANGED(Name), $Profile.Name != 'Inte
     </validationRules>
     <validationRules>
         <fullName>Digits_Validation_For_Extension_Number</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT( ISNUMBER(Extension_Number__c) ), 
 NOT( ISBLANK(Extension_Number__c) ) )</errorConditionFormula>
         <errorDisplayField>Extension_Number__c</errorDisplayField>
@@ -19631,7 +19631,7 @@ NOT( ISBLANK(Extension_Number__c) ) )</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Digits_Validation_For_Retail_Home_Phone</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Home_Phone__c) ),
       NOT( ISBLANK(Retail_Home_Phone__c) ) )</errorConditionFormula>
         <errorDisplayField>Retail_Home_Phone__c</errorDisplayField>
@@ -19639,7 +19639,7 @@ NOT( ISBLANK(Extension_Number__c) ) )</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Digits_Validation_for_Retail_Mobile</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Mobile__c) ), 
 NOT( ISBLANK(Retail_Mobile__c ) ) )</errorConditionFormula>
         <errorDisplayField>Retail_Mobile__c</errorDisplayField>
@@ -19647,7 +19647,7 @@ NOT( ISBLANK(Retail_Mobile__c ) ) )</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Digits_Validation_for_Retail_Work_Phone</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Work_Phone__c) ), 
 NOT( ISBLANK(Retail_Work_Phone__c) ) )</errorConditionFormula>
         <errorDisplayField>Retail_Work_Phone__c</errorDisplayField>
@@ -19655,7 +19655,7 @@ NOT( ISBLANK(Retail_Work_Phone__c) ) )</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Driver_License_Year</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>The driver's license year is not in correct format</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
@@ -19743,7 +19743,7 @@ MD__c = 'JP'
     </validationRules>
     <validationRules>
         <fullName>Fax_Validation</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(NOT( ISNUMBER(Retail_Fax__c) ), 
 NOT( ISBLANK(Retail_Fax__c) ) )</errorConditionFormula>
         <errorDisplayField>Retail_Fax__c</errorDisplayField>
@@ -19843,7 +19843,7 @@ MD__c = 'JP'
     </validationRules>
     <validationRules>
         <fullName>Invalid_Email</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Email Validation on customer record .</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
@@ -19939,14 +19939,14 @@ MD__c = 'JP'
     </validationRules>
     <validationRules>
         <fullName>PersonHomePhone</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(OR(ISCHANGED(PersonHomePhone), ISNEW()),NOT(ISBLANK(PersonHomePhone)),RecordType.DeveloperName &lt;&gt; 'Dealer',OR( NOT(ISNUMBER(PersonHomePhone))), $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>PersonHomePhone</errorDisplayField>
         <errorMessage>Phone number must contain digits only.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>PersonMobilePhone</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND( 
 OR(ISCHANGED(PersonMobilePhone), ISNEW()),
 NOT(ISBLANK(PersonMobilePhone)), 
@@ -19957,11 +19957,11 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorMessage>Mobile phone number must be digits, and it cannot exceed 15 digits and cannot be less than 10 digits.</errorMessage>
     </validationRules>
     <validationRules>
-        <fullName>Phone</fullName>
+        <fullName>Phone_NoChar</fullName>
         <active>true</active>
-        <errorConditionFormula>AND(OR(ISCHANGED(Phone), ISNEW()),NOT(ISBLANK(Phone)),RecordType.DeveloperName &lt;&gt; 'Dealer',OR( NOT(ISNUMBER(Phone))),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorConditionFormula>AND(OR(ISCHANGED(Phone), ISNEW()),NOT(ISBLANK(Phone)),NOT(ISNUMBER(Phone)),$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Phone</errorDisplayField>
-        <errorMessage>Phone number must contain digits only.</errorMessage>
+        <errorMessage>Phone should not include "-" or "+".</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Phone_NoOfDigits</fullName>
@@ -19988,7 +19988,7 @@ MD__c = 'JP'
     </validationRules>
     <validationRules>
         <fullName>Preferred_contact_method_Changed</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND(
   NOT(ISPICKVAL(Preferred_Contact_Method__c, 'Phone') ) ,
   NOT(ISPICKVAL(Preferred_Phone__c, '') ) ,
@@ -20002,17 +20002,17 @@ MD__c = 'JP'
     </validationRules>
     <validationRules>
         <fullName>Sales_Sanction_Comment_required</fullName>
-        <active>false</active>
+        <active>true</active>
         <errorConditionFormula>AND(OR(ISCHANGED(Sales_Sanction__c),ISNEW()), 
 NOT(ISPICKVAL(Sales_Sanction__c,'')), 
-ISBLANK(Finance_Sanction_Comment__c), 
-$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+ISBLANK(Sales_Sanction_Comment__c), 
+$Profile.Name != 'IntegrationAPI',MD__c = 'JP')</errorConditionFormula>
         <errorDisplayField>Sales_Sanction__c</errorDisplayField>
         <errorMessage>If Sales Sanction is checked, Sales Sanction Comment needs to be entered.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Second_Mobile</fullName>
-        <active>true</active>
+        <active>false</active>
         <errorConditionFormula>AND( 
 OR(ISCHANGED(PersonOtherPhone), ISNEW()),
 NOT(ISBLANK(PersonOtherPhone)), 
@@ -20024,7 +20024,7 @@ $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
     </validationRules>
     <validationRules>
         <fullName>Social_ID</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>If ID Type is ‘ID card/Driving Card’, ID Number must not be empty, and 15 or 18 digits, containing only number or alphabet.</description>
         <errorConditionFormula>!ISCHANGED( Newly_Task_Id__c ) &amp;&amp; 
 AND(
@@ -20034,7 +20034,7 @@ IF( ISPICKVAL( ID_Type__c, 'ID card/Driving Card'), OR( ISNULL(ID_Number__c), NO
     </validationRules>
     <validationRules>
         <fullName>URL_format_validation</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>Ensures the URL entered is in format www.*.*</description>
         <errorConditionFormula>OR(RIGHT(Website,1) = ".", LEFT(Website,1) = ".")</errorConditionFormula>
         <errorDisplayField>Website</errorDisplayField>
@@ -20042,7 +20042,7 @@ IF( ISPICKVAL( ID_Type__c, 'ID card/Driving Card'), OR( ISNULL(ID_Number__c), NO
     </validationRules>
     <validationRules>
         <fullName>Validation_on_Salutation_and_Gender</fullName>
-        <active>true</active>
+        <active>false</active>
         <description>As a CAC user, I want system to pop up error message automatically, if Gender is set to Female when Salutation is Mr. or , if Gender is set to Male when Salutation is Mrs.</description>
         <errorConditionFormula>AND(
 $Profile.Name != 'IntegrationAPI',
@@ -20328,26 +20328,32 @@ if("{!Account.SMSOptOut__pc}" != '1'){
         <masterLabel>Verify Duplicate</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")}
-{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")}
-{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}
-if (sforce.console.isInConsole()) {
-	javascript:sforce.console.getEnclosingPrimaryTabId(
-		function openSubTab(result) {
-			sforce.console.openSubtab(result.id, 
-				'/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}',true, 'Account Merge');
+        <url>
+		{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
+		{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
+
+		var accnt_DUP_Number__pc= '{!Account.DUP_Number__pc}'; 
+		var acct_RecordType_Name='{!Account.RecordType}'; 
+
+
+		if(accnt_DUP_Number__pc==null || accnt_DUP_Number__pc==''){ 
+		alert('No duplicate records found to be merged!!!'); 
+		} else { 
+
+		if (sforce.console.isInConsole()) { 
+		javascript:sforce.console.getEnclosingPrimaryTabId( 
+		function openSubTab(result) { 
+		sforce.console.openSubtab(result.id, 
+		'/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}',true, 'Account Merge'); 		
+		} 
+		) 
+		} 
+		else { 
+		window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 
+		} 
 		}
-	)
-}
-else {       
-      var accnt_DUP_Number__pc= '{!Account.DUP_Number__pc}'; 
-      var acct_RecordType_Name='{!Account.RecordType}';       
-      if(accnt_DUP_Number__pc==null || accnt_DUP_Number__pc==''){
-       alert('No duplicate records found to be merged!!!');
-   } else {
-	window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600");
-   }
-}</url>
+       </url>
     </webLinks>
     <webLinks>
         <fullName>Mergeexample</fullName>
@@ -20503,13 +20509,11 @@ window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}"
         <fullName>View_Hierarchy</fullName>
         <availability>online</availability>
         <displayType>button</displayType>
-        <encodingKey>UTF-8</encodingKey>
-        <height>600</height>
-        <linkType>url</linkType>
+        <linkType>page</linkType>
         <masterLabel>View Hierarchy</masterLabel>
-        <openType>noSidebar</openType>
+        <openType>replace</openType>
+        <page>ViewHierarchy</page>
         <protected>false</protected>
-        <url>{!Account.Id}</url>
     </webLinks>
     <webLinks>
         <fullName>YahooMaps</fullName>

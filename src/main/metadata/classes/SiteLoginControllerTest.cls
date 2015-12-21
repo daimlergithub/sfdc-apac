@@ -2,13 +2,16 @@
  * An apex page controller that exposes the site login functionality
  */
 @IsTest global with sharing class SiteLoginControllerTest {
-    @IsTest  global static void testSiteLoginController () {
+    @IsTest(SeeAllData=true) global static void testSiteLoginController () {
+    List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+insert updatecustomsettings;
+
+    
         // Instantiate a new controller with all parameters in the page
-        Test.startTest();
         SiteLoginController controller = new SiteLoginController ();
         controller.username = 'test@salesforce.com';
         controller.password = '123456'; 
-        Test.stopTest();
+                
         System.assertEquals(controller.login(),null);                           
     }    
 }

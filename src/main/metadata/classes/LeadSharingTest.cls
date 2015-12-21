@@ -23,6 +23,9 @@ private With Sharing class LeadSharingTest {
     
     @isTest 
     static void testWrapLeads() {
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+
         Test.startTest();
         LeadSharingWrapService wrapService = new LeadSharingWrapService();
         List<SharingWrapper> wrapLeads=wrapService.wrapLeads(new List<Lead__c>{lead});

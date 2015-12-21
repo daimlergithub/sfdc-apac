@@ -8,6 +8,20 @@
         <value>Accepted</value>
     </labels>
     <labels>
+        <fullName>Account</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Account</shortDescription>
+        <value>Account</value>
+    </labels>
+    <labels>
+        <fullName>AccountLink</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>AccountLink</shortDescription>
+        <value>Account Link</value>
+    </labels>
+    <labels>
         <fullName>AccountMergeFields</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -953,6 +967,13 @@
         <protected>false</protected>
         <shortDescription>Confirmation for delete address</shortDescription>
         <value>Are you sure you want to delete this Address?</value>
+    </labels>
+    <labels>
+        <fullName>Confirmed</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Confirmed</shortDescription>
+        <value>Confirmed</value>
     </labels>
     <labels>
         <fullName>Contact_Admin</fullName>
@@ -2368,6 +2389,13 @@
         <value>Reject</value>
     </labels>
     <labels>
+        <fullName>Rejected</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Rejected</shortDescription>
+        <value>Rejected</value>
+    </labels>
+    <labels>
         <fullName>Report_Title1_TA_Tracing</fullName>
         <categories>Report</categories>
         <language>en_US</language>
@@ -2424,6 +2452,13 @@
         <protected>false</protected>
         <shortDescription>Response Date To</shortDescription>
         <value>To</value>
+    </labels>
+    <labels>
+        <fullName>RetailTask</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Retail Task</shortDescription>
+        <value>Retail Task</value>
     </labels>
     <labels>
         <fullName>Retail_Campaign_Canlender_Page_AS_Campaign</fullName>
@@ -3091,6 +3126,20 @@
         <value>Publish Date</value>
     </labels>
     <labels>
+        <fullName>Vehicle</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Vehicle</shortDescription>
+        <value>Vehicle</value>
+    </labels>
+    <labels>
+        <fullName>VehicleRelationship</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>VehicleRelationship</shortDescription>
+        <value>Vehicle Relationship</value>
+    </labels>
+    <labels>
         <fullName>Vehicle_Detail</fullName>
         <language>en_US</language>
         <protected>false</protected>
@@ -3110,6 +3159,13 @@
         <protected>false</protected>
         <shortDescription>Vehicle Information</shortDescription>
         <value>Vehicle Information</value>
+    </labels>
+    <labels>
+        <fullName>Vehicle_Relationship_overlap</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Time period for Vehicle Relationship should not overlap</shortDescription>
+        <value>There can&apos;t be two vehicle relationship with overlapping time period.</value>
     </labels>
     <labels>
         <fullName>Work_Fax</fullName>

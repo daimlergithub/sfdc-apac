@@ -11,7 +11,7 @@ Global with sharing class UtilConstant {
     public final static String DEALER_LEAD_GATE_KEEPER_QUEUE = 'Dealer Lead Gate Keeper Queue';
     public final static String LEAD = 'Lead__c';
     public final static String sObjCase='Case';
-    public final static String MBDA_LEAD = 'MBDA Leads';
+    public final static String MBDA_LEAD = 'MBDA Leads'; 
     public final static String SMS = 'SMS';
     public final static String MMS = 'MMS';
     public final static String DEALER = 'Dealer';
@@ -57,7 +57,7 @@ Global with sharing class UtilConstant {
     public final static String RECORDTYPE_PERSON_ACCOUNT_SOFT_DELETED ='Person Account Soft Deleted';    
     // Soft deleted Account Owner Profile Name
     Public final static String PROFILE_PERSON_ACCOUNT_SOFT_DELETED ='IntegrationAPI';
-    
+    Public final static String RECORDTYPE_CONTRACT='Contract'; 
     //used in VehicleExtension class
     public final static string Competitor='Competitor';
     public final static string Question='?';

@@ -3,7 +3,7 @@ private class TaskMassChangeOwnerTest {
     
 
     static testMethod void myUnitTest1() {
-        
+                   
         User ob_sv = UtilTestData.createUser('OB TL','CAC OB TL');
         
         User ob_csr = UtilTestData.createUser('OB CSR','CAC OB CSR');
@@ -11,6 +11,8 @@ private class TaskMassChangeOwnerTest {
         List<id> ssiIDs = new List<id>();
         
         System.runAs ( ob_sv ) {
+		List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+			insert updatecustomsettings;
             Test.startTest();
             SSI__c ssi = new SSI__c(Status__c = 'Matched');
             insert ssi;
@@ -27,12 +29,12 @@ private class TaskMassChangeOwnerTest {
             TaskMassChangeOwner controller = new TaskMassChangeOwner();
             controller.assignToOwnerClick();
             controller.task.OwnerId = ob_csr.Id;
-			controller.updateRelatedSSIs(ssiIDs, ob_csr.Id);
+      controller.updateRelatedSSIs(ssiIDs, ob_csr.Id);
            // controller.assignToOwnerClick();
             task1 = [Select OwnerId From Task Where Id = :task1.id];
             task2 = [Select OwnerId From Task Where Id = :task2.id];
             ssi = [Select OwnerId From SSI__c Where Id = :ssi.Id];
-           	
+             
             // Test Stop
             Test.stopTest();
             System.assertEquals(ssi.OwnerId, ob_csr.Id);

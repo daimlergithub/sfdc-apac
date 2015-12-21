@@ -4,7 +4,7 @@
     User Story: US-CC-002, US-CC-003
     1. 2013-05-20 Bing bai (NDC)  Created
 */
-@isTest(seeAllData=true)
+@isTest
 public With Sharing class CaseHelperTest {
     public static Id C_INQUIRY_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.INQUIRY).getRecordTypeId();
     public static Id C_MBDA_RECORD_TYPE = Schema.SObjectType.Case.getRecordTypeInfosByName().get(UtilConstant.MBDA_COMPLAINT).getRecordTypeId();
@@ -15,7 +15,7 @@ public With Sharing class CaseHelperTest {
     final static String MBRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('MB Complaint').getRecordTypeId();
     final static String CHRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Chrysler Complaint').getRecordTypeId();
     final static String INQUIRYRecordtypeid = Schema.SObjectType.Case.getRecordTypeInfosByName().get('Inquiry').getRecordTypeId();
-    static Account acc = new Account(LastName='acme', Phone='11111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid);
+    static Account acc = new Account(LastName='acme', Phone='011111222', Area_Code__c = '010' ,RecordTypeId = personRecordtypeid);
     static Account acc1 = new Account(Name='acme',RecordTypeId = dealerRecordtypeid);
     static Account acc2 = new Account(Name='acme23',RecordTypeId = dealerRecordtypeid);
     private static String DealerUser='Dealer User';
@@ -25,7 +25,11 @@ public With Sharing class CaseHelperTest {
   
    Private static String Dealer_after_sales_service_attitude ='Dealer-after sales service attitude';
    
-    public static final List<String> COLS_MB_TRACKING = new List<String>{'Case_Type__c', 
+   static void init( ){
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
+  }
+   public static final List<String> COLS_MB_TRACKING = new List<String>{'Case_Type__c', 
                                         'Case_SubType__c',
                                         'Case_Dealer__c',
                                         'Subject', 
@@ -113,6 +117,7 @@ public With Sharing class CaseHelperTest {
     
     public static testMethod void testUSCC002()
     {
+        init( );
         system.debug('test&&&&&>>'+UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH));
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
@@ -152,6 +157,7 @@ public With Sharing class CaseHelperTest {
     
     public static testMethod void testUSCC003()
     {
+        init( );
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -161,7 +167,7 @@ public With Sharing class CaseHelperTest {
             insert ve1;
             Vehicle_Relationship__c vrData = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, Contact__c = acc.Id,Registration_Number__c ='3');
             insert vrData;
-            User user1 = UtilTestData.createPortalUser(DealerUser,DealerDelegateAdmin);
+            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Community User');
             User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
     
             Case c1 = new Case(Vehicle_Relationship__c = vrData.Id, AccountId = acc.Id, RecordTypeId = CHRecordtypeid,Problem1__c='ttt', Case_Dealer__c = portalUser1.AccountId);
@@ -179,16 +185,17 @@ public With Sharing class CaseHelperTest {
     }
       public static testMethod void testUSCC004()
       {
+        init( );
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
             Test.startTest();        
-            acc.PersonMobilePhone = '1301111111';
+            acc.PersonMobilePhone = '01301111111';
             insert acc;
             insert ve1;
             Vehicle_Relationship__c vrData = new Vehicle_Relationship__c(Vehicle_ID__c=ve1.id, Contact__c =acc.Id,Registration_Number__c ='4');
             insert vrData;
-            User user1 = UtilTestData.createPortalUser(DealerUser,DealerDelegateAdmin);
+            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
             User portalUser1 = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
     
             Case c1 = new Case(Vehicle__c = ve1.Id, AccountId = acc.Id, RecordTypeId = MBRecordtypeid,
@@ -201,7 +208,7 @@ public With Sharing class CaseHelperTest {
             insert c1;
             //Complaint is a primary complaint(No Parent Case),
             // there will be a SMS sent to customer
-            List<Task> tasks = [select id from Task where Phone__c='1301111111'];        
+            List<Task> tasks = [select id from Task where Phone__c='01301111111'];        
             //After add sub Complaint, the field in sub Complaint will auto plus 1
             c2.ParentId = c1.id;
             c2.Case_RepeatCause__c = '0=No contact with customer';
@@ -225,9 +232,10 @@ public With Sharing class CaseHelperTest {
         }
     } 
     
-     @isTest(seeAllData=true)
+     @isTest
     static void testUSCC008()
     {
+        init( );
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -241,7 +249,7 @@ public With Sharing class CaseHelperTest {
             // lastName is a required field on user, but if it isn't specified, 
             //   the code uses the username
             Site.createPortalUser(u, accountId, '1qaz@WSX3e');
-            User user1 = UtilTestData.createPortalUser(DealerUser,DealerDelegateAdmin);
+            User user1 = UtilTestData.createPortalUser('Dealer User','Dealer Delegate Admin');
             User portalUser = [select accountId , email, contact.Dealer_Complaint_Gate_Keeper__c from user where id=:user1.Id and contact.Dealer_Complaint_Gate_Keeper__c = true and isActive = true limit 1];
     
             Test.startTest();        
@@ -260,6 +268,7 @@ public With Sharing class CaseHelperTest {
     @isTest
     public static void testUSCC024() 
     {
+        init( );
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -289,6 +298,7 @@ public With Sharing class CaseHelperTest {
      @isTest
     public static void testUSCC026() 
     {
+        init( );
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -321,6 +331,7 @@ public With Sharing class CaseHelperTest {
     @isTest
     public static void testUSCC025()
     {
+        init( );
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -343,9 +354,10 @@ public With Sharing class CaseHelperTest {
         }
     }
   
-   @isTest(seeAllData=true)
+   @isTest
     public static void testUSCC031()
     { 
+        init( );
         //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         {
@@ -380,6 +392,7 @@ public With Sharing class CaseHelperTest {
     
     public static testMethod void testRelease11b01()
     {
+        init( );
         Test.startTest();
         Account dealer = (Account)UtilTestData.createSobject(new Account(), UtilTestData.ACCOUNT_RT_DEALER);
         Case cas = (Case)UtilTestData.createSobject(new Case(Case_Dealer__c = dealer.id, Others__c = 'test@163.com'), UtilTestData.CASE_RT_MB_COMPLAINT);
@@ -403,6 +416,7 @@ public With Sharing class CaseHelperTest {
     
     public static testMethod void testRelease11b02()
     {
+        init( );
         Test.startTest();
         insert ve1;
         Account dealer = (Account)UtilTestData.createSobject(new Account(Dealer_General_Manager_Email__c = 'gm@163.com', Dealer_Sales_Manager_Email__c = 'ds@163.com'), UtilTestData.ACCOUNT_RT_DEALER);
@@ -428,6 +442,7 @@ public With Sharing class CaseHelperTest {
     }
     public static testMethod void testUSCC005()
     {
+        init( );
        //Added community license switching mechanism
         if(UtilCustomSettings.getIsEnableCommunity(UtilConstant.COMMUNITY_LICENSE_SWITCH))
         { 

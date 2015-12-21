@@ -439,6 +439,8 @@ public static testMethod void testYearlyTAsmartNewOrder(){
 
     public static void preparedTestData()
     {
+        List<Trigger__c> updatecustomsettings =  UtilCustomSettingsJP.customSettingDetails();
+        insert updatecustomsettings;
      rc = new Retail_Campaign__c();
         rc.RecordTypeId = RTId;
         rc.Y_MB_Dealer_Driven_Marketing_Budget__c=2;
