@@ -1356,10 +1356,6 @@
             <translation><!-- GLK350 4MATIC --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>MAYBACH</masterLabel>
-            <translation><!-- MAYBACH --></translation>
-        </picklistValues>
-        <picklistValues>
             <masterLabel>MB100 (not current series)</masterLabel>
             <translation><!-- MB100 (not current series) --></translation>
         </picklistValues>
@@ -1402,6 +1398,10 @@
         <picklistValues>
             <masterLabel>Marco Polo</masterLabel>
             <translation><!-- Marco Polo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maybach</masterLabel>
+            <translation><!-- Maybach --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Maybach 62</masterLabel>
@@ -1708,48 +1708,48 @@
         <label><!-- Series --></label>
         <name>Series__c</name>
         <picklistValues>
-            <masterLabel>A-CLASS</masterLabel>
-            <translation><!-- A-CLASS --></translation>
+            <masterLabel>A-Class</masterLabel>
+            <translation><!-- A-Class --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>AMG GT</masterLabel>
             <translation><!-- AMG GT --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>B-CLASS</masterLabel>
-            <translation><!-- B-CLASS --></translation>
+            <masterLabel>B-Class</masterLabel>
+            <translation><!-- B-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>C-CLASS</masterLabel>
-            <translation><!-- C-CLASS --></translation>
+            <masterLabel>C-Class</masterLabel>
+            <translation><!-- C-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CL-CLASS</masterLabel>
-            <translation><!-- CL-CLASS --></translation>
+            <masterLabel>CL-Class</masterLabel>
+            <translation><!-- CL-Class --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>CLA-Class</masterLabel>
             <translation><!-- CLA-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CLK-CLASS</masterLabel>
-            <translation><!-- CLK-CLASS --></translation>
+            <masterLabel>CLK-Class</masterLabel>
+            <translation><!-- CLK-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>CLS-CLASS</masterLabel>
-            <translation><!-- CLS-CLASS --></translation>
+            <masterLabel>CLS-Class</masterLabel>
+            <translation><!-- CLS-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>E-CLASS</masterLabel>
-            <translation><!-- E-CLASS --></translation>
+            <masterLabel>E-Class</masterLabel>
+            <translation><!-- E-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>G-CLASS</masterLabel>
-            <translation><!-- G-CLASS --></translation>
+            <masterLabel>G-Class</masterLabel>
+            <translation><!-- G-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GL-CLASS</masterLabel>
-            <translation><!-- GL-CLASS --></translation>
+            <masterLabel>GL-Class</masterLabel>
+            <translation><!-- GL-Class --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>GLA-Class</masterLabel>
@@ -1764,36 +1764,36 @@
             <translation><!-- GLE-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>GLK-CLASS</masterLabel>
-            <translation><!-- GLK-CLASS --></translation>
+            <masterLabel>GLK-Class</masterLabel>
+            <translation><!-- GLK-Class --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>M-Class</masterLabel>
             <translation><!-- M-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>MAYBACH</masterLabel>
-            <translation><!-- MAYBACH --></translation>
+            <masterLabel>Maybach</masterLabel>
+            <translation><!-- Maybach --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>Others</masterLabel>
             <translation><!-- Others --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>R-CLASS</masterLabel>
-            <translation><!-- R-CLASS --></translation>
+            <masterLabel>R-Class</masterLabel>
+            <translation><!-- R-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>S-CLASS</masterLabel>
-            <translation><!-- S-CLASS --></translation>
+            <masterLabel>S-Class</masterLabel>
+            <translation><!-- S-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>SL-CLASS</masterLabel>
-            <translation><!-- SL-CLASS --></translation>
+            <masterLabel>SL-Class</masterLabel>
+            <translation><!-- SL-Class --></translation>
         </picklistValues>
         <picklistValues>
-            <masterLabel>SLK-CLASS</masterLabel>
-            <translation><!-- SLK-CLASS --></translation>
+            <masterLabel>SLK-Class</masterLabel>
+            <translation><!-- SLK-Class --></translation>
         </picklistValues>
         <picklistValues>
             <masterLabel>SLR-Class</masterLabel>
