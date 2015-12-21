@@ -11,7 +11,7 @@
         <fields>Master_Account__c</fields>
         <fields>Status__c</fields>
         <includeSessionId>false</includeSessionId>
-        <integrationUser>arun.Iyer.ntt@mbj.daimler-apac.com.ci</integrationUser>
+        <integrationUser>arun.iyer.ntt@asia.daimler-apac.com</integrationUser>
         <name>Rejected Duplicate Log Sync</name>
         <protected>false</protected>
         <useDeadLetterQueue>false</useDeadLetterQueue>
