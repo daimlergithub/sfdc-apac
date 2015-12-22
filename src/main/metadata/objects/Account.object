@@ -7264,7 +7264,7 @@ Attribute in Data Dictionary object Contact is "Contact_MainDealer"</description
         </lookupFilter>
         <referenceTo>Account</referenceTo>
         <relationshipLabel>Accounts (Main Dealer)</relationshipLabel>
-        <relationshipName>Main_Dealer</relationshipName>
+        <relationshipName>MainDealer</relationshipName>
         <required>false</required>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
@@ -19492,9 +19492,9 @@ ISNEW() &amp;&amp; $Profile.Name != 'IntegrationAPI' &amp;&amp;   ISPICKVAL(  St
     </validationRules>
     <validationRules>
         <fullName>Allow_Data_Sharing_cannot_be_changed</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</description>
-        <errorConditionFormula>AND(ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")) )</errorConditionFormula>
+        <errorConditionFormula>AND(MD__c ='JP',ISPICKVAL(PRIORVALUE(Allow_Data_Sharing__c),"Yes"),NOT(ISPICKVAL((Allow_Data_Sharing__c),"Yes")) )</errorConditionFormula>
         <errorMessage>Once Allow Data Sharing has been set as "Yes", it cannot be changed.</errorMessage>
     </validationRules>
     <validationRules>
@@ -19607,9 +19607,9 @@ NOT(Dealer_Active__c)
     </validationRules>
     <validationRules>
         <fullName>Customer_Lifecycle_Phase_Discard</fullName>
-        <active>false</active>
+        <active>true</active>
         <description>Customer Lifecycle Phase can only be changed to "Discard" manually.</description>
-        <errorConditionFormula>AND(NOT(ISPICKVAL(PRIORVALUE(Customer_Lifecycle_Phase__c),"Discard")),ISPICKVAL((Customer_Lifecycle_Phase__c),"Discard"), $Profile.Name = 'IntegrationAPI'  )</errorConditionFormula>
+        <errorConditionFormula>AND( MD__c = 'JP',NOT(ISPICKVAL(PRIORVALUE(Customer_Lifecycle_Phase__c),"Discard")),ISPICKVAL((Customer_Lifecycle_Phase__c),"Discard"), $Profile.Name = 'IntegrationAPI'  )</errorConditionFormula>
         <errorMessage>Customer Lifecycle Phase can only be changed to "Discard" manually.</errorMessage>
     </validationRules>
     <validationRules>
@@ -19955,6 +19955,13 @@ OR( NOT(ISNUMBER(PersonMobilePhone)), NOT(LEN(PersonMobilePhone)  &lt;=  15), NO
 $Profile.Name != 'IntegrationAPI')</errorConditionFormula>
         <errorDisplayField>PersonMobilePhone</errorDisplayField>
         <errorMessage>Mobile phone number must be digits, and it cannot exceed 15 digits and cannot be less than 10 digits.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Phone</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(OR(ISCHANGED(Phone), ISNEW()),NOT(ISBLANK(Phone)),RecordType.DeveloperName &lt;&gt; 'Dealer',OR( NOT(ISNUMBER(Phone))),$Profile.Name != 'IntegrationAPI')</errorConditionFormula>
+        <errorDisplayField>Phone</errorDisplayField>
+        <errorMessage>Phone number must contain digits only.</errorMessage>
     </validationRules>
     <validationRules>
         <fullName>Phone_NoChar</fullName>
@@ -20328,8 +20335,7 @@ if("{!Account.SMSOptOut__pc}" != '1'){
         <masterLabel>Verify Duplicate</masterLabel>
         <openType>onClickJavaScript</openType>
         <protected>false</protected>
-        <url>
-		{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
+        <url>{!REQUIRESCRIPT("/support/console/27.0/integration.js")} 
 		{!REQUIRESCRIPT("/soap/ajax/27.0/apex.js")} 
 		{!REQUIRESCRIPT("/soap/ajax/19.0/connection.js")}  
 
@@ -20352,8 +20358,7 @@ if("{!Account.SMSOptOut__pc}" != '1'){
 		else { 
 		window.open("/apex/SelectSlaveAccount?Id={!Account.Id}&amp;retURL={!Account.Id}", "","width = 800, height = 600"); 
 		} 
-		}
-       </url>
+		}</url>
     </webLinks>
     <webLinks>
         <fullName>Mergeexample</fullName>
